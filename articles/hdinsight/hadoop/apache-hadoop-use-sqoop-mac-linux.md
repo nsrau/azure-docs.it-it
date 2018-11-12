@@ -3,19 +3,19 @@ title: Apache Sqoop con Hadoop - Azure HDInsight
 description: Informazioni su come usare Apache Sqoop per importare ed esportare tra Hadoop in HDInsight e un database SQL di Azure.
 keywords: hadoop sqoop, sqoop
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: 6c2cce2f5b2f6be07b1477681534be3987b0e699
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 6aa5627a0b5e8cb29f0ec68b948084a0bed30529
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591779"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259446"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Usare Apache Sqoop per importare ed esportare dati tra Hadoop su HDInsight e un database SQL
 
@@ -125,7 +125,7 @@ GO
 
 * SQL Server deve essere configurato per consentire l'autenticazione SQL. Per altre informazioni, consultare il documento [Scegliere una modalità di autenticazione](https://msdn.microsoft.com/ms144284.aspx).
 
-* Potrebbe essere necessario configurare SQL Server affinché accetti le connessioni remote. Per altre informazioni, vedere il documento [Come risolvere i problemi di connessione al motore di database di SQL Server](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
+* Potrebbe essere necessario configurare SQL Server affinché accetti le connessioni remote. Per altre informazioni, vedere il documento [Come risolvere i problemi di connessione al motore di database di SQL Server](https://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
 * Usare le seguenti istruzioni Transact-SQL per creare la tabella **mobiledata**:
 

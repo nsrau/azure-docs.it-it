@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419793"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283445"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Domande frequenti sulla transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics
 In precedenza, Log Analytics usava il proprio portale, chiamato portale di OMS, per gestire la configurazione e l'analisi dei dati raccolti.  Tutte le funzionalità di questo portale sono state spostate al portale di Azure in cui continueranno a essere sviluppate.
@@ -35,7 +35,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 ![Area di lavoro di Log Analytics](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Come si gestiscono le autorizzazioni?
-Se non si ha accesso all'area di lavoro Log Analytics nel portale di Azure, è necessario configurare le autorizzazioni usando l'[accesso in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md). Per informazioni dettagliate sulla gestione delle autorizzazioni dell'area di lavoro, vedere [Gestire le aree di lavoro](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Per informazioni sulla gestione delle autorizzazioni per gli avvisi, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+Se non si ha accesso all'area di lavoro Log Analytics nel portale di Azure, è necessario configurare le autorizzazioni usando l'[accesso in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md). Per informazioni dettagliate sulla gestione delle autorizzazioni dell'area di lavoro, vedere [Gestire le aree di lavoro](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Per informazioni sulla gestione delle autorizzazioni per gli avvisi, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Come si crea una nuova area di lavoro? 
 Dall'elenco delle aree di lavoro nel portale di Azure fare clic su **Aggiungi**.  Per informazioni più complete, vedere [Creare un'area di lavoro di Log Analytics nel portale di Azure](../log-analytics/log-analytics-quick-create-workspace.md).
@@ -82,7 +82,7 @@ Gestire le impostazioni delle origini connesse nel menu **Impostazioni avanzate*
 | Server Linux   | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Archiviazione di Azure     | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | System Center     | Menu **Impostazioni avanzate** per l'area di lavoro. |
-| Office 365        | Per i dettagli di configurazione, vedere la [documentazione per la soluzione di gestione di Office 365](../operations-management-suite/oms-solution-office-365.md). |
+| Office 365        | Per i dettagli di configurazione, vedere la [documentazione per la soluzione di gestione di Office 365](../monitoring/monitoring-solution-office-365.md). |
 | Telemetria di Windows | Menu di impostazioni per la soluzione. Per i dettagli di configurazione, vedere [Windows Analytics nel portale di Azure](/windows/deployment/update/windows-analytics-azure-portal). |
 | Connettore di Gestione dei servizi IT    | Per le istruzioni sulla connessione al servizio Gestione dei servizi IT con Log Analytics, vedere [Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT](../log-analytics/log-analytics-itsmc-connections.md). |
 
@@ -110,7 +110,7 @@ Gestire le soluzioni nel menu **Soluzioni** per l'area di lavoro.
 Nel portale di OMS le soluzioni di gestione vengono installate dalla Raccolta soluzioni ed eliminate da **Impostazioni**. Nel portale di Azure è possibile [installare le soluzione di gestione](../monitoring/monitoring-solutions.md#install-a-management-solution) da Microsoft Azure Marketplace. [Rimuovere le soluzioni](../monitoring/monitoring-solutions.md#remove-a-management-solution) dall'elenco delle soluzioni installate.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Come creare e gestire gli avvisi?
-Le regole di avviso basate sulle query di Log Analytics vengono ora gestite nella [visualizzazione unificata degli avvisi](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Per altri dettagli sulla configurazione e l'uso di avvisi nel portale di Azure, vedere [Come estendere gli avvisi di Log Analytics a Azure](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md).
+Le regole di avviso basate sulle query di Log Analytics vengono ora gestite nella [visualizzazione unificata degli avvisi](../monitoring-and-diagnostics/alert-metric.md). Per altri dettagli sulla configurazione e l'uso di avvisi nel portale di Azure, vedere [Come estendere gli avvisi di Log Analytics a Azure](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md).
 
 ## <a name="how-do-i-access-my-dashboards"></a>Come si accede ai dashboard personali?
 La funzionalità [Dashboard](../log-analytics/log-analytics-dashboards.md) di Log Analytics è deprecata. Questa funzionalità consentiva di avere una raccolta privata di parti della progettazione vista ed è stata sostituita dalla funzionalità Dashboard di Azure incorporata. È possibile continuare a visualizzare i dati in Log Analytics usando la funzionalità di [progettazione vista](../log-analytics/log-analytics-view-designer.md) per le viste condivise. È anche possibile aggiungere visualizzazioni da queste viste o per [singole query](../log-analytics/log-analytics-tutorial-dashboards.md) ai dashboard di Azure.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: cf0e94b859b49eddb8e2471d5319b3cc4a2c17ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d8e390fc185c3cb0b63bcea56feb4b133652673d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720294"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258834"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -63,7 +63,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 | NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obbligatoria |string |Formato della data di output. |
 
 - - -

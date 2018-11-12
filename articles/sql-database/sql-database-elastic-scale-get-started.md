@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: ''
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: 74bbaeeee390952bf42407a53684bc33a7cfc543
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ad07b0a9ae2d0c90f63d4f3a842a5d386ac4c59b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242774"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249864"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Iniziare a usare gli strumenti di database elastico
 Questo documento presenta l'esperienza di sviluppo per la [libreria client del database elastico](sql-database-elastic-database-client-library.md) tramite l'esecuzione dell'app di esempio. Nell'esempio viene creata una semplice applicazione partizionata e si esplorano le funzionalità chiave degli strumenti di database elastico del database SQL di Microsoft Azure. L'applicazione è incentrata sui casi d'uso per la [gestione delle mappe delle partizioni](sql-database-elastic-scale-shard-map-management.md), il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) e l'[esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md). La libreria client è disponibile su .NET e Java. 
@@ -67,7 +67,7 @@ Per aggiungere la libreria client al progetto Maven, aggiungere la dipendenza se
 
 ## <a name="elastic-database-tools-for-net"></a>Strumenti di database elastico per .NET 
 ### <a name="prerequisites"></a>Prerequisiti
-* Visual Studio 2012 o versione successiva con C#. Scaricare una versione gratuita dalla pagina [Download di Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
+* Visual Studio 2012 o versione successiva con C#. Scaricare una versione gratuita dalla pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 o versione successiva. Per ottenere la versione più recente, vedere [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget) (Installazione di NuGet).
 
 ### <a name="download-and-run-the-sample-app"></a>Scaricare ed eseguire l'app di esempio
@@ -95,13 +95,13 @@ Congratulazioni! È stata creata ed eseguita la prima applicazione partizionata 
 > 
 
 ## <a name="key-pieces-of-the-code-sample"></a>Elementi chiave dell'esempio di codice
-* **Gestione di partizioni e mappe delle partizioni**: il codice mostra come usare le partizioni, gli intervalli e i mapping nel file *ShardManagementUtils.cs*. Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](http://go.microsoft.com/?linkid=9862595).  
+* **Gestione di partizioni e mappe delle partizioni**: il codice mostra come usare le partizioni, gli intervalli e i mapping nel file *ShardManagementUtils.cs*. Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](https://go.microsoft.com/?linkid=9862595).  
 
-* **Routing dipendente dai dati**: il routing delle transazioni nella partizione appropriata viene mostrato nel file *DataDependentRoutingSample.cs*. Per altre informazioni, vedere [Routing dipendente dai dati](http://go.microsoft.com/?linkid=9862596). 
+* **Routing dipendente dai dati**: il routing delle transazioni nella partizione appropriata viene mostrato nel file *DataDependentRoutingSample.cs*. Per altre informazioni, vedere [Routing dipendente dai dati](https://go.microsoft.com/?linkid=9862596). 
 
-* **Esecuzione di query su più partizioni**: l'esecuzione di query su più partizioni viene mostrata nel file *MultiShardQuerySample.cs*. Per altre informazioni, vedere [Esecuzione di query su più partizioni](http://go.microsoft.com/?linkid=9862597).
+* **Esecuzione di query su più partizioni**: l'esecuzione di query su più partizioni viene mostrata nel file *MultiShardQuerySample.cs*. Per altre informazioni, vedere [Esecuzione di query su più partizioni](https://go.microsoft.com/?linkid=9862597).
 
-* **Aggiunta di partizioni vuote**: l'aggiunta iterativa di nuove partizioni vuote viene eseguita dal codice nel file *CreateShardSample.cs*. Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](http://go.microsoft.com/?linkid=9862595).
+* **Aggiunta di partizioni vuote**: l'aggiunta iterativa di nuove partizioni vuote viene eseguita dal codice nel file *CreateShardSample.cs*. Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Altre operazioni di scalabilità elastica
 * **Divisione di una partizione esistente**: la possibilità di dividere partizioni viene fornita tramite lo strumento di divisione-unione. Per altre informazioni, vedere [Spostamento di dati tra database cloud con scalabilità orizzontale](sql-database-elastic-scale-overview-split-and-merge.md).
@@ -119,12 +119,12 @@ Per informazioni sui prezzi, vedere [Prezzi del database SQL](https://azure.micr
 Per altre informazioni sugli strumenti di database elastico, vedere gli articoli seguenti:
 
 * Esempi di codice: 
-  * Strumenti di database elastici ([.NET](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
-  * [Elastic DB Tools for Azure SQL - Entity Framework Integration](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE) (Strumenti di database elastico per SQL di Azure - Integrazione con Entity Framework)
+  * Strumenti di database elastici ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
+  * [Elastic DB Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE) (Strumenti di database elastico per SQL di Azure - Integrazione con Entity Framework)
   * [Elasticità di partizionamento in Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/) (Annuncio della scalabilità elastica)
 * Channel 9: [video di panoramica della scalabilità elastica](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Forum di discussione: [forum sul database SQL di Azure](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+* Forum di discussione: [forum sul database SQL di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * Per misurare le prestazioni: [Contatori delle prestazioni per Gestore mappe partizioni](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->

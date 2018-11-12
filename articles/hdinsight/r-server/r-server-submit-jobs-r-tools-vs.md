@@ -5,20 +5,20 @@ services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 14618e46dd95dae6b7e5923a43a8eaef5e5c8518
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 400cb16e4f4440283a783116c4ee843bc0a7344c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617548"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248572"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Inviare processi da R Tools per Visual Studio
 
-[R Tools per Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) è un'estensione gratuita e open source per le edizioni Community (gratuita), Professional ed Enterprise sia di [Visual Studio 2017](https://www.visualstudio.com/downloads/) che di [Visual Studio 2015 Update 3](http://go.microsoft.com/fwlink/?LinkId=691129) o versioni successive.
+[R Tools per Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) è un'estensione gratuita e open source per le edizioni Community (gratuita), Professional ed Enterprise sia di [Visual Studio 2017](https://www.visualstudio.com/downloads/) che di [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) o versioni successive.
 
 RTVS migliora il flusso di lavoro R offrendo strumenti come la [finestra R interattivo](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), intellisense (completamento del codice), [visualizzazione tracciato](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) tramite librerie R come ggplot2 e ggviz, [debug del codice R](https://docs.microsoft.com/visualstudio/rtvs/debugging)e altro ancora.
 

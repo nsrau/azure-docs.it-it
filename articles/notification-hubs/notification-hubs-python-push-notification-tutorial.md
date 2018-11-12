@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 32953bacb8fdb135d5f3e0e9324218d2a71b0818
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 68754f85347fe6bc075af513580697d1e7a83c18
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777019"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247416"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Come usare Hub di notifica da Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Per accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Ruby, è possibile usare l'interfaccia REST di Hub di notifica come descritto nell'argomento [API REST degli hub di notifica](http://msdn.microsoft.com/library/dn223264.aspx)in MSDN.
+Per accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Python/Ruby, è possibile usare l'interfaccia REST di Hub di notifica come descritto nell'articolo [Notification Hubs REST APIs](https://msdn.microsoft.com/library/dn223264.aspx) (API REST di Hub di notifica) di MSDN.
 
 > [!NOTE]
 > Di seguito è riportato un esempio di riferimento per l'implementazione degli invii di notifiche in Python. Non si tratta dell'SDK Python di Hub di notifica.
@@ -33,7 +33,7 @@ Per accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP
 > 
 > 
 
-Questo articolo mostra come fare per:
+Questo articolo illustra come:
 
 * Compilare un client REST per le funzionalità di Hub di notifica in Python.
 * Inviare notifiche tramite l'interfaccia di Python alle API REST di Hub di notifica. 
@@ -47,7 +47,7 @@ Completare l' [esercitazione introduttiva](notification-hubs-windows-store-dotne
 > 
 
 ## <a name="client-interface"></a>Interfaccia del client
-L'interfaccia principale del client può fornire gli stessi metodi disponibili nell' [SDK di Hub di notifica per .NET](http://msdn.microsoft.com/library/jj933431.aspx). Questa interfaccia consente di convertire direttamente tutte le esercitazioni e gli esempi disponibili in questo sito e a cui hanno contribuito i membri della community su Internet.
+L'interfaccia principale del client può fornire gli stessi metodi disponibili nell' [SDK di Hub di notifica per .NET](https://msdn.microsoft.com/library/jj933431.aspx). Questa interfaccia consente di convertire direttamente tutte le esercitazioni e gli esempi disponibili in questo sito e a cui hanno contribuito i membri della community su Internet.
 
 Tutto il codice disponibile è incluso nell' [esempio di wrapper REST Python].
 
@@ -64,7 +64,7 @@ Per inviare una notifica di tipo avviso popup di Windows:
 ## <a name="implementation"></a>Implementazione
 Se non è già stato fatto, seguire l'[esercitazione introduttiva] fino all'ultima sezione in cui è necessario implementare il back-end.
 
-Tutti i dettagli per implementare un wrapper REST completo sono disponibili in [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In questa sezione viene illustrata l'implementazione Python dei passaggi principali necessari per accedere agli endpoint REST di Hub di notifica e inviare notifiche
+Tutti i dettagli per implementare un wrapper REST completo sono disponibili in [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). In questa sezione viene illustrata l'implementazione Python dei passaggi principali necessari per accedere agli endpoint REST di Hub di notifica e inviare notifiche
 
 1. Analizzare la stringa di connessione
 2. Generare il token di autorizzazione
@@ -96,7 +96,7 @@ Questa è la classe principale che implementa il client, il cui costruttore anal
 
 
 ### <a name="create-security-token"></a>Creare il token di sicurezza
-I dettagli della creazione del token di sicurezza sono disponibili [qui](http://msdn.microsoft.com/library/dn495627.aspx).
+I dettagli della creazione del token di sicurezza sono disponibili [qui](https://msdn.microsoft.com/library/dn495627.aspx).
 Aggiungere i metodi seguenti alla classe **NotificationHub** per creare il token in base all'URI della richiesta corrente e delle credenziali estratte dalla stringa di connessione.
 
     @staticmethod
@@ -148,7 +148,7 @@ Definire innanzitutto una classe che rappresenta la notifica.
 
 Questa classe è un contenitore per un corpo di notifica nativo oppure un set di proprietà di una notifica modello e un set di intestazioni che contengono il formato (modello o piattaforma nativa) e proprietà specifiche della piattaforma (come la proprietà di scadenza e le intestazioni WNS di Apple).
 
-Per tutte le opzioni disponibili fare riferimento alla [documentazione delle API REST di Hub di notifica](http://msdn.microsoft.com/library/dn495827.aspx) e ai formati delle piattaforme di notifica specifiche.
+Per tutte le opzioni disponibili fare riferimento alla [documentazione delle API REST di Hub di notifica](https://msdn.microsoft.com/library/dn495827.aspx) e ai formati delle piattaforme di notifica specifiche.
 
 Una volta definita questa classe, scrivere i metodi di notifica all'interno della classe **NotificationHub**.
 
@@ -261,7 +261,7 @@ Una volta definita questa classe, scrivere i metodi di notifica all'interno dell
 Questi metodi inviano una richiesta POST HTTP all'endpoint /messages dell'hub di notifica, contenenti il corpo e le intestazioni corrette per l'invio della notifica.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Uso di proprietà di debug per abilitare la registrazione dettagliata
-L'abilitazione della proprietà di debug durante l'inizializzazione di Hub di notifica consente la scrittura di informazioni di registrazione dettagliate sulla richiesta HTTP e sul dump di risposta, nonché del risultato dettagliato dell'invio del messaggio di notifica. La [proprietà Notification Hubs TestSend](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx) restituisce informazioni dettagliate sul risultato dell'invio della notifica. Per usarla, inizializzarla con il codice seguente:
+L'abilitazione della proprietà di debug durante l'inizializzazione di Hub di notifica consente la scrittura di informazioni di registrazione dettagliate sulla richiesta HTTP e sul dump di risposta, nonché del risultato dettagliato dell'invio del messaggio di notifica. La [proprietà Notification Hubs TestSend](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) restituisce informazioni dettagliate sul risultato dell'invio della notifica. Per usarla, inizializzarla con il codice seguente:
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 

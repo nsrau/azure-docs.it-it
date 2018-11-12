@@ -2,19 +2,18 @@
 title: Eseguire operazioni nell'archivio code di Azure con PowerShell | Microsoft Docs
 description: Come eseguire operazioni nell'archivio code di Azure con PowerShell
 services: storage
-author: robinsh
+author: roygara
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 09/14/2017
-ms.author: robinsh
+ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: 0b78f822bec2bd545331ed52f3339a07b5dfb466
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b89c2607a1b21b999e5f95224e4aefc97e321f14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521048"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251356"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Eseguire operazioni nell'archivio code di Azure con Azure PowerShell
 
@@ -83,7 +82,7 @@ $queueName = "howtoqueue"
 $queue = New-AzureStorageQueue –Name $queueName -Context $ctx
 ```
 
-Per informazioni sulle convenzioni di denominazione per il servizio di accodamento di Azure, vedere [Denominazione di code e metadati](http://msdn.microsoft.com/library/azure/dd179349.aspx).
+Per informazioni sulle convenzioni di denominazione per il servizio di accodamento di Azure, vedere [Denominazione di code e metadati](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 ## <a name="retrieve-a-queue"></a>Recuperare una coda
 
@@ -101,7 +100,7 @@ Get-AzureStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Aggiungere un messaggio a una coda
 
-Le operazioni che influiscono sui messaggi effettivi nella coda usano la libreria client di archiviazione .NET come illustrato in PowerShell. Per aggiungere un messaggio a una coda, creare una nuova istanza dell'oggetto messaggio della classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Quindi, chiamare il metodo [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) . È possibile creare un oggetto CloudQueueMessage da una stringa in formato UTF-8 o da una matrice di byte.
+Le operazioni che influiscono sui messaggi effettivi nella coda usano la libreria client di archiviazione .NET come illustrato in PowerShell. Per aggiungere un messaggio a una coda, creare una nuova istanza dell'oggetto messaggio della classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://msdn.microsoft.com/library/azure/jj732474.aspx). Quindi, chiamare il metodo [AddMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) . È possibile creare un oggetto CloudQueueMessage da una stringa in formato UTF-8 o da una matrice di byte.
 
 L'esempio seguente mostra come aggiungere un messaggio alla coda.
 
@@ -129,7 +128,7 @@ I messaggi vengono letti nell'ordine first in, first out, ma senza alcuna garanz
 
 Questo **periodo di invisibilità** definisce per quanto tempo il messaggio rimane invisibile prima di diventare di nuovo disponibile per l'elaborazione. Il valore predefinito è 30 secondi. 
 
-Il codice legge il messaggio dalla coda in due passaggi. Chiamando il metodo [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), si ottiene il messaggio successivo nella coda. Un messaggio restituito da **GetMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per completare la rimozione del messaggio dalla coda, è necessario chiamare il metodo [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). 
+Il codice legge il messaggio dalla coda in due passaggi. Chiamando il metodo [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), si ottiene il messaggio successivo nella coda. Un messaggio restituito da **GetMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per completare la rimozione del messaggio dalla coda, è necessario chiamare il metodo [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). 
 
 Nell'esempio seguente vengono letti i tre messaggi in coda, seguiti da 10 secondi di attesa, il periodo di invisibilità. I tre messaggi vengono quindi letti di nuovo ed eliminati dopo la lettura chiamando **DeleteMessage**. Se si tenta di leggere la coda dopo l'eliminazione dei messaggi, $queueMessage viene restituito come NULL.
 

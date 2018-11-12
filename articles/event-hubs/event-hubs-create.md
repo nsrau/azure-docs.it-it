@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: d053edaa187a3e0626f5ea0864d778f44f394bd7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 6a3fe8ae8cfbaeff31bec1d49c3cc5da552e8308
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49455777"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254061"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Guida introduttiva: Creare un hub eventi con il portale di Azure
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -27,7 +27,7 @@ In questa guida introduttiva viene creato un hub eventi usando il [portale di Az
 Per completare questa guida introduttiva, assicurarsi di disporre di quanto segue:
 
 - Sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-- [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](http://www.visualstudio.com/vs) o versioni successive.
+- [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
 - [NET Standard SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
@@ -90,7 +90,7 @@ Per creare un hub eventi all'interno dello spazio dei nomi, eseguire le azioni s
     ![Creare un hub eventi](./media/event-hubs-quickstart-portal/create-event-hub5.png)
 
 
-Congratulazioni. È stato usato il portale per creare uno spazio dei nomi di Hub eventi e un hub eventi nello spazio dei nomi. 
+Congratulazioni! È stato usato il portale per creare uno spazio dei nomi di Hub eventi e un hub eventi nello spazio dei nomi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

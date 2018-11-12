@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 3821e13fd968e458e463e90ef338da6637d8d8f2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 698cae13b9e78de6318c28bde998e195540c513c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622015"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256800"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installare .NET nei ruoli di Servizi cloud di Azure
 Questo articolo illustra come installare versioni di .NET Framework non incluse nel sistema operativo guest di Azure. È possibile usare .NET nel sistema operativo guest per configurare i ruoli Web e di lavoro del servizio cloud.
@@ -34,7 +34,7 @@ Per installare .NET nei ruoli Web e di lavoro, includere il programma di install
 ## <a name="add-the-net-installer-to-your-project"></a>Aggiungere al progetto il programma di installazione .NET
 Per scaricare il programma di installazione Web per .NET Framework, scegliere la versione da installare:
 
-* [Programma di installazione Web di .NET 4.7.2](http://go.microsoft.com/fwlink/?LinkId=863262)
+* [Programma di installazione Web di .NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [Programma di installazione Web di .NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Per aggiungere il programma di installazione per un ruolo *Web*:

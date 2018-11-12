@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b60e4f3547e049dc35c08ce115bdfcbbf6ebb18a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 5345ca3a9c2f35b45669a3a54ecb42ca627cde32
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246657"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259820"
 ---
 # <a name="use-case---customer-profiling"></a>Caso di utilizzo - Profilo clienti
-Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per ulteriori informazioni su Cortana Intelligence, vedere [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). In questo documento viene descritto un caso di semplice utilizzo che consente di iniziare a capire come Data Factory di Azure può risolvere problemi comuni di analisi.
+Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per ulteriori informazioni su Cortana Intelligence, vedere [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). In questo documento viene descritto un caso di semplice utilizzo che consente di iniziare a capire come Data Factory di Azure può risolvere problemi comuni di analisi.
 
 ## <a name="scenario"></a>Scenario
 Contoso è una società di giochi online che crea giochi per più piattaforme: console di gioco, dispositivi palmari e personal computer (PC). Quando gli utenti giocano a questi giochi, vengono prodotti grandi volumi di dati di registro che tengono traccia dei modelli di uso, dello stile di gioco e delle preferenze dell'utente.  Se vengono combinati con dati demografici, regionali e del prodotto, Contoso può eseguire l'analisi per migliorare l'esperienza dei giocatori e indirizzarli ad aggiornamenti e acquisti utili al gioco. 

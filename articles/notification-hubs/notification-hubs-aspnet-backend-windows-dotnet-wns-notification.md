@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
 ms.author: dimazaid
-ms.openlocfilehash: ee0e78402515a733731e6faf21b09886674cda51
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d2d0e878aed5b200852e56a29ce0430305d4efc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452414"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251543"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche a utenti specifici con Hub di notifica di Azure
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -43,7 +43,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Test dell'applicazione
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questa esercitazione si basa sull'hub di notifica e sul progetto di Visual Studio che è stato creato nell'[Esercitazione: Inviare notifiche alle app della piattaforma UWP (Universal Windows Platform) con Hub di notifica di Azure](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Pertanto, completarla prima di avviare questa esercitazione. 
 
 > [!NOTE]
@@ -126,7 +126,7 @@ In questa sezione, si aggiornerà il codice nel progetto completato per l'[Eserc
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
-12. In **MainPage.xaml.cs**, per i progetti **WindowsApp**, aggiungere il membro seguente alla classe `MainPage`. Assicurarsi di sostituire `<Enter Your Backend Endpoint>` con l'endpoint back-end effettivo ottenuto in precedenza. Ad esempio, `http://mybackend.azurewebsites.net`.
+12. In **MainPage.xaml.cs**, per i progetti **WindowsApp**, aggiungere il membro seguente alla classe `MainPage`. Assicurarsi di sostituire `<Enter Your Backend Endpoint>` con l'endpoint back-end effettivo ottenuto in precedenza. Ad esempio: `http://mybackend.azurewebsites.net`.
     
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
@@ -222,7 +222,7 @@ In questa sezione, si aggiornerà il codice nel progetto completato per l'[Eserc
     ```
 1. Fare clic con il pulsante destro del mouse sul progetto **WindowsApp**, scegliere **Aggiungi** e quindi **Classe**. Assegnare alla classe il nome **RegisterClient.cs**, quindi fare clic su **OK** per generare la classe.
    
-   Questa classe conclude le chiamate REST necessarie per contattare il back-end dell'app allo scopo di effettuare la registrazione per le notifiche push. Archivia inoltre in locale i *registrationId* creati dall'hub di notifica, come illustrato in [Registrazione dal back-end dell'app](http://msdn.microsoft.com/library/dn743807.aspx). Usa un token di autorizzazione memorizzato nell'archivio locale quando si fa clic sul pulsante **Esegui accesso e registrazione**.
+   Questa classe conclude le chiamate REST necessarie per contattare il back-end dell'app allo scopo di effettuare la registrazione per le notifiche push. Archivia inoltre in locale i *registrationId* creati dall'hub di notifica, come illustrato in [Registrazione dal back-end dell'app](https://msdn.microsoft.com/library/dn743807.aspx). Usa un token di autorizzazione memorizzato nell'archivio locale quando si fa clic sul pulsante **Esegui accesso e registrazione**.
 2. Aggiungere le seguenti istruzioni `using` all'inizio del file RegisterClient.cs:
 
     ```csharp   

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318538"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260381"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Servizio di controllo di Azure SQL Data Warehouse
 
@@ -150,7 +150,7 @@ Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
 ### <a name="database-level-policy-audit-logs"></a>Log di controllo dei criteri a livello di database
 I log di controllo a livello di database vengono aggregati in una raccolta di tabelle di archiviazione con il prefisso **SQLDBAuditLogs** nell'account di archiviazione di Azure scelto durante l'installazione. È possibile visualizzare i file di log con uno strumento come [Esplora archivi di Azure](http://azurestorageexplorer.codeplex.com).
 
-È possibile scaricare un modello di report dashboard preconfigurato in formato [foglio di calcolo di Excel](http://go.microsoft.com/fwlink/?LinkId=403540), che consente di analizzare rapidamente i dati di log. Per usare il modello nei log di controllo sono necessari Excel 2013 o versione successiva e Power Query, disponibile per il download [qui](http://www.microsoft.com/download/details.aspx?id=39379).
+È possibile scaricare un modello di report dashboard preconfigurato in formato [foglio di calcolo di Excel](https://go.microsoft.com/fwlink/?LinkId=403540), che consente di analizzare rapidamente i dati di log. Per usare il modello nei log di controllo sono necessari Excel 2013 o versione successiva e Power Query, disponibile per il download [qui](https://www.microsoft.com/download/details.aspx?id=39379).
 
 Il modello contiene dati di esempio fittizi ed è possibile configurare Power Query per l'importazione diretta del log di controllo dall'account di archiviazione di Azure.
 

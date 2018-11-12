@@ -4,17 +4,17 @@ description: Questo articolo descrive come compilare configurazioni Desired Stat
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/08/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 03b22e3a4c2c0b8eb87ee0b61edba3c6f0923170
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ca3c29101e17a7970ba782b5c49267bf9f18482e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443816"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257157"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilazione di configurazioni DSC in Configurazione stato di Automazione di Azure
 
@@ -156,7 +156,7 @@ A questo punto è possibile chiamare la **risorsa composita** nella configurazio
 ```powershell
 Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 {
-    JoinDomain DomainJoin
+    DomainConfig myCompositeConfig
     {
         DomainName = $DomainName
         Admincreds = $Admincreds
@@ -164,14 +164,14 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 
     PSWAWebServer InstallPSWAWebServer
     {
-        DependsOn = '[JoinDomain]DomainJoin'
+        DependsOn = '[DomainConfig]myCompositeConfig'
     }
 }
 ```
 
 ## <a name="configurationdata"></a>ConfigurationData
 
-**ConfigurationData** consente di separare la configurazione strutturale dalla configurazione specifica di qualsiasi ambiente mentre si usa PowerShell DSC. Vedere il blog relativo alla [distinzione tra "cosa" e "dove" in PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) per altre informazioni su **ConfigurationData**.
+**ConfigurationData** consente di separare la configurazione strutturale dalla configurazione specifica di qualsiasi ambiente mentre si usa PowerShell DSC. Vedere il blog relativo alla [distinzione tra "cosa" e "dove" in PowerShell DSC](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) per altre informazioni su **ConfigurationData**.
 
 > [!NOTE]
 > È possibile usare **ConfigurationData** quando si compila in Configurazione stato di Automazione di Azure con Azure PowerShell, ma non nel portale di Azure.
@@ -235,7 +235,7 @@ I riferimenti agli asset sono gli stessi in Configurazione stato di Automazione 
 
 ### <a name="credential-assets"></a>Asset credenziali
 
-Le configurazioni DSC in Automazione di Azure possono fare riferimento agli asset credenziali di Automazione con `Get-AzureRmAutomationCredential`. Se una configurazione non ha un parametro con un tipo **PSCredential** è possibile usare il cmdlet `Get-AutomationRmAutomationCredential` passando il nome stringa di un asset credenziali di Automazione di Azure al cmdlet per recuperare le credenziali. È quindi possibile usare tale oggetto per il parametro che richiede l'oggetto **PSCredential**. In background, l'asset credenziali di Automazione di Azure con tale nome viene recuperato e passato alla configurazione. L'esempio seguente illustra questa azione.
+Le configurazioni DSC in Automazione di Azure possono fare riferimento agli asset credenziali di Automazione con il cmdlet `Get-AutomationPSCredential`. Se una configurazione non ha un parametro con un tipo **PSCredential** è possibile usare il cmdlet `Get-AutomationPSCredential` passando il nome stringa di un asset credenziali di Automazione di Azure al cmdlet per recuperare le credenziali. È quindi possibile usare tale oggetto per il parametro che richiede l'oggetto **PSCredential**. In background, l'asset credenziali di Automazione di Azure con tale nome viene recuperato e passato alla configurazione. L'esempio seguente illustra questa azione.
 
 Per garantire la sicurezza delle credenziali nelle configurazioni dei nodi (documenti di configurazione MOF), è necessario crittografare le credenziali nel file MOF delle configurazioni dei nodi. Attualmente è però necessario comunicare a PowerShell DSC che l'output delle credenziali in testo normale durante la generazione dei file MOF delle configurazioni dei nodi è corretto, perché PowerShell DSC non sa che dopo la generazione Automazione di Azure crittograferà l'intero file MOF tramite un processo di compilazione.
 

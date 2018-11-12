@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: spelluru
-ms.openlocfilehash: 1ed401f6175d7ebea83a888898221d345791bc34
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2e6119ae4565e0474da12d67c7a7b594cda68977
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697959"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248657"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introduzione a Websockets per Connessioni ibride di Inoltro di Azure in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -38,7 +38,7 @@ Le connessioni ibride richiedono sia un componente client che un componente serv
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
-* [Visual Studio 2015 o versione successiva](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2017.
+* [Visual Studio 2015 o versione successiva](https://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2017.
 * Una sottoscrizione di Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]

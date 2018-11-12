@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 7357577ea7aff467288578673110b1a6dda7ccef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391048"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259089"
 ---
 <a id="preparemachines"></a>
 
@@ -74,7 +74,7 @@ Di seguito sono indicate le specifiche per ogni computer da aggiungere al cluste
 L'amministratore del cluster che distribuisce e configura il cluster deve disporre dei [privilegi di amministratore](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) in ogni computer. Non è possibile installare Service Fabric in un controller di dominio.
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Scaricare il pacchetto autonomo Service Fabric per Windows Server
-[Collegamento per il download - Pacchetto autonomo di Service Fabric - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690); decomprimere il pacchetto in un computer di distribuzione non appartenente al cluster o in uno dei computer che faranno parte del cluster.
+[Collegamento per il download - Pacchetto autonomo di Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690); decomprimere il pacchetto in un computer di distribuzione non appartenente al cluster o in uno dei computer che faranno parte del cluster.
 
 ## <a name="modify-cluster-configuration"></a>Modificare la configurazione del cluster
 Per creare un cluster autonomo, è necessario creare un file ClusterConfig.json di configurazione del cluster autonomo che descrive la specifica del cluster. È possibile basare il file di configurazione sui modelli disponibili nel collegamento seguente. <br>

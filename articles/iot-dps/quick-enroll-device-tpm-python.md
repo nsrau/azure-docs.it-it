@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: ea758c377293ae698bdf06638d5b4600b95015e4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 6e38d5f3a959d363347c8b266b7bbaf165f34937
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154965"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249065"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Python Provisioning Service SDK
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
@@ -33,7 +33,7 @@ Assicurarsi di [configurare il servizio Device Provisioning in hub IoT con il po
 
 1. Scegliere una delle opzioni seguenti:
 
-    - Creare e compilare **Azure IoT Python SDK**. Seguire [queste istruzioni](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) per compilare i pacchetti Python. Se si usa il sistema operativo Windows, installare anche [Visual C++ Redistributable Package](http://www.microsoft.com/download/confirmation.aspx?id=48145) per consentire l'uso di DLL native di Python.
+    - Creare e compilare **Azure IoT Python SDK**. Seguire [queste istruzioni](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) per compilare i pacchetti Python. Se si usa il sistema operativo Windows, installare anche [Visual C++ Redistributable Package](https://www.microsoft.com/download/confirmation.aspx?id=48145) per consentire l'uso di DLL native di Python.
 
     - [Installare o aggiornare *pip*, il sistema di gestione pacchetti Python](https://pip.pypa.io/en/stable/installing/). Installare il pacchetto con il comando seguente:
 

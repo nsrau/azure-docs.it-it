@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bc88ed342f833123c74bd91db9b838473b5f88aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c875793bf558013d5052f99c24d3a04a3525af5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38613129"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253041"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Esercitazione: Creare una pipeline con l'attività di copia usando l'API .NET
 > [!div class="op_single_selector"]
@@ -46,10 +46,10 @@ Una pipeline può includere più attività ed è possibile concatenarne due, ovv
 > 
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando un cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Per una panoramica dell'esercitazione e per eseguire i passaggi relativi ai [prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) , vedere **Panoramica e prerequisiti** .
 * Visual Studio 2012 o 2013 o 2015
-* Scaricare e installare [.NET SDK di Azure](http://azure.microsoft.com/downloads/)
+* Scaricare e installare [.NET SDK di Azure](https://azure.microsoft.com/downloads/)
 * Azure PowerShell. Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps) per installare la versione più recente di Azure PowerShell nel computer. Azure PowerShell verrà usato per creare un'applicazione Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Creare un'applicazione in Azure Active Directory

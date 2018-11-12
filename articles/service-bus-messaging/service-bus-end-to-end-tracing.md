@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854882"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283836"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Correlazione e analisi distribuita tramite la messaggistica del bus di servizio
 
@@ -30,7 +30,7 @@ Quando un producer invia un messaggio tramite una coda, tale operazione avviene 
 La messaggistica del bus di servizio di Microsoft Azure include proprietà di payload definite che producer e consumer devono usare per passare tale contesto di analisi.
 Il protocollo si basa sul [protocollo di correlazione HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Nome proprietà        | Descrizione                                                 |
+| Nome proprietà        | DESCRIZIONE                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | Identificatore univoco di una chiamata esterna alla coda effettuata dal producer. Per la logica, le considerazioni e il formato, vedere [Request-Id in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) (Request-Id nel protocollo HTTP). |
 |  Correlation-Context | Contesto dell'operazione, che viene propagato in tutti i servizi coinvolti nell'elaborazione dell'operazione. Per altre informazioni, vedere [Correlation-Context in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) (Correlation-Context nel protocollo HTTP). |
@@ -181,7 +181,7 @@ In ogni evento è possibile accedere a `Activity.Current` che contiene il contes
 
 #### <a name="logging-additional-properties"></a>Registrazione di proprietà aggiuntive
 
-`Activty.Current` fornisce il contesto dettagliato dell'operazione corrente e i relativi elementi padre. Per altre informazioni, vedere la [documentazione di Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md).
+`Activity.Current` fornisce il contesto dettagliato dell'operazione corrente e i relativi elementi padre. Per altre informazioni, vedere la [documentazione di Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md).
 La strumentazione del bus di servizio fornisce informazioni aggiuntive nei tag `Activity.Current.Tags`, che contengono `MessageId` e `SessionId` qualora disponibili.
 
 Anche le attività che verificano gli eventi 'Receive', 'Peek' e 'ReceiveDeferred' possono contenere il tag `RelatedTo`. Tale tag contiene un elenco distinto di elementi `Diagnostic-Id` di messaggi che sono stati ricevuti come risultato.

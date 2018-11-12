@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: 43253423e3a27a61000c3f93868dd8b42809b7ae
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 81327c083b9517974780ac73284259b4408c2890
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650163"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262217"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparare una macchina virtuale basata su RedHat per Azure
 In questo articolo verrà descritto come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'utilizzo in Azure. Le versioni di RHEL trattate in questo articolo sono la 6.7+ e la 7.1+. Gli hypervisor per la preparazione illustrati in questo articolo sono Hyper-V, KVM (Kernel-based Virtual Machine) e VMware. Per altre informazioni sui requisiti di idoneità per partecipare al programma di accesso al cloud di Red Hat, vedere gli articoli relativi al [sito web di accesso al cloud di Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) e all'[esecuzione di RHEL in Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -28,7 +28,7 @@ In questo articolo verrà descritto come preparare una macchina virtuale Red Hat
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparare una macchina virtuale basata su Red Hat dalla console di gestione di Hyper-V
 
 ### <a name="prerequisites"></a>Prerequisiti
-In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito Web Red Hat e che sia già stata installata un'immagine RHEL in un disco rigido virtuale (VHD). Per altri dettagli su come usare la console di gestione di Hyper-V per installare un'immagine del sistema operativo, vedere l'articolo su come [installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
+In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito Web Red Hat e che sia già stata installata un'immagine RHEL in un disco rigido virtuale (VHD). Per altri dettagli su come usare la console di gestione di Hyper-V per installare un'immagine del sistema operativo, vedere l'articolo su come [installare il ruolo Hyper-V e configurare una macchina virtuale](https://technet.microsoft.com/library/hh846766.aspx).
 
 **Note sull'installazione di RHEL**
 

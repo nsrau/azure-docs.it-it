@@ -8,19 +8,19 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: f744a1126e12766980727e31d5c50ce4aa17934c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3d15e747c129d2591f4cc70030d1cf858bcee49e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408779"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237655"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Progetto di sicurezza e conformità di Azure: analisi per il GDPR
 
 ## <a name="overview"></a>Panoramica
 Il Regolamento generale sulla protezione dei dati, o GDPR, contiene molti requisiti relativi alla raccolta, all'archiviazione e all'uso delle informazioni personali, ad esempio il modo in cui le organizzazioni identificano e proteggono i dati personali, rispettano i requisiti a livello di trasparenza, rilevano e segnalano violazioni ai dati personali ed eseguono la formazione del personale addetto alla privacy e di altri dipendenti. Il GDPR offre ai singoli utenti maggiore controllo sui dati personali e impone molti obblighi nuovi alle organizzazioni che raccolgono, gestiscono o analizzano i dati personali. Il GDPR impone nuove regole per le organizzazioni che offrono beni e servizi a persone nell'Unione europea o che raccolgono e analizzano dati collegati a persone residenti nell'Unione europea. Il GDPR si applica indipendentemente da dove si trova un'organizzazione.
 
-Microsoft ha progettato Azure con misure di sicurezza e criteri di privacy leader di settore per la salvaguardia dei dati sul cloud, incluse le categorie dei dati personali identificate dal GDPR. Le [condizioni contrattuali](http://aka.ms/Online-Services-Terms) Microsoft impongono a Microsoft il rispetto dei requisiti dei responsabili.
+Microsoft ha progettato Azure con misure di sicurezza e criteri di privacy leader di settore per la salvaguardia dei dati sul cloud, incluse le categorie dei dati personali identificate dal GDPR. Le [condizioni contrattuali](https://aka.ms/Online-Services-Terms) Microsoft impongono a Microsoft il rispetto dei requisiti dei responsabili.
 
 Questo progetto per la sicurezza e la conformità di Azure fornisce indicazioni per la distribuzione di un'architettura di analisi dei dati in Azure utile per supportare i requisiti del GDPR. Questa soluzione illustra i modi in cui i clienti possono soddisfare requisiti specifici di sicurezza e conformità e costituisce un punto di partenza per i clienti che vogliono creare e configurare soluzioni di analisi dei dati personalizzate in Azure. I clienti possono usare questa architettura di riferimento e seguire il [processo in quattro passaggi](https://aka.ms/gdprebook) di Microsoft per ottenere la conformità con GDPR:
 1. Individuazione: identificare i tipi di dati personali esistenti e la rispettiva posizione.
