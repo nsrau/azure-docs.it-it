@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 26899ea62b8caa872b6c99b94976c87f84ba7176
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b74f40c093ca4cc62330de321ea2b53315b903db
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091124"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247365"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Risoluzione dei problemi e domande e risposte relative ad Application Insights per Java
 Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco alcuni suggerimenti.
@@ -43,7 +43,7 @@ Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco 
 * Assicurarsi di usare la stessa versione degli appender di core, Web, agente e registrazione di Application Insights per evitare eventuali problemi di conflitto di versione.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Non vengono più visualizzati i dati disponibili in precedenza
-* Controllare il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
+* Controllare il [blog sullo stato](https://blogs.msdn.com/b/applicationinsights-status/).
 * È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
 * L'SDK è stato aggiornato di recente? Verificare che all'interno della directory del progetto siano presenti solo file con estensione JAR dell'SDK univoco. Non devono essere presenti due versioni diverse dell'SDK.
 * È stata considerata la risorsa AI corretta? Confrontare la chiave di strumentazione dell'applicazione con la risorsa in cui sono previsti i dati di telemetria. I valori devono corrispondere.

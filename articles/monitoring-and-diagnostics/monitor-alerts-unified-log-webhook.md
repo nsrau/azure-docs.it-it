@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ee38eb32886c050eb87b2d6ed91252ee7bcfea0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989295"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280704"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
 Quando [viene creato un avviso di log in Azure](alert-log.md), è possibile scegliere di [configurarlo con gruppi di azioni](monitoring-action-groups.md) in modo da eseguire una o più azioni.  Questo articolo descrive le diverse azioni webhook disponibili e spiega come configurare un webhook personalizzato basato su JSON.
@@ -79,7 +79,7 @@ Per includere i risultati della ricerca in un payload personalizzato, verificare
 Questa sezione mostra un esempio di payload di webhook per gli avvisi di log, facendo distinzione tra payload standard e personalizzato.
 
 > [!NOTE]
-> Per garantire la compatibilità con le versioni precedenti, il payload di webhook standard per gli avvisi generati in base ad Azure Log Analytics corrisponde a quello della [gestione degli avvisi di Log Analytics](../log-analytics/log-analytics-alerts-creating.md). Per gli avvisi del log generati tramite [Application Insights](../application-insights/app-insights-analytics.md), tuttavia, il payload di webhook standard si basa sullo schema del gruppo di azioni.
+> Per garantire la compatibilità con le versioni precedenti, il payload di webhook standard per gli avvisi generati in base ad Azure Log Analytics corrisponde a quello della [gestione degli avvisi di Log Analytics](../monitoring-and-diagnostics/alert-metric.md). Per gli avvisi del log generati tramite [Application Insights](../application-insights/app-insights-analytics.md), tuttavia, il payload di webhook standard si basa sullo schema del gruppo di azioni.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook standard per gli avvisi di log 
 In entrambi questi esempi è specificato un payload fittizio con solo due colonne e due righe.
@@ -201,4 +201,4 @@ Di seguito è riportato un esempio di payload per un'azione webhook personalizza
 - Acquisire familiarità con la [gestione degli avvisi di log in Azure](alert-log.md)
 - Creare e gestire [gruppi di azioni in Azure](monitoring-action-groups.md)
 - Altre informazioni su [Application Insights](../application-insights/app-insights-analytics.md)
-- Altre informazioni su [Log Analytics](../log-analytics/log-analytics-overview.md). 
+- Altre informazioni su [Log Analytics](../log-analytics/log-analytics-queries.md). 

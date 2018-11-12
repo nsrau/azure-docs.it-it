@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: ac51dc8b7cbfa08ebca201c42c0c82356b7d5b6c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7407bed746f863a5daecfc98d2df89175ff35b5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254682"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263950"
 ---
 # <a name="internet-of-things-security-architecture"></a>Architettura di sicurezza di Internet delle cose
 
@@ -252,7 +252,7 @@ Ogni dispositivo e gateway sul campo prevede un tipo di archiviazione (temporane
 
 Un gateway cloud è un sistema che consente la comunicazione remota da e verso dispositivi o gateway sul campo da più siti diversi attraverso lo spazio di rete pubblica, in genere verso un controllo basato su cloud e un sistema di analisi dei dati, una federazione di tali sistemi. In alcuni casi, un gateway cloud può immediatamente facilitare l'accesso ai dispositivi per scopi specifici dai terminali, ad esempio tablet o telefoni. Nel contesto presentato in questo argomento, "cloud" fa riferimento a un sistema di elaborazione dati dedicato che non è associato allo stesso sito dei dispositivi o gateway sul campo collegati e in cui le misure operative prevengono l'accesso fisico mirato, ma che non rappresenta necessariamente un'infrastruttura di "cloud pubblico". Un gateway cloud potrebbe essere potenzialmente mappata a una sovrapposizione di virtualizzazione rete per isolare da qualsiasi altro traffico di rete il gateway cloud e tutti i relativi dispositivi o gateway sul campo collegati. Il gateway cloud stesso non è né un sistema di controllo del dispositivo né una risorsa di elaborazione o archiviazione per i dati del dispositivo; queste funzionalità si interfacciano con il gateway cloud. La zona di gateway cloud include il gateway cloud stesso assieme a tutti i gateway sul campo e ai dispositivi direttamente o indirettamente a esso collegati.
 
-Un gateway cloud è in gran parte un software personalizzato ed eseguito come servizio, con endpoint esposti a cui si connettono i dispositivi e il gateway sul campo. Di conseguenza deve essere progettato tenendo presente la sicurezza. Seguire il processo [SDL](http://www.microsoft.com/sdl) per la progettazione e la creazione di questo servizio.
+Un gateway cloud è in gran parte un software personalizzato ed eseguito come servizio, con endpoint esposti a cui si connettono i dispositivi e il gateway sul campo. Di conseguenza deve essere progettato tenendo presente la sicurezza. Seguire il processo [SDL](https://www.microsoft.com/sdl) per la progettazione e la creazione di questo servizio.
 
 #### <a name="services-zone"></a>Zona Servizi
 

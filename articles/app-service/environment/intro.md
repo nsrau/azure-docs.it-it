@@ -14,15 +14,15 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: c6ae2aa46ae17c4ef995211b02112e1c05e2ec2f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: ee0b9fad15653c9315a8bdaad9a76d8355912863
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344478"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248844"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduzione agli ambienti del servizio app #
- 
+ 
 ## <a name="overview"></a>Panoramica ##
 
 L'ambiente del servizio app di Azure è una funzionalità del servizio app di Azure che fornisce un ambiente completamente isolato e dedicato per l'esecuzione sicura di app del servizio app di Azure su vasta scala. Questa funzionalità può ospitare gli elementi seguenti:
@@ -73,7 +73,7 @@ Un ambiente del servizio app può avere una connessione a Internet con un indiri
 
 I [gruppi di sicurezza di rete][NSGs] permettono di limitare le comunicazioni di rete in ingresso alla subnet in cui risiede un ambiente del servizio app. È possibile usare i gruppi di sicurezza di rete per eseguire le app protette da dispositivi e servizi upstream, quali Web application firewall e provider di servizi SaaS di rete.
 
-Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi Web interni. Se si distribuisce un ambiente del servizio app in una rete virtuale che ha una connessione VPN alla rete locale, le app dell'ambiente del servizio app possono accedere alle risorse locali. Questo vale indipendentemente dal fatto che la VPN sia di tipo [da sito a sito](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site) o [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi Web interni. Se si distribuisce un ambiente del servizio app in una rete virtuale che ha una connessione VPN alla rete locale, le app dell'ambiente del servizio app possono accedere alle risorse locali. Questo vale indipendentemente dal fatto che la VPN sia di tipo [da sito a sito](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) o [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 Per altre informazioni sul funzionamento degli ambienti del servizio app con reti virtuali e reti locali, vedere [Considerazioni sulla rete per un ambiente del servizio app][ASENetwork].
 

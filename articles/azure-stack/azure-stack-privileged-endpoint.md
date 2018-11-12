@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f064521929bdaf0565a2993e12be62a3959ad567
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945298"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300439"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Uso dell'endpoint con privilegi in Azure Stack
 
@@ -55,7 +55,7 @@ Prima di iniziare questa procedura per un sistema integrato, assicurarsi che sia
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - Se si esegue il ADSK, accedere all'host del kit di sviluppo.
+    - Se si esegue il ASDK, accedere all'host del kit di sviluppo.
 
 2. Nella macchina virtuale con protezione avanzata in esecuzione in host del ciclo di vita dell'hardware o Privileged Access Workstation, aprire una sessione di Windows PowerShell. Eseguire i comandi seguenti per stabilire una sessione remota nella macchina virtuale che ospita il PEP:
  
@@ -67,7 +67,7 @@ Prima di iniziare questa procedura per un sistema integrato, assicurarsi che sia
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       Il `ComputerName` parametro può essere l'indirizzo IP o il nome DNS di una delle macchine virtuali che ospita il PEP. 
-    - Se si esegue la ADSK:
+    - Se si esegue la ASDK:
      
       ````PowerShell
         $cred = Get-Credential
@@ -127,7 +127,7 @@ Per importare la sessione PEP nel computer locale, procedere come segue:
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - Se si esegue il ADSK, accedere all'host del kit di sviluppo.
+    - Se si esegue il ASDK, accedere all'host del kit di sviluppo.
 
 2. Nella macchina virtuale con protezione avanzata in esecuzione in host del ciclo di vita dell'hardware o Privileged Access Workstation, aprire una sessione di Windows PowerShell. Eseguire i comandi seguenti per stabilire una sessione remota nella macchina virtuale che ospita il PEP:
  
@@ -139,7 +139,7 @@ Per importare la sessione PEP nel computer locale, procedere come segue:
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       Il `ComputerName` parametro può essere l'indirizzo IP o il nome DNS di una delle macchine virtuali che ospita il PEP. 
-    - Se si esegue la ADSK:
+    - Se si esegue la ASDK:
      
       ````PowerShell
        $cred = Get-Credential

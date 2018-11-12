@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: b83e1ef752fede446b41153e3d486a872c2707f3
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9158e6bfe07fc5d06b0685d77eff26644b594a8b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227083"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264009"
 ---
 Con le estensioni VM è possibile:
 
@@ -42,10 +42,10 @@ L'agente VM è abilitato nelle seguenti situazioni:
       $vm.VM.ProvisionGuestAgent = $TRUE
       Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
-* Quando si crea un'immagine di macchina virtuale che include un agente VM installato. Una volta creata l'immagine con l'agente VM, è possibile caricarla in Azure. Per una macchina virtuale Windows, scaricare il [file con estensione .msi dell'agente VM di Windows](http://go.microsoft.com/fwlink/?LinkID=394789) e installare l'agente VM. Per una macchina virtuale Linux, installare l'agente VM dal repository GitHub all'indirizzo <https://github.com/Azure/WALinuxAgent>. Per altre informazioni sull'installazione dell'agente VM in Linux, vedere [Azure Linux VM Agent User Guide](../articles/virtual-machines/extensions/agent-linux.md) (Guida per l'utente dell'agente VM Linux di Azure).
+* Quando si crea un'immagine di macchina virtuale che include un agente VM installato. Una volta creata l'immagine con l'agente VM, è possibile caricarla in Azure. Per una macchina virtuale Windows, scaricare il [file con estensione .msi dell'agente VM di Windows](https://go.microsoft.com/fwlink/?LinkID=394789) e installare l'agente VM. Per una macchina virtuale Linux, installare l'agente VM dal repository GitHub all'indirizzo <https://github.com/Azure/WALinuxAgent>. Per altre informazioni sull'installazione dell'agente VM in Linux, vedere [Azure Linux VM Agent User Guide](../articles/virtual-machines/extensions/agent-linux.md) (Guida per l'utente dell'agente VM Linux di Azure).
 
 > [!NOTE]
-> Nelle soluzioni PaaS l'agente di macchine virtuali è denominato **WindowsAzureGuestAgent**ed è sempre disponibile nelle macchine virtuali con ruoli Web e di lavoro. Per altre informazioni, vedere il post di blog relativo all'[architettura dei ruoli di Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx). L'agente VM per le macchine virtuali del ruolo può ora aggiungere estensioni alle macchine virtuali del servizio cloud in modo analogo alle macchine virtuali persistenti. La differenza principale tra le estensioni VM su macchine virtuali del ruolo e su macchine virtuali persistenti è data dal momento in cui vengono aggiunte le estensioni VM. Con le macchine virtuali del ruolo, le estensioni vengono aggiunte prima al servizio cloud, quindi alle distribuzioni all'interno di tale servizio cloud.
+> Nelle soluzioni PaaS l'agente di macchine virtuali è denominato **WindowsAzureGuestAgent**ed è sempre disponibile nelle macchine virtuali con ruoli Web e di lavoro. Per altre informazioni, vedere il post di blog relativo all'[architettura dei ruoli di Azure](https://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx). L'agente VM per le macchine virtuali del ruolo può ora aggiungere estensioni alle macchine virtuali del servizio cloud in modo analogo alle macchine virtuali persistenti. La differenza principale tra le estensioni VM su macchine virtuali del ruolo e su macchine virtuali persistenti è data dal momento in cui vengono aggiunte le estensioni VM. Con le macchine virtuali del ruolo, le estensioni vengono aggiunte prima al servizio cloud, quindi alle distribuzioni all'interno di tale servizio cloud.
 >
 > Usare il cmdlet [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) per elencare tutte le estensioni VM del ruolo disponibili.
 >

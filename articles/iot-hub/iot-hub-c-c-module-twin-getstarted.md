@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 94c7bd50b9c331370aaac802e0a453c5cdd8b7c1
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 80d96bcb6b6073987f07ed6954f25023ab1133a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141138"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247518"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT usando il back-end C e i dispositivi C
 
@@ -31,7 +31,7 @@ Al termine di questa esercitazione si hanno due app C:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non si dispone di un account, è possibile creare un [account Azure gratuito](http://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
+* Un account Azure attivo. Se non si dispone di un account, è possibile creare un [account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 * Un hub IoT.
 * Versione più recente [dell'SDK C per l'hub IoT di Azure](https://github.com/Azure/azure-iot-sdk-c).
 
@@ -176,7 +176,7 @@ Questa app crea un'identità del dispositivo con ID **myFirstDevice** e un'ident
 
 In questa sezione, nel dispositivo simulato viene creata un'app C che aggiorna le proprietà restituite del modulo gemello.
 
-1. **Ottenere la stringa di connessione del modulo** - Accedere al [portale di Azure](https://portal.azure.com). Passare all'hub IoT e fare clic su Dispositivi IoT. Trovare myFirstDevice e aprirlo. Si vedrà che myFirstModule è stato creato correttamente. Copiare la stringa di connessione del modulo. Sarà necessaria nel prossimo passaggio.
+1. **Ottenere la stringa di connessione del modulo** -- Accedere al [portale di Azure](https://portal.azure.com). Passare all'hub IoT e fare clic su Dispositivi IoT. Trovare myFirstDevice e aprirlo. Si vedrà che myFirstModule è stato creato correttamente. Copiare la stringa di connessione del modulo. Sarà necessaria nel prossimo passaggio.
 
     ![Dettagli del modulo nel portale di Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 

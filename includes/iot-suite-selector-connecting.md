@@ -5,22 +5,23 @@ services: iot-suite
 author: dominicbetts
 ms.service: iot-suite
 ms.topic: include
-ms.date: 04/24/2018
+ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 780a215b66fec845bc1df639fedda870881b4027
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 218fc33390575a3df96d0b7d7696b3085c38c8f2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39189385"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264031"
 ---
 > [!div class="op_single_selector"]
 > * [C su Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
 > * [C su Linux](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [C su Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (generico)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js su Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [C su Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
+> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
 In questa esercitazione viene implementato un dispositivo **Chiller** che invia i dati di telemetria seguenti all'[acceleratore di soluzioni](../articles/iot-accelerators/about-iot-accelerators.md) Monitoraggio remoto:
 
@@ -36,7 +37,7 @@ Il dispositivo di esempio inoltre:
 * Risponde alle azioni attivate dalla pagina **Dispositivi** della soluzione.
 * Risponde alle modifiche di configurazione inviate dalla pagina **Dispositivi** della soluzione.
 
-Per completare l'esercitazione, è necessario un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+Per completare l'esercitazione, è necessario un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Prima di iniziare
 

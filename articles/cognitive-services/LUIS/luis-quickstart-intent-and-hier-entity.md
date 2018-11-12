@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d3adb6c27d3550777f0a5b34b3e7e329f42432ab
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3903f247df0bc9dc4bc27d61b195492c585d7634
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138464"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282272"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Esercitazione 5: estrarre dati correlati in base al contesto
 Questa esercitazione illustra come trovare informazioni correlate di dati basati sul contesto. Ad esempio, spostare una località di origine e destinazione di un computer fisico da un edificio e un ufficio a un altro edificio e ufficio sono informazioni correlate. Per generare un ordine di lavoro potrebbero essere necessarie entrambi i dati, i quali sono correlati tra loro.  
@@ -57,7 +57,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Rimuovere l'entità numero predefinita dall'app
 Per visualizzare l'intera espressione e contrassegnare gli elementi figlio gerarchici, è necessario rimuovere temporaneamente l'entità numero predefinita.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Entità** nel menu a sinistra.
 
@@ -83,7 +83,7 @@ Per visualizzare l'intera espressione e contrassegnare gli elementi figlio gerar
 
     Nell'esercitazione sull'[entità elenco](luis-quickstart-intent-and-list-entity.md) un dipendente viene designato per nome, indirizzo di posta elettronica, numero di interno, numero di telefono cellulare o codice fiscale federale degli Stati Uniti. Questi numeri dei dipendenti sono usati nelle espressioni. Le espressioni di esempio precedenti includono modi diversi per indicare le posizioni di origine e di destinazione, con formattazione in grassetto. Un paio di espressioni includono intenzionalmente solo le destinazioni. In questo modo, LUIS può comprendere come vengono inserite tali posizioni nell'espressione quando l'origine non è specificata.     
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Creare un'entità posizione
 LUIS deve comprendere le posizioni tramite etichette per l'origine e la destinazione nelle espressioni. Se è necessario visualizzare l'espressione nella vista token (non elaborata), selezionare l'interruttore **Entities View** (Vista entità) sulla barra sopra le espressioni. Dopo aver spostato l'interruttore, l'etichetta del controllo diventerà **Tokens View** (Vista token).
@@ -251,7 +251,7 @@ Le posizioni in questo esempio, ad esempio `a-1234`, seguono un formato specific
 
 ## <a name="hierarchical-entities-versus-roles"></a>Ruoli ed entità gerarchiche
 
-Per altre informazioni, vedere [Ruoli ed entità gerarchiche](luis-concept-roles.md#roles-versus-hierarchical-entities).
+Per ulteriori informazioni, vedere [Ruoli ed entità gerarchiche](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stata creata una nuova finalità e sono state aggiunte espressioni di esempio per i dati acquisiti in base al contesto relativi alla posizione di origine e di destinazione. Una volta eseguiti il training e la pubblicazione dell'app, un'applicazione client può usare tali informazioni per creare un ticket di spostamento con le informazioni pertinenti.

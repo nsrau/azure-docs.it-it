@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 3ad1f0638284ad1d9b65a5bb6f2d2b03e9c51e04
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1983e7560c986df241e9c592aaaa6b646a99840f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227064"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264043"
 ---
 ## <a name="planning-and-implementation"></a>Pianificazione e implementazione
 Titolo: SAP NetWeaver in Macchine virtuali di Azure - Guida alla pianificazione e all'implementazione
@@ -18,7 +18,7 @@ Riepilogo: Si tratta del primo documento da esaminare se si sta valutando la pos
 
 Ultimo aggiornamento: agosto 2015
 
-[Scaricare la guida](http://go.microsoft.com/fwlink/?LinkId=397963)
+[Scaricare la guida](https://go.microsoft.com/fwlink/?LinkId=397963)
 
 ## <a name="deployment"></a>Distribuzione
 Titolo: SAP NetWeaver in Macchine virtuali di Azure - Guida alla distribuzione
@@ -27,7 +27,7 @@ Riepilogo: In questo documento vengono fornite indicazioni generali sulle proced
 
 Ultimo aggiornamento: settembre 2015
 
-[Scaricare la guida](http://go.microsoft.com/fwlink/?LinkId=397964)
+[Scaricare la guida](https://go.microsoft.com/fwlink/?LinkId=397964)
 
 ## <a name="sap-dbms-on-azure"></a>DBMS per SAP in Azure
 Titolo: Guida alla distribuzione di DBMS per SAP in Azure
@@ -36,7 +36,7 @@ Riepilogo: Questo documento presenta le considerazioni sulla pianificazione e l'
 
 Ultimo aggiornamento: dicembre 2015
 
-[Scaricare la guida](http://go.microsoft.com/fwlink/?LinkId=397965)
+[Scaricare la guida](https://go.microsoft.com/fwlink/?LinkId=397965)
 
 ## <a name="sap-netweaver-on-azure"></a>SAP NetWeaver in Azure
 Titolo: SAP NetWeaver - Creazione di una soluzione di ripristino di emergenza basata su Azure
@@ -45,5 +45,5 @@ Riepilogo: Questo documento fornisce istruzioni dettagliate per la creazione di 
 
 Ultimo aggiornamento: settembre 2015
 
-[Scaricare la guida](http://go.microsoft.com/fwlink/?LinkID=521971)
+[Scaricare la guida](https://go.microsoft.com/fwlink/?LinkID=521971)
 

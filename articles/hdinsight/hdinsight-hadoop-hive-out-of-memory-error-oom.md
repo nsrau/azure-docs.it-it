@@ -3,19 +3,19 @@ title: Correggere un errore Hive di memoria insufficiente in Azure HDInsight
 description: Correggere un errore Hive di memoria insufficiente in HDInsight. Lo scenario del cliente fa riferimento a una query in molte tabelle di grandi dimensioni.
 keywords: errore di memoria insufficiente, OOM, impostazioni Hive
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 24b0258bac8c33b84b48655d8ecddd9061368b9a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: hrasheed
+ms.openlocfilehash: 90bf59dd7733864c345bbbb59b6236ae7b9a9c36
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592840"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248309"
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Correggere un errore Hive di memoria insufficiente in Azure HDInsight
 
@@ -99,7 +99,7 @@ Il supporto Microsoft insieme al team di progettazione ha rilevato che uno dei p
         </description>
       </property>
 
-È probabile che map join sia la causa dell'errore di memoria insufficiente nello spazio dell'heap di Java. Come illustrato nel post di blog sulle [impostazioni della memoria Yarn di Hadoop in HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando si usa il motore di esecuzione Tez lo spazio dell'heap effettivamente usato appartiene al contenitore Tez. Vedere l'immagine seguente che descrive la memoria del contenitore Tez.
+È probabile che map join sia la causa dell'errore di memoria insufficiente nello spazio dell'heap di Java. Come illustrato nel post di blog sulle [impostazioni della memoria Yarn di Hadoop in HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando si usa il motore di esecuzione Tez lo spazio dell'heap effettivamente usato appartiene al contenitore Tez. Vedere l'immagine seguente che descrive la memoria del contenitore Tez.
 
 ![Diagramma della memoria del contenitore Tez: errore Hive di memoria insufficiente](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 

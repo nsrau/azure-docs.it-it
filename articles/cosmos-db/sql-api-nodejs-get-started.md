@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 219ec7138cb839ec7d0eebb613931a85c752f3c2
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7eeb4fdba8272d9bc2b67d8a33dd7b1d210f5e47
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741216"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278600"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Esercitazione: Compilare un'app console Node.js con JavaScript SDK per gestire i dati API SQL di Azure Cosmos DB
 
@@ -280,11 +280,10 @@ Ora che è disponibile il codice per inizializzare il client Azure Cosmos DB, è
    const databaseId = config.database.id;
    const containerId = config.container.id;
 
-
-   /**
+    /**
     * Create the database if it does not exist
     */
-   async function createDatabase() {
+    async function createDatabase() {
      const { database } = await client.databases.createIfNotExists({ id: databaseId });
      console.log(`Created database:\n${database.id}\n`);
    }

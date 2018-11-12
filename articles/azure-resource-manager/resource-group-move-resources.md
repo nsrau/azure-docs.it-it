@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e2d1ccbc6532da3600c952236c3904c9e55294c8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093827"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279418"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -112,7 +112,7 @@ Contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure
 
 ## <a name="validate-move"></a>Convalidare lo spostamento
 
-L'[operazione di convalida dello spostamento](/rest/api/resources/resources/resources_validatemoveresources) consente di testare lo scenario di spostamento senza realmente spostare le risorse. Usare questa operazione per determinare se lo spostamento avrà esito positivo. Per eseguire questa operazione, è necessario:
+L'[operazione di convalida dello spostamento](/rest/api/resources/resources/validatemoveresources) consente di testare lo scenario di spostamento senza realmente spostare le risorse. Usare questa operazione per determinare se lo spostamento avrà esito positivo. Per eseguire questa operazione, è necessario:
 
 * il nome del gruppo di risorse di origine
 * l'ID risorsa della risorsa del gruppo di risorse di destinazione

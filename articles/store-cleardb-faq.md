@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665723"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230632"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Domande frequenti per i database MySQL ClearDB con il Servizio app di Azure
 Queste domande frequenti offrono risposte a domande comuni sull'uso e l'acquisto di database MySQL ClearDB per App Web di Azure.
@@ -106,7 +106,7 @@ I clienti con contratto Enterprise indiretti possono trovare le proprie sottoscr
 L'accesso ad Azure Marketplace per i servizi di terze parti può essere gestito dagli amministratori dell'iscrizione ad Azure con contratto Enterprise Agreement. Questi ultimi possono disabilitare o riabilitare l'accesso ad acquisti di terze parti dallo Store nell'opzione per la gestione degli account e delle sottoscrizioni nella sezione Account di Enterprise Portal.
 
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>Chi contattare per domande sulla fatturazione per i servizi ClearDB nella sottoscrizione con contratto Enterprise?
-Contattare il [supporto per contratti Enterprise](http://aka.ms/AzureEntSupport) per quanto riguarda la fatturazione relativa alla registrazione con contratto Enterprise. Il team di supporto del portale per contratti Enterprise risponderà alla domanda oppure offrirà aiuto per la risoluzione del problema.
+Contattare il [supporto per contratti Enterprise](https://aka.ms/AzureEntSupport) per quanto riguarda la fatturazione relativa alla registrazione con contratto Enterprise. Il team di supporto del portale per contratti Enterprise risponderà alla domanda oppure offrirà aiuto per la risoluzione del problema.
 
 ## <a name="more-information"></a>Altre informazioni
 [Domande frequenti su Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)

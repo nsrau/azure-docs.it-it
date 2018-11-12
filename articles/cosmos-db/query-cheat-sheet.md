@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696932"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230870"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Fogli informativi sulle query per Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Scegliere tra il download formato A4 o A3.
 
 ## <a name="letter-sized-cheat-sheets"></a>Fogli informativi formato A4
 
-Scaricare i [fogli informativi sulle query per Azure Cosmos DB in formato A4](http://go.microsoft.com/fwlink/?LinkId=623215) se si intende stamparli su carta formato A4 (8,5" x 11").
+Scaricare i [fogli informativi sulle query per Azure Cosmos DB in formato A4](https://go.microsoft.com/fwlink/?LinkId=623215) se si intende stamparli su carta formato A4 (8,5" x 11").
 
 ![Fogli informativi sulle query per Azure Cosmos DB in formato A4, con funzioni e query relative ad API SQL, JavaScript, API MongoDB, API Gremlin e di tabella](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 

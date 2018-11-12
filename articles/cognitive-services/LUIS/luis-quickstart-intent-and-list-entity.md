@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2ce6e7c796faf0c7377a33dabe1e8c05e81fde2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162084"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280708"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Esercitazione 4: estrarre corrispondenze esatte del testo
 Questa esercitazione spiega come ottenere dati corrispondenti a un elenco predefinito di elementi. Ogni elemento nell'elenco può includere un elenco di sinonimi. Per l'app HumanResources, un dipendente può essere identificato tramite diverse informazioni essenziali, ad esempio nome, indirizzo di posta elettronica, numero di telefono e codice fiscale federale degli Stati Uniti. 
@@ -41,10 +41,10 @@ Un'entità elenco è una scelta appropriata per questo tipo di dati quando:
 > * Pubblica
 > * Ottenere finalità ed entità dall'endpoint
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
-Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
 Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
 
@@ -52,12 +52,12 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 2. Importare il file JSON in una nuova app.
 
-3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `list`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL. 
+3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `list`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL. 
 
 
 ## <a name="moveemployee-intent"></a>Finalità MoveEmployee
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Create new intent** (Crea nuova finalità). 
 
@@ -84,7 +84,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
     Tenere presente che numero e datetimeV2 sono stati aggiunti in un'esercitazione precedente e saranno etichettati automaticamente quando si trovano in ogni espressione di esempio.
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="employee-list-entity"></a>Entità elenco dipendenti
 Ora che la finalità **MoveEmployee** ha espressioni di esempio, LUIS deve capire cos'è un dipendente. 
