@@ -2,20 +2,20 @@
 title: Eseguire processi Sqoop usando .NET e HDInsight - Azure
 description: Informazioni su come usare HDInsight .NET SDK per eseguire attività di importazione ed esportazione Sqoop tra un cluster Hadoop e un database SQL di Azure.
 keywords: processo sqoop
-editor: jasonwhowell
+ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 19c275de80b872fe214e45a52de7d6fb283daf41
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: hrasheed
+ms.openlocfilehash: 423934dee0b490bb12522cec6d37393a1ec5e2f4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595145"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014874"
 ---
 # <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>Eseguire processi Sqoop con .NET SDK per Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]

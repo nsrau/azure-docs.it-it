@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/29/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 875662ec3bf4582c58f98e8afe3753fc202ad0b6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: fa7d48c9a8079dc9171879ab5b72e3f04f870ebc
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243504"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036175"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Esercitazione: Importare file BACPAC di SQL con modelli di Azure Resource Manager
 
@@ -124,7 +124,7 @@ Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager
 
     ![Distribuzione di estensioni SQL e BACPAC con Azure Resource Manager](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-    Per informazioni sulla definizione della risorsa, vedere le [informazioni di riferimento sulle estensioni di database SQL](https://docs.microsoft.com/en-us/azure/templates/microsoft.sql/servers/databases/extensions). Di seguito sono illustrati alcuni elementi importanti.
+    Per informazioni sulla definizione della risorsa, vedere le [informazioni di riferimento sulle estensioni di database SQL](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Di seguito sono illustrati alcuni elementi importanti.
 
     * **dependsOn**: la risorsa estensione deve essere creata dopo che è stato creato il database SQL.
     * **storageKeyType**: tipo di chiave di archiviazione da usare. Il valore può essere `StorageAccessKey` o `SharedAccessKey`. Dato che il file BACPAC fornito viene condiviso in un account di archiviazione di Azure con accesso pubblico, in questo caso viene usato il tipo "SharedAccessKey".

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a5deccbe87bc8de6f6438259c2a43cc4618c24ab
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418076"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016706"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Connettere Configuration Manager a Log Analytics
 È possibile connettere l'ambiente System Center Configuration Manager ad Azure Log Analytics per sincronizzare i dati delle raccolte di dispositivi e fare riferimento a queste raccolte in Log Analytics e Automazione di Azure.  
@@ -69,7 +69,7 @@ Per aggiungere una connessione di Log Analytics, è necessario che l'ambiente di
    
 2. Nella schermata **Generale**, confermare di aver eseguito le azioni seguenti e di aver ottenuto i dettagli per ogni elemento, quindi selezionare **Avanti**.
 
-   1. Nel portale di Azure, Configuration Manager è stato registrato come applicazione Web e/o app per le API Web ed è disponibile l'[ID client dalla registrazione](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+   1. Nel portale di Azure, Configuration Manager è stato registrato come applicazione Web e/o app per le API Web ed è disponibile l'[ID client dalla registrazione](../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
    2. Nel portale di Azure è stata creata una chiave privata per l'app registrata in Azure Active Directory.  
    3. Nel portale di Azure all'app Web registrata è stata concessa l'autorizzazione ad accedere a Log Analytics.  
       ![Pagina generale della Procedura guidata di aggiunta di una connessione Log Analytics](./media/log-analytics-sccm/sccm-console-general01.png)
@@ -113,7 +113,7 @@ Una volta importate le raccolte, è possibile vedere quanti computer con apparte
 
 ![Gruppi di computer - Scheda SCCM](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-Facendo clic su dei due, si apre la funzione di ricerca, nella quale vengono visualizzati tutti i gruppi importati o tutti i computer che appartengono a ciascun gruppo. Usando [Ricerca Log](log-analytics-log-searches.md) è possibile avviare un'analisi approfondita dei dati di Configuration Manager.
+Facendo clic su dei due, si apre la funzione di ricerca, nella quale vengono visualizzati tutti i gruppi importati o tutti i computer che appartengono a ciascun gruppo. Usando [Ricerca Log](log-analytics-queries.md) è possibile avviare un'analisi approfondita dei dati di Configuration Manager.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Usare [Ricerca Log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate sui dati di Configuration Manager.
+* Usare [Ricerca Log](log-analytics-queries.md) per visualizzare le informazioni dettagliate sui dati di Configuration Manager.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: 5e529953d06c37f382bdd5e65c23fe16d9928008
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 9b2539d94c645f71b596e53429e6e0d8cc46b9ad
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250904"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016744"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -183,7 +183,7 @@ Questa sezione si applica solo a Funzioni 2.x. Le estensioni di associazione non
 In **Visual Studio 2017** è possibile installare pacchetti dalla Console di Gestione pacchetti usando il comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), come illustrato nell'esempio seguente:
 
 ```powershell
-Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <target_version>
 ```
 
 Il nome del pacchetto da usare per una determinata associazione è fornito nell'articolo di riferimento per quell'associazione. Per un esempio, vedere la [sezione sui pacchetti dell'articolo di riferimento sull'associazione del bus di servizio](functions-bindings-service-bus.md#packages---functions-1x).
@@ -195,7 +195,7 @@ Sostituire `<target_version>` nell'esempio con una specifica versione del pacche
 In **Visual Studio Code** è possibile installare i pacchetti dal prompt dei comandi usando il comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) nell'interfaccia della riga di comando di .NET Core, come indicato nell'esempio seguente:
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <target_version>
 ```
 
 L'interfaccia della riga di comando di .NET Core può essere usata solo per lo sviluppo di Funzioni di Azure 2.x.

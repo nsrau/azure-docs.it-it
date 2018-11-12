@@ -2,7 +2,7 @@
 title: Panoramica del modello di licenza Widevine | Microsoft Docs
 description: Questo argomento offre una panoramica di un modello di licenza Widevine usato per configurare le licenze Widevine.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: eefe82eb022584029b7afb0f2c3524d400c700bd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 065845bb2abd02f02fe2050780bc0613cbd2f12c
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786020"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036003"
 ---
 # <a name="widevine-license-template-overview"></a>Panoramica del modello di licenza Widevine
 Servizi multimediali di Azure consente di configurare e richiedere licenze Google Widevine. Quando il lettore tenta di riprodurre contenuto protetto da Widevine, viene inviata una richiesta al servizio di distribuzione di licenze per ottenere una licenza. Se il servizio di licenza approva la richiesta, genera la licenza. Viene inviata al client e usata per decrittografare e riprodurre il contenuto specificato.

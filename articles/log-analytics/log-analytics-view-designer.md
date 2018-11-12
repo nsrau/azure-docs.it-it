@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 9a981b80921b8fea60941a994595b19933b61a21
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5e736992b16782b87c62ccb59f88798cbce925a6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042377"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015112"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Creare visualizzazioni personalizzate usando Progettazione visualizzazioni in Log Analytics
-Tramite Progettazione visualizzazioni in [Azure Log Analytics](log-analytics-overview.md) è possibile creare nel portale di Azure una serie di visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
+Tramite Progettazione visualizzazioni in [Azure Log Analytics](log-analytics-queries.md) è possibile creare nel portale di Azure una serie di visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
 
 Per altre informazioni su Progettazione visualizzazioni, vedere:
 
@@ -42,7 +42,7 @@ Le visualizzazioni create con Progettazione visualizzazioni contengono gli eleme
 |:--- |:--- |
 | Riquadri | Sono disponibili nella pagina **Panoramica** dell'area di lavoro di Log Analytics. Ogni riquadro mostra un riepilogo visivo della visualizzazione personalizzata che rappresenta. Ciascun tipo di riquadro offre una visualizzazione diversa dei record. Selezionare un riquadro per mostrare una visualizzazione personalizzata. |
 | Visualizzazione personalizzata | Viene mostrata quando si seleziona un riquadro. Ciascuna visualizzazione contiene una o più parti della visualizzazione. |
-| Parti della visualizzazione | Presentano una visualizzazione dei dati nell'area di lavoro di Log Analytics in base a una o più [ricerche log](log-analytics-log-searches.md). La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro di Log Analytics. Selezionare gli elementi della parte per eseguire una ricerca log che restituisca record dettagliati. |
+| Parti della visualizzazione | Presentano una visualizzazione dei dati nell'area di lavoro di Log Analytics in base a una o più [ricerche log](log-analytics-queries.md). La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro di Log Analytics. Selezionare gli elementi della parte per eseguire una ricerca log che restituisca record dettagliati. |
 
 
 ## <a name="work-with-an-existing-view"></a>Usare una visualizzazione esistente

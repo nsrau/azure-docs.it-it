@@ -3,18 +3,18 @@ title: Opzioni del contesto di calcolo per ML Services in HDInsight - Azure
 description: Informazioni sulle diverse opzioni del contesto di calcolo disponibili per gli utenti con ML Services in HDInsight
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 98c92638d66e3ac1b4b537c0f1f8b70000aa85e9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: e132ceb857b05f24664c93729dd43d75b5a19ac2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617565"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015061"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opzioni del contesto di calcolo per ML Services in HDInsight
 

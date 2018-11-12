@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f3c24dbc0f5bb4d5b595799da4f1212b26f8c02a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419776"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016761"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in Log Analytics
 Progettazione viste di Azure Log Analytics consente di creare nel portale di Azure viste personalizzate che contengono visualizzazioni diverse dei dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
@@ -363,4 +363,4 @@ La tabella seguente illustra le impostazioni relative alle soglie:
 | Colore |Colore che indica il valore di soglia. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [ricerche log](log-analytics-log-searches.md) per supportare le query nelle parti di visualizzazione.
+* Informazioni sulle [ricerche log](log-analytics-queries.md) per supportare le query nelle parti di visualizzazione.
