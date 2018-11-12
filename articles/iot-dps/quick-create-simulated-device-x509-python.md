@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 04adabd332db0a7dfa99cb999d4b7eff1410a88f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 04fbbbf0f1ecd280153c5b23fff681808be51998
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156409"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259582"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Python per il servizio Device Provisioning in hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -116,7 +116,7 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
 2. Scaricare e installare [Python 2.x o 3.x](https://www.python.org/downloads/). Assicurarsi di usare le installazioni a 32 bit o 64 bit, come richiesto dalla configurazione. Quando richiesto durante l'installazione, assicurarsi di aggiungere Python alle variabili di ambiente specifiche per la piattaforma. Se si usa Python 2.x, potrebbe essere necessario [installare o aggiornare *pip*, il sistema di gestione pacchetti Python](https://pip.pypa.io/en/stable/installing/).
     
     > [!NOTE] 
-    > Se si usa Windows, installare anche [Visual C++ Redistributable per Visual Studio 2015](http://www.microsoft.com/download/confirmation.aspx?id=48145). I pacchetti pip richiedono il componente ridistribuibile per caricare/eseguire le DLL di C.
+    > Se si usa Windows, installare anche [Visual C++ Redistributable per Visual Studio 2015](https://www.microsoft.com/download/confirmation.aspx?id=48145). I pacchetti pip richiedono il componente ridistribuibile per caricare/eseguire le DLL di C.
 
 3. Seguire [queste istruzioni](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) per compilare i pacchetti Python.
 

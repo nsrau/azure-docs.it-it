@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638204"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011052"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -103,7 +103,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
 
 ### <a name="configure-the-solution"></a>Configurare la soluzione 
 
-1. Aggiungere la soluzione Monitoraggio prestazioni rete nell'area di lavoro dall'[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). È anche possibile usare il processo descritto in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md). 
+1. Aggiungere la soluzione Monitoraggio prestazioni rete nell'area di lavoro dall'[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). È anche possibile usare il processo descritto in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../monitoring/monitoring-solutions.md). 
 2. Aprire l'area di lavoro di Log Analytics e selezionare il riquadro **Panoramica**. 
 3. Selezionare il riquadro **Monitoraggio prestazioni rete** con il messaggio *La soluzione richiede configurazione aggiuntiva*.
 
@@ -251,7 +251,7 @@ La topologia mostrata sulla mappa è di livello 3 e non contiene connessioni e d
 
 ## <a name="log-analytics-search"></a>Ricerca di Log Analytics 
 
-Tutti i dati esposti graficamente attraverso il dashboard di Monitoraggio prestazioni rete e le pagine di drill-down sono disponibili in modalità nativa nella ricerca di [Log Analytics](log-analytics-log-search-new.md). È possibile eseguire l'analisi interattiva dei dati nel repository e correlare i dati da origini diverse. È anche possibile creare visualizzazioni e avvisi personalizzati ed esportare i dati in Excel, Power BI o un collegamento condivisibile. L'area  **Query comuni**  del dashboard contiene alcune query utili che è possibile usare come punto di partenza per creare query e report. 
+Tutti i dati esposti graficamente attraverso il dashboard di Monitoraggio prestazioni rete e le pagine di drill-down sono disponibili in modalità nativa nella ricerca di [Log Analytics](log-analytics-queries.md). È possibile eseguire l'analisi interattiva dei dati nel repository e correlare i dati da origini diverse. È anche possibile creare visualizzazioni e avvisi personalizzati ed esportare i dati in Excel, Power BI o un collegamento condivisibile. L'area  **Query comuni**  del dashboard contiene alcune query utili che è possibile usare come punto di partenza per creare query e report. 
 
 ## <a name="alerts"></a>Avvisi
 

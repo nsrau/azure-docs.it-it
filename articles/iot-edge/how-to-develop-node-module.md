@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a1459e3cbd433e2997ffd822b961ac781a72ca90
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: b05492941defc6ac3aa252d6bb29043d55e6b66c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423528"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261775"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare ed eseguire il debug di moduli Node.js per Azure IoT Edge
 
@@ -32,7 +32,7 @@ Poiché in questo articolo viene usato Visual Studio Code come strumento di svil
 * [Estensione Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Per creare un modulo, sono necessari Node.js che include npm per compilare la cartella del progetto, Docker per compilare l'immagine del modulo e un registro contenitori in cui memorizzare l'immagine del modulo:
-* [Node.JS](https://nodejs.org)
+* [Node.js](https://nodejs.org)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) o [hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Per prototipi e test è possibile usare un registro Docker locale anziché un registro nel cloud. 
@@ -123,7 +123,7 @@ Il modulo Node.js per IoT Edge dipende da Azure IoT Node.js Device SDK. Nel codi
 
 5. Nel terminale integrato di Visual Studio Code eseguire questo comando per inviare un messaggio **Hello World** al modulo. Questo è il comando mostrato nei passaggi precedenti quando è stato impostato correttamente il simulatore di IoT Edge. Potrebbe essere necessario creare o passare a un altro terminale integrato, se quello corrente è bloccato.
 
-    ```cmd
+    ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
 

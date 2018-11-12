@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365255"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231624"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
 ## <a name="overview"></a>Panoramica
-Azure offre diagnostica integrata per facilitare il debug di un' [app Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione. Viene anche descritto come accedere alle informazioni registrate da Azure.
+Azure offre diagnostica integrata per facilitare il debug di un' [app Web del servizio app](https://go.microsoft.com/fwlink/?LinkId=529714). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione. Viene anche descritto come accedere alle informazioni registrate da Azure.
 
 L'articolo illustra anche l'uso del [portale di Azure](https://portal.azure.com), di Azure PowerShell e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -37,10 +37,10 @@ App Web del servizio app offre funzionalità diagnostiche per la registrazione d
 
 * **Registrazione degli errori dettagliata**: consente di registrare informazioni dettagliate sugli errori relativi ai codici di stato HTTP che indicano un'operazione non riuscita (codice di stato 400 o superiore), incluse eventuali informazioni che aiutano a determinare il motivo per cui il server ha restituito il codice di errore.
 * **Traccia delle richieste non riuscita** : consente di registrare informazioni dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richieste e il tempo impiegato in ciascun componente. È utile se si sta tentando di aumentare le prestazioni del sito oppure isolare la causa della restituzione di uno specifico errore HTTP.
-* **Registrazione del server Web** : consente di registrare informazioni sulle transazioni HTTP tramite il [formato di file di log esteso W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). È utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP.
+* **Registrazione del server Web** : consente di registrare informazioni sulle transazioni HTTP tramite il [formato di file di log esteso W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). È utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP.
 
 ### <a name="application-diagnostics"></a>Diagnostica applicazioni
-La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio: 
+La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio: 
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -97,7 +97,7 @@ La struttura di directory in cui sono memorizzati i log è la seguente:
 * **Application logs** - /LogFiles/Application/. In questa cartella sono presenti uno o più file di testo contenenti le informazioni generate dalla registrazione dell'applicazione.
 * **Failed Request Traces** - /LogFiles/W3SVC#########/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer.
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. Questa cartella contiene uno o più file HTM che forniscono informazioni dettagliate relative agli eventuali errori HTTP che si sono verificati.
-* **Web Server Logs** - /LogFiles/http/RawLogs. Questa cartella contiene uno o più file di testo formattati utilizzando il [formato di file di log esteso W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Web Server Logs** - /LogFiles/http/RawLogs. Questa cartella contiene uno o più file di testo formattati utilizzando il [formato di file di log esteso W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
 * **Deployment logs** - /LogFiles/Git. Questa cartella contiene i log generati dai processi di distribuzione interna utilizzati da app Web di Azure, oltre ai log per le distribuzioni Git. I log di distribuzione sono anche disponibili in D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
@@ -171,7 +171,7 @@ Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **-Path*
 Per visualizzare un elenco di percorsi disponibili usare il parametro -ListPath.
 
 > [!NOTE]
-> Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere [Come usare Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere [Come usare Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -264,7 +264,7 @@ Le tracce delle richieste non riuscite vengono memorizzate nei file XML denomina
 I log di errore dettagliati sono documenti HTML che offrono informazioni più approfondite sugli errori HTTP verificatisi. Poiché si tratta di semplici documenti HTML, è possibile visualizzarli in un browser Web.
 
 ### <a name="web-server-logs"></a>Web Server Logs
-I log del server Web vengono formattati con il [formato file di log esteso W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). È possibile leggere queste informazioni con un editor di testo oppure analizzarle con utilità come [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619).
+I log del server Web vengono formattati con il [formato file di log esteso W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). È possibile leggere queste informazioni con un editor di testo oppure analizzarle con utilità come [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > I log prodotti dalle app Web di Azure non supportano i campi **s-computername**, **s-ip** o **cs-version**.
@@ -274,7 +274,7 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 ## <a name="nextsteps"></a> Passaggi successivi
 * [Come monitorare le app Web](web-sites-monitor.md)
 * [Risoluzione dei problemi delle app Web di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Analisi dei log delle app Web in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Analisi dei log delle app Web in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.

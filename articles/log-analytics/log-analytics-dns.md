@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9ac8d876e9c79e5aadfcf834e18e94f6ac8b3a30
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: bd72b93d31a25a6aa848fc08a7db4d9d0fcece9f
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408473"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010746"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
 
@@ -44,8 +44,8 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 | **Origine connessa** | **Supporto** | **Descrizione** |
 | --- | --- | --- |
-| [Agenti di Windows](log-analytics-windows-agent.md) | Yes | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
-| [Agenti Linux](log-analytics-linux-agents.md) | No  | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
+| [Agenti di Windows](log-analytics-agent-windows.md) | Yes | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
+| [Agenti Linux](log-analytics-quick-collect-linux-computer.md) | No  | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
 | [Gruppo di gestione di System Center Operations Manager](log-analytics-om-agents.md) | Yes | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro di Log Analytics. |
 | [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | La soluzione non usa le risorse di archiviazione di Azure. |
 
@@ -57,8 +57,8 @@ La soluzione raccoglie i dati relativi all'inventario e agli eventi DNS dai serv
 
 Per configurare la soluzione, usare le informazioni seguenti:
 
-- È necessario un agente [Windows](log-analytics-windows-agent.md) o [Operations Manager](log-analytics-om-agents.md) in ogni server DNS che si vuole monitorare.
-- È possibile aggiungere la soluzione Analisi DNS nell'area di lavoro di Log Analytics da [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). È anche possibile seguire la procedura descritta nell'articolo relativo all'[aggiunta di soluzioni di Log Analytics dalla raccolta soluzioni](log-analytics-add-solutions.md).
+- È necessario un agente [Windows](log-analytics-agent-windows.md) o [Operations Manager](log-analytics-om-agents.md) in ogni server DNS che si vuole monitorare.
+- È possibile aggiungere la soluzione Analisi DNS nell'area di lavoro di Log Analytics da [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). È anche possibile seguire la procedura descritta nell'articolo relativo all'[aggiunta di soluzioni di Log Analytics dalla raccolta soluzioni](../monitoring/monitoring-solutions.md).
 
 La soluzione avvia la raccolta dati senza che siano necessarie operazioni di configurazione aggiuntive. È tuttavia possibile usare la configurazione seguente per personalizzare la raccolta.
 
@@ -190,4 +190,4 @@ Nella pagina Ricerca log è possibile creare una query. È possibile filtrare i 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Eseguire ricerche nei log](log-analytics-log-searches.md) per visualizzare record di log dettagliati per DNS.
+[Eseguire ricerche nei log](log-analytics-queries.md) per visualizzare record di log dettagliati per DNS.

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17102f31a7fadad02031725791c66c1a596922e9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409287"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231917"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Esercitazione: Creare una connessione da punto a sito con la rete WAN virtuale di Azure (anteprima)
 
@@ -111,12 +111,13 @@ Una configurazione da punto a sito definisce i parametri per la connessione di c
 
 ## <a name="hub"></a>5. Modificare l'assegnazione dell'hub
 
-1. Nella pagina della rete WAN virtuale fare clic su **Point-to-site configurations** (Configurazioni da punto a sito).
-2. In **Hub** viene visualizzato un elenco di configurazioni che non sono ancora state connesse a un hub.
-3. Selezionare la configurazione da associare e fare clic su **Edit hub assignment** (Modifica assegnazione dell'hub).
-4. Dall'elenco a discesa selezionare uno o più hub a cui si vuole associare la configurazione.
-5. Fare clic su **Assegna**. 
-6. Il completamento dell'operazione potrà richiedere fino a 30 minuti.
+1. Nella pagina della rete WAN virtuale fare clic su **Hub**.
+2. Selezionare l'hub al quale assegnare la configurazione da punto a sito.
+3. Fare clic su **"..."** e selezionare **Modifica hub virtuale**.
+4. Selezionare **Includi gateway da punto a sito**.
+5. Selezionare le opzioni **Unità di scala gateway** e **Configurazione da punto a sito** unitamente a un **pool di indirizzi** per i client.
+6. Fare clic su **Conferma**. 
+7. Il completamento dell'operazione può richiedere fino a 30 minuti.
 
 ## <a name="vnet"></a>6. Connettere la rete virtuale a un hub
 
@@ -135,9 +136,10 @@ In questo passaggio si crea la connessione di peering tra l'hub e una rete virtu
 
 Usare il profilo VPN per configurare i client.
 
-1. Nella pagina della rete WAN virtuale fare clic su **Point-to-site configurations** (Configurazioni da punto a sito).
-2. Nella parte superiore della pagina fare clic su **Download point-to-site profile** (Scarica profilo da punto a sito). 
-3. Al termine della creazione del file è possibile fare clic sul collegamento per scaricarlo.
+1. Nella pagina della rete WAN virtuale fare clic su **Hub**.
+2. Selezionare l'hub per il quale scaricare il profilo.
+3. Fare clic su **"..."** e selezionare **Scarica il profilo**. 
+4. Al termine della creazione del file è possibile fare clic sul collegamento per scaricarlo.
 4. Usare il file del profilo per configurare i client da punto a sito.
 
 ## <a name="device"></a>8. Configurare i client da punto a sito
@@ -207,7 +209,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Creare una rete WAN

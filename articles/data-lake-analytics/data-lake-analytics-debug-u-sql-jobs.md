@@ -5,23 +5,22 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanancai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: d8926f0defdfcc0e045ae87de6fd82755a5a35eb
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736848"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229476"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Eseguire il debug del codice C# definito dall'utente per i processi U-SQL non riusciti
 
 U-SQL fornisce un modello di estendibilità che usa C#. Negli script U-SQL è possibile chiamare facilmente le funzioni C# ed eseguire funzioni di analisi non supportate dal linguaggio dichiarativo simile a SQL. Per altre informazioni sull'estendibilità di U-SQL, vedere [Guida alla programmabilità di U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
-In pratica, qualsiasi codice può richiedere il debug, ma è difficile eseguire il debug di un processo distribuito con il codice personalizzato nel cloud con file di log limitati. [Strumenti Azure Data Lake per Visual Studio](http://aka.ms/adltoolsvs) include una funzionalità denominata **debug del vertice con errore**, che consente di eseguire più facilmente il debug degli errori che si verificano nel codice personalizzato. Quando il processo U-SQL non riesce, il servizio mantiene lo stato di errore e lo strumento consente di scaricare l'ambiente dell'errore cloud nel computer locale per il debug. Il download locale acquisisce tutto l'ambiente cloud, inclusi eventuali dati di input e il codice utente.
+In pratica, qualsiasi codice può richiedere il debug, ma è difficile eseguire il debug di un processo distribuito con il codice personalizzato nel cloud con file di log limitati. [Strumenti Azure Data Lake per Visual Studio](https://aka.ms/adltoolsvs) include una funzionalità denominata **debug del vertice con errore**, che consente di eseguire più facilmente il debug degli errori che si verificano nel codice personalizzato. Quando il processo U-SQL non riesce, il servizio mantiene lo stato di errore e lo strumento consente di scaricare l'ambiente dell'errore cloud nel computer locale per il debug. Il download locale acquisisce tutto l'ambiente cloud, inclusi eventuali dati di input e il codice utente.
 
 Nel video seguente viene illustrata la funzione Debug del vertice con errore in Strumenti Azure Data Lake per Visual Studio.
 

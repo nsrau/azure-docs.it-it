@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 775d0701f9eeaf7d26a83b814711bea630efb2a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ca8e1081b514d5569c84a6364d55e8f49bee533
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973763"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239000"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Riconoscimento di entità biomediche con un modello di Team Data Science Process (TDSP)
 
@@ -64,7 +64,7 @@ La figura seguente mostra l'architettura usata per elaborare i dati ed eseguire 
 ## <a name="data-description"></a>Descrizione dei dati
 
 ### <a name="1-word2vec-model-training-data"></a>1. Dati di training del modello Word2Vec
-Prima di tutto sono stati scaricati i dati non elaborati dei riassunti di MEDLINE da [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). I dati sono disponibili pubblicamente sotto forma di file XML nel relativo [server FTP](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline). Nel server sono disponibili 892 file XLM, ognuno dei quali contiene le informazioni di 30.000 articoli. Altri dettagli riguardo al passaggio di raccolta dati vengono forniti nella sezione Struttura del progetto. I campi presenti in ogni file sono 
+Prima di tutto sono stati scaricati i dati non elaborati dei riassunti di MEDLINE da [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). I dati sono disponibili pubblicamente sotto forma di file XML nel rispettivo [server FTP](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline). Nel server sono disponibili 892 file XLM, ognuno dei quali contiene le informazioni di 30.000 articoli. Altri dettagli riguardo al passaggio di raccolta dati vengono forniti nella sezione Struttura del progetto. I campi presenti in ogni file sono 
         
         abstract
         affiliation

@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: f8011fb3e7e1c5267f259a43f06d605690ffd281
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 31784c44d7561c690278aa4764e98992fbca73ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606155"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230785"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
-Questo articolo illustra come ripristinare i backup dello stato del sistema di Windows Server da un insieme di credenziali di Servizi di ripristino di Azure. Per ripristinare lo stato del sistema, è necessario avere un backup dello stato del sistema, creato usando le istruzioni disponibili in [Eseguire il backup dello stato del sistema](backup-azure-system-state.md#back-up-windows-server-system-state), e assicurarsi di avere installato la [versione più recente dell'agente dei Servizi di ripristino di Microsoft Azure](http://aka.ms/azurebackup_agent). Il ripristino dei dati dello stato del sistema di Windows Server da un insieme di credenziali di Servizi di ripristino di Azure è un processo in due passaggi:
+Questo articolo illustra come ripristinare i backup dello stato del sistema di Windows Server da un insieme di credenziali di Servizi di ripristino di Azure. Per ripristinare lo stato del sistema, è necessario avere un backup dello stato del sistema, creato usando le istruzioni disponibili in [Eseguire il backup dello stato del sistema](backup-azure-system-state.md#back-up-windows-server-system-state), e assicurarsi di avere installato la [versione più recente dell'agente dei Servizi di ripristino di Microsoft Azure](https://aka.ms/azurebackup_agent). Il ripristino dei dati dello stato del sistema di Windows Server da un insieme di credenziali di Servizi di ripristino di Azure è un processo in due passaggi:
 
 1. Ripristinare lo stato del sistema sotto forma di file da Backup di Azure. Quando si ripristina lo stato del sistema sotto forma di file da Backup di Azure, è possibile eseguire una di queste operazioni:
   * Ripristinare lo stato del sistema nello stesso server in cui è stato creato il backup.

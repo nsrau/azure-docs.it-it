@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a70bb09edb5ccaf4e216785933af80e2fcb2153a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 924fea7a8a8e6fb1ab25584a49f38b25156d1ec6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363607"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230513"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Esercitazione: Creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con Azure PowerShell
 Quando si crea un set di scalabilità, si specifica un'immagine da usare quando vengono distribuite le istanze di macchina virtuale. Per ridurre il numero di attività dopo la distribuzione delle istanze di macchina virtuale, è possibile usare un'immagine di VM personalizzata. Questa immagine di VM personalizzata include le installazioni o le configurazioni delle applicazioni necessarie. Le istanze di macchina virtuale create nel set di scalabilità usano l'immagine di VM personalizzata e sono pronte per gestire il traffico delle applicazioni. In questa esercitazione si apprenderà come:
@@ -76,7 +76,7 @@ Per personalizzare la macchina virtuale, verrà installato un server Web di base
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Il passaggio finale per preparare la macchina virtuale e poterla usare come immagine personalizzata consiste nel generalizzarla. Sysprep rimuove tutte le informazioni e le configurazioni dell'account personale e reimposta lo stato originario della macchina virtuale per le distribuzioni future. Per altre informazioni, vedere [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx) (Introduzione all'uso di Sysprep).
+Il passaggio finale per preparare la macchina virtuale e poterla usare come immagine personalizzata consiste nel generalizzarla. Sysprep rimuove tutte le informazioni e le configurazioni dell'account personale e reimposta lo stato originario della macchina virtuale per le distribuzioni future. Per altre informazioni, vedere [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Introduzione all'uso di Sysprep).
 
 Per generalizzare la macchina virtuale, eseguire Sysprep e impostare la macchina virtuale per un'esperienza integrata. Al termine, indicare a Sysprep di arrestare la macchina virtuale:
 

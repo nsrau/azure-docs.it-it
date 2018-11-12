@@ -2,19 +2,19 @@
 title: Usare l'azione script per installare Solr in cluster Hadoop
 description: Informazioni su come personalizzare cluster HDInsight con Solr tramite le azioni script.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: d9c2742081ec83a52f7029814acd7b04a2f0fdb7
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 6a3f9928fa685c36a0495ba5d423c3be7bff2bea
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595665"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009165"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Installare e usare Solr nei cluster HDInsight basati su Windows
 
@@ -167,7 +167,7 @@ Lo script di esempio usato in questo argomento crea un cluster Solr basato su Wi
    Questo comando copia lo snapshot in /example/data/ nel contenitore disponibile nell'account di archiviazione predefinito associato al cluster.
 
 ## <a name="install-solr-using-aure-powershell"></a>Installare Solr tramite Aure PowerShell
-Vedere [Personalizzare cluster HDInsight usando l'azione script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  L'esempio illustra come installare Spark tramite Azure PowerShell. È necessario personalizzare lo script in modo da usare [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Vedere [Personalizzare cluster HDInsight mediante Script azione](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  L'esempio illustra come installare Spark tramite Azure PowerShell. È necessario personalizzare lo script in modo da usare [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="install-solr-using-net-sdk"></a>Installare Solr tramite .NET SDK
 Vedere [Personalizzare cluster HDInsight usando l'azione script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). L'esempio illustra come installare Spark tramite .NET SDK. È necessario personalizzare lo script in modo da usare [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).

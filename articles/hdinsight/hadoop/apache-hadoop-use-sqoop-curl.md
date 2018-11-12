@@ -2,19 +2,19 @@
 title: Usare Sqoop di Hadoop con Curl in HDInsight - Azure
 description: Informazioni su come inviare in modalità remota processi Sqoop a HDInsight mediante Curl.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 2c6376772aedbe097d737d97c673447adb12bed3
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: hrasheed
+ms.openlocfilehash: fd05ee18ccad7e689f9679df2bbf80dc19e39368
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598987"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010440"
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Esecuzione di processi Sqoop con Hadoop in HDInsight mediante Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]

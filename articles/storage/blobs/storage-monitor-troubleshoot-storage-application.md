@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ff4d39a69df90c31186153c077b1b6183a08dd34
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397216"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259990"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud
 
@@ -83,7 +83,7 @@ L'immagine seguente è un avviso di esempio che si basa sull'errore simulato ese
 
 I log di archiviazione archiviano i dati in un set di BLOB in un contenitore BLOB denominato **$logs** nell'account di archiviazione. Questo contenitore non mostra se si elencano tutti i contenitori BLOB nell'account, ma è possibile visualizzarne il contenuto se vi si accede direttamente.
 
-In questo scenario usare [Analizzatore messaggi di Microsoft](http://technet.microsoft.com/library/jj649776.aspx) per interagire con l'account di archiviazione di Azure.
+In questo scenario usare [Analizzatore messaggi di Microsoft](https://technet.microsoft.com/library/jj649776.aspx) per interagire con l'account di archiviazione di Azure.
 
 ### <a name="download-microsoft-message-analyzer"></a>Scaricare Analizzatore messaggi di Microsoft
 

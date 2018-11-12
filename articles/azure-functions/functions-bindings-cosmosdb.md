@@ -3,26 +3,26 @@ title: Associazioni di Azure Cosmos DB per Funzioni 1.x
 description: Informazioni su come usare trigger e associazioni di Azure Cosmos DB in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: 281d74b6836516e03771d82c96fab628eac12f1a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: cshoe
+ms.openlocfilehash: 6f3b568fb23de51990f96a86cdc2b1814afe4530
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395832"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249917"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 1.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [Versione 1 - Disponibilità generale](functions-bindings-cosmosdb.md)
-> * [Versione 2 - Anteprima](functions-bindings-cosmosdb-v2.md)
+> * [Versione 1](functions-bindings-cosmosdb.md)
+> * [Versione 2](functions-bindings-cosmosdb-v2.md)
 
 Questo articolo descrive come usare le associazioni di [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) in Funzioni di Azure. Funzioni di Azure supporta i trigger e le associazioni di input e output per Azure Cosmos DB.
 
@@ -33,9 +33,8 @@ Questo articolo descrive come usare le associazioni di [Azure Cosmos DB](..\cosm
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="supported-apis"></a>API supportate
-
-[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+> [!NOTE]
+> Le associazioni di Azure Cosmos DB sono supportate solo per l'uso con l'API SQL. Per tutte le altre API di Azure Cosmos DB è necessario accedere al database dalla funzione usando il client statico per l'API, incluse l'[API MongoDB](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), l'[API Cassandra](../cosmos-db/cassandra-introduction.md), l'[API Gremlin](../cosmos-db/graph-introduction.md) e l'[API Tabella](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Pacchetti: Funzioni 1.x
 
@@ -123,8 +122,8 @@ Ecco il codice script C#:
 
     public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
     {
-      log.Verbose("Documents modified " + documents.Count);
-      log.Verbose("First document Id " + documents[0].Id);
+      log.Info("Documents modified " + documents.Count);
+      log.Info("First document Id " + documents[0].Id);
     }
 ```
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: ca93d97c3e0ddab0377ef437a04e7e3e31197b97
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166373"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231398"
 ---
 # <a name="split-merge-security-configuration"></a>Configurazione della sicurezza del servizio di divisione e unione
 Per usare il servizio di "split and merge", è necessario configurare correttamente le impostazioni sulla sicurezza. Il servizio rientra nella funzionalità Scalabilità elastica di database SQL di Microsoft Azur. Per altre informazioni, vedere [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -29,21 +29,21 @@ I certificati vengono configurati in due modi.
 2. [Per configurare i certificati client](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Per ottenere i certificati
-È possibile ottenere i certificati da Autorità di certificazione (CA) pubbliche o dal [servizio certificati di Windows](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Questi sono i metodi consigliati per ottenere i certificati.
+È possibile ottenere i certificati da Autorità di certificazione (CA) pubbliche o dal [servizio certificati di Windows](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Questi sono i metodi consigliati per ottenere i certificati.
 
 Se tali opzioni non sono disponibili, è possibile generare **certificati autofirmati**.
 
 ## <a name="tools-to-generate-certificates"></a>Strumenti per generare i certificati
-* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Per eseguire gli strumenti
-* Da un Prompt dei comandi per gli sviluppatori per Visual Studio, vedere l'articolo relativo al [prompt dei comandi di Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) 
+* Da un Prompt dei comandi per gli sviluppatori per Visual Studio, vedere l'articolo relativo al [prompt dei comandi di Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     Se installato, passare a:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Ottenere il WDK da [Windows 8.1: download di kit e strumenti](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Ottenere il WDK da [Windows 8.1: download di kit e strumenti](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Per configurare il certificato SSL
 Un certificato SSL è necessario per crittografare la comunicazione e autenticare il server. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:

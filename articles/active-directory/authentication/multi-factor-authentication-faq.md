@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b6f1185a94f865578d9a6514fb6841f8811b2230
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 58992c80344902674b2b21a71b07925c752911a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139967"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230945"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
@@ -145,7 +145,7 @@ Se l'organizzazione non ha client legacy, non è consigliabile consentire agli u
 
 Il recapito degli SMS e la ricezione di risposte SMS bidirezionale non sono garantiti in quanto sussistono fattori non controllabili che possono influire sull'affidabilità del servizio. Questi fattori includono il paese di destinazione, il gestore di telefonia mobile e la qualità del segnale.
 
-Se agli utenti capita spesso di non ricevere in modo affidabile gli SMS, suggerire loro di usare il metodo dell'app per dispositivi mobili o della chiamata telefonica. L'app per dispositivi mobili può ricevere notifiche sia su rete cellulare che Wi-Fi. L'app per dispositivi mobili può generare codici di verifica anche in caso di totale assenza di segnale. L'app Microsoft Authenticator è disponibile per [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+Se agli utenti capita spesso di non ricevere in modo affidabile gli SMS, suggerire loro di usare il metodo dell'app per dispositivi mobili o della chiamata telefonica. L'app per dispositivi mobili può ricevere notifiche sia su rete cellulare che Wi-Fi. L'app per dispositivi mobili può generare codici di verifica anche in caso di totale assenza di segnale. L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) e [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
 Se è necessario usare gli SMS, è consigliabile usare SMS unidirezionali anziché bidirezionali, poiché sono più affidabili ed evitano all'utente costi globali per l'SMS, causati dalla risposta a un messaggio di testo inviato da un altro paese.
 

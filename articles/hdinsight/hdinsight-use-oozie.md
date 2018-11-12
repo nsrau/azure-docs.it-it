@@ -2,20 +2,20 @@
 title: Usare Oozie di Hadoop in HDInsight
 description: Usare Oozie di Hadoop in HDInsight, una servizio per Big Data. Informazioni su come definire un flusso di lavoro di Oozie e inviare un processo Oozie.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.reviewer: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3e3b3cbbfa8f79908b2ca1ae6a7389bb04034684
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ee9fabc89bdf694453f29fe6c929e26f80b0dc7a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598899"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008709"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]

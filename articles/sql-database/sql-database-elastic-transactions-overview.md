@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3147061f527621ba98dee84f4d347a6e883d61c0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 02cf72bf9fe06993ef859d1789983b7611c8472e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166470"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257470"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transazioni distribuite in database cloud
 Le transazioni di database elastico per il database SQL di Azure consentono di eseguire transazioni estese a più database nel database SQL. Le transazioni di database elastico per il database SQL sono disponibili per le applicazioni .NET tramite ADO .NET e si integrano con la familiare esperienza di programmazione usando le classi [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Per ottenere la libreria, vedere [Microsoft .NET Framework 4.6.1 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -143,7 +143,7 @@ Per le transazioni di database elastico nel database SQL si applicano attualment
 * Le transazioni tra i servizi WCF non sono supportate. Ad esempio, si dispone di un metodo del servizio WCF che esegue una transazione. Se si racchiude la chiamata all'interno di un ambito della transazione, essa avrà esito negativo come eccezione [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se ci sono domande, è possibile visitare il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum relativo a commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Se ci sono domande, è possibile visitare il [forum sul database SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum relativo a commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

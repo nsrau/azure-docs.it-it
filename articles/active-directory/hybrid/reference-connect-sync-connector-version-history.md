@@ -1,5 +1,5 @@
 ---
-title: Cronologia del rilascio delle versioni dei connettori | Microsoft Docs
+title: Cronologia del rilascio delle versioni dei connettori | Documentazione Microsoft
 description: Questo argomento include l'elenco di tutte le versioni dei connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/22/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cbafe7fcdf2ccd515dfec5554c93bec9c7f3537a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4e8e6a6bbe5ece856c1524ca4c2fc46f0cb9137e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243164"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231040"
 ---
 # <a name="connector-version-release-history"></a>Cronologia di rilascio delle versioni dei connettori
 I connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM) vengono aggiornati frequentemente.
@@ -33,7 +33,7 @@ L'argomento include l'elenco di tutte le versioni dei connettori rilasciate.
 
 Collegamenti correlati:
 
-* [Scaricare i connettori più recenti](http://go.microsoft.com/fwlink/?LinkId=717495)
+* [Scaricare i connettori più recenti](https://go.microsoft.com/fwlink/?LinkId=717495)
 * [connettore LDAP generico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap)
 * [connettore SQL generico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)
 * [connettore per Servizi Web](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws)

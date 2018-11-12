@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 031c609ee5dcd04fc461af74b7f49973fbd290c3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dab1547ca17acaeda3cb168d78b342661ebe4615
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157620"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230479"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Amministrare un dominio gestito di Servizi di dominio Azure Active Directory
 Questo articolo illustra come amministrare un dominio gestito di Servizi di dominio Azure Active Directory (AD).
@@ -63,7 +63,7 @@ Il primo passaggio consiste nella configurazione di una macchina virtuale Window
 ### <a name="remotely-administer-the-managed-domain-from-a-client-computer-for-example-windows-10"></a>Amministrare in remoto il dominio gestito da un computer client, ad esempio Windows 10
 Le istruzioni in questo articolo usano una macchina virtuale Windows Server per amministrare il dominio gestito da Servizi di dominio Azure AD. A questo scopo è tuttavia anche possibile scegliere di usare una macchina virtuale client di Windows, ad esempio Windows 10.
 
-È possibile [installare gli Strumenti di amministrazione remota del server](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) in una macchina virtuale client Windows seguendo le istruzioni in TechNet.
+È possibile [installare gli Strumenti di amministrazione remota del server](https://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) in una macchina virtuale client Windows seguendo le istruzioni in TechNet.
 
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Attività 2: Installare gli strumenti di amministrazione di Active Directory nella macchina virtuale
 Seguire questa procedura per installare gli strumenti di amministrazione di Active Directory nella macchina virtuale aggiunta al dominio. Per altre [informazioni sull'installazione e l'utilizzo degli strumenti di amministrazione remota del server](https://technet.microsoft.com/library/hh831501.aspx), vedere Technet.

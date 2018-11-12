@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 54a335cf1386ab29c0e0214bccf1f53a076da02b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783511"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230921"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentare app Web in fase di esecuzione con Application Insights
 
@@ -57,7 +57,7 @@ Se l'applicazione è in esecuzione come servizio Web di Azure, ecco come attivar
 
     ![Fare clic sulle opzioni disponibili fino ad Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
-[Monitoraggio di app cloud e VM](app-insights-azure.md).
+[Monitoraggio di app cloud e VM](app-insights-overview.md).
 
 ### <a name="enable-client-side-monitoring-in-azure"></a>Abilitare il monitoraggio lato client in Azure
 
@@ -78,7 +78,7 @@ Application Insights JavaScript SDK è ora incluso in ogni pagina Web.
 Se l'app è ospitata in un server IIS, abilitare Application Insights usando Status Monitor.
 
 1. Nel server Web IIS accedere con le credenziali di amministratore.
-2. Se Application Insights Status Monitor non è già installato, scaricare ed eseguire il [programma di installazione di Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) oppure eseguire l'[Installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx) e cercarvi Application Insights Status Monitor.
+2. Se Application Insights Status Monitor non è già installato, scaricare ed eseguire il [programma di installazione di Status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648) oppure eseguire l'[Installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx) e cercarvi Application Insights Status Monitor.
 3. In Status Monitor selezionare l'applicazione Web installata o il sito Web da monitorare. Accedere con le credenziali di Azure.
 
     Configurare la risorsa in cui si vogliono visualizzare i risultati nel portale di Application Insights. È in genere consigliabile creare una nuova risorsa. Selezionare una risorsa esistente se sono già disponibili [test Web][availability] o il [monitoraggio del client][client] per questa app. 

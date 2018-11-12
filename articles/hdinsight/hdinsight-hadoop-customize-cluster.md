@@ -2,19 +2,19 @@
 title: Personalizzare i cluster HDInsight con azioni script - Azure
 description: Informazioni su come personalizzare cluster HDInsight mediante Azione di script.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/05/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0f49284782ab5ab17476f37ae5ae40a753ee107b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8923dcb4c35bbf90a6f68bd296bb9a862c5ff07d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597416"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230802"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personalizzare cluster HDInsight basati su Windows tramite Azione script
 **Azione script** può essere utilizzato per richiamare [gli script personalizzati](hdinsight-hadoop-script-actions.md) durante il processo di creazione di cluster per l'installazione del software aggiuntivo in un cluster.
@@ -279,7 +279,7 @@ L'esempio seguente dimostra come installare Spark nel cluster HDInsight basato s
 5. Premere **F5** per eseguire l'applicazione.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Supporto per software open source usato nei cluster HDInsight
-Il servizio Microsoft Azure HDInsight è una piattaforma flessibile che permette di creare applicazioni Big Data nel cloud usando un ecosistema di tecnologie open source basate su Hadoop. Microsoft Azure fornisce un livello di supporto generale per le tecnologie open source, come illustrato nella sezione relativa all' **ambito del supporto** del <a href="http://azure.microsoft.com/support/faq/" target="_blank">sito Web Domande frequenti sul supporto di Azure</a>. Il servizio HDInsight fornisce un livello di supporto aggiuntivo per alcuni componenti, come illustrato di seguito.
+Il servizio Microsoft Azure HDInsight è una piattaforma flessibile che permette di creare applicazioni Big Data nel cloud usando un ecosistema di tecnologie open source basate su Hadoop. Microsoft Azure fornisce un livello di supporto generale per le tecnologie open source, come illustrato nella sezione relativa all' **ambito del supporto** del <a href="https://azure.microsoft.com/support/faq/" target="_blank">sito Web Domande frequenti sul supporto di Azure</a>. Il servizio HDInsight fornisce un livello di supporto aggiuntivo per alcuni componenti, come illustrato di seguito.
 
 Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
