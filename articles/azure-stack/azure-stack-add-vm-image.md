@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022765"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036598"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Adottare un'immagine di macchina virtuale disponibili in Azure Stack
 
@@ -30,7 +30,7 @@ In Azure Stack, è possibile rendere disponibili immagini di macchine virtuali a
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Aggiungere un'immagine di macchina virtuale tramite il portale
 
-> [!NOTE]
+> [!NOTE]  
 > Con questo metodo, è necessario creare separatamente l'elemento del Marketplace.
 
 Le immagini devono essere in grado di farvi riferimento da un URI di archiviazione blob. Preparare un'immagine del sistema operativo Windows o Linux in formato VHD (non VHDX) e quindi caricare l'immagine in un account di archiviazione in Azure o Azure Stack. Se l'immagine è già stato caricato nell'archiviazione blob di Azure o Azure Stack, è possibile ignorare il passaggio 1.
@@ -39,7 +39,7 @@ Le immagini devono essere in grado di farvi riferimento da un URI di archiviazio
 
    - Azure Stack solo supporta la generazione di uno (1) della macchina virtuale nel disco fisso VHD formato. Il formato fisso strutture del disco logico in modo lineare all'interno del file, in modo che l'offset del disco X venga archiviato in corrispondenza dell'offset di blob X. Un piccolo piè di pagina alla fine del blob vengono descritte le proprietà del file VHD. Per verificare se il disco è fissa, usare il [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando di PowerShell.  
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     >  Azure Stack non supporta i VHD dei dischi dinamici. Ridimensionamento di un disco dinamico collegato a una macchina virtuale lascia la macchina virtuale in stato di errore. Per attenuare questo problema, eliminare la macchina virtuale senza eliminare il disco della VM, un blob di disco rigido virtuale in un account di archiviazione. Converti il disco rigido virtuale da un disco dinamico a un disco a dimensione fissa e a ricreare la macchina virtuale.
 
    * È più efficiente per caricare un immagine su archiviazione blob di Azure Stack rispetto ad Azure nell'archivio blob perché richiede meno tempo per effettuare il push dell'immagine nel repository di immagini di Azure Stack.
@@ -75,7 +75,7 @@ Le immagini devono essere in grado di farvi riferimento da un URI di archiviazio
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>Aggiungere un'immagine di VM in Marketplace usando PowerShell
 
 > [!Note]  
-> Quando si aggiunge un'immagine sarà disponibile solo per Gestione risorse di Azure basato su modelli e le distribuzioni di PowerShell. Per rendere disponibili per un'immagine un gli utenti come un elemento del marketplace, pubblicare l'elemento del marketplace seguendo i passaggi descritti nell'articolo, [creare e pubblicare un elemento del Marketplace](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
+> Quando si aggiunge un'immagine sarà disponibile solo per Gestione risorse di Azure basato su modelli e le distribuzioni di PowerShell. Per rendere disponibili per un'immagine un gli utenti come un elemento del marketplace, pubblicare l'elemento del marketplace seguendo i passaggi descritti nell'articolo, [creare e pubblicare un elemento del Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
 
 1. [Installare PowerShell per Azure Stack](azure-stack-powershell-install.md).  
 

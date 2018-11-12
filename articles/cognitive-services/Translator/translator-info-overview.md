@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: erhopf
-ms.openlocfilehash: 6d47c4dc2ec3f58eca336211486112b9cdf993aa
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9d1c5fac9e305e397e0184653e6d8965f9098ee3
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156358"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037448"
 ---
 # <a name="what-is-translator-text-api"></a>Informazioni sull'API Traduzione testuale
 
@@ -31,7 +31,7 @@ Traduzione vocale, basato sull'API Traduzione testuale, è disponibile anche tra
 
 ## <a name="language-support"></a>Supporto per le lingue
 
-Microsoft Translator fornisce supporto multilingue per la traduzione, la traslitterazione, il rilevamento delle lingue e i dizionari. Per un elenco completo, vedere il [supporto per le lingue](language-support.md) o accedere all'elenco a livello di codice con l'[API REST](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-languages).  
+Microsoft Translator fornisce supporto multilingue per la traduzione, la traslitterazione, il rilevamento delle lingue e i dizionari. Per un elenco completo, vedere il [supporto per le lingue](language-support.md) o accedere all'elenco a livello di codice con l'[API REST](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
 
 ## <a name="language-customization"></a>Personalizzazione della lingua
 
