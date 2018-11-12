@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90a5be07b6939df1850bb1574c71254bb896f004
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6d981d9dc7433d957819d0beb6aa6265882f1890
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093830"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037397"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -35,7 +35,7 @@ Il diagramma seguente offre una visualizzazione concettuale del comportamento e 
 
 ![Flusso del processo di Gestione aggiornamenti](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Gestione aggiornamenti può essere usato per l'onboarding nativo di computer in più sottoscrizioni nello stesso tenant. Per gestire i computer in un tenant diverso, è necessario eseguire l'onboarding come [computer non di Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+Gestione aggiornamenti può essere usato per l'onboarding nativo di computer in più sottoscrizioni nello stesso tenant.
 
 Per i computer Linux, la visualizzazione della patch per la valutazione dopo il rilascio di una CVE richiede 2-3 ore.  Per i computer Windows, la visualizzazione della patch per la valutazione dopo il rilascio richiede 12-15 ore.
 

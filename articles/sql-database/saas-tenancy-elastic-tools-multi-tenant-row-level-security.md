@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242909"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242569"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 
@@ -41,7 +41,7 @@ L'obiettivo consiste nell'usare le API di [routing dipendente dai dati](sql-data
 
 - Utilizzare Visual Studio (2012 o versione successiva)
 - Creare tre database SQL di Azure
-- Scaricare il progetto di esempio: [Strumenti di database elastici per SQL di Azure - Partizioni multi-tenant](https://go.microsoft.com/?linkid=9888163)
+- Scaricare il progetto di esempio: [Strumenti di database elastici per SQL di Azure - Partizioni multi-tenant](http://go.microsoft.com/?linkid=9888163)
   - Immettere le informazioni per i database all'inizio di **Program.cs** 
 
 Questo progetto estende quello descritto in [Strumenti di database elastici per SQL di Azure - Integrazione di Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) aggiungendo il supporto per i database di partizionamento multi-tenant. Viene compilata una semplice applicazione console per la creazione di blog e post, con quattro tenant e due database di partizionamento multi-tenant. Questa configurazione è illustrata nel diagramma precedente. 
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> In un progetto complesso in cui potrebbe essere necessario aggiungere il predicato in centinaia di tabelle, questa operazione può essere noiosa. In questo caso, è disponibile una stored procedure helper che genera automaticamente criteri di sicurezza e aggiunge un predicato in tutte le tabelle di uno schema. Per altre informazioni, vedere il posto di blog relativo all'[applicazione della sicurezza a livello di riga a tutte le tabelle con lo script helper](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> In un progetto complesso in cui potrebbe essere necessario aggiungere il predicato in centinaia di tabelle, questa operazione può essere noiosa. In questo caso, è disponibile una stored procedure helper che genera automaticamente criteri di sicurezza e aggiunge un predicato in tutte le tabelle di uno schema. Per altre informazioni, vedere il posto di blog relativo all'[applicazione della sicurezza a livello di riga a tutte le tabelle con lo script helper](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
 Se si esegue di nuovo l'applicazione di esempio, ora i tenant potranno visualizzare unicamente le righe appartenenti ad essi. L'applicazione, inoltre, non può inserire righe che appartengono a tenant diversi da quello attualmente connesso al database di partizionamento e non può aggiornare il TenantId in alcuna delle righe visibili. Se l'app tenta di effettuare una qualsiasi di queste due operazioni, viene generata un'eccezione DbUpdateException.
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>Manutenzione 
 
 - **Aggiunta di nuove partizioni**: eseguire lo script T-SQL per abilitare RLS in tutte le nuove partizioni. In caso contrario, le query su tali partizioni non verranno filtrate.
-- **Aggiunta di nuove tabelle**: aggiungere un predicato di FILTRO e di BLOCCO ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Aggiunta di nuove tabelle**: aggiungere un predicato di FILTRO e di BLOCCO ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Summary
 
@@ -358,7 +358,7 @@ Gli strumenti di database elastici e la sicurezza a livello di riga possono esse
 
 ## <a name="questions-and-feature-requests"></a>Domande e richieste di funzionalità
 
-Per domande, è disponibile il [forum sul database SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Aggiungere una richiesta di funzionalità nel [forum dei commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Per domande, è disponibile il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Aggiungere una richiesta di funzionalità nel [forum dei commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 
 <!--Image references-->

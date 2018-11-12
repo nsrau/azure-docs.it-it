@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 0d3cbc83c5d2558d7eba3de897477814df81893c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1dd47dea86478c76ed5bf6f8b393964f97231908
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242433"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226958"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 
@@ -34,7 +34,7 @@ Questa esercitazione illustra i passaggi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](http://www.visualstudio.com/vs) o versioni successive.
+1. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
 2. Una sottoscrizione di Azure.
 

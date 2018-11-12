@@ -2,19 +2,19 @@
 title: Creare un cluster Hadoop con account di archiviazione con trasferimento sicuro in Azure HDInsight
 description: Informazioni su come creare cluster HDInsight con account di archiviazione di Azure con trasferimento sicuro abilitato.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: fd7f9095d7ac00de3ad031f08db49785863176a1
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7ae8a79ac04e1d5263e084d6be4b27f303bd5848
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918683"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006788"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Creare un cluster Hadoop con account di archiviazione con trasferimento sicuro in Azure HDInsight
 

@@ -2,20 +2,20 @@
 title: Apache Storm con componenti Python - Azure HDInsight
 description: Informazioni su come creare una topologia Apache Storm che usa componenti Python.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 keywords: apache storm python
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: jasonh
-ms.openlocfilehash: 8c26bfc85c70addebd5e68fad7769faa63e07bea
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.author: hrasheed
+ms.openlocfilehash: b46fa5eb9772a19a5613fc276071167d884f6057
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623018"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008760"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Sviluppare topologie Apache Storm con Python in HDInsight
 
