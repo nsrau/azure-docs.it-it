@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 21cd06692fe1c26cfa276d1f8ec7ace77b11d3c2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a53fe43365100c6d71fcc2b9e0944a221adf188d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979982"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249235"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Creare e modificare un circuito ExpressRoute tramite l'interfaccia della riga di comando
 
@@ -28,10 +28,10 @@ ms.locfileid: "46979982"
 Questo articolo descrive la procedura di creazione di un circuito di Azure ExpressRoute usando l'interfaccia della riga di comando. Questo articolo descrive anche come controllare lo stato, eseguire l'aggiornamento o effettuare l'eliminazione e il deprovisioning di un circuito. Se si vuole usare un metodo diverso per operare con circuiti ExpressRoute, è possibile selezionare l'articolo appropriato nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
-> * [Video - Portale di Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
 > 
 

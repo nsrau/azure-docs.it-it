@@ -19,7 +19,7 @@ Verrà visualizzato il tipo di informazioni seguente:
     PSRemotingProtocolVersion      2.2
 
 
-Verificare che il valore di **PSVersion** sia 3.0 o 4.0. In caso contrario, vedere [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Verificare che il valore di **PSVersion** sia 3.0 o 4.0. In caso contrario, vedere [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 ### <a name="set-your-azure-account-and-subscription"></a>Impostare l'account e la sottoscrizione di Azure
 Se non si ha già una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).

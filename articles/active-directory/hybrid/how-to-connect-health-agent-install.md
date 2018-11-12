@@ -3,7 +3,7 @@ title: Installazione dell'agente di Azure AD Connect Health | Documentazione Mic
 description: Si tratta della pagina di Azure AD Connect Health che descrive l'installazione dell'agente per ADFS e la sincronizzazione.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c57e6d3e35994bea99e15f37ed0fb6aa2d108f74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb3ecff394aa8f2f80c61499e848d7d63806b37d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303928"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279773"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installazione dell'agente di Azure AD Connect Health
 Questo documento illustra le procedure per installare e configurare l'agente di Azure AD Connect Health. Gli agenti sono disponibili per il download in [questa pagina](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
@@ -37,7 +37,7 @@ La tabella seguente è un elenco di requisiti per l'uso di Azure AD Connect Heal
 | L'analisi SSL per il traffico in uscita è filtrata o disabilitata | Il passaggio di registrazione dell'agente o le operazioni di caricamento dei dati possono avere esito negativo in caso di analisi SSL o di interruzione per il traffico in uscita a livello di rete. Vedere altre informazioni sulla [configurazione dell'ispezione SSL](https://technet.microsoft.com/library/ee796230.aspx) |
 | Porte del firewall nel server che esegue l'agente |Per consentire la comunicazione dell'agente con gli endpoint di servizio Azure AD Connect Health è necessario che le porte del firewall seguenti siano aperte.</br></br><li>Porta TCP 443</li><li>Porta TCP 5671</li> </br>Vedere altre informazioni sull'[abilitazione delle porte del firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE |Se la funzionalità Sicurezza avanzata di Internet Explorer è abilitata, nel server in cui verrà installato l'agente devono essere consentiti i siti Web seguenti.</br></br><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Server federativo dell'organizzazione considerato attendibile da Azure Active Directory. Ad esempio: https:\//sts.contoso.com</li> Vedere altre informazioni sulla [configurazione di IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
-| Assicurarsi che sia installato PowerShell v4.0 o versione successiva | <li>Windows Server 2008 R2 include PowerShell v2.0, che non è sufficiente per l'agente.  Aggiornare PowerShell come illustrato di seguito in [Installazione dell'agente in server Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 include PowerShell v3.0, che non è sufficiente per l'agente.  [Aggiornare](http://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework.</li><li>Windows Server 2012 R2 e versioni successive includono una versione sufficientemente recente di PowerShell.</li>|
+| Assicurarsi che sia installato PowerShell v4.0 o versione successiva | <li>Windows Server 2008 R2 include PowerShell v2.0, che non è sufficiente per l'agente.  Aggiornare PowerShell come illustrato di seguito in [Installazione dell'agente in server Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 include PowerShell v3.0, che non è sufficiente per l'agente.  [Aggiornare](https://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework.</li><li>Windows Server 2012 R2 e versioni successive includono una versione sufficientemente recente di PowerShell.</li>|
 |Disabilitare FIPS|La funzionalità FIPS non è supportata dagli agenti di Azure AD Connect Health.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Connettività in uscita agli endpoint di servizio di Azure
@@ -53,12 +53,12 @@ La tabella seguente è un elenco di requisiti per l'uso di Azure AD Connect Heal
 ## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>Scaricare e installare l'agente di Azure AD Connect Health
 * Verificare che siano [soddisfatti i requisiti](how-to-connect-health-agent-install.md#requirements) per Azure AD Connect Health.
 * Introduzione ad Azure AD Connect Health per AD FS
-    * [Scaricare l'agente di Azure AD Connect Health per AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Scaricare l'agente di Azure AD Connect Health per AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [Vedere le istruzioni per l'installazione](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Introduzione ad Azure AD Connect Health per la sincronizzazione
-    * [Scaricare e installare la versione più recente di Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). L'agente di integrità per la sincronizzazione verrà installato come parte dell'installazione di Azure AD Connect (versione 1.0.9125.0 o versione successiva).
+    * [Scaricare e installare la versione più recente di Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). L'agente di integrità per la sincronizzazione verrà installato come parte dell'installazione di Azure AD Connect (versione 1.0.9125.0 o versione successiva).
 * Introduzione ad Azure AD Connect Health per Active Directory Domain Services
-    * [Scaricare l'agente di Azure AD Connect Health per Active Directory Domain Services](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Scaricare l'agente di Azure AD Connect Health per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [Vedere le istruzioni per l'installazione](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Installare l'agente di Azure AD Connect Health per AD FS
@@ -105,7 +105,7 @@ Procedura per server Windows Server 2008 R2:
    * Installare PowerShell ISE (da Funzionalità Windows)
    * Installare [Windows Management Framework 4.0.](https://www.microsoft.com/download/details.aspx?id=40855)
    * Installare Internet Explorer versione 10 o successiva nel server. Questa operazione è necessaria perché il Servizio integrità possa eseguire l'autenticazione usando le credenziali di amministratore di Azure.
-4. Per altre informazioni sull'installazione di Windows PowerShell 4.0 in Windows Server 2008 R2, vedere l'articolo wiki [qui](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
+4. Per altre informazioni sull'installazione di Windows PowerShell 4.0 in Windows Server 2008 R2, vedere l'articolo wiki [qui](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 
 ### <a name="enable-auditing-for-ad-fs"></a>Abilitare il controllo per AD FS
 > [!NOTE]
@@ -175,7 +175,7 @@ Si noti che il livello di controllo "di base" è abilitato per impostazione pred
 > Il server di sincronizzazione deve essere diverso dal server AD FS. Non installare l'agente di sincronizzazione nel server AD FS.
 >
 
-L'Agente di integrità di Azure AD Connect per la sincronizzazione è installato automaticamente nella build più recente di Azure AD Connect. Per usare Azure AD Connect Health per la sincronizzazione, è necessario scaricare la versione più recente di Azure AD Connect e installarla. È possibile scaricare la versione più recente [qui](http://www.microsoft.com/download/details.aspx?id=47594).
+L'Agente di integrità di Azure AD Connect per la sincronizzazione è installato automaticamente nella build più recente di Azure AD Connect. Per usare Azure AD Connect Health per la sincronizzazione, è necessario scaricare la versione più recente di Azure AD Connect e installarla. È possibile scaricare la versione più recente [qui](https://www.microsoft.com/download/details.aspx?id=47594).
 
 Per verificare che l'agente sia stato installato, cercare i servizi seguenti nel server. Questi servizi dovrebbero essere già in esecuzione se la configurazione è stata completata. In caso contrario, vengono arrestati fino al completamento della configurazione.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157939"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280674"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -66,7 +66,7 @@ La risorsa deve essere aggiunta solo nel file **mainTemplate.json** o **azuredep
 
 { // add this resource to the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
-    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
         "mode": "Incremental",
@@ -145,7 +145,7 @@ Tutte le registrazioni per i modelli GUID vengono eseguite tramite il portale Cl
 
 Dopo aver aggiunto il GUID per il modello o nell'agente utente e registrato il GUID nel CPP vengono tracciate tutte le distribuzioni. 
 
-1. Registrarsi ad [Azure Marketplace](http://aka.ms/listonazuremarketplace) e accedere al CPP.
+1. Registrarsi ad [Azure Marketplace](https://aka.ms/listonazuremarketplace) e accedere al CPP.
 
    * Ai partner è richiesto di [avere un profilo in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). Si consiglia di inserire l'offerta in Azure Marketplace o AppSource.
    * I partner possono registrare più GUID.

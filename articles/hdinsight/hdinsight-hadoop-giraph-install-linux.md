@@ -2,19 +2,19 @@
 title: Installare e usare Giraph in HDInsight (Hadoop) - Azure
 description: Informazioni su come installare Giraph nei cluster HDInsight basati su Linux utilizzando azioni di Script. Le azioni di script consentono di personalizzare il cluster durante la creazione, modificando la configurazione del cluster o installando servizi e utilità.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: f5d7a5587d47f7601f8dc3f65318a6b7d486f58e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 202a68d219bec3a70e50afa68228cbc6bf453518
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953294"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011664"
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installare Giraph nei cluster HDInsight Hadoop e usarlo per elaborare grafici su vasta scala
 
@@ -78,7 +78,7 @@ Questa sezione fornisce istruzioni su come usare lo script di esempio quando si 
 
    * **ZOOKEEPER**: lasciare questa voce deselezionata
 
-   * **PARAMETRI**: lasciare questo campo vuoto
+   * **PARAMETRI**: lasciare questo campo vuoto.
 
 3. Nella parte inferiore di **Azioni di script** usare il pulsante **Seleziona** per salvare la configurazione. Usare infine il pulsante **Seleziona** nella parte inferiore della sezione **Configurazione facoltativa** per salvare le informazioni relative alla configurazione facoltativa.
 

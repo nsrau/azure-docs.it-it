@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: afcda23faf4e9f0999442fa91d3c016e446c04db
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524543"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231364"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Progettazione di applicazioni a disponibilità elevata con RA-GRS
 
@@ -149,7 +149,7 @@ La soglia degli errori usata per determinare quando passare alla modalità di so
 
 Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativi nell'area primaria per determinare quando passare all'area secondaria e attivare la modalità di sola lettura per l'applicazione.
 
-*   Aggiungere un gestore per l'evento [**Retrying** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) nell'oggetto [ **OperationContext** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
+*   Aggiungere un gestore per l'evento [**Retrying** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) nell'oggetto [ **OperationContext** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) passato alle richieste di archiviazione: si tratta del metodo illustrato in questo articolo e usato nell'esempio di codice correlato. Questi eventi vengono attivati ogni volta che il client riprova una richiesta, consentendo così di determinare la frequenza con cui il client rileva errori non irreversibili in un endpoint primario.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -160,7 +160,7 @@ Sono disponibili tre opzioni principali per monitorare la frequenza dei tentativ
     };
     ```
 
-*   Nel metodo [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) in un criterio di tentativi personalizzato è possibile eseguire codice personalizzato ogni volta che viene eseguito un tentativo. Oltre a registrare l'esecuzione di un tentativo, il metodo consente di modificare il comportamento dei tentativi.
+*   Nel metodo [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) in un criterio di tentativi personalizzato è possibile eseguire codice personalizzato ogni volta che viene eseguito un tentativo. Oltre a registrare l'esecuzione di un tentativo, il metodo consente di modificare il comportamento dei tentativi.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 7c2cc4675bab07a0890b6ee4cf56abb588b8c0bf
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 45ddb31a20b830de29cf77231bb3acd6f8917601
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268226"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230904"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Risoluzione dei problemi di connessione SSH a una macchina virtuale Linux di Azure che ha esito negativo, genera errori o è stata rifiutata.
 Sono vari i motivi per cui possono verificarsi errori Secure Shell (SSH), la connessione SSH non riesce o viene rifiutata durante il tentativo di connessione a una macchina virtuale Linux. Questo articolo consente di individuare i problemi e correggerli. È possibile usare il portale di Azure, l'interfaccia della riga di comando Azure o l'estensione dell'accesso alle VM per Linux per risolvere i problemi di connessione.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](http://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al sito del [supporto di Azure](http://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](http://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="quick-troubleshooting-steps"></a>Passaggi rapidi per la risoluzione dei problemi
 Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la riconnessione alla VM.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3aad10c398aa4f009ab29f4684cc500b6fb428e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427587"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253721"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Archivio BLOB di Azure: livelli di archiviazione Premium (anteprima), ad accesso frequente, ad accesso sporadico e archivio
 
@@ -65,7 +65,7 @@ Durante l'anteprima, il livello di accesso Premium:
 - È disponibile solo nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti centrali e Stati Uniti occidentali
 - Non supporta la suddivisione automatica in livelli e la gestione del ciclo di vita dei dati
 
-Per informazioni su come registrarsi per l'anteprima del livello di accesso Premium, vedere [Introducing Azure Premium Blob Storage](http://aka.ms/premiumblob) (Presentazione dell'archiviazione BLOB Premium di Azure).
+Per informazioni su come registrarsi per l'anteprima del livello di accesso Premium, vedere [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob) (Presentazione dell'archiviazione BLOB Premium di Azure).
 
 ## <a name="hot-access-tier"></a>Livello di accesso frequente
 

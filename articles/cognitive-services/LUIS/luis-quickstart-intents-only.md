@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b229dbc90f3f6ecc226c88ee393114f233bcf1a2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc631f139e7f11d82f2caac83770754060353d07
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035408"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277716"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Esercitazione 1: creare un'app personalizzata per determinare le intenzioni dell'utente
 
@@ -25,7 +25,7 @@ Lo scopo dell'app è di determinare l'intenzione della conversazione di un testo
 
 Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non risponde alle espressioni dell'utente, si limita a identificare il tipo di informazione richiesta in linguaggio naturale. 
 
-**In questa esercitazione si apprenderà come:**
+**In questa esercitazione si imparerà come:**
 
 > [!div class="checklist"]
 > * Creare una nuova app 
@@ -71,7 +71,7 @@ Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non 
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Schermata di immissione di nuove espressioni per la finalità MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
 ## <a name="none-intent"></a>Finalità None 
@@ -156,11 +156,11 @@ Tornare al sito Web LUIS e creare una nuova finalità per determinare se l'espre
 
 ## <a name="train-again"></a>Eseguire nuovamente il training
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-again"></a>Pubblicare nuovamente
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="get-intent-again"></a>Ottenere nuovamente la finalità
 

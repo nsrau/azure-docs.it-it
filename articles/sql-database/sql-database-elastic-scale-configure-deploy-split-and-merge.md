@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 3aca6e29f7701a09fa54e778da180a0ead55deb2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 253a50f50e94888a5d764e51a4ff49cc0c1424c6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240733"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253534"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuire un servizio di divisione e unione per spostare i dati tra database partizionati
 
@@ -63,7 +63,7 @@ Per istruzioni dettagliate sulla configurazione della sicurezza del servizio, ve
 Ai fini di una semplice distribuzione di prova per questa esercitazione, verrà completata una serie minima di passaggi di configurazione per la messa in funzione del servizio. Questi passaggi abilitano unicamente il computer/l'account che li esegue alla comunicazione con il servizio.
 
 ### <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
-Creare una nuova directory e, da questa, eseguire il seguente comando usando una finestra del [prompt dei comandi per gli sviluppatori per Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) :
+Creare una nuova directory e, da questa, eseguire il seguente comando usando una finestra del [prompt dei comandi per gli sviluppatori per Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) :
 
    ```
     makecert ^

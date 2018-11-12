@@ -3,5 +3,5 @@ Non si è ancora provato Azure? [Creare un account Azure gratuito](https://azure
 
 Si usa già Azure? È possibile iniziare a usare il primo laboratorio in DevTest Labs.
 
-[![Iniziare a usare Azure DevTest Labs in pochi minuti](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
+[![Iniziare a usare Azure DevTest Labs in pochi minuti](./media/devtest-lab-try-it-out/get-started.png)](https://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 

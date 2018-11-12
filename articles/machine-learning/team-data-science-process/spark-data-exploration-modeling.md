@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: e6115abbb2cd122dfd35710b5232a308b48dfd71
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: f6f0393fa3c7a1c0851c18ebd4e48f2ef426f893
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394925"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248487"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Modellazione ed esplorazione dei dati con Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
-Questa procedura dettagliata usa HDInsight Spark per eseguire l'esplorazione dei dati e attività di classificazione binaria e modellazione basata sulla regressione su un campione del set di dati relativo alle corse e alle tariffe taxi della città di New York nel 2013.  Illustra i passaggi end-to-end del [processo di analisi scientifica dei dati](http://aka.ms/datascienceprocess)usando un cluster HDInsight Spark per l'elaborazione e BLOB di Azure per l'archiviazione dei dati e dei modelli. Il processo analizza e visualizza i dati ottenuti da un BLOB di Archiviazione di Azure e li prepara per la compilazione di modelli predittivi. I modelli vengono compilati con il toolkit MLlib di Spark per l'esecuzione di attività di classificazione binaria e modellazione basata sulla regressione.
+Questa procedura dettagliata usa HDInsight Spark per eseguire l'esplorazione dei dati e attività di classificazione binaria e modellazione basata sulla regressione su un campione del set di dati relativo alle corse e alle tariffe taxi della città di New York nel 2013.  Illustra i passaggi end-to-end del [processo di analisi scientifica dei dati](https://aka.ms/datascienceprocess)usando un cluster HDInsight Spark per l'elaborazione e BLOB di Azure per l'archiviazione dei dati e dei modelli. Il processo analizza e visualizza i dati ottenuti da un BLOB di Archiviazione di Azure e li prepara per la compilazione di modelli predittivi. I modelli vengono compilati con il toolkit MLlib di Spark per l'esecuzione di attività di classificazione binaria e modellazione basata sulla regressione.
 
 * L'attività di **classificazione binaria** consente di prevedere se per la corsa viene lasciata o meno una mancia. 
 * L'attività di **regressione** consente di prevedere l'importo della mancia in base ad altre funzionalità relative alle mance. 

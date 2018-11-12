@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: d4ae0c4d5924fab8fcdaf1b4da5c8183a3a5fd0f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 19f928d854618a5e29841dc45d7846faf7fb83b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092474"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253126"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gestire la scadenza del contenuto Web nella rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -109,7 +109,7 @@ L'esempio di file di configurazione XML seguente mostra come impostare l'element
 Per usare l'attributo **cacheControlMaxAge**, è necessario impostare il valore dell'attributo **cacheControlMode** su `UseMaxAge`. Questa impostazione ha fatto sì che l'intestazione HTTP e la direttiva, `Cache-Control: max-age=<nnn>`, fossero aggiunte alla risposta. Il formato del valore dell'intervallo di tempo per l'attributo **cacheControlMaxAge** è `<days>.<hours>:<min>:<sec>`. Il valore viene convertito in secondi e viene usato come il valore della direttiva `Cache-Control` `max-age`. Per altre informazioni sull'elemento `<clientCache>`, vedere [Cache client<clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Impostazione delle intestazioni Cache-Control a livello di programmazione
-Per le applicazioni ASP.NET, gestire a livello di codice il comportamento di memorizzazione nella cache della rete CDN impostando la proprietà **HttpResponse.Cache** dell'API.NET. Per informazioni sulla proprietà **HttpResponse.Cache**, vedere [Proprietà HttpResponse.Cache](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) e [Classe HttpCachePolicy](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+Per le applicazioni ASP.NET, gestire a livello di codice il comportamento di memorizzazione nella cache della rete CDN impostando la proprietà **HttpResponse.Cache** dell'API.NET. Per informazioni sulla proprietà **HttpResponse.Cache**, vedere [Proprietà HttpResponse.Cache](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) e [Classe HttpCachePolicy](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
 
 Per memorizzare nella cache il contenuto dell'applicazione in ASP.NET a livello di codice, eseguire la procedura seguente:
    1. Verificare che il contenuto sia contrassegnato come memorizzabile nella cache impostando `HttpCacheability` su `Public`. 
@@ -132,6 +132,6 @@ Response.Cache.SetLastModified(DateTime.Now);
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Vedere informazioni dettagliate sull'elemento **clientCache**](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Vedere la documentazione sulla proprietà **HttpResponse.Cache**](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Vedere la documentazione sulla classe **HttpCachePolicy**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Vedere la documentazione sulla proprietà **HttpResponse.Cache**](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
+* [Vedere la documentazione sulla classe **HttpCachePolicy**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
 * [Informazioni sui concetti di memorizzazione nella cache](cdn-how-caching-works.md)

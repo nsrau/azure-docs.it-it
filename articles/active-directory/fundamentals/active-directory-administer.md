@@ -1,26 +1,25 @@
 ---
-title: 'Come usare la directory del tenant di Azure AD: panoramica | Microsoft Docs'
-description: Illustra che cos'è un tenant di Azure AD e come gestire Azure con Azure Active Directory
+title: Gestire il tenant di Azure Active Directory | Microsoft Docs
+description: Informazioni su che cos'è un tenant di Azure AD e su come gestire Azure con Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
-ms.date: 08/23/2017
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro;oldportal
-ms.openlocfilehash: b18ff1f59a46e98544159b488294e2d3f7bd9cd7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+custom: it-pro
+ms.openlocfilehash: 75fae7a1de6cd9ec2416b11c79c6e8634b92846f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767539"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230819"
 ---
-# <a name="manage-your-azure-ad-directory"></a>Gestire la directory di Azure AD
+# <a name="manage-your-azure-active-directory-tenant"></a>Gestire il tenant di Azure Active Directory
 
 ## <a name="what-is-an-azure-ad-tenant"></a>Che cos'è un tenant di Azure AD?
 In Azure Active Directory (Azure AD), un tenant è un'istanza dedicata di Azure Active Directory che l'organizzazione riceve quando effettua l'iscrizione a un servizio cloud Microsoft, ad esempio Azure oppure Office 365. Ogni directory di Azure AD è distinta e separata dalle altre directory di Azure AD. Proprio come un edificio di uffici è un asset sicuro specifico solo dell'organizzazione che vi ha sede, anche una directory di Azure AD è stata progettata per essere un asset sicuro usato solo dall'organizzazione proprietaria. L'architettura di Azure AD isola le informazioni relative all'identità e i dati dei clienti in modo che gli utenti e gli amministratori di una directory di Azure AD non possano accedere intenzionalmente o accidentalmente ai dati presenti in un'altra directory.
@@ -43,7 +42,7 @@ Quando si effettua l'iscrizione ad altri servizi Microsoft è consigliabile usar
 
 Se ad esempio si effettua l'iscrizione per ottenere una sottoscrizione di Microsoft Intune e quindi si sincronizza anche l'istanza locale di Active Directory con la directory di Azure AD, è possibile iscriversi a un altro servizio Microsoft come Office 365 usufruendo facilmente degli stessi vantaggi dell'integrazione di directory disponibili con Microsoft Intune.
 
-Per altre informazioni sull'integrazione della directory locale con Azure AD, vedere l'articolo relativo all'[integrazione di directory con Azure AD Connect](../connect/active-directory-aadconnect.md).
+Per altre informazioni sull'integrazione della directory locale con Azure AD, vedere l'articolo relativo all'[integrazione di directory con Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 ### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>Associare una directory di Azure AD esistente a una nuova sottoscrizione di Azure
 È possibile associare una nuova sottoscrizione di Azure alla stessa directory che autentica l'accesso per una sottoscrizione esistente di Office 365 o Microsoft Intune. Per altre informazioni su tale scenario, vedere [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../../billing/billing-subscription-transfer.md).
@@ -52,7 +51,7 @@ Per altre informazioni sull'integrazione della directory locale con Azure AD, ve
 Se non si ha ancora una sottoscrizione a un servizio cloud Microsoft, è possibile usare uno dei collegamenti seguenti per iscriversi. Con l'iscrizione al primo servizio verrà creata automaticamente una directory di Azure AD.
 
 * [Microsoft Azure](https://account.azure.com/organization)
-* [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
+* [Office 365](https://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>Come modificare la directory predefinita per una sottoscrizione

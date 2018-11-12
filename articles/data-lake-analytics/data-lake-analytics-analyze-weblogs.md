@@ -3,26 +3,25 @@ title: Analizzare i log dei siti Web con Azure Data Lake Analytics
 description: Informazioni su come analizzare i log dei siti Web con Analisi Azure Data Lake.
 services: data-lake-analytics
 author: saveenr
-manager: saveenr
-editor: jasonwhowell
+ms.author: saveenr
+ms.reviewer: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.author: saveenr
-ms.openlocfilehash: 8cb8e0f683c2790d7aebb87a684798ea0a36417f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f9a30bf25cea1e80f53596be9eea6ae57a79889
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623367"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246464"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizzare i log dei siti Web con Azure Data Lake Analytics
 Informazioni su come analizzare i log dei siti Web con Analisi Data Lake, in particolare come scoprire quali referrer hanno riscontrato errori durante la visita al il sito Web.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Visual Studio 2015 o Visual Studio 2013**.
-* **[Data Lake Tools per Visual Studio](http://aka.ms/adltoolsvs)**.
+* **[Data Lake Tools per Visual Studio](https://aka.ms/adltoolsvs)**.
 
     Dopo avere installato Strumenti Data Lake per Visual Studio, in Visual Studio verrà visualizzata una voce **Data Lake** nel menu **Strumenti**:
 

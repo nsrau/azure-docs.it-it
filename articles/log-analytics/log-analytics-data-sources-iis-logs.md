@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
 ms.comopnent: ''
-ms.openlocfilehash: 7b44c0712c4d88ec0bbb7a94f574c2a12faf3550
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 52d81e4f4070d8d8e13497ad39d5adf1b99470de
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040677"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007740"
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log di IIS in Log Analytics
 Internet Information Services (IIS) archivia le attività dell'utente in file log che possono essere raccolti da Log Analytics.  
@@ -80,5 +80,5 @@ La tabella seguente mostra alcuni esempi di query nei log che recuperano i recor
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare Log Analytics per raccogliere altre [origini dati](log-analytics-data-sources.md) per l'analisi.
-* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
+* Altre informazioni sulle [ricerche nei log](log-analytics-queries.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
 * Configurare gli avvisi di Log Analytics per notificare in modo proattivo le condizioni importanti riscontrate nei log di IIS.
