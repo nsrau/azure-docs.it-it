@@ -4,18 +4,18 @@ description: Indice dei messaggi di errore di analisi dello stack di Hadoop in A
 keywords: analisi dello stack,  messaggi di errore
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: ecd6ec6d3d72dc5193c82558dbd7c7cae682ecc0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 880f5fc44978a6b46b3cbaefe41296903617b4e6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038318"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011409"
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Indice di Hadoop negli articoli sulla risoluzione dei problemi di HDInsight
 Gli articoli sono organizzati per tipi di errori.

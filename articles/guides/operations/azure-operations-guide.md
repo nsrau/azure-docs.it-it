@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 07faf5efd1c7eec3e209a5d971185655cc949bb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190426"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250782"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -149,7 +149,7 @@ Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicaz
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Il portale di Azure è un'applicazione basata sul Web che può essere usata per creare, gestire e rimuovere risorse e servizi di Azure. Il portale di Azure, disponibile all'indirizzo [Shell.Azure.com](https://portal.azure.com). include un dashboard personalizzabile e gli strumenti per la gestione delle risorse di Azure e fornisce le informazioni relative alla fatturazione e alla sottoscrizione. Per altre informazioni, vedere [Panoramica del portale di Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gestire le risorse di Azure mediante il portale](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+Il portale di Azure è un'applicazione basata sul Web che può essere usata per creare, gestire e rimuovere risorse e servizi di Azure. Il Portale di Azure, disponibile all'indirizzo [portal.azure.com](https://portal.azure.com). include un dashboard personalizzabile e gli strumenti per la gestione delle risorse di Azure e fornisce le informazioni relative alla fatturazione e alla sottoscrizione. Per altre informazioni, vedere [Panoramica del portale di Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gestire le risorse di Azure mediante il portale](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### <a name="resources"></a>Risorse
 
@@ -185,7 +185,7 @@ Gli amministratori possono accedere a Azure PowerShell e all’interfaccia della
 
 ## <a name="azure-subscriptions"></a>Sottoscrizioni Azure
 
-Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a un account di Azure. Un singolo account di Azure può contenere più sottoscrizioni. La fatturazione per i servizi di Azure si basa sulla sottoscrizione. Le sottoscrizioni di Azure hanno un amministratore account, che ha il controllo completo sulla sottoscrizione, e un amministratore del servizio, che ha il controllo su tutti i servizi nella sottoscrizione. Oltre agli amministratori, è possibile concedere a singoli account il controllo dettagliato delle risorse di Azure tramite Controllo degli accessi in base al ruolo (RBAC).
+Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a un account di Azure. Un singolo account di Azure può contenere più sottoscrizioni. La fatturazione per i servizi di Azure si basa sulla sottoscrizione. Le sottoscrizioni di Azure hanno un amministratore account, che ha il controllo completo sulla sottoscrizione, e un amministratore del servizio, che ha il controllo su tutti i servizi nella sottoscrizione. Per informazioni sugli amministratori delle sottoscrizione classiche, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Oltre agli amministratori, è possibile concedere a singoli account il controllo dettagliato delle risorse di Azure tramite [Controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Selezionare e abilitare una sottoscrizione di Azure
 
@@ -205,13 +205,9 @@ Se si supera il credito disponibile, il servizio viene disabilitato fino all'ini
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Concedere l'accesso amministrativo a una sottoscrizione di Azure
 
-Sono disponibili più ruoli di amministratore account, che possono essere modificati in qualsiasi momento. Due ruoli chiave sono:
+RBAC dispone di diversi ruoli predefiniti che è possibile usare per assegnare le autorizzazioni. Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargli il ruolo di [Proprietario](../../role-based-access-control/built-in-roles.md#owner) nell'ambito della sottoscrizione. Questo ruolo garantisce all'utente l'accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti.
 
-- **Amministratore del servizio**: questo ruolo è autorizzato a gestire i servizi di Azure. Per impostazione predefinita, a questo ruolo è consentito l'accesso allo stesso account dell'amministratore account.
-
-- **Coamministratore**: questo ruolo ha le stesse autorizzazioni di accesso dell'amministratore del servizio. Questo ruolo, tuttavia, non può modificare l'associazione di una sottoscrizione alle directory di Azure.
-
-Per altre informazioni, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../../billing/billing-add-change-azure-subscription-administrator.md).
+Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Visualizzare le informazioni di fatturazione nel Portale di Azure
 
@@ -231,11 +227,7 @@ Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prevedere i costi con il calcolatore dei prezzi
 
-I prezzi dei servizi di Azure sono diversi tra loro. Molti servizi di Azure sono disponibili nei livelli Basic, Standard e Premium. In genere, per ogni livello sono disponibili diversi livelli di prezzo e di prestazioni. Per creare stime dei prezzi, è possibile usare il [calcolatore prezzi online](http://azure.microsoft.com/pricing/calculator). Il calcolatore offre la flessibilità necessaria per eseguire la stima del costo di un'unica risorsa o di un gruppo di risorse.
-
-### <a name="set-up-billing-alerts"></a>Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure
-
-Dopo aver distribuito l'applicazione o una soluzione in Azure, è possibile creare avvisi per l'invio di messaggi di posta elettronica all'approssimarsi dei limiti di spesa definiti per ogni avviso. Per altre informazioni, vedere [Configurare avvisi di fatturazione per le sottoscrizioni di Microsoft Azure](../../billing/billing-set-up-alerts.md).
+I prezzi dei servizi di Azure sono diversi tra loro. Molti servizi di Azure sono disponibili nei livelli Basic, Standard e Premium. In genere, per ogni livello sono disponibili diversi livelli di prezzo e di prestazioni. Per creare stime dei prezzi, è possibile usare il [calcolatore prezzi online](https://azure.microsoft.com/pricing/calculator). Il calcolatore offre la flessibilità necessaria per eseguire la stima del costo di un'unica risorsa o di un gruppo di risorse.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -307,7 +299,7 @@ Infine, dal Portale di Azure è possibile convertire gruppi di risorse esistenti
 
 Per concedere l'accesso, si assegna un ruolo all'utente o al gruppo di utenti. Sono disponibili numerosi ruoli predefiniti. È anche possibile definire ruoli personalizzati.
 
-Ecco alcuni esempi di ruoli incorporati in Azure:
+Ecco alcuni esempi di [ruoli incorporati in Azure](../../role-based-access-control/built-in-roles.md):
 
 - **Proprietario**: un utente con questo ruolo può gestire qualsiasi aspetto, incluso l'accesso.
 
@@ -321,7 +313,7 @@ Ecco alcuni esempi di ruoli incorporati in Azure:
 
 - **Collaboratore Account di archiviazione**: un utente con questo ruolo può gestire gli account di archiviazione, ma non l'accesso a questi.
 
-Per altre informazioni, vedere [Usare l'assegnazione dei ruoli per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md).
+Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Macchine virtuali di Azure
 
@@ -481,7 +473,7 @@ Per impostazione predefinita, una rete virtuale di Azure è accessibile solo per
 Poiché la rete virtuale di Azure è connessa alla rete locale, le reti virtuali cross-premise devono usare una parte univoca dello spazio indirizzi usato dall'organizzazione. Nello stesso modo in cui sedi aziendali diverse vengono assegnate a una subnet IP specifica, con l'estensione della rete Azure diventa un'altra sede.
 Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
 
-- [di Microsoft Azure](../..//virtual-network/quick-create-portal.md)
+- [Portale](../..//virtual-network/quick-create-portal.md)
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 

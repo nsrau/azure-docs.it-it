@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: d24902b894a632e9fe8c57f2fb2b652b44ab128c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 932b4c80912fa516a08c18cd581f96b5ea91e1dc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42139323"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232308"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Preparare una macchina virtuale basata su Red Hat per Azure Stack
 
@@ -30,7 +30,7 @@ Per informazioni sul supporto di Red Hat Enterprise Linux, vedere [Red Hat e Azu
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparare una macchina virtuale basata su Red Hat dalla console di gestione di Hyper-V
 
-In questa sezione presuppone che sia già presente un file ISO dal sito Web di Red Hat e installato l'immagine RHEL in un disco rigido virtuale (VHD). Per altre informazioni su come usare Gestione di Hyper-V per installare un'immagine del sistema operativo, vedere [installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
+In questa sezione presuppone che sia già presente un file ISO dal sito Web di Red Hat e installato l'immagine RHEL in un disco rigido virtuale (VHD). Per altre informazioni su come usare Gestione di Hyper-V per installare un'immagine del sistema operativo, vedere [installare il ruolo Hyper-V e configurare una macchina virtuale](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="rhel-installation-notes"></a>Note sull'installazione di RHEL
 
@@ -40,7 +40,7 @@ In questa sezione presuppone che sia già presente un file ISO dal sito Web di R
 * Quando si installa il sistema operativo Linux è consigliabile usare partizioni standard anziché LVM (Logical Volume Manager), che è spesso l'impostazione predefinita per numerose installazioni. Questa prassi evitare conflitti di nome LVM con le macchine virtuali clonate, in particolare se si fosse eventualmente necessario collegare un disco del sistema operativo a un'altra macchina virtuale identica per la risoluzione dei problemi.
 * Per montare file system UDF (Universal Disk Format) è necessario il supporto del kernel. Al primo avvio, i supporti con formattazione UDF collegati al guest passa la configurazione del provisioning per la macchina virtuale Linux. L'agente Linux di Azure è necessario montare il file system UDF per leggerne la configurazione ed eseguire il provisioning della macchina virtuale.
 * Non configurare una partizione di swapping sul disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file di scambio sul disco risorse temporaneo. Altre informazioni sono reperibile nei passaggi seguenti.
-* Tutti i dischi rigidi virtuali in Azure devono avere una dimensione virtuale allineata a 1 MB. Durante la conversione da un disco raw in disco rigido virtuale, è necessario assicurarsi che le dimensioni del disco non formattato siano un multiplo di 1 MB prima della conversione. Altri dettagli sono disponibili nelle procedure seguenti.
+* Le dimensioni di tutti i dischi rigidi virtuali in Azure devono essere allineate a 1 MB. Durante la conversione da un disco raw in disco rigido virtuale, è necessario assicurarsi che le dimensioni del disco non formattato siano un multiplo di 1 MB prima della conversione. Altri dettagli sono disponibili nelle procedure seguenti.
 * Azure Stack non supportano cloud-init. La macchina virtuale deve essere configurata con una versione supportata di Windows Azure Linux Agent (WALA).
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Preparare una macchina virtuale RHEL 7 dalla console di gestione di Hyper-V

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.openlocfilehash: 5a622eb5ae14a6c6b0c2dd4eceb6ffdb9733dcff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f093251ce3c711cc060369abb27770157024d91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681537"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238693"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Distribuire un dispositivo StorSimple locale nel portale di Azure per enti pubblici
 
@@ -67,7 +67,7 @@ Eseguire questi passaggi obbligatori per configurare il dispositivo StorSimple e
 ## <a name="deployment-configuration-checklist"></a>Elenco di controllo configurazione della distribuzione
 Prima di distribuire il dispositivo StorSimple, è necessario raccogliere informazioni per configurare il software sul dispositivo. La preparazione di queste informazioni in anticipo consentirà di semplificare il processo di distribuzione del dispositivo StorSimple nell'ambiente. Scaricare e utilizzare questo elenco di controllo per annotare i dettagli di configurazione quando si distribuisce il dispositivo.
 
-[Scaricare l'elenco di controllo configurazione della distribuzione StorSimple](http://www.microsoft.com/download/details.aspx?id=49159)
+[Scaricare l'elenco di controllo configurazione della distribuzione StorSimple](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## <a name="deployment-prerequisites"></a>Prerequisiti di distribuzione
 Le sezioni seguenti illustrano i prerequisiti di configurazione per il servizio Gestione dispositivi StorSimple e per il dispositivo StorSimple.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: fc4b2d0beef1c91cd937ba901974796441657441
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055707"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234766"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Playbook della Soluzione di analisi dei dati di telemetria del veicolo: approfondimento della soluzione
 Questo menu riporta alle sezioni del playbook: 
@@ -123,7 +123,7 @@ La query di Analisi di flusso di Azure riportata di seguito viene usata per rend
 
 
 ### <a name="batch-analysis"></a>Analisi batch
-Viene anche generato un volume aggiuntivo di set di dati di diagnostica e segnali del veicolo simulati per rendere più completa l'analisi batch. Questo volume aggiuntivo è necessario per garantire un volume di dati rappresentativo per l'elaborazione batch. A questo scopo, viene usata PrepareSampleDataPipeline nel flusso di lavoro di Data Factory per generare una simulazione di segnali e un set di dati di diagnostica del veicolo equivalenti a un anno. Andare alla pagina Web [Attività personalizzata di Data Factory](http://go.microsoft.com/fwlink/?LinkId=717077) per scaricare la soluzione di Visual Studio per l'attività .NET personalizzata di Data factory ed eseguire le personalizzazioni necessarie. 
+Viene anche generato un volume aggiuntivo di set di dati di diagnostica e segnali del veicolo simulati per rendere più completa l'analisi batch. Questo volume aggiuntivo è necessario per garantire un volume di dati rappresentativo per l'elaborazione batch. A questo scopo, viene usata PrepareSampleDataPipeline nel flusso di lavoro di Data Factory per generare una simulazione di segnali e un set di dati di diagnostica del veicolo equivalenti a un anno. Andare alla pagina Web [Attività personalizzata di Data Factory](https://go.microsoft.com/fwlink/?LinkId=717077) per scaricare la soluzione di Visual Studio per l'attività .NET personalizzata di Data factory ed eseguire le personalizzazioni necessarie. 
 
 Questo flusso di lavoro mostra dati di esempio preparati per l'elaborazione batch.
 
@@ -670,8 +670,8 @@ Questo documento contiene un'analisi dettagliata e approfondita della soluzione 
 ### <a name="references"></a>Riferimenti
 
 * [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)
-* [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+* [Data factory di Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [SDK di Hub eventi di Azure per l'inserimento di flussi](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Funzionalità di spostamento dei dati di Azure Data Factory](../../data-factory/copy-activity-overview.md)
 * [Attività .NET di Azure Data Factory](../../data-factory/transform-data-using-dotnet-custom-activity.md)
-* [Soluzione di Visual Studio per l'attività .NET di Azure Data Factory usata per la preparazione dei dati di esempio](http://go.microsoft.com/fwlink/?LinkId=717077) 
+* [Soluzione di Visual Studio per l'attività .NET di Azure Data Factory usata per la preparazione dei dati di esempio](https://go.microsoft.com/fwlink/?LinkId=717077) 

@@ -2,6 +2,7 @@
 
 # Panoramica
 ## [Informazioni su Azure AD Domain Services](active-directory-ds-overview.md)
+## [Domande frequenti](active-directory-ds-faqs.md)
 ## È la scelta giusta?
 ### [Confronto con AD di Windows Server](active-directory-ds-comparison.md)
 ### [Confronto con l'aggiunta ad Azure AD](active-directory-ds-compare-with-azure-ad-join.md)
@@ -55,7 +56,6 @@
 ## [Risolvere i problemi relativi a LDAP sicuro](active-directory-ds-ldaps-troubleshoot.md)
 
 # Risolvere problemi
-## [Domande frequenti](active-directory-ds-faqs.md)
 ## [Guida per la risoluzione dei problemi](active-directory-ds-troubleshooting.md)
 ## [Risolvere i problemi correlati agli avvisi](active-directory-ds-troubleshoot-alerts.md)
 ### [Correggere una configurazione non corretta di un gruppo di sicurezza di rete](active-directory-ds-troubleshoot-nsg.md)

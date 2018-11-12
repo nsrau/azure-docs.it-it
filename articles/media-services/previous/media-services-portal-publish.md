@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: d93bfc548134f730f4fad49a37593c861d6b6cbb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b7e724158255cc979e9a08cd14c7f4412c4382
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785770"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253398"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Pubblicare contenuti sul portale di Azure
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](media-services-portal-publish.md)
+> * [Portale](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > 
@@ -37,7 +37,7 @@ ms.locfileid: "33785770"
 
 Perché l'utente possa avere a disposizione un URL da usare per scaricare o riprodurre in streaming i contenuti, è prima necessario pubblicare un asset creando un localizzatore. I localizzatori forniscono accesso ai file di risorse. Servizi multimediali di Azure supporta due tipi di localizzatori: 
 
-* **Localizzatori di streaming (OnDemandOrigin)**. I localizzatori di streaming vengono usati per il flusso adattivo. Alcuni esempi di flusso adattivo includono Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e DASH (Dynamic Adaptive Streaming over HTTP, denominato anche MPEG-DASH). Per creare un localizzatore di streaming, l'asset deve contenere un file con estensione ism. Ad esempio, http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
+* **Localizzatori di streaming (OnDemandOrigin)**. I localizzatori di streaming vengono usati per il flusso adattivo. Alcuni esempi di flusso adattivo includono Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e DASH (Dynamic Adaptive Streaming over HTTP, denominato anche MPEG-DASH). Per creare un localizzatore di streaming, l'asset deve contenere un file con estensione ism. Ad esempio: http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
 * **Localizzatori progressivi (firma di accesso condiviso)**. I localizzatori progressivi vengono usati per la distribuzione di video tramite download progressivo.
 
 Per creare un URL di streaming HLS, aggiungere *(format=m3u8-aapl)* all'URL:
@@ -63,7 +63,7 @@ Per altre informazioni, vedere la [Panoramica della distribuzione di contenuti](
 > 
 > 
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare un'[API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). 
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare un'[API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.

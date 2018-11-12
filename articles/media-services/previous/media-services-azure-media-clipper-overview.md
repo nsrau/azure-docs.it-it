@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f3822386d0d16b1feaf16853424329558a18f910
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0fc04fb64e6d34c46f20b4ba5ff8a1ffc8da9c31
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782650"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237911"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Creare clip con Azure Media Clipper
 Azure Media Clipper è una libreria JavaScript gratuita che consente agli sviluppatori Web di offrire agli utenti un'interfaccia per la creazione di clip multimediali. Questo strumento può essere integrato in qualsiasi pagina Web e offre API per il caricamento di asset e l'invio di processi di ritaglio.
@@ -28,7 +28,7 @@ Azure Media Clipper consente di:
 - Generare filtri manifesto dinamico su asset VOD e live esistenti con precisione al Group of Pictures (GOP) 
 - Creare processi di codifica per gli asset nell'account Servizi multimediali
 
-Per richiedere nuove funzionalità e sottoporre idee o commenti e suggerimenti, usare il sito [UserVoice per Servizi multimediali di Azure](http://aka.ms/amsvoice/). In caso di domande o problemi specifici o se si riscontrano bug, scrivere al team di Servizi multimediali all'indirizzo amcinfo@microsoft.com.
+Per richiedere nuove funzionalità e sottoporre idee o commenti e suggerimenti, usare il sito [UserVoice per Servizi multimediali di Azure](https://aka.ms/amsvoice/). In caso di domande o problemi specifici o se si riscontrano bug, scrivere al team di Servizi multimediali all'indirizzo amcinfo@microsoft.com.
 
 L'immagine seguente illustra l'interfaccia di Clipper: ![Azure Media Clipper](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)
 

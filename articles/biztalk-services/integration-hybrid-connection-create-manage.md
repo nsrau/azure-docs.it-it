@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26736961"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232981"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Creare e gestire connessioni ibride
 
@@ -105,7 +105,7 @@ Anche [Connessioni ibride del Servizio app di Azure](../app-service/app-service-
 Anche [Connessioni ibride del Servizio app di Azure](../app-service/app-service-hybrid-connections.md) è una risorsa utile.
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Usare i Criteri di gruppo per controllare le risorse locali usate da una connessione ibrida
-1. Scaricare i [modelli amministrativi di Gestione connessioni ibride](http://www.microsoft.com/download/details.aspx?id=42963).
+1. Scaricare i [modelli amministrativi di Gestione connessioni ibride](https://www.microsoft.com/download/details.aspx?id=42963).
 2. Estrarre i file.
 3. Nel computer che modifica i Criteri di gruppo eseguire le operazioni seguenti:  
    
@@ -118,7 +118,7 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 [Panoramica delle connessioni ibride](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>Vedere anche
-[REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) (API REST per la gestione dei servizi BizTalk in Microsoft Azure)  
+[REST API for Managing BizTalk Services on Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx) (API REST per la gestione dei servizi BizTalk in Microsoft Azure)  
 [Servizi BizTalk: tabella delle edizioni](biztalk-editions-feature-chart.md)  
 [Creare un servizio BizTalk](biztalk-provision-services.md)  
 [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](biztalk-dashboard-monitor-scale-tabs.md)

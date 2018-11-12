@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: b1ffe3510cf4f5e73b05572a482f49d529fca60d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69680331bdad0faa36cb3df6117baf8b358da132
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212545"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251020"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo eseguito in Windows Server
 Dopo [avere creato il cluster autonomo di Service Fabric in computer Windows Server](service-fabric-cluster-creation-for-windows-server.md) le esigenze aziendali possono cambiare e richiedere l'aggiunta o la rimozione di più nodi nel cluster. Questo articolo riporta i passaggi dettagliati per ottenere questo risultato. Si noti che la funzionalità di aggiunta o rimozione di nodi non è supportata nei cluster di sviluppo locali.
@@ -29,7 +29,7 @@ Dopo [avere creato il cluster autonomo di Service Fabric in computer Windows Ser
 1. Preparare la macchina virtuale o il computer da aggiungere al cluster eseguendo la procedura descritta in [Creare un cluster autonomo in esecuzione su Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 2. Pianificare a quale dominio di errore e dominio di aggiornamento si aggiungerà il computer o la VM
 3. Creare una connessione Desktop remoto (RDP) con il computer o la VM da aggiungere al cluster
-4. Copiare o [scaricare il pacchetto autonomo di Service Fabric per Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) nel computer o nella VM e decomprimerlo
+4. Copiare o [scaricare il pacchetto autonomo di Service Fabric per Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) nel computer o nella VM e decomprimerlo
 5. Eseguire PowerShell con privilegi elevati e passare alla posizione del pacchetto decompresso
 6. Eseguire lo script *AddNode.ps1* con i parametri che descrivono il nuovo nodo da aggiungere. L'esempio seguente aggiunge in UD1 e fd:/dc1/r0 un nuovo nodo denominato VM5 con tipo NodeType0 e indirizzo IP 182.17.34.52. *ExistingClusterConnectionEndPoint* è un endpoint di connessione per un nodo già presente nel cluster esistente e può corrispondere all'indirizzo IP di *qualsiasi* nodo del cluster.
 

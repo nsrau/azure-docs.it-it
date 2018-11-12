@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
-ms.openlocfilehash: 751c9df8dc3826b54baab6166cd63a0dd8cff4f5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155950"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234205"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Abilitare la sincronizzazione password con Azure Active Directory Domain Services
 Nelle attività precedenti è stato abilitato Azure Active Directory Domain Services per il tenant di Azure Active Directory (Azure AD). L'attività successiva prevede l'abilitazione della sincronizzazione degli hash delle credenziali necessari per l'autenticazione NTLM (NT LAN Manager) e Kerberos con Azure AD Domain Services. Al termine della configurazione della sincronizzazione delle credenziali, gli utenti potranno accedere al dominio gestito con le credenziali aziendali.
@@ -50,7 +50,7 @@ Un tenant di Azure AD viene impostato per la sincronizzazione con la directory l
 ### <a name="install-or-update-azure-ad-connect"></a>Installare o aggiornare Azure AD Connect
 Installare l'ultima versione consigliata di Azure AD Connect in un computer aggiunto a un dominio. Se esiste già un'istanza del programma di installazione di Azure AD Connect, è necessario aggiornarla per usare la versione più recente di Azure AD Connect. Per evitare problemi o bug noti che potrebbero essere già stati corretti, usare sempre la versione più recente di Azure AD Connect.
 
-**[Scaricare Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Scaricare Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
 Versione consigliata: **1.1.614.0** - pubblicata il 5 settembre 2017.
 

@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211894"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232172"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurare il ripristino di emergenza per Active Directory e DNS
 
@@ -44,7 +44,7 @@ Questo articolo spiega come creare una soluzione di ripristino di emergenza per 
 Il controller di dominio replicato con Site Recovery viene usato per il [failover di test](#test-failover-considerations). Assicurarsi che soddisfi i requisiti seguenti:
 
 1. Il controller di dominio è un server di catalogo globale.
-2. Il controller di dominio deve essere il proprietario del ruolo FSMO per i ruoli necessari durante un failover di test. In caso contrario questi ruoli dovranno essere [riassegnati](http://aka.ms/ad_seize_fsmo) dopo il failover.
+2. Il controller di dominio deve essere il proprietario del ruolo FSMO per i ruoli necessari durante un failover di test. In caso contrario questi ruoli dovranno essere [riassegnati](https://aka.ms/ad_seize_fsmo) dopo il failover.
 
 ### <a name="configure-vm-network-settings"></a>Configurare le impostazioni di rete della VM
 Per la macchina virtuale che ospita il controller di dominio o DNS, in Site Recovery configurare le impostazioni di rete nelle impostazioni **Calcolo e rete** della macchina virtuale replicata. In questo modo si garantisce che la macchina virtuale sia collegata alla rete corretta dopo il failover.
@@ -93,7 +93,7 @@ Molte applicazioni richiedono la presenza di un controller di dominio e di un se
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>Rimuovere riferimenti ad altri controller di dominio
-Quando si avvia un failover di test, non includere tutti i controller di dominio nella rete di test. Per rimuovere i riferimenti ad altri controller di dominio presenti nell'ambiente di produzione, è necessario [riassegnare i ruoli FSMO](http://aka.ms/ad_seize_fsmo) ed [eseguire la pulizia](https://technet.microsoft.com/library/cc816907.aspx) dei metadati per i controller di dominio mancanti.
+Quando si avvia un failover di test, non includere tutti i controller di dominio nella rete di test. Per rimuovere i riferimenti ad altri controller di dominio presenti nell'ambiente di produzione, è necessario [riassegnare i ruoli FSMO](https://aka.ms/ad_seize_fsmo) ed [eseguire la pulizia](https://technet.microsoft.com/library/cc816907.aspx) dei metadati per i controller di dominio mancanti.
 
 
 ### <a name="issues-caused-by-virtualization-safeguards"></a>Problemi causati dalle misure di sicurezza della virtualizzazione
@@ -180,7 +180,7 @@ Se le condizioni precedenti sono soddisfatte, è probabile che il controller di 
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    Per altre informazioni, vedere [Disabilitare il requisito della disponibilità di un server di catalogo globale per la convalida dell'accesso utente](http://support.microsoft.com/kb/241789).
+    Per altre informazioni, vedere [Disabilitare il requisito della disponibilità di un server di catalogo globale per la convalida dell'accesso utente](https://support.microsoft.com/kb/241789).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS e controller di dominio su computer diversi
 

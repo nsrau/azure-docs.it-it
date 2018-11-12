@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b3b686815b86e28c0473668825b89736b9af5bf1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740485"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232887"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Esercitazione: Disimballare, collegare e sbloccare Azure Data Box Disk
 
@@ -75,7 +75,7 @@ Eseguire la procedura seguente per collegare e sbloccare i dischi.
     In questa procedura si userà solo lo strumento di sblocco di Data Box Disk. Gli altri due strumenti saranno usati in seguito.
 
     > [!div class="nextstepaction"]
-    > [Scaricare il set di strumenti di Data Box Disk per Windows](http://aka.ms/databoxdisktoolswin)         
+    > [Scaricare il set di strumenti di Data Box Disk per Windows](https://aka.ms/databoxdisktoolswin)         
 
 3. Estrarre il set di strumenti sullo stesso computer che verrà usato per la copia dei dati. 
 4. Aprire una finestra del prompt dei comandi o eseguire Windows PowerShell come amministratore sullo stesso computer.
@@ -131,7 +131,7 @@ Eseguire la procedura seguente per collegare e sbloccare i dischi.
 2. Scaricare il set di strumenti di Data Box Disk corrispondente al client Linux.  
 
     > [!div class="nextstepaction"]
-    > [Scaricare il set di strumenti di Data Box Disk per Linux](http://aka.ms/databoxdisktoolslinux) 
+    > [Scaricare il set di strumenti di Data Box Disk per Linux](https://aka.ms/databoxdisktoolslinux) 
 
 3. Nel client Linux aprire un terminale. Passare alla cartella in cui è stato scaricato il software. Modificare le autorizzazioni dei file in modo che sia possibile eseguire questi file. Digitare il comando seguente: 
 

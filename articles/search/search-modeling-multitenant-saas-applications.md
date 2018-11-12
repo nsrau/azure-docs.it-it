@@ -9,18 +9,18 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 54646a7d4962c5dfe255d28bdb91d272062530dd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364275"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232380"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modelli di progettazione per le applicazioni SaaS multi-tenant e Ricerca di Azure
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento dei tenant per le applicazioni multi-tenant compilate con Ricerca di Azure.
 
 ## <a name="azure-search-concepts"></a>Concetti di Ricerca di Azure
-Come soluzione di ricerca come servizio, Ricerca di Azure consente agli sviluppatori di aggiungere esperienze di ricerca avanzate alle applicazioni, senza dover gestire un'infrastruttura o diventare esperti in recupero delle informazioni. I dati vengano caricati nel servizio e quindi archiviati nel cloud. Tramite semplici richieste all'API di Ricerca di Azure, i dati possono essere modificati e ricercati. Una panoramica del servizio è riportata in [questo articolo](http://aka.ms/whatisazsearch). Prima di esaminare i modelli di progettazione, è importante comprendere alcuni concetti di Ricerca di Azure.
+Come soluzione di ricerca come servizio, Ricerca di Azure consente agli sviluppatori di aggiungere esperienze di ricerca avanzate alle applicazioni, senza dover gestire un'infrastruttura o diventare esperti in recupero delle informazioni. I dati vengano caricati nel servizio e quindi archiviati nel cloud. Tramite semplici richieste all'API di Ricerca di Azure, i dati possono essere modificati e ricercati. Una panoramica del servizio è riportata in [questo articolo](https://aka.ms/whatisazsearch). Prima di esaminare i modelli di progettazione, è importante comprendere alcuni concetti di Ricerca di Azure.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Servizi di ricerca, indici, campi e documenti
 Quando si usa Ricerca di Azure, si sottoscrive un *servizio di ricerca*. Quando i dati vengono caricati in Ricerca di Azure, vengono archiviati in un *indice* all'interno del servizio di ricerca. In un solo servizio possono essere presenti molti indici. Facendo riferimento ai familiari concetti relativi ai database, il servizio di ricerca può essere paragonato a un database, mentre gli indici all'interno di un servizio possono essere paragonati alle tabelle di un database.
@@ -126,7 +126,7 @@ Questo metodo può essere usato per ottenere funzionalità di account utente div
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ricerca di Azure è una scelta interessante per molte applicazioni: [altre informazioni sulle affidabili funzionalità del servizio sono disponibili qui](http://aka.ms/whatisazsearch). Quando si valutano i vari modelli di progettazione per le applicazioni multi-tenant, è opportuno considerare i [vari piani tariffari](https://azure.microsoft.com/pricing/details/search/) e i rispettivi [limiti del servizio](search-limits-quotas-capacity.md) per adattare al meglio Ricerca di Azure ad architettura o carichi di lavoro applicativi di tutte le dimensioni.
+Ricerca di Azure è una scelta interessante per molte applicazioni: [altre informazioni sulle affidabili funzionalità del servizio sono disponibili qui](https://aka.ms/whatisazsearch). Quando si valutano i vari modelli di progettazione per le applicazioni multi-tenant, è opportuno considerare i [vari piani tariffari](https://azure.microsoft.com/pricing/details/search/) e i rispettivi [limiti del servizio](search-limits-quotas-capacity.md) per adattare al meglio Ricerca di Azure ad architettura o carichi di lavoro applicativi di tutte le dimensioni.
 
 Le domande su Ricerca di Azure e sugli scenari multi-tenant possono essere indirizzate ad azuresearch_contact@microsoft.com.
 

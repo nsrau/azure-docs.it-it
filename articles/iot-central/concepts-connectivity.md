@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7b2dd4e97d23f37c8261e51f3f65e78436493ddc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157701"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238734"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connettività dei dispositivi in Azure IoT Central
 
@@ -150,7 +150,7 @@ Per connettere dispositivi a IoT Central usando i certificati X509 sono necessar
     
     Di seguito sono riportati alcuni strumenti di utilità da riga di comando che è possibile usare per generare certificati della CA e certificati del dispositivo.
 
-    * Se si usa MxChip, provare questo [strumento da riga di comando](http://aka.ms/iotcentral-docs-dicetool) per generare certificati della CA, aggiungerli all'app IoT Central e verificarli. 
+    * Se si usa MxChip, provare questo [strumento da riga di comando](https://aka.ms/iotcentral-docs-dicetool) per generare certificati della CA, aggiungerli all'app IoT Central e verificarli. 
 
     *   Usare questo [strumento da riga di comando](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) per
         * Creare la catena di certificati (seguire il passaggio 2 nella documentazione di GitHub). 
@@ -165,7 +165,7 @@ Per connettere dispositivi a IoT Central usando i certificati X509 sono necessar
     Programmare il dispositivo con le informazioni del servizio di provisioning per ottenere all'accensione i dettagli di connessione e l'assegnazione dell'app IoT Central.    
 
     **Altri riferimenti** 
-    *   Implementazione di esempio per [RaspberryPi](http://aka.ms/iotcentral-docs-Raspi-releases).  
+    *   Implementazione di esempio per [RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases).  
 
     *   [Client di dispositivo di esempio in C](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md).
 

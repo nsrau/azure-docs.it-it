@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 3174f2d6562030702b14ef1fa3708a1a4e8e373b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 103e0e353efeaf493fb1d72f03eb6ce6469cd683
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301950"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235667"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Gestione delle soluzioni connesse dei partner nel Centro sicurezza di Azure
 Questo articolo contiene informazioni dettagliate su come gestire e monitorare le soluzioni di sicurezza connesse nel Centro sicurezza di Azure.
@@ -65,7 +65,7 @@ In questo articolo si è appreso come gestire e monitorare le soluzioni di sicur
 * [Integrazione di partner e soluzioni](security-center-partner-integration.md): panoramica dell'integrazione di altre soluzioni di sicurezza.
 * [Gestione e risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.
+* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png

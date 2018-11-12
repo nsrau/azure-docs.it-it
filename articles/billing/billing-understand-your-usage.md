@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: a037f4837be65eb7eac76977a3728c7357e09463
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 83891e1abdb58b4fdae65cee3689195b8f35df12
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394437"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230462"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Comprendere i dettagli degli addebiti basati sui dati di utilizzo dettagliato di Microsoft Azure 
 
@@ -77,7 +77,7 @@ La sezione del file CSV sull'utilizzo giornaliero indica i dettagli di utilizzo 
 |Servizio utilizzato |Indica il servizio della piattaforma Azure usato |
 |Gruppo di risorse |Definisce il gruppo di risorse in cui è in esecuzione il contatore distribuito. <br/><br/>Per altre informazioni, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
 |ID istanza | Specifica l'identificatore del contatore, <br/><br/> che contiene il nome specificato per il contatore al momento della creazione. È il nome della risorsa o l'ID risorsa completo. Per altre informazioni, vedere [L'API di Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). |
-|Tag | Identifica il tag assegnato al contatore. Usare i tag per raggruppare i record di fatturazione.<br/><br/>È possibile, ad esempio, usare i tag per distribuire i costi in base al reparto che usa il contatore. I servizi che supportano la creazione di tag sono macchine virtuali, archiviazione e servizi di rete di cui si esegue il provisioning mediante l'[API di Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Per altre informazioni, vedere [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag). |
+|Tag | Identifica il tag assegnato al contatore. Usare i tag per raggruppare i record di fatturazione.<br/><br/>È possibile, ad esempio, usare i tag per distribuire i costi in base al reparto che usa il contatore. I servizi che supportano la creazione di tag sono macchine virtuali, archiviazione e servizi di rete di cui si esegue il provisioning mediante l'[API di Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Per altre informazioni, vedere [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag). |
 |Informazioni aggiuntive |Metadati specifici del servizio. Ad esempio un tipo di immagine per una macchina virtuale. |
 |Informazioni servizio 1 |Indica il nome del progetto a cui il servizio appartiene nella sottoscrizione |
 |Informazioni servizio 2 |Campo legacy che acquisisce i metadati specifici del servizio facoltativo |

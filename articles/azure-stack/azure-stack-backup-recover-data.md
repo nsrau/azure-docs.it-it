@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: ed89468d65f35d0a8cda90da365e8625f46e3f92
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: bd72abd4f8f23414ea1003c74d2f90cde3b51d34
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139316"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034338"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Ripristino da una grave perdita dei dati
 
@@ -73,4 +73,4 @@ Nessuno dell'infrastruttura distribuita come servizio (IaaS) di una piattaforma 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - Informazioni sulle procedure consigliate per [tramite il servizio di Backup Infrastructure](azure-stack-backup-best-practices.md).
+Informazioni sulle procedure consigliate per [tramite il servizio di Backup Infrastructure](azure-stack-backup-best-practices.md).

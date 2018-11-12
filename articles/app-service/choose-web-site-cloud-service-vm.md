@@ -3,9 +3,8 @@ title: Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e 
 description: Informazioni per la scelta tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud per l'hosting di applicazioni Web.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: ggailey777
-manager: erikre
-editor: jimbe
+author: cephalin
+manager: jeconnoc
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
 ms.service: app-service-web
 ms.workload: web
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
-ms.author: glenga
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 56d5f3b480ddb000f9118fbcc36e39817cb0bce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224956"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238506"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud
-## <a name="overview"></a>Panoramica
+
 Azure offre vari modi per ospitare siti Web: [Servizio app di Azure][Azure App Service], [Macchine virtuali][Virtual Machines], [Service Fabric][Service Fabric] e [Servizi cloud][Cloud Services]. In questo articolo vengono fornite informazioni utili per comprendere le opzioni disponibili ed effettuare la scelta appropriata per l'applicazione Web.
 
 Azure App Service è la scelta migliore per la maggior parte delle app Web. La distribuzione e la gestione sono integrate nella piattaforma ed è possibile scalare rapidamente i siti per gestire carichi di traffico elevato; inoltre, il bilanciamento del carico e la gestione del traffico predefiniti offrono disponibilità elevata. È possibile spostare facilmente siti esistenti in Servizio app di Azure con uno [strumento di migrazione online][migrate-tool], usare un'app open source dalla raccolta di applicazioni Web oppure creare un nuovo sito tramite il framework e gli strumenti di propria scelta. La funzionalità [Processi Web][WebJobs] semplifica l'aggiunta di elaborazione di processi in background all'app Web del servizio app.
@@ -48,7 +47,7 @@ Nella tabella seguente vengono confrontate le funzionalità del Servizio app, di
 | Supporto WebMatrix |X | |X | | |
 | Accesso a servizi quali bus di servizio, archiviazione, database SQL |X |X |X |X | |
 | Hosting del livello Web o dei servizi Web di un'architettura multilivello |X |X |X |X | |
-| Hosting del livello intermedio di un'architettura multilivello |X |X |X |X |App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. |
+| Hosting del livello intermedio di un'architettura multilivello |X |X |X |X |App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](https://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. |
 | Supporto integrato di MySQL distribuito come servizio |X |X | | | |
 | Supporto per ASP.NET, ASP classico, Node.js, PHP, Python |X |X |X |X |Service Fabric supporta la creazione di un front-end Web con [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) oppure consente di distribuire qualsiasi tipo di applicazione (Node.js, Java e così via) come [eseguibile guest](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Scalabilità orizzontale a più istanze senza ridistribuzione |X |X |X |X |Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra i computer e verificare che sia disponibile più di un'istanza di macchina virtuale nel [set di disponibilità](../virtual-machines/windows/manage-availability.md). |

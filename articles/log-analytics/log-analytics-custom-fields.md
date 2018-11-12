@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: e86b79cb57b9d4a590d69a98eca591679ee10334
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042938"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010588"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campi personalizzati in Log Analytics
 La funzionalità **Campi personalizzati** di Log Analytics consente di estendere i record esistenti in Log Analytics con l'aggiunta di campi ricercabili personalizzati.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
@@ -46,9 +46,9 @@ Le sezioni seguenti illustrano la procedura per la creazione di un campo persona
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Passaggio 1: Identificare i record che conterranno il campo personalizzato
-Il primo passaggio consiste nell'identificare i record che conterranno il campo personalizzato.  Iniziare con una [ricerca nei log standard](log-analytics-log-searches.md) e quindi selezionare un record che faccia da modello di apprendimento per Log Analytics.  Quando si specifica l'intenzione di estrarre i dati in un campo personalizzato, viene aperta l' **estrazione guidata campi** che permette di convalidare e affinare i criteri.
+Il primo passaggio consiste nell'identificare i record che conterranno il campo personalizzato.  Iniziare con una [ricerca nei log standard](log-analytics-queries.md) e quindi selezionare un record che faccia da modello di apprendimento per Log Analytics.  Quando si specifica l'intenzione di estrarre i dati in un campo personalizzato, viene aperta l' **estrazione guidata campi** che permette di convalidare e affinare i criteri.
 
-1. Passare alla **ricerca log** e usare una [query per recuperare i record](log-analytics-log-searches.md) che conterranno il campo personalizzato.
+1. Passare alla **ricerca log** e usare una [query per recuperare i record](log-analytics-queries.md) che conterranno il campo personalizzato.
 2. Selezionare un record che Log Analytics possa usare come modello per l'estrazione dei dati con cui popolare il campo personalizzato.  Identificare i dati da estrarre da questo record. Log Analytics userà queste informazioni per determinare la logica in base alla quale popolare il campo personalizzato per tutti i record simili.
 3. Fare clic sul pulsante a sinistra di una qualsiasi proprietà testo del record e selezionare l'opzione **Extract fields from**.
 4. Viene aperta l'**estrazione guidata campi** e il record selezionato viene visualizzato nella colonna **Esempio principale**.  Viene definito il campo personalizzato per i record con gli stessi valori delle proprietà selezionate.  
@@ -140,6 +140,6 @@ Ora il campo personalizzato può essere usato come le altre proprietà del recor
 ![Raggruppa per query](media/log-analytics-custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni su come creare query usando i campi personalizzati come criteri, vedere l'articolo relativo alle [ricerche nei log](log-analytics-log-searches.md) .
+* Per informazioni su come creare query usando i campi personalizzati come criteri, vedere l'articolo relativo alle [ricerche nei log](log-analytics-queries.md) .
 * Monitorare i [file di log personalizzati](log-analytics-data-sources-custom-logs.md) analizzati usando campi personalizzati.
 

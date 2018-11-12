@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: danlep
-ms.openlocfilehash: ad5c13723eef352148a40e3e7f4f2ff616867296
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 55dfd7e5ea93ae941d73612cc70ed82d48db725a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
-ms.locfileid: "23985307"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236739"
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Configurare un cluster ibrido HPC (high performance computing) con Microsoft HPC Pack e nodi di calcolo di Azure su richiesta
 Usare Microsoft HPC Pack 2012 R2 e Azure per configurare un piccolo cluster HPC (high performance computing) ibrido. Il cluster illustrato in questo articolo è costituito da un nodo head HPC Pack locale e da alcuni nodi di calcolo distribuiti su richiesta in un servizio cloud di Azure. In seguito sarà possibile eseguire processi di calcolo nel cluster ibrido.
@@ -29,19 +29,19 @@ Usare Microsoft HPC Pack 2012 R2 e Azure per configurare un piccolo cluster HPC 
 
 L'approccio descritto in questa esercitazione, denominato anche "potenziamento nel cloud", consente di usare risorse di Azure scalabili su richiesta per eseguire applicazioni a elevato utilizzo di calcolo.
 
-Questa esercitazione non presuppone che si abbia esperienza nell'ambito dei cluster di calcolo o di HPC Pack. Viene fornita solo per aiutare l'utente a distribuire rapidamente un cluster di calcolo ibrido a scopo dimostrativo. Per considerazioni e procedure sulla distribuzione di un cluster HPC Pack ibrido su scala maggiore in un ambiente di produzione o per l'uso di HPC Pack 2016, vedere le [indicazioni dettagliate](http://go.microsoft.com/fwlink/p/?LinkID=200493). Per altri scenari con HPC Pack, inclusa la distribuzione automatica di cluster nelle macchine virtuali di Azure, vedere [Opzioni per creare e gestire un cluster HPC in Azure con Microsoft HPC Pack](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Questa esercitazione non presuppone che si abbia esperienza nell'ambito dei cluster di calcolo o di HPC Pack. Viene fornita solo per aiutare l'utente a distribuire rapidamente un cluster di calcolo ibrido a scopo dimostrativo. Per considerazioni e procedure sulla distribuzione di un cluster HPC Pack ibrido su scala maggiore in un ambiente di produzione o per l'uso di HPC Pack 2016, vedere le [indicazioni dettagliate](https://go.microsoft.com/fwlink/p/?LinkID=200493). Per altri scenari con HPC Pack, inclusa la distribuzione automatica di cluster nelle macchine virtuali di Azure, vedere [Opzioni per creare e gestire un cluster HPC in Azure con Microsoft HPC Pack](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 * **Un computer locale che esegue Windows Server 2012 R2 o Windows Server 2012**: usare questo computer come nodo head del cluster HPC. Se Windows Server non è già in esecuzione, è possibile scaricare e installare una [versione di valutazione](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2).
   
   * Il computer deve essere aggiunto a un dominio Active Directory. A scopo di test, è possibile configurare il computer del nodo head come controller di dominio. Per aggiungere il ruolo del server Active Directory Domain Services e alzare di livello il computer del nodo head a controller di dominio, vedere la documentazione di Windows Server.
   * Per supportare HPC Pack, è necessario che il sistema operativo sia installato in una delle lingue seguenti: inglese, giapponese o cinese (semplificato).
   * Verificare che siano installati gli aggiornamenti importanti.
-* **HPC Pack 2012 R2** - [scaricare](http://go.microsoft.com/fwlink/p/?linkid=328024) il pacchetto di installazione della versione gratuita più recente e copiare i file nel computer del nodo head. Scegliere i file di installazione nella stessa lingua dell'installazione di Windows Server.
+* **HPC Pack 2012 R2** - [scaricare](https://go.microsoft.com/fwlink/p/?linkid=328024) il pacchetto di installazione della versione gratuita più recente e copiare i file nel computer del nodo head. Scegliere i file di installazione nella stessa lingua dell'installazione di Windows Server.
 
     >[!NOTE]
-    > Per usare HPC Pack 2016 anziché HPC Pack 2012 R2, è necessaria una configurazione aggiuntiva. Vedere le [indicazioni dettagliate](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+    > Per usare HPC Pack 2016 anziché HPC Pack 2012 R2, è necessaria una configurazione aggiuntiva. Vedere le [indicazioni dettagliate](https://go.microsoft.com/fwlink/p/?LinkID=200493).
     > 
 * **Account di dominio** : per installare HPC Pack, questo account deve essere configurato con autorizzazioni di amministratore locale nel nodo head.
 * **Connettività TCP sulla porta 443** dal nodo head ad Azure.
@@ -268,7 +268,7 @@ Dopo aver provato il cluster, arrestare i nodi di Azure per evitare l'addebito d
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere la documentazione relativa a [HPC Pack](https://technet.microsoft.com/library/cc514029).
-* Per configurare una distribuzione di cluster ibrido HPC Pack su una scala più ampia, vedere [Burst to Azure with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)(Potenziamento della capacità di Azure con Microsoft HPC Pack).
+* Per configurare una distribuzione di cluster ibrido HPC Pack su una scala più ampia, vedere [Burst to Azure with Microsoft HPC Pack](https://go.microsoft.com/fwlink/p/?LinkID=200493)(Potenziamento della capacità di Azure con Microsoft HPC Pack).
 * Per altri modi per creare un cluster HPC Pack in Azure, inclusi i modelli di Azure Resource Manager, vedere [Opzioni per cluster HPC con Microsoft HPC Pack in Azure](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

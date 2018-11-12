@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: dcf31bd6b128115962e30dd6653364c4cd65047d
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b4a816c887d1cca78ff845858dce29049946b09f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241586"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235990"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integrazione della messaggistica di Azure Blockchain Workbench
 
 Oltre a fornire un'API REST, Azure Blockchain Workbench offre anche un'integrazione basata sulla messaggistica. Workbench pubblica eventi basati sul libro mastro tramite Griglia di eventi di Azure, consentendo ai consumer downstream di inserire dati o eseguire azioni in base a tali eventi. Per i client che richiedono una messaggistica affidabile, Azure Blockchain Workbench recapita anche i messaggi a un endpoint del bus di servizio di Azure.
 
-Gli sviluppatori hanno inoltre espresso interesse per la possibilità di consentire a sistemi esterni di comunicare e avviare transazioni per creare utenti, creare contratti e aggiornare i contratti in un libro mastro. Sebbene questa funzionalità non sia attualmente esposta nell'anteprima pubblica, un esempio che offre tale capacità è disponibile in [http://aka.ms/blockchain-workbench-integration-sample](http://aka.ms/blockchain-workbench-integration-sample).
+Gli sviluppatori hanno inoltre espresso interesse per la possibilità di consentire a sistemi esterni di comunicare e avviare transazioni per creare utenti, creare contratti e aggiornare i contratti in un libro mastro. Sebbene questa funzionalità non sia attualmente esposta nell'anteprima pubblica, un esempio che offre tale capacità è disponibile in [http://aka.ms/blockchain-workbench-integration-sample](https://aka.ms/blockchain-workbench-integration-sample).
 
 ## <a name="event-notifications"></a>Notifiche degli eventi
 

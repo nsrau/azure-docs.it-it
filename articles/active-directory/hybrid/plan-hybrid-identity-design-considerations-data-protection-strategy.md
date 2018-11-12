@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a3cbbf887c4b7df57f2df89dfb8649967d6d9b1b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434756"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238149"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definire una strategia di protezione dei dati per la soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di protezione dati in modo che la soluzione ibrida di gestione delle identità soddisfi i requisiti aziendali definiti in:
@@ -74,7 +74,7 @@ Per un'efficace gestione del contenuto, è necessario sapere chi accede a una de
 * Aggiunta o rimozione di licenze
 
 > [!NOTE]
-> Per altre informazioni sulle funzionalità di registrazione in Azure, vedere l'articolo relativo alla [gestione dei log di controllo e sicurezza di Microsoft Azure](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) .
+> Per altre informazioni sulle funzionalità di registrazione in Azure, vedere l'articolo relativo alla [gestione dei log di controllo e sicurezza di Microsoft Azure](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) .
 > A seconda delle risposte fornite alle domande nella sezione [Determinare i requisiti di gestione del contenuto](plan-hybrid-identity-design-considerations-contentmgt-requirements.md), sarà possibile stabilire come si vuole che il contenuto venga gestito nella soluzione ibrida di gestione delle identità. Sebbene tutte le opzioni esposte nella tabella 6 possano essere integrate con Azure AD, è importante definire quella più appropriata in base alle esigenze aziendali.
 >
 >

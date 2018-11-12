@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452327"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249898"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gestire la capacità di archiviazione per Azure Stack 
 
@@ -138,7 +138,7 @@ Migrazione consolida tutti un blob in contenitori nella nuova condivisione.
 > Migrazione di BLOB per un contenitore è un'operazione offline che richiede l'uso di PowerShell. Fino al completamento della migrazione, tutti i BLOB per il contenitore che si esegue la migrazione rimangano offline e non possono essere utilizzati. È anche consigliabile evitare l'aggiornamento di Azure Stack fino al completamento di tutto la migrazione in corso.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Per eseguire la migrazione dei contenitori tramite PowerShell
-1. Verificare di avere [Azure PowerShell installato e configurato](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](http://go.microsoft.com/fwlink/?LinkId=394767).
+1. Verificare di avere [Azure PowerShell installato e configurato](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](https://go.microsoft.com/fwlink/?LinkId=394767).
 2.  Esaminare il contenitore per comprendere quali dati sono nella condivisione che si intende eseguire la migrazione. Per identificare i contenitori di candidati ottimali per la migrazione in un volume, usare il **Get-AzsStorageContainer** cmdlet:
 
     ````PowerShell  

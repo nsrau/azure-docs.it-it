@@ -2,26 +2,20 @@
 title: Novità delle raccolte di aree di lavoro di Power BI
 description: Consente di ottenere le informazioni più recenti sulle raccolta di aree di lavoro di Power BI
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 647b571fc05dca12ab9d4db45236962e4794ef4b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 072fa8978bd4f08494191708d9a71c6c112a0629
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408252"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252054"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Novità delle raccolte di aree di lavoro di Power BI
 
@@ -78,5 +72,5 @@ Contenuti di questa versione:
 * Applicazione di esempio aggiornata per tutte le chiamate all'API **v1.0** .
 * Supporto delle raccolte di aree di lavoro di Power BI per Azure SDK, PowerShell e l'interfaccia della riga di comando.
 * Gli utenti possono esportare i dati di visualizzazione in un file con estensione **csv**.
-* Le raccolte di aree di lavoro di Power BI sono ora supportate in tutte le lingue e in tutte le impostazioni locali di Microsoft Azure. Per altre informazioni, vedere [Microsoft Azure - Extent of Localization](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)(Microsoft Azure: estensione della localizzazione).
+* Le raccolte di aree di lavoro di Power BI sono ora supportate in tutte le lingue e in tutte le impostazioni locali di Microsoft Azure. Per altre informazioni, vedere [Microsoft Azure - Extent of Localization](https://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)(Microsoft Azure: estensione della localizzazione).
 

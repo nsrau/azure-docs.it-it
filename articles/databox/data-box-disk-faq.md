@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: fff1684efda0e7e7b857c668eaa28dc79b7534d7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5e4461a910f13c5047c4a2aadd7326c4e12c533f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416376"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238132"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Che cos'è Azure Data Box Disk? (Anteprima)
 
@@ -47,7 +47,7 @@ R. Quando si ha l'esigenza di trasferire 40 TB di dati (o meno) in Azure, l'uso 
 R. Per informazioni sul prezzo dei dischi di Data Box Disk, vedere la [pagina dei prezzi per la versione di anteprima](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>D: Come è possibile ottenere i dischi di Data Box? 
-R.  Per ottenere i dischi di Azure Data Box, è prima di tutto necessario registrarsi per l'[anteprima del servizio Data Box Disk](http://aka.ms/AzureDataBox). Successivamente, accedere al portale di Azure e creare un ordine di Data Box per i dischi. Fornire le informazioni di contatto e i dettagli per le notifiche. Quando si effettua un ordine, in base alla disponibilità, i dischi vengono spediti all'utente entro 10 giorni.   
+R.  Per ottenere i dischi di Azure Data Box, è prima di tutto necessario registrarsi per l'[anteprima del servizio Data Box Disk](https://aka.ms/AzureDataBox). Successivamente, accedere al portale di Azure e creare un ordine di Data Box per i dischi. Fornire le informazioni di contatto e i dettagli per le notifiche. Quando si effettua un ordine, in base alla disponibilità, i dischi vengono spediti all'utente entro 10 giorni.   
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>D: Qual è la quantità massima di dati che è possibile trasferire con i dischi di Data Box in una sola volta?
 R. Per 5 dischi da 8 TB ognuno (con capacità utilizzabile di 7 TB), la capacità massima utilizzabile è di 35 TB. Di conseguenza, è possibile trasferire 35 TB di dati in una sola volta.  Per trasferire più dati, è necessario ordinare altri dischi.

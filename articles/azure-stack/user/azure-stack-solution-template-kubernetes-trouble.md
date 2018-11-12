@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi di distribuzione in Kubernetes (K8) ad Azure Stack | Microsoft Docs
-description: Informazioni su come risolvere i problemi di distribuzione in Kubernetes (K8) ad Azure Stack.
+title: Risolvere i problemi di distribuzione in Kubernetes in Azure Stack | Microsoft Docs
+description: Informazioni su come risolvere i problemi di distribuzione in Kubernetes in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f7f23a6d645a1d8e16e42e751050d8d91b49e2b3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231237"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007826"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Risolvere i problemi di distribuzione in Kubernetes in Azure Stack
 
@@ -28,11 +28,11 @@ ms.locfileid: "50231237"
 > [!Note]  
 > Kubernetes in Azure Stack è disponibile in anteprima.
 
-L'articolo seguente esamina la risoluzione dei problemi del cluster Kubernetes. È possibile esaminare l'avviso di distribuzione e lo stato della distribuzione esaminando gli elementi necessari per la distribuzione. Potrebbe essere necessario raccogliere i log di distribuzione da Azure Stack o le macchine virtuali Linux che ospitano Kubernetes. Inoltre, si potrebbe essere necessario contattare l'amministratore di Azure Stack per recuperare i log da un endpoint di amministrazione.
+L'articolo seguente esamina la risoluzione dei problemi del cluster Kubernetes. È possibile esaminare l'avviso di distribuzione e rivedere lo stato della distribuzione per gli elementi necessari per la distribuzione. Potrebbe essere necessario raccogliere i log di distribuzione da Azure Stack o le macchine virtuali Linux che ospitano Kubernetes. È anche necessario rivolgersi all'amministratore di Azure Stack per recuperare i log da un endpoint di amministrazione.
 
 ## <a name="overview-of-deployment"></a>Panoramica della distribuzione
 
-Prima di entrare nei passaggi per risolvere i problemi del cluster, è possibile esaminare il processo di distribuzione di cluster Kubernetes di Azure Stack. La distribuzione Usa un modello di soluzione di Azure Resource Manager per creare le macchine virtuali e installa il motore ACS per il cluster.
+Prima di iniziare la risoluzione dei problemi del cluster, si potrebbe voler esaminare il processo di distribuzione di cluster Kubernetes di Azure Stack. La distribuzione Usa un modello di soluzione di Azure Resource Manager per creare le macchine virtuali e installare il motore ACS per il cluster.
 
 ### <a name="deployment-workflow"></a>Flusso di lavoro di distribuzione
 
@@ -42,72 +42,72 @@ Il diagramma seguente illustra il processo generale per distribuire il cluster.
 
 ### <a name="deployment-steps"></a>Passaggi di distribuzione
 
-1. Raccoglie i parametri dall'elemento di marketplace di input.
+1. Raccolta di parametri di input dall'elemento di marketplace.
 
-    Immettere i valori che necessari per configurare il cluster Kubernetes tra cui:
-    -  **Nome utente** nome utente per le macchine virtuali di Linux che fanno parte del cluster Kubernetes e DVM.
-    -  **Chiave pubblica SSH** la chiave usata per l'autorizzazione a tutti i computer Linux creato come parte del cluster Kubernetes e DVM
-    -  **Entità servizio** ID utilizzato dal provider di cloud di Azure in Kubernetes. L'ID Client è stato identificato come l'ID dell'applicazione quando si crea il servizio dell'entità. 
-    -  **Segreto client** la chiave creata durante la creazione dell'entità servizio.
+    Immettere i valori necessari per configurare il cluster Kubernetes, tra cui:
+    -  **Nome utente**: il nome utente per le macchine virtuali Linux che fanno parte di un cluster Kubernetes e DVM.
+    -  **Chiave pubblica SSH**: la chiave che viene usata per l'autorizzazione di tutti i computer Linux che sono stati creati come parte del cluster Kubernetes e DVM.
+    -  **Entità servizio**: l'ID utilizzato dal provider di cloud di Azure in Kubernetes. L'ID client è stato identificato come l'ID dell'applicazione durante la creazione dell'entità servizio. 
+    -  **Segreto client**: la chiave creata durante la creazione dell'entità servizio.
 
-2. Crea macchina virtuale della distribuzione e l'estensione script personalizzato.
-    -  Crea la distribuzione di VM Linux usando l'immagine di Linux, marketplace **Ubuntu Server 16.04-LTS**.
-    -  Scaricare ed eseguire l'estensione script cliente dal marketplace. Lo script è il **dello Script personalizzato per Linux 2.0**.
-    -  Esegue lo script personalizzato di DVM. Lo script:
+2. Creare la distribuzione della macchina virtuale e l'estensione script personalizzato.
+    -  Creare la distribuzione di VM Linux usando l'immagine Linux in marketplace **Ubuntu Server 16.04-LTS**.
+    -  Scarica e si esegue l'estensione script cliente dal marketplace. Lo script fa **dello Script personalizzato per Linux 2.0**.
+    -  Eseguire lo script personalizzato di DVM. Lo script esegue le attività seguenti:
         1. Ottiene l'endpoint di raccolta dall'endpoint dei metadati di Azure Resource Manager.
         2. Ottiene l'ID di risorsa di active directory dall'endpoint dei metadati di Azure Resource Manager.
         3. Carica il modello di API per il motore ACS.
         4. Consente di distribuire il modulo di gestione ACS per il cluster Kubernetes e Salva il profilo di cloud di Azure Stack da `/etc/kubernetes/azurestackcloud.json`.
-3. Crea macchine virtuali master.
+3. Creare le VM master.
 
-    Scarica ed esegue l'estensione script cliente.
+4. Scaricare ed eseguire le estensioni degli script dei clienti.
 
-4. Esegue lo script master.
+5. Eseguire lo script master.
 
-    Lo script:
-    - Installa etcd, Docker e Kubernetes risorse, ad esempio kubelet. etcd è un archivio di valori chiave distribuita che consente di archiviare i dati in un cluster di computer. Docker supporta pressoché essenziale del sistema operativo a livello di virtualizzazione: noti come contenitori. Kubelet è l'agente del nodo che viene eseguito in ogni nodo di Kubernetes.
+    Lo script esegue le attività seguenti:
+    - Installa etcd, Docker e Kubernetes risorse, ad esempio kubelet. etcd è un archivio di valori chiave distribuita che consente di archiviare i dati in un cluster di computer. Docker supporta la virtualizzazione: a livello di sistema operativo pressoché essenziale noti come contenitori. Kubelet è l'agente del nodo che viene eseguito in ogni nodo di Kubernetes.
     - Configura il servizio etcd.
-    - Configura servizio Kubelet.
-    - Avvia kubelet. Ciò comporta quanto segue:
+    - Configura il servizio di kubelet.
+    - Avvia kubelet. Questa attività prevede i passaggi seguenti:
         1. Avvia il servizio API.
-        2. Avvia il servizio Controller.
-        3. Avvia servizio Utilità di pianificazione.
-5. Crea agente di macchine virtuali.
+        2. Avvia il servizio controller.
+        3. Avvia il servizio Utilità di pianificazione.
+6. Creare l'agente di macchine virtuali.
 
-    Scarica ed esegue l'estensione script cliente.
+7. Scarica e si esegue l'estensione script cliente.
 
-6. Viene eseguito lo script dell'agente. Lo script personalizzato dell'agente:
-    - Installare etcd.
-    - Configurare il servizio di Kubelet.
-    - Crea un join al cluster Kubernetes.
+7. Eseguire lo script dell'agente. Lo script personalizzato dell'agente effettua le seguenti attività:
+    - Installa etcd
+    - Configura il servizio di kubelet
+    - Viene aggiunto al cluster Kubernetes
 
 ## <a name="steps-for-troubleshooting"></a>Passaggi per la risoluzione dei problemi
 
-È possibile raccogliere i log nelle macchine virtuali che supportano il cluster Kubernetes. È anche possibile esaminare il log di distribuzione. È necessario anche contattare l'amministratore di Azure Stack per verificare la versione di Azure Stack in uso e per ottenere i log da Azure Stack correlati alla distribuzione.
+È possibile raccogliere i log nelle macchine virtuali che supportano il cluster Kubernetes. È anche possibile esaminare il log di distribuzione. Si potrebbe essere necessario rivolgersi all'amministratore di Azure Stack per verificare la versione di Azure Stack che è necessario usare e per ottenere i log da Azure Stack che sono correlati alla distribuzione.
 
-1. Esaminare i [lo stato di distribuzione](#review-deployment-status) e il [recuperare i registri](#get-logs-from-a-vm) dal nodo master nel cluster Kubernetes.
-2. È necessario usare la versione più recente di Azure Stack. Se si è certi della versione di Azure Stack, contattare l'amministratore di Azure Stack. Il tempo di marketplace di un Kubernetes Cluster 0.3.0 richiede la versione di Azure Stack 1808 o supera.
-3.  Esaminare i file di creazione della macchina virtuale. Si potrebbero essersi verificato quanto segue:  
-    - La chiave pubblica potrebbe non essere valida. Esaminare la chiave che è stato creato.  
-    - Creazione della macchina virtuale può avere generato un errore interno o ha generato un errore di creazione. Gli errori potrebbero essere causati da una serie di fattori quali i limiti di capacità per la sottoscrizione di Azure Stack.
-    - Il nome di dominio completo (FDQN) per la macchina virtuale inizia con un prefisso duplicato?
-4.  Se la macchina virtuale viene **OK**, quindi, valutare di DVM. Se il DVM dispone di un messaggio di errore:
+1. Rivedere le [lo stato di distribuzione](#review-deployment-status) e [recuperare i registri](#get-logs-from-a-vm) dal nodo master nel cluster Kubernetes.
+2. Assicurarsi che si usa la versione più recente di Azure Stack. Se non si conosce la versione in uso, contattare l'amministratore di Azure Stack. Il tempo di marketplace di cluster Kubernetes 0.3.0 richiede la versione di Azure Stack 1808 o supera.
+3.  Esaminare i file di creazione della macchina virtuale. Si potrebbero avere avuto problemi seguenti:  
+    - La chiave pubblica potrebbe non essere valida. Esaminare la chiave creata.  
+    - Creazione della macchina virtuale è possibile che hanno generato un errore interno o ha generato un errore di creazione. Numerosi fattori possono causare errori, quali i limiti di capacità per la sottoscrizione di Azure Stack.
+    - Assicurarsi che il nome di dominio completo (FDQN) per la macchina virtuale inizia con un prefisso duplicato.
+4.  Se la macchina virtuale viene **OK**, quindi valutare di DVM. Se il DVM dispone di un messaggio di errore:
 
-    - La chiave pubblica potrebbe non essere valida. Esaminare la chiave che è stato creato.  
-     - È necessario contattare l'amministratore di Azure Stack per recuperare i log di Azure Stack tramite i punti finali con privilegi. Per altre informazioni, vedere [strumenti di diagnostica di Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
-5. Se hai domande sulla distribuzione, è possibile pubblicare una domanda o vedere se un utente ha già risposto alla domanda nel [Forum di Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+    - La chiave pubblica potrebbe non essere valida. Esaminare la chiave creata.  
+    - È necessario contattare l'amministratore di Azure Stack per recuperare i log per Azure Stack tramite gli endpoint con privilegi. Per altre informazioni, vedere [strumenti di diagnostica di Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
+5. Se hai una domanda sulla distribuzione, è possibile pubblicarlo o vedere se un utente ha già risposto alla domanda nel [forum di Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="review-deployment-status"></a>Esaminare lo stato di distribuzione
 
-Quando si distribuisce il cluster Kubernetes per esaminare gli eventuali problemi, è possibile esaminare lo stato della distribuzione.
+Quando si distribuisce il cluster Kubernetes, è possibile esaminare lo stato della distribuzione per verificare la presenza di eventuali problemi.
 
 1. Aprire il [portale di Azure Stack](https://portal.local.azurestack.external).
-2. Selezionare **gruppi di risorse**, e quindi selezionare il nome del gruppo di risorse usato quando la distribuzione del cluster Kubernetes.
-3. Selezionare **distribuzioni** e quindi la **nome distribuzione**.
+2. Selezionare **gruppi di risorse**e quindi selezionare il nome del gruppo di risorse usato durante la distribuzione del cluster Kubernetes.
+3. Selezionare **distribuzioni**, quindi selezionare la **nome distribuzione**.
 
     ![risoluzione dei problemi](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
-4.  Consultare la finestra Risoluzione dei problemi. Ogni risorsa distribuita fornisce le informazioni seguenti.
+4.  Consultare la finestra Risoluzione dei problemi. Ogni risorsa distribuita fornisce le informazioni seguenti:
     
     | Proprietà | DESCRIZIONE |
     | ----     | ----        |
@@ -115,21 +115,23 @@ Quando si distribuisce il cluster Kubernetes per esaminare gli eventuali problem
     | type | Il provider di risorse e il tipo di risorsa. |
     | Status | Lo stato dell'elemento. |
     | Timestamp | Il timestamp UTC del tempo. |
-    | Dettagli dell'operazione | I dettagli dell'operazione, ad esempio il provider di risorse necessari per l'operazione, il punto finale di risorse e il nome della risorsa. |
+    | Dettagli dell'operazione | I dettagli dell'operazione, ad esempio il provider di risorse che è stato coinvolto nell'operazione, l'endpoint di risorse e il nome della risorsa. |
 
-    Ogni elemento avrà un'icona di stato di colore rosse o verde.
+    Ogni elemento ha un'icona di stato di colore verde oppure rosso.
 
 ## <a name="get-logs-from-a-vm"></a>Ottenere i log da una macchina virtuale
 
-Si verrà necessario per la connessione al server master di VM per il cluster, aprire un prompt dei comandi bash ed eseguire uno script per generare i log. Il master è reperibile nel gruppo di risorse cluster e viene denominato `k8s-master-<sequence-of-numbers>`. 
+Per generare i log, è necessario connettersi al server master di VM per il cluster, aprire un prompt dei comandi bash e quindi eseguire uno script. Lo schema della macchina virtuale sono reperibili nel gruppo di risorse cluster e viene denominata `k8s-master-<sequence-of-numbers>`. 
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-È necessario un bash richiesto nel computer all'utilizzo per la gestione di Azure Stack. Usare bash per eseguire gli script accedere ai log. In un computer Windows, è possibile usare il prompt di bash installato con Git. Per ottenere la versione più recente di git, vedere [download git](https://git-scm.com/downloads).
+È necessario un bash nel computer che si usa per gestire Azure Stack dei messaggi di richiesta. Usare bash per eseguire gli script accedere ai log. In un computer Windows, è possibile usare il prompt di bash che viene installato con Git. Per ottenere la versione più recente di git, vedere [download Git](https://git-scm.com/downloads).
 
 ### <a name="get-logs"></a>Ottenere i log
 
-1. Aprire un prompt di bash. Se si usa git in un computer Windows, è possibile aprire un prompt di bash dal seguente percorso: `c:\programfiles\git\bin\bash.exe`.
+Per ottenere i log, procedere come segue:
+
+1. Aprire un prompt di bash. Se si usa Git in un computer Windows, è possibile aprire un prompt di bash dal seguente percorso: `c:\programfiles\git\bin\bash.exe`.
 2. Eseguire i comandi bash seguenti:
 
     ```Bash  
@@ -140,23 +142,23 @@ Si verrà necessario per la connessione al server master di VM per il cluster, a
     ```
 
     > [!Note]  
-    > In Windows, non è necessario eseguire `sudo` e possa usare semplicemente `chmod 744 getkuberneteslogs.sh`.
+    > In Windows, non devi eseguire `sudo`. È possibile usare invece solo `chmod 744 getkuberneteslogs.sh`.
 
-3. Nella stessa sessione, eseguire il comando seguente con i parametri aggiornati per adattarli all'ambiente.
+3. Nella stessa sessione, eseguire il comando seguente con i parametri aggiornati per adattarli all'ambiente:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
     ```
 
-    Esaminare i parametri e impostare i valori nel proprio ambiente.
+4. Esaminare i parametri e impostare i valori nel proprio ambiente.
     | Parametro           | DESCRIZIONE                                                                                                      | Esempio                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i,-identity-file | Il file di chiave privata RSA per connettere il VM master di kubernetes. La chiave deve iniziare con `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.PEM                                                        |
-    | -h, --host          | L'indirizzo ip pubblico o il nome di dominio completo (FQDN) del master del cluster Kubernetes della macchina virtuale. Il nome VM viene avviata con `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u, --utente          | Il nome utente del master del cluster Kubernetes della macchina virtuale. Questo nome è impostato quando si configura l'elemento del marketplace.                                                                    | azureuser                                                                     |
-    | -d, - vmdhost       | L'indirizzo ip pubblico o il FQDN di DVM. Il nome VM viene avviata con `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -i,-identity-file | File chiave privata RSA per connettere la VM master di Kubernetes. La chiave deve iniziare con `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.PEM                                                        |
+    | -h, --host          | L'indirizzo IP pubblico o il nome di dominio completo (FQDN) del master del cluster Kubernetes della macchina virtuale. Il nome VM viene avviata con `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -u, --utente          | Il nome utente del master del cluster Kubernetes della macchina virtuale. Questo nome viene impostato quando si configura l'elemento del marketplace.                                                                    | azureuser                                                                     |
+    | -d, - vmdhost       | L'indirizzo IP pubblico o il FQDN di DVM. Il nome VM viene avviata con `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
 
-   Quando si aggiungono i valori dei parametri, che potrebbe simile a:
+   Quando si aggiungono i valori dei parametri, che potrebbe essere simile al codice seguente:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
@@ -167,15 +169,15 @@ Si verrà necessario per la connessione al server master di VM per il cluster, a
     ![Log generati](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
-4. Recuperare i log nelle cartelle create dal comando. Il comando creerà una nuova cartella e il timestamp.
+4. Recuperare i log nelle cartelle create dal comando. Il comando Crea nuove cartelle e un timestamp li.
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine-kubernetes-dvm.log
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuzione di Kubernetes in Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
+[Distribuzione di Kubernetes in Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Aggiungere un Kubernetes nel Marketplace (per l'operatore di Azure Stack)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Aggiungere un cluster Kubernetes nel Marketplace (per l'operatore di Azure Stack)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes in Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

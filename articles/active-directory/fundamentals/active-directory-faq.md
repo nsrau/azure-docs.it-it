@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 5ff9d1cf76188ff38f59e8b74d4bfd380c8c88e1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d58e5816c3b0e7c951c7d6bcfc6bfe4d0789f47a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408711"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233797"
 ---
 # <a name="azure-active-directory-faq"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -86,7 +86,7 @@ Per altre informazioni, vedere [Integrazione delle identità locali con Azure Ac
 - - -
 **D: Azure AD offre un portale self-service per gli utenti dell'organizzazione?**
 
-**R:** Sì, in Azure AD è disponibile il [pannello di accesso di Azure AD](http://myapps.microsoft.com) per l'accesso degli utenti alle funzionalità self-service e alle applicazioni. I clienti di Office 365 possono trovare molte funzionalità analoghe nel portale di Office 365.
+**R:** Sì, in Azure AD è disponibile il [pannello di accesso di Azure AD](https://myapps.microsoft.com) per l'accesso degli utenti alle funzionalità self-service e alle applicazioni. I clienti di Office 365 possono trovare molte funzionalità analoghe nel portale di Office 365.
 
 Per altre informazioni, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 

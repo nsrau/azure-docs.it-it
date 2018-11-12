@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sulla rete virtuale di Azure | Microsoft Docs
+title: Domande frequenti sulla rete virtuale di Azure | Documentazione Microsoft
 description: Risposte alle domande più frequenti sulla rete virtuale di Microsoft Azure.
 services: virtual-network
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 6c429931a7a17ab62892ecc774a5cca15a532f72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269480"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237635"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -213,7 +213,7 @@ Sì. Per informazioni dettagliate, vedere [Panoramica della sicurezza di rete di
 ## <a name="apis-schemas-and-tools"></a>API, schemi e strumenti
 
 ### <a name="can-i-manage-vnets-from-code"></a>È possibile gestire le reti virtuali dal codice?
-Sì. È possibile usare le API REST per le reti virtuali nei modelli di distribuzione [Azure Resource Manager](/rest/api/virtual-network) e [classica (Gestione dei servizi)](http://go.microsoft.com/fwlink/?LinkId=296833).
+Sì. È possibile usare le API REST per le reti virtuali nei modelli di distribuzione [Azure Resource Manager](/rest/api/virtual-network) e [classica (Gestione dei servizi)](https://go.microsoft.com/fwlink/?LinkId=296833).
 
 ### <a name="is-there-tooling-support-for-vnets"></a>È disponibile il supporto degli strumenti per le reti virtuali?
 Sì. Altre informazioni:

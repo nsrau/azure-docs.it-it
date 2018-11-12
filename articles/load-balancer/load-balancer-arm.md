@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: f972495fe1a5a0744cf6d7046b555349e5bc8c54
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416427"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235038"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Usare il supporto di Azure Resource Manager per Azure Load Balancer
 
@@ -50,9 +50,9 @@ Per i modelli di avvio rapido che usano Azure Load Balancer, vedere il [reposito
 
 Esempi di modelli:
 
-* [2 macchine virtuali in un bilanciamento del carico e regole di bilanciamento del carico](http://go.microsoft.com/fwlink/?LinkId=544799)
-* [2 macchine virtuali in una rete virtuale con un bilanciamento del carico interno e regole di bilanciamento del carico](http://go.microsoft.com/fwlink/?LinkId=544800)
-* [2 macchine virtuali in un bilanciamento del carico e regole NAT di configurazione per il bilanciamento del carico](http://go.microsoft.com/fwlink/?LinkId=544801)
+* [2 macchine virtuali in un bilanciamento del carico e regole di bilanciamento del carico](https://go.microsoft.com/fwlink/?LinkId=544799)
+* [2 macchine virtuali in una rete virtuale con un bilanciamento del carico interno e regole di bilanciamento del carico](https://go.microsoft.com/fwlink/?LinkId=544800)
+* [2 macchine virtuali in un bilanciamento del carico e regole NAT di configurazione per il bilanciamento del carico](https://go.microsoft.com/fwlink/?LinkId=544801)
 
 ## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>Configurazione del bilanciamento del carico di Azure con PowerShell o l'interfaccia della riga di comando
 

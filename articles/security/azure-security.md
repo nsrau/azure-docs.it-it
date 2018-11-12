@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f11012c90ab2b82e945fdb67e224783c3f05c6dd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405209"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237554"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza in Azure
 ## <a name="overview"></a>Panoramica
@@ -62,7 +62,7 @@ Di seguito sono elencate le funzionalità che è possibile esaminare per assicur
 | [Formazione sulla sicurezza obbligatoria, controlli del background](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Controllo sulla posizione dei dati](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Come viene gestita da Microsoft la posizione dei dati nei servizi di Azure](http://azuredatacentermap.azurewebsites.net/)|
 | [Test di penetrazione](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [rilevamento delle intrusioni, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [controlli e registrazione](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Accesso ai dati in base ai propri termini](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Elenco di controllo della due diligence per i servizi cloud](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Personale Microsoft che ha accesso ai dati e in quali termini](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Data center all'avanguardia](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), sicurezza fisica, [rete protetta](https://docs.microsoft.com/azure/security/security-network-overview) | [Risposta alle richieste delle forze dell'ordine](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Conformità in base al servizio, alla località e al settore](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Come vengono protetti da Microsoft i dati dei clienti nei servizi di Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
-|  [Risposta a eventi imprevisti di sicurezza](http://aka.ms/SecurityResponsepaper), [responsabilità condivisa](http://aka.ms/sharedresponsibility) |[Standard di privacy rigorosi](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Certificazione di verifica per i servizi di Azure, hub per la trasparenza](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
+|  [Risposta a eventi imprevisti di sicurezza](https://aka.ms/SecurityResponsepaper), [responsabilità condivisa](https://aka.ms/sharedresponsibility) |[Standard di privacy rigorosi](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Certificazione di verifica per i servizi di Azure, hub per la trasparenza](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
 
 

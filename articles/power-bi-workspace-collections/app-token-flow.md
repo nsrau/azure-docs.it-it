@@ -2,26 +2,20 @@
 title: Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI| Microsoft Docs
 description: Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 4bf92638e15767ea254b33e5804977f0d6ab5476
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42144876"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236931"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI
 
@@ -176,7 +170,7 @@ Body
    
    ![Flusso di token di app - Il servizio invia un report all'utente](media/get-started-sample/token-6.png)
 
-Dopo l'invio di un report all'utente dalle **raccolte di aree di lavoro di Power BI**, l'utente può visualizzare il report nell'app personalizzata. Ad esempio, se è stato importato l'esempio [Analyzing Sales Data PBIX](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), l'app Web di esempio sarà simile alla seguente:
+Dopo l'invio di un report all'utente dalle **raccolte di aree di lavoro di Power BI**, l'utente può visualizzare il report nell'app personalizzata. Ad esempio, se è stato importato l'esempio [Analyzing Sales Data PBIX](https://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), l'app Web di esempio sarà simile alla seguente:
 
 ![Esempio di report incorporato in un'applicazione](media/get-started-sample/sample-web-app.png)
 

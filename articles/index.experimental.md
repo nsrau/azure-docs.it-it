@@ -3,19 +3,19 @@ layout: HubPage
 hide_bc: true
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
-ms.openlocfilehash: 16d1466180e90d45b7c2adf00ab699bb39d5d785
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a2c778f38c4a211f9a2ba1b73317478202adfcd5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302457"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232679"
 ---
 <div id="main" class="v2">
     <div class="container">
         <h1 class="screenReader">Documentazione di Microsoft Azure</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
-                <a href="http://aka.ms/azuredevgetstarted/">
+                <a href="https://aka.ms/azuredevgetstarted/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -137,7 +137,7 @@ ms.locfileid: "44302457"
                                                 </div>
                                                 <div class="ico48Link">
                                                     <a href="/go/azure/">
-                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt=""/>
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt=""/>
                                                         <span>Go</span>
                                                     </a>
                                                 </div>
@@ -905,12 +905,6 @@ ms.locfileid: "44302457"
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/mobile-engagement/">
-                                                <img src="media/index/MobileEngagement.svg" alt="" />
-                                                <p>Mobile Engagement</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>Hub di notifica</p>
@@ -1635,25 +1629,6 @@ ms.locfileid: "44302457"
                                                 <div class="cardText">
                                                     <h3>Ricerca</h3>
                                                     <p>Ricerca come servizio completamente gestita</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/mobile-engagement/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MobileEngagement.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Mobile Engagement</h3>
-                                                    <p>Aumentare l'utilizzo delle app e favorire la fidelizzazione degli utenti</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3256,7 +3231,7 @@ ms.locfileid: "44302457"
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -3313,12 +3288,12 @@ ms.locfileid: "44302457"
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Interfaccia della riga di comando di Azure 2.0 </h3>
+                                                <h3>Interfaccia della riga di comando di Azure </h3>
                                                 <p>
                                                     <a href="/cli/azure">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">Scaricare Azure CLI 2.0</a>
+                                                    <a href="/cli/azure/install-azure-cli">Scaricare l'interfaccia della riga di comando di Azure</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">Informazioni di riferimento</a>
@@ -3363,18 +3338,18 @@ ms.locfileid: "44302457"
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Interfaccia della riga di comando di Azure </h3>
+                                                <h3>Interfaccia della riga di comando classica di Azure </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">Scaricare l'interfaccia della riga di comando di Azure per Linux</a>
+                                                    <a href="https://aka.ms/linux-azure-cli">Scaricare l'interfaccia della riga di comando di Azure per Linux</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">Scaricare l'interfaccia della riga di comando di Azure per Mac</a>
+                                                    <a href="https://aka.ms/mac-azure-cli">Scaricare l'interfaccia della riga di comando di Azure per Mac</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">Scaricare l'interfaccia della riga di comando di Azure per Windows</a>
+                                                    <a href="https://aka.ms/webpi-azure-cli">Scaricare l'interfaccia della riga di comando di Azure per Windows</a>
                                                 </p>
                                                 <p>
                                                     <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Informazioni di riferimento</a>
@@ -3478,13 +3453,13 @@ ms.locfileid: "44302457"
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                     <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Download per Linux</a>
+                                                     <a  href="https://go.microsoft.com/fwlink/?LinkId=722418">Download per Linux</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Download per Mac</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708342">Download per Mac</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Download per Windows</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">Download per Windows</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3502,10 +3477,10 @@ ms.locfileid: "44302457"
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://aka.ms/ptvs">Python Tools</a>
+                                                    <a href="https://aka.ms/ptvs">Python Tools</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://aka.ms/ptvsdocs">Introduzione a Visual Studio</a>
+                                                    <a href="https://aka.ms/ptvsdocs">Introduzione a Visual Studio</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://code.visualstudio.com/docs/python/python-tutorial">Introduzione a Visual Studio Code</a>

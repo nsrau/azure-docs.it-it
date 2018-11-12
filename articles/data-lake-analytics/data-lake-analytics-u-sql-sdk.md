@@ -5,16 +5,15 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737072"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238795"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
 
@@ -37,7 +36,7 @@ L'SDK U-SQL di Data Lake richiede le dipendenze seguenti:
 
     ![Windows 10 SDK ad esecuzione locale degli strumenti di Data Lake per Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Installare [Strumenti Data Lake per Visual Studio](http://aka.ms/adltoolsvs). I file di Windows SDK e Visual C++ preassemblati sono disponibili in C:\Programmi (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. In questo caso il compilazione locale di U-SQL non è in grado di trovare le dipendenze automaticamente. È necessario specificare il relativo percorso CppSDK. È possibile copiare i file in un altro percorso o usarli così come sono.
+    - Installare [Strumenti Data Lake per Visual Studio](https://aka.ms/adltoolsvs). I file di Windows SDK e Visual C++ preassemblati sono disponibili in C:\Programmi (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. In questo caso il compilazione locale di U-SQL non è in grado di trovare le dipendenze automaticamente. È necessario specificare il relativo percorso CppSDK. È possibile copiare i file in un altro percorso o usarli così come sono.
 
 ## <a name="understand-basic-concepts"></a>Comprendere i concetti di base
 

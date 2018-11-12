@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 9e685d2281330457e83abde0a8ac26e086da7479
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268022"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229646"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Come usare la proprietà "entità prevista" delle azioni
 
@@ -23,7 +23,7 @@ Questa esercitazione illustra il campo delle entità previste delle azioni.
 
 ## <a name="video"></a>Video
 
-[![Anteprima esercitazione 4](http://aka.ms/cl-tutorial-04-preview)](http://aka.ms/blis-tutorial-04)
+[![Anteprima esercitazione 4](https://aka.ms/cl-tutorial-04-preview)](https://aka.ms/blis-tutorial-04)
 
 ## <a name="requirements"></a>Requisiti
 Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione

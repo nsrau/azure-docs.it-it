@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 8dcd89415bdd48b2d8d5c8e1e699159e9d1129e5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8696f4780db8b98457b56dd7f1162553697023d4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139476"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237928"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso di PowerShell per Gestione traffico
 
@@ -178,7 +178,7 @@ Ciascun profilo di Gestione traffico specifica un solo metodo di routing del tra
 Endpoint annidati vengono configurati nel profilo padre tramite un tipo di endpoint specifico, 'NestedEndpoints'. Quando si specificano endpoint annidati:
 
 * L'endpoint deve essere specificato usando il parametro "targetResourceId"
-* "EndpointLocation" è obbligatorio se viene usato il metodo di routing del traffico "Performance". In caso contrario, è facoltativo. Il valore deve essere un [nome di area di Azure valido](http://azure.microsoft.com/regions/).
+* "EndpointLocation" è obbligatorio se viene usato il metodo di routing del traffico "Performance". In caso contrario, è facoltativo. Il valore deve essere un [nome di area di Azure valido](https://azure.microsoft.com/regions/).
 * I parametri "Weight" e "Priority" sono facoltativi, come per gli endpoint di Azure.
 * Il parametro "MinChildEndpoints" è facoltativo. Il valore predefinito è "1". Se il numero di endpoint disponibili scende sotto questa soglia, il profilo padre considera il profilo figlio "degradato" con conseguente deviazione del traffico agli altri endpoint del profilo padre.
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: 7e7d1f8110d8470fe7596633563529f397c5551e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a1c9340acdc2521b9b74f47b0e17d0e4d37aea77
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794753"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236568"
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>Creare un indice di Ricerca di Azure con .NET SDK
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Questo articolo illustra il processo di creazione di un [indice](https://docs.mi
 Prima di seguire le indicazioni di questa guida e creare un indice, è necessario [creare un servizio Ricerca di Azure](search-create-service-portal.md).
 
 > [!NOTE]
-> Tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile [in GitHub](http://aka.ms/search-dotnet-howto). Per una descrizione più dettagliata del codice di esempio, vedere le informazioni relative a [Azure Search .NET SDK](search-howto-dotnet-sdk.md).
+> Tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile [in GitHub](https://aka.ms/search-dotnet-howto). Per una descrizione più dettagliata del codice di esempio, vedere le informazioni relative a [Azure Search .NET SDK](search-howto-dotnet-sdk.md).
 
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificare la chiave API amministratore del servizio Ricerca di Azure
@@ -53,7 +53,7 @@ Per la creazione di un indice è possibile usare la chiave primaria o secondaria
 ## <a name="create-an-instance-of-the-searchserviceclient-class"></a>Creare un'istanza della classe SearchServiceClient
 Per iniziare a usare Azure Search .NET SDK, è necessario creare un'istanza della classe `SearchServiceClient` . Questa classe ha diversi costruttori. Il costruttore in uso accetta il nome del servizio di ricerca e un oggetto `SearchCredentials` come parametri. `SearchCredentials` esegue il wrapping della chiave API.
 
-Il codice seguente crea un nuovo oggetto `SearchServiceClient` usando i valori del nome del servizio di ricerca e della chiave API archiviati nel file di configurazione dell'applicazione, `appsettings.json` nel caso dell'[applicazione di esempio](http://aka.ms/search-dotnet-howto):
+Il codice seguente crea un nuovo oggetto `SearchServiceClient` usando i valori del nome del servizio di ricerca e della chiave API archiviati nel file di configurazione dell'applicazione, `appsettings.json` nel caso dell'[applicazione di esempio](https://aka.ms/search-dotnet-howto):
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)

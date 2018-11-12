@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 4a6327fcfe6f6e6f3b8b5c6ecbd14b832b4134c5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5b8d3aa69d6a141394395f012e5cc57873cafaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421213"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235939"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Introduzione all'esecuzione di carichi di lavoro Excel e SOA in un cluster HPC Pack in Azure
 Questo articolo illustra come distribuire un cluster Microsoft HPC Pack 2012 R2 nelle macchine virtuali di Azure con un modello di avvio rapido di Azure o uno script di distribuzione di Azure PowerShell. Il cluster usa le immagini VM di Azure Marketplace progettate per l'esecuzione di Microsoft Excel o carichi di lavoro di architettura orientata ai servizi (SOA) con HPC Pack. È possibile usare il cluster per eseguire servizi Excel HPC e SOA da un computer client locale. I servizi Excel HPC includono l'offload di cartelle di lavoro di Excel e funzioni definite dall'utente di Excel o UDF.
@@ -225,7 +225,7 @@ Per eseguire l'offload di una cartella di lavoro di Excel in modo da eseguirla n
         </startup>
     </configuration>
     ```
-1. Configurare il client per l'invio di processi al cluster di HPC Pack. Per farlo, è possibile scaricare [HPC Pack 2012 R2 Update 3](http://www.microsoft.com/download/details.aspx?id=49922) e installare il client di HPC Pack. In alternativa, scaricare e installare le utilità client [HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923) e il file ridistribuibile di Visual C++ 2010 appropriato per il computer in uso ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
+1. Configurare il client per l'invio di processi al cluster di HPC Pack. Per farlo, è possibile scaricare [HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49922) e installare il client di HPC Pack. In alternativa, scaricare e installare le utilità client [HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923) e il file ridistribuibile di Visual C++ 2010 appropriato per il computer in uso ([x64](https://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
 1. In questo esempio viene usata una cartella di lavoro di Excel di esempio denominata ConvertiblePricing_Complete.xlsb. È possibile scaricarlo [qui](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
 1. Copiare la cartella di lavoro di Excel in una cartella di lavoro, ad esempio D:\Excel\Run.
 1. Aprire la cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **COM Add-Ins** e verificare che il componente aggiuntivo HPC Pack Excel COM venga caricato correttamente.
@@ -262,7 +262,7 @@ Per eseguire funzioni definite dall'utente di Excel, seguire i passaggi da 1 a 3
 > 
 > 
 
-Dopo aver correttamente distribuito il cluster, continuare con la procedura seguente per eseguire una funzione definita dall'utente di Excel integrata di esempio. Per funzioni definite dall'utente di Excel personalizzate, consultare queste [risorse](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) per compilare librerie XLL e distribuirle sul cluster IaaS.
+Dopo aver correttamente distribuito il cluster, continuare con la procedura seguente per eseguire una funzione definita dall'utente di Excel integrata di esempio. Per funzioni definite dall'utente di Excel personalizzate, consultare queste [risorse](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) per compilare librerie XLL e distribuirle sul cluster IaaS.
 
 1. Aprire una nuova cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **Componenti aggiuntivi**. Quindi, nella finestra di dialogo fare clic su **Sfoglia**, accedere alla cartella %CCP_HOME%Bin\XLL32 e selezionare il ClusterUDF32.xll di esempio. Se il ClusterUDF32 non esiste nel computer client, copiarlo dalla cartella %CCP_HOME%Bin\XLL32 nel nodo head.
    
@@ -280,7 +280,7 @@ Dopo aver correttamente distribuito il cluster, continuare con la procedura segu
 Per eseguire applicazioni SOA generiche nel cluster IaaS di HPC Pack, distribuire innanzitutto il cluster usando uno dei metodi descritti nel Passaggio 1. In questo caso specificare l'immagine di un nodo di calcolo generico, poiché nei nodi di calcolo non è necessario Excel. Attenersi quindi alla procedura seguente:
 
 1. Dopo avere recuperato il certificato del cluster, importarlo nel computer client, in Cert:\CurrentUser\Root.
-1. Installare l'[SDK di HPC Pack 2012 R2 Update 3](http://www.microsoft.com/download/details.aspx?id=49921) e le [utilità client di HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923). Questi strumenti consentono di sviluppare ed eseguire applicazioni client SOA.
+1. Installare l'[SDK di HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49921) e le [utilità client di HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923). Questi strumenti consentono di sviluppare ed eseguire applicazioni client SOA.
 1. Scaricare il [codice di esempio](https://www.microsoft.com/download/details.aspx?id=41633)HelloWorldR2. Aprire HelloWorldR2.sln in Visual Studio 2010 o 2012. Questo esempio non è attualmente compatibile con le versioni più recenti di Visual Studio.
 1. Compilare innanzitutto il progetto EchoService. Dopodiché, distribuire il servizio nel cluster IaaS con le stesse modalità di distribuzione in un cluster locale. Per informazioni dettagliate, vedere il file Readme.doc in HelloWordR2. Modificare e compilare HelloWorldR2 e altri progetti come descritto nella sezione seguente per generare le applicazioni client SOA da eseguire in un cluster IaaS di Azure.
 
@@ -343,7 +343,7 @@ Per usare l'associazione NetTcp, la configurazione è simile alla connessione a 
 L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modifica al nome head per il nome completo del cluster IaaS.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sull'esecuzione di carichi di lavoro di Excel con HPC Pack, vedere [queste risorse](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) .
+* Per altre informazioni sull'esecuzione di carichi di lavoro di Excel con HPC Pack, vedere [queste risorse](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) .
 * Vedere l'articolo relativo alla [gestione dei servizi SOA in Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) per altre informazioni sulla distribuzione e sulla gestione dei servizi SOA con HPC Pack.
 
 <!--Image references-->

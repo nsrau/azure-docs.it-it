@@ -3,19 +3,19 @@ title: Sviluppare processi MapReduce per la creazione di flussi Python con HDIns
 description: Informazioni su come usare Python nel flusso di processi MapReduce. Hadoop fornisce un'API di flusso per MapReduce per la scrittura in linguaggi diversi da Java.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: jasonh
-ms.openlocfilehash: 34a270ce321770c3e024580be7b234bfa5f21b22
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: hrasheed
+ms.openlocfilehash: 5ed61eb05d0aa4360e042097d6b8c632c17ea59c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594458"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008726"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Sviluppare programmi MapReduce per la creazione di flussi Python per HDInsight
 

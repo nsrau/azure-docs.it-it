@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e896392404c23e88d697d45146f802576d6045d3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b7b8ccf7e84239db4eef0914346c453a2f205f91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870826"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237894"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizzare l'accesso ad applicazioni Web di Azure Active Directory mediante il flusso di concessione di OAuth 2.0
 
@@ -183,7 +183,7 @@ Una risposta con esito positivo può avere un aspetto simile al seguente:
 | refresh_token |Token di aggiornamento di OAuth 2.0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente. I token di aggiornamento hanno durata elevata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo. |
 | id_token |Token JSON Web (JWT) non firmato che rappresenta un[token ID](id-tokens.md). L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. |
 
-Per altre informazioni sui token Web JSON, vedere la [bozza della specifica di JWT di IETF](http://go.microsoft.com/fwlink/?LinkId=392344).   Per altre informazioni su `id_tokens`, vedere il [flusso OpenID Connect v1.0](v1-protocols-openid-connect-code.md).
+Per altre informazioni sui token Web JSON, vedere la [bozza della specifica di JWT di IETF](https://go.microsoft.com/fwlink/?LinkId=392344).   Per altre informazioni su `id_tokens`, vedere il [flusso OpenID Connect v1.0](v1-protocols-openid-connect-code.md).
 
 ### <a name="error-response"></a>Risposta di errore
 Gli errori dell'endpoint di rilascio dei token sono codici di errore HTTP perché il client chiama direttamente l'endpoint di rilascio dei token. Oltre al codice di stato HTTP, l'endpoint di rilascio dei token di Azure AD restituisce anche un documento JSON con gli oggetti che descrivono l'errore.

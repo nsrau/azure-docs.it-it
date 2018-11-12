@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142573"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238523"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -61,9 +61,9 @@ Data Factory include attività predefinite. Ad esempio, è disponibile l'attivit
 ## <a name="architecture-of-a-sample-solution"></a>Architettura di una soluzione di esempio
   L'architettura descritta in questo articolo è quella di una soluzione semplice. È adatta anche per scenari complessi, ad esempio la modellazione di rischio per servizi finanziari, l'elaborazione di immagini e il rendering, così come le analisi di tipo genomico.
 
-Il diagramma illustra come Data Factory orchestra l'elaborazione e lo spostamento dei dati. Viene inoltre illustrato come Batch elabora i dati in modo parallelo. Scaricare e stampare il diagramma per riferimento (297 x 420 mm, formato A3). Per accedere al diagramma in modo da poterlo stampare, vedere [HPC and data orchestration by using Batch and Data Factory (Orchestrazione di HPC e dati mediante Batch e Data Factory)](http://go.microsoft.com/fwlink/?LinkId=717686).
+Il diagramma illustra come Data Factory orchestra l'elaborazione e lo spostamento dei dati. Viene inoltre illustrato come Batch elabora i dati in modo parallelo. Scaricare e stampare il diagramma per riferimento (297 x 420 mm, formato A3). Per accedere al diagramma in modo da poterlo stampare, vedere [HPC and data orchestration by using Batch and Data Factory (Orchestrazione di HPC e dati mediante Batch e Data Factory)](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Diagramma di elaborazione dei dati su larga scala](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![Diagramma di elaborazione dei dati su larga scala](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 Nell'elenco seguente vengono presentati i passaggi di base del processo. La soluzione include il codice e le spiegazioni per compilare la soluzione end-to-end.
 
@@ -556,7 +556,7 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 
    ![Nuovo archivio dati](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Sostituire **nome account** con il nome del proprio account di archiviazione. Sostituire **chiave account** con la chiave di accesso dell'account di archiviazione. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso nelle risorse di archiviazione](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Sostituire **nome account** con il nome del proprio account di archiviazione. Sostituire **chiave account** con la chiave di accesso dell'account di archiviazione. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso nelle risorse di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
 
 1. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 

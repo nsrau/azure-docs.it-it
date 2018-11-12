@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: ae6539900e201f0559d998ad2d9be24c39d42e3b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 608525a1f06a396c7df7d764f236f33af77dccc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713494"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235344"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Account di archiviazione in Azure Stack
 Gli account di archiviazione includono i servizi BLOB e tabelle e lo spazio dei nomi univoco per gli oggetti dati di archiviazione. Per impostazione predefinita, i dati nel proprio account sono accessibili solo all'utente, ovvero al proprietario dell'account di archiviazione.
@@ -34,8 +34,8 @@ Gli account di archiviazione includono i servizi BLOB e tabelle e lo spazio dei 
     ![](media/azure-stack-provision-storage-account/image03.png)
 
 ### <a name="next-steps"></a>Passaggi successivi
-[Usare i modelli di Azure Resource Manager](user/azure-stack-arm-templates.md)
+[Usare i modelli di Gestione risorse di Azure](user/azure-stack-arm-templates.md)
 
-[Altre informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md)
+[Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md)
 
-[Scarica la Guida di convalida di archiviazione coerenti con Azure Stack di Azure](http://aka.ms/azurestacktp1doc)
+[Scarica la Guida di convalida di archiviazione coerenti con Azure Stack di Azure](https://aka.ms/azurestacktp1doc)

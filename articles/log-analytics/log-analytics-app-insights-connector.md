@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7c6d91da0634e7f847af01d1c057607ab095cdf6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2e59286822d49abeea522b5346ba531408559a7b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408209"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014823"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Soluzione di gestione Connettore di Application Insights (anteprima)
 
@@ -44,8 +44,8 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 
 | Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
-| [Agenti di Windows](log-analytics-windows-agent.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
-| [Agenti Linux](log-analytics-linux-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
+| [Agenti di Windows](log-analytics-agent-windows.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
+| [Agenti Linux](log-analytics-quick-collect-linux-computer.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
 | [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
 | [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
 
@@ -57,7 +57,7 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 
 ## <a name="configuration"></a>Configurazione
 
-1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
+1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../monitoring/monitoring-solutions.md).
 2. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutti i servizi** per aprire Application Insights. Cercare quindi Application Insights. 
 3. In **Sottoscrizioni** selezionare una sottoscrizione che contenga risorse di Application Insights e quindi in **Nome** selezionare una o più applicazioni.
 4. Fare clic su **Save**.
@@ -267,4 +267,4 @@ Questa soluzione non include un set di ricerche log di esempio illustrato nel da
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Usare la [ricerca log](log-analytics-log-searches.md) per visualizzare informazioni dettagliate per le app Application Insights.
+- Usare la [ricerca log](log-analytics-queries.md) per visualizzare informazioni dettagliate per le app Application Insights.

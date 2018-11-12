@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d12ca26fb2aa5abddcf44b2e634b2f08b1fb01b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: deb98c2c633200ab4be1d763a94fd2a04979a3b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696251"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235701"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Aggiungere un'informativa sul supporto interno in un lab di Azure DevTest Labs
 
@@ -31,7 +31,7 @@ Un'informativa sul supporto interno ha come obiettivo la pubblicazione di inform
 
 ## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>Procedura per aggiungere un'informativa sul supporto a un lab esistente
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessario, selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco. Il lab potrebbe essere già visualizzato nel dashboard in **Tutte le risorse**.
 1. Nell'elenco di lab selezionare il lab in cui si vuole aggiungere un'informativa sul supporto.  
 1. Nell'area **Panoramica** del lab selezionare **Configurazione e criteri**.  
@@ -55,7 +55,7 @@ Quando non si vuole più mostrare questo messaggio del supporto agli utenti del 
 
 ## <a name="steps-for-users-to-view-the-support-message"></a>Procedura per gli utenti per visualizzare il messaggio del supporto
 
-1. Nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) selezionare un lab.
+1. Nel [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040) selezionare un lab.
 
 1. Nell'area **Panoramica** del lab selezionare **Supporto interno**.  
 

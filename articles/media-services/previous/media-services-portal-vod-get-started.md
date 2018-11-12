@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 11babf8a66c38354499ce85fad424fed04c07c15
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 340c4715f8b8cf0b73fc9db9612887f91d1700fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780603"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234512"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introduzione alla distribuzione di contenuto on demand tramite il portale di Azure
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Questa esercitazione illustra il processo di implementazione di un servizio di base per la distribuzione di contenuti video on demand con l'applicazione Servizi multimediali di Azure nel portale di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
 * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -123,7 +123,7 @@ Un URL di firma di accesso condiviso ha il formato seguente:
 > 
 > 
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare un'[API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). 
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare un'[API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.

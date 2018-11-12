@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fb8c3fe9dd5ca207e4ae37faf9a5a1c4edfffc63
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906387"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233814"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sicurezza e protezione dei dati di StorSimple
 
@@ -121,7 +121,7 @@ Per altre informazioni su Gestione snapshot StorSimple, vedere [Che cos'è Gesti
 È consigliabile usare le linee guida seguenti per assicurarsi che le password di StorSimple siano complesse e protette:
 
 * Cambiare le password ogni tre mesi. La modifica della password viene richiesta ogni anno.
-* Usare password complesse. Per altre informazioni, vedere [Creare password più complesse e proteggerle](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Usare password complesse. Per altre informazioni, vedere [Creare password più complesse e proteggerle](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Usare sempre password diverse per ogni meccanismo di accesso. Ogni password specificata deve essere univoca.
 * Non condividere le password con nessuno che non sia autorizzato ad accedere al dispositivo StorSimple.
 * Non parlare di una password davanti ad altri e non accennare al formato di una password.

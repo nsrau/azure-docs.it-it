@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1c7454aead07c728d55ff2c309cca83a792aac88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394276"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238350"
 ---
 # <a name="content-protection-overview"></a>Panoramica della protezione del contenuto
 
@@ -59,7 +59,7 @@ Per completare la progettazione del sistema o dell'applicazione con "protezione 
 
     Per testare il contenuto crittografato con AES o CENC (Widevine e/o PlayReady), è possibile usare [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Assicurarsi di fare clic su "Opzioni avanzate" e controllare le opzioni d crittografia.
 
-    Se si vuole testare il contenuto crittografato di FairPlay, usare [questo lettore di test](http://aka.ms/amtest). Il lettore supporta Widevine, PlayReady e DRM FairPlay oltre alla crittografia AES-128 a chiave non crittografata. È necessario scegliere il browser giusto per testare DRM diversi: Opera/Chrome o Firefox per Widevine, MS Edge/Internet Explorer 11 per PlayReady, Safari su maOS per FairPlay.
+    Se si vuole testare il contenuto crittografato di FairPlay, usare [questo lettore di test](https://aka.ms/amtest). Il lettore supporta Widevine, PlayReady e DRM FairPlay oltre alla crittografia AES-128 a chiave non crittografata. È necessario scegliere il browser giusto per testare DRM diversi: Opera/Chrome o Firefox per Widevine, MS Edge/Internet Explorer 11 per PlayReady, Safari su maOS per FairPlay.
 
 3. Secure Token Service (STS) che rilascia JSON Web Token (JWT) come token di accesso per l'accesso alle risorse back-end. È possibile usare i servizi di distribuzione di licenze di AMS come risorsa di back-end. Un STS deve definire gli elementi seguenti:
 
@@ -168,8 +168,8 @@ Come e dove si ottiene il token JWT prima di usarlo per richiedere la licenza o 
 1. Per la produzione, è necessario avere un servizio Web del servizio token di sicurezza che emette il token JWT in corrispondenza di una richiesta HTTPS. Per i test, è possibile usare il codice illustrato nel metodo **GetTokenAsync** definito in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Dopo l'autenticazione di un utente, il lettore dovrà richiedere al servizio token di sicurezza tale token e assegnarlo come valore del token. È possibile usare l'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
 
-* Per un esempio di esecuzione del servizio token di sicurezza, con una chiave di crittografia simmetrica e asimmetrica, vedere [ http://aka.ms/jwt ](http://aka.ms/jwt). 
-* Per un esempio di lettore basato su Azure Media Player con tale token JWT, vedere [ http://aka.ms/amtest ](http://aka.ms/amtest) (espandere il collegamento "player_settings" per visualizzare l'input del token).
+* Per un esempio di esecuzione del servizio token di sicurezza, con una chiave di crittografia simmetrica e asimmetrica, vedere [ http://aka.ms/jwt ](https://aka.ms/jwt). 
+* Per un esempio di lettore basato su Azure Media Player con tale token JWT, vedere [ http://aka.ms/amtest ](https://aka.ms/amtest) (espandere il collegamento "player_settings" per visualizzare l'input del token).
 
 ### <a name="question"></a>Domanda
 

@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216718"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237965"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
-Questo articolo illustra come creare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure con il modello Resource Manager. Questa soluzione usa la funzionalità [Spazi di archiviazione diretta \(S2D\) di Windows Server 2016 Datacenter Edition](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) come SAN virtuale basata su software per la sincronizzazione delle risorse di archiviazione (dischi dati) tra i nodi (VM di Azure) in un cluster Windows. S2D è una novità di Windows Server 2016.
+Questo articolo illustra come creare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure con il modello Resource Manager. Questa soluzione usa la funzionalità [Spazi di archiviazione diretta \(S2D\) di Windows Server 2016 Datacenter Edition](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) come SAN virtuale basata su software per la sincronizzazione delle risorse di archiviazione (dischi dati) tra i nodi (VM di Azure) in un cluster Windows. S2D è una novità di Windows Server 2016.
 
 Il diagramma seguente illustra la soluzione completa nelle macchine virtuali di Azure:
 
@@ -44,7 +44,7 @@ Il diagramma precedente mostra quanto segue:
    >[!NOTE]
    >Tutte le risorse di Azure nel diagramma si trovano nello stesso gruppo di risorse.
 
-Per informazioni dettagliate su S2D, vedere l'articolo relativo a [Spazi di archiviazione diretta \(S2D\) in Windows Server 2016 Datacenter Edition](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
+Per informazioni dettagliate su S2D, vedere l'articolo relativo a [Spazi di archiviazione diretta \(S2D\) in Windows Server 2016 Datacenter Edition](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D supporta due tipi di architettura: con convergenza e con iperconvergenza. L'architettura in questo documento è iperconvergente. In un'infrastruttura iperconvergente, l'archiviazione risiede negli stessi server che ospitano l'applicazione in cluster. In questa architettura, l'archiviazione risiede in ogni nodo dell'istanza del cluster di failover di SQL Server.
 
@@ -52,13 +52,13 @@ S2D supporta due tipi di architettura: con convergenza e con iperconvergenza. L'
 
 Nelle macchine virtuali di Azure è possibile concedere in licenza SQL Server usando un pagamento in base al consumo (PAYG) o utilizzare la propria licenza (BYOL) di immagini di VM. Il tipo di immagine selezionato influisce sul modo in cui vengono applicati i costi.
 
-Con le licenze PAYG, un'istanza del cluster di failover (FCI) di SQL Server nelle macchine virtuali di Microsoft Azure comporta costi per tutti i nodi di FCI, inclusi i nodi passivi. Per ulteriori informazioni, consultare le [tariffe delle Macchine virtuali SQL Server Enterprise](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+Con le licenze PAYG, un'istanza del cluster di failover (FCI) di SQL Server nelle macchine virtuali di Microsoft Azure comporta costi per tutti i nodi di FCI, inclusi i nodi passivi. Per ulteriori informazioni, consultare le [tariffe delle Macchine virtuali SQL Server Enterprise](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-I clienti con un contratto Enterprise con Software Assurance hanno il diritto di utilizzare un nodo FCI passivo gratuito per ogni nodo attivo. Per sfruttarne i vantaggi In Azure, utilizzare le immagini di VM BYOL, quindi utilizzare la stessa licenza in entrambi i nodi attivo e passivo dell'istanza FCI. Per altre informazioni, consultare il [Contratto Enterprise](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+I clienti con un contratto Enterprise con Software Assurance hanno il diritto di utilizzare un nodo FCI passivo gratuito per ogni nodo attivo. Per sfruttarne i vantaggi In Azure, utilizzare le immagini di VM BYOL, quindi utilizzare la stessa licenza in entrambi i nodi attivo e passivo dell'istanza FCI. Per altre informazioni, consultare il [Contratto Enterprise](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
 
 Per confrontare le licenze PAYG e BYOL per SQL Server nelle macchine virtuali di Azure, consultare [Introduzione alle VM di SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
-Per informazioni complete sulle licenze SQL Server, consultare [Prezzi](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
+Per informazioni complete sulle licenze SQL Server, consultare [Prezzi](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Modello di Azure di esempio
 
@@ -71,12 +71,12 @@ Prima di procedere, è necessario conoscere alcuni aspetti ed essere in possesso
 ### <a name="what-to-know"></a>Conoscenze necessarie
 È necessario avere una conoscenza operativa delle tecnologie seguenti:
 
-- [Tecnologie cluster di Windows](http://technet.microsoft.com/library/hh831579.aspx)
-- [Istanze del cluster di failover di SQL Server](http://msdn.microsoft.com/library/ms189134.aspx)
+- [Tecnologie cluster di Windows](https://technet.microsoft.com/library/hh831579.aspx)
+- [Istanze del cluster di failover di SQL Server](https://msdn.microsoft.com/library/ms189134.aspx)
 
 È anche necessario avere una conoscenza generale delle tecnologie seguenti:
 
-- [Soluzione iperconvergente che usa Spazi di archiviazione diretta in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [Soluzione iperconvergente che usa Spazi di archiviazione diretta in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Gruppi di risorse di Azure](../../../azure-resource-manager/resource-group-portal.md)
 
 > [!IMPORTANT]
@@ -225,11 +225,11 @@ Il passaggio successivo consiste nel configurare il cluster di failover con S2D.
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-Per riferimento, i passaggi successivi seguono le istruzioni riportate nel passaggio 3 dell'articolo [Soluzione iperconvergente che usa Spazi di archiviazione diretta in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+Per riferimento, i passaggi successivi seguono le istruzioni riportate nel passaggio 3 dell'articolo [Soluzione iperconvergente che usa Spazi di archiviazione diretta in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 ### <a name="validate-the-cluster"></a>Convalidare il cluster
 
-Questa guida fa riferimento alle istruzioni riportate nella sezione relativa alla [convalida del cluster](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
+Questa guida fa riferimento alle istruzioni riportate nella sezione relativa alla [convalida del cluster](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
 
 Convalidare il cluster nell'interfaccia utente o con PowerShell.
 
@@ -259,7 +259,7 @@ Dopo aver convalidato il cluster, creare il cluster di failover.
 
 ### <a name="create-the-failover-cluster"></a>Creare il cluster di failover
 
-Questa guida fa riferimento alle istruzioni riportate in [Creare il cluster di failover](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+Questa guida fa riferimento alle istruzioni riportate in [Creare il cluster di failover](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
 Per creare il cluster di failover è necessario:
 - I nomi delle macchine virtuali che diventeranno i nodi del cluster.
@@ -276,19 +276,19 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 Il cloud di controllo è un nuovo tipo di quorum di controllo del cluster archiviato in un BLOB del servizio di archiviazione di Azure. Viene così eliminata l'esigenza di una VM separata che ospiti una condivisione di controllo.
 
-1. [Creare un cloud di controllo per il cluster di failover](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+1. [Creare un cloud di controllo per il cluster di failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
 1. Creare un contenitore BLOB.
 
 1. Salvare le chiavi di accesso e l'URL del contenitore.
 
-1. Configurare il quorum di controllo del cluster di failover. Vedere [Configurare il quorum di controllo nell'interfaccia utente](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) nell'interfaccia utente.
+1. Configurare il quorum di controllo del cluster di failover. Vedere [Configurare il quorum di controllo nell'interfaccia utente](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) nell'interfaccia utente.
 
 ### <a name="add-storage"></a>Aggiungere le risorse di archiviazione
 
-I dischi per S2D devono essere vuoti e senza partizioni o altri dati. Per pulire i dischi seguire la procedura illustrata in [questa guida](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
+I dischi per S2D devono essere vuoti e senza partizioni o altri dati. Per pulire i dischi seguire la procedura illustrata in [questa guida](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
 
-1. [Abilitare Spazi di archiviazione diretta \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Abilitare Spazi di archiviazione diretta \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    Il comando di PowerShell seguente abilita Spazi di archiviazione diretta.  
 
@@ -298,7 +298,7 @@ I dischi per S2D devono essere vuoti e senza partizioni o altri dati. Per pulire
 
    In **Gestione cluster di failover** verrà ora visualizzato il pool di archiviazione.
 
-1. [Creare un volume](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Creare un volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
    Una delle funzionalità di S2D è la creazione automatica di un pool di archiviazione al momento dell'abilitazione. È ora possibile creare un volume. Il cmdlet di PowerShell `New-Volume` automatizza il processo di creazione di volumi includendo la formattazione, l'aggiunta al cluster e la creazione di un volume condiviso cluster. L'esempio seguente illustra la creazione di un volume condiviso cluster di 800 gigabyte (GB).
 
@@ -343,7 +343,7 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster in
 1. Fare clic su **Aggiunta di un nodo a un cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere questo server all'istanza del cluster di failover.
 
    >[!NOTE]
-   >Se è stata usata un'immagine della raccolta di Azure Marketplace con SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Vedere [Scaricare SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
+   >Se è stata usata un'immagine della raccolta di Azure Marketplace con SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Vedere [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="step-5-create-azure-load-balancer"></a>Passaggio 5: Creare un servizio di bilanciamento del carico di Azure
 
@@ -478,17 +478,23 @@ In **Gestione cluster di failover** viene visualizzato il ruolo e le relative ri
 Per testare la connettività, accedere a un'altra macchina virtuale nella stessa rete virtuale. Aprire **SQL Server Management Studio** e connettersi al nome dell'istanza del cluster di failover di SQL Server.
 
 >[!NOTE]
->Se necessario, è possibile [scaricare SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
+>Se necessario, è possibile [scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Limitazioni
-Nelle macchine virtuali di Azure, Microsoft Distributed Transaction Coordinator (DTC) non è supportato nelle istanze del cluster di failover perché la porta RPC non è supportata dal servizio di bilanciamento del carico.
+
+Macchine virtuali di Azure supporta Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019 con archiviazione in volumi condivisi cluster (CSV) e un [bilanciamento del carico standard](../../../load-balancer/load-balancer-standard-overview.md).
+
+Nelle macchine virtuali di Azure, MSDTC non è supportato in Windows Server 2016 e versioni precedenti perché:
+
+- La risorsa MSDTC cluster non può essere configurata per usare l'archiviazione condivisa. Con Windows Server 2016 se si crea una risorsa MSDTC, non verrà visualizzata qualsiasi archiviazione condivisa disponibile, anche se lo spazio di archiviazione è disponibile. Questo problema è stato risolto per Windows Server 2019.
+- Il servizio di bilanciamento del carico di base non gestisce le porte RPC.
 
 ## <a name="see-also"></a>Vedere anche
 
-[Configurare S2D con Desktop remoto (Azure)](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
+[Configurare S2D con Desktop remoto (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 
-[Soluzione iperconvergente che usa Spazi di archiviazione diretta](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+[Soluzione iperconvergente che usa Spazi di archiviazione diretta](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 
-[Panoramica di Spazi di archiviazione diretta](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
+[Panoramica di Spazi di archiviazione diretta](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [Supporto di SQL Server per S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)

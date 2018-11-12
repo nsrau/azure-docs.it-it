@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018413"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239050"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 ##  <a name="introduction"></a>Introduzione
@@ -111,7 +111,7 @@ Altre funzionalità di Azure Active Directory includono:
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) offre un servizio di gestione delle identità globale a disponibilità elevata per le applicazioni rivolte agli utenti, con scalabilità fino a centinaia di milioni di identità. Il servizio può essere integrato tra piattaforme mobili e Web. Gli utenti possono accedere a tutte le applicazioni attraverso esperienze personalizzabili usando gli account dei propri social network esistenti o creando credenziali.
 
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolamento da amministratori Microsoft ed eliminazione dei dati
-Microsoft adotta misure sicure per proteggere i dati da accessi e usi impropri da parte di persone non autorizzate. Questi processi operativi e controlli sono supportati dalle [condizioni di Microsoft Online Services](http://aka.ms/Online-Services-Terms), che offrono impegni contrattuali che regolano l'accesso ai dati.
+Microsoft adotta misure sicure per proteggere i dati da accessi e usi impropri da parte di persone non autorizzate. Questi processi operativi e controlli sono supportati dalle [condizioni di Microsoft Online Services](https://aka.ms/Online-Services-Terms), che offrono impegni contrattuali che regolano l'accesso ai dati.
 
 -   Gli esperti Microsoft non hanno l'accesso predefinito ai dati nel cloud. L'accesso viene loro concesso sotto supervisione e solo quando necessario. Viene anche attentamente controllato e registrato e revocato quando non è più necessario.
 
@@ -119,7 +119,7 @@ Microsoft adotta misure sicure per proteggere i dati da accessi e usi impropri d
 
 I servizi aziendali con certificazioni sottoposte a auditing, ad esempio ISO/IEC 27001, vengono verificati regolarmente da Microsoft e da società di auditing accreditate tramite controlli a campione per attestare che l'accesso avvenga solo per scopi commerciali legittimi. Il cliente può accedere ai propri dati in qualsiasi momento e per qualunque motivo.
 
-Se si eliminano dati, Microsoft Azure elimina i dati, comprese le eventuali copie memorizzate nella cache o di backup. Per i servizi nell'ambito, l'eliminazione verrà eseguita entro 90 giorni dal termine del periodo di conservazione. I servizi nell'ambito sono definiti nella sezione Condizioni per l'elaborazione dei dati delle [condizioni di Microsoft Online Services](http://aka.ms/Online-Services-Terms).
+Se si eliminano dati, Microsoft Azure elimina i dati, comprese le eventuali copie memorizzate nella cache o di backup. Per i servizi nell'ambito, l'eliminazione verrà eseguita entro 90 giorni dal termine del periodo di conservazione. I servizi nell'ambito sono definiti nella sezione Condizioni per l'elaborazione dei dati delle [condizioni di Microsoft Online Services](https://aka.ms/Online-Services-Terms).
 
 Se in un'unità disco usata per l'archiviazione si verifica un errore hardware, l'unità verrà [cancellata o distrutta](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) in modo sicuro prima che Microsoft la restituisca al produttore per la sostituzione o la riparazione. I dati presenti nell'unità verranno sovrascritti per garantire che non possano essere recuperati in alcun modo.
 
@@ -127,7 +127,7 @@ Se in un'unità disco usata per l'archiviazione si verifica un errore hardware, 
 Microsoft Azure offre numerosi servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione. Tali istanze e servizi di calcolo offrono l'isolamento a più livelli per proteggere i dati senza sacrificare la flessibilità di configurazione richiesta dai clienti.
 
 ### <a name="isolated-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali con piano Isolato
-Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente.  Queste dimensioni delle macchine virtuali sono particolarmente adatte ai carichi di lavoro che richiedono un elevato livello di isolamento dagli altri clienti, per i carichi di lavoro con aspetti come i requisiti normativi e di conformità.  I clienti possono anche scegliere di suddividere ulteriormente le risorse di tali macchine virtuali con piano Isolato usando il [supporto di Azure per le macchine virtuali annidate](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).
+Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente.  Queste dimensioni delle macchine virtuali sono particolarmente adatte ai carichi di lavoro che richiedono un elevato livello di isolamento dagli altri clienti, per i carichi di lavoro con aspetti come i requisiti normativi e di conformità.  I clienti possono anche scegliere di suddividere ulteriormente le risorse di tali macchine virtuali con piano Isolato usando il [supporto di Azure per le macchine virtuali annidate](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
 L'utilizzo di dimensioni con piano Isolato garantisce che la macchina virtuale sia l'unica in esecuzione nella specifica istanza del server.  Le offerte di macchine virtuali con piano Isolato correnti includono:
 * Standard_E64is_v3
@@ -138,7 +138,7 @@ L'utilizzo di dimensioni con piano Isolato garantisce che la macchina virtuale s
 * Standard_DS15_v2
 * Standard_D15_v2
 
-Altre informazioni su ogni dimensione con piano Isolato sono disponibili [qui](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory).
+Altre informazioni su ogni dimensione con piano Isolato sono disponibili [qui](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Isolamento Hyper-V e del sistema operativo radice tra VM radice e VM guest
 La piattaforma di calcolo di Azure si basa sulla virtualizzazione dei computer, ovvero tutto il codice del cliente viene eseguito in una macchina virtuale Hyper-V. In ogni nodo o endpoint di rete di Azure è presente un hypervisor che viene eseguito direttamente sull'hardware e suddivide il nodo in un numero variabile di macchine virtuali guest.
@@ -199,7 +199,7 @@ In ogni cluster sono presenti tre VLAN:
 
 -   VLAN principale: crea l'interconnessione tra i nodi non attendibili del cliente
 
--   VLAN del controller di infrastruttura (FC): contiene controller di infrastruttura attendibili e sistemi di supporto
+-   VLAN del controller di infrastruttura: contiene controller di infrastruttura attendibili e sistemi di supporto
 
 -   VLAN dei dispositivi: contiene dispositivi di rete attendibili e altri dispositivi dell'infrastruttura
 

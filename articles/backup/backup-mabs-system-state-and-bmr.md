@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: markgal
-ms.openlocfilehash: d35f8667cb1ca9a0b3abd08450ebc647d6d12276
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7cb87847d6a1e191fb20dfa9cdf263066704eb6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607209"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238812"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Eseguire il backup dello stato del sistema e il ripristino bare metal con il server di Backup di Azure
 
@@ -97,15 +97,15 @@ Al termine del backup, il file viene trasferito nel computer del server di Backu
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 1.  **Distribuire il server di Backup di Azure**. Verificare che il server di Backup sia distribuito correttamente. Per altre informazioni, vedere:
-    * [Requisiti di sistema per il server di Backup di Azure](http://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [Requisiti di sistema per il server di Backup di Azure](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matrice di protezione del server di Backup](backup-mabs-protection-matrix.md)
 
 2.  **Configurare l'archiviazione**. È possibile archiviare i dati di backup su disco, su nastro e nel cloud con Azure. Per altre informazioni, vedere [Preparare l'archiviazione dei dati](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
 
-3.  **Configurare l'agente protezione**. Installare l'agente protezione nel computer di cui eseguire il backup. Per altre informazioni, vedere [Distribuire l'agente protezione DPM](http://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
+3.  **Configurare l'agente protezione**. Installare l'agente protezione nel computer di cui eseguire il backup. Per altre informazioni, vedere [Distribuire l'agente protezione DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
 
 ## <a name="back-up-system-state-and-bare-metal"></a>Backup dello stato del sistema e bare metal
-Configurare un gruppo protezione dati come descritto in [Distribuire gruppi protezione dati](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Si noti che non è possibile proteggere il ripristino bare metal e lo stato del sistema per lo stesso computer in gruppi diversi. Inoltre, quando si seleziona il ripristino bare metal, lo stato del sistema viene abilitato automaticamente.
+Configurare un gruppo protezione dati come descritto in [Distribuire gruppi protezione dati](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Si noti che non è possibile proteggere il ripristino bare metal e lo stato del sistema per lo stesso computer in gruppi diversi. Inoltre, quando si seleziona il ripristino bare metal, lo stato del sistema viene abilitato automaticamente.
 
 
 1.  Per aprire la procedura guidata Crea nuovo gruppo protezione dati nella Console di amministrazione del server di Backup, selezionare **Protezione** > **Azioni** > **Crea gruppo protezione dati**.
@@ -114,7 +114,7 @@ Configurare un gruppo protezione dati come descritto in [Distribuire gruppi prot
 
 3.  Nella pagina **Selezione membri del gruppo** espandere il computer, quindi selezionare **Ripristino bare metal** o **Stato del sistema**.
 
-    Si noti che non è possibile proteggere il ripristino bare metal e lo stato del sistema per lo stesso computer in gruppi diversi. Inoltre, quando si seleziona il ripristino bare metal, lo stato del sistema viene abilitato automaticamente. Per altre informazioni, vedere [Distribuire gruppi di protezione](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
+    Si noti che non è possibile proteggere il ripristino bare metal e lo stato del sistema per lo stesso computer in gruppi diversi. Inoltre, quando si seleziona il ripristino bare metal, lo stato del sistema viene abilitato automaticamente. Per altre informazioni, vedere [Distribuire gruppi di protezione](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
 
 4.  Nella pagina **Seleziona metodo protezione dati** selezionare come gestire i backup a breve e a lungo termine. Il backup a breve termine viene sempre eseguito prima su disco, con l'opzione di eseguire il backup dal disco nel cloud di Azure utilizzando Backup di Azure (a breve o a lungo termine). Un'alternativa al backup a lungo termine nel cloud consiste nella configurazione del backup a lungo termine su un dispositivo a nastro o una libreria di nastri autonoma connessa al server di Backup.
 

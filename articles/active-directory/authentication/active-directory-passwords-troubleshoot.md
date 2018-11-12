@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 044a3bae75cb385e7a3542b920e0cb3b5bcedcd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321799"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233627"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Risolvere i problemi di reimpostazione della password self-service
 
@@ -99,7 +99,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
 | Codice | Nome o messaggio | DESCRIZIONE |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619 - Una restrizione impedisce la modifica della password in quella corrente specificata. | Questo evento si verifica quando il servizio di writeback delle password cerca di impostare una password nella directory locale che non soddisfa i requisiti di validità, cronologia, complessità o filtro del dominio. <br> <br> Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0. <br> <br> Se sono abilitati i requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime *N* volte, dove *N* è l'impostazione relativa alla cronologia delle password. Se si seleziona una password che è stata usata nelle ultime *N* volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia delle password su 0. <br> <br> Se abilitati, tutti i requisiti di complessità della password vengono applicati quando l'utente tenta di modificare o reimpostare la password. <br> <br> Se sono abilitati i filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà. |
-| 6329 | MMS(3040): admaexport.cpp(2837): il server non contiene il controllo dei criteri della password LDAP. | Questo problema si verifica se il controllo LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) non è abilitato nei controller di dominio. Per usare la funzionalità di writeback delle password, è necessario abilitare il controllo. A tale scopo, i controller di dominio devono essere in Windows Server 2008 (con Service Pack più recente) o versioni successive. Se i controller di dominio sono nella versione 2008, precedente a R2, è necessario applicare anche l'[hotfix KB2386717](http://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): il server non contiene il controllo dei criteri della password LDAP. | Questo problema si verifica se il controllo LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) non è abilitato nei controller di dominio. Per usare la funzionalità di writeback delle password, è necessario abilitare il controllo. A tale scopo, i controller di dominio devono essere in Windows Server 2008 (con Service Pack più recente) o versioni successive. Se i controller di dominio sono nella versione 2008, precedente a R2, è necessario applicare anche l'[hotfix KB2386717](https://support.microsoft.com/kb/2386717). |
 | HR 8023042 | Il motore di sincronizzazione ha restituito un errore hr = 80230402, messaggio = Tentativo di ottenere un oggetto non riuscito. Sono presenti voci duplicate con lo stesso ancoraggio. | Questo errore si verifica quando lo stesso ID utente è abilitato in più domini. Ad esempio, se si esegue la sincronizzazione di foreste di risorse e account e lo stesso ID utente è presente e abilitato in ogni foresta. <br> <br> Questo errore può verificarsi anche se si usa un attributo di ancoraggio non univoco (come un alias o UPN) e due utenti condividono lo stesso attributo di ancoraggio. <br> <br> Per risolvere questo problema, assicurarsi che non ci siano utenti duplicati nei domini e di usare un attributo di ancoraggio univoco per ogni utente. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se l'origine dell'evento è PasswordResetService
@@ -215,7 +215,7 @@ Si consiglia di eseguire questo passaggio solo dopo aver provato a eseguire i du
 > Se le regole di sincronizzazione sono state personalizzate, *eseguire il backup prima di procedere con l'aggiornamento e ridistribuire manualmente le regole dopo aver completato l'operazione*.
 >
 
-1. Scaricare la versione più recente di Azure AD Connect dall'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Scaricare la versione più recente di Azure AD Connect dall'[Area download Microsoft](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Poiché Azure AD Connect è già stato installato, è necessario eseguire un aggiornamento sul posto per aggiornare l'installazione di Azure AD Connect alla versione più recente.
 1. Eseguire il pacchetto scaricato e seguire le istruzioni visualizzate per aggiornare il computer che esegue Azure AD Connect.
 

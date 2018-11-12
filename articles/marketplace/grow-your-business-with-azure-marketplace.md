@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577331"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233015"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Favorire lo sviluppo della propria azienda nel marketplace 
 Dopo aver pubblicato l'offerta su AppSource o in Azure Marketplace, è possibile usare l'inserzione come piattaforma di lancio per attività congiunte di go-to-market con Microsoft. Ad esempio, favorire il traffico verso l'offerta del Marketplace e monitorare i lead del Marketplace sono ottimi modi per accelerare la crescita della propria azienda. 
@@ -33,7 +33,7 @@ Le tabelle nelle sezioni successive forniscono suggerimenti per la creazione di 
 ### <a name="storefront-offer-details"></a>Dettagli dell'offerta della vetrina
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
-| Nome offerta | Specificare un titolo efficace:<br>Il nome dell'app deve comunicare ai clienti il valore essenziale dell'offerta. Può essere utile includere parole chiave di ricerca nel titolo dell'app per migliorare la classificazione dell'app nei risultati dei motori di ricerca.<br><br>Seguire un formato di titolo impostato per le inserzioni di servizi di consulenza:<br>[Nome offerta]: [Durata] [Tipo di offerta] \(ad esempio, *Contoso: implementazione di 2 settimane*)<br><br>Attenersi alle linee guida del marchio:<br>Quando si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le [linee guida per i marchi Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e quelle relative ad altri prodotti specifici. |
+| Nome offerta | Specificare un titolo efficace:<br>Il nome dell'app deve comunicare ai clienti il valore essenziale dell'offerta. Può essere utile includere parole chiave di ricerca nel titolo dell'app per migliorare la classificazione dell'app nei risultati dei motori di ricerca.<br><br>Seguire un formato di titolo impostato per le inserzioni di servizi di consulenza:<br>[Nome offerta] : [Durata] [Tipo di offerta] (ad esempio, *Contoso: implementazione di 2 settimane*)<br><br>Attenersi alle linee guida del marchio:<br>Quando si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le [linee guida per i marchi Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e quelle relative ad altri prodotti specifici. |
 | Descrizione dell'offerta | Fornire una descrizione chiara dell'offerta:<br>Descrivere chiaramente la proposta di valore dell'offerta subito nelle prime frasi della descrizione. Tenere presente che le prime frasi possono essere visualizzate nei risultati dei motori di ricerca. Per vendere un prodotto, non basarsi sulle funzionalità, ma concentrarsi sul valore che può offrire. Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti.<br><br>I componenti fondamentali di una proposta di valore devono includere le informazioni seguenti:<ul><li>Descrizione del prodotto</li><li>Tipo di utente che trae vantaggio dal prodotto</li><li>Esigenza o problema del cliente risolto dal prodotto</li></ul> |
 
 ### <a name="storefront-listing-details"></a>Dettagli dell'inserzione della vetrina
@@ -229,7 +229,7 @@ Per promuovere un'offerta o un'app e accedere ad altri vantaggi e risorse, usare
 
 | Vantaggi | Risorse |
 |:--- |:--- |
-| Sfruttare i vantaggi di base | Entrando a far parte di Microsoft Partner Network, si ricevono alcuni vantaggi di base che consentono di risparmiare tempo e denaro. I vantaggi possono anche aiutare a espandere le proprie competenze, offrire un servizio migliore ai clienti e sviluppare connessioni che permettono di sfruttare al meglio il potenziale del business.<br>Per altre informazioni sui vantaggi di base, visitare [Vantaggi di base e requisiti](http://partner.microsoft.com/membership/core-benefits). |
+| Sfruttare i vantaggi di base | Entrando a far parte di Microsoft Partner Network, si ricevono alcuni vantaggi di base che consentono di risparmiare tempo e denaro. I vantaggi possono anche aiutare a espandere le proprie competenze, offrire un servizio migliore ai clienti e sviluppare connessioni che permettono di sfruttare al meglio il potenziale del business.<br>Per altre informazioni sui vantaggi di base, visitare [Vantaggi di base e requisiti](https://partner.microsoft.com/membership/core-benefits). |
 | Ottenere la competenza per la piattaforma cloud | Ottenendo una competenza è possibile distinguersi dagli altri partner Microsoft. Una competenza consente inoltre di testimoniare la propria esperienza tecnica e il successo sul mercato. L'acquisizione di una competenza è un prerequisito per partecipare a molti dei principali programmi per partner come quello di co-selling.<br> Per altre informazioni sulla competenza per la piattaforma Cloud, visitare [Competenza per la piattaforma Cloud](https://partner.microsoft.com/membership/cloud-platform-competency). |
 | Acquisire l'idoneità per il programma di co-selling IP | L'utente potrebbe essere idoneo per il programma di co-selling IP che consente di collaborare direttamente con i venditori Microsoft e con altri partner alla realizzazione di opportunità di vendita e alla pianificazione di account. La soluzione verrà inserita nel catalogo di soluzioni dei venditori Microsoft, acquisendo visibilità. I venditori Microsoft a loro volta verranno ricompensati per l'avvio di una collaborazione di successo in collaborazione con l'editore.<br> Per altre informazioni sull'idoneità per il programma di co-selling, inclusi i requisiti, vedere [Alzare di livello la propria azienda](https://partner.microsoft.com/reach-customers/promote-your-business). |
 

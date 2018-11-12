@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 75017a1a3a400ca5390210225f26a6c5f3bb7c47
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ea69befb1084b08352eb3cf38db0364c5c82c45b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856165"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237061"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtri di sicurezza per limitare i risultati di Ricerca di Azure usando le identità di Active Directory
 
@@ -28,9 +28,9 @@ Questo articolo illustra le attività seguenti:
 - Emettere una richiesta di ricerca con il filtro degli identificatori di gruppo
 
 >[!NOTE]
-> I frammenti di codice di esempio in questo articolo sono scritti in C#. Il codice sorgente completo è disponibile [in GitHub](http://aka.ms/search-dotnet-howto). 
+> I frammenti di codice di esempio in questo articolo sono scritti in C#. Il codice sorgente completo è disponibile [in GitHub](https://aka.ms/search-dotnet-howto). 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 L'indice in Ricerca di Azure deve includere un [campo di sicurezza](search-security-trimming-for-azure-search.md) per archiviare l'elenco delle identità di gruppo che dispongono dell'accesso in lettura al documento. Questo caso d'uso presuppone una corrispondenza uno a uno tra un elemento a protezione diretta (come la domanda di iscrizione all'università di un candidato) e un campo di sicurezza che specifica chi ha accesso a tale elemento (ad esempio, il personale dell'ufficio ammissioni).
 
@@ -63,7 +63,7 @@ Invece, se non ci sono utenti esistenti, è possibile usare le API Microsoft Gra
 
 L'appartenenza di utenti e gruppi potrebbe essere molto fluida, soprattutto nelle organizzazioni di grandi dimensioni. Il codice per la creazione delle identità di utenti e gruppi dovrebbe essere eseguito abbastanza spesso per individuare i cambiamenti intervenuti nell'appartenenza dell'organizzazione. Analogamente, l'indice di Ricerca di Azure richiede una pianificazione degli aggiornamenti simile, in modo da riflettere lo stato corrente di risorse e utenti autorizzati.
 
-### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomgraphdocsapi-referencev10apigrouppostgroups"></a>Passaggio 1: creare il [gruppo AAD](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/group_post_groups) 
+### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apigrouppostgroups"></a>Passaggio 1: creare il [gruppo AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomgraphdocsapi-referencev10apiuserpostusers"></a>Passaggio 2: creare l'[utente AAD](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_post_users) 
+### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apiuserpostusers"></a>Passaggio 2: creare l'[utente AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 
 ```csharp
 User user = new User()
 {

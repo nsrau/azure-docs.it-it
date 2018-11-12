@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0e8dbf47c40339c90a0e28c3ef497a8da963e481
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213254"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231021"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
 
@@ -42,7 +42,7 @@ La tabella riepiloga i prerequisiti per la distribuzione del server di configura
 
 ## <a name="download-the-latest-installation-file"></a>Scaricare il file di installazione più recente
 
-L'ultima versione del file di installazione del server di configurazione è disponibile nel portale di Site Recovery. Può essere inoltre scaricato direttamente dall'[Area download Microsoft](http://aka.ms/unifiedsetup).
+L'ultima versione del file di installazione del server di configurazione è disponibile nel portale di Site Recovery. Può essere inoltre scaricato direttamente dall'[Area download Microsoft](https://aka.ms/unifiedsetup).
 
 1. Accedere al portale di Azure e passare all'insieme di credenziali di Servizi di ripristino.
 2. Passare a **Infrastruttura di Site Recovery** > **Server di configurazione** (in For VMware & Physical Machines (Computer VMware e fisici)).

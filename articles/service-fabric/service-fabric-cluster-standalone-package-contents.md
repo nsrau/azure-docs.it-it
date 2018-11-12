@@ -13,15 +13,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: dccdd6518dd97299150892a5629809ea7f708838
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209356"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253337"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenuto del pacchetto autonomo di Service Fabric per Windows Server
-Nel pacchetto autonomo di Service Fabric [scaricato](http://go.microsoft.com/fwlink/?LinkId=730690) sono disponibili i seguenti file:
+Nel pacchetto autonomo di Service Fabric [scaricato](https://go.microsoft.com/fwlink/?LinkId=730690) sono disponibili i seguenti file:
 
 | **Nome file** | **Descrizione breve** |
 | --- | --- |
@@ -33,7 +33,7 @@ Nel pacchetto autonomo di Service Fabric [scaricato](http://go.microsoft.com/fwl
 | TestConfiguration.ps1 |Script di PowerShell per l'analisi dell'infrastruttura specificata in cluster.json. |
 | DownloadServiceFabricRuntimePackage.ps1 |Uno script di PowerShell usato per il download del pacchetto di runtime più recente fuori banda negli scenari in cui il computer di distribuzione non è connesso a Internet. |
 | DeploymentComponentsAutoextractor.exe |Archivio autoestraente contenente i componenti di distribuzione usati dagli script del pacchetto autonomo. |
-| EULA_ENU.txt |Condizioni di licenza per l'uso del pacchetto autonomo Microsoft Azure Service Fabric per Windows Server. È possibile [scaricare una copia del contratto di licenza](http://go.microsoft.com/fwlink/?LinkID=733084) ora. |
+| EULA_ENU.txt |Condizioni di licenza per l'uso del pacchetto autonomo Microsoft Azure Service Fabric per Windows Server. È possibile [scaricare una copia del contratto di licenza](https://go.microsoft.com/fwlink/?LinkID=733084) ora. |
 | Readme.txt |Collegamento alle note sulla versione e alle istruzioni di installazione base. Si tratta di un sottoinsieme delle istruzioni disponibili in questo documento. |
 | ThirdPartyNotice.rtf |Informativa sul software di terze parti presente nel pacchetto. |
 | Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |File StandaloneLogCollector.exe, eseguito on demand per raccogliere e caricare i log di analisi per Microsoft a scopo di supporto. |

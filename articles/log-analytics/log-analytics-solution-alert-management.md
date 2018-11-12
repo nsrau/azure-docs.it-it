@@ -15,28 +15,28 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 29cc2cdc13d07d97bb1da872cbf53ea5353a0e16
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: fa76ccf7019097c5f27aa126b0a5a7dc81ffbd41
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044587"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008148"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Soluzione Gestione avvisi in Log Analytics
 
 ![Icona di Alert Management](media/log-analytics-solution-alert-management/icon.png)
 
-La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, incluse le fonti [create da Log Analytics](log-analytics-alerts.md) o [importate da Nagios o Zabbix](log-analytics-linux-agents.md). La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager collegato](log-analytics-om-agents.md).
+La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, incluse le fonti [create da Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) o [importate da Nagios o Zabbix](log-analytics-quick-collect-linux-computer.md). La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager collegato](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 La soluzione funziona con i record presenti nel repository di Log Analytics con un tipo di **avviso**, pertanto è necessario eseguire qualsiasi configurazione necessaria per raccogliere questi record.
 
-- Per gli avvisi di Log Analytics, [creare regole di avviso](log-analytics-alerts.md) per creare i record degli avvisi direttamente nel repository.
-- Per gli avvisi di Nagios e Zabbix, [configurare tali server](log-analytics-linux-agents.md) per inviare avvisi a Log Analytics.
+- Per gli avvisi di Log Analytics, [creare regole di avviso](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) per creare i record degli avvisi direttamente nel repository.
+- Per gli avvisi di Nagios e Zabbix, [configurare tali server](log-analytics-quick-collect-linux-computer.md) per inviare avvisi a Log Analytics.
 - Per gli avvisi SCOM, [connettere il gruppo di gestione Operations Manager all'area di lavoro Log Analytics](log-analytics-om-agents.md).  Tutti gli avvisi creati in System Center Operations Manager vengono importati in Log Analytics.  
 
 ## <a name="configuration"></a>Configurazione
-Aggiungere la soluzione Gestione avvisi all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](log-analytics-add-solutions.md). Non è richiesta alcuna ulteriore configurazione.
+Aggiungere la soluzione Gestione avvisi all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](../monitoring/monitoring-solutions.md). Non è richiesta alcuna ulteriore configurazione.
 
 ## <a name="management-packs"></a>Management Pack
 Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di Log Analytics, in Center System Operations Manager verranno installati i Management Pack seguenti quando si aggiunge questa soluzione.  Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.
@@ -51,8 +51,8 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 | Origine connessa | Supporto | DESCRIZIONE |
 |:--- |:--- |:--- |
-| [Agenti di Windows](log-analytics-windows-agent.md) | No  |Gli agenti di Windows diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Windows. |
-| [Agenti Linux](log-analytics-linux-agents.md) | No  |Gli agenti di Linux diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Linux.  Gli avvisi di Nagios e Zabbix vengono raccolti da quei server che richiedono l'agente Linux. |
+| [Agenti di Windows](log-analytics-agent-windows.md) | No  |Gli agenti di Windows diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Windows. |
+| [Agenti Linux](log-analytics-quick-collect-linux-computer.md) | No  |Gli agenti di Linux diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Linux.  Gli avvisi di Nagios e Zabbix vengono raccolti da quei server che richiedono l'agente Linux. |
 | [Gruppo di gestione di System Center Operations Manager](log-analytics-om-agents.md) |Yes |Gli avvisi che sono generati con gli agenti di Operation Manager vengono distribuiti al gruppo di gestione e quindi inoltrati a Log Analytics.<br><br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati degli avvisi vengono inoltrati dal gruppo di gestione al repository di Log Analytics. |
 
 
@@ -74,7 +74,7 @@ Fare clic su sul riquadro **Gestione avvisi** per aprire il **relativo** dashboa
 | Avvisi SCOM attivi |Tutti gli avvisi raccolti da Operations Manager con uno stato diverso da *Chiuso* raggruppati per origine che ha generato l'avviso. |
 | All Active Alerts |Tutti gli avvisi con qualsiasi gravità raggruppati per nome dell'avviso. Include solo gli avvisi Operations Manager con qualsiasi stato diverso da *Chiuso*. |
 
-Se si scorre verso destra, il dashboard elenca diverse query comuni che è possibile selezionare per eseguire una [ricerca log](log-analytics-log-searches.md) per dati di avviso:
+Se si scorre verso destra, il dashboard elenca diverse query comuni che è possibile selezionare per eseguire una [ricerca log](log-analytics-queries.md) per dati di avviso:
 
 ![Dashboard di Alert Management](media/log-analytics-solution-alert-management/dashboard.png)
 
@@ -123,4 +123,4 @@ La tabella seguente fornisce ricerche di log di esempio per i record degli avvis
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Leggere l'articolo [Avvisi in Log Analytics](log-analytics-alerts.md) per informazioni dettagliate sulla generazione di avvisi di Log Analytics.
+* Leggere l'articolo [Avvisi in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) per informazioni dettagliate sulla generazione di avvisi di Log Analytics.

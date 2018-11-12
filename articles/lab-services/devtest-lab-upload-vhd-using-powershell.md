@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ea2687c61239e893f46dfa12c5b822a51823e1f3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b96e83980f746fde2c421a9247da17ace4a9efda
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783520"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235361"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Caricare un file VHD nell'account di archiviazione del lab usando PowerShell
 
@@ -31,7 +31,7 @@ In Azure DevTest Labs è possibile usare i file VHD per creare immagini personal
 
 La procedura seguente illustra come caricare un file VHD in Azure DevTest Labs usando PowerShell. 
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco.
 

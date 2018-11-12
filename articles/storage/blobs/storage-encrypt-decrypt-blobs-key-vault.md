@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 5139f41832446add3431fc0f4e321af806342da2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 092ffa5ed34a8e0a05b69c3fae86ab7299760ac2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296977"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233100"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali delle chiavi di Azure
 ## <a name="introduction"></a>Introduzione
@@ -225,4 +225,4 @@ Per altre informazioni sull'uso di Archiviazione di Microsoft Azure con C#, vede
 
 Per altre informazioni sull'API REST per i BLOB, vedere [API REST del servizio BLOB](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Per le informazioni più recenti su Archiviazione di Microsoft Azure, visitare il [blog del relativo team](http://blogs.msdn.com/b/windowsazurestorage/).
+Per le informazioni più recenti su Archiviazione di Microsoft Azure, visitare il [blog del relativo team](https://blogs.msdn.com/b/windowsazurestorage/).

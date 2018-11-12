@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 12dd93edce365509488631e4ca27462256abfca8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452667"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251441"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -57,7 +57,7 @@ L'elenco seguente offre una descrizione degli endpoint:
 
 * **Endpoint di servizio**. Ogni hub IoT espone un set di endpoint per il back-end della soluzione per comunicare con i dispositivi. Con una eccezione, questi endpoint sono esposti solo tramite il protocollo [AMQP](https://www.amqp.org/). Tramite il protocollo HTTPS viene esposto l'endpoint di chiamata del metodo.
   
-  * *Ricezione di messaggi da dispositivo a cloud*. Questo endpoint è compatibile con [Hub eventi di Azure](http://azure.microsoft.com/documentation/services/event-hubs/) e può essere usato da un servizio back-end per leggere i [messaggi da dispositivo a cloud](iot-hub-devguide-messages-d2c.md) inviati dai dispositivi. Oltre a questo endpoint predefinito, è possibile creare endpoint personalizzati sull'hub IoT.
+  * *Ricezione di messaggi da dispositivo a cloud*. Questo endpoint è compatibile con [Hub eventi di Azure](https://azure.microsoft.com/documentation/services/event-hubs/) e può essere usato da un servizio back-end per leggere i [messaggi da dispositivo a cloud](iot-hub-devguide-messages-d2c.md) inviati dai dispositivi. Oltre a questo endpoint predefinito, è possibile creare endpoint personalizzati sull'hub IoT.
   
   * *Invio di messaggi da cloud a dispositivo e ricezione di acknowledgement di recapito*. Questi endpoint consentono al back-end della soluzione di inviare [messaggi da cloud a dispositivo](iot-hub-devguide-messages-c2d.md) affidabili e di ricevere gli acknowledgment di recapito o di scadenza corrispondenti.
   

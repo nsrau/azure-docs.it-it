@@ -2,19 +2,19 @@
 title: Usare Hive con Hadoop per l'analisi dei log dei siti Web - Azure HDInsight
 description: Informazioni su come usare Hive con HDInsight per analizzare i log dei siti Web. Si userà un file di log come input in una tabella di HDInsight e HiveQL per eseguire query sui dati.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/17/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 47175ed4bc01a43d1f21cbfc84b8a788f11b7338
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048025"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233598"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Usare Hive con HDInsight basato su Windows per analizzare i log dei siti Web
 Informazioni su come usare HiveQL con HDInsight per analizzare i log di un sito Web. L'analisi dei log dei siti Web può essere usata per segmentare il proprio pubblico in base ad attività simili, classificare i visitatori di un sito in base a dati demografici e scoprire i contenuti che visualizzano, da quali siti Web sono stati indirizzati e così via.
@@ -34,7 +34,7 @@ In questo esempio si usa un cluster HDInsight per analizzare i file di log dei s
 ## <a name="prerequisites"></a>Prerequisiti
 * È necessario avere completato il provisioning di un cluster Hadoop in Azure HDInsight. Per istruzioni, vedere [Provisioning del cluster HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * È necessario aver installato Microsoft Excel 2013 o Excel 2010.
-* Per importare i dati da Hive in Excel è necessario aver installato [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886) .
+* Per importare i dati da Hive in Excel è necessario aver installato [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886) .
 
 ## <a name="to-run-the-sample"></a>Per eseguire l'esempio
 1. Dal [portale di Azure](https://portal.azure.com/), nella schermata iniziale, se il cluster è stato aggiunto lì, fare clic sul riquadro del cluster in cui si desidera eseguire l'esempio.

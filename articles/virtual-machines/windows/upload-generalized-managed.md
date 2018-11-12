@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 22e28e208d46a23a2dd7e36e1c3ba4be13be928a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 93d5cbdb44d3014b547141d59ce96cf607276846
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091954"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234613"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Caricare un disco rigido virtuale generalizzato e usarlo per creare nuove macchine virtuali in Azure
 
@@ -49,7 +49,7 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
 1. Accedere alla macchina virtuale Windows.
 2. Aprire la finestra del prompt dei comandi come amministratore. Impostare la directory su %windir%\system32\sysprep e quindi eseguire `sysprep.exe`.
 3. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
-4. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
+4. In **Opzioni di arresto** selezionare **Arresta il sistema**.
 5. Selezionare **OK**.
    
     ![Avvio di Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
@@ -100,7 +100,7 @@ L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessi
  
 È anche possibile caricare un disco rigido virtuale nell'account di archiviazione tramite uno dei seguenti modi:
 
-- [AzCopy](http://aka.ms/downloadazcopy)
+- [AzCopy](https://aka.ms/downloadazcopy)
 - [API Copy Blob di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Caricamento di BLOB in Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
 - [Materiale di riferimento dell'API REST del servizio di importazione/esportazione dell'archiviazione](https://msdn.microsoft.com/library/dn529096.aspx)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 3b1d0a7476cff2be00aa44bb8b859261099298d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715659"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236690"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Creare un account di Microsoft Developer
 In questo articolo viene illustrata la creazione e la registrazione dell'account necessario per diventare un Microsoft Developer approvato per Azure Marketplace.
@@ -38,7 +38,7 @@ L'indirizzo che costituisce il nome utente deve trovarsi nel proprio dominio ed 
 Quando si crea un account aziendale, seguire queste linee guida se più di una persona dovrà accedere all'account tramite la registrazione con l'account di Microsoft che ha aperto l'account.
 
 > [!Important]
-> Importante: per consentire a più utenti di accedere all'account Dev Center, è consigliabile utilizzare Azure Active Directory per assegnare i ruoli ai singoli utenti, che possono accedere all'account accedendo con le proprie credenziali di Azure AD. Per maggiori informazioni, vedere [Gestire gli utenti dell'account](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Importante: per consentire a più utenti di accedere all'account Dev Center, è consigliabile utilizzare Azure Active Directory per assegnare i ruoli ai singoli utenti, che possono accedere all'account accedendo con le proprie credenziali di Azure AD. Per maggiori informazioni, vedere [Gestire gli utenti dell'account](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Creare l'account di Microsoft usando un indirizzo di posta elettronica appartenente al dominio dell'azienda, ma non a un singolo utente, ad esempio, windowsapps@fabrikam.com.
 * Limitare l'accesso a questo account Microsoft al minor numero possibile di sviluppatori.
@@ -50,7 +50,7 @@ Quando si crea un account aziendale, seguire queste linee guida se più di una p
 
 L'accesso all'account sviluppatore deve avvenire principalmente da PC affidabili. Questo è fondamentale poiché è previsto un limite al numero di codici generati per ogni account, ogni settimana. Consente inoltre di eseguire un accesso il più trasparente possibile.
 
-Per maggiori informazioni sulla sicurezza e le linee guida dell'account per sviluppatori, fare clic [qui](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Per maggiori informazioni sulla sicurezza e le linee guida dell'account per sviluppatori, fare clic [qui](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Istruzioni
 1. Aprire una nuova sessione in incognito in Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account esistente.
@@ -98,7 +98,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
     ![disegno](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **Paesi di origine della vendita:** per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro perciò non rimane che attendere. Per altre informazioni, vedere [Criteri di partecipazione a Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+   > **Paesi di origine della vendita:** per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro perciò non rimane che attendere. Per altre informazioni, vedere [Criteri di partecipazione a Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
    >
    >
 5. Selezionare **Azienda** per "Tipo di account" e fare clic sul pulsante **Avanti**.
@@ -127,7 +127,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
 9. Immettere le informazioni per il pagamento dell'account. Se si ha un codice promozionale che copre il costo della registrazione, è possibile immettere qui. In caso contrario, fornire le informazioni della carta di credito o di PayPal nei mercati supportati. Al termine, fare clic su **Avanti** per passare alla **"schermata di verifica"**.
 
     ![disegno](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. Esaminare le informazioni dell'account e verificare che tutto sia corretto. Leggere quindi e accettare le condizioni di [Microsoft Azure Marketplace - Contratto dell'editore](http://go.microsoft.com/fwlink/?LinkID=699560). Selezionare la casella per indicare di aver letto e accettato queste condizioni.
+10. Esaminare le informazioni dell'account e verificare che tutto sia corretto. Leggere quindi e accettare le condizioni di [Microsoft Azure Marketplace - Contratto dell'editore](https://go.microsoft.com/fwlink/?LinkID=699560). Selezionare la casella per indicare di aver letto e accettato queste condizioni.
 11. Fare clic su **Fine** per confermare la registrazione. Verrà inviato un messaggio di conferma all'indirizzo di posta elettronica.
 12. Se si prevede di pubblicare offerte gratis, fare clic sul collegamento per **passare al portale di pubblicazione di Azure Marketplace** e passare direttamente alla sezione 3 di questo documento, [Registrare l'account nel portale di pubblicazione](#3-register-your-account-in-the-publishing-portal).
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 3f7b216be79be1307a5668d6686fd73a27ae5574
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421357"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237860"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Eseguire un cluster Cassandra su Linux in Azure con Node.js
 
@@ -49,7 +49,7 @@ Cassandra può essere distribuito in una singola area di Azure o in più aree a 
 ### <a name="single-region-deployment"></a>Distribuzione in un'area singola
 Iniziare con una distribuzione in una singola area e si raccoglieranno le istruzioni per creare un modello a più aree. La rete virtuale di Azure viene usata per creare subnet isolate per poter soddisfare i requisiti di sicurezza della rete citati sopra.  Il processo descritto nella creazione della distribuzione in una singola area usa Ubuntu 14.04 LTS e Cassandra 2.08. Il processo può però essere facilmente adottato anche per le altre varianti di Linux. Di seguito sono riportate alcune caratteristiche di sistema della distribuzione in una singola area.  
 
-**Disponibilità elevata:** i nodi di Cassandra illustrati nella figura 1 vengono distribuiti in due set di disponibilità in modo da diffonderli tra più domini di errore a scopo di disponibilità elevata. Viene eseguito il mapping delle macchine virtuali annotate con ogni set di disponibilità a 2 domini di errore. Azure usa il concetto di dominio di errore per gestire periodi di inattività non pianificati (ad esempio errori hardware o software). Il concetto di dominio di aggiornamento (ad esempio aggiornamenti o patch del sistema operativo guest o host, aggiornamenti di applicazioni) si applica alla gestione dei tempi di inattività pianificati. Vedere [Ripristino di emergenza e disponibilità elevata per applicazioni Azure](http://msdn.microsoft.com/library/dn251004.aspx) per il ruolo dei domini di errore e di aggiornamento nel conseguimento dell'alta disponibilità.
+**Disponibilità elevata:** i nodi di Cassandra illustrati nella figura 1 vengono distribuiti in due set di disponibilità in modo da diffonderli tra più domini di errore a scopo di disponibilità elevata. Viene eseguito il mapping delle macchine virtuali annotate con ogni set di disponibilità a 2 domini di errore. Azure usa il concetto di dominio di errore per gestire periodi di inattività non pianificati (ad esempio errori hardware o software). Il concetto di dominio di aggiornamento (ad esempio aggiornamenti o patch del sistema operativo guest o host, aggiornamenti di applicazioni) si applica alla gestione dei tempi di inattività pianificati. Vedere [Ripristino di emergenza e disponibilità elevata per applicazioni Azure](https://msdn.microsoft.com/library/dn251004.aspx) per il ruolo dei domini di errore e di aggiornamento nel conseguimento dell'alta disponibilità.
 
 ![Distribuzione in un'area singola](./media/cassandra-nodejs/cassandra-linux1.png)
 

@@ -3,7 +3,7 @@ title: Correggere le configurazioni di sicurezza nel Centro sicurezza di Azure |
 description: In questo documento viene illustrato come implementare la raccomandazione del Centro sicurezza di Azure "Remediate security configurations" (Correggere le configurazioni di sicurezza).
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 74bfc3435ad6d247dabd3a7cbf2910ede5f8c8ca
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296244"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238778"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Correggere le configurazioni di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle macchine virtuali e dei computer per trovare eventuali configurazioni che li renderebbero più vulnerabili agli attacchi. Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo non corrisponde alle regole di configurazione della sicurezza consigliate e suggerisce di modificare la configurazione per risolvere le vulnerabilità.
@@ -107,7 +107,7 @@ Per altre informazioni sul Centro sicurezza, vedere le risorse seguenti:
 * Per informazioni su come gestire e rispondere agli avvisi di sicurezza, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
 * Per informazioni su come monitorare l'integrità delle soluzioni dei partner, vedere [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md).
 * Per le risposte alle domande frequenti sull'uso del servizio, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
-* Per i post di blog sulla sicurezza e sulla conformità di Azure, vedere [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/).
+* Per i post di blog sulla sicurezza e sulla conformità di Azure, vedere [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

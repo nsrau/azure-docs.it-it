@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 2e5d1045edbbc3c71cb0ccff34d2ba327a98a409
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b6f6653381b5fcf80b9647c64334dfed1a2230bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211858"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230853"
 ---
 # <a name="view-service-fabric-health-reports"></a>Come visualizzare i report sull'integrità di Service Fabric
 Azure Service Fabric introduce un [modello di integrità](service-fabric-health-introduction.md) con entità di integrità per le quali i componenti di sistema e i watchdog possono creare report sulle condizioni locali sottoposte a monitoraggio. L' [archivio integrità](service-fabric-health-introduction.md#health-store) aggrega tutti i dati di integrità per determinare se le entità sono integre.
@@ -32,7 +32,7 @@ Service Fabric offre diversi modi per ottenere l'integrità aggregata delle enti
 * Query di integrità (tramite PowerShell, API o REST)
 * Query generali che restituiscono un elenco di entità per le quali l'integrità costituisce una proprietà (tramite PowerShell, API o REST)
 
-Per illustrare queste opzioni, si userà un cluster locale con cinque nodi e l'[applicazione fabric:/WordCount](http://aka.ms/servicefabric-wordcountapp). L'applicazione **fabric:/WordCount** contiene due servizi predefiniti, un servizio con stato di tipo `WordCountServiceType` e un servizio senza stato di tipo `WordCountWebServiceType`. L'oggetto `ApplicationManifest.xml` è stato modificato per richiedere sette repliche di destinazione per il servizio con stato e una partizione. Poiché ci sono solo cinque nodi nel cluster, i componenti di sistema segnalano un avviso nella partizione del servizio perché è al di sotto del numero previsto.
+Per illustrare queste opzioni, si userà un cluster locale con cinque nodi e l'[applicazione fabric:/WordCount](https://aka.ms/servicefabric-wordcountapp). L'applicazione **fabric:/WordCount** contiene due servizi predefiniti, un servizio con stato di tipo `WordCountServiceType` e un servizio senza stato di tipo `WordCountWebServiceType`. L'oggetto `ApplicationManifest.xml` è stato modificato per richiedere sette repliche di destinazione per il servizio con stato e una partizione. Poiché ci sono solo cinque nodi nel cluster, i componenti di sistema segnalano un avviso nella partizione del servizio perché è al di sotto del numero previsto.
 
 ```xml
 <Service Name="WordCountService">
