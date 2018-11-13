@@ -3,23 +3,22 @@ title: Eseguire il debug di processi ricorrenti in Azure Data Lake Analytics
 description: Informazioni su come usare gli Strumenti Azure Data Lake per Visual Studio per eseguire il debug di un processo ricorrente anomalo.
 services: data-lake-analytics
 author: yanancai
-manager: kfile
-editor: jasonwhowell
 ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
-ms.openlocfilehash: 6a181e0cb4014f80673c1bd33e89af69c5677b37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623571"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260041"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Risolvere i problemi relativi a un processo ricorrente anomalo
 
-Questo articolo illustra come usare gli [Strumenti Azure Data Lake per Visual Studio](http://aka.ms/adltoolsvs) per risolvere i problemi relativi ai processi ricorrenti. Per altre informazioni sui processi della pipeline e ricorrenti, vedere il [blog su Azure Data Lake e Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+Questo articolo illustra come usare gli [Strumenti Azure Data Lake per Visual Studio](https://aka.ms/adltoolsvs) per risolvere i problemi relativi ai processi ricorrenti. Per altre informazioni sui processi della pipeline e ricorrenti, vedere il [blog su Azure Data Lake e Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
 
 I processi ricorrenti condividono generalmente la stessa logica di query e dati di input simili. Ad esempio si supponga di avere un processo ricorrente che viene eseguito ogni lunedì mattina alle 8:00 per calcolare l'utente più attivo della settimana per la settimana precedente. Gli script per questi processi condividono un solo modello di script che contiene la logica di query. Gli input di questi processi sono i dati di utilizzo della settimana precedente. La condivisione della stessa logica di query e input simili comporta in genere che le prestazioni di questi processi siano simili e stabili. Se uno dei processi ricorrenti improvvisamente viene eseguito in modo anomalo, non viene eseguito o rallenta molto, potrebbe essere utile:
 
@@ -40,7 +39,7 @@ Tramite **Strumenti** > **Data Lake** > **Job View** (Visualizzazione processi),
  
 ### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Caso 2: Si dispone della pipeline per il processo ricorrente, ma non dell'URL
 
-In Visual Studio è possibile aprire il browser pipeline tramite Esplora server > account di Azure Data Lake Analytics > **Pipeline**. Se non è possibile trovare il nodo in Esplora server, [scaricare la versione più recente del plug-in](http://aka.ms/adltoolsvs). 
+In Visual Studio è possibile aprire il browser pipeline tramite Esplora server > account di Azure Data Lake Analytics > **Pipeline**. Se non è possibile trovare il nodo in Esplora server, [scaricare la versione più recente del plug-in](https://aka.ms/adltoolsvs). 
 
 ![Selezione del nodo Pipeline](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 

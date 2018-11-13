@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b09cfe106eefe9f6ab76cd1bfea91a0b6ff13b7c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214529"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252140"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -119,7 +119,7 @@ Nella pagina **Prepara origine** selezionare **+ Server di configurazione**.
 
 1. Usare un'istanza EC2 che esegue Windows Server 2012 R2 per creare un server di configurazione e registrarlo con l'insieme di credenziali di ripristino.
 2. Configurare il proxy nella macchina virtuale dell'istanza EC2 usata come server di configurazione in modo che possa accedere agli [URL del servizio](site-recovery-support-matrix-to-azure.md).
-3. Scaricare il [programma di installazione unificata di Microsoft Azure Site Recovery](http://aka.ms/unifiedinstaller_wus). È possibile scaricarlo nel computer locale e quindi copiarlo nella macchina virtuale usata come server di configurazione.
+3. Scaricare il [programma di installazione unificata di Microsoft Azure Site Recovery](https://aka.ms/unifiedinstaller_wus). È possibile scaricarlo nel computer locale e quindi copiarlo nella macchina virtuale usata come server di configurazione.
 4. Selezionare il pulsante **Scarica** per scaricare la chiave di registrazione dell'insieme di credenziali. Copiare il file scaricato nella macchina virtuale usata come server di configurazione.
 5. Nella macchina virtuale fare clic con il pulsante destro del mouse sul programma di installazione scaricato per l'installazione unificata di Microsoft Azure Site Recovery e quindi scegliere **Esegui come amministratore**.
 

@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 4386f87b6986e6ab1742a8d3c14a100fea112182
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406312"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238489"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introduzione ad Azure Data Catalog
 Azure Data Catalog è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per asset di dati aziendali. Per una panoramica dettagliata, vedere [Definizione di Azure Data Catalog](data-catalog-what-is-data-catalog.md).
@@ -96,7 +96,7 @@ Il database Adventure Works supporta gli scenari di elaborazione delle transazio
 Per installare il database di esempio Adventure Works:
 
 1. Scaricare [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) in CodePlex.
-2. Per ripristinare il database nel computer, seguire le istruzioni disponibili in [Ripristinare un backup del database tramite SQL Server Management Studio](http://msdn.microsoft.com/library/ms177429.aspx)oppure seguire questa procedura:
+2. Per ripristinare il database nel computer, seguire le istruzioni disponibili in [Ripristinare un backup del database tramite SQL Server Management Studio](https://msdn.microsoft.com/library/ms177429.aspx)oppure seguire questa procedura:
    1. Aprire SQL Server Management Studio e connettersi al motore di database di SQL Server.
    2. Fare clic con il pulsante destro del mouse su **Database** e scegliere **Ripristina database**.
    3. In **Ripristina database** selezionare l'opzione **Dispositivo** per **Origine** e fare clic su **Esplora**.

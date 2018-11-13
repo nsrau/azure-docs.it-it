@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 08/01/2018
-ms.openlocfilehash: f381eaad61c98228ea9be2665ebed5878b666317
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ee5542c72991a2aa8de94f5dc2e819eb5d311a27
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064238"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246804"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Risolvere, diagnosticare ed evitare gli errori di connessione SQL e gli errori temporanei per il database SQL
 Questo articolo illustra come evitare, risolvere, diagnosticare e ridurre gli errori di connessione e gli errori temporanei che si verificano nell'applicazione client durante l'interazione con il database SQL di Azure. Informazioni su come configurare la logica di ripetizione dei tentativi, compilare la stringa di connessione e modificare altre impostazioni di connessione.
@@ -63,7 +63,7 @@ Se il programma comunica con il database SQL tramite middleware di terze parti, 
 ### <a name="interval-increase-between-retries"></a>Incremento dell'intervallo tra i tentativi
 È consigliabile attendere 5 secondi prima di riprovare. Al primo tentativo con un ritardo inferiore a 5 secondi, si rischia di sovraccaricare il servizio cloud. Per ogni tentativo successivo, aumentare in modo esponenziale il ritardo, fino a un massimo di 60 secondi.
 
-Per i client che usano ADO.NET, è disponibile una discussione sul periodo di blocco in [Pool di connessioni di SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+Per i client che usano ADO.NET, è disponibile una discussione sul periodo di blocco in [Pool di connessioni di SQL Server (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 È anche possibile che si voglia impostare un numero massimo di nuovi tentativi prima dell'autoterminazione del programma.
 
@@ -115,13 +115,13 @@ Per semplificare il test, il programma riconosce un parametro di runtime che ha 
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametri di SqlConnection di .NET per nuovi tentativi di connessione
-Se il programma client si connette al database SQL usando la classe .NET Framework **System.Data.SqlClient.SqlConnection**, è necessario usare .NET 4.6.1 o versioni successive (o .NET Core) per poterne sfruttare la funzionalità di ripetizione dei tentativi di connessione. Per altre informazioni sulla caratteristica, vedere [questa pagina Web](http://go.microsoft.com/fwlink/?linkid=393996).
+Se il programma client si connette al database SQL usando la classe .NET Framework **System.Data.SqlClient.SqlConnection**, è necessario usare .NET 4.6.1 o versioni successive (o .NET Core) per poterne sfruttare la funzionalità di ripetizione dei tentativi di connessione. Per altre informazioni sulla caratteristica, vedere [questa pagina Web](https://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-Quando si crea la [stringa di connessione](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) per l'oggetto **SqlConnection**, coordinare i valori tra i parametri seguenti:
+Quando si crea la [stringa di connessione](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) per l'oggetto **SqlConnection**, coordinare i valori tra i parametri seguenti:
 
 * **ConnectRetryCount**:&nbsp;&nbsp;Il valore predefinito è 1. L'intervallo consentito è tra 0 e 255.
 * **ConnectRetryInterval**:&nbsp;&nbsp;Il valore predefinito è 1 secondo. L'intervallo consentito è tra 1 e 60.
@@ -211,7 +211,7 @@ Se il programma non riesce a connettersi al database SQL, un'opzione di diagnost
 In qualsiasi computer Windows è possibile provare queste utilità:
 
 * SQL Server Management Studio (ssms.exe), che si connette tramite ADO.NET
-* sqlcmd.exe, che si connette tramite [ODBC](http://msdn.microsoft.com/library/jj730308.aspx)
+* sqlcmd.exe, che si connette tramite [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
 
 Dopo la connessione del programma, verificare il funzionamento di una breve query SQL SELECT.
 
@@ -226,7 +226,7 @@ In Linux possono risultare utili le utilità seguenti:
 * `nmap -sS -O 127.0.0.1`
   * Modificare il valore di esempio con il proprio indirizzo IP.
 
-In Windows è possibile usare l'utilità [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148). Ecco un'esecuzione di esempio che ha eseguito una query relativa alla situazione delle porte in un server di database SQL e che è stata eseguita in un computer portatile:
+In Windows è possibile usare l'utilità [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148). Ecco un'esecuzione di esempio che ha eseguito una query relativa alla situazione delle porte in un server di database SQL e che è stata eseguita in un computer portatile:
 
 ```
 [C:\Users\johndoe\]
@@ -253,7 +253,7 @@ La diagnosi di un problema intermittente è spesso agevolata dal rilevamento di 
 
 Il client può supportare l'analisi tramite la registrazione di tutti gli errori rilevati. È possibile che si riesca a correlare le voci del log con i dati di errore registrati internamente dal database SQL.
 
-Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la registrazione. Per altre informazioni, vedere [5 - Più facile che mai: uso del blocco applicazione di registrazione](http://msdn.microsoft.com/library/dn440731.aspx).
+Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la registrazione. Per altre informazioni, vedere [5 - Più facile che mai: uso del blocco applicazione di registrazione](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -262,8 +262,8 @@ Ecco alcune istruzioni Transact-SQL SELECT che eseguono query nei log degli erro
 
 | Query di un log | DESCRIZIONE |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |La visualizzazione [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) offre informazioni sui singoli eventi, inclusi quelli che possono causare errori temporanei o di connettività.<br/><br/>In teoria, è possibile correlare i valori **start_time** o **end_time** con le informazioni relative al momento in cui si sono verificati problemi nel programma client.<br/><br/>È necessario connettersi al database *master* per eseguire questa query. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |La vista [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) offre un conteggio aggregato dei tipi di evento, per consentire operazioni di diagnostica aggiuntive.<br/><br/>È necessario connettersi al database *master* per eseguire questa query. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |La visualizzazione [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) offre informazioni sui singoli eventi, inclusi quelli che possono causare errori temporanei o di connettività.<br/><br/>In teoria, è possibile correlare i valori **start_time** o **end_time** con le informazioni relative al momento in cui si sono verificati problemi nel programma client.<br/><br/>È necessario connettersi al database *master* per eseguire questa query. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |La vista [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) offre un conteggio aggregato dei tipi di evento, per consentire operazioni di diagnostica aggiuntive.<br/><br/>È necessario connettersi al database *master* per eseguire questa query. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -309,12 +309,12 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 <a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
-Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in [Enterprise Library 6 - Aprile 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
+Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in [Enterprise Library 6 - Aprile 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-Logica di ripetizione dei tentativi per la gestione degli errori temporanei è un'area in cui EntLib60 può essere utile. Per altre informazioni, vedere [4 - Perseveranza, il segreto di tutti i successi: uso del Blocco di applicazioni per la gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+Logica di ripetizione dei tentativi per la gestione degli errori temporanei è un'area in cui EntLib60 può essere utile. Per altre informazioni, vedere [4 - Perseveranza, il segreto di tutti i successi: uso del Blocco di applicazioni per la gestione degli errori temporanei](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
-> Il codice sorgente per EntLib60 è disponibile per il download pubblico nell'[Area download](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft non prevede di fornire altre funzionalità o aggiornamenti di manutenzione per EntLib.
+> Il codice sorgente per EntLib60 è disponibile per il download pubblico nell'[Area download](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft non prevede di fornire altre funzionalità o aggiornamenti di manutenzione per EntLib.
 >
 >
 
@@ -341,7 +341,7 @@ Nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHand
 
 Ecco alcuni collegamenti alle informazioni relative a EntLib60:
 
-* Download gratuito dell'eBook [Guida per sviluppatori di Microsoft Enterprise Library, seconda edizione](http://www.microsoft.com/download/details.aspx?id=41145).
+* Download gratuito dell'eBook [Guida per sviluppatori di Microsoft Enterprise Library, seconda edizione](https://www.microsoft.com/download/details.aspx?id=41145).
 * Procedure consigliate: [Indicazioni generali per la ripetizione di tentativi](../best-practices-retry-general.md) offre un'eccellente discussione approfondita della logica di ripetizione dei tentativi.
 * Download NuGet di [Enterprise Library - Blocco applicazione per la gestione di errori temporanei 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 

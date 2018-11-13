@@ -2,19 +2,19 @@
 title: 'Eseguire il debug di Hadoop in HDInsight: visualizzare i log e interpretare i messaggi di errore - Azure '
 description: Informazioni sui messaggi di errore che vengono visualizzati durante l'amministrazione di HDInsight con PowerShell e sulle operazioni da eseguire per risolvere i problemi.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: ashishthaps
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 00d09619db11ea0026f5386048f1c10a8f831948
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592782"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261150"
 ---
 # <a name="analyze-hadoop-logs"></a>Analizzare i log di Hadoop
 
@@ -59,7 +59,7 @@ Sono disponibili diversi strumenti per accedere ai dati in queste tabelle:
 * Power Query per Excel
 
 #### <a name="use-power-query-for-excel"></a>Usare Power Query per Excel
-Power Query può essere installato da [Microsoft Power Query per Excel](http://www.microsoft.com/en-us/download/details.aspx?id=39379). Per i requisiti di sistema, vedere la pagina di download.
+Power Query può essere installato da [Microsoft Power Query per Excel](https://www.microsoft.com/en-us/download/details.aspx?id=39379). Per i requisiti di sistema, vedere la pagina di download.
 
 **Usare Power Query per aprire e analizzare il log del servizio**
 

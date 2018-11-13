@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 13535dae82ef2c8896dad7d6221553d15e4e6a95
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573812"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259752"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Visualizzare la tendenza dei costi mensili stimati per il lab in Azure DevTest Labs
 La funzionalità di gestione dei costi dei lab di sviluppo/test consente di tenere traccia dei costi del lab. Questo articolo spiega come usare il grafico della **tendenza dei costi mensili stimati** grafico per visualizzare i costi stimati del mese in corso fino alla data odierna e la proiezione dell'ammontare dei costi a fine mese per il mese in corso. Questo articolo illustra anche come migliorare la gestione dei costi dei lab impostando soglie e obiettivi di spesa. Quando questi vengono raggiunti, DevTest Labs segnala i risultati all'utente.
@@ -27,7 +27,7 @@ La funzionalità di gestione dei costi dei lab di sviluppo/test consente di tene
 ## <a name="viewing-the-monthly-estimated-cost-trend-chart"></a>Visualizzazione del grafico della tendenza dei costi mensili stimati
 Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire questa procedura: 
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessario, selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco. Il lab potrebbe essere già visualizzato nel dashboard in **Tutte le risorse**.
 1. Nell'elenco dei lab selezionare il lab desiderato.  
 1. Nell'area **Panoramica** del lab selezionare **Configurazione e criteri**.   

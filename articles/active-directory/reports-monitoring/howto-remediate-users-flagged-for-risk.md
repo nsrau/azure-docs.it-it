@@ -14,16 +14,16 @@ ms.component: report-monitor
 ms.date: 05/23/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 385106065322cae9b8e29f66bfd6920d4ebb52f8
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 13d81e655b98771d985277974bd3081437e2a3e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145576"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255780"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Correggere gli utenti contrassegnati per il rischio nel portale di Azure Active Directory
 
-I report di sicurezza in Azure Active Directory (Azure AD) permettono di ottenere informazioni approfondite sulla probabile presenza di account utente compromessi nell'ambiente. Un [utente contrassegnato per il rischio](../identity-protection/overview.md#users-flagged-for-risk) è indicativo di un account utente che potrebbe essere stato compromesso.
+I report di sicurezza in Azure Active Directory (Azure AD) permettono di ottenere informazioni approfondite sulla probabile presenza di account utente compromessi nell'ambiente. Un utente contrassegnato per il rischio è indicativo di un account utente che potrebbe essere stato compromesso.
 
 Microsoft si impegna a contribuire alla protezione degli ambienti degli utenti. Nell'ambito di tale impegno, Microsoft effettua un monitoraggio costante per rilevare eventuali attività insolite o coerenti con modelli di attacco noti. 
 
@@ -61,9 +61,9 @@ Esaminare le informazioni visualizzate qui. È consigliabile reimpostare la pass
 
 Eseguire queste operazioni per correggere gli account interessati e proteggere l'ambiente:
 
-1.  [Convalidare](http://aka.ms/MFAValid) le informazioni corrette per la reimpostazione della password self-service e l'autenticazione a più fattori. 
-2.  [Abilitare](http://aka.ms/MFAuth) l'autenticazione a più fattori per tutti gli utenti. 
-3.  Usando questo [script di correzione](http://aka.ms/remediate) per ogni account interessato, è possibile eseguire automaticamente i passaggi seguenti: 
+1.  [Convalidare](https://aka.ms/MFAValid) le informazioni corrette per la reimpostazione della password self-service e l'autenticazione a più fattori. 
+2.  [Abilitare](https://aka.ms/MFAuth) l'autenticazione a più fattori per tutti gli utenti. 
+3.  Usando questo [script di correzione](https://aka.ms/remediate) per ogni account interessato, è possibile eseguire automaticamente i passaggi seguenti: 
 
     a. Reimpostare la password per proteggere l'account e terminare le sessioni attive.
 
@@ -87,10 +87,10 @@ Eseguire queste operazioni per correggere gli account interessati e proteggere l
 
 È anche opportuno:
 
-- Leggere e implementare queste [indicazioni](http://aka.ms/fixaccount) sulla gestione delle attività anomale. 
-- [Abilitare la pipeline di controllo](http://aka.ms/improvesecurity) per agevolare l'analisi dell'attività nella tenancy. Al termine dell'operazione, l'archivio di controllo avvia la compilazione di tutti i log attività. A questo punto è anche possibile sfruttare le funzionalità di [ricerca e analisi del centro sicurezza e conformità](http://aka.ms/sccsearch). 
-- Usare questo [script](http://aka.ms/mailboxaudit1) per abilitare il controllo delle cassette postali per tutti gli account. 
-- Esaminare le autorizzazioni delegate e le regole di inoltro della posta per tutte le cassette postali. Per eseguire questa attività è possibile usare questo [script di PowerShell](http://aka.ms/delegateforwardrules). 
+- Leggere e implementare queste [indicazioni](https://aka.ms/fixaccount) sulla gestione delle attività anomale. 
+- [Abilitare la pipeline di controllo](https://aka.ms/improvesecurity) per agevolare l'analisi dell'attività nella tenancy. Al termine dell'operazione, l'archivio di controllo avvia la compilazione di tutti i log attività. A questo punto è anche possibile sfruttare le funzionalità di [ricerca e analisi del centro sicurezza e conformità](https://aka.ms/sccsearch). 
+- Usare questo [script](https://aka.ms/mailboxaudit1) per abilitare il controllo delle cassette postali per tutti gli account. 
+- Esaminare le autorizzazioni delegate e le regole di inoltro della posta per tutte le cassette postali. Per eseguire questa attività è possibile usare questo [script di PowerShell](https://aka.ms/delegateforwardrules). 
 
 
 

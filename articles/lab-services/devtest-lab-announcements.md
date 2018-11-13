@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ecfaf24d1122b711a93e1335b79acbbc4235bdae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: eedab085098c34cdac3c49a3892f7cb0d5824f1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049950"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259922"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Pubblicare un annuncio per un lab in Azure DevTest Labs
 
@@ -35,7 +35,7 @@ La funzionalità degli annunci deve essere usata per le notifiche temporanee.  �
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Procedura per pubblicare un annuncio in un lab esistente
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessario, selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco. Il lab potrebbe essere già visualizzato nel dashboard in **Tutte le risorse**.
 1. Nell'elenco di lab selezionare il lab in cui si vuole pubblicare un annuncio.  
 1. Nell'area **Panoramica** del lab selezionare **Configurazione e criteri**.  
@@ -70,7 +70,7 @@ Quando non si vuole più visualizzare questo annuncio per gli utenti del lab, to
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Procedura per consentire agli utenti di visualizzare un annuncio
 
-1. Nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) selezionare un lab.
+1. Nel [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040) selezionare un lab.
 
 1. Se per il lab è stato pubblicato un annuncio, viene visualizzato un messaggio informativo nella parte superiore della pagina Panoramica del lab. Questo messaggio è il titolo dell'annuncio specificato quando l'annuncio è stato creato.
 
@@ -160,7 +160,7 @@ Quando non si vuole più visualizzare questo annuncio per gli utenti del lab, to
 
 È possibile distribuire un modello di Azure Resource Manager tramite uno dei modi seguenti:
 
-- [portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+- [Portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
 - [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)

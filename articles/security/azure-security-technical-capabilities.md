@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405566"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249031"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 
@@ -238,7 +238,7 @@ Crittografia dischi di Azure non è attualmente supportato in PaaS v1. Di conseg
 
 La maggior parte dei servizi dovrà tentare di sfruttare la crittografia di un provider di risorse di archiviazione. Alcuni servizi devono eseguire la crittografia esplicita. Ad esempio, tutto il materiale delle chiavi salvato in modo permanente (certificati e chiavi radice/master) deve essere archiviato in Key Vault.
 
-Se si supporta la crittografia lato servizio con chiavi gestite dal cliente, deve essere possibile per il cliente trasmettere la chiave a Microsoft. A tale scopo, è supportata e consigliata l'integrazione con Azure Key Vault (AKV). In questo caso, i clienti possono aggiungere e gestire le proprie chiavi in Azure Key Vault. Per informazioni su come usare AKV, vedere [Introduzione a Key Vault](http://go.microsoft.com/fwlink/?linkid=521402).
+Se si supporta la crittografia lato servizio con chiavi gestite dal cliente, deve essere possibile per il cliente trasmettere la chiave a Microsoft. A tale scopo, è supportata e consigliata l'integrazione con Azure Key Vault (AKV). In questo caso, i clienti possono aggiungere e gestire le proprie chiavi in Azure Key Vault. Per informazioni su come usare AKV, vedere [Introduzione a Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
 
 Per l'integrazione con Azure Key Vault, si aggiunge codice per richiedere una chiave da AKV quando è necessaria per la decrittografia.
 
@@ -283,7 +283,7 @@ Quando si pianifica l'adozione di Azure RMS, si consiglia quanto segue:
 
 - Creare [modelli personalizzati](https://technet.microsoft.com/library/dn642472.aspx) che rispecchiano i requisiti aziendali, ad esempio un modello per i dati riservati da applicare in tutti i messaggi di posta elettronica correlati a informazioni riservate.
 
-Le organizzazioni che sono carenti a livello di [classificazione dei dati](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) e protezione dei file potrebbero essere più soggette alla perdita di dati. In assenza di un'adeguata protezione per i file, le organizzazioni non riusciranno a ottenere informazioni di business dettagliate, monitorare i possibili abusi e impedire l'accesso non autorizzato ai file.
+Le organizzazioni che sono carenti a livello di [classificazione dei dati](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) e protezione dei file potrebbero essere più soggette alla perdita di dati. In assenza di un'adeguata protezione per i file, le organizzazioni non riusciranno a ottenere informazioni di business dettagliate, monitorare i possibili abusi e impedire l'accesso non autorizzato ai file.
 
 > [!Note]
 > Per altre informazioni su Azure RMS, leggere l'articolo [Introduzione a Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
@@ -408,7 +408,7 @@ Con Log Analytics è possibile gestire qualsiasi istanza di qualsiasi cloud, inc
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) offre servizi di monitoraggio raccogliendo i dati delle risorse gestite in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) offre servizi di monitoraggio raccogliendo i dati delle risorse gestite in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 

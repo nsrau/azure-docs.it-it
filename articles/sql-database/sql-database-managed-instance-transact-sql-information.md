@@ -1,5 +1,5 @@
 ---
-title: Differenze T-SQL di Istanza gestita di database SQL di Azure | Microsoft Docs
+title: Differenze T-SQL di Istanza gestita del database SQL di Azure | Microsoft Docs
 description: Questo articolo illustra le differenze T-SQL tra Istanza gestita di database SQL di Azure e SQL Server
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: 6ffa09343560e4ac55b1fd62325fd4e3bd370848
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: c51df7aeef136fee42b061cd422cc62d67f33e96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242178"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258919"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita di database SQL di Azure e SQL Server
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
 Istanza gestita di database SQL di Azure assicura una compatibilità elevata con il motore di database di Microsoft SQL Server locale. La maggior parte delle funzionalità del motore di database di Microsoft SQL Server è supportata in Istanza gestita. Esistono tuttavia alcune differenze nella sintassi e nel comportamento, riepilogate e illustrate in questo articolo.
 
@@ -287,7 +287,7 @@ Le tabelle esterne che fanno riferimento ai file in HDFS o nell'archivio BLOB di
 
 ### <a name="replication"></a>Replica
 
-La replica è disponibile in anteprima pubblica in Istanza gestita. Per informazioni sulla replica, vedere [Replica di SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+La replica è disponibile in anteprima pubblica in Istanza gestita. Per informazioni sulla replica, vedere [Replica di SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### <a name="restore-statement"></a>Istruzione RESTORE
 
@@ -365,8 +365,8 @@ Il broker di servizio tra istanze non è supportato:
 - Processi
   - I passaggi dei processi T-SQL sono supportati.
   - I processi di replica seguenti sono supportati:
-    - Lettore di log delle transazioni  
-    - Snapshot
+    - Lettore di log delle transazioni.  
+    - Snapshot.
     - Database di distribuzione
   - I passaggi dei processi SSIS sono supportati.
   - Altri tipi di passaggi dei processi non sono attualmente supportati, tra cui:

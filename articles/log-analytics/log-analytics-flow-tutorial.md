@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6f09e523b70e541c724ea53d0bd47215ad44d623
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77d47b1f4946a8539b58b9335b967321b6bbf2e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041987"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259871"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatizzare i processi di Log Analytics con il connettore per Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) consente di creare flussi di lavoro automatizzati che includono centinaia di azioni per un'ampia gamma di servizi. L'output di un'azione può essere usato come input per un'altra. È così possibile integrare servizi diversi.  Il connettore di Azure Log Analytics per Microsoft Flow consente di creare flussi di lavoro che includono dati recuperati da ricerche log in Log Analytics.
@@ -29,7 +29,7 @@ L'esercitazione descritta in questo articolo mostra come creare un flusso che in
 
 
 ## <a name="step-1-create-a-flow"></a>Passaggio 1: Creare un flusso
-1. Accedere a [Microsoft Flow](http://flow.microsoft.com) e quindi selezionare **Flussi personali**.
+1. Accedere a [Microsoft Flow](https://flow.microsoft.com) e quindi selezionare **Flussi personali**.
 2. Fare clic su **+ Crea da zero**.
 
 ## <a name="step-2-create-a-trigger-for-your-flow"></a>Passaggio 2: Creare un trigger per il flusso
@@ -79,7 +79,7 @@ L'esercitazione descritta in questo articolo mostra come creare un flusso che in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Ricerche log di Log Analytics](log-analytics-log-search-new.md).
+- Altre informazioni su [Ricerche log di Log Analytics](log-analytics-queries.md).
 - Altre informazioni su [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

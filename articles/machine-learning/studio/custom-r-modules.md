@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 555672df5b0b86858d460ff7606bc6ca23f4f103
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1a578e8cc05b42d05a8dfb31c0baeefb4822e3e5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834356"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261111"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Creare moduli R personalizzati in Azure Machine Learning
 Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
@@ -41,7 +41,7 @@ Un modulo R personalizzato viene definito da un file ZIP che contiene almeno due
 Nel file ZIP è possibile includere anche altri file ausiliari che forniscono funzionalità a cui è possibile accedere dal modulo personalizzato. Questa opzione viene trattata nella parte **Argomenti** della sezione di riferimento **Elementi nel file di definizione .xml** dopo l'esempio introduttivo.
 
 ## <a name="quickstart-example-define-package-and-register-a-custom-r-module"></a>Esempio di guida introduttiva: definire, creare un pacchetto e registrare un modulo R personalizzato
-In questo esempio viene illustrato come costruire i file richiesti da un modulo R personalizzato, inserirli in un file ZIP e quindi registrare il modulo nell'area di lavoro di Machine Learning. I file e il pacchetto ZIP di esempio possono essere scaricati da [Scarica file CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+In questo esempio viene illustrato come costruire i file richiesti da un modulo R personalizzato, inserirli in un file ZIP e quindi registrare il modulo nell'area di lavoro di Machine Learning. I file e il pacchetto ZIP di esempio possono essere scaricati da [Scarica file CustomAddRows.zip](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 ## <a name="the-source-file"></a>File di origine
 Considerare l'esempio di un modulo **Add Rows** (Aggiungi righe) personalizzato che modifica l'implementazione standard del modulo **Add Rows** usato per concatenare le righe (osservazioni) da due set di dati (frame di dati). Il modulo **Add Rows** standard aggiunge le righe del secondo set di dati di input alla fine del primo set di dati di input usando l'algoritmo `rbind`. Analogamente, la funzione `CustomAddRows` personalizzata accetta due set di dati, ma accetta anche un parametro di scambio booleano come input aggiuntivo. Se il parametro di scambio è impostato su **FALSE**, restituisce lo stesso set di dati come implementazione standard. Se tuttavia il parametro di scambio è **TRUE**, la funzione aggiunge righe del primo set di dati di input alla fine del secondo set di dati. Il file CustomAddRows.R che contiene l'implementazione della funzione R `CustomAddRows` , esposta dal modulo **Add Rows personalizzato** , ha il codice R seguente.

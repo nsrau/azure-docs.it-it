@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a179c0c6b777ee6b2afdd0f2e9267d247665d8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38675966"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248249"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Ridimensionare i limiti e le quote in DevTest Labs
 Quando si lavora in DevTest Labs, è possibile notare che esistono limiti predefiniti per determinate le risorse di Azure, che possono influenzare il servizio DevTest Labs. Questi limiti sono definiti **quote**.
@@ -35,7 +35,7 @@ Ad esempio, ogni sottoscrizione ha una quota predefinita di 20 core. Pertanto, s
 ## <a name="view-your-usage-and-quotas"></a>Visualizzare le quote e l'uso
 Questa procedura illustra come visualizzare le quote correnti nella sottoscrizione per risorse specifiche di Azure e per visualizzare la percentuale di ogni quota usata.
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selezionare **Altri servizi** e quindi **Fatturazione** dall'elenco.
 1. Selezionare una sottoscrizione nel pannello Fatturazione.
 4. Selezionare **Utilizzo e quote**.
@@ -49,7 +49,7 @@ Questa procedura illustra come visualizzare le quote correnti nella sottoscrizio
 ## <a name="requesting-more-resources-in-your-subscription"></a>Richiesta di altre risorse nella sottoscrizione
 Se si raggiunge un limite di quota, il limite predefinito di una risorsa in una sottoscrizione può essere aumentato fino a un limite massimo, come descritto in [Sottoscrizione di Azure e limiti dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
-Questa procedura mostra come richiedere un aumento di quota usando il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+Questa procedura mostra come richiedere un aumento di quota usando il [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Selezionare **Altri servizi**, quindi **Fatturazione** e **Utilizzo e quote**.
 1. Nel pannello Utilizzo + quote selezionare il pulsante **Richiedi aumento**.
