@@ -1,5 +1,5 @@
 ---
-title: Configurare ambienti di staging per le app Web nel Servizio app di Azure | Microsoft Docs
+title: Configurare ambienti di staging per le app Web nel Servizio app di Azure | Documentazione Microsoft
 description: Informazioni su come utilizzare la pubblicazione per fasi per le app Web in Azure App Service."
 services: app-service
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 35027b4eadba72776fd27826a389763cc0832eee
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: ea9167404034911a0e917374fbdb9962da1578d5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044315"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257834"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
 
-Quando si distribuiscono l'app Web, il back-end per dispositivi mobili, l'app Web su Linux e l'app per le API nel [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), è possibile eseguire questa operazione in uno slot di distribuzione distinto anziché in uno slot di produzione predefinito se il piano usato del servizio app è **Standard** o **Premium**. Gli slot di distribuzione sono in realtà app dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
+Quando si distribuiscono l'app Web, il back-end per dispositivi mobili, l'app Web su Linux e l'app per le API nel [servizio app](https://go.microsoft.com/fwlink/?LinkId=529714), è possibile eseguire questa operazione in uno slot di distribuzione distinto anziché in uno slot di produzione predefinito se il piano usato del servizio app è **Standard** o **Premium**. Gli slot di distribuzione sono in realtà app dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
 
 * È possibile convalidare le modifiche alle app in uno slot di distribuzione temporaneo prima di scambiarlo con quello di produzione.
 * La distribuzione preliminare di un'app in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. L'intero flusso di lavoro può essere automatizzata tramite la configurazione di [scambio automatico](#Auto-Swap) quando non è necessario spazio di pre-swapping convalida.

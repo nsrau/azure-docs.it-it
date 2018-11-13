@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 5c05c7c4c0f8f0b3619b36390c8a0224a03c900a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063543"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253432"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Note sulla versione per Servizi BizTalk di Azure
 
@@ -66,11 +66,11 @@ La soluzione viene 'compilata' correttamente in Visual Studio. Successivamente, 
   Impossibile copiare il file <Path to DLL> in "bin\Debug\FileName.dll". Il processo non riesce ad accedere al file 'bin\Debug\FileName.dll' perché è usato da un altro processo.  
 
 #### <a name="workaround"></a>Soluzione alternativa
-* Se [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) è installato, sono disponibili le due opzioni seguenti:
+* Se [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) è installato, sono disponibili le due opzioni seguenti:
   
   * Riavviare Visual Studio
   * Riavviare la soluzione. Quindi, eseguire solo un'operazione di compilazione sulla soluzione.  
-* Se [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) non è installato, aprire Gestione attività, fare clic sulla scheda Processi, fare clic sul processo MSBuild.exe e quindi fare clic sul pulsante Termina processo.  
+* Se [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) non è installato, aprire Gestione attività, fare clic sulla scheda Processi, fare clic sul processo MSBuild.exe e quindi fare clic sul pulsante Termina processo.  
 
 ### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>Il routing a endpoint BasicHttpRelay non è supportato dal bridge e il portale servizi BizTalk se i caratteri non stampabili vengono alzati di livello come intestazioni HTTP
 Se si usano caratteri non stampabili come parte delle proprietà alzate di livello relative ai messaggi, questi non possono essere indirizzati a destinazioni di inoltro che usano l'associazione BasicHttpRelay. Inoltre, le proprietà alzate di livello disponibili come parte del rilevamento includono la codifica URL per i BLOB e sono senza codifica per le destinazioni.  
@@ -188,7 +188,7 @@ Provare a usare comportamenti basati su nomi per identificare i certificati nel 
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>I bridge continuano a elaborare i messaggi anche quando il database SQL è offline
 I bridge di Servizi BizTalk continuano a elaborare i messaggi per un determinato periodo di tempo anche se il database SQL di Microsoft Azure, che archivia le informazioni di esecuzione quali pipeline ed elementi distribuiti, è offline. Questa condizione si verifica perché Servizi BizTalk usa gli elementi memorizzati nella cache e la configurazione del bridge.
-Per evitare che i bridge elaborino i messaggi quando il database SQL è offline, è possibile usare i cmdlet di PowerShell per Servizi BizTalk per arrestare o sospendere il servizio BizTalk. Per informazioni sulla gestione delle operazioni con i cmdlet di Windows PowerShell, vedere un [esempio di gestione del servizio BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=329019) .  
+Per evitare che i bridge elaborino i messaggi quando il database SQL è offline, è possibile usare i cmdlet di PowerShell per Servizi BizTalk per arrestare o sospendere il servizio BizTalk. Per informazioni sulla gestione delle operazioni con i cmdlet di Windows PowerShell, vedere un [esempio di gestione del servizio BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=329019) .  
 
 ### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>La lettura di un messaggio XML in un componente del codice personalizzato di un bridge include un carattere BOM aggiuntivo
 Si consideri uno scenario in cui si vuole leggere un messaggio XML all'interno del codice personalizzato di un bridge. Se si usa il metodo System.Text.Encoding.UTF8.GetString(bytes) dell'API .NET, all'inizio del messaggio di output viene incluso un carattere BOM aggiuntivo. Se quindi non si vuole che nell'output venga incluso il carattere BOM aggiuntivo, è necessario usare ```System.IO.StreamReader().ReadToEnd()```.

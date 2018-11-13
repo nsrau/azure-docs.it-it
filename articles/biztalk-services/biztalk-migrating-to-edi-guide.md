@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856531"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253823"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Eseguire la migrazione delle soluzioni EDI BizTalk Server in Servizi BizTalk: guida tecnica
 
@@ -77,10 +77,10 @@ Vedere **Scenari/Flusso messaggi** in questo articolo per lo schema del flusso d
 ## <a name="agreements"></a>Contratti
 Se già si conoscono i contratti tra partner commerciali di BizTalk Server 2010 utilizzati per l'elaborazione EDI, i contratti tra partner commerciali dei servizi BizTalk risulteranno familiari. La maggior parte delle impostazioni del contratto sono uguali e utilizzano la stessa terminologia. In alcuni casi, le impostazioni del contratto sono molto più semplici rispetto alle stesse impostazioni di BizTalk Server. I servizi BizTalk di Microsoft Azure supportano il trasporto X12, EDIFACT e AS2.
 
-I servizi BizTalk di Microsoft Azure forniscono inoltre uno strumento di **migrazione dati TPM** per eseguire la migrazione di partner commerciali e contratti dal modulo di partner commerciali di BizTalk Server al portale dei servizi BizTalk. Lo strumento di migrazione dati TPM è disponibile come parte di un pacchetto di strumenti che può essere scaricato dalla pagina [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057). Il pacchetto include inoltre un file Leggimi che contiene le istruzioni per utilizzare lo strumento e le informazioni di base per risoluzione dei problemi dello strumento.
+I servizi BizTalk di Microsoft Azure forniscono inoltre uno strumento di **migrazione dati TPM** per eseguire la migrazione di partner commerciali e contratti dal modulo di partner commerciali di BizTalk Server al portale dei servizi BizTalk. Lo strumento di migrazione dati TPM è disponibile come parte di un pacchetto di strumenti che può essere scaricato dalla pagina [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057). Il pacchetto include inoltre un file Leggimi che contiene le istruzioni per utilizzare lo strumento e le informazioni di base per risoluzione dei problemi dello strumento.
 
 ## <a name="schemas"></a>Schemi
-I servizi BizTalk forniscono gli schemi EDI che possono essere utilizzati nelle soluzioni dei servizi BizTalk.  Inoltre, gli schemi EDI di BizTalk Server possono essere utilizzati anche con i servizi BizTalk perché il nodo radice dello schema EDI è lo stesso in BizTalk Server e nei servizi BizTalk. Pertanto, sarà possibile prendere direttamente gli schemi EDI di BizTalk Server e utilizzarli nelle soluzioni EDI sviluppate tramite i servizi BizTalk. È anche possibile scaricare gli schemi dalla pagina [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057).
+I servizi BizTalk forniscono gli schemi EDI che possono essere utilizzati nelle soluzioni dei servizi BizTalk.  Inoltre, gli schemi EDI di BizTalk Server possono essere utilizzati anche con i servizi BizTalk perché il nodo radice dello schema EDI è lo stesso in BizTalk Server e nei servizi BizTalk. Pertanto, sarà possibile prendere direttamente gli schemi EDI di BizTalk Server e utilizzarli nelle soluzioni EDI sviluppate tramite i servizi BizTalk. È anche possibile scaricare gli schemi dalla pagina [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057).
 
 ## <a name="maps-transforms"></a>Mappe (trasformazioni)
 Le mappe di BizTalk Server sono chiamate trasformazioni nei servizi BizTalk. La migrazione delle mappe da BizTalk Server nei servizi BizTalk potrebbe essere una delle attività più complesse da eseguire (a seconda della complessità della mappa). Lo strumento di mapping utilizzato per i servizi BizTalk è diverso da BizTalk Mapper. Anche se il mapper è essenzialmente lo stesso, il formato della mappa sottostante è diverso. I functoid (chiamati **operazioni di mapping** nei servizi BizTalk) disponibili per gli utenti sono diversi.  In effetti, non è possibile utilizzare direttamente una mappa BizTalk nei servizi BizTalk. Inoltre, non tutti i functoid disponibili in BizTalk Server sono disponibili come operazioni di mapping nei servizi BizTalk.
@@ -93,23 +93,23 @@ Un altro esempio di nuova funzionalità delle trasformazioni dei servizi BizTalk
 Un altro esempio è l’operazione di mapping dell’espressione **If-Then-Else** .  In BizTalk Mapper è possibile eseguire un'operazione if-then-else, ma richiede più functoid per completare un'attività apparentemente semplice.
 
 ### <a name="migrating-biztalk-server-maps"></a>Migrazione delle mappe di BizTalk Server
-I servizi BizTalk di Microsoft Azure forniscono uno strumento per eseguire la migrazione delle mappe di BizTalk Server alle trasformazioni dei servizi BizTalk. Lo strumento **BTMMigrationTool** è disponibile come parte del pacchetto di **strumenti** fornito con il [download di BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057). Per ulteriori informazioni sullo strumento, vedere [Convertire una mappa BizTalk in una trasformazione dei servizi BizTalk](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+I servizi BizTalk di Microsoft Azure forniscono uno strumento per eseguire la migrazione delle mappe di BizTalk Server alle trasformazioni dei servizi BizTalk. Lo strumento **BTMMigrationTool** è disponibile come parte del pacchetto di **strumenti** fornito con il [download di BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057). Per ulteriori informazioni sullo strumento, vedere [Convertire una mappa BizTalk in una trasformazione dei servizi BizTalk](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
 
-È inoltre possibile esaminare un esempio di Sandro Pereira, MVP di BizTalk, su come eseguire la [migrazione di mappe BizTalk Server a trasformazioni dei servizi BizTalk](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
+È inoltre possibile esaminare un esempio di Sandro Pereira, MVP di BizTalk, su come eseguire la [migrazione di mappe BizTalk Server a trasformazioni dei servizi BizTalk](https://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
 ## <a name="orchestrations"></a>Orchestrazioni
 Se è necessario eseguire la migrazione a Microsoft Azure dell’elaborazione di orchestrazioni di BizTalk Server, le orchestrazioni devono essere riscritte poiché Microsoft Azure non supporta l'esecuzione di orchestrazioni di BizTalk Server.  È possibile riscrivere la funzionalità di orchestrazione in un servizio di Windows Workflow Foundation 4.0 (WF4).  Si tratta di una riscrittura completa poiché non esiste attualmente la migrazione dalle orchestrazioni di BizTalk Server a WF4. Di seguito sono riportate alcune risorse per Windows Workflow:
 
 * [*Come integrare un servizio del flusso di lavoro WCF con code e argomenti del bus di servizio*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) di Paolo Salvatori. 
-* [Sessione *Building apps with Windows Workflow Foundation and Azure*](http://go.microsoft.com/fwlink/p/?LinkId=237314) (Compilazione di app con Windows Workflow Foundation e Azure) estratta dalla conferenza Build 2011.
-* [*Centro per sviluppatori Windows Workflow Foundation*](http://go.microsoft.com/fwlink/p/?LinkId=237315) in MSDN.
+* [Sessione *Building apps with Windows Workflow Foundation and Azure*](https://go.microsoft.com/fwlink/p/?LinkId=237314) (Compilazione di app con Windows Workflow Foundation e Azure) estratta dalla conferenza Build 2011.
+* [*Centro per sviluppatori Windows Workflow Foundation*](https://go.microsoft.com/fwlink/p/?LinkId=237315) in MSDN.
 * [*Documentazione di Windows Workflow Foundation 4 (WF4)*](https://msdn.microsoft.com/library/dd489441.aspx) in MSDN.
 
 ## <a name="other-considerations"></a>Altre considerazioni
 Di seguito sono riportate alcune informazioni da tenere in considerazione quando si usano i servizi BizTalk.
 
 ### <a name="fallback-agreements"></a>Accordi di fallback
-L’elaborazione EDI di BizTalk Server costituisce il concetto di "accordo di fallback".  I servizi BizTalk **non** hanno ancora un concetto di accordo di fallback.  Vedere gli argomenti della documentazione di BizTalk [Ruolo degli accordi nell'elaborazione EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) e [Configurazione delle proprietà dell'accordo globale o di fallback](https://msdn.microsoft.com/library/bb245981.aspx) per informazioni sull'uso di contratti di fallback in BizTalk Server.
+L’elaborazione EDI di BizTalk Server costituisce il concetto di "accordo di fallback".  I servizi BizTalk **non** hanno ancora un concetto di accordo di fallback.  Vedere gli argomenti della documentazione di BizTalk [Ruolo degli accordi nell'elaborazione EDI](https://go.microsoft.com/fwlink/p/?LinkId=237317) e [Configurazione delle proprietà dell'accordo globale o di fallback](https://msdn.microsoft.com/library/bb245981.aspx) per informazioni sull'uso di contratti di fallback in BizTalk Server.
 
 ### <a name="routing-to-multiple-destinations"></a>Routing a più destinazioni
 I bridge dei servizi BizTalk nello stato attuale non supportano il routing dei messaggi a più destinazioni tramite il modello pubblicazione-sottoscrizione. Tuttavia, è possibile instradare i messaggi da un bridge dei servizi BizTalk a un argomento del bus di servizio che può avere più sottoscrizioni per ricevere il messaggio su più endpoint.

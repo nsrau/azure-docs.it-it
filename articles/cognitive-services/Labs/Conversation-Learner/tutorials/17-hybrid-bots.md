@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a03596ff8383a085314508d4a25d0ba89bcc3094
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 82b0d1494e983d033889d588bcb73d0364fcfc89
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174480"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256290"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Come usare Conversation Learner con altre tecnologie di creazione bot
 
@@ -23,7 +23,7 @@ Questa esercitazione illustra come usare Conversation Learner con altre tecnolog
 
 ## <a name="video"></a>Video
 
-[![Anteprima esercitazione 15](http://aka.ms/cl-tutorial-15-preview)](http://aka.ms/blis-tutorial-15)
+[![Anteprima esercitazione 15](https://aka.ms/cl-tutorial-15-preview)](https://aka.ms/blis-tutorial-15)
 
 ## <a name="requirements"></a>Requisiti
 Per creare i dialoghi di log, questa esercitazione richiede l'uso dell'emulatore del bot, non dell'interfaccia utente Web dei dialoghi di log.  

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 6d4f96a2c1d288648543a92614cab0f8cf5ee2ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24099022"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256001"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Usare Azure Application Insights per comprendere in che modo i clienti usano l'applicazione
 
@@ -31,14 +31,14 @@ Azure Application Insights raccoglie informazioni sull'utilizzo che consentono d
 > * Controllare la modalità di navigazione degli utenti all'interno dell'applicazione
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
 - Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
     - Sviluppo Web e ASP.NET
     - Sviluppo di Azure
-- Scaricare e installare il [debugger di snapshot di Visual Studio](http://aka.ms/snapshotdebugger).
+- Scaricare e installare il [debugger di snapshot di Visual Studio](https://aka.ms/snapshotdebugger).
 - Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](app-insights-asp-net.md). 
 - [Inviare dati di telemetria dall'applicazione](app-insights-usage-overview.md#send-telemetry-from-your-app) per aggiungere visualizzazioni pagina/eventi personalizzati.
 - Inviare il [contesto utente](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) per tenere traccia delle operazioni eseguite da un utente nel corso del tempo e sfruttare al meglio le funzionalità di utilizzo.
