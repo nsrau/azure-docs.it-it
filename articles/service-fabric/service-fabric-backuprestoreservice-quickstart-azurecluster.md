@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Backup e ripristino periodici in Azure Service Fabric (Anteprima) | Microsoft Docs'
+title: Backup e ripristino periodici in Azure Service Fabric (Anteprima) | Documentazione Microsoft
 description: Usare la funzionalità di backup e ripristino periodici di Service Fabric per abilitare il backup periodico dei dati delle applicazioni.
 services: service-fabric
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 50ee0d91b27805e4db785e5df211660900333e7f
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ef92212b84496802dc2464498a0b6789f79a729b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990300"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246702"
 ---
-# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Avvio rapido: Backup e ripristino periodici in Azure Service Fabric (Anteprima)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Backup e ripristino periodici in Azure Service Fabric (Anteprima)
 > [!div class="op_single_selector"]
 > * [Cluster in Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Cluster autonomi](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)

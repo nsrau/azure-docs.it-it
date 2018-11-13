@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: d0de7e7596fb7fabbc4061709816111a7a4ad827
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 363cba145ed4d5bcf138cf3f7130763891c51e8b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213045"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258062"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introduzione a Service Fabric Reliable Actors
-Reliable Actors è un framework di applicazione Service Fabric basato sul criterio [Actor virtuale](http://research.microsoft.com/en-us/projects/orleans/). L'API Reliable Actors offre un modello di programmazione a thread singolo basato sulle garanzie di affidabilità e scalabilità offerte da Service Fabric.
+Reliable Actors è un framework di applicazione Service Fabric basato sul criterio [Actor virtuale](https://research.microsoft.com/en-us/projects/orleans/). L'API Reliable Actors offre un modello di programmazione a thread singolo basato sulle garanzie di affidabilità e scalabilità offerte da Service Fabric.
 
 ## <a name="what-are-actors"></a>Che cosa sono gli attori?
 Un attore è un'unità isolata e indipendente di calcolo e di stato con esecuzione a thread singolo. Il [criterio Actor](https://en.wikipedia.org/wiki/Actor_model) è un modello di calcolo per sistemi simultanei o distribuiti in cui è possibile eseguire un numero elevato di attori simultaneamente e indipendente. Gli attori possono comunicare tra loro e possono creare altri attori.

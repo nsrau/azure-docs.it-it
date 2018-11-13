@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 443d37f5b45db9495c09d68300c9ea4978466eb9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: fe6df20d294a3b1802d396085c36a6587dc45730
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388229"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249082"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Service Fabric in un cluster in Azure
 
@@ -87,7 +87,7 @@ Per la sottoscrizione di Azure, aprire questa porta usando una regola di bilanci
 
 I cluster di entità sono cluster di Service Fabric gratuiti disponibili per un periodo di tempo limitato, ospitati in Azure ed eseguiti dal team di Service Fabric. Chiunque può distribuire applicazioni e ottenere informazioni sulla piattaforma. Il cluster usa un solo certificato autofirmato per la sicurezza da nodo a nodo e da client a nodo.
 
-Eseguire l'accesso e [aggiungere un cluster Windows](http://aka.ms/tryservicefabric). Per scaricare il certificato PFX nel computer, selezionare il collegamento **PFX**. Fare clic sul collegamento **How to connect to a secure Party cluster?** (Come connettersi a un party cluster sicuro?) e copiare la password del certificato. Il certificato, la password del certificato e il valore dell'**endpoint di connessione** vengono usati nei passaggi seguenti.
+Eseguire l'accesso e [aggiungere un cluster Windows](https://aka.ms/tryservicefabric). Per scaricare il certificato PFX nel computer, selezionare il collegamento **PFX**. Fare clic sul collegamento **How to connect to a secure Party cluster?** (Come connettersi a un party cluster sicuro?) e copiare la password del certificato. Il certificato, la password del certificato e il valore dell'**endpoint di connessione** vengono usati nei passaggi seguenti.
 
 ![Certificato PFX ed endpoint connessione](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 

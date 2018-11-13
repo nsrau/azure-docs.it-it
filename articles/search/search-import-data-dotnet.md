@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/13/2017
-ms.openlocfilehash: fb8fb153c7393af0e084cb96ee2f5e82fba5b220
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dc59531b282f6c99dd399ac384a8c6264ee260ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798054"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258766"
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Caricare dati in Ricerca di Azure tramite .NET SDK
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Questo articolo illustra come usare [Azure Search .NET SDK](https://aka.ms/searc
 Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-what-is-an-index.md). Questo articolo presuppone anche che sia già stato creato un oggetto `SearchServiceClient` , come illustrato nell'articolo relativo alla [creazione di un indice di Ricerca di Azure con .NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
 
 > [!NOTE]
-> Tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile [in GitHub](http://aka.ms/search-dotnet-howto). Per una descrizione più dettagliata del codice di esempio, vedere le informazioni relative a [Azure Search .NET SDK](search-howto-dotnet-sdk.md).
+> Tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile [in GitHub](https://aka.ms/search-dotnet-howto). Per una descrizione più dettagliata del codice di esempio, vedere le informazioni relative a [Azure Search .NET SDK](search-howto-dotnet-sdk.md).
 
 Per eseguire il push di documenti nell'indice usando .NET SDK, è necessario:
 

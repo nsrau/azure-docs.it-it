@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6969f0c6a05ebf5b34fb746d2a83b884687ad710
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29762442"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258256"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Usare istanze con supporto per RDMA o abilitate per GPU in pool di Batch
 
@@ -105,7 +105,7 @@ Per configurare una dimensione di macchina virtuale specializzata per il pool di
 
 Per eseguire applicazioni Windows MPI in un pool di nodi A8 di Azure è necessario installare un'implementazione MPI supportata. Di seguito è riportata la procedura per installare [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) in un pool di Windows con un pacchetto di applicazione Batch.
 
-1. Scaricare il [pacchetto di installazione](http://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) per la versione più recente di Microsoft MPI.
+1. Scaricare il [pacchetto di installazione](https://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) per la versione più recente di Microsoft MPI.
 2. Creare un file zip del pacchetto.
 3. Caricare il pacchetto nell'account Batch. Per istruzioni, vedere il materiale sussidiario sui [pacchetti di applicazioni](batch-application-packages.md). Specificare un ID applicazione, ad esempio *MSMPI*, e una versione come *8.1*. 
 4. Usando l'API Batch o il portale di Azure, creare un pool nella configurazione dei servizi cloud con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio per installare MPI in modalità automatica con un'attività di avvio:
