@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352611"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963932"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta ad Azure Active Directory ibrido per domini gestiti
 
@@ -140,6 +140,9 @@ Se alcuni dei dispositivi aggiunti a un dominio sono dispositivi di livello infe
  
 - Configurare le impostazioni intranet locali per la registrazione dei dispositivi
 
+- Controllare i dispositivi Windows di livello inferiore 
+
+
 ### <a name="update-device-settings"></a>Aggiornare le impostazioni dei dispositivi 
 
 Per registrare i dispositivi Windows di livello inferiore, è necessario assicurarsi che le impostazioni dei dispositivi che consentono agli utenti di registrare i dispositivi in Azure AD siano configurate. Nel portale di Azure queste impostazioni sono disponibili in:
@@ -163,6 +166,12 @@ Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello 
 - `https://autologon.microsoftazuread-sso.com`.
 
 È inoltre necessario abilitare **Consenti aggiornamenti barra di stato tramite script** nell'area Intranet locale dell'utente.
+
+
+### <a name="control-windows-down-level-devices"></a>Controllare i dispositivi Windows di livello inferiore 
+
+Per registrare i dispositivi Windows di livello inferiore, è necessario scaricare e installare un pacchetto di Windows Installer (con estensione msi) dall'Area download. Per altre informazioni, fare clic [qui](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 ## <a name="verify-the-registration"></a>Verificare la registrazione
 

@@ -1,5 +1,5 @@
 ---
-title: Usare il Servizio Migrazione del database di Azure per eseguire la migrazione online di PostgreSQL in Database di Azure per MySQL | Microsoft Docs
+title: 'Esercitazione: Usare il Servizio Migrazione del database di Azure per eseguire la migrazione online di PostgreSQL a Database di Azure per MySQL | Microsoft Docs'
 description: Informazioni su come eseguire la migrazione online da PostgreSQL locale in Database di Azure per PostgreSQL con il Servizio Migrazione del database di Azure.
 services: dms
 author: HJToland3
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 09/26/2018
-ms.openlocfilehash: 51103f6661be22e355aafe01783af5afddd51f54
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 004db061e721f0169491e98bd8e7cdd86e08bb01
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182468"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963598"
 ---
-# <a name="migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Eseguire la migrazione di PostgreSQL in Database di Azure per PostgreSQL online mediante il Servizio Migrazione del database di Azure
+# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di PostgreSQL a Database di Azure per PostgreSQL online con il Servizio Migrazione del database
 È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di PostgreSQL locale a [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con tempi di inattività minimi. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da un'istanza locale di PostgreSQL 9.6 a Database di Azure per PostgreSQL usando un'attività di migrazione online nel Servizio Migrazione del database di Azure.
 
 In questa esercitazione si apprenderà come:

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
+ms.date: 11/01/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: aa91701fd289be171a2e9f63165c669953dac918
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d61d0220a87f81ca68255d40c00a6b7783943231
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086795"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960201"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Guida introduttiva: Chiamare l'API Microsoft Graph da un'applicazione UWP (Universal Windows Platform)
 
@@ -29,7 +29,7 @@ ms.locfileid: "50086795"
 
 Questa guida introduttiva contiene un esempio di codice che illustra come un'applicazione UWP (Universal Windows Platform) può consentire l'accesso a utenti con account personali, aziendali o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph.
 
-![Funzionamento dell'app di esempio generata da questa Guida introduttiva](media/quickstart-v2-uwp/uwp-intro.png)
+![Funzionamento dell'app di esempio generata da questa guida introduttiva](media/quickstart-v2-uwp/uwp-intro.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
@@ -51,7 +51,7 @@ Questa guida introduttiva contiene un esempio di codice che illustra come un'app
 > 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
 > 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima)** > **Nuova registrazione**.
-> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione:
+> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
 >      - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `UWP-App-calling-MsGraph`.
 >      - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**.
 >      - Selezionare **Registra** per creare l'applicazione.
@@ -76,11 +76,23 @@ Questa guida introduttiva contiene un esempio di codice che illustra come un'app
 
 1. Estrarre il file ZIP in una cartella locale vicina alla radice del disco, ad esempio **C:\Azure-Samples**.
 1. Aprire il progetto in Visual Studio.
-1. Modificare **App.Xaml.cs** e sostituire la riga che inizia con `private static string ClientId` con il codice seguente:
+1. Modificare **App.Xaml.cs** e sostituire i valori dei campi `ClientId` e `Tenant` con:
 
     ```csharp
     private static string ClientId = "Enter_the_Application_Id_here";
+    private static string Tenant = "Enter_the_Tenant_Info_Here";
     ```
+
+> [!div renderon="docs"]
+> Dove:
+> - `Enter_the_Application_Id_here` è l'ID applicazione dell'applicazione registrata.
+> - `Enter_the_Tenant_Info_Here` è una delle opzioni riportate di seguito.
+>   - Se l'applicazione supporta **Solo l'organizzazione personale**, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+>   - Se l'applicazione supporta **Account in qualsiasi directory organizzativa**, sostituire questo valore con `organizations`
+>   - Se l'applicazione supporta **Tutti gli utenti di account Microsoft**, sostituire questo valore con `common`
+>
+> > [!TIP]
+> > Per trovare i valori di *ID applicazione*, *ID della directory (tenant)* e *Tipi di account supportati*, passare alla pagina **Panoramica**.
 
 ## <a name="more-information"></a>Altre informazioni
 
@@ -102,7 +114,7 @@ Install-Package Microsoft.Identity.Client -Pre
 using Microsoft.Identity.Client;
 ```
 
-È quindi possibile inizializzare MSAL con il codice seguente:
+Inizializzare quindi la libreria MSAL usando il codice seguente:
 
 ```csharp
 public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
@@ -118,11 +130,11 @@ In MSAL sono disponibili due metodi per acquisire i token: `AcquireTokenAsync` e
 
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
 
- In alcune situazioni è necessario imporre agli utenti di interagire con l'endpoint di Azure Active Directory v2.0 tramite una finestra popup per convalidare le credenziali o concedere il consenso. Di seguito sono riportati alcuni scenari di esempio:
+In alcune situazioni è necessario imporre agli utenti di interagire con l'endpoint di Azure AD v2.0 tramite una finestra popup per convalidare le credenziali o concedere il consenso. Di seguito sono riportati alcuni esempi:
 
-- L'utente accede per la prima volta all'applicazione
-- Un utente deve immettere nuovamente le credenziali perché la password è scaduta
-- L'applicazione richiede l'accesso a una risorsa per cui è necessario il consenso dell'utente
+- La prima volta che gli utenti accedono all'applicazione
+- Quando gli utenti devono immettere nuovamente le credenziali perché la password è scaduta
+- Quando l'applicazione richiede l'accesso a una risorsa per cui è necessario il consenso dell'utente
 - Quando è necessaria l'autenticazione a due fattori
 
 ```csharp
@@ -135,7 +147,7 @@ authResult = await App.PublicClientApp.AcquireTokenAsync(scopes);
 
 #### <a name="get-a-user-token-silently"></a>Ottenere un token utente in modo automatico
 
-Non è opportuno richiedere agli utenti di convalidare le proprie credenziali ogni volta che devono accedere a una risorsa. Nella maggior parte dei casi si preferisce eseguire l'acquisizione e il rinnovo dei token senza alcuna interazione da parte dell'utente. `AcquireTokenSilentAsync` è il metodo comunemente usato per ottenere i token per accedere alle risorse protette dopo il metodo `AcquireTokenAsync` iniziale:
+Non si desidera richiedere all'utente di convalidare le proprie credenziali ogni volta che deve accedere a una risorsa. La maggior parte delle volte si desidera che le acquisizioni e i rinnovi dei token avvengano senza alcuna interazione da parte dell'utente. È possibile usare il metodo `AcquireTokenSilentAsync` per ottenere i token per accedere alle risorse protette dopo il metodo `AcquireTokenAsync` iniziale:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -151,7 +163,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una guida dettagliata esaustiva sulla creazione di applicazioni e di nuove funzionalità, con una spiegazione completa di questa guida introduttiva, provare l'esercitazione per applicazioni desktop di Windows.
+Provare l'esercitazione di Windows Desktop per una guida dettagliata completa sulla creazione di applicazioni e di nuove funzionalità, tra cui una spiegazione completa di questa guida introduttiva.
 
 > [!div class="nextstepaction"]
 > [Piattaforma UWP (Universal Windows Platform): esercitazione sulla chiamata dell'API Graph](tutorial-v2-windows-uwp.md)

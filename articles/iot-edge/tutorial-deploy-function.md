@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ff1f03bddbd653cf686fe36b7815d6bb9a7c0e72
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 67540a02aab0880ea1a5c52e42036029b95c4f43
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155644"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006261"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Esercitazione: Distribuire Funzioni di Azure come moduli IoT Edge (anteprima)
 
@@ -98,67 +98,81 @@ L'estensione Azure IoT Edge per Visual Studio Code installata nei prerequisiti f
    2. Specificare un nome per la soluzione o accettare quello predefinito **EdgeSolution**.
    3. Scegliere **Azure Functions - C#** (Funzioni di Azure - C#) come modello di modulo. 
    4. Assegnare al modulo il nome **CSharpFunction**. 
-   5. Specificare il registro contenitori di Azure creato nella sezione precedente come repository di immagini per il primo modulo. Sostituire **localhost:5000** con il valore del server di accesso copiato. La stringa finale è simile a \<nome registro\>.azurecr.io/csharpfunction.
+   5. Specificare il registro contenitori di Azure creato nella sezione precedente come repository di immagini per il primo modulo. Sostituire **localhost:5000** con il valore del server di accesso copiato. Assicurarsi che il nome del modulo (ad esempio /csharpfunction) rimanga intatto all'interno della stringa. La stringa finale è simile a \<nome registro\>.azurecr.io/csharpfunction.
 
    ![Specificare il repository di immagini Docker](./media/tutorial-deploy-function/repository.png)
 
-4. La finestra di Visual Studio Code carica l'area di lavoro della soluzione IoT Edge: una cartella \.vscode, una cartella dei moduli, un file del manifesto della distribuzione e un file con estensione \.env. Nello strumento di esplorazione di Visual Studio Code aprire **modules** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
+4. La finestra di Visual Studio Code carica l'area di lavoro della soluzione IoT Edge: una cartella \.vscode, una cartella dei moduli, un file del manifesto della distribuzione e un file con estensione \.env. Nello strumento di esplorazione di Visual Studio Code aprire **modules** > **CSharpFunction** > **CSharpFunction.cs**.
 
-5. Sostituire il contenuto del file **run.csx** con il codice seguente:
+5. Sostituire il contenuto del file **CSharpFunction.cs** con il codice seguente:
 
    ```csharp
-   #r "Microsoft.Azure.Devices.Client"
-   #r "Newtonsoft.Json"
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Devices.Client;
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Extensions.EdgeHub;
+    using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Extensions.Logging;
+    using Newtonsoft.Json;
 
-   using System.IO;
-   using Microsoft.Azure.Devices.Client;
-   using Newtonsoft.Json;
-
-   // Filter messages based on the temperature value in the body of the message and the temperature threshold value.
-   public static async Task Run(Message messageReceived, IAsyncCollector<Message> output, TraceWriter log)
-   {
-        const int temperatureThreshold = 25;
-        byte[] messageBytes = messageReceived.GetBytes();
-        var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
-
-        if (!string.IsNullOrEmpty(messageString))
+    namespace Functions.Samples
+    {
+        public static class CSharpFunction
         {
-            // Get the body of the message and deserialize it.
-            var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
-
-            if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+            [FunctionName("CSharpFunction")]
+            public static async Task FilterMessageAndSendMessage(
+                        [EdgeHubTrigger("input1")] Message messageReceived,
+                        [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,
+                        ILogger logger)
             {
-                // Send the message to the output as the temperature value is greater than the threashold.
-                var filteredMessage = new Message(messageBytes);
-                // Copy the properties of the original message into the new Message object.
-                foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                const int temperatureThreshold = 20;
+                byte[] messageBytes = messageReceived.GetBytes();
+                var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
+
+                if (!string.IsNullOrEmpty(messageString))
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);                }
-                // Add a new property to the message to indicate it is an alert.
-                filteredMessage.Properties.Add("MessageType", "Alert");
-                // Send the message.       
-                await output.AddAsync(filteredMessage);
-                log.Info("Received and transferred a message with temperature above the threshold");
+                    logger.LogInformation("Info: Received one non-empty message");
+                    // Get the body of the message and deserialize it.
+                    var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
+
+                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+                    {
+                        // Send the message to the output as the temperature value is greater than the threashold.
+                        var filteredMessage = new Message(messageBytes);
+                        // Copy the properties of the original message into the new Message object.
+                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                        {
+                            filteredMessage.Properties.Add(prop.Key, prop.Value);                }
+                        // Add a new property to the message to indicate it is an alert.
+                        filteredMessage.Properties.Add("MessageType", "Alert");
+                        // Send the message.       
+                        await output.AddAsync(filteredMessage);
+                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                    }
+                }
             }
         }
-    }
-
-    //Define the expected schema for the body of incoming messages.
-    class MessageBody
-    {
-        public Machine machine {get; set;}
-        public Ambient ambient {get; set;}
-        public string timeCreated {get; set;}
-    }
-    class Machine
-    {
-       public double temperature {get; set;}
-       public double pressure {get; set;}         
-    }
-    class Ambient
-    {
-       public double temperature {get; set;}
-       public int humidity {get; set;}         
+        //Define the expected schema for the body of incoming messages.
+        class MessageBody
+        {
+            public Machine machine {get; set;}
+            public Ambient ambient {get; set;}
+            public string timeCreated {get; set;}
+        }
+        class Machine
+        {
+            public double temperature {get; set;}
+            public double pressure {get; set;}         
+        }
+        class Ambient
+        {
+            public double temperature {get; set;}
+            public int humidity {get; set;}         
+        }
     }
    ```
 

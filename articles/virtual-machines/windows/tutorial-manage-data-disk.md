@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 11/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 94c36316f201abb7b86d56547551c4baefbcc031
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: c69a91ce360b5476541de29dc52ea89057aa726c
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867834"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037635"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Esercitazione: gestire i dischi di Azure con Azure PowerShell
 
-Le macchine virtuali di Azure usano dischi per archiviare sistema operativo, applicazioni e dati di macchine virtuali. Quando si crea una VM, è importante scegliere dimensione del disco e configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la distribuzione e la gestione dei dischi di VM. Vengono fornite informazioni su:
+Le macchine virtuali di Azure usano dischi per archiviare sistema operativo, applicazioni e dati di macchine virtuali. Quando si crea una macchina virtuale, è importante scegliere le dimensioni del disco e la configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la distribuzione e la gestione dei dischi di VM. Vengono fornite informazioni su:
 
 > [!div class="checklist"]
 > * Dischi del sistema operativo e dischi temporanei
@@ -34,63 +34,42 @@ Le macchine virtuali di Azure usano dischi per archiviare sistema operativo, app
 > * Prestazioni dei dischi
 > * Collegamento e preparazione dei dischi dati
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.7.0 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
+Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. 
+
+Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
 
 ## <a name="default-azure-disks"></a>Dischi di Azure predefiniti
 
 Quando viene creata una macchina virtuale di Azure, due dischi vengono automaticamente collegati alla macchina virtuale. 
 
-**Disco del sistema operativo**: i dischi del sistema operativo possono essere ridimensionati fino a 4 terabyte e ospitano il sistema operativo delle macchine virtuali.  Al disco del sistema operativo viene assegnata una lettera di unità *c:* per impostazione predefinita. La configurazione della memorizzazione nella cache del disco del sistema operativo è ottimizzata per le prestazioni del sistema operativo. Il disco del sistema operativo **non deve** ospitare applicazioni o dati. Per le applicazioni e i dati, usare un disco dati, descritto in dettaglio più avanti in questo articolo.
+**Disco del sistema operativo**: i dischi del sistema operativo possono essere ridimensionati fino a 4 terabyte e ospitano il sistema operativo delle macchine virtuali.  Al disco del sistema operativo viene assegnata una lettera di unità *C:* per impostazione predefinita. La configurazione della memorizzazione nella cache del disco del sistema operativo è ottimizzata per le prestazioni del sistema operativo. Il disco del sistema operativo **non deve** ospitare applicazioni o dati. Per le applicazioni e i dati, usare un disco dati, descritto in dettaglio più avanti in questo articolo.
 
-**Disco temporaneo**: i dischi temporanei usano un'unità SSD che si trova nello stesso host della macchina virtuale di Azure. I dischi temporanei sono altamente efficienti e possono essere usati per operazioni quali l'elaborazione dei dati temporanei. Tuttavia, se la macchina virtuale viene spostata in un nuovo host, tutti i dati memorizzati su un disco temporaneo vengono rimossi. Le dimensioni del disco temporaneo sono determinate dalle dimensioni della macchina virtuale. Ai dischi temporanei viene assegnata una lettera di unità *d:* per impostazione predefinita.
+**Disco temporaneo**: i dischi temporanei usano un'unità SSD che si trova nello stesso host della macchina virtuale di Azure. I dischi temporanei sono altamente efficienti e possono essere usati per operazioni quali l'elaborazione dei dati temporanei. Tuttavia, se la macchina virtuale viene spostata in un nuovo host, tutti i dati memorizzati su un disco temporaneo vengono rimossi. Le dimensioni del disco temporaneo sono determinate dalle [dimensioni della macchina virtuale](sizes.md). Ai dischi temporanei viene assegnata una lettera di unità *D:* per impostazione predefinita.
 
-### <a name="temporary-disk-sizes"></a>Dimensioni del disco temporaneo
 
-| type | Dimensioni comuni | Dimensioni massime del disco temporaneo (GiB) |
-|----|----|----|
-| [Utilizzo generico](sizes-general.md) | Serie A, B e D | 1600 |
-| [Ottimizzate per il calcolo](sizes-compute.md) | Serie F | 576 |
-| [Ottimizzate per la memoria](sizes-memory.md) | Serie D, E, G e M | 6144 |
-| [Ottimizzate per l'archiviazione](sizes-storage.md) | Serie L | 5630 |
-| [GPU](sizes-gpu.md) | Serie N | 1.440 |
-| [Prestazioni elevate](sizes-hpc.md) | Serie A e H | 2000 |
 
 ## <a name="azure-data-disks"></a>Dischi dati di Azure
 
-È possibile aggiungere altri dischi dati per l'installazione di applicazioni e l'archiviazione dei dati. I dischi dati devono essere usati in qualsiasi situazione in cui si desidera un'archiviazione dei dati durevoli e reattiva. Ciascun disco dati ha una capacità massima di 4 terabyte. Le dimensione della macchina virtuale determinano il numero di dischi dati possono essere collegati a una macchina virtuale. Per ogni vCPU della macchina virtuale, è possibile collegare due dischi dati. 
+È possibile aggiungere altri dischi dati per l'installazione di applicazioni e l'archiviazione dei dati. I dischi dati devono essere usati in qualsiasi situazione in cui si richiede un'archiviazione dei dati durevoli e reattiva. Ciascun disco dati ha una capacità massima di 4 terabyte. Le dimensione della macchina virtuale determinano il numero di dischi dati possono essere collegati a una macchina virtuale. Per ogni vCPU della macchina virtuale, è possibile collegare quattro dischi dati. 
 
-### <a name="max-data-disks-per-vm"></a>Numero massimo di dischi di dati per macchina virtuale
-
-| type | Dimensioni comuni | Numero massimo di dischi di dati per macchina virtuale |
-|----|----|----|
-| [Utilizzo generico](sizes-general.md) | Serie A, B e D | 64 |
-| [Ottimizzate per il calcolo](sizes-compute.md) | Serie F | 64 |
-| [Ottimizzate per la memoria](sizes-memory.md) | Serie D, E, G e M | 64 |
-| [Ottimizzate per l'archiviazione](sizes-storage.md) | Serie L | 64 |
-| [GPU](sizes-gpu.md) | Serie N | 64 |
-| [Prestazioni elevate](sizes-hpc.md) | Serie A e H | 64 |
 
 ## <a name="vm-disk-types"></a>Tipi di dischi per la VM
 
 Azure offre due tipi di dischi.
 
-### <a name="standard-disk"></a>Disco standard
+**Dischi Standard**: sono supportati da unità disco rigido e offrono un'archiviazione conveniente con buone prestazioni. I dischi standard sono ideali per un carico di lavoro di test e sviluppo conveniente.
 
-Archiviazione Standard è supportata da unità disco rigido e offre un'archiviazione conveniente con buone prestazioni. I dischi standard sono ideali per un carico di lavoro di test e sviluppo conveniente.
-
-### <a name="premium-disk"></a>Disco premium
-
-I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. L'archiviazione premium supporta le macchine virtuali serie DS, DSv2, GS e FS. I dischi Premium sono di cinque tipi, P10, P20, P30, P40 e P50. Le dimensioni del disco determinano il tipo di disco. Quando si effettua la selezione, il valore delle dimensioni di un disco viene arrotondato per eccesso al tipo successivo. Ad esempio, se le dimensioni sono inferiori a 128 GB, il tipo di disco è P10 oppure se sono comprese tra 129 GB e 512 GB, il disco è P20.
+**Dischi Premium**: sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. L'archiviazione premium supporta le macchine virtuali serie DS, DSv2, GS e FS. I dischi Premium sono di cinque tipi, P10, P20, P30, P40 e P50. Le dimensioni del disco determinano il tipo di disco. Quando si effettua la selezione, il valore delle dimensioni di un disco viene arrotondato per eccesso al tipo successivo. Ad esempio, se le dimensioni sono inferiori a 128 GB, il tipo di disco è P10 oppure se sono comprese tra 129 GB e 512 GB, il disco è P20.
 
 ### <a name="premium-disk-performance"></a>Prestazioni disco premium
 
-|Tipo di disco di Archiviazione Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Dimensioni del disco (arrotondate) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2.048 GB (2 TB) | 4.095 GB (4 TB) |
-| Operazioni IOPS al secondo max per disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 |
-Velocità effettiva per disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
+|Tipo di disco di Archiviazione Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Dimensioni del disco (arrotondate) | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB)
+| Operazioni IOPS al secondo max per disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 | 12.500 |
+Velocità effettiva per disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
 
 Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni di I/O al secondo per disco, è possibile raggiungere un livello superiore di prestazioni tramite lo striping di più dischi di dati. Ad esempio, è possibile collegare 64 dati dischi alla macchina virtuale Standard_GS5. Se ognuno di questi dischi viene ridimensionato come un P30, è possibile ottenere un massimo di 80.000 operazioni di I/O al secondo. Per informazioni dettagliate sul numero massimo di operazioni di I/O al secondo per macchina virtuale, vedere [Tipi e dimensioni delle macchine virtuali](./sizes.md).
 
@@ -100,11 +79,8 @@ Per completare l'esempio contenuto in questa esercitazione è necessario disporr
 
 Impostare il nome utente e la password necessari per l'account amministratore della macchina virtuale con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
-```azurepowershell-interactive
-$cred = Get-Credential
-```
 
-Creare la macchina virtuale con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Creare la macchina virtuale con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Verrà richiesto di immettere un nome utente e una password per l'account amministratore per la macchina virtuale.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -114,12 +90,9 @@ New-AzureRmVm `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
-    -PublicIpAddressName "myPublicIpAddress" `
-    -Credential $cred `
-    -AsJob
+    -PublicIpAddressName "myPublicIpAddress" 
 ```
 
-Il parametro `-AsJob` crea la VM come attività in background, in modo che i prompt di PowerShell vengano restituiti all'utente. È possibile visualizzare i dettagli dei processi in background con il cmdlet `Job`.
 
 Creare la configurazione iniziale con [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). L'esempio seguente configura un disco delle dimensioni di 128 GB.
 
@@ -176,6 +149,27 @@ Initialize-Disk -PartitionStyle MBR -PassThru | `
 New-Partition -AssignDriveLetter -UseMaximumSize | `
 Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
+
+## <a name="verify-the-data-disk"></a>Verificare il disco dati
+
+Per verificare che il disco dati sia collegato, visualizzare `StorageProfile` per l'oggetto `DataDisks` collegato.
+
+```azurepowershell-interactive
+$vm.StorageProfile.DataDisks
+```
+
+L'output dovrebbe essere simile all'esempio seguente:
+
+```
+Name            : myDataDisk
+DiskSizeGB      : 128
+Lun             : 1
+Caching         : None
+CreateOption    : Attach
+SourceImage     :
+VirtualHardDisk :
+```
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

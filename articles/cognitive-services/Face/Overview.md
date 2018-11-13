@@ -1,97 +1,77 @@
 ---
-title: Che cos'è il servizio API Viso?
+title: Informazioni sull'API Viso
 titleSuffix: Azure Cognitive Services
-description: Questo argomento illustra il servizio API Viso e i termini correlati.
+description: Informazioni su come usare il servizio Viso per rilevare e analizzare i visi nelle immagini.
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: overview
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 6c1e0d0a51bc01c581c05e7ce3215f5501b4be76
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 3fe9dd713bef509b1972b51cb07d4f942c544544
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310369"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914193"
 ---
-# <a name="what-is-the-face-api-service"></a>Che cos'è il servizio API Viso?
+# <a name="what-is-the-azure-face-api"></a>Informazioni sull'API Viso di Azure
 
-Il servizio API Viso è un servizio basato sul cloud che fornisce algoritmi per l'analisi dei visi umani in immagini e video. L'API Viso ha due funzioni principali: il rilevamento del viso con attributi e il riconoscimento del viso.
+L'API Viso di Azure è un servizio cognitivo che include algoritmi per il rilevamento, il riconoscimento e l'analisi dei visi umani nelle immagini. La possibilità di elaborare informazioni sui visi umani è importante in molti scenari software diversi, tra cui sicurezza, interfaccia utente naturale, analisi e gestione del contenuto di immagini, app per dispositivi mobili e robotica.
+
+L'API Viso offre varie funzioni, descritte nelle sezioni seguenti. Continuare a leggere per altre informazioni su ognuna di esse e determinare se è adatta alle proprie esigenze.
 
 ## <a name="face-detection"></a>Rilevamento del viso
 
-L'API Viso può rilevare fino a 64 visi umani con posizione del viso ad alta precisione in un'immagine. L'immagine può essere specificata tramite un file (flusso di byte) o con un URL valido.
+L'API Viso può rilevare i visi umani in un'immagine e restituire le coordinate del rettangolo delle posizioni corrispondenti. Facoltativamente, il rilevamento viso può estrarre una serie di attributi relativi al viso, ad esempio posa, sesso, età, posizione della testa, barba/baffi e occhiali.
 
-![Panoramica - Rilevamento viso](./Images/Face.detection.jpg)
+![Immagine di una donna e un uomo, con rettangoli disegnati intorno ai visi e informazioni su età e sesso](./Images/Face.detection.jpg)
 
-Con ogni viso rilevato viene restituito il rettangolo del viso (lato sinistro, superiore, larghezza e altezza) che indica la posizione del viso nell'immagine. Facoltativamente, il rilevamento viso estrae una serie di attributi relativi al viso, ad esempio posa, sesso, età, posizione della testa, barba/baffi e occhiali. Per altre informazioni, vedere [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+La funzionalità di rilevamento viso è disponibile anche tramite l'[API Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), ma se si vogliono eseguono ulteriori operazioni con i dati sui volti è preferibile usare l'API Viso (questo servizio). Per altre informazioni sul rilevamento del viso, vedere l'[API di rilevamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="face-recognition"></a>Riconoscimento del viso
+## <a name="face-verification"></a>Verifica del viso
 
-La possibilità di identificare visi umani è importante in molti scenari, tra cui sicurezza, interfaccia utente naturale, analisi e gestione del contenuto di immagini, app per dispositivi mobili e robotica. Il servizio API Viso offre quattro funzioni di riconoscimento del viso: verifica del viso, individuazione di visi simili, raggruppamento dei visi e identificazione della persona.
+L'API di verifica esegue un'autenticazione su due visi rilevati o un'autenticazione da un viso rilevato a un oggetto persona. In pratica, valuta se due visi appartengano alla stessa persona. Questo è potenzialmente utile negli scenari di sicurezza. Per altre informazioni, vedere l'[API di verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-### <a name="face-verification"></a>Verifica del viso
+## <a name="find-similar-faces"></a>Individuazione di visi simili
 
-La verifica del viso esegue un'autenticazione su due visi rilevati o un'autenticazione da un viso rilevato a un oggetto persona. Per informazioni più dettagliate, vedere [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+L'API di individuazione di visi simili prende un viso di destinazione e un set di visi candidati e individua un set più piccolo di visi più simili a quello di destinazione. Sono supportate due modalità di utilizzo, ovvero **matchPerson** e **matchFace**. La modalità **matchPerson** restituisce visi simili dopo aver filtrato in base all'appartenenza alla stessa persona (usando l'[API di verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)). La modalità **matchFace** ignora il filtro di appartenenza alla stessa persona e restituisce un elenco di visi candidati simili, che possono o meno appartenere alla stessa persona.
 
-### <a name="finding-similar-faces"></a>Individuazione di visi simili
+Nell'esempio seguente, questo è il viso di destinazione:
 
-Con un viso rilevato di destinazione e un set di visi candidati tra cui cercare, il servizio individua una piccola selezione dei visi più simili al viso di destinazione. Sono supportate due modalità di utilizzo, ovvero **matchFace** e **matchPerson**. La modalità **matchPerson** restituisce visi simili dopo aver applicato una soglia per la stessa persona derivata da [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). La modalità **matchFace** ignora la soglia per la stessa persona e restituisce i visi candidati più simili. Nell'esempio seguente sono elencati i visi candidati.
-![Panoramica - Trovare visi simili](./Images/FaceFindSimilar.Candidates.jpg) Questo è il viso della query.
-![Panoramica - Trovare visi simili](./Images/FaceFindSimilar.QueryFace.jpg)
+![Una donna sorridente](./Images/FaceFindSimilar.QueryFace.jpg)
 
-Per trovare quattro visi simili, la modalità **matchPerson** restituirebbe (a) e (b), che rappresentano la stessa persona, come viso della query. La modalità **matchFace** restituisce (a), (b), (c) e (d), esattamente quattro candidati anche se la somiglianza è minore. Per altre informazioni, vedere [Face - Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+E questi sono i visi candidati:
 
-### <a name="face-grouping"></a>Raggruppamento dei visi
+![Cinque immagini di persone sorridenti. Le immagini a) e b) sono della stessa persona](./Images/FaceFindSimilar.Candidates.jpg)
 
-In un set di visi sconosciuti, l'API di raggruppamento dei visi li divide automaticamente in più gruppi in base alla somiglianza. Ogni gruppo è un sottoinsieme proprio indipendente del set di visi sconosciuti originale e contiene visi che si somigliano. Tutti i visi nello stesso gruppo possono essere considerati come appartenenti alla stessa persona. Per altre informazioni, vedere [Face - Group](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+Per trovare quattro visi simili, la modalità **matchPerson** restituirebbe (a) e (b), che rappresentano la stessa persona del viso di destinazione. La modalità **matchFace** restituisce (a), (b), (c) e (d)&mdash;esattamente quattro candidati anche se alcuni non appartengono alla stessa persona della destinazione o la somiglianza è minore. Per altre informazioni, vedere l'[API di individuazione di visi simili](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
-### <a name="person-identification"></a>Identificazione delle persone
+## <a name="face-grouping"></a>Raggruppamento dei visi
 
-L'API Viso può essere usata per identificare le persone in base a un viso rilevato e a un database di persone. È possibile creare questo database in anticipo e modificarlo nel tempo.
+L'API di raggruppamento divide un set di visi sconosciuti in più gruppi basati sulla somiglianza. Ogni gruppo è un subset proprio indipendente del set di visi originale. Tutti i visi nello stesso gruppo appartengono probabilmente alla stessa persona, ma possono essere presenti gruppi diversi per una singola persona, che si differenziano per un altro fattore, ad esempio l'espressione. Per altre informazioni, vedere l'[API di raggruppamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-La figura seguente è un esempio di un database denominato "myfriends". Ogni gruppo può contenere fino a 1.000.000/10.000 oggetti persona diversi. Per ogni oggetto persona è possibile registrare fino a 248 visi.
+## <a name="person-identification"></a>Identificazione delle persone
 
-![Panoramica - LargePersonGroup/PersonGroup](./Images/person.group.clare.jpg)
+L'API di identificazione può essere usata per identificare un viso rilevato confrontandolo con un database di persone. Questo può essere utile per l'aggiunta automatica di tag alle immagini nei software di gestione delle fotografie. È possibile creare questo database in anticipo e modificarlo nel tempo.
+
+L'immagine seguente è un esempio di un database denominato "myfriends". Ogni gruppo può contenere fino a 1.000.000 di oggetti persona diversi e per ogni oggetto persona è possibile registrare fino a 248 visi.
+
+![Griglia con 3 colonne per persone diverse, ognuna con 3 righe di immagini dei visi](./Images/person.group.clare.jpg)
 
 Dopo la creazione e il training di un database, è possibile eseguire l'identificazione in base al gruppo con un nuovo viso rilevato. Se il viso viene identificato come una persona nel gruppo, viene restituito l'oggetto persona.
 
-Per altre informazioni sull'identificazione di persone, vedere le guide dell'API seguenti:
-
-[Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)  
-[PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)  
-[PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)  
-[PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)  
-[LargePersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)  
-[LargePersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)  
-[LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)  
-
-#### <a name="face-storage-and-pricing"></a>Archiviazione visi e prezzi
-
-Con una sottoscrizione Standard, Archiviazione visi consente di archiviare visi persistenti aggiuntivi quando si usano oggetti LargePersonGroup/PersonGroup Person ([PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)/[LargePersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)) o LargeFaceLists/FaceLists ([FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)/[LargeFaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)) per l'identificazione o la ricerca di somiglianze con l'API Viso. Il costo delle immagini archiviate è di 0,50 dollari per 1.000 visi e alla tariffa viene applicata la ripartizione proporzionale giornaliera. Le sottoscrizioni del livello gratuito sono limitate a un totale di 1.000 persone.
-
-Se, ad esempio, l'account usa 10.000 visi persistenti ogni giorno per la prima metà del mese e nessuno per la seconda metà, verranno addebitati solo 10.000 visi per i giorni di archiviazione. Se invece ogni giorno durante il mese vengono salvati in modo permanente 1.000 visi per alcune ore ed eliminati ogni sera, verrà comunque fatturato il costo di 1.000 visi persistenti ogni giorno.
+Per altre informazioni sull'identificazione di persone, vedere l'[API di identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 ## <a name="sample-apps"></a>App di esempio
 
-In queste applicazioni di esempio viene usata l'API Viso.
+Le applicazioni di esempio seguenti illustrano alcuni dei modi in cui si può usare l'API Viso.
 
-- [API Viso Microsoft: libreria client ed esempio Windows](https://github.com/Microsoft/Cognitive-Face-Windows)
-  - App di esempio WPF che illustra diversi scenari di rilevamento, analisi e identificazione del volto.
-- [App UWP FamilyNotes](https://github.com/Microsoft/Windows-appsample-familynotes)
-  - App di esempio della piattaforma UWP (Universal Windows Platform) che dimostra l'uso delle funzionalità di riconoscimento vocale, Cortana, input penna e fotocamera attraverso uno scenario di condivisione note in una famiglia.
-- [Esempio di analisi di fotogrammi video](https://github.com/microsoft/cognitive-samples-videoframeanalysis)
-  - App di esempio Win32 che dimostra l'analisi dei flussi video live quasi in tempo reale usando le API Viso, Visione artificiale ed Emozioni.
-
-## <a name="tutorials"></a>Esercitazioni
-Le esercitazioni seguenti illustrano le funzionalità di base e i processi delle sottoscrizioni dell'API Viso:
-- [Esercitazione introduttiva per l'API Viso in CSharp](Tutorials/FaceAPIinCSharpTutorial.md)
-- [Getting Started with Face API in Java for Android Tutorial](Tutorials/FaceAPIinJavaForAndroidTutorial.md) (Esercitazione introduttiva per l'API Viso in Java per Android)
-- [Esercitazione introduttiva per l'API Viso in Python](Tutorials/FaceAPIinPythonTutorial.md)
+- [API Viso Microsoft: libreria client ed esempio Windows](https://github.com/Microsoft/Cognitive-Face-Windows). App WPF che illustra diversi scenari di rilevamento, analisi e identificazione del viso.
+- [App UWP FamilyNotes](https://github.com/Microsoft/Windows-appsample-familynotes). App della piattaforma UWP (Universal Windows Platform) che usa l'identificazione del viso insieme a riconoscimento vocale, Cortana, input penna e fotocamera in uno scenario di condivisione note in una famiglia.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare una guida introduttiva per implementare un semplice scenario con l'API Viso.
-- [Guida introduttiva: Rilevare i visi in un'immagine con C#](quickstarts/csharp.md) (disponibile per altri linguaggi)
+Seguire una guida introduttiva per implementare un semplice scenario di rilevamento del viso nel codice.
+- [Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK con C#](quickstarts/csharp.md) (disponibile per altri linguaggi)

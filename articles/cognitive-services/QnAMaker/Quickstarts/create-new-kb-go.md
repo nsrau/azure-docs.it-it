@@ -1,21 +1,21 @@
 ---
 title: 'Guida introduttiva: Creare una knowledge base in REST, Go - QnA Maker'
 titlesuffix: Azure Cognitive Services
-description: Questa guida introduttiva basata su REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
+description: Questa guida introduttiva per Go basata su REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: e3a498e983985a2610ee4e52a497ad6c7f7b87a8
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: a1f477dd02e048a3bfb77463c2d9857ee32fb8fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647375"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235310"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con Go
 
@@ -25,186 +25,108 @@ In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
 * [Create Knowledgebase](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) (Creare la knowledge base)
 * [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Ottenere i dettagli dell'operazione)
 
-
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire questo codice è necessario [Go 1.10.1](https://golang.org/dl/).
+* [Go 1.10.1](https://golang.org/dl/)
+* È necessario disporre di un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave, selezionare **Chiavi** in **GESTIONE RISORSE** nel dashboard. 
 
-È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API QnA Maker Microsoft**. È infine necessaria una chiave di sottoscrizione a pagamento configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+## <a name="create-a-knowledge-base-go-file"></a>Creare un file Go per la knowledge base
 
-## <a name="create-knowledge-base"></a>Creare la knowledge base
+Creare un file denominato `create-new-knowledge-base.go`.
 
-Il codice seguente crea una nuova knowledge base usando il metodo [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
+## <a name="add-the-required-dependencies"></a>Aggiungere le dipendenze richieste
 
-1. Creare un nuovo progetto Go nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
-4. Eseguire il programma.
+All'inizio di `create-new-knowledge-base.go` inserire le righe seguenti per aggiungere le dipendenze necessarie al progetto:
 
-```go
-package main
+[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=1-11 "Add the required dependencies")]
 
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strconv"
-    "time"
-)
+## <a name="add-the-required-constants"></a>Aggiungere le costanti obbligatorie
+Dopo le dipendenze obbligatorie precedenti, aggiungere le costanti obbligatorie per accedere a QnA Maker. Sostituire il valore della variabile `subscriptionKey` con la chiave personale di QnA Maker.
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+[!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=13-20 "Add the required constants")]
 
-// Replace this with a valid subscription key.
-var subscriptionKey string = "ENTER KEY HERE"
+## <a name="add-the-kb-model-definition"></a>Aggiungere la definizione del modello di knowledge base
+Dopo le costanti, aggiungere la definizione di modello di knowledge base seguente. Il modello viene convertito in una stringa dopo la definizione.
 
-var host string = "https://westus.api.cognitive.microsoft.com"
-var service string = "/qnamaker/v4.0"
-var method string = "/knowledgebases/create"
+[!code-go[Add the KB model definition](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=22-44 "Add the KB model definition")]
 
-type Response struct {
-    Headers map[string][]string
-    Body    string
-}
+## <a name="add-supporting-structures-and-functions"></a>Aggiungere strutture e funzioni di supporto
 
-func pretty_print(content string) string {
-    var obj map[string]interface{}
-    json.Unmarshal([]byte(content), &obj)
-    result, _ := json.MarshalIndent(obj, "", "  ")
-    return string(result)
-}
+A questo punto, aggiungere le funzioni di supporto seguenti.
 
-func post(uri string, content string) Response {
-    req, _ := http.NewRequest("POST", uri, bytes.NewBuffer([]byte(content)))
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Content-Length", strconv.Itoa(len(content)))
-    client := &http.Client{}
-    response, err := client.Do(req)
-    if err != nil {
-        panic(err)
-    }
+1. Aggiungere la struttura per una richiesta HTTP:
 
-    defer response.Body.Close()
-    body, _ := ioutil.ReadAll(response.Body)
+    [!code-go[Add the structure for an HTTP request](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=46-49 "Add the structure for an HTTP request")]
 
-    return Response {response.Header, string(body)}
-}
+2. Aggiungere il metodo seguente per gestire una richiesta POST alle API QnA Maker. Per questa guida introduttiva la richiesta POST viene usata per inviare la definizione della knowledge base a QnA Maker.
 
-func get(uri string) Response {
-    req, _ := http.NewRequest("GET", uri, nil)
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    client := &http.Client{}
-    response, err := client.Do(req)
-    if err != nil {
-        panic(err)
-    }
+    [!code-go[Add the POST method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=51-66 "Add the POST method")]
 
-    defer response.Body.Close()
-    body, _ := ioutil.ReadAll(response.Body)
+3. Aggiungere il metodo seguente per gestire una richiesta GET alle API QnA Maker. Per questa guida introduttiva la richiesta GET viene usata per controllare lo stato dell'operazione di creazione. 
 
-    return Response {response.Header, string(body)}
-}
+    [!code-go[Add the GET method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=68-83 "Add the GET method")]
 
-var req string = `{
-  "name": "QnA Maker FAQ",
-  "qnaList": [
-    {
-      "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa",
-      "source": "Custom Editorial",
-      "questions": [
-        "How do I programmatically update my Knowledge Base?"
-      ],
-      "metadata": [
-        {
-          "name": "category",
-          "value": "api"
-        }
-      ]
-    }
-  ],
-  "urls": [
-    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
-  ],
-  "files": []
-}`;
+## <a name="add-function-to-create-kb"></a>Aggiungere le funzioni per creare la knowledge base
 
-func create_kb(uri string, req string) (string, string) {
-    fmt.Println("Calling " + uri + ".")
-    result := post(uri, req)
-    return result.Headers["Location"][0], result.Body
-}
+Aggiungere le funzioni seguenti per effettuare una richiesta HTTP POST per creare la knowledge base. Viene restituito l'_ID operazione_ **create** nel campo di intestazione della risposta POST **Location**, quindi usato come parte della route nella richiesta GET. `Ocp-Apim-Subscription-Key` è la chiave del servizio QnA Maker usata per l'autenticazione. 
 
-func check_status(uri string) (string, string) {
-    fmt.Println("Calling " + uri + ".")
-    result := get(uri)
-    if retry, success := result.Headers["Retry-After"]; success {
-        return retry[0], result.Body
-    } else {
-// If the response headers did not include a Retry-After value, default to 30 seconds.
-        return "30", result.Body
-    }
-}
+[!code-go[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
 
-func main() {
-    var uri = host + service + method
-    operation, body := create_kb(uri, req)
-    fmt.Printf(body + "\n")
-    var done bool = false
-    for done == false {
-        uri := host + service + operation
-        wait, status := check_status(uri)
-        fmt.Println(status)
-        var status_obj map[string]interface{}
-        json.Unmarshal([]byte(status), &status_obj)
-        state := status_obj["operationState"]
-// If the operation isn't finished, wait and query again.
-        if state == "Running" || state == "NotStarted" {
-            fmt.Printf ("Waiting " + wait + " seconds...")
-            sec, _ := strconv.Atoi(wait)
-            time.Sleep (time.Duration(sec) * time.Second)
-        } else {
-            done = true
-        }
-    }
-}
-```
+Questa chiamata API restituisce una risposta JSON che include l'ID operazione nel campo di intestazione **Location**. Usare l'ID operazione per determinare se la knowledge base è stata creata. 
 
-## <a name="the-create-knowledge-base-response"></a>Risposta alla richiesta di creazione di una knowledge base
-
-Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
-
-```json
+```JSON
 {
   "operationState": "NotStarted",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
-}
-...
-{
-  "operationState": "Running",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
-}
-...
-{
-  "operationState": "Succeeded",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:46Z",
-  "resourceLocation": "/knowledgebases/b0288f33-27b9-4258-a304-8b9f63427dad",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-09-26T05:19:01Z",
+  "lastActionTimestamp": "2018-09-26T05:19:01Z",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "8dfb6a82-ae58-4bcb-95b7-d1239ae25681"
 }
 ```
+
+## <a name="add-function-to-get-status"></a>Aggiungere la funzione per ottenere lo stato
+
+Aggiungere la funzione seguente per effettuare una richiesta HTTP GET per controllare lo stato dell'operazione. `Ocp-Apim-Subscription-Key` è la chiave del servizio QnA Maker usata per l'autenticazione. 
+
+[!code-go[Add the check_status method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=99-108 "Add the check_status method")]
+
+Ripetere la chiamata fino a quando l'esito non è positivo o negativo: 
+
+```JSON
+{
+  "operationState": "Succeeded",
+  "createdTimestamp": "2018-09-26T05:22:53Z",
+  "lastActionTimestamp": "2018-09-26T05:23:08Z",
+  "resourceLocation": "/knowledgebases/XXX7892b-10cf-47e2-a3ae-e40683adb714",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
+}
+```
+## <a name="add-main-function"></a>Aggiungere la funzione principale
+
+La funzione seguente è quella principale e consente di creare la knowledge base, nonché ripetere i controlli sullo stato. Dal momento che la creazione della knowledge base può richiedere tempo, è necessario ripetere le chiamate per controllare lo stato fino a quando questo indica un esito positivo o negativo dell'operazione.
+
+[!code-go[Add the main method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=110-140 "Add the main method")]
+
+
+## <a name="compile-the-program"></a>Compilare il programma
+Immettere il comando seguente per compilare il file. Il prompt dei comandi non restituisce informazioni relative all'avvenuta compilazione.
+
+```bash
+go build create-new-knowledge-base.go
+```
+
+## <a name="run-the-program"></a>Eseguire il programma
+
+Per eseguire il programma, immettere il comando seguente a una riga di comando. La richiesta per creare la knowledge base verrà inviata all'API QnA Maker e verrà eseguito il polling dei risultati ogni 30 secondi. Ogni risposta viene stampata nella finestra della console.
+
+```bash
+go run create-new-knowledge-base
+```
+
+Dopo aver creato la knowledge base, è possibile visualizzarla nella pagina [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (Knowledge base personali) del portale di QnA Maker. 
+
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

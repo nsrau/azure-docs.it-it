@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e6eaaa67914579edd5c3b53362835aa1ad168eca
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 5b458c881496a887d1415e115bf2b94c674be029
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064034"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50911762"
 ---
-# <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Usare .NET (C#) con Visual Studio Code per connettersi a un database SQL ed eseguire query
+# <a name="quickstart-use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare .NET (C#) con Visual Studio Code per connettersi a un database SQL ed eseguire query
 
 Questa guida introduttiva illustra come usare [.NET Framework](https://www.microsoft.com/net/) per creare un programma C# con Visual Studio per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.
 

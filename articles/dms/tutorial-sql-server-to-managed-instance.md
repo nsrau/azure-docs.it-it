@@ -1,5 +1,5 @@
 ---
-title: Usare Servizio Migrazione del database di Azure per eseguire la migrazione a Istanza gestita di database SQL di Azure | Microsoft Docs
+title: 'Esercitazione: Usare il Servizio Migrazione del database di Azure per eseguire la migrazione a Istanza gestita di database SQL di Azure | Microsoft Docs'
 description: Informazioni su come eseguire la migrazione da SQL Server locale all'istanza gestita di database SQL di Azure con il servizio Migrazione del database di Azure.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 445d4a50cdb0780e7aff5331f0ba9e70aae44e25
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: f6b77f3a2b78d037e74bbca9a3624c9fa62c5d8b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945162"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961875"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure offline con Servizio Migrazione del database di Azure
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Esercitazione: Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure offline con il Servizio Migrazione del database
 È possibile usare il servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di SQL Server locale a un'[istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance.md). Per altri metodi che potrebbero richiedere un qualche intervento manuale, vedere [Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-migrate.md).
 
 In questa esercitazione si eseguirà la migrazione del database **AdventureWorks2012** da un'istanza locale di SQL Server a un'istanza gestita di database SQL di Azure tramite il servizio Migrazione del database di Azure.

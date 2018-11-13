@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/24/2018
-ms.openlocfilehash: 576e0adca21f5cd3313893035ff66bd83a0a0164
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 01f1ac19cbab5ec60034b75fb15ccdb45df8541e
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063524"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913309"
 ---
-# <a name="azure-sql-database-connect-and-query-quickstarts"></a>Guide introduttive sulla connessione e l'esecuzione di query sui database SQL di Azure
+# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Guide introduttive: connessione ed esecuzione di query sui database SQL di Azure
 
 Il documento seguente include collegamenti ad esempi di Azure che mostrano come connettersi a un database SQL di Azure ed eseguire query su di esso. Contiene anche alcune indicazioni per la sicurezza a livello di trasporto.
 
@@ -29,13 +29,13 @@ Il documento seguente include collegamenti ad esempi di Azure che mostrano come 
 |---|---|
 |[SQL Server Management Studio](sql-database-connect-query-ssms.md)|Questa guida introduttiva illustra come usare SSMS per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query e inserire, eliminare e aggiornare dati nel database.|
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Questa guida introduttiva illustra come usare Azure Data Studio per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL (T-SQL) per creare il database TutorialDB usato nelle esercitazioni di Azure Data Studio.|
-|[portale di Azure](sql-database-connect-query-portal.md)|Questa guida introduttiva illustra come usare l'editor di query per connettersi a un database SQL e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.|
+|[Portale di Azure](sql-database-connect-query-portal.md)|Questa guida introduttiva illustra come usare l'editor di query per connettersi a un database SQL e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.|
 |[Visual Studio Code](sql-database-connect-query-vscode.md)|Questa guida introduttiva illustra come usare Visual Studio Code per connettersi a un database SQL di Azure e quindi come usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.|
 |[.NET con Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|Questa guida introduttiva illustra come usare .NET Framework per creare un programma C# con Visual Studio per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.|
 |[.NET Core](sql-database-connect-query-dotnet-core.md)|Questa guida introduttiva illustra come usare .NET Core in Windows/Linux/macOS per creare un programma C# per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.|
 |[Go](sql-database-connect-query-go.md)|Questa guida introduttiva illustra come usare Go per connettersi a un database SQL di Azure. Vengono illustrate anche istruzioni Transact-SQL per eseguire query e modificare i dati.|
 |[Java](sql-database-connect-query-java.md)|Questa guida introduttiva illustra come usare Java per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query sui dati.|
-|[Node.JS](sql-database-connect-query-nodejs.md)|Questa guida introduttiva illustra come usare Node.js per creare un programma per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.|
+|[Node.js](sql-database-connect-query-nodejs.md)|Questa guida introduttiva illustra come usare Node.js per creare un programma per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.|
 |[PHP](sql-database-connect-query-php.md)|Questa guida introduttiva illustra come usare PHP per creare un programma per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.|
 |[Python](sql-database-connect-query-python.md)|Questa guida introduttiva illustra come usare Python per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati. |
 |[Ruby](sql-database-connect-query-ruby.md)|Questa guida introduttiva illustra come usare Ruby per creare un programma per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.|

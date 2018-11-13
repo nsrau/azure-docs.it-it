@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: bd90d3c4c9207374d6a6085df6a3962ef42b68a9
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: fae5771afea742b2746c32e1ed6ae88c511876e6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091431"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037950"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Esercitazione: Ordinare un disco di Azure Data Box (anteprima)
 
-Azure Data Box Disk è una soluzione cloud ibrida che consente di importare i dati in locale in Azure in modo rapido, semplice e affidabile. È possibile trasferire i dati su dischi SSD (Solid State Disk) forniti da Microsoft e rispedire i dischi. Questi dati vengono poi caricati in Azure. 
+Azure Data Box Disk è una soluzione cloud ibrida che consente di importare i dati in locale in Azure in modo rapido, semplice e affidabile. È possibile trasferire i dati su dischi SSD (Solid State Disk) forniti da Microsoft e rispedire i dischi. Questi dati vengono poi caricati in Azure.
 
 Questa esercitazione descrive come è possibile ordinare un disco di Azure Data Box. Questa esercitazione descrive quanto segue:
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 > - Data Box Disk è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione. 
 > - Durante l'anteprima, i dischi di Data Box possono essere spediti ai clienti negli Stati Uniti, in Europa settentrionale e occidentale, in Canada e in Australia. Per altre informazioni, vedere [Disponibilità a livello di area](data-box-disk-overview.md#region-availability).
 
-## <a name="sign-up"></a>Iscrizione 
+## <a name="sign-up"></a>Iscrizione
 
 Data Box Disk è disponibile in anteprima ed è necessario effettuare l'iscrizione per il servizio. Seguire questa procedura per iscriversi per il servizio Data Box:
 
@@ -64,7 +64,7 @@ Seguire questa procedura nel [portale di Azure](https://aka.ms/azuredataboxfromd
     |Area di Azure di destinazione|Selezionare l'area di Azure in cui si vogliono trasferire i dati.|
 
   
-5.  Selezionare **Data Box Disk**. La capacità massima della soluzione per un singolo ordine di 5 dischi è di 35 TB. È possibile creare più ordini per volumi di dati maggiori. 
+5.  Selezionare **Data Box Disk**. La capacità massima della soluzione per un singolo ordine di 5 dischi è di 35 TB. È possibile creare più ordini per volumi di dati maggiori.
 
      ![Selezionare l'opzione Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
@@ -77,6 +77,7 @@ Seguire questa procedura nel [portale di Azure](https://aka.ms/azuredataboxfromd
     |Area di Azure di destinazione| Selezionare l'area per l'account di archiviazione.<br> Attualmente sono supportati gli account di archiviazione in tutte le aree di Stati Uniti, Europa occidentale e settentrionale, Canada e Australia. |
     |Account di archiviazione|In base all'area di Azure specificata, selezionare un account di archiviazione esistente nell'elenco filtrato. <br>È anche possibile creare un nuovo account Utilizzo generico v1 o Utilizzo generico v2. |
     |Dimensioni dei dati stimate in TB| Immettere una stima in TB. <br>In base alle dimensioni dei dati, Microsoft invia un numero appropriato di dischi SSD da 8 TB (con capacità utilizzabile di 7 TB). <br>La capacità massima utilizzabile nei 5 dischi è di 35 TB. |
+    |Passkey disco| Se si seleziona **Usare una chiave personalizzata anziché la passkey generata da Azure**, specificare la passkey del disco. <br> Immettere una chiave alfanumerica di lunghezza compresa tra 12 e 32 caratteri e che contenga almeno un carattere numerico e un carattere speciale. I caratteri speciali consentiti sono `@?_+`. <br> Se si preferisce, è possibile ignorare questa opzione e usare la passkey generata da Azure per sbloccare i dischi.|
 
 13. Fare clic su **Avanti**. 
 

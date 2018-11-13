@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 10/30/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: eb814447705112758b70d0a467489e5973c9c80a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 87c0ab7ea0bbc5a98bcb6c0d993e3f7f997f3627
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418144"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747270"
 ---
 # <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Instradare eventi personalizzati ad Archiviazione code di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -81,10 +81,10 @@ az eventgrid event-subscription create \
   --name <event_subscription_name> \
   --endpoint-type storagequeue \
   --endpoint $queueid \
-  --expiration-date "2018-11-30"
+  --expiration-date "<yyyy-mm-dd>"
 ```
 
-L'account che crea la sottoscrizione dell'evento deve avere accesso in scrittura all'archivio code. Si noti che per la sottoscrizione è impostata una data di scadenza. La sottoscrizione dell'evento scade automaticamente dopo tale data. Impostare una scadenza per le sottoscrizioni di eventi necessarie solo per un periodo di tempo limitato.
+L'account che crea la sottoscrizione dell'evento deve avere accesso in scrittura all'archivio code. Si noti che per la sottoscrizione è impostata una [data di scadenza](concepts.md#event-subscription-expiration).
 
 Se si usa l'API REST per creare la sottoscrizione, passare l'ID dell'account di archiviazione e il nome della coda come parametro separato.
 

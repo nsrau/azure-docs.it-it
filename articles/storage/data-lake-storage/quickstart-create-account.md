@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2dae7938c63ee141ea6705ab4c324882f575e298
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 41f25496d089a5c6487176afee01f7cb06330794
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426873"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281558"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Guida introduttiva: Creare un account di archiviazione della versione di anteprima di Azure Data Lake Storage Gen2
+# <a name="quickstart-create-a-storage-account-for-analytics"></a>Guida introduttiva: Creare un account di archiviazione per l'analisi
 
-Gli account della versione di anteprima di Azure Data Lake Storage Gen2 [supportano un servizio spazio dei nomi gerarchico](introduction.md) che fornisce un file system nativo basato su directory da usare con Hadoop Distributed File System (HDFS). L'accesso ai dati di Data Lake Storage Gen2 da HDFS è disponibile tramite il [driver ABFS](abfs-driver.md).
+Gli account di archiviazione con la versione di anteprima di Data Lake Storage Gen2 abilitata [supportano un servizio spazio dei nomi gerarchico](introduction.md) che fornisce un file system nativo basato su directory da usare con Hadoop Distributed File System (HDFS). L'accesso ai dati di Data Lake Storage Gen2 da HDFS è disponibile tramite il [driver ABFS](abfs-driver.md).
 
-Per abilitare le funzionalità di Data Lake Storage Gen2 nell'account di archiviazione, [compilare il sondaggio di anteprima per richiedere l'accesso](https://aka.ms/adlsgen2signup). Una volta ottenuta l'approvazione, sarà possibile creare un nuovo account di Data Lake Storage Gen2. Questa guida introduttiva illustra come creare un account tramite il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Per abilitare le funzionalità di Data Lake Storage Gen2 nell'account di archiviazione, [compilare il sondaggio di anteprima per richiedere l'accesso](https://aka.ms/adlsgen2signup). Una volta ottenuta l'approvazione, sarà possibile creare un nuovo account di archiviazione con Data Lake Storage Gen2 abilitato. Questa guida introduttiva illustra come creare un account tramite il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 > [!NOTE]
 > L'interfaccia utente di creazione dell'account nel portale di Azure viene aggiornata dopo che è stata ricevuta l'approvazione per la creazione di un account di Data Lake Storage Gen2. Analogamente, gli argomenti di PowerShell e dell'interfaccia della riga di comando relativi a Data Lake Storage Gen2 funzionano solo dopo avere ottenuto l'approvazione per l'anteprima.
@@ -51,7 +51,7 @@ Il pulsante avvia una shell interattiva che è possibile usare per eseguire i pa
 
 È anche possibile installare e usare l'interfaccia della riga di comando di Azure in locale. Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.38 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Panoramica della creazione di un account di Azure Data Lake Storage Gen2
+## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Creare un account di archiviazione con Azure Data Lake Storage Gen2 abilitato
 
 Prima di creare un account, è necessario un gruppo di risorse che funge da contenitore logico per gli account di archiviazione o altre risorse di Azure create. Per pulire le risorse create in questa guida introduttiva, è sufficiente eliminare il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminati anche l'account di archiviazione associato e tutte le altre risorse correlate al gruppo di risorse. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
@@ -135,7 +135,7 @@ Quindi riavviare la shell.
 Per creare un nuovo gruppo di risorse con PowerShell, usare il comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
 
 > [!NOTE]
-> > Lo spazio dei nomi gerarchico è attualmente disponibile in tutte le aree pubbliche, ma in nessuna area privata. Non è attualmente disponibile nei cloud sovrani.
+> > Lo spazio dei nomi gerarchico è attualmente disponibile in tutte le aree pubbliche. Non è attualmente disponibile nei cloud sovrani.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -222,6 +222,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato creato un account di archiviazione di Data Lake Storage Gen2. Per informazioni su come caricare e scaricare BLOB nell'account di archiviazione, passare alla guida introduttiva su Archiviazione BLOB.
+In questa guida introduttiva è stato creato un account di archiviazione con funzionalità di Data Lake Storage Gen2. Per informazioni su come caricare e scaricare BLOB nell'account di archiviazione, passare alla guida introduttiva su Archiviazione BLOB.
 
 * [Spostamento dei dati da e verso l'archivio BLOB di Azure tramite AzCopy](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

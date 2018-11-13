@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/30/2018
-ms.openlocfilehash: 9ad4462bba861e2bcc940661242d8801355c2f6c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f35585fc77f085f58b7be2d55e03919cc1e8b248
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240802"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283785"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Creare un processo di Analisi di flusso per analizzare i dati delle telefonate e visualizzare i risultati in un dashboard di Power BI
 
@@ -24,7 +24,7 @@ In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Generare dati delle telefonate di esempio e inviarli a Hub eventi di Azure  
-> * Creare un processo di Analisi di flusso
+> * Creare un processo di Analisi di flusso.
 > * Configurare input e output del processo  
 > * Definire una query per filtrare le chiamate fraudolente  
 > * Testare e avviare il processo
@@ -36,7 +36,8 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).  
 * Accedere al [Portale di Azure](https://portal.azure.com/).  
-* Scaricare l'app generatore eventi di telefonata [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) dall'Area download Microsoft oppure ottenere il codice sorgente da [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
+* Scaricare l'app generatore eventi di telefonata [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) dall'Area download Microsoft oppure ottenere il codice sorgente da [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
+* Sarà necessario un account Power BI.
 
 ## <a name="create-an-azure-event-hub"></a>Creare un Hub di eventi di Azure 
 
@@ -44,7 +45,7 @@ Per consentire ad Analisi di flusso di analizzare il flusso di dati delle chiama
 
 Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la procedura seguente:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).  
+1. Accedere al [Portale di Azure](https://portal.azure.com/).  
 2. Selezionare **Crea una risorsa** > **Internet delle cose** > **Hub eventi**.  
 
    ![Creare un Hub di eventi di Azure](media/stream-analytics-manage-job/find-eh.png)
@@ -52,7 +53,7 @@ Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la proce
 
    |**Impostazione**  |**Valore consigliato** |**Descrizione**  |
    |---------|---------|---------|
-   |Nome     | myEventHubsNS        |  Nome univoco che identifica lo spazio dei nomi dell'hub eventi.       |
+   |NOME     | myEventHubsNS        |  Nome univoco che identifica lo spazio dei nomi dell'hub eventi.       |
    |Sottoscrizione     |   \<Sottoscrizione in uso\>      |   Selezionare una sottoscrizione di Azure in cui creare l'hub eventi.      |
    |Gruppo di risorse     |   MyASADemoRG      |  Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account.       |
    |Località     |   Stati Uniti occidentali 2      |    Località in cui lo spazio dei nomi dell'hub eventi può essere distribuito.     |
@@ -86,9 +87,7 @@ Affinché un'applicazione possa inviare dati ad Hub eventi di Azure, è necessar
 
    `Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>` 
 
-   Si noti che la stringa di connessione contiene più coppie chiave-valore, delimitate da punti e virgola: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey** e **EntityPath**.  
-
-5. Rimuovere dalla stringa di connessione la coppia **EntityPath** e il punto e virgola che la precede.
+   Si noti che la stringa di connessione contiene più coppie chiave-valore, delimitate da punti e virgola: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey** e **EntityPath**.
 
 ## <a name="start-the-event-generator-application"></a>Avviare l'applicazione generatore eventi
 
@@ -125,7 +124,7 @@ Prima di avviare l'app TelcoGenerator, configurarla per inviare i dati all'istan
    |CalledNum     |   Numero di telefono del destinatario della chiamata.      |
    |CalledIMSI     |  Codice IMSI (International Mobile Subscriber Identity). Identificatore univoco del destinatario della chiamata.       |
 
-## <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso
+## <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso.
 
 Dopo aver creato un flusso di eventi di chiamata, è possibile creare un processo di Analisi di flusso che legge i dati dall'hub eventi.
 
@@ -253,7 +252,7 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
 
    ![Creare i riquadri](media/stream-analytics-manage-job/create-tiles.png)
 
-6. Ripetere i passaggi 4 e 5 con le opzioni seguenti:
+6. Ripetere il passaggio 5 con le opzioni seguenti:
    * Per Tipo di visualizzazione selezionare Grafico a linee.  
    * Aggiungere un asse e selezionare **windowend**.  
    * Aggiungere un valore e selezionare **fraudulentcalls**.  

@@ -1,22 +1,21 @@
 ---
-title: Creare un ambiente di sviluppo Node.js Kubernetes nel cloud con VS Code | Microsoft Docs
+title: Creare un ambiente di sviluppo Node.js Kubernetes nel cloud con VS Code | Documentazione Microsoft
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
-manager: douge
-ms.openlocfilehash: f5ff55543e12c9ca98e35760f011a8da2d4c5e78
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: b93276af8e5018d0da68ce837487b8f648944f1e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586071"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977806"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Guida introduttiva ad Azure Dev Spaces con Node.js
 
@@ -64,7 +63,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Creare un cluster Kubernetes abilitato per Azure Dev Spaces
 
-Al prompt dei comandi creare il gruppo di risorse. Usare una delle aree attualmente supportate (EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral o CanadaEast).
+Al prompt dei comandi creare il gruppo di risorse. Usare una delle aree attualmente supportate (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral o CanadaEast).
 
 ```cmd
 az group create --name MyResourceGroup --location <region>

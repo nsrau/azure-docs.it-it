@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2018
+ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 4f4cc18bb8423a20358476142488c94361d6b72d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 782975cfa548d214515761e45b8f79a2219831e2
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419215"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036972"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurare una pipeline CI/CD con l'attività di compilazione dell'emulatore di Azure Cosmos DB in Azure DevOps
 
@@ -40,32 +40,32 @@ Successivamente, scegliere l'organizzazione in cui installare l'estensione.
 
 ## <a name="create-a-build-definition"></a>Creare una definizione di compilazione
 
-Dopo l'installazione, è necessario aggiungere l'estensione a una [definizione di compilazione](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). È possibile modificare una definizione di compilazione esistente oppure crearne una nuova. Se si ha già una definizione di compilazione, è possibile passare direttamente alla sezione [Aggiungere l'attività di compilazione dell'emulatore a una definizione di compilazione](#addEmulatorBuildTaskToBuildDefinition).
+Ora che l' estensione è installata, accedere al proprio account Azure DevOps e trovare il progetto nel dashboard dei progetti. È possibile aggiungere una [pipeline di compilazione](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) al progetto o modificarne una esistente. Se si ha già una pipeline di compilazione, è possibile passare direttamente alla sezione [Aggiungere l'attività di compilazione dell'emulatore a una definizione di compilazione](#addEmulatorBuildTaskToBuildDefinition).
 
-Per creare una nuova definizione di compilazione, passare alla scheda **Compilazione e versione** in Azure DevOps. Selezionare **+ Nuovo**.
+1. Per creare una nuova definizione di compilazione, passare alla scheda **Compilazioni** in Azure DevOps. Selezionare **+ Nuovo** > **Nuova pipeline di compilazione**
 
-![Creare una nuova definizione di compilazione](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png) Selezionare il progetto team, il repository e il ramo desiderati per abilitare le compilazioni. 
+   ![Creazione di una nuova pipeline di compilazione](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
-![Selezionare il progetto team, il repository e il ramo per la definizione di compilazione ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+2. Selezionare le opzioni desiderate in **Selezionare un'origine**, **Progetto team**, **Repository** e **Ramo predefinito per le compilazioni manuale e pianificata**. Dopo aver selezionato le opzioni necessarie, scegliere **Continua**
 
-Selezionare infine il modello desiderato per la definizione di compilazione. In questa esercitazione viene selezionato il modello **ASP.NET**. 
+   ![Selezionare il progetto team, il repository e il ramo per la pipeline di compilazione ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
-![Selezionare il modello di definizione di compilazione desiderato ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_3.png)
+3. Selezionare infine il modello desiderato per la pipeline di compilazione. In questa esercitazione viene selezionato il modello **ASP.NET**. 
 
-A questo punto, la definizione di compilazione può essere impostata per l'uso dell'attività di compilazione dell'emulatore di Azure Cosmos DB che è simile a quella riportata di seguito. 
+A questo punto la pipeline di compilazione può essere configurata per l'uso dell'attività di compilazione dell'emulatore di Azure Cosmos DB. 
 
-![Modello per la definizione di compilazione ASP.NET](./media/tutorial-setup-ci-cd/CreateNewBuildDef_4.png)
+## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Aggiungere l'attività a una pipeline di compilazione
 
-## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Aggiungere l'attività a una definizione di compilazione
+1. Prima di aggiungere un'attività alla pipeline di compilazione, occorre aggiungere un processo agente. Passare alla pipeline di compilazione, selezionare **...** e scegliere **Aggiungi un processo agente**.
 
-Per aggiungere l'attività di compilazione dell'emulatore, cercare **cosmos** nella casella di ricerca e selezionare **Aggiungi**. L'attività di compilazione avvia un contenitore con un'istanza dell'emulatore di Cosmos DB già in esecuzione, in modo che l'attività debba essere posizionata prima di altre attività che prevedono l'esecuzione dell'emulatore.
+1. Selezionare quindi il simbolo **+** accanto al processo agente per aggiungere l'attività di compilazione dell'emulatore. Cercare **cosmos** nella casella di ricerca, selezionare **Emulatore di Azure Cosmos DB** e aggiungerlo al processo agente. L'attività di compilazione avvia un contenitore con un'istanza dall'emulatore di Cosmos DB già in esecuzione. L'attività dell'emulatore di Azure Cosmos DB deve essere posizionata prima di qualsiasi altra attività che prevede che l'emulatore sia in esecuzione.
 
-![Aggiungere l'attività di compilazione dell'emulatore alla definizione di compilazione](./media/tutorial-setup-ci-cd/addExtension_3.png) In questa esercitazione, l'attività viene aggiunta all'inizio della fase 1, per garantire che l'emulatore sia disponibile prima dell'esecuzione dei test.
-La definizione di compilazione completata è simile alla seguente. 
+   ![Aggiungere l'attività di compilazione dell'emulatore alla definizione di compilazione](./media/tutorial-setup-ci-cd/addExtension_3.png)
 
-![Modello per la definizione di compilazione ASP.NET](./media/tutorial-setup-ci-cd/CreateNewBuildDef_5.png)
+In questa esercitazione si aggiungerà l'attività all'inizio per fare in modo che l'emulatore sia disponibile prima dell'esecuzione dei test.
 
 ## <a name="configure-tests-to-use-the-emulator"></a>Configurare i test per usare l'emulatore
+
 A questo punto, è possibile configurare i test per usare l'emulatore. L'attività di compilazione dell'emulatore esporta una variabile di ambiente, "CosmosDbEmulator.Endpoint", a cui qualsiasi attività nella pipeline di compilazione può inviare richieste. 
 
 In questa esercitazione si userà l'[attività di test di Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) per eseguire unit test configurati tramite un file con estensione **runsettings**. Per altre informazioni sulla configurazione di unit test, vedere la [documentazione](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
@@ -136,7 +136,8 @@ Passare alle opzioni di esecuzione nell'attività di test di Visual Studio. Nell
 ![Eseguire l'override della variabile di endpoint con l'endpoint dell'attività di compilazione dell'emulatore](./media/tutorial-setup-ci-cd/addExtension_5.png)
 
 ## <a name="run-the-build"></a>Eseguire la compilazione
-A questo punto, salvare e accodare la compilazione. 
+
+A questo punto, **salvare e accodare** la compilazione. 
 
 ![Salvare ed eseguire la compilazione](./media/tutorial-setup-ci-cd/runBuild_1.png)
 

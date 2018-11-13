@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/12/2018
-ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/01/2018
+ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407622"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959223"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Creare un database di Azure per il server MySQL con il portale di Azure
 
@@ -98,20 +98,9 @@ A tale scopo, seguire questa procedura:
 In questo esempio, il nome del server è **mydemoserver.mysql.database.azure.com** e l'account di accesso amministratore del server è **myadmin@mydemoserver**.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>Connettersi a MySQL con lo strumento da riga di comando mysql
-Per connettersi al database di Azure per il server MySQL è possibile usare diverse applicazioni. 
+Connettersi al server tramite lo strumento da riga di comando **mysql.exe**. È possibile scaricare MySQL da [qui](https://dev.mysql.com/downloads/) e installarlo nel computer in uso. 
 
-Prima di tutto verrà usato lo strumento da riga di comando [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) per illustrare la connessione al server. È anche possibile usare un Web browser e Azure Cloud Shell, come descritto qui, senza installare software aggiuntivo. È possibile connettersi anche dall'utilità mysql eventualmente installata in locale.
-
-1. Avviare Azure Cloud Shell tramite l'icona del terminale (**>_**) nella parte superiore destra del portale di Azure.
-![Simbolo del terminale Azure Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
-
-2.  Azure Cloud Shell si apre nel browser, in cui è quindi possibile digitare i comandi della shell Bash.
-
-   ![Prompt dei comandi: esempio di riga di comando mysql](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
-
-3. Al prompt di Cloud Shell connettersi al database di Azure per il server MySQL digitando la riga di comando mysql.
-
-    Per connettersi a un database di Azure per il server MySQL con l'utilità mysql, usare il formato seguente:
+1. Per connettersi a un database di Azure per il server MySQL con l'utilità mysql, usare il formato seguente:
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -119,7 +108,7 @@ Prima di tutto verrà usato lo strumento da riga di comando [mysql](https://dev.
 
     Ad esempio, il comando seguente stabilisce la connessione al server di esempio:
 
-    ```azurecli-interactive
+    ```bash
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -149,7 +138,7 @@ Prima di tutto verrà usato lo strumento da riga di comando [mysql](https://dev.
     mysql>
     ```
     > [!TIP]
-    > Se il firewall non è configurato per consentire l'indirizzo IP di Azure Cloud Shell, verrà visualizzato l'errore seguente:
+    > Se il firewall non è configurato per accettare l'indirizzo IP del client, verrà visualizzato l'errore seguente:
     >
     > ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server.
     >
@@ -178,7 +167,7 @@ Prima di tutto verrà usato lo strumento da riga di comando [mysql](https://dev.
     SHOW DATABASES;
     ```
 
-7.  Digitare `\q` e quindi premere **INVIO** per uscire dallo strumento mysql. Al termine, è possibile chiudere Azure Cloud Shell.
+7.  Digitare `\q` e quindi premere **INVIO** per uscire dallo strumento mysql. 
 
 Ora che si è connessi al database di Azure per il server MySQL e si è creato un database utente vuoto, passare alla sezione successiva per un esercizio simile. Nel prossimo esercizio viene stabilita la connessione allo stesso server usando un altro strumento comune, MySQL Workbench.
 

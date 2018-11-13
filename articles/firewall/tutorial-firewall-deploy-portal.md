@@ -1,36 +1,38 @@
 ---
-title: Distribuire e configurare Firewall di Azure tramite il portale di Azure
+title: 'Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure'
 description: Questa esercitazione mostra come distribuire e configurare Firewall di Azure tramite il portale di Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/6/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 47a04df843ec307b54cc1d6597f9a3cf8668e291
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238829"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278583"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
-Firewall di Azure ha due tipi di regole per controllare l'accesso in uscita:
+Il controllo dell'accesso alla rete in uscita è un componente importante di un piano di sicurezza della rete generale. Ad esempio, potrebbe essere utile limitare l'accesso ai siti Web o le porte e gli indirizzi IP in uscita a cui è possibile accedere.
 
-- **Regole di applicazione**
+È possibile controllare l'accesso alla rete in uscita da una subnet di Azure con Firewall di Azure. Con Firewall di Azure, è possibile configurare:
 
-   Consentono di configurare i nomi di dominio completo (FQDN) che sono accessibili da una subnet. Ad esempio, è possibile consentire l'accesso a *github.com* da una subnet.
-- **Regole di rete**
-
-   Consentono di configurare le regole che contengono l'indirizzo di origine, il protocollo, la porta di destinazione e l'indirizzo di destinazione. Ad esempio, è possibile creare una regola per consentire il traffico sulla porta 53 (DNS) all'indirizzo IP del server DNS da una subnet.
+* Regole di applicazione che definiscono i nomi di dominio completi (FQDN) accessibili da una subnet.
+* Regole di rete che definiscono l'indirizzo di origine, il protocollo, la porta di destinazione e l'indirizzo di destinazione.
 
 Il traffico di rete è sottoposto alle regole del firewall configurate quando si instrada il traffico di rete al firewall come gateway predefinito della subnet.
 
-Le regole di applicazione e di rete vengono archiviate nelle *raccolte di regole*. Una raccolta di regole è un elenco di regole che condividono la stessa azione e priorità.  Una raccolta di regole di rete è un elenco di regole di rete, mentre una raccolta di regole di applicazione è un elenco di regole dell'applicazione.
+Per questa esercitazione viene creata una singola rete virtuale semplificata con tre subnet per facilitare la distribuzione. Per le distribuzioni di produzione è consigliabile un [modello hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), in cui il firewall si trova nella propria rete virtuale e i server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
 
-Per altre informazioni sulla logica di elaborazione delle regole di Firewall di Azure, vedere [Azure Firewall rule processing logic](rule-processing.md) (Logica di elaborazione delle regole di Firewall di Azure).
+- **AzureFirewallSubnet**: in questa subnet si trova il firewall.
+- **Workload-SN**: in questa subnet si trova il server del carico di lavoro. Il traffico di rete di questa subnet passa attraverso il firewall.
+- **Jump-SN**: in questa subnet si trova il jump server. Il jump server ha un indirizzo IP pubblico a cui è possibile connettersi con Desktop remoto. Da qui è quindi possibile connettersi al server del carico di lavoro (tramite un'altra istanza di Desktop remoto).
+
+![Infrastruttura di rete dell'esercitazione](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
 In questa esercitazione si apprenderà come:
 
@@ -38,29 +40,22 @@ In questa esercitazione si apprenderà come:
 > * Configurare un ambiente di rete di test
 > * Distribuire un firewall
 > * Creare una route predefinita
-> * Configurare le regole di applicazione
-> * Configurare le regole di rete
+> * Configurare un'applicazione per consentire l'accesso a github.com
+> * Configurare una regola di rete per consentire l'accesso a server DNS esterni
 > * Testare il firewall
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Per questa esercitazione viene creata una singola rete virtuale con tre subnet:
-- **FW-SN**: in questa subnet si trova il firewall.
-- **Workload-SN**: in questa subnet si trova il server del carico di lavoro. Il traffico di rete di questa subnet passa attraverso il firewall.
-- **Jump-SN**: in questa subnet si trova il jump server. Il jump server ha un indirizzo IP pubblico a cui è possibile connettersi con Desktop remoto. Da qui è quindi possibile connettersi al server del carico di lavoro (tramite un'altra istanza di Desktop remoto).
-
-![Infrastruttura di rete dell'esercitazione](media/tutorial-firewall-rules-portal/Tutorial_network.png)
-
-Questa esercitazione usa una configurazione di rete semplificata per facilitare la distribuzione. Per le distribuzioni di produzione è consigliabile un [modello hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), in cui il firewall si trova nella propria rete virtuale e i server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
-
-## <a name="set-up-the-network-environment"></a>Configurare l'ambiente di rete
+## <a name="set-up-the-network"></a>Configurare la rete
 
 In primo luogo, creare un gruppo di risorse per contenere le risorse necessarie per distribuire il firewall. Creare quindi una rete virtuale, le subnet e i server di test.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
+Il gruppo di risorse contiene tutte le risorse per l'esercitazione.
+
 1. Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
-2. Nella home page del portale di Azure fare clic su **Gruppi di risorse**, quindi fare clic su **Aggiungi**.
+2. Nella home page del portale di Azure fare clic su **Gruppi di risorse** > **Aggiungi**.
 3. In **Nome del gruppo di risorse** immettere **Test-FW-RG**.
 4. In **Sottoscrizione** selezionare la propria sottoscrizione.
 5. In **Località del gruppo di risorse** selezionare una località. Tutte le successive risorse create devono trovarsi nella stessa località.
@@ -68,13 +63,15 @@ In primo luogo, creare un gruppo di risorse per contenere le risorse necessarie 
 
 ### <a name="create-a-vnet"></a>Creare una rete virtuale
 
+Questa rete virtuale conterrà tre subnet.
+
 1. Nella home page del portale di Azure fare clic su **Tutti i servizi**.
 2. In **Rete** fare clic su **Reti virtuali**.
 3. Fare clic su **Aggiungi**.
 4. In **Nome** immettere **Test-FW-VN**.
 5. In **Spazio degli indirizzi** immettere **10.0.0.0/16**.
 6. In **Sottoscrizione** selezionare la propria sottoscrizione.
-7. In **Gruppo di risorse** selezionare **Usa esistente** e quindi selezionare **Test-FW-RG**.
+7. Per **Gruppo di risorse** selezionare **Usa esistente** > **Test-FW-RG**.
 8. In **Località** selezionare la stessa località usata in precedenza.
 9. In **Subnet** immettere **AzureFirewallSubnet** per **Nome**. Il firewall si troverà in questa subnet e il nome della subnet **deve** essere AzureFirewallSubnet.
 10. In **Intervallo indirizzi** immettere **10.0.1.0/24**.
@@ -87,9 +84,9 @@ In primo luogo, creare un gruppo di risorse per contenere le risorse necessarie 
 
 Successivamente, creare le subnet per il jump server e una subnet per i server del carico di lavoro.
 
-1. Nella home page del portale di Azure fare clic su **Gruppi di risorse**, quindi fare clic su **Test-FW-RG**.
+1. Nella home page del portale di Azure fare clic su **Gruppi di risorse** > **Test-FW-RG**.
 2. Fare clic sulla rete virtuale **Test-FW-VN**.
-3. Fare clic su **Subnet** e quindi su **+Subnet**.
+3. Fare clic su **Subnet** > **+Subnet**.
 4. In **Nome** immettere **Workload-SN**.
 5. In **Intervallo indirizzi** immettere **10.0.2.0/24**.
 6. Fare clic su **OK**.
@@ -102,14 +99,14 @@ Creare ora le macchine virtuali per il jump server e il server del carico di lav
 
 1. Nella home page del portale di Azure fare clic su **Tutti i servizi**.
 2. In **Calcolo** fare clic su **Macchine virtuali**.
-3. Fare clic su **Aggiungi**, su **Windows Server**, su **Windows Server 2016 Datacenter** e quindi fare clic su **Crea**.
+3. Fare clic su **Aggiungi** > **Windows Server** > **Windows Server 2016 Datacenter** > **Crea**.
 
 **Nozioni di base**
 
 1. In **Nome** immettere **Srv-Jump**.
 5. Immettere un nome utente e la password.
 6. In **Sottoscrizione** selezionare la propria sottoscrizione.
-7. In **Gruppo di risorse** fare clic su **Usa esistente** e quindi selezionare **Test-FW-RG**.
+7. In **Gruppo di risorse** fare clic su **Usa esistente** > **Test-FW-RG**.
 8. In **Località** selezionare la stessa località usata in precedenza.
 9. Fare clic su **OK**.
 
@@ -143,9 +140,11 @@ Usare le informazioni nella tabella seguente per configurare le **Impostazioni**
 
 ## <a name="deploy-the-firewall"></a>Distribuire il firewall
 
+Distribuire il firewall nella rete virtuale.
+
 1. Nella home page del portale fare clic su **Crea una risorsa**.
 2. Fare clic su **Rete** e su **In primo piano** e quindi fare clic su **Visualizza tutto**.
-3. Fare clic su **Firewall** e quindi su **Crea**. 
+3. Fare clic su **Firewall** > **Crea**. 
 4. Nella pagina **Crea un firewall** usare la tabella seguente per configurare il firewall:
    
    |Impostazione  |Valore  |
@@ -177,15 +176,12 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 7. In **Località** selezionare la stessa località usata in precedenza.
 8. Fare clic su **Create**(Crea).
 9. Fare clic su **Aggiorna** e quindi fare clic sulla tabella di route **Firewall-route**.
-10. Fare clic su **Subnet** e quindi su **Associa**.
-11. Fare clic su **Rete virtuale** e quindi selezionare **Test-FW-VN**.
-12. In **Subnet** fare clic su **Workload-SN**.
-
-    > [!IMPORTANT]
-    > Assicurarsi di selezionare solo la subnet **Workload-SN** per questa route; in caso contrario, il firewall non funzionerà correttamente.
+10. Fare clic su **Subnet** > **Associa**.
+11. Fare clic su **Rete virtuale** > **Test-FW-VN**.
+12. In **Subnet** fare clic su **Workload-SN**. Assicurarsi di selezionare solo la subnet **Workload-SN** per questa route; in caso contrario, il firewall non funzionerà correttamente.
 
 13. Fare clic su **OK**.
-14. Fare clic su **Route** e quindi su **Aggiungi**.
+14. Fare clic su **Route** > **Aggiungi**.
 15. In **Nome route** immettere **FW-DG**.
 16. In **Prefisso indirizzo** immettere **0.0.0.0/0**.
 17. In **Tipo hop successivo** selezionare **Appliance virtuale**.
@@ -194,7 +190,9 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 18. In **Indirizzo hop successivo** immettere l'indirizzo IP privato per il firewall annotato in precedenza.
 19. Fare clic su **OK**.
 
-## <a name="configure-application-rules"></a>Configurare le regole di applicazione
+## <a name="configure-an-application-rule"></a>Configurare una regola di applicazione
+
+Si tratta della regola di applicazione che consente l'accesso in uscita a github.com.
 
 1. Aprire **Test-FW-RG** e fare clic sul firewall **Test-FW01**.
 2. Nella pagina **Test-FW01** fare clic su **Regole** in **Impostazioni**.
@@ -204,13 +202,15 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 6. In **Azione** selezionare **Consenti**.
 7. In **Regole** immettere **AllowGH** in **Nome**.
 8. In **Indirizzi di origine** immettere **10.0.2.0/24**.
-9. In **Protocollo:Porta** immettere **http, https**. 
+9. In **Protocollo:Porta** immettere **http, https**.
 10. In **FQDN di destinazione** immettere **github.com**
 11. Fare clic su **Aggiungi**.
 
 Firewall di Azure include una raccolta di regole predefinite per i nomi di dominio completi dell'infrastruttura consentiti per impostazione predefinita. Questi nomi di dominio completi sono specifici per la piattaforma e non possono essere usati per altri scopi. Per altre informazioni, vedere [Infrastructure FQDNs](infrastructure-fqdns.md) (FQDN dell'infrastruttura).
 
-## <a name="configure-network-rules"></a>Configurare le regole di rete
+## <a name="configure-a-network-rule"></a>Configurare una regola di rete
+
+Si tratta della regola di rete che consente l'accesso in uscita a due indirizzi IP sulla porta 53 (DNS).
 
 1. Fare clic su **Aggiungi raccolta regole di rete**.
 2. In **Nome** immettere **Net-Coll01**.
@@ -226,7 +226,7 @@ Firewall di Azure include una raccolta di regole predefinite per i nomi di domin
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Modificare l'indirizzo DNS primario e secondario per l'interfaccia di rete **Srv-Work**
 
-Ai fini del test in questa esercitazione vengono configurati gli indirizzi DNS primari e secondari. Ciò non è un requisito generale di Firewall di Azure. 
+Ai fini del test in questa esercitazione vengono configurati gli indirizzi DNS primari e secondari. Ciò non è un requisito generale di Firewall di Azure.
 
 1. Nel portale di Azure aprire il gruppo di risorse **Test-FW-RG**.
 2. Fare clic sull'interfaccia di rete per la macchina virtuale **Srv-Work**.
@@ -238,11 +238,13 @@ Ai fini del test in questa esercitazione vengono configurati gli indirizzi DNS p
 
 ## <a name="test-the-firewall"></a>Testare il firewall
 
+A questo punto testare il firewall per verificare che funzioni come previsto.
+
 1. Nel portale di Azure rivedere le impostazioni di rete per la macchina virtuale **Srv-Work** e annotare l'indirizzo IP privato.
 2. Connettere una sessione di Desktop remoto alla macchina virtuale **Srv-Jump** e da qui aprire una connessione Desktop remoto all'indirizzo IP privato **Srv-Work**.
 
 5. Aprire Internet Explorer e passare a http://github.com.
-6. Fare clic su **OK** e **Chiudi** negli avvisi di sicurezza.
+6. Fare clic su **OK** > **Chiudi** negli avvisi di sicurezza.
 
    Verrà visualizzata la home page di GitHub.
 
@@ -260,17 +262,6 @@ A questo punto si è verificato che le regole del firewall funzionano:
 È possibile conservare le risorse del firewall per l'esercitazione successiva oppure, se non è più necessario, eliminare il gruppo di risorse **Test-FW-RG** per eliminare tutte le risorse correlate al firewall.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un firewall
-> * Creare una route predefinita
-> * Configurare le regole del firewall di applicazione e di rete
-> * Testare il firewall
-
-È possibile ora monitorare i log di Firewall di Azure.
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)

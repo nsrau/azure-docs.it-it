@@ -1,5 +1,5 @@
 ---
-title: Usare Servizio Migrazione del database di Azure per eseguire una migrazione online di SQL Server a Istanza gestita di database SQL di Azure | Microsoft Docs
+title: 'Esercitazione: Usare il Servizio Migrazione del database di Azure per eseguire una migrazione online di SQL Server a Istanza gestita di database SQL di Azure | Microsoft Docs'
 description: Informazioni su come eseguire una migrazione online da SQL Server in locale a Istanza gestita di database SQL di Azure con Servizio Migrazione del database di Azure.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 4d46a438708e2e72d625f5104293b4605f7b096d
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ab869e53810f049593803d58b3df75d0c083bbd2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946080"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962895"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure online con Servizio Migrazione del database
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Esercitazione: Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure online con il Servizio Migrazione del database
 È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza locale di SQL Server a [Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance.md) con tempi di inattività minimi. Per altri metodi che potrebbero richiedere un qualche intervento manuale, vedere [Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-migrate.md).
 
 >[!IMPORTANT]
@@ -145,7 +145,7 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
 
 3. Specificare i valori di **Utente SQL** e **Password** per la connessione all'istanza gestita di database SQL di Azure di destinazione.
 
-       ![Select Target](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
+    ![Selezionare la destinazione](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
 
 2.  Selezionare **Salva**.
 

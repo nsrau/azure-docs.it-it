@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a75d7e599b10b1d56bd41db1d6785dace67d5d06
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1e039c465bf37e0ee5ca1db5837798680e27463d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857840"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278668"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Avvio rapido: Creare un registro contenitori con il portale di Azure
 
@@ -27,11 +27,11 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
 
-Selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori di Azure**.
+Selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori**.
 
 ![Creazione di un registro contenitori con il portale di Azure][qs-portal-01]
 
-Immettere i valori nei campi **Nome registro** e **Gruppo di risorse**. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Creare un nuovo gruppo di risorse denominato `myResourceGroup` e selezionare 'Basic' per **SKU**. Selezionare **Crea** per distribuire l'istanza del record di controllo di accesso.
+Immettere i valori nei campi **Nome registro** e **Gruppo di risorse**. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Per questa guida introduttiva creare un nuovo gruppo di risorse nella posizione `West US` denominata `myResourceGroup` e per **SKU** selezionare "Basic". Selezionare **Crea** per distribuire l'istanza del record di controllo di accesso.
 
 ![Creazione di un registro contenitori con il portale di Azure][qs-portal-03]
 
@@ -71,29 +71,29 @@ Per eseguire il push di un'immagine nel Registro contenitori di Azure è necessa
 docker pull microsoft/aci-helloworld
 ```
 
-Prima di eseguire il push dell'immagine nel registro, è necessario contrassegnare l'immagine con il nome del server di accesso al record di controllo di accesso. Contrassegnare l'immagine usando il comando [docker tag][docker-tag]. Sostituire *login server* con il nome del server di accesso registrato in precedenza.
+Prima di eseguire il push dell'immagine nel registro, è necessario contrassegnare l'immagine con il nome del server di accesso al record di controllo di accesso. Contrassegnare l'immagine usando il comando [docker tag][docker-tag]. Sostituire *login server* con il nome del server di accesso registrato in precedenza. Aggiungere un *nome di repository* come **`myrepo`** per inserire l'immagine in un repository.
 
 ```bash
-docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-Infine, usare [docker push][docker-push] per eseguire il push dell'immagine nell'istanza del record di controllo di accesso. Sostituire *login server* con il nome del server di accesso dell'istanza del record di controllo di accesso.
+Infine, usare [docker push][docker-push] per eseguire il push dell'immagine nell'istanza del record di controllo di accesso. Sostituire *login server* con il nome del server di accesso dell'istanza del Registro contenitori di Azure e sostituire *repository name* con il nome del repository usato nel comando precedente.
 
 ```bash
-docker push <login server>/aci-helloworld:v1
+docker push <login server>/<repository name>/aci-helloworld:v1
 ```
 
 L'output di comando `docker push` corretto è simile al seguente:
 
 ```
-The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
-7c701b1aeecd: Pushed
-c4332f071aa2: Pushed
-0607e25cc175: Pushed
+The push refers to repository [specificregistryname.azurecr.io/myrepo/aci-helloworld]
+31ba1ebd9cf5: Pushed
+cd07853fe8be: Pushed
+73f25249687f: Pushed
 d8fbd47558a8: Pushed
 44ab46125c35: Pushed
 5bef08742407: Pushed
-v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
 ## <a name="list-container-images"></a>Elencare le immagini del contenitore
@@ -114,7 +114,7 @@ Verrà visualizzato un menu di scelta rapida. Scegliere **Esegui istanza**:
 
 ![Menu di scelta rapida di avvio dell'istanza di contenitore di Azure][qs-portal-11]
 
-Compilare il campo **Nome contenitore**, verificare che sia selezionata la sottoscrizione corretta, selezionare il **gruppo di risorse** "myResourceGroup" esistente e quindi fare clic su **OK** per avviare l'istanza di contenitore di Azure.
+Compilare il campo **Nome contenitore**, verificare che sia selezionata la sottoscrizione corretta e selezionare il **gruppo di risorse** esistente, "myResourceGroup". Assicurarsi che l'opzione "Indirizzo IP pubblico" sia abilitata impostandola su **Sì** e quindi fare clic su **OK** per avviare l'istanza di contenitore Azure.
 
 ![Opzioni di distribuzione per l'avvio dell'istanza di contenitore di Azure][qs-portal-12]
 
@@ -136,7 +136,7 @@ Quando il contenitore si trova nello stato **In esecuzione**, usare un browser a
 
 Per rimuovere le risorse passare al gruppo di risorse **myResourceGroup** nel portale. Dopo aver caricato il gruppo di risorse, fare clic su **Elimina gruppo di risorse** per rimuovere il gruppo di risorse, il registro contenitori di Azure e tutte le istanze di contenitore di Azure.
 
-![Creazione di un registro contenitori con il portale di Azure][qs-portal-08]
+![Eliminare il gruppo di risorse nel portale di Azure][qs-portal-08]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

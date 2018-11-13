@@ -12,15 +12,15 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/10/2018
-ms.openlocfilehash: bd956348a26d32687e1ff76f0ffcc58cc9dcf932
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.date: 11/01/2018
+ms.openlocfilehash: d7b5c6b95cd11cd90f9d326e03e787a7196dcfd0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241719"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913156"
 ---
-# <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portale di Azure: usare l'editor di query SQL per connettersi ai dati ed eseguire query
+# <a name="quickstart-azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Guida introduttiva - Portale di Azure: usare l'editor di query SQL per connettersi ai dati ed eseguire query
 
 L'editor di query SQL è uno strumento di query basato su browser che offre un modo semplice ed efficiente per eseguire query SQL sul database SQL di Azure o su Azure SQL Data Warehouse senza uscire dal portale di Azure. Questa guida introduttiva illustra come usare l'editor di query per connettersi a un database SQL e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.
 

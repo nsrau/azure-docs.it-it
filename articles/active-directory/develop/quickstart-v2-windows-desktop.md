@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
+ms.date: 11/01/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 01b3353a107c2af95357b5347d2678c5e8c8b566
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 7e7e5e16b6f7de1cee8312fd31801c202c3e16ef
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086150"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962912"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop
 
@@ -51,7 +51,7 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
 > 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima)** > **Nuova registrazione**.
 > 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
->      - Nella sezione *Nome* immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `Win-App-calling-MsGraph`.
+>      - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `Win-App-calling-MsGraph`.
 >      - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**.
 >      - Selezionare **Registra** per creare l'applicazione.
 > 1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
@@ -75,11 +75,23 @@ Questa guida introduttiva illustra come scrivere un'applicazione desktop .NET (W
 
 1. Estrarre il file ZIP in una cartella locale vicina alla radice del disco, ad esempio **C:\Azure-Samples**.
 1. Aprire il progetto in Visual Studio.
-1. Modificare **App.Xaml.cs** e sostituire la riga che inizia con `private static string ClientId` con il valore di **ID applicazione (client)** dell'applicazione appena registrata:
+1. Modificare **App.Xaml.cs** e sostituire i valori dei campi `ClientId` e `Tenant` con il codice seguente:
 
-```csharp
-private static string ClientId = "Enter_the_Application_Id_here";
-```
+    ```csharp
+    private static string ClientId = "Enter_the_Application_Id_here";
+    private static string Tenant = "Enter_the_Tenant_Info_Here";
+    ```
+
+> [!div renderon="docs"]
+> Dove:
+> - `Enter_the_Application_Id_here` è l'**ID applicazione (client)** per l'applicazione registrata.
+> - `Enter_the_Tenant_Info_Here` è impostato su una delle opzioni seguenti:
+>   - Se l'applicazione supporta **Account solo in questa directory organizzativa**, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+>   - Se l'applicazione supporta **Account in qualsiasi directory organizzativa**, sostituire questo valore con `organizations`
+>   - Se l'applicazione supporta **Account in qualsiasi directory organizzativa e account Microsoft personali**, sostituire questo valore con `common`
+>
+> > [!TIP]
+> > Per trovare i valori di **ID applicazione (client)**, **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
 
 ## <a name="more-information"></a>Altre informazioni
 

@@ -2,19 +2,19 @@
 title: 'Esercitazione: Usare le API Apache Kafka Producer e Consumer - Azure HDInsight '
 description: Informazioni su come usare l'API Apache Kafka Producer e Consumer con Kafka in HDInsight. In questa esercitazione si apprenderà come usare queste API con Kafka in HDInsight da un'applicazione Java.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: dhgoelmsft
+ms.author: dhgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/16/2018
-ms.openlocfilehash: f757db47ff91537405b04dbc949797f5855b7952
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/06/2018
+ms.openlocfilehash: 2a441e3cd90eba8fc2b1201671047cfcd9d277a6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416172"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277733"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Esercitazione: Usare le API Apache Kafka Producer e Consumer
 
@@ -56,14 +56,14 @@ Le variabili di ambiente seguenti possono essere impostate quando si installa Ja
 
 ## <a name="set-up-your-deployment-environment"></a>Configurare l'ambiente di sviluppo
 
-Questa esercitazione richiede Kafka in HDInsight 3.6. Per informazioni su come creare un cluster Kafka in HDInsight, vedere il documento su come [iniziare a usare Kafka in HDInsight](apache-kafka-get-started.md).
+Questa esercitazione richiede Apache Kafka in HDInsight 3.6. Per informazioni su come creare un cluster Kafka in HDInsight, vedere il documento su come [iniziare a usare Kafka in HDInsight](apache-kafka-get-started.md).
 
 ## <a name="understand-the-code"></a>Informazioni sul codice
 
 L'applicazione di esempio si trova in [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) nella sottodirectory `Producer-Consumer`. L'applicazione è costituita principalmente da quattro file:
 
 * `pom.xml`: definisce le dipendenze di progetto, la versione di Java e i metodi di creazione dei pacchetti.
-* `Producer.java`: Questo file invia 1 milione (1.000.000) di frasi casuali a Kafka usando l'API Producer.
+* `Producer.java`: questo file invia frasi casuali a Kafka usando l'API Producer.
 * `Consumer.java`: Questo file usa l'API Consumer per leggere i dati da Kafka ed esportarli in STDOUT.
 * `Run.java`: L'interfaccia della riga di comando usata per eseguire il codice producer e consumer.
 
@@ -92,160 +92,45 @@ Gli aspetti importanti da comprendere nel file `pom.xml` sono:
 
 ### <a name="producerjava"></a>Producer.java
 
-Il producer comunica con gli host broker di Kafka (nodi di lavoro) per archiviare i dati in un argomento Kafka. Il frammento di codice seguente proviene dal file `Producer.java`:
+Il producer comunica con gli host broker di Kafka (nodi di lavoro) e invia i dati a un argomento Kafka. Il frammento di codice seguente è tratto dal file [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) del [repository github](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) e mostra come impostare le proprietà del producer:
 
 ```java
-package com.microsoft.example;
-
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import java.util.Properties;
-import java.util.Random;
-import java.io.IOException;
-
-public class Producer
-{
-    public static void produce(String brokers) throws IOException
-    {
-
-        // Set properties used to configure the producer
-        Properties properties = new Properties();
-        // Set the brokers (bootstrap servers)
-        properties.setProperty("bootstrap.servers", brokers);
-        // Set how to serialize key/value pairs
-        properties.setProperty("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
-        properties.setProperty("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
-        KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
-
-        // So we can generate random sentences
-        Random random = new Random();
-        String[] sentences = new String[] {
-                "the cow jumped over the moon",
-                "an apple a day keeps the doctor away",
-                "four score and seven years ago",
-                "snow white and the seven dwarfs",
-                "i am at two with nature"
-        };
-
-        String progressAnimation = "|/-\\";
-        // Produce a bunch of records
-        for(int i = 0; i < 1000000; i++) {
-            // Pick a sentence at random
-            String sentence = sentences[random.nextInt(sentences.length)];
-            // Send the sentence to the test topic
-            producer.send(new ProducerRecord<String, String>("test", sentence));
-            String progressBar = "\r" + progressAnimation.charAt(i % progressAnimation.length()) + " " + i;
-            System.out.write(progressBar.getBytes());
-        }
-    }
-}
+Properties properties = new Properties();
+// Set the brokers (bootstrap servers)
+properties.setProperty("bootstrap.servers", brokers);
+// Set how to serialize key/value pairs
+properties.setProperty("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
+properties.setProperty("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
+KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 ```
-
-Questo codice si connette agli host broker Kafka (nodi di lavoro) e quindi Invia 1.000.000 frasi a Kafka usando l'API Producer.
 
 ### <a name="consumerjava"></a>Consumer.java
 
-Il consumer comunica con gli host broker Kafka (nodi di lavoro) e legge i record in un ciclo. Il frammento di codice seguente proviene dal file `Consumer.java`:
+Il consumer comunica con gli host broker Kafka (nodi di lavoro) e legge i record in un ciclo. Il frammento di codice seguente tratto dal file [Consumer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) imposta le proprietà del consumer:
 
 ```java
-package com.microsoft.example;
+KafkaConsumer<String, String> consumer;
+// Configure the consumer
+Properties properties = new Properties();
+// Point it to the brokers
+properties.setProperty("bootstrap.servers", brokers);
+// Set the consumer group (all consumers must belong to a group).
+properties.setProperty("group.id", groupId);
+// Set how to serialize key/value pairs
+properties.setProperty("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+properties.setProperty("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+// When a group is first created, it has no offset stored to start reading from. This tells it to start
+// with the earliest record in the stream.
+properties.setProperty("auto.offset.reset","earliest");
 
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import java.util.Properties;
-import java.util.Arrays;
-
-public class Consumer {
-    public static void consume(String brokers, String groupId) {
-        // Create a consumer
-        KafkaConsumer<String, String> consumer;
-        // Configure the consumer
-        Properties properties = new Properties();
-        // Point it to the brokers
-        properties.setProperty("bootstrap.servers", brokers);
-        // Set the consumer group (all consumers must belong to a group).
-        properties.setProperty("group.id", groupId);
-        // Set how to serialize key/value pairs
-        properties.setProperty("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
-        properties.setProperty("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
-        // When a group is first created, it has no offset stored to start reading from. This tells it to start
-        // with the earliest record in the stream.
-        properties.setProperty("auto.offset.reset","earliest");
-        consumer = new KafkaConsumer<>(properties);
-
-        // Subscribe to the 'test' topic
-        consumer.subscribe(Arrays.asList("test"));
-
-        // Loop until ctrl + c
-        int count = 0;
-        while(true) {
-            // Poll for records
-            ConsumerRecords<String, String> records = consumer.poll(200);
-            // Did we get any?
-            if (records.count() == 0) {
-                // timeout/nothing to read
-            } else {
-                // Yes, loop over records
-                for(ConsumerRecord<String, String> record: records) {
-                    // Display record and count
-                    count += 1;
-                    System.out.println( count + ": " + record.value());
-                }
-            }
-        }
-    }
-}
+consumer = new KafkaConsumer<>(properties);
 ```
 
 In questo codice, il consumer è configurato per la lettura dall'inizio dell'argomento (`auto.offset.reset` è impostato su `earliest`.)
 
 ### <a name="runjava"></a>Run.java
 
-Il file `Run.java` fornisce un'interfaccia della riga di comando che esegue il codice il producer o consumer. È necessario fornire le informazioni sull'host broker di Kafka come parametro. È facoltativamente possibile includere un valore di id gruppo che viene usato dal processo consumer. Se si creano più istanze di consumer usando lo stesso id di gruppo, esse bilanceranno il carico durante la lettura dall'argomento.
-
-```java
-package com.microsoft.example;
-
-import java.io.IOException;
-import java.util.UUID;
-
-// Handle starting producer or consumer
-public class Run {
-    public static void main(String[] args) throws IOException {
-        if(args.length < 2) {
-            usage();
-        }
-
-        // Get the brokers
-        String brokers = args[1];
-        switch(args[0].toLowerCase()) {
-            case "producer":
-                Producer.produce(brokers);
-                break;
-            case "consumer":
-                // Either a groupId was passed in, or we need a random one
-                String groupId;
-                if(args.length == 3) {
-                    groupId = args[2];
-                } else {
-                    groupId = UUID.randomUUID().toString();
-                }
-                Consumer.consume(brokers, groupId);
-                break;
-            default:
-                usage();
-        }
-        System.exit(0);
-    }
-    // Display usage
-    public static void usage() {
-        System.out.println("Usage:");
-        System.out.println("kafka-example.jar <producer|consumer> brokerhosts [groupid]");
-        System.exit(1);
-    }
-}
-```
+Il file [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) fornisce un'interfaccia della riga di comando che esegue il codice del producer o del consumer. È necessario fornire le informazioni sull'host broker di Kafka come parametro. È facoltativamente possibile includere un valore di id gruppo che viene usato dal processo consumer. Se si creano più istanze di consumer usando lo stesso id di gruppo, esse bilanceranno il carico durante la lettura dall'argomento.
 
 ## <a name="build-and-deploy-the-example"></a>Creare e distribuire l'esempio
 
@@ -289,19 +174,13 @@ public class Run {
     2. Per ottenere gli host del broker Kafka e gli host Zookeeper, usare i comandi seguenti. Quando richiesto, immettere la password dell'account (admin) di accesso al cluster.
     
         ```bash
-        export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
         ```
 
     3. Per creare l'argomento `test`, usare il comando seguente:
 
         ```bash
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-        ```
-    4. È anche possibile usare il file JAR per creare un argomento. Ad esempio, per creare l'argomento `test2`, usare il comando seguente:
-
-        ```bash
-        java -jar kafka-producer-consumer.jar create test2 $KAFKABROKERS
+        java -jar kafka-producer-consumer.jar create test $KAFKABROKERS
         ```
 
 3. Per eseguire il producer e scrivere i dati nell'argomento, usare il comando seguente:
@@ -339,7 +218,7 @@ indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygr
 
 Questo comando usa `tmux` per suddividere il terminale in due colonne. Viene avviato un consumer in ogni colonna, con lo stesso valore di ID di gruppo. Dopo che i consumer hanno completato la lettura, si noti che ognuno di essi ha letto solo una parte dei record. Usare __Ctrl + __ C due volte per uscire da `tmux`.
 
-Il consumo da parte dei client dello stesso gruppo viene gestito tramite le partizioni dell'argomento. Per l'argomento `test` creato in precedenza sono presenti otto partizioni. Se si avviano otto consumer, ognuno di essi legge i record da una singola partizione dell'argomento.
+Il consumo da parte dei client dello stesso gruppo viene gestito tramite le partizioni dell'argomento. In questo esempio di codice per l'argomento `test` creato in precedenza sono presenti otto partizioni. Se si avviano otto consumer, ognuno di essi legge i record da una singola partizione dell'argomento.
 
 > [!IMPORTANT]
 > Un gruppo di consumer non può contenere un numero di istanze di consumer maggiore del numero di partizioni. In questo esempio, un gruppo di consumer può contenere fino a otto consumer perché è questo il numero di partizioni nell'argomento. In alternativa è possibile avere più gruppi di consumer, ognuno con al massimo otto consumer.

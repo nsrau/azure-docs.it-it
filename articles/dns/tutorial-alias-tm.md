@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 07f10ebbb99712b62c6807560777587033718d2b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fc56fe3a5bdfa0f5e1ef4bc309932cb7f57cf27d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091952"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978094"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Esercitazione: Configurare un record alias per supportare nomi della radice del dominio con Gestione traffico 
 
@@ -84,7 +84,7 @@ Ripetere questa procedura per installare IIS in **Web-02**.
 1. Aprire il gruppo di risorse **RG-DNS-Alias-TM** e selezionare l'indirizzo IP pubblico **Web-01-ip**. Prendere nota dell'indirizzo IP per usarlo in seguito. Ripetere questo passaggio per l'indirizzo IP pubblico **Web-02-ip**.
 1. Selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico**.
 2. Per il nome immettere **TM-alias-test**. Inserirla nel gruppo di risorse **RG-DNS-Alias-TM**.
-3. Selezionare **Crea**.
+3. Selezionare **Create**.
 4. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 5. Nella pagina del profilo di Gestione traffico selezionare **Endpoint** in **Impostazioni**.
 6. Selezionare **Aggiungi**.
@@ -100,7 +100,7 @@ Creare un record alias che punta al profilo di Gestione traffico.
 
 1. Selezionare la zona DNS di Azure per aprirla.
 2. Selezionare **Set di record**.
-3. Lasciare la casella di testo **Nome** vuota per rappresentare la radice del nome di dominio. Un esempio è contoso.com.
+3. Lasciare la casella di testo **Nome** vuota per rappresentare la radice del nome di dominio. ad esempio contoso.com.
 4. Lasciare l'opzione **Tipo** impostata su un record **A**.
 5. Selezionare la casella di controllo **Set di record alias**.
 6. Fare clic su **Choose Azure service** (Scegli servizio di Azure) e selezionare il profilo di Gestione traffico **TM-alias-test**.
@@ -121,4 +121,4 @@ Quando le risorse create per questa esercitazione non sono più necessarie, elim
 In questa esercitazione è stato creato un record alias per usare la radice del nome di dominio per fare riferimento a un profilo di Gestione traffico. Per informazioni su DNS di Azure e le app Web, proseguire con l'esercitazione sulle app Web.
 
 > [!div class="nextstepaction"]
-> [Creare record DNS per un'app Web in un dominio personalizzato](./dns-web-sites-custom-domain.md)
+> [Ospitare app Web con carico bilanciato nel dominio radice](./dns-alias-appservice.md)

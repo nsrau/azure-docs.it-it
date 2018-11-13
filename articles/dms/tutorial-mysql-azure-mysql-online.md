@@ -1,5 +1,5 @@
 ---
-title: Usare il Servizio Migrazione del database di Azure per eseguire la migrazione online di MySQL in Database di Azure per MySQL | Microsoft Docs
+title: 'Esercitazione: Usare il Servizio Migrazione del database di Azure per eseguire la migrazione online di MySQL in Database di Azure per MySQL | Microsoft Docs'
 description: Informazioni su come eseguire la migrazione online da MySQL locale in Database di Azure per MySQL con il servizio Migrazione del database di Azure.
 services: dms
 author: HJToland3
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/06/2018
-ms.openlocfilehash: 4825985253f5525314a496f2adbc40657231f5d5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 8b0e15ac6cd59a77e283d9256ab5fa4542dfc9a9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829852"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960515"
 ---
-# <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Eseguire la migrazione di MySQL in Database di Azure per MySQL online mediante il servizio Migrazione del database
+# <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di MySQL in Database di Azure per MySQL online mediante il Servizio Migrazione del database
 È possibile usare il servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di MySQL locale a [Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/) con tempi di inattività minimi. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **Employees** da un'istanza locale di MySQL 5.7 a Database di Azure per MySQL usando un'attività di migrazione online nel servizio Migrazione del database di Azure.
 
 In questa esercitazione si apprenderà come:

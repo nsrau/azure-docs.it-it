@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f44b267a28abd64acdd6bc74a43f1c5be8daf0ab
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515608"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567911"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -221,6 +221,8 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
    - *Il nodo di unità di scala è offline*
    
   Eseguire la [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet per verificare l'integrità delle istanze del ruolo di infrastruttura e ridimensionare i nodi di unità. Se viene rilevato alcun problema dal [Test-AzureStack](azure-stack-diagnostic-test.md), è possibile ignorare questi avvisi. Se viene rilevato un problema, è possibile provare ad avviare l'istanza del ruolo di infrastruttura o un nodo tramite il portale di amministrazione o PowerShell.
+
+  Questo problema viene risolto nella versione più recente [versione dell'hotfix 1809](https://support.microsoft.com/help/4471993/), pertanto assicurarsi di installare questo hotfix, se si è verificato il problema. 
 
 <!-- 1264761 - IS ASDK -->  
 - Si potrebbero visualizzare avvisi per i **controller integrità** componente con i dettagli seguenti:  

@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 69eafaa3be7a966bec179713d3e7eecd48ea3b67
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 67cd78d4900b8ce53cf0c50116c02a9c1b967687
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243691"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958764"
 ---
-# <a name="manage-database-account"></a>Gestire un account di database
+# <a name="manage-database-accounts-in-azure-cosmos-db"></a>Gestire gli account di database in Azure Cosmos DB
 
-Questo articolo descrive come gestire l'account Cosmos DB per configurare il multihoming, aggiungere/rimuovere un'area, configurare più aree di scrittura e le priorità di failover. 
+Questo articolo descrive come gestire l'account Cosmos DB per configurare il multihoming, aggiungere/rimuovere un'area, configurare più aree di scrittura e configurare le priorità di failover. 
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -33,7 +33,7 @@ az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ## <a name="configure-clients-for-multi-homing"></a>Configurare i client per il multihoming
 
-### <a id="configure-clients-multi-homing-dotnet"></a>.NET
+### <a id="configure-clients-multi-homing-dotnet"></a>.NET SDK
 
 ```csharp
 // Create a new Connection Policy
@@ -54,7 +54,7 @@ policy.PreferredLocations.Add("North Europe");
 DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.accountKey, policy);
 ```
 
-### <a id="configure-clients-multi-homing-java-async"></a>Java Async
+### <a id="configure-clients-multi-homing-java-async"></a>Java Async SDK
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -66,7 +66,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="configure-clients-multi-homing-java-sync"></a>Java Sync
+### <a id="configure-clients-multi-homing-java-sync"></a>Java Sync SDK
 
 ```java
 ConnectionPolicy connectionPolicy = new ConnectionPolicy();
@@ -76,7 +76,7 @@ connectionPolicy.setPreferredLocations(preferredLocations);
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy);
 ```
 
-### <a id="configure-clients-multi-homing-javascript"></a>Node.js/JavaScript/TypeScript
+### <a id="configure-clients-multi-homing-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
 ```javascript
 // Set up the connection policy with your preferred regions
@@ -91,7 +91,7 @@ const client = new CosmosClient({
 });
 ```
 
-### <a id="configure-clients-multi-homing-python"></a>Python
+### <a id="configure-clients-multi-homing-python"></a>Python SDK
 
 ```python
 connection_policy = documents.ConnectionPolicy()
@@ -212,7 +212,7 @@ Il codice JSON seguente rappresenta un modello di esempio di Resource Manager. P
 
    ![Menu Replica i dati a livello globale](./media/how-to-manage-database-account/replicate-data-globally.png)
 
-3. Nel menu **Failover manuale** selezionare la nuova area di scrittura e selezionare la casella per confermare di aver compreso che questa operazione modificherà l'area di scrittura.
+3. Nel menu **Failover manuale** selezionare la nuova area di scrittura e selezionare la casella per confermare di aver compreso che questa opzione comporterà la modifica dell'area di scrittura.
 
 4. Fare clic su "OK" per attivare il failover.
 
@@ -275,7 +275,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
    ![Menu del portale Failover automatico](./media/how-to-manage-database-account/automatic-failover.png)
 
-Non è possibile modificare l'area di scrittura in questo menu. È necessario eseguire un failover manuale per modificare manualmente l'area di scrittura.
+Non è possibile modificare l'area di scrittura in questo menu. Per modificare manualmente l'area di scrittura, è necessario eseguire un failover manuale.
 
 ### <a id="set-failover-priorities-via-cli"></a>
 

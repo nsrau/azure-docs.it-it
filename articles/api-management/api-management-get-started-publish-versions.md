@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: f9b63beeb6979d7dec5fc2cf2d91a3327ba7c43c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6820b44309ac2b3dbeb5ad6f0beb460c8712e9af
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415237"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912120"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Pubblicare più versioni dell'API 
 
@@ -59,20 +59,25 @@ In Gestione API di Azure è possibile scegliere come consentire ai chiamanti di 
 ![Aggiungere una schermata di versione](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. Lasciare **percorso** selezionato come lo **schema di controllo delle versioni**.
-2. Aggiungere **v1** come **Nome** e **Identificatore della versione**.
+2. Digitare **demo-conference-api-v1** nel campo **Nome**.
+
+    > [!NOTE]
+    > La versione è in realtà una nuova API basata sulla revisione di un'API. **Nome** è il nome della nuova API e deve essere univoco nell'istanza di Gestione API.
+
+3. Digitare **v1** nel campo **Identificatore della versione**.
 
     > [!TIP]
     > Se si seleziona **intestazione** o **stringa di query** come schema di controllo delle versioni, è necessario fornire un altro valore, ovvero il nome dell'intestazione o il parametro della stringa di query.
 
-3. Selezionare **Crea** per impostare la nuova versione.
-4. Nell'elenco delle API sotto a **Demo Conference API** (API Demo Conference) verranno mostrate due API distinte: **Original** e **v1**.
+4. Selezionare **Crea** per impostare la nuova versione.
+5. Nell'elenco delle API sotto a **Demo Conference API** (API Demo Conference) verranno mostrate due API distinte: **Original** e **v1**.
 
     ![Versioni elencate per un'API nel portale di Azure](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > Se si aggiunge una versione a un'API senza versione, viene automaticamente creata una versione **originale**, che risponde dall'URL predefinito. Ciò garantisce che i chiamanti esistenti non subiscano interruzioni a causa della procedura di aggiunta della versione. Se si crea una nuova API con le versioni abilitate sin dall'inizio, non viene creato alcun originale.
 
-5. È ora possibile modificare e configurare **v1** come API distinta dall'**originale**. Le modifiche apportate a una versione non influiscono sulle altre.
+6. È ora possibile modificare e configurare **v1** come API distinta dall'**originale**. Le modifiche apportate a una versione non influiscono sulle altre.
 
 ## <a name="add-the-version-to-a-product"></a>Aggiungere la versione a un prodotto
 

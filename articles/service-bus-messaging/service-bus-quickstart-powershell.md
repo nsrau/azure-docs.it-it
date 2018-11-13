@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: ce357fcff3313ae0216d5a7a00b3d845f83bba91
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 2669b3ad9abc2370b4ecb66596d6edde17c82ddd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405887"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242433"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Guida introduttiva: Inviare e ricevere messaggi usando Azure PowerShell e .NET
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito][] prima d
 
 Per completare questa esercitazione, accertarsi di avere installato:
 
-- [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](http://www.visualstudio.com/vs) o versioni successive.
+- [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
 
 Ai fini di questa guida introduttiva, è necessario eseguire la versione più recente di Azure PowerShell. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare e configurare Azure PowerShell][].
@@ -91,10 +91,10 @@ Per eseguire il codice, seguire questa procedura:
 
 3. Passare alla cartella dell'esempio `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
-4. Se non è già stato fatto, ottenere la stringa di connessione usando il cmdlet di PowerShell seguente. Assicurarsi di sostituire `my-resourcegroup` e `namespace-name` con i valori specifici: 
+4. Se non è già stato fatto, ottenere la stringa di connessione usando il cmdlet di PowerShell seguente. Assicurarsi di sostituire `my-resourcegroup`  e  `namespace-name` con i valori specifici: 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
 5.  Al prompt di PowerShell, digitare il comando seguente:

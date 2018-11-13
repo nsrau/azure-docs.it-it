@@ -4,17 +4,17 @@ description: Azure Blueprint è un servizio disponibile in Azure usato per crear
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/07/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 8118fd1fb0b7fa753ec8c6ed019743d763a95f4d
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: b2e767bf27962472a19e5d2e704b456cffe18423
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092340"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277535"
 ---
 # <a name="what-is-azure-blueprints"></a>Informazioni su Azure Blueprint
 
@@ -26,6 +26,9 @@ I progetti costituiscono un metodo dichiarativo per orchestrare la distribuzione
 - Assegnazioni di criteri
 - Modelli di Gestione risorse di Azure
 - Gruppi di risorse
+
+Il servizio Azure Blueprints è supportato da [Azure Cosmos DB](../../cosmos-db/introduction.md) distribuito a livello globale.
+Gli oggetti del progetto vengono replicati in più aree di Azure. Questa replica fornisce bassa latenza, disponibilità elevata e accesso coerente agli oggetti del progetto, indipendentemente dall'area in cui Blueprints distribuisce le risorse.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>In cosa differisce dai modelli di Resource Manager
 
@@ -55,12 +58,12 @@ Un progetto è costituito da _artefatti_. Azure Blueprint supporta attualmente l
 |---------|---------|---------|
 |Gruppi di risorse     | Sottoscrizione | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Azure Resource Manager.         |
 |Modello di Azure Resource Manager      | Gruppo di risorse | I modelli vengono usati per creare ambienti complessi. Esempi di ambienti complessi sono: una farm di SharePoint, la configurazione dello stato di Automazione di Azure o un'area di lavoro di Log Analytics. |
-|Assegnazione dei criteri     | Sottoscrizione, gruppo di risorse | Consente di assegnare criteri o iniziative al gruppo di gestione o alla sottoscrizione cui il progetto è assegnato. I criteri o iniziative devono rientrare nell'ambito del progetto (nel gruppo di gestione del progetto o sotto). Se i criteri o le iniziative includono dei parametri, questi vengono assegnati al momento della creazione del progetto o durante l'assegnazione dello stesso.       |
+|Assegnazione dei criteri     | Sottoscrizione, gruppo di risorse | Consente di assegnare criteri o iniziative alla sottoscrizione a cui è assegnato il progetto. I criteri o iniziative devono rientrare nell'ambito del progetto (nel gruppo di gestione del progetto o sotto). Se i criteri o le iniziative includono dei parametri, questi vengono assegnati al momento della creazione del progetto o durante l'assegnazione dello stesso.       |
 |Assegnazione di ruolo   | Sottoscrizione, gruppo di risorse | Aggiungere un utente o gruppo esistente a un ruolo predefinito per assicurarsi che gli utenti corretti possano sempre accedere correttamente alle risorse. Le assegnazioni di ruolo possono essere definite per l'intera sottoscrizione o annidate in un gruppo di risorse specifiche incluso nel progetto. |
 
 ### <a name="blueprints-and-management-groups"></a>Progetti e gruppi di gestione
 
-Durante la creazione di una definizione di progetto, viene definita la posizione di salvataggio del progetto. Attualmente, i progetti possono essere salvati solo in un [gruppo di gestione](../management-groups/overview.md) a cui si ha accesso come **collaboratore**. Il progetto è disponibile per l'assegnazione a qualsiasi figlio (gruppo di gestione o sottoscrizione) di tale gruppo di gestione.
+Durante la creazione di una definizione di progetto, viene definita la posizione di salvataggio del progetto. Attualmente, i progetti possono essere salvati solo in un [gruppo di gestione](../management-groups/overview.md) a cui si ha accesso come **collaboratore**. Il progetto è disponibile per l'assegnazione a qualsiasi sottoscrizione figlio del gruppo di gestione.
 
 > [!IMPORTANT]
 > Se non si ha accesso a un gruppo di gestione esistente o configurato, il caricamento dell'elenco delle definizioni di progetto mostrerà che nessun gruppo è disponibile. Facendo clic su **Ambito** si aprirà una finestra con un avviso relativo al recupero dei gruppi di gestione. Per risolvere questo problema, assicurarsi che la sottoscrizione a cui si ha accesso faccia parte del [gruppo di gestione](../management-groups/overview.md).

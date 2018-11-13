@@ -1,27 +1,24 @@
 ---
-title: 'Esercitazione: Streaming strutturato Apache Spark con Kafka - Azure HDInsight | Microsoft Docs'
+title: 'Esercitazione: Streaming strutturato di Apache Spark con Apache Kafka - Azure HDInsight '
 description: Informazioni su come usare lo streaming Apache Spark per ottenere o trasmettere dati da o verso Apache Kafka. In questa esercitazione, si esegue lo streaming dei dati usando Jupyter Notebook da Spark in HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: tutorial
-ms.date: 05/08/2018
-ms.author: larryfr
-ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 83e277eceea2df746de6f6e9a33130989e2d874d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939252"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278362"
 ---
-# <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Esercitazione: Usare lo streaming strutturato Spark con Kafka in HDInsight
+# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Esercitazione: Usare lo streaming strutturato di Apache Spark con Apache Kafka in HDInsight
 
-Questa esercitazione illustra come usare lo streaming strutturato Spark per leggere e scrivere dati con Apache Kafka in Azure HDInsight.
+Questa esercitazione illustra come usare lo streaming strutturato di Apache Spark per leggere e scrivere dati con Apache Kafka in Azure HDInsight.
 
 Lo streaming strutturato Spark è un motore di elaborazione del flusso basato su Spark SQL. Consente di esprimere i calcoli di streaming come il calcolo di batch in dati statici. 
 
@@ -36,7 +33,7 @@ In questa esercitazione si apprenderà come:
 
 Al termine della procedura descritta in questo documento, eliminare i cluster per evitare costi supplementari.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Familiarità nell'uso di Jupyter Notebook con Spark in HDInsight. Per altre informazioni, vedere il documento [Load data and run queries with Spark on HDInsight](spark/apache-spark-load-data-run-query.md) (Caricare i dati ed eseguire query con Spark in HDInsight).
 

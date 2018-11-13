@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/07/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352661"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277971"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Esercitazione: configurare un'aggiunta ad Azure Active Directory ibrido per domini federati
 
@@ -156,6 +156,8 @@ Se alcuni dei dispositivi aggiunti a un dominio sono dispositivi di livello infe
  
 - Configurare le impostazioni intranet locali per la registrazione dei dispositivi
 
+- Controllare i dispositivi Windows di livello inferiore 
+
 
 ### <a name="update-device-settings"></a>Aggiornare le impostazioni dei dispositivi 
 
@@ -176,8 +178,6 @@ Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello 
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - Servizio Token di sicurezza dell'organizzazione (STS - domini federati)
 
 - `https://autologon.microsoftazuread-sso.com` (per Seamless SSO).
@@ -185,6 +185,10 @@ Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello 
 È inoltre necessario abilitare **Consenti aggiornamenti barra di stato tramite script** nell'area Intranet locale dell'utente.
 
 
+
+### <a name="control-windows-down-level-devices"></a>Controllare i dispositivi Windows di livello inferiore 
+
+Per registrare i dispositivi Windows di livello inferiore, è necessario scaricare e installare un pacchetto di Windows Installer (con estensione msi) dall'Area download. Per altre informazioni, fare clic [qui](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 ## <a name="verify-the-registration"></a>Verificare la registrazione
 

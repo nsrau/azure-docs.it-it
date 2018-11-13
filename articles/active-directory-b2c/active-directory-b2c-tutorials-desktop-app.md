@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 18db911782e03d17f0b2e2ace3f8b00ddfdebf70
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a7a861ccff168655d866d8c9205160bface79c9e
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599933"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913411"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Esercitazione: abilitare l'autenticazione a un'app desktop con account che usano Azure Active Directory B2C
 
@@ -127,7 +127,7 @@ Per abilitare la reimpostazione delle password nell'applicazione, è necessario 
 
 Ora che l'app desktop è registrata e sono stati creati i criteri, è necessario configurare l'app per l'uso del tenant di Azure AD B2C. In questa esercitazione si configura un'app desktop di esempio. 
 
-[Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) o clonare l'esempio da GitHub.
+[Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [esplorare il repository](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) o clonare l'esempio da GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git

@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c46a9f827bdeeaf7a2b9897b262484f64f83b9a8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466031"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283462"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati della versione di anteprima di Azure Data Lake Storage Gen2 con Azure Databricks usando Spark
 
-Questa esercitazione illustra come eseguire query Spark in un cluster di Azure Databricks per eseguire query sui dati in un account con supporto della versione di anteprima di Azure Data Lake Storage Gen2.
+Questa esercitazione illustra come eseguire query Spark in un cluster di Azure Databricks per eseguire query sui dati in un account di archiviazione di Azure con la versione di anteprima di Azure Data Lake Storage Gen2 abilitata.
 
 > [!div class="checklist"]
 > * Creare un cluster di Databricks
@@ -31,9 +31,9 @@ Questa esercitazione illustra come utilizzare ed eseguire query sui dati relativ
 > [!NOTE]
 > Fare clic sulla casella di controllo **Prezipped file** (File precompresso) per selezionare tutti i campi dati. Le dimensioni del download saranno di molti gigabyte, ma questa quantità di dati è necessaria per l'analisi.
 
-## <a name="create-an-azure-data-lake-storage-gen2-account"></a>Creare un account di Azure Data Lake Storage Gen2
+## <a name="create-an-azure-storage-account-with-analytic-capabilities"></a>Creare un account di archiviazione di Azure con funzionalità di analisi
 
-Per iniziare, creare un nuovo [account di Azure Data Lake Storage Gen2](quickstart-create-account.md) e assegnargli un nome univoco. Passare quindi all'account di archiviazione per recuperare le impostazioni di configurazione.
+Per iniziare, creare un nuovo [account di archiviazione con funzionalità di analisi](quickstart-create-account.md) e assegnare un nome univoco. Passare quindi all'account di archiviazione per recuperare le impostazioni di configurazione.
 
 1. In **Impostazioni** fare clic su **Chiavi di accesso**.
 2. Fare clic sul pulsante **Copia** accanto a **key1** per copiare il valore della chiave.
@@ -137,11 +137,12 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-Con questi esempi di codice è stata esaminata la natura gerarchica di HDFS usando i dati archiviati in un account con supporto di Azure Data Lake Storage Gen2.
+
+Con questi esempi di codice è stata esaminata la natura gerarchica di HDFS usando i dati archiviati in un account di archiviazione con Azure Data Lake Storage Gen2 abilitato.
 
 ## <a name="query-the-data"></a>Eseguire query sui dati
 
-È quindi possibile iniziare a eseguire query sui dati caricati in Azure Data Lake Storage. Immettere ognuno dei blocchi di codice seguenti in **Cmd 1** e premere **Cmd+INVIO** per eseguire lo script Python.
+È quindi possibile iniziare a eseguire query sui dati caricati nell'account di archiviazione. Immettere ognuno dei blocchi di codice seguenti in **Cmd 1** e premere **Cmd+INVIO** per eseguire lo script Python.
 
 ### <a name="simple-queries"></a>Query semplici
 

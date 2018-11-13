@@ -4,20 +4,19 @@ description: Esempio di script dell'interfaccia della riga di comando di Azure -
 services: event-grid
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: ac02c5515f598daf4aa91879af78341969718163
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9d1aa53ede323c2bb536c74eeaaba9fd28b01712
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31426042"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037533"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Sottoscrivere eventi per una sottoscrizione di Azure con l'interfaccia della riga di comando di Azure
 
@@ -27,9 +26,15 @@ Lo script crea una sottoscrizione di Griglia di eventi per gli eventi relativi a
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script di esempio
+Lo script di esempio disponibile in anteprima richiede l'estensione Griglia di eventi. Per installarla, eseguire `az extension add --name eventgrid`.
+
+## <a name="sample-script---stable"></a>Script di esempio - stabile
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.sh "Subscribe to Azure subscription")]
+
+## <a name="sample-script---preview-extension"></a>Script di esempio - estensione in anteprima
+
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-azure-subscription-preview/subscribe-to-azure-subscription-preview.sh "Subscribe to Azure subscription")]
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
@@ -37,8 +42,8 @@ Questo script usa il comando seguente per creare una sottoscrizione a eventi. Og
 
 | Comando | Note |
 |---|---|
-| [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Creare una sottoscrizione di Griglia di eventi. |
-
+| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Creare una sottoscrizione di Griglia di eventi. |
+| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - versione dell'estensione | Creare una sottoscrizione di Griglia di eventi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

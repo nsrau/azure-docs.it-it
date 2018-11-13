@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ade409760e3946e9d574a304afc5b48ec4279157
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740264"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913808"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare i dati in Azure Data Box Disk ed eseguire la verifica
 
@@ -31,7 +31,8 @@ In questa esercitazione si apprenderà come:
 Prima di iniziare, verificare che:
 - Sia stata completata l'[esercitazione: Installare e configurare Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - I dischi vengono sbloccati e connessi a un computer client.
-- Il computer client usato per copiare i dati nei dischi deve eseguire un [sistema operativo supportato](data-box-disk-system-requirements.md).
+- Il computer client usato per copiare i dati nei dischi deve eseguire un [sistema operativo supportato](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- Il tipo di archiviazione scelto per i dati corrisponda a uno dei [tipi di archiviazione supportati](data-box-disk-system-requirements.md#supported-storage-types).
 
 
 ## <a name="copy-data-to-disks"></a>Copiare i dati sui dischi
@@ -66,7 +67,7 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
     
     I parametri e le opzioni del comando sono riportati nella tabella seguente:
     
-    |Parametri/opzioni  |Descrizione |
+    |Parametri/opzioni  |DESCRIZIONE |
     |--------------------|------------|
     |Sorgente            | Specifica il percorso della directory di origine.        |
     |Destination       | Specifica il percorso della directory di destinazione.        |

@@ -11,15 +11,15 @@ author: DRediske
 ms.author: daredis
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: b81e76201f7f751ee01e903d83f316811abaf483
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 11/01/2018
+ms.openlocfilehash: 827b3b6776656619314af3053cb05f8cfc3754c0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955476"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914389"
 ---
-# <a name="secure-your-azure-sql-database"></a>Proteggere il database SQL di Azure
+# <a name="tutorial-secure-your-azure-sql-database"></a>Esercitazione: Proteggere il database SQL di Azure
 
 I dati del database SQL sono protetti mediante: 
 - Limitazione dell'accesso al database con le regole del firewall 
@@ -110,7 +110,7 @@ Per garantire una connessione crittografata e protetta tra l'applicazione client
 - Richiedere una connessione crittografata, e
 - Non considerare attendibile il certificato del server. 
 
-Questo consente di stabilire una connessione tramite Transport Layer Security (TLS) e di ridurre il rischio di attacco man-in-the-middle. È possibile ottenere stringhe di connessione configurate correttamente per il database SQL per i driver di client supportati nel portale di Azure, come illustrato per ADO.net in questo screenshot. Per informazioni su TLS e la connettività, vedere [Considerazioni su TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
+Questo consente di stabilire una connessione tramite Transport Layer Security (TLS) e di ridurre il rischio di attacco man-in-the-middle . È possibile ottenere stringhe di connessione configurate correttamente per il database SQL per i driver di client supportati nel portale di Azure, come illustrato per ADO.net in questo screenshot. Per informazioni su TLS e la connettività, vedere [Considerazioni su TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
 1. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**.
 

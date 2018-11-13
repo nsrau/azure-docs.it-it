@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 09/06/2018
-ms.openlocfilehash: ea843344e70d400f05c2767675bacb466c5b3fbd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 3b9968fa0349a7c68a598681a1d6d5aad230055b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161914"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913088"
 ---
-# <a name="create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Creare una regola firewall a livello del server per il database SQL tramite il portale di Azure
+# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Guida introduttiva: Creare una regola firewall a livello del server per il database SQL tramite il portale di Azure
 
 Questa guida introduttiva illustra come creare una regola del firewall a livello di server per un database SQL di Azure al fine di consentire la connessione da una risorsa locale.
 

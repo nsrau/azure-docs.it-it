@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0765e79b90eed49742f5eead33063907eb1db1f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030847"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913564"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -46,7 +46,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-daily-export"></a>Creare un'esportazione giornaliera
 
-Gestione dei costi e fatturazione &gt; Selezionare un sottoscrizione o gruppo di risorse in una sottoscrizione &gt; Esporta &gt; **Aggiungi**.
+Gestione costi e fatturazione &gt; Gestione costi &gt; Selezionare una sottoscrizione o un gruppo di risorse in una sottoscrizione &gt; Esporta &gt; **Aggiungi**.
 
 Digitare un nome per l'esportazione e specificare la sottoscrizione, l'account di archiviazione di Azure, il contenitore e la directory di archiviazione file o il contenitore BLOB, quindi fare clic su **Crea**.
 

@@ -8,20 +8,24 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/02/2018
+ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e0b47b1322a520ad8b09fd2fe2967e628b5e4e03
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6e83ca543937948ad8028969cceca0f8787972c9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322878"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281219"
 ---
 # <a name="quickstart-find-available-rooms-using-azure-digital-twins"></a>Guida introduttiva: Trovare le stanze disponibili usando Gemelli digitali di Azure
 
 Il servizio Gemelli digitali di Azure consente di ricreare un'immagine digitale dell'ambiente fisico. È quindi possibile ricevere notifiche in base agli eventi che si verificano nell'ambiente e personalizzare le risposte agli eventi. 
 
 Questa guida introduttiva usa [due esempi .NET](https://github.com/Azure-Samples/digital-twins-samples-csharp) per digitalizzare un edificio di uffici immaginario e mostra come trovare le stanze disponibili nell'edificio. Con Gemelli digitali è possibile associare più sensori all'ambiente. Oltre che la disponibilità di stanze, è possibile scoprire se la qualità dell'aria nella stanza disponibile è ottimale, con l'aiuto di un sensore simulato di anidride carbonica. Una delle applicazioni di esempio genererà dati del sensore casuali per visualizzare più facilmente questo scenario.
+
+Il video seguente riepiloga la configurazione della guida introduttiva:
+
+> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,7 +40,7 @@ Questa guida introduttiva usa [due esempi .NET](https://github.com/Azure-Samples
 
 Creare una nuova istanza di Gemelli digitali nel [portale](https://portal.azure.com) seguendo i passaggi di questa sezione.
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## <a name="set-permissions-for-your-app"></a>Impostare le autorizzazioni per l'app
 

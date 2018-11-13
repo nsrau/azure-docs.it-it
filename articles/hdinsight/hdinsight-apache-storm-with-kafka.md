@@ -1,27 +1,22 @@
 ---
-title: 'Esercitazione: Apache Kafka con Storm in HDInsight - Azure | Microsoft Docs'
+title: 'Esercitazione: Apache Kafka con Apache Storm in HDInsight - Azure '
 description: Informazioni su come creare una pipeline di flusso usando Apache Storm e Apache Kafka in HDInsight. In questa esercitazione si usano i componenti KafkaBolt e KafkaSpout per trasmettere dati da Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/21/2018
-ms.author: larryfr
-ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f8537408325aff0ba3ec198ed0e2bb697134845
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626291"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036343"
 ---
-# <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Esercitazione: Usare Apache Storm con Kafka in HDInsight
+# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: Usare Apache Storm con Apache Kafka in HDInsight
 
 Questa esercitazione illustra come usare una topologia di Apache Storm per leggere e scrivere dati con Apache Kafka in HDInsight. Questa esercitazione illustra inoltre come rendere persistenti i dati nella risorsa di archiviazione compatibile con HDFS nel cluster Storm.
 
@@ -38,7 +33,7 @@ In questa esercitazione si apprenderà come:
 > * Arrestare le topologie
 > * Pulire le risorse
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Familiarità con la creazione di argomenti Kafka. Per altre informazioni, vedere il documento [Creare un cluster Kafka in HDInsight](./kafka/apache-kafka-get-started.md).
 

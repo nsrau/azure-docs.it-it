@@ -8,16 +8,16 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.openlocfilehash: 5ffbc52bf8a4b8dab298b3ed4895596480fbdccc
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 338acd3e26f9b36e5f9afaf90f95f61e7623cebc
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426720"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281728"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guida introduttiva: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 
-Questa guida introduttiva illustra come eseguire un processo di Apache Spark usando Azure Databricks per svolgere analisi sui dati archiviati nella versione di anteprima di Azure Data Lake Storage Gen2.
+Questa guida introduttiva illustra come eseguire un processo di Apache Spark usando Azure Databricks per svolgere analisi sui dati archiviati in un account di archiviazione con la versione di anteprima di Azure Data Lake Storage Gen2 abilitata.
 
 Nell'ambito del processo Spark si analizzeranno i dati delle sottoscrizioni di un canale radio per ottenere informazioni dettagliate sull'utilizzo gratuito/a pagamento in base ai dati demografici.
 
@@ -25,7 +25,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un account di Azure Data Lake Storage Gen2](quickstart-create-account.md)
+- [Creare un account di archiviazione con Data Lake Storage Gen2 abilitato](quickstart-create-account.md)
 
 ## <a name="set-aside-storage-account-configuration"></a>Esaminare l'account di archiviazione
 
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 In questa sezione viene creata un'area di lavoro di Azure Databricks usando il portale di Azure.
 
-1. Nel portale di Azure selezionare **Crea una risorsa** > **Analisi** > **Azure Databricks**. 
+1. Nel portale di Azure selezionare **Crea una risorsa** > **Analisi** > **Azure Databricks**.
 
     ![Databricks nel portale di Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks nel portale di Azure")
 
@@ -47,7 +47,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
     ![Creare un'area di lavoro di Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Creare un'area di lavoro di Azure Databricks")
 
     Specificare i valori seguenti:
-     
+
     |Proprietà  |Descrizione  |
     |---------|---------|
     |**Nome area di lavoro**     | Specificare un nome per l'area di lavoro di Databricks        |
@@ -191,7 +191,7 @@ Se non viene terminato manualmente, il cluster si arresta automaticamente se è 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato creato un cluster Spark in Azure Databricks ed è stato eseguito un processo Spark usando i dati in Data Lake Storage Gen2. Per informazioni su come importare dati da altre origini dati in Azure Databricks, vedere anche [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) (Origini dati di Spark). Passare all'articolo successivo per informazioni su come eseguire un'operazione ETL (estrazione, trasformazione e caricamento dati) tramite Azure Databricks.
+In questo articolo è stato creato un cluster Spark in Azure Databricks ed è stato eseguito un processo Spark in un account di archiviazione con Data Lake Storage Gen2 abilitato. Per informazioni su come importare dati da altre origini dati in Azure Databricks, vedere anche [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) (Origini dati di Spark). Passare all'articolo successivo per informazioni su come eseguire un'operazione ETL (estrazione, trasformazione e caricamento dati) tramite Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Estrarre, trasformare e caricare dati tramite Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md)

@@ -9,16 +9,16 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5c1684f7367aec2d283cd6ad310657def49dd3cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024355"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282561"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Esercitazione: Estrarre, trasformare e caricare dati tramite Azure Databricks
 
-In questa esercitazione viene eseguita un'operazione di estrazione, trasformazione e caricamento (ETL) dei dati per spostarli dalla versione di anteprima di Azure Data Lake Storage Gen2 ad Azure SQL Data Warehouse tramite Azure Databricks.
+In questa esercitazione viene eseguita un'operazione di estrazione, trasformazione e caricamento (ETL) dei dati per spostarli da un account di archiviazione di Azure con Azure Data Lake Storage Gen2 abilitato ad Azure SQL Data Warehouse tramite Azure Databricks.
 
 L'illustrazione seguente mostra il flusso dell'applicazione:
 
@@ -52,7 +52,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creare un'area di lavoro di Azure Databricks
 
-In questa sezione viene creata un'area di lavoro di Azure Databricks usando il portale di Azure. 
+In questa sezione viene creata un'area di lavoro di Azure Databricks usando il portale di Azure.
 
 1. Nel portale di Azure selezionare **Crea una risorsa** > **Analisi** > **Azure Databricks**.
 
@@ -138,7 +138,7 @@ Il passaggio successivo consiste nel caricare un file di dati di esempio nell'ac
 
 2. Caricare i dati nell'account di archiviazione. Il metodo usato per caricare i dati nell'account di archiviazione è diverso a seconda che sia abilitato o meno lo spazio dei nomi gerarchico.
 
-    Se lo spazio dei nomi gerarchico è abilitato per l'account di archiviazione di Azure creato per l'account Gen2, è possibile usare Azure Data Factory, distp o AzCopy (versione 10) per gestire il caricamento. AzCopy versione 10 è disponibile solo per i clienti che usano la versione di anteprima. Per usare AzCopy copiare il codice seguente in una finestra di comando:
+    Se lo spazio dei nomi gerarchico è abilitato per l'account di archiviazione di Azure, è possibile usare Azure Data Factory, distp o AzCopy (versione 10) per gestire il caricamento. Attualmente AzCopy versione 10 è disponibile solo in anteprima. Per usare AzCopy, copiare il codice seguente in una finestra di comando:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -337,7 +337,7 @@ Se non viene terminato manualmente, il cluster si arresterà automaticamente se 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Creare un'area di lavoro di Azure Databricks

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 21ac3de793f5ce559c3a03de2a09f11ccb86b12a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6bd3c1b2cdbd83673a181ee7e088adb39749036e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167359"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963847"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Esercitazione: Installare Azure Data Box Edge (anteprima)
 
@@ -111,8 +111,14 @@ Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizio
 
 - Il dispositivo fisico Edge, disimballato e montato in rack
 - Due cavi di alimentazione 
-- Due cavi di rete 1-GbE RJ-45 e quattro cavi di rame 25-GbE SFP+
+- Almeno un cavo di rete 1-GbE RJ-45 per il collegamento all'interfaccia di gestione. Nel dispositivo sono presenti due interfacce di rete 1-GbE, una per la gestione e una per i dati.
+- Un cavo di rame 25-GbE SFP+ per ogni interfaccia di rete dati da configurare. Almeno una delle interfacce di rete dati (PORT 2, PORT 3, PORT 4, PORT 5 o PORT 6) deve essere connessa a Internet (connettività in Azure).
 - Accesso a due unità PDU (Power Distribution Unit) - consigliato
+
+> [!NOTE]
+> - Se si collega solo un'interfaccia di rete dati, si consiglia di usare un'interfaccia di rete 25-GbE come PORT 3, PORT 4, PORT 5 o PORT 6 per inviare dati ad Azure. 
+> - Per ottenere prestazioni ottimali e per gestire volumi elevati di dati, prendere in considerazione il collegamento di tutte le porte dati.
+> - Connettere il dispositivo Edge alla rete del data center in modo che possa inserire dati dai server di origine dati. 
 
 Il dispositivo Edge ha 8 unità SSD NVMe. Il pannello anteriore è anche dotato di LED di stato e pulsanti di alimentazione. Il dispositivo include unità PSU ridondanti sul retro. Il dispositivo è dotato di sei interfacce di rete: due interfacce da 1 Gbps e quattro da 25 Gbps. Il dispositivo è dotato di un controller BMC (Baseboard Management Controller). Identificare le varie porte nel backplane del dispositivo.
  
@@ -123,13 +129,7 @@ Per cablare il dispositivo per l'alimentazione e la rete, usare la procedura seg
 1. Collegare i cavi di alimentazione a ciascun alimentatore nell’enclosure. Per assicurare disponibilità elevata, installare e collegare entrambi gli alimentatori a una fonte di alimentazione diversa.
 2. Collegare i cavi di alimentazione alle unità PDU (Power Distribution Unit) del rack. Verificare che i due alimentatori usino fonti di alimentazione separate.
 3. Collegare l'interfaccia di rete 1-GbE PORT 1 al computer usato per configurare il dispositivo fisico. PORT 1 è l'interfaccia di gestione dedicata.
-4. Collegare l'interfaccia di rete 1-GbE PORT2 con i cavi di rete RJ-45 alla rete del data center/Internet. 
-5. Collegare le quattro interfacce di rete 25-GbE PORT 3, PORT 4, PORT 5 e PORT 6 con i cavi di rame SFP+ alla rete del data center/Internet. 
-
-> [!NOTE]
-> - Almeno una delle interfacce di rete dati (PORT 2, 3, 4, 5 o 6) deve essere connessa a Internet (connettività in Azure). 
-> - Si consiglia di usare un'interfaccia di rete 25-GbE come PORT 3, PORT 4, PORT 5 o PORT 6 per inviare dati ad Azure. 
-> - Connettere il dispositivo Edge alla rete del data center in modo che possa inserire dati dai server di origine dati.  
+4. Collegare una o più delle interfacce di rete PORT 2, PORT 3, PORT 4, PORT 5 o PORT 6 alla rete del data center/Internet. Se si collega l'interfaccia di rete PORT 2, usare il cavo di rete RJ-45. Per le interfacce di rete 25-GbE, usare i cavi di rame SFP+.  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

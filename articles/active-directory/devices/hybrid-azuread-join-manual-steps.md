@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 33fc8a3822def68cc0baad4670233f57044d1985
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a3c35057af883eb790c44b3547072031eaf4ad2f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408408"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962011"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente dispositivi aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -504,6 +504,9 @@ Se alcuni dei dispositivi aggiunti a un dominio sono dispositivi di livello infe
  
 - Aggiungere l'endpoint di autenticazione dei dispositivi di Azure AD alle aree Intranet locali per evitare che vengano visualizzate richieste di certificati durante l'autenticazione del dispositivo.
 
+- Controllare i dispositivi Windows di livello inferiore 
+
+
 ### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Impostare un criterio in Azure AD per consentire agli utenti di registrare i dispositivi
 
 Per registrare i dispositivi Windows di livello inferiore, è necessario verificare che l'impostazione per consentire agli utenti di registrare i dispositivi in Azure AD sia configurata. Nel portale di Azure, questa impostazione è disponibile in:
@@ -551,6 +554,12 @@ In AD FS, è necessario avere una regola di trasformazione rilascio che trasmett
 Per evitare che vengano visualizzate richieste di certificati quando gli utenti dei dispositivi registrati eseguono l'autenticazione ad Azure AD, è possibile effettuare il push di un criterio ai dispositivi aggiunti a un dominio per aggiungere l'URL seguente all'area Intranet locale in Internet Explorer:
 
 `https://device.login.microsoftonline.com`
+
+
+### <a name="control-windows-down-level-devices"></a>Controllare i dispositivi Windows di livello inferiore 
+
+Per registrare i dispositivi Windows di livello inferiore, è necessario scaricare e installare un pacchetto di Windows Installer (con estensione msi) dall'Area download. Per altre informazioni, fare clic [qui](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 
 ## <a name="verify-joined-devices"></a>Verificare i dispositivi aggiunti

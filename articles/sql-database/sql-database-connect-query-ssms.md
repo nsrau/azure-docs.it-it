@@ -12,15 +12,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/01/2018
-ms.openlocfilehash: 4c8b8a609fe5aa531570805d7a58141a6df84090
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 2e7ac70f0e59c50a87e59c8c50db2a0805f20095
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063218"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50911779"
 ---
-# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati
+# <a name="quickstart-azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Guida introduttiva: Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati
 
 [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) è un ambiente integrato per la gestione di qualsiasi infrastruttura SQL, da SQL Server al database SQL per Microsoft Windows. Questa guida introduttiva illustra come usare SSMS per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query e inserire, eliminare e aggiornare dati nel database. 
 
@@ -56,7 +56,7 @@ Usare SQL Server Management Studio per stabilire una connessione al server del d
    | ------------ | ------------------ | ----------- | 
    | **Tipo di server** | Motore di database | Questo valore è obbligatorio. |
    | **Nome server** | Nome completo del server | Il nome sarà simile a: **mynewserver20170313.database.windows.net**. |
-   | **Autenticazione** | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
+   | **autenticazione** | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
    | **Accesso** | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
    | **Password** | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
    ||||

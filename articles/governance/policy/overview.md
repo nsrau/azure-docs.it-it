@@ -4,17 +4,17 @@ description: Criteri di Azure è un servizio disponibile in Azure che consente d
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: dbdffc7a6f77f3f34ce7937c60eb7a53e5f72590
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c016e21ff59d5f68afee79b2159218d10e90a7ec
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961281"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252820"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -35,12 +35,14 @@ Il servizio Criteri è incentrato sulle proprietà delle risorse durante la dist
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Autorizzazioni del controllo degli accessi in base al ruolo in Criteri di Azure
 
-Criteri di Azure dispone di autorizzazioni rappresentate come operazioni in due diversi provider di risorse:
+Criteri di Azure dispone di diverse autorizzazioni, note come operazioni, in due provider di risorse:
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Alcuni dei ruoli predefiniti hanno diversi livelli di autorizzazioni per le risorse di Criteri di Azure, ad esempio **Amministratore della sicurezza** (che consente di gestire le assegnazioni e le definizioni dei criteri, ma non di visualizzare le informazioni sulla conformità) e **Lettore** (che consente di leggere i dettagli riguardanti le assegnazioni e le definizioni dei criteri, ma non di apportare modifiche o visualizzare le informazioni sulla conformità). Mentre **Proprietario** dispone di diritti completi, **Collaboratore** non dispone di autorizzazioni per Criteri di Azure. Per concedere l'autorizzazione per la visualizzazione dei dettagli sulla conformità dei criteri, creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
+Molti ruoli predefiniti concedono autorizzazioni alle risorse di Criteri di Azure. Il ruolo **Collaboratore ai criteri delle risorse (anteprima)** include la maggior parte delle operazioni di Criteri di Azure, mentre il ruolo **Proprietario** dispone dei diritti completi. Sia il ruolo **Collaboratore** che il ruolo **Lettore** possono leggere tutti i dettagli relativi a Criteri, ma **Collaboratore** può anche attivare la correzione.
+
+Se nessuno dei ruoli predefiniti dispone delle autorizzazioni necessarie, creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
 
 ## <a name="policy-definition"></a>Definizione di criteri
 

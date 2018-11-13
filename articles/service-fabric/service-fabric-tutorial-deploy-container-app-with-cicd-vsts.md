@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: ryanwi,v-steg
 ms.custom: mvc
-ms.openlocfilehash: 5ec898465b550a136db71ee731be5943c7441dcd
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: db0abf2c70ac79356496c78275dc658d1ee29a23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382029"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035909"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Esercitazione: Distribuire un'applicazione contenitore con CI/CD in un cluster di Service Fabric
 
@@ -76,6 +76,9 @@ Una definizione di versione di Team Services descrive un flusso di lavoro che di
 Aprire un Web browser e passare al nuovo progetto team all'indirizzo [https://&lt;account&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
 Selezionare la scheda **Compilazione e versione**, **Compilazioni** e quindi fare clic su **Nuova pipeline**.
+
+>[!NOTE]
+>Se non viene visualizzato il modello di definizione di compilazione, assicurarsi che la funzionalità **Nuova esperienza di creazione pipeline YAML** sia disattivata. Questa funzionalità viene configurata all'interno della sezione **Funzionalità di anteprima** dell'account DevOps.
 
 ![Nuova pipeline][new-pipeline]
 

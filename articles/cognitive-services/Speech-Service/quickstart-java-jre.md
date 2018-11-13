@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2b39084443690b99391268acb6352763657e2a3c
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467260"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218577"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Guida introduttiva: Riconoscimento vocale in Java su Windows o Linux con l'SDK del servizio Voce
 
@@ -28,7 +28,7 @@ In questo articolo viene creata un'applicazione console Java con l'[SDK del serv
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessaria una chiave di sottoscrizione del servizio Voce per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Per informazioni dettagliate, vedere [Provare gratuitamente il servizio Voce](get-started.md).
+È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Per informazioni dettagliate, vedere [Provare gratuitamente il servizio Voce](get-started.md).
 
 
 ## <a name="create-and-configure-project"></a>Creare e configurare un progetto
@@ -42,7 +42,7 @@ Se si utilizza Ubuntu 16.04, prima di avviare Eclipse eseguire i seguenti comand
 
 1. Avviare Eclipse.
 
-1. Nell'utilità di avvio di Eclipse, nel campo **Area di lavoro**, inserire il nome di una nuova directory dell'area di lavoro. Selezionare quindi **Avvio**.
+1. Nell’utilità di avvio di Eclipse, nel campo **Area di lavoro**, inserire il nome di una nuova directory dell’area di lavoro. Selezionare quindi **Avvio**.
 
    ![Screenshot dell'utilità di avvio di Eclipse](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
@@ -74,13 +74,13 @@ Se si utilizza Ubuntu 16.04, prima di avviare Eclipse eseguire i seguenti comand
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Aggiungere anche un elemento `dependencies` specificando come dipendenza la versione 1.0.1 di Speech SDK:
+  * Aggiungere anche un elemento `dependencies` specificando come dipendenza la versione 1.1.0 di Speech SDK:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 
    * Salvare le modifiche.
 
-## <a name="add-sample-code"></a>Aggiungere codice di esempio
+## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 
 1. Per aggiungere una nuova classe vuota al progetto Java, selezionare **File** > **Nuovo** > **Classe**.
 

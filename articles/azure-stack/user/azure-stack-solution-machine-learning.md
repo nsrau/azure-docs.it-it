@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 59696245dc33302c65aee5a39dc856926347b8fb
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353717"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569115"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Esercitazione: Creare una bordo soluzione di machine learning con Azure e Azure Stack
 
@@ -144,7 +144,7 @@ Creare un account di archiviazione e un contenitore per la pulizia dati risiedan
 
 2.  Nel portale di Azure, espandere il menu a sinistra per aprire il menu dei servizi e scegliere **tutti i servizi**. Scorrere verso il basso **memorizzazione** e scegliere **account di archiviazione**. Nel * * gli account di archiviazione * * finestra scegliere **Add**.
 
-3.  Immettere un nome per l'account di archiviazione.
+3.  Immettere il nome dell'account di archiviazione.
 
     > [!Note]  
     > I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. Il nome di account di archiviazione deve essere univoco all'interno di Azure. Il portale di Azure indica se il nome di account di archiviazione selezionato è già in uso.
@@ -287,7 +287,7 @@ Usare il portale di Azure per effettuare il provisioning di account di Azure Mac
     | Impostazione | Valore consigliato per l'esercitazione | DESCRIZIONE |
     |---------------------------------------|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Nome account di Experimentation | Nome univoco | Immettere un nome univoco che identifica l'account. Usare un nome di reparto o progetto che identifica meglio l'esperimento. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). |
-    | Sottoscrizione | La sottoscrizione | Scegliere la sottoscrizione di Azure da usare per l'esperimento. In presenza di più sottoscrizioni, scegliere la sottoscrizione appropriata in cui viene fatturata la risorsa. |
+    | Sottoscrizione | Sottoscrizione | Scegliere la sottoscrizione di Azure da usare per l'esperimento. In presenza di più sottoscrizioni, scegliere la sottoscrizione appropriata in cui viene fatturata la risorsa. |
     | Gruppo di risorse | Gruppo di risorse | Usare un gruppo di risorse nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse per questo account di sperimentazione. |
     | Località | L'area più vicina agli utenti | Scegliere la località più vicina agli utenti e le risorse di dati. |
     | Number of seats (Numero di postazioni) | 2 | Immettere il numero di postazioni. Informazioni sull'[impatto delle postazioni sui prezzi](https://azure.microsoft.com/pricing/details/machine-learning/).<br><br>Per questa Guida introduttiva, sono necessari solo due postazioni. È possibile aggiungere o rimuovere le postazioni secondo necessità nel portale di Azure. |
@@ -1175,7 +1175,7 @@ Da usare i comandi seguenti per generare una chiave di autenticazione all'intern
 
 ### <a name="create-a-service-principal-in-azure-ad"></a>Creare un'entità servizio in Azure AD
 
-1.  Accedi a globale [ *portale di Azure*](http://www.poartal.azure.com/).
+1.  Accedi a globale [ *portale di Azure*](http://portal.azure.com/).
 
 2.  Accedere con il tenant di Azure AD associato all'istanza di Azure Stack.
 
@@ -2098,7 +2098,7 @@ Creare un account di archiviazione di Azure Stack e una coda di archiviazione pe
 
 2.  Nel portale di Azure Stack utente, espandere il menu a sinistra per aprire il menu dei servizi e scegliere **tutti i servizi**. Scorrere verso il basso **memorizzazione** e scegliere **account di archiviazione**. Nel **gli account di archiviazione** finestra scegliere **Add**.
 
-3.  Immettere un nome per l'account di archiviazione.
+3.  Immettere il nome dell'account di archiviazione.
 
 4.  Selezionare l'opzione di replica dell'account di archiviazione: **archiviazione con ridondanza locale**.
 

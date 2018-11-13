@@ -3,7 +3,7 @@ title: Usare Griglia di eventi di Azure per automatizzare il ridimensionamento d
 description: Griglia di eventi di Azure può attivare i caricamenti BLOB in Archiviazione di Azure. Ciò consente di inviare file di immagini caricati in Archiviazione di Azure ad altri servizi, ad esempio a Funzioni di Azure, perché vengano ridimensionati o migliorati.
 services: event-grid, functions
 author: ggailey777
-manager: cfowler
+manager: jpconnoc
 editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2d94389ade02cb6e61f192e9b9e8adb8f8ceec31
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585578"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282508"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -158,19 +158,18 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
 
 3. Usare le impostazioni della sottoscrizione di eventi specificate nella tabella.
     
-    ![Creare una sottoscrizione di eventi dalla funzione nel portale di Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
+    ![Creare una sottoscrizione di eventi dalla funzione nel portale di Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | Impostazione      | Valore consigliato  | Descrizione                                        |
+    | Impostazione      | Valore consigliato  | DESCRIZIONE                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nome** | imageresizersub | Nome che identifica la nuova sottoscrizione di eventi. | 
     | **Tipo di argomento** |  Account di archiviazione | Scegliere il provider di eventi Account di archiviazione. | 
     | **Sottoscrizione** | Sottoscrizione di Azure | Per impostazione predefinita viene selezionata la sottoscrizione di Azure corrente.   |
     | **Gruppo di risorse** | myResourceGroup | Selezionare **Usa esistente** e scegliere il gruppo di risorse usato in questa esercitazione.  |
-    | **Istanza** |  Account di archiviazione BLOB |  Selezionare l'account di archiviazione BLOB creato. |
+    | **Risorsa** |  Account di archiviazione BLOB |  Selezionare l'account di archiviazione BLOB creato. |
     | **Tipi di evento** | Blob created (BLOB creato) | Deselezionare tutti i tipi diversi da **Blob created** (BLOB creato). Solo i tipi di evento `Microsoft.Storage.BlobCreated` vengono passati alla funzione.| 
-    | **Tipo di sottoscrittore** |  Webhook |  Le opzioni disponibili sono webhook o hub eventi. |
+    | **Tipo di sottoscrittore** |  generato automaticamente |  Predefinito come webhook. |
     | **Endpoint sottoscrittore** | generato automaticamente | Usare l'URL dell'endpoint che viene generato automaticamente. | 
-    | **Filtro per prefisso** | /blobServices/predefinito/contenitori/immagini/blob/ | Filtra solo gli eventi di archiviazione nel contenitore **immagini**.| 
+    | **Nome** | imageresizersub | Nome che identifica la nuova sottoscrizione di eventi. | 
 
 4. Fare clic su **Crea** per aggiungere la sottoscrizione di eventi. Questa operazione consente di creare una sottoscrizione di eventi che attiva `imageresizerfunc` quando viene aggiunto un BLOB al contenitore *immagini*. La funzione ridimensiona le immagini e le aggiunge al contenitore *anteprime*.
 
@@ -188,7 +187,7 @@ Si noti che quando l'immagine caricata scompare, nella sequenza video **Generate
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * creare un account generale di Archiviazione di Azure

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: 5493819efb32fa594cf27695b2ab5d1273225756
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f3f9abfb8373e7257237b39d16dfb3f36259ddd5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429896"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281915"
 ---
 # <a name="what-is-azure-event-hubs"></a>Che cos'è l'hub di eventi di Azure?
 
@@ -58,9 +58,9 @@ Con Hub eventi, è possibile iniziare con i flussi di dati in MB, per poi aument
 
 ## <a name="rich-ecosystem"></a>Ecosistema avanzato
 
-[Hub eventi per ecosistemi Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) consente ai clienti di[Apache Kafka (1.0 e versioni successive)](https://kafka.apache.org/) e alle applicazioni di comunicare con Hub eventi senza la necessità di gestire alcun cluster.
+[Hub eventi per ecosistemi Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) consente ai client e alle applicazioni [Apache Kafka (1.0 e versioni successive)](https://kafka.apache.org/) di comunicare con Hub eventi senza dover gestire alcun cluster.
  
-Con un ampio ecosistema disponibile in diversi [linguaggi (.NET, Java, Python, Go, Node. js)](https://github.com/Azure/azure-event-hubs), è possibile avviare facilmente l'elaborazione di flussi da Hub eventi. Tutte i linguaggi lato client supportati offrono un'integrazione di basso livello.
+Con un ampio ecosistema disponibile in diversi [linguaggi (.NET, Java, Python, Go, Node. js)](https://github.com/Azure/azure-event-hubs), è possibile avviare facilmente l'elaborazione di flussi da Hub eventi. Tutte i linguaggi lato client supportati offrono un'integrazione di basso livello. L'ecosistema garantisce anche un'integrazione perfetta con servizi di Azure come Analisi di flusso e Funzioni di Azure, offrendo così la possibilità di compilare architetture senza server.
 
 ## <a name="key-architecture-components"></a>Componenti principali dell'architettura
 

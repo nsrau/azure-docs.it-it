@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 66ee4ac8fe946696d6760891a086a672fa9fc412
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165008"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914602"
 ---
-# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Creare un database SQL di Azure nel portale di Azure
+# <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>Guida introduttiva: Creare un database SQL di Azure nel portale di Azure
 
 Questa guida introduttiva illustra come creare un database SQL in Azure usando il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md). Il database SQL di Azure è un'offerta di "database distribuito come servizio" che consente di eseguire e ridimensionare i database di SQL Server a disponibilità elevata nel cloud. Questa guida introduttiva illustra come iniziare a creare un database SQL e quindi eseguire una query usando il portale di Azure.
 

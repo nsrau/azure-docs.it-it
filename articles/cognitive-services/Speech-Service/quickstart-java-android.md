@@ -8,29 +8,29 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8c974b3d2a53210b49c3f29a8984038da93dd64c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0785383d8b5a8ab282d8097d5229fa5a8aade06f
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466529"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219427"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Java su Android con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Questo articolo spiega come creare un'applicazione Java per Android usando Speech SDK di Servizi cognitivi per la trascrizione del riconoscimento vocale.
-L'applicazione si basa sul pacchetto Speech SDK Maven di Servizi cognitivi Microsoft versione 1.0.1 e su Android Studio 3.1.
-Speech SDK è attualmente compatibile con i dispositivi Android con processori ARM a 32 o 64 bit.
+L'applicazione si basa sul pacchetto Speech SDK Maven di Servizi cognitivi Microsoft versione 1.1.0 e su Android Studio 3.1.
+Speech SDK è attualmente compatibile con i dispositivi Android con processori ARM a 32/64 bit e Intel x86/x64 compatibili.
 
 > [!NOTE]
 > Per Speech Device SDK e il dispositivo Roobo, vedere [Speech Devices SDK](speech-devices-sdk.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessaria una chiave di sottoscrizione del servizio Voce per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Vedere [Prova il servizio Voce gratuitamente](get-started.md) per i dettagli.
+È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Vedere [Prova il servizio di riconoscimento vocale gratuitamente](get-started.md) per i dettagli.
 
 ## <a name="create-and-configure-a-project"></a>Creare e configurare un progetto
 
@@ -58,7 +58,7 @@ Android Studio richiede qualche momento per preparare il nuovo progetto Android.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.0.1`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.1.0`.
 
 Speech SDK per Android viene inserito in un pacchetto come una [AAR (libreria Android)](https://developer.android.com/studio/projects/android-library), che include le librerie necessarie, nonché le autorizzazioni Android richieste per usarlo.
 È ospitato in un repository Maven in https://csspeechstorage.blob.core.windows.net/maven/.
@@ -73,7 +73,7 @@ Di seguito viene descritto come configurare il progetto per usare Speech SDK. Ap
 
    ![Screenshot della finestra della struttura del progetto](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Nella finestra visualizzata immettere il nome e la versione di Speech SDK per Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1`. Selezionare **OK**.
+1. Nella finestra visualizzata immettere il nome e la versione di Speech SDK per Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0`. Selezionare **OK**.
    A questo punto Speech SDK viene aggiunto all'elenco delle dipendenze come illustrato di seguito:
 
    ![Screenshot della finestra della struttura del progetto](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -111,7 +111,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
 </tr>
 </table>
 
-## <a name="add-sample-code"></a>Aggiungere codice di esempio
+## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 
 1. Aprire il file di origine `MainActivity.java`. Sostituire tutto il codice in questo file con quanto segue.
 
@@ -137,7 +137,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
 
    ![Screenshot della finestra di schermata Seleziona destinazione di distribuzione](media/sdk/qs-java-android-12-deploy.png)
 
-Fare clic sul pulsante dell'applicazione per iniziare una sezione dedicata al riconoscimento vocale. I 15 secondi successivi di riconoscimento vocale in lingua inglese verranno inviati al servizio Voce e trascritti. Il risultato viene visualizzato nell'applicazione Android e nella finestra di logcat in Android Studio.
+Fare clic sul pulsante dell'applicazione per iniziare una sezione dedicata al riconoscimento vocale. I 15 secondi successivi di riconoscimento vocale in lingua inglese verranno inviati al servizio di riconoscimento vocale e trascritti. Il risultato viene visualizzato nell'applicazione Android e nella finestra di logcat in Android Studio.
 
 ![Screenshot dell'applicazione Android](media/sdk/qs-java-android-13-gui-on-device.png)
 

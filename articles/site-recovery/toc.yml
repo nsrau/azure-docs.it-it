@@ -60,7 +60,7 @@ items:
       href: azure-to-azure-tutorial-migrate.md
 - name: Concetti
   items:
-  - name: Domande frequenti
+  - name: Domande comuni su Site Recovery
     href: site-recovery-faq.md
   - name: Informazioni sul ripristino di emergenza di VM di Azure in Azure
     items:
@@ -80,6 +80,8 @@ items:
       href: vmware-azure-common-questions.md
     - name: Matrice di supporto
       href: vmware-physical-azure-support-matrix.md
+    - name: Requisiti di supporto per la distribuzione dei server di configurazione
+      href: vmware-azure-configuration-server-requirements.md
     - name: Architettura da VMware ad Azure
       href: vmware-azure-architecture.md
     - name: Opzioni relative alla posizione di failback da Azure a VMware
@@ -134,9 +136,9 @@ items:
       items:
       - name: Preparare la rete per il ripristino di emergenza di VM di Azure
         href: azure-to-azure-about-networking.md
-      - name: Preparare il mapping di rete per il ripristino di emergenza di VM di Azure
+      - name: Configurare il mapping di rete e conservare gli indirizzi IP dopo il failover
         href: azure-to-azure-network-mapping.md
-      - name: Configurare gli indirizzi IP per il failover
+      - name: Esempi di conservazione degli indirizzi IP dopo il failover
         href: site-recovery-retain-ip-azure-vm-failover.md
       - name: Integrare ExpressRoute con il ripristino di emergenza di VM di Azure
         href: azure-vm-disaster-recovery-with-expressroute.md
@@ -148,14 +150,6 @@ items:
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Riproteggere le VM di Azure dopo il failover
         href: azure-to-azure-how-to-reprotect.md
-    - name: risoluzione dei problemi
-      items:
-      - name: Risolvere i problemi della replica da Azure ad Azure
-        href: azure-to-azure-troubleshoot-errors.md
-      - name: Risolvere i problemi della replica in corso
-        href: azure-to-azure-troubleshoot-replication.md
-      - name: Risolvere i problemi dell'estensione di Azure Site Recovery
-        href: site-recovery-extension-troubleshoot.md
       - name: Configurare il ripristino di emergenza per le macchine virtuali di Azure dopo la migrazione ad Azure
         href: azure-to-azure-replicate-after-migration.md
     - name: Gestisci
@@ -188,10 +182,8 @@ items:
         href: vmware-azure-set-up-process-server-scale.md
     - name: Configurare il ripristino di emergenza
       items:
-      - name: Configurare l'ambiente di origine
+      - name: Configurare l'ambiente di origine/il server di configurazione
         href: vmware-azure-set-up-source.md
-      - name: Distribuire il server di configurazione per VM VMware
-        href: vmware-azure-deploy-configuration-server.md
       - name: Configurare l'ambiente di destinazione
         href: vmware-azure-set-up-target.md
       - name: Configurare le impostazioni di replica
@@ -390,14 +382,18 @@ items:
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Macchine virtuali di Azure
     items:
-    - name: Risolvere i problemi della replica da Azure ad Azure
+    - name: Risolvere gli errori di replica per le macchine virtuali di Azure
       href: azure-to-azure-troubleshoot-errors.md
+    - name: Risolvere i problemi della replica in corso per le macchine virtuali di Azure
+      href: azure-to-azure-troubleshoot-replication.md
     - name: Risolvere i problemi del servizio Mobility per le VM di Azure
       href: site-recovery-extension-troubleshoot.md
   - name: VMware/server fisico
     items:
     - name: Risolvere i problemi della replica da VMware ad Azure
       href: vmware-azure-troubleshoot-replication.md
+    - name: Risolvere i problemi del server di configurazione
+      href: vmware-azure-troubleshoot-configuration-server.md
     - name: Risolvere i problemi dell'installazione push del servizio Mobility per VM VMware/server fisici
       href: vmware-azure-troubleshoot-push-install.md
     - name: Risolvere i problemi del failover in Azure
@@ -438,9 +434,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 770aa6a07df6900b10558ebbb7718c248296ee51
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: d0d5ff955caa7cf9206973f0411f4170ba3bbc35
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288085"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566354"

@@ -1,285 +1,107 @@
 ---
-title: 'Esercitazione: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Java - Servizio Visione personalizzata'
+title: 'Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Java'
 titlesuffix: Azure Cognitive Services
-description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
+description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti usando Java SDK.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 08/28/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: 3ffef348467a34f40730c122afa6a7111ebad486
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d5dd481d32ede9a400def02d421a7cb8b816338a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416903"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279586"
 ---
-# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Esercitazione: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Java
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Java
 
-In questo articolo si esplora un'applicazione Java di base che usa l'API Visione artificiale per creare un progetto di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio open source come modello per la compilazione di un'app usando l'API Visione personalizzata.
+Questo articolo fornisce informazioni e codice di esempio utili per iniziare a usare Custom Vision SDK con Java per compilare un modello di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Java personalizzata. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare l'esercitazione, è necessario seguire questa procedura:
+- Un ambiente di sviluppo Java a scelta
+- [JDK 7 o 8](https://aka.ms/azure-jdks) installato.
+- Maven installato
 
-- Installare [JDK 7 o 8](https://aka.ms/azure-jdks).
-- Installare Maven.
-
-## <a name="install-the-custom-vision-service-sdk"></a>Installare l'SDK del Servizio visione artificiale personalizzato
+## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Ottenere Custom Vision SDK e il codice di esempio
+Per scrivere un'app Java che usa Visione personalizzata saranno necessari i pacchetti maven di Visione personalizzata. Questi sono inclusi nel progetto di esempio che si scaricherà, ma è possibile accedervi singolarmente qui.
 
 È possibile installare Custom Vision SDK dal repository centrale Maven:
 * [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 * [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
-## <a name="get-the-training-and-prediction-keys"></a>Ottenere le chiavi di training e di stima
+Clonare o scaricare il progetto [Cognitive Services Java SDK Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). Passare alla cartella **Vision/CustomVision/**.
 
-Per ottenere le chiavi usate in questo esempio, visitare il [sito di Visione personalizzata](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Account__ (Account) copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
+Questo progetto Java crea un nuovo progetto di rilevamento degli oggetti di Visione personalizzata denominato __Sample Java OD Project__, accessibile tramite il [sito Web di Visione personalizzata](https://customvision.ai/). Quindi carica le immagini per eseguire il training e testare un classificatore. In questo progetto il classificatore ha lo scopo di determinare se un albero è un __abete canadese__ o un __ciliegio giapponese__.
 
-![Immagine dell'interfaccia utente delle chiavi](./media/python-tutorial/training-prediction-keys.png)
+[!INCLUDE [get-keys](includes/get-keys.md)]
+
+Il programma è configurato in modo da archiviare i dati chiave come variabili di ambiente. Impostare queste variabili passando alla cartella **Vision/CustomVision** in PowerShell. Quindi immettere i comandi:
+
+```PowerShell
+$env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
+$env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
+```
 
 ## <a name="understand-the-code"></a>Informazioni sul codice
 
-Il progetto completo, incluse le immagini, è disponibile negli [esempi di Visione personalizzata di Azure per il repository Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
+Caricare il progetto `Vision/CustomVision` nell'ambiente IDE Java e aprire il file _CustomVisionSamples.java_. Trovare il metodo **runSample** e impostare come commento la chiamata al metodo **ImageClassification_Sample**. In questo modo viene eseguito lo scenario di classificazione immagini, che non è illustrato in questa guida. Il metodo **ObjectDetection_Sample** implementa la funzionalità principale di questa guida introduttiva. Passare alla sua definizione ed esaminare il codice. 
 
-Usare l'ambiente di sviluppo integrato Java preferito per aprire il progetto `Vision/CustomVision`. 
+### <a name="create-a-new-custom-vision-service-project"></a>Creare un nuovo progetto di Servizio visione artificiale personalizzato
 
-Questa applicazione usa la chiave di training recuperata in precedenza per creare un nuovo progetto denominato __Sample Java OD Project__ (Progetto OD Java di esempio). Carica quindi le immagini per eseguire il training e testare un rilevatore di oggetti, che identifica le aree contenenti una __forchetta__ o un paio di __forbici__.
+Passare al blocco di codice che crea un client di training e un progetto di rilevamento degli oggetti. Il progetto creato verrà visualizzato nel [sito Web di Visione personalizzata](https://customvision.ai/) visitato in precedenza. 
 
-I frammenti di codice seguenti implementano la funzionalità principale di questo esempio:
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=181-206)]
 
-## <a name="create-a-custom-vision-service-project"></a>Creare un progetto di Servizio visione artificiale personalizzato
+### <a name="add-tags-to-your-project"></a>Aggiungere i tag al progetto
 
-Tenere presente che la differenza tra la creazione di un progetto di rilevamento di oggetti e uno di classificazione di immagini è data dal dominio specificato per la chiamata a createProject.
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=208-218)]
 
-> [!IMPORTANT]
-> Impostare `trainingApiKey` sul valore della chiave di training recuperato in precedenza.
+### <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
-```java
-final String trainingApiKey = "insert your training key here";
-TrainingApi trainClient = CustomVisionTrainingManager.authenticate(trainingApiKey);
+Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti, è necessario specificare l'area di ogni oggetto contrassegnato usando coordinate normalizzate. Passare alla definizione della mappa `regionMap`. Questo codice associa ognuna delle immagini di esempio alla relativa area contrassegnata.
 
-System.out.println("Object Detection Sample");
-Trainings trainer = trainClient.trainings();
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=130-179)]
 
-// find the object detection domain to set the project type
-Domain objectDetectionDomain = null;
-List<Domain> domains = trainer.getDomains();
-for (final Domain domain : domains) {
-    if (domain.type() == DomainType.OBJECT_DETECTION) {
-        objectDetectionDomain = domain;
-        break;
-    }
-}
+Passare quindi al blocco di codice che aggiunge le immagini al progetto. Le immagini vengono lette dalla cartella **src/main/resources** del progetto e caricate nel servizio con le coordinate di area e i tag appropriati.
 
-if (objectDetectionDomain == null) {
-    System.out.println("Unexpected result; couldn't find object detection domain.");
-    return;
-}
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=220-231)]
 
-System.out.println("Creating project...");
-// create an object detection project
-Project project = trainer.createProject()
-    .withName("Sample Java OD Project")
-    .withDescription("Sample OD Project")
-    .withDomainId(objectDetectionDomain.id())
-    .withClassificationType(Classifier.MULTILABEL.toString())
-    .execute();
-```
+Il frammento di codice precedente usa due funzioni helper che recuperano le immagini come flussi di risorse e le caricano nel servizio.
 
-## <a name="add-tags-to-your-project"></a>Aggiungere i tag al progetto
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
-```java
-// create fork tag
-Tag forkTag = trainer.createTag()
-    .withProjectId(project.id())
-    .withName("fork")
-    .execute();
+### <a name="train-the-project"></a>Eseguire il training del progetto
 
-// create scissors tag
-Tag scissorsTag = trainer.createTag()
-    .withProjectId(project.id())
-    .withName("scissor")
-    .execute();
-```
+Questo codice crea la prima iterazione del progetto e la contrassegna come iterazione predefinita. L'iterazione predefinita riflette la versione del modello che risponderà alle richieste di stima. È necessario aggiornarla ogni volta che si ripete il training del modello.
 
-## <a name="upload-images-to-the-project"></a>Caricare immagini nel progetto
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=233-242)]
 
-Per il progetto di rilevamento di oggetti è necessario caricare un'immagine, le aree e i tag. L'area è espressa in coordinate normalizzate e specifica la posizione dell'oggetto contrassegnato.
+### <a name="use-the-prediction-endpoint"></a>Usare l'endpoint di stima
 
+L'endpoint di stima, qui rappresentato dall'oggetto `predictor`, è il riferimento usato per inviare un'immagine al modello corrente e ottenere una stima di classificazione. In questo esempio `predictor` è definito altrove tramite la variabile di ambiente della chiave di stima.
 
-```java
-// Mapping of filenames to their respective regions in the image. The coordinates are specified
-// as left, top, width, height in normalized coordinates. I.e. (left is left in pixels / width in pixels)
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=244-270)]
 
-// This is a hardcoded mapping of the files we'll upload along with the bounding box of the object in the
-// image. The boudning box is specified as left, top, width, height in normalized coordinates.
-//  Normalized Left = Left / Width (in Pixels)
-//  Normalized Top = Top / Height (in Pixels)
-//  Normalized Bounding Box Width = (Right - Left) / Width (in Pixels)
-//  Normalized Bounding Box Height = (Bottom - Top) / Height (in Pixels)
-HashMap<String, double[]> regionMap = new HashMap<String, double[]>();
-regionMap.put("scissors_1.jpg", new double[] { 0.4007353, 0.194068655, 0.259803921, 0.6617647 });
-regionMap.put("scissors_2.jpg", new double[] { 0.426470578, 0.185898721, 0.172794119, 0.5539216 });
-regionMap.put("scissors_3.jpg", new double[] { 0.289215684, 0.259428144, 0.403186262, 0.421568632 });
-regionMap.put("scissors_4.jpg", new double[] { 0.343137264, 0.105833367, 0.332107842, 0.8055556 });
-regionMap.put("scissors_5.jpg", new double[] { 0.3125, 0.09766343, 0.435049027, 0.71405226 });
-regionMap.put("scissors_6.jpg", new double[] { 0.379901975, 0.24308826, 0.32107842, 0.5718954 });
-regionMap.put("scissors_7.jpg", new double[] { 0.341911763, 0.20714055, 0.3137255, 0.6356209 });
-regionMap.put("scissors_8.jpg", new double[] { 0.231617644, 0.08459154, 0.504901946, 0.8480392 });
-regionMap.put("scissors_9.jpg", new double[] { 0.170343131, 0.332957536, 0.767156839, 0.403594762 });
-regionMap.put("scissors_10.jpg", new double[] { 0.204656869, 0.120539248, 0.5245098, 0.743464053 });
-regionMap.put("scissors_11.jpg", new double[] { 0.05514706, 0.159754932, 0.799019635, 0.730392158 });
-regionMap.put("scissors_12.jpg", new double[] { 0.265931368, 0.169558853, 0.5061275, 0.606209159 });
-regionMap.put("scissors_13.jpg", new double[] { 0.241421565, 0.184264734, 0.448529422, 0.6830065 });
-regionMap.put("scissors_14.jpg", new double[] { 0.05759804, 0.05027781, 0.75, 0.882352948 });
-regionMap.put("scissors_15.jpg", new double[] { 0.191176474, 0.169558853, 0.6936275, 0.6748366 });
-regionMap.put("scissors_16.jpg", new double[] { 0.1004902, 0.279036, 0.6911765, 0.477124184 });
-regionMap.put("scissors_17.jpg", new double[] { 0.2720588, 0.131977156, 0.4987745, 0.6911765 });
-regionMap.put("scissors_18.jpg", new double[] { 0.180147052, 0.112369314, 0.6262255, 0.6666667 });
-regionMap.put("scissors_19.jpg", new double[] { 0.333333343, 0.0274019931, 0.443627447, 0.852941155 });
-regionMap.put("scissors_20.jpg", new double[] { 0.158088237, 0.04047389, 0.6691176, 0.843137264 });
-regionMap.put("fork_1.jpg", new double[] { 0.145833328, 0.3509314, 0.5894608, 0.238562092 });
-regionMap.put("fork_2.jpg", new double[] { 0.294117659, 0.216944471, 0.534313738, 0.5980392 });
-regionMap.put("fork_3.jpg", new double[] { 0.09191177, 0.0682516545, 0.757352948, 0.6143791 });
-regionMap.put("fork_4.jpg", new double[] { 0.254901975, 0.185898721, 0.5232843, 0.594771266 });
-regionMap.put("fork_5.jpg", new double[] { 0.2365196, 0.128709182, 0.5845588, 0.71405226 });
-regionMap.put("fork_6.jpg", new double[] { 0.115196079, 0.133611143, 0.676470637, 0.6993464 });
-regionMap.put("fork_7.jpg", new double[] { 0.164215669, 0.31008172, 0.767156839, 0.410130739 });
-regionMap.put("fork_8.jpg", new double[] { 0.118872553, 0.318251669, 0.817401946, 0.225490168 });
-regionMap.put("fork_9.jpg", new double[] { 0.18259804, 0.2136765, 0.6335784, 0.643790841 });
-regionMap.put("fork_10.jpg", new double[] { 0.05269608, 0.282303959, 0.8088235, 0.452614367 });
-regionMap.put("fork_11.jpg", new double[] { 0.05759804, 0.0894935, 0.9007353, 0.3251634 });
-regionMap.put("fork_12.jpg", new double[] { 0.3345588, 0.07315363, 0.375, 0.9150327 });
-regionMap.put("fork_13.jpg", new double[] { 0.269607842, 0.194068655, 0.4093137, 0.6732026 });
-regionMap.put("fork_14.jpg", new double[] { 0.143382356, 0.218578458, 0.7977941, 0.295751631 })
-regionMap.put("fork_15.jpg", new double[] { 0.19240196, 0.0633497, 0.5710784, 0.8398692 });
-regionMap.put("fork_16.jpg", new double[] { 0.140931368, 0.480016381, 0.6838235, 0.240196079 });
-regionMap.put("fork_17.jpg", new double[] { 0.305147052, 0.2512582, 0.4791667, 0.5408496 })
-regionMap.put("fork_18.jpg", new double[] { 0.234068632, 0.445702642, 0.6127451, 0.344771236 });
-regionMap.put("fork_19.jpg", new double[] { 0.219362751, 0.141781077, 0.5919118, 0.6683006 });
-regionMap.put("fork_20.jpg", new double[] { 0.180147052, 0.239820287, 0.6887255, 0.235294119 });
+## <a name="run-the-application"></a>Eseguire l'applicazione
 
-System.out.println("Adding images...");
-for (int i = 1; i <= 20; i++) {
-    String fileName = "fork_" + i + ".jpg";
-    byte[] contents = GetImage("/fork", fileName);
-    AddImageToProject(trainer, project, fileName, contents, forkTag.id(), regionMap.get(fileName));
-}
+Per compilare ed eseguire la soluzione tramite maven, eseguire il comando seguente nella directory del progetto in PowerShell:
 
-for (int i = 1; i <= 20; i++) {
-    String fileName = "scissors_" + i + ".jpg";
-    byte[] contents = GetImage("/scissors", fileName);
-    AddImageToProject(trainer, project, fileName, contents, scissorsTag.id(), regionMap.get(fileName));
-}
-```
-
-Il frammento di codice precedente usa due funzioni di supporto che recuperano le immagini come flussi di risorse e le caricano nel servizio.
-
-```java
-private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag, double[] regionValues)
-{
-    System.out.println("Adding image: " + fileName);
-    ImageFileCreateEntry file = new ImageFileCreateEntry()
-        .withName(fileName)
-        .withContents(contents);
-
-    ImageFileCreateBatch batch = new ImageFileCreateBatch()
-        .withImages(Collections.singletonList(file));
-
-    // If Optional region is specified, tack it on and place the tag there, otherwise
-    // add it to the batch.
-    if (regionValues != null)
-    {
-        Region region = new Region()
-            .withTagId(tag)
-            .withLeft(regionValues[0])
-            .withTop(regionValues[1])
-            .withWidth(regionValues[2])
-            .withHeight(regionValues[3]);
-        file = file.withRegions(Collections.singletonList(region));
-    } else {
-        batch = batch.withTagIds(Collections.singletonList(tag));
-    }
-
-    trainer.createImagesFromFiles(project.id(), batch);
-}
-
-private static byte[] GetImage(String folder, String fileName)
-{
-    try {
-        return ByteStreams.toByteArray(CustomVisionSamples.class.getResourceAsStream(folder + "/" + fileName));
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        e.printStackTrace();
-    }
-    return null;
-}
-```
-
-## <a name="train-the-project"></a>Eseguire il training del progetto
-
-Verrà creata la prima iterazione del progetto, che verrà contrassegnata come iterazione predefinita. 
-
-```java
-System.out.println("Training...");
-Iteration iteration = trainer.trainProject(project.id());
-while (iteration.status().equals("Training"))
-{
-    System.out.println("Training Status: "+ iteration.status());
-    Thread.sleep(5000);
-    iteration = trainer.getIteration(project.id(), iteration.id());
-}
-System.out.println("Training Status: "+ iteration.status());
-trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(true));
-```
-
-## <a name="get-and-use-the-default-prediction-endpoint"></a>Ottenere e usare l'endpoint di stima predefinito
-
-> [!IMPORTANT]
-> Impostare `predictionApiKey` sul valore della chiave di stima recuperato in precedenza.
-
-```java
-final String predictionApiKey = "insert your prediction key here";
-PredictionEndpoint predictClient = CustomVisionPredictionManager.authenticate(predictionApiKey);
-
-// Use below for predictions from a url
-// String url = "some url";
-// ImagePrediction results = predictor.predictions().predictImage()
-//                         .withProjectId(project.id())
-//                         .withUrl(url)
-//                         .execute();
-
-// load test image
-byte[] testImage = GetImage("/ObjectTest", "test_image.jpg");
-
-// predict
-ImagePrediction results = predictor.predictions().predictImage()
-    .withProjectId(project.id())
-    .withImageData(testImage)
-    .execute();
-
-for (Prediction prediction: results.predictions())
-{
-    System.out.println(String.format("\t%s: %.2f%% at: %.2f, %.2f, %.2f, %.2f",
-        prediction.tagName(),
-        prediction.probability() * 100.0f,
-        prediction.boundingBox().left(),
-        prediction.boundingBox().top(),
-        prediction.boundingBox().width(),
-        prediction.boundingBox().height()
-    ));
-}
-```
-
-## <a name="run-the-example"></a>Eseguire l'esempio
-
-I risultati della stima vengono visualizzati nella console con alcune registrazioni che indicano lo stato di avanzamento.
-
-Per compilare ed eseguire la soluzione con Maven:
-
-```
+```PowerShell
 mvn compile exec:java
 ```
+
+Visualizzare l'output della console per i risultati della registrazione e della stima. È quindi possibile verificare che l'immagine di test sia contrassegnata in modo appropriato e che l'area di rilevamento sia corretta.
+
+[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
+
+## <a name="next-steps"></a>Passaggi successivi
+
+In questa guida si è appreso come eseguire ogni passaggio del processo di rilevamento degli oggetti nel codice. Questo esempio esegue una sola iterazione del training, ma spesso è necessario eseguire il training e il test del modello più volte per ottenere una maggiore precisione. La guida seguente è incentrata sulla classificazione delle immagini, ma i principi sono simili a quelli del rilevamento di oggetti.
+
+> [!div class="nextstepaction"]
+> [Testare un modello e ripeterne il training](test-your-model.md)
