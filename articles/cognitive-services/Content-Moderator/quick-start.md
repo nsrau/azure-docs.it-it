@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: f25434814a7fb3d0f49cab539b394970c9bcfb3b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023441"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260007"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Guida introduttiva: Acquisire familiarità con Content Moderator
 
@@ -26,7 +26,7 @@ In questa guida introduttiva verrà usato lo strumento di revisione di Content M
 - Un Web browser
 
 ## <a name="set-up-the-review-tool"></a>Configurare lo strumento di revisione
-Lo strumento di revisione di Content Moderator è uno strumento basato sul Web che consente a revisori umani di supportare i servizi cognitivi nel processo decisionale. In questa Guida esamineremo il breve processo di configurazione dello strumento di revisione in modo da vedere come funziona il servizio Content Moderator. Passare al sito dello [strumento di revisione di Content Moderator](http://contentmoderator.cognitive.microsoft.com/) e registrarsi.
+Lo strumento di revisione di Content Moderator è uno strumento basato sul Web che consente a revisori umani di supportare i servizi cognitivi nel processo decisionale. In questa Guida esamineremo il breve processo di configurazione dello strumento di revisione in modo da vedere come funziona il servizio Content Moderator. Passare al sito dello [strumento di revisione di Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e registrarsi.
 
 ![Home page di Content Moderator](images/homepage.PNG)
 
@@ -40,7 +40,7 @@ A questo punto, creare un team di revisione. In uno scenario operativo si tratta
 
 A questo punto, è possibile caricare contenuto di esempio. Selezionare **Try > Image** (Prova > Immagine), **Try > Text** (Prova > Testo ) o **Try > Video** (Prova > Video).
 
-![Scelta di Try Image (Prova immagine) per la moderazione testo](images/tryimagesortext.png)
+![Try Image (Prova immagine) o Moderazione testo](images/tryimagesortext.png)
 
 Inviare il contenuto per la moderazione. Lo strumento di revisione chiamerà internamente le API di moderazione per analizzare il contenuto. Al termine dell'analisi viene visualizzato un messaggio in cui si informa che sono disponibili risultati da rivedere.
 
@@ -48,7 +48,7 @@ Inviare il contenuto per la moderazione. Lo strumento di revisione chiamerà int
 
 ## <a name="review-moderation-tags"></a>Esaminare i tag di moderazione
 
-Esaminare i tag di moderazione applicati. È possibile visualizzare i tag che sono stati applicati al contenuto e il punteggio assegnato in ogni categoria.
+Esaminare i tag di moderazione applicati. È possibile visualizzare i tag che sono stati applicati al contenuto e il punteggio assegnato in ogni categoria. Vedere gli argomenti di moderazione [Immagine](image-moderation-api.md), [Testo](text-moderation-api.md) e [Video](video-moderation-api.md) per altre informazioni su cosa indicano i diversi contrassegni di contenuto.
 
 ![Esaminare i risultati](images/reviewresults_text.png)
 
@@ -70,4 +70,4 @@ In alternativa, continuare con i passaggi successivi per iniziare a usare le API
 In questa sezione vengono fornite informazioni su come usare le API di moderazione nell'app.
 - Implementare la moderazione delle immagini. Usare la [console API](try-image-api.md) oppure usare la [guida introduttiva per C#](image-moderation-quickstart-dotnet.md) per analizzare le immagini e rilevare potenziali contenuti spinti e per adulti usando tag, punteggi di attendibilità e altre informazioni estratte.
 - Implementare la moderazione del testo. Usare la [console API](try-text-api.md) oppure usare la [guida introduttiva per C#](text-moderation-quickstart-dotnet.md) per analizzare il contenuto di testo per rilevare potenziali contenuti volgari, una classificazione del testo indesiderato automatica (anteprima) e informazioni personali. 
-- Implementare la moderazione video. Usare la [guida introduttiva per C#](video-moderation-api.md) per analizzare i video e rilevare potenziali contenuti spinti e per adulti. 
+- Implementare la moderazione video. Seguire la [Guida pratica alla moderazione video per C#](video-moderation-api.md) per analizzare i video e rilevare potenziali contenuti spinti e per adulti. 

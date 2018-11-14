@@ -10,23 +10,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 3c97c89bde40357981d82dce8dd53febff25c8f3
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bc31c7ebec7c1f7a02be65b15805fb48b1ef275d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239883"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260313"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
 Vivere in una società profondamente interconnessa porta, prima o poi, ad avere a che fare con i **social network**. I social network vengono usati per rimanere in contatto con amici, colleghi e familiari, ma anche per condividere passioni con persone con interessi simili.
 
 Ingegneri e sviluppatori si sono probabilmente interrogati sulle modalità di archiviazione e interconnessione dei dati in queste reti. Altri potrebbero aver ricevuto l'incarico di creare o progettare un nuovo social network per uno specifico mercato di nicchia. La domanda più importante di tutte è: come vengono archiviati tutti questi dati?
 
-Si supponga di voler creare un nuovo social network, in cui gli utenti possano pubblicare articoli con elementi multimediali correlati, ad esempio immagini, video o musica. La pagina di destinazione principale del sito Web includerà un feed di post che gli utenti possono visualizzare e con cui possono interagire. Inizialmente l'esempio può non sembrare molto complesso. Non sembra molto complesso (in un primo momento), ma per semplicità fermiamoci qui (si potrebbe approfondire l'argomento con feed utente personalizzati condizionati dalle relazioni, ma questo va oltre l'obiettivo di questo articolo).
+Si supponga di voler creare un nuovo social network, in cui gli utenti possano pubblicare articoli con elementi multimediali correlati, ad esempio immagini, video o musica. La pagina di destinazione principale del sito Web includerà un feed di post che gli utenti possono visualizzare e con cui possono interagire. Inizialmente l'esempio può non sembrare molto complesso. Questa modalità non sembra complessa (in un primo momento), ma per semplicità fermiamoci qui (si potrebbe approfondire l'argomento con feed utente personalizzati interessati dalle relazioni, ma questo va oltre l'obiettivo del presente articolo).
 
 Come e dove archiviare i dati?
 
-Chi ha fatto esperienza di database SQL o conosce la [modellazione relazionale dei dati](https://en.wikipedia.org/wiki/Relational_model) potrebbe iniziare con il disegnare qualcosa di simile:
+Chi ha esperienza di database SQL o conosce la [modellazione relazionale dei dati](https://en.wikipedia.org/wiki/Relational_model) potrebbe iniziare disegnando qualcosa di simile:
 
 ![Diagramma che illustra un modello relazionale relativo](./media/social-media-apps/social-media-apps-sql.png) 
 
@@ -34,7 +34,7 @@ Una struttura di dati perfettamente normalizzata... che non supporta la scalabil
 
 I database SQL sono certamente molto utili, ma come ogni modello, procedura e piattaforma software non sono perfetti per tutti gli scenari.
 
-Perché SQL non rappresenta la scelta migliore in questo scenario? A causa della struttura usata, per visualizzare un singolo post in un sito Web o un'applicazione sarebbe necessario eseguire una query con addirittura otto join di tabella. Otto tabelle di join (!) solo per mostrare un singolo post, immaginiamo allora un flusso di post caricati in modo dinamico e visualizzati sullo schermo: questa struttura risulta quindi poco adatta.
+Perché SQL non rappresenta la scelta migliore in questo scenario? A causa della struttura usata, per visualizzare un singolo post in un sito Web o un'applicazione sarebbe necessario eseguire una query con addirittura otto join di tabella. Eseguendo il join di ben otto tabelle solo per mostrare un singolo post, immaginiamo allora un flusso di post caricati in modo dinamico e visualizzati sullo schermo: questa struttura risulta quindi poco adatta.
 
 Si potrebbe usare un'istanza di SQL di dimensioni enormi, con capacità sufficiente per risolvere migliaia di query con un numero di join adatto a rendere disponibile il contenuto, ma esiste una soluzione più semplice.
 
@@ -59,7 +59,7 @@ In questo articolo verrà illustrata la modellazione dei dati della piattaforma 
         ]
     }
 
-E può essere ottenuto con una singola query, senza l'uso di join. Questa soluzione è molto più semplice e lineare e, a livello di budget, permette di ottenere risultati migliori con meno risorse.
+E può essere ottenuto con una singola query, senza l'uso di join. Questa query è molto più semplice e lineare e, a livello di budget, permette di ottenere risultati migliori con meno risorse.
 
 Con Azure Cosmos DB tutte le proprietà vengono indicizzate tramite l'indicizzazione automatica, che può anche essere [personalizzata](indexing-policies.md). L'approccio senza schema consente di archiviare documenti con strutture varie e dinamiche. Se in futuro si volesse associare un elenco di categorie o hashtag ai post, Cosmos DB gestirebbe i nuovi documenti con gli attributi aggiuntivi senza richiedere ulteriori interventi.
 
@@ -216,12 +216,12 @@ Contrariamente a quanto si potrebbe pensare, non è necessario essere dei matema
 
 Per ottenere uno di questi scenari di Machine Learning, è possibile usare [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) per inserire le informazioni provenienti da origini diverse e [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) per elaborare le informazioni e generare output che possono poi essere elaborati da Azure Machine Learning.
 
-Un'altra opzione disponibile consiste nell'usare i [servizi cognitivi Microsoft](https://www.microsoft.com/cognitive-services) per analizzare i contenuti per gli utenti; non solo è possibile comprenderli meglio (tramite l'analisi di ciò che gli utenti scrivono con l'[API di analisi del testo](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), ma è anche possibile rilevare i contenuto indesiderati o per soli adulti e agire di conseguenza per mezzo dell'[API Visione artificiale](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). I servizi cognitivi includono molte delle soluzioni pronte all'uso che non richiedono alcuna conoscenza pregressa di Machine Learning.
+Un'altra opzione disponibile consiste nell'usare i [servizi cognitivi di Azure](https://www.microsoft.com/cognitive-services) per analizzare i contenuti degli utenti; non solo è possibile comprenderli meglio (tramite l'analisi di ciò che gli utenti scrivono con l'[API di Analisi del testo di Azure Machine Learning](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), ma è anche possibile rilevare i contenuti indesiderati o per soli adulti e agire di conseguenza tramite l'[API Visione artificiale](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). I servizi cognitivi includono molte delle soluzioni pronte all'uso che non richiedono alcuna conoscenza pregressa di Machine Learning.
 
 ## <a name="a-planet-scale-social-experience"></a>Un'esperienza social su scala globale
 C'è un ultimo, ma non meno importante, articolo da affrontare: la **scalabilità**. Quando si progetta un'architettura è essenziale che ogni componente possa essere individualmente scalabile, perché è necessario elaborare più dati o perché si desidera disporre di una copertura geografica più ampia o per entrambi i motivi. Per fortuna, il raggiungimento di questo obiettivo così complesso si rivela un'**esperienza chiavi in mano** con Cosmos DB.
 
-Cosmos DB supporta il [partizionamento dinamico](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) predefinito mediante la creazione automatica delle partizioni basate su una determinata **chiave di partizione** (definita come uno degli attributi nei documenti). La definizione della chiave di partizione corretta è un'operazione che deve essere eseguita in fase di progettazione e tenendo presente le [procedure consigliate](../cosmos-db/partition-data.md#designing-for-partitioning) disponibili. Nel caso dell'esperienza social, la strategia di partizionamento deve essere allineata con la modalità in cui si esegue una query (è consigliabile eseguire letture all'interno della stessa partizione) e si scrive (evitare "hot spot" distribuendo le scritture in più partizioni). Alcune opzioni sono: partizioni basate su una chiave temporale (giorno/mese/settimana), basate sulla categoria del contenuto, sull'area geografica, sull'utente. Tutto dipende in realtà da come si esegue una query sui dati e come la si visualizza nell'esperienza social. 
+Cosmos DB supporta il [partizionamento dinamico](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) predefinito mediante la creazione automatica delle partizioni basate su una determinata **chiave di partizione** (definita come uno degli attributi nei documenti). La definizione della chiave di partizione corretta deve essere eseguita in fase di progettazione. Per altre informazioni, vedere l'articolo su come [scegliere la chiave di partizione corretta](partitioning-overview.md#choose-partitionkey). Nel caso dell'esperienza social, la strategia di partizionamento deve essere allineata con la modalità in cui si esegue una query (è consigliabile eseguire letture all'interno della stessa partizione) e si scrive (evitare "hot spot" distribuendo le scritture in più partizioni). Alcune opzioni sono: partizioni basate su una chiave temporale (giorno/mese/settimana), basate sulla categoria del contenuto, sull'area geografica, sull'utente. Tutto dipende in realtà da come si esegue una query sui dati e come la si visualizza nell'esperienza social. 
 
 Un aspetto interessante da sottolineare è che Cosmos DB eseguirà le query (incluse le [aggregazioni](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) in tutte le partizioni in modo trasparente, senza dover aggiungere una logica con l'aumento dei dati.
 

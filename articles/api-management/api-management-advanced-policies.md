@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: dcd4d28341e766baeaf6d581a69312cc33a0282a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30233827"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262336"
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
-Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).
+Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="AdvancedPolicies"></a>Criteri avanzati
 
@@ -30,7 +30,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 -   [Limita la concorrenza](#LimitConcurrency): previene ai criteri racchiusi l’esecuzione di un numero maggiore di richieste contemporaneamente rispetto a quello specificato.
 -   [Registra in Hub eventi](#log-to-eventhub): invia messaggi nel formato specificato a un Hub eventi definito da un'entità Logger.
 -   [Restituisci risposta](#mock-response): interrompe l'esecuzione della pipeline e restituisce una risposta fittizia direttamente al chiamante.
--   [Riprova](#Retry): riprova l'esecuzione delle istruzioni dei criteri, se e fino a quando non viene soddisfatta la condizione. L'esecuzione verrà ripetuta a specifici intervalli di tempo e per il numero di tentativi indicato.
+-   [Riprova](#Retry) : riprova l'esecuzione delle istruzioni dei criteri, se e fino a quando non viene soddisfatta la condizione. L'esecuzione verrà ripetuta a specifici intervalli di tempo e per il numero di tentativi indicato.
 -   [Restituisci risposta](#ReturnResponse) : l’esecuzione nella pipeline viene interrotta e viene restituita la risposta specificata direttamente al chiamante.
 -   [Invia richiesta unidirezionale](#SendOneWayRequest) : invia una richiesta all'URL specificato senza attendere una risposta.
 -   [Invia richiesta](#SendRequest) : invia una richiesta all'URL specificato.
@@ -123,20 +123,20 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|choose|Elemento radice.|Sì|
-|when|La condizione da usare per le parti `if` o `ifelse` del criterio `choose`. Se il criterio `choose` ha più sezioni `when`, vengono valutate in modo sequenziale. Una volta che la `condition` di un elemento when risulta `true`, non vengono valutate altre condizioni `when`.|Sì|
+|choose|Elemento radice.|Yes|
+|when|La condizione da usare per le parti `if` o `ifelse` del criterio `choose`. Se il criterio `choose` ha più sezioni `when`, vengono valutate in modo sequenziale. Una volta che la `condition` di un elemento when risulta `true`, non vengono valutate altre condizioni `when`.|Yes|
 |otherwise|Contiene il frammento di criterio da usare se nessuna delle condizioni `when` viene valutata `true`.|No |
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|
+|Attributo|DESCRIZIONE|Obbligatoria|
 |---------------|-----------------|--------------|
-|condition="Boolean expression &#124; Boolean constant"|La costante o espressione booleana da valutare quando viene valutata l'istruzione del criterio contenente `when`.|Sì|
+|condition="Boolean expression &#124; Boolean constant"|La costante o espressione booleana da valutare quando viene valutata l'istruzione del criterio contenente `when`.|Yes|
 
 ###  <a name="ChooseUsage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -235,19 +235,19 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|forward-request|Elemento radice.|Sì|
+|forward-request|Elemento radice.|Yes|
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|Predefinito|
+|Attributo|DESCRIZIONE|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|
 |timeout="integer"|Intervallo di timeout in secondi prima che la chiamata al servizio back-end abbia esito negativo.|No |300 secondi|
 |follow-redirects="true &#124; false"|Specifica se i reindirizzamenti dal servizio back-end sono seguiti dal gateway o restituiti al chiamante.|No |false|
 
 ### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** back-end
 -   **Ambiti del criterio:** tutti gli ambiti
@@ -282,19 +282,19 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|limit-concurrency|Elemento radice.|Sì|
+|limita concorrenza|Elemento radice.|Yes|
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|Predefinito|
+|Attributo|DESCRIZIONE|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|--------------|
-|key|Stringa. Espressione consentita. Specifica l'ambito di concorrenza. Può essere condivisa da più criteri.|Sì|N/D|
-|numero max|Un intero. Specifica un numero massimo di richieste autorizzate ad accedere al criterio.|Sì|N/D|
+|key|Stringa. Espressione consentita. Specifica l'ambito di concorrenza. Può essere condivisa da più criteri.|Yes|N/D|
+|numero max|Un intero. Specifica un numero massimo di richieste autorizzate ad accedere al criterio.|Yes|N/D|
 
-### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+### <a name="usage"></a>Utilizzo
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -332,20 +332,20 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|log-to-eventhub|Elemento radice. Il valore di questo elemento è la stringa per la registrazione all'hub eventi.|Sì|
+|log-to-eventhub|Elemento radice. Il valore di questo elemento è la stringa per la registrazione all'hub eventi.|Yes|
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|
+|Attributo|DESCRIZIONE|Obbligatoria|
 |---------------|-----------------|--------------|
-|logger-id|ID del Logger registrato con il servizio Gestione API.|Sì|
+|logger-id|ID del Logger registrato con il servizio Gestione API.|Yes|
 |partition-id|Specifica l'indice della partizione a cui i messaggi vengono inviati.|facoltativo. Questo attributo non può essere usato se si usa `partition-key`.|
 |partition-key|Specifica il valore usato per l'assegnazione della partizione quando vengono inviati i messaggi.|facoltativo. Questo attributo non può essere usato se si usa `partition-id`.|
 
 ### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -375,19 +375,19 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|mock-response|Elemento radice.|Sì|
+|mock-response|Elemento radice.|Yes|
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|Predefinito|
+|Attributo|DESCRIZIONE|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|--------------|
 |status-code|Specifica il codice di stato della risposta e viene usato per selezionare l'esempio o lo schema corrispondente.|No |200|
 |content-type|Specifica il valore di intestazione della risposta `Content-Type` e viene usato per selezionare l'esempio o lo schema corrispondente.|No |Nessuna|
 
 ### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, on-error
 
@@ -431,17 +431,17 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|retry|Elemento radice. Può contenere tutti gli altri criteri come elementi figlio.|Sì|
+|retry|Elemento radice. Può contenere tutti gli altri criteri come elementi figlio.|Yes|
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|Predefinito|
+|Attributo|DESCRIZIONE|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|
-|condition|Valore letterale booleano o [espressione](api-management-policy-expressions.md) che specifica se i tentativi devono essere interrotti (`false`) o devono continuare (`true`).|Sì|N/D|
-|count|Numero positivo che specifica il numero massimo di tentativi da eseguire.|Sì|N/D|
-|interval|Numero positivo in secondi che specifica l'intervallo di attesa tra i tentativi di ripetizione.|Sì|N/D|
+|condition|Valore letterale booleano o [espressione](api-management-policy-expressions.md) che specifica se i tentativi devono essere interrotti (`false`) o devono continuare (`true`).|Yes|N/D|
+|count|Numero positivo che specifica il numero massimo di tentativi da eseguire.|Yes|N/D|
+|interval|Numero positivo in secondi che specifica l'intervallo di attesa tra i tentativi di ripetizione.|Yes|N/D|
 |max-interval|Un numero positivo che specifica l'intervallo di attesa massimo tra i tentativi di ripetizione. Viene usato per implementare un algoritmo di ripetizione esponenziale.|No |N/D|
 |delta|Numero positivo in secondi che specifica l'incremento dell'intervallo di attesa. Viene usato per implementare gli algoritmi di ripetizione lineari ed esponenziali.|No |N/D|
 |first-fast-retry|Se impostato su `true`, il primo tentativo di ripetizione viene eseguito immediatamente.|No |`false`|
@@ -452,7 +452,7 @@ status code and media type. If no example or schema found, the content is empty.
 > Se vengono specificati `interval`, `max-interval` e `delta`,viene applicato un algoritmo di ripetizione a intervalli **esponenziali**, in cui il tempo di attesa tra i tentativi cresce in modo esponenziale dal valore `interval` al valore `max-interval`, secondo la formula seguente: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti. Si noti che le restrizioni sull'uso dei criteri figlio verranno ereditate da questo criterio.
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti. Si noti che le restrizioni sull'uso dei criteri figlio verranno ereditate da questo criterio.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -486,21 +486,21 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|return-response|Elemento radice.|Sì|
+|return-response|Elemento radice.|Yes|
 |set-header|Istruzione del criterio.[set-header](api-management-transformation-policies.md#SetHTTPheader).|No |
 |set-body|Istruzione del criterio.[set-body](api-management-transformation-policies.md#SetBody).|No |
 |set-status|Istruzione del criterio [set-status](api-management-advanced-policies.md#SetStatus).|No |
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|
+|Attributo|DESCRIZIONE|Obbligatoria|
 |---------------|-----------------|--------------|
 |response-variable-name|Nome della variabile di contesto a cui fa riferimento, ad esempio, un criterio di upstream [send-request](api-management-advanced-policies.md#SendRequest) e contenente un oggetto `Response`.|facoltativo.|
 
 ### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -553,26 +553,26 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|send-one-way-request|Elemento radice.|Sì|
-|URL|URL della richiesta.|No se mode=copy, altrimenti sì.|
-|statico|Metodo HTTP usato nella richiesta.|No se mode=copy, altrimenti sì.|
-|header|Intestazione della richiesta. Usare più elementi di intestazione per più intestazioni della richiesta.|No |
-|body|Corpo della richiesta.|No |
+|send-one-way-request|Elemento radice.|Yes|
+|URL|URL della richiesta.|No if mode=copy; otherwise yes.|
+|statico|Metodo HTTP usato nella richiesta.|No if mode=copy; otherwise yes.|
+|intestazione|Intestazione della richiesta. Usare più elementi di intestazione per più intestazioni della richiesta.|No |
+|Corpo|Corpo della richiesta.|No |
 |authentication-certificate|[Certificato da usare per l'autenticazione client](api-management-authentication-policies.md#ClientCertificate)|No |
 
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|Predefinito|
+|Attributo|DESCRIZIONE|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Determina se questa è una nuova richiesta o una copia della richiesta corrente. In modalità in uscita, mode=copy non avvia il corpo della richiesta.|No |Nuovo|
-|name|Specifica il nome dell'intestazione da impostare.|Sì|N/D|
+|name|Specifica il nome dell'intestazione da impostare.|Yes|N/D|
 |exists-action|Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -   override - sostituisce il valore dell'intestazione esistente.<br />-   skip - non sostituisce il valore dell'intestazione esistente.<br />-   append - aggiunge il valore dell'intestazione esistente.<br />-   delete - elimina l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati.|No |override|
 
 ### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -635,28 +635,28 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|send-request|Elemento radice.|Sì|
-|URL|URL della richiesta.|No se mode=copy, altrimenti sì.|
-|statico|Metodo HTTP usato nella richiesta.|No se mode=copy, altrimenti sì.|
-|header|Intestazione della richiesta. Usare più elementi di intestazione per più intestazioni della richiesta.|No |
-|body|Corpo della richiesta.|No |
+|send-request|Elemento radice.|Yes|
+|URL|URL della richiesta.|No if mode=copy; otherwise yes.|
+|statico|Metodo HTTP usato nella richiesta.|No if mode=copy; otherwise yes.|
+|intestazione|Intestazione della richiesta. Usare più elementi di intestazione per più intestazioni della richiesta.|No |
+|Corpo|Corpo della richiesta.|No |
 |authentication-certificate|[Certificato da usare per l'autenticazione client](api-management-authentication-policies.md#ClientCertificate)|No |
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|Predefinito|
+|Attributo|DESCRIZIONE|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Determina se questa è una nuova richiesta o una copia della richiesta corrente. In modalità in uscita, mode=copy non avvia il corpo della richiesta.|No |Nuovo|
-|response-variable-name="string"|Se non è presente, viene usato `context.Response`.|No |N/D|
+|response-variable-name="string"|Il nome della variabile di contesto che riceverà un oggetto risposta. Se la variabile non esiste, verrà creata in caso di completamento dell'esecuzione del criterio e diventerà accessibile tramite la raccolta [`context.Variable`](api-management-policy-expressions.md#ContextVariables).|Yes|N/D|
 |timeout="integer"|Intervallo di timeout in secondi prima che la chiamata all'URL abbia esito negativo.|No |60|
 |ignore-error|Se impostato su true e la richiesta restituisce un errore:<br /><br /> - Se è stato specificato response-variable-name, questo conterrà un valore null.<br />- Se response-variable-name non è stato specificato, context.Request non verrà aggiornato.|No |false|
-|name|Specifica il nome dell'intestazione da impostare.|Sì|N/D|
+|name|Specifica il nome dell'intestazione da impostare.|Yes|N/D|
 |exists-action|Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -   override - sostituisce il valore dell'intestazione esistente.<br />-   skip - non sostituisce il valore dell'intestazione esistente.<br />-   append - aggiunge il valore dell'intestazione esistente.<br />-   delete - elimina l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati.|No |override|
 
 ### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -682,20 +682,20 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|proxy|Elemento radice|Sì|
+|proxy|Elemento radice|Yes|
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|Predefinito|
+|Attributo|DESCRIZIONE|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|
-|url="string"|URL del proxy nel formato http://host:port.|Sì|N/D|
+|url="string"|URL del proxy nel formato http://host:port.|Yes|N/D|
 |username="string"|Nome utente da usare per l'autenticazione con il proxy.|No |N/D|
 |password="string"|Password da usare per l'autenticazione con il proxy.|No |N/D|
 
-### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+### <a name="usage"></a>Utilizzo
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound
 
@@ -742,12 +742,12 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|set-method|Elemento radice. Il valore dell'elemento specifica il metodo HTTP.|Sì|
+|set-method|Elemento radice. Il valore dell'elemento specifica il metodo HTTP.|Yes|
 
 ### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, on-error
 
@@ -782,19 +782,19 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|set-status|Elemento radice.|Sì|
+|set-status|Elemento radice.|Yes|
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|Predefinito|
+|Attributo|DESCRIZIONE|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|
-|code="integer"|Il codice di stato HTTP da restituire.|Sì|N/D|
-|reason="string"|Descrizione del motivo per la restituzione del codice di stato.|Sì|N/D|
+|code="integer"|Il codice di stato HTTP da restituire.|Yes|N/D|
+|reason="string"|Descrizione del motivo per la restituzione del codice di stato.|Yes|N/D|
 
-### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+### <a name="usage"></a>Utilizzo
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** outbound, backend, on-error
 -   **Ambiti del criterio:** tutti gli ambiti
@@ -817,19 +817,19 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|set-variable|Elemento radice.|Sì|
+|set-variable|Elemento radice.|Yes|
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|
+|Attributo|DESCRIZIONE|Obbligatoria|
 |---------------|-----------------|--------------|
-|name|Nome della variabile.|Sì|
-|value|Valore della variabile. Può essere un'espressione o un valore letterale.|Sì|
+|name|Nome della variabile.|Yes|
+|value|Valore della variabile. Può essere un'espressione o un valore letterale.|Yes|
 
 ### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 -   **Ambiti del criterio:** tutti gli ambiti
@@ -884,18 +884,18 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|trace|Elemento radice.|Sì|
+|trace|Elemento radice.|Yes|
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|Predefinito|
+|Attributo|DESCRIZIONE|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|
-|source|Valore letterale della stringa significativo per il visualizzatore di tracce e che specifica l'origine del messaggio.|Sì|N/D|
+|una sezione source|Valore letterale della stringa significativo per il visualizzatore di tracce e che specifica l'origine del messaggio.|Yes|N/D|
 
 ### <a name="usage"></a>Uso
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -951,19 +951,19 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 
 ### <a name="elements"></a>Elementi
 
-|Elemento|Descrizione|Obbligatorio|
+|Elemento|DESCRIZIONE|Obbligatoria|
 |-------------|-----------------|--------------|
-|wait|Elemento radice. Può contenere come elementi figlio solo i criteri `send-request`, `cache-lookup-value` e `choose`.|Sì|
+|wait|Elemento radice. Può contenere come elementi figlio solo i criteri `send-request`, `cache-lookup-value` e `choose`.|Yes|
 
 ### <a name="attributes"></a>Attributi
 
-|Attributo|Descrizione|Obbligatorio|Predefinito|
+|Attributo|DESCRIZIONE|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|
 |for|Determina se il criterio `wait` attende il completamento di tutti o solo uno dei criteri figlio immediati. I valori consentiti sono i seguenti:<br /><br /> -   `all`: consente di attendere il completamento di tutti i criteri figlio immediati<br />-   any: consente di attendere il completamento di uno dei criteri figlio immediati. Dopo il completamento del primo criterio figlio immediato, il criterio `wait` si completa e l'esecuzione di qualsiasi altro criterio figlio immediato viene arrestata.|No |tutti|
 
 ### <a name="usage"></a>Uso
 
-Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, back-end
 -   **Ambiti del criterio:** tutti gli ambiti

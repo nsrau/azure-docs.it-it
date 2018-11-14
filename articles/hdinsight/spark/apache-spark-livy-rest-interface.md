@@ -2,19 +2,19 @@
 title: Usare Livy Spark per inviare processi al cluster Spark in Azure HDInsight
 description: Informazioni su come usare l'API REST di Apache Spark per inviare i processi in modalità remota a un cluster Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.openlocfilehash: d174d6103206129744ba7d932982b5d9dcb8294e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: 86a047fe291c7872fe275ba7246b9f3e59044723
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618127"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236824"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
 
@@ -152,9 +152,9 @@ Eseguire la procedura seguente:
    
     L'ultima riga dell'output indica che il batch è stato correttamente eliminato. Anche l'eliminazione di un processo, mentre è in esecuzione, termina il processo. Se si elimina un processo completato correttamente o non correttamente, le informazioni sul processo vengono eliminate completamente.
 
-## <a name="using-livy-spark-on-hdinsight-35-clusters"></a>Uso di Livy Spark nei cluster HDInsight 3.5
+## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Aggiornamenti alla configurazione di Livy a partire dalla versione 3.5 di HDInsight
 
-Un cluster HDInsight 3.5, per impostazione predefinita, disabilita l'uso di percorsi di file locali per accedere ai file di dati di esempio o a file JAR. Si consiglia di usare invece il percorso `wasb://` per accedere a file JAR o a file di dati di esempio dal cluster. Se si vuole usare un percorso locale, è necessario aggiornare di conseguenza la configurazione di Ambari. A tale scopo, procedere come segue:
+I cluster HDInsight 3.5 e superiori, per impostazione predefinita, disabilitano l'uso di percorsi di file locali per accedere ai file di dati di esempio o a file JAR. Si consiglia di usare invece il percorso `wasb://` per accedere a file JAR o a file di dati di esempio dal cluster. Se si vuole usare un percorso locale, è necessario aggiornare di conseguenza la configurazione di Ambari. A tale scopo, procedere come segue:
 
 1. Passare al portale di Ambari per il cluster. L'interfaccia utente Web di Ambari è disponibile nel cluster HDInsight all'indirizzo https://**NOMECLUSTER**.azurehdidnsight.net, dove NOMECLUSTER è il nome del cluster.
 

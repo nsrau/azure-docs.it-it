@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/24/2018
-ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986322"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978402"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architettura della connettività del database SQL di Azure
 
@@ -31,19 +31,30 @@ Il diagramma seguente offre una panoramica generale dell'architettura della conn
 
 I passaggi seguenti descrivono come viene stabilita una connessione a un database SQL di Azure tramite il servizio di bilanciamento del carico software del database SQL di Azure e il gateway del database SQL di Azure.
 
-- I client all'interno o all'esterno di Azure si connettono al servizio di bilanciamento del carico software, che ha un indirizzo IP pubblico ed è in ascolto sulla porta 1433.
-- Il servizio di bilanciamento del carico software indirizza il traffico al gateway del database SQL di Azure.
-- Il gateway reindirizza il traffico al middleware proxy corretto.
-- Il middleware proxy reindirizza il traffico al database SQL di Azure appropriato.
+- I client si connettono al servizio di bilanciamento del carico software, che ha un indirizzo IP pubblico ed è in ascolto sulla porta 1433.
+- Il servizio di bilanciamento del carico software inoltra il traffico al gateway del database SQL di Azure.
+- A seconda dei criteri di connessione effettivi, il gateway reindirizza o trasmette tramite proxy il traffico al middleware proxy corretto.
+- Il middleware proxy inoltra quindi il traffico al database SQL di Azure appropriato.
 
 > [!IMPORTANT]
 > Ognuno di questi componenti incorpora la protezione DDoS (Distributed Denial of Service) a livello di rete e di app.
 
+## <a name="connection-policy"></a>Criteri di connessione
+
+Il database SQL di Azure supporta le tre opzioni seguenti per l'impostazione dei criteri di connessione di un server di database SQL.
+
+- **Reindirizzamento (scelta consigliata):** i client stabiliscono connessioni dirette al nodo che ospita il database. Per abilitare la connettività, i client devono consentire regole del firewall in uscita a tutti gli indirizzi IP di Azure nell'area (per verificare questa possibilità, usare i gruppi di sicurezza rete con [tag di servizio](../virtual-network/security-overview.md#service-tags)) e non solo agli indirizzi IP del gateway del database SQL di Azure. I pacchetti vengono inviati direttamente al database e si verifica quindi un miglioramento di prestazioni in termini latenza e velocità effettiva.
+- **Proxy:** in questa modalità, tutte le connessioni vengono trasmesse tramite proxy ai gateway del database SQL di Azure. Per abilitare la connettività, il client deve avere regole del firewall in uscita che consentano solo gli indirizzi IP dei gateway del database SQL di Azure (in genere due indirizzi IP per ogni area). Se si sceglie questa modalità, è possibile che si riscontri un aumento della latenza e una riduzione della velocità effettiva, a seconda della natura del carico di lavoro. Se si preferisce la minor latenza e la maggiore velocità effettiva possibili, quindi, si consiglia di scegliere i criteri di connessione tramite reindirizzamento anziché tramite proxy.
+- **Predefiniti:** i criteri di connessione applicati in tutti i server dopo la creazione, se non esplicitamente impostati su Proxy o Reindirizzamento. I criteri applicati dipendono dall'origine delle connessioni, ossia se provengono dall'interno di Azure (Reindirizzamento) o all'esterno di Azure (Proxy).
+
 ## <a name="connectivity-from-within-azure"></a>Connettività dall'interno di Azure
 
-Se ci si connette dall'interno di Azure, il criterio di connessione predefinito per le connessioni è **reindirizzamento**. Un criterio di **reindirizzamento** significa che, dopo aver stabilito la sessione TCP al database SQL di Azure, la sessione client viene reindirizzata al middleware proxy sostituendo l'indirizzo IP virtuale di destinazione del gateway del database SQL di Azure con quello del middleware proxy. Tutti i pacchetti successivi passano poi direttamente attraverso il middleware proxy, ignorando il gateway del database SQL di Azure. Il diagramma seguente illustra il flusso del traffico.
+Se ci si connette dall'interno di Azure in un server creato dopo il 10 novembre 2018, vengono applicati criteri di connessione di tipo **Reindirizzamento**. Un criterio di **reindirizzamento** significa che, dopo aver stabilito la sessione TCP al database SQL di Azure, la sessione client viene reindirizzata al middleware proxy sostituendo l'indirizzo IP virtuale di destinazione del gateway del database SQL di Azure con quello del middleware proxy. Tutti i pacchetti successivi passano poi direttamente attraverso il middleware proxy, ignorando il gateway del database SQL di Azure. Il diagramma seguente illustra il flusso del traffico.
 
 ![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
+
+> [!IMPORTANT]
+> Se il server di database SQL è stato creato prima del 10 novembre 2018, i criteri di connessione sono stati impostati in modo esplicito su **Proxy**. Se si usano endpoint di servizio, è consigliabile modificare i criteri di connessione in **Reindirizzamento** per consentire prestazioni migliori. Se si modificano i criteri di connessione in **Reindirizzamento**, non sarà sufficiente consentire l'uscita dal gruppo di sicurezza di rete ai soli indirizzi IP del gateway del database SQL di Azure elencati di seguito, ma a tutti gli indirizzi IP del database SQL di Azure. Ciò è possibile con l'aiuto di tag di servizio NSG (gruppi di sicurezza di rete). Per altre informazioni, vedere [Tag di servizio](../virtual-network/security-overview.md#service-tags).
 
 ## <a name="connectivity-from-outside-of-azure"></a>Connettività dall'esterno di Azure
 
@@ -51,19 +62,11 @@ Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di con
 
 ![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
-> [!IMPORTANT]
-> Quando si usano gli endpoint servizio con il database SQL di Azure i criteri sono di **Proxy** per impostazione predefinita. Per abilitare la connettività dall'interno della rete virtuale, consentire le connessioni in uscita agli indirizzi IP del gateway del database SQL di Azure specificate nell'elenco riportato di seguito.
-
-Quando si usano endpoint di servizio, è consigliabile modificare il criterio di connessione in **Reindirizzamento** per consentire prestazioni migliori. Se si modifica il criterio di connessione in **Reindirizzamento**, non sarà sufficiente consentire l'uscita dal gruppo di sicurezza di rete ai soli indirizzi IP del gateway del database SQL di Azure elencati di seguito, ma a tutti gli indirizzi IP del database SQL di Azure. Ciò è possibile con l'aiuto di tag di servizio NSG (gruppi di sicurezza di rete). Per altre informazioni, vedere [Tag di servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
-
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Indirizzi IP del gateway del database SQL di Azure
 
 Per connettersi a un database SQL di Azure da risorse locali, è necessario consentire il traffico di rete in uscita verso il gateway del database SQL di Azure per la propria area di Azure. Le connessioni passano solo attraverso il gateway quando ci si connette in modalità proxy, ovvero l'impostazione predefinita per la connessione da risorse locali.
 
 La tabella seguente elenca gli indirizzi IP primario e secondario del gateway del database SQL di Azure per tutte le aree dati. Per alcune aree sono disponibili due indirizzi IP. In queste aree, l'indirizzo IP primario è l'indirizzo IP corrente del gateway e il secondo indirizzo IP è un indirizzo IP di failover. L'indirizzo di failover è l'indirizzo verso cui potrebbe essere spostato il server per mantenere l'alta disponibilità del servizio. Per queste aree, è consigliabile consentire il traffico in uscita verso entrambi gli indirizzi IP. Il secondo indirizzo IP è di proprietà di Microsoft e non è in ascolto su alcun servizio fino a quando non viene attivato dal database SQL di Azure per accettare connessioni.
-
-> [!IMPORTANT]
-> Se ci si connette dall'interno di Azure i criteri di connessione vengono **reindirizzati** per impostazione predefinita (tranne in caso di uso di endpoint di servizio). Non sarà sufficiente consentire i seguenti indirizzi IP. Occorre consentire tutti gli IP del database SQL di Azure. Se ci si connette dall'interno di una rete virtuale, ciò è possibile con l'aiuto di tag di servizio NSG (gruppi di sicurezza di rete). Per altre informazioni, vedere [Tag di servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Nome area | Indirizzo IP primario | Indirizzo IP secondario |
 | --- | --- |--- |

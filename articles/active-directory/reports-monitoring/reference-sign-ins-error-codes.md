@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 85df34445622a13488df590f5cb53bedb7b6ea93
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ce06c72c9974b4887cc441344fd755bfd156a1ca
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141732"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914720"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codici di errore del report delle attività di accesso nel portale di Azure Active Directory
 
@@ -117,10 +117,10 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 |50135|È richiesta la modifica della password a causa di rischi per l'account|
 |50136|Reindirizzare la sessione dell'account del servizio gestito all'app. È stata rilevata una singola sessione dell'account del servizio gestito. |
 |50140|Questo errore si è verificato a causa di un interrupt del comando "Mantieni l'accesso" durante l'accesso dell'utente. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) con ID di correlazione, ID richiesta e codice di errore per ottenere altri dettagli. |
-|50143|Mancata corrispondenza di sessione. La sessione non è valida perché il tenant dell'utente non corrisponde all'hint di dominio a causa di una risorsa diversa. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) con ID di correlazione, ID richiesta e codice di errore per ottenere altri dettagli.|
+|50143|Mancata corrispondenza della sessione: la sessione non è valida perché il tenant utente non corrisponde al suggerimento di dominio a causa di una risorsa diversa.  [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) con ID di correlazione, ID richiesta e codice di errore per ottenere altri dettagli.|
 |50144|La password di Active Directory dell'utente è scaduta. Generare una nuova password per l'utente o chiedere all'utente finale di usare lo strumento di reimpostazione self-service.|
 |50146|Questa applicazione deve essere configurata con una chiave di firma specifica dell'applicazione. O non è configurata con tale chiave oppure la chiave è scaduta o non è ancora valida. Contattare il proprietario dell'applicazione.|
-|50148|Il valore specificato per code_verifier non corrisponde al valore di code_challenge fornito nella richiesta di autorizzazione per PKCE. Contattare lo sviluppatore dell'applicazione. |
+|50148|Il valore specificato per code_verifier non corrisponde al valore di code_challenge fornito nella richiesta di autorizzazione per PKCE. Contattare lo sviluppatore dell'applicazione. |
 |50155|L'autenticazione del dispositivo non è riuscita per l'utente.|
 |50158|La richiesta di sicurezza esterna non è stata soddisfatta.|
 |50161|Le attestazioni inviate dal provider esterno non sono sufficienti oppure manca un'attestazione richiesta al provider esterno.|
@@ -152,7 +152,7 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 |70007|L'applicazione ha restituito un valore non supportato di "response_mode" durante la richiesta di un token. Contattare il proprietario dell'app.|
 |70008|Il codice di autorizzazione fornito o il token di aggiornamento è scaduto o è stato revocato. Chiedere all'utente di provare a eseguire di nuovo l'accesso.|
 |70011|L'ambito richiesto dall'applicazione non è valido. Contattare il proprietario dell'applicazione.|
-|70012|Si è verificato un errore del server durante l'autenticazione di un utente (consumer) dell'account del servizio gestito. Riprovare. Se il problema persiste, [aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md). |
+|70012|Si è verificato un errore del server durante l'autenticazione di un utente (consumer) dell'account del servizio gestito. Riprovare. Se il problema persiste, [aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) .|
 |70018|Codice di verifica non valido a causa di un errore di digitazione del codice utente per il flusso di codice del dispositivo. L'autorizzazione non è stata approvata.|
 |70019|Il codice di verifica è scaduto. Chiedere all'utente di provare a eseguire di nuovo l'accesso.|
 |70037|È stata fornita una risposta non corretta alla richiesta di verifica. Sessione di autorizzazione remota negata.|
@@ -180,6 +180,7 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 |90014| Un campo obbligatorio per un messaggio di protocollo non è presente. Contattare il proprietario dell'applicazione. Il proprietario dell'applicazione deve verificare di disporre di tutti i parametri necessari per la richiesta di accesso. |
 |90072| L'account deve essere prima aggiunto come utente esterno nel tenant. Disconnettersi ed eseguire nuovamente l'accesso con un account Azure AD diverso.|
 |90094| La concessione richiede le autorizzazioni di amministratore. Chiedere all'amministratore del tenant di fornire il consenso per l'applicazione.|
+|500133| L'asserzione non è compresa nell'intervallo di tempo valido. Assicurarsi che il token di accesso non sia scaduto prima di usarlo per l'asserzione utente o richiedere un nuovo token.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

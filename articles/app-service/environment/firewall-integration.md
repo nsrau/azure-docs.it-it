@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5f2dd31488ae61bec061a81986a208bd328bf39b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ce0123528b3fb2454d8b83d59b5916363ae0e944
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093621"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251577"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blocco di un ambiente del servizio app
 
@@ -28,7 +28,7 @@ Esistono numerose dipendenze in ingresso per un ambiente del servizio app. Il tr
 
 Le dipendenze in uscita dell'ambiente del servizio app sono quasi interamente definite con nomi di dominio completo, senza indirizzi statici sottostanti. La mancanza di indirizzi statici significa i gruppi di sicurezza di rete (NSG) non possono essere usati per bloccare il traffico in uscita da un ambiente del servizio app. Gli indirizzi cambiano con una frequenza tale, che non è possibile configurare le regole in base alla risoluzione corrente e usarla per creare gruppi di sicurezza di rete. 
 
-La soluzione per proteggere gli indirizzi in uscita consiste nell'usare un dispositivo firewall che può controllare il traffico in uscita in base ai nomi di dominio. Il team di rete di Azure ha attivato una nuova appliance di rete in anteprima, denominata Firewall di Azure. Firewall di Azure è in grado di limitare il traffico HTTP e HTTPS in uscita in base al nome DNS della destinazione.  
+La soluzione per proteggere gli indirizzi in uscita consiste nell'usare un dispositivo firewall che può controllare il traffico in uscita in base ai nomi di dominio. Firewall di Azure può limitare il traffico HTTP e HTTPS in uscita in base all'FQDN della destinazione.  
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configurazione di Firewall di Azure con l'ambiente del servizio app 
 
@@ -36,11 +36,11 @@ I passaggi per bloccare il traffico in uscita dall'ambiente del servizio app con
 
 1. Creare un firewall di Azure nella rete virtuale in cui risiede o risiederà l'ambiente del servizio app. [Documentazione di Firewall di Azure](https://docs.microsoft.com/azure/firewall/)
 2. Nell'interfaccia utente di Firewall di Azure, selezionare il tag FQDN dell'ambiente del servizio app
-3. Creare una tabella di route con gli indirizzi di gestione dagli [indirizzi di gestione dell'ambiente del servizio app]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) con hop successivo Internet. Le voci della tabella di route sono necessarie per evitare problemi di routing asimmetrico. 
-4. Aggiungere le route per le dipendenze dell'indirizzo IP indicate di seguito nelle dipendenze dell'indirizzo IP con hop successivo Internet. 
-5. Aggiungere una route alla tabella di route per 0.0.0.0/0 con hop successivo corrispondente all'appliance di rete Firewall di Azure
-6. Creare endpoint di servizio per la subnet dell'ambiente del servizio app per SQL di Azure e Archiviazione di Azure
-7. Assegnare la tabella di route creata alla subnet dell'ambiente del servizio app  
+3. Creare una tabella di route con gli indirizzi di gestione dagli [indirizzi di gestione dell'ambiente del servizio app]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) con hop successivo Internet. Le voci della tabella di route sono necessarie per evitare problemi di routing asimmetrico.
+4. Aggiungere le route per le dipendenze dell'indirizzo IP indicate di seguito nelle dipendenze dell'indirizzo IP con hop successivo Internet.
+5. Aggiungere una route alla tabella di route per 0.0.0.0/0 con hop successivo corrispondente a Firewall di Azure.
+6. Creare endpoint di servizio per la subnet dell'ambiente del servizio app per SQL di Azure e Archiviazione di Azure.
+7. Assegnare la tabella di route creata alla subnet dell'ambiente del servizio app.
 
 ## <a name="application-traffic"></a>Traffico delle applicazioni 
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bc273b8979b29057163e02dc9605e631aef173f1
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226643"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981527"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usare strumenti di automazione dell'infrastruttura con macchine virtuali in Azure
 Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in genere consigliabile una certa parte di automazione. Sono disponibili numerosi strumenti e soluzioni che consentono di automatizzare l'intero ciclo di vita di distribuzione e gestione dell'infrastruttura di Azure. Questo articolo presenta alcuni degli strumenti di automazione dell'infrastruttura che è possibile usare in Azure. Questi strumenti sono in genere associati a uno degli approcci seguenti:
@@ -129,9 +129,9 @@ Automazione di Azure fornisce anche un servizio DSC (Desired State Configuration
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/) è una famiglia di strumenti che permette di condividere e monitorare il codice, usare compilazioni automatiche e creare una pipeline di sviluppo e integrazione continua completa (CI/CD). Azure DevOps Services si integra con Visual Studio e altri editor di testo per semplificare l'utilizzo. Azure DevOps Services può anche creare e configurare macchine virtuali di Azure e quindi distribuirvi il codice.
 
-È possibile passare agli argomenti seguenti:
+Altre informazioni su:
 
-- [Creare una pipeline di integrazione continua con i servizi di Azure DevOps](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Servizi di Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins

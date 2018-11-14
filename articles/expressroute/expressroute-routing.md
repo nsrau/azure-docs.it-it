@@ -1,18 +1,18 @@
 ---
-title: Requisiti di routing per Azure ExpressRoute | Microsoft Docs
+title: Requisiti di routing per Azure ExpressRoute | Documentazione Microsoft
 description: Questa pagina illustra i requisiti dettagliati per la configurazione e la gestione del routing per i circuiti ExpressRoute.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/05/2018
 ms.author: ganesr
-ms.openlocfilehash: 35644912da2b75009ba2b16f4a188011ba1f813e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: cb48a9470a39cbe152f821333050e3dd5a28e1ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650129"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230948"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -100,7 +100,7 @@ Se i prefissi e il numero AS non sono assegnati all'utente specifico nei registr
 Un numero AS privato è consentito con il peering Microsoft, ma sarà necessaria anche la convalida manuale. Inoltre, i numeri AS privati in AS PATH per i prefissi ricevuti vengono rimossi. Di conseguenza, non è possibile aggiungere numeri AS privati in AS PATH per [determinare il routing per peering Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Gli indirizzi IP pubblici annunciati su Microsoft tramite ExpressRoute non devono essere annunciati su Internet, altrimenti potrebbe interrompersi la connettività con altri servizi Microsoft. Tuttavia, gli indirizzi IP pubblici usati dai server nella rete che comunica con gli endpoint di Office 365 nell'ambiente Microsoft possono essere annunciati tramite ExpressRoute. 
+> Non annunciare la stessa route IP pubblica tramite Internet pubblico ed ExpressRoute. È consigliabile annunciare una route più specifica tramite ExpressRoute e una route più generale tramite Internet per [NAT](expressroute-nat.md). Oltre alla route pubblica per NAT, è anche possibile annunciare tramite ExpressRoute gli indirizzi IP pubblici usati dai server nella rete locale che comunicano con gli endpoint di Office 365 all'interno di Microsoft. 
 > 
 > 
 
@@ -138,7 +138,7 @@ Le route predefinite sono consentite solo nelle sessioni di peering privato di A
 * Si usi il routing definito dall'utente per consentire la connettività Internet per ogni subnet che la richiede.
 
 > [!NOTE]
-> L'annuncio delle route predefinite interromperà l'attivazione della licenza di Windows e di altre macchine virtuali. Per risolvere questo problema, seguire le istruzioni fornite [qui](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) .
+> L'annuncio delle route predefinite interromperà l'attivazione della licenza di Windows e di altre macchine virtuali. Per risolvere questo problema, seguire le istruzioni fornite [qui](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) .
 > 
 > 
 

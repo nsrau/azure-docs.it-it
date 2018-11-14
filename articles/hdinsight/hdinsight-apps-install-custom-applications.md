@@ -1,24 +1,24 @@
 ---
-title: Installare applicazioni Hadoop personalizzate in Azure HDInsight
+title: Installare applicazioni Apache Hadoop personalizzate in Azure HDInsight
 description: Informazioni su come installare applicazioni HDInsight in applicazioni HDInsight.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 23fbbdc4fc41329efadc4fc7953afa0659e79465
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: hrasheed
+ms.openlocfilehash: b5870d53053511cb56f668943678aeb91bf23b3b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595900"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035357"
 ---
-# <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Hadoop personalizzate in Azure HDInsight
+# <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop personalizzate in Azure HDInsight
 
-Questo articolo illustra come installare un'applicazione Hadoop non pubblicata nel portale di Azure in Azure HDInsight. L'applicazione che verrà installata in questo articolo è [Hue](http://gethue.com/).
+Questo articolo illustra come installare un'applicazione Apache Hadoop non pubblicata nel portale di Azure in Azure HDInsight. L'applicazione che verrà installata in questo articolo è [Hue](http://gethue.com/).
 
 Un'applicazione HDInsight è un'applicazione che gli utenti possono installare in un cluster HDInsight basato su Linux.  Queste applicazioni possono essere sviluppate da Microsoft, da fornitori di software indipendenti (ISV) o dall'utente.  
 
@@ -66,7 +66,7 @@ File necessari per distribuire questa applicazione (Hue):
     Questo pulsante apre un modello di Azure Resource Manager nel portale di Azure.  Il modello di Resource Manager è disponibile in [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  Per informazioni su come scrivere questo modello di Azure Resource Manager, vedere [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: Installare un'applicazione HDInsight).
 2. Seguire le istruzioni per creare il cluster e installare Hue. Per altre informazioni sulla creazione di cluster HDInsight, vedere [Creare cluster Hadoop basati su Linux in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-Oltre al portale di Azure è anche possibile usare [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) e l'[interfaccia della riga di comando di Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-cli) per chiamare modelli di Resource Manager.
+Oltre al portale di Azure è anche possibile usare [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) e l'[interfaccia della riga di comando classica di Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-azure-cli) per chiamare modelli di Resource Manager.
 
 ## <a name="validate-the-installation"></a>Convalidare l'installazione
 È possibile controllare lo stato dell'applicazione nel portale di Azure per convalidare l'installazione dell'applicazione. È anche possibile verificare che il risultato di tutti gli endpoint HTTP sia quello previsto e convalidare l'eventuale pagina Web:
@@ -117,8 +117,8 @@ Dal portale è anche possibile eliminare il cluster o il gruppo di risorse che c
 ### <a name="use-azure-powershell"></a>Usare Azure PowerShell
 È possibile eliminare il cluster o il gruppo di risorse con Azure PowerShell. Vedere [Eliminare cluster usando Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
-È possibile eliminare il cluster o il gruppo di risorse con l'interfaccia della riga di comando di Azure. Vedere [Eliminare cluster usando l'interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md#delete-clusters).
+### <a name="use-azure-classic-cli"></a>Usare l'interfaccia della riga di comando classica di Azure
+Usando l'interfaccia della riga di comando classica di Azure è possibile eliminare il cluster o il gruppo di risorse. Vedere [Eliminare cluster usando l'interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: Installare un'applicazione HDInsight): informazioni su come sviluppare modelli di Azure Resource Manager per distribuire applicazioni HDInsight.

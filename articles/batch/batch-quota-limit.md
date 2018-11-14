@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887565"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282782"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -45,17 +45,27 @@ Se si prevede di eseguire carichi di lavoro di produzione in Batch, potrebbe ess
 
 Se è stato creato un account Batch con modalità di allocazione pool impostata su **Sottoscrizione utente**, le quote vengono applicate in modo diverso. In questa modalità, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione al momento della creazione di un pool. Le quote di core di Azure Batch non sono applicabili a un account creato in questa modalità. Vengono applicati invece le quote della sottoscrizione per i core di calcolo regionali e altre risorse. Per altre informazioni su tali quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
+## <a name="pool-size-limits"></a>Limiti delle dimensioni del pool
+
+| **Risorsa** | **Limite massimo** |
+| --- | --- |
+| **Nodi di calcolo nel [pool in cui è abilitata la comunicazione tra i nodi](batch-mpi.md)**  ||
+| Modalità di allocazione pool del servizio Batch | 100 |
+| Modalità di allocazione pool di sottoscrizione batch | 80 |
+| **Nodi di calcolo nel [pool creato con immagine di macchina virtuale personalizzata](batch-custom-images.md)**<sup>1</sup> ||
+| Nodi dedicati | 2000 |
+| Nodi a priorità bassa | 1000 |
+
+<sup>1</sup> Per pool non abilitati alla comunicazione tra i nodi.
+
 ## <a name="other-limits"></a>Altri limiti
 
 | **Risorsa** | **Limite massimo** |
 | --- | --- |
-| [Attività simultanee](batch-parallel-node-tasks.md) per nodo di calcolo |4 x numero di core del nodo |
-| [Applicazioni](batch-application-packages.md) per account Batch |20 |
-| Pacchetti dell'applicazione per applicazione |40 |
+| [Attività simultanee](batch-parallel-node-tasks.md) per nodo di calcolo | 4 x numero di core del nodo |
+| [Applicazioni](batch-application-packages.md) per account Batch | 20 |
+| Pacchetti dell'applicazione per applicazione | 40 |
 | Durata massima dell'attività | 7 giorni<sup>1</sup> |
-| Nodi di calcolo nel [pool in cui è abilitata la comunicazione tra i nodi](batch-mpi.md) | 100 |
-| Nodi di calcolo dedicati nel [pool creato con immagine di macchina virtuale personalizzata](batch-custom-images.md) | 2500 |
-| Nodi di calcolo a bassa priorità nel [pool creato con immagine di macchina virtuale personalizzata](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 7 giorni. Le attività completate persistono per un tempo illimitato. I dati per le attività non completate entro la durata massima non sono accessibili.
 

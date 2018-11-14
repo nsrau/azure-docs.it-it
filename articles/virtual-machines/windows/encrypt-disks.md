@@ -1,6 +1,6 @@
 ---
 title: Crittografare i dischi di una macchina virtuale Windows in Azure | Microsoft Docs
-description: Come crittografare i dischi virtuali in una VM di Windows per una maggiore sicurezza tramite Azure PowerShell
+description: Crittografare i dischi virtuali in una macchina virtuale Windows per una maggiore sicurezza usando Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,65 +13,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/07/2018
+ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 20d3568fa3f583c190f087de861d857fe3e793a9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 48eb76e7e076b8496b32878b2292447b1ccbf7f6
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985435"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977124"
 ---
-# <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Come crittografare i dischi virtuali in una VM di Windows
-Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali (VM), i dischi virtuali in Azure possono essere crittografati. I dischi vengono crittografati usando chiavi di crittografia protette in un insieme di credenziali delle chiavi di Azure. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una VM di Windows tramite Azure PowerShell. È inoltre possibile [crittografare una VM di Linux usando l'interfaccia della riga di comando di Azure](../linux/encrypt-disks.md).
+# <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Crittografare i dischi virtuali in una macchina virtuale Windows
+Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali (VM), i dischi virtuali in Azure possono essere crittografati. I dischi vengono crittografati usando chiavi di crittografia protette in un'istanza di Azure Key Vault. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una macchina virtuale Windows usando Azure PowerShell. È anche possibile [crittografare una macchina virtuale Linux usando l'interfaccia della riga di comando di Azure](../linux/encrypt-disks.md).
 
 ## <a name="overview-of-disk-encryption"></a>Panoramica della crittografia dei dischi
-I dischi virtuali delle VM di Windows vengono crittografati a riposo mediante Bitlocker. Non è previsto alcun addebito per la crittografia dei dischi virtuali in Azure. Le chiavi di crittografia vengono archiviate nell'insieme di credenziali delle chiavi di Azure che usano la protezione del software oppure è possibile importare o generare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 di livello 2. Queste chiavi di crittografia vengono usate per crittografare e decrittografare i dischi virtuali collegati alla VM. È possibile esercitare il controllo su queste chiavi di crittografia e sul loro uso. Un'entità servizio di Azure Active Directory offre un meccanismo protetto per il rilascio delle chiavi di crittografia all'accensione e allo spegnimento delle VM.
+I dischi virtuali delle macchine virtuali Windows vengono crittografati quando sono inattivi usando Bitlocker. Non è previsto alcun addebito per la crittografia dei dischi virtuali in Azure. Le chiavi di crittografia vengono archiviate in un'istanza di Azure Key Vault usando la protezione del software oppure è possibile importare o generare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 di livello 2. Le chiavi di crittografia vengono usate per crittografare e decrittografare i dischi virtuali collegati alla macchina virtuale. È possibile mantenere il controllo su queste chiavi di crittografia e su come vengono usate. 
 
 Il processo per la crittografia di una VM si articola nel modo seguente:
 
 1. Creare una chiave di crittografia in un insieme di credenziali delle chiavi di Azure.
-2. Configurare la chiave di crittografia in modo da renderla utilizzabile per la crittografia dei dischi.
-3. Per leggere la chiave di crittografia dall'insieme di credenziali delle chiavi di Azure, creare un'entità servizio di Azure Active Directory con le autorizzazioni appropriate.
-4. Eseguire il comando per crittografare i dischi virtuali, specificando l'entità servizio di Azure Active Directory e la chiave di crittografia appropriata da usare.
-5. L'entità servizio di Azure Active Directory richiede la chiave di crittografia necessaria dall'insieme di credenziali delle chiavi di Azure.
-6. I dischi virtuali vengono crittografati tramite la chiave di crittografia fornita.
+1. Configurare la chiave di crittografia in modo da renderla utilizzabile per la crittografia dei dischi.
+1. Abilitare la crittografia del disco per i dischi virtuali.
+1. Le chiavi di crittografia necessarie sono richieste da Azure Key Vault.
+1. I dischi virtuali vengono crittografati tramite la chiave di crittografia fornita.
 
-## <a name="encryption-process"></a>Processo di crittografia
-La crittografia del disco si basa sui componenti aggiuntivi seguenti:
-
-* **Insieme di credenziali delle chiavi di Azure**, che consente di proteggere le chiavi crittografiche e private usate per il processo di crittografia/decrittografia dei dischi. 
-  * Se disponibile, è possibile usare un insieme di credenziali delle chiavi di Azure esistente. Non è necessario dedicare un insieme di credenziali delle chiavi alla crittografia dei dischi.
-  * Per separare i limiti amministrativi e la visibilità delle chiavi, è possibile creare un insieme di credenziali delle chiavi dedicato.
-* **Azure Active Directory** gestisce lo scambio protetto delle chiavi di crittografia necessarie e dell'autenticazione per le azioni richieste. 
-  * In genere, è possibile inserire l'applicazione in un'istanza esistente di Azure Active Directory.
-  * L'entità servizio offre un meccanismo protetto per richiedere e consentire il rilascio delle chiavi di crittografia appropriate. Non si sta procedendo a sviluppare un'applicazione reale integrata con Azure Active Directory.
 
 ## <a name="requirements-and-limitations"></a>Requisiti e limitazioni
+
 Requisiti relativi alla crittografia dei dischi e scenari supportati:
 
-* Abilitazione della crittografia in nuove macchine virtuali di Windows da immagini di Azure Marketplace o da un'immagine del disco rigido virtuale personalizzata.
+* Abilitazione della crittografia in nuove macchine virtuali Windows da immagini di Azure Marketplace o da immagini del disco rigido virtuale personalizzate.
 * Abilitazione della crittografia nelle macchine virtuali esistenti di Windows in Azure.
-* Abilitazione della crittografia nelle macchine virtuali di Windows configurate usando spazi di archiviazione.
+* Abilitazione della crittografia nelle macchine virtuali Windows configurate usando spazi di archiviazione.
 * Disabilitazione della crittografia nel sistema operativo e nelle unità dati per le VM di Windows.
-* Tutte le risorse, come l'insieme di credenziali delle chiavi, l'account di archiviazione e la VM, devono risiedere nella stessa area e nella stessa sottoscrizione di Azure.
 * Macchine virtuali di livello standard, ad esempio macchine virtuali di serie A, D, DS, G e GS.
+
+    > [!NOTE]
+    > Tutte le risorse, inclusi Key Vault, l'account di archiviazione e la macchina virtuale, devono risiedere nella stessa area e nella stessa sottoscrizione di Azure.
 
 La crittografia del disco non è attualmente supportata negli scenari seguenti:
 
 * VM di base.
-* VM create con il modello di distribuzione classica.
+* Macchine virtuali create con il modello di distribuzione classica.
 * Aggiornare le chiavi di crittografia in una VM già crittografata.
-* Integrazione con il Servizio di gestione delle chiavi locale.
+* Integrazione con il servizio di gestione delle chiavi locale.
 
-## <a name="create-azure-key-vault-and-keys"></a>Creare le chiavi e l'insieme di credenziali delle chiavi di Azure
-Prima di iniziare verificare che sia installata la versione più recente del modulo Azure PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Negli esempi di comandi sostituire tutti i parametri di esempio con i propri valori di nome, percorso e chiave. Negli esempi seguenti viene usata una convenzione di *myResourceGroup*, *myKeyVault*, *myVM* e così via.
 
-Il primo passaggio consiste nel creare un insieme di credenziali delle chiavi di Azure in cui archiviare le chiavi di crittografia. L'insieme di credenziali delle chiavi di Azure consente di archiviare chiavi, chiavi private o password da implementare in tutta sicurezza in applicazioni e servizi. Per la crittografia del disco virtuale, creare il Key Vault per archiviare una chiave di crittografia usata per crittografare o decrittografare i dischi virtuali. 
+## <a name="create-an-azure-key-vault-and-keys"></a>Creare le chiavi e un Azure Key Vault
+Prima di iniziare, verificare che sia installata la versione più recente del modulo Azure PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Negli esempi di comando seguenti sostituire tutti i parametri di esempio con i propri nomi, località e valori chiave, ad esempio *myResourceGroup*, *myKeyVault*, *myVM* e così via.
+
+Il primo passaggio consiste nel creare un insieme di credenziali delle chiavi di Azure in cui archiviare le chiavi di crittografia. Le istanze di Azure Key Vault consentono di archiviare chiavi, chiavi private o password da implementare in tutta sicurezza in applicazioni e servizi. Per la crittografia del disco virtuale, creare un'istanza di Key Vault per archiviare una chiave di crittografia usata per crittografare o decrittografare i dischi virtuali. 
 
 Abilitare il provider di Azure Key Vault nella sottoscrizione di Azure con [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) e creare un gruppo di risorse con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). L'esempio seguente crea un nome del gruppo di risorse *myResourceGroup* nella posizione *Stati Uniti Orientali*:
 
-```powershell
+```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $location = "East US"
 
@@ -79,56 +73,30 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"
 New-AzureRmResourceGroup -Location $location -Name $rgName
 ```
 
-L'insieme di credenziali delle chiavi di Azure contenente le chiavi di crittografia e le risorse di calcolo associate, come l'archiviazione e la VM stessa, devono risiedere nella stessa area. Creare un Azure Key Vault con [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) e abilitare il Key Vault per l'uso con la crittografia del disco. Specificare un nome univoco di Key Vault per *keyVaultName* come indicato di seguito:
+L'istanza di Azure Key Vault contenente le chiavi di crittografia e le risorse di calcolo associate, come lo spazio di archiviazione e la macchina virtuale stessa, devono essere nella stessa area. Creare un Azure Key Vault con [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) e abilitare il Key Vault per l'uso con la crittografia del disco. Specificare un nome univoco di Key Vault per *keyVaultName* come indicato di seguito:
 
-```powershell
-$keyVaultName = "myUniqueKeyVaultName"
+```azurepowershell-interactive
+$keyVaultName = "myKeyVault$(Get-Random)"
 New-AzureRmKeyVault -Location $location `
     -ResourceGroupName $rgName `
     -VaultName $keyVaultName `
     -EnabledForDiskEncryption
 ```
 
-È possibile archiviare le chiavi di crittografia usando il software o il modulo di protezione hardware. L'uso di un modulo di protezione hardware richiede un insieme di credenziali delle chiavi premium. Esiste un costo aggiuntivo per creare un insieme di credenziali delle chiavi premium, anziché standard, in cui archiviare le chiavi protette tramite software. Per creare un Key Vault premium, aggiungere i parametri *-Sku "Premium"* nel passaggio precedente. L'esempio seguente usa chiavi protette tramite software, poiché viene creato un insieme di credenziali delle chiavi standard. 
+È possibile archiviare le chiavi di crittografia usando la protezione software o del modulo di protezione hardware.  Un'istanza di Key Vault standard archivia solo chiavi protette tramite software. L'uso di un modulo di protezione hardware richiede un'istanza di Key Vault Premium a un costo aggiuntivo. Per creare un'istanza di Key Vault premium, aggiungere il parametro *-Sku "Premium"* nel passaggio precedente. L'esempio seguente usa chiavi protette tramite software, poiché viene creato un insieme di credenziali delle chiavi standard. 
 
 Per entrambi i modelli di protezione, è necessario consentire alla piattaforma Azure di accedere all'avvio della VM per richiedere le chiavi di crittografia con cui decrittografare i dischi virtuali. Creare una chiave crittografica in Key Vault con [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey). Nell'esempio seguente viene creata una chiave denominata *myKey*:
 
-```powershell
+```azurepowershell-interactive
 Add-AzureKeyVaultKey -VaultName $keyVaultName `
     -Name "myKey" `
     -Destination "Software"
 ```
 
-
-## <a name="create-the-azure-active-directory-service-principal"></a>Creare un'entità servizio di Azure Active Directory
-Al momento di crittografare o decrittografare i dischi virtuali, specificare un account per gestisce l'autenticazione e lo scambio delle chiavi di crittografia dall'insieme di credenziali delle chiavi. Tale account, un'entità servizio di Azure Active Directory, consente alla piattaforma Azure di richiedere le chiavi di crittografia appropriate per conto della VM. Un'istanza di Azure Active Directory predefinita è già disponibile nella sottoscrizione, anche se molte organizzazioni hanno directory di Azure Active Directory dedicate.
-
-Creare un'entità servizio in Azure Active Directory con [New AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). Per specificare una password sicura seguire [Restrizioni e criteri password in Azure Active Directory](../../active-directory/authentication/concept-sspr-policy.md):
-
-```powershell
-$appName = "My App"
-$securePassword = ConvertTo-SecureString -String "P@ssw0rd!" -AsPlainText -Force
-$app = New-AzureRmADApplication -DisplayName $appName `
-    -HomePage "https://myapp.contoso.com" `
-    -IdentifierUris "https://contoso.com/myapp" `
-    -Password $securePassword
-New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
-```
-
-Per crittografare o decrittografare correttamente i dischi virtuali, le autorizzazioni per la chiave di crittografia archiviata nell'insieme di credenziali delle chiavi devono essere impostate in modo tale da consentire all'entità servizio di Azure Active Directory di leggere le chiavi. Impostare le autorizzazioni per Key Vault con [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy):
-
-```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
-    -ServicePrincipalName $app.ApplicationId `
-    -PermissionsToKeys "WrapKey" `
-    -PermissionsToSecrets "Set"
-```
-
-
-## <a name="create-virtual-machine"></a>Crea macchina virtuale
+## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 Per testare il processo di crittografia, creare una VM con [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm). L'esempio seguente crea una VM denominata *myVM* usando un'immagine di *Windows Server 2016 Datacenter*. Quando vengono richieste le credenziali, immettere un nome utente e una password da usare per la VM:
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 
 New-AzureRmVm `
@@ -143,17 +111,10 @@ New-AzureRmVm `
 ```
 
 
-## <a name="encrypt-virtual-machine"></a>Crittografare una macchina virtuale
-Per crittografare i dischi virtuali, è necessario riunire tutti i componenti precedenti:
+## <a name="encrypt-a-virtual-machine"></a>Crittografare una macchina virtuale
+Crittografare la macchina virtuale con [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) usando la chiave di Azure Key Vault. Nell'esempio seguente vengono recuperate tutte le principali informazioni e quindi viene crittografata la macchina virtuale denominata *myVM*:
 
-1. Specificare un'entità servizio e la password di Azure Active Directory.
-2. Specificare l'insieme di credenziali delle chiavi in cui memorizzare i metadati dei dischi crittografati.
-3. Specificare le chiavi di crittografia da usare per la crittografia e la decrittografia effettive.
-4. Specificare se si desidera crittografare il disco del sistema operativo, i dischi dati o tutti i dischi.
-
-Crittografare la macchina virtuale con [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) tramite la chiave di Azure Key Vault e le credenziali dell'entità servizio di Azure Active Directory. Nell'esempio seguente vengono recuperate tutte le principali informazioni e quindi viene crittografata la macchina virtuale denominata *myVM*:
-
-```powershell
+```azurepowershell-interactive
 $keyVault = Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
 $diskEncryptionKeyVaultUrl = $keyVault.VaultUri;
 $keyVaultResourceId = $keyVault.ResourceId;
@@ -161,8 +122,6 @@ $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKe
 
 Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -VMName "myVM" `
-    -AadClientID $app.ApplicationId `
-    -AadClientSecret (New-Object PSCredential "user",$securePassword).GetNetworkCredential().Password `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
     -DiskEncryptionKeyVaultId $keyVaultResourceId `
     -KeyEncryptionKeyUrl $keyEncryptionKeyUrl `
@@ -171,13 +130,13 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
 
 Accettare la richiesta di continuare la crittografia della macchina virtuale. Durante questo processo, la VM viene riavviata. Dopo aver completato il processo di crittografia e aver riavviato la macchina virtuale, controllare lo stato di crittografia con [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus):
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
 ```
 
 L'output è simile all'esempio seguente:
 
-```powershell
+```azurepowershell-interactive
 OsVolumeEncrypted          : Encrypted
 DataVolumesEncrypted       : Encrypted
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
@@ -185,5 +144,5 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sulla gestione di Azure Key Vault, vedere [Configurare il Key Vault per le macchine virtuali](key-vault-setup.md).
+* Per altre informazioni sulla gestione di un'istanza di Azure Key Vault, vedere [Configurare un'istanza di Key Vault per le macchine virtuali](key-vault-setup.md).
 * Per altre informazioni sulla crittografia del disco, tra cui come preparare una VM personalizzata con crittografia da caricare in Azure, vedere [Crittografia dischi di Azure](../../security/azure-security-disk-encryption.md).

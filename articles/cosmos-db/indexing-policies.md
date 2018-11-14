@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cd3b5f49788282b535f07c6f84bf7e4002132ab9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054673"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237588"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Come vengono indicizzati i dati da Azure Cosmos DB?
 
@@ -147,11 +147,11 @@ Di seguito sono indicati i modelli comuni per la definizione di percorsi di indi
 | path                | Descrizione/Caso d'uso                                                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | Percorso predefinito per la raccolta. Ricorsivo e applicabile all'intero albero del documento.                                                                                                                                                                                                                                   |
-| /prop/?             | Percorso di indice necessario per gestire query come la seguente (rispettivamente con tipi hash e di intervallo):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
-| /prop/*             | Percorso di indice per tutti i percorsi al di sotto dell'etichetta specificata. Funziona con le query seguenti<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /prop/?             | Percorso di indice necessario per gestire query come la seguente (rispettivamente con tipi hash e di intervallo):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
+| /prop/*             | Percorso di indice per tutti i percorsi al di sotto dell'etichetta specificata. Funziona con le query seguenti<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
 | /props/[]/?         | Percorso di indice che consente di servire iterazioni e query JOIN su matrici di valori scalari, come ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
 | /props/[]/subprop/? | Percorso di indice che consente di servire iterazioni e query JOIN su matrici di oggetti, come [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
-| /prop/subprop/?     | Percorso di indice necessario per gestire le query (rispettivamente con tipi hash e di intervallo):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
+| /prop/subprop/?     | Percorso di indice necessario per gestire le query (rispettivamente con tipi hash e di intervallo):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
 > Quando si impostano percorsi di indice personalizzati, è necessario specificare la regola di indicizzazione predefinita per l'intero albero del documento, indicato dal percorso speciale "/*". 
@@ -276,9 +276,9 @@ Di seguito sono elencati i tipi di indice supportati e gli esempi di query che p
 
 | Tipologia di indice | Descrizione/Caso d'uso                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hash       | Hash over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (or / or /props/) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
-| Range      | Range over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
-| Spatial     | Range over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --con indicizzazione su punti abilitata<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --con indicizzazione su poligoni abilitata              |
+| Hash       | Hash over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (or / or /props/) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| Range      | Range over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
+| Spatial     | Range over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --con indicizzazione su punti abilitata<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --con indicizzazione su poligoni abilitata              |
 
 Per impostazione predefinita, viene restituito un errore per le query con operatori di intervallo, ad esempio >=, se non esiste alcun indice di intervallo (di qualsiasi precisione) per segnalare che potrebbe essere necessaria un'analisi per gestire la query. Le query di intervallo possono essere eseguite senza un indice di intervallo usando l'intestazione **x-ms-documentdb-enable-scan** nell'API REST o l'opzione di richiesta **EnableScanInQuery** usando .NET SDK. Se la query include altri filtri in base ai quali Azure Cosmos DB può usare l'indice per filtrare, non viene restituito alcun errore.
 
@@ -323,7 +323,7 @@ Analogamente, è possibile escludere completamente i percorsi dall'indicizzazion
 
 Con l'indicizzazione automatica disattivata, è comunque possibile aggiungere in modo selettivo solo documenti specifici all'indice. Al contrario, è possibile lasciare attiva l'indicizzazione automatica e scegliere di escludere selettivamente documenti specifici. Le configurazioni di attivazione o disattivazione dell'indicizzazione sono utili in presenza di un solo subset di documenti su cui eseguire query.
 
-L'esempio seguente mostra come includere in modo esplicito un documento usando [.NET SDK per l'API SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) e la proprietà [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+L'esempio seguente mostra come includere in modo esplicito un documento usando [.NET SDK per l'API SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) e la proprietà [RequestOptions.IndexingDirective](https://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -413,7 +413,7 @@ Quando è necessario apportare modifiche ai criteri di indicizzazione per le rac
 ## <a name="performance-tuning"></a>Ottimizzazione delle prestazioni
 Le API SQL forniscono informazioni sulle metriche delle prestazioni, ad esempio lo spazio di archiviazione usato per gli indici e il costo della velocità effettiva (unità richiesta) per ogni operazione. Queste informazioni possono essere usate per confrontare diversi criteri di indicizzazione e per l'ottimizzazione delle prestazioni.
 
-Per controllare la quota di archiviazione e l'utilizzo di una raccolta, eseguire una richiesta **HEAD** o **GET** sulla risorsa della raccolta. Esaminare quindi le intestazioni **x-ms-request-quota** e **x-ms-request-usage**. In .NET SDK le proprietà [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) di [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contengono questi valori corrispondenti.
+Per controllare la quota di archiviazione e l'utilizzo di una raccolta, eseguire una richiesta **HEAD** o **GET** sulla risorsa della raccolta. Esaminare quindi le intestazioni **x-ms-request-quota** e **x-ms-request-usage**. In .NET SDK le proprietà [DocumentSizeQuota](https://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) di [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) contengono questi valori corrispondenti.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -421,7 +421,7 @@ Per controllare la quota di archiviazione e l'utilizzo di una raccolta, eseguire
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Per valutare l'overhead di indicizzazione di ogni operazione di scrittura (creazione, aggiornamento o eliminazione), esaminare l'intestazione **x-ms-request-charge** o la proprietà equivalente [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) in .NET SDK per determinare il numero di unità richiesta usate da queste operazioni.
+Per valutare l'overhead di indicizzazione di ogni operazione di scrittura (creazione, aggiornamento o eliminazione), esaminare l'intestazione **x-ms-request-charge** o la proprietà equivalente [RequestCharge](https://msdn.microsoft.com/library/dn799099.aspx) in [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) in .NET SDK per determinare il numero di unità richiesta usate da queste operazioni.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              

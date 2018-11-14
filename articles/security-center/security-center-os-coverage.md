@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f4bc90b2d1a80125ae88b4b5c4c11e42a34a985a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319983"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240427"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Funzionalità e piattaforme supportate dal Centro sicurezza di Azure
 
@@ -80,16 +80,16 @@ Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Veng
 |Configurazioni di sicurezza|✔|✔|✔|✔|
 |Antimalware|✔|✔|X|X|
 |Accesso JIT alle VM|✔|X|✔|X|
-|Controlli delle applicazioni adattivi|✔ (solo Azure)|X|X|X|
+|Controlli delle applicazioni adattivi|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |Crittografia del disco|✔|X|✔|X|
 |Distribuzione di terze parti|✔|X|✔|X|
 |Gruppi di sicurezza di rete|✔|X|✔|X|
-|Filess V1|✔|✔|X|X|
+|Rilevamento delle minacce senza filess|✔|✔|X|X|
 |Mappa di rete|✔|X|✔|X|
-|Protezione adattiva della rete|✔|X|✔|X|
+|Controlli adattivi della rete|✔|X|✔|X|
 
-* Queste funzionalità sono attualmente supportate in anteprima pubblica.
+\* Queste funzionalità sono attualmente supportate in anteprima pubblica.
 
 
 ## <a name="supported-paas-features"></a>Funzionalità PaaS supportate
@@ -103,26 +103,17 @@ Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Veng
 |Account di archiviazione BLOB*|✔| ✔|
 |Servizi app|✔| ✔|
 |Servizi cloud|✔| X|
-|Cache Redis|✔| X|
-|Service Fabric|✔| X|
-|Automazione di Azure|✔| X|
-|Data lake |✔| X|
-|Insieme di credenziali delle chiavi|✔| X|
-|Bus di servizio|✔| X|
-|Analisi dei flussi|✔| X|
-|Batch|✔| X|
-|App per la logica|✔| X|
 |Reti virtuali|✔| ND|
 |Subnet|✔| ND|
 |Schede di interfaccia di rete|✔| ✔|
 |Gruppi di sicurezza di rete|✔| ND|
 |Sottoscrizione|✔| ✔|
 
-* Queste funzionalità sono attualmente supportate in anteprima pubblica.
+\* Queste funzionalità sono attualmente supportate in anteprima pubblica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md): informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure
 - [Avvisi di sicurezza per tipo nel Centro sicurezza di Azure](security-center-alerts-type.md#virtual-machine-behavioral-analysis): altre informazioni sull'analisi comportamentale della macchina virtuale e sull'analisi della memoria dump di arresto anomalo del sistema nel Centro sicurezza
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio
-- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
+- [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure

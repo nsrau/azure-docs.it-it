@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8fddcdbb8aa523cf3a98a8f2b203440ceedbdf06
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249804"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015206"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare con Condizioni per l'utilizzo.
@@ -218,7 +218,7 @@ I criteri di accesso condizionale diventano effettivi immediatamente. In questo 
 
 **D: come posso sapere se un utente ha accettato le condizioni per l'utilizzo?**</br>
 R: Nel pannello Condizioni per l'utilizzo fare clic sul numero sotto **Accettato**. È anche possibile visualizzare o cercare l'attività accettata nei log di controllo di Azure AD. Per altre informazioni, vedere [Visualizzare il report degli utenti che hanno accettato e rifiutato](#view-who-has-accepted-and-declined) e [Visualizzare i log di controllo di Azure AD](#view-azure-ad-audit-logs).
- 
+
 **D: per quanto tempo sono archiviate le informazioni?**</br>
 R: i conteggi inclusi nel report delle Condizioni per l'utilizzo e gli utenti che hanno accettato o rifiutato vengono archiviati per tutta la durata delle Condizioni per l'utilizzo. I log di controllo di Azure AD vengono archiviati per 30 giorni.
 
@@ -245,12 +245,15 @@ R: è possibile creare un criterio di accesso condizionale per le applicazioni a
 
 **D: è possibile aggiungere più condizioni per l'utilizzo a un utente o a un'app specifici?**</br>
 R: sì, mediante la creazione di più criteri di accesso condizionale destinati a tali gruppi o applicazioni. Se un utente rientra nell'ambito di più condizioni per l'utilizzo, accetta una condizione alla volta.
- 
+
 **D: cosa accade se un utente rifiuta le condizioni per l'utilizzo?**</br>
 R: ne viene bloccato l'accesso all'applicazione. L'utente deve accedere nuovamente e accettare le condizioni.
- 
+
 **D: È possibile annullare l'accettazione di Condizioni per l'utilizzo accettate in precedenza?**</br>
 R: È possibile [annullare l'accettazione di Condizioni per l'utilizzo accettate in precedenza](#how-users-can-review-their-terms-of-use), ma attualmente non esiste un modo per farlo.
+
+**D: Cosa succede se si usano anche termini e condizioni di Intune?**</br>
+R: Se sono stati configurati sia Condizioni per l'utilizzo di Azure AD sia [termini e condizioni di Intune](/intune/terms-and-conditions-create), l'utente dovrà accettarli entrambi. Per altre informazioni, vedere il [post di blog sulla scelta della soluzione di Condizioni di utilizzo più adatta per l'organizzazione](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3cb44779f376dca1844f42f346ed0fa3bfaa93cf
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 50ec49c22c64780c8f887b12eef1dd0e75c379ed
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269446"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010605"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -75,6 +75,9 @@ No, Azure AD Connect non supporta foreste e domini locali il cui nome NetBIOS co
 
 **D: L'ambiente puro IPv6 è supportato?**  
 No, Azure AD Connect non supporta un ambiente IPv6 puro.
+
+**D: È presente un ambiente a più foreste, dove la rete tra due foreste usa NAT (Network Address Translation). L'uso di Azure AD Connect tra le due foreste è supporto?**</br>
+ No, l'uso di Azure AD Connect con NAT non è supportato. 
 
 ## <a name="federation"></a>Federazione
 **D: Cosa occorre fare se si riceve un messaggio di posta elettronica che richiede il rinnovo del certificato di Office 365?**  

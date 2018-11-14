@@ -7,14 +7,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: b4865c1ba7532910ef0b4a41a5a19d2880e37d6e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: f02fa8ff80915c23f70db09a1dee393010795132
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698962"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277444"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metriche del bus di sevizio di Azure in Monitoraggio di Azure (anteprima)
 
@@ -27,9 +27,9 @@ Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di d
 
 ## <a name="access-metrics"></a>Accedere alle metriche
 
-Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche dal [portale di Azure](https://portal.azure.com) o usare le API di Monitoraggio di Azure (REST e .NET) e soluzioni di analisi come Log Analytics e Hub eventi. Per altre informazioni, vedere le [metriche di Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche dal [portale di Azure](https://portal.azure.com) o usare le API di Monitoraggio di Azure (REST e .NET) e soluzioni di analisi come Log Analytics e Hub eventi. Per altre informazioni, consultare [Monitoraggio dei dati raccolti da Monitoraggio di Azure](../monitoring/monitoring-data-collection.md).
 
-Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo approccio viene configurato nelle [Impostazioni di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Monitoraggio di Azure.
+Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo valore viene configurato nelle [impostazioni di diagnostica ](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Monitoraggio di Azure.
 
 ## <a name="access-metrics-in-the-portal"></a>Accedere alle metriche nel portale
 
@@ -70,7 +70,7 @@ Conta il numero di richieste di operazioni di dati e gestione.
 
 I due tipi di errori seguenti sono classificati come errori utente:
 
-1. Errori sul lato client (in HTTP sarebbero errori 400).
+1. Errori sul lato client (in HTTP sono errori 400).
 2. Gli errori che si verificano durante l'elaborazione di messaggi, ad esempio [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
 
 
@@ -80,6 +80,8 @@ I due tipi di errori seguenti sono classificati come errori utente:
 | ------------------- | ----------------- |
 |Messaggi in ingresso (anteprima)|Numero di eventi o messaggi inviati al bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |Messaggi in uscita (anteprima)|Numero di eventi o messaggi inviati dal bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+| Messaggi (anteprima) | Numero di messaggi contenuti in una coda o in un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Dimensione: EntityName |
+| Messaggi attivi (anteprima) | Numero di messaggi attivi in una coda o in un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Dimensione: EntityName |
 
 ## <a name="connection-metrics"></a>Metriche di connessione
 
@@ -90,6 +92,9 @@ I due tipi di errori seguenti sono classificati come errori utente:
 |Connessioni chiuse (anteprima)|Numero di connessioni chiuse.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Metriche di utilizzo delle risorse
+
+> [!NOTE] 
+> Le metriche seguenti sono disponibili solo con il livello **Premium**. 
 
 | Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
@@ -103,6 +108,54 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
 |Nome della dimensione|DESCRIZIONE|
 | ------------------- | ----------------- |
 |EntityName| Il bus di servizio supporta le entità di messaggistica nello spazio dei nomi.|
+
+## <a name="set-up-alerts-on-metrics"></a>Configurazione di avvisi relativi alle metriche
+
+1. Nella scheda **Metriche** della pagina **Spazio dei nomi del bus di servizio** selezionare **Configura avvisi**. 
+
+    ![Pagina Metriche - menu Configura avvisi](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
+2. Selezionare **Seleziona destinazione** ed eseguire le azioni seguenti nella pagina **Seleziona una risorsa**: 
+    1. Selezionare **Spazio dei nomi del bus di servizio** per il campo **Filtra per tipo di risorsa**. 
+    2. Selezionare la sottoscrizione di Azure per il campo **Filtra per sottoscrizione**.
+    3. Selezionare lo **spazio dei nomi del bus di servizio** nell'elenco. 
+    4. Selezionare **Operazione completata**. 
+    
+        ![Selezionare lo spazio dei nomi](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+1. Selezionare **Aggiungi criteri** ed eseguire le azioni seguenti nella pagina **Configura logica dei segnali**:
+    1. Selezionare **Metriche** per **Tipo segnale**. 
+    2. Selezionare un segnale, ad esempio **Service errors (Preview)** (Errori del servizio - Anteprima). 
+
+        ![Selezionare gli errori del server](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
+    1. Selezionare **Greater than** (Maggiore di) per **Condizione**.
+    2. Selezionare **Totale** per **Aggregazione temporale**. 
+    3. Immettere **5** per **Soglia**. 
+    4. Selezionare **Operazione completata**.    
+
+        ![Specificare una condizione](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
+1. Nella pagina **Crea regola** espandere **Definire i dettagli dell'avviso** ed eseguire queste azioni:
+    1. Immettere un **nome** per l'avviso. 
+    2. Immettere una **descrizione** per l'avviso.
+    3. Selezionare una **gravità** per l'avviso. 
+
+        ![Dettagli dell'avviso](./media/service-bus-metrics-azure-monitor/alert-details.png)
+1. Nella pagina **Crea regola** espandere **Definire il gruppo di azioni**, selezionare **Nuovo gruppo di azioni** e nella pagina **Aggiungi gruppo di azioni** eseguire le azioni seguenti. 
+    1. Immettere un nome per il gruppo di azioni.
+    2. Immettere un nome breve per il gruppo di azioni. 
+    3. Selezionare la propria sottoscrizione. 
+    4. Selezionare un gruppo di risorse. 
+    5. Per questa procedura dettagliata immettere **Invia messaggio di posta elettronica** per **NOME AZIONE**.
+    6. Selezionare **Email/SMS/Push/Voice** (E-mail/SMS/Push/Voce) per **TIPO DI AZIONE**. 
+    7. Selezionare **Modifica dettagli**. 
+    8. Nella pagina **Email/SMS/Push/Voice** (E-mail/SMS/Push/Voce) eseguire le azioni seguenti:
+        1. Selezionare **E-mail**. 
+        2. Digitare l'**indirizzo e-mail**. 
+        3. Selezionare **OK**.
+
+            ![Dettagli dell'avviso](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+        4. Nella pagina **Aggiungi gruppo di azioni** selezionare **OK**. 
+1. Nella pagina **Crea regola** selezionare **Crea regola di avviso**. 
+
+    ![Pulsante Crea regola di avviso](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

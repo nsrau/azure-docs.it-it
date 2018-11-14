@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6f7fced5163476dc1de866474484f98d546d1901
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 31ae13fb84453a7014b66499c983e1f52554775e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945723"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279127"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere AD FS come provider di identità SAML tramite criteri personalizzati in Azure Active Directory B2C
 
@@ -26,11 +26,11 @@ Questo articolo illustra come abilitare l'accesso per gli account utente AD FS u
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Verificare di avere accesso al file PFX del certificato con la chiave privata rilasciata da AD FS.
+- Verificare di avere accesso al file con estensione pfx del certificato con la chiave privata. È possibile generare il proprio certificato autofirmato e caricarlo in Azure AD B2C. Azure AD B2C usa questo certificato per firmare la richiesta SAML inviata al provider di identità SAML.
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
-È necessario quindi archiviare il certificato AD FS nel tenant di Azure AD B2C.
+È necessario archiviare il certificato nel tenant di Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
@@ -38,7 +38,7 @@ Questo articolo illustra come abilitare l'accesso per gli account utente AD FS u
 4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità - ANTEPRIMA**.
 5. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
 6. Per **Opzioni** scegliere `Upload`.
-7. Immettere un **nome** per la chiave dei criteri. Ad esempio: `ADFSSamlCert`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
+7. Immettere un **nome** per la chiave dei criteri. Ad esempio: `SamlCert`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 8. Individuare e selezionare il file di certificato con estensione pfx con la chiave privata.
 9. Fare clic su **Create**(Crea).
 
@@ -64,6 +64,7 @@ Per consentire agli utenti di accedere con un account AD FS, è necessario defin
           <Metadata>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+            <Item Key=" XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -165,6 +166,15 @@ Aprire un browser e passare all'URL. Assicurarsi di digitare l'URL corretto e di
 9. Selezionare **Aggiungi regola**.  
 10. In **Modello di regola attestazione** selezionare **Inviare attributi LDAP come attestazioni**.
 11. Specificare un nome in **Nome regola attestazione**. Per **Archivio attributi** selezionare **Select Active Directory** (Seleziona Active Directory), aggiungere le attestazioni seguenti e quindi fare clic su **Fine** e su **OK**.
+
+    | Attributo LDAP | Tipo di attestazione in uscita |
+    | -------------- | ------------------- |
+    | User-Principal-Name | userPricipalName |
+    | Surname | family_name |
+    | Given-Name | given_name |
+    | E-Mail-Address | email |
+    | Display-Name | name |
+    
 12.  In base al tipo di certificato è possibile che sia necessario impostare l'algoritmo HASH. Nella finestra delle proprietà del trust della relying party (B2C Demo) selezionare la scheda **Avanzate** e impostare **Algoritmo hash sicuro** su `SHA-1` o `SHA-256` e quindi fare clic su **OK**.  
 13. In Server Manager selezionare **Strumenti** e quindi **Gestione AD FS**.
 14. Selezionare il trust della relying party creato, selezionare **Update from Federation Metadata** (Aggiorna da metadati federazione) e quindi fare clic su **Aggiorna**. 

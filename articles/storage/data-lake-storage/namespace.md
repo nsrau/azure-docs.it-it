@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 44eec21f4687d2df64c59d41cdb02c6ef2268f82
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b5d3a735bd490468e989ac29c9f082475cc7eab3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528698"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283369"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Spazio dei nomi gerarchico per Anteprima di Azure Data Lake Storage Gen2
 
-Meccanismo chiave che consente alla versione di anteprima di Azure Data Lake Storage Gen2 di fornire prestazioni del file system scalabili in base all'archiviazione di oggetti e ai prezzi tramite l'aggiunta di uno **spazio dei nomi gerarchico**. Consente la raccolta di oggetti o file all'interno di un account per organizzarli in una gerarchia di directory e sottodirectory annidate allo stesso modo in cui sono organizzate nel file system o sul computer. Con lo spazio dei nomi gerarchico abilitato, Data Lake Storage Gen2 offre scalabilità ed efficacia di archiviazione di oggetti, con la semantica del file system già nota ai motori e ai framework di analisi.
+Meccanismo chiave che consente alla versione di anteprima di Azure Data Lake Storage Gen2 di fornire prestazioni del file system scalabili in base all'archiviazione di oggetti e ai prezzi tramite l'aggiunta di uno **spazio dei nomi gerarchico**. Consente la raccolta di oggetti o file all'interno di un account per organizzarli in una gerarchia di directory e sottodirectory annidate allo stesso modo in cui sono organizzate nel file system o sul computer. Con lo spazio dei nomi gerarchico abilitato, l'account di archiviazione è in grado di offrire la scalabilità e l'efficacia di archiviazione di oggetti, con la semantica del file system già nota ai motori e ai framework di analisi.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Vantaggi dello spazio dei nomi gerarchico
 
@@ -26,7 +26,7 @@ Meccanismo chiave che consente alla versione di anteprima di Azure Data Lake Sto
 
 I file system che implementano uno spazio dei nomi gerarchico per i dati BLOB godono dei seguenti vantaggi:
 
-- **Modifica della directory atomica:** gli archivi di oggetti simulano una gerarchia di directory adottando una convenzione che prevede l'inserimento di slash (/) nel nome oggetto per indicare i segmenti di tracciato. Quando questa convenzione viene usata per organizzare gli oggetti, non prevede alcuna assistenza per le azioni quali lo spostamento, la ridenominazione o l'eliminazione di directory. Senza directory reali, le applicazioni devono elaborare potenzialmente milioni di singoli BLOB per offrire attività a livello di directory. Al contrario, lo spazio dei nomi gerarchico elabora queste attività mediante l'aggiornamento di una singola voce (la directory principale). 
+- **Modifica della directory atomica:** gli archivi di oggetti simulano una gerarchia di directory adottando una convenzione che prevede l'inserimento di slash (/) nel nome oggetto per indicare i segmenti di tracciato. Quando questa convenzione viene usata per organizzare gli oggetti, non prevede alcuna assistenza per le azioni quali lo spostamento, la ridenominazione o l'eliminazione di directory. Senza directory reali, le applicazioni devono elaborare potenzialmente milioni di singoli BLOB per offrire attività a livello di directory. Al contrario, lo spazio dei nomi gerarchico elabora queste attività mediante l'aggiornamento di una singola voce (la directory principale).
 
     Questa ottimizzazione significativa è particolarmente importante per molti framework di analisi dei Big Data. Strumenti quali Hive, Spark e altri ancora scrivono spesso l'output su percorsi temporanei, per poi rinominare il percorso al termine del processo. Senza lo spazio dei nomi gerarchico, la ridenominazione spesso può richiedere più tempo del processo di analisi stesso. Una latenza di processo più bassa implica una riduzione del costo totale di proprietà (TCO) per i carichi di lavoro analitici.
 

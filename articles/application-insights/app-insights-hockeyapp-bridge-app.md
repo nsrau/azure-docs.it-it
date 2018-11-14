@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce8946e5a022eea9281898d1518cc3e8bfb50ee5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1951f001de1b9d0667e5d4430454b32b5a3c890e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092506"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957489"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Esplorazione dei dati HockeyApp in Application Insights
 
@@ -52,7 +52,7 @@ Si noti che l'avvio del flusso di dati richiede del tempo.
 
 ![Risorsa di Application Insights in attesa dei dati](./media/app-insights-hockeyapp-bridge-app/04.png)
 
-La procedura è terminata. Da questo momento, i dati di traccia e personalizzati raccolti nell'app instrumentata HockeyApp saranno disponibili anche nelle funzionalità Analisi ed Esportazione continua di Application Insights.
+L'operazione è terminata. Da questo momento, i dati di traccia e personalizzati raccolti nell'app instrumentata HockeyApp saranno disponibili anche nelle funzionalità Analisi ed Esportazione continua di Application Insights.
 
 Verranno brevemente esaminate queste funzionalità ora disponibili.
 
@@ -61,7 +61,7 @@ Analisi è uno strumento avanzato per query ad hoc che consente di diagnosticare
 
 ![Analytics](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [Altre informazioni su Analisi](app-insights-analytics-tour.md)
+* [Altre informazioni su Analisi](../log-analytics/query-language/get-started-analytics-portal.md)
 
 ## <a name="continuous-export"></a>Esportazione continua
 Esportazione continua consente di esportare i dati in un contenitore dell'archivio BLOB di Azure. Ciò è molto utile se è necessario mantenere i dati per un tempo maggiore rispetto al periodo di conservazione attualmente offerto da Application Insights. È possibile conservare i dati nell'archivio BLOB ed elaborarli in un database SQL o nella soluzione di data warehousing scelta.
@@ -69,5 +69,5 @@ Esportazione continua consente di esportare i dati in un contenitore dell'archiv
 [Altre informazioni su Esportazione continua](app-insights-export-telemetry.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Applicare Analisi ai dati](app-insights-analytics-tour.md)
+* [Applicare Analisi ai dati](../log-analytics/query-language/get-started-analytics-portal.md)
 

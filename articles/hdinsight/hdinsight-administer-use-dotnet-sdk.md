@@ -1,22 +1,22 @@
 ---
-title: Gestire cluster Hadoop in HDInsight con .NET SDK - Azure
-description: Informazioni su come eseguire attività amministrative per i cluster Hadoop in HDInsight tramite HDInsight .NET SDK.
+title: Gestire i cluster Apache Hadoop in HDInsight con .NET SDK - Azure
+description: Informazioni su come eseguire attività amministrative per i cluster Apache Hadoop in HDInsight tramite HDInsight .NET SDK.
 services: hdinsight
-editor: jasonwhowell
-author: jasonwhowell
+ms.reviewer: jasonh
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 481ee363c4ee48bb85bca991b6d4912560d82312
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: hrasheed
+ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590885"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037757"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gestire cluster Hadoop in HDInsight tramite .NET SDK
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gestire i cluster Apache Hadoop in HDInsight con .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Ecco come gestire cluster HDInsight usando [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
@@ -142,12 +142,12 @@ La funzionalità di scalabilità del cluster consente di modificare il numero di
 
 Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogni tipo di cluster supportato da HDInsight:
 
-* Hadoop
+* Apache Hadoop
   
     È possibile aumentare facilmente il numero di nodi del ruolo di lavoro in un cluster Hadoop in esecuzione senza conseguenze per eventuali processi in sospeso o in esecuzione. È inoltre possibile inviare nuovi processi mentre è in corso l'operazione. Gli errori in un'operazione di scalabilità vengono gestiti in modo che il cluster rimanga sempre in uno stato funzionale.
   
     Quando un cluster Hadoop viene ridimensionato riducendo il numero di nodi dati, alcuni dei servizi del cluster vengono riavviati. In questo modo, tutti i processi in esecuzione e in attesa daranno esito negativo dopo il completamento dell'operazione di ridimensionamento. È tuttavia possibile inviare nuovamente i processi una volta completata l'operazione.
-* hbase
+* Apache HBase
   
     È possibile aggiungere o rimuovere facilmente nodi nel cluster HBase mentre è in esecuzione. I server a livello di area vengono bilanciati automaticamente entro pochi minuti dal completamento dell'operazione di ridimensionamento. È tuttavia possibile anche bilanciare manualmente i server a livello di area accedendo al nodo head del cluster ed eseguendo i comandi seguenti da una finestra del prompt dei comandi:
   
@@ -156,7 +156,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
     >hbase shell
     >balancer
     ```
-* Storm
+* Apache Storm
   
     È possibile aggiungere o rimuovere facilmente nodi dati dal cluster Storm mentre è in esecuzione. Tuttavia, dopo il completamento dell'operazione di ridimensionamento, è necessario bilanciare nuovamente la topologia.
   
@@ -192,9 +192,9 @@ Per i cluster HDInsight sono disponibili i servizi Web HTTP seguenti (tutti con 
 
 * ODBC
 * JDBC
-* Ambari
-* Oozie
-* Templeton
+* Apache Ambari
+* Apache Oozie
+* Apache Templeton
 
 Per impostazione predefinita, a questi servizi è concesso l'accesso. L'accesso può essere revocato/concesso, Per revocare:
 
@@ -246,19 +246,19 @@ foreach (var key in results.Configuration.Keys)
 
 Vedere [Eseguire gli esempi di Hadoop in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Inviare processi Hive** 
+**Inviare i processi Apache Hive** 
 
 Vedere [Eseguire query Hive con HDInsight .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 
-**Inviare processi Pig**
+**Inviare i processi Apache Pig**
 
 Vedere [Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 
-**Inviare processi Sqoop**
+**Inviare i processi Apache Sqoop**
 
 Vedere [Usare Sqoop con Hadoop in HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Inviare processi Oozie**
+**Inviare i processi Apache Oozie**
 
 Vedere [Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight](hdinsight-use-oozie-linux-mac.md).
 

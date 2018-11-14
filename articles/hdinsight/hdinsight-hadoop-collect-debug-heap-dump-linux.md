@@ -1,22 +1,22 @@
 ---
-title: Abilitare i dump dell'heap per i servizi Hadoop in HDInsight - Azure
-description: Abilitare i dump dell'heap per i servizi Hadoop dai cluster HDInsight basati su Linux per il debug e l'analisi.
+title: Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight - Azure
+description: Abilitare i dump dell'heap per i servizi Apache Hadoop dai cluster HDInsight basati su Linux per il debug e l'analisi.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: e96cda8560d6fffa3475e7b3130ebc5954548eac
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: hrasheed
+ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592891"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037690"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Linux
+# <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
@@ -29,11 +29,11 @@ I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esem
 
 È possibile abilitare dump dell'heap per i servizi seguenti:
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2, metastore, derbyserver
+* **Apache hcatalog** - tempelton
+* **Apache hive** - hiveserver2, metastore, derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager, nodemanager, timelineserver
-* **hdfs** - datanode, secondarynamenode, namenode
+* **Apache yarn** - resourcemanager, nodemanager, timelineserver
+* **Apache hdfs** - datanode, secondarynamenode, namenode
 
 È inoltre possibile abilitare dump dell'heap per la mappa e ridurre i processi eseguiti da HDInsight.
 
@@ -49,7 +49,7 @@ I processi di mapping e riduzione sono leggermente diversi, in quanto queste ope
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> È consigliabile usare Ambari per modificare gli script e le impostazioni di mapred-site.xml, in quanto Ambari gestisce la replica delle modifiche tra i nodi del cluster. Per i passaggi specifici, vedere la sezione [Uso di Ambari](#using-ambari) .
+> È consigliabile usare Apache Ambari per modificare gli script e le impostazioni di mapred-site.xml, in quanto Ambari gestisce la replica delle modifiche tra i nodi del cluster. Per i passaggi specifici, vedere la sezione [Uso di Ambari](#using-ambari) .
 
 ### <a name="enable-heap-dumps"></a>Abilitare i dump dell'heap
 

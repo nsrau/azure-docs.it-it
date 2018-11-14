@@ -3,23 +3,23 @@ title: Gestire i dispositivi nell'applicazione Azure IoT Central | Microsoft Doc
 description: Informazioni su come gestire i dispositivi nell'applicazione Azure IoT Central come operatore.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937619"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004884"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gestire i dispositivi nell'applicazione Azure IoT Central
 
 L'articolo illustra come un operatore può gestire i dispositivi nell'applicazione Azure IoT Central. Un operatore può:
 
-- Usare la pagina **Explorer** per visualizzare, aggiungere ed eliminare dispositivi connessi all'applicazione Azure IoT Central.
+- Usare la pagina **Device Explorer** per visualizzare, aggiungere ed eliminare dispositivi connessi all'applicazione Azure IoT Central.
 - Mantenere aggiornato un inventario di dispositivi.
 - Mantenere aggiornati i metadati dei dispositivi modificando i valori archiviati nelle proprietà dei dispositivi.
 - Controllare il comportamento dei dispositivi mediante l'aggiornamento di un'impostazione per un dispositivo specifico nella pagina **Settings** (Impostazioni).
@@ -28,11 +28,11 @@ L'articolo illustra come un operatore può gestire i dispositivi nell'applicazio
 
 Per visualizzare un singolo dispositivo:
 
-1. Selezionare **Explorer** nel menu di spostamento a sinistra. Verrà visualizzato un elenco di [modelli di dispositivo](howto-set-up-template.md).
+1. Selezionare **Device Explorer** nel menu di spostamento a sinistra. Verrà visualizzato un elenco di [modelli di dispositivo](howto-set-up-template.md).
 
-1. Scegliere un **modello di dispositivo** nel riquadro di sinistra.
+1. Scegliere un modello di dispositivo in Modelli nel riquadro di sinistra.
 
-1. Nel riquadro di destra verrà visualizzato un elenco di dispositivi creati usando questo modello di dispositivo. Scegliere un singolo dispositivo per visualizzare la pagina **Device Details** (Dettagli dispositivo) per questo dispositivo:
+1. Nel riquadro di destra della pagina Device Explorer verrà visualizzato un elenco di dispositivi creati usando questo modello di dispositivo, come mostrato di seguito. Scegliere un singolo dispositivo per visualizzare la pagina dei dettagli dispositivo per questo dispositivo:
 
     [![Pagina Device Details (Dettagli dispositivo)](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
 
@@ -40,7 +40,7 @@ Per visualizzare un singolo dispositivo:
 
 Per aggiungere un dispositivo all'applicazione Azure IoT Central:
 
-1. Selezionare **Explorer** nel menu di spostamento a sinistra.
+1. Selezionare **Device Explorer** nel menu di spostamento a sinistra.
 
 1. Scegliere il modello di dispositivo da cui si vuole creare un dispositivo.
 
@@ -51,17 +51,14 @@ Per aggiungere un dispositivo all'applicazione Azure IoT Central:
 
 ## <a name="import-devices"></a>Importare dispositivi
 
-Per connettere un numero elevato di dispositivi all'applicazione, Azure IoT Central consente l'importazione in blocco dei dispositivi tramite un file CSV. 
-
-Requisiti del file CSV:
-1. Il file CSV deve contenere una sola colonna con gli ID dispositivo.
-
-1. Il file non deve avere intestazioni.
+Per connettere un numero elevato di dispositivi all'applicazione, Azure IoT Central consente l'importazione in blocco dei dispositivi tramite un file CSV. Il file CSV deve avere le colonne (e intestazioni) seguenti
+1.  IOTC_DeviceID **<span style="color:Red">(lettere minuscole)</span>**
+1.  IOTC_DeviceName (facoltativo)
 
 
 Per registrare in blocco i dispositivi nell'applicazione:
 
-1. Selezionare **Explorer** nel menu di spostamento a sinistra.
+1. Selezionare **Device Explorer** nel menu di spostamento a sinistra.
 
 1. Nel riquadro di sinistra scegliere il modello di dispositivo per il quale si vuole creare in blocco i dispositivi.
 
@@ -86,7 +83,7 @@ Se l'importazione di dispositivi ha esito negativo, verrà visualizzato un messa
 **Associazione di dispositivi con un modello**
 
 Se si registrano i dispositivi avviando l'importazione sotto **Dispositivi Unassociated devices**, i dispositivi vengono creati senza l'associazione di modelli dispositivo. Il dispositivo deve essere associato a un modello per esplorare i dati e altri dettagli sul dispositivo. Per associare i dispositivi a un modello attenersi a questa procedura:
-1. Selezionare **Explorer** nel menu di spostamento a sinistra.
+1. Selezionare **Device Explorer** nel menu di spostamento a sinistra.
 1. Nel pannello sinistro scegliere **Dispositivi senza associazione**.
     [![Dispositivi senza associazione](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
 1. Selezionare i dispositivi da associare al modello.
@@ -103,7 +100,7 @@ Se si registrano i dispositivi avviando l'importazione sotto **Dispositivi Unass
 Per eseguire il provisioning di dispositivi per la connessione a IoT Central, sarà necessaria la stringa di connessione del dispositivo che viene generata da IoT Central. È possibile usare la funzionalità di esportazione per ottenere le stringhe di connessione e le altre proprietà dei dispositivi in blocco dall'applicazione. Esportazione crea un file CSV con l'identità del dispositivo, il nome del dispositivo e la stringa di connessione primaria per tutti i dispositivi selezionati.
 
 Per esportare in blocco i dispositivi dall'applicazione:
-1. Selezionare **Explorer** nel menu di spostamento a sinistra.
+1. Selezionare **Device Explorer** nel menu di spostamento a sinistra.
 
 1. Nel riquadro di sinistra scegliere il modello di dispositivo per il quale si vuole esportare i dispositivi.
 
@@ -119,17 +116,19 @@ Per esportare in blocco i dispositivi dall'applicazione:
 
     [![Esportazione riuscita](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. Il file CSV esportato conterrà le seguenti informazioni:
-    1. NOME
-    1. ID dispositivo
-    1. Stringa di connessione primaria
-
+1. Il file CSV esportato conterrà le seguenti informazioni sulle colonne: **ID del dispositivo, nome del dispositivo, chiavi primarie/secondarie del dispositivo e identificazioni primarie/secondarie del certificato**
+    *   IOTC_DEVICEID
+    *   IOTC_DEVICENAME
+    *   IOTC_SASKEY_PRIMARY
+    *   IOTC_SASKEY_SECONDARY
+    *   IOTC_X509THUMBPRINT_PRIMARY 
+    *   IOTC_X509THUMBPRINT_SECONDARY
 
 ## <a name="delete-a-device"></a>Eliminare un dispositivo
 
 Per eliminare un dispositivo simulato o reale dall'applicazione Azure IoT Central:
 
-1. Scegliere **Explorer** nel menu di spostamento.
+1. Selezionare **Device Explorer** nel menu di spostamento.
 
 1. Scegliere il modello di dispositivo del dispositivo da eliminare.
 
@@ -141,7 +140,7 @@ Per eliminare un dispositivo simulato o reale dall'applicazione Azure IoT Centra
 
 Le impostazioni controllano il comportamento di un dispositivo. In altre parole consentono di specificare gli input per il dispositivo. È possibile visualizzare e aggiornare le impostazioni di dispositivo nella pagina **Device Details** (Dettagli dispositivo).
 
-1. Scegliere **Explorer** nel menu di spostamento.
+1. Selezionare **Device Explorer** nel menu di spostamento.
 
 1. Scegliere il modello di dispositivo del dispositivo di cui si vuole modificare le impostazioni.
 
@@ -155,15 +154,13 @@ Le impostazioni controllano il comportamento di un dispositivo. In altre parole 
 
 Le proprietà sono i metadati associati al dispositivo, ad esempio città e numero di serie. È possibile visualizzare e aggiornare le proprietà nella pagina **Device Details** (Dettagli dispositivo).
 
-1. Scegliere **Explorer** nel menu di navigazione.
+1. Selezionare **Device Explorer** nel menu di spostamento.
 
 1. Scegliere il modello di dispositivo del dispositivo di cui si vuole modificare le proprietà.
 
 1. Scegliere la scheda **Properties** (Proprietà) in cui vengono visualizzate tutte le proprietà.
 
-1. Modificare le proprietà usando i valori desiderati. È possibile modificare più proprietà immediatamente e aggiornarle tutte contemporaneamente.
-
-1. Scegliere **Update** (Aggiorna).
+1. Modificare le proprietà dell'applicazione usando i valori desiderati. È possibile modificare più proprietà immediatamente e aggiornarle tutte contemporaneamente. Scegliere **Update** (Aggiorna).
 
 > [!NOTE]
 > Non è possibile modificare il valore delle _proprietà del dispositivo_. Le proprietà del dispositivo vengono impostate dal dispositivo e sono di sola lettura all'interno dell'applicazione Azure IoT Central.

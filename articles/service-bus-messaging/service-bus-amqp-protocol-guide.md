@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: e124ea3f932a81634191785e7ee69c2492cb32fa
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312543"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013327"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -47,7 +47,7 @@ A differenza delle versioni provvisorie scadute precedenti prodotte dal gruppo d
 
 Il protocollo può essere usato per la comunicazione peer-to-peer simmetrica con broker messaggi che supportano le query e pubblicano/sottoscrivono entità, analogamente al bus di servizio di Azure. Può essere usato anche per l'interazione con l'infrastruttura di messaggistica, in cui i modelli di interazione sono diversi rispetto alle code regolari, come nel caso di Hub eventi di Azure. Un hub eventi funziona in modo analogo a una coda in caso di invio di eventi all'hub, ma funziona in modo più simile a un servizio di archiviazione seriale quando gli eventi vengono letti dall'hub. È in qualche modo simile a un'unità a nastro. Il client sceglie un offset nel flusso di dati disponibile e riceve quindi tutti gli eventi da tale offset, fino all'evento più recente disponibile.
 
-Il protocollo AMQP 1.0 è progettato in modo da essere estensibile e da supportare specifiche aggiuntive che ne migliorano le funzionalità. Questo aspetto è illustrato dalle tre specifiche di estensioni incluse in questo argomento. Per comunicazioni sull'infrastruttura HTTPS/WebSocket esistente, in cui la configurazione di porte TCP AMQP native potrebbe risultare difficile, una specifica di associazione definisce il modo in cui creare livelli di AMQP su WebSocket. Per l'interazione con l'infrastruttura di messaggistica in una modalità di richiesta/risposta per finalità di gestione o per offrire funzionalità avanzate, la specifica relativa alla gestione di AMQP definisce le primitive di interazione di base necessarie. Per l'integrazione con il modello di autorizzazione federata, la specifica relativa alla sicurezza basata su attestazioni di AMQP definisce il modo in cui associare e rinnovare i token di autorizzazione associati ai collegamenti.
+Il protocollo AMQP 1.0 è progettato in modo da essere estensibile e da supportare specifiche aggiuntive che ne migliorano le funzionalità. Questo aspetto è illustrato dalle tre specifiche di estensioni incluse in questo argomento. Per la comunicazione tramite l'infrastruttura HTTPS/WebSockets esistente, la configurazione delle porte AMQP TCP native potrebbe essere difficile. Una specifica di associazione definisce come suddividere in livelli AMQP su WebSockets. Per l'interazione con l'infrastruttura di messaggistica in una modalità di richiesta/risposta per finalità di gestione o per offrire funzionalità avanzate, la specifica relativa alla gestione di AMQP definisce le primitive di interazione di base necessarie. Per l'integrazione con il modello di autorizzazione federata, la specifica relativa alla sicurezza basata su attestazioni di AMQP definisce il modo in cui associare e rinnovare i token di autorizzazione associati ai collegamenti.
 
 ## <a name="basic-amqp-scenarios"></a>Scenari AMQP di base
 
@@ -94,7 +94,7 @@ Il contenitore che inizializza il collegamento chiede al contenitore opposto di 
 
 I collegamenti sono denominati e sono associati ai nodi. Come indicato all'inizio, i nodi sono entità comunicanti all'interno di un contenitore.
 
-Nel bus di servizio un nodo corrisponde direttamente a una coda, un argomento, una sottoscrizione o una coda secondaria di messaggi non recapitabili di una coda o una sottoscrizione. Il nome del nodo usato in AMQP è quindi il nome relativo dell'entità all'interno dello spazio dei nomi del bus di servizio. Se una coda è denominata **myqueue**, tale nome corrisponde anche al nome del nodo AMQP. Una sottoscrizione dell'argomento segue la convenzione dell'interfaccia API HTTP e viene ordinata in una raccolta di risorse "subscriptions". Pertanto una sottoscrizione **sub** o un argomento **mytopic** ha il nome di nodo AMQP **mytopic/subscriptions/sub**.
+Nel bus di servizio un nodo corrisponde direttamente a una coda, un argomento, una sottoscrizione o una coda secondaria di messaggi non recapitabili di una coda o una sottoscrizione. Il nome del nodo usato in AMQP è quindi il nome relativo dell'entità all'interno dello spazio dei nomi del bus di servizio. Se una coda è denominata `myqueue`, tale nome corrisponde anche al nome del nodo AMQP. Una sottoscrizione dell'argomento segue la convenzione dell'interfaccia API HTTP e viene ordinata in una raccolta di risorse "subscriptions". Pertanto una sottoscrizione **sub** o un argomento **mytopic** ha il nome di nodo AMQP **mytopic/subscriptions/sub**.
 
 Il client che si connette deve anche usare un nome di nodo locale per la creazione di collegamenti. Il bus di servizio non fornisce prescrizioni specifiche sui nomi dei nodi e non li interpreta. Gli stack del client AMQP 1.0 usano in genere uno schema per assicurare che i nomi di nodi temporanei siano univoci nell'ambito del client.
 
@@ -238,7 +238,7 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 
 #### <a name="message-annotations"></a>Annotazioni di messaggio
 
-Esistono alcune altre proprietà del messaggio del bus di servizio che non fanno parte della proprietà del messaggio AMQP e vengono trasmesse come `MessageAnnotations` sul messaggio.
+Esistono alcune altre proprietà del messaggio del bus di servizio che non fanno parte delle proprietà del messaggio AMQP e vengono trasmesse come `MessageAnnotations` sul messaggio.
 
 | Mappatura della chiave di annotazione | Uso | Nome API |
 | --- | --- | --- |
@@ -256,33 +256,33 @@ Esistono alcune altre proprietà del messaggio del bus di servizio che non fanno
 Una transazione raggruppa due o più operazioni in un ambito di esecuzione. Per natura, questo tipo di transazione deve garantire che tutte le operazioni appartenenti a un determinato gruppo di operazioni abbiano esito positivo o negativo.
 Le operazioni sono raggruppate per un identificatore `txn-id`.
 
-Per l'interazione transazionale, il client viene utilizzato come `transaction controller` che controlla le operazioni da raggruppare. Il servizio del bus di servizio di Microsoft Azure viene utilizzato come un `transactional resource` ed esegue operazioni come richiesto dal `transaction controller`.
+Per l'interazione transazionale, il client viene usato come `transaction controller` che controlla le operazioni da raggruppare. Il servizio del bus di servizio di Microsoft Azure viene utilizzato come un `transactional resource` ed esegue operazioni come richiesto dal `transaction controller`.
 
 Il client e il servizio comunicano tramite una `control link` che viene stabilita dal client. I messaggi `declare` e `discharge` vengono inviati dal controller al collegamento di controllo rispettivamente per allocare e completare le transazioni (e non rappresentano la delimitazione dell’attività transazionale). La trasmissione/ricezione effettiva non viene eseguita su questo collegamento. Ogni attività transazionale richiesta è esplicitamente identificata con l'oggetto desiderato `txn-id` e pertanto può verificarsi su un qualsiasi collegamento di connessione. Se il collegamento di controllo è chiuso mentre esistono transazioni non eseguite, viene immediatamente eseguito il rollback di tutte le transazioni e i tentativi di eseguire un'ulteriore attività transazionale su di esse falliranno. I messaggi sul collegamento di controllo non devono essere predefiniti.
 
-Ogni connessione deve avviare il proprio collegamento di controllo per poter iniziare e terminare le transazioni. Il servizio definisce una destinazione speciale che funziona come un `coordinator`. Il client/controller stabilisce un collegamento di controllo a questa destinazione. Il collegamento di controllo esula dai confini di un'entità, ad esempio, lo stesso collegamento di controllo può essere utilizzato per avviare ed eseguire le transazioni per più entità.
+Ogni connessione deve avviare il proprio collegamento di controllo per poter iniziare e terminare le transazioni. Il servizio definisce una destinazione speciale che funziona come un `coordinator`. Il client/controller stabilisce un collegamento di controllo a questa destinazione. Il collegamento di controllo è esterno ai limiti di un'entità, vale a dire che lo stesso collegamento di controllo può essere usato per avviare ed eseguire le transazioni per più entità.
 
 #### <a name="starting-a-transaction"></a>Avviare una transazione
 
-Per avviare attività transazionali. il controller deve ricevere un `txn-id` dal coordinatore. Ciò avviene mediante l'invio di un messaggio di tipo `declare`. Se la dichiarazione ha esito positivo, il coordinatore risponde con un risultato di disposizione`declared` che esegue l'oggetto assegnato `txn-id`.
+Per avviare attività transazionali. il controller deve ricevere un `txn-id` dal coordinatore. Ciò avviene mediante l'invio di un messaggio di tipo `declare`. Se la dichiarazione ha esito positivo, il coordinatore risponde con un risultato di disposizione che esegue l'oggetto assegnato `txn-id`.
 
 | Client (controller) | | Bus di servizio (coordinatore) |
 | --- | --- | --- |
 | attach(<br/>name={nome collegamento},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={nome collegamento},<br/>... ,<br/>target=Coordinator()<br/>) |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (**Dichiara()**)}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={id transazione}<br/>))|
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={ID transazione}<br/>))|
 
 #### <a name="discharging-a-transaction"></a>Eseguire una transazione
 
-Il controller concluderà l’attività transazionale inviando un `discharge` messaggio al coordinatore. Il controller indica che desidera eseguire il commit o il rollback dell’attività transazionale impostando il flag `fail` nel corpo di esecuzione. Se il coordinatore non riesce a completare l’esecuzione, il messaggio viene rifiutato con questo risultato trasportando `transaction-error`.
+Il controller conclude l'attività transazionale inviando un `discharge` messaggio al coordinatore. Il controller indica che desidera eseguire il commit o il rollback dell'attività transazionale impostando il flag `fail` nel corpo di esecuzione. Se il coordinatore non riesce a completare l’esecuzione, il messaggio viene rifiutato con questo risultato trasportando `transaction-error`.
 
 > Nota: esito negativo=vero intende l’esecuzione di rollback di una transazione ed esito negativo=falso fa riferimento all’esecuzione del commit.
 
 | Client (controller) | | Bus di servizio (coordinatore) |
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={id transazione}<br/>))|
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
 | | . . . <br/>Attività transazionali<br/>in altri collegamenti<br/> . . . |
 | transfer(<br/>delivery-id=57, ...)<br/>{ ValoreAmqp (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
 | | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
@@ -294,7 +294,7 @@ Tutte le attività transazionali vengono eseguite con lo stato di recapito trans
 | Client (controller) | | Bus di servizio (coordinatore) |
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={id transazione}<br/>))|
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
 | transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
 | | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
 
@@ -305,7 +305,7 @@ L’eliminazione del messaggio include operazioni come `Complete` / `Abandon` / 
 | Client (controller) | | Bus di servizio (coordinatore) |
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={id transazione}<br/>))|
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
 | disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
 
@@ -338,7 +338,7 @@ Il modello richiede ovviamente che il contenitore client e l'identificatore gene
 
 Gli scambi di messaggi usati per il protocollo di gestione e per tutti gli altri protocolli che usano lo stesso modello vengono eseguiti a livello di applicazione. Non definiscono nuovi gesti a livello di protocollo AMQP. Questo approccio è intenzionale e consente alle applicazioni di sfruttare immediatamente i vantaggi di queste estensioni con gli stack conformi ad AMQP 1.0.
 
-Il bus di servizio non implementa attualmente alcuna funzionalità di base della specifica di gestione, ma il modello di richiesta/risposta definito dalla specifica di gestione è fondamentale per la funzionalità di sicurezza basata sulle attestazioni e per la maggior parte delle funzionalità avanzate che verranno illustrate nelle sezioni successive.
+Il bus di servizio non implementa attualmente alcuna funzionalità di base della specifica di gestione, ma il modello di richiesta/risposta definito dalla specifica di gestione è fondamentale per la funzionalità di sicurezza basata sulle attestazioni e per la maggior parte delle funzionalità avanzate che verranno illustrate nelle sezioni successive:
 
 ### <a name="claims-based-authorization"></a>Autorizzazione basata sulle attestazioni
 
@@ -364,7 +364,7 @@ Ecco le proprietà dell'applicazione per il messaggio di richiesta:
 | operation |No  |stringa |**put-token** |
 | type |No  |stringa |Tipo di token inserito. |
 | name |No  |stringa |"Destinatari" a cui è applicabile il token. |
-| expiration |Sì |timestamp |Ora di scadenza del token. |
+| expiration |Yes |timestamp |Ora di scadenza del token. |
 
 La proprietà *name* identifica l'entità a cui deve essere associato il token. Nel bus di servizio corrisponde al percorso della coda o dell'argomento/sottoscrizione. La proprietà *type* identifica il tipo di token:
 
@@ -381,7 +381,7 @@ Il messaggio di risposta ha i valori *application-properties* seguenti:
 | Chiave | Facoltativo | Tipo di valore | Contenuti del valore |
 | --- | --- | --- | --- |
 | status-code |No  |int |Codice di risposta HTTP **[RFC2616]**. |
-| status-description |Sì |stringa |Descrizione dello stato. |
+| status-description |Yes |stringa |Descrizione dello stato. |
 
 Il client può chiamare *put-token* ripetutamente e per qualsiasi entità nell'infrastruttura di messaggistica. I token hanno come ambito il client corrente e sono ancorati alla connessione corrente, quindi il server elimina eventuali token conservati al termine della connessione.
 
@@ -395,9 +395,9 @@ Il client è successivamente responsabile della verifica della scadenza del toke
 
 ### <a name="send-via-functionality"></a>Funzionalità di invio tramite
 
-[Invio tramite/Trasferisci mittente](service-bus-transactions.md#transfers-and-send-via) è una funzionalità che consente ai bus di servizio di inoltrare un determinato messaggio all'entità di destinazione tramite un'altra entità. Viene utilizzata principalmente per eseguire operazioni tra le entità in una singola transazione.
+[Invio tramite/Trasferisci mittente](service-bus-transactions.md#transfers-and-send-via) è una funzionalità che consente ai bus di servizio di inoltrare un determinato messaggio all'entità di destinazione tramite un'altra entità. Questa funzione viene usata principalmente per eseguire operazioni tra le entità in una singola transazione.
 
-Con questa funzionalità, si crea un mittente e si stabilisce il collegamento a `via-entity`. Durante il tentativo di stabilire il collegamento, vengono trasmesse informazioni aggiuntive per stabilire la destinazione reale dei messaggi/trasferimenti a questo collegamento. Dopo che il collegamento è stato eseguito correttamente, tutti i messaggi inviati a questo collegamento verranno inoltrati automaticamente all’*entità di destinazione* tramite *Entità tramite*. 
+Con questa funzionalità, si crea un mittente e si stabilisce il collegamento a `via-entity`. Durante il tentativo di stabilire il collegamento, vengono trasmesse informazioni aggiuntive per stabilire la destinazione reale dei messaggi/trasferimenti a questo collegamento. Dopo che il collegamento è stato eseguito correttamente, tutti i messaggi inviati su questo collegamento vengono inoltrati automaticamente all'*entità di destinazione* mediante *tramite entità*. 
 
 > Nota: l'autenticazione server deve essere eseguita sia per *Entità tramite* e *Entità di destinazione* prima di stabilire il collegamento.
 

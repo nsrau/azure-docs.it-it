@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1e9170c955f2a36d68600372e3dcdac2a63056c1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301192"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957748"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizzare i processi di Application Insights con app per la logica
 
@@ -51,7 +51,7 @@ Questa esercitazione illustra come creare un'app per la logica che usa l'algorit
 
 1. Nella casella di ricerca **Scegliere un'azione** digitare **Azure Application Insights**.
 
-1. Fare clic su **Application Insights - Visualize Analytics query Preview** (Application Insights - Visualizza query di Analisi Anteprima) in **Azioni**.
+1. Fare clic su **Azure Application Insights - Visualize Analytics query Preview** (Azure Application Insights - Visualizza query di Analisi Anteprima) in **Azioni**.
 
     !["Scegliere un'azione" nella finestra Progettazione app per la logica](./media/automate-with-logic-apps/flow2.png)
 
@@ -93,7 +93,7 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
 
 1. Nella casella di ricerca digitare **Office 365 Outlook**.
 
-1. Fare clic su **Office 365 Outlook - Send an email** (Office 365 Outlook: invia un messaggio di posta elettronica).
+1. Fare clic su **Office 365 Outlook - Send an email** (Office 365 Outlook - Invia un messaggio di posta elettronica).
 
     ![Selezione di Office 365 Outlook](./media/automate-with-logic-apps/flow2b.png)
 
@@ -132,7 +132,7 @@ Quando l'app per la logica è in esecuzione, i destinatari specificati nell'elen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla creazione di [query di Analisi](app-insights-analytics-using.md).
+- Altre informazioni sulla creazione di [query di Analisi](../log-analytics/query-language/get-started-queries.md).
 - Altre informazioni su [App per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 
 

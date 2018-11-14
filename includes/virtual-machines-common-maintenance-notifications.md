@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035156"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981526"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visualizzare le macchine virtuali con manutenzione pianificata nel portale
 
@@ -49,17 +49,9 @@ Dopo la programmazione di un ciclo di manutenzione pianificata è possibile osse
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notifiche e avvisi del portale
 
-Azure comunica il programma di una manutenzione pianificata inviando un messaggio di posta elettronica al proprietario e ai comproprietari della sottoscrizione. È possibile aggiungere altri destinatari e canali a questa comunicazione creando avvisi del log attività di Azure. Per altre informazioni, vedere [Monitorare l'attività di sottoscrizione con il log attività di Azure](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure comunica il programma di una manutenzione pianificata inviando un messaggio di posta elettronica al proprietario e ai comproprietari della sottoscrizione. È possibile aggiungere altri destinatari e canali a questa comunicazione creando avvisi del log attività di Azure. Per maggiori informazioni, vedere [Creare gli avvisi del log attività per le notifiche del servizio](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Scegliere **Monitoraggio** dal menu a sinistra. 
-3. Nel riquadro **Monitoraggio - Avvisi (versione classica)** fare clic su **+ Aggiungi avviso del log attività**.
-5. Completare le informazioni contenute sulla pagina **Aggiungi avviso del log attività** e assicurarsi di impostare i seguenti **Criteri**:
-   - **Categoria evento**: Integrità dei servizi
-   - **Servizi**: Set di scalabilità di macchine virtuali e Macchine virtuali
-   - **Tipo**: Manutenzione pianificata 
-    
-Per altre informazioni su come configurare gli avvisi del log attività, vedere [Creare avvisi del log attività](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
+Assicurarsi di impostare **Tipo di evento** su **Manutenzione pianificata** e **Servizi** su **Set di scalabilità di macchine virtuali** e/o **Macchine virtuali**
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Avviare la manutenzione della macchina virtuale dal portale

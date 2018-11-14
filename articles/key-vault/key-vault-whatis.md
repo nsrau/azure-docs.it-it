@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: d1a6da5d599296a11678ee58cadc42d61296e8e7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d7de20e1de91e37b2437091e6d7503e2cb2a4590
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230302"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246532"
 ---
 # <a name="what-is-azure-key-vault"></a>Cos'è l'insieme di credenziali chiave di Azure?
 
@@ -75,18 +75,11 @@ Chiunque abbia una sottoscrizione di Azure può creare e usare insiemi di creden
 
 L'amministratore quindi fornirebbe agli sviluppatori gli URI da chiamare dalle applicazioni e fornirebbe all'amministrazione della sicurezza le informazioni sulla registrazione dell'utilizzo delle chiavi. 
 
-![Panoramica dell'insieme di credenziali chiave di Azure][1]
+![Panoramica dell'insieme di credenziali delle chiavi di Azure][1]
 
 Gli sviluppatori possono gestire le chiavi anche direttamente, usando le API. Per altre informazioni, vedere la [Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure](key-vault-developers-guide.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un'esercitazione introduttiva per gli amministratori, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
-
-Per altre informazioni sulla registrazione dell'utilizzo per l'insieme di credenziali delle chiavi, vedere [Registrazione dell'insieme di credenziali delle chiavi di Azure](key-vault-logging.md).
-
-Per altre informazioni sull'uso di chiavi e segreti con Azure Key Vault, vedere [Informazioni su chiavi, segreti e certificati](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx).
-
-<!--Image references-->
-[1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
+Informazioni su come [proteggere l'insieme di credenziali](key-vault-secure-your-key-vault.md)
+<!--Image references--> [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).

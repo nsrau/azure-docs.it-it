@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c52c84a1311c30c19356bb8a1287b203faf476fc
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 89d64a28d2fe43464995e434c9f3807047b29492
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742906"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913637"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Anteprima: cronologia delle versioni dell'agente di protezione password di Azure AD
 
@@ -23,6 +23,23 @@ ms.locfileid: "50742906"
 | --- |
 | La protezione password di Azure AD è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
+
+## <a name="12250"></a>1.2.25.0
+
+Data di rilascio: 01/11/2018
+
+Correzioni:
+
+* Il servizio agente del controller di dominio e il servizio proxy non devono più fallire a causa di errori di attendibilità del certificato.
+* Il servizio agente del controller di dominio e il servizio proxy dispongono di correzioni aggiuntive per i computer conformi a FIPS.
+* Il servizio proxy funzionerà ora correttamente solo in un ambiente di rete TLS 1.2.
+* Correzioni minori per prestazioni e affidabilità
+* Registrazione migliorata
+
+Modifiche:
+
+* Il requisito minimo relativo al sistema operativo per il servizio proxy è ora Windows Server 2012 R2. Il requisito minimo relativo al sistema operativo per il servizio agente del controller di dominio rimane Windows Server 2012.
+* L'algoritmo di convalida delle password usa una tabella di normalizzazione dei caratteri espansa. Ciò potrebbe comportare il rifiuto delle password accettate nelle versioni precedenti.
 
 ## <a name="12100"></a>1.2.10.0
 
@@ -45,8 +62,8 @@ Correzioni:
 > Per gli aggiornamenti sul posto del software dell'agente del controller di dominio sarà richiesto un riavvio.
 
 * Il servizio agente del controller di dominio e il servizio proxy supportano ora l'esecuzione in un server configurato per usare solo algoritmi conformi a FIPS.
-* Registrazione migliorata
 * Correzioni minori per prestazioni e affidabilità
+* Registrazione migliorata
 
 ## <a name="11103"></a>1.1.10.3
 

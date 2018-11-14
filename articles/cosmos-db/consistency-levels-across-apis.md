@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: ed08b90b9e216ee8713bfe445e98144bf2ba02d4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 974531cd5907e4f69e7d064125d3e51fa4974949
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243996"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956384"
 ---
-# <a name="consistency-levels-and-cosmos-db-apis"></a>Livelli di coerenza e API di Cosmos DB
+# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Livelli di coerenza e API di Azure Cosmos DB
 
-I cinque modelli di coerenza sono supportati in modo nativo dall'API SQL, ovvero l'API predefinita quando si usa Cosmos DB. Oltre all'API SQL, Cosmos DB offre anche supporto nativo per le API compatibili con il protocollo di trasmissione per i database più diffusi, ad esempio MongoDB, Apache Cassandra, Gremlin e le tabelle di Azure. Questi database non offrono nè modelli di coerenza definiti in modo preciso né le garanzie supportate da contratti di servizio per i livelli di coerenza e fornisce in genere solo un subset dei cinque modelli di coerenza offerti da Cosmos DB. Per API SQL, API Gremlin e API Tabella, viene utilizzato il livello di coerenza predefinito configurato per l'account Cosmos.
+I cinque modelli di coerenza offerti da Azure Cosmos DB sono supportati in modo nativo dall'API SQL di Cosmos DB, ovvero l'API predefinita quando si usa Cosmos DB. Oltre all'API SQL, Cosmos DB offre anche supporto nativo per le API compatibili con il protocollo di trasmissione per i database più diffusi, ad esempio MongoDB, Apache Cassandra, Gremlin e le tabelle di Azure. Questi database non offrono né modelli di coerenza definiti in modo preciso né le garanzie supportate da contratti di servizio per i livelli di coerenza. In genere questi database forniscono solo un subset dei cinque modelli di coerenza offerti da Cosmos DB. Per API SQL, API Gremlin e API Tabella, viene utilizzato il livello di coerenza predefinito configurato per l'account Cosmos.
 
-La tabella seguente illustra il mapping tra la coerenza dei dati richiesto da un driver del client OSS per Apache Cassandra 4.x e MongoDB 3.4, quando si usa l'API Cassandra e l'API MongoDB, rispettivamente, e i livelli di coerenza di Cosmos DB corrispondenti.
+Le sezioni seguenti illustrano il mapping tra la coerenza dei dati richiesto da un driver del client OSS per Apache Cassandra 4.x e MongoDB 3.4, quando si usa l'API Cassandra e l'API MongoDB, rispettivamente, e i livelli di coerenza di Cosmos DB corrispondenti.
 
-## <a id="cassandra-mapping"></a>Eseguire il mapping dei livelli di coerenza di Cosmos DB e Apache Cassandra
+## <a id="cassandra-mapping"></a>Eseguire il mapping tra i livelli di coerenza di Cosmos DB e Apache Cassandra
 
-La tabella seguente illustra il mapping per la coerenza in lettura tra il client di Apache Cassandra 4.x e il livello di coerenza "Predefinito" di Cosmos DB per una distribuzione in più aree e in una singola area.
+La tabella seguente illustra il mapping per la "coerenza in lettura" tra il client di Apache Cassandra 4.x e il livello di coerenza predefinito in Cosmos DB per una distribuzione in più aree e in una singola area.
 
 | **Apache Cassandra 4.x** | **COSMOS DB (multiarea)** | **COSMOS DB (area singola)** |
 | - | - | - |
@@ -36,7 +36,7 @@ La tabella seguente illustra il mapping per la coerenza in lettura tra il client
 
 ## <a id="mongo-mapping"></a>Eseguire il mapping tra i livelli di coerenza MongoDB 3.4 e Cosmos DB
 
-La tabella seguente illustra il mapping per il livello di coerenza "Predefinito" per i "problemi di lettura" di MongoDB 3.4.x e Cosmos DB per una distribuzione in più aree e in una singola area.
+La tabella seguente illustra il mapping per i "problemi di lettura" tra MongoDB 3.4 e il livello di coerenza predefinito in Cosmos DB per una distribuzione in più aree e in una singola area.
 
 | **MongoDB 3.4** | **COSMOS DB (multiarea)** | **COSMOS DB (area singola)** |
 | - | - | - |

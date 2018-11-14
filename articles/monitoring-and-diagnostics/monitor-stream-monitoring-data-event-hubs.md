@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954841"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961824"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -27,8 +27,8 @@ All'interno dell'ambiente Azure esistono vari livelli di dati di monitoraggio a 
 
 - **Dati di monitoraggio dell'applicazione**: dati relativi alle prestazioni e alle funzionalità del codice scritto in esecuzione in Azure. Esempi di dati di monitoraggio dell'applicazione sono le tracce delle prestazioni, i registri applicazioni e i dati di telemetria utente. I dati di monitoraggio dell'applicazione vengono in genere raccolti in uno dei modi seguenti:
   - Tramite la strumentazione del codice con un SDK, ad esempio [Application Insights SDK](../application-insights/app-insights-overview.md).
-  - Tramite l'esecuzione di un agente di monitoraggio che rimane in ascolto di nuovi registri applicazioni nel computer che esegue l'applicazione, ad esempio l'[agente Diagnostica di Azure per Windows](./azure-diagnostics.md) o l'[agente Diagnostica di Azure per Linux](../virtual-machines/linux/diagnostic-extension.md).
-- **Dati di monitoraggio del sistema operativo guest**: dati relativi al sistema operativo in cui viene eseguita l'applicazione. Esempi di dati di monitoraggio del sistema operativo guest sono syslog di Linux o gli eventi di sistema di Windows. Per raccogliere questo tipo di dati, è necessario installare un agente, ad esempio l'[agente Diagnostica di Azure per Windows](./azure-diagnostics.md) o l'[agente Diagnostica di Azure per Linux](../virtual-machines/linux/diagnostic-extension.md).
+  - Tramite l'esecuzione di un agente di monitoraggio che rimane in ascolto di nuovi registri applicazioni nel computer che esegue l'applicazione, ad esempio l'[agente Diagnostica di Azure per Windows](./azure-diagnostics.md) o l'[agente Diagnostica di Azure per Linux](../virtual-machines/extensions/diagnostics-linux.md).
+- **Dati di monitoraggio del sistema operativo guest**: dati relativi al sistema operativo in cui viene eseguita l'applicazione. Esempi di dati di monitoraggio del sistema operativo guest sono syslog di Linux o gli eventi di sistema di Windows. Per raccogliere questo tipo di dati, è necessario installare un agente, ad esempio l'[agente Diagnostica di Azure per Windows](./azure-diagnostics.md) o l'[agente Diagnostica di Azure per Linux](../virtual-machines/extensions/diagnostics-linux.md).
 - **Dati di monitoraggio delle risorse di Azure**: dati relativi al funzionamento di una risorsa di Azure. Per alcuni tipi di risorsa di Azure, ad esempio le macchine virtuali, sono presenti un sistema operativo guest e una o più applicazioni da monitorare all'interno di questo servizio di Azure. Per altre risorse di Azure, ad esempio i gruppi di sicurezza di rete, i dati di monitoraggio delle risorse costituiscono il livello superiore di dati disponibili (in queste risorse, infatti, non vengono eseguiti sistemi operativi guest o applicazioni). Questi dati possono essere raccolti tramite [le impostazioni di diagnostica delle risorse](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 - **Dati di monitoraggio della sottoscrizione di Azure**: dati relativi al funzionamento e alla gestione di una sottoscrizione di Azure e dati relativi all'integrità e al funzionamento di Azure stesso. Il [log attività](./monitoring-overview-activity-logs.md) contiene la maggior parte dei dati di monitoraggio della sottoscrizione, ad esempio eventi imprevisti relativi all'integrità del servizio e controlli di Azure Resource Manager. È possibile raccogliere questi dati tramite un profilo di log.
 - **Dati di monitoraggio del tenant di Azure:** i dati relativi al funzionamento dei servizi di Azure a livello di tenant, ad esempio Azure Active Directory. I controlli di Azure Active Directory e gli accessi sono esempi di dati di monitoraggio del tenant. Questi dati possono essere raccolti tramite le impostazioni di diagnostica del tenant.
@@ -54,7 +54,7 @@ I dati di monitoraggio del tenant di Azure sono attualmente disponibili solo per
 
 ### <a name="azure-active-directory-data"></a>Dati di Azure Active Directory
 
-Per inviare dati dal log di Azure Active Directory in uno spazio dei nomi di Hub eventi, è necessario configurare un'impostazione di diagnostica del tenant nel tenant di AAD. [Seguire questa guida](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) per configurare un'impostazione di diagnostica del tenant.
+Per inviare dati dal log di Azure Active Directory in uno spazio dei nomi di Hub eventi, è necessario configurare un'impostazione di diagnostica del tenant nel tenant di AAD. [Seguire questa guida](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) per configurare un'impostazione di diagnostica del tenant.
 
 ## <a name="azure-subscription-monitoring-data"></a>Dati di monitoraggio della sottoscrizione di Azure
 
@@ -71,7 +71,7 @@ Per inviare dati dal log attività di Azure in uno spazio dei nomi di Hub eventi
 
 Le risorse di Azure generano due tipi di dati di monitoraggio:
 1. [Log di diagnostica delle risorse](./monitoring-overview-of-diagnostic-logs.md)
-2. [Metriche](monitoring-overview-metrics.md)
+2. [Metriche](../monitoring/monitoring-data-collection.md)
 
 Entrambi i tipi di dati vengono inviati a un hub eventi tramite un'impostazione di diagnostica delle risorse. [Seguire queste istruzioni](./monitoring-stream-diagnostic-logs-to-event-hubs.md) per configurare un'impostazione di diagnostica per una determinata risorsa. Configurare un'impostazione di diagnostica per ogni risorsa di cui si vogliono raccogliere i log.
 
@@ -113,10 +113,11 @@ Il routing dei dati di monitoraggio a un hub eventi con Monitoraggio di Azure co
     1. Il [componente aggiuntivo Monitoraggio di Azure per Splunk](https://splunkbase.splunk.com/app/3534/) è disponibile in Splunkbase e in un progetto open source. [La documentazione è disponibile qui](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Se non è possibile installare un componente aggiuntivo nell'istanza di Splunk (ad es. se si usa un proxy o Splunk Cloud), è possibile inoltrare questi eventi all'agente di raccolta di eventi Splunk HTTP tramite [questa funzione, che viene attivata da nuovi messaggi nell'hub eventi](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** - Le istruzioni per configurare SumoLogic per il consumo dei dati di un hub eventi sono [disponibili qui](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub).
+* **ArcSight**: il connettore intelligente dell'hub eventi di Azure per ArcSight è disponibile nella [raccolta di connettori intelligenti ArcSight qui](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
 * **Server Syslog** - Se si vuole trasmettere i dati di Monitoraggio di Azure direttamente a un server syslog, è possibile estrarre [questo repository github](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md) (Archiviare il log attività in un account di archiviazione)
 * Leggere la [panoramica sul log attività di Azure](monitoring-overview-activity-logs.md)
-* [Set up an alert based on an Activity Log event](insights-auditlog-to-webhook-email.md) (Configurare un avviso in base a un evento del log attività)
+* [Set up an alert based on an Activity Log event](monitor-alerts-unified-log-webhook.md) (Configurare un avviso in base a un evento del log attività)
 

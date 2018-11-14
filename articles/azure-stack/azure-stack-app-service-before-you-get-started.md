@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240869"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615875"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Prima di iniziare con il servizio App in Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "50240869"
 Prima di distribuire il servizio App di Azure in Azure Stack, è necessario completare i passaggi dei prerequisiti in questo articolo.
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1807 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima della distribuzione del servizio App di Azure 1.3.
+> Applicare l'aggiornamento 1809 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima di distribuire Azure App Service 1.4.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Scaricare il programma di installazione e script helper
 
@@ -44,6 +44,10 @@ Prima di distribuire il servizio App di Azure in Azure Stack, è necessario comp
    - Remove-AppService.ps1
    - Cartella di moduli
      - GraphAPI.psm1
+
+## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Pubblicare l'estensione Script personalizzato dal Marketplace
+
+Servizio App di Azure in Azure Stack richiede v1.9.0 estensione Script personalizzato.  L'estensione deve essere [sfruttati da Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) prima di avviare la distribuzione o aggiornamento del servizio App di Azure in Azure Stack
 
 ## <a name="high-availability"></a>Disponibilità elevata
 
@@ -61,7 +65,7 @@ Aprire una sessione di PowerShell con privilegi elevata in un computer in grado 
 
 Eseguire la *Get-AzureStackRootCert.ps1* script dalla cartella in cui sono stati estratti gli script helper. Lo script crea un certificato radice nella stessa cartella dello script necessarie per il servizio App per la creazione di certificati.
 
-Quando si esegue il comando PowerShell seguente è possibile specificare l'endpoint con privilegi e le credenziali per il AzureStack\CloudAdmin.
+Quando si esegue il comando PowerShell seguente, è possibile specificare l'endpoint con privilegi e le credenziali per il AzureStack\CloudAdmin.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -151,6 +155,9 @@ Il certificato per l'identità deve contenere un oggetto che corrisponde al form
 
 ## <a name="virtual-network"></a>Rete virtuale
 
+> [!NOTE]
+> La pre-creazione di una rete virtuale personalizzata è facoltativa perché il servizio App di Azure in Azure Stack può creare la rete virtuale necessaria, ma sarà quindi necessario comunicare con SQL e File Server tramite gli indirizzi IP pubblici.
+
 Servizio App di Azure in Azure Stack ti permette di distribuire il provider di risorse a una rete virtuale esistente oppure è possibile creare una rete virtuale come parte della distribuzione. Usa una rete virtuale esistente consente l'uso di indirizzi IP interni per la connessione al file server e SQL server richiesto dal servizio App di Azure in Azure Stack. La rete virtuale deve essere configurata con l'intervallo di indirizzi e subnet seguenti prima di installare il servizio App di Azure in Azure Stack:
 
 Rete virtuale - /16
@@ -167,12 +174,20 @@ Subnet
 
 Servizio App di Azure richiede l'uso di un file server. Per le distribuzioni di produzione, il file server deve essere configurato per essere in grado di gestire gli errori e a disponibilità elevata.
 
+### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>Modello di avvio rapido per il File Server per le distribuzioni del servizio App di Azure in ASDK.
+
 Azure Stack Development Kit solo per le distribuzioni, è possibile usare la [modello di distribuzione Azure Resource Manager di esempio](https://aka.ms/appsvconmasdkfstemplate) per distribuire un server di file a nodo singolo configurato. Il server a nodo singolo file sarà un gruppo di lavoro.
+
+### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Modello di avvio rapido per File Server a disponibilità elevata e SQL Server
+
+Oggetto [modello di avvio rapido di architettura di riferimento](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) è ora disponibile, che distribuirà i File Server, SQL Server, Active Directory di supporto dell'infrastruttura in una rete virtuale configurata per supportare una distribuzione a disponibilità elevata di Servizio App di Azure in Azure Stack.  
+
+### <a name="steps-to-deploy-a-custom-file-server"></a>Passaggi per distribuire un File Server personalizzato
 
 >[!IMPORTANT]
 > Se si sceglie di distribuire il servizio App in una rete virtuale esistente, il File Server deve essere distribuito in una Subnet separata dal servizio App.
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>Effettuare il provisioning di gruppi e account in Active Directory
+#### <a name="provision-groups-and-accounts-in-active-directory"></a>Effettuare il provisioning di gruppi e account in Active Directory
 
 1. Creare i gruppi di sicurezza globali di Active Directory seguenti:
 
@@ -195,7 +210,7 @@ Azure Stack Development Kit solo per le distribuzioni, è possibile usare la [mo
    - Aggiungere **FileShareOwner** per il **FileShareOwners** gruppo.
    - Aggiungere **FileShareUser** per il **FileShareUsers** gruppo.
 
-### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Effettuare il provisioning di gruppi e account in un gruppo di lavoro
+#### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Effettuare il provisioning di gruppi e account in un gruppo di lavoro
 
 >[!NOTE]
 > Quando si sta configurando un file server, eseguire i comandi seguenti da un **prompt dei comandi amministratore**. <br>***Non usare PowerShell.***
@@ -225,7 +240,7 @@ Quando si usa il modello di Azure Resource Manager, gli utenti sono già stati c
    net localgroup FileShareOwners FileShareOwner /add
    ```
 
-### <a name="provision-the-content-share"></a>Effettuare il provisioning della condivisione contenuto
+#### <a name="provision-the-content-share"></a>Effettuare il provisioning della condivisione contenuto
 
 La condivisione del contenuto contiene contenuto del sito Web tenant. La procedura per effettuare il provisioning della condivisione contenuto in un singolo file server è lo stesso per gli ambienti Active Directory e del gruppo di lavoro. Ma è diversa per un cluster di failover in Active Directory.
 

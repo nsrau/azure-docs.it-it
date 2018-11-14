@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060741"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264319"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Managed Disks SSD Standard per carichi di lavoro delle macchine virtuali di Azure
 
@@ -22,7 +22,7 @@ Managed Disks SSD (Solid State Drive) Standard di Azure è un'opzione di archivi
 ## <a name="standard-ssd-features"></a>Caratteristiche delle unità SSD Standard
 
 **Dischi gestiti**: le unità SSD Standard sono disponibili solo come dischi gestiti. I dischi non gestiti e i BLOB di pagine non sono supportati nelle unità SSD Standard. Quando si crea il disco gestito, si specifica SSD Standard come tipo di disco e si indicano le dimensioni del disco necessarie. Azure creerà e gestirà automaticamente il disco.
-Le unità SSD Standard supportano tutte le operazioni di gestione del servizio offerte da Managed Disks. È ad esempio possibile creare o copiare dischi gestiti SSD Standard oppure eseguirne snapshot proprio come per i dischi gestiti.
+Le unità SSD Standard supportano tutte le operazioni del modello di distribuzione classico offerte da Managed Disks. È ad esempio possibile creare o copiare dischi gestiti SSD Standard oppure eseguirne snapshot proprio come per i dischi gestiti.
 
 **Macchine virtuali**: le unità SSD Standard possono essere usate con tutte le macchine virtuali di Azure, inclusi i tipi che non supportano i dischi Premium. Se ad esempio si usa una macchina virtuale della serie A, N o DS, o di qualsiasi altra serie di macchine virtuali di Azure, è possibile usare unità SSD Standard con tale macchina virtuale. Con l'introduzione delle unità SSD Standard, si consente la transizione di una vasta gamma di carichi di lavoro che in precedenza usavano dischi basati su unità HDD a dischi basati su unità SSD che garantiranno prestazioni coerenti, maggiore disponibilità, migliore latenza e un'esperienza di qualità complessivamente superiore.
 
@@ -32,7 +32,7 @@ Le unità SSD Standard supportano tutte le operazioni di gestione del servizio o
 
 ## <a name="scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni
 
-La tabella seguente contiene le dimensioni dei dischi attualmente offerte per i dischi SSD Standard.
+La tabella seguente contiene le dimensioni dei dischi attualmente offerte per i dischi SSD Standard. Le dimensioni indicate con un asterisco sono attualmente in anteprima.
 
 |Tipo di disco SSD Standard  |Dimensione disco  |Operazioni di I/O al secondo per disco  |Velocità effettiva per disco  |
 |---------|---------|---------|---------|
@@ -42,9 +42,9 @@ La tabella seguente contiene le dimensioni dei dischi attualmente offerte per i 
 |E30     |1.024 GiB       |Fino a 500         |Fino a 60 MiB al secondo         |
 |E40     |2.048 GiB       |Fino a 500         |Fino a 60 MiB al secondo         |
 |E50     |4.095 GiB       |Fino a 500         |Fino a 60 MiB al secondo         |
-|E60     |8.192 GiB       |Fino a 1.300       |Fino a 300 MiB al secondo        |
-|E70     |16.384 GiB      |Fino a 2.000       |Fino a 500 MiB al secondo        |
-|E80     |32.767 GiB      |Fino a 2.000       |Fino a 500 MiB al secondo        |
+|E60 *     |8.192 GiB       |Fino a 1.300       |Fino a 300 MiB al secondo        |
+|E70 *    |16.384 GiB      |Fino a 2.000       |Fino a 500 MiB al secondo        |
+|E80 *    |32.767 GiB      |Fino a 2.000       |Fino a 500 MiB al secondo        |
 
 Le unità SSD Standard sono progettate per offrire latenze di pochi millisecondi a cifra singola per la maggior parte delle operazioni di I/O e per garantire operazioni di I/O al secondo e velocità effettiva fino ai limiti indicati nella tabella precedente. I valori reali delle operazioni di I/O al secondo e della velocità effettiva possono talvolta variare a seconda dei modelli di traffico. Le unità SSD Standard offrono prestazioni più coerenti rispetto ai dischi HDD con latenza più bassa.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 91404f01a1a675ac59898336ef8aa81e1d2638b6
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579233"
+ms.locfileid: "51613096"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server nelle domande frequenti sul Marketplace di Azure Stack
 
@@ -38,7 +38,7 @@ Successivamente, se qualsiasi set di scalabilità di macchine virtuali fanno rif
 Microsoft offre due versioni di immagini di Windows Server tramite il Marketplace di Azure Stack:
 
 - **Pagare quando si utilizza**: queste immagini di esecuzione dei contatori Windows prezzo pieno. 
-   Chi dovrebbe utilizzare: i clienti con contratto Enterprise che usano il *modello di fatturazione del consumo*; CSP che non si desidera utilizzare Servizio licenze SPLA.
+   Chi dovrebbe utilizzare: i clienti Enterprise Agreement (EA) che usano il *modello di fatturazione del consumo*; CSP che non si desidera utilizzare Servizio licenze SPLA.
 - **Bring Your Own License (BYOL)**: queste immagini eseguire i contatori di base.
    Chi dovrebbe utilizzare: i clienti con contratto Enterprise con una licenza di Windows Server; CSP che usano la licenza SPLA.
 
@@ -52,7 +52,7 @@ Eliminare la versione non corretta prima di tutto tramite la gestione di Marketp
 
 Visualizzare [convertire macchine virtuali Windows Server con il vantaggio nuovamente in base al consumo](../virtual-machines/windows/hybrid-use-benefit-licensing.md#powershell-1).
 
-### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-ea-entitlement"></a>Cosa accade se dispone di un'immagine precedente e l'utente ha dimenticato di controllare la casella "Possedere una licenza", o si usano le proprie immagini e abbiamo entitlement con contratto Enterprise?
+### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Cosa accade se dispone di un'immagine precedente e l'utente ha dimenticato di controllare la casella "Possedere una licenza", o si usano le proprie immagini e abbiamo il diritto di contratto Enterprise?
 
 Visualizzare [convertire una VM esistente con vantaggio Azure Hybrid per Windows Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Si noti che il vantaggio Azure Hybrid non si applica ad Azure Stack, ma l'effetto di questa impostazione è applicabile.
 
@@ -60,7 +60,7 @@ Visualizzare [convertire una VM esistente con vantaggio Azure Hybrid per Windows
 
 Queste immagini si applicano i **licenseType** parametro, in modo che siano pagamento quando si utilizza. È possibile impostare questo parametro (vedere la domanda precedente risposta). Questo vale solo per il software di Windows Server, non a prodotti a più livelli, ad esempio SQL, che richiedono agli utenti di usare la propria licenza. Pagamento in base al durante l'utilizzo di gestione delle licenze non è applicabile ai prodotti software a più livelli.
 
-### <a name="i-have-an-ea-and-i-create-my-own-images-how-do-i-make-sure-they-are-billed-correctly"></a>Ho un contratto Enterprise e creo delle immagini; come assicurarmi che vengono fatturati in modo corretto?
+### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Ho un Enterprise Agreement (EA) e userà la licenza del Server di Windows con contratto Enterprise Agreement; come assicurarmi immagini vengono fatturate in modo corretto?
 
 È possibile aggiungere **licenseType: Windows_Server** in un modello di Azure Resource Manager. Questa impostazione deve essere aggiunto a ogni blocco di risorsa di macchina virtuale.
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1e5782ce3421cc5f0d2e0e51484d4bbe6b9eb6ab
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741182"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978639"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Anteprima: monitoraggio, creazione di report e risoluzione dei problemi nella protezione password di Azure AD
 
@@ -24,13 +24,15 @@ ms.locfileid: "50741182"
 | La protezione password di Azure AD è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Dopo la distribuzione della protezione password di Azure AD, il monitoraggio e la creazione di report sono attività essenziali. Questo articolo esplora dettagliatamente questi argomenti per aiutare a identificare i percorsi in cui ogni servizio registra le informazioni e come creare report sull'uso della protezione password di Azure AD.
+Dopo la distribuzione della protezione delle password di Azure AD, il monitoraggio e la creazione di report sono attività essenziali. Questo articolo esplora dettagliatamente questi argomenti per aiutare a identificare i percorsi in cui ogni servizio registra le informazioni e come creare report sull'uso della protezione password di Azure AD.
 
 ## <a name="on-premises-logs-and-events"></a>Log ed eventi locali
 
-### <a name="dc-agent-service"></a>Servizio agente del controller di dominio
+### <a name="dc-agent-admin-log"></a>Log di amministrazione agente controller di dominio
 
-In ogni controller di dominio il software del servizio agente del controller di dominio scrive i risultati delle relative convalide delle password (e altri stati) in un log eventi locale: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin
+In ogni controller di dominio il software del servizio agente del controller di dominio scrive i risultati delle proprie convalide delle password (e altri stati) in un log eventi locale:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin`
 
 Gli eventi vengono registrati dai diversi componenti dell'agente del controller di dominio tramite gli intervalli seguenti:
 
@@ -64,99 +66,151 @@ Gli eventi principali relativi alla convalida delle password sono i seguenti:
 
 #### <a name="sample-event-log-message-for-event-id-10014-successful-password-set"></a>Messaggio del log eventi di esempio per l'impostazione corretta delle password con ID evento 10014
 
-La password modificata per l'utente specificato è stata convalidata come conforme ai criteri password di Azure correnti.
+```
+The changed password for the specified user was validated as compliant with the current Azure password policy.
 
- Nome utente: BPL_02885102771 Nome completo:
+ UserName: BPL_02885102771
+ FullName:
+```
 
 #### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Messaggio del log eventi di esempio per l'impostazione delle password non riuscita con ID evento 10017 e 30003
 
 10017:
 
-La password reimpostata per l'utente specificato è stata rifiutata perché non è conforme ai criteri password di Azure correnti. Per altre informazioni, vedere il messaggio del log eventi correlato.
+```
+The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
 
- Nome utente: BPL_03283841185 Nome completo:
+ UserName: BPL_03283841185
+ FullName:
+```
 
 30003:
 
-La password reimpostata per l'utente specificato è stata rifiutata perché corrisponde ad almeno uno dei token presenti nell'elenco di password per tenant dei criteri password di Azure correnti.
+```
+The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
 
- Nome utente: BPL_03283841185 Nome completo:
+ UserName: BPL_03283841185
+ FullName:
+```
 
-Altri messaggi importanti del log eventi di cui tenere conto:
+#### <a name="sample-event-log-message-for-event-id-30001-password-accepted-due-to-no-policy-available"></a>Messaggio del log eventi di esempio per l'ID evento 30001 (password accettata perché non sono ancora disponibili criteri)
 
-#### <a name="sample-event-log-message-for-event-id-30001"></a>Messaggio del log eventi di esempio per l'ID evento 30001
+```
+The password for the specified user was accepted because an Azure password policy is not available yet
 
-La password per l'utente specificato è stata accettata perché non sono ancora disponibili criteri password di Azure
+UserName: SomeUser
+FullName: Some User
 
-Nome utente: NomeUtente Nome completo: Nome utente
+This condition may be caused by one or more of the following reasons:%n
 
-Questa condizione può essere dovuta a uno o più dei motivi seguenti:%n
+1. The forest has not yet been registered with Azure.
 
-1. La foresta non è stata ancora registrata con Azure.
+   Resolution steps: an administrator must register the forest using the Register-AzureADPasswordProtectionForest cmdlet.
 
-   Passaggi per la risoluzione: un amministratore deve registrare la foresta usando il cmdlet Register-AzureADPasswordProtectionForest.
+2. An Azure AD password protection Proxy is not yet available on at least one machine in the current forest.
 
-2. Un proxy di protezione password di Azure AD non è ancora disponibile in almeno un computer nella foresta corrente.
+   Resolution steps: an administrator must install and register a proxy using the Register-AzureADPasswordProtectionProxy cmdlet.
 
-   Passaggi per la risoluzione: un amministratore deve installare e registrare un proxy usando il cmdlet Register-AzureADPasswordProtectionProxy.
+3. This DC does not have network connectivity to any Azure AD password protection Proxy instances.
 
-3. Il controller di dominio non ha connettività di rete ad alcuna delle istanze del proxy di protezione password di Azure AD.
+   Resolution steps: ensure network connectivity exists to at least one Azure AD password protection Proxy instance.
 
-   Passaggi per la risoluzione: verificare la presenza di connettività di rete ad almeno un'istanza del proxy di protezione password di Azure AD.
+4. This DC does not have connectivity to other domain controllers in the domain.
 
-4. Il controller di dominio non ha connettività ad altri controller di dominio nel dominio.
+   Resolution steps: ensure network connectivity exists to the domain.
+```
 
-   Passaggi per la risoluzione: verificare la presenza di connettività di rete al dominio.
+#### <a name="sample-event-log-message-for-event-id-30006-new-policy-being-enforced"></a>Messaggio del log eventi di esempio per l'ID evento 30006 (nuovi criteri applicati)
 
-#### <a name="sample-event-log-message-for-event-id-30006"></a>Messaggio del log eventi di esempio per l'ID evento 30006
+```
+The service is now enforcing the following Azure password policy.
 
-Il servizio sta ora applicando il criterio password di Azure seguente.
-
+ Enabled: 1
  AuditOnly: 1
+ Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+ Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+ Enforce tenant policy: 1
+```
 
- Data criteri globali: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+#### <a name="dc-agent-operational-log"></a>Log operativo agente del controller di dominio
 
- Data criteri del tenant: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+Il servizio agente del controller di dominio registra anche gli eventi operativi correlati al log seguente:
 
- Applicazione dei criteri del tenant: 1
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational`
 
-#### <a name="dc-agent-log-locations"></a>Percorsi dei log eventi del controller di dominio
+#### <a name="dc-agent-trace-log"></a>Log di traccia agente del controller di dominio
 
-Il servizio agente del controller di dominio registra anche eventi correlati alle operazioni in questo log: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational
+Il servizio agente del controller di dominio può registrare anche eventi di traccia a livello di debug dettagliati nel log seguente:
 
-Il servizio agente del controller di dominio può registrare anche eventi di traccia a livello di debug dettagliati in questo log: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace`
+
+La registrazione della traccia è disabilitata per impostazione predefinita.
 
 > [!WARNING]
-> Il log di traccia è disabilitato per impostazione predefinita. Quando è abilitato, questo log riceve un numero elevato di eventi e può influire sulle prestazioni del controller di dominio. Di conseguenza, questo log avanzato deve essere abilitato solo quando un problema richiede un'indagine più approfondita e solo per un periodo di tempo minimo.
+>  Quando è abilitato, il log di traccia riceve un numero elevato di eventi e può influire sulle prestazioni del controller di dominio. Di conseguenza, questo log avanzato deve essere abilitato solo quando un problema richiede un'indagine più approfondita e solo per un periodo di tempo minimo.
+
+#### <a name="dc-agent-text-logging"></a>Registrazione di testo agente del controller di dominio
+
+Il servizio agente del controller di dominio può essere configurato per scrivere in un log di testo impostando il valore del Registro di sistema seguente:
+
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters!EnableTextLogging = 1 (valore REG_DWORD)
+
+La registrazione di testo è disabilitata per impostazione predefinita. Per rendere effettive le modifiche, è necessario riavviare il servizio agente del controller di dominio. Quando il servizio agente del controller di dominio è abilitato, scrive in un file di log che si trova in:
+
+`%ProgramFiles%\Azure AD Password Protection DC Agent\Logs`
+
+> [!TIP]
+> Il log di testo riceve le stesse voci a livello di debug che possono essere registrate nel log di traccia, ma è in genere in un formato più semplice da esaminare e analizzare.
+
+> [!WARNING]
+> Quando è abilitato, questo log riceve un numero elevato di eventi e può influire sulle prestazioni del controller di dominio. Di conseguenza, questo log avanzato deve essere abilitato solo quando un problema richiede un'indagine più approfondita e solo per un periodo di tempo minimo.
 
 ### <a name="azure-ad-password-protection-proxy-service"></a>Servizio proxy di protezione password di Azure AD
 
-Il servizio proxy di protezione password genera un set minimo di eventi in questo log eventi: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational
+#### <a name="proxy-service-event-logs"></a>Log eventi di servizi proxy
 
-Il servizio proxy di protezione password può anche registrare eventi di traccia a livello di debug dettagliati in questo log: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace
+Il servizio proxy genera un set minimo di eventi per i log eventi seguenti:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Admin`
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational`
+
+Il servizio proxy può registrare anche eventi di traccia a livello di debug dettagliati nel log seguente:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace`
+
+La registrazione della traccia è disabilitata per impostazione predefinita.
 
 > [!WARNING]
-> Il log di traccia è disabilitato per impostazione predefinita. Quando è abilitato, questo log riceve un numero elevato di eventi e può influire sulle prestazioni dell'host del proxy. Di conseguenza, questo log deve essere abilitato solo quando un problema richiede un'indagine più approfondita e solo per un periodo di tempo minimo.
+> Quando è abilitato, il log di traccia riceve un numero elevato di eventi e può influire sulle prestazioni dell'host del proxy. Di conseguenza, questo log deve essere abilitato solo quando un problema richiede un'indagine più approfondita e solo per un periodo di tempo minimo.
 
-### <a name="dc-agent-discovery"></a>Individuazione dell'agente del controller di dominio
+#### <a name="proxy-service-text-logging"></a>Registrazione di testo del servizio proxy
 
-È possibile usare il cmdlet `Get-AzureADPasswordProtectionDCAgent` per visualizzare informazioni di base sui diversi agenti del controller di dominio in esecuzione in un dominio o una foresta. Queste informazioni vengono recuperate dagli oggetti serviceConnectionPoint registrati da uno o più servizi agente del controller di dominio in esecuzione. Di seguito viene mostrato un esempio dell'output di questo cmdlet:
+Il servizio proxy può essere configurato per scrivere in un log di testo impostando il valore del Registro di sistema seguente:
 
-```
-PS C:\> Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-Heartbeat             : 2/16/2018 8:35:01 AM
-```
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters!EnableTextLogging = 1 (valore REG_DWORD)
 
-Le diverse proprietà vengono aggiornate da ogni servizio agente del controller di dominio all'incirca ogni ora. I dati sono comunque soggetti alla latenza di replica di Active Directory.
+La registrazione di testo è disabilitata per impostazione predefinita. Per rendere effettive le modifiche, è necessario riavviare il servizio proxy. Quando è abilitato, il servizio proxy scrive in un file di log che si trova in:
 
-L'ambito della query del cmdlet può essere ulteriormente definito usando il parametro –Forest o –Domain.
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+> [!TIP]
+> Il log di testo riceve le stesse voci a livello di debug che possono essere registrate nel log di traccia, ma è in genere in un formato più semplice da esaminare e analizzare.
+
+> [!WARNING]
+> Quando è abilitato, questo log riceve un numero elevato di eventi e può influire sulle prestazioni del controller di dominio. Di conseguenza, questo log avanzato deve essere abilitato solo quando un problema richiede un'indagine più approfondita e solo per un periodo di tempo minimo.
+
+#### <a name="powershell-cmdlet-logging"></a>Registrazione di cmdlet di PowerShell
+
+La maggior parte dei cmdlets di protezione delle password di Azure AD scrivono in un log di testo che si trova in:
+
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+Se si verifica un errore di cmdlet e la causa e/o soluzione non è immediatamente evidente, è possibile consultare anche questi log di testo.
 
 ### <a name="emergency-remediation"></a>Correzione di emergenza
 
-Se si verifica una situazione indesiderabile in cui il servizio agente del controller di dominio provoca problemi, il servizio agente del controller di dominio può essere arrestato immediatamente. La DLL di filtro dell'agente del controller di dominio tenta di chiamare il servizio non in esecuzione e registra eventi di avviso (10012, 10013), ma durante questo periodo di tempo tutte le password in ingresso vengono accettate. Il servizio agente del controller di dominio può quindi essere configurato anche tramite Gestione controllo servizi di Windows con tipo di avvio "Disabilitato" in base alle esigenze.
+Se si verifica una situazione in cui il servizio agente del controller di dominio provoca problemi, tale servizio può essere arrestato immediatamente. La DLL di filtro dell'agente del controller di dominio tenta ancora di chiamare il servizio non in esecuzione e registra eventi di avviso (10012, 10013), ma durante questo periodo di tempo tutte le password in ingresso vengono accettate. Il servizio agente del controller di dominio può quindi essere configurato anche tramite Gestione controllo servizi di Windows con tipo di avvio "Disabilitato" in base alle esigenze.
 
 ### <a name="performance-monitoring"></a>Monitoraggio delle prestazioni
 
@@ -182,6 +236,7 @@ Se il controller di dominio viene avviato in modalità di ripristino dei servizi
 ## <a name="domain-controller-demotion"></a>Abbassamento di livello del controller di dominio
 
 È possibile abbassare di livello un controller di dominio che è ancora in esecuzione nel software dell'agente del controller di dominio. Gli amministratori devono tenere tuttavia presente il fatto che durante la procedura di abbassamento di livello il software dell'agente del controller di dominio continua a essere eseguito e ad applicare i criteri password correnti. La nuova password dell'account amministratore locale (specificata come parte dell'operazione di abbassamento di livello) viene convalidata come qualsiasi altra password. Microsoft consiglia di scegliere password sicure per gli account amministratore locali nell'ambito di una procedura di abbassamento di livello del controller di dominio. Tuttavia, la convalida della nuova password dell'account amministratore locale da parte del software dell'agente del controller di dominio può avere un forte impatto sulle procedure operative di abbassamento di livello preesistenti.
+
 Al termine dell'abbassamento di livello e quando il controller di dominio è stato riavviato ed è di nuovo in esecuzione come normale server membro, il software dell'agente del controller di dominio torna a operare in modalità passiva. Può quindi essere disinstallato in qualsiasi momento.
 
 ## <a name="removal"></a>Rimozione
@@ -189,14 +244,15 @@ Al termine dell'abbassamento di livello e quando il controller di dominio è sta
 Se si decide di disinstallare il software in versione di anteprima pubblica e di pulire tutti gli stati correlati dai domini e dalla foresta, è possibile completare i passaggi seguenti a questo scopo:
 
 > [!IMPORTANT]
-> È importante eseguire i passaggi nell'ordine specificato. Se qualsiasi istanza del servizio proxy di protezione password viene lasciata in esecuzione, ricreerà periodicamente l'oggetto serviceConnectionPoint, nonché lo stato di sysvol.
+> È importante eseguire i passaggi nell'ordine specificato. Se un'istanza del servizio proxy viene lasciata in esecuzione, ne viene periodicamente ricreare il relativo oggetto serviceConnectionPoint. Se un'istanza del servizio agente del controller di dominio viene lasciata in esecuzione, ne vengono ricreati periodicamente l'oggetto serviceConnectionPoint e lo stato sysvol.
 
 1. Disinstallare il software del proxy di protezione password da tutti i computer. Questo passaggio **non** richiede un riavvio.
 2. Disinstallare il software dell'agente del controller di dominio da tutti i controller di dominio. Questo passaggio **richiede** un riavvio.
 3. Rimuovere manualmente tutti i punti di connessione del servizio proxy in ogni contesto dei nomi di dominio. Il percorso di questi oggetti può essere individuato con il comando di PowerShell per Active Directory seguente:
-   ```
+
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
+   $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
@@ -206,9 +262,9 @@ Se si decide di disinstallare il software in versione di anteprima pubblica e di
 
 4. Rimuovere manualmente tutti i punti di connessione dell'agente del controller di dominio in ogni contesto dei nomi di dominio. Potrebbe essere presente uno di questi oggetti per ogni controller di dominio nella foresta, a seconda dell'ampiezza della distribuzione del software in versione di anteprima pubblica. Il percorso dell'oggetto può essere individuato con il comando di PowerShell per Active Directory seguente:
 
-   ```
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
+   $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
@@ -216,8 +272,8 @@ Se si decide di disinstallare il software in versione di anteprima pubblica e di
 
 5. Rimuovere manualmente lo stato di configurazione a livello di foresta. Lo stato di configurazione a livello di foresta viene mantenuto in un contenitore nel contesto dei nomi della configurazione di Active Directory. Può essere individuato ed eliminato in questo modo:
 
-   ```
-   $passwordProtectonConfigContainer = "CN=Azure AD password protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
+   ```Powershell
+   $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject $passwordProtectonConfigContainer
    ```
 

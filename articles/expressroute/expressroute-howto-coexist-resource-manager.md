@@ -6,14 +6,14 @@ author: charwen
 manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: c267e5002fbd603e4bb749550c19e8d022ce4d54
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162343"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243812"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurare connessioni coesistenti da sito a sito ed ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,9 @@ La configurazione di connessioni coesistenti di tipo VPN da sito a sito ed Expre
 * È possibile configurare una VPN da sito a sito come percorso di failover protetto per ExpressRoute. 
 * In alternativa, è possibile usare la VPN da sito a sito per connettersi ai siti che non sono connessi tramite ExpressRoute. 
 
-Questo articolo illustra i passaggi necessari per configurare entrambi questi scenari. Questo articolo si applica al modello di distribuzione di Resource Manager e usa PowerShell. È possibile configurare tali scenari tramite il Portale di Azure, nonostante la documentazione non sia ancora disponibile.
+Questo articolo illustra i passaggi necessari per configurare entrambi questi scenari. Questo articolo si applica al modello di distribuzione di Resource Manager e usa PowerShell. È anche possibile configurare tali scenari tramite il portale di Azure, nonostante la documentazione non sia ancora disponibile. È possibile configurare per primo uno dei due gateway. In genere, l'aggiunta di un nuovo gateway o di una connessione gateway non comporterà tempi di inattività.
+
+
 
 >[!NOTE]
 >Se si vuole creare una VPN da sito a sito su un circuito ExpressRoute, vedere [questo articolo](site-to-site-vpn-over-microsoft-peering.md).
@@ -224,7 +226,8 @@ Per aggiungere una configurazione da punto a sito al gateway VPN in una configur
   $p2sCertMatchName = "RootErVpnCoexP2S" 
   $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
   if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
-  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
+  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
+  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
   ```
 
 Per altre informazioni sulle VPN da punto a sito, vedere [Configurare una connessione da punto a sito](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).

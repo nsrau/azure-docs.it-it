@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f0ed4b20f9dbfef4824f66eab3ab953a5dbcfaae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4960ee485ac8c6b233eacc569cdac6748481887d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060833"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50746435"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
 
@@ -30,6 +30,10 @@ Questo articolo è utile per rispondere alle domande comuni seguenti sull'ottimi
 * Come si ottiene l'ottimizzazione per IOPS, larghezza di banda e latenza?  
 
 Queste indicazioni sono specifiche per l'Archiviazione Premium, perché i carichi di lavoro in esecuzione nell'Archiviazione Premium sono influenzati in modo significativo dalle prestazioni. Sono disponibili esempi nei casi appropriati. È anche possibile applicare alcune indicazioni alle applicazioni in esecuzione su VM IaaS con dischi di archiviazione Standard.
+
+> [!NOTE]
+> In alcuni casi, quello che sembra essere un problema di prestazioni è in realtà un collo di bottiglia a livello di rete. In queste situazioni, è consigliabile ottimizzare le [prestazioni di rete](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> È inoltre necessario assicurarsi che la macchina virtuale supporti la rete accelerata. In caso affermativo, è possibile abilitarla anche dopo la distribuzione sulle macchie virtuali sia [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) che [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) macchine virtuali.
 
 Prima di iniziare, se non si ha alcuna esperienza dell'Archiviazione Premium, leggere gli articoli [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md) e [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/common/storage-scalability-targets.md).
 
@@ -221,11 +225,11 @@ Quando si esegue Linux con l'Archiviazione Premium, verificare se sono disponibi
 
 L'Archiviazione Premium di Azure offre attualmente otto dimensioni di disco nella versione di disponibilità generale e tre dimensioni di disco in anteprima. Ogni dimensione di disco ha un limite di scala diverso per IOPS, larghezza di banda e archiviazione. Scegliere la dimensione del disco di Archiviazione Premium appropriata, in base ai requisiti dell'applicazione e le dimensioni delle VM a scalabilità elevata. La tabella seguente illustra le sette dimensioni di disco e le relative capacità. Le dimensioni di disco P4, P6, P15, P60, P70 e P80 sono attualmente supportate solo per Managed Disks.
 
-| Tipo di disco Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
+| Tipo di disco Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Dimensioni disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1.024 GiB (1 TiB)    | 2.048 GiB (2 TiB)    | 4.095 GiB (4 TiB)    | 8.192 GiB (8 TiB)    | 16.384 GiB (16 TiB)    | 32.767 GiB (32 GiB)    |
-| IOPS per disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20.000              |
-| Velocità effettiva per disco | 25 MiB al secondo  | 50 MiB al secondo  | 100 MiB al secondo |125 MiB al secondo | 150 MiB al secondo | 200 MiB al secondo | 250 MiB al secondo | 250 MiB al secondo | 480 MiB al secondo | 750 MiB al secondo | 750 MiB al secondo |
+| Dimensioni disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1.024 GiB (1 TiB)    | 2.048 GiB (2 TiB)    | 4.095 GiB (4 TiB)    | 8.192 GiB (8 TiB)    | 16.384 GiB (16 TiB)    | 32.767 GiB (32 GiB)    |
+| IOPS per disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20.000              |
+| Velocità effettiva per disco | 25 MiB al secondo  | 50 MiB al secondo  | 100 MiB al secondo |125 MiB al secondo | 150 MiB al secondo | 200 MiB al secondo | 250 MiB al secondo | 250 MiB al secondo | 480 MiB al secondo | 750 MiB al secondo | 750 MiB al secondo |
 
 Il numero di dischi scelto dipende dalla dimensione scelta per il disco. È possibile usare un singolo disco P50 o più dischi P10 per soddisfare i requisiti dell'applicazione. Valutare le considerazioni elencate di seguito quando si effettua la scelta.
 

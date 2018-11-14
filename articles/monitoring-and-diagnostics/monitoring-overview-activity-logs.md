@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7538951b1ac8290b574180779b83c6b8e79fcf1f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094364"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006023"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorare l'attività di sottoscrizione con il log attività di Azure
 
@@ -33,10 +33,7 @@ Il log attività è diverso dal [log di diagnostica](monitoring-overview-of-diag
 Per recuperare eventi dal log attività è possibile usare il portale di Azure, l'interfaccia della riga di comando, i cmdlet di PowerShell e l'API REST di Monitoraggio di Azure.
 
 > [!NOTE]
->  [I nuovi avvisi](monitoring-overview-unified-alerts.md) offrono un'esperienza ottimizzata per la creazione e la gestione delle regole degli avvisi del log attività.  [Altre informazioni](monitoring-activity-log-alerts-new-experience.md)
-
-Guardare il video seguente di introduzione al log attività.
-> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+>  [I nuovi avvisi](monitoring-overview-unified-alerts.md) offrono un'esperienza ottimizzata per la creazione e la gestione delle regole degli avvisi del log attività.  [Altre informazioni](alert-activity-log.md)
 
 
 ## <a name="categories-in-the-activity-log"></a>Categorie nel log attività
@@ -70,7 +67,7 @@ Ecco alcune delle attività che è possibile eseguire con il log attività:
 Nel portale di Azure è possibile visualizzare il log attività in diverse posizioni:
 * Il **log attività**, a cui è possibile accedere cercando Log attività in **Tutti i servizi** nel riquadro di spostamento sinistro.
 * **Monitoraggio** viene visualizzato per impostazione predefinita nel riquadro di spostamento sinistro. Il log attività è una sezione di Monitoraggio di Azure.
-* Tutti i pannelli **risorsa** di una risorsa, ad esempio il pannello di configurazione di una macchina virtuale. Il log attività è una delle sezioni nella maggior parte di questi pannelli delle risorse e, facendovi clic, vengono automaticamente filtrati gli eventi correlati alla risorsa specifica.
+* La maggior parte delle **risorse**, ad esempio il pannello di configurazione di una macchina virtuale. Il log attività è una delle sezioni nella maggior parte di questi pannelli delle risorse e, facendovi clic, vengono automaticamente filtrati gli eventi correlati alla risorsa specifica.
 
 Nel portale di Azure è possibile filtrare il log attività in base a questi campi:
 * Intervallo di tempo: ora di inizio e di fine degli eventi.
@@ -84,11 +81,9 @@ Nel portale di Azure è possibile filtrare il log attività in base a questi cam
 * Evento avviato da: "chiamante" o utente che ha eseguito l'operazione.
 * Apri ricerca: casella di ricerca di testo aperta che cerca tale stringa in tutti i campi di tutti gli eventi.
 
-Dopo avere definito un set di filtri, è possibile salvarlo come query persistente nelle sessioni, in caso fosse necessario eseguire di nuovo la stessa query in futuro con tali filtri applicati. È anche possibile aggiungere una query al dashboard di Azure per avere sempre sotto controllo eventi specifici.
+Dopo aver definito un set di filtri è anche possibile aggiungere una query al dashboard di Azure per avere sempre sotto controllo eventi specifici.
 
-Fare clic su "Applica" per eseguire la query e visualizzare tutti gli eventi corrispondenti. Fare clic su un evento dell'elenco per visualizzare il riepilogo di tale evento, oltre al codice JSON non elaborato completo di tale evento.
-
-Per eseguire operazioni più avanzate, è possibile fare clic sull'icona **Ricerca log**, che visualizza i dati del log attività nella [soluzione Analisi log attività di Log Analytics](../log-analytics/log-analytics-activity.md). Il pannello Log attività offre un'esperienza di filtro/esplorazione di base con i log, ma Log Analytics consente di trasformare tramite Pivot, eseguire query e visualizzare i dati in modo più dettagliato.
+Per eseguire operazioni più avanzate è possibile fare clic sull'icona **Log**, che visualizza i dati del Log attività nella [soluzione Analisi log attività di Log Analytics](../log-analytics/log-analytics-activity.md). Il pannello Log attività offre un'esperienza di filtro/esplorazione di base con i log, ma Log Analytics consente di trasformare tramite Pivot, eseguire query e visualizzare i dati in modo più dettagliato.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Esportare il log attività con un profilo di log
 Un **profilo di log** controlla la modalità di esportazione del log attività. Un profilo di log permette di configurare quanto segue:
@@ -114,14 +109,14 @@ Un **profilo di log** controlla la modalità di esportazione del log attività. 
 Queste impostazioni possono essere configurate tramite l'opzione "Esporta" nel pannello Log attività nel portale oppure a livello di codice tramite l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931927.aspx), i cmdlet di PowerShell o l'interfaccia della riga di comando. Una sottoscrizione può avere un solo profilo di log.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configurare i profili di log tramite il portale di Azure
-È possibile trasmettere il log attività a un hub eventi o memorizzarlo in un account di archiviazione usando l'opzione "Esporta" nel portale di Azure.
+È possibile trasmettere il Log attività a un hub eventi o memorizzarlo in un account di archiviazione usando l'opzione "Export to Event Hub" (Esporta in Hub eventi) nel portale di Azure.
 
 1. Passare al **log attività** usando il menu sul lato sinistro del portale.
 
-    ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Fare clic sul pulsante **Esporta** nella parte superiore del pannello.
+    ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate-v2.png)
+2. Fare clic sul pulsante **Export to Event Hub** (Esporta in Hub eventi) nella parte superiore del pannello.
 
-    ![Pulsante Esporta nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![Pulsante Esporta nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-export-v2.png)
 3. Nel pannello visualizzato è possibile selezionare:  
   * aree per cui esportare gli eventi
   * account di archiviazione in cui salvare gli eventi

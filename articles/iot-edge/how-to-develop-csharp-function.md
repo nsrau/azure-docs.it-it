@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b4f9bd1c7390d64a0db08b55bfb777498a10cb0
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 343264f90ecf067786db9c0096625b87b2dbd319
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382706"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004409"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare ed eseguire il debug delle funzioni di Azure per Azure IoT Edge
 
@@ -74,7 +74,7 @@ Nella soluzione sono presenti quattro elementi:
 
 ## <a name="develop-your-module"></a>Sviluppare il modulo
 
-Il codice funzione di Azure predefinito fornito con la soluzione si trova in **modules**> [nome del modulo] > **EdgeHubTrigger-Csharp** > **run.csx**. Il modulo e il file deployment.template.json sono impostati in modo che sia possibile compilare la soluzione, inviarla al registro del contenitore e distribuirla in un dispositivo per avviare il test senza toccare alcun codice. Il modulo viene compilato solo per accettare l'input da un'origine (in questo caso, il modulo tempSensor che simula i dati) e collegarlo all'hub IoT. 
+Il codice funzione di Azure predefinito disponibile con la soluzione si trova in **modules** > [nome modulo] > **modulename.cs**. Il modulo e il file deployment.template.json sono impostati in modo che sia possibile compilare la soluzione, inviarla al registro del contenitore e distribuirla in un dispositivo per avviare il test senza toccare alcun codice. Il modulo viene compilato solo per accettare l'input da un'origine (in questo caso, il modulo tempSensor che simula i dati) e collegarlo all'hub IoT. 
 
 Quando si è pronti per personalizzare il modello di funzione di Azure con il proprio codice, usare gli [SDK per l'hub IoT di Azure](../iot-hub/iot-hub-devguide-sdks.md) per compilare moduli che rispondano alle esigenze chiave delle soluzioni IoT quali sicurezza, gestione dei dispositivi e affidabilità. 
 
@@ -93,7 +93,7 @@ Controllare lo stato del contenitore nello strumento di esplorazione Docker di V
 
    ![Selezionare la configurazione del debug](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
-2. Accedere a `run.csx`. Aggiungere un punto di interruzione nella funzione.
+2. Accedere a `modulename.cs`. Aggiungere un punto di interruzione nella funzione.
 3. Selezionare **Avvia debug** o premere **F5**. Selezionare il processo a cui collegarsi.
 4. Nella visualizzazione di debug di Visual Studio Code è possibile vedere le variabili nel pannello di sinistra. 
 

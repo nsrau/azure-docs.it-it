@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5f103e9fe410374a551eb43d456d5993bdd36627
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 55e262e1855eb6ab50c2d32e7e8cd4bb9175a593
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056752"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962555"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Application Proxy e Qlik Sense 
 Azure Active Directory Application Proxy e Qlik Sense hanno collaborato assieme per permettere di usare con facilità l'Application Proxy e fornire l'accesso remoto alla distribuzione Qlik Sense.  
@@ -58,7 +58,11 @@ Seguire gli stessi passaggi usati per l'applicazione n°1, con le eccezioni segu
 ## <a name="testing"></a>Test 
 L'applicazione è ora pronta per il test. Accedere all'URL esterno usato per pubblicare Qlik Sense nell'applicazione n°1 e accedere come utente assegnato a entrambe le applicazioni.  
 
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+Per altre informazioni sulla pubblicazione di Qlik Sense con il proxy di applicazione, vedere l'articolo della community di Qlik: [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183) (Azure AD con l'autenticazione integrata di Windows usando una delega vincolata di Kerberos con Qlik Sense).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-publish-azure-portal.md)
-- [Uso di connettori del proxy di applicazione](application-proxy-connector-groups.md).
+- [Uso di connettori del proxy di applicazione](application-proxy-connector-groups.md)
+

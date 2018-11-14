@@ -3,19 +3,21 @@ title: Creare e gestire regole di telemetria nell'applicazione Azure IoT Central
 description: Le regole di telemetria di Azure IoT Central consentono il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni come l'invio di un messaggio di posta elettronica quando la regola viene attivata.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 08/14/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5913df2d4dc286fad63760c95f54e0dbc717acdc
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246728"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005734"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creare una regola di telemetria e impostare notifiche nell'applicazione Azure IoT Central
+
+*Questo articolo è rivolto a operatori, autori e amministratori.*
 
 È possibile usare Azure IoT Central per monitorare in remoto i dispositivi connessi. Le regole di Azure IoT Central consentono il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni quali l'invio di un messaggio di posta elettronica o l'avvio di Microsoft Flow. Con pochi clic è possibile definire la condizione per cui monitorare i dati del dispositivo e configurare l'azione corrispondente. Questo articolo illustra come creare regole che consentono di monitorare i dati di telemetria inviati dal dispositivo.
 
@@ -36,9 +38,9 @@ Per creare una regola di telemetria, il modello di dispositivo deve disporre di 
 
     ![Nessuna regola](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
 
-1. Nella scheda **Regole** fare clic **+ Nuova regola** per visualizzare i tipi di regole che è possibile creare.
+1. Nella scheda **Regole** fare clic **Modifica modello** e quindi su **+ Nuova regola** per visualizzare i tipi di regole che è possibile creare.
 
-1. Fare clic sul riquadro **Telemetria** per creare una regola per il monitoraggio della telemetria del dispositivo.
+1. Fare clic su **Telemetria** per creare una regola per il monitoraggio della telemetria del dispositivo.
 
     ![Tipi di regola](media\howto-create-telemetry-rules\Rule_Types.png)
 
@@ -85,7 +87,9 @@ Questa sezione illustra come configurare le azioni da intraprendere quando la re
 
    ![Configurare l'azione](media\howto-create-telemetry-rules\Configure_Action.png)
 
-1. Per salvare la regola, scegliere **Save** (Salva). La regola diventa attiva entro pochi minuti e avvia il monitoraggio dei dati di telemetria inviati all'applicazione. Quando si verifica la condizione specificata nella regola, quest'ultima attiva l'azione e-mail configurata.
+1. Per salvare la regola, scegliere **Save** (Salva). La regola diventa attiva entro pochi minuti e avvia il monitoraggio dei dati di telemetria inviati all'applicazione. Quando si verifica la condizione specificata nella regola, quest'ultima attiva l'azione di posta elettronica configurata.
+
+1. Scegliere **Fine** per uscire dalla modalità **Modifica modello**.
 
 È possibile aggiungere altre azioni per la regola, ad esempio Microsoft Flow e i webhook. È possibile aggiungere fino a 5 azioni per ogni regola.
 

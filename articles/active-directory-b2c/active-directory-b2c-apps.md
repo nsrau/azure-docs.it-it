@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406518"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006195"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipi di applicazioni che possono essere usate in Active Directory B2C
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) B2C supporta l'autenticazione per un'ampia gam
 Ogni applicazione che usa Azure AD B2C deve essere registrata in un tenant di [Azure AD B2C](active-directory-b2c-get-started.md) tramite il [portale di Azure](https://portal.azure.com/). Il processo di registrazione dell’applicazione raccoglie e assegna alcuni valori, tra cui:
 
 * Un **ID applicazione** che identifica l'applicazione in modo univoco.
-* Un **URI di reindirizzamento** che può essere usato per indirizzare le risposte all'applicazione.
+* Un **URL di risposta** che può essere usato per indirizzare le risposte all'applicazione.
 
 Ogni richiesta inviata ad Azure AD B2C specifica un **criterio**. Il comportamento di Azure AD è regolato da criteri. Gli endpoint possono anche essere usati per creare un set personalizzabile di esperienze utente. Tra i criteri comuni sono inclusi quelli per l'iscrizione, l'accesso e la modifica del profilo. Se non si ha familiarità con i criteri, prima di continuare, vedere [Azure Active Directory B2C: framework di criteri estendibile](active-directory-b2c-reference-policies.md).
 
@@ -112,9 +112,9 @@ In questo flusso l'applicazione esegue i [criteri](active-directory-b2c-referenc
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-Azure AD B2C attualmente non supporta i tipi di app seguenti, ma tale supporto è in programma. 
+### <a name="application-not-supported"></a>Applicazione non supportata 
 
-### <a name="daemonsserver-side-applications"></a>Applicazioni sul lato server o daemon
+#### <a name="daemonsserver-side-applications"></a>Applicazioni sul lato server o daemon
 
 Anche le applicazioni che contengono processi a esecuzione prolungata o che funzionano senza la presenza di un utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Tali applicazioni possono autenticarsi e ottenere i token usando la propria identità, invece di un'identità delegata dell'utente, e mediante il flusso di credenziali client OAuth 2.0. Il flusso di credenziali client non è lo stesso del flusso per conto dell’utente e quest’ultimo non deve essere utilizzato per l'autenticazione da server a server.
 
@@ -122,9 +122,60 @@ Anche se il flusso di credenziali client non è attualmente supportato da Azure 
 
 Per impostare il flusso di credenziali client, vedere [Azure Active Directory v2.0 e il flusso di credenziali client OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Un'autenticazione riuscita comporta la ricezione di un token formattato in modo che possa essere utilizzato da Azure AD come descritto in [Riferimento al token di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-
-### <a name="web-api-chains-on-behalf-of-flow"></a>Catene di API Web (flusso On-Behalf-Of)
+#### <a name="web-api-chains-on-behalf-of-flow"></a>Catene di API Web (flusso On-Behalf-Of)
 
 Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD B2C. Questo scenario è comune nei client nativi che hanno un back-end dell'API Web. Quest'ultimo chiama a sua volta un servizio online Microsoft, ad esempio l'API Graph di Azure AD.
 
 Questo scenario di API Web concatenata può essere supportato usando la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of.  Il flusso On-Behalf-Of, tuttavia, non è attualmente implementato in Azure AD B2C.
+
+### <a name="reply-url-values"></a>Valori dell'URL di risposta
+
+Attualmente, le app registrate con Azure AD B2C sono limitate a un set specifico di valori di URL di risposta. Gli URL di risposta per le app e i servizi Web devono iniziare con lo schema `https` e tutti i valori degli URL di risposta devono condividere un singolo dominio DNS. Non è possibile ad esempio registrare un'app Web con uno degli URL di risposta seguenti:
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+Il sistema di registrazione confronta l'intero nome DNS dell'URL di risposta esistente con il nome DNS dell'URL di risposta che si sta aggiungendo. La richiesta di aggiungere il nome DNS non viene soddisfatta se si verificano le condizioni seguenti:
+
+- Il nome DNS intero del nuovo URL di risposta non corrisponde al nome DNS dell'URL di risposta esistente.
+- Il nome DNS intero del nuovo URL di risposta non è un sottodominio secondario dell'URL di risposta esistente.
+
+Se ad esempio l'applicazione ha questo URL di risposta:
+
+`https://login.contoso.com`
+
+è possibile eseguire un'aggiunta analoga alla seguente:
+
+`https://login.contoso.com/new`
+
+In questo caso, il nome DNS corrisponde esattamente. In alternativa, è possibile eseguire un'aggiunta analoga alla seguente:
+
+`https://new.login.contoso.com`
+
+In questo caso, si fa riferimento a un sottodominio DNS di login.contoso.com. Se si desidera un'app con URL di risposta login-east.contoso.com e login-west.contoso.com, è necessario aggiungere tali URL nell'ordine seguente:
+
+`https://contoso.com`
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+Gli ultimi due URL possono essere aggiunti perché si tratta di sottodomini del primo URL di risposta, ovvero contoso.com. 
+
+Quando si creano delle applicazioni per dispositivi mobili/native, si definisce un **URI di reindirizzamento** anziché un **URL di risposta**. Quando si sceglie un URI di reindirizzamento, occorre tenere presenti due considerazioni importanti:
+
+- **Univocità**: lo schema dell'URI di reindirizzamento deve essere univoco per ogni applicazione. Nell'esempio `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` è lo schema. È necessario seguire questo modello. Se due applicazioni condividono lo stesso schema, viene visualizzata una finestra di dialogo di **selezione dell'app**. Se la scelta dell'utente non è corretta, non è possibile accedere.
+- **Completezza**: l'URI di reindirizzamento deve avere uno schema e un percorso. Il percorso deve contenere almeno una barra rovesciata dopo il dominio. Ad esempio, `//contoso/` funziona e `//contoso` ha esito negativo. Verificare che nell'URI di reindirizzamento non siano presenti caratteri speciali come caratteri di sottolineatura.
+
+### <a name="faulted-apps"></a>App con errori
+
+Le applicazioni Azure AD B2C NON devono essere modificate:
+
+- In altri portali di gestione delle applicazioni, come il  [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/).
+- Usando l'API Graph o PowerShell.
+
+Se si modifica l'applicazione Azure AD B2C all'esterno del portale di Azure, l'applicazione viene danneggiata e non può più essere usata con Azure AD B2C. È necessario eliminare l'applicazione e crearla di nuovo.
+
+Per eliminare l'applicazione, passare al [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/) ed eliminarla nel portale. Per rendere l'applicazione visibile, è necessario essere il proprietario dell'applicazione (e non solo un amministratore del tenant).
+

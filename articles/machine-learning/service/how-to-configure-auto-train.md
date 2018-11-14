@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1aeb1315cfafbcdf3507a6e49d71e1f1e69b537c
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5a539aebc9b1ccb5f52f89d511fc992ee6a24c81
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430188"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008947"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configurare l'esperimento automatizzato di apprendimento automatico
 
@@ -192,7 +192,7 @@ Proprietà |  DESCRIZIONE | Default Value
 `max_time_sec` |    Limita la quantità di tempo (secondi) che richiede un'iterazione specifica. Se un'iterazione supera la quantità specificata, viene annullata quell'iterazione. Se non impostata, l'iterazione continua a essere eseguita fino al termine. |   Nessuna
 `n_cross_validations`   |Numero di suddivisioni di convalida incrociata| Nessuna
 `validation_size`   |Dimensione della convalida impostata come percentuale dell'esempio di tutti i training.|  Nessuna
-`preprocess` | True/False <br/>True permette all'esperimento di eseguire la pre-elaborazione dell'input. Di seguito è indicato un subset di pre-elaborazione<li>Dati mancanti: attribuisce i dati mancanti - numerici con media, testo con la maggior parte dell'occorrenza </li><li>Valori categorici: se il tipo di dati è numerico e il numero di valori univoci è inferiore al 5%, converte in codifica one-hot </li><li>E così via, per l'elenco completo verificare [il repository di GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: se i dati sono di tipo sparso è possibile utilizzare la pre-elaborazione = true |  False | 
+`preprocess` | True/False <br/>True permette all'esperimento di eseguire la pre-elaborazione dell'input. Di seguito è indicato un subset di pre-elaborazione<li>Dati mancanti: attribuisce i dati mancanti - numerici con media, testo con la maggior parte dell'occorrenza </li><li>Valori categorici: se il tipo di dati è numerico e il numero di valori univoci è inferiore al 5%, converte in codifica one-hot </li><li>E così via, per l'elenco completo verificare [il repository di GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: se i dati sono di tipo sparso è possibile utilizzare la pre-elaborazione = true | False | 
 `blacklist_algos`   | L'esperimento di Machine Learning automatizzato ha molti algoritmi diversi che prova. Configurare il Machine Learning automatizzato per escludere determinati algoritmi dall'esperimento. È utile se si è consapevoli del fatto che gli algoritmi non funzionano correttamente per il set di dati. L'esclusione di algoritmi può far risparmiare risorse di calcolo e tempi di training.<br/>Valori consentiti per la classificazione<br/><li>Regressione logistica</li><li>Classificatore SGD</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>alberi aggiuntivi</li><li>boosting a gradienti</li><li>lgbm_classifier</li><br/>Valori consentiti per la regressione<br/><li>Net elastico</li><li>Regressore con boosting a gradienti</li><li>Regressore DT</li><li>Regressore kNN</li><li>Lars lasso</li><li>Regressore SGD</li><li>Regressore RF</li><li>regressore alberi aggiuntivi</li>|   Nessuna
 `verbosity` |Controlla il livello di registrazione con INFO che è il più verboso e CRITICAL che è il minore.<br/>I valori consentiti sono i seguenti:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
 `X` | Tutte le funzionalità per eseguire il training con |  Nessuna

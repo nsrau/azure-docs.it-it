@@ -3,18 +3,18 @@ title: Pianificazione della capacità dei cluster in Azure HDInsight
 description: Come specificare un cluster HDInsight per capacità e prestazioni.
 services: hdinsight
 author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: e3c5ba4a3b67bcd51b90b5395f4d373be57bfff0
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592697"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230428"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -38,7 +38,7 @@ HDInsight è disponibile in molte aree di Azure. Per trovare l'area più vicina,
 
 ### <a name="location-of-default-storage"></a>Posizione della risorsa di archiviazione predefinita
 
-La risorsa di archiviazione predefinita, che può essere un account di archiviazione di Azure o Azure Data Lake Store, deve trovarsi nella stessa posizione del cluster. Archiviazione di Azure è disponibile in tutte le posizioni, mentre Data Lake Store è disponibile solo in alcune aree. Per vedere la disponibilità corrente di Data Lake Store, consultare la sezione *Archiviazione* della pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
+La risorsa di archiviazione predefinita, che può essere un account di archiviazione di Azure o Azure Data Lake Store, deve trovarsi nella stessa posizione del cluster. Archiviazione di Azure è disponibile in tutte le posizioni, mentre Data Lake Store Gen1 è disponibile solo in alcune aree. Per vedere la disponibilità corrente di Data Lake Store, consultare la sezione *Archiviazione* della pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Posizione dei dati esistenti
 
@@ -48,7 +48,7 @@ Se si dispone già di Data Lake Store o di un account di archiviazione contenent
 
 Dopo aver distribuito un cluster HDInsight, è possibile associare altri account di archiviazione di Azure o accedere ad altri archivi Data Lake Store. Tutti gli account di archiviazione devono trovarsi nella stessa posizione del cluster, mentre un Data Lake Store può trovarsi anche in una posizione diversa, ma questo può comportare una certa latenza di lettura/scrittura dei dati.
 
-Archiviazione di Azure presenta inoltre alcuni [limiti di capacità](../azure-subscription-service-limits.md#storage-limits), mentre Data Lake Store è pressoché illimitato.
+Archiviazione di Azure presenta inoltre alcuni [limiti di capacità](../azure-subscription-service-limits.md#storage-limits), mentre Data Lake Store Gen1 è pressoché illimitato.
 
 Un cluster può accedere a una combinazione di account di archiviazione diversi. Di seguito sono riportati alcuni esempi comuni:
 

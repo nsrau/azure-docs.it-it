@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 7d25b072ffc41608bca9e0b23116b2eb453dd160
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740349"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010729"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Esercitazione: integrazione di Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -43,7 +43,7 @@ Usare l'account di Microsoft Azure Active Directory con il server Atlassian JIRA
 Per configurare l'integrazione di Azure AD con JIRA SAML SSO by Microsoft sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- JIRA Core e Software versioni da 6.0 a 7.8 o JIRA Service Desk versioni da 3.0 a 3.2 deve essere installato e configurato nella versione di Windows a 64 bit
+- JIRA Core e Software versioni da 6.0 a 7.12 o JIRA Service Desk versioni da 3.0 a 3.5 deve essere installato e configurato nella versione di Windows a 64 bit
 - Server JIRA abilitato per HTTPS
 - Si noti che le versioni supportate per il plug-in JIRA sono indicate nella sezione seguente.
 - Il server JIRA deve essere raggiungibile da Internet, in particolare per l'autenticazione nella pagina di accesso di Azure AD e deve essere in grado di ricevere il token da Azure AD

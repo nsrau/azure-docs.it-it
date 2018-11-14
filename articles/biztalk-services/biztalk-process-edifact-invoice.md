@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26737546"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244492"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Esercitazione: Elaborare fatture EDIFACT con Servizi BizTalk di Azure
 
@@ -28,10 +28,10 @@ ms.locfileid: "26737546"
 È possibile utilizzare il portale Servizi BizTalk per configurare e distribuire accordi EDIFACT e X12. In questa esercitazione viene illustrato come creare un accordo EDIFACT per lo scambio di fatture tra partner commerciali. L'esercitazione è relativa a una soluzione aziendale end-to-end che coinvolge due partner commerciali, Northwind e Contoso, che si scambiano messaggi EDIFAC.  
 
 ## <a name="sample-based-on-this-tutorial"></a>Esempio basato su questa esercitazione
-Questa esercitazione è stata scritta in base a un esempio, **Sending EDIFACT Invoices Using BizTalk Services** (Invio di fatture EDIFACT con Servizi BizTalk), disponibile per il download in [MSDN Code Gallery](http://go.microsoft.com/fwlink/?LinkId=401005). È possibile usare l'esempio e scorrere questa esercitazione per comprendere come è stato creato oppure usare l'esercitazione per creare la propria soluzione. Questa esercitazione è mirata al secondo approccio, in modo che si possa comprendere come è stata creata questa soluzione. Inoltre, per quanto possibile, l'esercitazione è coerente con l'esempio e usa gli stessi nomi per gli elementi (ad esempio schemi e trasformazioni).  
+Questa esercitazione è stata scritta in base a un esempio, **Sending EDIFACT Invoices Using BizTalk Services** (Invio di fatture EDIFACT con Servizi BizTalk), disponibile per il download in [MSDN Code Gallery](https://go.microsoft.com/fwlink/?LinkId=401005). È possibile usare l'esempio e scorrere questa esercitazione per comprendere come è stato creato oppure usare l'esercitazione per creare la propria soluzione. Questa esercitazione è mirata al secondo approccio, in modo che si possa comprendere come è stata creata questa soluzione. Inoltre, per quanto possibile, l'esercitazione è coerente con l'esempio e usa gli stessi nomi per gli elementi (ad esempio schemi e trasformazioni).  
 
 > [!NOTE]
-> Poiché questa soluzione prevede l'invio di un messaggio da un bridge EAI a un bridge EDI, riusa l' [esempio di concatenamento di bridge di Servizi BizTalk](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) .  
+> Poiché questa soluzione prevede l'invio di un messaggio da un bridge EAI a un bridge EDI, riusa l' [esempio di concatenamento di bridge di Servizi BizTalk](https://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) .  
 > 
 > 
 
@@ -54,12 +54,12 @@ Per ottenere questo scenario aziendale, Contoso usa le funzionalità fornite con
 
 Per completare lo scenario, vengono usate code di bus di servizio per inviare la fattura da Contoso a Northwind o ricevere un acknowledgement da Northwind. Queste code possono essere create usando un'applicazione client, disponibile come download e inclusa nel pacchetto di esempio fornito come parte dell'esercitazione.  
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * È necessario disporre di uno spazio dei nomi di bus di servizio. Per istruzioni sulla creazione di uno spazio dei nomi, vedere [Procedura: Creare o modificare uno spazio dei nomi del servizio del bus di servizio](https://msdn.microsoft.com/library/azure/hh674478.aspx). Si supponga di aver già effettuato il provisioning di uno spazio dei nomi di bus di servizio, denominato **edifactbts**.
 * È necessario disporre di una sottoscrizione a Servizi BizTalk. Per questa esercitazione, si supponga di avere una sottoscrizione a Servizi BizTalk, denominata **contosowabs**.
 * Registrare la propria sottoscrizione a Servizi BizTalk nel portale di Servizi BizTalk. Per istruzioni, vedere [Registrazione e aggiornamento di una distribuzione del servizio BizTalk nel portale dei servizi BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
 * È necessario aver installato Visual Studio.
-* È necessario aver installato BizTalk Services SDK. È possibile scaricare l'SDK dal sito Web all'indirizzo [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  
+* È necessario aver installato BizTalk Services SDK. È possibile scaricare l'SDK da [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
 ## <a name="step-1-create-the-service-bus-queues"></a>Passaggio 1: creare le code del bus di servizio
 Questa soluzione usa code di bus di servizio per lo scambio di messaggi tra i partner commerciali. Contoso e Northwind inviano messaggi alle code, da dove vengono usati dai bridge EAI e/o EDI. Per questa soluzione, sono necessarie tre code del bus di servizio:
@@ -154,7 +154,7 @@ Anche il progetto di Servizi BizTalk, **InvoiceProcessingBridge**, che converte 
 7. In Esplora soluzioni espandere **MessageFlowItinerary.bcs** e fare doppio clic sul file **EDIBridge.config file**. Sostituire il contenuto di **EDIBridge.config** con quanto segue.
    
    > [!NOTE]
-   > Perché è necessario modificare il file con estensione config? L'endpoint del servizio esterno aggiunto al canvas di progettazione del bridge rappresenta i bridge EDI distribuiti in precedenza. I bridge EDI sono bidirezionali, con un lato invio e un lato ricezione. Il bridge EAI aggiunto al canvas di progettazione è però un bridge unidirezionale. Pertanto, per gestire i diversi modelli di scambio dei messaggi dei due bridge, viene usato un comportamento di bridge personalizzato includendo la relativa configurazione nel file config. Il comportamento personalizzato gestisce anche l'autenticazione nell'endpoint del bridge di trasmissione EDI. Questo comportamento personalizzato è disponibile come esempio separato in [BizTalk Services Bridge chaining sample - EAI to EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) (Esempio di concatenamento di bridge di Servizi BizTalk: da EAI a EDI). Questa soluzione riusa l'esempio.  
+   > Perché è necessario modificare il file con estensione config? L'endpoint del servizio esterno aggiunto al canvas di progettazione del bridge rappresenta i bridge EDI distribuiti in precedenza. I bridge EDI sono bidirezionali, con un lato invio e un lato ricezione. Il bridge EAI aggiunto al canvas di progettazione è però un bridge unidirezionale. Pertanto, per gestire i diversi modelli di scambio dei messaggi dei due bridge, viene usato un comportamento di bridge personalizzato includendo la relativa configurazione nel file config. Il comportamento personalizzato gestisce anche l'autenticazione nell'endpoint del bridge di trasmissione EDI. Questo comportamento personalizzato è disponibile come esempio separato in [BizTalk Services Bridge chaining sample - EAI to EDI](https://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) (Esempio di concatenamento di bridge di Servizi BizTalk: da EAI a EDI). Questa soluzione riusa l'esempio.  
    > 
    > 
    

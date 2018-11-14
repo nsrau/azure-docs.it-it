@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621202"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747559"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concetti di Griglia di eventi di Azure
 
@@ -58,6 +58,14 @@ Per esempi sulla creazione di sottoscrizioni, vedere:
 
 Per informazioni su come ottenere le attuali sottoscrizioni di Griglia di eventi, vedere [Sottoscrizioni di Griglia di eventi di Azure](query-event-subscriptions.md).
 
+## <a name="event-subscription-expiration"></a>Scadenza della sottoscrizione di eventi
+
+L'[estensione Griglia di eventi](/cli/azure/azure-cli-extensions-list) per l'interfaccia della riga di comando di Azure consente di impostare la data di scadenza quando si crea una sottoscrizione di eventi. Se si usa l'API REST, usare `api-version=2018-09-15-preview`
+
+La sottoscrizione dell'evento scade automaticamente dopo tale data. Impostare una scadenza per le sottoscrizioni di eventi necessarie solo per un periodo di tempo limitato in modo da non doversi preoccupare della pulizia delle sottoscrizioni. Ad esempio, quando si crea una sottoscrizione di eventi per testare uno scenario, è consigliabile impostare una scadenza. 
+
+Per un esempio di impostazione di una scadenza, vedere [Creare una sottoscrizione con filtri avanzati](how-to-filter-events.md#subscribe-with-advanced-filters).
+
 ## <a name="event-handlers"></a>Gestori eventi
 
 Dal punto di vista di Griglia di eventi, un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue altre azioni per elaborare l'evento. Griglia di eventi supporta diversi tipi di gestori. È possibile usare un servizio di Azure supportato o il proprio webhook come gestore. A seconda del tipo di gestore, Griglia di eventi segue meccanismi diversi per garantire il recapito dell'evento. Per i gestori eventi webhook HTTP, l'evento viene ripetuto fino a quando il gestore non restituisce un codice di stato `200 – OK`. Per la coda di Archiviazione di Azure, gli eventi vengono ripetuti fino a quando il servizio di accodamento non riesce a elaborare correttamente il push del messaggio nella coda.
@@ -74,7 +82,7 @@ Se Griglia di eventi non è in grado di confermare che un evento è stato ricevu
 
 ## <a name="batching"></a>Creazione di batch
 
-Quando si usa un argomento personalizzato, gli eventi devono sempre essere pubblicati in una matrice. Questa può essere un batch per gli scenari con velocità effettiva bassa. Tuttavia, per casi d'uso con volumi elevati, si consiglia di eseguire in batch più eventi contemporaneamente per ogni pubblicazione, per ottenere una maggiore efficienza. Le dimensioni dei batch possono arrivare fino a 1 MB. Ogni evento non dovrebbe comunque superare 64 kB.
+Quando si usa un argomento personalizzato, gli eventi devono sempre essere pubblicati in una matrice. Questa può essere un batch per gli scenari con velocità effettiva bassa. Tuttavia, per casi d'uso con volumi elevati, si consiglia di eseguire in batch più eventi contemporaneamente per ogni pubblicazione, per ottenere una maggiore efficienza. Le dimensioni dei batch possono arrivare fino a 1 MB. Ogni evento non dovrebbe comunque superare 64 KB.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

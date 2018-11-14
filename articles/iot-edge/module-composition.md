@@ -8,12 +8,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 12c53b1fdad4ab8f55c000ca1cb4f08dab7c8a74
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248396"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230370"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Informazioni su come distribuire moduli e definire route in IoT Edge
 
@@ -125,10 +125,10 @@ Le route vengono dichiarate nelle proprietà desiderate di **$edgeHub** con la s
 Per ogni route è necessaria un'origine e un sink, mentre la condizione è un elemento facoltativo che è possibile usare per filtrare i messaggi. 
 
 
-### <a name="source"></a>Origine
+### <a name="source"></a>Sorgente
 L'origine specifica da dove provengono i messaggi. Può essere uno dei valori seguenti:
 
-| Origine | Descrizione |
+| Sorgente | DESCRIZIONE |
 | ------ | ----------- |
 | `/*` | Tutti i messaggi da dispositivo a cloud da qualsiasi dispositivo o modulo |
 | `/messages/*` | Qualsiasi messaggio da dispositivo a cloud inviato da un dispositivo o un modulo con o senza output |
@@ -159,7 +159,7 @@ FROM /messages/\* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ### <a name="sink"></a>Sink
 Il sink definisce dove vengono inviati i messaggi. Può essere uno dei valori seguenti:
 
-| Sink | Descrizione |
+| Sink | DESCRIZIONE |
 | ---- | ----------- |
 | `$upstream` | Inviare il messaggio all'hub IoT |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Inviare il messaggio all'input `{input}` del modulo`{moduleId}` |
@@ -174,7 +174,7 @@ Il manifesto di distribuzione può specificare le proprietà desiderate per il m
 
 Se nel manifesto della distribuzione non si specificano le proprietà desiderate del dispositivo gemello di un modulo, l'hub IoT non modifica il dispositivo in alcun modo e sarà possibile impostare le proprietà desiderate a livello di codice.
 
-Gli stessi meccanismi che consentono di modificare i dispositivi gemelli vengono usati per modificare i moduli gemelli. Per altre informazioni, vedere la [guida per sviluppatori sui dispositivi gemelli](../iot-hub/iot-hub-devguide-device-twins.md).   
+Gli stessi meccanismi che consentono di modificare i dispositivi gemelli vengono usati per modificare i moduli gemelli. Per altre informazioni, vedere il [modulo per sviluppatori sui dispositivi gemelli](../iot-hub/iot-hub-devguide-module-twins.md).   
 
 ## <a name="deployment-manifest-example"></a>Esempio di manifesto della distribuzione
 

@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c06939ccb920954c08ef02f38e6d12471ac267db
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155576"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959291"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Creare flussi di lavoro con il connettore IoT Central in Microsoft Flow
 
@@ -21,8 +21,10 @@ ms.locfileid: "50155576"
 
 Usare Microsoft Flow per automatizzare i flussi di lavoro nelle molte applicazioni e i vari servizi di cui si servono gli utenti aziendali. Grazie al connettore IoT Central in Microsoft Flow è possibile attivare flussi di lavoro quando una regola viene attivata in IoT Central. In un flusso di lavoro attivato da IoT Central o da qualsiasi altra applicazione è possibile usare le azioni del connettore IoT Central per creare un dispositivo, aggiornare le proprietà e le impostazioni di un dispositivo o eliminare un dispositivo. Consultare [questi modelli di Microsoft Flow](https://aka.ms/iotcentralflowtemplates) che connettono IoT Central ad altri servizi, quali le notifiche per dispositivi mobili e Microsoft Teams.
 
-> [!NOTE] 
-> A questo scopo, è necessario eseguire l'accesso a Microsoft Flow con un account Microsoft personale, aziendale o dell'istituto di istruzione. Altre informazioni sui piani di Microsoft Flow sono disponibili [qui](https://aka.ms/microsoftflowplans).
+## <a name="prerequisites"></a>Prerequisiti
+
+- Un'applicazione con pagamento in base al consumo
+- Un account Microsoft personale, aziendale o dell'istituto di istruzione per eseguire l'accesso a Flow ([altre informazioni sui piani di Microsoft Flow](https://aka.ms/microsoftflowplans))
 
 ## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>Attivare un flusso di lavoro quando viene eseguita una regola
 

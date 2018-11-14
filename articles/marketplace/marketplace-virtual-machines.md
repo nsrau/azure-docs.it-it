@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144523"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958662"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guida alla pubblicazione di offerte di macchine virtuali
 
@@ -33,14 +33,14 @@ Sono offerte di transazioni che vengono distribuite e fatturate attraverso il Ma
 
 |Requisiti  |Dettagli  |
 |---------|---------|
-|Periodo di valutazione gratuita ed esperienza di valutazione     |   Il cliente può provare l'app gratuitamente per un periodo di tempo limitato. Il cliente non deve pagare costi di licenza o di sottoscrizione per l'offerta. I clienti non devono pagare il prodotto o il servizio proprietario di Microsoft sottostante. Tutte le opzioni di valutazione sono distribuite nella sottoscrizione di Azure. L'utente ha il controllo esclusivo dell'ottimizzazione dei costi e della gestione. È possibile scegliere una versione di valutazione gratuita o una demo interattiva. Indipendentemente dall'opzione selezionata, per la prova gratuita è necessario concedere al cliente un periodo prestabilito di tempo per provare l'offerta senza costi aggiuntivi.|
+|Periodo di valutazione gratuita ed esperienza di valutazione     |   I clienti possono provare l'app gratuitamente per un periodo di tempo limitato. I clienti non devono pagare costi di licenza o di sottoscrizione per l'offerta. I clienti non devono pagare il prodotto o il servizio proprietario di Microsoft sottostante. Tutte le opzioni di valutazione sono distribuite nella sottoscrizione di Azure. L'utente ha il controllo esclusivo dell'ottimizzazione dei costi e della gestione. È possibile scegliere una versione di valutazione gratuita o una demo interattiva. Indipendentemente dall'opzione selezionata, per la prova gratuita è necessario concedere ai clienti un periodo prestabilito di tempo per provare l'offerta senza costi aggiuntivi.|
 |Soluzione pronta all'uso e facilmente configurabile    |  L'app deve essere semplice e rapida da configurare e installare.       |
 |Disponibilità/Tempo di attività    |    L'app o la piattaforma SaaS deve avere un tempo di attività pari ad almeno il 99,9%.     |
 |Azure Active Directory     |    L'offerta deve consentire l'accesso Single Sign-On (SSO) federato di Azure Active Directory (accesso SSO federato di Azure AD) con il consenso abilitato.     |
 
 ## <a name="test-drive"></a>Test drive
 
-Vengono distribuite una o più macchine virtuali tramite le applicazioni IaaS (infrastructure-as-a-service) o SaaS. Un vantaggio dell'opzione di pubblicazione del test drive è il provisioning automatico di una macchina virtuale o dell'intera soluzione con una presentazione guidata ospitata da un partner. Un test drive fornisce al cliente una valutazione senza alcun costo aggiuntivo. Non è necessario che il cliente sia già un utente di Azure per partecipare all'esperienza di prova. 
+Vengono distribuite una o più macchine virtuali tramite le applicazioni IaaS (infrastructure-as-a-service) o SaaS (software-as-a-service). Un vantaggio dell'opzione di pubblicazione del test drive è il provisioning automatico di una macchina virtuale o dell'intera soluzione con una presentazione guidata ospitata da un partner. Un test drive fornisce al cliente una valutazione senza alcun costo aggiuntivo. Non è necessario che il cliente sia già un utente di Azure per partecipare all'esperienza di prova. 
 
 Per iniziare, contattare Microsoft all'indirizzo [amp-testdrive](mailto:amp-testdrive@microsoft.com). 
 

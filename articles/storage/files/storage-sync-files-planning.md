@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237898"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914329"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -62,7 +62,7 @@ Un endpoint cloud è una condivisione file di Azure che fa parte di un gruppo di
 > Sincronizzazione file di Azure supporta la modifica diretta della condivisione file di Azure. Qualsiasi modifica apportata alla condivisione file di Azure, tuttavia, deve prima essere individuata dal processo di rilevamento modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una sola volta ogni 24 ore. Le modifiche apportate a una condivisione file di Azure tramite il protocollo REST, poi, non aggiornano l'ora dell'ultima modifica di SMB e non vengono considerate come modifica dalla procedura di sincronizzazione. Per altre informazioni, vedere [Domande frequenti su File di Azure](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud 
-La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui viene eseguito l'accesso di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono suddivisi in livelli in File di Azure a seconda delle impostazioni dei criteri. Per altre informazioni, vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md).
+La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Per altre informazioni, vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md).
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisiti di sistema e interoperabilità di Sincronizzazione file di Azure 
 Questa sezione illustra l'interoperabilità e i requisiti di sistema dell'agente di Sincronizzazione file di Azure con funzionalità e ruoli di Windows Server e soluzioni di terze parti.
@@ -242,7 +242,9 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | Asia orientale | RAS di Hong Kong |
 | Stati Uniti orientali | Virginia |
 | Stati Uniti Orientali 2 | Virginia |
+| Stati Uniti centro-settentrionali | Illinois |
 | Europa settentrionale | Irlanda |
+| Stati Uniti centro-meridionali | Texas |
 | India meridionale | Chennai |
 | Asia sud-orientale | Singapore |
 | Regno Unito meridionale | Londra |
@@ -269,6 +271,7 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 | Stati Uniti orientali             | Stati Uniti occidentali            |
 | Stati Uniti orientali 2           | Stati Uniti centrali         |
 | Europa settentrionale        | Europa occidentale        |
+| Stati Uniti centro-settentrionali    | Stati Uniti centro-meridionali   |
 | India meridionale         | India centrale      |
 | Asia sud-orientale      | Asia orientale          |
 | Regno Unito meridionale            | Regno Unito occidentale            |

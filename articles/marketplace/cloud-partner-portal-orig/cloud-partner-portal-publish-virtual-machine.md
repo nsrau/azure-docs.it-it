@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3b046022990e95e65ed02880bd3fefbd78bcad28
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387362"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247076"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Pubblicare una macchina virtuale in Azure Marketplace
 
@@ -37,7 +37,7 @@ I prerequisiti tecnici e non tecnici elencati di seguito si applicano alla pubbl
 
 -   [Creare e testare una VM Linux da un'immagine](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Creare e caricare un disco rigido virtuale Windows](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Creare e caricare un disco rigido virtuale Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Creare e testare una VM Windows da un'immagine](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -60,7 +60,7 @@ I prerequisiti tecnici e non tecnici elencati di seguito si applicano alla pubbl
 
 -   Occorre accettare le condizioni delle Politiche di partecipazione a Microsoft Azure Marketplace e del Contratto per gli editori.
 
--   È necessario accettare le [Condizioni per l'utilizzo del sito Web di Microsoft Azure](https://azure.microsoft.com/support/legal/website-terms-of-use/), l'[Informativa sulla privacy di Microsoft](http://www.microsoft.com/privacystatement/default.aspx) e il [Contratto del Programma Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+-   È necessario accettare le [Condizioni per l'utilizzo del sito Web di Microsoft Azure](https://azure.microsoft.com/support/legal/website-terms-of-use/), l'[Informativa sulla privacy di Microsoft](https://www.microsoft.com/privacystatement/default.aspx) e il [Contratto del Programma Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -68,15 +68,15 @@ Una volta soddisfatti tutti i prerequisiti, è possibile iniziare a creare l'off
 
 **Offerta**
 
-Un'offerta di applicazione Azure corrisponde a una classe di offerta di prodotti di un editore. Per rendere disponibile in Azure Marketplace un nuovo tipo di soluzione/applicazione, l'approccio migliore consiste nel creare una nuova offerta. Un'offerta è una raccolta di SKU. Ogni offerta viene visualizzata come entità a sé stante in Azure Marketplace.
+Un'offerta dell'applicazione Azure corrisponde a una classe di offerta di prodotti da parte di un editore. Per rendere disponibile su Azure Marketplace un nuovo tipo di soluzione/applicazione, l'approccio migliore consiste nel creare una nuova offerta. Un'offerta è una raccolta di SKU. Ogni offerta viene visualizzata come entità a sé stante in Azure Marketplace.
 
 **SKU**
 
-Uno SKU è la più piccola unità acquistabile di un'offerta. All'interno della stessa classe di prodotti (offerta), le SKU consentono di distinguere tra diverse funzionalità supportate, ad esempio se l'offerta è gestita o non gestita e se sono supportati modelli di fatturazione diversi.
+Uno SKU è la più piccola unità acquistabile di un'offerta. All'interno della stessa classe di prodotti (offerta), le SKU consentono di distinguere tra diverse funzionalità supportate, Ad esempio, l'offerta può essere gestita o non gestita e sono supportati modelli di fatturazione diversi.
 
-Aggiungere più SKU quando:
-- Si vogliono supportare modelli di fatturazione diversi, come Bring Your Own License (BYOL) o Pagamento in base al consumo.
-- Ogni SKU supporta un set di funzionalità, ognuno con un prezzo diverso.
+Aggiungere più SKU negli scenari seguenti:
+- Si vogliono supportare modelli di fatturazione diversi, come Bring Your Own License (BYOL) o Pagamento in base al consumo (PAYG).
+- Ogni SKU supporta un set di funzionalità diverso e ogni set di funzionalità ha un prezzo diverso.
 
 Una SKU viene visualizzata sotto l'offerta padre in Azure Marketplace e come entità acquistabile a sé stante nel portale di Azure.
 
@@ -92,15 +92,15 @@ Una SKU viene visualizzata sotto l'offerta padre in Azure Marketplace e come ent
 
 ![Nuova offerta - Editor](./media/cloud-partner-portal-publish-virtual-machine/publishvm2.png)
 
-4.  In **Editor** specificare le informazioni nelle visualizzazioni seguenti:
+4.  In **Editor** specificare le informazioni nelle viste seguenti:
     - Impostazioni dell'offerta
     - SKU
     - Marketplace
-    - Supporto. Ogni visualizzazione contiene un set di campi da compilare. I campi obbligatori sono contrassegnati con un asterisco rosso (\*)
+    - Supporto. Ogni vista contiene un set di campi da compilare. I campi obbligatori sono contrassegnati con un asterisco rosso (\*)
 
 ## <a name="to-configure-offer-settings"></a>Per configurare le Impostazioni dell'offerta
 
-1. In Impostazioni dell'offerta configurare i campi seguenti della sezione **Identità dell'offerta**.
+1. In Impostazioni dell'offerta configurare i campi **Identità dell'offerta** seguenti.
 
     **ID offerta**
 
@@ -110,13 +110,13 @@ Una SKU viene visualizzata sotto l'offerta padre in Azure Marketplace e come ent
 
     **ID editore**
 
-    Elenco a discesa per il profilo di pubblicazione. Scegliere il profilo in cui si vuole pubblicare l'offerta. 
+    Un elenco a discesa per il profilo di pubblicazione. Scegliere il profilo con cui si vuole pubblicare l'offerta. 
     >[!Note]
-    >Questo campo viene bloccato dopo la pubblicazione dell'offerta.
+    >Questo campo è bloccato dopo la pubblicazione dell'offerta.
 
     **Nome**
 
-    Nome visualizzato dell'offerta. Viene visualizzato in Azure Marketplace e nel portale di Azure. Può contenere massimo 50 caratteri. Seguire queste indicazioni per il nome dell'offerta:
+    Il nome visualizzato dell'offerta. Questo nome viene visualizzato su Azure Marketplace e nel portale di Azure. Può contenere massimo 50 caratteri. Seguire le istruzioni seguenti al momento di scegliere il nome dell'offerta:
     -  Includere un nome di marchio riconoscibile per il prodotto. 
     - Non includere il nome della società, a meno che non corrisponda al nome con cui l'offerta viene commercializzata.
     - Se l'offerta viene commercializzata sul proprio sito Web, assicurarsi che il nome sia identico al nome del sito Web.
@@ -127,7 +127,7 @@ Una SKU viene visualizzata sotto l'offerta padre in Azure Marketplace e come ent
 
 1. Selezionare **SKU**. 
 2. Selezionare **Add a SKU** (Aggiungi SKU) per immettere un ID SKU. L'ID SKU è l'identificatore univoco della SKU in un'offerta. Questo ID è visibile negli URL dei prodotti, nei modelli di Azure Resource Manager e nei report di fatturazione. L'ID SKU:
-    - Deve essere composto da un massimo 50 caratteri.
+    - Può essere composto da massimo 50 caratteri.
     - Può essere composto solo da caratteri alfanumerici minuscoli o trattini (-).
     - L'ID non può terminare con un trattino
 
@@ -211,7 +211,7 @@ All'interno dell'Excel, i prezzi per le diverse aree sono elencati nella valuta 
 
 >[!IMPORTANT]
 >-   I prezzi non possono essere modificati dopo la pubblicazione dell'offerta. È comunque possibile aggiungere o rimuovere aree geografiche supportate.
->-   Il prezzo viene addebitato all\'utente in aggiunta ai [prezzi delle macchine virtuali di Azure](http://aka.ms/vmpricingdetails).
+>-   Il prezzo viene addebitato all'utente in aggiunta ai  [prezzi delle macchine virtuali di \'Azure](https://aka.ms/vmpricingdetails).
 >-   I prezzi sono impostati per tutte le aree in valuta locale, usando i tassi di cambio disponibili al momento dell'impostazione dei prezzi.
 >-   Per impostare o visualizzare il prezzo di ogni area geografica singolarmente, esportare il foglio di calcolo dei prezzi e importarlo con i prezzi personalizzati.
 
@@ -225,7 +225,7 @@ La sezione successiva da completare sarà quella delle immagini di VM. Prima di 
 
 -   [Creare e testare una VM Linux da un'immagine](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Creazione e caricamento di un disco rigido virtuale Windows](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Creazione e caricamento di un disco rigido virtuale Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Creare e testare una VM Windows da un'immagine](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -286,11 +286,11 @@ Assegnare un numero a questo LUN. Questo numero sarà riservato per il disco dat
 
 ## <a name="to-configure-the-marketplace"></a>Per configurare il Marketplace
 
-Usare la visualizzazione Marketplace per configurare i campi visualizzati per l'offerta in [Azure Marketplace](https://azuremarketplace.microsoft.com) e nel [portale di Azure](https://portal.azure.com/).
+Usare la vista Marketplace per configurare i campi visualizzati per l'offerta in [Azure Marketplace](https://azuremarketplace.microsoft.com) e nel [portale di Azure](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>Preview Subscription Ids (ID sottoscrizione di anteprima)
 
-Elenco di ID di sottoscrizione di Azure che devono avere accesso all'offerta dopo la sua pubblicazione. Queste sottoscrizioni consentite permettono di testare l'offerta in anteprima prima di pubblicarla. Il portale per i partner permette di inserire nell'elenco elementi consentiti fino a 100 sottoscrizioni.
+Elenco di ID di sottoscrizione di Azure che devono avere accesso all'offerta dopo la sua pubblicazione. Queste sottoscrizioni consentite permettono di testare l'offerta in anteprima prima di pubblicarla. Il portale Cloud Partner consente di inserire nell'elenco degli elementi consentiti fino a 100 sottoscrizioni.
 
 ### <a name="suggested-categories"></a>Suggested Categories (Categorie suggerite)
 
@@ -329,13 +329,13 @@ Seguire queste linee guida per qualsiasi logo caricato nel portale Cloud Partner
 -   I colori del tema del portale di Azure sono il bianco e il nero. Evitare di usare questi colori per lo sfondo del logo. Usare un colore che faccia risaltare il logo nel portale di Azure. Si consiglia di usare colori primari semplici.
 
     >[!Note] 
-    >Se si usa uno sfondo trasparente, verificare che il logo e il testo non siano bianchi, neri o blu.
+    >Se si usa uno sfondo trasparente, verificare che il logo e il testo non siano di colore bianco, nero o blu.
 
 -   Non usare uno sfondo sfumato sul logo.
 
--   Evitare di inserire testo sul logo, incluso il nome della società o del marchio. L'aspetto del logo deve essere *semplice* e senza sfumature.
+-   Evitare di inserire testo sul logo. Incluso il nome della società o del marchio. L'aspetto del logo deve essere *semplice* e senza sfumature.
 
--   Il logo non può essere allungato.
+-   Il logo non deve essere allungato.
 
 #### <a name="hero-logo"></a>Logo alto
 
@@ -343,7 +343,7 @@ Il logo alto è facoltativo. L'autore può scegliere di non caricare un logo alt
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Linee guida per l'icona del logo alto
 
--   Il nome visualizzato dell'editore, il titolo del piano e il riepilogo lungo dell'offerta sono visualizzati con il testo bianco. Evitare di usare un colore chiaro per lo sfondo. Lo sfondo nero, bianco o trasparente non è consentito per le icone del logo alto.
+-   Il nome visualizzato dell'editore, il titolo del piano e il riepilogo lungo dell'offerta sono visualizzati con il colore carattere bianco. Evitare di usare un colore chiaro per lo sfondo. Sfondi neri, bianchi e trasparenti non sono consentiti per le icone del logo alto.
 
 -   Il nome visualizzato dell'editore, il titolo del piano, il riepilogo lungo dell'offerta e il pulsante Crea vengono incorporati a livello di codice all'interno del logo alto quando l'offerta viene presentata. Non inserire alcun testo durante la progettazione del logo alto. Lasciare uno spazio vuoto a destra del logo. Questo spazio deve avere dimensioni di 415 x 100 pixel ed essere scostato con un offset di 370 px da sinistra.
 
@@ -355,10 +355,10 @@ Per configurare le impostazioni di gestione dei lead dell'offerta, seguire [ques
 
 ## <a name="to-configure-support"></a>Per configurare il supporto
 
-Usare la visualizzazione Supporto per specificare le informazioni seguenti:
+Usare la vista Assistenza per specificare le informazioni seguenti:
 
-- Contatti del supporto tecnico dell'azienda, ad esempio il reparto progettazione.
-- Contatti del supporto tecnico clienti.
+- Contatti del servizio di assistenza dell'azienda, ad esempio il reparto progettazione.
+- Contatti dell'assistenza clienti.
 
 ## <a name="to-publish-the-offer"></a>Per pubblicare l'offerta
 

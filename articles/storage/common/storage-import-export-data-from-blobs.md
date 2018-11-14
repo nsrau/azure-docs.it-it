@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 9ae0892d7de8a431227218ffc6db03eca20fcbdd
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 60a92e35f1408d944e8091be4945c53abe3791d1
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585714"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754053"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 Questo articolo offre istruzioni dettagliate su come usare il servizio Importazione/Esportazione di Azure per esportare in tutta sicurezza grandi quantità di dati da Archiviazione BLOB di Azure. Il servizio richiede la spedizione di unità vuote al data center di Azure. Il servizio esporta i dati dall'account di archiviazione alle unità e quindi rispedisce le unità.
@@ -139,7 +139,7 @@ Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessari
 
     I parametri vengono descritti nella tabella seguente:
     
-    |Parametro della riga di comando|Descrizione|  
+    |Parametro della riga di comando|DESCRIZIONE|  
     |--------------------------|-----------------|  
     |**/logdir:**|facoltativo. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
     |**/sn:**|Richiesto. Il nome dell'account di archiviazione per il processo di esportazione.|  
@@ -193,7 +193,7 @@ Number of drives needed:        3
 
 La tabella seguente mostra alcuni esempi di percorsi BLOB validi:
    
-   | Selettore | Percorso BLOB | Descrizione |
+   | Selettore | Percorso BLOB | DESCRIZIONE |
    | --- | --- | --- |
    | Starts With |/ |Esporta tutti i BLOB nell'account di archiviazione |
    | Starts With |/$root/ |Esporta tutti i BLOB nel contenitore radice |

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6a61fdeaf1a751ab4001257335abdcbd6fac9cbf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 92c8de0961f64eea8eef830ad99c7baa268099d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739465"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007587"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>Anteprima: procedure operative per la protezione password di Azure AD
 
@@ -67,7 +67,7 @@ Questa impostazione deve essere lasciata in genere nello stato predefinito abili
 
 È possibile usare il cmdlet `Get-AzureADPasswordProtectionSummaryReport` per produrre una visualizzazione di riepilogo dell'attività. Di seguito viene mostrato un esempio dell'output di questo cmdlet:
 
-```
+```PowerShell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -87,6 +87,22 @@ PasswordSetErrors               : 1
 
 > [!NOTE]
 > Questo cmdlet funziona eseguendo query in modalità remota sul log eventi di amministrazione di ogni servizio agente del controller di dominio. Se i log eventi contengono un numero elevato di eventi, il completamento del cmdlet potrebbe richiedere molto tempo. Inoltre, le query di rete in blocco di grandi set di dati possono influire sulle prestazioni dei controller di dominio. Di conseguenza, questo cmdlet deve essere usato con cautela negli ambienti di produzione.
+
+## <a name="dc-agent-discovery"></a>Individuazione dell'agente del controller di dominio
+
+È possibile usare il cmdlet `Get-AzureADPasswordProtectionDCAgent` per visualizzare informazioni di base sui diversi agenti del controller di dominio in esecuzione in un dominio o una foresta. Queste informazioni vengono recuperate dagli oggetti serviceConnectionPoint registrati da uno o più servizi agente del controller di dominio in esecuzione. Di seguito viene mostrato un esempio dell'output di questo cmdlet:
+
+```PowerShell
+Get-AzureADPasswordProtectionDCAgent
+ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
+Domain                : bplchild.bplRootDomain.com
+Forest                : bplRootDomain.com
+Heartbeat             : 2/16/2018 8:35:01 AM
+```
+
+Le diverse proprietà vengono aggiornate da ogni servizio agente del controller di dominio all'incirca ogni ora. I dati sono comunque soggetti alla latenza di replica di Active Directory.
+
+L'ambito della query del cmdlet può essere ulteriormente definito usando il parametro –Forest o –Domain.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
