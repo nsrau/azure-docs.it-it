@@ -3,18 +3,18 @@ title: 'Esercitazione: Elaborare i dati da Hub eventi di Azure con Apache Spark 
 description: Connettere Apache Spark in Azure HDInsight a Hub eventi di Azure ed elaborare i dati di streaming.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.openlocfilehash: 27c8a51ee3f0274489041f4dafbbf73d906e2fa4
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: eb2145d2e7b787bafa0b546449282454f7059999
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617647"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283411"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Esercitazione: Elaborare i tweet con Hub eventi di Azure e Spark in HDInsight
 
@@ -73,18 +73,14 @@ L'hub eventi consente di archiviare tweet.
     ![Fornire un nome di hub eventi per l'esempio di streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Fornire un nome di hub eventi per l'esempio di streaming Spark")
 5. Selezionare **Crea** per creare lo spazio dei nomi.
 
-6. Aprire lo spazio dei nomi dell'hub eventi tramite le istruzioni seguenti:
+7. Aprire lo spazio dei nomi dell'hub eventi tramite le istruzioni seguenti:
 
     1. Nel portale selezionare **Tutti i servizi**.
     2. Nella casella del filtro immettere **hub eventi**.
-    3. Fare doppio clic sullo spazio di nomi creati.
+    3. Selezionare lo spazio dei nomi appena creato.
     4. Selezionare **+ Hub eventi**.
 
-6. Nell'elenco di spazi dei nomi di Hub eventi selezionare lo spazio dei nomi appena creato.      
-5. Selezionare **Hub eventi** e quindi **+ Hub eventi** per creare un nuovo hub eventi.
-  
-
-6. Immettere i valori seguenti:
+8. Immettere i valori seguenti:
 
     - Nome: assegnare un nome all'hub eventi.
     - Conteggio partizioni: 10
@@ -92,12 +88,12 @@ L'hub eventi consente di archiviare tweet.
    
     ![Fornire i dettagli dell'hub eventi per l'esempio di streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Fornire i dettagli dell'hub eventi per l'esempio di streaming Spark")
 
-7. Selezionare **Create**.
-8. Selezionare **Criteri di accesso condiviso** per lo spazio dei nomi (non sono i criteri di accesso condiviso dell'hub eventi), quindi selezionare **RootManageSharedAccessKey**.
+9. Selezionare **Create**.
+10. Selezionare **Criteri di accesso condiviso** per lo spazio dei nomi (non sono i criteri di accesso condiviso dell'hub eventi), quindi selezionare **RootManageSharedAccessKey**.
     
      ![Impostare i criteri dell'hub eventi per l'esempio di streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Impostare i criteri dell'hub eventi per l'esempio di streaming Spark")
 
-9. Salvare i valori di **Chiave primaria** e **Chiave primaria stringa di connessione** da usare in un secondo momento nell'esercitazione.
+11. Salvare i valori di **Chiave primaria** e **Chiave primaria stringa di connessione** da usare in un secondo momento nell'esercitazione.
 
      ![Visualizzare le chiavi dei criteri dell'hub eventi per l'esempio di streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "Visualizzare le chiavi dei criteri dell'hub eventi per l'esempio di streaming Spark")
 
@@ -222,7 +218,7 @@ L'hub eventi consente di archiviare tweet.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Con HDInsight i dati vengono salvati in Archiviazione di Azure o in Azure Data Lake Store in modo che sia possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati. Se si prevede di lavorare immediatamente nell'esercitazione successiva, si potrebbe voler mantenere il cluster.
+Con HDInsight i dati vengono salvati in Archiviazione di Azure o in Azure Data Lake Store in modo che sia possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Se si prevede di lavorare immediatamente nell'esercitazione successiva, si potrebbe voler mantenere il cluster, altrimenti procedere ed eliminare il cluster.
 
 Aprire il cluster nel portale di Azure e selezionare **Elimina**.
 

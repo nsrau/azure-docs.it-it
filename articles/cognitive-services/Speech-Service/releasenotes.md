@@ -8,16 +8,47 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c676932541866df081f6db54fa0b1ec4da7088
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471138"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218594"
 ---
 # <a name="release-notes"></a>Note sulla versione
+
+## <a name="speech-service-sdk-110"></a>Speech Service SDK 1.1.0
+
+**Nuove funzionalità**
+
+* Supporto per Android x86/x64.
+* Supporto del proxy: nell'oggetto SpeechConfig è ora possibile chiamare una funzione che consente di impostare le informazioni sul proxy (nome host, porta, nome utente e password). Questa funzionalità non è ancora disponibile in iOS.
+* Messaggi e codice di errore migliorati. Se un riconoscimento ha restituito un errore, l'elemento `Reason` (nell'evento annullato) o `CancellationDetails` (nel risultato del riconoscimento) è già stato impostato su `Error`. L'evento annullato contiene ora due membri aggiuntivi: `ErrorCode` e `ErrorDetails`. Se il server ha restituito l'errore corredato da informazioni aggiuntive, le informazioni saranno ora disponibili nei nuovi membri.
+
+**Miglioramenti**
+
+* È stata aggiunta una verifica supplementare nella configurazione del sistema di riconoscimento ed è stato aggiunto un nuovo messaggio di errore.
+* È stata migliorata la gestione di un silenzio prolungato nel mezzo di un file audio.
+* Pacchetto NuGet: per i progetti .NET Framework viene impedita la compilazione con una configurazione AnyCPU.
+
+**Correzioni di bug**
+
+* Sono state corrette varie eccezioni rilevate nei sistemi di riconoscimento. Le eccezioni vengono inoltre rilevate e convertite in un evento annullato.
+* È stata corretta una perdita di memoria nella gestione delle proprietà.
+* È stato corretto un bug per il quale un file di input audio può determinare l'arresto anomalo del sistema di riconoscimento.
+* È stato risolto un bug per il quale si continuano a ricevere eventi anche dopo un evento di arresto della sessione.
+* Sono state corrette alcune race condition nel threading.
+* È stato corretto un problema di compatibilità iOS che può determinare un arresto anomalo.
+* Sono stati apportati miglioramenti di stabilità per il supporto di microfoni Android.
+* È stato risolto un bug per il quale un sistema di riconoscimento in JavaScript ignorava la lingua di riconoscimento.
+* È stato risolto un bug che impediva l'impostazione di EndpointId (in alcuni casi) in JavaScript.
+* È stato modificato l'ordine dei parametri in AddIntent in JavaScript ed è stata aggiunta una firma AddIntent JavaScript mancante.
+
+**Esempi**
+
+* È stato aggiunto esempio in C++ dell'uso di flussi pull e push nel [repository degli esempi](https://aka.ms/csspeech/samples) Microsoft.
 
 ## <a name="speech-service-sdk-101"></a>Speech Service SDK 1.0.1
 
@@ -29,7 +60,7 @@ Miglioramenti apportati alla stabilità e correzioni di bug:
 * Objective-C: risoluzione di un potenziale errore irreversibile causato dall'override del nome in NSString.
 * Objective-C: modifica della visibilità dell'API
 * JavaScript: correzioni relative a eventi e payload correlati.
-* Miglioramenti apportati alla documentazione.
+* Miglioramenti alla documentazione.
 
 Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un nuovo esempio per JavaScript.
 

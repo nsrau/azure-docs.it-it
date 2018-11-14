@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 13d6ed9feab4654d3574a5aced72efa0345365a6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c2e50362de48991c818017b59632be3b0e74cb0b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215328"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282068"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -68,14 +68,14 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 
 ### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
 
-| Proprietà | Valori consentiti | Uso |
+| Properties | Valori consentiti | Uso |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
 
-| Proprietà | Valori consentiti | Uso |
+| Properties | Valori consentiti | Uso |
 | --- | --- | --- |
 | city |Qualsiasi valore di stringa o *null* |(user.city -eq "valore") |
 | country |Qualsiasi valore di stringa o *null* |(user.country -eq "valore") |
@@ -106,7 +106,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 
 ### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
 
-| Proprietà | Valori consentiti | Uso |
+| Properties | Valori consentiti | Uso |
 | --- | --- | --- |
 | otherMails |Qualsiasi valore stringa. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -231,7 +231,7 @@ Una regola di appartenenza può essere costituita da espressioni complesse in cu
 
 Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. Possono essere usate per creare regole di appartenenza tramite gli operatori logici -any e -all.
 
-| Proprietà | Valori | Uso |
+| Properties | Valori | Uso |
 | --- | --- | --- |
 | assignedPlans | Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -339,7 +339,9 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 
 ## <a name="rules-for-devices"></a>Regole per i dispositivi
 
-È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. Un gruppo non può avere come membri sia utenti che dispositivi. È possibile usare gli attributi del dispositivo seguenti.
+È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. Un gruppo non può avere come membri sia utenti che dispositivi. L'attributo **organizationalUnit** non viene più elencato e non deve essere usato. Questa stringa viene impostata da Intune in casi specifici ma non viene riconosciuta da Azure AD, quindi nessun dispositivo viene aggiunto ai gruppi in base a questo attributo.
+
+È possibile usare gli attributi del dispositivo seguenti.
 
  Attributo del dispositivo  | Valori | Esempio
  ----- | ----- | ----------------
@@ -355,9 +357,9 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  enrollmentProfileName | Nome del profilo Apple Device Enrollment o del profilo Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (per i dispositivi mobili)<br>PC (per i computer gestiti dall'agente di PC Intune) | (device.managementType -eq "MDM")
- organizationalUnit | qualsiasi valore di stringa corrispondente al nome dell'unità organizzativa impostato da un server di Active Directory locale | (device.organizationalUnit -eq "US PCs")
  deviceId | ID dispositivo di Azure AD valido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | ID oggetto di Azure AD valido |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ systemLabels | qualsiasi stringa corrispondente alla proprietà del dispositivo Intune per contrassegnare i dispositivi dell'area di lavoro moderna | (device.systemLabels -contains “M365Managed”)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

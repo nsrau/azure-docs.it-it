@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6ad38d2dc1c5c41dc10685d680f70c59e7983cd2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8eca04478fd5aba292fcc47abac37b740b552dff
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035155"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51209078"
 ---
-Raccolta di immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini di VM personalizzate. Raccolta di immagini condivise fornisce tre principali proposte di valore
+Raccolta di immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini di VM personalizzate. Raccolta di immagini condivise fornisce tre principali proposte di valore:
 - Gestione semplificata
 - Ridimensionamento delle immagini dei clienti
 - Condivisione delle immagini: condivisione di immagini con utenti diversi, entità servizio o gruppi AD all'interno dell'organizzazione, nonché in aree diverse usando la replica per più aree
@@ -26,7 +26,7 @@ Se si dispone di un numero elevato di immagini gestite da mantenere e si desider
 
 La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
-| Risorsa | Descrizione|
+| Risorsa | DESCRIZIONE|
 |----------|------------|
 | **Immagine gestita** | Si tratta di un'immagine di base che può essere usata da sola o per creare più **versioni di immagini condivise** in una raccolta di immagini.|
 | **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
@@ -40,7 +40,7 @@ La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
 ### <a name="regional-support"></a>Supporto a livello di area
 
-Il supporto a livello di area per le raccolte di immagini condivise è limitato, ma si espanderà nel corso del tempo. Per visualizzare l'anteprima, di seguito sono riportati gli elenchi che specificano dove è possibile creare le raccolte e in quale aree è possibile replicare una raccolta: 
+Il supporto a livello di area per le raccolte di immagini condivise è disponibile in anteprima limitata, ma si espanderà nel corso del tempo. Per l'anteprima limitata, di seguito sono riportati gli elenchi che specificano dove è possibile creare le raccolte e in quale aree è possibile replicare un'immagine della raccolta: 
 
 | Crea raccolta in  | Replica versione in |
 |--------------------|----------------------|
@@ -61,25 +61,25 @@ Il supporto a livello di area per le raccolte di immagini condivise è limitato,
 
 
 ## <a name="scaling"></a>Ridimensionamento
-Raccolta di immagini condivise consente di specificare il numero di repliche che si desidera che Azure conservi per le immagini. Ciò è utile in scenari di distribuzione di più macchine virtuali, poiché le distribuzioni della macchina virtuale possono essere estese a diverse repliche, riducendo le possibilità che il processo di creazione di istanza venga limitato a causa dell'overload di una singola replica.
+Raccolta di immagini condivise consente di specificare il numero di repliche delle immagini che si desidera vengano conservate da Azure. Questa possibilità è particolarmente utile in scenari di distribuzione di più macchine virtuali, poiché le distribuzioni di macchine virtuali possono essere estese a diverse repliche, riducendo le possibilità che il processo di creazione di istanze venga limitato a causa dell'overload di una singola replica.
 
 ![Immagine che mostra come ridimensionare le immagini](./media/shared-image-galleries/scaling.png)
 
 
 ## <a name="replication"></a>Replica
-Raccolta di immagini condivise consente inoltre di replicare automaticamente le immagini in altre aree di Azure. Ogni versione di immagini condivise può essere replicata in diverse aree a seconda delle esigenze della propria organizzazione. Ad esempio, è possibile replicare sempre l'immagine più recente in più aree, mentre tutte le versioni precedenti sono disponibili solo in un'area. Ciò permette di risparmiare sui costi di archiviazione per le versioni di immagini condivise. Le aree in cui la versione di immagini condivise viene replicata possono essere aggiornate dopo l'ora di creazione. Il tempo necessario per la replica in aree diverse dipende dalla quantità di dati da copiare e dal numero di aree in cui versione è replicata. In alcuni casi, ciò può richiedere alcune ore. Mentre le replica è in corso, è possibile visualizzare lo stato della replica per area. Al termine della replica di immagine in un'area, è quindi possibile distribuire una macchina virtuale o VMSS usando tale versione nell'area.
+Raccolta di immagini condivise consente inoltre di replicare automaticamente le immagini in altre aree di Azure. Ogni versione di immagini condivise può essere replicata in diverse aree a seconda delle esigenze della propria organizzazione. Ad esempio, è possibile replicare sempre l'immagine più recente in più aree, mentre tutte le versioni precedenti sono disponibili solo in un'area. Questo permette di risparmiare sui costi di archiviazione per le versioni di immagini condivise. Le aree in cui la versione di immagini condivise viene replicata possono essere aggiornate dopo l'ora di creazione. Il tempo necessario per la replica in aree diverse dipende dalla quantità di dati da copiare e dal numero di aree in cui viene replicata la versione. In alcuni casi, questa operazione può richiedere alcune ore. Mentre le replica è in corso, è possibile visualizzare lo stato della replica per area. Al termine della replica di un'immagine in un'area, è quindi possibile distribuire una macchina virtuale o un set di scalabilità di macchine virtuali usando la versione dell'immagine disponibile nell'area.
 
 ![Immagine che mostra come replicare le immagini](./media/shared-image-galleries/replication.png)
 
 
 ## <a name="access"></a>Accesso
-Poiché la raccolta di immagini condivise, l'immagine condivisa e la versione dell'immagine condivisa sono tutte risorse, possono essere condivise usando i controlli RBAC nativi predefiniti di Azure. Usando il RBAC è possibile condividere tali risorse con altri utenti, entità servizio e gruppi nella propria organizzazione. L'ambito di condivisione di queste risorse è all'interno dello stesso tenant di Active Directory. Una volta che un utente ha accesso alla versione di immagini condivise, può distribuire una VM o un set di scalabilità di macchine virtuali in una qualsiasi delle sottoscrizioni a cui ha accesso all'interno dello stesso tenant di AD della versione di immagini condivise.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
+Poiché la raccolta di immagini condivise, l'immagine condivisa e la versione dell'immagine condivisa sono tutte risorse, possono essere condivise usando i controlli degli accessi in base al ruolo nativi di Azure. Usando il RBAC è possibile condividere tali risorse con altri utenti, entità servizio e gruppi nella propria organizzazione. L'ambito di condivisione di queste risorse è all'interno dello stesso tenant di Azure Active Directory. Una volta che un utente ha accesso alla versione di immagini condivise, può distribuire una macchina virtuale o un set di scalabilità di macchine virtuali in una qualsiasi delle sottoscrizioni a cui ha accesso all'interno dello stesso tenant di Azure AD della versione di immagini condivise.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
 
 | Condivisi con l'utente     | Raccolta di immagini condivise | Immagine condivisa | Versione di immagini condivise |
 |----------------------|----------------------|--------------|----------------------|
-| Raccolta di immagini condivise | Sì                  | Sì          | Sì                  |
-| Immagine condivisa         | No                   | Sì          | Sì                  |
-| Versione di immagini condivise | No                   | No           | Sì                  |
+| Raccolta di immagini condivise | Yes                  | Sì          | Yes                  |
+| Immagine condivisa         | No                    | Yes          | Yes                  |
+| Versione di immagini condivise | No                    | No            | Yes                  |
 
 
 
@@ -92,13 +92,13 @@ Non sono previsti addebiti aggiuntivi per l'uso del servizio Raccolta di immagin
 
 **D.** Come iscriversi all'anteprima pubblica di Raccolta di immagini condivise?
  
- R. Per iscriversi all'anteprima pubblica di Raccolta di immagini condivise, è necessario effettuare la registrazione per la funzionalità eseguendo i comandi seguenti da ognuna delle sottoscrizioni in cui si intende creare una raccolta di immagini condivise, una definizione di immagine o risorse di versione di immagine e anche in cui si prevede di distribuire le macchine virtuali usando le versioni dell'immagine.
+ R. Per iscriversi all'anteprima pubblica di Raccolta di immagini condivise, è necessario effettuare la registrazione per la funzionalità eseguendo i comandi seguenti da ognuna delle sottoscrizioni in cui si intende creare una raccolta di immagini condivise, una definizione di immagine o risorse di versione di immagine e anche di quelle in cui si prevede di distribuire le macchine virtuali usando le versioni dell'immagine.
 
 **Interfaccia della riga di comando**: 
 
 ```bash 
 az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -n Microsoft.Compute
+az provider register -name Microsoft.Compute
 ```
 
 **PowerShell**: 
@@ -159,12 +159,12 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
  R. I dettagli che possono essere aggiornati in ogni risorsa sono indicati di seguito:
  
 Raccolta di immagini condivise:
-- Descrizione
+- DESCRIZIONE
 
 Definizione delle immagini:
 - VCPU consigliati
 - Memoria
-- Descrizione
+- DESCRIZIONE
 - Data di scadenza
 
 Versione immagine:
@@ -186,9 +186,9 @@ Versione immagine:
 
  R. No, è possibile replicare le versioni delle immagini nelle aree in una sottoscrizione e usarle in altre sottoscrizioni tramite RBAC.
 
-**D.** È possibile condividere versioni delle immagini nei tenant di Active Directory? 
+**D.** È possibile condividere versioni delle immagini nei tenant di Azure Active Directory? 
 
- R. No, la raccolta di immagini condivise attualmente non supporta la condivisione delle versioni delle immagini tra tenant di AD diversi. È possibile tuttavia usare la funzionalità relativa alle offerte private in Azure Marketplace per ottenere questo risultato.
+ R. No, la raccolta di immagini condivise attualmente non supporta la condivisione delle versioni delle immagini tra tenant di Azure AD diversi. È possibile tuttavia usare la funzionalità relativa alle offerte private in Azure Marketplace per ottenere questo risultato.
 
 
 **D.** Quanto tempo occorre per replicare le versioni delle immagini tra le aree di destinazione?
@@ -198,7 +198,7 @@ Versione immagine:
 
 **D.** Quante raccolte di immagini condivise è possibile creare in una sottoscrizione?
 
- R. La quantità predefinita è 
+ R. La quantità predefinita è: 
 - 10 raccolte di immagini condivise, per ogni sottoscrizione per area
 - 200 definizioni di immagini, per ogni sottoscrizione per area
 - 2000 versionidi immagini, per ogni sottoscrizione per area
@@ -239,4 +239,4 @@ Per specificare il numero comune di repliche nella riga di comando, usare l'argo
 
 **D.** Quale versione API è necessario usare per creare Raccolta di immagini condivise, Definizione immagine, Versione immagine e VM/VMSS della Versione immagine?
 
- R. Per le distribuzioni di VM e set di scalabilità di macchine virtuali usando una versione di immagine, si consiglia di usare la versione API 2018-04-01 o una successiva. Per lavorare con le raccolte di immagini condivise, le definizioni di immagini e le versioni dell'immagine, si consiglia di usare la versione API 2018-06-01. 
+ R. Per le distribuzioni di macchine virtuali e set di scalabilità di macchine virtuali eseguite usando una versione di immagine, si consiglia di usare la versione API 2018-04-01 o una successiva. Per lavorare con le raccolte di immagini condivise, le definizioni di immagini e le versioni dell'immagine, si consiglia di usare la versione API 2018-06-01. 

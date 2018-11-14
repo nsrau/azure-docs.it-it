@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: a39ae42ba2344cb39318809e2f120e01a75344d7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b595e62e032743be2655406ac02c8db94cf708f9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025787"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281766"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Come usare Azure Mobile Apps SDK per Android
 
@@ -1047,7 +1047,7 @@ Il processo generale per l'accesso con l'autenticazione basata sul flusso client
 
 * Configurare l'autenticazione e l'autorizzazione del servizio app di Azure come si configura l'autenticazione basata sul flusso server.
 * Integrare l'SDK del provider di autenticazione per generare un token di accesso.
-* Chiamare il metodo `.login()` come illustrato di seguito:
+* Chiamare il metodo `.login()` come illustrato di seguito (`result` deve essere un `AuthenticationResult`):
 
     ```java
     JSONObject payload = new JSONObject();
@@ -1065,6 +1065,8 @@ Il processo generale per l'accesso con l'autenticazione basata sul flusso client
     });
     ```
 
+Vedere l'esempio di codice completo nella sezione successiva.
+
 Sostituire il metodo `onSuccess()` con il codice che si vuole usare all'esecuzione di un accesso.  La stringa `{provider}` è un provider valido: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount** o **twitter**.  Se è stata implementata l'autenticazione personalizzata, è anche possibile usare il tag del provider di autenticazione personalizzata.
 
 ### <a name="adal"></a>Autenticare gli utenti con Active Directory Authentication Library (ADAL)
@@ -1074,35 +1076,35 @@ Sostituire il metodo `onSuccess()` con il codice che si vuole usare all'esecuzio
 1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory][22]. Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
 2. Installare ADAL modificando il file build.gradle per includere le definizioni seguenti:
 
-```
-repositories {
-    mavenCentral()
-    flatDir {
-        dirs 'libs'
+    ```
+    repositories {
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
+        maven {
+            url "YourLocalMavenRepoPath\\.m2\\repository"
+        }
     }
-    maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+    packagingOptions {
+        exclude 'META-INF/MSFTSIG.RSA'
+        exclude 'META-INF/MSFTSIG.SF'
     }
-}
-packagingOptions {
-    exclude 'META-INF/MSFTSIG.RSA'
-    exclude 'META-INF/MSFTSIG.SF'
-}
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile('com.microsoft.aad:adal:1.1.1') {
-        exclude group: 'com.android.support'
-    } // Recent version is 1.1.1
-    compile 'com.android.support:support-v4:23.0.0'
-}
-```
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        compile('com.microsoft.aad:adal:1.1.1') {
+            exclude group: 'com.android.support'
+        } // Recent version is 1.1.1
+        compile 'com.android.support:support-v4:23.0.0'
+    }
+    ```
 
-1. Aggiungere all'applicazione il codice seguente apportando le sostituzioni seguenti:
+3. Aggiungere all'applicazione il codice seguente apportando le sostituzioni seguenti:
 
-* Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.microsoftonline.com/contoso.onmicrosoft.com.
-* Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. L'ID client è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
-* Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
-* Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint */.auth/login/done* del sito, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done*.
+    * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.microsoftonline.com/contoso.onmicrosoft.com.
+    * Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. L'ID client è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
+    * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
+    * Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint */.auth/login/done* del sito, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done*.
 
 ```java
 private AuthenticationContext mContext;

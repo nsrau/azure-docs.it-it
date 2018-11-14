@@ -5,21 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 11/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0c071fbfb962de1bf077dfa720cd66bc06e42178
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 3bd4adcd6df07aa47312223c559f0e9ed4fc0b14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312452"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264277"
 ---
 <!-- F-series, Fs-series* -->
 
 Le dimensioni delle macchine virtuali ottimizzate per il calcolo hanno un rapporto elevato tra CPU e memoria e sono ottimali per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento.
 
-La serie Fsv2 è basata sul processore Intel® Xeon® Platinum 8168, con una frequenza di core di base di 2,7 GHz e una frequenza turbo massima single-core di 3,7 GHz. Le istruzioni di Intel® AVX-512, che rappresentano una novità per i processori Intel Scalable, offriranno fino al doppio delle prestazioni per carichi di lavoro di elaborazione vettoriale nelle operazioni a virgola mobile a precisione singola e doppia. In altre parole, sono molto veloci per qualsiasi carico di lavoro di calcolo. 
+La serie Fsv2 è basata sul processore Intel® Xeon® Platinum 8168, con una velocità di clock Turbo all-core sostenuta di 3,4 GHz e una frequenza turbo massima single-core di 3,7 GHz. Le istruzioni di Intel® AVX-512, che rappresentano una novità per i processori Intel Scalable, offriranno fino al doppio delle prestazioni per carichi di lavoro di elaborazione vettoriale nelle operazioni a virgola mobile a precisione singola e doppia. In altre parole, sono molto veloci per qualsiasi carico di lavoro di calcolo. 
 
 Con un prezzo di listino orario più basso, la serie Fsv2 presenta il migliore rapporto prezzo-prestazioni nel portfolio Azure basato sull'unità di calcolo di Azure (ACU, Azure Compute Unit) per ogni vCPU. 
 

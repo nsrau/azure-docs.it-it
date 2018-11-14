@@ -4,17 +4,16 @@ description: Questo articolo presenta alcune considerazioni e linee guida per la
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/22/2018
-ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 11/07/2018
+ms.openlocfilehash: b482a43236885f4b5574a9ba3319f74b083df33a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640014"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281261"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Server di Database di Azure per PostgreSQL
 Questo articolo presenta alcune considerazioni e diverse linee guida per l'uso di server di Database di Azure per PostgreSQL.
@@ -29,7 +28,7 @@ Un database di Azure per il server PostgreSQL:
 - Fornisce uno spazio dei nomi per i database.
 - È un contenitore con semantica di lunga durata: l'eliminazione di un server comporta l'eliminazione dei database in esso contenuti.
 - Colloca risorse in un'area.
-- Fornisce un endpoint di connessione per l'accesso a server e database (.postgresql.database.azure.com).
+- Fornisce un endpoint di connessione per l'accesso a server e database 
 - Fornisce l'ambito per i criteri di gestione applicati ai database: account di accesso, firewall, utenti, ruoli, configurazioni e così via.
 - È disponibile in più versioni. Per altre informazioni, vedere [Versioni supportate del database PostgreSQL](concepts-supported-versions.md).
 - È estensibile dagli utenti. Per altre informazioni, vedere [Estensioni di PostgreSQL](concepts-extensions.md).
@@ -44,7 +43,7 @@ Gli elementi seguenti contribuiscono a garantire un accesso sicuro al database:
 | **Autenticazione e autorizzazione** | Il database di Azure per il server PostgreSQL supporta l'autenticazione nativa a PostgreSQL. È possibile connettersi ed eseguire l'autenticazione al server tramite l'account amministratore del server. |
 | **Protocollo** | Il servizio supporta un protocollo basato su messaggi usato da PostgreSQLL. |
 | **TCP/IP** | Il protocollo è supportato su TCP/IP e sui socket di dominio Unix. |
-| **Firewall** | Per proteggere i dati, una regola del firewall impedisce qualsiasi accesso al server e ai relativi database finché non si specificano i computer autorizzati. Vedere [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md) (Database di Azure per le regole firewall del server PostgreSQL). |
+| **Firewall** | Per proteggere i dati, una regola del firewall impedisce qualsiasi accesso al server e ai relativi database finché non si specificano i computer autorizzati. Vedere [Regole firewall per Database di Azure per PostgreSQL](concepts-firewall-rules.md). |
 
 ## <a name="managing-your-server"></a>Gestione del server
 È possibile gestire i server di Database di Azure per PostgreSQL mediante il [portale di Azure](https://portal.azure.com) o l'[interfaccia della riga di comando di Azure](/cli/azure/postgres).
@@ -53,9 +52,10 @@ Durante la creazione di un server, impostare le credenziali per l'utente amminis
 
 L'attributo utente con privilegi avanzati PostgreSQL viene assegnato ad azure_superuser, che appartiene al servizio gestito. Non si dispone dell'accesso a questo ruolo.
 
-Un server di Database di Azure per PostgreSQL dispone di due database predefiniti: 
+Un server di Database di Azure per PostgreSQL dispone di database predefiniti: 
 - **postgres**: database predefinito a cui è possibile connettersi dopo aver creato il server.
 - **azure_maintenance**: database usato per separare i processi che offrono il servizio gestito dalle azioni degli utenti. Non si dispone dell'accesso a questo database.
+- **azure_sys**: database per Query Store. Questo database non accumulare dati quando Query Store è disattivato (impostazione predefinita). Per altre informazioni, vedere la [panoramica di Query Store](concepts-query-store.md).
 
 
 ## <a name="server-parameters"></a>Parametri del server
@@ -65,7 +65,7 @@ Come servizio gestito per Postgres i parametri configurabili in Database di Azur
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per una panoramica del servizio, vedere [Azure Database for PostgreSQL Overview](overview.md) (Database di Azure per una panoramica di PostgreSQL).
-- Per informazioni sulle quote specifiche di risorse e sulle limitazioni in base al **livello di servizio**, vedere la pagina relativa ai [livelli di servizio](concepts-pricing-tiers.md).
-- Per informazioni sulla connessione al servizio, vedere [Raccolte connessioni per il database di Azure per PostgreSQL](concepts-connection-libraries.md).
+- Per una panoramica del servizio, vedere  [Azure Database for PostgreSQL Overview](overview.md) (Database di Azure per una panoramica di PostgreSQL).
+- Per informazioni sulle quote specifiche di risorse e sulle limitazioni in base al  **livello di servizio**, vedere la pagina relativa ai  [livelli di servizio](concepts-pricing-tiers.md).
+- Per informazioni sulla connessione al servizio, vedere  [Raccolte connessioni per il database di Azure per PostgreSQL](concepts-connection-libraries.md).
 - Visualizzare o modificare i parametri del server tramite il [portale di Azure](howto-configure-server-parameters-using-portal.md) o l'[interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md).

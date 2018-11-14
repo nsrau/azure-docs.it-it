@@ -1,19 +1,19 @@
 ---
 title: Connettere un dispositivo Raspberry Pi all'applicazione Azure IoT Central (C#) | Microsoft Docs
 description: Come connettere un dispositivo Raspberry Pi all'applicazione Azure IoT Central con C# in qualità di sviluppatore di dispositivi.
-author: dominicbetts
-ms.author: dobett
-ms.date: 01/22/2018
+author: viv-liu
+ms.author: viviali
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+manager: peterpr
+ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205137"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956724"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Connettere un dispositivo Raspberry Pi all'applicazione Azure IoT Central (C#)
 
@@ -23,10 +23,10 @@ Questo articolo descrive come connettere un dispositivo Raspberry Pi all'applica
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
+Per seguire la procedura descritta in questo articolo sono necessari i componenti seguenti:
 
 * [.NET Core 2](https://www.microsoft.com/net) installato nel computer di sviluppo. È anche necessario avere un editor di codice adatto come [Visual Studio Code](https://code.visualstudio.com/).
-* Un'applicazione Azure IoT Central creata dal modello di applicazione **Sample Devkits**. Per altre informazioni, vedere [Creare l'applicazione Azure IoT Central](howto-create-application.md).
+* Un'applicazione Azure IoT Central creata dal modello di applicazione **Sample Devkits**. Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
 * Un dispositivo Raspberry Pi che esegue il sistema operativo Raspbian.
 
 
@@ -34,10 +34,21 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 Un'applicazione creata dal modello di applicazione **Sample Devkits** include un modello di dispositivo **Raspberry Pi** con le caratteristiche seguenti: 
 
-- I dati di telemetria che contengono le misurazioni del dispositivo **umidità**, **temperatura**, **pressione**, **magnetometro** (misurata lungo gli assi X, Y e Z), **accelerometro** (misurata lungo gli assi X, Y e Z) e **giroscopio** (misurata lungo gli assi X, Y e Z).
-- Le impostazioni di visualizzazione **tensione**, **corrente**,**velocità della ventola** e un comando di attivazione/disattivazione **runtime di integrazione**.
-- Le proprietà contengono la proprietà del dispositivo **numero stampo** e la proprietà del cloud **posizione**.
-
+- I dati di telemetria includono le misure seguenti, che verranno raccolte dal dispositivo:
+    - Umidità
+    - Temperatura
+    - Pressione
+    - Magnetometro (X, Y, Z)
+    - Accelerometro (X, Y, Z)
+    - Giroscopio (X, Y, Z)
+- Impostazioni
+    - Tensione
+    - Current
+    - Velocità della ventola
+    - Attiva/Disattiva runtime di integrazione.
+- Properties
+    - Proprietà Numero stampo del dispositivo
+    - Proprietà cloud della posizione
 
 Per i dettagli completi sulla configurazione del modello del dispositivo, vedere [Dettagli del modello del dispositivo di Raspberry PI](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 
@@ -262,6 +273,9 @@ Per completare la procedura seguente è possibile usare Visual Studio Code. Per 
 ## <a name="run-your-net-application"></a>Eseguire l'applicazione .NET
 
 Aggiungere la stringa di connessione specifica del dispositivo al codice per il dispositivo per l'autenticazione con Azure IoT Central. La stringa di connessione è stata annotata quando il dispositivo reale è stato aggiunto all'applicazione Azure IoT Central.
+
+  > [!NOTE]
+   > Azure IoT Central ha eseguito la transizione all'uso del servizio Device Provisioning in hub IoT di Azure per tutte le connessioni dei dispositivi. Seguire queste istruzioni per [ottenere la stringa di connessione del dispositivo](concepts-connectivity.md#getting-device-connection-string) e continuare con il resto dell'esercitazione.
 
 1. Sostituire `{your device connection string}` nel file **Program.cs** con la stringa di connessione annotata in precedenza.
 

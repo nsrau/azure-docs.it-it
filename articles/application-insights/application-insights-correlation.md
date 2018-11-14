@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: eb14a3bc76fef37cdff4ed49cdbb6a99eac40928
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341124"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280164"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -66,7 +66,7 @@ Quando la chiamata `GET /api/stock/value` viene effettuata a un servizio esterno
 
 ## <a name="correlation-headers"></a>Intestazioni di correlazione
 
-Microsoft sta lavorando alla proposta RFC per il [protocollo HTTP per la correlazione](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Questa proposta definisce due intestazioni:
+Microsoft sta lavorando alla proposta RFC per il [protocollo HTTP per la correlazione](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Questa proposta definisce due intestazioni:
 
 - `Request-Id` porta l'ID globalmente univoco della chiamata
 - `Correlation-Context` porta la raccolta di coppie nome-valore delle proprietà della traccia distribuita
@@ -77,7 +77,7 @@ Application Insights definisce l'[estensione](https://github.com/lmolkova/correl
 
 ### <a name="w3c-distributed-tracing"></a>Analisi distribuita W3C
 
-Stiamo eseguendo la transizione a (formato di analisi distribuita W3C) [https://w3c.github.io/distributed-tracing/report-trace-context.html], che definisce quanto segue:
+Stiamo eseguendo la transizione a [formato di analisi distribuita W3C](https://w3c.github.io/trace-context/). che definisce quanto segue:
 - `traceparent`: contiene l'ID operazione globalmente univoco e un identificatore univoco della chiamata
 - `tracestate`: contiene il contesto specifico del sistema di analisi.
 
@@ -156,7 +156,7 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-Tramite la [classe del contesto di dispositivo](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context). Viene contrassegnato solo questo elemento di telemetria.
+Tramite la [classe del contesto di dispositivo](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context). Viene contrassegnato solo questo elemento di telemetria.
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```

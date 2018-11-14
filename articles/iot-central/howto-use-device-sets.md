@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: a5dd018197ff78ff0563349fd941308c3684a456
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206072"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004120"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Usare i set di dispositivi nell'applicazione Azure IoT Central
 
 L'articolo descrive come un operatore può usare i set di dispositivi nell'applicazione Azure IoT Central.
 
-Un set di dispositivi è un elenco di dispositivi raggruppati in base ad alcuni criteri specificati. I set di dispositivi consentono di gestire, visualizzare e analizzare grandi quantità di dispositivi raggruppando i dispositivi in gruppi logici più piccoli. Ad esempio è possibile creare un elenco di tutti i dispositivi condizionatore di Seattle per consentire al tecnico di Seattle di trovare tutti i dispositivi di cui è responsabile. Questo articolo descrive come creare e configurare i set di dispositivi.
+Un set di dispositivi è un elenco di dispositivi raggruppati in base ad alcuni criteri specificati. I set di dispositivi consentono di gestire, visualizzare e analizzare grandi quantità di dispositivi raggruppando i dispositivi in gruppi logici più piccoli. Ad esempio è possibile creare un elenco di tutti i dispositivi condizionatore di Seattle per consentire al tecnico di Seattle di trovare tutti i dispositivi di cui il tecnico è responsabile. Questo articolo descrive come creare e configurare i set di dispositivi.
 
 ## <a name="create-a-device-set"></a>Creare un set di dispositivi
 
@@ -50,7 +50,7 @@ Dopo aver creato il set di dispositivi è possibile configurare il relativo **Da
 
 1. Selezionare la scheda **Dashboard**.
 
-1. Attivare **Design Mode** (Modalità progettazione).
+1. Fare clic su **Modifica modello**.
 
     ![Modalità progettazione attivata](media/howto-use-device-sets/image3.png)
 
@@ -58,9 +58,6 @@ Dopo aver creato il set di dispositivi è possibile configurare il relativo **Da
 
 1. Aggiungere un riquadro di collegamento:
     1. Scegliere **Link** (Collegamento) nel riquadro destro.
-
-        ![Scegliere Link](media/howto-use-device-sets/image6.png)
-
     1. In **Title** (Titolo) assegnare un titolo al collegamento.
     1. Scegliere un URL da aprire quando viene selezionato il collegamento.
     1. Assegnare una descrizione al collegamento da mostrare sotto il **titolo**.
@@ -76,7 +73,7 @@ Dopo aver creato il set di dispositivi è possibile configurare il relativo **Da
         ![Scegliere Grid](media/howto-use-device-sets/image8.png)
 
     1. In **Title** (Titolo) assegnare un titolo alla griglia.
-    1. Selezionare le colonne da mostrare facendo clic sul pulsante delle impostazioni. Nel pannello che appare scegliere la colonna da visualizzare e scegliere la freccia destra per selezionarla.
+    1. Selezionare le colonne da mostrare scegliendo **Add/Remove** (Aggiungi/Rimuovi). Nel pannello che appare scegliere la colonna da visualizzare e scegliere la freccia destra per selezionarla.
     1. Scegliere **OK**.
     1. Scegliere **Salva**.
 
@@ -87,38 +84,27 @@ Dopo aver creato il set di dispositivi è possibile configurare il relativo **Da
     > [!NOTE]
     > È possibile aggiungere più immagini, collegamenti e griglie.
   
-    1. Disattivare **Design Mode** (Modalità progettazione).
+    1. Fare clic su **Done**.
 
     ![Modalità progettazione disattivata](media/howto-use-device-sets/image10.png)
 
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configurazione della mappa delle località nel dashboard per il set di dispositivi 
-È possibile aggiungere una mappa delle località per visualizzare la posizione del set di dispositivi in una mappa. 
+È possibile aggiungere una mappa delle località per visualizzare la posizione del set di dispositivi in una mappa.
 
 Per aggiungere una mappa delle località al dashboard per il set di dispositivi è necessario aver configurato la proprietà in Modello di dispositivo, vedere [Creare una proprietà Location con Mappe di Azure](howto-set-up-template.md).
 
 
-1. In Dashboard set di dispositivi, selezionare Mappa nella libreria. 
+1. Nel dashboard set di dispositivi selezionare Mappa nella libreria.
 
     ![Mappe del dashboard per il set di dispositivi](media/howto-use-device-sets/LocationMaps1.png)
 
-
 2. Assegnare un titolo e scegliere la proprietà Location configurata in precedenza come parte della proprietà del dispositivo.
-
-    ![Configurare le mappe del dashboard](media/howto-use-device-sets/LocationMaps2.png)
-
 3. Salvare e nel riquadro della mappa verrà visualizzata la posizione dei dispositivi nel Set di dispositivi.
-
-    ![Salvare le mappe del dashboard](media/howto-use-device-sets/LocationMaps3.png)
-
-
-5. Quando un operatore visualizza il dashboard per il set di dispositivi, ora verranno visualizzati tutti i riquadri configurati inclusa la mappa delle località per visualizzare il riepilogo delle posizioni di tutti i dispositivi! 
-
-    ![Vista operatore delle mappe del dashboard](media/howto-use-device-sets/LocationMaps4.png)
-
-    Sarà possibile ridimensionare la mappa alle dimensioni desiderate.
-
-    Facendo clic su una puntina nella mappa verranno visualizzate le informazioni sul dispositivo, nome e posizione. È possibile fare clic nella finestra popup per passare alla pagina delle proprietà del dispositivo.  
+4. Quando un operatore visualizza il dashboard per il set di dispositivi, verranno visualizzati tutti i riquadri configurati inclusa la mappa delle località per visualizzare il riepilogo delle posizioni di tutti i dispositivi. 
+    
+> [!NOTE] 
+> Sarà possibile ridimensionare la mappa alle dimensioni desiderate. Facendo clic su una puntina nella mappa verranno visualizzate le informazioni sul dispositivo, nome e posizione. È possibile fare clic nella finestra popup per passare alla pagina delle proprietà del dispositivo.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurare l'elenco per il set di dispositivi

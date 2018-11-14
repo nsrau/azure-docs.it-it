@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ed3fc6d1d2a4b674e2866d2e168fb72490575869
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095809"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281834"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning Studio
 Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun codice.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Procedura per usare un servizio Web esistente nella cartella di lavoro
 
-1. Aprire il [file di Excel di esempio](http://aka.ms/amlexcel-sample-2)che contiene il componente aggiuntivo Excel e i dati relativi ai passeggeri sul Titanic. 
+1. Aprire il [file di Excel di esempio](https://aka.ms/amlexcel-sample-2)che contiene il componente aggiuntivo Excel e i dati relativi ai passeggeri sul Titanic. 
  
 > [!NOTE]
 > Verranno visualizzati l'elenco dei servizi Web correlati al file e nella parte inferiore una casella di controllo "Auto-predict" (Stima automatica). Se si abilita la stima automatica, le stime per **tutti** i servizi verranno aggiornate per ogni modifica degli input. Se l'opzione è deselezionata sarà necessario fare clic su "Predict All" (Stima tutto) per l'aggiornamento. Per abilitare la previsione automatica a livello di servizio, procedere al passaggio 6.
@@ -85,7 +85,7 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 ## <a name="sharing-your-workbook"></a>Condivisione della cartella di lavoro
 Se si salva la cartella di lavoro, verrà salvata anche la chiave API/primaria per i servizi Web che sono stati aggiunti. Pertanto, è necessario condividere la cartella di lavoro solo con persone attendibili.
 
-In caso di domande, inserirle nella sezione seguente dedicata ai commenti o nel [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+In caso di domande, inserirle nella sezione seguente dedicata ai commenti o nel [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/excel-add-in-for-web-services/image1.png
 [02]: ./media/excel-add-in-for-web-services/image2.png

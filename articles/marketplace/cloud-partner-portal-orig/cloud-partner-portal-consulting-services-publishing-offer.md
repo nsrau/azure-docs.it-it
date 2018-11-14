@@ -1,6 +1,6 @@
 ---
-title: Servizi di consulenza | Microsoft Docs
-description: Guida per la definizione e pubblicazione di un'offerta di servizio di consulenza.
+title: Offerta di servizi di consulenza per Azure e Dynamics 365 | Microsoft Docs
+description: Guida alla definizione e alla pubblicazione di un'offerta di servizi di consulenza per Dynamics 365 o Azure nel portale Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: dan-wesley
@@ -12,19 +12,29 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b3f6b9166afce9ca0cdeaa1c9dd6e10a5a976453
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807967"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037763"
 ---
-<a name="defining-and-publishing-your-consulting-services-offer"></a>Definizione e pubblicazione della propria offerta di servizio di consulenza
-======================================================
+# <a name="azure-and-dynamics-365-consulting-service-offer"></a>Offerta di servizi di consulenza per Azure e Dynamics 365
 
-Questa guida è stata ideata per aiutare a definire e pubblicare la propria offerta di servizi di consulenza nel portale Cloud Partner.
+<table> <tr> <td>Questa sezione illustra come pubblicare un servizio di consulenza in Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> o <a href="https://appsource.microsoft.com">AppSource Marketplace</a>. Le soluzioni basate su Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> e <a href="https://powerapps.microsoft.com">PowerApps</a> sono idonee alla pubblicazione in AppSource. Altre offerte basate su altri <a href="https://azure.microsoft.com/services">servizi di Microsoft Azure</a> sono idonee alla pubblicazione in Azure Marketplace. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
+
+
+# <a name="publishing-benefits"></a>Vantaggi della pubblicazione
+
+La pubblicazione in uno dei marketplace di Microsoft porta vantaggi sostanziali:
+
+- Promozione della propria azienda usufruendo del marchio Microsoft.
+- Possibilità di raggiungere potenzialmente oltre 100 milioni di utenti di Office 365 e Dynamics 365 in AppSource e di raggiungere oltre 200mila organizzazioni tramite Azure Marketplace.
+- Acquisire potenziali clienti di alta qualità da questi marketplace.
+- Far promuovere i propri servizi dai team sul campo e di televendita di Microsoft.
+
 
 <a name="define-your-consulting-services-offer"></a>Definire l'offerta di servizi di consulenza
 -------------------------------------
@@ -52,30 +62,23 @@ Per creare una nuova offerta, seguire questa procedura:
 
 ### <a name="define-offer-settings"></a>Definire le impostazioni dell'offerta
 
-Nella schermata Nuova offerta, il primo passaggio consiste nel creare l'identità dell'offerta.
-L'identità dell'offerta è costituita da tre parti:
-
-1.  Offer ID (ID offerta)
-2.  Publisher ID (ID editore)
-3.  NOME
-
-Ciascuna di queste parti viene trattata nelle sezioni seguenti.
+Nella schermata Nuova offerta, il primo passaggio consiste nel creare l'identità dell'offerta.  L'identità offerta è costituita da tre parti: **Offer ID** (ID offerta), **Publisher ID** (ID editore) e **Name** (Nome).  Ciascuna di queste parti viene trattata nelle sezioni seguenti.
 
 #### <a name="offer-id"></a>Offer ID (ID offerta)
 
-Si tratta di un nome univoco che viene creato quando viene inviata per la prima volta l'offerta. Deve contenere solo caratteri alfanumerici minuscoli, trattini o caratteri di sottolineatura. L'ID sarà visibile nell'URL e avrà effetto sui risultati dei motori di ricerca. Ad esempio, *yourcompanyname\_exampleservice*
+Questo identificatore è un nome univoco che viene creato quando si invia l'offerta per la prima volta. Deve contenere solo caratteri alfanumerici minuscoli, trattini o caratteri di sottolineatura. L'ID offerta sarà visibile nell'URL e avrà effetto sui risultati dei motori di ricerca. Ad esempio, *yourcompanyname\_exampleservice*
 
-Come mostrato nell'esempio, l'ID offerta viene accodato all'ID del server di pubblicazione per creare un identificatore univoco. Questo viene esposto come collegamento permanente che può essere prenotato ed è indicizzato dai motori di ricerca.
+Come mostrato nell'esempio, l'ID offerta viene accodato all'ID editore per creare un identificatore univoco. Questo viene esposto come collegamento permanente che può essere prenotato ed è indicizzato dai motori di ricerca. 
 
-**Quando un'offerta è attiva non può essere \'aggiornata**
+*Dopo che un'offerta è diventata attiva, il relativo identificatore non può essere aggiornato*
 
 #### <a name="publisher-id"></a>Publisher ID (ID editore)
 
-È correlato al proprio account. Una volta effettuato l'accesso con l'account dell'organizzazione, l'ID editore verrà visualizzato nel menu a discesa.
+Questo identificatore è correlato all'account. Una volta effettuato l'accesso con l'account dell'organizzazione, l'ID editore verrà visualizzato nel menu a discesa.
 
 #### <a name="name"></a>NOME
 
-È il testo visualizzato come nome dell'offerta in AppSource o in Azure Marketplace.
+Questa stringa è il testo che verrà visualizzato come nome dell'offerta in AppSource o in Azure Marketplace.
 
 **Importante:** immettere solo il nome del servizio effettivo. Non includere la durata e il tipo di servizio.
 
@@ -85,12 +88,12 @@ Nell'esempio seguente di Edgewater Fullscope viene visualizzata la modalità di 
 
 Il nome dell'offerta è costituito da quattro parti:
 
--   **Durata:** viene definita nella scheda Dati da visualizzare nella vetrina dell'editor. La durata può essere espressa in ore, giorni o settimane.
--   **Tipo di servizio:** viene definito nella scheda Dati da visualizzare nella vetrina dell'editor. I tipi di servizi sono Valutazione, Briefing, Implementazione, Modello di verifica e Workshop.
--   **Preposizione:** inserita dal revisore
--   **Nome:** è l'elemento definito nella pagina di impostazioni dell'offerta.
+-   **Durata:** viene definita nella scheda **Dettagli vetrina** dell'editore. La durata può essere espressa in ore, giorni o settimane.
+-   **Tipo di servizio**: viene definito nella scheda **Dettagli vetrina** dell'editore. I tipi di servizio sono `Assessment`, `Briefing`, `Implementation`, `Proof of concept` e `Workshop`.
+-   **Preposizione:** inserita dal revisore.
+-   **Nome:** definito nella pagina **Impostazioni dell'offerta**.
 
-L'elenco seguente propone diversi nomi di offerta efficaci:
+L'elenco seguente propone diversi nomi di offerta appropriati:
 
 -   Aspetti essenziali per servizi professionali: briefing di un'ora
 -   Piattaforma di migrazione cloud: briefing di un'ora
@@ -124,7 +127,7 @@ La sezione dei dettagli dell'offerta contiene i campi seguenti:
 
 ##### <a name="offer-summary"></a>Riepilogo offerta
 
-Il riepilogo offerta è una breve descrizione dell'offerta visualizzata immediatamente sotto al nome dell'offerta. È consigliabile usare testo normale quando si immette il riepilogo offerta e non devono essere presenti interruzioni di riga. Di seguito sono riportati alcuni ottimi esempi di riepilogo offerta insieme ai relativi nomi offerta corrispondenti:
+Il riepilogo offerta è una breve descrizione dell'offerta visualizzata immediatamente sotto al nome dell'offerta. Usare testo normale quando si immette il riepilogo dell'offerta. È consigliabile che tale testo non includa interruzioni di riga. Di seguito sono riportati alcuni ottimi esempi di riepilogo offerta insieme ai relativi nomi offerta corrispondenti:
 
 *Esempio 1*
 
@@ -161,7 +164,7 @@ Inserire la descrizione dell'offerta in formato Markdown. Se non si ha familiari
 
 L'utilizzo di questi formati garantirà che l'offerta abbia la massima leggibilità per i clienti.
 
-Mantenere la descrizione dell'offerta breve e rispettare il limite dei caratteri, in quanto gli utenti non amano leggere molto testo. È comunque possibile caricare brochure di marketing, schede tecniche e altri documenti che descrivono l'offerta in modo più dettagliato.
+La descrizione dell'offerta deve essere breve e rispettare il limite di caratteri, in quanto gli utenti non amano leggere testi lunghi. È comunque possibile caricare brochure di marketing, schede tecniche e altri documenti che descrivono l'offerta in modo più dettagliato.
 
 L'esempio che segue illustra una descrizione dell'offerta ben composta e il relativo nome e riepilogo:
 
@@ -223,7 +226,7 @@ Nuovo ID del Centro per i partner, se disponibile.
 **ID MPN**
 
 Immettere una chiave privata per visualizzare un'anteprima dell'offerta in AppSource prima della pubblicazione.
-Non è una password.
+Questo identificatore non è una password.
 
 #### <a name="listing-details"></a>Dettagli inserzione
 
@@ -287,4 +290,4 @@ Caricare fino a cinque immagini che offrono ulteriori informazioni sull'offerta,
 
 Dopo aver completato le impostazioni dell'offerta, i dati da visualizzare nella vetrina e i contatti, selezionare **Pubblica** e specificare un indirizzo di posta elettronica. Quando Microsoft sarà pronta a pubblicare l'offerta, si riceverà un e-mail per visualizzare l'anteprima prima della sua pubblicazione. È possibile tornare al portale per controllare lo stato dell'offerta in qualsiasi momento.
 
-Le offerte potrebbero essere visualizzate con lo stato "Pubblicazione annullata" o "Pubblicazione non riuscita" durante il processo di pubblicazione. Si tratta di una parte normale del processo che consente a Microsoft di apportare modifiche all'offerta. Se la propria offerta viene visualizzata come "Pubblicazione annullata", non modificarne lo stato.
+Le offerte potrebbero essere visualizzate con lo stato "Pubblicazione annullata" o "Pubblicazione non riuscita" durante il processo di pubblicazione. Questo stato è una parte normale del processo e consente a Microsoft di apportare modifiche all'offerta. Se la propria offerta viene visualizzata come "Pubblicazione annullata", non modificarne lo stato.

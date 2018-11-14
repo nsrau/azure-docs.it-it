@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49312388"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264206"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Archiviazione Standard conveniente e dischi gestiti e non gestiti delle macchine virtuali di Azure
 
@@ -61,10 +61,10 @@ Questa sezione descrive gli obiettivi di scalabilità e prestazioni da considera
 | **Risorsa** | **Limite predefinito** |
 |--------------|-------------------|
 | TB per account di archiviazione  | 500 TB |
-| Traffico in ingresso massimo<sup>1</sup> per account di archiviazione (aree degli Stati Uniti) | 10 Gbps con archiviazione GRS/ZRS abilitata, 20 Gbps per LRS |
-| Traffico in uscita massimo<sup>1</sup> per account di archiviazione (aree degli Stati Uniti) | 20 Gbps con archiviazione RA-GRS/GRS/ZRS abilitata, 30 Gbps per LRS |
-| Traffico in ingresso massimo<sup>1</sup> per account di archiviazione (aree europee e asiatiche) | 5 Gbps con archiviazione GRS/ZRS abilitata, 10 Gbps per LRS |
-| Traffico in uscita massimo<sup>1</sup> per account di archiviazione (aree europee e asiatiche) | 10 Gbps con archiviazione RA-GRS/GRS/ZRS abilitata, 15 Gbps per LRS |
+| Traffico in ingresso massimo<sup>1</sup>  per account di archiviazione (aree degli Stati Uniti) | 10 Gbps con archiviazione GRS/ZRS abilitata, 20 Gbps per LRS |
+| Traffico in uscita massimo<sup>1</sup>  per account di archiviazione (aree degli Stati Uniti) | 20 Gbps con archiviazione RA-GRS/GRS/ZRS abilitata, 30 Gbps per LRS |
+| Traffico in ingresso massimo<sup>1</sup>  per account di archiviazione (aree europee e asiatiche) | 5 Gbps con archiviazione GRS/ZRS abilitata, 10 Gbps per LRS |
+| Traffico in uscita massimo<sup>1</sup>  per account di archiviazione (aree europee e asiatiche) | 10 Gbps con archiviazione RA-GRS/GRS/ZRS abilitata, 15 Gbps per LRS |
 | Frequenza di richiesta totale (presupponendo oggetti con dimensione di 1 KB) per account di archiviazione | Fino a 20.000 IOPS, entità al secondo o messaggi al secondo |
 
 <sup>1</sup>Il traffico in ingresso indica tutti i dati (richieste) inviati a un account di archiviazione. Il traffico in uscita indica tutti i dati (risposte) provenienti da un account di archiviazione.
@@ -111,7 +111,7 @@ Se un disco gestito è collegato a una VM, alcune operazioni API non sono consen
 
 Quando si usa Archiviazione Standard, tenere conto delle considerazioni seguenti relative alla fatturazione:
 
-* Dimensioni dati/dischi non gestiti di Archiviazione Standard 
+* Dimensioni dati/dischi non gestiti di Archiviazione Standard
 * Dischi gestiti Standard
 * Snapshot di Archiviazione Standard
 * Trasferimenti di dati in uscita
@@ -121,14 +121,16 @@ Quando si usa Archiviazione Standard, tenere conto delle considerazioni seguenti
 
 **Dischi gestiti**: per un disco gestito Standard, la fatturazione dipende dalle dimensioni del disco di cui è stato effettuato il provisioning. Azure associa la dimensione del disco, arrotondata per eccesso, all'opzione relativa a Managed Disks più vicina, come specificato nelle tabelle seguenti. Viene eseguito il mapping di ogni disco gestito a una delle dimensioni di provisioning supportate e viene eseguita la relativa fatturazione. Se, ad esempio, si crea un disco gestito Standard e si specifica una dimensione del disco di cui è stato effettuato il provisioning pari a 200 GB, i costi addebitati si basano sui prezzi del tipo di disco S15.
 
-| **Tipo di disco gestito <br>HDD Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+Le dimensioni indicate con un asterisco sono attualmente in anteprima.
+
+| **Tipo di disco gestito <br>HDD Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Dimensione disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16.385 GiB (16 TiB) | 32.767 GiB (32 TiB) |
 
 
 **Snapshot**: gli snapshot dei dischi Standard vengono fatturati in base alla capacità aggiuntiva usata allo scopo. Per informazioni sugli snapshot, vedere [Creazione di uno snapshot di un BLOB](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-**Trasferimenti di dati in uscita**: i [trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/data-transfers/) (dati in uscita dai data center di Azure) vengono fatturati in base all'uso della larghezza di banda.
+**Trasferimenti di dati in uscita**: [i trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/data-transfers/)  (dati in uscita dai data center di Azure) vengono fatturati in base all'uso della larghezza di banda.
 
 **Transazioni**: per Archiviazione Standard, Azure addebita $ 0,0036 per 100.000 transazioni. Le transazioni includono le operazioni sia di lettura che di scrittura nello spazio di archiviazione.
 

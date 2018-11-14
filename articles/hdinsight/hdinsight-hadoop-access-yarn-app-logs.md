@@ -2,25 +2,25 @@
 title: Accedere ai log applicazioni YARN Hadoop a livello di codice - Azure
 description: Accedere ai log applicazioni a livello di codice su un cluster Hadoop in HDInsight.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 42484f2a93ab5effdcafca0f0769c3fb4cdbb926
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600184"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035646"
 ---
-# <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Accesso ai log applicazioni YARN in HDInsight basato su Windows
-Questo documento illustra come accedere ai log delle applicazioni YARN che sono finite in un cluster Hadoop basato su Windows in Azure HDInsight
+# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Accesso ai log applicazioni Apache YARN in HDInsight basato su Windows
+Questo documento illustra come accedere ai log delle applicazioni Apache YARN che sono finite in un cluster Hadoop basato su Windows in Azure HDInsight
 
 > [!IMPORTANT]
-> Le informazioni contenute in questo documento si applicano solo ai cluster HDInsight basati su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Per informazioni sull'accesso ai log YARN in cluster HDInsight basati su Linux, vedere [Accedere ai log delle applicazioni YARN su Hadoop basato su Linux in HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> Le informazioni contenute in questo documento si applicano solo ai cluster HDInsight basati su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Per informazioni sull'accesso ai log YARN in cluster HDInsight basati su Linux, vedere [Accedere ai log delle applicazioni Apache YARN su Hadoop basato su Linux in HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 

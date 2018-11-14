@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2018
+ms.date: 08/08/2018
 ms.author: shvija
-ms.openlocfilehash: c41612b46102dc8fef67887c164ff6e48a8cf6c6
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a3f7245d8a648249a4e7179cc02982eae8561037
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146504"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280578"
 ---
 # <a name="event-hubs-features-overview"></a>Panoramica delle funzionalità di Hub eventi
 
@@ -28,13 +28,21 @@ Questo articolo si basa sulle informazioni presenti nella [panoramica](event-hub
 ## <a name="namespace"></a>Spazio dei nomi
 Uno spazio dei nomi di Hub eventi specifica un contenitore di ambito univoco, identificato dal [nome di dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), in cui si crea uno o più hub eventi o argomenti Kafka. 
 
+## <a name="event-hubs-for-apache-kafka"></a>Hub eventi per Apache Kafka
+
+[Questa funzionalità](event-hubs-for-kafka-ecosystem-overview.md) offre un endpoint che consente ai clienti di parlare con gli Hub eventi usando il protocollo Kafka. Questa integrazione offre ai clienti un endpoint Kafka. Ciò consente ai clienti di configurare le proprie applicazioni Kafka esistenti per parlare con gli Hub eventi offrendo un'alternativa all'esecuzione dei propri cluster Kafka. Hub eventi per Apache Kafka supporta il protocollo Kafka 1.0 e versioni successive. 
+
+Con questa integrazione non è necessario eseguire i cluster Kafka o gestirli con Zookeeper. In questo modo è possibile usare alcune delle funzionalità più complesse di Hub eventi, ad esempio acquisizione, aumento automatico e ripristino di emergenza geografico.
+
+Questa integrazione consente inoltre alle applicazioni come Mirror Maker o ai framework come Kafka Connect di lavorare senza cluster solo con le modifiche alla configurazione. 
+
 ## <a name="event-publishers"></a>Autori di eventi
 
-Qualsiasi entità che invia dati a un hub eventi è un produttore di eventi o *autore di eventi*. Gli autori di eventi possono pubblicare eventi usando HTTPS o AMQP 1.0. Gli autori di eventi usano un token di firma di accesso condiviso per identificarsi con un hub eventi e possono avere un'identità univoca oppure usare un token di firma di accesso condiviso comune.
+Qualsiasi entità che invia dati a un hub eventi è un produttore di eventi o *autore di eventi*. Gli autori di eventi possono pubblicare eventi usando HTTPS o AMQP 1.0 o Kafka 1.0 (e versioni successive). Gli autori di eventi usano un token di firma di accesso condiviso per identificarsi con un hub eventi e possono avere un'identità univoca oppure usare un token di firma di accesso condiviso comune.
 
 ### <a name="publishing-an-event"></a>Pubblicazione di un evento
 
-È possibile pubblicare un evento tramite AMQP 1.0 o HTTPS. Hub eventi offre [classi e librerie client](event-hubs-dotnet-framework-api-overview.md) per la pubblicazione di eventi in un hub eventi dai client .NET. Per altre piattaforme e runtime, è possibile utilizzare qualsiasi client AMQP 1.0, ad esempio [Apache Qpid](http://qpid.apache.org/). È possibile pubblicare eventi singolarmente o in batch. Una singola pubblicazione (istanza dei dati dell'evento) ha un limite di 256 KB, indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni superiori alla soglia determina un errore. È consigliabile che gli autori non rilevino le partizioni all'interno dell'hub eventi e specifichino solo una *chiave di partizione* (illustrata nella sezione successiva) o la propria identità tramite il token di firma di accesso condiviso.
+È possibile pubblicare un evento tramite AMQP 1.0, Kafka 1.0 (e versioni successive) o HTTPS. Hub eventi offre [classi e librerie client](event-hubs-dotnet-framework-api-overview.md) per la pubblicazione di eventi in un hub eventi dai client .NET. Per altre piattaforme e runtime, è possibile utilizzare qualsiasi client AMQP 1.0, ad esempio [Apache Qpid](http://qpid.apache.org/). È possibile pubblicare eventi singolarmente o in batch. Una singola pubblicazione (istanza dei dati dell'evento) ha un limite di 1 MB, indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni superiori alla soglia determina un errore. È consigliabile che gli autori non rilevino le partizioni all'interno dell'hub eventi e specifichino solo una *chiave di partizione* (illustrata nella sezione successiva) o la propria identità tramite il token di firma di accesso condiviso.
 
 La scelta di utilizzare AMQP o HTTPS dipende dallo scenario di utilizzo. AMQP richiede di stabilire un socket bidirezionale persistente oltre alla sicurezza a livello di trasporto (TLS) o SSL/TLS. AMQP comporta costi di rete superiori in fase di inizializzazione della sessione, ma HTTPS richiede un costo generale SSL aggiuntivo per ogni richiesta. AMQP offre prestazioni più elevate per i server di pubblicazione più attivi.
 

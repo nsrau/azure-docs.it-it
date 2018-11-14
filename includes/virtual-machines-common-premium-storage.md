@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437031"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263288"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM
 
@@ -97,7 +97,7 @@ Queste sono alcune delle funzionalità supportate nelle macchine virtuali con Ar
     È possibile usare dischi di archiviazione sia Premium che Standard nella stessa VM di Archiviazione Premium. Con Archiviazione Premium è possibile effettuare il provisioning di una macchina virtuale e collegare più dischi dati persistenti alla macchina virtuale. Se necessario, è possibile eseguire lo striping dei dischi per aumentare la capacità e le prestazioni del volume.
 
     > [!NOTE]
-    > Se si esegue lo striping dei dischi dati di Archiviazione Premium mediante [Spazi di archiviazione](http://technet.microsoft.com/library/hh831739.aspx), è consigliabile configurare gli spazi di archiviazione con 1 colonna per ogni disco utilizzato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per impostazione predefinita, in Server Manager è possibile impostare le colonne per un massimo di 8 dischi. Quando si collegano più di 8 dischi, usare PowerShell per creare il volume. Specificare il numero di colonne manualmente. In caso contrario, l'interfaccia utente di Server Manager continuerà a usare 8 colonne anche se il numero di dischi è maggiore. Ad esempio, se si desidera gestire 32 dischi in un unico striping, è necessario specificare 32 colonne. Per specificare il numero di colonne utilizzate dal disco virtuale è possibile usare il parametro [NumberOfColumns](http://technet.microsoft.com/library/hh848643.aspx) del cmdlet di PowerShell *New-VirtualDisk*. Per altre informazioni, vedere [Panoramica sugli spazi di archiviazione](http://technet.microsoft.com/library/hh831739.aspx) e [Domande frequenti sugli spazi di archiviazione](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+    > Se si esegue lo striping dei dischi dati di Archiviazione Premium mediante [Spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx), è consigliabile configurare gli spazi di archiviazione con 1 colonna per ogni disco utilizzato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per impostazione predefinita, in Server Manager è possibile impostare le colonne per un massimo di 8 dischi. Quando si collegano più di 8 dischi, usare PowerShell per creare il volume. Specificare il numero di colonne manualmente. In caso contrario, l'interfaccia utente di Server Manager continuerà a usare 8 colonne anche se il numero di dischi è maggiore. Ad esempio, se si desidera gestire 32 dischi in un unico striping, è necessario specificare 32 colonne. Per specificare il numero di colonne utilizzate dal disco virtuale è possibile usare il parametro [NumberOfColumns](https://technet.microsoft.com/library/hh848643.aspx) del cmdlet di PowerShell *New-VirtualDisk*. Per altre informazioni, vedere [Panoramica sugli spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx) e [Domande frequenti sugli spazi di archiviazione](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
     >
     > 
 
@@ -151,7 +151,9 @@ Se si usano account di archiviazione Premium per dischi non gestiti e l'applicaz
 ### <a name="premium-storage-disk-limits"></a>Limiti dei dischi di Archiviazione Premium
 Quando si effettua il provisioning di un disco di archiviazione Premium, la dimensione del disco determina il livello massimo di IOPS e velocità effettiva (larghezza di banda). Azure offre otto tipi GA di dischi di Archiviazione Premium: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P15 (solo Managed Disks), P20, P30, P40 e P50. Oltre a tre dimensioni di disco in anteprima: P60, P70 e P80. Ogni tipo di disco di Archiviazione Premium ha limiti specifici di IOPS e velocità effettiva. I limiti per i tipi di dischi sono descritti nella tabella seguente:
 
-| Tipo di disco Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+Le dimensioni indicate con un asterisco sono attualmente in anteprima.
+
+| Tipo di disco Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | Dimensioni disco           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 GiB (8 TiB)| 16.384 GiB (16 TiB)| 32.767 GiB (32 TiB)|
 | IOPS per disco       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12.500          | 15.000             | 20.000             |
@@ -237,7 +239,7 @@ I limiti seguenti si applicano agli snapshot di BLOB di Archiviazione Premium:
 
 Per conservare copie con ridondanza geografica degli snapshot, è possibile copiare gli snapshot da un account di archiviazione Premium a un account di archiviazione Standard con ridondanza geografica mediante AzCopy o Copy Blob. Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](../articles/storage/common/storage-use-azcopy.md) e [Copy Blob](/rest/api/storageservices/Copy-Blob).
 
-Per informazioni dettagliate sull'esecuzione di operazioni REST sui BLOB di pagine negli account di archiviazione Premium, vedere [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969) (Uso delle operazioni del servizio BLOB con Archiviazione Premium di Azure).
+Per informazioni dettagliate sull'esecuzione di operazioni REST sui BLOB di pagine negli account di archiviazione Premium, vedere [Using Blob Service Operations with Azure Premium Storage](https://go.microsoft.com/fwlink/?LinkId=521969) (Uso delle operazioni del servizio BLOB con Archiviazione Premium di Azure).
 
 ### <a name="managed-disks"></a>Dischi gestiti
 
@@ -267,12 +269,12 @@ Le seguenti distribuzioni Linux sono state convalidate per Archiviazione Premium
 | SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 richiesto](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vedere la nota nella sezione successiva* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 consigliato](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vedere la nota nella sezione successiva* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 richiesto](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vedere la nota nella sezione successiva* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 consigliato](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vedere la nota nella sezione successiva* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 o RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK con [LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK con [LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK con [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Driver LIS per Openlogic CentOS

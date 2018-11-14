@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ff97d164ee8b2059e1b46377067041d6c381052b
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414795"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753968"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Domande sul servizio Backup delle macchine virtuali di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti del servizio Backup delle macchine virtuali di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -48,13 +48,13 @@ Sì. Anche quando un computer è stato arrestato i backup vengono eseguiti e il 
 Sì. È possibile annullare il processo di backup se è in fase di "Creazione dello snapshot". **Se è in corso il trasferimento di dati dallo snapshot non è possibile annullare un processo**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>È stato abilitato il blocco del gruppo di risorse sulle VM con Managed Disks di cui è stato eseguito il backup. I backup continueranno a funzionare?
-Se l'utente blocca il gruppo di risorse, il servizio di backup non è in grado di eliminare i punti di ripristino precedenti. Per questo motivo i nuovi backup non vengono eseguiti, in quanto esiste un limite massimo 18 punti di ripristino imposto dal back-end. Se i backup hanno esito negativo con un errore interno dopo il blocco del gruppo di risorse, seguire questa [procedura per rimuovere la raccolta di punti di ripristino](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+Se l'utente blocca il gruppo di risorse, il servizio di backup non è in grado di eliminare i punti di ripristino precedenti. Per questo motivo i nuovi backup non vengono eseguiti, in quanto esiste un limite massimo 18 punti di ripristino imposto dal back-end. Se i backup hanno esito negativo con un errore interno dopo il blocco del gruppo di risorse, seguire questa [procedura per rimuovere la raccolta di punti di ripristino](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Criteri di Backup accetta legale salvataggio Time(DST) in considerazione?
 No. Tenere presente che data e ora nel computer locale vengono visualizzati nel fuso orario locale e con la differenza dell'ora legale corrente. Il timeout configurato per i backup pianificati può quindi essere diverso dall'ora locale per via dell'ora legale.
 
 ### <a name="maximum-of-how-many-data-disks-can-i-attach-to-a-vm-to-be-backed-up-by-azure-backup"></a>Qual è il numero massimo di dischi dati che può essere collegato a una macchina virtuale per il backup tramite Backup di Azure?
-Backup di Azure supporta attualmente il backup di macchine virtuali con un massimo di 32 dischi. Per ottenere il supporto per 32 dischi, [eseguire l'aggiornamento alla versione 2 dello stack di backup di macchine virtuali di Azure](backup-upgrade-to-vm-backup-stack-v2.md). Tutte le macchine virtuali che consento la protezione a partire dal 24 settembre 2018 saranno supportate.
+Backup di Azure supporta attualmente il backup di macchine virtuali con un massimo di 16 dischi. Per ottenere il supporto per 16 dischi, [eseguire l'aggiornamento alla versione 2 dello stack di backup di macchine virtuali di Azure](backup-upgrade-to-vm-backup-stack-v2.md). Tutte le macchine virtuali che consento la protezione a partire dal 24 settembre 2018 saranno supportate.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Backup di Azure supporta ora i dischi gestiti SDD Standard?
 Backup di Azure supporta i [dischi gestiti SDD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), un nuovo tipo di archiviazione durevole per macchine virtuali di Microsoft Azure. Il supporto è garantito per i dischi gestiti nella [versione 2 dello stack di backup di macchine virtuali di Azure](backup-upgrade-to-vm-backup-stack-v2.md).

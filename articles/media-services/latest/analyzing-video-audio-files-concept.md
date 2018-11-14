@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987614"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228131"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisi di file video e audio
 
@@ -25,20 +25,29 @@ Servizi multimediali di Azure v3 consente anche di estrarre informazioni dettagl
 Per eseguire l'analisi con Servizi multimediali di Azure v3, si crea un oggetto **Transform** e si invia un oggetto **Job** che usa uno dei due set di impostazioni **AudioAnalyzerPreset** e **VideoAnalyzerPreset**. L'articolo seguente illustra come usare **VideoAnalyzerPreset**: [Esercitazione: Analizzare i video con Servizi multimediali di Azure](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
-> Quando si usa un set di impostazioni di analisi video o audio, usare il portale di Azure per impostare l'account in modo che abbia 10 unità riservate di codifica S3. Per altre informazioni, vedere l'argomento relativo al [ridimensionamento dell'elaborazione di contenuti multimediali](../previous/media-services-scale-media-processing-overview.md).
+> Quando si usa un set di impostazioni di analisi video o audio, usare il portale di Azure per impostare l'account in modo che abbia 10 Media Reserved Units S3. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md).
 
-## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+## <a name="built-in-presets"></a>Set di impostazioni predefiniti
 
-**AudioAnalyzerPreset** consente di estrarre informazioni dettagliate sui contenuti audio da un file audio o video. L'output include un file in formato JSON, con tutte le informazioni dettagliate, e un file in formato VTT per la trascrizione dell'audio. Questo set di impostazioni accetta una proprietà che specifica la lingua del file di input sotto forma di stringa [BCP47](https://tools.ietf.org/html/bcp47). Le informazioni dettagliate sui contenuti audio includono:
+Attualmente Servizi multimediali supporta i set di impostazioni di analisi predefiniti seguenti:  
+
+|**Nome set di impostazioni**|**Scenario**|**Dettagli**|
+|---|---|---|
+|**AudioAnalyzerPreset**|Analisi dell'audio|Il set di impostazioni applica un set predefinito di operazioni di analisi basate su intelligenza artificiale, tra cui la trascrizione del parlato. Attualmente il set di impostazioni supporta l'elaborazione del contenuto con una singola traccia audio.<br/>È possibile specificare la lingua per il payload audio nell'input usando il formato BCP-47 per 'tag lingua-area'. (ad esempio 'en-US'). L'elenco delle lingue supportate è 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.|
+|**VideoAnalyzerPreset**|Analisi di audio e video|Estrae informazioni cognitive dettagliate (metadati avanzati) da audio e video e restituisce un file in formato JSON. È possibile specificare se si vogliono estrarre solo informazioni dettagliate sull'audio durante l'elaborazione di un file video. Per altre informazioni, vedere [Analizzare i video](analyze-videos-tutorial-with-api.md).|
+
+### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+
+Il set di impostazioni consente di estrarre informazioni dettagliate sui contenuti audio da un file audio o video. L'output include un file in formato JSON, con tutte le informazioni dettagliate, e un file in formato VTT per la trascrizione dell'audio. Questo set di impostazioni accetta una proprietà che specifica la lingua del file di input sotto forma di stringa [BCP47](https://tools.ietf.org/html/bcp47). Le informazioni dettagliate sui contenuti audio includono:
 
 * Trascrizione dell'audio: una trascrizione del parlato con timestamp. Sono supportate più lingue.
 * Indicizzazione dei parlanti: un mapping dei parlanti e delle parole pronunciate corrispondenti.
 * Analisi del sentiment vocale: l'output dell'analisi del sentiment eseguita sulla trascrizione dell'audio.
 * Parole chiave: le parole chiave estratte dalla trascrizione dell'audio.
 
-## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
+### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** consente di estrarre da un file video più informazioni dettagliate sui contenuti audio e video. L'output include un file in formato JSON, con tutte le informazioni dettagliate, un file in formato VTT per la trascrizione del video e una raccolta di anteprime. Anche questo set di impostazioni accetta come proprietà una stringa [BCP47](https://tools.ietf.org/html/bcp47) che rappresenta la lingua del video. Le informazioni dettagliate sul video includono quelle già indicate per l'audio e gli elementi seguenti:
+Il set di impostazioni consente di estrarre da un file video più informazioni dettagliate sui contenuti audio e video. L'output include un file in formato JSON, con tutte le informazioni dettagliate, un file in formato VTT per la trascrizione del video e una raccolta di anteprime. Anche questo set di impostazioni accetta come proprietà una stringa [BCP47](https://tools.ietf.org/html/bcp47) che rappresenta la lingua del video. Le informazioni dettagliate sul video includono quelle già indicate per l'audio e gli elementi seguenti:
 
 * Rilevamento volti: il tempo durante il quale sono presenti dei volti nel video. Ogni volto ha un id e una raccolta di anteprime corrispondente.
 * Testo visivo: il testo rilevato tramite riconoscimento ottico dei caratteri. Il testo è associato a un timestamp e viene usato anche per estrarre parole chiave, in aggiunta alla trascrizione dell'audio.

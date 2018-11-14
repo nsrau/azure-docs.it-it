@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/13/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 6e15fee02fd001bddd25a19b8a9420eb899d4f85
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f9a7ae76f2d52b3439bfb33f306e164bb81549eb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978673"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623979"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Strumenti di diagnostica di Azure Stack
 
@@ -70,12 +70,10 @@ if($s)
     Remove-PSSession $s
 }
 ```
+- I parametri **OutputSharePath** e **OutputShareCredential** vengono usati per archiviare i log di accesso dell'utente specificato percorso.
+- Il **FromDate** e **ToDate** parametri possono essere utilizzati per raccogliere i log per un periodo di tempo specifico. Se questi parametri vengono omessi, i log vengono raccolti per le ultime quattro ore per impostazione predefinita.
 
-- I parametri **OutputSharePath** e **OutputShareCredential** vengono utilizzati per caricare i log in una cartella condivisa esterna.
-- Come illustrato nell'esempio precedente, il **FromDate** e **ToDate** parametri possono essere utilizzati per raccogliere i log per un periodo di tempo specifico. Ciò può essere utile per scenari come la raccolta dei log dopo l'applicazione di un pacchetto di aggiornamento in un sistema integrato.
 
-
- 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Eseguire Get-AzureStackLog su un sistema di Azure Stack Development Kit (ASDK)
 1. Accedi come **AzureStack\CloudAdmin** nell'host.
 2. Aprire una finestra di PowerShell come amministratore.
@@ -111,15 +109,17 @@ if($s)
 
 - Se il **FromDate** e **ToDate** parametri vengono omessi, i log vengono raccolti per le ultime quattro ore per impostazione predefinita.
 - Usare la **FilterByNode** parametro per filtrare i log dal nome del computer. Ad esempio: 
-```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
-```
+
+    ```powershell
+    Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
+    ```
 - Usare la **FilterByLogType** parametro per filtrare i log dal tipo. È possibile scegliere di filtrare in base al File, condivisione o WindowsEvent. Ad esempio: 
-```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
-```
+
+    ```powershell
+    Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
+    ```
 - È possibile usare la **TimeOutInMinutes** parametro da impostare il timeout per la raccolta di log. Si è impostato su 150 (2,5 ore) per impostazione predefinita.
-- Nella versione 1805 e versioni successive, raccolta di log file di dump è disabilitata per impostazione predefinita. Per abilitarla, usare il **IncludeDumpFile** parametro opzionale. 
+- Raccolta di log file di dump è disabilitata per impostazione predefinita. Per abilitarla, usare il **IncludeDumpFile** parametro opzionale. 
 - Attualmente, è possibile usare la **FilterByRole** parametro alla raccolta di log di filtro per i ruoli seguenti:
 
  |   |   |   |    |

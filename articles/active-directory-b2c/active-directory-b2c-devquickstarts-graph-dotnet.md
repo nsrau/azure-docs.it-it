@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0f53d71cca70f9340689d3d01fb9c67090f917c5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870554"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277548"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usare l'API Graph di Azure AD
 
@@ -66,8 +66,8 @@ A questo punto è disponibile un'applicazione con le autorizzazioni per creare, 
 > 
 > 
 
-## <a name="configure-delete-permissions-for-your-application"></a>Configurare le autorizzazioni di eliminazione per l'applicazione
-L'autorizzazione *Legge e scrive i dati della directory* attualmente **NON** include la possibilità di eseguire le eliminazioni, ad esempio l'eliminazione degli utenti. Se si desidera assegnare all'applicazione la possibilità di eliminare gli utenti, è necessario eseguire questi passaggi aggiuntivi che coinvolgono PowerShell. In caso contrario, è possibile passare alla sezione successiva.
+## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>Configurare le autorizzazioni di eliminazione o aggiornamento delle password per l'applicazione
+L'autorizzazione per *leggere e scrivere i dati della directory* attualmente **NON** include la possibilità di eliminare o aggiornare le password degli utenti. Per consentire all'applicazione di eliminare gli utenti o aggiornare le password, è necessario eseguire questi passaggi aggiuntivi che coinvolgono PowerShell. In caso contrario è possibile passare alla sezione successiva.
 
 Prima di tutto. se non è già installato, installare il [modulo Azure AD PowerShell v1 (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
@@ -84,7 +84,7 @@ Dopo aver installato il modulo di PowerShell, connettersi al tenant di Azure AD 
 Connect-MsolService
 ```
 
-A questo punto si userà l'**ID applicazione** nello script seguente per assegnare all'applicazione il ruolo di amministratore account utente che consentirà di eliminare gli utenti. Questi ruoli hanno identificatori noti, pertanto è sufficiente eseguire l'input dell'**ID applicazione** nello script seguente.
+A questo punto si userà l'**ID applicazione** riportato nello script seguente per assegnare all'applicazione il ruolo di amministratore account utente. Questi ruoli hanno identificatori noti, pertanto è sufficiente eseguire l'input dell'**ID applicazione** nello script seguente.
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -92,7 +92,7 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-Ora l'applicazione dispone anche delle autorizzazioni per eliminare gli utenti dal tenant B2C.
+Ora l'applicazione dispone anche delle autorizzazioni per eliminare gli utenti o aggiornare le password dal tenant B2C.
 
 ## <a name="download-configure-and-build-the-sample-code"></a>Scaricare, configurare e compilare il codice di esempio
 Scaricare prima di tutto il codice di esempio ed eseguirlo. Esaminare quindi il codice.  È possibile [scaricare il codice di esempio come file ZIP](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). È anche possibile clonarlo nella directory desiderata:

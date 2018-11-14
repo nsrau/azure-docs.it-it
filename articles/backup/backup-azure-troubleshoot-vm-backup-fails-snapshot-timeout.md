@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420966"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260500"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -48,7 +48,6 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 
 **Codice di errore**: UserErrorRpCollectionLimitReached <br>
 **Messaggio di errore**: The Restore Point collection max limit has reached (È stato raggiunto il limite massimo di raccolte di punti di ripristino) <br>
-Descrizione:  
 * Questo problema può verificarsi se è presente un blocco sul gruppo di risorse dei punti di ripristino che impedisce la pulizia automatica dei punti di ripristino.
 * Questo problema può verificarsi anche se vengono attivate più operazioni di backup al giorno. Attualmente è consigliabile eseguire un solo backup al giorno perché i punti di ripristino immediati vengono conservati per 7 giorni e a una VM possono essere associati solo 18 punti di ripristino immediati in qualsiasi momento. <br>
 
@@ -96,6 +95,21 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Causa 5: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 6: [Il servizio di backup non ha l'autorizzazione per eliminare i punti di ripristino precedenti a causa di un blocco del gruppo di risorse](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
 
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize: Currently Azure Backup does not support disk sizes greater than 1023GB (Attualmente Backup di Azure non supporta dischi di dimensioni maggiori di 1023 GB)
+
+**Codice di errore**: UserErrorUnsupportedDiskSize <br>
+**Messaggio di errore**: Currently Azure Backup does not support disk sizes greater than 1023GB (Attualmente Backup di Azure non supporta dischi di dimensioni maggiori di 1023 GB) <br>
+
+L'operazione di backup potrebbe non riuscire quando si esegue il backup di macchine virtuali con dimensioni del disco superiori a 1023 GB, poiché l'insieme di credenziali non viene aggiornato alla versione 2 dello stack di backup delle macchine virtuali di Azure. L'aggiornamento alla versione 2 dello stack di backup delle macchine virtuali di Azure offrirà un supporto di fino a 4 TB. Esaminare questi [vantaggi](backup-upgrade-to-vm-backup-stack-v2.md) e queste [considerazioni](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) e quindi procedere all'aggiornamento seguendo queste [istruzioni](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+
+## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported: Currently Azure Backup does not support Standard SSD disks (Attualmente Backup di Azure non supporta i dischi SSD Standard)
+
+**Codice di errore**: UserErrorStandardSSDNotSupported <br>
+**Messaggio di errore**: Currently Azure Backup does not support Standard SSD disks (Attualmente Backup di Azure non supporta i dischi SSD Standard) <br>
+
+Attualmente Backup di Azure supporta i dischi SSD Standard solo per gli insiemi di credenziali che vengono aggiornati alla versione 2 dello stack di backup delle macchine virtuali di Azure. Esaminare questi [vantaggi](backup-upgrade-to-vm-backup-stack-v2.md) e queste [considerazioni](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) e quindi procedere all'aggiornamento seguendo queste [istruzioni](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+
+
 ## <a name="causes-and-solutions"></a>Cause e soluzioni
 
 ### <a name="the-vm-has-no-internet-access"></a>La macchina virtuale non ha accesso a Internet
@@ -139,7 +153,7 @@ L'agente di macchine virtuali può essere danneggiato o il servizio può essere 
 1. Determinare se il servizio agente guest di Windows è in esecuzione nei servizi delle macchine virtuali (services.msc). Provare a riavviare il servizio agente guest di Windows e avviare il backup.    
 2. Se il servizio agente guest di Windows non è visibile tra i servizi, nel Pannello di controllo passare a **Programmi e funzionalità** per determinare se è installato.
 4. Se il servizio agente guest di Windows è elencato in **Programmi e funzionalità**, disinstallarlo.
-5. Scaricare e installare la [versione più recente del file MSI dell'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari i diritti di amministratore.
+5. Scaricare e installare la [versione più recente del file MSI dell'agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari i diritti di amministratore.
 6. Verificare che il servizio agente guest di Windows sia visualizzato tra i servizi.
 7. Eseguire un backup su richiesta:
     * Nel portale selezionare **Esegui backup ora**.
@@ -208,7 +222,7 @@ Questa procedura fa in modo che l'estensione venga reinstallata durante il backu
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Rimuovere il blocco dal gruppo di risorse dei punti di ripristino
 1. Accedere al [portale di Azure](http://portal.azure.com/).
-2. Passare a **Tutte le risorse**, selezionare il gruppo di risorse della raccolta dei punti di ripristino con il formato AzureBackupRG_<Geo>_<number>.
+2. Passare a **Tutte le risorse**, selezionare il gruppo di risorse della raccolta dei punti di ripristino con il formato AzureBackupRG_`<Geo>`_`<number>`.
 3. Nella sezione **Impostazioni** selezionare **Blocchi** per visualizzare i blocchi.
 4. Per rimuovere il blocco, selezionare i puntini di sospensione e fare clic su **Elimina**.
 
@@ -217,17 +231,17 @@ Questa procedura fa in modo che l'estensione venga reinstallata durante il backu
 ### <a name="clean_up_restore_point_collection"></a> Pulire la raccolta di punti di ripristino
 Dopo aver rimosso il blocco, è necessario eseguire la pulizia dei punti di ripristino. A questo scopo, seguire uno dei metodi seguenti:<br>
 * [Pulire la raccolta di punti di ripristino con l'esecuzione di un backup ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [Pulire la raccolta di punti di ripristino dal portale creato dal servizio Backup](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
+* [Pulire la raccolta di punti di ripristino dal portale di Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Pulire la raccolta di punti di ripristino con l'esecuzione di un backup ad hoc
 Dopo aver rimosso il blocco, attivare un backup ad hoc/manuale. In tal modo, i punti di ripristino verranno automaticamente puliti. È probabile che questa operazione di backup ad hoc/manuale non riesca al primo tentativo. Servirà tuttavia a garantire la pulizia automatica anziché l'eliminazione manuale dei punti di ripristino. Dopo la pulizia, il successivo backup pianificato avrà esito positivo.
 
 > [!NOTE]
-    > La pulizia automatica viene eseguita qualche ora dopo l'attivazione del backup ad hoc/manuale. Se il backup pianificato continua ad avere esito negativo, provare a eliminare manualmente la raccolta di punti di ripristino seguendo la procedura illustrata [qui](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+    > La pulizia automatica viene eseguita qualche ora dopo l'attivazione del backup ad hoc/manuale. Se il backup pianificato continua ad avere esito negativo, provare a eliminare manualmente la raccolta di punti di ripristino seguendo la procedura illustrata [qui](#clean-up-restore-point-collection-from-azure-portal).
 
-#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Pulire la raccolta di punti di ripristino dal portale creato dal servizio Backup<br>
+#### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Pulire la raccolta di punti di ripristino dal portale di Azure <br>
 
-Per cancellare manualmente la raccolta di punti di ripristino che non viene cancellata a causa del blocco sul gruppo di risorse, seguire questa procedura:
+Per cancellare manualmente la raccolta di punti di ripristino che non viene cancellata a causa del blocco sul gruppo di risorse, provare questa procedura:
 1. Accedere al [portale di Azure](http://portal.azure.com/).
 2. Nel menu **Hub** fare clic su **Tutte le risorse** e selezionare il gruppo di risorse con il formato AzureBackupRG_`<Geo>`_`<number>` nella posizione in cui si trova la VM.
 

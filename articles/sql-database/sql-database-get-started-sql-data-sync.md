@@ -11,15 +11,15 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 98d30d2987d42a2c4893e00c3ba2ea6acd471bef
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 11/07/2018
+ms.openlocfilehash: 0a248ec5137a6de43910b1d11184dfeda18601f5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318810"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280348"
 ---
-# <a name="set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale
+# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale
 
 In questa esercitazione si imparerà a configurare sincronizzazione dati SQL di Azure creando un gruppo di sincronizzazione ibrido che contiene sia istanze del database SQL di Azure che istanze di SQL Server. Il nuovo gruppo di sincronizzazione ha una configurazione completa ed esegue la sincronizzazione in base alla pianificazione impostata.
 
@@ -129,7 +129,7 @@ Nella pagina **Configura database locale** eseguire le operazioni seguenti:
 
     Se si sceglie **Consente di creare un nuovo agente**, eseguire le operazioni seguenti:
 
-   1. Scaricare il software dell'agente di sincronizzazione client dal collegamento specificato e installarlo nel computer in cui si trova SQL Server.
+   1. Scaricare il software dell'agente di sincronizzazione client dal collegamento specificato e installarlo nel computer in cui si trova SQL Server. È anche possibile scaricare l'agente di sincronizzazione dei dati direttamente da [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
         > [!IMPORTANT]
         > È necessario aprire la porta TCP 1433 in uscita nel firewall per consentire all'agente client di comunicare con il server.
@@ -253,35 +253,7 @@ Dopo aver esportato un database come file con estensione `.bacpac` e averlo impo
 
 ## <a name="faq-about-the-client-agent"></a>Domande frequenti sull'agente client
 
-### <a name="why-do-i-need-a-client-agent"></a>Perché è necessario un agente client?
-
-Il servizio di sincronizzazione dati SQL comunica con i database SQL Server tramite l'agente client. Questa funzionalità di sicurezza impedisce la comunicazione diretta con i database protetti da un firewall. Per comunicare con l'agente, il servizio di sincronizzazione dati SQL usa connessioni crittografate e un token univoco o *chiave dell'agente*. I database SQL Server autenticano l'agente usando la stringa di connessione o la chiave dell'agente. Questa struttura offre un livello elevato di sicurezza per i dati.
-
-### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Quante istanze dell'interfaccia utente dell'agente locale è possibile eseguire?
-
-È possibile eseguire una sola istanza dell'interfaccia utente.
-
-### <a name="how-can-i-change-my-service-account"></a>In che modo si può modificare l'account del servizio?
-
-Dopo avere installato un agente client, l'unico modo per modificare l'account del servizio consiste nel disinstallarlo e installare un nuovo agente client con un nuovo account di servizio.
-
-### <a name="how-do-i-change-my-agent-key"></a>Come si modifica la chiave dell'agente?
-
-Una chiave dell'agente può essere usata una sola volta da un agente. Non può essere riusata quando si rimuovere l'agente e se ne installa uno nuovo. Non può essere usata neppure con più agenti. Se è necessario creare una nuova chiave per un agente esistente, assicurarsi che la stessa chiave venga registrata con l'agente client e con il servizio di sincronizzazione dati SQL.
-
-### <a name="how-do-i-retire-a-client-agent"></a>Come si ritira un agente client?
-
-Per invalidare o ritirare immediatamente un agente, rigenerarne la chiave nel portale, ma non inviarla all'interfaccia utente dell'agente. La rigenerazione di una chiave invalida la chiave precedente, a prescindere che l'agente sia online o offline.
-
-### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Come si sposta un agente client in un altro computer?
-
-Se si vuole eseguire l'agente locale da un computer diverso da quello corrente, eseguire le operazioni seguenti:
-
-1. Installare l'agente nel computer desiderato.
-2. Accedere al portale di sincronizzazione dati SQL e rigenerare una chiave per il nuovo agente.
-3. Usare l'interfaccia utente del nuovo agente per inviare la nuova chiave dell'agente.
-4. Attendere che l'agente client scarichi l'elenco di database locali registrati in precedenza.
-5. Immettere le credenziali di database per tutti i database visualizzati come non raggiungibili. Questi database devono essere raggiungibili dal nuovo computer in cui è installato l'agente.
+Per le domande frequenti sull'agente client, vedere [Domande frequenti sull'agente](sql-database-data-sync-agent.md#agent-faq).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

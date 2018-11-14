@@ -15,8 +15,9 @@
 | Timeout massimo delle richieste |24 ore | |
 | Numero di siti |20 |1 per listener HTTP |
 | Mappe URL per listener |1 | |
+| Connessioni WebSocket simultanee |5000| |
 |Lunghezza massima dell'URL|8000|
 | Dimensioni massime caricamento file Standard |2 GB | |
-| Dimensioni massime caricamento file WAF |100 MB| |
+| Dimensioni massime caricamento file WAF |Gateway WAF medi - 100 MB<br>Gateway WAF grandi - 500 MB| |
 |Limite dimensioni corpo WAF (senza file)|128 KB|
 

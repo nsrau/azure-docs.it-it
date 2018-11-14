@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718730"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614039"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1807 al sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima della distribuzione del servizio App di Azure 1.3.
+> Applicare l'aggiornamento 1809 al sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire Azure App Service 1.4.
 >
 >
 
@@ -84,8 +84,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
     2. Nel **delle sottoscrizioni di Azure Stack** , quindi selezionare la **sottoscrizione del Provider predefinito**.
     
     > [!NOTE]
-    > Servizio App può essere distribuito solo nel **sottoscrizione del Provider predefinito** in questo momento.  In un futuro aggiornamento App servizio verranno distribuiti nella nuova sottoscrizione di misurazione introdotta in Azure Stack 1804 e tutte le distribuzioni esistenti verranno migrate anche a questa nuova sottoscrizione.
-    >
+    > Servizio App può essere distribuito solo nel **sottoscrizione del Provider predefinito**.
     >
     
     3. Nel **località di Azure Stack** selezionare il percorso che corrisponde all'area di cui si esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione in Azure Stack Development Kit.
@@ -170,7 +169,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
     ![Programma di installazione del servizio App][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core non è un'immagine di piattaforma supportata per l'uso con il servizio App di Azure in Azure Stack.  Non usare le immagini di valutazione per le distribuzioni di produzione.  Servizio App di Azure in Azure Stack è necessario che Microsoft.NET 3.5.1 SP1 viene attivata nell'immagine usata per la distribuzione.   Marketplace diffuso Windows Server 2016 le immagini non dispongono di questa funzionalità è abilitata.**
+    > **Windows Server 2016 Core non è un'immagine di piattaforma supportata per l'uso con il servizio App di Azure in Azure Stack.  Non usare le immagini di valutazione per le distribuzioni di produzione.  Servizio App di Azure in Azure Stack è necessario che Microsoft.NET 3.5.1 SP1 viene attivata nell'immagine usata per la distribuzione.   Marketplace diffuso Windows Server 2016 le immagini non dispongono di questa funzionalità è abilitata, pertanto è necessario creare e usare un'immagine di Windows Server 2016 già abilitata.**
 
 14. Nel **Seleziona immagine di piattaforma** , Seleziona immagine di macchina virtuale Windows Server 2016 la distribuzione tra quelli disponibili nel provider di risorse di calcolo per il cloud del servizio App. Fare clic su **Avanti**.
 
@@ -198,7 +197,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 
 1. Nel portale di amministrazione di Azure Stack, passare a **Amministrazione - servizio App**.
 
-2. Nella panoramica sotto lo stato, verificare che il **lo stato** Mostra **tutti i ruoli sono pronti**.
+2. Nella panoramica, sotto stato, verificare che il **lo stato** consente di visualizzare **tutti i ruoli sono pronti**.
 
     ![Gestione del servizio App](media/azure-stack-app-service-deploy/image12.png)
     

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470321"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281779"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -59,6 +59,9 @@ Se ci si trova in un ciclo di riautenticazione, o se l'UPN di uno degli account 
 1. Rimuovere tutti gli account e quindi chiudere Storage Explorer
 2. Eliminare la cartella .IdentityService dal computer. In Windows, la cartella si trova in `C:\users\<username>\AppData\Local`. Per Mac e Linux, è possibile trovare la cartella nella radice della directory dell'utente.
 3. Se si usa Mac o Linux, è necessario anche eliminare la voce Microsoft.Developer.IdentityService dall'archivio chiavi dei sistemi operativi. Su Mac, l'archivio chiavi è l'applicazione "Gnome Keychain". Per Linux, l'applicazione viene in genere chiamata "Keyring", ma il nome può variare a seconda della distribuzione.
+
+### <a name="conditional-access"></a>Accesso condizionale
+L'accesso condizionale non è supportato quando Storage Explorer è in uso in Windows 10, Linux o macOS. Ciò è dovuto a una limitazione della libreria di AAD usata da Storage Explorer.
 
 ## <a name="mac-keychain-errors"></a>Errori di Keychain su Mac
 Il Keychain macOS può talvolta andare in uno stato che causa problemi alla libreria di autenticazione di Storage Explorer. Per togliere il keychain da questo stato provare la procedura seguente:
@@ -143,6 +146,12 @@ Se le impostazioni del proxy sono corrette, è necessario contattare l'amministr
 ## <a name="unable-to-retrieve-children-error-message"></a>Messaggio di errore "Unable to Retrieve Children" (Impossibile recuperare gli elementi figlio)
 
 Se si è connessi ad Azure tramite un proxy, verificare che le impostazioni del proxy siano corrette. Se è stato concesso l'accesso a una risorsa dal proprietario della sottoscrizione o dell'account, verificare di avere letto o elencare le autorizzazioni per tale risorsa.
+
+## <a name="connection-string-does-not-have-complete-configuration-settings"></a>La stringa di connessione non dispone di impostazioni di configurazione complete
+
+Se si riceve questo messaggio di errore, è possibile che non si disponga delle autorizzazioni necessarie per ottenere le chiavi dell'account di archiviazione. Per verificare se questo è il caso, passare al portale e individuare l'account di archiviazione. È possibile eseguire questa operazione rapidamente facendo clic con il pulsante destro del mouse sul nodo dell'account di archiviazione e scegliendo "Apri in portale". Al termine dell'operazione, passare al pannello "Chiavi di accesso". Se non si dispone delle autorizzazioni per visualizzare le chiavi, verrà visualizzata una pagina con il messaggio "Accesso non consentito". Per risolvere questo problema, è possibile ottenere la chiave dell'account da un altro utente e collegarsi con nome e chiave oppure è possibile chiedere a un altro utente una firma di accesso condiviso all'account di archiviazione e usarla per collegare l'account di archiviazione.
+
+Se è possibile visualizzare le chiavi dell'account, inviare una segnalazione in GitHub per consentire al team Microsoft di aiutare a risolvere il problema.
 
 ## <a name="issues-with-sas-url"></a>Problemi relativi all'URL SAS
 Se ci si connette a un servizio tramite un URL SAS e si verifica questo errore:

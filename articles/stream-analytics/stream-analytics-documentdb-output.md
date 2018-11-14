@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8dc85c55dd67d8acd394d7922e947c91234ef23b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144649"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957139"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
 L'analisi di flusso può usare [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
@@ -37,6 +37,13 @@ In base ai requisiti dell'applicazione, Azure Cosmos DB consente di ottimizzare 
 L'integrazione di Analisi di flusso di Azure con Azure Cosmos DB consente di inserire o aggiornare i record nella raccolta in base a una determinata colonna ID documento. Questa implementazione è detta anche *upsert*.
 
 Analisi di flusso di Azure usa un approccio upsert ottimistico in cui gli aggiornamenti vengono eseguiti solo quando l'inserimento non riesce a causa di un conflitto di ID documento. Questo aggiornamento viene eseguito come PATCH, consentendo aggiornamenti parziali al documento, ad esempio l'aggiunta di nuove proprietà o la sostituzione di una proprietà esistente eseguita in modo incrementale. Le modifiche apportate ai valori delle proprietà di matrice nel documento JSON comportano, tuttavia, la sovrascrittura dell'intera matrice, ovvero non viene eseguito il merge della matrice.
+
+Se il documento JSON in ingresso include già un campo ID esistente, tale campo verrà usato automaticamente come colonna ID documento in Cosmos DB e le eventuali scritture successive verranno gestite come tali. Questo scenario sarà caratterizzato dalle situazioni seguenti:
+- gli ID univoci generano operazioni di inserimento
+- ID duplicati e 'ID documento' impostato su 'ID' generano operazioni di upsert
+- ID duplicati e 'ID documento' non impostato generano un errore dopo il primo documento
+
+Se si desidera salvare <i>tutti</i> i documenti inclusi quelli con un ID duplicato, rinominare il campo ID nella query (con la parola chiave AS) e consentire a Cosmos DB di creare il campo ID o sostituire l'ID con un altro valore della colonna (usando la parola chiave AS o tramite l'impostazione di 'ID documento').
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Partizionamento dei dati in Cosmos DB
 Azure Cosmos DB con partizionamento [senza limiti](../cosmos-db/partition-data.md) costituisce l'approccio consigliato per il partizionamento dei dati, in quanto Azure Cosmos DB ridimensiona le partizioni automaticamente in base al carico di lavoro. Durante la scrittura in contenitori senza limiti, Analisi di flusso di Azure usa un numero di writer paralleli uguale a quello usato nel passaggio di query precedente o nello schema di partizionamento di input.

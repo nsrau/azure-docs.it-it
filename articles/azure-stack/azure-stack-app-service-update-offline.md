@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: f48872d1853dfd4c40022f42c8e237973ac70fe6
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139412"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614809"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Aggiornamento offline del servizio App di Azure in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1807 al sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima della distribuzione del servizio App di Azure 1.3.
+> Applicare l'aggiornamento 1809 al sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire Azure App Service 1.4.
 >
 >
 
@@ -44,7 +44,7 @@ Seguendo le istruzioni riportate in questo articolo, è possibile aggiornare il 
 
 Per aggiornare il provider di risorse del servizio App in un ambiente Azure Stack, è necessario completare queste attività:
 
-1. Scaricare il [programma di installazione del servizio App](https://aka.ms/appsvcupdate3installer)
+1. Scaricare il [programma di installazione del servizio App](https://aka.ms/appsvcupdate4installer)
 2. Creare un pacchetto di aggiornamento offline.
 3. Eseguire il programma di installazione del servizio App (appservice.exe) e completare l'aggiornamento.
 
@@ -93,7 +93,7 @@ Per aggiornare il servizio App in un ambiente disconnesso, è innanzitutto neces
 
 5. Verificare e accettare le condizioni di licenza di terze parti e quindi fare clic su **successivo**.
 
-6. Assicurarsi che l'endpoint di Azure Stack Azure Resource Manager e il Tenant di Active Directory le informazioni siano corrette. Se si usa le impostazioni predefinite durante la distribuzione di Azure Stack Development Kit, è possibile accettare i valori predefiniti di seguito. Tuttavia, se le opzioni sono personalizzate quando è stato distribuito Azure Stack, è necessario modificare i valori in questa finestra per riflettere il valore. Ad esempio, se si usa il suffisso del dominio *mycloud.com*, necessario modificare l'endpoint di Azure Stack Azure Resource Manager *management.region.mycloud.com*. Dopo aver verificato le informazioni, fare clic su **successivo**.
+6. Assicurarsi che l'endpoint di Azure Stack Azure Resource Manager e il Tenant di Active Directory le informazioni siano corrette. Se si usa le impostazioni predefinite durante la distribuzione di Azure Stack Development Kit, è possibile accettare i valori predefiniti di seguito. Tuttavia, se le opzioni sono personalizzate quando è stato distribuito Azure Stack, è necessario modificare i valori in questa finestra. Ad esempio, se si usa il suffisso del dominio *mycloud.com*, necessario modificare l'endpoint di Azure Stack Azure Resource Manager *management.region.mycloud.com*. Dopo aver verificato le informazioni, fare clic su **successivo**.
 
     ![Informazioni sul Cloud di Azure Stack][3]
 
@@ -104,7 +104,7 @@ Per aggiornare il servizio App in un ambiente disconnesso, è innanzitutto neces
         * Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio, *cloudadmin@azurestack.local*. Immettere la password e fare clic su **Accedi**.
    2. Nel **delle sottoscrizioni di Azure Stack** , quindi selezionare la **sottoscrizione del Provider predefinito**.
    3. Nel **località di Azure Stack** selezionare il percorso che corrisponde all'area di cui si esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione in Azure Stack Development Kit.
-   4. Se viene individuata una distribuzione di servizio App esistente, quindi l'account di archiviazione e del gruppo di risorse verrà popolata e in grigio.
+   4. Se viene rilevata una distribuzione di servizio App esistente, quindi l'account di archiviazione e del gruppo di risorse verrà popolata e in grigio.
    5. Fare clic su **successivo** per esaminare il riepilogo dell'aggiornamento.
 
     ![Installazione del servizio App rilevate][4]

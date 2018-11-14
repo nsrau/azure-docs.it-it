@@ -1,24 +1,24 @@
 ---
-title: Usare i nodi perimetrali vuoti sui cluster Hadoop in HDInsight - Azure
+title: Usare i nodi perimetrali vuoti sui cluster Apache Hadoop in HDInsight - Azure
 description: Come aggiungere un nodo perimetrale vuoto al cluster HDInsight che può essere usato come un client, quindi testare oppure ospitare le applicazioni HDInsight.
 services: hdinsight
-editor: jasonwhowell
-author: jasonwhowell
+ms.reviewer: jasonh
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 225b08e2d83bfb8bdd102924ecf85c89aa48c217
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 276f11bf889927ee74fa4e9078e147db6df78b9e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598198"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281372"
 ---
-# <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Hadoop in HDInsight
+# <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Apache Hadoop in HDInsight
 
-Informazioni su come aggiungere un nodo perimetrale vuoto a un cluster HDInsight. Un nodo perimetrale vuoto è una macchina virtuale Linux con gli stessi strumenti client installati e configurati nei nodi head, ma senza servizi Hadoop in esecuzione. Il nodo perimetrale può essere usato per accedere al cluster e per testare e ospitare le applicazioni client. 
+Informazioni su come aggiungere un nodo perimetrale vuoto a un cluster HDInsight. Un nodo perimetrale vuoto è una macchina virtuale Linux con gli stessi strumenti client installati e configurati nei nodi head, ma senza servizi Apache Hadoop in esecuzione. Il nodo perimetrale può essere usato per accedere al cluster e per testare e ospitare le applicazioni client. 
 
 È possibile aggiungere un nodo perimetrale vuoto a un cluster HDInsight esistente o a un nuovo cluster quando lo si crea. L'aggiunta di un nodo perimetrale vuoto si esegue usando un modello di Azure Resource Manager.  L'esempio seguente illustra come eseguire questa operazione tramite un modello:
 
@@ -58,7 +58,7 @@ Le dimensioni della macchina virtuale del nodo perimetrale devono soddisfare i r
 Dopo aver creato un nodo perimetrale, è possibile connettersi al nodo stesso tramite SSH ed eseguire gli strumenti client per accedere al cluster Hadoop in HDInsight.
 
 > [!WARNING] 
-> I componenti personalizzati che vengono installati nel nodo perimetrale ricevono supporto ragionevole a livello commerciale da Microsoft. Ciò può portare alla risoluzione dei problemi riscontrati. In alternativa, è possibile fare riferimento alle risorse della community per ulteriore assistenza. Di seguito sono indicati alcuni dei siti più attivi per ricevere assistenza dalla community:
+> I componenti personalizzati che vengono installati nel nodo perimetrale ricevono supporto ragionevole a livello commerciale da Microsoft. Ciò può portare alla risoluzione dei problemi riscontrati. In alternativa è possibile fare riferimento alle risorse della community per ulteriore assistenza. Di seguito sono indicati alcuni dei siti più attivi per ricevere assistenza dalla community:
 >
 > * [Forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com).
@@ -66,7 +66,7 @@ Dopo aver creato un nodo perimetrale, è possibile connettersi al nodo stesso tr
 > Se si usa una tecnologia Apache, è possibile ottenere assistenza tramite i siti di progetto Apache su [http://apache.org](http://apache.org), ad esempio il sito [Hadoop](http://hadoop.apache.org/).
 
 > [!NOTE]
-> In modo analogo ai cluster, anche i nodi perimetrali sono gestiti tramite patch.  Per altre informazioni, vedere [Applicazione di patch del sistema operativo per HDInsight](./hdinsight-os-patching.md).
+> In modo analogo ai nodi del cluster, anche i nodi perimetrali sono gestiti tramite patch.  Per altre informazioni, vedere [Applicazione di patch del sistema operativo per HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Aggiungere un nodo perimetrale a un cluster esistente
 In questa sezione si userà un modello di Resource Manager per aggiungere un nodo perimetrale a un cluster HDInsight esistente.  Il modello di Resource Manager è disponibile in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Il modello di Resource Manager chiama un'azione script disponibile in https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Lo script non esegue alcuna azione.  Per illustrare la chiamata all'azione script da un modello di Resource Manager.
@@ -116,7 +116,7 @@ In questa sezione si userà un modello di Resource Manager per creare un cluster
 
 ## <a name="add-multiple-edge-nodes"></a>Aggiungere più nodi perimetrali
 
-È possibile aggiungere più nodi perimetrali a un cluster HDInsight.  La configurazione basata su più nodi perimetrali può essere eseguita solo usando i modelli di Azure Resource Manager.  Vedere l'esempio di modello all'inizio di questo articolo.  È necessario aggiornare il valore di **targetInstanceCount** in base al numero di nodi perimetrali da creare.
+È possibile aggiungere più nodi perimetrali a un cluster HDInsight.  La configurazione basata su più nodi perimetrali può essere eseguita solo usando i modelli di Azure Resource Manager.  Vedere l'esempio di modello all'inizio di questo articolo.  È necessario aggiornare il valore **targetInstanceCount** in base al numero di nodi perimetrali da creare.
 
 ## <a name="access-an-edge-node"></a>Accedere a un nodo perimetrale
 L'endpoint SSH del nodo perimetrale è &lt;NomeNodoPerimetrale>.&lt;NomeCluster>-ssh.azurehdinsight.net:22.  Ad esempio, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.

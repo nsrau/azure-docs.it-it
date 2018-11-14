@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: f80f61cbfc1f7b719e73d7d29c6948bebe84aa6c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501968"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278311"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Domande frequenti su Service Fabric Mesh
 Azure Service Fabric Mesh è un servizio completamente gestito che consente agli sviluppatori di distribuire applicazioni di microservizi senza dover gestire macchine virtuali, archiviazione o connettività di rete. Questo articolo include le risposte alle domande frequenti relative a questo servizio.
@@ -27,7 +27,7 @@ Per inviare domande, ottenere risposte dagli esperti Microsoft e segnalare probl
 
 **Quanto costa partecipare all'anteprima?**
 
-Non sono previsti addebiti per la distribuzione di applicazioni o contenitori nella versione di anteprima di Mesh. Gli utenti sono tuttavia invitati a eliminare le risorse distribuite e a non lasciarle in esecuzione, a meno che non ne eseguano attivamente il test.
+Al momento non sono previsti addebiti per la distribuzione di applicazioni o contenitori nell'anteprima di Mesh. Gli utenti sono tuttavia invitati a eliminare le risorse distribuite e a non lasciarle in esecuzione, a meno che non ne eseguano attivamente i test.
 
 **È previsto un limite di quota per il numero di core e la RAM?**
 
@@ -42,9 +42,39 @@ Sì, per ogni sottoscrizione sono previste le quote seguenti:
 - Il contenitore più grande che è possibile distribuire è limitato a 4 core e 16 GB di RAM.
 - È possibile allocare core parziali ai contenitori in base a incrementi di 0,5 core fino a un massimo di 6 core.
 
-**È possibile lasciare un'applicazione in esecuzione durante le ore notturne?**
+**Per quanto tempo è possibile lasciare l'applicazione distribuita?**
 
-Sì, è possibile. Gli utenti sono tuttavia invitati a eliminare le risorse distribuite e a non lasciarle in esecuzione, a meno che non ne eseguano attivamente il test. Questi criteri possono cambiare in futuro ed è possibile che le eventuali risorse usate in modo improprio vengano eliminate.
+Al momento la durata di un'applicazione è stata limitata a due giorni. Lo scopo è di massimizzare l'utilizzo dei core disponibili allocati per l'anteprima. È quindi consentito eseguire solo una determinata distribuzione in modo continuativo per 48 ore. Dopo questo periodo la distribuzione viene arrestata dal sistema. In questo caso, è possibile convalidare l'arresto da parte del sistema eseguendo un comando `az mesh app show` dell'interfaccia della riga di comando di Azure e verificare se restituisce `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+
+Ad esempio:  
+
+```cli
+chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+{
+  "debugParams": null,
+  "description": "Service Fabric Mesh HelloWorld Application!",
+  "diagnostics": null,
+  "healthState": "Ok",
+  "id": "/subscriptions/1134234-b756-4979-84re-09d671c0c345/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/applications/helloWorldApp",
+  "location": "eastus",
+  "name": "helloWorldApp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "serviceNames": [
+    "helloWorldService"
+  ],
+  "services": null,
+  "status": "Failed",
+  "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue.",
+  "tags": {},
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "unhealthyEvaluation": null
+}
+```
+
+Per continuare a distribuire la stessa applicazione in Mesh, si deve eliminare il gruppo di risorse associato all'applicazione o rimuovere singolarmente l'applicazione e tutte le risorse Mesh (incluso il servizio di rete) correlate. 
+
+Per eliminare il gruppo di risorse, usare il comando `az group delete <nameOfResourceGroup>`. 
 
 ## <a name="supported-container-os-images"></a>Immagini di sistema operativo contenitore supportate
 Durante la distribuzione dei servizi possono essere usate le immagini di sistema operativo contenitore seguenti.

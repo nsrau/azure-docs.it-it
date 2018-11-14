@@ -5,28 +5,32 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: cherylmc
-ms.openlocfilehash: 8ef231982cfdc9a2c4387ee47e651fdf1af0baaf
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 11/05/2018
+ms.author: mialdrid
+ms.openlocfilehash: 333fd7bdacaa306dd48492fe80b2b0f3df1ccca4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388426"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281474"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuiti e domini di routing ExpressRoute
- È necessario ordinare un *circuito ExpressRoute* per connettere un'infrastruttura locale a Microsoft tramite un provider di connettività. La figura riportata di seguito fornisce una rappresentazione logica della connettività fra la rete WAN e Microsoft.
+ Il circuito ExpressRoute consente di connettere un'infrastruttura locale a Microsoft tramite un provider di connettività. La figura riportata di seguito fornisce una rappresentazione logica della connettività fra la rete WAN e Microsoft.
 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
+> [!IMPORTANT]
+> Il peering pubblico di Azure è stato deprecato, perché non è disponibile per i nuovi circuiti ExpressRoute. I nuovi circuiti supportano il peering Microsoft e il peering privato.  
+>
+
 ## <a name="expressroute-circuits"></a>Circuiti ExpressRoute
-Un *circuito ExpressRoute* rappresenta una connessione logica tra un'infrastruttura locale e i servizi cloud Microsoft tramite un provider di connettività. È possibile ordinare più circuiti ExpressRoute. Ciascun circuito può essere nella stessa regione o in regioni diverse, e può essere collegato ai locali tramite provider di connettività diversi. 
+Un circuito ExpressRoute rappresenta una connessione logica tra un'infrastruttura locale e i servizi cloud Microsoft tramite un provider di connettività. È possibile ordinare più circuiti ExpressRoute. Ciascun circuito può essere nella stessa regione o in regioni diverse, e può essere collegato ai locali tramite provider di connettività diversi.
 
 I circuiti ExpressRoute non sono mappati ad alcuna entità fisica. Un circuito è identificato in modo univoco da un GUID standard denominato chiave di servizio. La chiave di servizio è l'unica informazione scambiata tra Microsoft, il provider di connettività e l'utente. Non è un segreto usato ai fini della sicurezza. Esiste un mapping 1:1 tra un circuito ExpressRoute e la chiave di servizio.
 
-Per un circuito ExpressRoute sono previsti fino a tre peering indipendenti: pubblico di Azure, privato di Azure e Microsoft. Ogni peering è una coppia di sessioni BGP indipendenti, ognuna configurata in modo ridondante per garantire la disponibilità elevata. Esiste un mapping 1:N (1 <= N <= 3) tra un circuito ExpressRoute e i domini di routing. Per un circuito ExpressRoute può essere abilitato uno, due o tutti e tre i peering.
+I nuovi circuiti ExpressRoute possono includere due peering indipendenti: peering privato e peering Microsoft. I circuiti ExpressRoute esistenti possono invece contenere fino a tre peering: Pubblico di Azure, Privato di Azure e Microsoft. Ogni peering è una coppia di sessioni BGP indipendenti, ognuna configurata in modo ridondante per garantire la disponibilità elevata. Esiste un mapping 1:N (1 <= N <= 3) tra un circuito ExpressRoute e i domini di routing. Per un circuito ExpressRoute può essere abilitato uno, due o tutti e tre i peering.
 
-Ogni circuito prevede una larghezza di banda fissa (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) ed è mappato a un provider di connettività e a una località di peering. La larghezza di banda selezionata viene condivisa tra tutti i peering del circuito. 
+Ogni circuito prevede una larghezza di banda fissa (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) ed è mappato a un provider di connettività e a una località di peering. La larghezza di banda selezionata viene condivisa tra tutti i peering del circuito
 
 ### <a name="quotas-limits-and-limitations"></a>Quote, limiti e limitazioni
 Per ogni circuito ExpressRoute si applicano quote e limiti predefiniti. Per informazioni aggiornate sulle quote, vedere la pagina [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md) .
@@ -51,15 +55,11 @@ Per altre informazioni sui servizi supportati, sui costi e sui dettagli per la c
 
 ### <a name="azure-public-peering"></a>Peering pubblico di Azure (deprecato per i circuiti nuovi)
 
-> [!IMPORTANT]
-> Il peering pubblico di Azure non è disponibile per i circuiti nuovi.  
->   
-
-I servizi quali Archiviazione, database SQL e Siti Web di Azure vengono offerti su indirizzi IP pubblici. È possibile connettersi privatamente ai servizi ospitati su indirizzi IP pubblici, inclusi gli indirizzi VIP dei servizi cloud, tramite il dominio di routing di peering pubblico. È possibile connettere il dominio di peering pubblico al DMZ e connettersi a tutti i servizi di Azure sui rispettivi indirizzi IP pubblici dalla rete WAN senza doversi connettere a Internet. 
+I servizi quali Archiviazione, database SQL e Siti Web di Azure vengono offerti su indirizzi IP pubblici. È possibile connettersi privatamente ai servizi ospitati su indirizzi IP pubblici, inclusi gli indirizzi VIP dei servizi cloud, tramite il dominio di routing di peering pubblico. È possibile connettere il dominio di peering pubblico al DMZ e connettersi a tutti i servizi di Azure sui rispettivi indirizzi IP pubblici dalla rete WAN senza doversi connettere a Internet.
 
 La connettività viene sempre attivata dalla rete WAN verso i servizi di Microsoft Azure. I servizi di Microsoft Azure non potranno attivare connessioni alla rete dell'utente tramite questo dominio di routing. Dopo l'abilitazione del peering pubblico, è possibile connettersi a tutti i servizi di Azure. Non è consentito scegliere in modo selettivo i servizi per cui vengono annunciate route.
 
-È possibile definire filtri di route personalizzati nella propria rete per usare solo le route necessarie. Per informazioni sulla configurazione del routing, vedere la pagina relativa al [routing](expressroute-routing.md) . 
+È possibile definire filtri di route personalizzati nella propria rete per usare solo le route necessarie. Per informazioni sulla configurazione del routing, vedere la pagina relativa al [routing](expressroute-routing.md) .
 
 Per altre informazioni sui servizi supportati tramite il dominio di routing di peering pubblico, vedere le [domande frequenti](expressroute-faqs.md).
 
@@ -73,16 +73,16 @@ La tabella seguente confronta i tre domini di routing:
 | **Requisiti del numero AS** |Numeri AS pubblici e privati. È necessario possedere un numero AS pubblico se si sceglie di usarne uno. |Numeri AS pubblici e privati. È tuttavia necessario dimostrare la proprietà degli indirizzi IP pubblici. |Numeri AS pubblici e privati. È tuttavia necessario dimostrare la proprietà degli indirizzi IP pubblici. |
 | **Protocolli IP supportati**| IPv4 |  IPv4, IPv6 | IPv4 |
 | **Indirizzi IP per l'interfaccia di routing** |Indirizzi IP pubblici e RFC1918 |Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing. |Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing. |
-| **Supporto per Hash MD5** |Yes |Yes |Yes |
+| **Supporto per Hash MD5** |Yes |Sì |Yes |
 
-È possibile scegliere di abilitare uno o più domini di routing come parte del circuito ExpressRoute. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN se si vuole combinarli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma. La configurazione consigliata consiste nel connettere il peering privato direttamente alla rete di base e i collegamenti del peering pubblico e Microsoft al DMZ.
+È possibile scegliere di abilitare uno o più domini di routing come parte del circuito ExpressRoute. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN se si vuole combinarli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma. La configurazione consigliata consiste nel connettere il peering privato direttamente alla rete di base e i collegamenti del peering pubblico e Microsoft alla rete perimetrale.
 
-Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tre coppie di sessioni BGP (una coppia per ogni tipo di peering). Le coppie di sessioni BGP forniscono un collegamento a disponibilità elevata. Se si stabilisce la connessione tramite provider di connettività di livello 2, l'utente è responsabile della configurazione e della gestione del routing. È possibile ottenere più informazioni esaminando i [flussi di lavoro](expressroute-workflows.md) per la configurazione di ExpressRoute.
+Ogni peering richiede sessioni BGP separati (una coppia per ogni tipo di peering). Le coppie di sessioni BGP forniscono un collegamento a disponibilità elevata. Se si stabilisce la connessione tramite provider di connettività di livello 2, l'utente è responsabile della configurazione e della gestione del routing. È possibile ottenere più informazioni esaminando i [flussi di lavoro](expressroute-workflows.md) per la configurazione di ExpressRoute.
 
 ## <a name="expressroute-health"></a>Integrità di ExpressRoute
 La disponibilità, la connettività alle reti virtuali e l'utilizzo della larghezza di banda dei circuiti ExpressRoute possono essere monitorati usando [Monitoraggio prestazioni di rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
-Monitoraggio prestazioni rete verifica l'integrità del peering privato di Azure e del peering Microsoft.  Per altre informazioni, vedere questo [post](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/).
+Monitoraggio prestazioni rete verifica l'integrità del peering privato di Azure e del peering Microsoft. Per altre informazioni, vedere questo [post](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Trovare un provider di servizi. Vedere l'articolo relativo ai [provider di servizi e alle località ExpressRoute](expressroute-locations.md).
@@ -90,4 +90,3 @@ Monitoraggio prestazioni rete verifica l'integrità del peering privato di Azure
 * Configurare la connessione ExpressRoute.
   * [Creare e gestire circuiti ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configurare il routing (peering) per circuiti ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
-

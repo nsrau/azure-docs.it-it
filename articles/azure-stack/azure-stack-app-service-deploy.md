@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166883"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614056"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49166883"
 Usare le indicazioni fornite in questo articolo per distribuire il servizio App in Azure Stack.
 
 > [!IMPORTANT]  
-> Applicare l'aggiornamento 1807 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima della distribuzione del servizio App di Azure 1.3.
+> Applicare l'aggiornamento 1809 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima di distribuire Azure App Service 1.4.
 
 È possibile concedere agli utenti la possibilità di creare applicazioni web e API. Per consentire agli utenti di creare queste applicazioni, è necessario:
 
@@ -74,8 +74,8 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 
    b. Nelle **sottoscrizioni di Azure Stack**, selezionare la **sottoscrizione del Provider predefinito**.
 
-     >[!NOTE]
-     >Attualmente, servizio App può essere distribuito solo per i **sottoscrizione del Provider predefinito**.
+     > [!IMPORTANT]  
+     > Servizio app **deve** distribuire il **sottoscrizione del Provider predefinito**.
 
    c. Nel **località di Azure Stack**, selezionare il percorso che corrisponde all'area di cui si esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione in Azure Stack Development Kit.
 
@@ -198,7 +198,7 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 
 1. Nel portale di amministrazione di Azure Stack, passare a **Amministrazione - servizio App**.
 
-2. Nella panoramica sotto lo stato, verificare che il **lo stato** Mostra **tutti i ruoli sono pronti**.
+2. Nella panoramica, sotto stato, verificare che il **lo stato** consente di visualizzare **tutti i ruoli sono pronti**.
 
     ![Gestione del servizio App](media/azure-stack-app-service-deploy/image12.png)
 

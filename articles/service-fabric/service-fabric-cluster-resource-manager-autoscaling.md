@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362603"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281660"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduzione alla scalabilità automatica
 La scalabilità automatica è una funzionalità aggiuntiva di Service Fabric che consente di applicare in modo dinamico la scalabilità ai servizi in base al carico che i servizi segnalano o in base all'utilizzo delle risorse. La scalabilità automatica offre grande elasticità e consente di eseguire il provisioning di istanze o partizioni aggiuntive del servizio su richiesta. L'intero processo di scalabilità è automatico e trasparente e, dopo aver configurato i criteri in un servizio, non è necessario eseguire manualmente le operazioni di scalabilità a livello di servizio. La funzione di scalabilità automatica può essere attivata al momento della creazione del servizio o in qualsiasi momento tramite l'aggiornamento del servizio.
@@ -28,7 +28,9 @@ Uno scenario comune in cui la scalabilità automatica è utile è quando il cari
 * Se tutte le istanze del gateway personale utilizzano in media più di due core, ridimensionare il servizio gateway mediante l'aggiunta di un'altra istanza. Eseguire questa operazione ogni ora, ma non tenere più di sette istanze in totale.
 * Se tutte le istanze del gateway utilizzano in media meno di 0,5 core, ridimensionare il servizio tramite la rimozione di un'istanza. Eseguire questa operazione ogni ora, ma non tenere meno di tre istanze in totale.
 
-La scalabilità automatica è supportata sia per i contenitori sia per i normali servizi di Service Fabric. Il resto di questo articolo descrive i criteri di scalabilità e le modalità per abilitare o disabilitare la scalabilità automatica; inoltre, fornisce alcuni esempi su come usare questa funzionalità.
+La scalabilità automatica è supportata sia per i contenitori sia per i normali servizi di Service Fabric. Per usare la scalabilità automatica è necessario che sia in esecuzione la versione 6.2 o versioni successive del runtime di Service Fabric. 
+
+Il resto di questo articolo descrive i criteri di scalabilità e le modalità per abilitare o disabilitare la scalabilità automatica; inoltre, fornisce alcuni esempi su come usare questa funzionalità.
 
 ## <a name="describing-auto-scaling"></a>Descrizione della scalabilità automatica
 È possibile definire i criteri di scalabilità automatica per ogni servizio in un cluster di Service Fabric. Ogni criterio di scalabilità automatica è costituito da due parti:
@@ -41,7 +43,7 @@ Tutti i trigger che sono attualmente supportati funzionano con le [metriche di c
 Sono disponibili due meccanismi che sono attualmente supportati per la scalabilità automatica. Il primo è progettato per i servizi senza stato o per i contenitori in cui la scalabilità automatica viene eseguita aggiungendo o rimuovendo [istanze](service-fabric-concepts-replica-lifecycle.md). Per i servizi con stato e senza stato, la scalabilità automatica può essere eseguita anche tramite l'aggiunta o la rimozione di [partizioni](service-fabric-concepts-partitioning.md) denominate del servizio.
 
 > [!NOTE]
-> Attualmente è supportato un solo criterio di scalabilità per ogni servizio.
+> Attualmente è supportato solo un criterio di scalabilità automatica per ogni servizio e solo un trigger di ridimensionamento per ogni criterio di ridimensionamento.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Trigger di carico medio della partizione con scalabilità basata sull’istanza
 Il primo tipo di trigger è basato sul carico delle istanze in una partizione del servizio senza stato. I carichi della metrica vengono innanzitutto livellati per ottenere il carico di ogni istanza di una partizione, quindi viene calcolata una media di questi valori per tutte le istanze della partizione. Esistono tre fattori che determinano quando il servizio verrà ridimensionato:

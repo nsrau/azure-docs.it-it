@@ -8,28 +8,21 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 47dee26c84d96ebf5b0a421c2f10d18892d6d933
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 15ecbcafd3397b425b669a48f19bee6073b71149
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227249"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279790"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
 
-Monitoraggio di Azure supporta ora un [nuovo tipo di avvisi delle metriche](monitoring-overview-unified-alerts.md) che presenta vantaggi significativi rispetto agli [avvisi delle metriche classici](insights-alerts-portal.md). Sono disponibili metriche per un [lungo elenco di servizi di Azure](monitoring-supported-metrics.md). Gli avvisi più recenti supportano un sottoinsieme (in espansione) di tipi di risorse. In questo articolo viene illustrato tale sottoinsieme.
+Monitoraggio di Azure supporta ora un nuovo tipo di avvisi delle metriche che presenta vantaggi significativi rispetto agli [avvisi delle metriche classici](alert-metric-classic.md). Sono disponibili metriche per un [lungo elenco di servizi di Azure](monitoring-supported-metrics.md). Gli avvisi più recenti supportano un sottoinsieme (in espansione) di tipi di risorse. In questo articolo viene illustrato tale sottoinsieme.
 
-È possibile usare gli avvisi delle metriche più recenti anche nei log di Log Analytics più comuni estratti come metriche nel quadro delle metriche dei log 
-- [Contatori delle prestazioni](../log-analytics/log-analytics-data-sources-performance-counters.md) per i computer Windows e Linux
-- [Record di heartbeat per l'Integrità agente](../operations-management-suite/oms-solution-agenthealth.md)
-- Record di [Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md)
-- I log dei [dati dell'evento](../log-analytics/log-analytics-data-sources-windows-events.md)
- 
-> [!NOTE]
-> Metriche e/o dimensioni specifiche verranno visualizzate solo se i relativi dati esistono nel periodo scelto. Tali metriche sono disponibili per i clienti con Log Analytics di Azure nelle aree di lavoro degli Stati Uniti orientali, degli Stati Uniti centro-occidentali e in Europa occidentale. Le metriche da Log Analytics sono attualmente in anteprima pubblica e soggette a modifiche.
+È possibile usare gli avvisi delle metriche più recenti anche nei log di Log Analytics più comuni estratti come metriche. Per altre informazioni, vedere [Avvisi delle metriche per i log](monitoring-metric-alerts-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Supporto per il portale, PowerShell, l'interfaccia della riga di comando, REST
-Al momento è possibile creare avvisi metrica più recenti solo nel portale di Azure, nell'[API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) o [Modelli di Resource Manager](monitoring-create-metric-alerts-with-templates.md). Il supporto per la configurazione di nuovi avvisi con PowerShell e l'interfaccia della riga di comando di Azure versioni 2.0 e versioni successive sarà presto disponibile.
+Al momento è possibile creare avvisi metrica più recenti solo nel portale di Azure, nell'[API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/) o [Modelli di Resource Manager](monitoring-create-metric-alerts-with-templates.md). Il supporto per la configurazione di nuovi avvisi con PowerShell e l'interfaccia della riga di comando di Azure versioni 2.0 e versioni successive sarà presto disponibile.
 
 ## <a name="metrics-and-dimensions-supported"></a>Metriche e dimensioni supportate
 Gli avvisi delle metriche più recenti supportano l'invio di avvisi per le metriche che usano le dimensioni. Le dimensioni possono essere usate per filtrare le metriche al livello corretto. Tutte le metriche supportate e le dimensioni applicabili possono essere esplorate e visualizzate da [Monitoraggio di Azure - Esplora metriche](monitoring-metric-charts.md).

@@ -2,27 +2,27 @@
 title: Streaming strutturato Apache Spark da Kafka ad Azure Cosmos DB - Azure HDInsight
 description: Informazioni su come usare lo streaming strutturato Apache Spark per leggere i dati da Apache Kafka e quindi archiviarli in Azure Cosmos DB. In questo esempio i dati vengono trasmessi in streaming tramite un notebook Jupyter da Spark in HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.author: jasonh
-ms.openlocfilehash: 8f0a16320091f8b2efa98ee96a63801e841c082e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: fcedf4a9335a0d70cfbab5a7f803b68cb154e209
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971315"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278906"
 ---
-# <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Usare lo streaming strutturato Spark con Kafka e Azure Cosmos DB
+# <a name="use-apache-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Usare lo streaming strutturato Apache Spark con Kafka e Azure Cosmos DB
 
-Informazioni su come usare lo streaming strutturato Spark per leggere i dati da Apache Kafka in Azure HDInsight e quindi archiviarli in Azure Cosmos DB.
+Informazioni su come usare lo streaming strutturato Apache Spark per leggere i dati da Apache Kafka in Azure HDInsight e quindi archiviarli in Azure Cosmos DB.
 
 Azure Cosmos DB è un database multimodello distribuito a livello globale. In questo esempio viene usato un modello di database dell'API SQL. Per altre informazioni, vedere il documento [Introduzione ad Azure Cosmos DB](../cosmos-db/introduction.md).
 
-Lo streaming strutturato Spark è un motore di elaborazione del flusso basato su Spark SQL. Consente di esprimere i calcoli di streaming come il calcolo di batch in dati statici. Per altre informazioni sullo streaming strutturato, vedere la pagina [Structured Streaming Programming Guide [Alpha]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) di Apache.org.
+Lo streaming strutturato Spark è un motore di elaborazione del flusso basato su Spark SQL. Consente di esprimere i calcoli di streaming come il calcolo di batch in dati statici. Per altre informazioni sullo streaming strutturato, vedere la pagina [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) di Apache.org.
 
 > [!IMPORTANT]
 > In questo esempio viene usato Spark 2.2 in HDInsight 3.6.
@@ -95,7 +95,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
 3. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
 
-4. Selezionare infine **Aggiungi al dashboard** e quindi **Acquista**. La creazione dei cluster richiede circa 20 minuti.
+4. Infine selezionare **Acquisto**. La creazione dei cluster richiede circa 20 minuti.
 
 > [!IMPORTANT]
 > Potrebbero occorrere fino a 45 minuti per creare i cluster, la rete virtuale e l'account Cosmos DB.

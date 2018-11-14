@@ -6,18 +6,18 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2017
+ms.date: 11/07/2018
 ms.author: dobett
-ms.openlocfilehash: 8fee8dd727623e81140656a070e6855547693154
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 1d9e5b46460f04ad491ac741a62ee6d644985e61
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451155"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283428"
 ---
 # <a name="upload-files-with-iot-hub"></a>Caricare file con l'hub IoT
 
-Come descritto nell'articolo [IoT Hub endpoints](iot-hub-devguide-endpoints.md) (Endpoint dell'hub IoT), un dispositivo può avviare il caricamento di un file inviando una notifica tramite un endpoint per il dispositivo (**/devices/{deviceId}/files**). Quando un dispositivo notifica all'hub IoT il completamento di un caricamento, l'hub IoT invia un messaggio di notifica per il caricamento del file tramite l'endpoint per il servizio (**/messages/servicebound/filenotifications**).
+Come descritto nell'articolo [IoT Hub endpoints](iot-hub-devguide-endpoints.md) (Endpoint dell'hub IoT), un dispositivo può avviare il caricamento di file inviando una notifica tramite un endpoint per il dispositivo (**/devices/{deviceId}/files**). Quando un dispositivo notifica all'hub IoT il completamento di un caricamento, l'hub IoT invia un messaggio di notifica per il caricamento del file tramite l'endpoint per il servizio (**/messages/servicebound/filenotifications**).
 
 I messaggi non vengono negoziati tramite l'hub IoT, che funge invece da strumento di recapito per un account di archiviazione di Azure associato. Un dispositivo richiede dall'hub IoT un token di archiviazione specifico del file che intende caricare. Il dispositivo usa l'URI di firma di accesso condiviso per caricare il file nella risorsa di archiviazione e al termine del caricamento invia una notifica di completamento all'hub IoT. L'hub IoT verifica che il completamento del file sia stato completato e quindi aggiunge un messaggio di notifica di caricamento file all'endpoint per il servizio per le notifiche relative ai file.
 
@@ -33,11 +33,12 @@ Vedere [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Associare un account di archiviazione di Azure all'hub IoT
 
-Per usare la funzionalità di caricamento file, è prima necessario collegare un account di archiviazione di Azure all'hub IoT. Questa attività può essere completata nel [portale di Azure](https://portal.azure.com) oppure a livello di codice con le [API REST del provider di risorse dell'hub IoT](/rest/api/iothub/iothubresource). Dopo l'associazione di un account di archiviazione di Azure all'hub IoT, quando un dispositivo avvia una richiesta di caricamento file il servizio restituisce al dispositivo un URI di firma di accesso condiviso.
+Per usare la funzionalità di caricamento file, è prima necessario collegare un account di archiviazione di Azure all'hub IoT. Questa attività può essere completata nel portale di Azure oppure a livello di programmazione con le [API REST del provider di risorse dell'hub IoT](/rest/api/iothub/iothubresource). Dopo avere associato un account di archiviazione di Azure all'hub IoT, quando un dispositivo avvia una richiesta di caricamento file, il servizio restituisce al dispositivo un URI di firma di accesso condiviso.
+
+Le guide procedurali per [Caricare i file dal dispositivo nel cloud con un hub IoT](iot-hub-csharp-csharp-file-upload.md) includono una procedura completa del processo di caricamento dei file. Queste guide procedurali illustrano come usare il portale di Azure per associare un account di archiviazione a un hub IoT.
 
 > [!NOTE]
 > Gli [SDK di IoT di Azure](iot-hub-devguide-sdks.md) gestiscono automaticamente il recupero dell'URI di firma di accesso condiviso, il caricamento del file e la notifica all'hub IoT del completamento del caricamento.
-
 
 ## <a name="initialize-a-file-upload"></a>Inizializzazione del caricamento di un file
 L'hub IoT dispone di un endpoint dedicato in modo specifico ai dispositivi che consente di richiedere un URI di firma di accesso condiviso con cui l'archiviazione possa caricare un file. Per avviare il processo di caricamento del file, il dispositivo invia una richiesta POST a `{iot hub}.azure-devices.net/devices/{deviceId}/files` con il corpo JSON seguente:
@@ -65,7 +66,7 @@ L'hub IoT restituisce i dati seguenti, usati dal dispositivo per caricare il fil
 > [!NOTE]
 > In questa sezione viene descritta la funzionalità obsoleta per indicazioni su come ricevere un URI di firma di accesso condiviso dall'hub IoT. Usare il metodo POST descritto in precedenza.
 
-Per supportare il caricamento di file, l'hub IoT usa due endpoint REST: uno per ottenere l'URI di firma di accesso condiviso per l'archiviazione e uno per la notifica all'hub IoT del completamento del caricamento. Il dispositivo avvia il processo di caricamento file inviato una richiesta GET all'hub IoT in `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. L'hub IoT restituisce:
+Per supportare il caricamento di file, l'hub IoT usa due endpoint REST: uno per ottenere l'URI di firma di accesso condiviso per l'archiviazione e uno per la notifica all'hub IoT del completamento del caricamento. Il dispositivo avvia il processo di caricamento del file inviando una richiesta GET all'hub IoT in `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. L'hub IoT restituisce:
 
 * Un URI SAS specifico per il file da caricare.
 
@@ -73,7 +74,7 @@ Per supportare il caricamento di file, l'hub IoT usa due endpoint REST: uno per 
 
 ## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Notifica all'hub IoT del completamento del caricamento di un file
 
-Il dispositivo è responsabile del caricamento del file nella risorsa di archiviazione con Azure Storage SDK. Al termine del caricamento, il dispositivo invia una richiesta POST a `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` con il corpo JSON seguente:
+Il dispositivo carica i file nella risorsa di archiviazione usando gli Azure Storage SDK. Al termine del caricamento, il dispositivo invia una richiesta POST a `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` con il corpo JSON seguente:
 
 ```json
 {
@@ -92,7 +93,7 @@ Negli argomenti di riferimento seguenti vengono offerte altre informazioni sul c
 
 ## <a name="file-upload-notifications"></a>Notifiche di caricamento file
 
-Facoltativamente, quando un dispositivo notifica all'hub IoT il completamento di un caricamento, l'hub IoT genera un messaggio di notifica contenente il nome e la posizione di archiviazione del file.
+Facoltativamente, quando un dispositivo comunica all'hub IoT che il caricamento è completato, l'hub IoT genera un messaggio di notifica. Questo messaggio contiene il nome e il percorso di archiviazione del file.
 
 Come illustrato nella sezione [Endpoint](iot-hub-devguide-endpoints.md), l'hub IoT recapita le notifiche di caricamento file sotto forma di messaggi tramite un endpoint per servizio (**/messages/servicebound/fileuploadnotifications**). La semantica di ricezione per le notifiche di caricamento file è uguale a quella dei messaggi da cloud a dispositivo e ha lo stesso [ciclo di vita dei messaggi](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Ogni messaggio recuperato dall'endpoint delle notifiche di caricamento file è un record JSON con le proprietà seguenti.
 
@@ -120,7 +121,7 @@ Come illustrato nella sezione [Endpoint](iot-hub-devguide-endpoints.md), l'hub I
 
 ## <a name="file-upload-notification-configuration-options"></a>Opzioni di configurazione per le notifiche di caricamento file
 
-Ogni hub IoT espone le opzioni di configurazione seguenti per le notifiche di caricamento file.
+Ogni hub IoT espone le opzioni di configurazione seguenti per le notifiche di caricamento file:
 
 | Proprietà | DESCRIZIONE | Intervallo e valore predefinito |
 | --- | --- | --- |
@@ -133,7 +134,7 @@ Ogni hub IoT espone le opzioni di configurazione seguenti per le notifiche di ca
 
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
-* [Endpoint dell'hub IoT](iot-hub-devguide-endpoints.md) illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
+* [Endpoint dell'hub IoT](iot-hub-devguide-endpoints.md) illustra i diversi endpoint dell'hub IoT per le operazioni della fase di esecuzione e di gestione.
 
 * [Quote e limitazioni](iot-hub-devguide-quotas-throttling.md) descrive le quote e i comportamenti di limitazione applicabili al servizio hub IoT.
 
@@ -145,7 +146,7 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come caricare i file dai dispositivi con l'hub IoT. Altri argomenti di interesse reperibili nella Guida per gli sviluppatori dell'hub IoT:
+Si è ora appreso come caricare i file dai dispositivi usando l'hub IoT. Altri argomenti di interesse reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
 * [Gestire le identità dei dispositivi nell'hub IoT](iot-hub-devguide-identity-registry.md)
 

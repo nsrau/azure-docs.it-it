@@ -1,25 +1,25 @@
 ---
-title: Caricare dati per processi Hadoop in HDInsight
-description: Informazioni su come caricare i dati per processi Hadoop e accedervi in HDInsight con Interfaccia della riga di comando di Azure, Azure Storage Explorer, Azure PowerShell, la riga di comando di Hadoop o Sqoop.
+title: Caricare dati per processi Apache Hadoop in HDInsight
+description: Informazioni su come caricare i dati per processi Apache Hadoop e accedervi in HDInsight con Interfaccia della riga di comando classica di Azure, Azure Storage Explorer, Azure PowerShell, la riga di comando di Hadoop o Sqoop.
 keywords: hadoop etl, recupero dati in hadoop, caricare dati in hadoop
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.reviewer: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: 01d9029eafbefbace80508d27fc3282558a299c9
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 11/06/2018
+ms.openlocfilehash: 50e9162da5fda98d73ccfeea0776dc89ddd25dac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596797"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256919"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Caricare dati per processi Hadoop in HDInsight
 
-Azure HDInsight include un file system HDFS (Hadoop Distributed File System) completo su Archiviazione di Microsoft Azure e Azure Data Lake Store. Archiviazione di Azure e Data Lake Store sono stati progettati come estensione Hadoop Distributed File System per offrire un'esperienza lineare ai clienti. Abilitano il set completo di componenti nell'ecosistema Hadoop, con possibilità di agire direttamente sui dati gestiti da Hadoop stesso. Archiviazione di Azure e Data Lake Store sono file system distinti, ottimizzati per l'archiviazione di dati e per l'esecuzione di calcoli su di essi. Per informazioni sui vantaggi dell'uso di Archiviazione di Microsoft Azure, vedere [Usare Archiviazione di Microsoft Azure con HDInsight][hdinsight-storage] e [Usare Data Lake Store con HDInsight](hdinsight-hadoop-use-data-lake-store.md).
+Azure HDInsight include un file system HDFS (Hadoop Distributed File System) completo su Archiviazione di Azure e Azure Data Lake Storage (Gen1 e Gen2). Archiviazione di Azure e Data Lake Storage Gen1 e Gen2 sono stati progettati come estensioni Hadoop Distributed File System per offrire un'esperienza lineare ai clienti. Abilitano il set completo di componenti nell'ecosistema Hadoop, con possibilità di agire direttamente sui dati gestiti da Hadoop stesso. Archiviazione di Azure e Data Lake Storage Gen1 e Gen2 sono file system distinti, ottimizzati per l'archiviazione di dati e per l'esecuzione di calcoli su di essi. Per informazioni sui vantaggi dell'uso di Archiviazione di Azure, vedere [Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight][hdinsight-storage], [Usare Data Lake Store con cluster Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md) e [Usare l'anteprima di Archiviazione di Azure Data Lake Gen2 con cluster Azure HDInsight](../storage/data-lake-storage/use-hdi-cluster.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,8 @@ Prima di iniziare, tenere presenti i requisiti seguenti:
 * Conoscenza dei due articoli seguenti:
 
     - [Usare l'Archiviazione di Azure con HDInsight][hdinsight-storage]
-    - [Usare Data Lake Store con HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    - [Usare Data Lake Store con cluster Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    - [Usare l'anteprima di Archiviazione di Azure Data Lake Gen2 con cluster Azure HDInsight](../storage/data-lake-storage/use-hdi-cluster.md)   
 
 ## <a name="upload-data-to-azure-storage"></a>Caricare i dati in Archiviazione di Azure
 
@@ -38,22 +39,22 @@ Microsoft fornisce le utilità seguenti da usare con Archiviazione di Azure:
 
 | Strumento | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Interfaccia della riga di comando di Azure][azurecli] |✔ |✔ |✔ |
+| [Interfaccia della riga di comando classica di Azure][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Comando Hadoop](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> Mentre l'interfaccia della riga di comando di Azure, Azure PowerShell e AzCopy possono tutti essere usati dall'esterno di Azure, il comando Hadoop è disponibile solo nei cluster HDInsight. Il comando consente solo il caricamento dei dati dal file system locale in Archiviazione di Azure.
+> Mentre l'interfaccia della riga di comando classica di Azure, Azure PowerShell e AzCopy possono tutti essere usati dall'esterno di Azure, il comando Hadoop è disponibile solo nei cluster HDInsight. Il comando consente solo il caricamento dei dati dal file system locale in Archiviazione di Azure.
 >
 >
 
-#### <a id="xplatcli"></a>
-L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma che consente di gestire i servizi di Azure. Per caricare i dati in Archiviazione di Azure, seguire questa procedura:
+#### <a id="xplatcli"></a>Interfaccia della riga di comando classica di Azure
+L'interfaccia della riga di comando classica di Azure è uno strumento multipiattaforma che consente di gestire i servizi di Azure. Per caricare i dati in Archiviazione di Azure, seguire questa procedura:
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [Installare e configurare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows](../cli-install-nodejs.md).
+1. [Installare e configurare l'interfaccia della riga di comando classica di Azure per Mac, Linux e Windows](../cli-install-nodejs.md).
 2. Aprire un prompt dei comandi, una sessione Bash o un'altra shell e usare quanto riportato di seguito per eseguire l'autenticazione alla sottoscrizione di Azure.
 
     ```cli
@@ -213,7 +214,7 @@ Prima di usare lo strumento è necessario conoscere il nome e la chiave dell'acc
     Dopo che il file ha terminato il caricamento, è possibile utilizzarlo dai processi nel cluster HDInsight.
 
 ### <a name="mount-azure-storage-as-local-drive"></a>Montare Archiviazione di Azure come unità locale
-Vedere [Montare Archiviazione di Azure come unità locale](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Vedere [Montare Archiviazione di Azure come unità locale](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ### <a name="upload-using-services"></a>Caricamento tramite servizi
 #### <a name="azure-data-factory"></a>Data factory di Azure
@@ -304,6 +305,8 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-adls-gen1]: hdinsight-hadoop-use-data-lake-store.md
+[hdinsight-adls-gen2]: ../storage/data-lake-storage/use-hdi-cluster.md
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 

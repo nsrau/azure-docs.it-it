@@ -4,16 +4,16 @@ description: Descrizione di come la definizione dei criteri delle risorse viene 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212778"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283292"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -123,12 +123,12 @@ Nella regola dei criteri fare riferimento ai parametri con la sintassi della fun
 
 ## <a name="definition-location"></a>Posizione della definizione
 
-Durante la creazione di una definizione delle iniziative o dei criteri è importante specificare la posizione della definizione.
+Durante la creazione di una iniziativa o dei criteri è importante specificare la posizione della definizione. Il percorso della definizione deve essere un gruppo di gestione o una sottoscrizione e determina l'ambito a cui è possibile assegnare l'iniziativa o i criteri. Le risorse devono essere membri diretti o elementi figli all'interno della gerarchia della posizione della definizione da destinare all'assegnazione.
 
-La posizione della definizione determina l'ambito al quale la definizione delle iniziative o dei criteri può essere assegnata. La posizione può essere specificata come un gruppo di gestione o una sottoscrizione.
+Se la posizione della definizione è:
 
-> [!NOTE]
-> Se si intende applicare questa definizione dei criteri a più sottoscrizioni, la posizione deve essere un gruppo di gestione che contiene le sottoscrizioni a cui si assegneranno i criteri o le iniziative.
+- Una **sottoscrizione**: solo le risorse all'interno di tale sottoscrizione possono essere assegnate ai criteri.
+- Un **gruppo di gestione**: solo le risorse all'interno dei gruppi di gestione figlio e delle sottoscrizioni figlio possono essere assegnate ai criteri. Se si intende applicare questa definizione di criteri a più sottoscrizioni, la posizione deve essere un gruppo di gestione contenente tali sottoscrizioni.
 
 ## <a name="display-name-and-description"></a>Nome visualizzato e descrizione
 
@@ -146,7 +146,7 @@ Nel blocco **Then** si definisce l'effetto che si verifica quando le condizioni 
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -232,7 +232,8 @@ Il criterio supporta i tipi di effetto seguenti:
 - **Audit**: genera un evento di avviso nel log attività, ma non nega la richiesta
 - **Append**: aggiunge il set di campi definiti alla richiesta
 - **AuditIfNotExists**: abilita il controllo se una risorsa non esiste
-- **DeployIfNotExists**: distribuisce una risorsa se non esiste già.
+- **DeployIfNotExists**: distribuisce una risorsa se non esiste già
+- **Disabled**: non valuta le risorse per garantire la conformità alla regola dei criteri
 
 In caso di **aggiunta**, è necessario specificare questi dettagli:
 
@@ -247,6 +248,18 @@ In caso di **aggiunta**, è necessario specificare questi dettagli:
 Il valore può essere una stringa o un oggetto formato JSON.
 
 Con **AuditIfNotExists** e **DeployIfNotExists** è possibile valutare l'esistenza di una risorsa correlata e applicare una regola e un effetto corrispondente quando tale risorsa non esiste. È possibile ad esempio richiedere che venga distribuito un Network Watcher per tutte le reti virtuali. Per un esempio di controllo quando non è stata distribuita un'estensione della macchina virtuale, vedere [Audit if extension does not exist](../samples/audit-ext-not-exist.md) (Controllare se l'estensione esiste).
+
+L'effetto **DeployIfNotExists** richiede la proprietà **roleDefinitionId** nella parte dei **dettagli** della regola dei criteri. Per altre informazioni, vedere [Correzione: configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
 
 Per informazioni dettagliate su ogni effetto, ordine di valutazione, proprietà ed esempi, vedere [Informazioni sugli effetti di Criteri](effects.md).
 

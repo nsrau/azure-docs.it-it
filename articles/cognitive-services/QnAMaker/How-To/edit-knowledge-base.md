@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/06/2018
 ms.author: tulasim
-ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451885"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279762"
 ---
 # <a name="edit-a-knowledge-base"></a>Modificare una Knowledge Base
 
@@ -89,6 +89,12 @@ Aggiungere coppie di metadati selezionando l'icona del filtro
 3. La **paginazione** consente di gestire Knowledge Base di grandi dimensioni
 
     ![Ricerca, paginazione, gruppo](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+## <a name="delete-knowledge-bases"></a>Eliminare le knowledge base
+
+L'eliminazione di una knowledge base (KB) è un'operazione definitiva. Non può essere modificata. Prima di eliminare una knowledge base è necessario esportarla dalla pagina **Impostazioni** del portale di QnA Maker. 
+
+Se si condivide la KB con i [collaboratori](collaborate-knowledge-base.md) e quindi la si elimina, tutti gli utenti perdono l'accesso alla knowledge base. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

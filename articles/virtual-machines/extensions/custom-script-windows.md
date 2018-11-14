@@ -1,6 +1,6 @@
 ---
-title: Estensione Script personalizzato di Azure per Windows | Microsoft Docs
-description: Automatizzare le attività di configurazione delle macchine virtuali Windows usando l'estensione Script personalizzato
+title: Estensione script personalizzata di Azure per Windows | Microsoft Docs
+description: Automatizzare le attività di configurazione delle macchine virtuali Windows usando l'estensione script personalizzata
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
@@ -15,29 +15,29 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: 7396277c58b079dc2f0c68b7832a6f2ca57ee287
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212302"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282331"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
-L'estensione Script personalizzato scarica ed esegue script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub, oppure possono essere forniti al portale di Azure durante il runtime dell'estensione. L'estensione Script personalizzato è integrabile nei modelli di Azure Resource Manager e può essere eseguita anche tramite l'interfaccia della riga di comando di Azure, PowerShell, il portale di Azure o l'API REST di Macchine virtuali di Azure.
+L'estensione script personalizzata scarica ed esegue script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub, oppure possono essere forniti al portale di Azure durante il runtime dell'estensione. L'estensione script personalizzata è integrabile nei modelli di Azure Resource Manager e può essere eseguita anche tramite l'interfaccia della riga di comando di Azure, PowerShell, il portale di Azure o l'API REST di Macchine virtuali di Azure.
 
-Questo documento descrive come usare l'estensione Script personalizzato con il modulo Azure PowerShell e i modelli di Azure Resource Manager e inoltre illustra i passaggi per la risoluzione dei problemi nei sistemi Windows.
+Questo documento descrive come usare l'estensione di script personalizzata con il modulo Azure PowerShell e i modelli di Azure Resource Manager e inoltre illustra i passaggi per la risoluzione dei problemi nei sistemi Windows.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!NOTE]  
-> Non usare l'estensione Script personalizzato per eseguire Update-AzureRmVM con la stessa macchina virtuale del relativo parametro, poiché attenderà se stessa.  
+> Non usare l'estensione script personalizzata per eseguire Update-AzureRmVM con la stessa macchina virtuale del relativo parametro, poiché attenderà se stessa.  
 >   
 > 
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione Script personalizzato per Linux verrà eseguita sui sistemi operativi supportati dall'estensione. Per altre informazioni, vedere questo [articolo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+L'estensione per script personalizzati di Linux verrà eseguita sui sistemi operativi supportati dall'estensione. Per altre informazioni, vedere questo [articolo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
 
 ### <a name="script-location"></a>Percorso dello script
 
@@ -59,13 +59,13 @@ Se lo script è in un server locale, può essere necessario aprire porte aggiunt
 * L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare l'estensione per creare un'attività pianificata di Windows.
 * Se vuole pianificare il momento di esecuzione di uno script, usare l'estensione per creare un'attività pianificata di Windows. 
 * Quando lo script è in esecuzione, l'unica indicazione presente nell'interfaccia della riga di comando o nel portale di Azure sarà lo stato dell'estensione "Transizione in corso". Se si vogliono aggiornamenti più frequenti sullo stato di uno script in esecuzione, sarà necessario creare una soluzione personalizzata.
-* L'estensione Script personalizzato non supporta in modo nativo i server proxy, ma è possibile usare uno strumento di trasferimento file che supporti i server proxy all'interno dello script, ad esempio *Curl* 
+* L'estensione script personalizzata non supporta in modo nativo i server proxy, ma è possibile usare uno strumento di trasferimento file che supporti i server proxy all'interno dello script, ad esempio *Curl* 
 * Tenere presenti gli eventuali percorsi di directory non predefiniti usati dagli script o dai comandi e includere la logica necessaria per gestirli.
 
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-La configurazione dell'estensione Script personalizzato specifica informazioni come il percorso dello script e il comando da eseguire. È possibile archiviare queste informazioni in file di configurazione, specificarle sulla riga di comando o definirle in un modello di Azure Resource Manager. 
+La configurazione dell'estensione script personalizzata specifica informazioni come il percorso dello script e il comando da eseguire. È possibile archiviare queste informazioni in file di configurazione, specificarle sulla riga di comando o definirle in un modello di Azure Resource Manager. 
 
 I dati sensibili possono essere archiviati in una configurazione protetta, che viene crittografata e decrittografata solo all'interno della macchina virtuale. La configurazione protetta è utile quando il comando di esecuzione include segreti, ad esempio una password.
 
@@ -106,7 +106,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Nome | Valore/Esempio | Tipo di dati |
+| NOME | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | stringa |
@@ -135,14 +135,14 @@ Le impostazioni pubbliche vengono inviate in testo non crittografato alla macchi
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON indicato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione Script personalizzato durante la distribuzione di un modello di Azure Resource Manager. Gli esempi seguenti illustrano come usare l'estensione Script personalizzato:
+Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON indicato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione di script personalizzata durante la distribuzione di un modello di Azure Resource Manager. Gli esempi seguenti illustrano come usare l'estensione Script personalizzato:
 
 * [Esercitazione: Distribuire estensioni di macchina virtuale con modelli di Azure Resource Manager](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows) (Distribuire un'applicazione a due livelli in Windows e nel database SQL di Azure)
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
 
-Il comando `Set-AzureRmVMCustomScriptExtension` consente di aggiungere l'estensione Script personalizzato a una macchina virtuale esistente. Per altre informazioni, vedere [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+Il comando `Set-AzureRmVMCustomScriptExtension` consente di aggiungere l'estensione di script personalizzata a una macchina virtuale esistente. Per altre informazioni, vedere [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
@@ -199,7 +199,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ```
 
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Come eseguire uno script personalizzato più volte tramite l'interfaccia della riga di comando
-Si può eseguire più volte l'estensione Script personalizzato solo nelle condizioni seguenti:
+Si può eseguire più volte l'estensione script personalizzata solo nelle condizioni seguenti:
 1. Il parametro 'Name' dell'estensione deve essere lo stesso usato nella distribuzione precedente dell'estensione.
 2. È necessario aggiornare la configurazione o il comando non verrà eseguito nuovamente. Ad esempio, si può aggiungere al comando una proprietà dinamica, come un timestamp. 
 

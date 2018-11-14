@@ -5,15 +5,15 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/11/2018
+ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d750ac7a5ac847a8c1eb5a9c91bb42804c2eebe0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 73273447bcf534f6ffd4584673756c40e8509e21
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49437057"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50973851"
 ---
 Quando si crea una macchina virtuale (VM) di Azure, è necessario creare una [rete virtuale](../articles/virtual-network/virtual-networks-overview.md) o usarne una esistente. È anche necessario decidere come si accederà alle macchine virtuali nella rete virtuale. È importante [pianificare prima di creare risorse](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e comprendere i [limiti delle risorse di rete](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -36,9 +36,7 @@ Oltre a queste risorse di base è opportuno prendere in considerazione anche que
 
 Un'[interfaccia di rete (NIC)](../articles/virtual-network/virtual-network-network-interface.md) rappresenta l'interconnessione tra una VM e una rete virtuale. Una VM deve avere almeno un'interfaccia di rete, ma può averne più di una, a seconda delle dimensioni della VM creata. Vedere quante interfacce di rete supporta ogni dimensione di VM per [Windows](../articles/virtual-machines/windows/sizes.md) o [Linux](../articles/virtual-machines/linux/sizes.md).
 
-È possibile creare una macchina virtuale con più interfacce di rete e aggiungere o rimuovere le interfacce durante il ciclo di vita di una macchina virtuale. Con più interfacce di rete, una macchina virtuale può connettersi a subnet diverse e inviare o ricevere il traffico attraverso l'interfaccia più appropriata.
-
-Se la VM viene aggiunta a un set di disponibilità, tutte le VM del set di disponibilità devono avere una o più interfacce di rete. Le VM con più interfacce di rete non devono avere necessariamente lo stesso numero di interfacce, a condizione che ognuna ne abbia tuttavia almeno due.
+È possibile creare una macchina virtuale con più interfacce di rete e aggiungere o rimuovere le interfacce durante il ciclo di vita di una macchina virtuale. Con più interfacce di rete, una macchina virtuale può connettersi a subnet diverse e inviare o ricevere il traffico attraverso l'interfaccia più appropriata. Possono esistere macchine virtuali con un numero qualsiasi di interfacce di rete nello stesso set di disponibilità, fino al numero supportato dalla dimensione della macchina virtuale. 
 
 Ogni interfaccia di rete collegata a una VM deve trovarsi nello stesso percorso e nella stessa sottoscrizione della VM. Ogni interfaccia di rete deve essere connessa a una rete virtuale che si trova nello stesso percorso e nella stessa sottoscrizione di Azure dell'interfaccia. Dopo la creazione di una macchina virtuale è possibile modificare la subnet a cui è connessa, ma non la rete virtuale. A ogni interfaccia di rete collegata a una VM viene assegnato un indirizzo MAC che non cambia finché non viene eliminata la VM.
 
@@ -151,7 +149,7 @@ Questa tabella elenca i metodi che è possibile usare per creare un servizio di 
 
 Le VM possono essere create nella stessa rete virtuale e possono connettersi tra loro usando indirizzi IP privati. Possono connettersi anche se si trovano in subnet diverse senza dover configurare un gateway o usare indirizzi IP pubblici. Per inserire VM in una rete virtuale, creare la rete virtuale e quindi ogni VM, assegnandola alla rete virtuale e alla subnet. Le VM acquisiscono le impostazioni di rete durante la distribuzione o l'avvio.  
 
-Alle VM viene assegnato un indirizzo IP quando vengono distribuite. Se si distribuiscono più VM in una rete virtuale o in una subnet, gli indirizzi IP verranno assegnati al momento dell'avvio. Un indirizzo IP dinamico (DIP) è l'indirizzo IP interno associato a una VM. È possibile allocare un DIP statico a una VM. Se si assegna un DIP statico, considerare l'uso di una subnet specifica per evitare di riusare accidentalmente un DIP statico per un'altra VM.  
+Alle VM viene assegnato un indirizzo IP quando vengono distribuite. Se si distribuiscono più VM in una rete virtuale o in una subnet, gli indirizzi IP verranno assegnati al momento dell'avvio. È anche possibile allocare un IP statico a una VM. Se si assegna un IP statico, considerare l'uso di una subnet specifica per evitare di riusare accidentalmente un IP statico per un'altra VM.  
 
 Se si crea una VM e successivamente si vuole eseguirne la migrazione in una rete virtuale, non si tratta di una semplice modifica della configurazione. È necessario ridistribuire la VM nella rete virtuale. Il modo più semplice per ridistribuire consiste nell'eliminare la VM, ma non i dischi collegati a essa, quindi ricreare la VM con i dischi originali nella rete virtuale. 
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: a805294ecb416d18f3ce13981d26a7d25cd5a204
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3e724301d235db49ab9332dedc877d7315460ecc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432852"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256171"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -25,7 +25,7 @@ ms.locfileid: "47432852"
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB è un database distribuito veloce e flessibile, facilmente scalabile e con latenza e velocità effettiva garantite. Non è necessario apportare modifiche significative all'architettura o scrivere codice complesso per ridimensionare il database con Azure Cosmos DB. Aumentare o ridurre le prestazioni è semplice come eseguire una singola chiamata API o una [chiamata al metodo SDK](set-throughput.md#set-throughput-sdk). Dato che si accede ad Azure Cosmos DB tramite chiamate di rete, è tuttavia possibile apportare ottimizzazioni lato client per ottenere prestazioni ottimali se si usa l'[SQL .NET SDK](documentdb-sdk-dotnet.md).
+Azure Cosmos DB è un database distribuito veloce e flessibile, facilmente scalabile e con latenza e velocità effettiva garantite. Non è necessario apportare modifiche significative all'architettura o scrivere codice complesso per ridimensionare il database con Azure Cosmos DB. Aumentare o ridurre le prestazioni è semplice come eseguire una singola chiamata API. Per altre informazioni, vedere [Effettuare il provisioning della velocità effettiva per un contenitore](how-to-provision-container-throughput.md) oppure [Effettuare il provisioning della velocità effettiva per un database](how-to-provision-database-throughput.md). Dato che si accede ad Azure Cosmos DB tramite chiamate di rete, è tuttavia possibile apportare ottimizzazioni lato client per ottenere prestazioni ottimali se si usa l'[SQL .NET SDK](documentdb-sdk-dotnet.md).
 
 Se si vogliono migliorare le prestazioni del database, prendere in considerazione le opzioni seguenti:
 
@@ -118,7 +118,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     In alcuni casi, può essere utile ridurre la frequenza di Garbage Collection. In .NET impostare [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) su true.
 6. **Implementare il backoff in corrispondenza di intervalli RetryAfter**
 
-    Durante il test delle prestazioni, è necessario aumentare il carico fino a limitare un numero ridotto di richieste. Se limitata, l'applicazione client deve eseguire il backoff sulla limitazione per l'intervallo tra tentativi specificato dal server. Rispettando il backoff si garantiscono tempi di attesa minimi tra i tentativi. Il supporto dei criteri di ripetizione dei tentativi è incluso nella versione 1.8.0 e versioni successive degli SDK [.NET](sql-api-sdk-dotnet.md) e [Java](sql-api-sdk-java.md), nella versione 1.9.0 e versioni successive degli SDK [Node.js](sql-api-sdk-node.md) e [Python](sql-api-sdk-python.md) e in tutte le versioni supportate degli SDK [.NET Core](sql-api-sdk-dotnet-core.md) di SQL. Per altre informazioni, vedere [Superamento dei limiti della velocità effettiva riservata](request-units.md#RequestRateTooLarge) e [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Durante il test delle prestazioni, è necessario aumentare il carico fino a limitare un numero ridotto di richieste. Se limitata, l'applicazione client deve eseguire il backoff sulla limitazione per l'intervallo tra tentativi specificato dal server. Rispettando il backoff si garantiscono tempi di attesa minimi tra i tentativi. Il supporto dei criteri di ripetizione dei tentativi è incluso nella versione 1.8.0 e versioni successive degli SDK [.NET](sql-api-sdk-dotnet.md) e [Java](sql-api-sdk-java.md), nella versione 1.9.0 e versioni successive degli SDK [Node.js](sql-api-sdk-node.md) e [Python](sql-api-sdk-python.md) e in tutte le versioni supportate degli SDK [.NET Core](sql-api-sdk-dotnet-core.md) di SQL. Per altre informazioni, [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
     
     Con la versione 1.19 e successive di .NET SDK c'è un meccanismo per registrare le informazioni di diagnostica aggiuntive e risolvere i problemi di latenza come mostrato nell'esempio seguente. È possibile registrare la stringa di diagnostica per le richieste che hanno una latenza di lettura più elevata. La stringa di diagnostica acquisita consente di capire il numero di volte che è stato osservato l'errore 429 per una determinata richiesta.
     ```csharp

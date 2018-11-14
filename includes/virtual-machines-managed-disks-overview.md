@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3e660dbcbfecd57c43ecec6006581364660adb44
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50737238"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263994"
 ---
 # <a name="azure-managed-disks-overview"></a>Panoramica di Azure Managed Disks
 
@@ -67,21 +67,21 @@ Tali considerazioni vengono ora esaminate più in dettaglio.
 
 **Dimensione disco**: per un disco di archiviazione Premium la fatturazione dipende dalle dimensioni del disco di cui è stato effettuato il provisioning. Azure associa la dimensione del disco, arrotondata per eccesso, all'opzione relativa a Managed Disks più vicina, come specificato nelle tabelle seguenti. Viene eseguito il mapping di ogni disco gestito a una delle dimensioni di provisioning supportate e viene eseguita la relativa fatturazione. Se, ad esempio, si crea un disco gestito Standard e si specifica una dimensione del disco di cui è stato effettuato il provisioning pari a 200 GB, i costi addebitati si basano sui prezzi del tipo di disco S15.
 
-Di seguito sono indicate le dimensioni dei dischi disponibili per un disco gestito Premium:
+Di seguito sono riportate le dimensioni del disco disponibili per un disco gestito premium, le dimensioni indicate con un asterisco sono attualmente in anteprima:
 
-| **Tipo di disco gestito<br> SDD Premium** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+| **Tipo di disco gestito<br> SDD Premium** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Dimensione disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16.384 GiB (16 TiB) | 32.767 GiB (TiB) |
 
-Di seguito sono indicate le dimensioni dei dischi disponibili per un disco gestito SSD Standard:
+Di seguito sono riportate le dimensioni del disco disponibili per un disco gestito SSD standard, le dimensioni indicate con un asterisco sono attualmente in anteprima:
 
-| **Tipo di disco gestito <br>SSD Standard** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60** | **E70** | **E80** |
+| **Tipo di disco gestito <br>SSD Standard** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
 |------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Dimensione disco        | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16.384 GiB (16 TiB) | 32.767 GiB (TiB) |
 
-Di seguito sono indicate le dimensioni dei dischi disponibili per un disco gestito HDD Standard:
+Di seguito sono riportate le dimensioni del disco disponibili per un disco gestito HDD standard, le dimensioni indicate con un asterisco sono attualmente in anteprima:
 
-| **Tipo di disco gestito <br>HDD Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+| **Tipo di disco gestito <br>HDD Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Dimensione disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16.384 GiB (16 TiB) | 32.767 GiB (TiB) |
 

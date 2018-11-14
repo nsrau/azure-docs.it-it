@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264716"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010644"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti 
 Questa pagina include le risposte alle domande frequenti relative ad Azure Active Directory (Azure AD) B2C. Controllarla costantemente per eventuali aggiornamenti.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Perché non riesco ad accedere all'estensione Azure AD B2C nel portale di Azure?
-Esistono due motivi comuni per cui l'estensione di Azure AD non funziona per l'utente.  Azure AD B2C richiede che il ruolo utente nella directory sia quello di amministratore globale.  Se si ritiene di dover disporre dell'accesso, contattare l'amministratore.  Se si dispone di privilegi di amministratore globale, assicurarsi di trovarsi in una directory di Azure AD B2C e non in una directory di Azure Active Directory.  È possibile visualizzare le istruzioni per la [creazione di una directory di Azure AD B2C qui](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+Esistono due motivi comuni per cui l'estensione di Azure AD non funziona per l'utente.  Azure AD B2C richiede che il ruolo utente nella directory sia quello di amministratore globale.  Se si ritiene di dover disporre dell'accesso, contattare l'amministratore.  Se si dispone di privilegi di amministratore globale, assicurarsi di trovarsi in una directory di Azure AD B2C e non in una directory di Azure Active Directory.  È possibile visualizzare le istruzioni per la [creazione di un tenant di Azure AD B2C](tutorial-create-tenant.md).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>È possibile usare le funzionalità di Azure AD B2C nel tenant di Azure AD esistente per dipendenti aziendali?
 Azure AD e Azure AD B2C vengono offerti come prodotti separati e non possono coesistere nello stesso tenant.  Un tenant di Azure AD rappresenta un'organizzazione.  Un tenant di Azure AD B2C rappresenta una raccolta di identità da usare con le applicazioni relying party.  Con i criteri personalizzati (in anteprima pubblica), Azure AD B2C può eseguire la federazione di Azure AD consentendo l'autenticazione dei dipendenti in un'organizzazione.
@@ -39,12 +39,12 @@ Gli account utente per le applicazioni devono essere sempre creati tramite crite
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quali provider di identità di social networking sono attualmente supportati? Per quali provider è previsto il supporto in futuro?
 Attualmente sono supportati Facebook, Google +, LinkedIn, Amazon, Twitter (anteprima), WeChat (anteprima), Weibo (anteprima) e QQ (anteprima). Verrà aggiunto il supporto per altri provider di identità di social networking noti, in base alle esigenze dei clienti.
 
-In Azure AD B2C è stato aggiunto anche il supporto per i [criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  I [criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) consentono agli sviluppatori di creare criteri con qualsiasi provider di identità che supporta [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) o SAML. 
+In Azure AD B2C è stato aggiunto anche il supporto per i [criteri personalizzati](active-directory-b2c-overview-custom.md).  I [criteri personalizzati](active-directory-b2c-overview-custom.md) consentono agli sviluppatori di creare criteri con qualsiasi provider di identità che supporta [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) o SAML. 
 
 Per un'introduzione ai criteri personalizzati, vedere lo [starter pack sui criteri personalizzati](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>È possibile configurare ambiti per raccogliere altre informazioni sugli utenti da diversi provider di identità di social networking?
-No, ma questa funzionalità verrà implementata in futuro. Gli ambiti predefiniti usati per il gruppo di provider di identità di social networking supportato sono:
+No. Gli ambiti predefiniti usati per il gruppo di provider di identità di social networking supportato sono:
 
 * Facebook: email
 * Google+: email
@@ -56,7 +56,7 @@ No, ma questa funzionalità verrà implementata in futuro. Gli ambiti predefinit
 No, l'applicazione può essere ospitata ovunque (nel cloud o in locale). Per interagire con Azure AD B2C deve avere la possibilità di inviare e ricevere richieste HTTP su endpoint accessibili pubblicamente.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Nel caso di più tenant Azure AD B2C, come è possibile gestirli nel portale di Azure?
-Prima di aprire "Azure AD B2C" nel menu sul lato sinistro del portale di Azure, è necessario passare alla directory che si vuole gestire.  Per cambiare directory, fare clic sulla propria identità in alto a destra nel portale di Azure e quindi scegliere una directory nell'elenco a discesa che viene visualizzato.  Per una procedura dettagliata con immagini, vedere [Passare alle impostazioni di B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+Prima di aprire "Azure AD B2C" nel menu sul lato sinistro del portale di Azure, è necessario passare alla directory che si vuole gestire.  Per cambiare directory, fare clic sulla propria identità in alto a destra nel portale di Azure e quindi scegliere una directory nell'elenco a discesa che viene visualizzato.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Come si personalizzano i messaggi di posta elettronica di verifica (il contenuto e il campo "Da:") inviati da Azure AD B2C?
 È possibile usare la [funzionalità di personalizzazione della società](../active-directory/fundamentals/customize-branding.md) per personalizzare il contenuto dei messaggi di posta elettronica di verifica. In particolare, è possibile personalizzare i due elementi di posta elettronica seguenti:
@@ -74,13 +74,13 @@ La firma della posta elettronica contiene il nome del tenant di Azure AD B2C for
 1. Modificare il valore del campo **Nome**.
 1. Fare clic su **Salva** nella parte superiore della pagina.
 
-Attualmente non è possibile modificare il campo "Da:" del messaggio di posta elettronica. Votare su [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) se si è interessati alla personalizzazione del corpo del messaggio di posta elettronica di verifica.
+Attualmente non è possibile modificare il campo "Da:" del messaggio di posta elettronica.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Come si esegue la migrazione di nomi utente, password e profili esistenti dal database personale in Azure AD B2C?
 È possibile usare l'API Graph di Azure AD per creare lo strumento di migrazione. Vedere il [Guida alla migrazione degli utenti](active-directory-b2c-user-migration.md) per informazioni dettagliate.
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Quali sono i criteri password usati per gli account locali in Azure AD B2C?
-I criteri password di Azure AD B2C per gli account locali si basano su quelli di Azure AD. I criteri di iscrizione, iscrizione o accesso e reimpostazione della password di Azure AD B2C usano un livello di complessità della password "avanzato" e senza scadenza delle password. Per altre informazioni dettagliate, vedere [Criteri password in Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) .
+I criteri password di Azure AD B2C per gli account locali si basano su quelli di Azure AD. I criteri di iscrizione, iscrizione o accesso e reimpostazione della password di Azure AD B2C usano un livello di complessità della password "avanzato" e senza scadenza delle password. Per altre informazioni dettagliate, vedere [Criteri password in Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) . Per informazioni su blocchi automatici e password degli account, vedere [Gestire le minacce alle risorse e ai dati in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>È possibile usare Azure AD Connect per eseguire la migrazione in Azure AD B2C delle identità utente archiviate in Active Directory locale?
 No, Azure AD Connect non è progettato per funzionare con Azure AD B2C. È consigliabile usare l'[API Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) per la migrazione dell'utente.  Vedere il [Guida alla migrazione degli utenti](active-directory-b2c-user-migration.md) per informazioni dettagliate.
@@ -113,8 +113,7 @@ No, per il momento. Questa funzionalità verrà implementata in futuro. Questo n
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Come si elimina il tenant di Azure AD B2C?
 Attenersi a questa procedura per eliminare il tenant di Azure AD B2C:
 
-1. Seguire questa procedura per [passare alle impostazioni di Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
-1. Passare ad **Applicazioni**, **Provider di identità** e **Tutti i criteri** ed eliminare tutte le voci rispettivamente visualizzate.
+1. Eliminare tutti i criteri nel tenant di Azure AD B2C.
 1. Ora accedere al [portale di Azure](https://portal.azure.com/) come amministratore della sottoscrizione. Usare lo stesso account aziendale o dell'istituto d'istruzione o lo stesso account Microsoft usato per l'iscrizione ad Azure.
 1. Passare al tenant di Azure AD B2C che si vuole eliminare.
 2. Passare al menu Active Directory a sinistra.

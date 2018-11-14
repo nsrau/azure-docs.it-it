@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a74e6a6a90a242d4d1b2fd71a5fc6cf949ea55cb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815257"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282924"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configurare un'esperienza di ricerca personalizzata
 
@@ -64,7 +64,7 @@ Analogamente, è possibile aggiungere sezioni all'elenco Blocked (Elementi blocc
 
 ## <a name="pinned-list"></a>Elenco Pinned (Elementi aggiunti in alto)
 
-Il portale consente anche di aggiungere una pagina Web specifica in alto nei risultati della ricerca, se l'utente immette un termine di ricerca specifico. La scheda **Pinned** (Elementi aggiunti in alto) contiene un elenco di coppie costituite da termine di query e pagina Web che specificano la pagina Web che viene visualizzata come primo risultato per una query specifica. Per informazioni sull'aggiunta di risultati, vedere [Modificare la classificazione](#adjustrank).
+Il portale consente anche di aggiungere una pagina Web specifica in alto nei risultati della ricerca, se l'utente immette un termine di ricerca specifico. La scheda **Pinned** (Elementi aggiunti in alto) contiene un elenco di coppie costituite da termine di query e pagina Web che specificano la pagina Web che viene visualizzata come primo risultato per una query specifica. Inoltre, nelle ricerche verranno visualizzate solo le pagine Web indicizzate. Per informazioni sull'aggiunta di risultati, vedere [Modificare la classificazione](#adjustrank). 
 
 L'aggiunta in alto dei risultati non è disponibile per le esperienze di ricerca di immagini e video.
 

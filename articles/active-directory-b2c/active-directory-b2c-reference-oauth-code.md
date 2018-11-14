@@ -10,17 +10,15 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6ab5ede0b8af6c601cc53e044a3e6902fbd2e11
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d388242b4b0c882d60a83227a37af997b1ceb1f6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340811"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282646"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: flusso del codice di autorizzazione di OAuth 2.0
 È possibile usare la concessione del codice di autorizzazione OAuth 2.0 nelle app che vengono installate su un dispositivo per ottenere l'accesso a risorse protette, ad esempio le API Web. Con l'implementazione di Azure Active Directory B2C (Azure AD B2C) di OAuth 2.0 è possibile aggiungere attività di gestione dell'iscrizione, dell'accesso e altre attività di gestione delle identità alle app per desktop e per dispositivi mobili. Questo articolo è indipendente dal linguaggio. Descrive come inviare e ricevere messaggi HTTP senza usare alcuna libreria open source.
-
-<!-- TODO: Need link to libraries -->
 
 Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](http://tools.ietf.org/html/rfc6749). È possibile usarlo per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei [tipi di applicazioni](active-directory-b2c-apps.md), tra cui le applicazioni Web e le applicazioni installate in modo nativo. È possibile usare il flusso del codice di autorizzazione di OAuth 2.0 per acquisire in modo sicuro token di accesso e di aggiornamento per le applicazioni, i quali possono essere usati per accedere a risorse protette da un [server di autorizzazione](active-directory-b2c-reference-protocols.md).  Il token di aggiornamento consente al client di acquisire nuovi token di accesso (e aggiornamento) quando scade il token di accesso, in genere dopo un'ora.
 
@@ -80,7 +78,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |Obbligatoria |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
 | scope |Obbligatoria |Elenco di ambiti separati da spazi. Un singolo valore di ambito indica ad Azure Active Directory (Azure AD) entrambe le autorizzazioni richieste. L'uso dell'ID client come ambito indica che l'app necessita di un token di accesso, che può essere usato per il servizio o l'API Web, rappresentato dallo stesso ID client.  L'ambito `offline_access` indica che l'app necessita di un token di aggiornamento per avere un accesso di lunga durata alle risorse. È anche possibile usare l'ambito `openid` per richiedere un token ID ad Azure Active Directory B2C. |
 | response_mode |Consigliato |Metodo da usare per inviare all'app il codice di autorizzazione risultante. Può essere `query`, `form_post` o `fragment`. |
-| state |Consigliato |Valore incluso nella richiesta che viene restituito nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto si voglia usare. Per evitare attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente. Anche lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima del verificarsi della richiesta di autenticazione, ad esempio la pagina in cui si trova l'utente o i criteri che vengono eseguiti. |
+| state |Consigliato |Valore incluso nella richiesta che può essere una stringa di qualsiasi contenuto che si intende usare. Per evitare attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente. Anche lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima del verificarsi della richiesta di autenticazione, ad esempio la pagina in cui si trova l'utente o i criteri che vengono eseguiti. |
 | p |Obbligatoria |Criteri che vengono eseguiti. Si tratta del nome di criteri creati nella directory di Azure AD B2C. Il valore del nome dei criteri deve iniziare con **b2c\_1\_**. Per altre informazioni sui criteri, vedere l'articolo relativo ai [criteri predefiniti di Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | prompt |Facoltativo |Tipo di interazione utente obbligatoria. L'unico valore valido in questa fase è `login`, che impone all'utente di immettere le credenziali per la richiesta. L'accesso Single Sign-On non avrà effetto. |
 

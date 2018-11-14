@@ -5,20 +5,20 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24337863d4e3f8e093c2e33afbb39364ec37516d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fd33ca723bd00b4a9c25009ef5b4f444487244f0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252103"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281949"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi
 
 Questo articolo descrive i diversi modi per filtrare gli eventi che vengono inviati all'endpoint. Quando si crea una sottoscrizione di eventi, sono disponibili tre opzioni di filtro:
 
-* Tipi di evento
+* Tipi di eventi
 * L'oggetto inizia o termina con
 * Campi e operatori avanzati
 
@@ -41,7 +41,7 @@ La sintassi JSON per l'applicazione di un filtro in base al tipo di evento è la
 
 Per applicare un filtro semplice in base all'oggetto, specificare un valore iniziale o finale per l'oggetto. È ad esempio possibile specificare che l'oggetto termina con `.txt` per ottenere solo gli eventi correlati al caricamento di un file di testo in un account di archiviazione. È anche possibile specificare che l'oggetto inizia con `/blobServices/default/containers/testcontainer` per ottenere tutti gli eventi per il contenitore specificato, ma non per altri contenitori nell'account di archiviazione.
 
-Quando si pubblicano eventi per argomenti personalizzati, creare oggetti per gli eventi che facilitino i sottoscrittori a capire se sono interessati nell'evento. I sottoscrittori usano la proprietà subject per filtrare e instradare gli eventi. È consigliabile aggiungere il percorso in cui si è verificato l'evento, in modo che i sottoscrittori possano filtrare in base ai segmenti di tale percorso. Il percorso consente ai sottoscrittori di filtrare gli eventi in base a un ambito più o meno ampio. Se ad esempio si specifica un percorso di tre segmenti, come `/A/B/C` nell'oggetto, i sottoscrittori possono filtrare in base al primo segmento `/A` per ottenere un ampio set di eventi. Tali sottoscrittori ricevono eventi con oggetti come `/A/B/C` o `/A/D/E`. Altri sottoscrittori possono filtrare in base a `/A/B` per ottenere un set di eventi più ristretto.
+Quando si pubblicano eventi per argomenti personalizzati, creare oggetti per gli eventi che facilitino i sottoscrittori a capire se sono interessati nell'evento. I sottoscrittori usano la proprietà subject per filtrare e instradare gli eventi. È consigliabile aggiungere il percorso in cui si è verificato l'evento, in modo che i sottoscrittori possano filtrare in base ai segmenti di tale percorso. Il percorso consente ai sottoscrittori di filtrare gli eventi a seconda della dimensione. Se ad esempio si specifica un percorso di tre segmenti, come `/A/B/C` nell'oggetto, i sottoscrittori possono filtrare in base al primo segmento `/A` per ottenere un ampio set di eventi. Tali sottoscrittori ricevono eventi con oggetti come `/A/B/C` o `/A/D/E`. Altri sottoscrittori possono filtrare in base a `/A/B` per ottenere un set di eventi più ristretto.
 
 La sintassi JSON per l'applicazione di un filtro in base al tipo di evento è la seguente:
 
@@ -57,9 +57,9 @@ La sintassi JSON per l'applicazione di un filtro in base al tipo di evento è la
 
 Per filtrare i valori nei campi dati e specificare l'operatore di confronto, usare l'opzione di filtro avanzato. Quando si applica un filtro avanzato si specificano gli elementi seguenti:
 
-* operatorType: il tipo di confronto.
+* operator type: il tipo di confronto.
 * key: il campo nei dati dell'evento che viene usato per il filtro. Può essere un numero, un valore booleano o una stringa.
-* values: i valori da confrontare con la chiave.
+* valore o valori: i valori da confrontare con la chiave.
 
 La sintassi JSON per l'uso di filtri avanzati è la seguente:
 
@@ -67,14 +67,14 @@ La sintassi JSON per l'uso di filtri avanzati è la seguente:
 "filter": {
   "advancedFilters": [
     {
-      "Operator": "NumberGreaterThanOrEquals",
-      "Key": "Data.Key1",
-      "Values": 5
+      "operatorType": "NumberGreaterThanOrEquals",
+      "key": "Data.Key1",
+      "value": 5
     },
     {
-      "Operator": "StringContains",
-      "Key": "Subject",
-      "Values": ["container1", "container2"]
+      "operatorType": "StringContains",
+      "key": "Subject",
+      "values": ["container1", "container2"]
     }
   ]
 }
@@ -107,9 +107,9 @@ Per tutti i confronti tra stringhe non viene fatta distinzione tra maiuscole e m
 
 Per gli eventi nello schema di Griglia di eventi, usare i valori seguenti per l'elemento key:
 
-* Id
-* Topic
-* Subject
+* ID
+* Argomento
+* Oggetto
 * EventType
 * DataVersion
 * Dati dell'evento (ad esempio, Data.key1)
@@ -117,19 +117,19 @@ Per gli eventi nello schema di Griglia di eventi, usare i valori seguenti per l'
 Per gli eventi nello schema di Eventi cloud, usare i valori seguenti per l'elemento key:
 
 * EventId
-* Source
+* Sorgente
 * EventType
 * EventTypeVersion
 * Dati dell'evento (ad esempio, Data.key1)
 
-Per uno schema di input personalizzato, usare i campi dati degli eventi (ad esempio, Data.key1 Data.key1.key2).
+Per uno schema di input personalizzato, usare i campi dati degli eventi (ad esempio, Data.key1).
 
 ### <a name="values"></a>Valori
 
 I valori possibili sono:
 
 * number
-* string
+* stringa
 * boolean
 * array
 
@@ -140,7 +140,7 @@ I filtri avanzati presentano le limitazioni seguenti:
 * Cinque filtri avanzati per ogni sottoscrizione di Griglia di eventi
 * 512 caratteri per ogni valore stringa
 * Cinque valori per gli operatori **in** e **not in**
-* L'elemento key può avere solo due livelli di annidamento (ad esempio, data.key1.key2)
+* L'elemento key può avere solo un livello di annidamento (ad esempio, data.key1)
 
 È possibile usare l'elemento key in più filtri.
 

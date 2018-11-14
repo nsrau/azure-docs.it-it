@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 47773f9375927e4d8dfbfec922e4cf11e42ade04
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670048"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958603"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuire il cluster vFXT
 
@@ -30,7 +30,7 @@ Per altre informazioni sulla procedura di distribuzione e sulla pianificazione d
 
 Dopo aver seguito le istruzioni in questo documento, si disporrà di una rete virtuale, una subnet, un controller e un cluster vFXT, come illustrato nel diagramma seguente:
 
-![Diagramma che mostra la rete virtuale contenente l'archiviazione BLOB facoltativa e una subnet contenente tre macchine virtuali raggruppate etichettate come nodi vFXT/cluster vFXT e una macchina virtuale etichettata come controller del cluster](media/avere-vfxt-deployment-500px.png)
+![Diagramma che mostra la rete virtuale contenente l'archiviazione BLOB facoltativa e una subnet contenente tre macchine virtuali raggruppate etichettate come nodi vFXT/cluster vFXT e una macchina virtuale etichettata come controller del cluster](media/avere-vfxt-deployment.png)
 
 Prima di iniziare, assicurarsi che siano soddisfatti i prerequisiti seguenti:  
 
@@ -198,9 +198,7 @@ Informazioni necessarie per la creazione del cluster:
 
 Per trovare le informazioni dall'output del modello di Resource Manager, seguire questa procedura:
 
-1. Dall'icona di notifica nella barra superiore del portale di Azure fare clic su **Vai al gruppo di risorse**. Verrà visualizzato il nuovo gruppo di risorse contenente il controller e la rete virtuale.
-
-   ![Sezione delle notifiche del portale con il messaggio "La distribuzione è riuscita" e i pulsanti "Vai al gruppo di risorse" e "Aggiungi al dashboard"](media/avere-vfxt-browse-to-rg.png)
+1. Passare al gruppo di risorse del controller cluster.
 
 1. A sinistra fare clic su **Distribuzioni** e quindi su **Microsoft.Template**.
 

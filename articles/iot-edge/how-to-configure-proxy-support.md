@@ -4,16 +4,16 @@ description: Come configurare il runtime Azure IoT Edge e tutti i moduli IoT Edg
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/24/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037457"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913224"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurare un dispositivo IoT Edge per comunicare tramite un server proxy
 
@@ -25,6 +25,18 @@ Per configurare un dispositivo IoT Edge da usare con un server proxy, seguire qu
 2. Configurare il daemon Docker e il daemon IoT Edge nel dispositivo per usare il server proxy.
 3. Configurare le proprietà di edgeAgent nel file config.yaml nel dispositivo.
 4. Impostare le variabili di ambiente per il runtime IoT Edge e altri moduli IoT Edge nel manifesto della distribuzione. 
+
+## <a name="know-your-proxy-url"></a>Conoscere l'URL proxy
+
+Per configurare il daemon Docker e il daemon IoT Edge nel dispositivo è necessario conoscere l'URL proxy. 
+
+Gli URL proxy hanno il formato seguente: **protocollo**://**host_proxy**:**porta_proxy**. 
+
+* Il **protocollo** è HTTP o HTTPS. Il daemon Docker può essere configurato con entrambi i protocolli in base alle impostazioni del registro contenitori, mentre il daemon e i contenitori di runtime di IoT Edge devono usare sempre HTTPS.
+
+* L'**host_proxy** è un indirizzo per il server proxy. Se il server proxy richiede l'autenticazione, è possibile fornire le credenziali come parte dell'host_proxy nel formato **utente**:**password**@**host_proxy**. 
+
+* La **porta_proxy** è la porta di rete a cui il proxy risponde al traffico di rete. 
 
 ## <a name="install-the-runtime"></a>Installare il runtime
 
@@ -47,7 +59,7 @@ I daemon Docker e IoT Edge in esecuzione nel dispositivo IoT Edge devono essere 
 
 ### <a name="docker-daemon"></a>Daemon docker
 
-Vedere la documentazione di Docker per configurare il daemon Docker con le variabili di ambiente. La maggior parte dei registri contenitori (compresi DockerHub e registri contenitori Azure) supporta le richieste HTTPS, per cui la variabile da impostare è **HTTPS_PROXY**. Se si esegue il pull di immagini da un registro che non supporta il protocollo TLS (Transport Layer Security), potrà essere necessario impostare **HTTP_PROXY**. 
+Vedere la documentazione di Docker per configurare il daemon Docker con le variabili di ambiente. La maggior parte dei registri contenitori (compresi DockerHub e registri contenitori Azure) supporta le richieste HTTPS, per cui il parametro da impostare è **HTTPS_PROXY**. Se si esegue il pull di immagini da un registro che non supporta il protocollo TLS (Transport Layer Security), sarà necessario impostare il parametro **HTTP_PROXY**. 
 
 Scegliere l'articolo che si applica alla versione Docker usata: 
 
@@ -113,7 +125,9 @@ Aprire il file config.yaml nel dispositivo IoT Edge. Nei sistemi Linux questo fi
 
 Nel file config.yaml trovare la sezione **Edge Agent module spec**. La definizione dell'agente Edge include un parametro **env** in cui è possibile aggiungere le variabili di ambiente. 
 
-![Definizione di edgeAgent](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+<!--
+![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 Rimuovere le parentesi graffe che sono un segnaposto per il parametro env e aggiungere la nuova variabile in una nuova riga. Tenere presente che i rientri in YAML sono rappresentati da due spazi. 
 
@@ -201,7 +215,7 @@ Se nel file config.yaml è stata inclusa la variabile di ambiente **UpstreamProt
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"

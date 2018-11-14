@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c16f06d0cc031cd9b51a3c6cf0beb149a19aeb4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001440"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282204"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
 I [certificati di servizio](#what-are-service-certificates) vengono usati in Azure per i servizi cloud, mentre i [certificati di gestione](#what-are-management-certificates) vengono usati per l'autenticazione con l'API di gestione. Questo argomento offre informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come [distribuirli](#deploy) in Azure.
@@ -27,6 +27,9 @@ I [certificati di servizio](#what-are-service-certificates) vengono usati in Azu
 Quelli usati in Azure sono certificati x.509 v3 e possono essere firmati da un altro certificato attendibile o essere autofirmati. Un certificato autofirmato viene firmato dall'autore e pertanto non è attendibile per impostazione predefinita. La maggior parte dei browser può ignorare questo problema. È consigliabile utilizzare i certificati autofirmati solo quando si sviluppano e si testano servizi cloud. 
 
 I certificati usati da Azure possono contenere una chiave privata o una pubblica. I certificati hanno un'identificazione personale che consente di identificarli in modo non ambiguo. Questa identificazione personale viene usata nel [file di configurazione](cloud-services-configure-ssl-certificate-portal.md) di Azure per identificare il certificato che un servizio cloud dovrebbe usare. 
+
+>[!Note]
+>I servizi Cloud di Azure non accettano il certificato crittografato AES256-SHA256.
 
 ## <a name="what-are-service-certificates"></a>Cosa sono i certificati di servizio?
 I certificati di servizio sono associati ai servizi cloud e consentono la comunicazione sicura verso e dal servizio. Ad esempio, se si distribuisse un ruolo Web, si fornirebbe un certificato per autenticare un endpoint HTTPS esposto. I certificati di servizio, definiti nella definizione del servizio, vengono automaticamente distribuiti nella macchina virtuale che esegue un'istanza del ruolo. 

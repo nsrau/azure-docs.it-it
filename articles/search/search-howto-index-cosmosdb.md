@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: c74563ba98835403f12a4df048d7ff358014b826
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406671"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747542"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Connessione di Cosmos DB con Ricerca di Azure tramite indicizzatori
 
@@ -48,6 +48,8 @@ Il supporto per API aggiuntive è imminente. Per aiutarci a definire la priorit�
 ## <a name="prerequisites"></a>Prerequisiti
 
 Oltre a un account Cosmos DB, è necessario disporre di un [servizio di Ricerca di Azure](search-create-service-portal.md). 
+
+Nell'account Cosmos DB è possibile specificare se la raccolta deve indicizzare automaticamente tutti i documenti. Per impostazione predefinita, tutti i documenti vengono indicizzati automaticamente, ma è possibile disattivare l'indicizzazione automatica. Quando l'indicizzazione è disattivata, i documenti sono accessibili solo tramite i rispettivi collegamenti automatici o tramite query usando l'ID documento. Il servizio Ricerca di Azure richiede l'attivazione dell'indicizzazione automatica di Cosmos DB nella raccolta che verrà indicizzata da Ricerca di Azure. 
 
 <a name="Concepts"></a>
 ## <a name="azure-search-indexer-concepts"></a>Concetti relativi all'indicizzatore di Ricerca di Azure

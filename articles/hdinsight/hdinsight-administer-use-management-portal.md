@@ -1,30 +1,28 @@
 ---
-title: Gestire cluster Hadoop basati su Windows in HDInsight tramite il portale di Azure
-description: Informazioni su come amministrare il servizio HDInsight. Creare un cluster HDInsight, aprire la console interattiva JavaScript e aprire la console dei comandi di Hadoop.
+title: Gestire cluster Apache Hadoop basati su Windows in HDInsight tramite il portale di Azure
+description: Informazioni su come amministrare il servizio HDInsight. Creare un cluster HDInsight, aprire la console interattiva JavaScript e aprire la console dei comandi di Apache Hadoop.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 130f684b69a9cfa1936c2a9aa5175f3d5a7631ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 651a03f69a7664b68ce3fe5c512c59c01762a505
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970278"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282476"
 ---
-# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Hadoop basati su Windows in HDInsight tramite il portale di Azure
+# <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire i cluster Apache Hadoop basati su Windows in HDInsight tramite il portale di Azure
 
-Il [portale di Azure][azure-portal] consente di creare cluster Hadoop basati su Windows in Azure HDInsight, modificare la password utente di Hadoop e abilitare RDP (Remote Desktop Protocol) per accedere alla console dei comandi di Hadoop nel cluster.
+Il [portale di Azure][azure-portal] consente di creare cluster Apache Hadoop basati su Windows in Azure HDInsight, modificare la password utente di Hadoop e abilitare RDP (Remote Desktop Protocol) per accedere alla console dei comandi di Hadoop nel cluster.
 
 Le informazioni contenute in questo articolo si applicano solo ai cluster HDInsight basati su Windows. Per informazioni sulla gestione dei cluster basati su Linux, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-portal-linux.md).
 
-> [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -83,7 +81,7 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
    * **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
    * **Elimina**: elimina il cluster.
    * **Avvio rapido**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
-   * **Utenti**: consente di impostare le autorizzazioni per la *gestione del portale* di questo cluster per altri utenti nella sottoscrizione Azure.
+   * **Utenti**: consente di impostare le autorizzazioni per la *gestione del portale* di questo cluster per altri utenti nella sottoscrizione di Azure.
 
      > [!IMPORTANT]
      > Questo influisce *solo* sull'accesso e sulle autorizzazioni per tale cluster nel portale di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
@@ -207,7 +205,7 @@ Questo processo può essere programmato in molti modi:
 
 * Usare Data factory di Azure. Per i servizi collegati di HDInsight su richiesta e autodefiniti, vedere [Servizio collegato Azure HDInsight](../data-factory/compute-linked-services.md) e [Trasformare e analizzare tramite Azure Data Factory](../data-factory/transform-data.md).
 * Usare Azure PowerShell.  Vedere [Analizzare i dati relativi ai ritardi dei voli](hdinsight-analyze-flight-delay-data.md).
-* Usare l'interfaccia della riga di comando classica di Azure. Vedere [Manage HDInsight clusters using Azure Classic CLI](hdinsight-administer-use-command-line.md) (Gestire cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando classica di Azure).
+* Usare l'interfaccia della riga di comando classica di Azure. Vedere [Gestire cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md).
 * Usare HDInsight .NET SDK. Vedere [Inviare processi di Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Per informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Per eliminare un cluster dal portale, vedere [Eliminare cluster](#delete-clusters)
@@ -328,7 +326,7 @@ Le credenziali del cluster fornite durante la creazione consentono di accedere a
     La Scadenza predefinita è una settimana.
 
    > [!NOTE]
-   > Per abilitare Desktop remoto in un cluster è anche possibile usare HDInsight .NET SDK. Usare il metodo **EnableRdp** sull'oggetto client HDInsight nel modo seguente: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Analogamente, per disabilitare Desktop remoto nel cluster è possibile usare **client.DisableRdp(clustername, location)**. Per altre informazioni su questi metodi, vedere [Documentazione di riferimento relativa a HDInsight .NET SDK](http://go.microsoft.com/fwlink/?LinkId=529017). È applicabile solo per i cluster HDInsight in esecuzione in Windows.
+   > Per abilitare Desktop remoto in un cluster è anche possibile usare HDInsight .NET SDK. Usare il metodo **EnableRdp** sull'oggetto client HDInsight nel modo seguente: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Analogamente, per disabilitare Desktop remoto nel cluster è possibile usare **client.DisableRdp(clustername, location)**. Per altre informazioni su questi metodi, vedere [Documentazione di riferimento relativa a HDInsight .NET SDK](https://go.microsoft.com/fwlink/?LinkId=529017). È applicabile solo per i cluster HDInsight in esecuzione in Windows.
    >
    >
 

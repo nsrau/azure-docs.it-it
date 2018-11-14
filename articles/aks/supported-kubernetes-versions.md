@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: d8da717b83b43395309c695a4f9edaeda8144a8b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: a17e2fa4bef6890d59f7e66c6ede349f8dee3b8a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379196"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280454"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Kubernetes di Azure (AKS)
 
@@ -29,7 +29,7 @@ Il servizio Kubernetes di Azure supporta quattro versioni secondarie di Kubernet
 
 Se, ad esempio, il servizio Kubernetes di Azure introduce oggi *1.11.x*, il supporto viene fornito anche per *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8F* (in cui le versioni delle patch sono le due build stabili più recenti).
 
-Quando viene introdotta una nuova versione secondaria, vengono ritirate la versioni secondaria precedente e le versioni delle patch supportate. 15 giorni prima del rilascio della nuova versione secondaria e il futuro ritiro della versione, viene fatto un annuncio tramite i canali di aggiornamento di Azure. Nell'esempio precedente in cui viene rilasciata la versione *1.11.x*, le versioni ritirate sono *1.7.g* + *1.7.h*.
+Quando viene introdotta una nuova versione secondaria, vengono ritirate la versioni secondaria precedente e le versioni delle patch supportate. 15 giorni prima del rilascio della nuova versione secondaria e il futuro ritiro della versione, viene fatto un annuncio tramite i [canali di aggiornamento di Azure][azure-update-channel]. Nell'esempio precedente in cui viene rilasciata la versione *1.11.x*, le versioni ritirate sono *1.7.g* + *1.7.h*.
 
 Quando si distribuisce un cluster del servizio Kubernetes di Azure nel portale o con l'interfaccia della riga di comando di Azure, il cluster è sempre impostato sulla versione secondaria n-1 e la patch più recente. Se, ad esempio, il servizio Kubernetes di Azure supporta *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8F*, la versione predefinita per i nuovi cluster è *1.10.b*.
 
@@ -85,6 +85,7 @@ Per informazioni su come aggiornare il cluster, vedere [Aggiornare un cluster di
 
 <!-- LINKS - External -->
 [acs-engine]: https://github.com/Azure/acs-engine
+[azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md

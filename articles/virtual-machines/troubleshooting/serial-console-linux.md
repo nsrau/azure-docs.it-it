@@ -1,5 +1,5 @@
 ---
-title: Console seriale per macchine virtuali di Azure | Microsoft Docs
+title: Console seriale per macchine virtuali di Azure per Linux | Microsoft Docs
 description: Console seriale bidirezionale per macchine virtuali di Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 22128f027f0a218756e413653aa92ee097064587
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741709"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963819"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console seriale per macchine virtuali per Linux
 
@@ -33,17 +33,17 @@ Per la documentazione della console seriale per macchine virtuali Windows, veder
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-* La macchina virtuale da cui si accede a una console seriale deve usare il modello di distribuzione Resource Manager. Le distribuzioni classiche non sono supportate. 
+- La macchina virtuale da cui si accede a una console seriale deve usare il modello di distribuzione Resource Manager. Le distribuzioni classiche non sono supportate. 
 
-* La macchina virtuale da cui si accede a una console seriale deve avere la [diagnostica di avvio](boot-diagnostics.md) abilitata. Selezionare **Diagnostica di avvio** nella sezione **Supporto e risoluzione dei problemi**.
+- La macchina virtuale da cui si accede a una console seriale deve avere la [diagnostica di avvio](boot-diagnostics.md) abilitata. 
 
     ![Impostazioni di diagnostica di avvio](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-Un account che usa la console seriale deve avere il [ruolo Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) per la macchina virtuale e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md): 
+- Un account che usa la console seriale deve avere il [ruolo Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) per la macchina virtuale e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md): 
 
-* La macchina virtuale da cui si accede a una console seriale deve avere un account basato su password. È possibile crearne uno con la funzione di [reimpostazione della password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) dell'estensione di accesso alla macchina virtuale. Selezionare **Reimposta password** nella sezione **Supporto e risoluzione dei problemi**. 
+    - La macchina virtuale da cui si accede a una console seriale deve avere un account basato su password. È possibile crearne uno con la funzione di [reimpostazione della password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) dell'estensione di accesso alla macchina virtuale. Selezionare **Reimposta password** nella sezione **Supporto e risoluzione dei problemi**. 
 
-* Per le impostazioni specifiche delle distribuzioni Linux, vedere [Disponibilità delle distribuzioni della console seriale per Linux](#serial-console-linux-distribution-availability).
+    - Per le impostazioni specifiche delle distribuzioni Linux, vedere [Disponibilità delle distribuzioni della console seriale per Linux](#serial-console-linux-distribution-availability).
 
 
 
@@ -51,12 +51,14 @@ Un account che usa la console seriale deve avere il [ruolo Collaboratore Macchin
 La console seriale per le macchine virtuali è accessibile solo tramite il portale di Azure:
 
   1. Aprire il [portale di Azure](https://portal.azure.com).
+
   1. Nel menu a sinistra selezionare **Macchine virtuali**.
+
   1. Selezionare una macchina virtuale nell'elenco. Viene visualizzata la pagina Panoramica relativa alla macchina virtuale.
+
   1. Scorrere verso il basso fino alla sezione **Supporto e risoluzione dei problemi** e selezionare **Console seriale**. Viene visualizzato un nuovo riquadro con la console seriale e viene avviata la connessione.
 
-   ![Finestra della console seriale Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
+     ![Finestra della console seriale Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 

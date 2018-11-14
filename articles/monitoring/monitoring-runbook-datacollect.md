@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: f1a106a4f99c09134b8784e98ca547db51ce0eae
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7ef7f6548cd3dd838889fd51ff0521428bbbc2aa
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409510"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282680"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Raccogliere dati in Log Analytics con un runbook di Automazione di Azure
 È possibile raccogliere una quantità significativa di dati in Log Analytics da una serie di origini, tra cui [origini dati](../log-analytics/log-analytics-data-sources.md) negli agenti e [dati raccolti da Azure](../log-analytics/log-analytics-azure-storage.md).  Esistono tuttavia scenari in cui è necessario raccogliere dati non accessibili tramite queste origini standard.  In questi casi è possibile usare l'[API di raccolta dati HTTP](../log-analytics/log-analytics-data-collector-api.md) per inviare dati a Log Analytics da qualsiasi client dell'API REST.  Un modo comune per eseguire questa raccolta dati è usare un runbook in Automazione di Azure.   
@@ -30,8 +30,8 @@ Questa esercitazione illustra il processo di creazione e pianificazione di un ru
 ## <a name="prerequisites"></a>Prerequisiti
 Questo scenario richiede la configurazione delle risorse seguenti nella sottoscrizione di Azure.  Per entrambe è possibile usare un account gratuito.
 
-- [Area di lavoro di Log Analytics](../log-analytics/log-analytics-get-started.md).
-- [Account di automazione di Azure](../automation/automation-offering-get-started.md).
+- [Area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+- [Account di automazione di Azure](..//automation/automation-quickstart-create-account.md).
 
 ## <a name="overview-of-scenario"></a>Panoramica dello scenario
 Per questa esercitazione si scriverà un runbook che raccoglie informazioni sui processi di automazione.  I runbook in Automazione di Azure vengono implementati con PowerShell, quindi si inizia scrivendo e testando uno script nell'editor di Automazione di Azure.  Dopo aver verificato che vengano raccolte le informazioni necessarie, si invieranno i dati a Log Analytics e si verificherà il tipo di dati personalizzato.  Si creerà infine una pianificazione per avviare il runbook a intervalli regolari.
@@ -145,7 +145,7 @@ Automazione di Azure include un ambiente che consente di [testare il runbook](..
     ![Output del comando POST](media/monitoring-runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Verificare i record in Log Analytics
-Dopo aver completato il test del runbook e aver verificato che l'output sia stato ricevuto correttamente, è possibile verificare che i record siano stati creati usando una [ricerca log in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+Dopo aver completato il test del runbook e aver verificato che l'output sia stato ricevuto correttamente, è possibile verificare che i record siano stati creati usando una [ricerca log in Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ![Output del log](media/monitoring-runbook-datacollect/log-output.png)
 

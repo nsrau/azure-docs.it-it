@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 65909e13c75ae4d2577ea29f562b841a1eb20477
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299101"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256426"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizzare i processi di Azure Application Insights con il connettore per Microsoft Flow
 
@@ -34,7 +34,7 @@ Con questa integrazione è ora possibile automatizzare numerosi processi senza d
 Questa esercitazione illustra come creare un flusso che usa l'algoritmo di cluster automatico di Analisi per raggruppare gli attributi dei dati per un'applicazione Web. Il flusso invia automaticamente i risultati tramite posta elettronica. Questo è solo un esempio di uso congiunto di Microsoft Flow e Application Insights - Analisi. 
 
 ### <a name="step-1-create-a-flow"></a>Passaggio 1: Creare un flusso
-1. Accedere a [Microsoft Flow](http://flow.microsoft.com) e quindi selezionare **Flussi personali**.
+1. Accedere a [Microsoft Flow](https://flow.microsoft.com) e quindi selezionare **Flussi personali**.
 1. Fare clic su **Crea un flusso da un modello vuoto**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Passaggio 2: Creare un trigger per il flusso
@@ -85,7 +85,7 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
 
 1. Fare clic su **Nuovo passaggio** e quindi su **Aggiungi un'azione**.
 1. Cercare **Office 365 Outlook**.
-1. Fare clic su **Office 365 Outlook - Invia un messaggio di posta elettronica**.
+1. Fare clic su **Office 365 Outlook - Send an email** (Office 365 Outlook: invia un messaggio di posta elettronica).
 
     ![Finestra di selezione di Office 365 Outlook](./media/app-insights-automate-with-flow/flow2b.png)
 
@@ -125,7 +125,7 @@ Quando il flusso è in esecuzione, i destinatari specificati nell'elenco di post
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla creazione di [query di Analisi](app-insights-analytics-using.md).
+- Altre informazioni sulla creazione di [query di Analisi](../log-analytics/query-language/get-started-queries.md).
 - Altre informazioni su [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

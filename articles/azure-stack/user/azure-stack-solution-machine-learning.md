@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 59696245dc33302c65aee5a39dc856926347b8fb
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 8a5ca4f94a6f1186b6d1a26b1c7e12357cd9e799
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569115"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616368"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Esercitazione: Creare una bordo soluzione di machine learning con Azure e Azure Stack
 
@@ -992,7 +992,7 @@ Per completare la procedura seguente per rendere operativo il modello, il motore
 1.  Verificare che il provider di risorse di Azure **Microsoft. containerregistry** viene registrato nella sottoscrizione. Registrare questo provider di risorse prima di creare un ambiente nel passaggio 3. Verificare se è già registrato con il comando seguente:
 
     ```CLI
-        az provider list --query "\[\].{Provider:namespace, Status:registrationState}" --out table
+        az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
     ```
 
     Visualizzare il seguente output:
@@ -1271,10 +1271,8 @@ All'interno dell'ambiente di sottosistema Windows per Linux, eseguire i comandi 
 
 ```Bash  
     apt-get update && apt-get install -y apt-transport-https
-    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-    cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
-    deb http://apt.kubernetes.io/ kubernetes-xenial main
-    EOF
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
+    sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
     apt-get update
     apt-get install -y kubectl
 ```

@@ -7,51 +7,46 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3d18e1b2e45aba4e83989e29c533cfc7bf5033fc
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: eabae0f3575719c6cb93affefe0a393dd13d1439
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442709"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014007"
 ---
-# <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: abilitare Multi-Factor Authentication nelle applicazioni destinate agli utenti
-Azure Active Directory (Azure AD) B2C si integra direttamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) per consentire l'aggiunta di un secondo livello di protezione alle esperienze di iscrizione e di accesso nelle applicazioni rivolte ai consumatori. Questo è possibile senza scrivere una singola riga di codice. Attualmente è supportata la verifica tramite chiamata telefonica e SMS. Se i criteri di iscrizione e accesso sono già stati creati, è ancora possibile abilitare Multi-Factor Authentication.
+# <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Abilitare l'autenticazione a più fattori in Azure Active Directory B2C
 
-> [!NOTE]
-> È anche possibile abilitare Multi-Factor Authentication durante la creazione di criteri per l'iscrizione e l'accesso, non solo modificando i criteri esistenti.
-> 
-> 
+Azure Active Directory (Azure AD) B2C si integra direttamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) per consentire l'aggiunta di un secondo livello di protezione alle esperienze di iscrizione e di accesso nelle applicazioni. È possibile abilitare l'autenticazione a più fattori senza scrivere una singola riga di codice. Se i criteri di iscrizione e accesso sono già stati creati, è ancora possibile abilitare l'autenticazione a più fattori.
 
 Questa funzionalità risulta utile per la gestione di scenari simili ai seguenti:
 
-* Multi-Factor Authentication non viene richiesta per accedere a una sola applicazione, ma viene richiesta per accedere a un'ulteriore applicazione. Ad esempio, l’utente può accedere a una richiesta di assicurazione automatica con un account locale o di social, ma deve verificare il numero di telefono prima di accedere all'applicazione di assicurazione home registrata nella stessa directory.
-* Multi-Factor Authentication non viene richiesta per accedere a un'applicazione in generale, ma viene richiesta per l'accesso alle aree sensibili. Ad esempio, l’utente può accedere a un'applicazione bancaria con un account locale o di social e controllare il saldo del conto, ma deve verificare il numero di telefono prima di effettuare un bonifico.
+- L'autenticazione a più fattori non viene richiesta per accedere a una sola applicazione, ma viene richiesta per accedere a un'ulteriore applicazione. Ad esempio, l'utente può accedere a un'applicazione di assicurazione auto con un account locale o di social networking, ma deve verificare il numero di telefono prima di accedere all'applicazione di assicurazione casa registrata nella stessa directory.
+- L'autenticazione a più fattori non viene richiesta per accedere a un'applicazione in generale, ma viene richiesta per l'accesso alle aree sensibili. Ad esempio, l'utente può accedere a un'applicazione bancaria con un account locale o di social networking e controllare il saldo del conto, ma deve verificare il numero di telefono prima di effettuare un bonifico.
 
-## <a name="modify-your-sign-up-policy-to-enable-multi-factor-authentication"></a>Modificare i criteri di iscrizione per abilitare Multi-Factor Authentication
-1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Fare clic su **Criteri di iscrizione**.
-3. Fare clic sul criterio di iscrizione (ad esempio, "B2C_1_SiUp") per aprirlo.
-4. Fare clic su **Autenticazione a più fattori** e impostare **Stato** su **ON**. Fare clic su **OK**.
-5. Fare clic su **Salva** nella parte superiore del pannello.
+## <a name="set-multi-factor-authentication"></a>Impostare l'autenticazione a più fattori
 
-È possibile utilizzare la funzionalità "Esegui ora" nei criteri per verificare l'esperienza utente. Verificare quanto segue:
+Quando si crea un criterio, è possibile abilitare l'autenticazione a più fattori.
 
-Un account utente viene creato nella directory prima che venga eseguito il passaggio di Multi-Factor Authentication. Durante il passaggio, all’utente viene richiesto di fornire il proprio numero di telefono e di verificarlo. Se la verifica ha esito positivo, il numero di telefono viene associato all'account utente per un utilizzo successivo. Anche se l'utente annulla o esce, al successivo accesso può venire richiesto all'utente di verificare nuovamente un numero di telefono (con Multi-Factor Authentication abilitata).
+![Impostare l'autenticazione a più fattori](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
-## <a name="modify-your-sign-in-policy-to-enable-multi-factor-authentication"></a>Modificare i criteri di accesso per abilitare Multi-Factor Authentication
-1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Fare clic su **Criteri di accesso**.
-3. Fare clic sul criterio di accesso (ad esempio, "B2C_1_SiIn") per aprirlo. Fare clic su **Modifica** nella parte superiore del pannello.
-4. Fare clic su **Autenticazione a più fattori** e impostare **Stato** su **ON**. Fare clic su **OK**.
-5. Fare clic su **Salva** nella parte superiore del pannello.
+Impostare **Stato** su **On**.
 
-È possibile utilizzare la funzionalità "Esegui ora" nei criteri per verificare l'esperienza utente. Verificare quanto segue:
+È possibile usare **Esegui ora** nei criteri per verificare l'esperienza. Confermare lo scenario seguente:
 
-Quando l’utente si iscrive (utilizzando un account locale o social), se un numero di telefono verificato è collegato all'account utente, viene richiesto di verificarlo. Se non è associato alcun numero di telefono, all’utente viene richiesto di fornire un numero di telefono e di verificarlo. Se la verifica ha esito positivo, il numero di telefono viene associato all'account utente per un uso successivo.
+Un account utente viene creato nel tenant prima che venga eseguito il passaggio di autenticazione a più fattori. Durante il passaggio, all'utente viene richiesto di fornire un numero di telefono e di verificarlo. Se la verifica ha esito positivo, il numero di telefono viene associato all'account per un utilizzo successivo. Anche se l'utente annulla o esce, al successivo accesso può venire richiesto all'utente di verificare nuovamente un numero di telefono (con l'autenticazione a più fattori abilitata).
 
-## <a name="multi-factor-authentication-on-other-policies"></a>Multi-Factor Authentication per altri criteri
-Come descritto in precedenza per i criteri di iscrizione e accesso, è possibile abilitare la Multi-Factor Authentication per i criteri di iscrizione e accesso e quelli di reimpostazione della password. Questa opzione sarà presto disponibile tra i criteri di modifica del profilo.
+## <a name="add-multi-factor-authentication"></a>Aggiungere l'autenticazione a più fattori
+
+È possibile abilitare l'autenticazione a più fattori in un criterio precedentemente creato. 
+
+Per abilitare l'autenticazione a più fattori:
+
+1. Aprire il criterio e quindi selezionare **Modifica**. 
+2. Selezionare **Autenticazione a più fattori**
+3. Impostare **Stato** su **On**.
+4. Fare clic su **Salva** nella parte superiore della pagina.
+
 

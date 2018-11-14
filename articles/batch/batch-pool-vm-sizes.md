@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 11/07/2018
 ms.author: danlep
-ms.openlocfilehash: 1669d5a2237322f72dce3b172c32e7199900a4e0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 35e5d13ac358fa5edcb778253340de0f9e15c067
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038263"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281279"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -41,9 +41,15 @@ I pool di Batch in configurazione macchina virtuale supportano tutte le dimensio
 | Serie A Basic | Basic_A0 (A0) |
 | Serie A | Standard_A0 |
 | Serie B | Tutti |
-| Serie M | Tutti |
 
+Le dimensioni seguenti di VM sono supportate solo per i nodi per priorità bassa:
 
+| Famiglia  | Dimensioni supportate  |
+|---------|---------|
+| Serie M | Standard_M64ms |
+| Serie M | Standard_M128s |
+
+Altre dimensioni di VM della famiglia della serie M non sono attualmente supportate.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pool in configurazione di tipo servizio cloud
 
@@ -55,6 +61,7 @@ I pool di Batch in configurazione servizio cloud supportano tutte le [dimensioni
 | Serie Av2 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## <a name="restricted-vm-families"></a>Famiglie di VM con restrizioni
+
 Le famiglie di VM seguenti possono essere allocate in pool di Batch, ma è necessario richiedere uno specifico aumento della quota (vedere [questo articolo](batch-quota-limit.md#increase-a-quota)):
 * Serie NCv2
 * Serie NCv3
