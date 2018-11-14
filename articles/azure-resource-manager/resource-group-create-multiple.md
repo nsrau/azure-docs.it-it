@@ -10,18 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 25488295ec046eb0ca7473af76e4618eacb1155d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e1edf0ed0c9efcb9f0c81718621706550bf3c4d7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38600771"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012004"
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager
+# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager
 
-In questo articolo viene illustrato come eseguire un'iterazione del modello di Azure Resource Manager per creare più istanze di una risorsa. Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](resource-manager-templates-resources.md#condition).
+Questo articolo illustra come eseguire un'iterazione del modello di Azure Resource Manager per creare più istanze di una risorsa. Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](resource-manager-templates-resources.md#condition).
+
+Per un'esercitazione, vedere [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Esercitazione: Creare più istanze di risorse usando i modelli di Resource Manager).
 
 ## <a name="resource-iteration"></a>Iterazione delle risorse
 
@@ -109,7 +111,7 @@ Crea questi nomi:
 * storagefabrikam
 * storagecoho
 
-Per impostazione predefinita, Gestione risorse crea le risorse in parallelo. Pertanto l'ordine di creazione non è garantito. Tuttavia è consigliabile specificare che le risorse vengano distribuite in sequenza. Ad esempio, quando si aggiorna un ambiente di produzione, è consigliabile sfalsare gli aggiornamenti per aggiornarne solo un determinato numero in un dato momento.
+Per impostazione predefinita, Gestione risorse crea le risorse in parallelo. L'ordine di creazione non è garantito. Tuttavia è consigliabile specificare che le risorse vengano distribuite in sequenza. Ad esempio, quando si aggiorna un ambiente di produzione, è consigliabile sfalsare gli aggiornamenti per aggiornarne solo un determinato numero in un dato momento.
 
 Per distribuire in modo seriale più istanze di una risorsa, impostare `mode` su **serial** e `batchSize` sul numero di istanze da distribuire contemporaneamente. Con la modalità seriale, Resource Manager crea una dipendenza da istanze precedenti nel ciclo in modo un batch venga avviato solo dopo il completamento del batch precedente.
 
@@ -149,7 +151,7 @@ La proprietà mode accetta anche **parallel**, che è il valore predefinito.
 Per creare più valori per una proprietà in una risorsa, aggiungere una matrice `copy` nell'elemento properties. Questa matrice contiene oggetti ai quali sono associate le proprietà riportate di seguito.
 
 * name: il nome della proprietà per la quale creare più valori
-* count: il numero di valori da creare
+* count: il numero di valori da creare. Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800.
 * input: un oggetto che contiene i valori da assegnare alla proprietà  
 
 Nell'esempio seguente viene illustrato come applicare `copy` alla proprietà dataDisks in una macchina virtuale:
@@ -379,7 +381,7 @@ L'elemento `dependsOn` consente di specificare che una risorsa sia distribuita d
 <a id="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>Iterazione di una risorsa figlio
-Non è possibile usare un ciclo di copia per una risorsa figlio. Per creare più istanze di una risorsa cosiddetta "annidata" all'interno di un'altra risorsa, è invece necessario creare tale risorsa come una risorsa di livello superiore. La relazione con la risorsa padre si definisce con le proprietà type e name.
+Non è possibile usare un ciclo di copia per una risorsa figlio. Per creare più istanze di una risorsa cosiddetta "annidata" all'interno di un'altra risorsa è invece necessario creare tale risorsa come una risorsa di livello superiore. La relazione con la risorsa padre si definisce con le proprietà type e name.
 
 Si supponga, ad esempio, di definire in genere un set di dati come una risorsa figlio all'interno di una data factory.
 
@@ -401,7 +403,7 @@ Si supponga, ad esempio, di definire in genere un set di dati come una risorsa f
 }]
 ```
 
-Per creare più istanze di un set di dati, spostarlo all'esterno della data factory. Il set di dati deve essere sullo stesso livello della data factory, di cui è comunque una risorsa figlio. La relazione fra set di dati e data factory viene mantenuta con le proprietà type e name. Poiché non è possibile dedurre il tipo dalla sua posizione nel modello, è necessario specificarne il nome completo nel formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+Per creare più set di dati, spostarlo all'esterno della data factory. Il set di dati deve essere sullo stesso livello della data factory, di cui è comunque una risorsa figlio. La relazione fra set di dati e data factory viene mantenuta con le proprietà type e name. Poiché non è possibile dedurre il tipo dalla sua posizione nel modello, è necessario specificarne il nome completo nel formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
 Per stabilire una relazione padre/figlio con un'istanza della data factory, specificare il nome del set di dati che include il nome della risorsa padre. Usare il formato: `{parent-resource-name}/{child-resource-name}`.  
 
@@ -430,7 +432,7 @@ Nell'esempio seguente viene descritta l'implementazione:
 
 ## <a name="example-templates"></a>Modelli di esempio
 
-Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più risorse o proprietà.
+Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più istanze di una risorsa o proprietà.
 
 |Modello  |DESCRIZIONE  |
 |---------|---------|
@@ -442,6 +444,9 @@ Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più riso
 |[Più regole di sicurezza](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuisce più regole di sicurezza a un gruppo di sicurezza di rete. Costruisce le regole di sicurezza da un parametro. Per il parametro, vedere il [file di parametri NSG multipli](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+* Per eseguire un'esercitazione, vedere [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Esercitazione: Creare più istanze di risorse usando i modelli di Resource Manager).
+
 * Per altre informazioni sulle sezioni di un modello, vedere [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md) (Creazione di modelli di Azure Resource Manager).
 * Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 

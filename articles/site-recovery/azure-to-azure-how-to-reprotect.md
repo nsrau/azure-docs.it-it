@@ -8,32 +8,32 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9759e209f15622d70aaa833a993234863ac1053c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: caef9a93e7d388ab55939876b7cc8344ce6370d0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918867"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012514"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Riproteggere macchine virtuali di Azure sottoposte a failover nell'area primaria
 
 
 Quando si [effettua il failover](site-recovery-failover.md) di macchine virtuali di Azure da un'area a un'altra tramite [Azure Site Recovery](site-recovery-overview.md), le macchine virtuali si avviano nell'area secondaria in uno stato non protetto. Se si vuole effettuare il failback delle macchine virtuali nell'area primaria, è necessario eseguire le operazioni seguenti:
 
-- Riproteggere le macchine virtuali nell'area secondaria, in modo da avviare la replica nell'area primaria. 
+- Riproteggere le macchine virtuali nell'area secondaria, in modo da avviare la replica nell'area primaria.
 - Dopo la riprotezione e durante la replica delle macchine virtuali, è possibile effettuare il failover dall'area secondaria all'area primaria.
 
 > [!WARNING]
 > Per le macchine virtuali di cui è stata [eseguita la migrazione](migrate-overview.md#what-do-we-mean-by-migration) dall'area primaria all'area secondaria o lo spostamento in un altro gruppo di risorse o se è stata eliminata la macchina virtuale di Azure non è possibile effettuare la riprotezione o il failback.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 1. È necessario eseguire il commit del failover delle macchine virtuali dall'area primaria all'area secondaria.
 2. Il sito di destinazione primario deve essere disponibile e deve essere possibile accedere a quell'area o crearvi risorse.
 
 ## <a name="reprotect-a-vm"></a>Riproteggere una macchina virtuale
 
-1. In **Insieme di credenziali** > **Elementi replicati** fare clic con il pulsante destro del mouse sulla VM sottoposta a failover e selezionare **Riproteggi**. La direzione della riprotezione deve essere da area secondaria ad area primaria. 
+1. In **Insieme di credenziali** > **Elementi replicati** fare clic con il pulsante destro del mouse sulla VM sottoposta a failover e selezionare **Riproteggi**. La direzione della riprotezione deve essere da area secondaria ad area primaria.
 
   ![Riproteggere](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
@@ -53,7 +53,7 @@ Durante la riprotezione è possibile personalizzare le proprietà della macchina
 |Gruppo di risorse di destinazione     | Consente di modificare il gruppo di risorse di destinazione in cui viene creata la macchina virtuale. Durante la riprotezione, la macchina virtuale di destinazione viene eliminata. È possibile scegliere un nuovo gruppo di risorse in cui creare la macchina virtuale dopo il failover.        |
 |Rete virtuale di destinazione     | Durante il processo di riprotezione, la rete di destinazione non può essere modificata. Per modificare la rete, ripetere il mapping di rete.         |
 |Archiviazione di destinazione (la VM secondaria non usa dischi gestiti)     | È possibile modificare l'account di archiviazione usato dalla macchina virtuale dopo il failover.         |
-|Dischi gestiti di replica (la VM secondaria usa dischi gestiti)    | Site Recovery crea dischi gestiti di replica nell'area primaria per eseguire il mirroring dei dischi gestiti della VM secondaria.         | 
+|Dischi gestiti di replica (la VM secondaria usa dischi gestiti)    | Site Recovery crea dischi gestiti di replica nell'area primaria per eseguire il mirroring dei dischi gestiti della VM secondaria.         |
 |Archiviazione cache     | È possibile specificare un account di archiviazione della cache da usare durante la replica. Per impostazione predefinita, se non esiste un account di archiviazione della cache ne viene creato uno nuovo.         |
 |Set di disponibilità     |Se la macchina virtuale nell'area secondaria fa parte di un set di disponibilità, è possibile scegliere un set di disponibilità per la macchina virtuale di destinazione nell'area primaria. Per impostazione predefinita, Site Recovery tenta di trovare e usare il set di disponibilità esistente nell'area primaria. Durante la personalizzazione, è possibile specificare un nuovo set di disponibilità.         |
 
@@ -62,23 +62,25 @@ Durante la riprotezione è possibile personalizzare le proprietà della macchina
 
 Per impostazione predefinita, si verifica quanto segue:
 
-1. Nell'area primaria viene creato un nuovo account di archiviazione della cache.
+1. Viene creato un nuovo account di archiviazione della cache nell'area in cui è in esecuzione la macchina virtuale del failover.
 2. Se l'account di archiviazione di destinazione (l'account di archiviazione originario nell'area primaria) non esiste, ne viene creato uno nuovo. Il nome assegnato all'account di archiviazione corrisponde al nome dell'account di archiviazione usato dalla macchina virtuale secondaria, con il suffisso "asr".
-3. Se la VM usa dischi gestiti, nell'area primaria vengono creati dischi gestiti di replica per archiviare i dati replicati dai dischi della VM secondaria. 
+3. Se la VM usa dischi gestiti, nell'area primaria vengono creati dischi gestiti di replica per archiviare i dati replicati dai dischi della VM secondaria.
 4. Se il set di disponibilità di destinazione non esiste, ne viene creato uno nuovo durante il processo di riprotezione, se necessario. Se le impostazioni di riprotezione sono state personalizzate, viene usato il set selezionato.
 
 Quando si attiva un processo di riprotezione e la macchina virtuale di destinazione esiste già, si verifica quanto segue:
 
-1. I componenti necessari vengono creati nell'ambito della riprotezione. Se esistono già, vengono riusati.
-2. Se la macchina virtuale sul lato di destinazione è in esecuzione, viene arrestata.
-3. Site Recovery copia il disco della macchina virtuale di destinazione in un contenitore come BLOB di inizializzazione.
-4. La macchina virtuale sul lato di destinazione viene quindi eliminata.
-5. Il BLOB di inizializzazione viene usato dalla macchina virtuale sul lato di origine (secondaria) per la replica. In questo modo vengono replicati solo i valori delta.
-6. Le modifiche più importanti tra il disco di origine e il BLOB di inizializzazione vengono sincronizzate. Questa operazione può richiedere del tempo.
-7. Al termine del processo di riprotezione, inizia la replica differenziale, che crea un punto di ripristino in base ai criteri di replica.
-8. Al termine del processo di riprotezione, la macchina virtuale acquisisce uno stato protetto.
+1. Se la macchina virtuale sul lato di destinazione è in esecuzione, viene arrestata.
+2. Se la macchina virtuale usa dischi gestiti, viene creata una copia dei dischi originali con "-ASRReplica". I dischi originali vengono eliminati. Le copie "-ASRReplica" vengono usate per la replica.
+3. Se la macchina virtuale usa dischi non gestiti, i dischi dati della macchina virtuale di destinazione vengono scollegati e usati per la replica. Una copia del disco del sistema operativo viene creata e collegata alla macchina virtuale. Il disco del sistema operativo originale viene scollegato e usato per la replica.
+4. Vengono sincronizzate solo le modifiche tra il disco di origine e il disco di destinazione. I backup differenziali vengono calcolati confrontando entrambi i dischi e quindi trasferiti. Il completamento di questa operazione richiederà alcune ore.
+5. Al termine della sincronizzazione inizia la replica differenziale, che crea un punto di ripristino in base ai criteri di replica.
+
+Quando si attiva un processo di riprotezione e non esistono i dischi e la macchina virtuale di destinazione, si verifica quanto segue:
+1. Se la macchina virtuale usa dischi gestiti, i dischi della replica vengono creati usando il suffisso "-ASRReplica". Le copie "-ASRReplica" vengono usate per la replica.
+2. Se la macchina virtuale usa dischi non gestiti, i dischi della replica vengono creati nell'account di archiviazione di destinazione.
+3. I dischi interi vengono copiati dall'area sottoposta a failover nella nuova area di destinazione.
+4. Al termine della sincronizzazione inizia la replica differenziale, che crea un punto di ripristino in base ai criteri di replica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo che la macchina virtuale è stata protetta, è possibile avviare un failover. Il failover arresta la macchina virtuale nell'area secondaria e crea e avvia una macchina virtuale nell'area primaria, con un breve tempo di inattività. Per questo motivo è consigliabile scegliere un orario appropriato ed eseguire un failover di test prima di avviare un failover completo nel sito primario. [Altre informazioni](site-recovery-failover.md) sul failover.
-

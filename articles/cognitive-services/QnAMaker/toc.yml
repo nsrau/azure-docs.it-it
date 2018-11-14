@@ -69,42 +69,48 @@ items:
     href: Concepts/data-sources-supported.md
 - name: Guide alle procedure
   items:
-  - name: Configurare un servizio QnA Maker
-    href: How-To/set-up-qnamaker-service-azure.md
-  - name: Creare e pubblicare una knowledge base
-    href: Quickstarts/create-publish-knowledge-base.md
-  - name: Creare una knowledge base
-    href: How-To/create-knowledge-base.md
-  - name: Aggiungere chiacchiere a una knowledge base
-    href: How-to/chit-chat-knowledge-base.md
-  - name: Usare metadati con l'API GenerateAnswer
-    href: How-To/metadata-generateanswer-usage.md
-  - name: Eseguire la migrazione di una knowledge base dalla versione di anteprima
-    href: Tutorials/migrate-knowledge-base.md
-  - name: Modificare una knowledge base
-    href: How-To/edit-knowledge-base.md
-  - name: Collaborare a una knowledge base
-    href: How-To/collaborate-knowledge-base.md
-  - name: Testare una knowledge base
-    href: How-To/test-knowledge-base.md
-  - name: Pubblicare una knowledge base
-    href: How-To/publish-knowledge-base.md
-  - name: Ottenere analisi sulla Knowledge Base
-    href: How-To/get-analytics-knowledge-base.md
-  - name: Gestire le chiavi
-    href: How-To/key-management.md
-  - name: Creare una knowledge base in una lingua diversa
-    href: How-To/language-knowledge-base.md
-  - name: Integrare di QnA Maker e Language Understanding
-    href: Tutorials/integrate-qnamaker-luis.md
-  - name: Creare un piano di continuità aziendale per QnA Maker
-    href: How-To/business-continuity-plan.md
-  - name: Scegliere la capacità per la distribuzione di QnA Maker
-    href: Tutorials/choosing-capacity-qnamaker-deployment.md
-  - name: Aggiornare il servizio QnA Maker
-    href: How-To/upgrade-qnamaker-service.md
-  - name: Risolvere i problemi e aggiornare il runtime di QnAMaker
-    href: How-To/troubleshooting-runtime.md
+  - name: Gestire la knowledge base
+    items:
+    - name: Creare e pubblicare una knowledge base
+      href: Quickstarts/create-publish-knowledge-base.md
+    - name: Creare una knowledge base
+      href: How-To/create-knowledge-base.md
+    - name: Aggiungere chiacchiere a una knowledge base
+      href: How-to/chit-chat-knowledge-base.md
+    - name: Usare metadati con l'API GenerateAnswer
+      href: How-To/metadata-generateanswer-usage.md
+    - name: Eseguire la migrazione di una knowledge base dalla versione di anteprima
+      href: Tutorials/migrate-knowledge-base.md
+    - name: Modificare una knowledge base
+      href: How-To/edit-knowledge-base.md
+    - name: Collaborare a una knowledge base
+      href: How-To/collaborate-knowledge-base.md
+    - name: Creare una knowledge base in una lingua diversa
+      href: How-To/language-knowledge-base.md
+    - name: Pubblicare una knowledge base
+      href: How-To/publish-knowledge-base.md
+    - name: Testare una knowledge base
+      href: How-To/test-knowledge-base.md
+  - name: Integrazione con altri servizi
+    items:
+    - name: Integrare di QnA Maker e Language Understanding
+      href: Tutorials/integrate-qnamaker-luis.md
+  - name: Gestire il servizio
+    items:
+    - name: Configurare un servizio QnA Maker
+      href: How-To/set-up-qnamaker-service-azure.md
+    - name: Ottenere analisi sulla Knowledge Base
+      href: How-To/get-analytics-knowledge-base.md
+    - name: Gestire le chiavi
+      href: How-To/key-management.md
+    - name: Scegliere la capacità per la distribuzione di QnA Maker
+      href: Tutorials/choosing-capacity-qnamaker-deployment.md
+    - name: Aggiornare il servizio QnA Maker
+      href: How-To/upgrade-qnamaker-service.md
+    - name: Creare un piano di continuità aziendale per QnA Maker
+      href: How-To/business-continuity-plan.md
+    - name: Risolvere i problemi e aggiornare il runtime di QnAMaker
+      href: How-To/troubleshooting-runtime.md
   - name: Usare l'API REST
     items:
     - name: C#
@@ -147,9 +153,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: c376fc03f6dd884206373588c9277dfb224186cd
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7bec0228aa8900f004aa61c2ae5316655628e101
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740060"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623530"

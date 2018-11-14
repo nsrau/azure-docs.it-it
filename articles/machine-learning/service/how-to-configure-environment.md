@@ -9,13 +9,13 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 10/24/2018
-ms.openlocfilehash: 6c2d5a776f603161ef730028168b91844c120aec
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.date: 11/6/2018
+ms.openlocfilehash: 8ce411e424d538a4a1f94300bfe5510658017f56
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158993"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238323"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -84,14 +84,40 @@ Azure Machine Learning SDK usa il file di configurazione dell'area di lavoro per
 
 Azure Notebooks e Azure Data Science Virtual Machines (DSVM) sono preconfigurati per interagire con il servizio Azure Machine Learning. Tali ambienti includono i componenti necessari, ad esempio Azure Machine Learning SDK.
 
+### <a name="azure-notebooks"></a>Notebook di Azure
+
 - Azure Notebooks è un servizio Jupyter Notebook nel cloud di Azure,
-- mentre Data Science Virtual Machine è una macchina virtuale personalizzata progettata per operare in ambito data science. Sono inclusi:
-  - Strumenti più diffusi
-  - Ambienti di sviluppo integrato (IDE)
-  - Pacchetti diversi, ad esempio Jupyter Notebook, PyCharm e TensorFlow
 - Per usare questi ambienti, tuttavia, è necessario un file di configurazione dell'area di lavoro.
 
 Per un esempio relativo all'uso di Azure Notebooks con il servizio Azure Machine Learning, vedere il documento [Guida introduttiva: Iniziare a usare Azure Machine Learning con il portale di Azure](quickstart-get-started.md).
+
+### <a name="data-science-virtual-machines"></a>Data Science Virtual Machine
+
+- mentre Data Science Virtual Machine è una macchina virtuale personalizzata progettata per operare in ambito data science. Sono inclusi:
+  - Strumenti di data science comuni
+  - Ambienti di sviluppo integrato (IDE) come RStudio e PyCharm
+  - Pacchetti come Jupyter Notebook e TensorFlow
+
+In DSVM sono già installati più ambienti Anaconda. Per usare Azure Machine Learning SDK per Python senza installare il pacchetto, aprire un prompt/una shell dei comandi e usare uno dei comandi seguenti per attivare l'ambiente:
+
+* Nella DSVM di __Ubuntu__, usare questo comando:
+
+    ```shell
+    conda activate py36
+    ```
+
+* Nella DSVM di __Windows__, usare questo comando:
+
+    ```shell
+    conda activate AzureML
+    ```
+
+Dopo aver attivato l'ambiente è possibile importare immediatamente Azure Machine Learning SDK nello strumento di compilazione preferito, senza installare il pacchetto.
+
+```python
+import azureml.core
+print(azureml.core.VERSION)
+```
 
 Per altre informazioni su Data Science Virtual Machine, vedere [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 

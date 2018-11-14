@@ -3,18 +3,18 @@ title: Gestire cluster ML Services in Azure HDInsight - Azure
 description: Informazioni su come gestire un cluster ML Services in Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 38a8366a586b032c3b11cbef8ee5f01ad2b822a5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 11/06/2018
+ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702402"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255405"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gestire cluster ML Services in Azure HDInsight
 
@@ -24,7 +24,7 @@ In questo articolo viene illustrato come gestire un cluster ML Services esistent
 
 * **Un cluster ML Services in HDInsight**: per istruzioni, vedere [Introduzione all'uso di ML Services in HDInsight](r-server-get-started.md).
 
-* **Un client Secure Shell (SSH)**: il client SSH viene usato per connettersi da remoto al cluster HDInsight ed eseguire i comandi direttamente nel cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un client Secure Shell (SSH)**: il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Abilitare più utenti simultanei
@@ -80,7 +80,7 @@ Si noti anche gli utenti appena aggiunti non hanno privilegi a livello radice ne
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Connettersi in modalità remota a Microsoft ML Services
 
-È possibile configurare l'accesso al contesto di calcolo Hadoop Spark HDInsight da un'istanza remota di ML Client in esecuzione nel computer desktop. A tale scopo, è necessario specificare le opzioni (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) quando si definisce il contesto di calcolo RxSpark nel computer desktop, ad esempio:
+È possibile configurare l'accesso al contesto di calcolo HDInsight Spark da un'istanza remota di ML Client in esecuzione nel computer desktop. A tale scopo, è necessario specificare le opzioni (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) quando si definisce il contesto di calcolo RxSpark nel computer desktop, ad esempio:
 
     myNameNode <- "default"
     myPort <- 0
@@ -226,16 +226,13 @@ Un contesto di calcolo consente di controllare se il calcolo viene eseguito loca
         summary(modelSpark)
 
 
-   > [!NOTE]
-   > È anche possibile usare MapReduce per distribuire il calcolo sui nodi del cluster. Per altre informazioni sul contesto di calcolo, vedere [Opzioni del contesto di calcolo per il cluster ML Services in HDInsight](r-server-compute-contexts.md).
-
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuire il codice R su più nodi
 
 Con ML Services in HDInsight, è possibile prelevare il codice R esistente ed eseguirlo su più nodi del cluster usando `rxExec`. Questa funzione è utile in caso di sweep di parametri o simulazioni. Il codice seguente è un esempio di come usare `rxExec`:
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Se si sta ancora usando il contesto Spark o MapReduce, questo comando restituisce il valore nodename per i nodi di lavoro in cui viene eseguito il codice `(Sys.info()["nodename"])`. In un cluster a quattro nodi, ad esempio, verrà restituito un output simile al frammento seguente:
+Se si sta ancora usando il contesto Spark, questo comando restituisce il valore nodename per i nodi del ruolo di lavoro in cui viene eseguito il codice `(Sys.info()["nodename"])`. In un cluster a quattro nodi, ad esempio, verrà restituito un output simile al frammento seguente:
 
     $rxElem1
         nodename

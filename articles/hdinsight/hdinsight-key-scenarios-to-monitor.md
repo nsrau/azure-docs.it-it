@@ -3,28 +3,28 @@ title: Monitorare le prestazioni di un cluster - Azure HDInsight
 description: Come monitorare un cluster HDInsight in termini di capacità e prestazioni.
 services: hdinsight
 author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.author: maxluk
-ms.openlocfilehash: 5f0c390fb5749ec5a7dbf3ca7eb541c0aa1133e9
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 11/06/2018
+ms.author: arindamc
+ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599572"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255303"
 ---
 # <a name="monitor-cluster-performance"></a>Monitorare le prestazioni di un cluster
 
-Monitorare l'integrità e le prestazioni di un cluster HDInsight è fondamentale per mantenere i massimi livelli di prestazioni e di utilizzo delle risorse. Consente anche di affrontare possibili errori di codifica o di configurazione del cluster.
+Monitorare l'integrità e le prestazioni di un cluster HDInsight è fondamentale per mantenere livelli ottimali di prestazioni e di utilizzo delle risorse. Il monitoraggio agevola l'individuazione e la risoluzione degli errori di configurazione del cluster e dei problemi del codice utente.
 
-Le sezioni seguenti descrivono come ottimizzare il caricamento del cluster, l'efficienza della coda YARN e l'accessibilità della risorsa di archiviazione.
+Le sezioni seguenti illustrano come monitorare e ottimizzare il carico nei cluster, le code YARN e come rilevare i problemi di limitazione del servizio di archiviazione.
 
-## <a name="cluster-loading"></a>Caricamento del cluster
+## <a name="monitor-cluster-load"></a>Monitorare il carico del cluster
 
-I cluster Hadoop devono bilanciare il caricamento tra i vari nodi del cluster per evitare che le operazioni di elaborazione siano limitate dalla RAM, dalla CPU o dalle risorse del disco.
+I cluster Hadoop offrono prestazioni ottimali quando il carico nel cluster viene distribuito in modo uniforme su tutti i nodi. In questo modo le attività di elaborazione vengono eseguite senza essere limitate da RAM, CPU o risorse del disco nei singoli nodi.
 
 Per una panoramica sui nodi del cluster e sul rispettivo caricamento, accedere all'[interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md) e selezionare la scheda **Host**. Gli host sono elencati in base ai relativi nomi di dominio completi. Lo stato operativo di ogni host viene visualizzato tramite un indicatore di integrità colorato:
 
@@ -47,7 +47,7 @@ Per informazioni dettagliate sull'impostazione degli avvisi e la visualizzazione
 
 ## <a name="yarn-queue-configuration"></a>Configurazione della coda YARN
 
-Hadoop include vari servizi in esecuzione sulla relativa piattaforma distribuita. YARN (Yet Another Resource Negotiator) coordina questi servizi, alloca le risorse del cluster e gestisce l'accesso a un set di dati comune.
+Hadoop include vari servizi in esecuzione sulla relativa piattaforma distribuita. YARN (Yet Another Resource Negotiator) coordina tali servizi e alloca le risorse cluster per garantire la distribuzione uniforme dei carichi nel cluster.
 
 YARN divide inoltre le due responsabilità del JobTracker (gestione delle risorse e pianificazione/monitoraggio dei processi) in due daemon: un ResourceManager globale e un ApplicationMaster per ogni applicazione.
 
@@ -63,13 +63,13 @@ Sul lato sinistro della pagina YARN Queue Manager (Gestore code YARN) viene visu
 
 ![Pagina dei dettagli YARN Queue Manager (Gestore code YARN)](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Per un'analisi più approfondita delle code, nell'elenco a sinistra del dashboard Ambari selezionare il servizio **YARN**. Nel menu a discesa **Collegamenti rapidi** selezionare **ResourceManager UI** (Interfaccia utente di ResourceManager) sotto il nodo attivo.
+Per un'analisi più approfondita delle code, nell'elenco a sinistra del dashboard Ambari selezionare il servizio **YARN**. Nel menu a discesa **Quick Links** (Collegamenti rapidi) selezionare **ResourceManager UI** (Interfaccia utente di ResourceManager) sotto il nodo attivo.
 
-![Collegamento di menu ResourceManager UI (Interfaccia utente di ResourceManager)](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Collegamento al menu ResourceManager UI (Interfaccia utente di ResourceManager)](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-Nell'interfaccia utente di ResourceManager selezionare **Utilità di pianificazione** dal menu a sinistra. Viene visualizzato un elenco delle code disponibili in *Application Queues* (Code dell'applicazione). In quest'area è possibile visualizzare la capacità usata per ognuna delle code, come vengono distribuiti i processi tra di esse e se i processi hanno risorse limitate.
+Nell'interfaccia utente di ResourceManager selezionare **Scheduler** (Utilità di pianificazione) dal menu a sinistra. Viene visualizzato un elenco delle code disponibili in *Application Queues* (Code dell'applicazione). In quest'area è possibile visualizzare la capacità usata per ognuna delle code, come vengono distribuiti i processi tra di esse e se i processi hanno risorse limitate.
 
-![Collegamento di menu ResourceManager UI (Interfaccia utente di ResourceManager)](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Collegamento al menu ResourceManager UI (Interfaccia utente di ResourceManager)](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>Limitazione del servizio di archiviazione
 

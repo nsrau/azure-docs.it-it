@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: yushwang
-ms.openlocfilehash: 94183b639c02f6a7d74e87e8f8335da67db113d6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a232ac111974444848aec82f3c7ab6236f82ac03
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468178"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037098"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 
@@ -65,7 +65,7 @@ I gateway basati su criteri implementano VPN basate su criteri. Le VPN basate su
 I gateway basati su route implementano VPN basate su route. Le VPN basate su route usano "route" nella tabella di inoltro IP o di routing per reindirizzare i pacchetti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. I criteri o selettori di traffico per le VPN basate su route vengono configurati come any-to-any (o caratteri jolly).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>È possibile aggiornare un gateway VPN basato su criteri in gateway VPN basato su route?
-No. Non è possibile modificare il tipo di tipo di gateway di rete virtuale di Azure da basato su criteri a basato su route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
+No. Non è possibile modificare il tipo di tipo di gateway di rete virtuale di Azure da basato su criteri a basato su route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
 1. Eliminare qualsiasi connessione associata al gateway da eliminare.
 2. Eliminare il gateway:
 * [Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -122,11 +122,11 @@ Sì. Vedere [Configurare il tunneling forzato](vpn-gateway-about-forced-tunnelin
 
 Sì, è possibile distribuire i gateway o i server VPN in Azure da Azure Marketplace o tramite la creazione dei propri router VPN. È necessario configurare route definite dall'utente nella rete virtuale per garantire che il traffico venga indirizzato correttamente tra le reti locali e le subnet della rete virtuale.
 
-### <a name="why-are-certain-ports-opened-on-my-vpn-gateway"></a>Perché determinate porte sono aperte nella mia gateway VPN?
+### <a name="gatewayports"></a>Perché determinate porte sono aperte nel gateway di rete virtuale?
 
 Sono necessarie per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non potranno causare alcun effetto su tali endpoint.
 
-Un gateway VPN è basicamente un dispositivo multihomed con una scheda di rete che utilizza la rete privata del cliente e una scheda di rete rivolta alla rete pubblica. Le entità dell’infrastruttura di Azure non possono utilizzare le reti private del cliente per motivi di conformità, pertanto devono utilizzare endpoint pubblici per la comunicazione dell’infrastruttura. Gli endpoint pubblici vengono analizzati periodicamente dal controllo di sicurezza di Azure.
+Un gateway di rete virtuale è fondamentalmente un dispositivo multihomed con una scheda di interfaccia di rete che si collega alla rete privata del cliente e una scheda di interfaccia di rete con connessione alla rete pubblica. Le entità dell’infrastruttura di Azure non possono utilizzare le reti private del cliente per motivi di conformità, pertanto devono utilizzare endpoint pubblici per la comunicazione dell’infrastruttura. Gli endpoint pubblici vengono analizzati periodicamente dal controllo di sicurezza di Azure.
 
 ### <a name="more-information-about-gateway-types-requirements-and-throughput"></a>Altre informazioni sui tipi di gateway, i requisiti e la velocità effettiva
 

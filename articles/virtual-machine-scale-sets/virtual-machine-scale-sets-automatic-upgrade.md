@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: cf25d08fc9a0e1ae458d350be93af31447928ecb
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: c8ba9ac3150b5a84b2902afaaefcf78c76764fed
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069455"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036191"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure
 
@@ -28,7 +28,7 @@ L'aggiornamento automatico dell'immagine del sistema operativo è una funzionali
 
 L'aggiornamento automatico del sistema operativo presenta le caratteristiche seguenti:
 
-- Dopo la configurazione, l'immagine del sistema operativo più recente pubblicata dagli editori di immagini viene applicata automaticamente al set di scalabilità senza l'intervento dell'utente.
+- Una volta configurato, l'immagine del sistema operativo più recente pubblicata dagli editori di immagini viene applicata automaticamente al set di scalabilità senza l'intervento dell'utente.
 - Aggiorna batch di istanze in sequenza ogni volta che viene pubblicata una nuova immagine della piattaforma dall'editore.
 - Si integra con un probe di integrità dell'applicazione.
 - Funziona per le macchine virtuali di tutte le dimensioni e per le immagini di entrambe le piattaforme Windows e Linux.
@@ -121,7 +121,7 @@ Come procedura consigliata, creare un probe di bilanciamento del carico in modo 
   ...
 ```
 > [!NOTE]
-> Quando si usano gli aggiornamenti automatici del sistema operativo con Service Fabric, la nuova immagine del sistema operativo viene implementata in un dominio di aggiornamento alla volta per mantenere un'elevata disponibilità dei servizi in esecuzione in Service Fabric. Per altre informazioni sulle caratteristiche di durabilità dei cluster di Service Fabric, vedere [questa documentazione](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> Quando si usano gli aggiornamenti automatici del sistema operativo con Service Fabric, la nuova immagine del sistema operativo viene implementata in un dominio di aggiornamento alla volta per mantenere un'elevata disponibilità dei servizi in esecuzione in Service Fabric. Per usare gli aggiornamenti automatici del sistema operativo in Service Fabric, il cluster deve essere configurato per usare il livello di durabilità Silver o superiore. Per altre informazioni sulle caratteristiche di durabilità dei cluster di Service Fabric, vedere [questa documentazione](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Mantenere aggiornate le credenziali
 Se il set di scalabilità usa credenziali per accedere alle risorse esterne, ad esempio se è configurata un'estensione della macchina virtuale che usa un token di firma di accesso condiviso per l'account di archiviazione, è necessario assicurarsi che le credenziali siano mantenute aggiornate. In caso di scadenza delle credenziali, inclusi i certificati e i token, l'aggiornamento avrà esito negativo e il primo batch di macchine virtuali verrà lasciato in uno stato di errore.

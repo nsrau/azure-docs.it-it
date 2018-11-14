@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 2c82007092f9ff93086d5caaf188f6922f4a8aea
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b2676e8f86955a7601f9656f0a038b5ba904a462
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086183"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036428"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Sviluppare Funzioni di Azure con Visual Studio  
 
@@ -29,7 +29,7 @@ Azure Functions Tools offre i vantaggi seguenti:
 * Sviluppo e distribuzione di funzioni C# precompilate. Le funzioni precompilate offrono migliori prestazioni nell'avvio a freddo rispetto alle funzioni basate su script C#. 
 * Possibilità di scrivere il codice delle funzioni in C# sfruttando al contempo tutti i vantaggi dello sviluppo in Visual Studio. 
 
-Questo articolo illustra come usare Azure Functions Tools for Visual Studio 2017 per sviluppare funzioni in C#. Spiega anche come pubblicare il progetto in Azure come assembly .NET.
+Questo articolo illustra in dettaglio come usare Azure Functions Tools for Visual Studio 2017 per sviluppare funzioni in C# e pubblicarle in Azure. Prima di leggere questo articolo, completare [Creare la prima funzione con Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Non combinare lo sviluppo locale con lo sviluppo del portale nella stessa app per le funzioni. Quando si pubblica da un progetto locale a un'app per le funzioni, il processo di distribuzione sovrascrive le funzioni sviluppate nel portale.
@@ -81,6 +81,9 @@ Il modello di progetto crea un progetto C#, installa il pacchetto NuGet `Microso
 * **host.json**: consente di configurare l'host di Funzioni. Queste impostazioni si applicano sia durante l'esecuzione in locale che nell'esecuzione in Azure. Per altre informazioni, vedere il [riferimento su host.json](functions-host-json.md).
 
 * **local.settings.json**: mantiene le impostazioni usate quando si esegue Funzioni localmente. Queste impostazioni non vengono usate da Azure, bensì dagli [strumenti di base di Funzioni di Azure](functions-run-local.md). Usare questo file per specificare le impostazioni dell'app per le variabili richieste dalle funzioni. Aggiungere un nuovo elemento alla matrice **Values** per ogni connessione richiesta dalle associazioni delle funzioni nel progetto. Per altre informazioni, vedere [File di impostazioni locali](functions-run-local.md#local-settings-file) nell'argomento sugli strumenti di base di Funzioni di Azure.
+
+    >[!IMPORTANT]
+    >Poiché il file local.settings.json può contenere segreti, è necessario escluderlo dal controllo del codice sorgente del progetto. L'impostazione **Copy to Ouput Directory** (Copia nella directory di output) per questo file dovrebbe essere sempre **Copia se più recente**. 
 
 Per altre informazioni, vedere [Progetto di libreria di classi per Funzioni](functions-dotnet-class-library.md#functions-class-library-project).
 

@@ -1,6 +1,6 @@
 ---
-title: Informazioni sulla connettività e sull'autenticazione dei dispositivi di Gemelli digitali di Azure | Microsoft Docs
-description: Uso di Gemelli digitali di Azure per connettersi ai servizi e autenticarli
+title: Informazioni sulla connettività e sull'autenticazione dei dispositivi in Gemelli digitali di Azure | Microsoft Docs
+description: Usare Gemelli digitali di Azure per connettere e autenticare dispositivi
 author: lyrana
 manager: alinast
 ms.service: digital-twins
@@ -8,28 +8,28 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lyrana
-ms.openlocfilehash: adfb4c369ea1b324da8562a5b0b245ebdecff602
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323793"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012463"
 ---
-# <a name="create-and-manage-role-assignments"></a>Creare e gestire assegnazioni di ruolo
+# <a name="create-and-manage-role-assignments"></a>Creare e gestire le assegnazioni di ruoli
 
 Gemelli digitali di Azure usa il [controllo degli accessi in base al ruolo](./security-role-based-access-control.md) per gestire l'accesso alle risorse.
 
 Ogni assegnazione di ruolo include:
 
-* Un **identificatore di oggetto** (ID Azure Active Directory, ID oggetto entità servizio o nome di dominio).
-* Un **tipo di identificatore di oggetto**.
-* Un **ID definizione di ruolo**.
-* Un **percorso di spazio**.
-* Un **ID tenant** di Azure Active Directory (nella maggior parte dei casi).
+* Un **identificatore di oggetto**: ID di Azure Active Directory, ID di oggetto dell'entità servizio o nome di dominio
+* Un **tipo di identificatore di oggetto**
+* Un **ID di definizione del ruolo**
+* Un **percorso di spazio**
+* Un **ID tenant**: nella maggior parte dei casi, un ID tenant di Azure Active Directory
 
 ## <a name="role-definition-identifiers"></a>Identificatori delle definizioni di ruolo
 
-La tabella seguente mostra che cosa è possibile ottenere eseguendo una query sull'API di sistema/dei ruoli:
+La tabella seguente mostra che cosa è possibile ottenere eseguendo una query sull'API di sistema/ruoli.
 
 | **Ruolo** | **Identificatore** |
 | --- | --- |
@@ -45,7 +45,7 @@ La tabella seguente mostra che cosa è possibile ottenere eseguendo una query su
 
 ## <a name="supported-objectidtypes"></a>ObjectIdType supportati
 
-Gli elementi `ObjectIdTypes` supportati sono i seguenti:
+`ObjectIdTypes` supportati:
 
 * `UserId`
 * `DeviceId`
@@ -62,15 +62,15 @@ HTTP POST /api/v1.0/roleassignments
 
 | **Nome** | **Obbligatorio** | **Tipo** | **Descrizione** |
 | --- | --- | --- | --- |
-| RoleId| Yes |stringa | Identificatore della definizione di ruolo. Le definizioni di ruolo e i rispettivi identificatori possono essere trovati eseguendo una query sull'API di sistema. |
-| objectId | Yes |stringa | ID oggetto per l'assegnazione di ruolo che deve essere formattato in base al tipo associato. Per l'elemento ObjectIdType `DomainName`, ObjectId deve iniziare con il carattere `“@”`. |
-| objectIdType | Yes |stringa | Tipo dell'assegnazione di ruolo. Deve essere una delle righe seguenti in questa tabella. |
-| TenantId | Variabile | stringa |Identificatore del tenant. Non consentito per gli elementi ObjectIdType `DeviceId` e `TenantId`. Obbligatorio per gli elementi ObjectIdType `UserId` e `ServicePrincipalId`. Facoltativo per l'elemento ObjectIdType DomainName. |
-| path* | Yes | stringa |Percorso di accesso completo dell'oggetto `Space`. Ad esempio: `/{Guid}/{Guid}`. Se un identificatore richiede l'assegnazione di ruolo per l'intero grafico, specificare `"/"` (che designa la radice). Tuttavia, si tratta di un'operazione sconsigliata ed è **sempre preferibile seguire il principio del privilegio minimo**. |
+| RoleId| Yes |string | Identificatore della definizione di ruolo. È possibile ottenere le definizioni dei ruoli e i relativi identificatori eseguendo una query sull'API di sistema. |
+| objectId | Yes |string | ID oggetto per l'assegnazione di ruolo che deve essere formattato in base al tipo associato. Per l'elemento ObjectIdType `DomainName`, ObjectId deve iniziare con il carattere `“@”`. |
+| objectIdType | Yes |string | Tipo dell'assegnazione di ruolo. Deve essere una delle righe seguenti in questa tabella. |
+| TenantId | Variabile | string |Identificatore del tenant. Non consentito per gli elementi ObjectIdType `DeviceId` e `TenantId`. Obbligatorio per gli elementi ObjectIdType `UserId` e `ServicePrincipalId`. Facoltativo per l'elemento ObjectIdType DomainName. |
+| path* | Yes | string |Percorso di accesso completo dell'oggetto `Space`. Un esempio è `/{Guid}/{Guid}`. Se un identificatore richiede l'assegnazione di ruolo per l'intero grafico, specificare `"/"`. Questo carattere designa la radice, ma non è consigliabile usarlo. Seguire sempre il principio del privilegio minimo. |
 
 ## <a name="sample-configuration"></a>Configurazione di esempio
 
-Un utente richiede l'accesso amministrativo a un piano di uno spazio tenant:
+In questo esempio, un utente necessita dell'accesso amministrativo a un piano di uno spazio tenant.
 
   ```JSON
     {
@@ -82,7 +82,7 @@ Un utente richiede l'accesso amministrativo a un piano di uno spazio tenant:
     }
   ```
 
-Un'applicazione che esegue scenari di test che simulano dispositivi e sensori:
+In questo esempio, un'applicazione esegue scenari di test che simulano dispositivi e sensori.
 
   ```JSON
     {
@@ -94,7 +94,7 @@ Un'applicazione che esegue scenari di test che simulano dispositivi e sensori:
     }
   ```
 
-Tutti gli utenti che fanno parte di un dominio riceveranno l'accesso in lettura per gli spazi, i sensori e gli utenti, inclusi gli oggetti corrispondenti correlati:
+Tutti gli utenti che fanno parte di un dominio riceveranno l'accesso in lettura per gli spazi, i sensori e gli utenti, inclusi gli oggetti corrispondenti correlati.
 
   ```JSON
     {
@@ -105,7 +105,7 @@ Tutti gli utenti che fanno parte di un dominio riceveranno l'accesso in lettura 
     }
   ```
 
-Per OTTENERE un'assegnazione di ruolo:
+Usare GET per ottenere un'assegnazione di ruolo.
 
 ```plaintext
 HTTP GET /api/v1/roleassignments?path={path}
@@ -115,7 +115,7 @@ HTTP GET /api/v1/roleassignments?path={path}
 | --- | --- | --- | --- | --- |
 | path | path | True  | string | Percorso completo dello spazio |
 
-Per ELIMINARE un'assegnazione di ruolo:
+Usare DELETE per eliminare un'assegnazione di ruolo.
 
 ```plaintext
 HTTP DELETE /api/v1/roleassignments/{id}

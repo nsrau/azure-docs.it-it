@@ -1,18 +1,18 @@
 ---
 title: Guide alla risoluzione dei problemi di Azure HDInsight
-description: Risolvere i problemi dei carichi di lavoro di Hadoop tramite Azure HDInsight. La documentazione dettagliata illustra come usare HDInsight per risolvere i problemi comuni con Hive, Spark, YARN, HBase, HDFS e Storm.
+description: Risolvere i problemi dei carichi di lavoro di Apache Hadoop usando Azure HDInsight. La documentazione dettagliata illustra come usare HDInsight per risolvere i problemi comuni con Apache Hive, Apache Spark, Apache YARN, Apache HBase, HDFS e Apache Storm.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: f105cfa2f311bdd49ad46f1947fcf90dd009a713
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b089f045c92bba5179667a03639d836ea47731d3
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597559"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037550"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Risolvere i problemi usando Azure HDInsight
 

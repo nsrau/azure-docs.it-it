@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: 8d1415e996f65f0791b3e449a61fb30053add523
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240206"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238322"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -221,7 +221,7 @@ Per risolvere questo problema, ridistribuire il pacchetto da punto a sito in tut
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Troppi client VPN connessi contemporaneamente
 
-Per ogni gateway VPN, il numero massimo di connessioni consentite è 128. È possibile visualizzare il numero totale di client connessi nel portale di Azure.
+È stato raggiunto il numero massimo di connessioni consentite. È possibile visualizzare il numero totale di client connessi nel portale di Azure.
 
 ## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>La VPN da punto a sito aggiunge erroneamente una route per 10.0.0.0/8 alla tabella delle route
 

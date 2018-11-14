@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159313"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978996"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usare il portale di Azure per creare avvisi per il database SQL di Azure e il data warehouse
 
@@ -37,26 +37,22 @@ Questo articolo descrive come impostare gli avvisi per il database SQL di Azure 
 
 È possibile configurare e ottenere informazioni sulle regole degli avvisi tramite
 
-* [portale di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Portale di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [interfaccia della riga di comando](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creare una regola di avviso in base a una metrica con il portale di Azure
 1. Nel [portale](https://portal.azure.com/), individuare la risorsa da monitorare e selezionarla.
-2. Questo passaggio per il database SQL e i pool elastici è diverso rispetto a quello per SQL Data Warehouse: 
-
-   - **SOLO per database SQL e pool elastici**: selezionare **Avvisi** o **Regole di avviso** nella sezione MONITORAGGIO. Il testo e l'icona possono lievemente variare per le diverse risorse.  
+2. Selezionare **Avvisi (versione classica)** nella sezione MONITORAGGIO. Il testo e l'icona possono lievemente variare per le diverse risorse.  
    
-     ![Monitoraggio](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
+     ![Monitoraggio](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SOLO PER SQL DATA WAREHOUSE**: selezionare **Monitoraggio** nella sezione ATTIVITÀ COMUNI. Fare clic sul grafo **Utilizzo di DWU**.
+   - **SOLO SQL DATA WAREHOUSE**: Fare clic sul grafo **Utilizzo di DWU**. Selezionare **Visualizza avvisi classici**
 
-     ![ATTIVITÀ COMUNI](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
-
-3. Selezionare il comando **Aggiungi avviso** e compilare i campi.
+3. Selezionare il pulsante **Aggiungi avviso per la metrica (classico)** e compilare i campi.
    
-    ![Aggiungi avviso](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![Aggiungi avviso](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. Assegnare alla regola di avviso un **Nome** e scegliere una **Descrizione**, che viene visualizzata anche nella notifica inviata tramite posta elettronica.
 5. Selezionare la **Metrica** da monitorare e quindi scegliere una **Condizione** e un valore **Soglia**. Scegliere inoltre il **Periodo** di tempo entro il quale la regola della metrica deve essere soddisfatta prima dell'attivazione dell'avviso. Ad esempio, se si usa il periodo "PT5M" e l'avviso deve rilevare una CPU superiore all'80%, l'avviso si attiva quando la CPU **media** resta sopra all'80% per 5 minuti. Dopo la prima attivazione, l'avviso si attiverà di nuovo quando la CPU media è al di sotto dell'80% per più di 5 minuti. La CPU viene misurata ogni minuto. Consultare la tabella seguente per gli intervalli di tempo supportati e il tipo di aggregazione usato da ogni avviso. Non tutti gli avvisi usano il valore medio.   
 6. Selezionare la casella di controllo **Invia messaggio a proprietari, collaboratori e lettori** se si desidera che gli amministratori e i coamministratori ricevano un messaggio di posta elettronica quando si attiva l'avviso.

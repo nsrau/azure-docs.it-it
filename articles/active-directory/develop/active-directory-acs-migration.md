@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione dal Servizio di controllo di accesso di Azure | Documentazione Microsoft
+title: Eseguire la migrazione da Servizio di controllo di accesso di Microsoft Azure | Microsoft Docs
 description: Informazioni sulle opzioni per lo spostamento di app e servizi da Servizio di controllo di accesso (ACS) di Azure.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 4fd7617bf45608cdae15919a40920ea0d214acb8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: da114cc343d04165d5a6a2137aeb2b675258230a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407472"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015333"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Azure
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Microsoft Azure
 
 Servizio di controllo di accesso di Microsoft Azure, un servizio di Azure Active Directory (Azure AD), verrà ritirato il 7 novembre 2018. Le applicazioni e i servizi che attualmente utilizzano questo servizio devono eseguire la migrazione completa a un meccanismo di autenticazione diverso entro tale data. Questo articolo presenta i consigli per i clienti attuali che pianificano la deprecazione dell'uso di Controllo di accesso. Se attualmente non si utilizza Controllo di accesso, non è necessario intraprendere alcuna azione.
 

@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 30b85f15d8718e21af66634db5a4afd5623a77e6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: c4ab33f4d706eb677b2b790ff871c1fb900846ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340172"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235633"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio (anteprima)
 
@@ -46,7 +46,7 @@ L'esempio seguente mostra il funzionamento di uno scenario IoT Edge in modalità
 
 ## <a name="restrictions-and-limits"></a>Restrizioni e limiti
 
-Le funzionalità offline per periodi prolungati descritte in questo articolo sono disponibili in [IoT Edge versione 1.0.2 o versioni successive](https://github.com/Azure/azure-iotedge/releases). Nelle versioni precedenti è disponibile un subset di funzionalità offline. I dispositivi IoT Edge esistenti che non hanno le funzionalità offline per periodi prolungati non possono essere aggiornati modificando la versione del runtime, ma devono essere riconfigurati con una nuova identità del dispositivo IoT Edge per ottenere queste funzionalità. 
+Le funzionalità offline per periodi prolungati descritte in questo articolo sono disponibili in [IoT Edge versione 1.0.4 o versioni successive](https://github.com/Azure/azure-iotedge/releases). Nelle versioni precedenti è disponibile un subset di funzionalità offline. I dispositivi IoT Edge esistenti che non hanno le funzionalità offline per periodi prolungati non possono essere aggiornati modificando la versione del runtime, ma devono essere riconfigurati con una nuova identità del dispositivo IoT Edge per ottenere queste funzionalità. 
 
 Il supporto delle funzionalità offline per periodi prolungati è disponibile in tutte le aree in cui è disponibile l'hub IoT, ad eccezione di Stati Uniti orientali ed Europa occidentale. 
 
@@ -56,34 +56,7 @@ I dispositivi IoT Edge e i dispositivi figlio assegnati possono funzionare offli
 
 ## <a name="set-up-an-edge-device"></a>Configurare un dispositivo Edge
 
-Per qualsiasi dispositivo IoT Edge da eseguire durante i periodi offline prolungati, configurare il runtime di IoT Edge per le comunicazioni tramite MQTT. 
-
 Per estendere le funzionalità offline per periodi prolungati ai dispositivi IoT figlio di un dispositivo IoT Edge, è necessario dichiarare le relazioni padre-figlio nel portale di Azure.
-
-### <a name="set-the-upstream-protocol-to-mqtt"></a>Impostare il protocollo di upstream su MQTT
-
-Configurare sia l'hub Edge che l'agente Edge per comunicare con MQTT come protocollo di upstream. Questo protocollo viene dichiarato usando variabili di ambiente nel manifesto di distribuzione. 
-
-Nel portale di Azure è possibile accedere alle definizioni dei moduli dell'hub di Edge e dell'agente di Edge selezionando il pulsante **Configura impostazioni avanzate per il runtime di IoT Edge** durante l'impostazione dei moduli per una distribuzione. Per entrambi i moduli, creare una variabile di ambiente denominata **UpstreamProtocol** e impostarne il valore su **MQTT**. 
-
-Nel codice JSON del modello di distribuzione, le variabili di ambiente sono dichiarate come indicato nell'esempio seguente: 
-
-```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
-    },
-    "env": {
-        "UpstreamProtocol": {
-            "value": "MQTT"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
-}
-```
 
 ### <a name="assign-child-devices"></a>Assegnare i dispositivi figlio
 
@@ -142,4 +115,4 @@ Sostituire `<HostStoragePath>` e `<ModuleStoragePath>` con i percorsi di archivi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Abilitare le operazioni offline per periodi prolungati negli scenari di gateway trasparente per dispositivi [Linux](how-to-create-transparent-gateway-linux.md) o [Windows](how-to-create-transparent-gateway-windows.md).
+Abilitare le operazioni offline per periodi prolungati negli scenari di [gateway trasparente](how-to-create-transparent-gateway.md).

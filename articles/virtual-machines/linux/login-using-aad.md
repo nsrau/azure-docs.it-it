@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 614375c95f4af3a5fbeeb4368ff8c577372e6381
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 8bf87f9d1d1ab6da4b034890f1fbe058199eca41
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933953"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007137"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Linux in Azure usando l'autenticazione di Azure Active Directory (anteprima)
 
@@ -35,7 +35,7 @@ L'uso dell'autenticazione di Azure AD per accedere alle macchine virtuali Linux 
   - Riducendo la dipendenza dagli account amministratore locali, non è necessario preoccuparsi della perdita o del furto delle credenziali, degli utenti che configurano credenziali vulnerabili e così via.
   - I criteri di durata e la complessità della password configurati per la directory di Azure AD contribuiscono a proteggere le macchine virtuali Linux.
   - Per aumentare la sicurezza dell'accesso alle macchine virtuali Azure, è possibile configurare l'autenticazione a più fattori.
-  - Possono accedere alle macchine virtuali Linux con Azure Active Directory anche gli utenti che usano [Federation Services](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
+  - Possono accedere alle macchine virtuali Linux con Azure Active Directory anche gli utenti che usano [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
 - **Collaborazione semplificata:** con il controllo degli accessi in base al ruolo è possibile specificare chi può accedere a una determinata macchina virtuale come utente normale o con privilegi di amministratore. Quando gli utenti si uniscono o abbandonano il team, è possibile aggiornare i criteri del controllo degli accessi in base al ruolo per la macchina virtuale per concedere l'accesso in base alle esigenze. Questa esperienza è molto più semplice rispetto alla necessità di eseguire lo scrubbing delle macchine virtuali per rimuovere le chiavi pubbliche SSH non necessarie. Quando i dipendenti lasciano l'organizzazione e l'account utente viene disabilitato o rimosso da Azure AD, non hanno più accesso alle risorse.
 
@@ -59,7 +59,7 @@ Durante l'anteprima di questa funzionalità sono attualmente supportate le aree 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-linux-virtual-machine"></a>Creare una macchina virtuale Linux
 
@@ -117,7 +117,7 @@ az role assignment create \
 > [!NOTE]
 > Se il dominio di Azure Active Directory e il dominio del nome utente di accesso non corrispondono, è necessario specificare l'ID oggetto dell'account utente con *--id-oggetto-assegnatario* e non solo il nome utente per *--assegnatario*. È possibile ottenere l'ID oggetto per l'account utente con [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
-Per altre informazioni su come usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere come usare l'[interfaccia della riga di comando di Azure 2.0](../../role-based-access-control/role-assignments-cli.md), il [portale di Azure](../../role-based-access-control/role-assignments-portal.md) o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Per altre informazioni su come usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere come usare l'[interfaccia della riga di comando di Azure](../../role-based-access-control/role-assignments-cli.md), il [portale di Azure](../../role-based-access-control/role-assignments-portal.md) o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 È anche possibile configurare Azure AD per richiedere l'autenticazione a più fattori per un utente specifico per eseguire l'accesso alla macchina virtuale Linux. Per altre informazioni, vedere [Introduzione ad Azure Multi-Factor Authentication nel cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
@@ -147,6 +147,20 @@ Quando richiesto, immettere le credenziali di accesso di Azure AD nella pagina d
     You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
 
 Chiudere la finestra del browser, tornare al prompt di SSH e premere il tasto **Invio**. È stato effettuato l'accesso alla macchina virtuale Linux di Azure con le autorizzazioni del ruolo assegnato, ad esempio come *utente della macchina virtuale* oppure *amministratore della macchina virtuale*. Se all'account utente viene assegnato il ruolo *Accesso amministratore alle macchine virtuali*, è possibile usare `sudo` per eseguire i comandi che richiedono i privilegi radice.
+
+## <a name="sudo-and-aad-login"></a>Accesso AAD e sudo
+
+La prima volta che si esegue sudo, si dovrà eseguire l'autenticazione una seconda volta. Se non si desidera doversi autenticare nuovamente per eseguire sudo, è possibile modificare il file sudoers `/aad/etc/sudoers.d/aad_admins` e sostituire questa riga:
+
+```bash
+%aad_admins ALL=(ALL) ALL
+```
+Con la riga seguente:
+
+```bash
+%aad_admins ALL=(ALL) NOPASSWD:ALL
+```
+
 
 ## <a name="troubleshoot-sign-in-issues"></a>Risolvere i problemi di accesso
 
@@ -179,4 +193,4 @@ Condividere il proprio feedback su questa funzionalità di anteprima o segnalare
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Azure Active Directory, vedere [Informazioni su Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) e [Iniziare a usare Azure Active Directory](../../active-directory/fundamentals/get-started-azure-ad.md)
+Per altre informazioni su Azure Active Directory, vedere [Informazioni su Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)

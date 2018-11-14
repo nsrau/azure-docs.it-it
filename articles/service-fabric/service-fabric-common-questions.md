@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 70372f30ffaea1fafda3f76d4754489ae89a0a7c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390177"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016695"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 
@@ -48,13 +48,9 @@ Alcuni aspetti da considerare:
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>I nodi di Service Fabric ricevono automaticamente aggiornamenti del sistema operativo?
 
-Non ancora, ma si tratta di una richiesta comune che Azure intende implementare in futuro.
+È possibile usare [Virtual Machine Scale Set Automatic OS Image Update](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) (Aggiornamento automatico dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure) oggi disponibile a livello generale.
 
-Nel frattempo, abbiamo [fornito un'applicazione](service-fabric-patch-orchestration-application.md) attraverso la quale i sistemi operativi sottostanti ai nodi di Service Fabric ricevono patch e sono aggiornati.
-
-Il problema con gli aggiornamenti del sistema operativo è che solitamente richiedono un riavvio della macchina, causando così una perdita temporanea di disponibilità. Di per sé non sarebbe un problema, poiché Service Fabric reindirizzerà automaticamente verso altri nodi il traffico di tali servizi. Tuttavia, se gli aggiornamenti del sistema operativo non vengono coordinati all'interno del cluster, esiste il rischio di interruzione simultanea per parecchi nodi. Tali riavvii simultanei possono causare la perdita totale di disponibilità per un servizio o, perlomeno, per una partizione specifica (per un servizio con stato).
-
-In futuro Microsoft intende supportare un criterio di aggiornamento del sistema operativo completamente automatico e coordinato tra i vari domini di aggiornamento, per garantire la disponibilità nonostante i riavvii e altri guasti o errori imprevisti.
+Per i cluster NON eseguiti in Azure è stata [fornita un'applicazione](service-fabric-patch-orchestration-application.md) attraverso la quale i sistemi operativi sottostanti ai nodi di Service Fabric ricevono patch.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>È possibile usare set di scalabilità di macchine virtuali di grandi dimensioni nel cluster di Service Fabric? 
 

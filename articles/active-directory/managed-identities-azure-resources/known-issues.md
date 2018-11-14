@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 2a759aea4288af2e90335b47244408d6a537e24b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295582"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913989"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
 
@@ -60,7 +60,7 @@ Per altre informazioni sul servizio metadati dell'istanza di Azure, vedere la [d
 
 Tutte le distribuzioni Linux supportate da IaaS di Azure possono essere usate con le identità gestite per le risorse di Azure tramite l'endpoint IMDS. 
 
-Nota: l'estensione della macchina virtuale relativa alle identità gestite per le risorse di Azure (la cui deprecazione è prevista a gennaio 2019) supporta solo le distribuzioni Linux seguenti:
+L'estensione della macchina virtuale relativa alle identità gestite per le risorse di Azure, la cui deprecazione è prevista per gennaio 2019, supporta solo le distribuzioni Linux seguenti:
 - CoreOS Stable
 - CentOS 7.1
 - Red Hat 7.2
@@ -124,16 +124,23 @@ Dopo aver avviato la macchina virtuale, il tag può essere rimosso tramite il se
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-identities"></a>Problemi noti relativi alle identità assegnate dall'utente
+### <a name="vm-extension-provisioning-fails"></a>Il provisioning dell'estensione VM non riesce
 
-- Le assegnazioni di identità assegnate dall'utente sono disponibili solo per la macchina virtuale e per set di scalabilità di macchine virtuali. IMPORTANTE: le assegnazioni di identità assegnate dall'utente verranno modificate nei prossimi mesi.
-- Le identità assegnate dall'utente duplicate nella stessa macchina virtuale o set di scalabilità di macchine virtuali causerà errori nella macchina virtuale o nel set di scalabilità di macchine virtuali. Ciò include le identità aggiunte con maiuscole/minuscole diverse. Ad esempio, MyUserAssignedIdentity e myuserassignedidentity. 
-- Il provisioning dell'estensione VM (la cui deprecazione è prevista a gennaio 2019) in una VM potrebbe non riuscire a causa degli errori ricerca DNS. Riavviare la macchina virtuale e riprovare. 
-- Aggiungere un'identità assegnata dall'utente "non esistente" potrebbe causare errori nella macchina virtuale. 
-- Non è supportata la creazione di un'identità assegnata dall'utente con caratteri speciali, ad esempio il carattere di sottolineatura.
-- I nomi delle identità assegnate dall'utente sono limitati a 24 caratteri per uno scenario end-to-end. Non sarà possibile assegnare identità assegnate dall'utente con nomi più lunghi di 24 caratteri.
+Il provisioning dell'estensione VM potrebbe non riuscire a causa di errori di ricerca DNS. Riavviare la macchina virtuale e riprovare.
+ 
+> [!NOTE]
+> La deprecazione dell'endpoint dell'estensione della macchina virtuale è prevista per gennaio 2019. Si consiglia di passare all'uso dell'endpoint IMDS.
+
+### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Trasferimento di una sottoscrizione tra directory di Azure AD
+
+Le identità gestite non vengono aggiornate quando una sottoscrizione viene spostata/trasferita a un'altra directory. Di conseguenza, tutte le identità gestite assegnate dal sistema o assegnate dall'utente saranno interrotte. 
+
+Come soluzione alternativa, dopo che la sottoscrizione è stata spostata, è possibile disabilitare le identità gestite assegnate dal sistema e abilitarle di nuovo. Analogamente è possibile eliminare e ricreare tutte le identità gestite assegnate dall'utente. 
+
+## <a name="known-issues-with-user-assigned-managed-identities"></a>Problemi noti relativi alle identità gestite assegnate dall'utente
+
+- Non è supportata la creazione di un'identità gestita assegnata dall'utente con caratteri speciali, ad esempio il carattere di sottolineatura.
+- I nomi delle identità assegnate dall'utente sono limitati a 24 caratteri. Se il nome contiene più di 24 caratteri, l'identità non potrà essere assegnata a una risorsa, ad esempio una macchina virtuale.
 - Se si usa l'estensione della macchina virtuale relativa alle identità gestite (la cui deprecazione è prevista a gennaio 2019), il limite supportato è di 32 identità gestite assegnate dall'utente. Senza l'estensione per macchine virtuali dell'identità gestita, il limite supportato è 512.  
-- Quando si aggiunge una seconda identità assegnata dall'utente, clientID potrebbe non essere disponibile per richiedere i token per l'estensione della macchina virtuale. Come mitigazione dei rischi, riavviare l'estensione della macchina virtuale relativa alle identità gestite per le risorse di Azure con i due comandi bash seguenti:
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- Quando una macchina virtuale ha un'identità assegnata dall'utente ma non un'identità assegnata dal sistema, l'interfaccia utente del portale mostra le identità gestite per le risorse di Azure disabilitate. Per abilitare l'identità assegnata dal sistema, usare un modello di Azure Resource Manager, un'interfaccia della riga di comando di Azure o un SDK.
+- Lo spostamento di un'identità gestita assegnata dall'utente a un gruppo di risorse diverso causerà l'interruzione dell'identità. Di conseguenza, non sarà possibile richiedere token per l'identità. 
+- Il trasferimento di una sottoscrizione a un'altra directory interromperà tutte le identità gestite assegnate dall'utente esistenti. 

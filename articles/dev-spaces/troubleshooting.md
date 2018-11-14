@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 09/11/2018
 ms.topic: article
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
-manager: douge
-ms.openlocfilehash: 3f30a62a2f351aecabc37206607c3e28ec5e3ab5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bca818cb4e13066f8a631111b75f50384e521ac1
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353359"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978894"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -231,6 +230,16 @@ Questo errore si verifica se il client Helm non può più comunicare con il pod 
 
 ### <a name="try"></a>Soluzione:
 Il riavvio dei nodi agente nel cluster risolve in genere questo problema.
+
+## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Il proxy Azure Dev Spaces può interferire con altri pod in esecuzione in uno spazio di sviluppo
+
+### <a name="reason"></a>Motivo
+Quando si abilita Dev Spaces in uno spazio dei nomi nel cluster AKS, un contenitore aggiuntivo chiamato _mindaro-proxy_ viene installato in ciascuno dei pod in esecuzione all'interno di tale spazio dei nomi. Questo contenitore intercetta le chiamate ai servizi nel pod, che è parte integrante delle funzionalità di sviluppo in team di Dev Spaces.
+
+Sfortunatamente può interferire con determinati servizi in esecuzione in tali pod. In particolare interferisce con i pod che eseguono la cache Redis, causando errori di connessione ed errori nella comunicazione master/slave.
+
+### <a name="try"></a>Soluzione:
+È possibile spostare i pod interessati in uno spazio dei nomi all'interno del cluster che _non_ ha Dev Spaces abilitato, pur continuando a eseguire il resto dell'applicazione all'interno di uno spazio dei nomi con Dev Spaces attivato. Dev Spaces non installerà il contenitore _mindaro-proxy_ all'interno di spazi dei nomi in cui Dev Spaces non è attivato.
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces non sembra utilizzare il Dockerfile esistente per compilare un contenitore 
 

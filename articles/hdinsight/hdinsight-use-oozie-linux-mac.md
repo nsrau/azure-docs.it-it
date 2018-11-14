@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 052afbe185f9c66af3759775b38b6bf0f2c2e6b2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: a2b209dc0204c390b16039ed1cf58b47f29629f1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783322"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252106"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux
 
@@ -30,12 +30,12 @@ Informazioni su come usare Apache Oozie con Hadoop in Azure HDInsight. Oozie è 
 Oozie può anche essere usato per pianificare processi specifici di un sistema, come programmi Java o script della shell.
 
 > [!NOTE]
-> Per definire i flussi di lavoro con HDInsight, è anche possibile usare Azure Data Factory. Per altre informazioni su Azure Data Factory, vedere [Usare Pig e Hive con Data Factory][azure-data-factory-pig-hive].
+> Per definire i flussi di lavoro con HDInsight, è anche possibile usare Azure Data Factory. Per altre informazioni su Azure Data Factory, vedere [Usare Pig e Hive con Data Factory][azure-data-factory-pig-hive]. Per usare Oozie nei cluster con Enterprise Security Package, vedere [Eseguire Apache Oozie nei cluster HDInsight Hadoop con Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Un cluster di HDInsight**: vedere [Introduzione a HDInsight in Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Un normale cluster HDInsight**: vedere [Introduzione all'uso di HDInsight in Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).

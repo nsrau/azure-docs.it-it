@@ -3,7 +3,7 @@ title: Come impostare o modificare i criteri di Gestione API di Azure | Microsof
 description: Questo argomento illustra come impostare o modificare i criteri di Gestione API di Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: aaf86a440328e27c8c47b809536951eeaf2104b9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936698"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008267"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Come impostare o modificare i criteri di Gestione API di Azure
 
@@ -33,15 +33,14 @@ Per impostare o modificare un criterio, seguire questa procedura:
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Passare all'istanza di Gestione API.
 3. Fare clic sulla scheda **API**.
+
+    ![Modificare i criteri](./media/set-edit-policies/code-editor.png)
+
 4. Selezionare una delle API importate in precedenza.
 5. Selezionare la scheda **Progettazione**.
 6. Selezionare un'operazione a cui si vuole applicare il criterio. Per applicare il criterio a tutte le operazioni, selezionare **Tutte le operazioni**.
-7. Fare clic sul triangolo accanto alla matita per l'elaborazione **in ingresso** o **in uscita**.
-8. Selezionare la voce **Editor di codice**.
-
-    ![Modificare i criteri](./media/set-edit-policies/set-edit-policies01.png)
-
-9. Incollare il codice del criterio desiderato in uno dei blocchi appropriati.
+7. Selezionare l'icona **</>** (editor di codice) nella sezione **Elaborazione in ingresso** o **Elaborazione in uscita**.
+8. Incollare il codice del criterio desiderato in uno dei blocchi appropriati.
          
         <policies>
              <inbound>

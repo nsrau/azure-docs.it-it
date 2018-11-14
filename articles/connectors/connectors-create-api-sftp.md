@@ -1,44 +1,50 @@
 ---
-title: Connettersi all'account SFTO da App per la logica di Azure | Microsoft Docs
-description: Automatizzare le attività e i flussi di lavoro che monitorano, creano, gestiscono, inviano e ricevono file per un server SFTP usando App per la logica di Azure
+title: Connettersi all'account SFTO - App per la logica di Azure | Microsoft Docs
+description: Automatizzare le attività e i processi che monitorano, creano, gestiscono, inviano e ricevono file per un server SFTP tramite SSH usando App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 10/11/2018
-ms.openlocfilehash: 8eb5d85a56e03ba8ceb646a3fbe580f8d525d8a3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 10/26/2018
+ms.openlocfilehash: 3dbe40476757ba93f33d39f71c46bf58302b3570
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233702"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979455"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando App per la logica di Azure
 
-Con App per la logica di Azure e il connettore SFTP, è possibile creare attività automatizzate e flussi di lavoro che monitorano, creano, inviano e ricevono file attraverso il proprio account in un server [SFTP](https://www.ssh.com/ssh/sftp/); possono inoltre eseguire altre azioni, quali:
+Per automatizzare le attività che monitorano, creano, inviano e ricevono file in un server [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/), è possibile creare e automatizzare i flussi di lavoro di integrazione usando App per la logica di Azure e il connettore SFTP. SFTP è un protocollo di rete che fornisce l'accesso ai file, il trasferimento di file e la gestione di file su qualsiasi flusso di dati affidabile. Ecco alcuni esempi di attività che è possibile automatizzare: 
 
 * Monitorare quando i file vengono aggiunti o modificati.
 * Ottenere, creare, copiare, aggiornare, creare elenchi ed eliminare file.
 * Leggere contenuti e metadati dei file.
 * Estrarre archivi nella cartella.
 
-È possibile usare i trigger per ottenere risposte dal server SFTP e rendere l'output disponibile per altre azioni. È possibile usare azioni nelle app per la logica per eseguire attività sul server SFTP. È anche possibile che altre azioni usino l'output delle azioni di SFTP. Ad esempio, se si recuperano regolarmente i file dal server SFTP, è possibile inviare messaggi di posta elettronica riguardanti tali file e il relativo contenuto usando il connettore Outlook di Office 365 o Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+Rispetto al [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md), il connettore SFTP può leggere o scrivere file fino a 50 MB di dimensioni se non si usa la [suddivisione in blocchi per la gestione di messaggi di grandi dimensioni](../logic-apps/logic-apps-handle-large-messages.md). Per i file fino a 1 GB usare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md). Per i file di dimensione maggiore di 1 GB, è possibile usare il connettore SFTP-SSH unito alla [suddivisione in blocchi per i messaggi di grandi dimensioni](../logic-apps/logic-apps-handle-large-messages.md). 
 
-> [!NOTE]
-> Per i file di dimensioni comprese tra 50 MB e 1 GB, usare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md). Il connettore SFTP supporta solo file con dimensioni massime di 50 MB, a meno che non si usi la [divisione in blocchi per gestire i messaggi di grandi dimensioni](../logic-apps/logic-apps-handle-large-messages.md). 
+È possibile usare trigger che monitorano eventi sul server SFTP e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono varie attività sul server SFTP. È anche possibile fare in modo che altre azioni dell'app per la logica usino l'output delle azioni SFTP. Ad esempio, se si recuperano regolarmente i file dal server SFTP, è possibile inviare avvisi riguardanti tali file e il relativo contenuto mediante messaggi di posta elettronica usando il connettore Outlook di Office 365 o Outlook.com.
+Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
 
-* Credenziali dell'account e indirizzo del server host SFTP
+* L'indirizzo del server SFTP e le credenziali dell'account che consentono all'app per la logica di accedere all'account SFTP. Per usare il protocollo [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) è anche necessario accedere a una chiave privata SSH e alla password della chiave privata SSH. 
 
-   Le credenziali autorizzano l'app per la logica alla creazione di una connessione e all'accesso all'account SFTP.
+  > [!NOTE]
+  > 
+  > Il connettore SFTP supporta questi formati di chiave privata: OpenSSH, ssh.com e PuTTY
+  > 
+  > Durante la creazione dell'app per la logica, dopo l'aggiunta del trigger SFTP o dell'azione desiderata, è necessario fornire le informazioni di connessione per il server SFTP. 
+  > Se si usa una chiave privata SSH, assicurarsi di ***copiare*** la chiave dal file della chiave privata SSH e ***incollare*** tale chiave nelle informazioni di connessione. ***Non immettere o modificare la chiave manualmente***, in quanto ciò potrebbe causare un errore di connessione. 
+  > Per altre informazioni, vedere i passaggi successivi in questo articolo.
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -61,17 +67,48 @@ Con App per la logica di Azure e il connettore SFTP, è possibile creare attivit
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
    Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
-1. Specificare i dettagli necessari per la connessione, quindi scegliere **Creare**.
+1. Specificare le informazioni necessarie per la connessione.
+
+   > [!IMPORTANT] 
+   >
+   > Quando si immette la chiave privata SSH nella proprietà **Chiave privata SSH**, seguire questi passaggi aggiuntivi che consentono di assicurarsi di specificare il valore completo e corretto per questa proprietà. 
+   > Una chiave non valida provoca un errore di connessione.
+   
+   Sebbene sia possibile usare qualsiasi editor di testo, ecco i passaggi esemplificativi che mostrano come copiare e incollare la chiave usando Notepad.exe come esempio.
+    
+   1. Aprire il file di chiave privata SSH in un editor di testo. 
+   Questi passaggi usano il Blocco note come esempio.
+
+   1. Nel menu **Modifica** del Blocco note selezionare **Seleziona tutto**.
+
+   1. Selezionare **Modifica** > **Copia**.
+
+   1. Nell'azione o trigger SFTP aggiunto incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe. 
+   ***Assicurarsi di incollare*** la chiave. ***Non immettere o modificare la chiave manualmente***.
+
+1. Dopo aver immesso i dettagli della connessione, scegliere **Crea**.
 
 1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
+
+## <a name="trigger-limits"></a>Limiti dei trigger
+
+I trigger SFTP-SSH eseguono il polling del file system SFTP e cercano tutti i file modificati dall'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando il file viene modificato. In questi casi è necessario disabilitare questa funzionalità perché il trigger possa funzionare. Ecco alcune delle impostazioni comuni:
+
+| Client SFTP | Azione | 
+|-------------|--------| 
+| Winscp | Passare a **Opzioni** > **Preferenze** > **Trasferisci** > **Modifica** > **Preserve timestamp** (Mantieni timestamp)  > **Disattiva** |
+| FileZilla | Passare a **Trasferisci** > **Preserve timestamps of transferred files** (Mantieni timestamp dei file trasferiti)  > **Disattiva** | 
+||| 
+
+Quando un trigger rileva un nuovo file, controlla che sia completo e non parzialmente scritto. Ad esempio, un file potrebbe avere delle modifiche in corso nel momento in cui il trigger controlla il file server. Per evitare la restituzione di un file scritto parzialmente, il trigger prende nota del timestamp del file che contiene le modifiche recenti ma non restituisce immediatamente il file. Il trigger restituisce il file solo durante il nuovo polling del server. In alcuni casi, questo comportamento potrebbe causare un ritardo fino a un massimo del doppio dell'intervallo di polling del trigger. 
 
 ## <a name="examples"></a>Esempi
 
 ### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Trigger di SFTP: Quando viene aggiunto o modificato un file
 
-Questo trigger avvia il flusso di lavoro di un app per la logica quando il trigger rileva che un file è stato aggiunto o modificato in un server SFTP. Ad esempio, è possibile aggiungere una condizione che controlla il contenuto del file e decide se leggerlo, a seconda che il contenuto soddisfi una condizione specificata. Infine, è possibile aggiungere un'azione che legga il contenuto del file e inserisca tale contenuto in una cartella nel server SFTP. 
+Questo trigger avvia il flusso di lavoro di un app per la logica quando un file è stato aggiunto o modificato in un server SFTP. Ad esempio, è possibile aggiungere una condizione che controlla il contenuto del file e determina se leggerlo o meno in base al fatto che soddisfi una condizione specificata. Quindi è possibile aggiungere un'azione che legge il contenuto del file e lo inserisce in una cartella del server SFTP. 
 
-**Esempio riguardante un'organizzazione**: si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. È quindi possibile usare un'azione di SFTP come **Recuperare i contenuti del file** per recuperare il contenuto dell'ordine per elaborarlo ulteriormente e archiviarlo nel database degli ordini.
+**Esempio riguardante un'organizzazione**: si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Recuperare i contenuti del file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
 
 ### <a name="sftp-action-get-content"></a>Azione SFTP: recuperare il contenuto
 

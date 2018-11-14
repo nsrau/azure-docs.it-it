@@ -2,26 +2,26 @@
 title: Informazioni su Azure ExpressRoute Direct | Microsoft Docs
 description: Questa pagina fornisce una panoramica di ExpressRoute Direct (anteprima)
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: cherylmc
-ms.openlocfilehash: ce4bc88f6b599bb3f5f760b2ba83c81f2b6acc5f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 11/01/2018
+ms.author: mialdrid
+ms.openlocfilehash: 3b46f24edf10fee7001b35ffdd9fa218aa438e19
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405179"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959674"
 ---
 # <a name="about-expressroute-direct-preview"></a>Informazioni su ExpressRoute Direct (anteprima)
 
-ExpressRoute Direct offre ai clienti la possibilità di connettersi direttamente alla rete globale di Microsoft in località peer distribuite in modo strategico in tutto il mondo. ExpressRoute Direct fornisce doppia connettività a 100 Gbps, che supporta la connettività attivo/attivo su larga scala. 
+ExpressRoute Direct offre ai clienti la possibilità di connettersi direttamente alla rete globale di Microsoft in località peer distribuite in modo strategico in tutto il mondo. ExpressRoute Direct fornisce doppia connettività a 100 Gbps che supporta la connettività attivo/attivo su larga scala.
 
 Tra le funzionalità principali di ExpressRoute Direct sono incluse:
 
-* Inserimento dati massiccio in servizi quali Archiviazione e Cosmos DB 
-* Isolamento fisico per i settori regolamentati che richiedono una connettività dedicata e isolata, ad esempio banche, enti pubblici e punti vendita al dettaglio 
+* Inserimento dati massiccio in servizi quali Archiviazione e Cosmos DB
+* Isolamento fisico per i settori regolamentati che richiedono una connettività dedicata e isolata, ad esempio banche, enti pubblici e punti vendita al dettaglio
 * Controllo granulare della distribuzione del circuito in base alla business unit
 
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ Tra le funzionalità principali di ExpressRoute Direct sono incluse:
 
 ## <a name="enroll-in-the-preview"></a>Registrarsi all'anteprima
 
-Prima di usare ExpressRoute Direct, è necessario registrare la sottoscrizione nell'anteprima. Per eseguire la registrazione, inviare un messaggio di posta elettronica all'indirizzo <ExpressRouteDirect@microsoft.com> con l'ID della sottoscrizione. ExpressRoute Direct è una funzionalità di livello enterprise. Fornire altri dettagli:
+Prima di usare ExpressRoute Direct è necessario registrare la sottoscrizione nell'anteprima. Per eseguire la registrazione inviare un messaggio di posta elettronica all'indirizzo <ExpressRouteDirect@microsoft.com> con l'ID della sottoscrizione, includendo i dettagli seguenti:
 
 * Scenari che si intende realizzare con **ExpressRoute Direct**
 * Preferenze di località. Per un elenco completo di tutte le località, vedere [Partner e località peer](expressroute-locations-providers.md)
@@ -41,10 +41,10 @@ Prima di usare ExpressRoute Direct, è necessario registrare la sottoscrizione n
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute tramite un provider di servizi ed ExpressRoute Direct
 
 | **ExpressRoute tramite un provider di servizi** | **ExpressRoute Direct** | 
-| --- | --- | 
-| Utilizza il provider di servizi per abilitare il caricamento rapido e la connettività nell'infrastruttura esistente | Richiede un'infrastruttura a 100 Gbps e la gestione completa di tutti i livelli
-| Si integra con centinaia di provider, tra cui Ethernet e MPLS | Capacità diretta/dedicata per settori regolamentati e inserimento dati massiccio | 
-| SKU di circuiti da 50 Mbps a 10 Gbps | SKU di circuiti da 5 Gbps a 100 Gbps (5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps)
+| --- | --- |
+| Usa i provider di servizi per abilitare il caricamento rapido e la connettività nell'infrastruttura esistente | Richiede un'infrastruttura a 100 Gbps e la gestione completa di tutti i livelli
+| Si integra con centinaia di provider, tra cui Ethernet e MPLS | Capacità diretta/dedicata per settori regolamentati e inserimento dati massiccio |
+| SKU di circuiti da 50 Mbps a 10 Gbps | Il cliente può selezionare una combinazione degli SKU di circuito seguenti: 5 Gbps, 10 Gbps, 40 Gbps e 100 Gbps, con il limite totale di 200 Gbps
 | Ottimizzato per tenant singolo | Ottimizzato per tenant singolo/provider di servizi cloud/più business unit
 
 ## <a name="expressroute-direct-circuits"></a>Circuiti di ExpressRoute Direct
@@ -57,13 +57,13 @@ Nella maggior parte degli scenari la funzionalità è uguale ai circuiti che uti
 
 ## <a name="circuit-skus"></a>SKU di circuiti
 
-ExpressRoute Direct supporta scenari di inserimento dati massiccio in Archiviazione di Azure e altri servizi Big Data. I circuiti ExpressRoute in ExpressRoute Direct ora supportano anche SKU di circuiti da **40 Gbps** e **100 Gbps**. 
+ExpressRoute Direct supporta scenari di inserimento dati massiccio in Archiviazione di Azure e altri servizi Big Data. I circuiti ExpressRoute in ExpressRoute Direct ora supportano anche SKU di circuiti da **40 Gbps** e **100 Gbps**.
 
 ## <a name="vlan-tagging"></a>Codifica VLAN
 
 ExpressRoute Direct supporta la codifica VLAN QinQ e Dot1Q.
 
-* La **codifica VLAN QinQ** consente domini di routing isolati per circuito di ExpressRoute. Azure alloca un S-Tag in modo dinamico al momento della creazione del circuito e non può essere modificato. Ogni peering nel circuito (privato e Microsoft) utilizza un C-Tag univoco come VLAN. Non è necessario che il C-Tag sia univoco tra i circuiti sulle porte di ExpressRoute Direct. 
+* La **codifica VLAN QinQ** consente domini di routing isolati per circuito di ExpressRoute. Azure alloca un S-Tag in modo dinamico al momento della creazione del circuito e non può essere modificato. Ogni peering nel circuito (privato e Microsoft) utilizza un C-Tag univoco come VLAN. Non è necessario che il C-Tag sia univoco tra i circuiti sulle porte di ExpressRoute Direct.
 
 * La **codifica VLAN Dot1Q** consente una singola VLAN con tag per coppia di porte di ExpressRoute Direct. Un C-Tag usato in un peering deve essere univoco tra i circuiti e i peering sulla coppia di porte di ExpressRoute Direct.
 

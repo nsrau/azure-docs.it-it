@@ -2,16 +2,16 @@
 title: Introduzione a Web application firewall (WAF) per il gateway applicazione di Azure
 description: Questo articolo offre una panoramica di Web application firewall (WAF) per il gateway applicazione
 services: application-gateway
-author: amsriva
+author: vhorne
 ms.service: application-gateway
-ms.date: 10/11/2018
+ms.date: 11/7/2018
 ms.author: amsriva
-ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068452"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219529"
 ---
 # <a name="web-application-firewall-waf"></a>Web application firewall (WAF)
 
@@ -39,7 +39,7 @@ Di seguito sono indicati i vantaggi principali del gateway applicazione e del We
 
 * Monitorare l'applicazione Web contro gli attacchi tramite un log di Web application firewall in tempo reale. Questo log è integrato in [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md) per tenere traccia degli avvisi e dei log di Web application firewall e monitorare facilmente le tendenze.
 
-* Web application firewall sarà presto integrato con il Centro sicurezza di Azure. Il Centro sicurezza di Azure offre una visualizzazione centralizzata dello stato di sicurezza di tutte le risorse di Azure.
+* WAF è integrato con il Centro sicurezza di Azure. Il Centro sicurezza di Azure offre una visualizzazione centralizzata dello stato di sicurezza di tutte le risorse di Azure.
 
 ### <a name="customization"></a>Personalizzazione
 
@@ -51,7 +51,7 @@ Di seguito sono indicati i vantaggi principali del gateway applicazione e del We
 - Protezione dagli attacchi di scripting intersito
 - Protezione dai comuni attacchi Web, ad esempio attacchi di iniezione di comandi, richieste HTTP non valide, attacchi HTTP Response Splitting e Remote File Inclusion
 - Protezione dalle violazioni del protocollo HTTP
-- Protezione contro eventuali anomalie del protocollo HTTP, ad esempio user agent host mancante e accept header
+- Protezione contro eventuali anomalie del protocollo HTTP, ad esempio agente utente host e intestazioni accept mancanti
 - Prevenzione contro robot, crawler e scanner
 - Rilevamento di errori di configurazione dell'applicazione comuni (ad esempio, Apache, IIS e così via)
 
@@ -78,7 +78,7 @@ Web application firewall è preconfigurato con CRS 3.0 per impostazione predefin
 - Protezione dagli attacchi di scripting intersito
 - Protezione dai comuni attacchi Web, ad esempio attacchi di iniezione di comandi, richieste HTTP non valide, attacchi HTTP Response Splitting e Remote File Inclusion
 - Protezione dalle violazioni del protocollo HTTP
-- Protezione contro eventuali anomalie del protocollo HTTP, ad esempio user agent host mancante e accept header
+- Protezione contro eventuali anomalie del protocollo HTTP, ad esempio agente utente host e intestazioni accept mancanti
 - Prevenzione contro robot, crawler e scanner
 - Rilevamento di errori di configurazione comuni dell'applicazione (ad esempio, Apache, IIS e così via)
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fe78cdfefb8062d3d576937afd133905e1787a8d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7eba9c526f26254a400eaee1a00644399d3979a8
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698802"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612101"
 documentType: LandingData
 title: Documentazione di Inoltro del bus di servizio di Azure
 metadata:
@@ -22,33 +22,19 @@ metadata:
 abstract:
   description: Il servizio di inoltro di Azure consente applicazioni ibride tra ambienti locali e cloud di una rete aziendale e il cloud pubblico, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: 'Informazioni su come inviare e ricevere messaggi con Inoltro di Azure:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: /azure/media/index/logo_net.svg
-      text: WebSocket per .NET
-      href: /azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started
-    - image:
-        src: /azure/media/index/logo_net.svg
-      text: HTTP per .NET
-      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started
-    - image:
-        src: /azure/media/index/logo_nodejs.svg
-      text: WebSocket per Node.js
-      href: /azure/service-bus-relay/relay-hybrid-connections-node-get-started
-    - image:
-        src: /azure/media/index/logo_nodejs.svg
-      text: HTTP per Node.js
-      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come creare, gestire, inviare e ricevere messaggi con Inoltro di Azure
+    text: <b>Connessioni ibride:</b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">Inviare e ricevere messaggi - WebSocket per .NET</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started">Inviare e ricevere messaggi - .NET HTTP</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-node-get-started">Inviare e ricevere messaggi - WebSocket per Node.js</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started">Inviare e ricevere messaggi - Node.js HTTP</a>
+  - type: paragraph
+    text: <b>Inoltro di Windows Communication Foundation (WCF):</b>
   - type: list
     style: ordered
     items:
@@ -58,12 +44,13 @@ sections:
 - title: Esempi
   items:
   - type: paragraph
-    text: Trovare script per gestire le attività comuni.
+    text: Esempi in GitHub
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples">Esempi di Inoltro di Azure</a>
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections">Connessioni ibride</a>
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay">Windows Communication Foundation (WCF)</a>
 - title: riferimento
   items:
   - type: list

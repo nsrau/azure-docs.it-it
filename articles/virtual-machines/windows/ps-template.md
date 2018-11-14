@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df1cada5e730189546f65d9799926807390db083
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b61ee3c3baa4590dc8a2fbf91b1ff941626a01e4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432257"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959824"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creare una macchina virtuale Windows usando un modello di Resource Manager
 
@@ -53,9 +53,9 @@ Tutte le risorse devono essere distribuite in un [gruppo di risorse](../../azure
 
 ## <a name="create-the-files"></a>Creare i file
 
-In questo passaggio si crea un file di modello che consente di distribuire le risorse e un file di parametri che fornisce i valori dei parametri nel modello. È possibile anche creare un file di autorizzazione da usare per eseguire operazioni in Azure Resource Manager.
+In questo passaggio si crea un file di modello che consente di distribuire le risorse e un file di parametri che fornisce i valori dei parametri nel modello. È possibile anche creare un file di autorizzazione da usare per eseguire operazioni in Azure Resource Manager. 
 
-1. Creare un file denominato *CreateVMTemplate.json* e aggiungervi questo codice JSON:
+1. Creare un file denominato *CreateVMTemplate.json* e aggiungervi il codice JSON. Sostituire il valore di `domainNameLabel` con il proprio nome univoco.
 
     ```json
     {

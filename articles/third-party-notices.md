@@ -4,9 +4,9 @@ Microsoft e i collaboratori concedono una licenza per la documentazione Microsof
 
 Microsoft, Windows, Microsoft Azure e/o altri prodotti e servizi Microsoft menzionati nella documentazione possono essere marchi o marchi registrati di Microsoft Corporation negli Stati Uniti e/o in altri paesi.
 Le licenze per questo progetto non concedono il diritto a usare eventuali nomi, logo o marchi registrati di Microsoft.
-Per le linee guida generali dei marchi di Microsoft, vedere [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653).
+Le linee guida generali relative ai marchi Microsoft sono disponibili all'indirizzo[http://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653).
 
-Per le informazioni sulla privacy, vedere [https://privacy.microsoft.com/it-it/](https://privacy.microsoft.com/en-us/)
+Altre informazioni sulla privacy sono disponibili nella pagina [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/).
 
 Microsoft e i collaboratori si riservano tutti gli altri diritti di copyright, brevetti o marchi registrati, impliciti, preclusivi o di altra natura.
 

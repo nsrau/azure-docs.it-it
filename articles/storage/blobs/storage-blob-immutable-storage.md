@@ -2,18 +2,18 @@
 title: Archiviazione non modificabile per i BLOB del servizio di archiviazione di Azure | Microsoft Docs
 description: Archiviazione di Azure offre il supporto WORM per l'archiviazione BLOB (oggetti), che consente agli utenti di archiviare i dati in uno stato non cancellabile e non modificabile per un intervallo specificato.
 services: storage
-author: MichaelHauss
+author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: mihauss
+ms.date: 11/05/2018
+ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 38e34391294e1a070d506583fbc30dcdb703bea0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156902"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036998"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Archiviare dati critici in Archiviazione BLOB di Azure
 
@@ -194,7 +194,7 @@ In caso di mancato pagamento, verranno applicati i normali criteri di conservazi
 
 **È disponibile una versione di valutazione o un periodo di tolleranza per provare la funzionalità?**
 
-Sì. Quando vengono creati per la prima volta, i criteri di conservazione basati sul tempo si trovano in uno stato *sbloccato*. In questo stato è possibile apportare qualsiasi modifica all'intervallo di conservazione, ad esempio aumentandolo o riducendolo, ed è anche possibile eliminare i criteri. Una volta bloccati, i criteri rimangono bloccati per sempre, in modo da impedire l'eliminazione. Inoltre, il periodo di conservazione non può più essere ridotto quando il criterio è bloccato. È consigliabile usare lo stato *sbloccato* solo per scopi di valutazione e bloccare i criteri entro un periodo di 24 ore. Ciò consente la conformità a SEC 17a-4(f) e altre normative.
+Sì. Quando vengono creati per la prima volta, i criteri di conservazione basati sul tempo si trovano in uno stato *sbloccato*. In questo stato è possibile apportare qualsiasi modifica all'intervallo di conservazione, ad esempio aumentandolo o riducendolo, ed è anche possibile eliminare i criteri. Dopo che sono stati bloccati, i criteri rimangono bloccati fino alla scadenza dell'intervallo di conservazione. In questo modo si impedisce la cancellazione e la modifica dell'intervallo di conservazione. È consigliabile usare lo stato *sbloccato* solo per scopi di valutazione e bloccare i criteri entro un periodo di 24 ore. Ciò consente la conformità a SEC 17a-4(f) e altre normative.
 
 **La funzionalità è disponibile nei cloud nazionali e per enti pubblici?**
 
