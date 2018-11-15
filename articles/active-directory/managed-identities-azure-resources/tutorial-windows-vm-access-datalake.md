@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/13/2018
 ms.author: daveba
-ms.openlocfilehash: 0acc5c8211d6f7715e97214c49ee4af37850e330
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4beaf9f1a4206f6840bdb3277770e1996dbc83e1
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106150"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623223"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Data Lake Store
 
@@ -33,15 +33,7 @@ Questa esercitazione illustra come usare un'identità gestita assegnata dal sist
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Accedere al portale di Azure](https://portal.azure.com)
-
-- [Creare una macchina virtuale Windows](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Abilitare l'identità assegnata dal sistema nella macchina virtuale](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Concedere alla VM l'accesso ad Azure Data Lake Store
 
@@ -186,4 +178,4 @@ Usando altre API del file system di Data Lake Store, è possibile accodare ai fi
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere a un'istanza di Azure Data Lake Store. Per altre informazioni su Azure Data Lake Store, vedere:
 
 > [!div class="nextstepaction"]
->[Archivio Data Lake di Azure](/azure/data-lake-store/data-lake-store-overview)
+>[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

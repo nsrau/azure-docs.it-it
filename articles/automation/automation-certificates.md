@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70d5c777f98a1e09125c7ef42ba597009bde084b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7aeb9a9557694f8773af4fe67f47950bf82afe87
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194337"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621412"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Asset di tipo certificato in Automazione di Azure
 
@@ -83,7 +83,7 @@ New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -N
 
 ## <a name="using-a-certificate"></a>Utilizzo di un certificato
 
-Per usare un certificato, usare l'attività **Get-AutomationCertificate**. Non è possibile usare il cmdlet [Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx), poiché restituisce informazioni sull'asset di certificato, ma non il certificato stesso.
+Per usare un certificato, usare l'attività **Get-AutomationCertificate**. Non è possibile usare il cmdlet [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-6.6.0), poiché restituisce informazioni sull'asset di certificato, ma non il certificato stesso.
 
 ### <a name="textual-runbook-sample"></a>Esempio di Runbook testuale
 
@@ -92,7 +92,7 @@ Il codice di esempio seguente mostra come aggiungere un certificato a un servizi
 ```powershell-interactive
 $serviceName = 'MyCloudService'
 $cert = Get-AutomationCertificate -Name 'MyCertificate'
-$certPwd = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
+$certPwd = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyCertPassword'
 Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 ```

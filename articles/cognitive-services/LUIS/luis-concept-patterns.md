@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fbd11eb23b10800e115a63549f233e0239763420
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638147"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300371"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
 I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili.  Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni. 
@@ -89,7 +89,7 @@ Per aggiungere un'entità **Pattern.any** al modello di criteri, racchiuderla tr
 In questi titoli di libri di esempio, le parole contestuali del titolo del libro non generano confusione per LUIS. LUIS sa dove finisce il titolo del libro perché è in un criterio ed è contrassegnato con un'entità Pattern.any.
 
 ### <a name="explicit-lists"></a>Elenchi espliciti
-Se il criterio contiene un'entità Pattern.any e la sintassi del criterio offre la possibilità di un'estrazione dell'entità non corretta in base all'espressione, creare un [elenco esplicito](https://aka.ms/ExplicitList) tramite l'API di creazione per consentire l'eccezione. 
+Se il criterio contiene un'entità Pattern.any e la sintassi del criterio offre la possibilità di un'estrazione dell'entità non corretta in base all'espressione, creare un [elenco esplicito](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) tramite l'API di creazione per consentire l'eccezione. 
 
 Ad esempio, si supponga che un criterio contenga sia la sintassi facoltativa, `[]`, che la sintassi dell'entità, `{}`, combinate in modo da estrarre i dati in modo non corretto.
 
@@ -102,7 +102,7 @@ Si consideri il criterio "[find] email about {subject} [from {person}]". Nelle e
 
 Nella tabella precedente per l'espressione `email about the man from La Mancha`, l'elemento subject dovrebbe essere `the man from La Mancha` (titolo di un libro) ma dal momento che include la parola facoltativa `from`, il titolo viene stimato in modo non corretto. 
 
-Per risolvere questa eccezione nel criterio, aggiungere `the man from la mancha` come corrispondenza dell'elenco esplicito per l'entità {subject} usando l'[API di creazione per l'elenco esplicito](https://aka.ms/ExplicitList).
+Per risolvere questa eccezione nel criterio, aggiungere `the man from la mancha` come corrispondenza dell'elenco esplicito per l'entità {subject} usando l'[API di creazione per l'elenco esplicito](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Sintassi per contrassegnare un testo facoltativo in un'espressione del modello
 Contrassegnare il testo facoltativo nell'espressione usando la sintassi tra parentesi quadre dell'espressione regolare, `[]`. Nel testo facoltativo possono essere nidificate un massimo di due parentesi quadre.

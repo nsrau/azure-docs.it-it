@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 2dd001ebebd5cdf90d7d0b8163a85a5f83c855f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281295"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683499"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Guida introduttiva: Riconoscere e trascrivere contenuti vocali usando Speech SDK e .NET Framework (Windows)
 
@@ -23,7 +23,7 @@ ms.locfileid: "51281295"
 
 Usare questa guida per creare un'applicazione console di riconoscimento vocale con .NET framework per Windows e Speech SDK. Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
 
-Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con Microsoft Voce abilitato. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) per ottenere una chiave di sottoscrizione.
+Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con Microsoft Voce abilitato. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

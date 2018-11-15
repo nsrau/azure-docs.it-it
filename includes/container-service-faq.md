@@ -1,28 +1,41 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: c5200e7e4d5550f26343fab1561c214ee19d6741
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572324"
+---
 # <a name="container-service-frequently-asked-questions"></a>Domande frequenti sul servizio contenitore
 
 ## <a name="orchestrators"></a>Agenti di orchestrazione
 
-### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Quali agenti di orchestrazione contenitore sono supportati nel servizio contenitore di Azure? 
+### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Quali agenti di orchestrazione contenitore sono supportati nel servizio contenitore di Azure? 
 
 È previsto il supporto per DC/OS open source, Docker Swarm e Kubernetes. Per altre informazioni, vedere la [panoramica](../articles/container-service/kubernetes/container-service-intro-kubernetes.md).
- 
-### <a name="do-you-support-docker-swarm-mode"></a>La modalità Docker Swarm è supportata? 
+ 
+### <a name="do-you-support-docker-swarm-mode"></a>La modalità Docker Swarm è supportata? 
 
-La modalità Swarm attualmente non è supportata, ma è presente nella guida di orientamento al servizio. 
+La modalità Swarm attualmente non è supportata, ma è presente nella guida di orientamento al servizio. 
 
-### <a name="does-azure-container-service-support-windows-containers"></a>Il servizio contenitore di Azure supporta i contenitori Windows?  
+### <a name="does-azure-container-service-support-windows-containers"></a>Il servizio contenitore di Azure supporta i contenitori Windows?  
 
 Attualmente sono supportati i contenitori Linux con tutti gli agenti di orchestrazione. Il supporto per i contenitori Windows con Kubernetes è disponibile in anteprima.
 
-### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>È consigliabile un agente di orchestrazione specifico nel servizio contenitore di Azure? 
+### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>È consigliabile un agente di orchestrazione specifico nel servizio contenitore di Azure? 
 In genere non viene consigliato un agente di orchestrazione specifico. Se si ha già familiarità con uno degli agenti di orchestrazione supportati, è possibile servirsi di tale esperienza per il servizio contenitore di Azure. Le tendenze dei dati suggeriscono tuttavia che DC/OS è il prodotto collaudato per i carichi di lavoro di Big Data e IoT, Kubernetes è ideale per i carichi di lavoro nativi del cloud e Docker Swarm è noto per l'integrazione con gli strumenti di Docker e la facile curva di apprendimento.
 
-A seconda dello scenario, è anche possibile compilare e gestire soluzioni contenitore personalizzate con altri servizi di Azure. Questi servizi includono [Macchine virtuali](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [App Web](../articles/app-service/app-service-web-overview.md) e [Batch](../articles/batch/batch-technical-overview.md).  
+A seconda dello scenario, è anche possibile compilare e gestire soluzioni contenitore personalizzate con altri servizi di Azure. Questi servizi includono [Macchine virtuali](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [App Web](../articles/app-service/app-service-web-overview.md) e [Batch](../articles/batch/batch-technical-overview.md).  
 
-### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Qual è la differenza tra il servizio contenitore di Azure e il motore ACS? 
+### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Qual è la differenza tra il servizio contenitore di Azure e il motore ACS? 
 Il servizio contenitore di Azure è un servizio di Azure supportato dal Contratto di servizio con funzionalità nel portale di Azure, strumenti da riga di comando di Azure e API di Azure. Il servizio consente di implementare rapidamente e di gestire i cluster che eseguono strumenti di orchestrazione contenitore standard con un numero relativamente basso di scelte di configurazione. 
 
-Il [motore ACS](http://github.com/Azure/acs-engine) è un progetto open source che consente agli utenti esperti di personalizzare la configurazione dei cluster a ogni livello. Essendo possibile modificare la configurazione sia dell'infrastruttura che del software, non è previsto nessun Contratto di servizio per il motore ACS. Il supporto viene gestito tramite il progetto open source in GitHub invece che tramite i canali Microsoft ufficiali. 
+Il [motore ACS](http://github.com/Azure/acs-engine) è un progetto open source che consente agli utenti esperti di personalizzare la configurazione dei cluster a ogni livello. Essendo possibile modificare la configurazione sia dell'infrastruttura che del software, non è previsto nessun Contratto di servizio per il motore ACS. Il supporto viene gestito tramite il progetto open source in GitHub invece che tramite i canali Microsoft ufficiali. 
 
 Per dettagli aggiuntivi, vedere i [Criteri di supporto per i contenitori](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
 
@@ -47,16 +60,16 @@ Se si usano i [comandi dell'interfaccia della riga di comando di Azure](../artic
 > Per cluster di maggiori dimensioni, a seconda della dimensione di VM scelta per i nodi potrebbe essere necessario aumentare la quota di core nella sottoscrizione. Per richiedere un aumento della quota, è possibile aprire una [richiesta di assistenza clienti online](../articles/azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
 > 
 
-### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Come si aumenta il numero di master dopo la creazione di un cluster? 
+### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Come si aumenta il numero di master dopo la creazione di un cluster? 
 Dopo la creazione del cluster, il numero di master è fisso e non può essere modificato. Durante la creazione del cluster, è consigliabile selezionare più master per una disponibilità elevata.
 
-### <a name="how-do-i-increase-the-number-of-agents-after-a-cluster-is-created"></a>Come si aumenta il numero di agenti dopo la creazione di un cluster? 
+### <a name="how-do-i-increase-the-number-of-agents-after-a-cluster-is-created"></a>Come si aumenta il numero di agenti dopo la creazione di un cluster? 
 È possibile ridimensionare il numero di agenti nel cluster usando il portale di Azure o gli strumenti da riga di comando. Vedere [Ridimensionare un cluster del servizio contenitore di Azure](../articles/container-service/kubernetes/container-service-scale.md).
 
-### <a name="what-are-the-urls-of-my-masters-and-agents"></a>Quali sono gli URL dei master e degli agenti? 
+### <a name="what-are-the-urls-of-my-masters-and-agents"></a>Quali sono gli URL dei master e degli agenti? 
 Gli URL delle risorse cluster nel servizio contenitore di Azure si basano sul prefisso del nome DNS specificato e sul nome dell'area di Azure scelto per la distribuzione. Ad esempio, il nome di dominio completo (FQDN) del nodo master presenta questo formato:
 
-``` 
+``` 
 DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
@@ -71,23 +84,23 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Qual è la procedura per aggiornare l'agente di orchestrazione dopo la distribuzione?
 
 Attualmente, il servizio contenitore di Azure non fornisce strumenti per aggiornare la versione dell'agente di orchestrazione distribuito nel cluster. Se il servizio contenitore supporta una versione successiva, è possibile distribuire un nuovo cluster. Un'altra opzione consiste nell'usare gli strumenti specifici dell'agente di orchestrazione eventualmente disponibili per aggiornare un cluster sul posto. Per un esempio, vedere [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/) (Aggiornamento di DC/OS).
- 
+ 
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Dove si trova la stringa di connessione SSH al cluster?
 
 È possibile trovare la stringa di connessione nel portale di Azure oppure usando gli strumenti da riga di comando di Azure. 
 
-1. Nel portale passare al gruppo di risorse per la distribuzione del cluster.  
+1. Nel portale passare al gruppo di risorse per la distribuzione del cluster.  
 
-2. Fare clic su **Panoramica** e fare clic sul collegamento **Distribuzioni** in **Informazioni di base**. 
+2. Fare clic su **Panoramica** e fare clic sul collegamento **Distribuzioni** in **Informazioni di base**. 
 
-3. Nel pannello **Cronologia distribuzioni** fare clic sulla distribuzione con il nome che inizia con **microsoft-acs** seguito da una data di distribuzione. Esempio: microsoft-acs-201701310000.  
+3. Nel pannello **Cronologia distribuzioni** fare clic sulla distribuzione con il nome che inizia con **microsoft-acs** seguito da una data di distribuzione. Esempio: microsoft-acs-201701310000.  
 
-4. Nella pagina **Riepilogo** in **Output** sono disponibili diversi collegamenti al cluster. **SSHMaster0** fornisce una stringa di connessione SSH al primo master nel cluster del servizio contenitore. 
+4. Nella pagina **Riepilogo** in **Output** sono disponibili diversi collegamenti al cluster. **SSHMaster0** fornisce una stringa di connessione SSH al primo master nel cluster del servizio contenitore. 
 
 Come già osservato, è anche possibile usare gli strumenti di Azure per trovare il nome FQDN del master. Stabilire una connessione SSH al master usando il nome FQDN del master e il nome utente specificato durante la creazione del cluster. Ad esempio: 
 
 ```bash
-ssh userName@masterFQDN –A –p 22 
+ssh userName@masterFQDN –A –p 22 
 ```
 
 Per altre informazioni, vedere [Connettersi a un cluster del servizio contenitore di Azure](../articles/container-service/kubernetes/container-service-connect.md).

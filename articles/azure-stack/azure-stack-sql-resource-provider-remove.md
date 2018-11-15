@@ -11,31 +11,40 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: f5aa67ad0588e3f42e68056c8ffca97767975e8b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b7af23ccdd379aac9959bb9993fc1781a44e705e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361482"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684027"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Rimuovere il provider di risorse SQL
 
 Prima di rimuovere il provider di risorse SQL, è necessario rimuovere tutte le dipendenze del provider. È necessario anche una copia del pacchetto di distribuzione che è stato usato per installare il provider di risorse.
 
-Sono presenti diverse attività di pulizia da eseguire prima di eseguire la _DeploySqlProvider.ps1_ script per rimuovere il provider di risorse.
-I tenant sono responsabili per le seguenti attività di pulizia:
+  |Versione minima di Azure Stack|Versione di SQL RP|
+  |-----|-----|
+  |Versione 1808 (1.1808.0.97)|[SQL RP versione 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+  |Versione 1804 (1.0.180513.1)|[SQL RP versione 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
+  |     |     |
+
+## <a name="dependency-cleanup"></a>Pulizia delle dipendenze
+
+Sono disponibili diverse attività di pulizia da eseguire prima di eseguire lo script DeploySqlProvider.ps1 per rimuovere il provider di risorse.
+
+Gli utenti tenant di Azure Stack sono responsabili per le seguenti attività di pulizia:
 
 * Eliminare tutti i database dal provider di risorse. (Eliminare i database tenant non eliminare i dati).
-* Annullare la registrazione dallo spazio dei nomi di provider di risorse.
+* Annullare la registrazione dello spazio dei nomi del provider.
 
-L'amministratore è responsabile per le seguenti attività di pulizia:
+L'operatore di Azure Stack è responsabile per le seguenti attività di pulizia:
 
-* Elimina il server di hosting dal provider di risorse di SQL.
-* Elimina i piani che fa riferimento al provider di risorse SQL.
-* Elimina eventuali quote che sono associate al provider di risorse SQL.
+* Elimina il server di hosting dall'adattatore di MySQL.
+* Elimina i piani che fanno riferimento l'adattatore di MySQL.
+* Elimina eventuali quote associati con l'adattatore di MySQL.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Per rimuovere il provider di risorse SQL
 

@@ -6,14 +6,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 11/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 324225600ed52c523228f54c540c810a15ffd5d7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 23f3d2c4a53e05d962fdc7da72b336cc66f21306
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023237"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683067"
 ---
 # <a name="expressroute-global-reach-preview"></a>Copertura globale di ExpressRoute (Anteprima)
 ExpressRoute è uno strumento privato e resiliente per connettere le reti locali a Microsoft Cloud. È possibile accedere a molti servizi cloud Microsoft, come Azure, Office 365 e Dynamics 365, dal data center privato o dalla rete aziendale. Ad esempio, una delle succursali potrebbe essere a San Francisco con un circuito ExpressRoute nella Silicon Valley e un'altra succursale potrebbe trovarsi a Londra con un circuito ExpressRoute nella stessa città. Entrambi le succursali possono disporre di connettività ad alta velocità alle risorse di Azure negli Stati Uniti occidentali e nel Regno Unito meridionale. Tuttavia, le succursali non possono scambiare dati direttamente tra loro. In altre parole, 10.0.1.0/24 può inviare dati a 10.0.3.0/24 e a 10.0.4.0/24 ma NON a 10.0.2.0/24.
