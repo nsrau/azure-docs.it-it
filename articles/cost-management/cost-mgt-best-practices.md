@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: f52a849fee4005628fb6a8ad567d89f5046d4765
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968071"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515353"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Come ottimizzare gli investimenti per il cloud con Gestione costi di Azure
 
@@ -186,10 +186,6 @@ Per altre informazioni, vedere [Informazioni sulle prenotazioni di Azure](../bil
 Se si hanno già licenze di Windows Server o SQL Server nelle distribuzioni locali, è possibile usare il programma Vantaggio Azure Hybrid per risparmiare in Azure. Con il vantaggio per Windows Server, ogni licenza copre il costo del sistema operativo (fino a un massimo di due macchine virtuali) e si pagano semplicemente i costi di calcolo di base. È possibile usare le licenze esistenti di SQL Server per risparmiare fino al 55% sulle opzioni di database SQL basate su vCore. Le opzioni includono SQL Server in Macchine virtuali di Azure e SQL Server Integration Services.
 
 Per altre informazioni, vedere [Calcolatore del risparmio generato dal vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
-#### <a name="monetary-commitment"></a>Impegno monetario
-
-I clienti che firmano un contratto Enterprise possono creare un impegno monetario iniziale con Microsoft. Oltre a offrire un modo semplice per allocare i budget alle risorse cloud, gli impegni monetari consentono di ridurre le tariffe per Azure. La riduzione delle tariffe può comportare risparmi significativi sui costi per l'organizzazione.
 
 ### <a name="other-resources"></a>Altre risorse:
 

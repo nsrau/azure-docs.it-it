@@ -1,21 +1,22 @@
 ---
-title: Architettura della replica di macchine virtuali VMware/server fisici in Azure Site Recovery | Microsoft Docs
-description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante la replica di server fisici e macchine virtuali VMware locali o di server Windows/Linux fisici in un sito secondario VMware con Azure Site Recovery.
+title: Architettura del ripristino di emergenza di VMware o server fisici in un sito secondario con Azure Site Recovery | Microsoft Docs
+description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante il ripristino di emergenza di macchine virtuali VMware locali o di server fisici Windows/Linux in un sito VMware secondario con Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 04591c57f90e3c540963d77c2213498bf0ad2577
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 77387b52003923dffce7519df9cca47fad8f6e6c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922699"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007434"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>Architettura della replica di macchine virtuali VMware/server fisici in VMware
+# <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Architettura per la replica di server VMware o fisici in un sito locale secondario
 
-Questo articolo descrive l'architettura e i processi usati per la replica, il failover e il ripristino di macchine virtuali (VM) VMware locali o server Windows/Linux fisici in un sito VMware secondario usando [Azure Site Recovery](site-recovery-overview.md).
+Questo articolo descrive l'architettura e i processi usati per la replica, il failover e il ripristino di emergenza di macchine virtuali (VM) VMware locali o server Windows/Linux fisici in un sito VMware secondario usando [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Componenti dell'architettura

@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: ba75c3448b4e8edb3851b97f076c0eaf64a2bce4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428669"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614522"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
@@ -279,7 +279,7 @@ Mentre si spostano i dati da un archivio dati di una rete privata (locale) a un 
    ![Nome del runtime di integrazione self-hosted](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
 1. Fare clic su **Click here to launch the express setup for this computer** (Fare clic qui per avviare l'installazione rapida per il computer) nella sezione **Option 1: Express setup** (Opzione 1: Installazione rapida). 
 
-   ![Fare clic sul collegamento per l'installazione rapida](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
+   ![Fare clic sul collegamento per l'installazione rapida](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Nella finestra **Installazione rapida di Integration Runtime (self-hosted)** fare clic su **Chiudi**. 
 
    ![Installazione del runtime di integrazione completata](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)

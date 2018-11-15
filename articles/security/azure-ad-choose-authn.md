@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: c08dba56e3a7d9590ea95e7e4c569839f3a32100
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: f1fd60774f5790a514e540984812fc1aaf6e38e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324853"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238914"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD 
 
@@ -52,11 +52,11 @@ Quando si sceglie questo metodo di autenticazione, è Azure AD a gestire la proc
 **Sincronizzazione dell'hash delle password di Azure AD**. È il modo più semplice per abilitare l'autenticazione per gli oggetti directory locali in Azure AD. Gli utenti possono usare gli stessi nome utente e password usati in locale senza la necessità di implementare infrastrutture aggiuntive. Alcune funzionalità premium di Azure AD, come ad esempio Identity Protection, richiedono la sincronizzazione dell'hash delle password indipendentemente dal metodo di autenticazione scelto.
 
 > [!NOTE] 
-> Le password non vengono mai archiviate in testo non crittografato o crittografate con un algoritmo reversibile in Azure AD. Per altre informazioni sul processo di sincronizzazione dell'hash delle password, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization). 
+> Le password non vengono mai archiviate in testo non crittografato o crittografate con un algoritmo reversibile in Azure AD. Per altre informazioni sul processo di sincronizzazione dell'hash delle password, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
 
 **Autenticazione pass-through di Azure AD**. Fornisce un semplice processo di convalida delle password per i servizi di autenticazione di Azure AD mediante un agente software eseguito in uno o più server locali. I server convalidano gli utenti direttamente con l'istanza locale di Active Directory, che assicura che la convalida delle password non venga eseguita nel cloud. 
 
-Le società che per questioni di sicurezza devono applicare immediatamente gli stati degli account utente locali, i criteri di gestione delle password e gli orari di accesso potrebbero usare questo metodo di autenticazione. Per altre informazioni sul processo effettivo di autenticazione pass-through, vedere [Accesso utente con l'autenticazione pass-through di Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+Le società che per questioni di sicurezza devono applicare immediatamente gli stati degli account utente locali, i criteri di gestione delle password e gli orari di accesso potrebbero usare questo metodo di autenticazione. Per altre informazioni sul processo effettivo di autenticazione pass-through, vedere [Accesso utente con l'autenticazione pass-through di Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta).
 
 ### <a name="federated-authentication"></a>Autenticazione federata
 Se si sceglie questo metodo di autenticazione, Azure AD trasferisce il processo di autenticazione a un sistema di autenticazione attendibile separato, ad esempio un sistema Active Directory Federation Services (AD FS) locale, per convalidare la password dell'utente.
@@ -68,6 +68,18 @@ La sezione seguente aiuta a decidere quale metodo di autenticazione sia più ada
 ## <a name="decision-tree"></a>Albero delle decisioni
 
 ![Albero delle decisioni per l'autenticazione di Azure Active Directory](media/azure-ad/azure-ad-authn-image1.png)
+
+Dettagli relativi alle domande nell'albero delle decisioni:
+
+1. Azure AD può gestire l'accesso per gli utenti senza basarsi sui componenti di un'istanza locale per la verifica delle password.
+2. Azure AD può trasferire l'accesso dell'utente a un provider di autenticazione attendibile, ad esempio AD FS di Microsoft.
+3. Se è necessario applicare criteri di sicurezza di Active Directory a livello di utente, ad esempio account scaduto, account disabilitato, password scaduta, account bloccato e ore di accesso per ogni accesso dell'utente, Azure AD richiede che in locale siano presenti alcuni componenti.
+4. Funzionalità di accesso non supportate da Azure AD in modo nativo:
+   * Accesso tramite smart card o certificati.
+   * Accesso tramite server MFA locale.
+   * Accesso tramite una soluzione di autenticazione di terze parti.
+   * Soluzione di autenticazione locale multisito.
+5. Azure AD Identity Protection richiede la sincronizzazione dell'hash delle password indipendentemente dal metodo di accesso scelto, per fornire il report "Utenti con credenziali perse". Le organizzazioni possono eseguire il failover alla sincronizzazione dell'hash delle password, se il metodo primario di accesso ha esito negativo ed è stato configurato prima dell'evento di errore.
 
 ## <a name="detailed-considerations"></a>Considerazioni dettagliate
 
@@ -88,17 +100,17 @@ La sezione seguente aiuta a decidere quale metodo di autenticazione sia più ada
 > [!NOTE]
 > Gli stati Password scaduta e Account bloccato non sono attualmente sincronizzati in Azure AD con Azure AD Connect. 
 
-Per la procedura di implementazione, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization).
+Per la procedura di implementazione, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization).
 
 ### <a name="cloud-authentication-pass-through-authentication"></a>Autenticazione cloud: autenticazione pass-through  
 
 * **Lavoro richiesto**. Per l'autenticazione pass-through sono necessari uno o più agenti leggeri (se ne consigliano tre) installati sui server esistenti. Questi agenti devono avere accesso ad Active Directory Domain Services locale, inclusi i controller di dominio AD locali. Richiedono inoltre l'accesso in uscita a Internet e l'accesso ai controller di dominio. Per questo motivo la distribuzione degli agenti in una rete perimetrale non è supportata. 
 
-    L'autenticazione pass-through richiede infatti un accesso di rete senza limitazioni ai controller di dominio. Tutto il traffico di rete è crittografato e limitato alle richieste di autenticazione. Per altre informazioni su questo processo, vedere l'[approfondimento sulla sicurezza](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-security-deep-dive) per l'autenticazione pass-through.
+    L'autenticazione pass-through richiede infatti un accesso di rete senza limitazioni ai controller di dominio. Tutto il traffico di rete è crittografato e limitato alle richieste di autenticazione. Per altre informazioni su questo processo, vedere l'[approfondimento sulla sicurezza](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-security-deep-dive) per l'autenticazione pass-through.
 
 * **Esperienza utente**. Per migliorare l'esperienza di accesso degli utenti, distribuire Seamless SSO con l'autenticazione pass-through. Seamless SSO elimina i prompt non necessari s dopo che gli utenti hanno effettuato l'accesso.
 
-* **Scenari avanzati**. L'autenticazione pass-through applica i criteri di account locali al momento dell'accesso. Ad esempio, l'accesso viene negato quando lo stato dell'account di un utente locale è disabilitato o bloccato oppure quando [la password è scaduta](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) o non rientra negli orari di accesso consentiti per l'utente. 
+* **Scenari avanzati**. L'autenticazione pass-through applica i criteri di account locali al momento dell'accesso. Ad esempio, l'accesso viene negato quando lo stato dell'account di un utente locale è disabilitato o bloccato oppure quando [la password è scaduta](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) o non rientra negli orari di accesso consentiti per l'utente. 
 
     Le organizzazioni che necessitano dell'autenticazione a più fattori con l'autenticazione pass-through devono usare Microsoft Azure Multi-Factor Authentication (MFA). Queste organizzazioni non possono usare un metodo di autenticazione a più fattori di terze parti o locale. Le funzionalità avanzate richiedono che la sincronizzazione dell'hash delle password venga implementata indipendentemente dalla scelta dell'autenticazione pass-through. Un esempio è il report Credenziali perse di Identity Protection.
 
@@ -108,9 +120,9 @@ Per la procedura di implementazione, vedere [Implementare la sincronizzazione de
 
 * **Considerazioni**. È possibile usare la sincronizzazione dell'hash delle password come metodo di autenticazione di backup per l'autenticazione pass-through, quando gli agenti non possono convalidare le credenziali di un utente per un errore significativo locale. Il failover alla sincronizzazione dell'hash delle password non avviene automaticamente ed è necessario usare Azure AD Connect per passare al metodo di registrazione manualmente. 
 
-    Per altre considerazioni sull'autenticazione pass-through, incluso il supporto ID alternativo, vedere le [domande frequenti](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
+    Per altre considerazioni sull'autenticazione pass-through, incluso il supporto ID alternativo, vedere le [domande frequenti](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq).
 
-Per la procedura di distribuzione, fare riferimento all'[implementazione dell'autenticazione pass-through](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+Per la procedura di distribuzione, fare riferimento all'[implementazione dell'autenticazione pass-through](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta).
 
 ### <a name="federated-authentication"></a>Autenticazione federata
 
@@ -122,7 +134,7 @@ Per la procedura di distribuzione, fare riferimento all'[implementazione dell'au
 
     * Autenticazione che richiede smart card o certificati.
     * Server MFA locali o provider di procedure di autenticazione a più fattori di terze parti.
-    * Autenticazione tramite soluzioni di autenticazione di terze parti. Vedere l'[Elenco di compatibilità di federazione di Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility).
+    * Autenticazione tramite soluzioni di autenticazione di terze parti. Vedere l'[Elenco di compatibilità di federazione di Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
     * Accesso che richiede un sAMAccountName, ad esempio DOMINIO\nome utente, anziché un nome dell'entità utente (UPN), ad esempio user@domain.com.
 
 * **Continuità aziendale**. I sistemi federati richiedono in genere un array di server con bilanciamento del carico, noto come farm. Questa farm è configurata in una topologia di rete interna e perimetrale per garantire la disponibilità elevata per le richieste di autenticazione.
@@ -136,7 +148,7 @@ Per un dominio non instradabile che non può essere verificato in Azure AD, è n
 Per la procedura di distribuzione, vedere [Distribuzione di server federativi](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers).
 
 > [!NOTE] 
-> Quando si implementa la soluzione ibrida di gestione delle identità di Azure AD, è necessario implementare una delle topologie supportate di Azure AD Connect. Altre informazioni sulle configurazioni supportate o meno sono disponibili in [Topologie per Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-topologies).
+> Quando si implementa la soluzione ibrida di gestione delle identità di Azure AD, è necessario implementare una delle topologie supportate di Azure AD Connect. Altre informazioni sulle configurazioni supportate o meno sono disponibili in [Topologie per Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies).
 
 ## <a name="architecture-diagrams"></a>Diagrammi di architettura
 
@@ -160,14 +172,14 @@ I diagrammi seguenti definiscono i componenti dell'architettura generale necessa
 |:-----|:-----|:-----|:-----|
 |Dove si verifica l'autenticazione?|Nel cloud|Nel cloud dopo la verifica della password di protezione con l'agente di autenticazione locale|Locale|
 |Quali sono i requisiti del server locale oltre il sistema di provisioning Azure AD Connect?|Nessuna|Un server per ogni agente di autenticazione aggiuntivo|Due o più server AD FS<br><br>Due o più server WAP nella rete perimetrale|
-|Quali sono i requisiti di rete e Internet locali oltre al sistema di provisioning?|Nessuna|[Accesso a Internet in uscita](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start) dai server in cui sono in esecuzione gli agenti di autenticazione|[Accesso Internet in ingresso](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) ai server WAP nelle reti perimetrali<br><br>Accesso di rete in ingresso ai server AD FS dai server WAP nelle reti perimetrali<br><br>Bilanciamento del carico di rete|
-|Esiste un requisito per il certificato SSL?|No |No |Yes|
-|Esiste una soluzione di monitoraggio dello stato?|Facoltativo|Stato agente fornito dall'[interfaccia di amministrazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs)|
-|Gli utenti ottengono l'accesso Single Sign-On alle risorse cloud dai dispositivi aggiunti al dominio all'interno della rete aziendale?|Sì, con l'[accesso Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)|Sì, con l'[accesso Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)|Yes|
-|Quali tipi di accesso sono supportati?|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows con [Seamless SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom)|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows con [Seamless SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq)|UserPrincipalName + Password<br><br>sAMAccountName + Password<br><br>Autenticazione integrata di Windows<br><br>[Autenticazione con certificato e smart card](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
+|Quali sono i requisiti di rete e Internet locali oltre al sistema di provisioning?|Nessuna|[Accesso a Internet in uscita](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) dai server in cui sono in esecuzione gli agenti di autenticazione|[Accesso Internet in ingresso](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) ai server WAP nelle reti perimetrali<br><br>Accesso di rete in ingresso ai server AD FS dai server WAP nelle reti perimetrali<br><br>Bilanciamento del carico di rete|
+|Esiste un requisito per il certificato SSL?|No|No|Yes|
+|Esiste una soluzione di monitoraggio dello stato?|Facoltativo|Stato agente fornito dall'[interfaccia di amministrazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
+|Gli utenti ottengono l'accesso Single Sign-On alle risorse cloud dai dispositivi aggiunti al dominio all'interno della rete aziendale?|Sì, con l'[accesso Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Sì, con l'[accesso Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Yes|
+|Quali tipi di accesso sono supportati?|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows con [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows con [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + Password<br><br>sAMAccountName + Password<br><br>Autenticazione integrata di Windows<br><br>[Autenticazione con certificato e smart card](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Windows Hello for Business è supportato?|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati con Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati con Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
-|Quali sono le opzioni di autenticazione a più fattori?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale*](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale*](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Server di Azure MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA di terze parti](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controlli personalizzati con accesso condizionale*](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/controls#custom-controls-1)|
-|Quali stati dell'account utente sono supportati?|Account disabilitati<br>(fino a 30 minuti di ritardo)|Account disabilitati<br><br>Account bloccato<br><br>Password scaduta<br><br>Orari di accesso|Account disabilitati<br><br>Account bloccato<br><br>Password scaduta<br><br>Orari di accesso|
+|Quali sono le opzioni di autenticazione a più fattori?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Server di Azure MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA di terze parti](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controlli personalizzati con accesso condizionale*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-1)|
+|Quali stati dell'account utente sono supportati?|Account disabilitati<br>(fino a 30 minuti di ritardo)|Account disabilitati<br><br>Account bloccato<br><br>Account scaduto<br><br>Password scaduta<br><br>Orari di accesso|Account disabilitati<br><br>Account bloccato<br><br>Account scaduto<br><br>Password scaduta<br><br>Orari di accesso|
 |Quali sono le opzioni di accesso condizionale?|[Accesso condizionale di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Accesso condizionale di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Accesso condizionale di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[Regole di attestazione per AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
 |Il blocco dei protocolli legacy è supportato?|[Sì](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Sì](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Sì](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |È possibile personalizzare il logo, l'immagine e la descrizione nelle pagine di accesso?|[Sì, con Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Sì, con Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Sì](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
@@ -207,4 +219,4 @@ Oggigiorno, le minacce sono presenti 24 ore al giorno e provengono da ovunque. L
 
 Ciò è possibile tramite l'[Introduzione](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) ad Azure Active Directory e la distribuzione di una soluzione di autenticazione appropriata per l'organizzazione.
 
-Se si intende eseguire la migrazione dall'autenticazione federata all'autenticazione cloud, sono disponibili altre informazioni sulla [modifica del metodo di accesso](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Per pianificare e implementare la migrazione, usare [questi piani di distribuzione del progetto](http://aka.ms/deploymentplans).
+Se si intende eseguire la migrazione dall'autenticazione federata all'autenticazione cloud, sono disponibili altre informazioni sulla [modifica del metodo di accesso](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Per pianificare e implementare la migrazione, usare [questi piani di distribuzione del progetto](https://aka.ms/deploymentplans).

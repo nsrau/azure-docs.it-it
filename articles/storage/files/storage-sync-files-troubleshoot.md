@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231883"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014279"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -368,7 +368,7 @@ Questo errore si verifica quando il limite di archiviazione di condivisione file
 
     ![Schermata delle proprietà della condivisione file di Azure.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
-Se la condivisione è piena e non è impostata una quota, uno dei possibili metodi di risoluzione del problema è inserire ciascuna sottocartella degli endpoint server attuali nei relativi endpoint server e nei propri gruppi di sincronizzazione distinti. In questo modo ogni sottocartella verrà sincronizzata con le singole condivisioni di file di Azure.
+Se la condivisione è piena e non è impostata una quota, uno dei possibili metodi per correggere il problema è inserire ogni sottocartella dell'endpoint server corrente nel relativo endpoint server all'interno degli specifici gruppi di sincronizzazione. In questo modo ogni sottocartella verrà sincronizzata con le singole condivisioni di file di Azure.
 
 <a id="-2134351824"></a>**Impossibile trovare la condivisione file di Azure.**  
 | | |

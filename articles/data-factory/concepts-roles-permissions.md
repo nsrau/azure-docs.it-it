@@ -4,7 +4,7 @@ description: Descrive i ruoli e le autorizzazioni richiesti per creare data fact
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 10/08/2018
+ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: 10f325f3b7c93b91180b6a170c8b7accb75eb03b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 82c0ec4d114ec198ecba475b247a3c9952a6069a
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883772"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218764"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Ruoli e autorizzazioni per Azure Data Factory
 
@@ -50,6 +50,8 @@ Per altre informazioni su questo ruolo, vedere il [ruolo Collaboratore Data fact
 ### <a name="resource-manager-template-deployment"></a>Distribuzione del modello di Resource Manager
 
 Il ruolo **Collaboratore Data factory**, a livello di gruppo di risorse o superiore, consente agli utenti di distribuire i modelli di Resource Manager. Di conseguenza, i membri del ruolo possono usare i modelli di Resource Manager per distribuire le data factory e le relative risorse figlio, inclusi i set di dati, i servizi collegati, le pipeline, i trigger e i runtime di integrazione. L'appartenenza a questo ruolo non consente tuttavia all'utente di creare altre risorse.
+
+Le autorizzazioni per Azure Repos e GitHub sono indipendenti dalle autorizzazioni di Data Factory. Di conseguenza, un utente con autorizzazioni di repository che è solo un membro del ruolo lettore può modificare le risorse figlio di Data Factory ed eseguire il commit delle modifiche nel repository, ma non può pubblicare tali modifiche.
 
 > [!IMPORTANT]
 > La distribuzione dei modelli di Resource Manager con il ruolo **Collaboratore Data factory** non eleva le autorizzazioni. Ad esempio, se si distribuisce un modello che crea una macchina virtuale di Azure e non si è autorizzati a creare macchine virtuali, la distribuzione ha esito negativo con un errore di autorizzazione.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 28de0f8bdcaa730c5beea0c630d4e86e15642809
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142852"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978843"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Risolvere i problemi di abilitazione o visualizzazione di Application Insights Profiler
 
@@ -46,16 +46,16 @@ Il profiler scrive i messaggi di traccia e gli eventi personalizzati nella risor
 
 1. Se si sono verificate richieste durante l'esecuzione del profiler, verificare che tali richieste siano gestite dalla parte dell'applicazione per cui il profiler è abilitato. In alcuni casi le applicazioni sono costituite da più componenti, ma Profiler è abilitato solo per alcuni componenti, non tutti. La pagina Configura Application Insights Profiler mostra i componenti che hanno caricato tracce.
 
-### <a name="net-core-21-bug"></a>**Bug di .Net Core 2.1** 
+### <a name="net-core-21-bug"></a>Bug di .Net Core 2.1
 È presente un bug nell'agente profiler che impedisce che vengano caricate le analisi eseguite nelle applicazioni eseguite in ASP.NET Core 2.1. Microsoft sta lavorando per risolvere il problema e presto sarà disponibile una correzione. La correzione per questo bug verrà distribuita entro la fine di ottobre.
 
-### <a name="other-things-to-check"></a>**Altri aspetti da controllare:**
+### <a name="other-things-to-check"></a>Altri aspetti da controllare:
 * L'app viene eseguita su .NET Framework 4.6.
 * Se l'app Web è un'applicazione ASP.NET Core, deve eseguire almeno ASP.NET Core 2.0.
 * Se i dati che si sta tentando di visualizzare sono antecedenti a un paio di settimane, è possibile limitare il filtro temporale e riprovare. Le tracce vengono eliminate dopo sette giorni.
 * Verificare che un firewall o i proxy non abbiano bloccato l'accesso a https://gateway.azureserviceprofiler.net.
 
-### <a id="double-counting"></a>**Doppio conteggio in thread paralleli**
+### <a id="double-counting"></a>Doppio conteggio dei thread in parallelo
 
 In alcuni casi la metrica del tempo totale nel visualizzatore dello stack supera la durata della richiesta.
 
@@ -63,11 +63,11 @@ Questa situazione può verificarsi quando due o più thread sono associati a una
 
 Quando sono presenti thread in parallelo nelle analisi, determinare quali thread sono in attesa per poter verificare il percorso critico per la richiesta. Nella maggior parte dei casi, il thread che entra rapidamente in uno stato di attesa è semplicemente in attesa di altri thread. Concentrarsi sugli altri thread e ignorare il tempo nei thread in attesa.
 
-### <a name="error-report-in-the-profiling-viewer"></a>**Report di errori nel visualizzatore di profilatura**
+### <a name="error-report-in-the-profile-viewer"></a>Report degli errori nel visualizzatore profili
 Inviare un ticket di supporto nel portale. Verificare di includere l'ID di correlazione dal messaggio di errore.
 
 ## <a name="troubleshooting-profiler-on-app-services"></a>Risoluzione dei problemi relativi a Profiler nei Servizi app
-### <a name="for-the-profiler-to-work-properly"></a>**Per il corretto funzionamento del profiler:**
+### <a name="for-the-profiler-to-work-properly"></a>Per il corretto funzionamento del profiler:
 * Il piano di servizio dell'app Web deve essere di livello Basic o superiore.
 * Nell'app Web deve essere installata l'estensione Application Insights per Servizi app (2.6.5).
 * L'impostazione **APPINSIGHTS_INSTRUMENTATIONKEY** nell'app Web deve essere configurata con la stessa chiave di strumentazione usata da Application Insights SDK.
@@ -82,7 +82,7 @@ Inviare un ticket di supporto nel portale. Verificare di includere l'ID di corre
     
     ![profiler-webjob-log]
 
-### <a name="manual-installation"></a>**Installazione manuale**
+### <a name="manual-installation"></a>Installazione manuale
 
 Quando si configura Profiler, vengono apportati alcuni aggiornamenti alle impostazioni dell'app Web. È possibile applicare gli aggiornamenti manualmente, se l'ambiente lo richiede Ad esempio nel caso in cui l'applicazione sia in esecuzione in un ambiente di App Web per PowerApps.
 
@@ -97,9 +97,9 @@ Quando si configura Profiler, vengono apportati alcuni aggiornamenti alle impost
 1. Installare **Application Insights** dalla raccolta delle app Web di Azure.
 1. Riavviare l'app Web .
 
-### <a name="too-many-active-profiling-sessions"></a>**Troppe sessioni di profilatura attive**
+### <a name="too-many-active-profiling-sessions"></a>Troppe sessioni di profilatura attive
 
-È attualmente possibile abilitare Profiler su un massimo di quattro app Web e slot di distribuzione di Azure in esecuzione nello stesso piano di servizio. Se il processo Web di Profiler segnala un numero eccessivo di sessioni di profilatura attive, spostare alcune app Web in un altro piano di servizio.
+È attualmente possibile abilitare Profiler su un massimo di quattro app Web e slot di distribuzione di Azure in esecuzione nello stesso piano di servizio. Se sono presenti più app Web rispetto a quelle eseguite in un piano di servizio app, è possibile visualizzare un'eccezione Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException generata dal profiler. Il profiler, eseguito separatamente per ogni app Web, prova ad avviare una sessione ETW per ogni app. Tuttavia, il numero delle sessioni ETW che possono essere attive contemporaneamente è limitato. Se il processo Web di Profiler segnala un numero eccessivo di sessioni di profilatura attive, spostare alcune app Web in un altro piano di servizio.
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Errore di distribuzione: Directory non vuota 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 

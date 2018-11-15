@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/20/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0ecb497e9b07119f6c32149a875f27ee7c338d74
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205800"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344638"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gestire le risorse con Azure PowerShell
 
@@ -56,7 +56,7 @@ In questo articolo viene eseguita la distribuzione di una macchina virtuale e de
 * [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Collaboratore account di archiviazione](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Invece di assegnare ruoli ai singoli utenti, è spesso più facile [creare un gruppo di Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) per gli utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per semplificare questo articolo, creare un gruppo di Azure Active Directory senza membri. È comunque possibile assegnare questo gruppo a un ruolo per un ambito. 
+Invece di assegnare ruoli ai singoli utenti, è spesso più facile [creare un gruppo di Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) per gli utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per semplificare questo articolo, creare un gruppo di Azure Active Directory senza membri. È comunque possibile assegnare questo gruppo a un ruolo per un ambito.
 
 L'esempio seguente crea un gruppo e lo assegna al ruolo Collaboratore Macchina virtuale per il gruppo di risorse. Per eseguire il comando `New-AzureAdGroup`, è necessario usare [Azure Cloud Shell](/azure/cloud-shell/overview) o [scaricare il modulo di Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -211,11 +211,12 @@ Remove-AzureRmResourceLock -LockName LockNSG `
 
 Quando non servono più, è possibile usare il comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per informazioni sul monitoraggio delle macchine virtuali, vedere [Monitorare e aggiornare una macchina virtuale Windows con Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
 * Per informazioni sull'uso del Centro sicurezza di Azure per l'implementazione delle procedure di sicurezza consigliate, vedere [Monitorare la sicurezza delle macchine virtuali con il Centro sicurezza di Azure](../virtual-machines/windows/tutorial-azure-security.md).
 * È possibile spostare le risorse esistenti in un nuovo gruppo di risorse. Per esempi, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).

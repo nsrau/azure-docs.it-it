@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 6d31e6a4d424b8e3c634c9d5075b1f02c512187b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651208"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578672"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di contenitore di Azure
 
@@ -38,7 +38,7 @@ Con un'identità gestita in un contenitore in esecuzione è possibile eseguire l
 
 ### <a name="enable-a-managed-identity"></a>Abilitare un'identità gestita
 
- In Istanze di contenitore di Azure, le identità gestite per le risorse di Azure sono supportate a partire dalla versione API REST 2018-10-01 e da SDK e strumenti corrispondenti. Quando si crea un gruppo di contenitori, abilitare una o più identità gestite impostando una proprietà [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity). È anche possibile abilitare o aggiornare identità gestite quando un gruppo di contenitori è in esecuzione. Entrambe le azioni causano il riavvio del gruppo di contenitori. Per impostare le identità in un gruppo di contenitori nuovo o esistente, usare l'interfaccia della riga di comando di Azure, un modello di Resource Manager o un file YAML. 
+ In Istanze di contenitore di Azure, le identità gestite per le risorse di Azure sono supportate a partire dalla versione API REST 2018-10-01 e da SDK e strumenti corrispondenti. Quando si crea un gruppo di contenitori, abilitare una o più identità gestite impostando una proprietà [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity). È anche possibile abilitare o aggiornare identità gestite quando un gruppo di contenitori è in esecuzione. Entrambe le azioni causano il riavvio del gruppo di contenitori. Per impostare le identità in un gruppo di contenitori nuovo o esistente, usare l'interfaccia della riga di comando di Azure, un modello di Resource Manager o un file YAML. 
 
 Istanze di contenitore di Azure supporta entrambi i tipi di identità di Azure gestite: assegnata dall'utente e assegnata dal sistema. In un gruppo di contenitori è possibile abilitare un'identità assegnata dal sistema, una o più identità assegnate dall'utente o entrambi i tipi di identità. 
 

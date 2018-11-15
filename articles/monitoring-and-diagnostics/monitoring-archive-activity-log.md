@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 6743d03b623084675f5043a7e158fa99e8aa39d2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ea29d9052c2389b0c7d145223d3660364cbf2c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054006"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016319"
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiviare il log attività di Azure
 In questo articolo viene illustrato come è possibile usare il Portale di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma per archiviare il [**registro attività di Azure**](monitoring-overview-activity-logs.md) in un account di archiviazione. Questa opzione è utile per conservare il log attività per più di 90 giorni (con il controllo completo sui criteri di conservazione) per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi per non più di 90 giorni, non è necessario configurare l'archiviazione in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni senza abilitare l'archiviazione.
@@ -35,10 +35,10 @@ Per archiviare il log attività con uno dei metodi seguenti, impostare il **prof
 ## <a name="archive-the-activity-log-using-the-portal"></a>Archiviare il log attività con il portale
 1. Nel portale fare clic sul collegamento **Log attività** a sinistra. Se il collegamento Log attività non è visualizzato, fare prima clic sul collegamento **Tutti i servizi**.
    
-    ![Passare al pannello Log attività](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. Nella parte superiore del pannello fare clic su **Esporta**.
+    ![Passare al pannello Log attività](media/monitoring-archive-activity-log/activity-logs-portal-navigate-v2.png)
+2. Nella parte superiore del pannello fare clic su **Esporta in Hub eventi**.
    
-    ![Fare clic sul pulsante Esporta](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+    ![Fare clic sul pulsante Esporta](media/monitoring-archive-activity-log/activity-logs-portal-export-v2.png)
 3. Nel pannello visualizzato selezionare la casella **Esporta in un account di archiviazione** e selezionare un account di archiviazione.
    
     ![Impostare un account di archiviazione](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
@@ -62,12 +62,12 @@ Per archiviare il log attività con uno dei metodi seguenti, impostare il **prof
    Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
    ```
 
-| Proprietà | Obbligatoria | DESCRIZIONE |
+| Proprietà | Obbligatoria | Descrizione |
 | --- | --- | --- |
 | StorageAccountId |Yes |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
 | Località |Yes |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `(Get-AzureRmLocation).Location`. |
 | RetentionInDays |No  |Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono mantenuti per un periodo illimitato. |
-| Categoria |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action.  Se omesso, vengono considerati tutti i valori possibili |
+| Categorie |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action.  Se omesso, vengono considerati tutti i valori possibili |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Archiviare il log attività con l'interfaccia della riga di comando
 
@@ -75,7 +75,7 @@ Per archiviare il log attività con uno dei metodi seguenti, impostare il **prof
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
    ```
 
-| Proprietà | Obbligatoria | DESCRIZIONE |
+| Proprietà | Obbligatoria | Descrizione |
 | --- | --- | --- |
 | name |Yes |Nome del profilo di log. |
 | storage-account-id |Yes |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
@@ -158,7 +158,7 @@ Nel file PT1H.json ogni evento viene archiviato nella matrice "records", con que
 ```
 
 
-| Nome dell'elemento | DESCRIZIONE |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
 | time |Timestamp del momento in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento. |
 | ResourceId |ID risorsa della risorsa interessata. |

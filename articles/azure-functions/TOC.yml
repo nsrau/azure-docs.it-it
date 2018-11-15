@@ -62,8 +62,6 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=functions
   - name: Interfaccia della riga di comando di Azure
     href: functions-cli-samples.md
-  - name: Recipe di Funzioni di Azure
-    href: https://docs.microsoft.com/sandbox/functions-recipes/
 - name: Concetti
   items:
   - name: Confrontare le versioni 1.x e 2.x
@@ -294,9 +292,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: ecab8badc92d416f47d703c4f0856db58917509c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: eb408491ee9ed4994324a5fd425e87da6e4c59a1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248609"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633785"

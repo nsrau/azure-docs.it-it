@@ -27,6 +27,13 @@ items:
       href: storage-powershell-how-to-use-queues.md
 - name: Concetti
   items:
+  - name: Account di archiviazione
+    href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    items:
+    - name: Gestire un account di archiviazione
+      href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Aggiornare un account di archiviazione
+      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Authorization
     href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     items:
@@ -180,7 +187,7 @@ items:
 - name: Risorse
   items:
   - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/?category=storage
+    href: https://azure.microsoft.com/roadmap/?product=storage
   - name: Strumenti client di Archiviazione di Azure
     href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Forum
@@ -189,8 +196,6 @@ items:
     href: https://azure.microsoft.com/pricing/details/storage/queues/
   - name: Calcolatore prezzi
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Aggiornamenti del servizio
-    href: https://azure.microsoft.com/updates/?product=storage
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Video
@@ -237,9 +242,9 @@ items:
       href: https://github.com/Azure/azure-storage-ruby
     - name: iOS
       href: https://github.com/Azure/azure-storage-ios
-ms.openlocfilehash: b3b0deca551560c2678c3e71b193c3aadcfce46e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 70ae757477631d7c09cc8f9f6306703ea799f759
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094009"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632979"

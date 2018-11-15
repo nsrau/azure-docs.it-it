@@ -1,20 +1,20 @@
 ---
-title: 'Esercitazione: Distribuire processi ASA in dispositivi Azure IoT Edge | Microsoft Docs'
+title: Esercitazione - Distribuire processi ASA in dispositivi Azure IoT Edge | Microsoft Docs
 description: In questa esercitazione Analisi di flusso di Azure viene distribuito come modulo in un dispositivo Iot Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b85fe520bf29d10bb3dac1246349abbdadaf6df3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158738"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566942"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge (anteprima)
 
@@ -67,7 +67,7 @@ Quando si crea un processo di Analisi di flusso di Azure da eseguire in un dispo
 
    | Campo | Valore |
    | ----- | ----- |
-   | Nome | Immettere un nome univoco per l'account di archiviazione. | 
+   | NOME | Immettere un nome univoco per l'account di archiviazione. | 
    | Località | Scegliere una località vicina. |
    | Sottoscrizione | Scegliere la stessa sottoscrizione dell'hub IoT. |
    | Gruppo di risorse | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |

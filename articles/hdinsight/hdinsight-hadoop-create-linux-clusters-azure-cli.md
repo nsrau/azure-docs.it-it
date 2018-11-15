@@ -1,20 +1,20 @@
 ---
-title: Creare i cluster Hadoop con l'interfaccia della riga di comando classica di Azure - Azure HDInsight
+title: Creare cluster Apache Hadoop con l'interfaccia della riga di comando classica di Azure - Azure HDInsight
 description: Informazioni su come creare cluster HDInsight tramite l'interfaccia multipiattaforma della riga di comando classica di Azure.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 84b352fea0c5b9c98cd3b4e814e448cf8b706402
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 93ee51c8a00e5cfcbffd56f96b627b68dd124aea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992814"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034694"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
 

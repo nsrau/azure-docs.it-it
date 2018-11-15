@@ -1,22 +1,22 @@
 ---
 title: Analizzare i dati di Twitter con Apache Hive - Azure HDInsight
-description: Informazioni su come usare Hive e Hadoop in HDInsight per trasformare i dati di Twitter non elaborati in una tabella Hive ricercabile.
+description: Informazioni su come usare Apache Hive e Apache Hadoop in HDInsight per trasformare i dati di Twitter non elaborati in una tabella Hive ricercabile.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: e48dacd77b807f5a982ac4be2dcfa4b970b342ef
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: d037c4fc65bc32ff183ddc7a8925cd2f51411ea0
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596104"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034627"
 ---
-# <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analizzare i dati di Twitter mediante Hive e Hadoop in HDInsight
+# <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analizzare i dati di Twitter mediante Apache Hive e Apache Hadoop in HDInsight
 
 Informazioni su come usare Apache Hive per elaborare i dati di Twitter. Il risultato è un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
 
@@ -39,8 +39,8 @@ Twitter consente di recuperare i dati relativi ad ogni tweet come documento JSON
 
    | Campo | Valore |
    |:--- |:--- |
-   | NOME |MyHDInsightApp |
-   | DESCRIZIONE |MyHDInsightApp |
+   | Name |MyHDInsightApp |
+   | Description |MyHDInsightApp |
    | Website |http://www.myhdinsightapp.com |
 
 4. Fare clic su **Yes, I agree** e su **Create your Twitter application**.
@@ -156,7 +156,7 @@ Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvar
     > [!TIP]
     > Modificare il filtro di argomenti nell'ultima riga per tenere traccia delle parole chiave comuni. L'uso delle parole chiave più diffuse al momento dell'esecuzione dello script consente di acquisire più velocemente i dati.
 
-6. Usare **Ctrl + X**, quindi premere **Y** per salvare il file.
+6. Usare **CTRL + X**, quindi premere **Y** per salvare il file.
 
 7. Usare il comando seguente per aprire il file e scaricare i tweet:
 
@@ -167,7 +167,7 @@ Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvar
     Viene visualizzato un indicatore di stato che mostra un valore fino al 100% mentre vengono scaricati i tweet.
 
    > [!NOTE]
-   > Se l'indicatore di stato impiega molto tempo per avanzare, è necessario modificare il filtro per monitorare gli argomenti di tendenza. Quando sono presenti molti tweet relativi all'argomento del filtro, è possibile ottenere rapidamente i 10000 tweet necessari.
+   > Se l'indicatore di stato impiega molto tempo per avanzare, è necessario modificare il filtro per monitorare gli argomenti di tendenza. Quando sono presenti molti tweet relativi all'argomento del filtro, è possibile ottenere rapidamente i 10.000 tweet necessari.
 
 ### <a name="upload-the-data"></a>Caricare i dati
 
@@ -296,7 +296,7 @@ Questi comandi archiviano i dati in un percorso accessibile a tutti i nodi del c
    WHERE (length(json_response) > 500);
    ```
 
-2. Premere **Ctrl + X**, quindi **Y** per salvare il file.
+2. Premere **CTRL + X**, quindi **Y** per salvare il file.
 3. Usare il comando riportato di seguito per eseguire lo script HiveQL contenuto nel file:
 
    ```bash

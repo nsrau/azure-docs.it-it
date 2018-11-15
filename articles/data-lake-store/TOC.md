@@ -28,6 +28,7 @@
 ### [Controllo di accesso](data-lake-store-access-control.md)
 ### [Protezione dei dati archiviati](data-lake-store-secure-data.md)
 ### [Crittografia](data-lake-store-encryption.md)
+### [Integrazione rete virtuale (anteprima)](data-lake-store-network-security.md)
 
 ## Eseguire l'autenticazione con Data Lake Storage Gen1
 ### [Opzioni di autenticazione](data-lakes-store-authentication-using-azure-active-directory.md)
@@ -87,19 +88,18 @@
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
-## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
+## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (gestione di account)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python (gestione del file system)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
 ## [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/dls)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Blog di Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Commenti e suggerimenti su UserVoice](https://feedback.azure.com/forums/327234-data-lake)
-## [Forum di MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Forum di Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

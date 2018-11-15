@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257999"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011834"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Trasmettere il log attività di Azure a Hub eventi
 È possibile trasmettere il [log attività di Azure](monitoring-overview-activity-logs.md) quasi in tempo reale a qualsiasi applicazione:
@@ -39,10 +39,10 @@ Per aggiornare il profilo del log attività e includere la trasmissione, l'utent
 ### <a name="via-the-azure-portal"></a>Tramite il portale di Azure
 1. Passare alla sezione **Log attività** usando la casella di ricerca **Tutti i servizi** sul lato sinistro del portale.
    
-   ![Selezione di Log attività nell'elenco dei servizi disponibili nel portale](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Selezionare il pulsante **Esporta** nella parte superiore del log.
+   ![Selezione di Log attività nell'elenco dei servizi disponibili nel portale](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-navigate-v2.png)
+2. Selezionare il pulsante **Esporta in Hub eventi**  nella parte superiore del log.
    
-   ![Pulsante Esporta nel portale](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+   ![Pulsante Esporta nel portale](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-export-v2.png)
 
    Si noti che le impostazioni di filtro applicate durante la visualizzazione del log attività in precedenza non hanno alcun effetto sulle impostazioni di esportazione. Servono solo per filtrare i dati visualizzati durante l'esplorazione del log attività nel portale.
 3. Nella sezione che viene visualizzata selezionare **Tutte le aree**. Non selezionare aree specifiche.
@@ -101,5 +101,5 @@ Lo schema del log attività è disponibile in [Monitorare l'attività di sottosc
 ## <a name="next-steps"></a>Passaggi successivi
 * [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md) (Archiviare il log attività in un account di archiviazione)
 * Leggere la [panoramica sul log attività di Azure](monitoring-overview-activity-logs.md)
-* [Set up an alert based on an Activity Log event](insights-auditlog-to-webhook-email.md) (Configurare un avviso in base a un evento del log attività)
+* [Set up an alert based on an Activity Log event](monitor-alerts-unified-log-webhook.md) (Configurare un avviso in base a un evento del log attività)
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: bcdd5b6d28a6c08b7b36e170fcb7d184fcf65eb0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d215af253471258e487dadcfae0cfd7edafd1c26
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024461"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634652"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Connettere Azure Stack ad Azure tramite VPN
 
@@ -33,7 +33,7 @@ Questo articolo illustra come creare una VPN site-to-site per connettere una ret
 Per completare la configurazione della connessione, assicurarsi che disporre dei seguenti elementi prima di iniziare:
 
 * Azure Stack integrati distribuzione dei sistemi (a più nodi) che è direttamente connesso a internet. L'intervallo di indirizzi IP esterno deve essere raggiungibile direttamente dalla rete internet pubblica.
-* Una sottoscrizione Azure valida. Se non hai una sottoscrizione di Azure, è possibile creare un [qui account Azure gratuito](https://azure.microsoft.com/free/?b=17.06).
+* Una sottoscrizione di Azure valida. Se non hai una sottoscrizione di Azure, è possibile creare un [qui account Azure gratuito](https://azure.microsoft.com/free/?b=17.06).
 
 ### <a name="vpn-connection-diagram"></a>Diagramma di connessione VPN
 
@@ -47,7 +47,7 @@ Tabella di esempi di configurazione di rete mostra i valori utilizzati per gli e
 
 |   |Azure Stack|Azure|
 |---------|---------|---------|
-|Nome rete virtuale     |Azs-VNet|AzureVNet |
+|Nome della rete virtuale     |Azs-VNet|AzureVNet |
 |Spazio indirizzi della rete virtuale |10.1.0.0/16|10.100.0.0/16|
 |Nome della subnet     |FrontEnd|FrontEnd|
 |Intervallo di indirizzi subnet|10.1.0.0/24 |10.100.0.0/24 |
@@ -89,7 +89,7 @@ Tabella di esempi di configurazione di rete mostra i valori utilizzati per gli e
 3. Nell'elenco delle risorse di rete, selezionare **gateway di rete virtuale**.
 4. Nelle **Name**, digitare **Azure-GW**.
 5. Per scegliere una rete virtuale, selezionare **rete virtuale**. Quindi selezionare **AzureVnet** dall'elenco.
-6. Selezionare **indirizzo IP pubblico**. Quando la **Scegli indirizzo IP pubblico** verrà visualizzata la sezione, selezionare **Crea nuovo**.
+6. Selezionare **Indirizzo IP pubblico**. Quando la **Scegli indirizzo IP pubblico** verrà visualizzata la sezione, selezionare **Crea nuovo**.
 7. Nelle **Name**, digitare **Azure-GW-PiP**e quindi selezionare **OK**.
 8. Per impostazione predefinita, per **tipo di VPN**, **basato su Route** sia selezionata. Mantenere il **basato su Route** tipo VPN.
 9. Verificare che la **Sottoscrizione** e la **Località** siano corrette. È possibile aggiungere la risorsa al dashboard. Selezionare **Create**.
@@ -127,7 +127,7 @@ Ora creare una macchina virtuale in Azure e inserirlo nella subnet VM nella rete
 
 1. Nel portale di Azure, selezionare **+ crea una risorsa**.
 2. Passare a **Marketplace**, quindi selezionare **Compute**.
-3. Nell'elenco di immagini di macchine virtuali, selezionare la **Windows Server 2016 Datacenter Oval** immagine.
+3. Nell'elenco di immagini di macchine virtuali, selezionare la **Windows Server 2016 Datacenter Eval** immagine.
 4. Nel **nozioni di base** sezione, per **nome**, digitare **AzureVM**.
 5. Digitare un nome utente valido e una password. Utilizzare questo account per accedere alla macchina virtuale dopo averla creata.
 6. Fornire una **sottoscrizione**, **gruppo di risorse**, e **posizione**, quindi selezionare **OK**.
@@ -227,7 +227,7 @@ Per verificare la connessione VPN, creare due macchine virtuali: uno in Azure e 
 
 1. Nel portale di Azure, selezionare **+ crea una risorsa**.
 2. Passare a **Marketplace**, quindi selezionare **Compute**.
-3. Nell'elenco di immagini di macchine virtuali, selezionare la **Windows Server 2016 Datacenter Oval** immagine.
+3. Nell'elenco di immagini di macchine virtuali, selezionare la **Windows Server 2016 Datacenter Eval** immagine.
 4. Nel **nozioni di base** nella sezione **nome**, digitare **Azs-VM**.
 5. Digitare un nome utente valido e una password. Si usa questo account per accedere alla macchina virtuale dopo averla creata.
 6. Fornire una **sottoscrizione**, **gruppo di risorse**, e **posizione**, quindi selezionare **OK**.

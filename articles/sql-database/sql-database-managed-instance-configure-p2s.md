@@ -11,21 +11,21 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 370df2f13ddf9a2cf6613da95bd845ebfd0f253a
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/01/2018
+ms.openlocfilehash: 8579eccfade83b3b3a016fc84429a914fbccd584
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868190"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912272"
 ---
-# <a name="configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Configurare una connessione da punto a sito a un'istanza gestita di database SQL di Azure da un computer locale
+# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Guida introduttiva: Configurare una connessione da punto a sito da un computer locale a un'istanza gestita di database SQL di Azure
 
 Questa guida introduttiva illustra come connettersi a un'istanza gestita di database SQL di Azure con [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) da un computer client locale tramite una connessione da punto a sito. Per informazioni sulle connessioni da punto a sito, vedere [Informazioni sulla VPN da punto a sito](../vpn-gateway/point-to-site-about.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-La guida introduttiva:
+Questa guida introduttiva:
 
 - Usa come punto di partenza le risorse create nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
 - Richiede PowerShell 5.1 e Azure PowerShell 5.4.2 o versione successiva nel computer client locale.
@@ -68,7 +68,7 @@ La guida introduttiva:
 3. Fare clic su **Configurazione da punto a sito** e quindi su **Scarica client VPN**.
 
     ![Scaricare il client VPN](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. Estrarre i file dal file ZIP e quindi aprire la cartella estratta.
+4. Estrarre i file dal file con estensione zip e quindi aprire la cartella estratta.
 5. Passare alla cartella WindowsAmd64 e aprire il file **VpnClientSetupAmd64.exe**.
 6. Se viene visualizzato un messaggio per segnalare che **il PC è stato protetto da Windows**, fare clic su **Altre informazioni** e quindi su **Esegui comunque**.
 

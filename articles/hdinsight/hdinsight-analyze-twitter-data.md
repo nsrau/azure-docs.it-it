@@ -1,20 +1,20 @@
 ---
-title: Analizzare i dati di Twitter con Hadoop in HDInsight - Azure
-description: Informazioni su come usare Hive per analizzare i dati di Twitter con Hadoop in HDInsight per rilevare la frequenza d'uso di una parola specifica.
+title: Analizzare i dati di Twitter con Apache Hadoop in HDInsight - Azure
+description: Informazioni su come usare Hive per analizzare i dati di Twitter con Apache Hadoop in HDInsight per rilevare la frequenza di utilizzo di una parola specifica.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 294353cfcfba617ab19e703f11f35402bcf7ea82
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 39db03170d6a9c9d481b1448b54bdbd52e205921
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387582"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037296"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analizzare i dati di Twitter con Hive in HDInsight
 I siti Web di social networking rappresentano una delle principali forze trainanti per l'adozione di Big Data. Le API pubbliche offerte da siti quali Twitter costituiscono un'utile origine di dati per l'analisi e la comprensione delle tendenze più popolari.
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 Nella tabella seguente vengono elencati i file usati nell'esercitazione:
 
-| File | DESCRIZIONE |
+| File | Descrizione |
 | --- | --- |
 | /tutorials/twitter/data/tweets.txt |I dati di origine per il processo Hive. |
 | /tutorials/twitter/output |Cartella di output per il processo Hive. Il nome file di output del processo Hive relativo al file predefinito è **000000_0**. |
@@ -78,8 +78,8 @@ Il primo passaggio da seguire per usare OAuth consiste nel creare una nuova appl
 
    | Campo | Valore |
    | --- | --- |
-   |  NOME |MyHDInsightApp |
-   |  DESCRIZIONE |MyHDInsightApp |
+   |  Name |MyHDInsightApp |
+   |  Description |MyHDInsightApp |
    |  Website |http://www.myhdinsightapp.com |
 4. Fare clic su **Yes, I agree** e su **Create your Twitter application**.
 5. Fare clic sulla scheda **Permissions** . L'autorizzazione predefinita è **Read only**. Questo livello di autorizzazione è sufficiente per l'esercitazione.
@@ -226,7 +226,7 @@ In questa esercitazione si usa Windows PowerShell per effettuare la chiamata al 
 
 3. Impostare le prime cinque-otto variabili dello script:
 
-    Variabile|DESCRIZIONE
+    Variabile|Descrizione
     ---|---
     $clusterName|Nome del cluster HDInsight in cui eseguire l'applicazione.
     $oauth_consumer_key|Applicazione Twitter **consumer key** scritta in precedenza al momento della creazione dell'applicazione Twitter.
@@ -435,7 +435,7 @@ Il file di script HiveQL eseguirà le operazioni seguenti:
 
 3. Impostare le prime due variabili nello script:
 
-   | Variabile | DESCRIZIONE |
+   | Variabile | Descrizione |
    | --- | --- |
    |  $clusterName |Immettere il nome del cluster HDInsight in cui eseguire l'applicazione. |
    |  $subscriptionID |Inserire L'ID della sottoscrizione di Azure. |

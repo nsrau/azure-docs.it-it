@@ -2,24 +2,20 @@
 title: Come configurare un accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta | Microsoft Docs
 description: Come configurare un'applicazione personalizzata per un accesso Single Sign-On sicuro basato su password quando non è elencata nella raccolta delle applicazioni di Azure AD
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 37ac3b5fb680a9966f5b8f3da43a2b3013554557
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d880a142b54d253cc1522b3dcc521c86119e0997
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355440"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578400"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Come configurare un accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
@@ -115,7 +111,6 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
 11. È anche possibile specificare le credenziali per conto dell'utente selezionando le righe degli utenti e facendo clic su **Aggiorna credenziali**, quindi immettendo il nome utente e la password per conto degli utenti. In caso contrario, verrà richiesto agli utenti di immettere le credenziali all'avvio.
 
-12. **Facoltativo:** per alcune applicazioni di social media come Facebook e Twitter, è anche disponibile l'opzione per l'abilitazione automatica dell'effetto di attivazione della password per l'applicazione in base alla frequenza selezionata. Per abilitare questa funzionalità, selezionare **Desidero che Azure AD gestisca automaticamente la password di questo utente o gruppo** durante l'immissione delle credenziali per conto di un utente o di un gruppo. Selezionare quindi la **Frequenza rollover (in settimane)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Assegnare un utente direttamente a un'applicazione
 

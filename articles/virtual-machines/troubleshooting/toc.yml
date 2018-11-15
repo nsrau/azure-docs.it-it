@@ -31,8 +31,10 @@ items:
     href: troubleshoot-authentication-error-rdp-vm.md
   - name: Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento
     href: event-id-troubleshoot-vm-rdp-connecton.md
-  - name: Risolvere gli errori RDP in una VM a causa di un IP statico
+  - name: Risolvere l'errore RDP nella macchina virtuale causato dall'IP statico
     href: troubleshoot-rdp-static-ip.md
+  - name: Risolvere l'errore RDP nella macchina virtuale causato dalla disabilitazione della scheda di interfaccia di rete
+    href: troubleshoot-rdp-nic-disabled.md
 - name: SSH
   items:
   - name: Risoluzione dei problemi relativi a SSH
@@ -143,9 +145,9 @@ items:
   href: understand-vm-reboot.md
 - name: Strumenti per la risoluzione remota dei problemi
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: 4bee38c4ca68ce3bacade4542e67ce33d54a69e2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6cf242b4d2c0255c8b5ff340c9edb99b93ec2b24
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345913"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632173"

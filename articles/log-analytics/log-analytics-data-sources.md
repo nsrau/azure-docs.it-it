@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d514728b892126522a73827bb79952612f34704b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 071e4694bc3e2a8dc70a199fe7d6021332693b88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014024"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613869"
 ---
 # <a name="data-sources-in-log-analytics"></a>Origini dati in Log Analytics
 Log Analytics raccoglie i dati dalle origini connesse e li archivia nell'area di lavoro di Log Analytics.  I dati raccolti da ogni origine sono definiti dalle origini dati configurate.  In Log Analytics i dati vengono archiviati come un set di record.  Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
@@ -69,4 +69,4 @@ Tutti i dati raccolti da Log Analytics vengono archiviati nell'area di lavoro co
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [soluzioni](../monitoring/monitoring-solutions.md) che aggiungono funzionalità a Log Analytics e raccolgono dati nell'area di lavoro.
 * Altre informazioni sulle [ricerche nei log](log-analytics-queries.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
-* Configurare gli [avvisi](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) per inviare notifiche immediate sui dati critici raccolti da origini dati e soluzioni.
+* Configurare gli [avvisi](../monitoring-and-diagnostics/monitoring-overview-alerts.md) per inviare notifiche immediate sui dati critici raccolti da origini dati e soluzioni.

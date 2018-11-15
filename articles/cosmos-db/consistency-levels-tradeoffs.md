@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 8f36026c7e5802994b8cf22d60c6ecea052e6382
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0e4105d6f56a8eb45a83e970c85319cf25041781
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963048"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514775"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza in Azure Cosmos DB
 
@@ -33,20 +33,6 @@ I database distribuiti che si basano sulla replica per gestire la disponibilità
 - Per la stessa quantità di unità di richieste, i livelli di coerenza sessione, prefisso coerente e finale forniscono una velocità effettiva di lettura due volte maggiore in confronto ai livelli assoluto e con decadimento ristretto.
 
 - Per un determinato tipo di operazione di scrittura (come inserimento, sostituzione, upsert, eliminazione ecc.), la velocità effettiva di scrittura per le unità di richieste è identica per tutti i livelli di coerenza.
-
-## <a name="consistency-levels-and-durability"></a>Livelli di coerenza e durabilità
-
-Prima della conferma di un'operazione di scrittura al client, un quorum di repliche esegue il commit permanente dei dati all'interno dell'area accettando le operazioni di scrittura. Inoltre, se il contenitore è configurato con criteri di indicizzazione coerente, il quorum di repliche, in modo sincrono, esegue anche l'aggiornamento, la replica e il commit permanente dell'indice prima della conferma al client dell'operazione di scrittura.
-
-La tabella seguente riepiloga il periodo potenziale di perdita di dati in caso di emergenza a livello di area per gli account Cosmos che si estendono su più aree.
-
-| **Livello di coerenza** | **Periodo potenziale di perdita di dati in caso di emergenza a livello di area** |
-| - | - |
-| Assoluta | Zero |
-| Decadimento ristretto | Limitato al "periodo di decadimento" configurato nell'account Cosmos. |
-| sessione | Fino a 5 secondi |
-| Prefisso coerente | Fino a 5 secondi |
-| Finale | Fino a 5 secondi |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

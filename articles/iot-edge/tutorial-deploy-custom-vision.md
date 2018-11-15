@@ -3,18 +3,18 @@ title: Distribuire un modello di Visione personalizzata in un dispositivo Azure 
 description: Informazioni su come configurare un modello di Visione artificiale in modo che venga eseguito come un contenitore tramite il Servizio visione artificiale personalizzato e IoT Edge.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a3bd7cf5e7c29ee44d696c0a27566b1a73436794
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a8f72c62393f6ba470c31a55668382ae0beb290e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50749775"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566483"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Esercitazione: Eseguire la classificazione delle immagini nella rete perimetrale con il Servizio visione artificiale personalizzato
 
@@ -72,8 +72,8 @@ Dopo aver compilato ed eseguito il training del classificatore di immagini, è p
 
    | Campo | Valore |
    | ----- | ----- |
-   | Nome | Specificare un nome per il progetto, ad esempio **EdgeTreeClassifier**. |
-   | Descrizione | Descrizione facoltativa del progetto. |
+   | NOME | Specificare un nome per il progetto, ad esempio **EdgeTreeClassifier**. |
+   | DESCRIZIONE | Descrizione facoltativa del progetto. |
    | Gruppo di risorse | Accettare il valore predefinito **Limited trial** (valutazione limitata). |
    | Tipi di progetto | **Classificazione** |
    | Tipi di classificazione | **Multiclass (single tag per image)** (Multiclasse - singolo tag per immagine) | 

@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 3a6f7511407ba29b8fc6d8d3a41369bcd8cf18bc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 406936200a39e21d7377e7b2dba19a7ee745de57
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803105"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568836"
 ---
 # <a name="quickstart-bing-spell-check-sdk-with-c"></a>Guida introduttiva: Bing Spell Check SDK con C#
 
@@ -25,7 +25,7 @@ L'SDK di Controllo ortografico Bing contiene le funzionalità dell'API REST per 
 
 Per configurare un'applicazione console con l'SDK di Controllo ortografico Bing, passare all'opzione `Manage NuGet Packages` da Esplora soluzioni in Visual Studio. Aggiungere il pacchetto `Microsoft.Azure.CognitiveServices.SpellCheck`.
 
-Con l'installazione del [pacchetto SDK di Controllo ortografico](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.SpellCheck/1.2.0) vengono installate anche le dipendenze, tra cui:
+Con l'installazione del [pacchetto SDK di Controllo ortografico](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck/1.2.0) vengono installate anche le dipendenze, tra cui:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.AZure

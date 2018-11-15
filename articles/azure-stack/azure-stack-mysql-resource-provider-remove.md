@@ -11,30 +11,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: dcd1c40717cb35fe4daa9ab9e2c66f334ffff5fe
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7d3b0e179972464a1ed857c576ca8a7c8fc2e162
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361499"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686807"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Rimuovere il provider di risorse MySQL
 
 Prima di rimuovere il provider di risorse MySQL, è necessario rimuovere tutte le dipendenze del provider. È necessario anche una copia del pacchetto di distribuzione che è stato usato per installare il provider di risorse.
 
+  |Versione minima di Azure Stack|Versione di MySQL RP|
+  |-----|-----|
+  |Versione 1808 (1.1808.0.97)|[RP MySQL versione 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+  |Versione 1804 (1.0.180513.1)|[RP MySQL versione 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
+  |     |     |
+
 ## <a name="dependency-cleanup"></a>Pulizia delle dipendenze
 
 Sono disponibili diverse attività di pulizia da eseguire prima di eseguire lo script DeployMySqlProvider.ps1 per rimuovere il provider di risorse.
 
-I tenant sono responsabili per le seguenti attività di pulizia:
+Gli utenti tenant di Azure Stack sono responsabili per le seguenti attività di pulizia:
 
 * Eliminare tutti i database dal provider di risorse. (Eliminare i database tenant non eliminare i dati).
 * Annullare la registrazione dello spazio dei nomi del provider.
 
-L'amministratore è responsabile per le seguenti attività di pulizia:
+L'operatore di Azure Stack è responsabile per le seguenti attività di pulizia:
 
 * Elimina il server di hosting dall'adattatore di MySQL.
 * Elimina i piani che fanno riferimento l'adattatore di MySQL.

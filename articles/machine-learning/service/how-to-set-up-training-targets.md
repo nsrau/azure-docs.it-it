@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7eacc475145dac61db1717f1860e22cedd022262
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215481"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231448"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selezionare e usare una destinazione di calcolo per il training del modello
 
@@ -463,7 +463,7 @@ Esistono due modi per inviare una sessione di training:
 * Invio di un oggetto `Pipeline`.
 
 > [!IMPORTANT]
-> Le destinazioni di calcolo di Azure Databricks, Azure Datalake Analytics e Azure HDInsight sono utilizzabili solo in una pipeline.
+> Le destinazioni di calcolo di Azure Databricks e Azure Datalake Analytics sono utilizzabili solo in una pipeline.
 > La destinazione di calcolo locale non può essere usata in una Pipeline.
 
 ### <a name="submit-using-scriptrunconfig"></a>Inviare tramite `ScriptRunConfig`
@@ -591,7 +591,7 @@ Ottenere questi notebook: [!INCLUDE [aml-clone-in-azure-notebook](../../../inclu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni di riferimento su Azure Machine Learning SDK](http://aka.ms/aml-sdk)
+* [Informazioni di riferimento su Azure Machine Learning SDK](https://aka.ms/aml-sdk)
 * [Esercitazione sul training di un modello](tutorial-train-models-with-aml.md)
 * [Dove eseguire la distribuzione dei modelli](how-to-deploy-and-where.md)
 * [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md) (Creare pipeline di Machine Learning con il servizio Azure Machine Learning)

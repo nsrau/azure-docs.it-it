@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6a197cf5667e1668b2007a5f552b813cb8ed68d3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: caa1b4b3bf1f9b8fb1a34bd58dde04f13fbc6c88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957829"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614567"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
 Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Ad esempio, se si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto, tecnici DevOps) o si usa un provider di servizi gestiti, si consiglia di concedere loro l'accesso ai dati di monitoraggio solo limitandone la possibilità di creare, modificare o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
@@ -25,7 +25,7 @@ I ruoli predefiniti del monitoraggio di Azure consentono di limitare l'accesso a
 Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visualizzare tutti i dati di monitoraggio in una sottoscrizione ma non possono modificare alcuna risorsa o impostazione relativa alle risorse di monitoraggio. Questo ruolo è appropriato per gli utenti di un'organizzazione, ad esempio tecnici del supporto o delle operazioni, che devono essere in grado di:
 
 * Visualizzare i dashboard di monitoraggio nel portale e creare dashboard di monitoraggio privati.
-* Visualizzare le regole di avviso definite in [Avvisi di Azure](monitoring-overview-unified-alerts.md)
+* Visualizzare le regole di avviso definite in [Avvisi di Azure](monitoring-overview-alerts.md)
 * Eseguire query per le metriche usando l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931930.aspx), i [cmdlet di PowerShell](insights-powershell-samples.md) o l'[interfaccia della riga di comando multipiattaforma](insights-cli-samples.md).
 * Eseguire query per il registro attività usando il portale, l'API REST di monitoraggio di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma.
 * Visualizzare le [impostazioni di diagnostica](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) per una risorsa.
@@ -51,7 +51,7 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 * Pubblicare dashboard di monitoraggio come dashboard condivisi.
 * Configurare le [impostazioni di diagnostica](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) per una risorsa.*
 * Impostare il [profilo di registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) per una sottoscrizione.*
-* Configurare le attività e le impostazioni delle regole di avviso tramite [Avvisi di Azure](monitoring-overview-unified-alerts.md).
+* Configurare le attività e le impostazioni delle regole di avviso tramite [Avvisi di Azure](monitoring-overview-alerts.md).
 * Creare componenti e test Web di Application Insights.
 * Elencare le chiavi condivise dell'area di lavoro di Log Analytics.
 * Abilitare o disabilitare gli Intelligence Pack di Log Analytics.

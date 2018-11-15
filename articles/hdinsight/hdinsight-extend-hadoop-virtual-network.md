@@ -2,18 +2,18 @@
 title: Estendere HDInsight con Rete virtuale - Azure
 description: Informazioni su come usare Rete virtuale di Azure per la connessione di HDInsight ad altre risorse cloud o risorse nel proprio data center
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/08/2018
-ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 11/06/2018
+ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945757"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238982"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
 
@@ -25,7 +25,7 @@ Informazioni su come usare HDInsight con [Rete virtuale di Azure](../virtual-net
 
 * Connessione di HDInsight ad archivi dati in una rete virtuale di Azure.
 
-* Accesso diretto ai servizi Hadoop che non sono disponibili pubblicamente su Internet, ad esempio le API Kafka o l'API Java HBase.
+* Accesso diretto ai servizi Apache Hadoop che non sono disponibili pubblicamente su Internet, ad esempio le API Kafka o l'API Java HBase.
 
 > [!WARNING]
 > Le informazioni contenute in questo documento richiedono la conoscenza delle reti TCP/IP. Se non si ha familiarità con le reti TCP/IP, è consigliabile collaborare con qualcuno che ne abbia conoscenza se si intende apportare modifiche alle reti di produzione.
@@ -64,7 +64,7 @@ Seguire la procedura in questa sezione per aggiungere un nuovo cluster HDInsight
 
     Dopo che le due reti sono state unite, HDInsight installato nella rete di Resource Manager può interagire con le risorse della rete classica.
 
-2. Si usa il tunneling forzato? Il tunneling forzato è un'impostazione di subnet che spinge il traffico Internet in uscita verso un dispositivo per l'ispezione e la registrazione. HDInsight non supporta il tunneling forzato. Occorre quindi rimuovere questa funzionalità prima di installare HDInsight in una subnet oppure si può creare una nuova subnet per HDInsight.
+2. Si usa il tunneling forzato? Il tunneling forzato è un'impostazione di subnet che spinge il traffico Internet in uscita verso un dispositivo per l'ispezione e la registrazione. HDInsight non supporta il tunneling forzato. Occorre quindi rimuovere questa funzionalità prima di distribuire HDInsight in una subnet esistente oppure creare una nuova subnet per HDInsight senza tunneling forzato.
 
 3. Si usano gruppi di sicurezza di rete, route definite dall'utente o appliance di rete virtuali per limitare il traffico all'interno o all'esterno della rete virtuale?
 
@@ -121,7 +121,7 @@ Il problema più grande con una configurazione con più reti è la risoluzione d
 
 Azure assicura la risoluzione dei nomi per i servizi di Azure che vengono installati in una rete virtuale. La risoluzione dei nomi integrata consente a HDInsight di connettersi alle risorse seguenti usando un nome di dominio completo (FQDN):
 
-* Qualsiasi risorsa disponibile in Internet, ad esempio microsoft.com, google.com.
+* Qualsiasi risorsa disponibile in Internet, ad esempio microsoft.com o windowsupdate.com.
 
 * Qualsiasi risorsa che si trovi nella stessa rete virtuale di Azure tramite l'utilizzo del __nome DNS interno__ della risorsa. Quando ad esempio si usa la risoluzione dei nomi predefinita, i seguenti sono nomi DNS interni di esempio assegnati a nodi del ruolo di lavoro di HDInsight:
 
@@ -173,7 +173,7 @@ Per altre informazioni, vedere il documento [Risoluzione dei nomi per le macchin
 
 ## <a name="directly-connect-to-hadoop-services"></a>Connettersi direttamente ai servizi Hadoop
 
-È possibile connettersi al cluster all'indirizzo https://CLUSTERNAME.azurehdinsight.net. Questo indirizzo usa un IP pubblico, che potrebbe non essere accessibile se sono stati usati gruppi di sicurezza di rete o route definite dall'utente per limitare il traffico in ingresso da Internet. Quando si distribuisce il cluster in una rete virtuale è inoltre possibile accedervi tramite l'endpoint privato https://CLUSTERNAME-int.azurehdinsight.net. Questo endpoint viene risolto in un indirizzo IP privato all'interno della rete virtuale per l'accesso al cluster.
+È possibile connettersi al cluster all'indirizzo https://CLUSTERNAME.azurehdinsight.net. Questo indirizzo usa un IP pubblico, che potrebbe non essere accessibile se sono stati usati gruppi di sicurezza di rete per limitare il traffico in ingresso da Internet. Quando si distribuisce il cluster in una rete virtuale è inoltre possibile accedervi tramite l'endpoint privato https://CLUSTERNAME-int.azurehdinsight.net. Questo endpoint viene risolto in un indirizzo IP privato all'interno della rete virtuale per l'accesso al cluster.
 
 Per connettersi alle pagine Ambari e ad altre pagine Web tramite la rete virtuale, seguire questa procedura:
 
@@ -213,13 +213,13 @@ Il traffico di rete nelle reti virtuali di Azure può essere controllato usando 
 * i **gruppi di sicurezza di rete** (NSG) consentono di filtrare il traffico di rete in ingresso e in uscita. Per altre informazioni, vedere il documento [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 
     > [!WARNING]
-    > HDInsight non supporta la limitazione del traffico in uscita.
+    > HDInsight non supporta la limitazione del traffico in uscita. Tutto il traffico in uscita deve essere consentito.
 
 * Le **route definite dall'utente** definiscono il flusso del traffico tra le risorse nella rete. Per altre informazioni, vedere il documento [Route definite dall'utente e inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
 
 * Le **appliance virtuali di rete** replicano le funzionalità di dispositivi come i firewall e i router. Per altre informazioni, vedere il documento relativo alle [Appliance di rete](https://azure.microsoft.com/solutions/network-appliances).
 
-In qualità di servizio gestito, HDInsight richiede l'accesso senza restrizioni a servizi di gestione e integrità di Azure nel cloud di Azure. Quando si usano i gruppi di sicurezza di rete e le route definite dall'utente, è necessario assicurarsi che questi servizi possano ancora comunicare con HDInsight.
+Come servizio gestito, HDInsight richiede l'accesso senza restrizioni ai servizi di gestione e integrità di HDinsight sia per il traffico in ingresso che per quello in uscita dalla rete virtuale. Quando si usano i gruppi di sicurezza di rete e le route definite dall'utente, è necessario assicurarsi che questi servizi possano ancora comunicare con il cluster HDInsight.
 
 HDInsight espone i servizi su porte diverse. Quando si usa un firewall di appliance virtuale, è necessario consentire il traffico sulle porte usate per questi servizi. Per altre informazioni, vedere la sezione [Porte richieste].
 
@@ -233,8 +233,8 @@ Se si intende usare **gruppi di sicurezza di rete** o **route definite dall'uten
 
 3. Creare o modificare i gruppi di sicurezza di rete o le route definite dall'utente per la subnet in cui si intende installare HDInsight.
 
-    * __Gruppi di sicurezza di rete__: consentono il traffico __in ingresso__ sulla porta __443__ dagli indirizzi IP.
-    * __Route definite dall'utente__: creare una route per ogni indirizzo IP e impostare __Tipo hop successivo__ su __Internet__.
+    * __Gruppi di sicurezza di rete__: consentono il traffico __in ingresso__ sulla porta __443__ dagli indirizzi IP. Ciò garantisce che i servizi di gestione di HDInsight possano raggiungere il cluster dall'esterno della rete virtuale.
+    * __Route definite dall'utente__: se si pianifica di usare delle route definite dall'utente, creare una route per ogni indirizzo IP e impostare __Tipo hop successivo__ su __Internet__. È anche consigliabile consentire altro traffico in uscita dalla rete virtuale senza restrizioni. Ad esempio, è possibile instradare tutto il traffico all'appliance virtuale di rete o al firewall di Azure (ospitato in Azure) per il monitoraggio, ma il traffico in uscita non deve essere bloccato.
 
 Per altre informazioni sui gruppi di sicurezza di rete o sulle route definite dall'utente, vedere la documentazione seguente:
 
@@ -242,9 +242,9 @@ Per altre informazioni sui gruppi di sicurezza di rete o sulle route definite da
 
 * [Route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md)
 
-#### <a name="forced-tunneling"></a>Tunneling forzato
+#### <a name="forced-tunneling-to-on-premise"></a>Tunneling forzato a un'istanza locale
 
-Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight __non__ supporta il tunneling forzato.
+Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight __non__ supporta il tunneling forzato alle reti locali. Se si usa Firewall di Azure o un'appliance virtuale di rete ospitato in Azure, è possibile usare le route definite dall'utente per instradare il traffico per il monitoraggio e consentire tutto il traffico in uscita.
 
 ## <a id="hdinsight-ip"></a> Indirizzi IP richiesti
 
@@ -269,7 +269,7 @@ Se si usano gruppi di sicurezza di rete o route definite dall'utente, è necessa
     > [!IMPORTANT]
     > Se si usa un'area di Azure non inclusa nell'elenco, usare solo i quattro IP riportati nel passaggio 1.
 
-    | Paese | Region | Indirizzi IP consentiti | Porta consentita | Direzione |
+    | Paese | Area | Indirizzi IP consentiti | Porta consentita | Direzione |
     | ---- | ---- | ---- | ---- | ----- |
     | Asia | Asia orientale | 23.102.235.122</br>52.175.38.134 | 443 | In ingresso |
     | &nbsp; | Asia sud-orientale | 13.76.245.160</br>13.76.136.249 | 443 | In ingresso |

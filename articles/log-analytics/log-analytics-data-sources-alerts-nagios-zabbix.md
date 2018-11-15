@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 469d97385fd86952c2d287e2b5d15d7470a9e34e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6050771ee1d129edd4370079c07da721f60d2065
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008335"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613546"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Raccogliere avvisi da Nagios e Zabbix in Log Analytics tramite l'agente di Log Analytics per Linux 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad [avvisi provenienti da altre origini](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
+[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad [avvisi provenienti da altre origini](../monitoring-and-diagnostics/monitoring-overview-alerts.md).  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
  
 ## <a name="prerequisites"></a>Prerequisiti
 L'agente di Log Analytics per Linux supporta la raccolta di avvisi di Nagios fino alla versione 4.2.x e di Zabbix fino alla versione 2.x.
@@ -118,5 +118,5 @@ Nei record di avvisi raccolti da Zabbix, la proprietà **Tipo** è impostata su 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sugli [avvisi](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) in Log Analytics.
+* Informazioni sugli [avvisi](../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Log Analytics.
 * Altre informazioni sulle [ricerche nei log](log-analytics-queries.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 

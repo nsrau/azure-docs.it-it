@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7efafe5e3080de15781496032b688bc5fa71df2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 589aae8321d2c081f09ed46d9def2229d3973ffd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418422"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613208"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Funzionalità unificata di avviso e monitoraggio in Monitoraggio di Azure in sostituzione delle funzionalità classiche di avviso e monitoraggio
 
@@ -72,4 +72,4 @@ Questo articolo verrà continuamente aggiornato con collegamenti e informazioni 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Leggere le informazioni sul nuovo [servizio unificato di Monitoraggio di Azure](../azure-monitor/overview.md).
-* Leggere le informazioni sui nuovi [avvisi di Azure](monitoring-overview-unified-alerts.md).
+* Leggere le informazioni sui nuovi [avvisi di Azure](monitoring-overview-alerts.md).

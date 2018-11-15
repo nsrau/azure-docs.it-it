@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7046a0c6ac84ad5f156098a26dcef2b8accd50af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987646"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015775"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
@@ -29,7 +29,7 @@ In precedenza Monitoraggio di Azure, Application Insights, Log Analytics e integ
 
 È possibile visualizzare gli avvisi classici solo nella schermata dell'utente degli avvisi classici nel portale di Azure. Questa schermata viene visualizzata usando il pulsante **Visualizza avvisi classici** sulla schermata degli avvisi. 
 
- ![Opzioni di avviso nel portale di Azure](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Opzioni di avviso nel portale di Azure](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)
 
 La nuova esperienza utente degli avvisi offre i vantaggi seguenti rispetto all'esperienza degli avvisi in versione classica:
 -   **Migliore sistema di notifica**: tutti gli avvisi più recenti usano gruppi di azioni, ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi. Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics di tipo precedente non usano gruppi di azioni.
@@ -40,7 +40,7 @@ La nuova esperienza utente degli avvisi offre i vantaggi seguenti rispetto all'e
 -   **Consolidamento degli avvisi intelligenti** e **impostazione dello stato dell'avviso**: gli avvisi più recenti includono funzionalità di raggruppamento automatico che mostrano avvisi simili tra loro per ridurre l'overload dell'interfaccia utente. 
 
 Gli avvisi delle metriche più recenti presentano i seguenti vantaggi rispetto agli avvisi delle metriche classici:
--   **Latenza migliorata**: gli avvisi delle metriche più recenti possono essere eseguiti con una frequenza di un minuto. Gli avvisi metrica meno recenti sono sempre eseguibili con una frequenza di 5 minuti. Gli avvisi più recenti presentano un ritardo più breve tra il verificarsi dell'occorrenza del problema alla notifica o l'azione (da 3 a 5 minuti). Gli avvisi precedenti vanno da 5 a 15 minuti a seconda del tipo.  Gli avvisi relativi ai log presentano in genere un ritardo di 10-15 minuti a causa del tempo necessario per inserire i log, ma i metodi di elaborazione più recenti stanno riducendo questo tempo. 
+-   **Latenza migliorata**: gli avvisi delle metriche più recenti possono essere eseguiti con una frequenza di un minuto. Gli avvisi metrica meno recenti sono sempre eseguibili con una frequenza di 5 minuti. Gli avvisi più recenti presentano un ritardo più breve tra il verificarsi del problema e la notifica o l'azione (da 3 a 5 minuti). Gli avvisi precedenti vanno da 5 a 15 minuti a seconda del tipo.  Gli avvisi relativi ai log presentano in genere un ritardo di 10-15 minuti a causa del tempo necessario per inserire i log, ma i metodi di elaborazione più recenti stanno riducendo questo tempo. 
 -   **Supporto delle metriche multidimensionali**: è possibile inviare un avviso per le metriche multidimensionali, in modo da monitorare un segmento interessante della metrica.
 -   **Maggiore controllo delle condizioni delle metriche**: è possibile definire regole di avviso più dettagliate. Gli avvisi più recenti supportano il monitoraggio dei valori massimo, minimo, medio e totale delle metriche.
 -   **Monitoraggio combinato di più metriche**: è possibile monitorare più metriche (attualmente un massimo di due) con una singola regola. Viene attivato un avviso se entrambe le metriche violano le rispettive soglie per il periodo di tempo specificato.
@@ -89,14 +89,14 @@ I webhook consentono l'automazione e la correzione, ad esempio, usando:
 ## <a name="next-steps"></a>Passaggi successivi
 Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione usando:
 
-* Altre informazioni sulle [metriche](monitoring-overview-metrics.md)
-* Configurare gli [avvisi delle metriche classici tramite il portale di Azure](insights-alerts-portal.md)
-* Configurare gli [avvisi delle metriche classici per PowerShell](insights-alerts-powershell.md)
-* Configurare gli [avvisi delle metriche classici per l'interfaccia della riga di comando](insights-alerts-command-line-interface.md)
+* Altre informazioni sulle [metriche](../monitoring/monitoring-data-collection.md)
+* Configurare gli [avvisi delle metriche classici tramite il portale di Azure](alert-metric-classic.md)
+* Configurare gli [avvisi delle metriche classici per PowerShell](alert-metric-classic.md)
+* Configurare gli [avvisi delle metriche classici per l'interfaccia della riga di comando](alert-metric-classic.md)
 * Configurare gli [avvisi delle metriche classici per l'API REST del Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 * Altre informazioni sul [log attività](monitoring-overview-activity-logs.md)
 * Configurare [gli avvisi del log attività tramite il portale di Azure](monitoring-activity-log-alerts.md)
-* Configurare [gli avvisi del log attività tramite Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Configurare [gli avvisi del log attività tramite Resource Manager](alert-activity-log.md)
 * Esaminare lo [schema webhook degli avvisi del log attività](monitoring-activity-log-alerts-webhook.md)
 * Altre informazioni sui [gruppi di azioni](monitoring-action-groups.md)
-* Configurare [nuovi avvisi](monitor-alerts-unified-usage.md)
+* Configurare [nuovi avvisi](alert-metric.md)

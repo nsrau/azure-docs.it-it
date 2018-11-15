@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: e2d1ccbc6532da3600c952236c3904c9e55294c8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c65f5364ccd4943d1d3e703ed27099408d3a2a27
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279418"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346593"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -28,11 +28,10 @@ Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di des
 Non è possibile modificare il percorso della risorsa. Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse. Il nuovo gruppo di risorse può avere un percorso diverso, ma ciò non modifica la posizione della risorsa.
 
 > [!NOTE]
-> In questo articolo viene descritto come spostare le risorse nell'offerta di un account di Azure esistente. Se si desidera effettivamente modificare l'offerta dell'account Azure (ad esempio effettuando l'aggiornamento da gratuito a pagamento a consumo) è necessario convertire la sottoscrizione. 
+> In questo articolo viene descritto come spostare le risorse nell'offerta di un account di Azure esistente. Se si desidera effettivamente modificare l'offerta dell'account Azure (ad esempio effettuando l'aggiornamento da gratuito a pagamento a consumo) è necessario convertire la sottoscrizione.
 > * Per aggiornare una versione di valutazione gratuita, vedere [Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo](..//billing/billing-upgrade-azure-subscription.md).
 > * Per modificare un account con pagamento in base al consumo, vedere [Modificare la sottoscrizione Azure con pagamento in base al consumo in un'offerta diversa](../billing/billing-how-to-switch-azure-offer.md).
 > * Se non è possibile convertire la sottoscrizione, [creare una richiesta di supporto tecnico di Azure](../azure-supportability/how-to-create-azure-support-request.md). Selezionare **Gestione delle sottoscrizioni** per il tipo di problema.
->
 
 ## <a name="checklist-before-moving-resources"></a>Controllo prima di spostare le risorse
 
@@ -42,7 +41,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
 
   Per Azure PowerShell usare:
 
-  ```powershell
+  ```azurepowershell-interactive
   (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
   (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
@@ -63,14 +62,14 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
 
   In PowerShell, per ottenere lo stato della registrazione usare i comandi seguenti:
 
-  ```powershell
+  ```azurepowershell-interactive
   Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
   Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Per registrare un provider di risorse, usare:
 
-  ```powershell
+  ```azurepowershell-interactive
   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
@@ -325,7 +324,6 @@ Di seguito vi sono i vincoli non ancora supportati:
 * Il set di scalabilità di macchine virtuali con il servizio di bilanciamento del carico dello SKU Standard o l'indirizzo IP pubblico dello SKU Standard non possono essere spostati
 * Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altra macchine virtuali create a partire da risorse Marketplace con piani assegnati. Sottoporre a deprovisioning le macchine virtuali nella sottoscrizione in cui si trovano e distribuirle di nuovo nella nuova sottoscrizione.
 
-
 ## <a name="virtual-networks-limitations"></a>Limitazioni delle reti virtuali
 
 Quando si esegue lo spostamento di una rete virtuale, è necessario spostare anche le relative risorse dipendenti. Per i gateway VPN, è necessario spostare gli indirizzi IP, i gateway di rete virtuale e tutte le risorse di connessione associata. I gateway di rete locali possono trovarsi in un gruppo di risorse diverso.
@@ -346,9 +344,9 @@ Quando si sposta un'app Web _nella stessa sottoscrizione_, non è possibile spos
 
 Se si desidera spostare il certificato SSL con l'app Web, attenersi alla procedura seguente:
 
-1.  Eliminare il certificato caricato dall'app Web.
-2.  Spostare l'app Web.
-3.  Caricare il certificato nell'app Web spostata.
+1. Eliminare il certificato caricato dall'app Web.
+2. Spostare l'app Web.
+3. Caricare il certificato nell'app Web spostata.
 
 ### <a name="moving-across-subscriptions"></a>Spostamento tra sottoscrizioni
 
@@ -503,7 +501,7 @@ Al completamento dell'operazione si riceverà la notifica del risultato.
 
 Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizione diversa, usare il comando [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) . L'esempio seguente illustra come spostare più risorse in un nuovo gruppo di risorse.
 
-```powershell
+```azurepowershell-interactive
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
 $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId

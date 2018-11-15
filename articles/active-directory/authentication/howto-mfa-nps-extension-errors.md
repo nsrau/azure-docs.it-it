@@ -1,5 +1,5 @@
 ---
-title: Risolvere i codici di errore per l'estensione NPS MFA di Azure | Microsoft Docs
+title: Risolvere i codici di errore per l'estensione NPS per MFA di Azure | Microsoft Docs
 description: Informazioni sulla risoluzione dei problemi relativi all'estensione del Server dei criteri di rete per Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4097fab5610bf4bee6c14c65d3b45e0de818a0cc
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 58bb3ae39ecd5631508ca1d09bf1d9d8f4d75063
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160910"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036666"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure
 
@@ -30,6 +30,7 @@ Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di 
 | **ESTS_TOKEN_ERROR** | Per analizzare i problemi del certificato client e del token ADAL seguire le istruzioni in [Risoluzione dei problemi dell'estensione NPS MFA](howto-mfa-nps-extension.md#troubleshooting). |
 | **HTTPS_COMMUNICATION_ERROR** | Il server NPS non è in grado di ricevere risposte da Azure MFA. Verificare che i firewall siano aperti in modalità bidirezionale per il traffico da e verso https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | Nel server che esegue l'estensione NPS, verificare la possibilità di raggiungere https://adnotifications.windowsazure.com e https://login.microsoftonline.com/. Se tali siti non vengono caricati, risolvere i problemi di connettività sul server. |
+| **Estensione NPS per Azure MFA:** <br> L'estensione NPS per Azure MFA esegue solo l'autenticazione secondaria per le richieste Radius in stato AccessAccept. La richiesta ricevuta per l'utente nomeutente con stato della risposta AccessReject, sta ignorando la richiesta. | Questo errore indica in genere un problema di autenticazione in Active Directory o che NPS non è in grado di ricevere risposte da Azure AD. Verificare che i firewall siano aperti in modalità bidirezionale per il traffico da e verso https://adnotifications.windowsazure.com e https://login.microsoftonline.com tramite le porte 80 e 443. È importante anche verificare che nella scheda Chiamate in ingresso di Autorizzazione di accesso alla rete l'impostazione sia Controlla accesso tramite criteri di rete del Server dei criteri di rete. |
 | **REGISTRY_CONFIG_ERROR** | Manca una chiave nel registro per l'applicazione. Questa potrebbe essere la causa per cui lo [script di PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) non viene eseguito dopo l'installazione. Il messaggio di errore deve includere la chiave mancante. Assicurarsi che la chiave si trovi in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Nella richiesta RADIUS manca l'attributo RADIUS userName\Identifier attributo obbligatorio. Verificare che NPS riceva le richieste RADIUS | Questo errore indica in genere un problema di installazione. L'estensione NPS deve essere installata nei server NPS che possono ricevere le richieste RADIUS. I server NPS installati come dipendenze dei servizi come RDG e RRAS non ricevono le richieste RADIUS. L'estensione NPS non funziona quando è installata su tali installazioni e genera degli errori poiché è impossibile leggere i dettagli della richiesta di autenticazione. |
 | **REQUEST_MISSING_CODE** | Verificare che il protocollo di crittografia delle password tra i server dei criteri di rete e di accesso alla rete supporti il metodo di autenticazione secondario usato. **PAP** supporta tutti i metodi di autenticazione di Azure MFA nel cloud: chiamata telefonica, SMS unidirezionale, notifica dell'app per dispositivi mobili e codice di verifica dell'app per dispositivi mobili. **CHAPV2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili. |

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ded952ac6418ae3d9916b3ae8b8dbacb0c9c5a84
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807767"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345590"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Pubblicare un modello di soluzione in Azure Marketplace
 
@@ -59,7 +59,7 @@ I prerequisiti tecnici e non tecnici di seguito si applicano all'elencazione di 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Una volta soddisfatti tutti i prerequisiti, è possibile iniziare a creare l'offerta per il modello di soluzione. Prima di iniziare, rivedere le informazioni sulle offerte e gli SKU riportate di seguito.
+Una volta soddisfatti tutti i prerequisiti, è possibile iniziare a creare l'offerta per il modello di soluzione. Prima di iniziare, rivedere le informazioni sulle offerte e le SKU riportate di seguito.
 
 **Offerta**
 
@@ -67,13 +67,13 @@ Un'offerta dell'applicazione Azure corrisponde a una classe di offerta di prodot
 
 **SKU**
 
-Uno SKU è la più piccola unità acquistabile di un'offerta. All'interno della stessa classe di prodotti (offerta), gli SKU consentono di distinguere tra diverse funzionalità supportate. Ad esempio, l'offerta può essere gestita o non gestita e sono supportati modelli di fatturazione diversi.
+Uno SKU è la più piccola unità acquistabile di un'offerta. All'interno della stessa classe di prodotti (offerta), le SKU consentono di distinguere tra diverse funzionalità supportate, Ad esempio, l'offerta può essere gestita o non gestita e sono supportati modelli di fatturazione diversi.
 
 Aggiungere più SKU negli scenari seguenti:
 - Si vogliono supportare modelli di fatturazione diversi, come Bring Your Own License (BYOL) o Pagamento in base al consumo (PAYG).
 - Ogni SKU supporta un set di funzionalità diverso e ogni set di funzionalità ha un prezzo diverso.
 
-Uno SKU viene visualizzato nella sezione offerta padre di Azure Marketplace e come entità acquistabile a sé stante nel portale di Azure.
+Una SKU viene visualizzata sotto l'offerta padre in Azure Marketplace e come entità acquistabile a sé stante nel portale di Azure.
 
 ## <a name="to-create-a-new-offer"></a>Per creare una nuova offerta
 
@@ -91,7 +91,9 @@ Uno SKU viene visualizzato nella sezione offerta padre di Azure Marketplace e co
     - Impostazioni dell'offerta
     - SKU
     - Marketplace
-    - Supporto. Ogni vista contiene un set di campi da compilare. I campi obbligatori sono contrassegnati con un asterisco rosso (\*)
+    - Supporto
+
+Ogni vista contiene un set di campi da compilare. I campi obbligatori sono contrassegnati con un asterisco rosso (\*)
 
 ## <a name="to-configure-offer-settings"></a>Per configurare le Impostazioni dell'offerta
 
@@ -107,7 +109,7 @@ Uno SKU viene visualizzato nella sezione offerta padre di Azure Marketplace e co
 
     Un elenco a discesa per il profilo di pubblicazione. Scegliere il profilo con cui si vuole pubblicare l'offerta. 
     >[!Note]
-    >Questo campo viene bloccato dopo la pubblicazione dell'offerta.
+    >Questo campo è bloccato dopo la pubblicazione dell'offerta.
 
     **Nome**
 
@@ -159,7 +161,7 @@ Dopo aver completato le impostazioni dello SKU, fornire i dettagli del pacchetto
 
 ![Dettagli del pacchetto](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
-- **Versione corrente**: la versione del pacchetto che verrà caricato. Deve essere nel formato seguente:
+- **Versione corrente**: la versione del pacchetto che verrà caricato. I tag di versione devono essere nel formato X.Y.Z, dove X, Y e Z sono numeri interi.
 
 - **File pacchetto**: pacchetto che contiene i file seguenti, salvati in un file ZIP.
 
@@ -176,7 +178,7 @@ Usare la vista Marketplace per configurare i campi visualizzati per l'offerta in
 
 ### <a name="preview-subscription-ids"></a>Preview Subscription Ids (ID sottoscrizione di anteprima)
 
-Elenco di ID di sottoscrizione di Azure che devono avere accesso all'offerta dopo la sua pubblicazione. Queste sottoscrizioni consentite permettono di testare l'offerta in anteprima prima di pubblicarla. Il portale per i partner permette di inserire nell'elenco elementi consentiti fino a 100 sottoscrizioni.
+Elenco di ID di sottoscrizione di Azure che devono avere accesso all'offerta dopo la sua pubblicazione. Queste sottoscrizioni consentite permettono di testare l'offerta in anteprima prima di pubblicarla. Il portale Cloud Partner consente di inserire nell'elenco degli elementi consentiti fino a 100 sottoscrizioni.
 
 ### <a name="suggested-categories"></a>Suggested Categories (Categorie suggerite)
 
@@ -229,7 +231,7 @@ Il logo alto è facoltativo. L'autore può scegliere di non caricare un logo alt
 
 -   Il nome visualizzato dell'editore, il titolo del piano e il riepilogo lungo dell'offerta sono visualizzati con il colore carattere bianco. Evitare di usare un colore chiaro per lo sfondo. Sfondi neri, bianchi e trasparenti non sono consentiti per le icone del logo alto.
 
--   Il nome visualizzato dell'editore, il titolo del piano, il riepilogo lungo dell'offerta e il pulsante Crea vengono incorporati in modo programmatico all'interno del logo alto quando l'offerta viene quotata. Non inserire alcun testo durante la progettazione del logo alto. Lasciare uno spazio vuoto a destra del logo. Questo spazio deve avere dimensioni di 415 x 100 pixel ed essere spostato con un offset di 370 px da sinistra.
+-   Il nome visualizzato dell'editore, il titolo del piano, il riepilogo lungo dell'offerta e il pulsante Crea vengono incorporati a livello di codice all'interno del logo alto quando l'offerta viene presentata. Non inserire alcun testo durante la progettazione del logo alto. Lasciare uno spazio vuoto a destra del logo. Questo spazio deve avere dimensioni di 415 x 100 pixel ed essere scostato con un offset di 370 px da sinistra.
 
 ![publishvm14](./media/cloud-partner-portal-publish-managed-app/publishvm14.png)
 

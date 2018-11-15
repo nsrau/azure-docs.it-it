@@ -1,20 +1,19 @@
 ---
-title: Ottimizzare le configurazioni cluster con Ambari - Azure HDInsight | Microsoft Docs
-description: Usare l'interfaccia utente Web Ambari per configurare e ottimizzare i cluster HDInsight.
+title: Ottimizzare le configurazioni cluster con Apache Ambari - Azure HDInsight
+description: Usare l'interfaccia utente Web Apache Ambari per configurare e ottimizzare i cluster HDInsight.
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 2f0956c1cbbc6a351b2fc76a6918280dbead298f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 82995f2cc8facac9bef6f8c84c9667775ac81463
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951217"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038519"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Ambari per ottimizzare le configurazioni cluster HDInsight
 
@@ -44,19 +43,19 @@ Per modificare le dimensioni dell'heap Java NameNode:
 
     ![Configurazione HDFS](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
 
-2. Trovare l'impostazione **NameNode Java heap size** (Dimensioni dell'heap Java NameNode). È anche possibile usare la casella di testo **filter** (filtro) per digitare e trovare una determinata impostazione. Selezionare l'icona **pen** (penna) accanto al nome dell'impostazione.
+1. Trovare l'impostazione **NameNode Java heap size** (Dimensioni dell'heap Java NameNode). È anche possibile usare la casella di testo **filter** (filtro) per digitare e trovare una determinata impostazione. Selezionare l'icona **pen** (penna) accanto al nome dell'impostazione.
 
     ![Dimensioni dell'heap Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
 
-3. Digitare il nuovo valore nella casella di testo, quindi premere **INVIO** per salvare la modifica.
+1. Digitare il nuovo valore nella casella di testo, quindi premere **INVIO** per salvare la modifica.
 
     ![Modificare le dimensioni dell'heap Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-4. Le dimensioni dell'heap Java NameNode passano da 1 GB a 2 GB.
+1. Le dimensioni dell'heap Java NameNode passano da 1 GB a 2 GB.
 
     ![Dimensioni dell'heap Java NameNode modificate](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
-5. Salvare le modifiche facendo clic sul pulsante verde **Save** (Salva) nella parte superiore della schermata di configurazione.
+1. Salvare le modifiche facendo clic sul pulsante verde **Save** (Salva) nella parte superiore della schermata di configurazione.
 
     ![Salvare le modifiche](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
@@ -65,7 +64,7 @@ Per modificare le dimensioni dell'heap Java NameNode:
 Le sezioni seguenti descrivono le opzioni di configurazione per ottimizzare le prestazioni generali di Hive.
 
 1. Per modificare i parametri di configurazione di Hive, selezionare **Hive** dalla barra laterale Services (Servizi).
-2. Passare alla scheda **Configs** (Configurazioni).
+1. Passare alla scheda **Configs** (Configurazioni).
 
 ### <a name="set-the-hive-execution-engine"></a>Impostare il motore di esecuzione di Hive
 
@@ -75,7 +74,7 @@ Hive fornisce due motori di esecuzione: MapReduce e Tez. Tez è più veloce di M
 
     ![Cercare il motore di esecuzione](./media/hdinsight-changing-configs-via-ambari/search-execution.png)
 
-2. Il valore predefinito della proprietà **Optimization** (Ottimizzazione) è **Tez**.
+1. Il valore predefinito della proprietà **Optimization** (Ottimizzazione) è **Tez**.
 
     ![Ottimizzazione - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-tez.png)
 
@@ -92,7 +91,7 @@ Ad esempio, per impostare quattro attività di mapper per dimensioni dei dati pa
 
 1. Per modificare i parametri limite, passare alla scheda **Configs** (Configurazioni) del servizio Tez. Espandere il pannello **General** (Generale) e individuare i parametri `tez.grouping.max-size` e `tez.grouping.min-size`.
 
-2. Impostare entrambi i parametri su **33.554.432** byte (32 MB).
+1. Impostare entrambi i parametri su **33.554.432** byte (32 MB).
 
     ![Dimensioni dei raggruppamenti Tez](./media/hdinsight-changing-configs-via-ambari/tez-grouping-size.png)
  
@@ -112,13 +111,13 @@ Il parametro `hive.exec.reducers.bytes.per.reducer` specifica il numero di byte 
 
     ![Data per Reducer (Dati per riduttore)](./media/hdinsight-changing-configs-via-ambari/data-per-reducer.png)
  
-2. Selezionare **Edit** (Modifica) per impostare il valore su 128 MB (134.217.728 byte) e quindi premere **INVIO** per salvare.
+1. Selezionare **Edit** (Modifica) per impostare il valore su 128 MB (134.217.728 byte) e quindi premere **INVIO** per salvare.
 
     ![Data per Reducer (Dati per riduttore) - modificato](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
   
     Con dimensioni di input pari a 1.024 MB e 128 MB di dati per riduttore, i riduttori sono 8 (1024/128).
 
-3. Un valore non corretto per il parametro **Data per Reducer** (Dati per riduttore) può restituire un numero elevato di riduttori, che influisce negativamente sulle prestazioni della query. Per limitare il numero massimo di riduttori, impostare `hive.exec.reducers.max` su un valore appropriato. Il valore predefinito è 1009.
+1. Un valore non corretto per il parametro **Data per Reducer** (Dati per riduttore) può restituire un numero elevato di riduttori, che influisce negativamente sulle prestazioni della query. Per limitare il numero massimo di riduttori, impostare `hive.exec.reducers.max` su un valore appropriato. Il valore predefinito è 1009.
 
 ### <a name="enable-parallel-execution"></a>Abilitare l'esecuzione parallela
 
@@ -126,7 +125,7 @@ Una query Hive viene eseguita in una o più fasi. Se le fasi indipendenti posson
 
 1.  Per abilitare l'esecuzione della query parallela, passare alla scheda **Config** (Configurazioni) di Hive e cercare la proprietà `hive.exec.parallel`. Il valore predefinito è False. Impostare il valore su true e quindi premere **INVIO** per salvare il valore.
  
-2.  Per limitare il numero di processi da eseguire in parallelo, modificare la proprietà `hive.exec.parallel.thread.number`. Il valore predefinito è 8.
+1.  Per limitare il numero di processi da eseguire in parallelo, modificare la proprietà `hive.exec.parallel.thread.number`. Il valore predefinito è 8.
 
     ![Esecuzione parallela di Hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -137,7 +136,7 @@ Hive elabora i dati una riga alla volta. Con la vettorializzazione Hive elabora 
 
 1. Per abilitare un'esecuzione di query vettorializzata, passare alla scheda **Configs** (Configurazioni) di Hive e cercare il parametro `hive.vectorized.execution.enabled`. Il valore predefinito è true per Hive 0.13.0 o versione successiva.
  
-2. Per abilitare l'esecuzione vettorializzata per il lato reduce della query, impostare il parametro `hive.vectorized.execution.reduce.enabled` su true. Il valore predefinito è False.
+1. Per abilitare l'esecuzione vettorializzata per il lato reduce della query, impostare il parametro `hive.vectorized.execution.reduce.enabled` su true. Il valore predefinito è False.
 
     ![Esecuzione vettorializzata di Hive](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
@@ -179,10 +178,10 @@ I tipi di compressione disponibili sono:
 
 | Format | Strumento | Algoritmo | Estensione file | Divisibile |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | gz | No  |
-| Bzip2 | Bzip2 | Bzip2 |bz2 | Sì |
+| Gzip | Gzip | DEFLATE | gz | No |
+| Bzip2 | Bzip2 | Bzip2 |bz2 | Yes |
 | LZO | Lzop | LZO | lzo | Sì, se indicizzato |
-| Snappy | N/D | Snappy | Snappy | No  |
+| Snappy | N/D | Snappy | Snappy | No |
 
 Come regola generale, è importante che il metodo di compressione sia divisibile. In caso contrario, verranno creati pochissimi mapper. Se i dati di input sono costituiti da testo, `bzip2` è l'opzione migliore. Per il formato ORC, Snappy è l'opzione di compressione più rapida.
 
@@ -193,9 +192,9 @@ Come regola generale, è importante che il metodo di compressione sia divisibile
     > [!NOTE]
     > Per comprimere i file intermedi, scegliere un codec di compressione con costi di CPU più bassi, anche se il codec non ha un output di compressione elevato.
 
-2. Per impostare il codec di compressione intermedia, aggiungere la proprietà personalizzata `mapred.map.output.compression.codec` al file `hive-site.xml` o `mapred-site.xml`.
+1. Per impostare il codec di compressione intermedia, aggiungere la proprietà personalizzata `mapred.map.output.compression.codec` al file `hive-site.xml` o `mapred-site.xml`.
 
-3. Per aggiungere un'impostazione personalizzata:
+1. Per aggiungere un'impostazione personalizzata:
 
     a. Passare alla scheda **Configs** (Configurazioni) di Hive e selezionare la scheda **Advanced** (Avanzate).
 
@@ -220,7 +219,7 @@ Anche l'output di Hive finale può essere compresso.
 
 1. Per comprimere l'output di Hive finale, passare alla scheda **Configs** (Configurazioni) di Hive e quindi impostare il parametro `hive.exec.compress.output` su true. Il valore predefinito è False.
 
-2. Per scegliere il codec di compressione dell'output, aggiungere la proprietà personalizzata `mapred.output.compression.codec` al riquadro Custom hive-site (hive-site personalizzato), come descritto nel passaggio 3 della sezione precedente.
+1. Per scegliere il codec di compressione dell'output, aggiungere la proprietà personalizzata `mapred.output.compression.codec` al riquadro Custom hive-site (hive-site personalizzato), come descritto nel passaggio 3 della sezione precedente.
 
     ![Proprietà personalizzata di Hive](./media/hdinsight-changing-configs-via-ambari/hive-custom-property2.png)
 
@@ -240,11 +239,11 @@ Hive consente di creare partizioni dinamiche quando si inseriscono i record in u
 
 1. Per creare partizioni dinamiche in Hive, il parametro `hive.exec.dynamic.partition` deve essere impostato su (impostazione predefinita).
 
-2. Impostare la modalità di partizione dinamica su *strict*. Nella modalità strict almeno una partizione deve essere statica per impedire query senza il filtro per la partizione nella clausola WHERE. *strict* impedisce infatti le query che analizzano tutte le partizioni. Passare alla scheda **Configs** (Configurazioni) di Hive e quindi impostare `hive.exec.dynamic.partition.mode` su **strict**. Il valore predefinito è **nonstrict**.
+1. Impostare la modalità di partizione dinamica su *strict*. Nella modalità strict almeno una partizione deve essere statica per impedire query senza il filtro per la partizione nella clausola WHERE. *strict* impedisce infatti le query che analizzano tutte le partizioni. Passare alla scheda **Configs** (Configurazioni) di Hive e quindi impostare `hive.exec.dynamic.partition.mode` su **strict**. Il valore predefinito è **nonstrict**.
  
-3. Per limitare il numero di partizioni dinamiche da creare, modificare il parametro `hive.exec.max.dynamic.partitions`. Il valore predefinito è 5000.
+1. Per limitare il numero di partizioni dinamiche da creare, modificare il parametro `hive.exec.max.dynamic.partitions`. Il valore predefinito è 5000.
  
-4. Per limitare il numero totale di partizioni dinamiche per nodo, modificare `hive.exec.max.dynamic.partitions.pernode`. Il valore predefinito è 2000.
+1. Per limitare il numero totale di partizioni dinamiche per nodo, modificare `hive.exec.max.dynamic.partitions.pernode`. Il valore predefinito è 2000.
 
 ### <a name="enable-local-mode"></a>Abilitare la modalità locale
 
@@ -294,9 +293,9 @@ Le proprietà di Pig possono essere modificate dall'interfaccia utente Web Ambar
 
 1. Per modificare le proprietà di Pig, passare alla scheda **Configs** (Configurazioni) di Pig e quindi espandere il riquadro **Advanced pig-properties** (Proprietà Pig avanzate).
 
-2. Trovare, rimuovere il commento e cambiare il valore della proprietà che si vuole modificare.
+1. Trovare, rimuovere il commento e cambiare il valore della proprietà che si vuole modificare.
 
-3. Selezionare **Save** (Salva) nell'angolo in alto a destra della finestra per salvare il nuovo valore. Alcune proprietà possono richiedere un riavvio del servizio.
+1. Selezionare **Save** (Salva) nell'angolo in alto a destra della finestra per salvare il nuovo valore. Alcune proprietà possono richiedere un riavvio del servizio.
 
     ![Proprietà Pig avanzate](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
@@ -309,7 +308,7 @@ Per eseguire gli script di Pig, sono disponibili due motori di esecuzione: MapRe
 
 1. Per modificare il motore di esecuzione, nel riquadro **Advanced pig-properties** (Proprietà Pig avanzate) trovare la proprietà `exectype`.
 
-2. Il valore predefinito è **MapReduce**. Impostarlo su **Tez**.
+1. Il valore predefinito è **MapReduce**. Impostarlo su **Tez**.
 
 
 ### <a name="enable-local-mode"></a>Abilitare la modalità locale
@@ -318,7 +317,7 @@ Come in Hive, la modalità locale viene usata per velocizzare i processi con qua
 
 1. Per abilitare la modalità locale, impostare `pig.auto.local.enabled` su **true**. Il valore predefinito è False.
 
-2. I processi con dati di input di dimensioni inferiori al valore della proprietà `pig.auto.local.input.maxbytes` sono considerati processi di piccole dimensioni. Il valore predefinito è 1 GB.
+1. I processi con dati di input di dimensioni inferiori al valore della proprietà `pig.auto.local.input.maxbytes` sono considerati processi di piccole dimensioni. Il valore predefinito è 1 GB.
 
 
 ### <a name="copy-user-jar-cache"></a>Copiare la cache JAR dell'utente
@@ -327,7 +326,7 @@ Pig copia i file JAR necessari per le funzioni definite dall'utente in una cache
 
 1. Per abilitarla, impostare `pig.user.cache.enabled` su true. Il valore predefinito è false.
 
-2. Per impostare il percorso di base dei file JAR memorizzati nella cache, impostare `pig.user.cache.location` sul percorso di base. Il valore predefinito è `/tmp`.
+1. Per impostare il percorso di base dei file JAR memorizzati nella cache, impostare `pig.user.cache.location` sul percorso di base. Il valore predefinito è `/tmp`.
 
 
 ### <a name="optimize-performance-with-memory-settings"></a>Ottimizzare le prestazioni con le impostazioni della memoria
@@ -368,11 +367,11 @@ La configurazione di HBase viene modificata dalla scheda **HBase Configs** (Conf
 
 ### <a name="set-hbaseheapsize"></a>Impostare HBASE_HEAPSIZE
 
-Le dimensioni dell'heap HBase specificano, in megabyte, la quantità massima di heap che devono essere usati dai server di *area* e *master*. Il valore predefinito è 1.000 MB. Questo valore deve essere ottimizzato per il carico di lavoro del cluster.
+Le dimensioni dell'heap HBase specificano, in megabyte, la quantità massima di heap che devono essere usati dai server di *area* e *master*. Il valore predefinito è 1000 MB. Questo valore deve essere ottimizzato per il carico di lavoro del cluster.
 
 1. Per modificarlo, passare al riquadro **Advanced HBase-env** (Ambiente HBase avanzato) nella scheda **Configs** (Configurazioni) e quindi trovare l'impostazione `HBASE_HEAPSIZE`.
 
-2. Impostare il valore predefinito su 5.000 MB.
+1. Impostare il valore predefinito su 5000 MB.
 
     ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
 
@@ -389,7 +388,7 @@ La cache dei blocchi è la cache di lettura, le cui dimensioni sono controllate 
 
     ![Dimensioni della cache dei blocchi di HBase](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
  
-2. Per modificare il valore, selezionare l'icona **Edit** (Modifica).
+1. Per modificare il valore, selezionare l'icona **Edit** (Modifica).
 
 
 #### <a name="memstore-size"></a>Dimensioni del memstore

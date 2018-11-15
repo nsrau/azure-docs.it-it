@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f408d24a5957061bf03d340a555b87bdc6b2aacc
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304136"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614022"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure
 In questa esercitazione si usa l'interfaccia utente di Azure Data Factory per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud.
@@ -111,7 +111,7 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
 1. Selezionare **adftutorial** nell'elenco di contenitori.
 
-    ![Selezione del contenitore](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Selezione del contenitore](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Tenere aperta la finestra **Contenitore** per **adftutorial** perché verrà usata per verificare l'output alla fine di questa esercitazione. Data Factory crea automaticamente la cartella di output in questo contenitore, quindi non è necessario crearne uno.
 
@@ -197,7 +197,7 @@ Il nome della data factory deve essere *univoco a livello globale*. Se viene vis
 
 1. In **Option 1: Express setup** (Opzione 1: Installazione rapida) selezionare **Click here to launch the express setup for this computer** (Fare clic qui per avviare l'installazione rapida per il computer). 
 
-    ![Collegamento per l'installazione rapida](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![Collegamento per l'installazione rapida](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. Nella finestra **Installazione rapida di Integration Runtime (self-hosted)** selezionare **Chiudi**. 
 
@@ -237,7 +237,7 @@ Il nome della data factory deve essere *univoco a livello globale*. Se viene vis
 
 1. Passare alla scheda con **SQLServerToBlobPipeline** oppure selezionare **SQLServerToBlobPipeline** nella visualizzazione albero. 
 
-    ![Scheda con la pipeline](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![Scheda con la pipeline](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. Passare alla scheda **Sink** nella parte inferiore della finestra **Proprietà** e selezionare **+ Nuovo**. 
 

@@ -2,23 +2,23 @@
 title: Archiviazione BLOB di Azure nei dispositivi Azure IoT Edge | Microsoft Docs
 description: Distribuire un modulo di archiviazione BLOB di Azure al dispositivo IoT Edge per archiviare i dati nei dispositivi perimetrali.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
 ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b86f73302d9f5d07cd1e6e8c7801de56a988cc7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955286"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567282"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge (anteprima)
 
-L'archiviazione BLOB di Azure in IoT Edge offre una soluzione di archiviazione [BLOB in blocchi](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) nei dispositivi perimetrali. Un modulo di archiviazione BLOB nel dispositivo IoT Edge si comporta come un servizio BLOB in blocchi di Azure, ma i BLOB in blocchi vengono archiviati localmente nel dispositivo IoT Edge. È possibile accedere ai BLOB usando gli stessi metodi di archiviazione di Azure SDK o bloccare le chiamate API BLOB già in uso. 
+L'archiviazione BLOB di Azure in IoT Edge offre una soluzione di archiviazione [BLOB in blocchi](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) nei dispositivi perimetrali. Un modulo di archiviazione BLOB nel dispositivo IoT Edge si comporta come un servizio BLOB in blocchi di Azure, ma i BLOB in blocchi vengono archiviati localmente nel dispositivo IoT Edge. È possibile accedere ai BLOB usando gli stessi metodi di archiviazione di Azure SDK o bloccare le chiamate API BLOB che già utilizzate. 
 
 Gli scenari in cui sono presenti dati quali video, immagini, informazioni finanziarie, dati ospedalieri oppure dati che devono essere archiviati in locale, o che in seguito potrebbero essere elaborati in locale o trasferiti nel cloud, sono ottimi esempi per l'uso di questo modulo.
 
@@ -68,7 +68,7 @@ Scegliere uno dei due metodi per trovare il modulo di archiviazione BLOB:
 1. Selezionare la sottoscrizione in cui viene distribuito l'hub IoT.
 2. Selezionare l'hub IoT.
 3. Specificare il nome del dispositivo IoT Edge in cui si vuole distribuire questo modulo. È possibile usare Find Device (Trova il dispositivo) per individuare il dispositivo.
-4. Fare clic su **Crea**.
+4. Fare clic su **Create**(Crea).
 
 **Impostare i moduli**
 

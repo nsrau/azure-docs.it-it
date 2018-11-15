@@ -2,18 +2,18 @@
 title: Distribuire i moduli per Azure IoT Edge | Microsoft Docs
 description: Informazioni sulle modalità di distribuzione dei moduli nei dispositivi perimetrali
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f4cfed8ed20bac126795394cd6532322a68d718f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: b97a88a36631af1de3c95f0730a9a951b9a3a907
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249801"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569064"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>Informazioni sulle distribuzioni IoT Edge per singoli dispositivi o su vasta scala
 

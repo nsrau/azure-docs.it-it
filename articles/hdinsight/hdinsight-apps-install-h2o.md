@@ -3,22 +3,22 @@ title: Installare un'applicazione pubblicata - H2O Sparkling Water - Azure HDIns
 description: Installare e usare l'applicazione Hadoop di terze parti H2O Sparkling Water.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: e1e43bc06b30959bc5e7e692d88bd0d053a03ad4
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 60b80843ce343c667413be55b59d02ac14b349f3
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593554"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037516"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Installare un'applicazione pubblicata - H2O Sparkling Water
 
-Questo articolo descrive come installare ed eseguire l'applicazione Hadoop pubblicata [H20 Sparkling Water](http://www.h2o.ai/) in HDInsight di Azure. Per una panoramica della piattaforma applicativa HDInsight e un elenco delle applicazioni pubblicate di fornitori di software indipendente, vedere [Installare applicazioni Hadoop di terze parti](hdinsight-apps-install-applications.md). Per istruzioni sull'installazione di un'applicazione personalizzata, vedere l'articolo su come [installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
+Questo articolo descrive come installare ed eseguire l'applicazione Apache Hadoop pubblicata [H20 Sparkling Water](http://www.h2o.ai/) in HDInsight di Azure. Per una panoramica della piattaforma applicativa HDInsight e un elenco delle applicazioni pubblicate di fornitori di software indipendente, vedere [Installare applicazioni Hadoop di terze parti](hdinsight-apps-install-applications.md). Per istruzioni sull'installazione di un'applicazione personalizzata, vedere l'articolo su come [installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-h2o-sparkling-water"></a>Informazioni su H2O Sparkling Water
 

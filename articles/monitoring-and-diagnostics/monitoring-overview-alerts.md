@@ -5,15 +5,15 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: f044cf7e0b614d338ec9b294dfbf02c26c4351b1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9340c5a70ac652f1cf0a8b0cddce8488e0a62eee
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413861"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978870"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -23,28 +23,36 @@ Questo articolo descrive cosa sono gli avvisi, quali vantaggi offrono e come ini
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi in Microsoft Azure?
 Gli avvisi notificano in modo proattivo quando vengono riscontrate importanti condizioni nei dati di monitoraggio. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. 
 
-Questo articolo illustra l'esperienza degli avvisi unificata in Monitoraggio di Azure, che ora include Log Analytics e Application Insights. L'[esperienza degli avvisi precedente](monitoring-overview-alerts.md) e i tipi di avviso sono definiti **avvisi classici**. È possibile visualizzare questa esperienza precedente e il tipo di avviso precedente facendo clic su **Visualizza avvisi classici** nella parte superiore della pagina degli avvisi.
-
+Questo articolo illustra l'esperienza degli avvisi unificata in Monitoraggio di Azure, che ora include Log Analytics e Application Insights. L'[esperienza degli avvisi precedente](monitoring-overview-alerts.md) e i tipi di avviso sono definiti **avvisi classici**. È possibile visualizzare questa esperienza precedente e il tipo di avviso precedente facendo clic su **Visualizza avvisi classici** nella parte superiore della pagina degli avvisi. 
 
 ## <a name="overview"></a>Panoramica
 
-Il diagramma seguente rappresenta i termini generali e il flusso di avvisi. 
+La figura seguente rappresenta il flusso di avvisi. 
 
 ![Flusso di avvisi](media/monitoring-overview-alerts/Azure-Monitor-Alerts.svg)
 
 Le regole di avviso sono separate dagli avvisi e dalle azioni che vengono intraprese quando viene generato un avviso. 
 
-- **Regola di avviso**: la regola di avviso acquisisce la destinazione e i criteri per l'invio dell'avviso. Lo stato della regola di avviso può essere impostato su Abilitato o Disabilitato. Gli avvisi vengono generati solo quando sono abilitati. Gli attributi chiave delle regole di avviso sono:
-    - **Risorsa di destinazione**: come destinazione può essere configurata una qualsiasi risorsa di Azure. La risorsa di destinazione definisce l'ambito e i segnali disponibili per la generazione di avvisi. Esempi di destinazione: una macchina virtuale, un account di archiviazione, un set di scalabilità di macchine virtuali, un'area di lavoro di Log Analytics o una risorsa di Application Insights. Per alcune risorse, ad esempio le macchine virtuali, è possibile specificare più risorse come destinazione di una regola di avviso.
-    - **Segnale**: i segnali vengono emessi dalla risorsa di destinazione e possono essere di vari tipi: Metrica, Log attività, Application Insights e Log.
-    - **Criteri**: una combinazione di segnale e logica applicata a una risorsa di destinazione. Esempi: 
-         - Percentuale CPU > 70%
-         - Tempo di risposta del server > 4 ms 
-         - Numero di risultati di una query di log > 100
-- **Nome avviso**: nome specifico per la regola di avviso configurato dall'utente
-- **Descrizione avviso**: descrizione specifica per la regola di avviso configurata dall'utente
-- **Gravità**: gravità dell'avviso dopo che sono stati soddisfatti i criteri specificati nella regola di avviso. La gravità è compresa tra 0 e 4.
-- **Azione**: un'azione specifica eseguita quando viene attivato l'avviso. Per altre informazioni, vedere Gruppi di azioni.
+**Regola di avviso**: la regola di avviso acquisisce la destinazione e i criteri per l'invio dell'avviso. Lo stato della regola di avviso può essere impostato su Abilitato o Disabilitato. Gli avvisi vengono generati solo quando sono abilitati. 
+
+Gli attributi chiave di una regola di avviso sono:
+
+**Risorsa di destinazione**: definisce l'ambito e i segnali disponibili per la generazione di avvisi. La destinazione può essere una qualsiasi risorsa di Azure. Esempi di destinazione: una macchina virtuale, un account di archiviazione, un set di scalabilità di macchine virtuali, un'area di lavoro di Log Analytics o una risorsa di Application Insights. Per alcune risorse, ad esempio Macchine virtuali, è possibile specificare più risorse come destinazione della regola di avviso.
+
+**Segnale**: i segnali vengono emessi dalla risorsa di destinazione e possono essere di vari tipi: Metrica, Log attività, Application Insights e Log.
+
+**Criteri**: una combinazione di segnale e logica applicata a una risorsa di destinazione. Esempi: 
+   - Percentuale CPU > 70%
+   - Tempo di risposta del server > 4 ms 
+   - Numero di risultati di una query di log > 100
+
+**Nome avviso**: nome specifico per la regola di avviso configurato dall'utente
+
+**Descrizione avviso**: descrizione specifica per la regola di avviso configurata dall'utente
+
+**Gravità**: gravità dell'avviso dopo che sono stati soddisfatti i criteri specificati nella regola di avviso. La gravità è compresa tra 0 e 4.
+
+**Azione**: un'azione specifica eseguita quando viene attivato l'avviso. Per altre informazioni, vedere [Gruppi di azioni](monitoring-action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Oggetto degli avvisi
 
@@ -54,8 +62,6 @@ Le regole di avviso sono separate dagli avvisi e dalle azioni che vengono intrap
 - Eventi del log attività
 - Integrità della piattaforma Azure sottostante
 - Test per la disponibilità del sito Web
-
-
 
 ## <a name="manage-alerts"></a>Gestisci avvisi
 È possibile impostare lo stato di un avviso per specificare dove i trova nel processo di risoluzione. Quando vengono soddisfatti i criteri specificati nella regola di avviso, viene creato o generato un avviso con lo stato impostato su *Nuovo*. È possibile modificare lo stato dell'avviso dopo averlo confermato e chiuso. Tutte le modifiche apportate allo stato vengono archiviate nella cronologia dell'avviso.
@@ -68,7 +74,7 @@ Sono supportati i tipi di avviso seguenti.
 | Confermato | Un amministratore ha esaminato l'avviso e ha iniziato a lavorare a esso. |
 | Chiuso | Il problema è stato risolto. Dopo che un avviso è stato chiuso, è possibile riaprirlo modificandone lo stato. |
 
-Lo stato di un avviso è diverso dalla condizione di monitoraggio. Lo stato dell'avviso è impostato dall'utente ed è indipendente dalla condizione di monitoraggio. Quando si cancella la condizione sottostante per l'avviso generato, la condizione di monitoraggio per l'avviso viene impostata su risolta. Anche se il sistema può impostare la condizione di monitoraggio su risolta, lo stato dell'avviso non può essere modificato senza l'intervento dell'utente. Informazioni su [come modificare lo stato degli avvisi e dei gruppi intelligenti](https://aka.ms/managing-alert-smart-group-states).
+Lo **stato dell'avviso** è diverso ed è indipendente dalla **condizione del monitoraggio**. Lo stato dell'avviso viene impostato dall'utente, mentre la condizione del monitoraggio viene impostata dal sistema. Quando si attiva un avviso, la relativa condizione del monitoraggio viene impostata su *Attivato*. Quando la condizione sottostante che ha determinato l'attivazione dell'avviso viene cancellata, la condizione del monitoraggio viene impostata su *Risolto*. Lo stato dell'avviso non viene modificato fino a quando l'utente non esegue l'operazione di modifica. Informazioni su [come modificare lo stato degli avvisi e dei gruppi intelligenti](https://aka.ms/managing-alert-smart-group-states).
 
 ## <a name="smart-groups"></a>Gruppi intelligenti 
 I gruppi intelligenti sono una funzionalità della versione di anteprima. 
@@ -114,13 +120,13 @@ Per creare una nuova regola di avviso è necessario eseguire i tre passaggi segu
 1. Selezionare il _segnale_ dai segnali disponibili per la destinazione.
 1. Specificare la _logica_ da applicare ai dati del segnale.
  
-Per eseguire questa procedura semplificata, l'utente non deve più conoscere l'origine di monitoraggio o i segnali supportati prima di selezionare una risorsa di Azure. L'elenco dei segnali disponibili è filtrato automaticamente in base alla risorsa di destinazione selezionata e serve da guida nella definizione della logica della regola di avviso.
+Per eseguire questa procedura semplificata, l'utente non deve più conoscere l'origine di monitoraggio o i segnali supportati prima di selezionare una risorsa di Azure. L'elenco dei segnali disponibili è filtrato automaticamente in base alla risorsa di destinazione selezionata. In base a tale destinazione, viene visualizzata una procedura per definire automaticamente la logica della regola di avviso.  
 
-Altre informazioni su come creare regole di avviso sono disponibili in [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](monitor-alerts-unified-usage.md).
+Altre informazioni su come creare regole di avviso sono disponibili in [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](alert-metric.md).
 
-Gli avvisi sono disponibili in vari servizi di monitoraggio di Azure. Per informazioni su come e quando usare ognuno di questi servizi, vedere [Monitoraggio di applicazioni e risorse di Azure](./monitoring-overview.md). La tabella seguente fornisce un elenco dei tipi di regole di avviso disponibili in Azure. Indica anche quali avvisi sono attualmente supportati e in quale esperienza degli avvisi.
+Gli avvisi sono disponibili in vari servizi di monitoraggio di Azure. Per informazioni su come e quando usare ognuno di questi servizi, vedere [Monitoraggio di applicazioni e risorse di Azure](../azure-monitor/overview.md). La tabella seguente fornisce un elenco dei tipi di regole di avviso disponibili in Azure. Indica anche quali avvisi sono attualmente supportati e in quale esperienza degli avvisi.
 
-Nelle versioni precedenti dei servizi Monitoraggio di Azure, Application Insights, Log Analytics e Integrità dei servizi le funzionalità di invio avvisi sono separate. Con il tempo Azure ha migliorato e combinato sia l'interfaccia utente che i diversi metodi di invio degli avvisi. Il consolidamento è ancora in corso. Alcune funzionalità di invio avvisi di conseguenza non sono ancora integrate nel nuovo sistema di avvisi.  
+Nelle versioni precedenti dei servizi Monitoraggio di Azure, Application Insights, Log Analytics e Integrità dei servizi le funzionalità di invio degli avvisi sono separate. Con il tempo Azure ha migliorato e combinato sia l'interfaccia utente che i diversi metodi di invio degli avvisi. Il consolidamento è ancora in corso. Alcune funzionalità di invio avvisi di conseguenza non sono ancora integrate nel nuovo sistema di avvisi.  
 
 | **Origine di monitoraggio** | **Tipo di segnale**  | **Descrizione** | 
 |-------------|----------------|-------------|
@@ -160,7 +166,7 @@ La pagina dei dettagli dell'avviso include le sezioni seguenti.
 |:---|:---|
 | Informazioni di base | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |
-| Gruppo intelligente | Informazioni sul gruppo intelligente in cui l'avviso sarà incluso. *Conteggio avvisi* si riferisce al numero di avvisi inclusi nel gruppo intelligente. Comprende gli altri avvisi inclusi nello stesso gruppo intelligente creato negli ultimi 30 giorni.  Questo è indipendente dal filtro orario nella pagina dell'elenco degli avvisi. Selezionare un avviso per visualizzarne i dettagli. |
+| Gruppo intelligente | Informazioni sul gruppo intelligente in cui l'avviso sarà incluso. *Conteggio avvisi* si riferisce al numero di avvisi inclusi nel gruppo intelligente. Include gli altri avvisi dello stesso gruppo intelligente che sono stati creati negli ultimi 30 giorni indipendentemente dal filtro temporale specificato nella pagina dell'elenco degli avvisi. Selezionare un avviso per visualizzarne i dettagli. |
 | Altre informazioni | Mostra altre informazioni contestuali sull'avviso, che sono in genere specifiche del tipo di origine che ha creato l'avviso. |
 
 

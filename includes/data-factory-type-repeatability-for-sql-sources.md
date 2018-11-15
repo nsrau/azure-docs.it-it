@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572293"
+---
 ## <a name="repeatability-during-copy"></a>Ripetibilità durante la copia
 Quando si copiano dati in un database di SQL Server/SQL di Azure da altri archivi dati, è necessario definire criteri di ripetibilità per evitare risultati imprevisti. 
 

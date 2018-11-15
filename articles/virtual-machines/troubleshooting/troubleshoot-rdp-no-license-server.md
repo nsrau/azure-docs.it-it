@@ -1,5 +1,5 @@
 ---
-title: Il server licenze Desktop remoto non è disponibile quando ci si connette alla macchina virtuale di Azure | Microsoft Docs
+title: Il server licenze Desktop remoto non è disponibile durante la connessione a una macchina virtuale di Azure | Microsoft Docs
 description: Informazioni su come risolvere i problemi di RDP quando non è disponibile un server licenze Desktop remoto | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 5e54579a35140ee7cfc06358d60cf7a63292e107
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088272"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913854"
 ---
-# <a name="remote-desktop-license-server-is-not-available-when-you-connect-to-azure-vm"></a>Il server licenze Desktop remoto non è disponibile quando ci si connette alla macchina virtuale di Azure
+# <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Il server licenze Desktop remoto non è disponibile durante la connessione a una macchina virtuale di Azure
 
 Questo articolo illustra come risolvere il problema che si verifica quando non è possibile connettersi a una macchina virtuale (VM) di Azure in quanto non è disponibile un server licenze Desktop remoto per il rilascio di una licenza.
 
@@ -28,12 +28,12 @@ Questo articolo illustra come risolvere il problema che si verifica quando non �
 
 Quando si prova a connettersi a una macchina virtuale, si verificano gli scenari seguenti:
 
-- Lo screenshot della macchina virtuale (VM) indica che il sistema operativo è completamente caricato ed è in attesa delle credenziali.
+- Lo screenshot della macchina virtuale indica che il sistema operativo è stato caricato completamente ed è in attesa delle credenziali.
 - Quando si prova a stabilire una connessione Microsoft RDP (Remote Desktop Protocol), vengono visualizzati gli errori seguenti:
 
-  - **La sessione remota è stata disconnessa perché non sono disponibili server licenze di Desktop remoto per il rilascio della licenza.**
+  - La sessione remota è stata disconnessa perché non sono disponibili server licenze di Desktop remoto per il rilascio della licenza.
 
-  - **Nessun server licenze Desktop remoto disponibile. Servizi Desktop remoto smetterà di funzionare. Periodo di prova scaduto. Non è stato contattato un server licenze Windows Server 2008 valido. Fare clic su questo messaggio per aprire Configurazione server host sessione Desktop remoto per usare lo strumento di diagnosi delle licenze.**
+  - Non sono disponibili server licenze Desktop remoto. Servizi Desktop remoto smetterà di funzionare perché il periodo di prova è scaduto e non è stato contattato un server licenze Windows Server 2008 valido. Selezionare questo messaggio per aprire Configurazione server host sessione Desktop remoto per usare lo strumento di diagnosi delle licenze.
 
 È tuttavia possibile connettersi normalmente alla macchina virtuale tramite una sessione amministrativa:
 
@@ -43,7 +43,7 @@ mstsc /v:<Server>[:<Port>] /admin
 
 ## <a name="cause"></a>Causa
 
-Questo problema si verifica se non è disponibile un server licenze Desktop remoto per il rilascio di una licenza per l'avvio di una sessione remota. Questo problema può essere causato da diversi scenari, anche se è stato configurato un ruolo Host sessione Desktop remoto nella macchina virtuale:
+Questo problema si verifica se non è disponibile un server licenze Desktop remoto per il rilascio di una licenza per l'avvio di una sessione remota. Il problema può essere causato da diversi scenari, anche se è stato configurato un ruolo Host sessione Desktop remoto nella macchina virtuale:
 
 - Nell'ambiente non è mai stato presente un ruolo Servizio licenze Desktop remoto e il periodo di prova (180 giorni) è scaduto.
 - Nell'ambiente è stata installata una licenza di Desktop remoto che non è mai stata attivata.
@@ -61,72 +61,72 @@ Per risolvere il problema, [eseguire il backup del disco del sistema operativo](
    mstsc /v:<Server>[:<Port>] /admin
    ```
 
-  Se non è possibile connettersi alla macchina virtuale tramite una sessione amministrativa, usare la [console seriale](serial-console-windows.md) per accedere alla macchina virtuale come indicato di seguito:
+    Se non è possibile connettersi alla macchina virtuale tramite una sessione amministrativa, usare la [console seriale della macchina virtuale](serial-console-windows.md) per accedere alla macchina virtuale come indicato di seguito:
 
-  1. Accedere alla console seriale selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)**. Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
+    1. Accedere alla console seriale selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)**. Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
 
-  2. Creare un nuovo canale per un'istanza CMD. Digitare **CMD** per avviare il canale per ottenere il relativo nome.
+    2. Creare un nuovo canale per un'istanza CMD. Immettere **CMD** per avviare il canale e ottenere il relativo nome.
 
-  3. Passare al canale che esegue l'istanza CMD, in questo caso il canale 1.
+    3. Passare al canale che esegue l'istanza di CMD. In questo caso, dovrebbe essere il canale 1:
 
-    ```
-    ch -si 1
-    ```
+       ```
+       ch -si 1
+       ```
 
-  4. Premere **INVIO** di nuovo e digitare un nome utente valido e una password (ID locale o di dominio) per la macchina virtuale.
+    4. Premere di nuovo **INVIO** e digitare un nome utente e una password validi, ID locale o di dominio, per la macchina virtuale.
 
 2. Controllare se nella macchina virtuale è abilitato un ruolo Host sessione Desktop remoto. Se il ruolo è abilitato, assicurarsi che funzioni correttamente. Aprire un'istanza di CMD con privilegi elevati e seguire questa procedura:
 
-  1. Usare il comando seguente per controllare lo stato del ruolo Host sessione Desktop remoto:
+    1. Usare il comando seguente per controllare lo stato del ruolo Host sessione Desktop remoto:
 
-    ```
-    reg query "HKLM\SOFTWARE\Microsoft\ServerManager\ServicingStorage\ServerComponentCache\RDS-RD-Server" /v InstallState
-    ```
+       ```
+        reg query "HKLM\SOFTWARE\Microsoft\ServerManager\ServicingStorage\ServerComponentCache\RDS-RD-Server" /v InstallState
+        ```
 
-    Se il comando restituisce un valore pari a 0, significa che il ruolo è disabilitato ed è possibile andare al passaggio 3.
+        Se il comando restituisce un valore pari a 0, significa che il ruolo è disabilitato ed è possibile andare al passaggio 3.
 
-  2. Usare il comando seguente per controllare i criteri e riconfigurarli in base alle esigenze:
+    2. Usare il comando seguente per controllare i criteri e riconfigurarli in base alle esigenze:
 
-    ```
-    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
-    ```
+       ```
+        reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
+       ```
 
-    Se **LicensingMode** è impostato su un valore diverso da 4 (per utente), impostarlo su 4:
+        Se **LicensingMode** è impostato su un valore diverso da 4 (per utente), impostarlo su 4:
 
-    ```
-    reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode /t REG_DWORD /d 4
-    ```
+         ```
+        reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode /t REG_DWORD /d 4
+        ```
 
-    Se il valore di **SpecifiedLicenseServers** non è presente o include informazioni sul server licenze non corrette, modificarlo come indicato di seguito:
+       Se il valore di **SpecifiedLicenseServers** non è presente o include informazioni sul server licenze non corrette, modificarlo come indicato di seguito:
 
-    ```
-    reg add "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers /t REG_MULTI_SZ /d "<FQDN / IP License server>"
-    ```
+       ```
+        reg add "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers /t REG_MULTI_SZ /d "<FQDN / IP License server>"
+       ```
 
-  3. Dopo avere apportato le modifiche al Registro di sistema, riavviare la macchina virtuale.
+    3. Dopo aver apportato le modifiche al Registro di sistema, riavviare la macchina virtuale.
 
-  4. Se non si dispone di licenze CAL, rimuovere il ruolo Host sessione Desktop remoto. Il protocollo RDP verrà quindi reimpostato nel modo standard e saranno consentite solo due connessioni RDP simultanee alla macchina virtuale.
+    4. Se non si dispone di licenze CAL, rimuovere il ruolo Host sessione Desktop remoto. A questo punto, il protocollo RDP verrà reimpostato allo stato normale. Consente solo due connessioni RDP simultanee alla macchina virtuale:
 
-    ```
-    dism /ONLINE /Disable-feature /FeatureName:Remote-Desktop-Services
-    ```
+        ```
+       dism /ONLINE /Disable-feature /FeatureName:Remote-Desktop-Services
+        ```
 
-    Se la macchina virtuale ha il ruolo Servizio licenze Desktop remoto e tale ruolo non è in uso, è possibile rimuoverlo.
+        Se la macchina virtuale ha il ruolo Servizio licenze Desktop remoto e tale ruolo non è in uso, è possibile rimuoverlo:
 
-    ```
-    dism /ONLINE /Disable-feature /FeatureName:Licensing
-    ```
+       ```
+        dism /ONLINE /Disable-feature /FeatureName:Licensing
+       ```
 
-  5. Assicurarsi che la macchina virtuale possa connettersi al server licenze Desktop remoto. È possibile testare la connettività alla porta 135 tra la macchina virtuale e il server licenze. 
+    5. Assicurarsi che la macchina virtuale possa connettersi al server licenze Desktop remoto. È possibile testare la connettività alla porta 135 tra la macchina virtuale e il server licenze: 
 
-    ```
-    telnet <FQDN / IP License Server> 135
-    ```
+       ```
+       telnet <FQDN / IP License Server> 135
+       ```
 
-3. Se nell'ambiente non è presente alcun server licenze Desktop remoto e si vuole averne uno, è possibile [installare un ruolo Servizio licenze Desktop remoto](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)) e quindi [configurare le licenze di Servizi Desktop remoto](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
+3. Se nell'ambiente non è presente alcun server licenze Desktop remoto e se ne vuole uno, è possibile [installare un ruolo Servizio licenze Desktop remoto](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). Quindi [configurare le licenze di Servizi Desktop remoto](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
 
 4. Se un server licenze Desktop remoto è configurato e integro, assicurarsi che sia attivato con le licenze CAL.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
-Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), per ottenere la risoluzione del problema.

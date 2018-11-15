@@ -3,18 +3,18 @@ title: Archiviare i dati con il modulo SQL per Azure IoT Edge | Microsoft Docs
 description: Informazioni su come archiviare i dati in locale nel dispositivo IoT Edge con un modulo SQL Server
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e10c80f658a7297a6642e34d8f5d0abe13b0881d
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5c3b8d350b69996e2bbff4958dd0a3600c1b7518
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748188"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566082"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati nei dispositivi perimetrali con database di SQL Server
 

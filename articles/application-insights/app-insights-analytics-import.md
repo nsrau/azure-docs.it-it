@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 5550bbb95b24e12510c69bc3952c346250786994
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141973"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960005"
 ---
 # <a name="import-data-into-analytics"></a>Importazione di dati in Analytics
 
@@ -123,7 +123,7 @@ Ogni colonna viene identificata da posizione, nome e tipo.
 * Location: per un formato file delimitato, indica la posizione del valore di cui è stato eseguito il mapping. Per il formato JSON, è il jpath della chiave di cui è stato eseguito il mapping.
 * Name: nome visualizzato della colonna.
 * Type: tipo di dati della colonna.
- 
+
 > [!NOTE]
 > Se sono stati usati dati di esempio e se il formato file è delimitato, la definizione dello schema deve eseguire il mapping di tutte le colonne e aggiungere nuove colonne alla fine.
 > 
@@ -137,7 +137,7 @@ Per importare i dati, caricarli in Archiviazione di Azure, creare una chiave di 
 
 È possibile eseguire manualmente il processo seguente o configurare un sistema automatizzato per eseguire questa operazione a intervalli regolari. È necessario seguire questi passaggi per ogni blocco di dati da importare.
 
-1. Caricare dati nell'[Archiviazione BLOB di Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. Caricare dati nell'[Archiviazione BLOB di Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md). 
 
  * I BLOB possono essere di qualsiasi dimensione, fino a 1 GB non compressi. I BLOB di centinaia di MB sono ideali dal punto di vista delle prestazioni.
  * È possibile comprimerli con Gzip per migliorare i tempi di caricamento e la latenza per i dati che devono essere disponibili per la query. Usare l'estensione del nome file `.gz`.
@@ -369,5 +369,5 @@ Usare questo codice per ogni BLOB.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Presentazione del linguaggio di query di Log Analytics](app-insights-analytics-tour.md)
+* [Presentazione del linguaggio di query di Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 * Se si usa Logstash, usare il [plug-in Logstash per inviare dati ad Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

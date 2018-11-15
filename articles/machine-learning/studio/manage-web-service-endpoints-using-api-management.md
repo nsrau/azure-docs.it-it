@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 4ca551ed07447e41ec94b0334eac0d235e0a5b6f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9543b1f3b10c246dadaf21b6960c7b6785fb66f4
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835084"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566381"
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Informazioni su come gestire i servizi Web di AzureML con Gestione API
 ## <a name="overview"></a>Panoramica
@@ -33,7 +33,7 @@ Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoi
 ## <a name="what-is-azureml"></a>Informazioni su AzureML
 AzureML è un servizio di Azure basato su Machine Learning che consente di compilare, distribuire e condividere facilmente soluzioni di analisi avanzate. Per informazioni dettagliate su AzureML, fare clic [qui](https://azure.microsoft.com/services/machine-learning/) .
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida, è necessario:
 
 * Un account Azure. Se non si dispone di un account Azure, fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per informazioni dettagliate su come creare un account di prova gratuito.
@@ -47,12 +47,12 @@ Per completare questa guida, è necessario:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **+ Crea una risorsa**.
 3. Nella casella di ricerca digitare "Gestione API" e quindi selezionare la risorsa "Gestione API".
-4. Fare clic su **Crea**.
+4. Fare clic su **Create**(Crea).
 5. Il valore del campo **Nome** verrà usato per creare un URL univoco (in questo esempio viene usato "demoazureml").
 6. Scegliere un valore nei campi **Sottoscrizione**, **Gruppo di risorse** e **Area** per l'istanza del servizio.
 7. Specificare un valore per **Nome organizzazione** (in questo esempio viene usato "demoazureml").
 8. Immettere un valore nel campo **Indirizzo di posta elettronica dell'amministratore**. L'indirizzo specificato verrà usato per le notifiche del sistema Gestione API.
-9. Fare clic su **Crea**.
+9. Fare clic su **Create**(Crea).
 
 La creazione del nuovo potrebbe richiedere fino a 30 minuti.
 
@@ -377,7 +377,7 @@ Questa guida mostra un esempio di Python funzionante. È necessario modificarlo 
 
     while True:
         print("Checking the job status...")
-        # If you are using Python 3+, replace urllib2 with urllib.request in the follwing code
+        # If you are using Python 3+, replace urllib2 with urllib.request in the following code
         req = urllib2.Request(url2, headers = { "Authorization":("Bearer " + api_key) })
         try:
             response = urllib2.urlopen(req)

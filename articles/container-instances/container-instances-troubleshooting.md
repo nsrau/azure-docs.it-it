@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079356"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978179"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di contenitore di Azure
 
@@ -102,7 +102,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image microsoft/windowsservercore:ltsc2016
  --command-line "ping -t localhost"
 ```
 
@@ -187,7 +187,7 @@ Per garantire il tempo di avvio dei contenitori Windows più veloce, usare una d
 
 ### <a name="windows-containers-slow-network-readiness"></a>La rete diventa disponibile lentamente per i contenitori Windows
 
-I contenitori Windows possono essere soggetti all'assenza di connettività in ingresso o in uscita per un massimo di 5 secondi al momento della creazione iniziale. Dopo l'installazione iniziale, le funzionalità di rete per i contenitori dovrebbero riprendere in modo appropriato.
+Al momento della creazione iniziale, è possibile che per i contenitori Windows non sia presente la connettività in ingresso o in uscita per un intervallo massimo di 30 secondi (o più lungo in alcuni rari casi). Se per l'applicazione contenitore è necessaria una connessione Internet, aggiungere un ritardo e ripetere la logica per consentire di stabilire la connettività Internet in un intervallo di 30 secondi. Dopo l'installazione iniziale, le funzionalità di rete per i contenitori dovrebbero riprendere in modo appropriato.
 
 ## <a name="resource-not-available-error"></a>Errore di risorsa non disponibile
 

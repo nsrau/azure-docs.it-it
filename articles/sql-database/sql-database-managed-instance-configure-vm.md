@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 09/13/2018
-ms.openlocfilehash: 08b8e37493ea7bc549a2352aaa6714ef7c65bfdb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 97362cb91c16f91d637283df7a583f685124a21b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159517"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913671"
 ---
-# <a name="configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Configurare una macchina virtuale di Azure per la connessione a un'istanza gestita di database SQL di Azure
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a un'istanza gestita di database SQL di Azure
 
 In questa guida introduttiva viene illustrato come configurare una macchina virtuale di Azure per la connessione a un'istanza gestita di database SQL di Azure usando SQL Server Management Studio (SSMS). Per una guida introduttiva che illustra come connettersi tramite un computer client locale usando una connessione da punto a sito, vedere [Configurare una connessione da punto a sito](sql-database-managed-instance-configure-p2s.md) 
 
@@ -74,7 +74,7 @@ Il modo più semplice per creare una macchina virtuale client con tutti gli stru
 
 2. Compilare il modulo con le informazioni richieste, usando le informazioni riportate nella tabella seguente:
 
-   | Impostazione| Valore consigliato | DESCRIZIONE |
+   | Impostazione| Valore consigliato | Descrizione |
    | ---------------- | ----------------- | ----------- |
    | **Sottoscrizione** | Una sottoscrizione valida | Deve trattarsi di una sottoscrizione in cui si dispone dell'autorizzazione per creare nuove risorse |
    | **Gruppo di risorse** |Il gruppo di risorse specificato nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).|Deve essere il gruppo di risorse in cui si trova la rete virtuale.|

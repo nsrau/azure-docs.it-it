@@ -44,10 +44,14 @@ items:
     href: How-tos/text-analytics-how-to-keyword-extraction.md
   - name: Chiamare il riconoscimento di entità denominate
     href: How-tos/text-analytics-how-to-entity-linking.md
-  - name: Utilizzo di Visual Studio
+  - name: Usare i contenitori
     items:
-    - name: Usare il servizio connesso di Analisi del testo
-      href: vs-text-connected-service.md
+    - name: Installare ed eseguire i contenitori
+      href: how-tos/text-analytics-how-to-install-containers.md
+    - name: Configurare i contenitori
+      href: text-analytics-resource-container-config.md
+  - name: Usare il servizio connesso di Analisi del testo
+    href: vs-text-connected-service.md
 - name: riferimento
   items:
   - name: Informazioni di riferimento sull'interfaccia della riga di comando
@@ -76,9 +80,9 @@ items:
     href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/555922-text-analytics
-ms.openlocfilehash: bb48c8573621a2d43f8daf4552b5e663f702b146
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 42fbfd8aa66ca59fd689e7d3d1656b912da84700
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389843"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631338"

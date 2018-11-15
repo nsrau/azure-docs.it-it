@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248917"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038469"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
@@ -149,6 +149,10 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazion
 
 Per condividere un runtime di integrazione self-hosted usando PowerShell, vedere [Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory con PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
 
+Per un'introduzione di dodici minuti e una dimostrazione di questa funzionalità, guardare il video seguente:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+
 ### <a name="terminology"></a>Terminologia
 
 - **Runtime di integrazione condiviso**: runtime di integrazione self-hosted originale in esecuzione in un'infrastruttura fisica.  
@@ -214,7 +218,7 @@ Se si sposta il cursore sul messaggio di notifica o sull'icona nell'area di noti
 
 A livello di *firewall aziendale* è necessario configurare le porte in uscita e i domini seguenti:
 
-Nomi di dominio | Porte | DESCRIZIONE
+Nomi di dominio | Porte | Descrizione
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443 | Usato per la comunicazione con il servizio di spostamento di dati back-end
 *.core.windows.net | 443 | Usato per la copia di gestione temporanea tramite Archiviazione BLOB di Azure (se configurata)

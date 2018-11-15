@@ -2,19 +2,19 @@
 title: Come installare Azure IoT Edge in Windows con contenitori Windows | Microsoft Docs
 description: Istruzioni per l'installazione di Azure IoT Edge in Windows con contenitori Windows
 author: kgremban
-manager: timlt
+manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: d85355b50bad9f05acc7da92d763d011e6f807b6
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: e6edc9d6e98c03b1a5847dc08bbaa3ad029aa673
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741080"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565038"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Installare il runtime di Azure IoT Edge in Windows per l'uso con contenitori Windows
 
@@ -51,7 +51,7 @@ Configurare Docker per Windows [per l'uso di contenitori Windows](https://docs.d
 
 ### <a name="install-and-manually-provision"></a>Effettuare il provisioning e l'installazione manualmente
 
-1. Seguire i passaggi descritti in [Register a new Azure IoT Edge device](how-to-register-device-portal.md) (Registrare un nuovo dispositivo Azure IoT Edge) per registrare il dispositivo e recuperare la stringa di connessione. 
+1. Seguire i passaggi descritti in [Registrare un nuovo dispositivo Azure IoT Edge](how-to-register-device-portal.md) per registrare il dispositivo e recuperare la stringa di connessione. 
 
 2. Nel dispositivo IoT Edge eseguire PowerShell come amministratore. 
 
@@ -66,7 +66,7 @@ Configurare Docker per Windows [per l'uso di contenitori Windows](https://docs.d
 
 ### <a name="install-and-automatically-provision"></a>Installare ed effettuare automaticamente il provisioning
 
-1. Seguire i passaggi descritti in [Creare ed effettuare il provisioning di un dispositivo simulato TPM Edge in Windows](how-to-auto-provision-simulated-device-windows.md) per configurare il servizio di provisioning di dispositivi e recuperare il relativo **ID ambito**, simulare un dispositivo TPM e recuperare il relativo **ID registrazione** quindi creare una registrazione singola. Dopo aver registrato il dispositivo nell'hub IoT, continuare con l'installazione.  
+1. Seguire i passaggi descritti in [Creare ed effettuare il provisioning di un dispositivo simulato TPM Edge in Windows](how-to-auto-provision-simulated-device-windows.md) per configurare il servizio di provisioning di dispositivi e recuperare il relativo **ID ambito**, simulare un dispositivo TPM e recuperare il relativo **ID registrazione**, quindi creare una registrazione singola. Dopo aver registrato il dispositivo nell'hub IoT, continuare con l'installazione.  
 
    >[!TIP]
    >Mantenere aperta la finestra di esecuzione del simulatore TPM durante l'installazione e il test. 

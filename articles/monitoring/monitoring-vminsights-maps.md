@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ac96de2669a75a5966650afc0b49cc2f926537fa
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095479"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614209"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso della mappa di Monitoraggio di Azure per le macchine virtuali (anteprima) per comprendere i componenti dell'applicazione
 I componenti di applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure nell'ambiente dell'utente possono essere visualizzati in due modi con Monitoraggio di Azure per le macchine virtuali, ovvero direttamente da una macchina virtuale o tra gruppi di macchine virtuali in Monitoraggio di Azure. 
@@ -52,7 +52,7 @@ Per abilitare la funzionalità Mappe per visualizzare gli avvisi relativi, crear
 - Includere una clausola che consenta di raggruppare per computer, ad esempio **per intervallo computer 1 minuto**.
 - Scegliere di impostare un avviso in base alle metriche misurate.
 
-Per altre informazioni su Avvisi si Azure e sulla creazione di regole di avviso, vedere [Avvisi unificati in Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).
+Per altre informazioni su Avvisi si Azure e sulla creazione di regole di avviso, vedere [Avvisi unificati in Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
 L'opzione **Legenda** nell'angolo superiore destro descrive i simboli e i ruoli su una mappa.  Per ingrandire la mappa per esaminarla meglio, i controlli di zoom nella parte inferiore destra della pagina impostano il livello di zoom e adattano la pagina alle dimensioni di quella corrente.  
 

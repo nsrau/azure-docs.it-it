@@ -2,18 +2,18 @@
 title: Informazioni sui moduli di Azure IoT Edge | Microsoft Docs
 description: Informazioni sui moduli di Azure IoT Edge e sulle relative modalità di configurazione
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 80679d6efd44598fbe403707ad2e757010eb8d91
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 3d76f5931e3636f19c2030c4090116a0791db819
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741675"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567333"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informazioni sui moduli Azure IoT Edge
 

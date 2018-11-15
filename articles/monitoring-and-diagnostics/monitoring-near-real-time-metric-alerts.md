@@ -8,16 +8,17 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 15ecbcafd3397b425b669a48f19bee6073b71149
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 89b412a58291dd542b38cd0cbfa1288795024151
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279790"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613716"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
 
-Monitoraggio di Azure supporta ora un nuovo tipo di avvisi delle metriche che presenta vantaggi significativi rispetto agli [avvisi delle metriche classici](alert-metric-classic.md). Sono disponibili metriche per un [lungo elenco di servizi di Azure](monitoring-supported-metrics.md). Gli avvisi più recenti supportano un sottoinsieme (in espansione) di tipi di risorse. In questo articolo viene illustrato tale sottoinsieme.
+Monitoraggio di Azure supporta ora un [nuovo tipo di avvisi delle metriche](monitoring-overview-alerts.md) che presenta vantaggi significativi rispetto agli [avvisi delle metriche classici](monitoring-overview-alerts-classic.md). Sono disponibili metriche per un [lungo elenco di servizi di Azure](monitoring-supported-metrics.md). Gli avvisi più recenti supportano un sottoinsieme (in espansione) di tipi di risorse. In questo articolo viene illustrato tale sottoinsieme.
+
 
 È possibile usare gli avvisi delle metriche più recenti anche nei log di Log Analytics più comuni estratti come metriche. Per altre informazioni, vedere [Avvisi delle metriche per i log](monitoring-metric-alerts-logs.md).
 
@@ -120,6 +121,6 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulla nuova [esperienza di avvisi](monitoring-overview-unified-alerts.md).
+* Altre informazioni sulla nuova [esperienza di avvisi](monitoring-overview-alerts.md).
 * Per altre informazioni, fare riferimento agli [avvisi di log in Azure](monitor-alerts-unified-log.md).
 * Informazioni sugli [avvisi in Azure](monitoring-overview-alerts.md).
