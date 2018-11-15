@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 127f6a5cd8f46b72a4cddcef09cb31b60edd0582
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157191"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299130"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accesso al dashboard di Kubernetes con il servizio Kubernetes di Azure (AKS)
 
@@ -33,9 +33,6 @@ Usare il comando [az aks browse][az-aks-browse] per avviare il dashboard di Kube
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
-
-> [!TIP]
-> Se si esegue questo comando da Azure Cloud Shell, aggiungere il parametro `--enable-cloud-console-aks-browse` in modo che il dashboard venga aperto correttamente.
 
 Questo comando crea un proxy tra il sistema di sviluppo e l'API Kubernetes e apre il dashboard di Kubernetes in un Web browser. Se nel dashboard Kubernetes non si apre un Web browser, copiare e incollare l'indirizzo URL indicato nell'interfaccia della riga di comando di Azure, in genere *http://127.0.0.1:8001*.
 

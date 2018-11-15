@@ -1,22 +1,22 @@
 ---
-title: Usare l'interfaccia utente di Tez con HDInsight basato su Windows - Azure
-description: Informazioni su come usare l'interfaccia utente di Tez per il debug di processi Tez in HDInsight basato su Windows.
+title: Usare l'interfaccia utente di Apache Tez con HDInsight basato su Windows - Azure
+description: Informazioni su come usare l'interfaccia utente di Apache Tez per il debug di processi Tez in HDInsight basato su Windows.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: f54cc60f9490b8a5ca1872a290c3895ea8b0c5e4
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ecb613dd2f624b9e0910a0ddcdf931f4b266aa96
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590902"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036581"
 ---
-# <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Usare l'interfaccia utente di Tez per il debug di processi Tez in HDInsight basato su Windows
+# <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Usare l'interfaccia utente di Apache Tez per il debug di processi Tez in HDInsight basato su Windows
 L'interfaccia utente di Tez può essere usata per eseguire il debug di processi Hive che usano Tez come motore di esecuzione. L'interfaccia utente di Tez visualizza il processo come grafico di elementi connessi, consente di eseguire il drill-down in ogni specifico elemento e recuperare statistiche e informazioni di registrazione.
 
 > [!IMPORTANT]
@@ -26,13 +26,13 @@ L'interfaccia utente di Tez può essere usata per eseguire il debug di processi 
 * Un cluster HDInsight basato su Windows. Per la procedura di creazione di un nuovo cluster, vedere [Introduzione all'uso di HDInsight basato su Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
 
   > [!IMPORTANT]
-  > L'interfaccia utente di Tez è disponibile solo nei cluster HDInsight basati su Windows creati dopo l'8 febbraio 2016.
+  > L'interfaccia utente di Apache Tez è disponibile solo nei cluster HDInsight basati su Windows creati dopo l'8 febbraio 2016.
   >
   >
 * Un client Desktop remoto basato su Windows.
 
-## <a name="understanding-tez"></a>Informazioni su Tez
-Tez è un framework estendibile per l'elaborazione dati in Hadoop, che garantisce una maggiore velocità rispetto alla tradizionale elaborazione di MapReduce. Si può abilitare Tez includendo il testo seguente come parte di una query Hive:
+## <a name="understanding-apache-tez"></a>Informazioni su Apache Tez
+Tez è un framework estendibile per l'elaborazione dati in Apache Hadoop, che garantisce una maggiore velocità rispetto alla tradizionale elaborazione di MapReduce. Si può abilitare Tez includendo il testo seguente come parte di una query Hive:
 
     set hive.execution.engine=tez;
 

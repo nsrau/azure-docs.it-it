@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 2a3a46b5f2adf052f04530a8d587a577b14b709b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 212e0cf390f7a67325b111d4028e0908c772b081
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106176"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622722"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Data Lake Store
 
@@ -35,15 +35,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Accedere al portale di Azure](https://portal.azure.com)
-
-- [Creare una macchina virtuale Linux](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Abilitare l'identità assegnata dal sistema nella macchina virtuale](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Concedere alla VM l'accesso ad Azure Data Lake Store
 
@@ -162,4 +154,4 @@ Usando altre API per il file system di Data Lake Store, è possibile eseguire ag
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere a un'istanza di Azure Data Lake Store. Per altre informazioni su Azure Data Lake Store, vedere:
 
 > [!div class="nextstepaction"]
->[Archivio Data Lake di Azure](/azure/data-lake-store/data-lake-store-overview)
+>[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

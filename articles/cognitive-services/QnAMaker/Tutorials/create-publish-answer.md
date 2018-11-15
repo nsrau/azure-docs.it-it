@@ -10,12 +10,12 @@ ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: b44d91b8026a64dd54727345c688dfb9332d49ae
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 013b74165afe6eafee337bd00ca88b1034ad5662
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221617"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299562"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Esercitazione: Creare una knowledge base e quindi rispondere a una domanda con C#
 
@@ -75,7 +75,7 @@ Dopo le costanti aggiungere la definizione del modello di knowledge base seguent
 ## <a name="add-supporting-functions-and-structures"></a>Aggiungere strutture e funzioni di supporto
 Aggiungere il blocco di codice seguente all'interno della classe Program:
 
-[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=99-123 "Add supporting functions and structures")]
+[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=87-123 "Add supporting functions and structures")]
 
 ## <a name="add-a-post-request-to-create-kb"></a>Aggiungere una richiesta POST per creare la knowledge base
 

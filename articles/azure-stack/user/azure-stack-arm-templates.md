@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 11/14/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: d520a33fd6729f4a9d4778cfdb8d3380c9ac09b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 38e85ede1e984aa3d26fe509d68b4582d11b6c26
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237843"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636221"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Usare i modelli di Gestione risorse di Azure in Azure Stack
 
@@ -34,7 +34,7 @@ I modelli di Guida introduttiva seguenti sono disponibili sul [GitHub](https://a
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Distribuire SharePoint Server (distribuzione della disponibilità elevata)
 
-Usare l'estensione DSC di PowerShell per [creare una farm di SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha) che include le risorse seguenti:
+Usare l'estensione DSC di PowerShell per [creare una farm di SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) che include le risorse seguenti:
 
 * Una rete virtuale
 * Tre account di archiviazione
@@ -45,7 +45,7 @@ Usare l'estensione DSC di PowerShell per [creare una farm di SharePoint Server 2
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Distribuire Active Directory (non-elevata--distribuzione a disponibilità)
 
-Usare l'estensione DSC di PowerShell per [creare un server di controller di dominio Active Directory](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha) che include le risorse seguenti:
+Usare l'estensione DSC di PowerShell per [creare un server di controller di dominio Active Directory](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/ad-non-ha) che include le risorse seguenti:
 
 * Una rete virtuale
 * Un account di archiviazione
@@ -54,7 +54,7 @@ Usare l'estensione DSC di PowerShell per [creare un server di controller di domi
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>Distribuire AD/SQL (non-elevata--distribuzione a disponibilità)
 
-Usare l'estensione DSC di PowerShell per [creare un server autonomo di SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha) che include le risorse seguenti:
+Usare l'estensione DSC di PowerShell per [creare un server autonomo di SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2014-non-ha) che include le risorse seguenti:
 
 * Una rete virtuale
 * Due account di archiviazione
@@ -68,11 +68,11 @@ Usare l'estensione DSC di PowerShell per configurare una macchina virtuale esist
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Creare una macchina virtuale da un'immagine dell'utente
 
-[Creare una macchina virtuale da un'immagine utente personalizzata](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image). Questo modello distribuisce anche una rete virtuale (con DNS), un indirizzo IP pubblico e un'interfaccia di rete.
+[Creare una macchina virtuale da un'immagine utente personalizzata](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-from-user-image). Questo modello distribuisce anche una rete virtuale (con DNS), un indirizzo IP pubblico e un'interfaccia di rete.
 
 ## <a name="basic-virtual-machine"></a>Macchina virtuale di base
 
-[Distribuire una macchina virtuale Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm) che include una rete virtuale (con DNS), indirizzo IP pubblico e un'interfaccia di rete.
+[Distribuire una macchina virtuale Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm) che include una rete virtuale (con DNS), indirizzo IP pubblico e un'interfaccia di rete.
 
 ## <a name="cancel-a-running-template-deployment"></a>Annullare la distribuzione di un modello in esecuzione
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2720ecece86133bf551ab42c415b2e9a87420e93
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55a3f3d7ac08554273464ed7c6f665e27661c6f8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237826"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625522"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Linux 
 
@@ -85,7 +85,7 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 | --- | --- |
 | 2 | È stata specificata un'opzione non valida per lo script omsadmin. Eseguire `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` per l'utilizzo. |
 | 3 | È stata specificata una configurazione non valida per lo script omsadmin. Eseguire `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` per l'utilizzo. |
-| 4 | È stato specificato un proxy non valido per lo script omsadmin. Verificare il proxy e vedere la [documentazione per l'uso di un proxy HTTP](log-analytics-concept-hybrid.md#network-firewall-requirements). |
+| 4 | È stato specificato un proxy non valido per lo script omsadmin. Verificare il proxy e vedere la [documentazione per l'uso di un proxy HTTP](log-analytics-agent-overview.md#network-firewall-requirements). |
 | 5 | È stato restituito un errore HTTP 403 dal servizio Log Analytics. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |
 | 6 | È stato restituito un errore HTTP non 200 dal servizio Log Analytics. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |
 | 7 | Non è possibile connettersi al servizio Log Analytics. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |

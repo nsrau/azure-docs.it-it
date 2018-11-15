@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 33499b378a2d74d94a77dda81f0179d6cb0700c3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: ccfe108b895450e97df1639f6c47eb01823ce5f4
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957926"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636765"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST
 
@@ -51,7 +51,7 @@ Salvare il token di accesso ottenuto dalla risposta.
     
     ```json
     { 
-        "time": "2018-09-13T16:34:20”, 
+        "time": "2018-09-13T16:34:20", 
         "data": { 
             "baseData": { 
                 "metric": "QueueDepth", 
@@ -83,7 +83,7 @@ Salvare il token di accesso ottenuto dalla risposta.
     - **AccessToken**. Incollare il token acquisito in precedenza.
 
     ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId> /metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
     ```
 1. Modificare il timestamp e i valori nel file JSON. 
 1. Ripetere i due passaggi precedenti più volte in modo da disporre dei dati relativi a diversi minuti.

@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-registry
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 286159aee00b018d0cacae3858f92cdf0e79cfbc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572330"
+---
 | SKU | DESCRIZIONE |
 |---|---|
 | Basic | Un punto di ingresso di ottimizzazione dei costi per gli sviluppatori che iniziano a usare Registro contenitori di Azure. I registri Basic dispongono delle stesse funzionalità programmatiche del livello Standard e Premium, ovvero l'integrazione dell'autenticazione, l'eliminazione di immagini e gli hook Web di Azure Active Directory, tuttavia ci sono limiti di dimensioni e uso. |

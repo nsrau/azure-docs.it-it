@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 85a7b133655a3b1e4ca60c28e695e3057b293fdc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: b4476579665b0e6b574827d1bec06233560038a8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504516"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621089"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Come abilitare le app client native per l'interazione con le applicazioni proxy
 
@@ -30,7 +30,7 @@ Il proxy di applicazione supporta le app client native accettando i token rilasc
 
 ![Relazione tra utenti finali, Azure Active Directory e applicazioni pubblicate](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Per pubblicare applicazioni native, usare Azure AD Authentication Library, che gestisce l'autenticazione e supporta molti ambienti client. Il proxy di applicazione si integra con [lo scenario Da applicazione nativa ad API Web](../develop/authentication-scenarios.md#native-application-to-web-api). 
+Per pubblicare applicazioni native, usare Azure AD Authentication Library, che gestisce l'autenticazione e supporta molti ambienti client. Il proxy di applicazione si integra con [lo scenario Da applicazione nativa ad API Web](../develop/native-app.md). 
 
 Questo articolo illustra i quattro passaggi necessari per pubblicare un'applicazione nativa con il proxy di applicazione e Azure AD Authentication Library. 
 
@@ -96,6 +96,6 @@ Dopo la modifica di ADAL con questi parametri, gli utenti dovrebbero essere in g
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul flusso delle applicazioni native, vedere [Da applicazione nativa ad API Web](../develop/authentication-scenarios.md#native-application-to-web-api)
+Per altre informazioni sul flusso delle applicazioni native, vedere [Da applicazione nativa ad API Web](../develop/native-app.md)
 
-Ottenere informazioni su come configurare [l'accesso Single Sign-On per il proxy di applicazione](application-proxy-single-sign-on.md)
+Ottenere informazioni su come configurare [l'accesso Single Sign-On per il proxy di applicazione](what-is-single-sign-on.md#single- sign-on-methods)

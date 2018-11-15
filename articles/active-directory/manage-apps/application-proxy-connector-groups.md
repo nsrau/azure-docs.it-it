@@ -2,7 +2,6 @@
 title: Pubblicare applicazioni in reti e posizioni separate tramite gruppi di connettori nel proxy di applicazione di Azure AD | Microsoft Docs
 description: Illustra come creare e gestire i gruppi di connettori nel proxy di applicazione di Azure AD.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: e149df09bf424d33fa9abdf8108b3b79534a8599
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: japere
+ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364974"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622634"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori
 
@@ -86,14 +84,14 @@ Con i gruppi di connettori del proxy di applicazione di Azure AD, è possibile a
 La maggior parte dei clienti che hanno distribuito il proxy di applicazione usa le funzionalità Single Sign-On (SSO) eseguendo la delega vincolata Kerberos (KCD). A questo scopo, i computer del connettore devono essere aggiunti a un dominio in grado di delegare gli utenti verso l'applicazione. La delega vincolata Kerberos supporta le funzionalità tra foreste. Tuttavia, per le aziende che hanno ambienti a più foreste distinti senza una relazione di trust tra di essi, è possibile usare un solo connettore per tutte le foreste. 
 
 In tal caso, è possibile distribuire connettori specifici per ogni foresta e impostarli per la gestione delle applicazioni pubblicate per gestire solo gli utenti della foresta specifica. Ogni gruppo di connettori rappresenta una foresta diversa. Mentre il tenant e buona parte dell'esperienza sono unificati per tutte le foreste, è possibile assegnare utenti alle applicazioni della rispettiva foresta tramite i gruppi di Azure AD.
- 
+ 
 ### <a name="disaster-recovery-sites"></a>Siti di ripristino di emergenza
 
 Sono disponibili due diversi approcci ai siti di ripristino di emergenza, a seconda della modalità di implementazione dei siti:
 
 * Se il sito di ripristino di emergenza è compilato in modalità attivo-attivo, per cui è esattamente come il sito principale e ha la stessa rete e le stesse impostazioni di Active Directory, è possibile creare i connettori nel sito di ripristino di emergenza nello stesso gruppo di connettori del sito principale. In questo modo Azure AD può rilevare i failover.
 * Se il sito di ripristino di emergenza è separato dal sito principale, è possibile creare un gruppo di connettori diverso nel sito di ripristino di emergenza e 1) predisporre applicazioni di backup o 2) deviare manualmente l'applicazione esistente verso il gruppo di connettori di ripristino di emergenza, in base alle esigenze.
- 
+ 
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Gestire più aziende da un singolo tenant
 
 Per implementare un modello in cui un singolo provider di servizi distribuisce e gestisce i servizi correlati ad Azure AD per più aziende, è possibile procedere in diversi modi. I gruppi di connettori permettono all'amministratore di isolare i connettori e le applicazioni in gruppi diversi. Uno dei metodi, adatto alle aziende di piccole dimensioni, consiste nell'avere un singolo tenant di Azure AD mentre le varie aziende hanno reti e nomi di dominio propri. Questo vale anche per scenari di fusione e acquisizione e situazioni in cui un singolo reparto IT gestisce diverse aziende per motivi legali o economici. 
@@ -101,7 +99,7 @@ Per implementare un modello in cui un singolo provider di servizi distribuisce e
 ## <a name="sample-configurations"></a>Configurazioni di esempio
 
 Tra gli esempi che è possibile implementare, sono inclusi i gruppi di connettori seguenti.
- 
+ 
 ### <a name="default-configuration--no-use-for-connector-groups"></a>Configurazione predefinita senza gruppi di connettori
 
 Se non si usano gruppi di connettori, la configurazione ha un aspetto simile al seguente:
@@ -109,7 +107,7 @@ Se non si usano gruppi di connettori, la configurazione ha un aspetto simile al 
 ![Azure AD senza gruppi di connettori](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
  
 Questa configurazione è sufficiente per distribuzioni di piccole dimensioni e test. È adatta anche a organizzazioni con una topologia di rete flat.
- 
+ 
 ### <a name="default-configuration-and-an-isolated-network"></a>Configurazione predefinita con una rete isolata
 
 Questa configurazione rappresenta un'evoluzione di quella predefinita. In questa configurazione un'app specifica viene eseguita in una rete isolata, ad esempio una rete virtuale IaaS: 
@@ -127,6 +125,6 @@ Nell'esempio seguente l'azienda ha due data center, A e B, con due connettori ch
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)
-* [Abilitare l'accesso Single Sign-On](application-proxy-single-sign-on.md)
+* [Abilitare l'accesso Single Sign-On](what-is-single-sign-on.md)
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 420ec288b81e0bb12ae9f61a5eaf03880205cc55
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247981"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287439"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurare un'applicazione OpenID/OAuth dalla raccolta di app di Azure AD
 
@@ -84,7 +84,7 @@ Per impostazione predefinita, Azure AD promuove le applicazioni multi-tenant. È
 
 Il framework è basato sulla possibilità per un utente o un amministratore di fornire il consenso alla richiesta di registrazione di un'applicazione nella propria directory, che può comportare l'accesso a dati di directory. Una volta ottenuto il consenso, l'applicazione client può chiamare l'API Graph di Microsoft per conto dell'utente e usare le informazioni nel modo necessario.
 
-L'[API Graph di Microsoft](https://graph.microsoft.io/) garantisce l'accesso ai dati in Office 365, ad esempio:
+L'[API Graph di Microsoft](https://developer.microsoft.com/graph/) garantisce l'accesso ai dati in Office 365, ad esempio:
 
 - Calendari e messaggi di Exchange.
 - Siti ed elenchi di SharePoint.

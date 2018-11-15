@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 11cd052ca07e074ce8303891f7a372890fdf7291
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 785f3e5f55520b3851e8989b79c340bce55c2135
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580600"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566909"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Creare un gateway applicazione con reindirizzamento basato su percorsi URL usando Azure PowerShell
 
@@ -32,6 +32,8 @@ In questa esercitazione si apprenderà come:
 L'esempio seguente illustra il traffico del sito in arrivo dalle porte 8080 e 8081 e indirizzato agli stessi pool back-end:
 
 ![Esempio di routing basato su URL](./media/tutorial-url-redirect-powershell/scenario.png)
+
+Se si preferisce, è possibile completare questa esercitazione usando l'[interfaccia della riga di comando di Azure](tutorial-url-redirect-cli.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -516,14 +518,6 @@ Quando non sono più necessari, rimuovere il gruppo di risorse, il gateway appli
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un gateway applicazione
-> * Aggiungere i listener e le regole di routing
-> * Creare set di scalabilità di macchine virtuali per i pool back-end
 
 > [!div class="nextstepaction"]
 > [Altre informazioni sulle operazioni che è possibile eseguire con il gateway applicazione](application-gateway-introduction.md)

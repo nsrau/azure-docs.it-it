@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sul Centro sicurezza di Azure | Documentazione Microsoft
+title: Domande frequenti sul Centro sicurezza di Azure | Microsoft Docs
 description: Queste FAQ rispondono alle domande sul Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: d8313ec66f8b71102e63751e7cf07885c899a7e8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 16291e4f4915dd6328a2015407fa06dc8f62fba1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301039"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011885"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Domande frequenti sul Centro sicurezza di Azure
 Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio che consente di prevenire, rilevare e rispondere alle minacce con visibilità e controllo maggiori sulla sicurezza delle risorse di Microsoft Azure.
@@ -308,7 +308,7 @@ La latenza con cui il Centro sicurezza esegue l'analisi alla ricerca di vulnerab
 - Aggiornamenti di sistema: i dati vengono aggiornati entro 24 ore
 - Problemi di protezione degli endpoint: i dati vengono aggiornati entro 8 ore
 
-In genere il Centro sicurezza esegue l'analisi alla ricerca di nuovi dati ogni ora. I valori di latenza sopra riportati fanno riferimento a uno scenario pessimistico, ovvero nel caso in cui non sia disponibile un'analisi recente o l'analisi abbia avuto esito negativo.
+In genere, il Centro sicurezza esegue l'analisi dei nuovi dati ogni ora e aggiorna le indicazioni di conseguenza. 
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Perché viene visualizzato il messaggio "L'agente di macchine virtuali non è presente?"
 Per abilitare la raccolta dei dati, l'agente di macchine virtuali deve essere installato nelle VM. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. Per altre informazioni su come installare l'agente di maccine virtuali in altre VM, vedere il post di blog [Estensioni e agente di macchine virtuali](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

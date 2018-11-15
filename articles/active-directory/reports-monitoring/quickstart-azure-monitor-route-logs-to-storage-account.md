@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cf69fdf87f1ce64bd78478f07e575d7ae75c16e0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 9d41c0ceeed2a69884b8ef481c79feb495fc89c0
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394245"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621209"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Esercitazione: Archiviare i log di Azure AD in un account di archiviazione di Azure (anteprima)
 
@@ -68,9 +68,8 @@ Per usare questa funzionalità, sono necessari:
 
     ![Impostazioni di diagnostica](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. Dopo circa 15 minuti, verificare che i log vengano inviati all'account di archiviazione. Passare al [portale di Azure](https://portal.azure.com), selezionare **Account di archiviazione**, selezionare l'account di archiviazione usato in precedenza e quindi selezionare **BLOB**. 
+12. Dopo circa 15 minuti, verificare che i log vengano inviati all'account di archiviazione. Passare al [portale di Azure](https://portal.azure.com), selezionare **Account di archiviazione**, selezionare l'account di archiviazione usato in precedenza e quindi selezionare **BLOB**. Per **Log di controllo**, selezionare **insights-log-audit**. Per **Log di accesso**, selezionare **insights-logs-signin**.
 
-13. Per **Log di controllo**, selezionare **insights-log-audit**. Per **Log di accesso**, selezionare **insights-logs-signin**.
     ![Account di archiviazione](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 
 ## <a name="next-steps"></a>Passaggi successivi

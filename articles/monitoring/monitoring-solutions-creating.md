@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b7839fc498b54d2128528c8d655d78bb759a7cd5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282051"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612440"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Progettare e creare una soluzione di gestione in Azure (anteprima)
 > [!NOTE]
@@ -54,7 +54,7 @@ Le [ricerche nei log](../log-analytics/log-analytics-queries.md) vengono usate p
 È necessario definire le query che si ritiene risulteranno utili all'utente, anche se non vengono usate da tutte le visualizzazioni o gli avvisi.  Queste saranno disponibili come ricerche salvate nel portale ed è possibile anche includerle in una [parte della visualizzazione Elenco di query](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) nella visualizzazione personalizzata.
 
 ### <a name="alerts"></a>Avvisi
-[Gli avvisi in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identificano i problemi tramite le [ricerche nei log](#log-searches) a fronte dei dati nel repository.  Inviano una notifica all'utente o eseguono automaticamente un'azione in risposta. Occorre identificare le diverse condizioni di avviso per l'applicazione e includere le regole di avviso corrispondenti nel file della soluzione.
+[Gli avvisi in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) identificano i problemi tramite le [ricerche nei log](#log-searches) a fronte dei dati nel repository.  Inviano una notifica all'utente o eseguono automaticamente un'azione in risposta. Occorre identificare le diverse condizioni di avviso per l'applicazione e includere le regole di avviso corrispondenti nel file della soluzione.
 
 Se il problema può essere risolto potenzialmente con un processo automatizzato, si creerà in genere un runbook in Automazione di Azure per eseguire la correzione.  La maggior parte dei servizi di Azure può essere gestita con [cmdlet](/powershell/azure/overview) che il runbook sfrutta per eseguire queste funzionalità.
 

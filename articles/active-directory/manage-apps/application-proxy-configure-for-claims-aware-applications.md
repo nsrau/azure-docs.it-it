@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/04/2017
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.openlocfilehash: cf92b5b6ee3c6a529a43e7fa4cfeeb09954ad9ea
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: japere
+ms.openlocfilehash: bb04f1965764413c474c2e0d057d77d5d30edd07
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365392"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623112"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uso di app in grado di riconoscere attestazioni nel proxy di applicazione
 Le [app in grado di riconoscere attestazioni](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) eseguono un reindirizzamento al servizio token di sicurezza. Il servizio token di sicurezza richiede le credenziali all'utente in cambio di un token e quindi reindirizza l'utente all'applicazione. È possibile consentire al proxy di applicazione di usare questi reindirizzamenti in diversi modi. Usare questo articolo per configurare la distribuzione per app in grado di riconoscere attestazioni. 
@@ -54,7 +54,7 @@ Se tutti gli URL interni per le applicazioni sono nomi di dominio completi (FQDN
    ![Schermata: aggiunta di un endpoint e impostazione del valore per URL attendibile](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Abilitare Single Sign-On](application-proxy-single-sign-on.md) per le applicazioni che non sono in grado di riconoscere attestazioni
+* [Abilitare Single Sign-On](configure-single-sign-on-portal.md) per le applicazioni che non sono in grado di riconoscere attestazioni
 * [Abilitare le app client native per l'interazione con applicazioni proxy](application-proxy-configure-native-client-application.md)
 
 

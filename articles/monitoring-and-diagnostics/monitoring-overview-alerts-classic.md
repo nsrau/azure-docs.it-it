@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015775"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614141"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
@@ -55,7 +55,7 @@ Sono disponibili due tipi di avvisi classici, vale a dire gli avvisi delle metri
 
 * **Avvisi classici del log attività**: un avviso di log in streaming si attiva quando viene generato un evento di log attività che corrisponde ai criteri di filtro assegnati. Questi avvisi hanno un solo stato, vale a dire "Attivato", perché il motore degli avvisi applica semplicemente i criteri di filtro a qualsiasi nuovo evento. Questi avvisi possono essere usati per notificare quando si verifica un nuovo evento imprevisto relativo all'integrità del servizio o quando un utente o un'applicazione esegue un'operazione nella sottoscrizione, ad esempio "Elimina macchina virtuale".
 
-Per i dati del log di diagnostica disponibili tramite Monitoraggio di Azure, indirizzare i dati in Log Analytics (in precedenza OMS) e usare un avviso di query di Log Analytics. Log Analytics ora usa il [nuovo metodo di avviso](monitoring-overview-unified-alerts.md) 
+Per i dati del log di diagnostica disponibili tramite Monitoraggio di Azure, indirizzare i dati in Log Analytics (in precedenza OMS) e usare un avviso di query di Log Analytics. Log Analytics ora usa il [nuovo metodo di avviso](monitoring-overview-alerts.md) 
 
 Il diagramma seguente riepiloga le origini dei dati in Monitoraggio di Azure e, a livello concettuale, i modi per avvisare di tali dati.
 

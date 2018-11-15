@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a2a869c04034f8ca38e80e1bf10518d22e38bcbc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091772"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286997"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalizzazione per Collaborazione B2B di Azure Active Directory
 
@@ -75,7 +75,7 @@ In questa modalità, chiunque usi l'API deve disporre delle autorizzazioni per c
 ### <a name="app-only-mode"></a>Modalità solo app
 In un contesto di solo app l'invito viene inviato solo se nell'app è presente l'ambito User.Invite.All.
 
-Per altre informazioni, fare riferimento a: https://graph.microsoft.io/docs/authorization/permission_scopes
+Per altre informazioni, fare riferimento a: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell

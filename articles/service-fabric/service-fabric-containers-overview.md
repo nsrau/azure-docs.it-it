@@ -3,7 +3,7 @@ title: Panoramica di Service Fabric e contenitori | Documentazione Microsoft
 description: Panoramica di Service Fabric e dell'uso dei contenitori per la distribuzione di applicazioni di microservizi. Questo articolo offre una panoramica di come possono essere usati i contenitori e delle funzionalità disponibili in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: msfussell
-ms.openlocfilehash: 6715142be7f40955861afa634bf6e2472c9f7294
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.author: twhitney, msfussell
+ms.openlocfilehash: 0acbd2d4ccf35c9490a06228eeb1bb465a8ca732
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005776"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299975"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contenitori
 
@@ -44,7 +44,7 @@ Per iniziare subito a usare i contenitori in Service Fabric, provare una guida i
 
 I contenitori risolvono il problema relativo all'esecuzione affidabile delle applicazioni in diversi ambienti di elaborazione fornendo un ambiente immutabile in cui eseguire un'applicazione. I contenitori eseguono il wrapping di un'applicazione e di tutte le relative dipendenze, ad esempio le librerie e i file di configurazione, in una "scatola" isolata contenente tutto il necessario per eseguire il software all'interno del contenitore. Indipendentemente dalla posizione del contenitore, l'applicazione presente all'interno ha sempre tutto ciò che serve per essere eseguita, ad esempio le versioni corrette delle librerie dipendenti, i file di configurazione ed eventuali altri dati necessari.
 
-I contenitori vengono eseguiti direttamente sul kernel e hanno una vista isolata del file system e delle altre risorse. Un'applicazione all'interno di un contenitore non ha alcuna conoscenza in merito ad altri processi o applicazioni all'esterno del contenitore. Ogni applicazione, con il relativo runtime e le relative dipendenze e librerie di sistema, viene eseguita all'interno di un contenitore con accesso privato completo alla specifica vista isolata del sistema operativo. Oltre alla disponibilità di tutte le dipendenze necessarie per l'esecuzione dell'applicazione in diversi ambienti di elaborazione, la sicurezza e l'isolamento delle risorse sono vantaggi importanti offerti dall'uso dei contenitori con Service Fabric, che altrimenti esegue i servizi in un processo.
+Vengono eseguiti direttamente sul kernel e hanno una vista isolata del file system e delle altre risorse. Un'applicazione all'interno di un contenitore non ha alcuna conoscenza in merito ad altri processi o applicazioni all'esterno del contenitore. Ogni applicazione, con il relativo runtime e le relative dipendenze e librerie di sistema, viene eseguita all'interno di un contenitore con accesso privato completo alla specifica vista isolata del sistema operativo. Oltre alla disponibilità di tutte le dipendenze necessarie per l'esecuzione dell'applicazione in diversi ambienti di elaborazione, la sicurezza e l'isolamento delle risorse sono vantaggi importanti offerti dall'uso dei contenitori con Service Fabric, che altrimenti esegue i servizi in un processo.
 
 Rispetto alle macchine virtuali, i contenitori offrono i vantaggi seguenti:
 

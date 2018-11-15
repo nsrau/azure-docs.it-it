@@ -1,3 +1,16 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+ms.openlocfilehash: 99dddd86c9348c9791d3012b382298bb020e63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572316"
+---
 **1. In che modo i clienti verranno avvisati circa l'SDK in fase di ritiro?**
 
 Microsoft invierà una notifica anticipata 12 mesi prima fine del supporto dell'SDK in fase di ritiro per agevolare la transizione a un SDK supportato. I clienti verranno anche informati tramite vari canali di comunicazione, ad esempio il portale di gestione di Azure, il centro sviluppatori e comunicazioni dirette indirizzate agli amministratori dei servizi indicati.

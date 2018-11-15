@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: 36b57fd98de206641422d80bf3ea3d2a3853f578
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 006d0ef28d82a7648a56b3bf871c5a3afd6a55a6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252565"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624421"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chiavi univoche in Azure Cosmos DB
 
@@ -48,17 +48,6 @@ Se si prova a inserire un altro elemento con una qualsiasi delle combinazioni el
 * Le chiavi univoche di tipo sparse non sono supportate. Se non sono definiti alcuni valori di percorso univoci, questi vengono considerati come valori Null facenti parte del vincolo di univocità. Di conseguenza, può essere presente un solo elemento con valore Null per soddisfare il vincolo.
 
 * I nomi delle chiavi univoche distinguono tra maiuscole e minuscole. Si consideri ad esempio un contenitore con il vincolo di chiave univoca impostato su /address/zipcode. Se i dati includono un campo denominato ZipCode, Cosmos DB inserisce "null" come chiave univoca, perché "zipcode" non è uguale a "ZipCode". A causa di questa distinzione tra maiuscole e minuscole, tutti gli altri record con ZipCode non potranno essere inseriti, in quanto i "null" duplicati violeranno il vincolo di chiave univoca.
-
-## <a name="supported-apis-and-sdks"></a>API e SDK supportati
-
-La funzionalità delle chiavi univoche è attualmente supportata dalle API e dagli SDK client Cosmos DB seguenti: 
-
-|Driver client|API SQL|API Cassandra|API di MongoDB|API Gremlin|API di tabella|
-|---|---|---|---|---|---|
-|.NET|Yes|No |Yes|No |No |
-|Java|Yes|No |Yes|No |No |
-|Python|Yes|No |Yes|No |No |
-|Node/JS|Yes|No |Yes|No |No |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

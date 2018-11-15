@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171773"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299607"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limiti del Database di Azure per PostgreSQL
 Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database.
@@ -31,10 +31,10 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 |Utilizzo generico| 8| 480|
 |Utilizzo generico| 16| 950|
 |Utilizzo generico| 32| 1500|
-|Con ottimizzazione per la memoria| 2| 150|
-|Con ottimizzazione per la memoria| 4| 250|
-|Con ottimizzazione per la memoria| 8| 480|
-|Con ottimizzazione per la memoria| 16| 950|
+|Con ottimizzazione per la memoria| 2| 300|
+|Con ottimizzazione per la memoria| 4| 500|
+|Con ottimizzazione per la memoria| 8| 960|
+|Con ottimizzazione per la memoria| 16| 1900|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
 > FATAL: sorry, too many clients already (ERRORE IRREVERSIBILE: ci sono già troppi client)
@@ -47,10 +47,7 @@ Il sistema Azure richiede cinque connessioni per il monitoraggio del server di D
 - La riduzione delle dimensioni di archiviazione del server non è attualmente supportata.
 
 ### <a name="server-version-upgrades"></a>Aggiornamenti della versione dei server
-- La migrazione automatica tra le versioni del motore del database principale non è attualmente supportata.
-
-### <a name="subscription-management"></a>Gestione sottoscrizioni
-- Lo spostamento dinamico dei server tra le sottoscrizioni e i gruppi di risorse non è attualmente supportato.
+- La migrazione automatica tra le versioni del motore del database principale non è attualmente supportata. Se si vuole eseguire l'aggiornamento alla versione principale successiva, eseguire un [dump e ripristinarlo](./howto-migrate-using-dump-and-restore.md) in un server creato con la nuova versione del motore.
 
 ### <a name="vnet-service-endpoints"></a>Endpoint del servizio di rete virtuale
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.

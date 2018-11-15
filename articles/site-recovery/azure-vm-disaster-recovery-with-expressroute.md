@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: e7c63fba892f70ca0e18c1bffcda0782316b7ada
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: af57dc50dd156a3398c2c685e436d22ba3daea95
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211554"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567775"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare Azure ExpressRoute con il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -185,7 +185,7 @@ In questo esempio viene usata la topologia seguente:
 - L'area di ripristino di destinazione è l'area di Azure Asia sud-orientale.
 - Viene stabilita una connessione al circuito ExpressRoute secondario tramite un'appliance perimetrale partner a Singapore.
 
-Per una semplice topologia che usa un singolo circuito ExpressRoute con lo stesso indirizzo IP dopo il failover, [leggere questo articolo](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity).
+Per una semplice topologia che usa un singolo circuito ExpressRoute con lo stesso indirizzo IP dopo il failover, [leggere questo articolo](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover).
 
 ### <a name="example-steps"></a>Procedure di esempio
 Per automatizzare il ripristino in questo esempio, ecco come procedere:

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: dccbc6e57e970ec7089f81fccb33b741b9c00e74
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 26661a213b5df5424bf9ab9ad799345ae35620ea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376721"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036768"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Domande frequenti su Servizi multimediali di Azure v3
 
@@ -26,11 +26,11 @@ Questo articolo contiene le risposte alle domande frequenti su Servizi multimedi
 
 Per il momento no. È possibile usare uno degli SDK supportati. Vedere le esercitazioni e gli esempi in questo set di documenti.
 
-## <a name="is-there-an-api-for-configuring-media-reserved-units"></a>Esiste un'API per la configurazione di unità riservate di codifica?
+## <a name="is-there-an-api-for-configuring-media-reserved-units"></a>Esiste un'API per la configurazione di unità riservate multimediali?
 
-Il team di Servizi multimediali sta eliminando le unità riservate nella versione v3. Tuttavia le operazioni necessarie non sono state completate. Fino ad allora, i clienti dovranno usare il portale di Azure o le API di AMS v2 per impostare le unità riservate, come in [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md). 
+Attualmente, è necessario usare le API di AMS v2 per configurare unità riservate multimediali, come descritto in [Ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md). 
 
-Quando si usa **VideoAnalyzerPreset** e/o **AudioAnalyzerPreset**, impostare l'account dei Servizi multimediali di Azure su 10 unità riservate di codifica S3.
+Quando si usa **VideoAnalyzerPreset** e/o **AudioAnalyzerPreset**, impostare l'account dei Servizi multimediali di Azure su 10 unità riservate multimediali S3.
 
 ## <a name="does-v3-asset-have-no-assetfile-concept"></a>Per gli asset nella versione 3 non esiste il concetto di AssetFile?
 

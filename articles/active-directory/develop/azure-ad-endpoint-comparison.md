@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 215e0abe196620624dcca7f430aec4ee9b9612f2
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955442"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288204"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Confronto tra gli endpoint v2.0 e v1.0 di Azure AD
 
@@ -41,7 +41,7 @@ Quando si sviluppa una nuova applicazione, è importante conoscere le differenze
 
 * Entrambi gli endpoint v1.0 e v2.0 accettano anche l'accesso degli *[utenti guest](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* di una directory di Azure AD per le applicazioni configurate come *[a tenant singolo](single-and-multi-tenant-apps.md)* o per le applicazioni *multi-tenant* configurate per puntare all'endpoint specifico del tenant (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-L'endpoint v2.0 consente di scrivere app che supportano l'accesso da account sia personali che aziendali e dell'istituto di istruzione e permette quindi di scrivere app indipendenti dall'account. Se, ad esempio, l'app chiama [Microsoft Graph](https://graph.microsoft.io), per gli account aziendali saranno disponibili funzionalità e dati aggiuntivi, ad esempio i siti di SharePoint o i dati della directory. Per numerose azioni, ad esempio la [lettura di un messaggio di posta elettronica dell'utente](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), lo stesso codice può tuttavia accedere al messaggio di posta elettronica sia per gli account personali che per quelli aziendali e dell'istituto di istruzione.
+L'endpoint v2.0 consente di scrivere app che supportano l'accesso da account sia personali che aziendali e dell'istituto di istruzione e permette quindi di scrivere app indipendenti dall'account. Se, ad esempio, l'app chiama [Microsoft Graph](https://developer.microsoft.com/graph), per gli account aziendali saranno disponibili funzionalità e dati aggiuntivi, ad esempio i siti di SharePoint o i dati della directory. Per numerose azioni, ad esempio la [lettura di un messaggio di posta elettronica dell'utente](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message), lo stesso codice può tuttavia accedere al messaggio di posta elettronica sia per gli account personali che per quelli aziendali e dell'istituto di istruzione.
 
 Per l'endpoint v2.0, è possibile usare una singola libreria (MSAL) per accedere a scenari consumer, didattici e aziendali.
 

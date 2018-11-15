@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: a6c17fc897dae765f9789840262cb001d598b731
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 91c6939e42f0a8a5126883e5258017b2c38e6f2a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297743"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613971"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure con lo strumento Copia dati
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,6 +27,7 @@ In questa esercitazione si usa il portale di Azure per creare una data factory. 
 
 > [!NOTE]
 > - Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
+
 In questa esercitazione si segue questa procedura:
 
 > [!div class="checklist"]
@@ -107,7 +108,7 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
 1. Selezionare **adftutorial** nell'elenco di contenitori.
 
-    ![Selezione del contenitore](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Selezione del contenitore](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Tenere aperta la finestra **Contenitore** per **adftutorial**. perché verrà usata per verificare l'output alla fine di questa esercitazione. Data Factory crea automaticamente la cartella di output in questo contenitore, quindi non è necessario crearne uno.
 

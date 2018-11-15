@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5227f756e807a30573733bd408144d869caac9ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366476"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034967"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Attività iniziali del proxy di applicazione e installazione del connettore
 Questo articolo illustra la procedura per abilitare il proxy di applicazione di Microsoft Azure AD per la directory cloud in Azure AD.
@@ -33,6 +33,7 @@ Prima di poter abilitare e utilizzare i servizi del proxy dell'applicazione, è 
 * Una [sottoscrizione di Microsoft Azure AD Basic o Premium](../fundamentals/active-directory-whatis.md) e una directory di Azure AD di cui si è un amministratore globale.
 * Un server che esegue Windows Server 2012 R2 o 2016 in cui poter installare il connettore del proxy di applicazione. Il server deve potersi connettere ai servizi proxy di applicazione nel cloud e alle applicazioni locali che vengono pubblicate.
   * Per l'accesso Single Sign-On alle applicazioni pubblicate usando la delega vincolata Kerberos, è necessario che il computer sia aggiunto allo stesso dominio di AD delle applicazioni che vengono pubblicate. Per informazioni, vedere [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md) (KDC per l'Accesso Single Sign-On con il proxy di applicazione).
+* TLS 1.2 in esecuzione nel sistema operativo sottostante. Per passare a TLS 1.2, seguire i passaggi descritti in [Abilitare TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Mentre il contenuto è specifico per Azure AD Connect, questa procedura è la stessa per tutti i client .NET.
 
 Se l'organizzazione usa i server proxy per la connessione a Internet, vedere [Usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md) per informazioni dettagliate su come configurarli prima di iniziare a usare il proxy di applicazione.
 
@@ -81,7 +82,7 @@ Per preparare l'ambiente per il proxy di applicazione di Azure AD, è necessario
 
    * Fornire le credenziali di amministratore globale di Azure AD. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure.
    * Verificare che l'amministratore che registra il connettore si trovi nella stessa directory in cui è stato abilitato il servizio proxy dell'applicazione. Se il dominio del tenant è contoso.com, ad esempio, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias di tale dominio.
-   * Se l'opzione **Configurazione sicurezza avanzata IE** è**attivata** nel server in cui si sta installando il connettore, potrebbe non venire visualizzata la schermata di registrazione. Per ottenere l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
+   * Se l'opzione **Configurazione sicurezza avanzata IE** è **attivata** nel server in cui si sta installando il connettore, potrebbe non venire visualizzata la schermata di registrazione. Per ottenere l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
 
 Per ottenere una disponibilità elevata, è consigliabile distribuire almeno due connettori. Ogni connettore deve essere registrato separatamente.
 

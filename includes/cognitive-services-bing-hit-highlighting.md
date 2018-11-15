@@ -1,3 +1,16 @@
+---
+author: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: nitinme
+ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572289"
+---
 Bing supporta l'evidenziazione dei risultati, con cui i termini di query o altri termini ritenuti rilevanti da Bing vengono contrassegnati nelle stringhe visualizzate di alcune risposte. I termini di query possono ad esempio essere contrassegnati con i campi `name`, `displayUrl` e `snippet` di una pagina Web.
 
 Per impostazione predefinita, Bing non include i marcatori di evidenziazione nelle stringhe visualizzate. Per includerli, includere il parametro di query `textDecorations` nella richiesta e impostarlo su **true**. Bing contrassegna i termini di query usando i caratteri Unicode E000 e E001 Unicode per indicare l'inizio e la fine del termine. Se il termine di query è Sailing Dinghy e uno dei termini è presente nel campo, ad esempio, il termine è racchiuso tra i caratteri di evidenziazione dei risultati come illustrato di seguito:  

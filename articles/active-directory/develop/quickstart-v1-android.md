@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c3ab241e42c431ae4e95e8154343a949bb9e596e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970174"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287235"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guida introduttiva: Accesso per gli utenti e chiamata dell'API Microsoft Graph da un'app di Android
 
@@ -30,7 +30,7 @@ ms.locfileid: "46970174"
 
 Se si sviluppa un'applicazione Android, con Microsoft l'accesso ai dati degli utenti di Azure Active Directory (Azure AD) è semplice e diretto. Azure AD consente all'applicazione di accedere ai dati degli utente tramite Microsoft Graph o la propria API Web protetta.
 
-La libreria di Android Azure AD Authentication Library (ADAL) consente all'app di iniziare a usare il [cloud di Microsoft Azure](https://cloud.microsoft.com)  & [API Microsoft Graph](https://graph.microsoft.io) grazie al supporto degli [account Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) che usano lo standard di settore OAuth 2.0 e OpenID Connect.
+La libreria di Android Azure AD Authentication Library (ADAL) consente all'app di iniziare a usare il [cloud di Microsoft Azure](https://cloud.microsoft.com)  & [API Microsoft Graph](https://developer.microsoft.com/graph) grazie al supporto degli [account Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) che usano lo standard di settore OAuth 2.0 e OpenID Connect.
 
 In questa guida introduttiva si apprende come:
 

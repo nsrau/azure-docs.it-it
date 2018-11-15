@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: 61b176f4f1fccbb975ee53de497d5afcc8ede060
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5d67d25912df5040665b3a04858be0f3807e8112
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238115"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623826"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure SQL
 
@@ -35,15 +35,7 @@ Questa esercitazione illustra come usare un'identità assegnata dal sistema per 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Accedere al portale di Azure](https://portal.azure.com)
-
-- [Creare una macchina virtuale Windows](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Abilitare l'identità gestita assegnata dal sistema nella macchina virtuale](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Concedere l'accesso della macchina virtuale a un database in un server SQL di Azure
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140977"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623155"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Elaborazione di database serverless con Azure Cosmos DB e Funzioni di Azure
 
@@ -98,7 +98,7 @@ Nelle implementazioni della vendite al dettaglio, quando un utente aggiunge un e
 
 **Implementazione:** più trigger di Azure Cosmos DB in ascolto in un contenitore
 
-1. È possibile creare più funzioni di Azure aggiungendo a ognuna trigger di Azure Cosmos DB, tutti in ascolto dello stesso feed di modifiche dei dati del carrello. Si noti che quando più funzioni sono in ascolto dello stesso feed di modifiche, è necessaria una nuova raccolta di lease per ogni funzione. Per altre informazioni sulle raccolte di lease, vedere [Informazioni sulla libreria del processore dei feed delle modifiche](change-feed.md#understand-cf).
+1. È possibile creare più funzioni di Azure aggiungendo a ognuna trigger di Azure Cosmos DB, tutti in ascolto dello stesso feed di modifiche dei dati del carrello. Si noti che quando più funzioni sono in ascolto dello stesso feed di modifiche, è necessaria una nuova raccolta di lease per ogni funzione. Per altre informazioni sulle raccolte di lease, vedere [Informazioni sulla libreria del processore dei feed delle modifiche](change-feed-processor.md).
 2. Ogni volta che viene aggiunto un nuovo elemento a un carrello dell'utente, ogni funzione viene richiamata in modo indipendente dal feed di modifiche dal contenitore del carrello.
     * Una funzione può usare i contenuti del carrello corrente per modificare la visualizzazione di altri elementi a cui l'utente potrebbe essere interessato.
     * Un'altra funzione può aggiornare i totali dell'inventario.

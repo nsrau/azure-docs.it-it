@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: daa1bba0aacdceb7d6655c5f491be587d388176a
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087373"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286691"
 ---
 # <a name="about-v20"></a>Informazioni su v2.0
 
@@ -32,7 +32,7 @@ La piattaforma e l'endpoint v2.0 sono stati in fase di anteprima e sono stati co
 
 L'esperienza degli sviluppatori del portale di Azure è stata aggiornata in modo significativo e adesso include tutte le applicazioni compilate con ADAL o MSAL e per migliorare l'usabilità.
 
-In passato, gli sviluppatori di applicazioni che intendevano supportare sia gli account Microsoft personali che quelli aziendali da Azure Active Directory (Azure AD) dovevano eseguire l'integrazione con due sistemi separati. L'endpoint 2.0 e la piattaforma offrono una versione di API di autenticazione che semplifica questo processo. Consente di accedere con entrambi i tipi di account tramite un'unica integrazione. Le applicazioni che usano l'endpoint di versione 2.0 possono anche usare le API REST dalle [API Microsoft Graph](https://graph.microsoft.io) tramite entrambi i tipi di account.
+In passato, gli sviluppatori di applicazioni che intendevano supportare sia gli account Microsoft personali che quelli aziendali da Azure Active Directory (Azure AD) dovevano eseguire l'integrazione con due sistemi separati. L'endpoint 2.0 e la piattaforma offrono una versione di API di autenticazione che semplifica questo processo. Consente di accedere con entrambi i tipi di account tramite un'unica integrazione. Le applicazioni che usano l'endpoint di versione 2.0 possono anche usare le API REST dalle [API Microsoft Graph](https://developer.microsoft.com/graph) tramite entrambi i tipi di account.
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -59,7 +59,7 @@ Approfondimento su v2.0:
 * [Informazioni di riferimento sui token ID](id-tokens.md)
 * [Informazioni di riferimento sulle librerie di autenticazione di v2.0](reference-v2-libraries.md)
 * [Autorizzazioni e consenso in v2.0](v2-permissions-and-consent.md)
-* [API Microsoft Graph](https://graph.microsoft.io)
+* [API Microsoft Graph](https://developer.microsoft.com/graph)
 
 > [!NOTE]
 > Se occorre effettuare l'accesso con un account aziendale o dell'istituto di istruzione da Azure Active Directory, iniziare con la [Guida di Azure AD per sviluppatori](v1-overview.md). L'uso dell'endpoint v2.0 è destinato agli sviluppatori che devono eseguire l'accesso agli account personali di Microsoft in modo esplicito.

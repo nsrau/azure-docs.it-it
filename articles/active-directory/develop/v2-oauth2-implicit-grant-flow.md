@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1722f81c55c490d6030dd04e5907e93012051492
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817099"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289020"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolli della versione 2.0: applicazioni a singola pagina che usano il flusso implicito
 
@@ -145,7 +145,7 @@ Dopo aver convalidato completamente il token ID, è possibile avviare una sessio
 
 ## <a name="get-access-tokens"></a>Ottenere i token di accesso
 
-Dopo avere fatto accedere l'utente all'app a pagina singola, è possibile ottenere i token di accesso per chiamare le API Web protette da Azure AD, ad esempio [Microsoft Graph](https://graph.microsoft.io). Anche se si è già ricevuto un token usando il `token` response_type, è possibile usare questo metodo per acquisire i token per risorse aggiuntive senza dover reindirizzare l'utente perché esegua di nuovo l'accesso.
+Dopo avere fatto accedere l'utente all'app a pagina singola, è possibile ottenere i token di accesso per chiamare le API Web protette da Azure AD, ad esempio [Microsoft Graph](https://developer.microsoft.com/graph). Anche se si è già ricevuto un token usando il `token` response_type, è possibile usare questo metodo per acquisire i token per risorse aggiuntive senza dover reindirizzare l'utente perché esegua di nuovo l'accesso.
 
 Nel normale flusso OpenID Connect/OAuth, per eseguire questa operazione, si effettua una richiesta all'endpoint `/token` 2.0. L'endpoint 2.0 non supporta però le richieste CORS e quindi non è possibile effettuare una chiamata ad AJAX per ottenere e aggiornare i token. È possibile usare invece il flusso implicito in un iframe nascosto per ottenere nuovi token per altre API Web: 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 6d4f7fab0c36095d96cec0038a39744102e8972b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433753"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288255"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -33,7 +33,7 @@ Esistono due versioni dell'ambiente del servizio app: ASEv1 e ASEv2. Per informa
 
 Tutte le chiamate da un ambiente del servizio app indirizzate a Internet lasciano la rete virtuale tramite un indirizzo VIP assegnato per l'ambiente del servizio app. L'indirizzo IP pubblico di questo indirizzo VIP è l'indirizzo IP di origine per tutte le chiamate dall'ambiente del servizio app indirizzate a Internet. Se le app nell'ambiente del servizio app effettuano chiamate a risorse nella rete virtuale o tramite una VPN, l'IP di origine sarà uno degli indirizzi IP nella subnet usata dall'ambiente del servizio app. Dato che l'ambiente del servizio app è all'interno della rete virtuale, consente anche di accedere alle risorse all'interno della rete virtuale senza ulteriori configurazioni. Se la rete virtuale è connessa alla rete locale, le app nell'ambiente del servizio app hanno accesso anche alle relative risorse senza un'ulteriore configurazione.
 
-![Ambiente del servizio app esterno][1] 
+![Ambiente del servizio app esterno][1] 
 
 Se si dispone di un ambiente del servizio app esterno, il VIP pubblico è anche l'endpoint in cui si risolvono le app dell'ambiente del servizio app per:
 
@@ -52,7 +52,7 @@ Le porte di accesso alle app normali sono:
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Configurabile dall'utente |  80, 443 |
 |  FTP/FTPS    | Configurabile dall'utente |  21, 990, 10001-10020 |
-|  Debug remoto in Visual Studio  |  Configurabile dall'utente |  4016, 4018, 4020, 4022 |
+|  Debug remoto in Visual Studio  |  Configurabile dall'utente |  4020, 4022, 4024 |
 
 Ciò vale se si usa un ambiente del servizio app esterno o con bilanciamento del carico. Se si è su un ambiente del servizio app esterno, tali porte possono essere raggiunte sul VIP pubblico. Se si è su un ambiente del servizio app con bilanciamento del carico interno, tali porte possono essere raggiunte sul servizio di bilanciamento del carico interno. Il blocco della porta 443 ha un possibile impatto su alcune funzionalità esposte nel portale. Per altre informazioni, vedere [Dipendenze per il portale](#portaldep).
 
@@ -170,7 +170,7 @@ I primi due requisiti in ingresso per il funzionamento dell'ambiente del servizi
 
 Una regola predefinita consente agli indirizzi IP di comunicare con la subnet dell'ambiente del servizio app nella rete virtuale. Un'altra regola predefinita consente al bilanciamento del carico, noto anche come VIP pubblico, di comunicare con l'ambiente del servizio app. Per visualizzare le regole predefinite selezionare **Regole predefinite** accanto all'icona **Aggiungi**. Aggiungendo una regola per negare tutto il resto dopo le regole dei gruppi di sicurezza di rete visualizzate, si impedisce il traffico tra l'indirizzo VIP e l'ambiente del servizio app. Per impedire il traffico proveniente da all'interno della rete virtuale, aggiungere una regola personalizzata per consentire connessioni in entrata. Usare un'origine uguale ad AzureLoadBalancer con una destinazione **qualsiasi** e un intervallo di porte di **\***. Dato che la regola del gruppo di sicurezza di rete viene applicata solo alla subnet dell'ambiente del servizio app, non è necessario impostare una destinazione specifica.
 
-Se è stato assegnato un indirizzo IP all'app, accertarsi di mantenere le porte aperte. Per visualizzare le porte selezionare **Ambiente del servizio app** > **Indirizzi IP**.  
+Se è stato assegnato un indirizzo IP all'app, accertarsi di mantenere le porte aperte. Per visualizzare le porte selezionare **Ambiente del servizio app** > **Indirizzi IP**.  
 
 Tutti gli elementi visualizzati nelle regole in uscita seguenti sono necessari, tranne per l'ultimo elemento. Queste voci consentono l'accesso alla rete alle dipendenze dell'ambiente del servizio app presentate più indietro in questo articolo. Se si bloccano una o più di queste voci, l'ambiente del servizio app smette di funzionare. L'ultima voce nell'elenco consente all'ambiente del servizio app di comunicare con altre risorse nella rete virtuale.
 

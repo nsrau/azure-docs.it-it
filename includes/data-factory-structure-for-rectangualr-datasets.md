@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572306"
+---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Definizione della struttura per i set di dati rettangolari
 La sezione della struttura nei set di dati JSON è una sezione **facoltativa** per le tabelle rettangolari (con righe e colonne) e contiene una raccolta di colonne per la tabella. Usare la sezione della struttura per offrire informazioni sul tipo per le conversioni di tipi o per eseguire il mapping di colonne. Le sezioni seguenti descrivono queste funzionalità in modo più dettagliato. 
 
@@ -5,7 +18,7 @@ Ogni colonna contiene le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| name |Nome della colonna. |sì |
+| name |Nome della colonna. |Yes |
 | type |Tipo di dati della colonna. Vedere la sezione sulle conversioni del tipo di seguito per altre informazioni su quando specificare le informazioni sul tipo |No  |
 | culture |Cultura basata su .NET da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. Il valore predefinito è "en-us". |No  |
 | format |Stringa di formato da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. |No  |

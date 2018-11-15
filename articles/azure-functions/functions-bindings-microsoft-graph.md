@@ -9,16 +9,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: fa429553caf874dd634944a5fca6cd9283194bb4
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251108"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51301017"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
 
-Questo articolo illustra come configurare e usare trigger e associazioni di Microsoft Graph in Funzioni di Azure. I trigger e le associazioni consentono di usare Funzioni di Azure con dati, informazioni dettagliate ed eventi di [Microsoft Graph](https://graph.microsoft.io).
+Questo articolo illustra come configurare e usare trigger e associazioni di Microsoft Graph in Funzioni di Azure. I trigger e le associazioni consentono di usare Funzioni di Azure con dati, informazioni dettagliate ed eventi di [Microsoft Graph](https://developer.microsoft.com/graph).
 
 L'estensione Microsoft Graph offre le associazioni seguenti:
 - Un'[associazione di input per il token di autenticazione](#token-input) che consente di interagire con le API di Microsoft Graph.
@@ -834,7 +834,7 @@ In questa sezione sono disponibili le procedure seguenti:
 * [Esempio](#outlook-output---example)
 * [Attributes (Attributi) (Attributi)](#outlook-output---attributes)
 * [Configurazione](#outlook-output---configuration)
-* [Utilizzo](#outlook-outnput---usage)
+* [Utilizzo](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Output di Outlook: esempio
 

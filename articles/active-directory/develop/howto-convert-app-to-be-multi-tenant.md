@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: abca81e0db565c6c84d9be9df07b46c8c338030b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6581081f0f34f73c915f0b026a3ed50816f6731f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960278"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298944"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -118,7 +118,7 @@ Alcune autorizzazioni possono essere concesse da un utente normale, mentre altre
 
 Le autorizzazioni solo app richiedono il consenso dell'amministratore tenant. Se l'applicazione richiede un'autorizzazione solo per app e un utente tenta di accedere all'applicazione, viene visualizzato un messaggio di errore che informa che l'utente non è in grado di fornire il consenso.
 
-Alcune autorizzazioni delegate richiedono anche il consenso dell'amministratore tenant. Ad esempio, il writeback in Azure AD come utente connesso richiede il consenso dell'amministratore tenant. Come le autorizzazioni solo app, se un utente comune tenta di accedere a un'applicazione che richiede un'autorizzazione delegata per la quale è necessario il consenso dell'amministratore, viene visualizzato un errore nell'applicazione. La richiesta del consenso di amministratore da parte di un'applicazione è determinata dallo sviluppatore che ha pubblicato la risorsa ed è presente nella documentazione per la risorsa. La documentazione sulle autorizzazioni per l'[API Graph di Azure AD][AAD-Graph-Perm-Scopes] e l'[API Microsoft Graph][MSFT-Graph-permision-scopes] indica quali autorizzazioni richiedono il consenso dell'amministratore.
+Alcune autorizzazioni delegate richiedono anche il consenso dell'amministratore tenant. Ad esempio, il writeback in Azure AD come utente connesso richiede il consenso dell'amministratore tenant. Come le autorizzazioni solo app, se un utente comune tenta di accedere a un'applicazione che richiede un'autorizzazione delegata per la quale è necessario il consenso dell'amministratore, viene visualizzato un errore nell'applicazione. La richiesta del consenso di amministratore da parte di un'applicazione è determinata dallo sviluppatore che ha pubblicato la risorsa ed è presente nella documentazione per la risorsa. La documentazione sulle autorizzazioni per l'[API Graph di Azure AD][AAD-Graph-Perm-Scopes] e l'[API Microsoft Graph][MSFT-Graph-permission-scopes] indica quali autorizzazioni richiedono il consenso dell'amministratore.
 
 Se l'applicazione usa autorizzazioni che richiedono il consenso dell'amministratore, è necessario che sia presente un movimento, ad esempio un pulsante o un collegamento, con cui l'amministratore può avviare l'azione. La richiesta inviata dall'applicazione per questa azione è la richiesta di autorizzazione OAuth2/OpenID Connect standard, che include anche il parametro `prompt=admin_consent` della stringa di query. Dopo che l'amministratore ha fornito il consenso e l'entità servizio è stata creata nel tenant del cliente, le successive richieste di accesso non richiedono il parametro `prompt=admin_consent`. Poiché l'amministratore ha deciso che le autorizzazioni richieste sono accettabili, a nessun altro utente nel tenant viene richiesto il consenso da questo punto in poi.
 
@@ -184,7 +184,7 @@ Questo articolo ha illustrato come compilare un'applicazione che consente a un u
 * [Oggetti applicazione e oggetti entità servizio][AAD-App-SP-Objects]
 * [Integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps]
 * [Panoramica del framework di consenso][AAD-Consent-Overview]
-* [Microsoft Graph API permission scopes][MSFT-Graph-permision-scopes] (Ambiti di autorizzazione dell'API Microsoft Graph)
+* [Microsoft Graph API permission scopes][MSFT-Graph-permission-scopes] (Ambiti di autorizzazione dell'API Microsoft Graph)
 * [Ambiti di autorizzazione dell'API Graph di Azure AD][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
@@ -201,8 +201,8 @@ Questo articolo ha illustrato come compilare un'applicazione che consente a un u
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
+[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

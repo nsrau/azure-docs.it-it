@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2018
+ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 860ca62e6e5ed544fabb1667d6e63c8221f5683e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 29a2be1735561d31f934f1353a336b5e4d198227
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355509"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622194"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurare il servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory
 
@@ -31,9 +31,9 @@ La raccolta di applicazioni di Azure Active Directory offre un elenco di applica
 I clienti con licenza [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) ottengono anche le funzionalità aggiuntive seguenti:
 
 * Integrazione self-service di qualsiasi applicazione che supporta i provider di identità SAML 2.0 (avviato dal provider di servizi o dal provider di identità)
-* Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](what-is-single-sign-on.md#password-based-single-sign-on)
+* Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](what-is-single-sign-on.md#password-based-sso)
 * Connessione self-service di applicazioni che usano il protocollo SCIM per il provisioning dell'utente ([descritto qui](use-scim-to-provision-users-and-groups.md))
-* Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
+* Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](what-is-single-sign-on.md#linked-sso)
 
 Possono essere incluse le applicazioni SaaS usate ma non ancora caricate nella raccolta di applicazioni di Azure AD, nonché le applicazioni Web di terze parti che l'organizzazione ha distribuito nei server sotto il suo controllo, nel cloud o in locale.
 
@@ -165,15 +165,13 @@ Dopo che la pagina di accesso è stata acquisita, è possibile assegnare utenti 
 ## <a name="existing-single-sign-on"></a>Single Sign-On esistente
 Selezionare questa opzione per aggiungere un collegamento a un'applicazione nel riquadro di accesso di Azure AD o nel portale di Office 365 dell'organizzazione. È possibile usare questa opzione per aggiungere collegamenti ad app Web personalizzate che usano Active Directory Federation Services di Azure (o un altro servizio federativo) anziché Azure AD per l'autenticazione. In alternativa, è possibile aggiungere collegamenti diretti a pagine specifiche di SharePoint o ad altre pagine Web da visualizzare nei riquadri di accesso dell'utente. 
 
-Dopo aver selezionato **Avanti**, viene richiesto di immettere l'URL dell'applicazione da collegare. Al termine sarà possibile assegnare utenti e gruppi all'applicazione e questa verrà visualizzata nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) per tali utenti.
+Dopo aver selezionato **Avanti**, viene richiesto di immettere l'URL dell'applicazione da collegare. Al termine sarà possibile assegnare utenti e gruppi all'applicazione e questa verrà visualizzata nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](end-user-experiences.md) per tali utenti.
 
 > [!NOTE] 
 > È possibile caricare un logo icona dell'applicazione usando il pulsante **Carica Logo** nella scheda **Configura** dell'applicazione. 
 >
 
 ## <a name="related-articles"></a>Articoli correlati
-
-- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
-- [Come personalizzare lle attestazioni rilasciate nel token SAML per le app preintegrate](../develop/active-directory-saml-claims-customization.md)
+- [Personalizzazione delle attestazioni rilasciate nel token SAML per le app preintegrate](../develop/active-directory-saml-claims-customization.md)
 - [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](../develop/howto-v1-debug-saml-sso-issues.md)
 

@@ -3,7 +3,7 @@ title: Monitoraggio e diagnostica per i contenitori di Windows su Service Fabric
 description: In questa esercitazione si apprenderà come configurare Log Analytics per il monitoraggio e la diagnostica dei contenitori di Windows orchestrati in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: dekapur
+ms.author: twhitney, dekapur
 ms.custom: mvc
-ms.openlocfilehash: dfce4adbe986c018ab14e843ee3e8a256a10993f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9249c0bb559328c878d784b54af5117b785daffe
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407045"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300626"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando Log Analytics
 
@@ -231,7 +231,7 @@ Verrà visualizzata l'area di lavoro di Log Analytics, in cui è possibile visua
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Configurare Log Analytics per il cluster di Service Fabric
