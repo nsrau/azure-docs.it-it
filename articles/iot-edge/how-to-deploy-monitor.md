@@ -3,18 +3,18 @@ title: Distribuire e monitorare i moduli per Azure IoT Edge | Microsoft Docs
 description: Gestire i moduli eseguiti su dispositivi perimetrali
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393458"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566246"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite il portale di Azure
 
@@ -106,7 +106,7 @@ Usare la proprietà tags dai dispositivi per selezionare i dispositivi specifici
 Dato che più distribuzioni potrebbero avere come destinazione lo stesso dispositivo, è necessario assegnare a ogni distribuzione un numero di priorità. In caso di conflitto, prevale la distribuzione con la priorità più alta, ovvero con il valore più elevato. Se due distribuzioni hanno lo stesso numero di priorità, prevale quella creata più di recente. 
 
 1. Immettere un numero intero positivo in **Priority** (Priorità) per la distribuzione. Nel caso in cui due o più distribuzioni abbiano lo stesso dispositivo di destinazione, verrà applicata quella con valore di priorità più alto.
-1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione. Ad esempio, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
+1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione. Ad esempio, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
 1. Selezionare **Avanti** per procedere al passaggio finale.
 
 ### <a name="step-5-review-template"></a>Passaggio 5: Rivedere il modello
@@ -123,14 +123,14 @@ Per visualizzare i dettagli di una distribuzione e monitorare i dispositivi che 
 
    ![Visualizzare le distribuzioni IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Esaminare l'elenco delle distribuzioni. Per ogni distribuzione, è possibile visualizzare i dettagli seguenti:
+1. Esaminare l'elenco delle distribuzioni. Per ogni distribuzione, è possibile visualizzare i dettagli seguenti:
    * **ID**: nome della distribuzione.
    * **Target condition** (Condizione di destinazione): tag usato per definire i dispositivi di destinazione.
    * **Priority** (Priorità): numero di priorità assegnato alla distribuzione.
    * **System metrics** -  (Metriche di sistema): **Targeted** (Assegnati) specifica il numero di dispositivi gemelli nell'hub IoT che corrispondono alla condizione di destinazione, mentre **Applied** (Applicati) specifica il numero di dispositivi il cui contenuto di distribuzione è stato applicato ai rispettivi dispositivi gemelli nell'hub IoT. 
    * **Metriche del dispositivo**: specifica il numero di dispositivi Edge presenti nella distribuzione che segnalano il completamento dell'operazione o gli errori generati dal runtime del client di IoT Edge.
    * **Creation time** (Data/ora di creazione): timestamp di creazione della distribuzione. Questo timestamp viene usato per stabilire la prevalenza quando due distribuzioni hanno la stessa priorità. 
-2. Selezionare la distribuzione che si vuole monitorare.  
+2. Selezionare la distribuzione che si vuole monitorare.  
 3. Esaminare i dettagli della distribuzione. Per esaminare i dettagli della distribuzione sono disponibili schede.
 
 ## <a name="modify-a-deployment"></a>Modificare una distribuzione
@@ -151,10 +151,10 @@ Per modificare una distribuzione, seguire questa procedura:
    ![Visualizzare le distribuzioni IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Selezionare la distribuzione che si vuole modificare. 
-1. Apportare modifiche nei campi seguenti: 
-   * Condizione di destinazione 
-   * Etichette 
-   * Priorità 
+1. Apportare modifiche nei campi seguenti: 
+   * Condizione di destinazione 
+   * Etichette 
+   * Priorità 
 1. Selezionare **Salva**.
 1. Seguire i passaggi in [Monitorare una distribuzione](#monitor-a-deployment) per controllare la distribuzione delle modifiche. 
 
@@ -170,7 +170,7 @@ Quando si elimina una distribuzione, tutti i dispositivi ricevono la distribuzio
 
 1. Usare la casella di controllo per selezionare la distribuzione che si vuole eliminare. 
 1. Selezionare **Elimina**.
-1. Un messaggio indicherà che questa azione comporta l'eliminazione della distribuzione e il ripristino dello stato precedente per tutti i dispositivi.  Ciò significa che verrà applicata una distribuzione con una priorità più bassa.  Se non viene assegnata alcun'altra distribuzione, i moduli non verranno rimossi. Per rimuovere tutti i moduli dai dispositivi, creare una distribuzione senza moduli e assegnarla agli stessi dispositivi. Selezionare **Yes** (Sì) per continuare. 
+1. Un messaggio indicherà che questa azione comporta l'eliminazione della distribuzione e il ripristino dello stato precedente per tutti i dispositivi.  Ciò significa che verrà applicata una distribuzione con una priorità più bassa.  Se non viene assegnata alcun'altra distribuzione, i moduli non verranno rimossi. Per rimuovere tutti i moduli dai dispositivi, creare una distribuzione senza moduli e assegnarla agli stessi dispositivi. Selezionare **Yes** (Sì) per continuare. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Condivisione di account mediante Azure AD | Microsoft Docs
+title: Condivisione di account mediante Azure AD | Documentazione Microsoft
 description: Descrive come Azure Active Directory consente alle organizzazioni di condividere in modo sicuro gli account per le app locali e i servizi cloud di livello consumer.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 10/29/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 58b91388ec81726bd42e57fbf2b83d3d9f368833
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ddc14c371f2aa56b056dd7f9f1802de081f4ccd9
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243756"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620698"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Condivisione di account con Azure AD
 ## <a name="overview"></a>Panoramica
@@ -51,7 +51,7 @@ Azure AD supporta gli account condivisi per gli utenti con licenza Enterprise Mo
 
 Le funzionalità di Azure AD che consentono la condivisione di account includono:
 
-* [Password Single Sign-On](../manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
+* [Password Single Sign-On](../manage-apps/what-is-single-sign-on.md#password-based-sso)
 * Agente di password Single Sign-On
 * [Assegnazione di gruppi](groups-self-service-management.md)
 * App personalizzate basate su password

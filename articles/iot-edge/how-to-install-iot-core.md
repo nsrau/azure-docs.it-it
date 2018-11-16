@@ -2,19 +2,19 @@
 title: Installare Azure IoT Edge in IoT Core | Microsoft Docs
 description: Installare il runtime di Azure IoT Edge su un dispositivo Windows IoT Core
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.reviewer: veyalla
 ms.date: 03/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ac729963e63bd97c83719e21dad3ad2cfc9b4fee
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 17afc095fa0500ca98559a9523282d75949faa60
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392795"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564827"
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Installare il runtime di IoT Edge su Windows IoT Core - anteprima
 

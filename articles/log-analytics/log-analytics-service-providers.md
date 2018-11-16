@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: ''
-ms.openlocfilehash: ef1956f5283105548ba8790b87e82c35d6c9e1cd
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dc6a52462dffcb735e845c9150b2189e37273496
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960940"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615433"
 ---
 # <a name="log-analytics-for-service-providers"></a>Log Analytics per provider di servizi
 Log Analytics aiuta i provider dei servizi gestiti (MSP), le aziende di grandi dimensioni, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura cloud o locale del cliente. 
@@ -82,6 +82,6 @@ Per implementare la posizione centrale in Log Analytics, sono disponibili due op
 ## <a name="next-steps"></a>Passaggi successivi
 * Automatizzare la creazione e la configurazione delle aree di lavoro usando i [modelli di Resource Manager](log-analytics-template-workspace-configuration.md)
 * Automatizzare la creazione delle aree di lavoro usando [PowerShell](log-analytics-powershell-workspace-configuration.md) 
-* Usare la funzione [Avvisi](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) per l'integrazione con i sistemi esistenti
+* Usare la funzione [Avvisi](../monitoring-and-diagnostics/monitoring-overview-alerts.md) per l'integrazione con i sistemi esistenti
 * Generare report di riepilogo usando [Power BI](log-analytics-powerbi.md)
 * Esaminare il processo di [configurazione di Log Analytics e Power BI per monitorare più clienti CSP](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

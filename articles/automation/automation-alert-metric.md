@@ -5,21 +5,21 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/17/2018
+ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a8a4b24e6b2503f64cc3fd7f4fd8c7400c547d4d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 65de18445f114f468dd42c5a7e7128dd2f63d44c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659311"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959827"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Monitoraggio dei runbook con avvisi di metrica
 
 In questo articolo sono fornite informazioni su come creare gli avvisi sullo stato di completamento dei runbook.
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere ad Azure all'indirizzo https://portal.azure.com
 
@@ -27,25 +27,19 @@ Accedere ad Azure all'indirizzo https://portal.azure.com
 
 Gli avvisi consentono di definire una condizione per monitorare e un'azione da intraprendere quando viene soddisfatta tale condizione.
 
-Nel portale di Azure passare a **Tutti i servizi** e selezionare **Monitoraggio**. Nella pagina di monitoraggio, selezionare **Avvisi** e fare clic su **+ Nuova regola di avviso**.
-
-### <a name="define-the-alert-condition"></a>Definire la condizione di avviso
-
-1. In **1. Definire la condizione dell'avviso** fare clic su **+ Selezionare la destinazione**. Scegliere la sottoscrizione, quindi in **Filtra per tipo di risorsa**, selezionare **Account di automazione**. Scegliere l'Account di automazione e fare clic su **Fine**.
-
-   ![Selezionare una risorsa per l'avviso](./media/automation-alert-activity-log/select-resource.png)
+Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** selezionare **Avvisi** e fare clic su **+ Nuova regola di avviso**. L'ambito per la destinazione è già definito per l'account di Automazione.
 
 ### <a name="configure-alert-criteria"></a>Configurare i criteri di avviso
 
 1. Fare clic su **+ Aggiungi criteri**. Selezionare **Metriche** per il **Tipo di segnale**e scegliere **Processi totali** dalla tabella.
 
-1. La pagina **Configurare la logica dei segnali** viene usata per definire la logica che attiva l'avviso. Nel grafico della cronologia vengono visualizzate due dimensioni, **Nome del Runbook** e **Stato**. Le dimensioni sono proprietà diverse per una metrica che può essere usata per filtrare i risultati. Per il **Nome del Runbook**, selezionare il runbook che si desidera avvisare o lasciare vuoto per avvisare tutti i runbook. Per lo **Stato**, selezionare uno stato che si desidera monitorare dall'elenco a discesa. I valori del nome e dello stato del runbook che vengono visualizzati nell'elenco a discesa sono solo per i processi che sono stati eseguiti nella settimana precedente.
+2. La pagina **Configurare la logica dei segnali** viene usata per definire la logica che attiva l'avviso. Nel grafico della cronologia vengono visualizzate due dimensioni, **Nome del Runbook** e **Stato**. Le dimensioni sono proprietà diverse per una metrica che può essere usata per filtrare i risultati. Per il **Nome del Runbook**, selezionare il runbook che si desidera avvisare o lasciare vuoto per avvisare tutti i runbook. Per lo **Stato**, selezionare uno stato che si desidera monitorare dall'elenco a discesa. I valori del nome e dello stato del runbook che vengono visualizzati nell'elenco a discesa sono solo per i processi che sono stati eseguiti nella settimana precedente.
 
-   Se si desidera avvisare uno stato o un runbook che non viene visualizzato nell'elenco a discesa, fare clic su **\+** accanto alla dimensione. Verrà visualizzata una finestra di dialogo che consente di inserire un valore personalizzato, che non è stato generato per quella dimensione di recente. Se si inserisce un valore che non esiste per una proprietà l'avviso non sarà attivato.
+   Se si vuole attivare un avviso su uno stato o un runbook che non è visualizzato nell'elenco a discesa, fare clic su **\+** accanto alla dimensione. Verrà visualizzata una finestra di dialogo che consente di immettere un valore personalizzato, che non è stato generato di recente per la specifica dimensione. Se si immette un valore che non esiste per una proprietà, l'avviso non verrà attivato.
 
-1. In **Logica avvisi**, definire la condizione e la soglia per l'avviso. Viene visualizzata un'anteprima della condizione definita sotto.
+3. In **Logica avvisi**, definire la condizione e la soglia per l'avviso. Viene visualizzata un'anteprima della condizione definita sotto.
 
-1. In **Valutati in base a** selezionare l'intervallo di tempo per la query e la frequenza con cui si desidera che tale query venga eseguita. Ad esempio, se si sceglie **Negli ultimi 5 minuti** per **Periodo** e **Ogni 1 minuto** per **Frequenza**, l'avviso è simile al numero di runbook che soddisfano i criteri negli ultimi 5 minuti. Questa query è stata eseguita ogni minuto e una volta che i criteri di avviso definiti non sono più presenti in una finestra di 5 minuti, l'avviso si risolve. Al termine, fare clic su **Fine**.
+4. In **Valutati in base a** selezionare l'intervallo di tempo per la query e la frequenza con cui tale query deve essere eseguita. Ad esempio, se si sceglie **Negli ultimi 5 minuti** per **Periodo** e **Ogni 1 minuto** per **Frequenza**, l'avviso è simile al numero di runbook che soddisfano i criteri negli ultimi 5 minuti. Questa query viene eseguita ogni minuto e, se i criteri di avviso definiti non vengono rilevati entro un intervallo di 5 minuti, l'avviso si risolve. Al termine, fare clic su **Fine**.
 
    ![Selezionare una risorsa per l'avviso](./media/automation-alert-activity-log/configure-signal-logic.png)
 
@@ -53,7 +47,7 @@ Nel portale di Azure passare a **Tutti i servizi** e selezionare **Monitoraggio*
 
 1. In **2. Definire i dettagli dell'avviso** assegnare all'avviso un nome descrittivo e una descrizione. Impostare la **Gravità** in base alla condizione di avviso. Esistono cinque livelli di gravità compresi tra 0 e 5. Gli avvisi sono considerati indipendenti in relazione alla gravità, è possibile abbinare il livello di gravità per abbinare la logica di business.
 
-1. Nella parte inferiore della sezione è presente un pulsante che consente di abilitare la regola al termine dell'operazione. Per impostazione predefinita le regole sono abilitate al momento della creazione. Se si seleziona No, è possibile creare l'avviso e viene creato in uno stato **Disabilitato**. Dalla pagina **Regole** in Monitoraggio di Azure, è possibile selezionarlo e fare clic su **Abilita** per abilitare l'avviso quando si è pronti.
+1. Nella parte inferiore della sezione è presente un pulsante che consente di abilitare la regola al termine dell'operazione. Per impostazione predefinita le regole sono abilitate al momento della creazione. Se si seleziona No, è possibile creare l'avviso e quest'ultimo viene creato in uno stato **Disabilitato**. Dalla pagina **Regole** in Monitoraggio di Azure è possibile selezionare l'avviso e fare clic su **Abilita** per abilitarlo quando si è pronti.
 
 ### <a name="define-the-action-to-take"></a>Definire l'azione da intraprendere
 
@@ -69,7 +63,7 @@ Nel portale di Azure passare a **Tutti i servizi** e selezionare **Monitoraggio*
 
 1. Fare clic su **OK** nella pagina **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce) per chiuderla e fare clic su **OK** per chiudere la pagina **Aggiungi gruppo di azioni**. Il nome specificato in questa pagina viene salvato come **NOME DELL'AZIONE**.
 
-1. Al termine, fare clic su **Salva**. In questo modo viene creata la regola che avvisa l'utente quando un runbook è completato con un determinato stato.
+1. Al termine, fare clic su **Salva**. Questa azione crea la regola che avvisa l'utente quando un runbook è completato con un determinato stato.
 
 > [!NOTE]
 > Quando si aggiunge un indirizzo di posta elettronica a un gruppo di azioni, viene inviato un messaggio di posta elettronica di notifica che indica che l'indirizzo è stato aggiunto a un gruppo di azioni.

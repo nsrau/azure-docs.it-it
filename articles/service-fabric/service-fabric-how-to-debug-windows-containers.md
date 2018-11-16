@@ -3,7 +3,7 @@ title: Eseguire il debug di contenitori Windows con Service Fabric e Visual Stud
 description: Informazioni su come eseguire il debug dei contenitori Windows in Azure Service Fabric con Visual Studio 2017.
 services: service-fabric
 documentationcenter: .net
-author: mikkelhegn
+author: TylerMSFT
 manager: msfussell
 editor: ''
 ms.service: service-fabric
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
-ms.author: mikhegn
-ms.openlocfilehash: 180bd3709cc9ffefb17f78e337e6f6995024fdcf
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.author: twhitney, mikhegn
+ms.openlocfilehash: b38946f813185a4821520b8591b7fd72a5f0cce0
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523428"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300065"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Procedura: eseguire il debug dei contenitori Windows in Azure Service Fabric con Visual Studio 2017
 
