@@ -35,7 +35,7 @@
 # Procedure
 ## Connettività Internet
 ### [Server pubblici per il bilanciamento del carico di rete](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Server pubblici per il bilanciamento del carico dell'applicazione](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Server pubblici per il bilanciamento del carico dell'applicazione](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Proteggere le applicazioni Web](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Distribuire il traffico in diverse località](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Connettività interna

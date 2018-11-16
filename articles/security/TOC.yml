@@ -28,6 +28,8 @@ items:
     href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Funzionalità tecniche per la sicurezza
     href: azure-security-technical-capabilities.md
+  - name: Sviluppare app sicure in Azure
+    href: abstract-develop-secure-apps.md
   expanded: false
 - name: Sicurezza e crittografia dei dati
   href: security-azure-encryption-overview.md
@@ -353,9 +355,9 @@ items:
         href: azure-security-threat-modeling-tool-sensitive-data.md
       - name: Gestione delle sessioni
         href: azure-security-threat-modeling-tool-session-management.md
-ms.openlocfilehash: a5f78762baad4cf7f6173076bbb9a9e8f7e877f0
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 998b787657be90f3b7026a7e338d49e7c1903499
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423052"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710835"

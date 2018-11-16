@@ -28,8 +28,8 @@
 ### [Valutazione baseline Web](../security-center/security-center-customize-os-security-config.md)
 
 ## Usare le soluzioni
-### [Soluzioni di gestione](../monitoring/monitoring-solutions.md)
-### [Soluzioni di destinazione](../monitoring/monitoring-solution-targeting.md)
+### [Soluzioni di gestione](../azure-monitor/insights/solutions.md)
+### [Soluzioni di destinazione](../azure-monitor/insights/solution-targeting.md)
 ### Approfondimenti e analisi
 #### [Valutazione di AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Stato della replica di AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -57,12 +57,12 @@
 #### [Antimalware Assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Creare soluzioni
-### [Progettare e compilare](../monitoring/monitoring-solutions-creating.md)
-### [File di soluzione](../monitoring/monitoring-solutions-solution-file.md)
-### [Risorse di Automazione](../monitoring/monitoring-solutions-resources-automation.md)
-### [Avvisi e ricerche nei log](../monitoring/monitoring-solutions-resources-searches-alerts.md)
-### [Visualizzazioni](../monitoring/monitoring-solutions-resources-views.md)
-### [Procedure consigliate](../monitoring/monitoring-solutions-best-practices.md)
+### [Progettare e compilare](../azure-monitor/insights/solutions-creating.md)
+### [File di soluzione](../azure-monitor/insights/solutions-solution-file.md)
+### [Risorse di Automazione](../azure-monitor/insights/solutions-resources-automation.md)
+### [Avvisi e ricerche nei log](../azure-monitor/insights/solutions-resources-searches-alerts.md)
+### [Visualizzazioni](../azure-monitor/insights/solutions-resources-views.md)
+### [Procedure consigliate](../azure-monitor/insights/solutions-best-practices.md)
 
 ## Scenari di gestione
 ### [Raccogliere dati di analisi dal runbook](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 17326fa60160e084d4c30347b1a765d1f80d01f5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299420"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711532"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipi di quote in Azure Stack
 
@@ -35,6 +35,8 @@ ms.locfileid: "51299420"
 | Numero massimo di memorie centrali delle macchine virtuali | 100 | Il numero massimo di core che è possibile creare una sottoscrizione in questa posizione (ad esempio, una macchina virtuale A3 dispone di quattro core). |
 | Numero massimo di set di disponibilità | 10 | Il numero massimo di set di disponibilità che possono essere create in questa posizione. |
 | Imposta il numero massimo di scalabilità di macchine virtuali | 100 | Il numero massimo di set di scalabilità di macchine virtuali che possono essere create in questa posizione. |
+| Capacità massima (in GB) del disco gestito standard | 2048 | La capacità massima di managed disks standard che possono essere create in questa posizione. |
+| Capacità massima (in GB) del disco gestito premium | 2048 | La capacità massima di premium servizio managed disks che possono essere create in questa posizione. |
 
 ## <a name="storage-quota-types"></a>Tipi di quote di archiviazione 
 | **Elemento** | **Valore predefinito** | **Descrizione** |
@@ -49,13 +51,13 @@ ms.locfileid: "51299420"
 ## <a name="network-quota-types"></a>Tipi di quote di rete
 | **Elemento** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
-| Indirizzi IP pubblici max |50 |Il numero massimo di indirizzi IP pubblici che è possibile creare una sottoscrizione in questa posizione. |
+| Indirizzi IP pubblici massimo |50 |Il numero massimo di indirizzi IP pubblici che è possibile creare una sottoscrizione in questa posizione. |
 | Reti virtuali massime |50 |Il numero massimo di reti virtuali che è possibile creare una sottoscrizione in questa posizione. |
 | Gateway di rete virtuale massima |1 |Il numero massimo di gateway di rete virtuale (VPN gateway) che è possibile creare una sottoscrizione in questa posizione. |
-| Numero massimo di connessioni di rete |2 |Il numero massimo di connessioni di rete (da punto a punto o site-to-site) che una sottoscrizione può creare in tutti i gateway di rete virtuale in questa posizione. |
+| Connessioni di rete massima |2 |Il numero massimo di connessioni di rete (da punto a punto o site-to-site) che una sottoscrizione può creare in tutti i gateway di rete virtuale in questa posizione. |
 | Servizi di bilanciamento del carico massimo |50 |Il numero massimo di servizi di bilanciamento del carico che può creare una sottoscrizione in questa posizione. |
-| Schede di interfaccia di rete max |100 |Il numero massimo di interfacce di rete che è possibile creare una sottoscrizione in questa posizione. |
-| Gruppi di sicurezza di rete max |50 |Il numero massimo di gruppi di sicurezza di rete che è possibile creare una sottoscrizione in questa posizione. |
+| Interfacce di rete massime |100 |Il numero massimo di interfacce di rete che è possibile creare una sottoscrizione in questa posizione. |
+| Gruppi di sicurezza di rete massima |50 |Il numero massimo di gruppi di sicurezza di rete che è possibile creare una sottoscrizione in questa posizione. |
 
 ## <a name="view-an-existing-quota"></a>Visualizzare una quota esistente
 1. Nel dashboard predefinito del portale di amministrazione, trovare il **provider di risorse** riquadro.

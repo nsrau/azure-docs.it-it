@@ -10,6 +10,7 @@ items:
     displayName: architecture
     href: concept-azure-machine-learning-architecture.md
   - name: Informazioni sullo stato di Workbench
+    displayName: desktop
     href: overview-what-happened-to-workbench.md
   expanded: true
 - name: Guide introduttive
@@ -32,7 +33,7 @@ items:
   items:
   - name: Jupyter Notebooks (GitHub)
     displayName: example, examples
-    href: http://aka.ms/aml-notebooks
+    href: https://aka.ms/aml-notebooks
 - name: Concetti
   items:
   - name: Gestione di modelli
@@ -49,7 +50,7 @@ items:
   - name: Configurare l'ambiente di sviluppo 
     items:
     - name: Configurare un ambiente
-      displayName: local, remote
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
       href: how-to-configure-environment.md
     - name: Visual Studio Code Tools for AI
       displayName: Visual Studio Code, vscode
@@ -71,7 +72,7 @@ items:
   - name: Eseguire il training dei modelli
     items:
     - name: Configurare ambienti di training
-      displayName: compute target, train
+      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Accedere ai dati durante il training
       href: how-to-access-data.md
@@ -83,11 +84,12 @@ items:
       - name: TensorFlow
         href: how-to-train-tensorflow.md
     - name: Ottimizzare gli iperparametri
+      displayName: parameter
       href: how-to-tune-hyperparameters.md
     - name: Tenere traccia di esperimenti e metriche
       href: how-to-track-experiments.md
   - name: Automatizzare l'apprendimento automatico
-    displayName: automl
+    displayName: automl, auto ml
     href: how-to-automated-ml.md
     items:
     - name: Configurare il training automatico
@@ -101,6 +103,7 @@ items:
   - name: Distribuire i modelli
     items:
     - name: Dove eseguire la distribuzione dei modelli
+      displayName: publish
       href: how-to-deploy-and-where.md
     - name: Distribuire in ACI
       displayName: Azure Container Instances
@@ -126,17 +129,21 @@ items:
     - name: Monitorare con Application Insights
       href: how-to-enable-app-insights.md
   - name: Gestire le quote di risorse
+    displayName: limits
     href: how-to-manage-quotas.md
   - name: Usare l'interfaccia della riga di comando di Machine Learning
-    displayName: cli, command line, command-line
+    displayName: cli, command line, command-line, az,
     href: reference-azure-machine-learning-cli.md
 - name: riferimento
   items:
   - name: Machine Learning SDK
-    href: http://aka.ms/aml-sdk
+    displayName: api, core, package
+    href: https://aka.ms/aml-sdk
   - name: SDK di preparazione dei dati
-    href: http://aka.ms/data-prep-sdk
+    displayName: api, preparation, package
+    href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
+    displayName: api, package
     href: https://aka.ms/aml-monitoring-sdk
 - name: Risorse
   items:
@@ -147,12 +154,14 @@ items:
   - name: Disponibilità internazionale
     href: https://azure.microsoft.com/regions/services/
   - name: Note sulla versione
+    displayName: what's new
     href: azure-machine-learning-release-notes.md
   - name: Problemi noti
     href: resource-known-issues.md
   - name: Supporto
     href: support-for-aml-services.md
   - name: Esportare ed eliminare dati
+    displayName: gdpr
     href: how-to-export-delete-data.md
   - name: Documenti deprecati
     items:
@@ -161,7 +170,7 @@ items:
       href: how-to-migrate.md
     - name: Esportare o eliminare i dati dell'account (deprecato)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
-    - name: Guida introduttiva sul Workbench
+    - name: Guida introduttiva a Workbench (deprecato)
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Esercitazione 1: Preparare i dati'
       href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
@@ -357,9 +366,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemi precedenti
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 87379b773b353f4f384252a9840f1e75d595e37b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 62bc2016ec9294c00f20587cb6f6f7af7bafa599
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613631"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706654"
