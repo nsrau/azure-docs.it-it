@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: f7fa4c9b0926d796c0c12b39d0056fe72e4028c7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3dac1d18a021c8d6c1b6e3db370c60b9aa782f1c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349025"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625352"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Esercitazione: Configurare Box per il provisioning utenti automatico
 
@@ -55,7 +55,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 La scheda **Box > Utenti e gruppi** nel portale di Azure consente di specificare gli utenti e i gruppi cui concedere l'accesso a Box. L'assegnazione di un utente o gruppo causa quanto segue:
 
 * Azure AD consente all'utente, assegnato tramite assegnazione diretta o appartenenza a un gruppo, di eseguire l'autenticazione in Box. Se l'utente non è assegnato, Azure AD non consente all'utente di eseguire l'accesso a Box e restituisce un errore nella pagina di accesso di Azure AD.
-* Un riquadro dell'app Box viene aggiunto alla [schermata di avvio delle applicazioni](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)dell'utente.
+* Un riquadro dell'app Box viene aggiunto alla [schermata di avvio delle applicazioni](../manage-apps/end-user-experiences.md)dell'utente.
 * Se il provisioning automatico è abilitato, gli utenti e/o i gruppi assegnati vengono aggiunti alla coda di provisioning per l'esecuzione automatica del provisioning.
   
   * Se è stata selezionata l'esecuzione del provisioning solo per gli oggetti utente, tutti gli utenti assegnati direttamente e tutti gli utenti che appartengono ai gruppi assegnati vengono aggiunti alla coda di provisioning. 

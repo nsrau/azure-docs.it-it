@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c40cfd9b15f2ae6398b70effc4f4d38111cfe1e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886066"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288306"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Servizio di sincronizzazione Azure AD Connect: estensioni della directory
-È possibile usare le estensioni della directory per estendere lo schema in Azure Active Directory (Azure AD) con attributi personalizzati dall'istanza di Active Directory locale. Questa funzionalità consente di compilare app line-of-business che utilizzano attributi che continuano a essere gestiti in locale. Questi attributi possono essere utilizzati tramite le [estensioni della directory API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://graph.microsoft.io/). È possibile visualizzare gli attributi disponibili usando rispettivamente lo strumento [Graph Explorer di Azure AD](https://graphexplorer.azurewebsites.net/) e lo strumento [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+È possibile usare le estensioni della directory per estendere lo schema in Azure Active Directory (Azure AD) con attributi personalizzati dall'istanza di Active Directory locale. Questa funzionalità consente di compilare app line-of-business che utilizzano attributi che continuano a essere gestiti in locale. Questi attributi possono essere utilizzati tramite le [estensioni della directory API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://developer.microsoft.com/graph/). È possibile visualizzare gli attributi disponibili usando rispettivamente lo strumento [Graph Explorer di Azure AD](https://graphexplorer.azurewebsites.net/) e lo strumento [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 Attualmente nessun carico di lavoro di Office 365 utilizza questi attributi.
 

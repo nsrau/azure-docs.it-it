@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 4189d3a09625f211c6f9eddc7c1c5fe43ad31732
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572303"
+---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creare un runtime di integrazione self-hosted
 
 In questa sezione si crea un runtime di integrazione self-hosted e lo si associa a un computer locale con il database di SQL Server. Il runtime di integrazione self-hosted è il componente che copia i dati dall'istanza di SQL Server nel computer all'archivio BLOB di Azure. 

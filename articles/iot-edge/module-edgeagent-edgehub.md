@@ -2,18 +2,18 @@
 title: Informazioni di riferimento su EdgeAgent ed EdgeHub per Azure IoT | Microsoft Docs
 description: Esaminare le proprietà specifiche e i rispettivi valori per i moduli gemelli edgeAgent ed edgeHub
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ecc48adfeef30a777ae4d96c9b996c8bcdfea12d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 01e1942b12de126aa34130f5a4b77dd0fb958aa6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247811"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568921"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Proprietà dei moduli gemelli "agente di Edge" e "hub di Edge"
 
@@ -25,7 +25,7 @@ Questo articolo descrive le proprietà desiderate e quelle segnalate dei moduli 
 
 Il dispositivo gemello del modulo per l'agente Edge è denominato `$edgeAgent` e coordina le comunicazioni tra l'agente Edge in esecuzione su un dispositivo e l'hub IoT. Le proprietà desiderate vengono impostate durante l'applicazione di un manifesto della distribuzione in un dispositivo specifico nell'ambito di una distribuzione di un singolo dispositivo o su larga scala. 
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 | -------- | ----------- | -------- |
 | schemaVersion | Deve essere "1.0" | Yes |
 | runtime.type | Deve essere "docker" | Yes |
@@ -67,7 +67,7 @@ Quest'ultima informazione è utile nel caso in cui le proprietà desiderate più
 
 La tabella seguente non include le informazioni copiate dalle proprietà desiderate.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | -------- | ----------- |
 | lastDesiredVersion | Questo integer si riferisce all'ultima versione delle proprietà desiderate elaborate dall'agente di Edge. |
 | lastDesiredStatus.code | Questo è il codice di stato che fa riferimento alle ultime proprietà desiderate visualizzate dall'agente Edge. Valori consentiti: `200` Success, `400` Invalid configuration, `412` Invalid schema version, `417` the desired properties are empty, `500` Failed |
@@ -97,7 +97,7 @@ La tabella seguente non include le informazioni copiate dalle proprietà desider
 
 Il dispositivo gemello del modulo per l'hub Edge è denominato `$edgeHub` e coordina le comunicazioni tra l'hub Edge in esecuzione su un dispositivo e l'hub IoT. Le proprietà desiderate vengono impostate durante l'applicazione di un manifesto della distribuzione in un dispositivo specifico nell'ambito di una distribuzione di un singolo dispositivo o su larga scala. 
 
-| Proprietà | Descrizione | Obbligatoria nel manifesto della distribuzione |
+| Proprietà | DESCRIZIONE | Obbligatoria nel manifesto della distribuzione |
 | -------- | ----------- | -------- |
 | schemaVersion | Deve essere "1.0" | Yes |
 | routes.{routeName} | Stringa che rappresenta una route dell'hub Edge. | L'elemento `routes` può essere presente, ma vuoto. |
@@ -105,7 +105,7 @@ Il dispositivo gemello del modulo per l'hub Edge è denominato `$edgeHub` e coor
 
 ## <a name="edgehub-reported-properties"></a>Proprietà segnalate di EdgeHub
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | -------- | ----------- |
 | lastDesiredVersion | Questo integer si riferisce all'ultima versione delle proprietà desiderate elaborate dall'hub di Edge. |
 | lastDesiredStatus.code | Questo è il codice di stato che fa riferimento alle ultime proprietà desiderate visualizzate dall'hub Edge. Valori consentiti: `200` Success, `400` Invalid configuration, `500` Failed |

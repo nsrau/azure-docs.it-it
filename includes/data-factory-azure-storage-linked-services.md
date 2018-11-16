@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: e5f2afa4bc8a4b8eae523fde323d835c0c53fe8e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572301"
+---
 ### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
 Il **servizio collegato ad Archiviazione di Azure** consente di collegare un account di Archiviazione di Azure a una data factory di Azure tramite la **chiave dell'account**, che fornisce alla data factory l'accesso globale ad Archiviazione di Azure. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato Archiviazione di Azure.
 
@@ -6,7 +19,7 @@ Il **servizio collegato ad Archiviazione di Azure** consente di collegare un acc
 | type |La proprietà type deve essere impostata su: **AzureStorage** |Yes |
 | connectionString |Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. |Yes |
 
-Per i passaggi da seguire per visualizzare o copiare la chiave dell'account per Archiviazione di Azure, vedere [Visualizzare, copiare e rigenerare le chiave di accesso alle risorse di archiviazione](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
+Vedere la sezione seguente per le procedure di visualizzazione e copia della chiave dell'account per Archiviazione di Azure: [Chiavi di accesso](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **Esempio:**  
 
