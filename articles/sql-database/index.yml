@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 89399d59504328d40c08b9926b4ddb3fad3f8530
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d7111b5faaa5276c65219db8ddd35fca64081a72
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978761"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853048"
 documentType: LandingData
 title: Documentazione sul database SQL di Azure
 metadata:
@@ -63,7 +63,7 @@ sections:
       image:
         src: media/index/i_elasticpool.svg
       title: Pool elastici
-    - href: /azure/sql-database/sql-database-managed-instance
+    - href: /azure/sql-database/sql-database-managed-instance-index
       html: <p>Usare l'istanza gestita per eseguire in modo semplice la migrazione dei database locali nel servizio database completamente gestito di Azure PaaS senza modifiche del codice del database oppure con modifiche minime.</p>
       image:
         src: media/index/i_mi.svg
@@ -198,7 +198,7 @@ sections:
     - title: Riga di comando
       html: <p><a href="/powershell/module/azurerm.sql/#sql">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (database elastico)</a></p><p><a href="/cli/azure/sql">Interfaccia della riga di comando di Azure</a></p>
     - title: Lingue
-      html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.JS</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
+      html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
     - title: REST
       html: <p><a href="/rest/api/sql/">Informazioni di riferimento sulle API REST</a></p>
     - title: Strumenti di SQL Server
