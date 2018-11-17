@@ -14,22 +14,19 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 7d3b0e179972464a1ed857c576ca8a7c8fc2e162
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: ca5322c3c874c434f16a42900227a47245851b02
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686807"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854034"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Rimuovere il provider di risorse MySQL
 
 Prima di rimuovere il provider di risorse MySQL, è necessario rimuovere tutte le dipendenze del provider. È necessario anche una copia del pacchetto di distribuzione che è stato usato per installare il provider di risorse.
 
-  |Versione minima di Azure Stack|Versione di MySQL RP|
-  |-----|-----|
-  |Versione 1808 (1.1808.0.97)|[RP MySQL versione 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
-  |Versione 1804 (1.0.180513.1)|[RP MySQL versione 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
-  |     |     |
+> [!NOTE]
+> È possibile trovare i collegamenti di download per la risorsa di programmi di installazione di provider [distribuisce i prerequisiti di provider di risorse](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="dependency-cleanup"></a>Pulizia delle dipendenze
 
