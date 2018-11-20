@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: f9a7ae76f2d52b3439bfb33f306e164bb81549eb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8a2a9728a9fcc0c409cd2020c4aa831433538157
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623979"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976129"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Strumenti di diagnostica di Azure Stack
 
@@ -70,13 +70,17 @@ if($s)
     Remove-PSSession $s
 }
 ```
-- I parametri **OutputSharePath** e **OutputShareCredential** vengono usati per archiviare i log di accesso dell'utente specificato percorso.
-- Il **FromDate** e **ToDate** parametri possono essere utilizzati per raccogliere i log per un periodo di tempo specifico. Se questi parametri vengono omessi, i log vengono raccolti per le ultime quattro ore per impostazione predefinita.
+
 
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Eseguire Get-AzureStackLog su un sistema di Azure Stack Development Kit (ASDK)
-1. Accedi come **AzureStack\CloudAdmin** nell'host.
-2. Aprire una finestra di PowerShell come amministratore.
+Usare questi passaggi per l'esecuzione di Get-AzureStackLog in un computer host ASDK.
+
+- I parametri **OutputSharePath** e **OutputShareCredential** vengono usati per archiviare i log di accesso dell'utente specificato percorso.
+- Il **FromDate** e **ToDate** parametri possono essere utilizzati per raccogliere i log per un periodo di tempo specifico. Se questi parametri vengono omessi, i log vengono raccolti per le ultime quattro ore per impostazione predefinita.
+
+1. Accedi come **AzureStack\CloudAdmin** nel computer host ASDK.
+2. Aprire una nuova finestra di PowerShell come amministratore.
 3. Eseguire la **Get-AzureStackLog** cmdlet di PowerShell.
 
 **Esempi:**

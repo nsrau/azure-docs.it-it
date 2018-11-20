@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: cc6af421551ba8ca973c15455daebf58c317d6f5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567911"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976486"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -84,7 +84,11 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
 
 ### <a name="changes"></a>Modifiche
 
-No.
+<!-- 2635202 - IS, ASDK -->
+- Servizio di backup dell'infrastruttura viene spostato dal [rete infrastruttura pubblico](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) per il [rete indirizzi VIP pubblici](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). I clienti dovranno assicurarsi che il servizio ha accesso il percorso di archiviazione di backup dalla rete VIP pubblica.  
+
+> [!IMPORTANT]  
+> Se è presente un firewall che non consente le connessioni dalla rete VIP pubblica al file server, questa modifica causa backup infrastructure con "Errore 53 il percorso di rete non trovato". Si tratta di una modifica sostanziale che non dispone di alcuna soluzione ragionevole. In base ai suggerimenti dei clienti, Microsoft sarà annullare questa modifica in un aggiornamento rapido. Vedere le [post sezione passaggi di aggiornamento](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-update-1809#post-update-steps) per altre informazioni sulle correzioni disponibili per 1809. Dopo l'aggiornamento rapido è disponibile, assicurarsi di applicarlo dopo l'aggiornamento a 1809 solo se i criteri di rete non consentono la rete VIP pubblica accedere alle risorse di infrastruttura. in 1811, questa modifica verrà applicata a tutti i sistemi. Se è applicato l'aggiornamento rapido in 1809, non è richiesta alcuna azione ulteriore.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
 
