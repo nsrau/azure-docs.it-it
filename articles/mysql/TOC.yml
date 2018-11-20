@@ -180,6 +180,10 @@ items:
       href: howto-manage-vnet-using-portal.md
     - name: Interfaccia della riga di comando di Azure
       href: howto-manage-vnet-using-cli.md
+  - name: Riavviare il server
+    items:
+    - name: Portale di Azure
+      href: howto-restart-server-portal.md
 - name: riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
@@ -226,9 +230,9 @@ items:
     href: partners-migration-mysql.md
   - name: Guida alla migrazione di database
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 39c05df6c48a1a6fe42c1c2e75cbc79441e42bc5
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 5bf46cfafe64974e805827dfbee89f8af633b327
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287524"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161053"

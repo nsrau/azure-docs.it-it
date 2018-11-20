@@ -119,12 +119,14 @@ items:
       href: how-to-troubleshoot-deployment.md
     - name: Proteggere con SSL
       href: how-to-secure-web-service.md
-    - name: Consumare un modello distribuito
+  - name: Utilizzare i servizi Web
+    items:
+    - name: Utilizzo in tempo reale
       displayName: create client, client, consume
       href: how-to-consume-web-service.md
-  - name: Monitorare i modelli
+  - name: Monitorare i servizi Web
     items:
-    - name: Raccogliere dati in produzione
+    - name: Raccogliere e valutare i dati
       href: how-to-enable-data-collection.md
     - name: Monitorare con Application Insights
       href: how-to-enable-app-insights.md
@@ -366,9 +368,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemi precedenti
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 62bc2016ec9294c00f20587cb6f6f7af7bafa599
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 71dc3f256a2d145dbb645feb7f309f5c760bf20a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706654"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163980"

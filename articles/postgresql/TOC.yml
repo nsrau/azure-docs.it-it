@@ -166,6 +166,10 @@ items:
       href: howto-manage-vnet-using-portal.md
     - name: Interfaccia della riga di comando di Azure
       href: howto-manage-vnet-using-cli.md
+  - name: Riavviare il server
+    items:
+    - name: Portale di Azure
+      href: howto-restart-server-portal.md
 - name: riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
@@ -214,9 +218,9 @@ items:
     href: partners-migration-postgresql.md
   - name: Guida alla migrazione di database
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 435201a225f2e6e2d3695f71fec93796d3437436
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: bbbc843fd62ce447b8e5ac5e8b1f2f472cb5adfc
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622823"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165501"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d7111b5faaa5276c65219db8ddd35fca64081a72
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 9e68e60fa22964f43680cd2070a09fffc98fbee3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853048"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163388"
 documentType: LandingData
 title: Documentazione sul database SQL di Azure
 metadata:
@@ -68,12 +68,12 @@ sections:
       image:
         src: media/index/i_mi.svg
       title: Istanza gestita
-    - href: /azure/sql-database/sql-database-business-continuity
+    - href: /azure/sql-database/sql-database-paas
       html: <p>La disponibilità elevata predefinita, i backup automatici e la replica geografica impediranno a operazioni di manutenzione, errori di infrastruttura o errori hardware di interrompere le attività dell'azienda.</p>
       image:
         src: media/index/gear.svg
-      title: Continuità aziendale
-    - href: /azure/sql-database/sql-database-security-overview
+      title: Piattaforma distribuita come servizio
+    - href: /azure/sql-database/sql-database-security-index
       html: <p>È possibile proteggere il database con l'autenticazione di Azure AD, le reti virtuali, i firewall e connessioni Always Encrypted. La sicurezza predefinita consente di identificare le minacce e le vulnerabilità.</p>
       image:
         src: media/index/i_security.svg

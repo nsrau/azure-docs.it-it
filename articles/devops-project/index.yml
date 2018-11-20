@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dd941fcb57c358e33abe0da54ab8f76f2dccae28
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 19e4fbed8f8ea9b051ffb493b0c6b9a1f4eb48b3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295227"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162355"
 documentType: LandingData
-title: Progetto DevOps di Azure
+title: Azure DevOps Projects
 metadata:
   document_id: 
-  title: Documentazione del progetto DevOps di Azure - Guide introduttive ed esercitazioni
+  title: Documentazione di Azure DevOps Projects - Guide introduttive ed esercitazioni
   meta.description: 
   services: devops-project
   author: mlearned
@@ -21,14 +21,14 @@ metadata:
   ms.date: 07/06/2018
   ms.author: mlearned
 abstract:
-  description: Il progetto DevOps di Azure presenta un'esperienza semplificata in cui è possibile usare il codice e il repository Git esistente oppure scegliere una delle applicazioni di esempio per creare una pipeline di integrazione continua e distribuzione continua in Azure.
+  description: Azure DevOps Projects offre un'esperienza semplificata in cui è possibile usare il codice esistente e il repository Git oppure scegliere una delle applicazioni di esempio per creare una pipeline di integrazione continua (CI, Continuous Integration) e distribuzione continua (CD, Continuous Delivery) in Azure.
   aside:
     image:
       alt: 
       height: 110
       src: _img\video-devops-project.png
       width: 250
-    title: 'Video: Creare integrazione continua e distribuzione continua con il progetto DevOps di Azure (8:53)'
+    title: Video sulla creazione di CI/CD con DevOps Projects (8:53)
     href: https://channel9.msdn.com/Events/Connect/2017/T174/player/
     width: 250
 sections:
@@ -70,7 +70,7 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come usare il progetto Azure DevOps per creare pipeline di versione di Azure
+    text: Informazioni su come usare DevOps Projects per creare pipeline di versione
   - type: list
     style: ordered
     items:
