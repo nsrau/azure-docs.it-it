@@ -17,15 +17,20 @@ items:
       href: python-ingest-data.md
     - name: Invio in batch dei dati - Node SDK
       href: node-ingest-data.md
-    expanded: true
   - name: Eseguire query sui dati
     items:
     - name: Interfaccia utente Web
       href: web-query-data.md
     - name: Python
       href: python-query-data.md
-    expanded: true
-  expanded: true
+  - name: Visualizzare i dati
+    items:
+    - name: Power BI - Connettore
+      href: power-bi-connector.md
+    - name: Power BI - Query importata
+      href: power-bi-imported-query.md
+    - name: Power BI - Query SQL
+      href: power-bi-sql-query.md
 - name: Esercitazioni
   items:
   - name: Visualizzare i dati - Power BI
@@ -33,9 +38,11 @@ items:
 - name: Concetti
   items:
   - name: Panoramica dell'inserimento dati
+    displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
     href: ingest-data-overview.md
   - name: Analisi di serie temporali
     href: time-series-analysis.md
+  expanded: true
 - name: Guide alle procedure
   items:
   - name: Scrivere query
@@ -90,9 +97,9 @@ items:
     href: http://aka.ms/adecostestimator
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 21033669a37e6333e12476c67d96b8ffc52458bd
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 2a46211975e094db74b501285b9725d78ddd4166
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218239"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852021"
