@@ -17,6 +17,8 @@ items:
     href: detailed-troubleshoot-rdp.md
   - name: Risolvere l'errore RDP causato dalla disabilitazione del protocollo DHCP
     href: troubleshoot-rdp-dhcp-disabled.md
+  - name: Risolvere l'errore RDP causato dall'impostazione del gruppo di sicurezza di rete
+    href: troubleshoot-rdp-nsg-problem.md
   - name: Risolvere errori specifici
     href: troubleshoot-specific-rdp-errors.md
   - name: Risolvere l'errore di server licenze non trovato
@@ -60,11 +62,11 @@ items:
   items:
   - name: Linux
     href: redeploy-to-new-node-linux.md
-  - name: Windows
+  - name: " Windows"
     href: redeploy-to-new-node-windows.md
 - name: Reimpostare la password della VM
   items:
-  - name: Windows
+  - name: " Windows"
     href: reset-local-password-without-agent.md
   - name: Linux
     href: reset-password.md
@@ -98,19 +100,19 @@ items:
   items:
   - name: Linux
     href: troubleshoot-deployment-new-vm-linux.md
-  - name: Windows
+  - name: " Windows"
     href: troubleshoot-deployment-new-vm-windows.md
 - name: Risolvere i problemi delle distribuzioni
   items:
   - name: Linux
     href: troubleshoot-deploy-vm-linux.md
-  - name: Windows
+  - name: " Windows"
     href: troubleshoot-deploy-vm-windows.md
 - name: Modifiche ai nomi dei dispositivi
   href: troubleshoot-device-names-problems.md
 - name: Accesso di ripristino di macchine virtuali
   items:
-  - name: Windows
+  - name: " Windows"
     items:
     - name: PowerShell
       href: troubleshoot-recovery-disks-windows.md
@@ -149,9 +151,9 @@ items:
   href: understand-vm-reboot.md
 - name: Strumenti per la risoluzione remota dei problemi
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: 4b4202e0eb155e80b86332287ba4ed3a37a24741
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: fbbc44073d4cb27222800943826ab7a177709833
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705617"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260630"
