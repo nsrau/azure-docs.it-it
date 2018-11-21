@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c731d0498c026a5d0659335550f6e280a031b1e4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011358"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612806"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portale di che si sposta in Azure
 
@@ -55,7 +55,7 @@ Consultare [Domande frequenti per la transizione dal portale di OMS al portale d
 La gestione di accesso al portale Azure è più completa e più potente rispetto alla gestione di accesso nel portale di OMS. Vedere [Gestire le aree di lavoro](log-analytics-manage-access.md#manage-accounts-and-users) per informazioni dettagliate sulla gestione dell'accesso in Log Analytics.
 
 > [!NOTE]
-> Le versioni precedenti di questo articolo dichiaravano che le autorizzazioni che venivano convertite automaticamente dal portale di OMS al portale di Azure. Questa conversazione automatica non è più pianificata ed è necessario eseguire la conversione manualmente.
+> Le versioni precedenti di questo articolo dichiaravano che le autorizzazioni che venivano convertite automaticamente dal portale di OMS al portale di Azure. La conversione automatica non è più prevista. È quindi necessario eseguire la conversione manualmente.
 
 Si può già disporre di un accesso appropriato nel portale di Azure e, in questo caso, non è necessario apportare modifiche. Esistono un paio di casi in cui non si potrebbe disporre dell'accesso appropriato e, in questo caso, l'amministratore deve assegnare le autorizzazioni.
 
@@ -84,7 +84,7 @@ Non è più possibile creare nuove aree di lavoro usando il portale di OMS. Per 
 Gli avvisi sono stati [estesi al portale di Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Dopo questa procedura guidata, le azioni di gestione degli avvisi saranno disponibili solo nel portale di Azure. Gli avvisi esistenti continueranno a essere elencati nel portale di OMS, Se si accede agli avvisi a livello di codice tramite l'API REST per gli avvisi di Log Analytics o il modello risorse degli avvisi di Log Analytics sarà necessario usare i gruppi di azioni invece delle azioni nelle chiamate API, dei modelli di Azure Resource Manager e dei comandi di PowerShell.
 
 ### <a name="alert-management-solution"></a>soluzione Alert Management
-Anziché la [soluzione di gestione di avviso](log-analytics-solution-alert-management.md), è possibile usare l'[interfaccia di avviso unificata del Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) per visualizzare e gestire gli avvisi. Questa nuova esperienza aggrega avvisi provenienti da più origini tra cui gli avvisi di registro di Azure da Log Analytics. È possibile vedere le distribuzioni degli avvisi, sfruttare i vantaggi del raggruppamento automatizzato degli avvisi correlati tramite gruppi smart e visualizzare gli avvisi tra più sottoscrizioni durante l'applicazione di filtri avanzati. Tutte queste funzionalità sono disponibili in anteprima di avvio il 4 giugno 2018. La soluzione di gestione degli avvisi non sarà disponibile nel portale di Azure. 
+Anziché la [soluzione di gestione di avviso](log-analytics-solution-alert-management.md), è possibile usare l'[interfaccia di avviso unificata del Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) per visualizzare e gestire gli avvisi. Questa nuova esperienza aggrega avvisi provenienti da più origini tra cui gli avvisi di registro di Azure da Log Analytics. È possibile vedere le distribuzioni degli avvisi, sfruttare i vantaggi del raggruppamento automatizzato degli avvisi correlati tramite gruppi smart e visualizzare gli avvisi tra più sottoscrizioni durante l'applicazione di filtri avanzati. Tutte queste funzionalità sono disponibili in anteprima di avvio il 4 giugno 2018. La soluzione di gestione degli avvisi non sarà disponibile nel portale di Azure. 
 
 I dati raccolti dalla soluzione di gestione degli avvisi (record con un tipo di avviso) continuano a essere in Log Analytics fino a quando la soluzione è installata per l'area di lavoro. All'inizio di agosto 2018, il flusso di avvisi dagli avvisi unificati nelle aree di lavoro verrà abilitato, sostituendo questa funzionalità. Alcune modifiche dello schema sono previste e verranno annunciate in un secondo momento.
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7f85de79b683ba7b10f5466c4a8042fc0ffdea90
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 3f1e34b4d527d076a0bac2e0cb6ef3a901296c57
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382872"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612476"
 ---
 # <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 nei criteri personalizzati di Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Gli elementi **InputClaims** e **InputClaimsTransformations** non sono obbligato
 
 ## <a name="output-claims"></a>Attestazioni di output
 
-L'elemento **OutputClaims** contiene un elenco di attestazioni restituite dal provider di identità OAuth2. Potrebbe essere necessario eseguire il mapping dell'attestazione definita nei criteri per il nome definito nel provider di identità. È anche possibile includere le attestazioni che non vengono restituite dal provider di identità, purché sia impostato l'attributo `DefaultValue`.
+L'elemento **OutputClaims** contiene un elenco di attestazioni restituite dal provider di identità OAuth2. Può essere necessario eseguire il mapping del nome dell'attestazione definito nei criteri per il nome definito nel provider di identità. È anche possibile includere le attestazioni che non vengono restituite dal provider di identità, purché sia impostato l'attributo `DefaultValue`.
 
 L'elemento **OutputClaimsTransformations** può contenere una raccolta di elementi **OutputClaimsTransformation** che vengono usati per modificare le attestazioni di output o per generarne di nuove.
 
@@ -78,7 +78,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 | Attributo | Obbligatoria | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| client_id | Yes | L'identificatore dell'applicazione del provider di identità. |
+| client_id | Yes | L'identificatore dell'attestazione del provider di identità. |
 | IdTokenAudience | No  | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se il token è in un'attestazione restituita dal provider di identità ed è uguale a quello specificato. |
 | authorization_endpoint | Yes | L'URL dell'endpoint di autorizzazione come per RFC 6749. |
 | AccessTokenEndpoint | Yes | L'URL dell'endpoint token come per RFC 6749. |  

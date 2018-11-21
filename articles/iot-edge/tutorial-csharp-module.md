@@ -3,29 +3,31 @@ title: Esercitazione per C# per Azure IoT Edge | Microsoft Docs
 description: Questa esercitazione illustra come creare un modulo per IoT Edge con codice C# e distribuirlo in un dispositivo perimetrale.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ec8cd52d8a91c76033d52f9b49ee84dde98eada2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4c20ab78ba4da44d4746ef6f68674fe494392347
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156766"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633989"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Esercitazione: Sviluppare un modulo C# per IoT Edge e distribuirlo in un dispositivo simulato
 
 È possibile usare i moduli di Azure IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. Verrà usato il dispositivo IoT Edge simulato che è stato creato nelle guide introduttive relative alla distribuzione di Azure IoT Edge in un dispositivo simulato in [Windows](quickstart.md) e [Linux](quickstart-linux.md). In questa esercitazione si apprenderà come:    
 
 > [!div class="checklist"]
-> * Usare Visual Studio Code per creare un modulo di IoT Edge basato su .NET Core 2.0 SDK.
+> * Usare Visual Studio Code per creare un modulo di IoT Edge basato su .NET Core 2.1 SDK.
 > * Usare Visual Studio Code e Docker per creare un'immagine Docker e pubblicarla nel registro.
 > * Distribuire il modulo nel dispositivo IoT Edge.
 > * Visualizzare i dati generati.
 
+>[!NOTE]
+>È anche possibile usare [Visual Studio 2017 per sviluppare, distribuire ed eseguire il debug di moduli di IoT Edge](how-to-visual-studio-develop-csharp-module.md).
 
 Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla temperatura generati dal dispositivo. Invia messaggi upstream solo quando la temperatura è superiore a una soglia specificata. Questo tipo di analisi alla rete perimetrale è utile per ridurre la quantità di dati comunicati e archiviati nel cloud. 
 

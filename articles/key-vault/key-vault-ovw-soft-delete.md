@@ -2,16 +2,17 @@
 ms.assetid: ''
 title: Eliminazione temporanea di Azure Key Vault | Microsoft Docs
 ms.service: key-vault
+ms.topic: conceptual
 author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: ccdefc83642285194635ffe7b561e9e322360533
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 12b14b87a02619b21e80436c80a284c4011f8b33
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141763"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300320"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
@@ -36,9 +37,28 @@ Gli insiemi di credenziali delle chiavi di Azure sono risorse tracciate, gestite
 
 ### <a name="soft-delete-behavior"></a>Comportamento della funzione di eliminazione temporanea
 
-Con questa funzionalità, l'operazione di eliminazione eseguita su un insieme di credenziali delle chiavi o su un oggetto di un insieme di credenziali delle chiavi è di fatto un'operazione di eliminazione temporanea, poiché in realtà le risorse vengono mantenute per un periodo di memorizzazione specifico, seppur risultino apparentemente eliminate. Il servizio offre anche un meccanismo per il ripristino dell'oggetto eliminato, essenzialmente annullando l'operazione di eliminazione. 
+Con questa funzionalità, l'operazione di eliminazione eseguita su un insieme di credenziali delle chiavi o su un oggetto di un insieme di credenziali delle chiavi è di fatto un'operazione di eliminazione temporanea, poiché in realtà le risorse vengono mantenute per un periodo di memorizzazione specifico (90 giorni), seppur risultino apparentemente eliminate. Il servizio offre anche un meccanismo per il ripristino dell'oggetto eliminato, essenzialmente annullando l'operazione di eliminazione. 
 
 L'eliminazione temporanea è un comportamento facoltativo di Key Vault e in questa versione **non è abilitato per impostazione predefinita**. 
+
+### <a name="purge-protection--flag"></a>Flag di protezione dalla ripulitura
+Il flag di protezione dalla ripulitura (**--enable-purge-protection**(Attiva protezione dalla ripulitura) nell'interfaccia della riga di comando di Azure) è disattivato per impostazione predefinita. Quando questo flag è attivato, un insieme di credenziali o un oggetto nello stato eliminato non può essere ripulito finché non ha superato il periodo di conservazione di 90 giorni. Tale insieme di credenziali o oggetto può essere comunque ripristinato. Questo flag offre maggiore sicurezza ai clienti che un oggetto o un insieme di credenziali non venga mai eliminato definitivamente prima che sia trascorso il periodo di conservazione. È possibile attivare il flag di protezione dalla ripulitura solo se il flag di eliminazione temporanea è attivato o al momento della creazione dell'insieme di credenziali si attiva sia l'eliminazione temporanea che la protezione dalla ripulitura.
+
+> [!NOTE] 
+   Il prerequisito per l'attivazione della protezione dalla ripulitura è l'attivazione dell'eliminazione temporanea.
+Il comando per eseguire questa operazione si trova nell'interfaccia della riga di comando di Azure 2
+
+```
+az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+### <a name="permitted-purge"></a>Ripulitura consentita
+
+L'eliminazione permanente di un insieme di credenziali delle chiavi non è possibile tramite un'operazione POST sulla risorsa proxy e richiede privilegi speciali. In genere, solo il proprietario della sottoscrizione può eliminare in modo permanente un insieme di credenziali delle chiavi. L'operazione POST attiva l'eliminazione immediata e irreversibile dell'insieme di credenziali delle chiavi. 
+
+Unica eccezione a questa conseguenza è
+- che la sottoscrizione di Azure sia stata contrassegnata come *non cancellabile*. In questo caso solo il servizio può eseguire l'eliminazione effettiva, sotto forma di processo pianificato. 
+- Quando il flag di protezione dalla ripulitura è attivato nell'insieme di credenziali stesso. In questo caso, Key Vault attenderà 90 giorni da quando l'oggetto segreto originale è stato contrassegnato per l'eliminazione definitiva dell'oggetto.
 
 ### <a name="key-vault-recovery"></a>Recupero di un insieme di credenziali delle chiavi
 
@@ -62,12 +82,6 @@ Le risorse eliminate in modo temporaneo vengono conservate per un periodo di tem
 - Solo un utente con privilegi specifici può eliminare in modo forzato un insieme di credenziali delle chiavi o un oggetto di un insieme di credenziali delle chiavi eseguendo un comando di eliminazione sulla risorsa proxy corrispondente.
 
 Se l'insieme di credenziali delle chiavi o l'oggetto dell'insieme di credenziali delle chiavi non viene recuperato, alla fine dell'intervallo di memorizzazione il servizio esegue un'operazione di ripulitura sull'insieme di credenziali delle chiavi o sull'oggetto dell'insieme eliminato in modo temporaneo, nonché sui relativi contenuti. È possibile che l'eliminazione della risorsa non venga ripianificata.
-
-### <a name="permitted-purge"></a>Ripulitura consentita
-
-L'eliminazione permanente di un insieme di credenziali delle chiavi non è possibile tramite un'operazione POST sulla risorsa proxy e richiede privilegi speciali. In genere, solo il proprietario della sottoscrizione può eliminare in modo permanente un insieme di credenziali delle chiavi. L'operazione POST attiva l'eliminazione immediata e irreversibile dell'insieme di credenziali delle chiavi. 
-
-Unica eccezione a questa conseguenza è che la sottoscrizione di Azure sia stata contrassegnata come *non cancellabile*. In questo caso solo il servizio può eseguire l'eliminazione effettiva, sotto forma di processo pianificato. 
 
 ### <a name="billing-implications"></a>Implicazioni relative alla fatturazione
 

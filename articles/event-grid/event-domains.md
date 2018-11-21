@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.openlocfilehash: b5a1e521f46da7feffd2eb556ad1662a9ccaee55
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/08/2018
+ms.openlocfilehash: 4e21b1bb85ba91266370d89ec8dbd0fae84ef197
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913837"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299793"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informazioni sui domini eventi per la gestione di argomenti di Griglia di eventi
 
@@ -23,7 +23,7 @@ Questo articolo descrive come usare i domini eventi per gestire il flusso di eve
 * Partizionare gli argomenti senza doverli gestire singolarmente.
 * Evitare di dover pubblicare singolarmente in ogni endpoint degli argomenti.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+Questa funzionalità è in anteprima. Per usarla, è necessario installare un modulo o un'estensione di anteprima. Per istruzioni, vedere [Gestire argomenti e pubblicare eventi con Domini eventi](how-to-event-domains.md).
 
 ## <a name="event-domain-overview"></a>Panoramica del dominio eventi
 

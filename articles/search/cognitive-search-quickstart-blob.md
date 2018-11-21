@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729993"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288034"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guida introduttiva: Creare una pipeline di ricerca cognitiva con competenze e dati di esempio
 
@@ -26,10 +26,16 @@ In questa Guida introduttiva è possibile provare la pipeline di arricchimento n
 * Eseguire la procedura guidata (una competenza entità rileva gli utenti, la posizione e le organizzazioni)
 * Usare [Esplora ricerche](search-explorer.md) per eseguire una query per i dati arricchiti.
 
+## <a name="supported-regions"></a> Aree supportate
+
 È possibile provare la ricerca cognitiva in un servizio Ricerca di Azure creato nelle aree seguenti:
 
+* Stati Uniti centro-occidentali
 * Stati Uniti centro-meridionali
+* Stati Uniti orientali
 * Europa occidentale
+* Europa settentrionale
+* Asia sud-orientale
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -57,7 +63,7 @@ Prima di tutto, iscriversi al servizio Ricerca di Azure.
 
 1. Per Gruppo di risorse creare un gruppo di risorse per contenere tutte le risorse che verranno create in questa guida introduttiva. In questo modo è più semplice pulire le risorse dopo aver completato la Guida introduttiva.
 
-1. Per Località scegliere **Stati Uniti centro-meridionali** oppure **Europa occidentale**. Attualmente, l'anteprima è disponibile solo in queste aree.
+1. Per Località scegliere una delle [aree supportate](#supported-regions) per la ricerca cognitiva.
 
 1. Per Piano tariffario è possibile creare un servizio **Gratuito** per completare le esercitazioni e le guide introduttive. Per eseguire altre analisi usando dati personali, creare un [servizio a pagamento](https://azure.microsoft.com/pricing/details/search/), ad esempio **Basic** o **Standard**. 
 

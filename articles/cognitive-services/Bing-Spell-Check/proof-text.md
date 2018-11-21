@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 48d9dee014d0759bd339c79811bb7b2fddecfe0b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214937"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345709"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Informazioni sull'API Controllo ortografico Bing
 
@@ -42,9 +42,12 @@ La modalità predefinita è `Proof`. La modalità di controllo ortografico `Proo
 <br /><br/>**NOTA:** se la lunghezza del testo della query è superiore a 4096, il testo verrà troncato a 4096 caratteri e quindi verrà elaborato. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spell - Per scenari di ricerche Web/query
 L'opzione `Spell` è più aggressiva, in modo da restituire risultati della ricerca migliori. La modalità `Spell` individua la maggior parte degli errori di ortografia, ma non trova alcuni errori grammaticali rilevati da `Proof`, ad esempio gli errori relativi a maiuscole e minuscole e alle parole ripetute.
-<br /></br>**NOTA:** la lunghezza massima supportata per le query è indicata più avanti. Se la query supera la lunghezza massima, la query e i relativi risultati non vengono modificati.
-<ul><li>130 caratteri per le lingue con codice en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. </li>
-<li>65 caratteri per le altre lingue</li></ul>
+
+> [!NOTE]
+> * La lunghezza massima supportata della query è indicata di seguito. Se la query supera la lunghezza massima, la query e i relativi risultati non verranno modificati.
+>    * 130 caratteri per i codici lingua seguenti: en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. 
+>    * 65 caratteri per tutti gli altri.
+> * La modalità Spell non supporta l'uso dei caratteri di parentesi quadra (`[` e `]`) nelle query e può causare risultati incoerenti. È consigliabile rimuoverli dalle query quando si usa la modalità Spell.
 
 ## <a name="market-setting"></a>Impostazione relativa al mercato
 È necessario specificare il mercato nel parametro della query nell'URL della richiesta. In caso contrario, il correttore ortografico userà il mercato predefinito in base all'indirizzo IP.

@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3ab32388e0a35f4abf3866aa0a84ee0628b0570c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318198"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346321"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Come distribuire modelli dal servizio Azure Machine Learning al servizio Kubernetes di Azure
 
@@ -63,6 +63,9 @@ Il servizio Kubernetes di Azure usa immagini Docker. Per creare l'immagine, segu
 1. Per configurare l'immagine, è necessario creare uno script di assegnazione punteggio e un file di ambiente. Per un esempio di creazione dello script e del file di ambiente, vedere le sezioni seguenti dell'esempio sulla classificazione delle immagini:
 
     * [Creare uno script di assegnazione punteggio (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
+
+        > [!IMPORTANT]
+        > Lo script di assegnazione dei punteggi riceve i dati inviati dai client e li passa al modello per l'assegnazione dei punteggi. Documentare la struttura dei data prevista dallo script e dal modello. Questa documentazione semplifica alcune operazioni durante la compilazione di un client che usa il servizio web.
 
     * [Creare un file di ambiente (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
@@ -190,3 +193,7 @@ aks_service.delete()
 image.delete()
 model.delete()
 ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Informazioni su come [usare un modello di ML distribuito come un servizio Web](how-to-consume-web-service.md).

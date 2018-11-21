@@ -1,7 +1,6 @@
 ---
-title: "Esempio: Rilevamento della lingua con l'API REST Analisi del testo"
-titleSuffix: Azure Cognitive Services
-description: Informazioni su come rilevare la lingua usando l'API REST Analisi del testo.
+title: Come eseguire il rilevamento della lingua nell'API REST di Analisi del testo (Servizi cognitivi Microsoft in Azure) | Microsoft Docs
+description: In questa esercitazione dettagliata si apprenderà come rilevare la lingua usando l'API REST di Analisi del testo in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,18 +9,21 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: fa71e4ce2e5cb5967bb583c7314072830de08051
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604553"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633565"
 ---
 # <a name="example-how-to-detect-language-in-text-analytics"></a>Esempio: Come rilevare la lingua in Analisi del testo
 
 L'[API Rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) valuta il testo di input e per ogni documento restituisce gli identificatori della lingua con un punteggio indicante il livello di attendibilità dell'analisi. Analisi del testo riconosce fino a 120 lingue.
 
 Questa funzionalità è utile per gli archivi di contenuto che includono testo arbitrario, in cui la lingua è sconosciuta. È possibile analizzare i risultati di questa analisi per determinare la lingua usata nel documento di input. La risposta restituisce inoltre un punteggio che riflette il livello di attendibilità del modello (un valore compreso tra 0 e 1).
+
+> [!TIP]
+> Analisi del testo offre anche un'immagine del contenitore Docker basata su Linux per il rilevamento della lingua, di conseguenza è possibile [installare ed eseguire il contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) vicino ai dati.
 
 ## <a name="preparation"></a>Operazioni preliminari
 
@@ -62,7 +64,7 @@ I dettagli sulla definizione della richiesta sono reperibili in [How to call the
 
 + Creare una richiesta **POST**. Esaminare la documentazione dell'API per questa richiesta: [API Rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
-+ Impostare l'endpoint HTTP per il rilevamento della lingua. È necessario includere la risorsa `/languages`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ Impostare l'endpoint HTTP per il rilevamento della lingua usando una risorsa di Analisi del testo in Azure oppure un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) di cui è stata creata un'istanza. È necessario includere la risorsa `/languages`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
 + Impostare un'intestazione della richiesta in modo da includere la chiave di accesso per le operazioni di Analisi del testo. Per altre informazioni, vedere [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Come trovare gli endpoint e le chiavi di accesso).
 
@@ -200,7 +202,7 @@ L'output risultante è costituito dalla lingua prevalente, con un punteggio infe
 }
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il rilevamento della lingua tramite Analisi del testo in Servizi cognitivi. Di seguito è riportata una rapida sintesi dei punti principali illustrati in precedenza:
 
@@ -209,7 +211,7 @@ In questo articolo si sono appresi i concetti e il flusso di lavoro per il rilev
 + La richiesta POST viene indirizzata a un endpoint `/languages` usando una [chiave di accesso personalizzata e un endpoint](text-analytics-how-to-access-key.md) valido per la sottoscrizione.
 + L'output di risposta, costituito da identificatori di lingua per ogni ID documento, può essere trasmesso a qualsiasi app che accetta JSON, tra cui Excel e Power BI, per citarne alcune.
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
  [Panoramica di Analisi del testo](../overview.md)  
  [Domande frequenti (FAQ)](../text-analytics-resource-faq.md)</br>

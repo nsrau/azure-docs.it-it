@@ -12,62 +12,51 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 05/02/2018
+ms.date: 11/01/2018
 ms.author: clemensv
-ms.openlocfilehash: 2bc923650425c76562161dd6f44f3a5722b5cefe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a25ca0c10b66f6881f2423306564d7d37124c33a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630446"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616181"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Introduzione alle richieste HTTP per Connessioni ibride di Inoltro di Azure in Node
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Questa esercitazione offre un'introduzione alle richieste HTTP per [Connessioni ibride di Inoltro di Azure](relay-what-is-it.md#hybrid-connections) e illustra come usare Node.js per creare un'applicazione client che invia messaggi a un'applicazione listener corrispondente.
+In questa guida introduttiva vengono create applicazioni mittente e ricevitore Node.js che inviano e ricevono messaggi usando il protocollo HTTP. Le applicazioni usano la funzionalità Connessioni ibride di Inoltro di Azure. Per informazioni di carattere generale su Inoltro di Azure, vedere [Che cos'è il servizio di inoltro di Azure?](relay-what-is-it.md). 
 
-## <a name="what-will-be-accomplished"></a>Contenuto dell'esercitazione
-
-Dato che le connessioni ibride richiedono sia un componente client che un componente server, in questa esercitazione verranno create due applicazioni console. Di seguito sono riportati i passaggi necessari:
+In questa guida introduttiva vengono completati i passaggi seguenti:
 
 1. Creare uno spazio dei nomi di inoltro usando il portale di Azure.
-2. Creare una connessione ibrida usando il portale di Azure.
-3. Scrivere un'applicazione console server per ricevere messaggi.
-4. Scrivere un'applicazione console client per inviare messaggi.
+2. Creare una connessione ibrida nello spazio dei nomi usando il portale di Azure.
+3. Scrivere un'applicazione console server (listener) per ricevere messaggi.
+4. Scrivere un'applicazione console client (mittente) per inviare messaggi.
+5. Eseguire le applicazioni.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
+- [Node.js](https://nodejs.org/en/).
+- Una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-1. [Node.js](https://nodejs.org/en/).
-2. Una sottoscrizione di Azure.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Creare uno spazio dei nomi tramite il portale di Azure
-
-Se è già stato creato uno spazio dei nomi dell'inoltro, passare alla sezione [Creare una connessione ibrida usando il portale di Azure](#2-create-a-hybrid-connection-using-the-azure-portal).
-
+## <a name="create-a-namespace-using-the-azure-portal"></a>Creare uno spazio dei nomi tramite il portale di Azure
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Creare una connessione ibrida usando il portale di Azure
-
-Se è già stata creata una connessione ibrida, passare alla sezione [Creare un'applicazione server](#3-create-a-server-application-listener).
-
+## <a name="create-a-hybrid-connection-using-the-azure-portal"></a>Creare una connessione ibrida usando il portale di Azure
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
-## <a name="3-create-a-server-application-listener"></a>3. Creare un'applicazione server (listener)
-
+## <a name="create-a-server-application-listener"></a>Creare un'applicazione server (listener)
 Per ascoltare e ricevere messaggi dal servizio di inoltro, scrivere un'applicazione console Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-http-requests-node-get-started-server.md)]
 
-## <a name="4-create-a-client-application-sender"></a>4. Creare un'applicazione client (mittente)
+## <a name="create-a-client-application-sender"></a>Creare un'applicazione client (mittente)
 
 Per inviare messaggi al servizio di inoltro, è possibile usare qualsiasi client HTTP o scrivere un'applicazione console Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-http-requests-node-get-started-client.md)]
 
-## <a name="5-run-the-applications"></a>5. Eseguire le applicazioni
+## <a name="run-the-applications"></a>Eseguire le applicazioni
 
 1. Eseguire l'applicazione server digitando `node listener.js` al prompt dei comandi Node.js.
 2. Eseguire l'applicazione client digitando `node sender.js` al prompt dei comandi Node.js e immettendo testo.
@@ -76,9 +65,6 @@ Per inviare messaggi al servizio di inoltro, è possibile usare qualsiasi client
 A questo punto è stata creata un'applicazione per le connessioni ibride end-to-end con Node.js.
 
 ## <a name="next-steps"></a>Passaggi successivi
+In questa guida introduttiva sono state create applicazioni client e server Node.js che usano HTTP per inviare e ricevere messaggi. La funzionalità Connessioni ibride di Inoltro di Azure supporta anche l'uso di WebSocket per l'invio e la ricezione di messaggi. Per informazioni sull'uso di WebSocket con Connessioni ibride di Inoltro di Azure, vedere la [guida introduttiva di WebSocket](relay-hybrid-connections-node-get-started.md).
 
-* [Domande frequenti sull'inoltro](relay-faq.md)
-* [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
-* [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Introduzione a Node](relay-hybrid-connections-node-get-started.md)
-
+In questa guida introduttiva è stato usato Node.js per creare applicazioni client e server. Per informazioni su come scrivere applicazioni client e server con .NET Framework, vedere la [guida introduttiva di WebSocket .NET](relay-hybrid-connections-dotnet-get-started.md) o la [guida introduttiva di HTTP .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md).

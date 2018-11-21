@@ -13,24 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/08/2018
 ms.author: deguhath
-ms.openlocfilehash: 168d2852d8905735b450850c8bb32a1ae07a620d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 55d92fedbb67d21d34464b792b3600eb6964840b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837294"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345522"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Esplorare i dati nel Processo di analisi scientifica dei dati per i team
-Questo documento illustra come esplorare i dati in quattro doversi ambienti di archiviazione, in genere usati nel Processo di analisi scientifica dei dati:
 
-* **Contenitore BLOB di azure** i dati vengono esplorati mediante il pacchetto Python di [Pandas](http://pandas.pydata.org/) .
-* **Dati del server SQL** i dati vengono esplorati tramite SQL e usando un linguaggio di programmazione come Python.
-* **Tabella hive** i dati vengono esplorati mediante le query Hive.
-* **Azure Machine Learning (AML) Studio** vengono esplorati mediante i moduli AML.
+L'esplorazione dei dati è un passaggio del [processo di data science per i team](overview.md).
 
-Il **menu** seguente collega agli argomenti che descrivono come usare gli strumenti per esplorare i dati da vari ambienti di archiviazione. 
+Gli articoli seguenti illustrano come esplorare i dati in tre diversi ambienti di archiviazione, in genere usati nel processo di data science:
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+* Esplorare i dati del [contenitore BLOB di Azure](explore-data-blob.md) usando il pacchetto Python di [Pandas](http://pandas.pydata.org/).
+* Esplorati i dati di [SQL Server](explore-data-sql-server.md) usando SQL e un linguaggio di programmazione come Python.
+* Esplorare i dati delle [tabelle Hive](explore-data-hive-tables.md) usando le query Hive.
 
+Il video [Preprocessing Data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) (Pre-elaborazione dei dati in Azure Machine Learning Studio) descrive inoltre i moduli più usati per pulire e trasformare i dati in Azure Machine Learning Studio.

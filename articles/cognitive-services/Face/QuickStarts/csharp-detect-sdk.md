@@ -1,192 +1,91 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK con C#"
+title: "Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK Viso di Azure"
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si rileveranno i visi in un'immagine usando la libreria client C# Viso per Windows in Servizi cognitivi.
+description: In questa guida introduttiva si userà l'SDK Viso di Azure per rilevare i visi in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 09/14/2018
+ms.date: 11/07/2018
 ms.author: pafarley
-ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4fbbde167a8c895a71ab3614e8c3ecbce26604a9
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954964"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578157"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK con C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK Viso
 
-In questa guida introduttiva si rileveranno i visi in un'immagine usando la libreria client C# Viso per Windows.
+In questa guida introduttiva si userà l'SDK del servizio Viso per rilevare i visi umani in un'immagine. Per un esempio pratico del codice in questa guida introduttiva, vedere il progetto Viso nell'archivio di [soluzioni di avvio rapido csharp Vision di Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) in GitHub.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Per eseguire l'esempio è necessaria una sottoscrizione. È possibile ottenere le chiavi di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
-* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Pacchetto NuGet della libreria client [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview). Non è necessario scaricare il pacchetto. Le istruzioni di installazione sono disponibili più avanti.
+- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 
-## <a name="detectwithurlasync-method"></a>Metodo DetectWithUrlAsync
+## <a name="create-the-visual-studio-project"></a>Creare il progetto di Visual Studio
 
-> [!TIP]
-> Ottenere la versione più recente del codice come soluzione di Visual Studio da [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
+1. In Visual Studio creare un nuovo progetto **App console (.NET Framework)** e assegnargli il nome **FaceDetection**. 
+1. Se la soluzione contiene anche altri progetti, selezionare questo come progetto di avvio singolo.
+1. Ottenere i pacchetti NuGet necessari. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**. Fare clic sulla scheda **Sfoglia** e selezionare **Includi versione preliminare**, quindi cercare e installare il pacchetto seguente:
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
-I metodi `DetectWithUrlAsync` e `DetectWithStreamAsync` eseguono il wrapping dell'[API Viso - Rilevamento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) rispettivamente per le immagini locali e remote. È possibile usare questi metodi per rilevare i visi in un'immagine e restituirne gli attributi, tra cui:
+## <a name="add-face-detection-code"></a>Aggiungere codice di rilevamento volto
 
-* ID viso: ID univoco usato in diversi scenari di API Viso.
-* Rettangolo del viso: riquadro i cui lati indicano la posizione del viso nell'immagine.
-* Punti di riferimento: matrice con 27 punti di riferimento che indicano le posizioni importanti dei componenti del viso.
-* Altri attributi del viso quali età, sesso, intensità del sorriso, orientamento della testa e peli del viso.
+Aprire il nuovo file *Program.cs* del progetto. In questo caso, si aggiungerà il codice necessario per caricare immagini e rilevare i visi.
 
-Per eseguire l'esempio, seguire questa procedura:
+### <a name="include-namespaces"></a>Includere gli spazi dei nomi
 
-1. Creare una nuova app console Visual C# in Visual Studio.
-1. Installare il pacchetto NuGet della libreria client Viso.
-    1. Nel menu in alto fare clic su **Strumenti**, selezionare **Gestione pacchetti NuGet** e quindi **Gestisci pacchetti NuGet per la soluzione**.
-    1. Fare clic sulla scheda **Sfoglia** e quindi selezionare **Includi versione preliminare**.
-    1. Nella casella **Ricerca** digitare "Microsoft.Azure.CognitiveServices.Vision.Face".
-    1. Selezionare la voce **Microsoft.Azure.CognitiveServices.Vision.Face** quando viene visualizzata, fare clic sulla casella di controllo accanto al nome del progetto e quindi su **Installa**.
-1. Sostituire *Program.cs* con il codice seguente.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare `faceEndpoint` in modo che corrisponda all'area di Azure associata alle chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, sostituire <`LocalImage>` con il percorso e il nome del file di un'immagine locale. Se non impostato, questo parametro verrà ignorato.
-1. Facoltativamente, impostare un'immagine diversa per `remoteImageUrl`.
-1. Eseguire il programma.
+Aggiungere le istruzioni `using` seguenti all'inizio del file *Program.cs*.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.Vision.Face;
-using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=1-7)]
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
+### <a name="add-essential-fields"></a>Aggiungere campi fondamentali
 
-namespace DetectFace
-{
-    class Program
-    {
-        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        private const string subscriptionKey = "<SubscriptionKey>";
+Aggiungere i campi seguenti alla classe **Program** . Questi dati consentono di specificare come connettersi al servizio Viso e dove ottenere i dati di input. Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e potrebbe essere necessario modificare la stringa `faceEndpoint` in modo che contenga l'identificatore di area corretta. Sarà necessario impostare anche i valori `localImagePath` e/o`remoteImageUrl` sui percorsi che puntano ai file immagine effettivi.
 
-        // You must use the same region as you used to get your subscription
-        // keys. For example, if you got your subscription keys from westus,
-        // replace "westcentralus" with "westus".
-        //
-        // Free trial subscription keys are generated in the westcentralus
-        // region. If you use a free trial subscription key, you shouldn't
-        // need to change the region.
-        // Specify the Azure region
-        private const string faceEndpoint =
-            "https://westcentralus.api.cognitive.microsoft.com";
+Il campo `faceAttributes` è semplicemente una matrice di alcuni tipi di attributi, che specifica quali informazioni recuperare sui visi rilevati.
 
-        // localImagePath = @"C:\Documents\LocalImage.jpg"
-        private const string localImagePath = @"<LocalImage>";
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
 
-        private const string remoteImageUrl =
-            "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg";
+### <a name="create-and-use-the-face-client"></a>Creare e usare il client Viso
 
-        private static readonly FaceAttributeType[] faceAttributes =
-            { FaceAttributeType.Age, FaceAttributeType.Gender };
+Quindi, aggiungere il codice seguente al metodo **Main** della classe **Program**. Viene impostato un client API Viso.
 
-        static void Main(string[] args)
-        {
-            FaceClient faceClient = new FaceClient(
-                new ApiKeyServiceClientCredentials(subscriptionKey),
-                new System.Net.Http.DelegatingHandler[] { });
-            faceClient.Endpoint = faceEndpoint;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
 
-            Console.WriteLine("Faces being detected ...");
-            var t1 = DetectRemoteAsync(faceClient, remoteImageUrl);
-            var t2 = DetectLocalAsync(faceClient, localImagePath);
+In più, nel metodo **Main**, aggiungere il codice seguente per usare il client Viso appena creato allo scopo di rilevare i visi in un'immagine remota e locale. I metodi di rilevamento verranno definiti successivamente. 
 
-            Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
-            Console.ReadLine();
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
 
-        // Detect faces in a remote image
-        private static async Task DetectRemoteAsync(
-            FaceClient faceClient, string imageUrl)
-        {
-            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
-            {
-                Console.WriteLine("\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
-                return;
-            }
+### <a name="detect-faces"></a>Rilevare visi
 
-            try
-            {
-                IList<DetectedFace> faceList =
-                    await faceClient.Face.DetectWithUrlAsync(
-                        imageUrl, true, false, faceAttributes);
+Aggiungere il metodo seguente alla classe **Program**. Usa il client del servizio Viso per rilevare visi in un'immagine remota, a cui fa riferimento un URL. Si noti che usa il campo `faceAttributes`: gli oggetti **DetectedFace** aggiunti a `faceList` avranno gli attributi specificati (in questo caso, età e sesso).
 
-                DisplayAttributes(GetFaceAttributes(faceList, imageUrl), imageUrl);
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imageUrl + ": " + e.Message);
-            }
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 
-        // Detect faces in a local image
-        private static async Task DetectLocalAsync(FaceClient faceClient, string imagePath)
-        {
-            if (!File.Exists(imagePath))
-            {
-                Console.WriteLine(
-                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
-                return;
-            }
+Analogamente, aggiungere il metodo **DetectLocalAsync**. Usa il client del servizio Viso per rilevare visi in un'immagine locale, a cui fa riferimento un percorso file.
 
-            try
-            {
-                using (Stream imageStream = File.OpenRead(imagePath))
-                {
-                    IList<DetectedFace> faceList =
-                            await faceClient.Face.DetectWithStreamAsync(
-                                imageStream, true, false, faceAttributes);
-                    DisplayAttributes(
-                        GetFaceAttributes(faceList, imagePath), imagePath);
-                }
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imagePath + ": " + e.Message);
-            }
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=76-101)]
 
-        private static string GetFaceAttributes(
-            IList<DetectedFace> faceList, string imagePath)
-        {
-            string attributes = string.Empty;
+### <a name="retrieve-and-display-face-attributes"></a>Recuperare e visualizzare attributi del viso
 
-            foreach (DetectedFace face in faceList)
-            {
-                double? age = face.FaceAttributes.Age;
-                string gender = face.FaceAttributes.Gender.ToString();
-                attributes += gender + " " + age + "   ";
-            }
+Successivamente, definire il metodo **GetFaceAttributes**. Restituisce una stringa con le informazioni pertinenti degli attributi.
 
-            return attributes;
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-        // Display the face attributes
-        private static void DisplayAttributes(string attributes, string imageUri)
-        {
-            Console.WriteLine(imageUri);
-            Console.WriteLine(attributes + "\n");
-        }
-    }
-}
-```
+Infine, definire il metodo **DisplayAttributes** per scrivere i dati dell'attributo viso nell'output della console.
 
-### <a name="detectwithurlasync-response"></a>Risposta DetectWithUrlAsync
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
 
-In caso di risposta positiva, vengono visualizzati il sesso e l'età di ogni viso nell'immagine.
+## <a name="run-the-app"></a>Esecuzione dell'app
 
-Per un esempio di output JSON non elaborato, vedere [Guide introduttive per le API: Rilevare i visi in un'immagine con C#](CSharp.md).
+In caso di risposta positiva, verranno visualizzati il sesso e l'età di ogni viso nell'immagine. Ad esempio: 
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg
@@ -195,7 +94,7 @@ Male 37   Female 56
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come creare un'applicazione Windows WPF che usi il servizio Viso per rilevare i visi in un'immagine. L'applicazione disegna una cornice intorno a ogni viso e visualizza una descrizione del viso nella barra di stato.
+In questa guida introduttiva è stata creata una semplice applicazione console .NET che usa il servizio API Viso per rilevare i visi in immagini locali e remote. Successivamente, si eseguirà un'esercitazione più dettagliata per vedere come è possibile presentare informazioni sul viso all'utente in modo intuitivo.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare un'app WPF per rilevare e incorniciare i visi in un'immagine](../Tutorials/FaceAPIinCSharpTutorial.md)
+> [Esercitazione: Creare un'app WPF per rilevare e analizzare i visi in un'immagine](../Tutorials/FaceAPIinCSharpTutorial.md)

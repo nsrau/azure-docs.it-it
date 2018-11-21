@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: rimman
-ms.openlocfilehash: eabfe503d9b92252ada0014eba4c83390dd6fd97
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 709cd16c7eee30dd2d88ea87b5f704ad20530ffb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236076"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621344"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 
@@ -54,6 +54,6 @@ Durante la stima del numero di UR/sec di cui effettuare il provisioning, è impo
 
 * Altre informazioni su come [effettuare il provisioning della velocità effettiva per contenitori e database Cosmos DB](set-throughput.md)
 * Altre informazioni sulle [partizioni logiche](partition-data.md)
-* Altre informazioni sul [ridimensionamento della velocità effettiva](scaling-throughput.md)
+* Altre informazioni sul [ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
 * Informazioni su [come effettuare il provisioning della velocità effettiva in un contenitore Cosmos](how-to-provision-container-throughput.md)
 * Informazioni su [come effettuare il provisioning della velocità effettiva in un database Cosmos](how-to-provision-database-throughput.md)

@@ -2,65 +2,57 @@
 title: Nascondere un'applicazione dall'esperienza utente in Azure Active Directory | Microsoft Docs
 description: Nascondere un'applicazione dall'esperienza utente nei pannelli di accesso di Azure Active Directory o nelle schermate di avvio di Office 365.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/04/2018
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.reviewer: asteen
-ms.custom: it-pro
-ms.openlocfilehash: 55f80396df4cbfe7d0a16a6a5066b68aadc0bdd3
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: kasimpso
+ms.openlocfilehash: f1203b4381055deca79a70e8d295e072feaf492a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368919"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613578"
 ---
-# <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Nascondere un'applicazione dall'esperienza utente in Azure Active Directory
+# <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Nascondere le applicazioni per gli utenti finali in Azure Active Directory
 
-Se non si vuole visualizzare un'applicazione nei pannelli di accesso o nelle schermate di avvio di Office 365 degli utenti, sono disponibili opzioni per nascondere il riquadro dell'app.  Sono disponibili le due opzioni seguenti per nascondere le applicazioni dalle schermate di avvio degli utenti.
+Istruzioni su come nascondere le applicazioni nel pannello App personali degli utenti finali o nella utilità di avvio di Office 365. Quando un'applicazione è nascosta, gli utenti continuano a disporre delle autorizzazioni relative all'applicazione. 
 
-- Nascondere un'applicazione di terze parti dai pannelli di accesso o dalle schermate di avvio delle app di Office 365
-- Nascondere tutte le applicazioni di Office 365 dai pannelli di accesso degli utenti
+## <a name="prerequisites"></a>Prerequisiti
 
-Nascondendo l'app, gli utenti mantengono le autorizzazioni per l'app ma non la potranno vedere nelle icone di avvio delle app. La gestione dell'app aziendale richiede autorizzazioni appropriate ed è necessario essere amministratore globale della directory.
+Per nascondere un'applicazione nel pannello App personali e nella utilità di avvio di Office 365, è necessario disporre dei privilegi Amministratore di applicazioni.
+
+Per nascondere tutte le applicazioni di Office 365, è necessario disporre dei privilegi Amministratore globale.
 
 
-## <a name="hiding-an-application-from-users-end-user-experiences"></a>Nascondere un'applicazione dall'esperienza degli utenti finali
-Per nascondere le applicazioni dal pannello di accesso è possibile seguire questa procedura, a seconda delle situazioni specifiche.
+## <a name="hide-an-application-from-the-end-user"></a>Nascondere un'applicazione per gli utenti finali
+Seguire questa procedura per nascondere un'applicazione nel pannello App personali e nella utilità di avvio di Office 365.
 
-### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Qual è la procedura per nascondere un'app di terze parti dal pannello di accesso o dalle icone di avvio delle app di Office 365 di un utente?
-Seguire questa procedura per nascondere un'applicazione dal pannello di accesso e dalle schermate di avvio delle app di Office 365 di un utente.
+1.  Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale della directory.
+2.  Selezionare **Azure Active Directory**.
+3.  Selezionare **Applicazioni aziendali**. Verrà visualizzato il pannello **Applicazioni aziendali - Tutte le applicazioni**.
+4.  In **Tipo di applicazione** selezionare **Applicazioni aziendali** se l'opzione non è già selezionata.
+5.  Cercare l'applicazione che si desidera nascondere e fare clic su di essa.  Viene visualizzata la panoramica dell'applicazione.
+6.  Fare clic su **Proprietà**. 
+7.  Nel campo **Visibile agli utenti?** fare clic su **No**.
+8.  Fare clic su **Save**.
 
-1.  Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
-2.  Selezionare **Tutti i servizi**, immettere **Azure Active Directory** nella casella di testo e quindi premere **INVIO**.
-3.  Nella schermata **Azure Active Directory - *nomedirectory*** , vale a dire la schermata di Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
-![App aziendali](./media/hide-application-from-user-portal/app1.png)
-4.  Nella schermata **Applicazioni aziendali** selezionare **Tutte le applicazioni**. Viene visualizzato un elenco di app che è possibile gestire.
-5.  Nella schermata **Applicazioni aziendali - Tutte le applicazioni** selezionare un'app.</br>
-![App aziendali](./media/hide-application-from-user-portal/app2.png)
-6.  Nella schermata ***nomeapp***, vale a dire la schermata con il nome dell'app selezionata nel titolo, selezionare Proprietà.
-7.  Nella schermata ***nomeapp* - Proprietà** selezionare **Sì** per **Visibile agli utenti?**.
-![App aziendali](./media/hide-application-from-user-portal/app3.png)
-8.  Selezionare il comando **Salva** .
 
-### <a name="how-do-i-hide-office-365-applications-from-users-access-panel"></a>Come nascondere le applicazioni di Office 365 dal pannello di accesso dell'utente
+## <a name="hide-office-365-applications-from-the-myapps-panel"></a>Nascondere le applicazioni di Office 365 nel pannello App personali
 
-Seguire questa procedura per nascondere tutte le applicazioni di Office 365 dal pannello di accesso. Queste app saranno ancora visibili nel portale di Office 365.
+Seguire questa procedura per nascondere tutte le applicazioni di Office 365 dal pannello App personali. Le applicazioni continueranno a essere visibili nel portale di Office 365.
 
-1.  Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
-2.  Selezionare **Tutti i servizi**, immettere **Azure Active Directory** nella casella di testo e quindi premere **INVIO**.
-3.  Nella schermata **Azure Active Directory - *nomedirectory*** , vale a dire la schermata di Azure AD per la directory che si sta gestendo, selezionare **Impostazioni utente**.
-4.  Nell'area **Applicazioni aziendali** della schermata **Impostazioni utente** selezionare **Sì** per **Gli utenti possono visualizzare solo le app di Office 365 nel portale di Office 365**.
+1.  Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale della directory.
+2.  Selezionare **Azure Active Directory**.
+3.  Selezionare **Impostazioni utente**.
+4.  In **Applicazioni aziendali** fare clic su **Gestire il modo in cui gli utenti finali avviano e visualizzano le applicazioni**.
+5.  In **Gli utenti possono visualizzare le app di Office 365 solo nel portale di Office 365** fare clic su **Sì**.
+6.  Fare clic su **Save**.
 
-![App aziendali](./media/hide-application-from-user-portal/apps4.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Visualizzare tutti i gruppi personali](../fundamentals/active-directory-groups-view-azure-portal.md)

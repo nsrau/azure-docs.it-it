@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946097"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636272"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Come eseguire il debug dei problemi relativi alle funzioni definite dall'utente in Gemelli digitali di Azure
 
@@ -42,12 +42,12 @@ Dopo l'invio dei dati di telemetria, aprire Azure Log Analytics per eseguire una
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'yourCorrelationIdentifier'
+| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| Nome attributo personalizzato | Sostituire con |
+| Valore della query | Sostituire con |
 | --- | --- |
-| *yourCorrelationIdentifier* | ID di correlazione specificato per i dati dell'evento |
+| YOUR_CORRELATION_IDENTIFIER | ID di correlazione specificato per i dati dell'evento |
 
 Se la funzione definita dall'utente viene registrata, questi log verranno visualizzati nell'istanza di Azure Log Analytics con la categoria `UserDefinedFunction`. Per recuperarli, immettere la seguente condizione di query in Azure Log Analytics:
 
@@ -62,6 +62,8 @@ Per altre informazioni sulle operazioni avanzate relative alle query, vedere [In
 
 La diagnosi e l'identificazione dei problemi più comuni sono importanti per la risoluzione dei problemi della soluzione. Di seguito viene fornito un riepilogo di alcuni problemi comuni riscontrati durante lo sviluppo delle funzioni definite dall'utente.
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 ### <a name="ensure-a-role-assignment-was-created"></a>Verificare che sia stata creata un'assegnazione di ruolo
 
 Se non è stata creata un'assegnazione di ruolo all'interno dell'API Gestione, la funzione definita dall'utente non potrà accedere per eseguire le azioni, ad esempio l'invio delle notifiche, il recupero dei metadati e l'impostazione dei valori calcolati all'interno della topologia.
@@ -69,13 +71,12 @@ Se non è stata creata un'assegnazione di ruolo all'interno dell'API Gestione, l
 Controllare se esiste un'assegnazione di ruolo per la funzione definita dall'utente tramite l'API Gestione:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
+GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Nome attributo personalizzato | Sostituire con |
+| Parametro | Sostituire con |
 | --- | --- |
-| *yourManagementApiUrl* | Percorso URL completo per l'API Gestione  |
-| *yourUserDefinedFunctionId* | ID della funzione definita dall'utente per la quale recuperare le assegnazioni di ruolo|
+| *YOUR_USER_DEFINED_FUNCTION_ID* | ID della funzione definita dall'utente per la quale recuperare le assegnazioni di ruolo|
 
 Se non viene recuperata alcuna assegnazione di ruolo, seguire le procedura illustrata nell'articolo [Come creare un'assegnazione di ruolo per la funzione definita dall'utente](./how-to-user-defined-functions.md).
 
@@ -84,14 +85,13 @@ Se non viene recuperata alcuna assegnazione di ruolo, seguire le procedura illus
 Con la chiamata seguente all'API Gestione delle istanze di Gemelli digitali di Azure, sarà possibile determinare se un dato matcher è valido per il sensore specificato.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
+GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| Nome attributo personalizzato | Sostituire con |
+| Parametro | Sostituire con |
 | --- | --- |
-| *yourManagementApiUrl* | Percorso URL completo per l'API Gestione  |
-| *yourMatcherIdentifier* | ID del matcher da valutare |
-| *yourSensorIdentifier* | ID del sensore da valutare |
+| *YOUR_MATCHER_IDENTIFIER* | ID del matcher da valutare |
+| *YOUR_SENSOR_IDENTIFIER* | ID del sensore da valutare |
 
 Risposta:
 
@@ -109,13 +109,12 @@ Risposta:
 Con la chiamata seguente all'API Gestione delle istanze di Gemelli digitali di Azure, sarà possibile determinare gli identificatori delle funzioni definite dall'utente che verranno attivate dai dati di telemetria in ingresso del sensore specificato:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
+GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| Nome attributo personalizzato | Sostituire con |
+| Parametro | Sostituire con |
 | --- | --- |
-| *yourManagementApiUrl* | Percorso URL completo per l'API Gestione  |
-| *yourSensorIdentifier* | ID del sensore che invierà i dati di telemetria |
+| *YOUR_SENSOR_IDENTIFIER* | ID del sensore che invierà i dati di telemetria |
 
 Risposta:
 

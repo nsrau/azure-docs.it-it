@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/19/2018
+ms.date: 11/09/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471289"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515727"
 ---
-# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guida introduttiva: Esplorare e analizzare i costi di Azure con Analisi dei costi
+# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guida introduttiva - Esplorare e analizzare i costi di Azure con l'analisi dei costi
 
 Per poter controllare al meglio e ottimizzare i costi di Azure, è necessario conoscere l'origine dei costi all'interno dell'organizzazione. È anche utile sapere quanto costano i servizi e quali ambienti e sistemi supportano. È fondamentale avere visibilità sul dettaglio dei costi per comprendere in modo approfondito i modelli di spesa aziendali, che possono essere usati per applicare meccanismi di controllo dei costi, ad esempio i budget.
 
@@ -32,27 +32,14 @@ In questa guida introduttiva si apprende come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'analisi dei costi è disponibile per tutti i clienti con [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi.
+L'analisi dei costi è disponibile per tutti i clienti con [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi. Per altre informazioni sull'assegnazione dell'accesso ai dati di Gestione costi, vedere [Assign access to data](assign-access-acm-data.md) (Assegnare l'accesso ai dati).
 
-
-|**Ambito**|**Definito in**|**Accesso obbligatorio per analizzare i costi nell'ambito**|**Impostazione prerequisita del Contratto Enterprise**|**Dati di fatturazione consolidati in**|
-|---                |---                  |---                   |---            |---           |
-|Account di fatturazione<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Amministratore aziendale|Nessuno|Tutte le sottoscrizioni del Contratto Enterprise|
-|Reparto|[https://ea.azure.com ](https://ea.azure.com )|Amministratore del reparto|Visualizzazione addebiti abilitata per gli amministratori di reparto|Tutte le sottoscrizioni che appartengono a un account di registrazione collegato al reparto|
-|Account di registrazione<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Proprietario dell'account|Visualizzazione addebiti abilitata per i proprietari dell'account|Tutte le sottoscrizioni dell'account di registrazione|
-|Gruppo di gestione|[https://portal.azure.com ](https://portal.azure.com )|Lettore Gestione costi (o Lettore)|Visualizzazione addebiti abilitata per i proprietari dell'account|Tutte le sottoscrizioni incluse nel gruppo di gestione|
-|Sottoscrizione|[https://portal.azure.com ](https://portal.azure.com )|Lettore Gestione costi (o Lettore)|Visualizzazione addebiti abilitata per i proprietari dell'account|Tutte le risorse o i gruppi di risorse inclusi nella sottoscrizione|
-|Gruppo di risorse|[https://portal.azure.com ](https://portal.azure.com )|Lettore Gestione costi (o Lettore)|Visualizzazione addebiti abilitata per i proprietari dell'account|Tutte le risorse nel gruppo di risorse|
-
-<sup>1</sup>L'account di fatturazione viene spesso indicato con il termine Contratto Enterprise o Registrazione.
-
-<sup>2</sup>L'account di registrazione viene spesso indicato come proprietario dell'account.
-
-Per altre informazioni sulla configurazione delle impostazioni **DA view charges** (Addebiti visualizzazione amministratore del reparto) e **AO view charges** (Addebiti visualizzazione proprietario dell'account), vedere [Abilitazione dell'accesso ai costi](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
-
-
-
-
+- Account di fatturazione
+- department
+- Account di registrazione
+- Gruppo di gestione
+- Sottoscrizione
+- Gruppo di risorse
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 

@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: c682b61a39224f2c80db8fe5fa153ea5e5d82922
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1b2a122cc8a04d4f0044ecb0fe0341357bc29c0f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958555"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514826"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipi di conflitto e criteri di risoluzione dei conflitti
 
 I conflitti e i criteri di risoluzione dei conflitti sono applicabili se l'account Cosmos è configurato con più aree di scrittura.
 
-Per gli account Cosmos DB configurati con più aree di scrittura, i conflitti di aggiornamento possono verificarsi quando più processi di scrittura aggiornano contemporaneamente lo stesso elemento in più aree. I conflitti di aggiornamento vengono classificati nei tre tipi seguenti:
+Per gli account Cosmos configurati con più aree di scrittura, possono verificarsi conflitti di aggiornamento quando più processi di scrittura aggiornano contemporaneamente lo stesso elemento in più aree. I conflitti di aggiornamento vengono classificati nei tre tipi seguenti:
 
 1. **Conflitti di inserimento**: questi conflitti possono verificarsi quando un'applicazione inserisce contemporaneamente due o più elementi con lo stesso indice univoco (ad esempio, proprietà ID) da due o più aree. In questo caso, tutte le operazioni di scrittura possono avere esito positivo inizialmente nelle rispettive aree ma, in base ai criteri di risoluzione dei conflitti scelti, viene eseguito il commit di un solo elemento con l'ID originale.
 

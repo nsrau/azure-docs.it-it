@@ -11,31 +11,31 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/14/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 38ae18dca08b50a90102149d7e44169c956a1c0e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869636"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623860"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Report degli accessi a rischio nel portale di Azure Active Directory
 
-I report di sicurezza in Azure Active Directory (Azure AD) permettono di ottenere informazioni approfondite sulla probabile presenza di account utente compromessi nell'ambiente. 
+Azure Active Directory (Azure AD) rileva le azioni sospette correlate agli account utente. Per ogni azione rilevata viene creato un record detto **evento di rischio**. Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](concept-risk-events.md). 
 
-Azure AD rileva le azioni sospette correlate agli account utente. Per ogni azione rilevati viene creato un record denominato *evento di rischio*. Per altre informazioni, vedere [Azure Active Directory risk events](concept-risk-events.md) (Eventi di rischio di Azure Active Directory). 
+È possibile accedere ai report di sicurezza dal [portale di Azure](https://portal.azure.com) selezionando il pannello **Azure Active Directory** e quindi passando alla sezione **Sicurezza**. 
 
-Gli eventi di rischio rilevati vengono usati per calcolare:
+Sono disponibili due report di sicurezza diversi che vengono calcolati in base agli eventi di rischio:
 
-- **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. Per altre informazioni, vedere [Come configurare i criteri di rischio di accesso](../identity-protection/howto-sign-in-risk-policy.md). 
+- **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente.
 
-- **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per altre informazioni, vedere [Come configurare i criteri di rischio utente](../identity-protection/howto-user-risk-policy.md).  
-
-I report di sicurezza sono disponibili nel [portale di Azure](https://portal.azure.com) nel pannello **Azure Active Directory**, sezione **Sicurezza**. 
+- **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. 
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/10.png)
+
+Per informazioni su come configurare i criteri che attivano gli eventi di rischio, vedere [Procedura: Configurare i criteri di rischio utente](../identity-protection/howto-user-risk-policy.md).  
 
 ## <a name="who-can-access-the-risky-sign-ins-report"></a>Chi può accedere al report sugli accessi a rischio?
 
@@ -49,18 +49,17 @@ Per informazioni su come assegnare ruoli amministrativi a un utente in Azure Act
 
 ## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Licenza di Azure AD necessaria per accedere a un report sulla sicurezza  
 
-Tutte le edizioni di Azure Active Directory offrono report relativi agli accessi a rischio.  
-Tuttavia, il livello di granularità dei report varia a seconda delle edizioni: 
+Tutte le edizioni di Azure AD offrono report relativi agli accessi a rischio. Tuttavia, il livello di granularità dei report varia a seconda delle edizioni: 
 
-- Nelle edizioni **Azure Active Directory Free e Basic**  è già incluso un elenco di accessi a rischio. 
+- Nelle edizioni **Azure Active Directory Free e Basic**  è incluso un elenco di accessi a rischio. 
 
-- Nell'edizione **Azure Active Directory Premium 1** questo modello consente anche di esaminare alcuni degli eventi di rischio sottostanti che sono stati rilevati per ogni report. 
+- L'edizione **Azure Active Directory Premium 1** consente anche di esaminare alcuni degli eventi di rischio sottostanti che sono stati rilevati per ogni report. 
 
 - L'edizione **Azure Active Directory Premium 2** offre informazioni più dettagliate su tutti gli eventi di rischio sottostanti e permette anche di configurare criteri di sicurezza che rispondono automaticamente a livelli di rischio configurati.
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Versione gratuita e di base di Azure Active Directory
+## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Report degli accessi a rischio per le edizioni Azure AD Free e Basic
 
-La versione gratuita e di base di Azure Active Directory offre un elenco di accessi a rischio rilevati per gli utenti. Questo report elenca quanto riportato di seguito.
+Le edizioni Azure AD Free e Basic forniscono un elenco di accessi a rischio che sono stati rilevati per gli utenti. Ogni record contiene gli attributi seguenti:
 
 - **Utente**: nome dell'utente usato durante l'operazione di accesso.
 - **IP**: indirizzo IP del dispositivo usato per connettersi ad Azure Active Directory.
@@ -68,10 +67,9 @@ La versione gratuita e di base di Azure Active Directory offre un elenco di acce
 - **Ora di accesso**: ora in cui è stato eseguito l'accesso.
 - **Stato**: stato dell'accesso.
 
-
 ![Accessi a rischio](./media/concept-risky-sign-ins/01.png)
 
-In base all'analisi dell'accesso a rischio è possibile inviare feedback ad Azure Active Directory eseguendo queste azioni:
+In base all'analisi dell'accesso a rischio, è possibile fornire un feedback ad Azure AD eseguendo queste azioni:
 
 - Risolvi
 - Contrassegna come falso positivo
@@ -80,28 +78,23 @@ In base all'analisi dell'accesso a rischio è possibile inviare feedback ad Azur
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/21.png)
 
-
-
-Questo report offre la possibilità di:
+Questo report offre anche la possibilità di:
 
 - Cercare risorse
 - Scaricare i dati del report
 
-
 ![Accessi a rischio](./media/concept-risky-sign-ins/93.png)
 
 
-## <a name="azure-active-directory-premium-editions"></a>Versione Premium di Azure Active Directory
+## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Report degli accessi a rischio per le edizioni Azure AD Premium
 
-Il report degli accessi a rischio della versione Premium di Azure Active Directory offre:
+Il report degli accessi a rischio nelle edizioni Azure AD Premium fornisce:
 
 - informazioni aggregate sui [tipi di evento di rischio](concept-risk-events.md) che sono stati rilevati
 
 - un'opzione per scaricare il report
 
-
 ![Accessi a rischio](./media/concept-risky-sign-ins/456.png)
-
 
 Quando si seleziona un evento di rischio, si ottiene la visualizzazione di un report dettagliato per questo evento di rischio che consente di:
 
@@ -112,7 +105,6 @@ Quando si seleziona un evento di rischio, si ottiene la visualizzazione di un re
 - esaminare l'elenco di utenti per cui è stato rilevato l'evento di rischio
 
 - chiudere manualmente gli eventi di rischio. 
-
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/457.png)
 
@@ -126,21 +118,15 @@ Quando si seleziona un utente, si ottiene la visualizzazione di un report dettag
 
 - ricercare la causa degli eventi a rischio segnalati per l'utente. 
 
-
 ![Accessi a rischio](./media/concept-risky-sign-ins/324.png)
-
 
 Per ricercare la causa di un evento di rischio, selezionarlo dall'elenco.  
 Verrà visualizzato il pannello **Dettagli** per questo evento di rischio. Nel pannello **Dettagli**, è possibile chiudere manualmente un evento di rischio o riattivare un evento di rischio chiuso manualmente. 
 
-
 ![Accessi a rischio](./media/concept-risky-sign-ins/325.png)
-
-
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni in merito, vedere [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-
+- [Procedura: Configurare i criteri di rischio utente](../identity-protection/howto-user-risk-policy.md)
+- [Procedura: Configurare i criteri di correzione del rischio utente](../identity-protection/howto-user-risk-policy.md)
+- [Tipi di eventi di rischio](concept-risk-events.md)

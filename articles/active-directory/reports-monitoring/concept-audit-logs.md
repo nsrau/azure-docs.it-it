@@ -13,41 +13,39 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6fa26cb7947658af77496831d7239b4331aa1f2
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146210"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624659"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
-I report di Azure Active Directory (Azure AD) offrono tutte le informazioni necessarie per determinare lo stato dell'ambiente.
+I report di Azure Active Directory (Azure AD) offrono tutte le informazioni necessarie per determinare le prestazioni dell'ambiente.
 
-L'architettura di reporting in Azure AD include i componenti seguenti:
+L'architettura di report è costituita dai componenti seguenti:
 
 - **Attività** 
-    - **Attività di accesso** : informazioni sull'utilizzo delle applicazioni gestite e sulle attività di accesso utente
-    - **Log di controllo**: i log consentono la tracciabilità di tutte le modifiche apportate da varie funzionalità all'interno di Azure AD. I log di controllo registrano, ad esempio, le modifiche apportate a qualsiasi risorsa di Azure AD, come utenti, app, gruppi, ruoli, criteri, autenticazioni e così via.
+    - **Accessi**: il [report degli accessi](concept-sign-ins.md) fornisce informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
+    - **Log di controllo**: i log consentono la tracciabilità di tutte le modifiche apportate da varie funzionalità all'interno di Azure AD. I log di controllo registrano, ad esempio, le modifiche apportate a qualsiasi risorsa di Azure AD, ad esempio l'aggiunta o la rimozione di utenti, app, gruppi, ruoli e criteri.
 - **Sicurezza** 
-    - **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. Per informazioni dettagliate, vedere Accessi a rischio.
-    - **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per informazioni dettagliate, vedere Utenti contrassegnati per il rischio.
+    - **Accessi a rischio**: un [accesso a rischio](concept-risky-sign-ins.md) indica un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. 
+    - **Utenti contrassegnati per il rischio**: un [utente a rischio](concept-user-at-risk.md) indica un account utente che potrebbe essere stato compromesso.
 
-In questo argomento viene offerta una panoramica delle attività di controllo.
+Questo articolo fornisce una panoramica del report di controllo.
  
 ## <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
-* Gli utenti con ruolo di amministratore della sicurezza o con autorizzazioni di lettura per la sicurezza
-* Gli amministratori globali
-* I singoli utenti (non amministratori) possono visualizzare le proprie attività
 
+* Utenti con il ruolo di **Amministratore della sicurezza** o **Amministratore globale** oppure con un **ruolo con autorizzazioni di lettura per la sicurezza**
+* Inoltre, tutti gli utenti (non amministratori) possono visualizzare le proprie attività di controllo
 
 ## <a name="audit-logs"></a>Log di controllo
 
-I log di controllo in Azure Active Directory forniscono i record delle attività di sistema per la conformità.  
-Il primo punto di ingresso a tutti i dati di controllo è **Log di controllo** nella sezione **Attività** di **Azure Active Directory**.
+I log di controllo di Azure AD forniscono i record delle attività di sistema per la conformità. Per accedere ai log di controllo, selezionare **Log di controllo** nella sezione **Attività** di **Azure Active Directory**. 
 
 ![Log di controllo](./media/concept-audit-logs/61.png "Log di controllo")
 
@@ -68,15 +66,14 @@ In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già
 
 ![Log di controllo](./media/concept-audit-logs/21.png "Log di controllo")
 
-
-Facendo clic su un elemento nella visualizzazione elenco, è possibile ottenere tutti i dettagli disponibili sull'elemento.
+Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
 ![Log di controllo](./media/concept-audit-logs/22.png "Log di controllo")
 
 
 ## <a name="filtering-audit-logs"></a>Filtro dei log di controllo
 
-Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di controllo usando i campi seguenti:
+È possibile filtrare i dati di controllo in base ai campi seguenti:
 
 - Intervallo di date
 - Azione avviata da (attore)
@@ -85,7 +82,6 @@ Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dat
 - Attività
 
 ![Log di controllo](./media/concept-audit-logs/23.png "Log di controllo")
-
 
 Il filtro **Intervallo di date** permette di definire un intervallo di tempo per i dati restituiti.  
 I valori possibili sono:
@@ -97,7 +93,7 @@ I valori possibili sono:
 
 Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare un'ora di inizio e un'ora di fine.
 
-Il filtro **Avviato da** permette di definire il nome di un attore o il relativo nome UPN (Universal Principal Name).
+Il filtro **Avviato da** permette di definire un nome di attore o un nome UPN (Universal Principal Name).
 
 Il filtro **Categoria** permette di selezionare uno dei filtri seguenti:
 
@@ -129,10 +125,9 @@ Quando si seleziona **Gruppo** come **Tipo di risorsa attività**, si ottiene un
 - O365
 
 
-Il filtro **Attività** filtro si basa sulla categoria e sul tipo di risorsa attività selezionati. È possibile selezionare un'attività specifica da visualizzare o selezionarle tutte. 
+Il filtro **Attività** si basa sulla categoria e sul tipo di risorsa attività selezionati. È possibile selezionare un'attività specifica da visualizzare o selezionarle tutte. 
 
-È possibile ottenere l'elenco di tutte le attività di controllo usando l'API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, dove $tenantdomain è il nome del dominio. In alternativa, vedere l'articolo relativo agli [eventi del report di controllo](concept-audit-logs.md).
-
+È possibile ottenere l'elenco di tutte le attività di controllo usando l'API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, dove $tenantdomain è il nome del dominio. In alternativa, vedere l'articolo relativo agli [eventi del report di controllo](reference-audit-activities.md).
 
 ## <a name="audit-logs-shortcuts"></a>Collegamenti ai log di controllo
 
@@ -169,25 +164,23 @@ Per esaminare semplicemente i dati di controllo relativi a utenti e gruppi, è d
 
 Con i report di controllo basati sulle applicazioni, è possibile ottenere risposte a domande come:
 
-* Quali sono le applicazioni che sono state aggiunte o aggiornate?
-* Quali sono le applicazioni che sono state rimosse?
-* È stata modificata un'entità servizio per un'applicazione?
+* Quali applicazioni sono state aggiunte o aggiornate?
+* Quali applicazioni sono state rimosse?
+* Un'entità servizio per un'applicazione è stata modificata?
 * I nomi delle applicazioni sono stati modificati?
 * Chi ha dato il consenso a un'applicazione?
 
-Per esaminare semplicemente i dati di controllo relativi alle applicazioni, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** del pannello **Applicazioni aziendali**. Per questo punto di ingresso, il **Tipo di risorsa attività** preselezionato è **Applicazioni aziendali**.
+Per esaminare i dati di controllo relativi alle applicazioni, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** del pannello **Applicazioni aziendali**. Per **Tipo di risorsa attività** per questo punto di ingresso è preselezionato il valore **Applicazioni aziendali**.
 
 ![Log di controllo](./media/concept-audit-logs/134.png "Log di controllo")
 
-È possibile filtrare ulteriormente questa visualizzazione per vedere solo i **gruppi** o gli **utenti**.
+È possibile filtrare ulteriormente questa visualizzazione per vedere i **gruppi** o gli **utenti**.
 
 ![Log di controllo](./media/concept-audit-logs/25.png "Log di controllo")
 
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica della creazione di report, vedere [Creazione di report in Azure Active Directory](overview-reports.md).
-
-- Per un elenco completo di tutte le attività di controllo, vedere [Informazioni di riferimento sulle attività di controllo di Azure AD](reference-audit-activities.md).
-
+- [Informazioni di riferimento sulle attività di controllo di Azure AD](reference-audit-activities.md)
+- [Criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md)
+- [Latenze dei report di Azure Active Directory](reference-reports-latencies.md)

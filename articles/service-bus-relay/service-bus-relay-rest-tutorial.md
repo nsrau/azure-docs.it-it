@@ -12,26 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: a0f2cc0d76ef3c857bb7c13f46f1397f05b60977
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232444"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614473"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Esercitazione su REST per l'inoltro WCF di Azure
-
 Questa esercitazione descrive come creare una semplice applicazione host di inoltro di Azure che espone un'interfaccia basata su REST. REST consente ai client Web, ad esempio un Web browser, di accedere all'API del bus di servizio tramite richieste HTTP.
 
 In questa esercitazione viene usato il modello di programmazione REST di Windows Communication Foundation (WCF) per creare un servizio REST nel servizio di inoltro di Azure. Per altre informazioni, vedere [Modello di programmazione HTTP Web WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) e [Progettazione e implementazione di servizi](/dotnet/framework/wcf/designing-and-implementing-services) nella documentazione di WCF.
 
-## <a name="step-1-create-a-namespace"></a>Passaggio 1: Creare uno spazio dei nomi
+In questa esercitazione vengono completati i passaggi seguenti:
+
+> [!div class="checklist"]
+> * Creare uno spazio dei nomi di inoltro.
+> * Definire un contratto di servizio WCF basato su REST
+> * Implementare il contratto WCF basato su REST
+> * Ospitare ed eseguire il servizio WCF basato su REST
+> * Eseguire e testare il servizio
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
+
+- Una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+- [Visual Studio 2015 o versione successiva](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2017.
+- Azure SDK per .NET. Installare l'SDK dalla [pagina Download per gli SDK](https://azure.microsoft.com/downloads/).
+
+## <a name="create-a-relay-namespace"></a>Creare uno spazio dei nomi di inoltro
 
 Per usare le funzionalità del servizio d'inoltro di Azure, è prima necessario creare uno spazio dei nomi del servizio. Uno spazio dei nomi funge da contenitore di ambito in cui indirizzare le risorse di Azure nell'applicazione. Seguire le [istruzioni qui](relay-create-namespace-portal.md) per creare uno spazio dei nomi di inoltro.
 
-## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Passaggio 2: definire un contratto di servizio WCF basato su REST da usare con il servizio di inoltro di Azure
+## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Definire un contratto di servizio WCF basato su REST da usare con Inoltro di Azure
 
 Quando si crea un servizio basato su REST WCF, è necessario definire il contratto. Il contratto specifica quali operazioni sono supportate dall'host. Un'operazione di servizio può essere considerata come un metodo del servizio Web. I contratti vengono creati definendo un'interfaccia C++, C# o Visual Basic. Ogni metodo dell'interfaccia corrisponde a un'operazione di servizio specifico. L'attributo [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) deve essere applicato a ogni interfaccia e l'attributo [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) deve essere applicato a ogni operazione. Se un metodo di un'interfaccia che ha [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) non ha [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), non viene esposto. Il codice usato per eseguire queste attività viene illustrato nell'esempio che segue la procedura.
 
@@ -136,7 +152,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Passaggio 3: implementare un contratto di servizio WCF basato su REST per utilizzare il bus di servizio
+## <a name="implement-the-rest-based-wcf-service-contract"></a>Implementare il contratto di servizio WCF basato su REST
 La creazione di un servizio di inoltro WCF basato su REST richiede prima la creazione del contratto, che viene definito usando un'interfaccia. Il passaggio successivo consiste nell'implementazione dell'interfaccia. Ciò comporta la creazione di una classe denominata **ImageService** che implementa l’interfaccia **IImageContract** definita dall'utente. Dopo aver implementato il contratto, è quindi necessario configurare l'interfaccia utilizzando un file App.config. Il file di configurazione contiene le informazioni necessarie per l'applicazione, ad esempio il nome del servizio, il nome del contratto e il tipo di protocollo usato per comunicare con il servizio di inoltro. Il codice usato per eseguire queste attività viene fornito nell'esempio che segue la procedura.
 
 Come per i passaggi precedenti, è impercettibile la differenza tra l'implementazione di un contratto di tipo REST e di un contratto dell'inoltro WCF.
@@ -430,7 +446,7 @@ Nell'esempio seguente viene illustrato il file App.config associato al servizio.
 </configuration>
 ```
 
-## <a name="step-4-host-the-rest-based-wcf-service-to-use-azure-relay"></a>Passaggio 4: eseguire l'hosting del servizio WCF basato su REST per usare il servizio di inoltro di Azure
+## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>Ospitare il servizio WCF basato su REST per usare Inoltro di Azure
 Questo passaggio descrive come eseguire un servizio Web usando un'applicazione console con l'inoltro WCF. Un elenco completo del codice scritto in questo passaggio viene fornito nell’esempio che segue la procedura.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Per creare un indirizzo di base per il servizio
@@ -476,7 +492,7 @@ Questo passaggio descrive come eseguire un servizio Web usando un'applicazione c
     host.Close();
     ```
 
-## <a name="example"></a>Esempio
+### <a name="example"></a>Esempio
 Nell'esempio seguente vengono inclusi il contratto di servizio e l'implementazione dei passaggi precedenti dell'esercitazione e viene ospitato il servizio in un'applicazione console. Compilare il codice seguente in un eseguibile denominato ImageListener.exe.
 
 ```csharp
@@ -551,7 +567,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### <a name="compiling-the-code"></a>Compilazione del codice
+## <a name="run-and-test-the-service"></a>Eseguire e testare il servizio
 Dopo aver compilato la soluzione, effettuare le operazioni seguenti per eseguire l'applicazione:
 
 1. Premere **F5** o passare al percorso del file eseguibile ImageListener\bin\Debug\ImageListener.exe per eseguire il servizio. Mantenere l'app in esecuzione perché verrà usata per eseguire il passaggio successivo.

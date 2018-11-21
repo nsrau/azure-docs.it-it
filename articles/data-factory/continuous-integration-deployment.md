@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 94633ce2f11f9efa99f1ad44820abd5aecdec923
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457211"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623790"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integrazione e recapito continui (CI/CD) in Azure Data Factory
 
-L'integrazione continua consente di testare automaticamente e non appena possibile ogni modifica apportata alla codebase. Il recapito continuo segue il test effettuato durante l'integrazione continua ed esegue il push delle modifiche in un sistema di gestione temporanea o di produzione.
+L'integrazione continua è la procedura che permette di testare ogni modifica apportata alla base di codici automaticamente e quanto prima possibile. Il recapito continuo segue i test effettuati durante l'integrazione continua ed esegue il push delle modifiche in un sistema di gestione temporanea o di produzione.
 
 In Azure Data Factory per integrazione e recapito continui si intende lo spostamento delle pipeline di Data Factory da un ambiente (sviluppo, test, produzione) a un altro. Per eseguire l'integrazione e il recapito continui, è possibile usare l'integrazione dell'interfaccia utente di Data Factory con i modelli di Azure Resource Manager. L'interfaccia utente di Data Factory può generare un modello di Resource Manager quando si selezionano le opzioni di **Modello ARM**. Quando si seleziona **Export ARM template** (Esporta modello di Azure Resource Manager), il portale genera il modello di Resource Manager per la data factory e un file di configurazione che include tutte le stringhe di connessioni e altri parametri. È quindi necessario creare un file di configurazione per ogni ambiente (sviluppo, test, produzione). Il file di modello di Resource Manager principale rimane lo stesso per tutti gli ambienti.
 
@@ -75,11 +75,11 @@ Ecco i passaggi necessari per configurare una versione di Azure Pipelines per po
 
 ### <a name="requirements"></a>Requisiti
 
--   Una sottoscrizione di Azure collegata a Team Foundation Server o ad Azure Repos con l'[*endpoint servizio di Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Una sottoscrizione di Azure collegata a Team Foundation Server o ad Azure Repos con l' [*endpoint di servizio di Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
 -   Una data factory configurata con l'integrazione GIT per Azure Repos.
 
--   Un [insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/services/key-vault/) contenente i segreti.
+-   Un'istanza di  [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)  contenente i segreti.
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Configurare una versione di Azure Pipelines
 
@@ -832,6 +832,48 @@ else {
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usare i parametri personalizzati con il modello di Resource Manager
 
 È possibile definire i parametri personalizzati con il modello di Resource Manager. È sufficiente creare un file denominato `arm-template-parameters-definition.json` nella cartella radice del repository. (Il nome del file deve corrispondere esattamente al nome visualizzato qui). Data Factory tenta di leggere il file da qualsiasi ramo nel quale si sta lavorando, non solo da quello di collaborazione. Se non viene trovato alcun file, Data Factory usa i parametri e i valori predefiniti.
+
+### <a name="syntax-of-a-custom-parameters-file"></a>Sintassi di un file dei parametri personalizzati
+
+Ecco alcune linee guida da usare per la creazione di file dei parametri personalizzati. Per alcuni esempi di questa sintassi, vedere la sezione [File dei parametri personalizzati di esempio](#sample) seguente.
+
+1. Quando si specifica una matrice nel file di definizione, si indica che la proprietà corrispondente nel modello è una matrice. Data Factory esegue l'iterazione tra tutti gli oggetti della matrice usando la definizione specificata nel primo oggetto della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
+
+    ```json
+    ...
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    ...
+    ```
+
+2. Quando si imposta un nome di proprietà su `*`, si indica che il modello deve usare tutte le proprietà a questo livello, ad eccezione di quelle definite in modo esplicito.
+
+3. Quando si imposta il valore di una proprietà come stringa, si indica che si vuole parametrizzare la proprietà. Usare il formato `<action>:<name>:<stype>`.
+    1.  `<action>` può essere uno dei caratteri seguenti: 
+        1.  `=` specifica di mantenere il valore corrente come valore predefinito per il parametro.
+        2.  `-` specifica di mantenere il valore predefinito per il parametro.
+        3.  `|` è un caso speciale per i segreti di Azure Key Vault per una stringa di connessione.
+    2.  `<name>` è il nome del parametro. Se `<name`> è vuoto, viene usato il nome del parametro 
+    3.  `<stype>` è il tipo del parametro. Se `<stype>` è vuoto, il tipo predefinito è una stringa.
+4.  Se si immette un carattere `-` all'inizio di un nome di parametro, il nome completo del parametro di Resource Manager viene abbreviato in `<objectName>_<propertyName>`.
+Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` viene abbreviato in `AzureStorage1_connectionString`.
+
+
+### <a name="sample"></a> File dei parametri personalizzati di esempio
 
 L'esempio seguente mostra un file di parametri di esempio. Usare questo esempio come riferimento per creare il proprio file di parametri personalizzato. Se il file specificato non è nel formato JSON corretto, Data Factory genera un messaggio di errore nella console del browser e ripristina i parametri e i valori predefiniti illustrati nell'interfaccia utente di Data Factory.
 

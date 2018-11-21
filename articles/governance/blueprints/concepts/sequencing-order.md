@@ -4,16 +4,16 @@ description: Scopri le informazioni dettagliate su ogni fase del ciclo di vita c
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4adf427727e7244bbde64a673e7353c1f8270c8a
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094579"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620596"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendere la sequenza di distribuzione in Azure Blueprints
 
@@ -47,6 +47,9 @@ In ciascun artefatto del **gruppo di risorse**, viene usato il seguente ordine d
 Durante la composizione di progetti di grandi dimensioni, potrebbe essere necessario creare risorse in un ordine specifico. Il modello di uso più comune di questo scenario è quando un progetto include diversi modelli di Azure Resource Manager. I progetti gestiscono questo criterio consentendo di definire l'ordine di sequenziamento.
 
 Questa operazione viene eseguita definendo una proprietà `dependsOn` in JSON. Questa proprietà è supportata solo dal progetto (per i gruppi di risorse) e dagli oggetti dell'elemento. `dependsOn` è una matrice di stringhe di nomi dell'elemento che deve essere creata prima che venga creato l'elemento specifico.
+
+> [!NOTE]
+> Gli artefatti **Gruppo di risorse** supportano la proprietà `dependsOn` ma non possono rappresentare la destinazione di una proprietà `dependsOn` in base a qualsiasi tipo di artefatto.
 
 ### <a name="example---blueprint-with-ordered-resource-group"></a>Esempio - progetto gruppo di risorse ordinato
 

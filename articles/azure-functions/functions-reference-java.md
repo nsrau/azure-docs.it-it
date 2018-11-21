@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 423661b8a459abf0b3028da92d6fd3ec885bb2c9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025023"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686893"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -24,11 +24,13 @@ ms.locfileid: "50025023"
 
 ## <a name="programming-model"></a>Modello di programmazione 
 
-Una funzione di Azure deve essere un metodo della classe senza stato che elabora un input e restituisce un output. Anche se è possibile scrivere metodi di istanza, la funzione non deve dipendere da campi di istanza della classe. Tutti i metodi di funzione devono avere un modificatore di accesso `public`.
+I concetti di [trigger e binding](functions-triggers-bindings.md) sono fondamentali in Funzioni di Azure. I trigger avviano l'esecuzione del codice, mentre i binding consentono la trasmissione dei dati e la restituzione dei dati da una funzione, senza dover scrivere codice personalizzato per l'accesso ai dati.
+
+Una funzione deve essere un metodo senza stato per l'elaborazione di un input e la produzione di un output. La funzione non deve dipendere dai campi di istanza della classe. Tutti i metodi di funzione devono essere `public` e il metodo con annotazione @FunctionName deve essere univoco poiché il nome del metodo definisce la voce di una funzione.
 
 ## <a name="folder-structure"></a>Struttura di cartelle
 
-La struttura di cartelle per un progetto Java ha un aspetto simile al seguente:
+Di seguito è illustrata la struttura di cartelle di un progetto Java di Funzioni di Azure:
 
 ```
 FunctionsProject
@@ -60,14 +62,12 @@ FunctionsProject
 
  Le funzioni di Azure vengono richiamate da un trigger, ad esempio una richiesta HTTP, un timer o un aggiornamento dati. La funzione deve elaborare tale trigger e qualsiasi altro input per generare uno o più output.
 
-Usare le annotazioni Java incluse nel pacchetto [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) per associare input e output ai metodi dell'utente. Il codice di esempio con le annotazioni è disponibile nei [documenti di riferimento Java](/java/api/com.microsoft.azure.functions.annotation) per ciascuna annotazione e nella documentazione di riferimento per l'associazione di Funzioni di Azure, ad esempio quella per i [trigger HTTP](/azure/azure-functions/functions-bindings-http-webhook).
-
-I trigger di input e output possono essere definiti anche nel file [function.json](/azure/azure-functions/functions-reference#function-code) per la funzione, anziché tramite le annotazioni. Non è consigliabile usare `function.json` anziché le annotazioni in questo modo.
+Usare le annotazioni Java incluse nel pacchetto [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) per associare input e output ai metodi dell'utente. Per altre informazioni, vedere [Documentazione di riferimento per Java](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
 > È necessario configurare un account di Archiviazione di Azure nel file [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) per eseguire i trigger di BLOB del servizio di archiviazione di Azure o di code e tabelle di Azure.
 
-Esempio di uso di annotazioni:
+Esempio:
 
 ```java
 public class Function {
@@ -79,24 +79,12 @@ public class Function {
 }
 ```
 
-La stessa funzione scritta senza annotazioni:
-
-```java
-package com.example;
-
-public class MyClass {
-    public static String echo(String in) {
-        return in;
-    }
-}
-```
-
-con i corrispondenti `function.json`:
+e il file `function.json` corrispondente generato da [azure-functions-maven-plugin](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin):
 
 ```json
 {
   "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
+  "entryPoint": "com.example.Function.echo",
   "bindings": [
     {
       "type": "httpTrigger",
@@ -117,113 +105,113 @@ con i corrispondenti `function.json`:
 
 ## <a name="jdk-runtime-availability-and-support"></a>Disponibilità del runtime JDK e supporto 
 
-Eseguire il download e usare i pacchetti JDK [Azul Zulu per Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) di [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) per lo sviluppo locale di app per le funzioni Java. I pacchetti JDK sono disponibili per Windows, Linux e macOS e il [supporto di Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) è disponibile per risolvere i problemi riscontrati durante lo sviluppo con un [piano di supporto completo](https://azure.microsoft.com/support/plans/).
+Eseguire il download e usare i pacchetti JDK [Azul Zulu per Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) di [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) per lo sviluppo locale di app per le funzioni Java. I pacchetti JDK sono disponibili per Windows, Linux e macOS. Il [supporto di Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) è disponibile con un [piano di supporto completo](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Librerie di terze parti 
 
-Funzioni di Azure supporta l'uso di librerie di terze parti. Per impostazione predefinita, tutte le dipendenze specificate nel file `pom.xml` del progetto verranno raggruppate automaticamente durante l'obiettivo `mvn package`. Inserire le librerie non specificate come dipendenze del file `pom.xml` in una directory `lib` nella directory radice della funzione. Le dipendenze inserite nella directory `lib` verranno aggiunte al caricatore di classe di sistema in fase di esecuzione.
+Funzioni di Azure supporta l'uso di librerie di terze parti. Per impostazione predefinita, tutte le dipendenze specificate nel file `pom.xml` del progetto verranno raggruppate automaticamente durante l'obiettivo [`mvn package`](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage). Inserire le librerie non specificate come dipendenze del file `pom.xml` in una directory `lib` nella directory radice della funzione. Le dipendenze inserite nella directory `lib` verranno aggiunte al caricatore di classe di sistema in fase di esecuzione.
 
-La dipendenza `com.microsoft.azure.functions:azure-functions-java-library` è specificata in classpath per impostazione predefinita e non deve essere inclusa nella directory `lib`.
+La dipendenza `com.microsoft.azure.functions:azure-functions-java-library` è specificata in classpath per impostazione predefinita e non deve essere inclusa nella directory `lib`. Le dipendenze elencate [qui](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies), inoltre, vengono aggiunte al classpath da [azure-funzioni-java-worker](https://github.com/Azure/azure-functions-java-worker).
 
 ## <a name="data-type-support"></a>Supporto dei tipi di dati
 
-Come dati di input e output è possibile usare tutti i tipi di dati in Java, inclusi i tipi nativi, i tipi Java personalizzati e i tipi specializzati di Azure definiti nel pacchetto `azure-functions-java-library`. Il runtime di Funzioni di Azure tenta di convertire l'input ricevuto nel tipo richiesto dal codice.
-
-### <a name="strings"></a>Stringhe
-
-Per i valori passati nei metodi di funzione sarà possibile eseguire il cast in stringhe se il tipo di parametro di input corrispondente per la funzione è `String`. 
+Per stabilire un'associazione con binding di input/output, è possibile usare Oggetti Java precedenti normali (POJO, Plain Old Java Object), tipi definiti in `azure-functions-java-library` o tipi di dati primitivi, ad esempio stringa o numero intero.
 
 ### <a name="plain-old-java-objects-pojos"></a>Oggetti Java precedenti normali (POJO, Plain Old Java Object)
 
-Per le stringhe in formato JSON verrà eseguito il cast in tipi Java se la firma di input della funzione prevede tale tipo. Questa conversione consente di passare al formato JSON e usare tipi Java.
-
-I tipi POJO usati come input per le funzioni devono usare lo stesso modificatore di accesso `public` come i metodi di funzione in cui vengono usati. Non è necessario dichiarare i campi `public` delle classi POJO. Una stringa JSON `{ "x": 3 }`, ad esempio, può essere convertito nel tipo POJO seguente:
-
-```Java
-public class MyData {
-    private int x;
-}
-```
+Per la conversione dei dati di input in oggetti POJO, [azure-funzioni-java-worker](https://github.com/Azure/azure-functions-java-worker) usa la libreria [gson](https://github.com/google/gson). I tipi POJO usati come input delle funzioni devono essere `public`.
 
 ### <a name="binary-data"></a>Dati binari
 
-I dati binari viene rappresentati come un elemento `byte[]` nel codice di Funzioni di Azure. Per associare dati di input/output binari alle funzioni, impostare il campo `dataType` nel file function.json su `binary`:
-
-```json
- {
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "blob",
-      "name": "content",
-      "direction": "in",
-      "dataType": "binary",
-      "path": "container/myfile.bin",
-      "connection": "ExampleStorageAccount"
-    },
-  ]
-}
-```
-
-Usare quindi il campo nel codice:
+Per associare dati di input/output binari a `byte[]`, impostare il campo `dataType` nel file function.json su `binary`:
 
 ```java
-// Class definition and imports are omitted here
-public static String echoLength(byte[] content) {
-}
+   @FunctionName("BlobTrigger")
+    @StorageAccount("AzureWebJobsStorage")
+     public void blobTrigger(
+        @BlobTrigger(name = "content", path = "myblob/{fileName}", dataType = "binary") byte[] content,
+        @BindingName("fileName") String fileName,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Blob trigger function processed a blob.\n Name: " + fileName + "\n Size: " + content.length + " Bytes");
+    }
 ```
 
-I valori di input vuoti potrebbero essere `null` come l'argomento delle funzioni, ma per gestire gli eventuali valori vuoti è consigliabile usare `Optional<T>`.
+Usare `Optional<T>` se sono previsti valori Null
 
+## <a name="bindings"></a>Binding
 
-## <a name="function-method-overloading"></a>Overload di metodi di funzioni
+I binding di input e output forniscono una modalità dichiarativa per connettersi ai dati dall'interno del codice. Una funzione può avere più binding di input e output.
 
-È consentito eseguire l'overload di metodi di funzione con lo stesso nome, ma con tipi diversi. È ad esempio possibile che in una classe siano presenti sia `String echo(String s)` sia `String echo(MyType s)`. Funzioni di Azure decide quale metodo richiamare in base al tipo di input (per un input HTTP il tipo MIME `text/plain` determina `String`, mentre `application/json` rappresenta `MyType`).
-
-## <a name="inputs"></a>Input
-
-In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'input del trigger e un input aggiuntivo. Anche se sono diversi in `function.json`, l'uso nel codice Java è diverso. Si consideri il frammento di codice di esempio seguente:
+### <a name="example-input-binding"></a>Esempio di binding di input
 
 ```java
 package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
+public class Function {
     @FunctionName("echo")
     public static String echo(
-        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String in,
-        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") MyObject obj
+        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
+        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
     ) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+        testOutputData.setValue(new Person(httpbody + "Partition", httpbody + "Row", httpbody + "Name"));
+        return "Hello, " + inputReq + " and " + inputData.getKey() + ".";
     }
 
-    public static class MyObject {
+    public static class TestInputData {
         public String getKey() { return this.RowKey; }
         private String RowKey;
     }
+    public static class Person {
+        public String PartitionKey;
+        public String RowKey;
+        public String Name;
+
+        public Person(String p, String r, String n) {
+            this.PartitionKey = p;
+            this.RowKey = r;
+            this.Name = n;
+        }
+    }
 }
 ```
 
-Quando viene attivata questa funzione, la richiesta HTTP viene passata alla funzione da `String in`. Una voce verrà recuperata dall'archiviazione tabelle di Azure in base all'ID nell'URL di route e verrà resa disponibile come `obj` nel corpo della funzione.
+Questa funzione viene richiamata con una richiesta HTTP. 
+- Il payload della richiesta HTTP viene passato come `String` per l'argomento `inputReq`
+- Viene recuperata una voce da Archiviazione tabelle di Azure e passata come `TestInputData` all'argomento `inputData`.
 
-## <a name="outputs"></a>Output
+Per ricevere un batch di input, è possibile stabilire un'associazione a `String[]`, `POJO[]`, `List<String>` o `List<POJO>`.
 
-Gli output possono essere espressi sia nel valore restituito che nei parametri di output. Se è presente un solo output, è consigliabile usare il valore restituito. Per più output, è necessario usare invece i parametri di output.
+```java
+@FunctionName("ProcessIotMessages")
+    public void processIotMessages(
+        @EventHubTrigger(name = "message", eventHubName = "%AzureWebJobsEventHubPath%", connection = "AzureWebJobsEventHubSender", cardinality = Cardinality.MANY) List<TestEventData> messages,
+        final ExecutionContext context)
+    {
+        context.getLogger().info("Java Event Hub trigger received messages. Batch size: " + messages.size());
+    }
+    
+    public class TestEventData {
+    public String id;
+}
 
-Il valore restituito è la forma più semplice di output, perché è possibile restituire solo un valore di qualsiasi tipo e il runtime di Funzioni di Azure runtime tenterà di eseguire il marshalling nel tipo effettivo, ad esempio una risposta HTTP.  Per definire l'output del valore restituito, è possibile applicare qualsiasi annotazione di output al metodo di funzione. La proprietà del nome dell'annotazione deve essere $return.
+```
 
-Per generare più valori di output, usare il tipo `OutputBinding<T>` definito nel pacchetto `azure-functions-java-library`. Se è necessario restituire una risposta HTTP ed eseguire anche il push di un messaggio a una coda, è possibile scrivere un codice simile al seguente:
+Questa funzione viene attivata ogni volta che sono disponibili nuovi dati nell'hub eventi configurato. Poiché l'oggetto `cardinality` è impostato su `MANY`, la funzione riceve un batch di messaggi dall'hub eventi. L'oggetto EventData dell'hub eventi viene convertito in `TestEventData` per l'esecuzione della funzione.
 
-La funzione di copia di un contenuto BLOB può essere ad esempio definita come il codice seguente. L'annotazione `@StorageAccount` è qui usata per evitare la duplicazione della proprietà di connessione per `@BlobTrigger` e `@BlobOutput`.
+### <a name="example-output-binding"></a>Esempio di binding di output
+
+È possibile associare un binding di output al valore restituito usando `$return` 
 
 ```java
 package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
+public class Function {
     @FunctionName("copy")
     @StorageAccount("AzureWebJobsStorage")
     @BlobOutput(name = "$return", path = "samples-output-java/{name}")
@@ -233,25 +221,57 @@ public class MyClass {
 }
 ```
 
-Usare `OutputBinding<byte[]`> per creare un valore di output binario (per i parametri). Per i valori restituiti usare `byte[]`.
+Se sono presenti più associazioni di output, usare il valore restituito per una sola di tali associazioni.
 
-## <a name="specialized-types"></a>Tipi specializzati
+Per inviare più valori di output, usare il tipo `OutputBinding<T>` definito nel pacchetto `azure-functions-java-library`. 
 
-Talvolta una funzione deve disporre di controllo dettagliato sui dati di input e output. I tipi specializzati nel pacchetto `azure-functions-java-core` sono disponibili per modificare le informazioni sulla richiesta e per personalizzare lo stato restituito di un trigger HTTP:
+```java
+@FunctionName("QueueOutputPOJOList")
+    public HttpResponseMessage QueueOutputPOJOList(@HttpTrigger(name = "req", methods = { HttpMethod.GET,
+            HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "itemsOut", queueName = "test-output-java-pojo", connection = "AzureWebJobsStorage") OutputBinding<List<TestData>> itemsOut, 
+            final ExecutionContext context) {
+        context.getLogger().info("Java HTTP trigger processed a request.");
+       
+        String query = request.getQueryParameters().get("queueMessageId");
+        String queueMessageId = request.getBody().orElse(query);
+        itemsOut.setValue(new ArrayList<TestData>());
+        if (queueMessageId != null) {
+            TestData testData1 = new TestData();
+            testData1.id = "msg1"+queueMessageId;
+            TestData testData2 = new TestData();
+            testData2.id = "msg2"+queueMessageId;
+
+            itemsOut.getValue().add(testData1);
+            itemsOut.getValue().add(testData2);
+
+            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + queueMessageId).build();
+        } else {
+            return request.createResponseBuilder(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Did not find expected items in CosmosDB input list").build();
+        }
+    }
+
+     public static class TestData {
+        public String id;
+    }
+```
+
+La funzione precedente viene richiamata su una HttpRequest e scrive più valori nella coda di Azure
+
+## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage e HttpResponseMessage
+
+ I tipi HttpRequestMessage e HttpResponseMessage definiti in `azure-functions-java-library` sono tipi di helper per l'interazione con le funzioni HttpTrigger
 
 | Tipo specializzato      |       Destinazione        | Uso tipico                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Trigger HTTP     | Metodo Get, intestazioni o query |
-| `HttpResponseMessage<T>` | Associazione di output HTTP | Stato restituito diverso da 200   |
+| `HttpResponseMessage` | Associazione di output HTTP | Stato restituito diverso da 200   |
 
-> [!NOTE] 
-> È anche possibile usare l'annotazione `@BindingName` per ottenere le intestazioni e le query HTTP. `@BindingName("name") String query` consente ad esempio di scorrere le intestazioni delle richieste e le query HTTP e di passare tale valore al metodo. `query` sarà `"test"`, ad esempio, se l'URL richiesto è `http://example.org/api/echo?name=test`.
+## <a name="metadata"></a>Metadata
 
-### <a name="metadata"></a>Metadata
+Alcuni trigger inviano [metadati dei trigger](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties) insieme ai dati di input. È possibile usare l'annotazione `@BindingName` per stabilire un'associazione con i metadati dei trigger
 
-I metadati provengono da origini diverse, ad esempio le intestazioni HTTP, le query HTTP e i [metadati di trigger](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Usare l'annotazione `@BindingName` insieme al nome dei metadati per ottenere il valore.
-
-Ad esempio, il `queryValue` nel frammento di codice seguente è `"test"` se l'URL richiesto è `http://{example.host}/api/metadata?name=test`.
 
 ```Java
 package com.example;
@@ -260,7 +280,7 @@ import java.util.Optional;
 import com.microsoft.azure.functions.annotation.*;
 
 
-public class MyClass {
+public class Function {
     @FunctionName("metadata")
     public static String metadata(
         @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
@@ -270,16 +290,34 @@ public class MyClass {
     }
 }
 ```
+Nell'esempio precedente, `queryValue` è associato al parametro della stringa di query `name` nell'URL della richiesta `http://{example.host}/api/metadata?name=test`. Di seguito è riportato un altro esempio di binding a `Id` dai metadati del trigger della coda
+
+```java
+ @FunctionName("QueueTriggerMetadata")
+    public void QueueTriggerMetadata(
+        @QueueTrigger(name = "message", queueName = "test-input-java-metadata", connection = "AzureWebJobsStorage") String message,@BindingName("Id") String metadataId,
+        @QueueOutput(name = "output", queueName = "test-output-java-metadata", connection = "AzureWebJobsStorage") OutputBinding<TestData> output,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Queue trigger function processed a message: " + message + " whith metadaId:" + metadataId );
+        TestData testData = new TestData();
+        testData.id = metadataId;
+        output.setValue(testData);
+    }
+```
+
+> [!NOTE]
+> Il nome specificato nell'annotazione deve corrispondere alla proprietà dei metadati
 
 ## <a name="execution-context"></a>Contesto di esecuzione
 
-Per interagire con l'ambiente di esecuzione di Funzioni di Azure, usare l'oggetto `ExecutionContext` definito nel pacchetto `azure-functions-java-library`. L'oggetto `ExecutionContext` consente di usare le informazioni di chiamata e quelle del runtime delle funzioni nel codice.
+L'oggetto `ExecutionContext` definito in `azure-functions-java-library` contiene metodi helper per comunicare con il runtime di Funzioni.
 
-### <a name="custom-logging"></a>Registrazione personalizzata
+### <a name="logger"></a>Logger
 
-Per accedere al logger di runtime di Funzioni di Azure, è possibile usare l'oggetto `ExecutionContext`. Il logger è associato a Monitoraggio di Azure e consente di contrassegnare avvisi ed errori rilevati durante l'esecuzione delle funzioni.
+Usare `getLogger` definito in `ExecutionContext` per scrivere i log dal codice della funzione.
 
-L'esempio di codice seguente registra un messaggio di avviso quando il corpo della richiesta ricevuto è vuoto.
+Esempio:
 
 ```java
 
@@ -298,7 +336,9 @@ public class Function {
 
 ## <a name="view-logs-and-trace"></a>Visualizzazione dei log e della traccia
 
-È possibile usare l'interfaccia della riga di comando di Azure per eseguire lo streaming dello standard Java e della registrazione degli errori, nonché la registrazione di altre applicazioni. Prima di tutto configurare l'applicazione di funzione per scrivere la registrazione delle applicazioni tramite l'interfaccia della riga di comando di Azure:
+È possibile usare l'interfaccia della riga di comando di Azure per trasmettere in streaming la registrazione dei canali stdout e stderr di Java, oltre alla registrazione di altre applicazioni. 
+
+Configurare l'applicazione Funzioni per scrivere la registrazione delle applicazioni tramite l'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
@@ -321,26 +361,22 @@ Prima di eseguire questo comando, è necessario aver abilitato la registrazione 
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 
-Per motivi di sicurezza, è consigliabile evitare di includere nel codice sorgente informazioni segrete come chiavi o token. Usare le chiavi e i token nel codice della funzione leggendoli dalle variabili di ambiente.
+In Funzioni, le [impostazioni dell'app](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), come le stringhe di connessione al servizio, vengono esposte come variabili di ambiente durante l'esecuzione. È possibile accedere a queste impostazioni usando `System.getenv("AzureWebJobsStorage")`
 
-Per impostare le variabili di ambiente quando si esegue Funzioni di Azure in locale, è possibile aggiungerle al file local.settings.json. Se una di esse non è presente nella directory radice del progetto funzione, è possibile crearla. Il file sarà simile al seguente:
+Esempio:
 
-```xml
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "",
-    "AzureWebJobsDashboard": ""
-  }
+Aggiungere [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings) con il nome testAppSetting e il valore testAppSettingValue
+
+```java
+
+public class Function {
+    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+        context.getLogger().info("testAppSetting "+ System.getenv("testAppSettingValue"));
+        return String.format(req);
+    }
 }
+
 ```
-
-Ogni chiave/valore di mapping nel mapping `values` verrà reso disponibile in fase di esecuzione come variabile di ambiente, accessibile tramite una chiamata `System.getenv("<keyname>")`, ad esempio `System.getenv("AzureWebJobsStorage")`. L'aggiunta di coppie di chiavi/valori aggiuntive non solo è permessa, ma è anche auspicabile.
-
-> [!NOTE]
-> Se si adotta questo approccio, assicurarsi di aggiungere il file local.settings.json al comando Ignora file del repository, in modo che non ne venga eseguito il commit.
-
-Con il codice ora basato su queste variabili di ambiente è possibile accedere al portale di Azure per impostare le stesse coppie di chiave/valore nelle impostazioni dell'app per le funzioni, in modo che il codice funzioni allo stesso modo nel test in locale e nella distribuzione in Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

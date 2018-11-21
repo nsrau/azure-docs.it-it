@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 51404c35b42d1c98116e74b5b7a47afe05b7d2a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470065"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300558"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere gli account di archiviazione per un set specifico di reti autorizzate.  Quando si configurano le regole di rete, solo le applicazioni delle reti consentite possono accedere a un account di archiviazione.  Quando le applicazioni eseguono chiamate da una rete autorizzata devono comunque avere l'autorizzazione necessaria (una chiave di accesso o un token di firma di accesso condiviso validi) per accedere all'account di archiviazione.
@@ -201,7 +201,7 @@ Ogni account di archiviazione può supportare fino a 100 regole di rete IP, che 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurazione dell'accesso da reti locali
 Per garantire l'accesso all'account di archiviazione dalle reti locali con una regola di rete IP è necessario identificare gli indirizzi IP esposti a Internet usati dalla rete.  Per assistenza contattare l'amministratore di rete.
 
-Se la rete è connessa alla rete di Azure con [ExpressRoute](/azure/expressroute/expressroute-introduction), ogni circuito è configurato in Microsoft Edge con due indirizzi IP pubblici che consentono di connettersi a servizi Microsoft come Archiviazione di Azure usando il [peering pubblico di Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Per consentire la comunicazione tra il circuito e Archiviazione di Azure, è necessario creare regole di rete IP per gli indirizzi IP pubblici dei circuiti.  Per trovare gli indirizzi IP pubblici del circuito ExpressRoute, [aprire un ticket di supporto in ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure.
+Se la rete è connessa alla rete di Azure con [ExpressRoute](/azure/expressroute/expressroute-introduction), ogni circuito è configurato in Microsoft Edge con due indirizzi IP pubblici che consentono di connettersi a servizi Microsoft come Archiviazione di Azure usando il [peering pubblico di Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Per consentire la comunicazione tra il circuito e Archiviazione di Azure, è necessario creare regole di rete IP per gli indirizzi IP pubblici dei circuiti.  Per trovare gli indirizzi IP pubblici del circuito ExpressRoute, [aprire un ticket di supporto con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure.
 
 
 ### <a name="managing-ip-network-rules"></a>Gestione delle regole di rete IP

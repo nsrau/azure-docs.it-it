@@ -1,7 +1,6 @@
 ---
-title: "Esempio: Analizzare il sentiment con l'API REST Analisi del testo"
-titleSuffix: Azure Cognitive Services
-description: Informazioni su come rilevare il sentiment con l'API REST Analisi del testo.
+title: Come eseguire l'analisi del sentiment nell'API REST Analisi del testo (Servizi cognitivi Microsoft in Azure) | Microsoft Docs
+description: In questa esercitazione dettagliata si apprenderà come rilevare il sentiment usando l'API REST Analisi del testo in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605896"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632867"
 ---
 # <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Esempio: Come rilevare il sentiment in Analisi del testo
 
@@ -24,6 +23,9 @@ L'[API Analisi del sentiment](https://westus.dev.cognitive.microsoft.com/docs/se
 Questa funzionalità è utile per il rilevamento del sentiment positivo e negativo nei social media, nelle recensioni dei clienti e nei forum di discussione. Il contenuto viene fornito dall'utente, mentre modelli e dati di training vengono forniti dal servizio.
 
 La funzione Analisi del sentiment supporta attualmente le lingue inglese, tedesco, spagnolo e francese. Altre lingue sono disponibili in anteprima. Per altre informazioni, vedere [Linguaggi supportati](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Analisi del testo offre anche un'immagine del contenitore Docker basata su Linux per l'analisi del sentiment, di conseguenza è possibile [installare ed eseguire il contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) vicino ai dati.
 
 ## <a name="concepts"></a>Concetti
 
@@ -77,7 +79,7 @@ I dettagli sulla definizione della richiesta sono reperibili in [How to call the
 
 + Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) (API Analisi del sentiment)
 
-+ Impostare l'endpoint HTTP per l'estrazione di espressioni chiave. È necessario includere la risorsa `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Impostare l'endpoint HTTP per l'analisi del sentiment usando una risorsa di Analisi del testo in Azure oppure un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) di cui è stata creata un'istanza. È necessario includere la risorsa `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
 + Impostare un'intestazione della richiesta in modo da includere la chiave di accesso per le operazioni di Analisi del testo. Per altre informazioni, vedere [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Come trovare gli endpoint e le chiavi di accesso).
 
@@ -129,7 +131,7 @@ L'esempio seguente mostra la risposta per la raccolta di documenti in questo art
 }
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati appresi i concetti e il flusso di lavoro per l'analisi del sentiment eseguita tramite Analisi del testo in Servizi cognitivi. In sintesi:
 
@@ -138,7 +140,7 @@ In questo articolo sono stati appresi i concetti e il flusso di lavoro per l'ana
 + La richiesta POST viene indirizzata a un endpoint `/sentiment` usando una [chiave di accesso personalizzata e un endpoint](text-analytics-how-to-access-key.md) valido per la sottoscrizione.
 + L'output di risposta, costituito da un punteggio di sentiment per ogni ID documento, può essere trasmesso a qualsiasi app che accetta JSON, tra cui Excel e Power BI, per citarne alcune.
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
  [Panoramica di Analisi del testo](../overview.md)  
  [Domande frequenti (FAQ)](../text-analytics-resource-faq.md)</br>

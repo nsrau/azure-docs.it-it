@@ -15,18 +15,18 @@ ms.date: 11/07/2018
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 298afda7549690a9ea0314bff63a714be50a33b9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019880"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577959"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedura: Riattivare gli spazi dei nomi disabilitati del Servizio di controllo di accesso
 
 A novembre 2017 è stato annunciato il ritiro in data 7 novembre 2018 del Servizio di controllo di accesso di Microsoft Azure, un servizio di Azure Active Directory (Azure AD).
 
-A partire dalla data dell'annuncio sono stati inviati diversi messaggi di posta elettronica all'indirizzo di amministrazione delle sottoscrizioni di ACS in merito al ritiro di ACS 12 mesi, 9 mesi, 6 mesi, 3 mesi, 1 mese, 2 settimane, 1 settimana e 1 giorno prima della data di ritiro del 7 novembre 2018.
+A partire dalla data dell'annuncio sono stati inviati messaggi di posta elettronica all'indirizzo di amministrazione delle sottoscrizioni di ACS in merito al ritiro di ACS 12 mesi, 9 mesi, 6 mesi, 3 mesi, 1 mese, 2 settimane, 1 settimana e 1 giorno prima della data di ritiro del 7 novembre 2018.
 
 Il 3 ottobre 2018 è stata annunciata (tramite posta elettronica e un [post di blog](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) un'offerta di estensione per i clienti che non possono completare la migrazione prima del 7 novembre 2018. L'annuncio includeva anche le istruzioni per richiedere l'estensione.
 
@@ -35,7 +35,7 @@ Il 3 ottobre 2018 è stata annunciata (tramite posta elettronica e un [post di b
 Se il cliente non ha acconsentito esplicitamente all'estensione, la disabilitazione degli spazi dei nomi ACS è prevista a partire dal 7 novembre 2018. Se si sono verificati problemi nelle comunicazioni e si vuole acconsentire esplicitamente all'estensione fino al 4 febbraio 2019, seguire le istruzioni riportate nelle sezioni seguenti.
 
 > [!NOTE]
-> È necessario essere un amministratore della sottoscrizione per eseguire i comandi di PowerShell e richiedere un'estensione.
+> È necessario essere un amministratore o un coamministratore della sottoscrizione per eseguire i comandi di PowerShell e richiedere un'estensione.
 
 ## <a name="find-and-enable-your-acs-namespaces"></a>Trovare e abilitare gli spazi dei nomi ACS
 
@@ -62,6 +62,9 @@ Se il cliente non ha acconsentito esplicitamente all'estensione, la disabilitazi
         ```
     
         dove `[Command-Name]` è il nome del comando ACS.
+1. Connettersi ad ACS usando il cmdlet **Connect-AcsAccount**. 
+
+    Potrebbe essere necessario modificare i criteri di esecuzione eseguendo **Set-ExecutionPolicy** prima di poter eseguire il comando.
 1. Elencare le sottoscrizioni di Azure disponibili usando il cmdlet **Get-AcsSubscription**.
 1. Elencare gli spazi dei nomi ACS usando il cmdlet **Get-AcsNamespace**.
 1. Verificare che gli spazi dei nomi siano disabilitati verificando che `State` sia `Disabled`.

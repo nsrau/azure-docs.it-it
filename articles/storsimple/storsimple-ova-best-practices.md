@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/16/2018
+ms.date: 11/08/2018
 ms.author: alkohli
-ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972841"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300915"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica
@@ -71,8 +71,8 @@ Per i volumi o le condivisioni precedenti, si calcoleranno i requisiti di spazio
 
 Prima di tutto, per ogni volume o condivisione a livelli la prenotazione locale sarà uguale al 12% delle dimensioni del volume o della condivisione. Per il volume o la condivisione aggiunti in locale, la prenotazione locale corrisponde al 10% delle dimensioni del volume o della condivisione aggiunti in locale (oltre alle dimensioni con provisioning). In questo esempio sono necessari
 
-* Prenotazione locale di 240 GB, per un volume o una condivisione a livelli di 2 TB.
-* Prenotazione locale di 120 GB (per un volume o una condivisione a livelli di 1 TB).
+* Prenotazione locale di 240 GB (per un volume o una condivisione a livelli di 2 TB)
+* Prenotazione locale di 120 GB (per un volume o una condivisione a livelli di 1 TB)
 * 330 GB per un volume o una condivisione aggiunti in locale (con l'aggiunta del 10% della prenotazione locale ai 300 GB delle dimensioni con provisioning)
 
 Lo spazio totale richiesto a livello locale fino a questo punto è: 240 GB + 120 GB + 330 GB = 690 GB.
@@ -91,12 +91,12 @@ Considerando la crescita imprevista e i nuovi ripristini, è consigliabile effet
 #### <a name="example-2"></a>Esempio 2
 Nell'array virtuale si vuole poter eseguire queste operazioni
 
-* Effettuare il provisioning di un volume a livelli di 2 TB.
-* Effettuare il provisioning di un volume aggiunto in locale di 300 GB.
+* Effettuare il provisioning di un volume a livelli di 2 TB
+* Effettuare il provisioning di un volume aggiunto in locale di 300 GB
 
 In base al 12% della prenotazione di spazio locale per i volumi o le condivisioni a livelli e al 10% per i volumi o le condivisioni aggiunte in locale, sono necessari
 
-* Prenotazione locale di 240 GB (per un volume o una condivisione a livelli di 2 TB).
+* Prenotazione locale di 240 GB (per un volume o una condivisione a livelli di 2 TB)
 * 330 GB per un volume o una condivisione aggiunti in locale (con l'aggiunta del 10% della prenotazione locale ai 300 GB dello spazio con provisioning)
 
 Lo spazio totale richiesto a livello locale è: 240 GB + 330 GB + 570 GB
@@ -168,7 +168,7 @@ StorSimple supporta due tipi di volumi o condivisioni in base all'utilizzo: aggi
 È consigliabile implementare le procedure consigliate seguenti quando si configurano volumi o condivisioni di StorSimple:
 
 * Prima di creare un volume, identificare il tipo di volume in base ai carichi di lavoro che si intende distribuire. Usare volumi aggiunti in locale per i carichi di lavoro che richiedono garanzie locali per i dati, anche durante un'interruzione del servizio cloud, e latenze cloud basse. Dopo aver creato un volume nell'array virtuale, non è possibile modificare il tipo di volume da aggiunto in locale al tipo a livelli o *viceversa*. Ad esempio, creare volumi aggiunti in locale quando si distribuiscono carichi di lavoro SQL o carichi di lavoro che ospitano macchine virtuali e usare invece volumi a livelli per carichi di lavoro di condivisione file.
-* Quando si utilizzano file di dimensioni elevate, selezionare l'opzione per i dati di archiviazione usati con minore frequenza. Quando si abilita questa opzione per accelerare il trasferimento dei dati nel cloud, vengono usate dimensioni del blocco di deduplicazione maggiori pari a 512 KB.
+
 
 #### <a name="volume-format"></a>Formato del volume
 Dopo aver creato i volumi StorSimple nel server iSCSI, è necessario inizializzarli, montarli e formattarli. Questa operazione viene eseguita nell'host connesso al dispositivo StorSimple. Per montare e formattare i volumi nell'host StorSimple, è opportuno seguire queste procedure consigliate.
@@ -249,7 +249,7 @@ Quando si disattiva l'array virtuale, tenere in considerazione le procedure cons
 ### <a name="monitoring"></a>Monitoraggio
 Per assicurarsi che l'array virtuale StorSimple sia costantemente in uno stato integro, è necessario monitorarlo e assicurarsi di ricevere informazioni dal sistema, inclusi gli avvisi. Per monitorare l'integrità complessiva dell'array virtuale, implementare le procedure consigliate seguenti:
 
-* Configurare il monitoraggio per tenere traccia dell'utilizzo del disco, sia del disco dati dell'array virtuale sia di quello del sistema operativo. Se è in esecuzione Hyper-V, è possibile usare una combinazione di System Center Virtual Machine Manager (SCVMM) e System Center Operations Manager (SCOM) per monitorare gli host di virtualizzazione.
+* Configurare il monitoraggio per tenere traccia dell'utilizzo del disco, sia del disco dati dell'array virtuale sia di quello del sistema operativo. Se è in esecuzione Hyper-V, è possibile usare una combinazione di System Center Virtual Machine Manager (SCVMM) e System Center Operations Manager per monitorare gli host di virtualizzazione.
 * Configurare notifiche tramite posta elettronica nell'array virtuale per l'invio di avvisi in presenza di determinati livelli di utilizzo.                                                                                                                                                                                                
 
 ### <a name="index-search-and-virus-scan-applications"></a>Applicazioni di analisi antivirus e ricerca nell'indice

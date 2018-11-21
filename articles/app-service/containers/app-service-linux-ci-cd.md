@@ -13,60 +13,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
-ms.author: msangapu
-ms.openlocfilehash: 20ca63b7126a6800538129115ff339308c11d8c5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/08/2018
+ms.author: msangapu;yili
+ms.openlocfilehash: b26366edddc223b842cc5d38473bda42422f1840
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867026"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298537"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Distribuzione continua con l'app Web per contenitori
 
 In questa esercitazione verrà configurata la distribuzione continua per un'immagine personalizzata del contenitore da repository gestite del [Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry/) o dall'[hub Docker](https://hub.docker.com).
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="enable-continuous-deployment-with-acr"></a>Abilitare la distribuzione continua con il Registro contenitori di Azure
 
-Accedere al [portale di Azure](https://portal.azure.com).
+![Screenshot del webhook del Registro contenitori di Azure](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-## <a name="enable-the-continuous-deployment-feature"></a>Abilitare la funzionalità di distribuzione continua
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Selezionare l'opzione **Servizio app** a sinistra nella pagina.
+3. Selezionare il nome dell'app per cui si desidera configurare la distribuzione continua.
+4. Nella pagina **Impostazioni contenitore** selezionare **Contenitore singolo**
+5. Selezionare **Registro contenitori di Azure**
+6. Selezionare **Distribuzione continua > On**
+7. Selezionare **Salva** per abilitare la distribuzione continua.
 
-Per abilitare la funzionalità di distribuzione continua, usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) ed eseguire il comando seguente:
+## <a name="use-the-acr-webhook"></a>Usare il webhook del Registro contenitori di Azure
 
-```azurecli-interactive
-az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
-```
+Quando la distribuzione continua viene abilitata, è possibile visualizzare il webhook appena creato nella pagina dei webhook del Registro contenitori di Azure.
 
-Nel [portale di Azure](https://portal.azure.com/), selezionare l'opzione **Servizio app** a sinistra nella pagina.
+![Screenshot del webhook del Registro contenitori di Azure](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
 
-Selezionare il nome dell'app per cui si desidera configurare la distribuzione continua dell'hub Docker.
+Nel Registro contenitori fare clic su Webhook per visualizzare i webhook correnti.
 
-Nella pagina **Container Settings** (Impostazioni contenitore) selezionare **On** (Attiva), quindi premere **Salva** per abilitare la distribuzione continua.
+## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Abilitare la distribuzione continua con l'hub Docker (facoltativo)
 
-![Schermata dell'impostazione app](./media/app-service-webapp-service-linux-ci-cd/step2.png)
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Selezionare l'opzione **Servizio app** a sinistra nella pagina.
+3. Selezionare il nome dell'app per cui si desidera configurare la distribuzione continua.
+4. Nella pagina **Impostazioni contenitore** selezionare **Contenitore singolo**
+5. Selezionare **Hub Docker**
+6. Selezionare **Distribuzione continua > On**
+7. Selezionare **Salva** per abilitare la distribuzione continua.
 
-## <a name="prepare-the-webhook-url"></a>Preparare l'URL webhook
+![Schermata dell'impostazione app](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
 
-Ottenere l'URL webhook tramite l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) ed eseguire il comando seguente:
-
-```azurecli-interactive
-az webapp deployment container show-cd-url --name sname1 --resource-group rgname
-```
-
-Prendere nota dell'URI del webhook. Sarà necessario nella sezione successiva.
-`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
-
-È possibile ottenere `publishingusername` e `publishingpwd` scaricando il profilo di pubblicazione dell'app Web tramite il portale di Azure.
-
-![Schermata di aggiunta webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
-
-## <a name="add-a-webhook"></a>Aggiunta di un webhook
-
-Per aggiungere un webhook, seguire la procedura descritta in queste guide:
-
-- Uso dei webhook del [Registro contenitori di Azure](../../container-registry/container-registry-webhook.md)
-- [Webhooks per l'hub Docker](https://docs.docker.com/docker-hub/webhooks/)
+Copiare l'URL webhook. Per aggiungere un webhook per l'hub Docker, vedere <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">Webhook per l'hub Docker</a>.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

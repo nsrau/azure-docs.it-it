@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 09/24/2018
-ms.openlocfilehash: 70c023fc8fe996060d3eff3d5a700b5f910097b4
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 11/08/2018
+ms.openlocfilehash: bb3dca56583296bab42fe9804a32e0690ace5897
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113632"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578230"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
@@ -45,6 +45,8 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
+>[!NOTE]
+> Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 0.1.74
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,17 +58,7 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 
 - Un [cluster AKS](how-to-deploy-to-aks.md).
 
-- Le dipendenze e il modulo seguenti installati [nel proprio ambiente](how-to-configure-environment.md):
-  + In Linux:
-    ```shell
-    sudo apt-get install libxml++2.6-2v5
-    pip install azureml-monitoring
-    ```
-
-  + In Windows:
-    ```shell
-    pip install azureml-monitoring
-    ```
+- [Configurare l'ambiente](how-to-configure-environment.md) e installare [Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
 ## <a name="enable-data-collection"></a>Abilitare la raccolta di dati
 È possibile abilitare la raccolta dei dati indipendentemente dal fatto che il modello venga distribuito tramite il servizio Azure Machine Learning o con altri strumenti. 
@@ -75,7 +67,7 @@ Per abilitarla, è necessario:
 
 1. Aprire il file di assegnazione dei punteggi. 
 
-1. Aggiungere il codice seguente all'inizio del file:
+1. Aggiungere il [codice seguente](https://aka.ms/aml-monitoring-sdk) all'inizio del file:
 
    ```python 
    from azureml.monitoring import ModelDataCollector
@@ -123,11 +115,11 @@ Se si dispone già di un servizio con le dipendenze installate nel **file di amb
 
 1. Passare a **Distribuzioni** -> **Seleziona servizio** -> **Modifica**.
 
-   ![Modificare il servizio](media/how-to-enable-data-collection/EditService.png)
+   ![Modificare il servizio](media/how-to-enable-data-collection/EditService.PNG)
 
 1. In **Impostazioni avanzate** deselezionare **Abilita la raccolta dati del modello**. 
 
-   ![Deselezionare la raccolta dei dati](media/how-to-enable-data-collection/CheckDataCollection.png)
+    [![Deselezionare la raccolta dati](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
    In questa finestra è anche possibile scegliere "Abilita diagnostica di AppInsights" per tenere traccia dell'integrità del servizio.  
 
@@ -144,11 +136,11 @@ Se si dispone già di un servizio con le dipendenze installate nel **file di amb
 
   1. Passare a **Distribuzioni** -> **Seleziona servizio** -> **Modifica**.
 
-     ![Modificare il servizio](media/how-to-enable-data-collection/EditService.png)
+    [![Modificare il servizio](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. In **Impostazioni avanzate** deselezionare **Abilita la raccolta dati del modello**. 
 
-     ![Deselezionare la raccolta dei dati](media/how-to-enable-data-collection/UncheckDataCollection.png) 
+    [![Deselezionare la raccolta dati](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Selezionare **Aggiorna** per applicare la modifica.
 
@@ -158,6 +150,84 @@ Se si dispone già di un servizio con le dipendenze installate nel **file di amb
   ## replace <service_name> with the name of the web service
   <service_name>.update(collect_model_data=False)
   ```
+
+## <a name="validate-your-data-and-analyze-it"></a>Convalidare i dati e analizzarli
+È possibile scegliere qualsiasi strumento per analizzare i dati raccolti nel BLOB di Azure. 
+
+Per accedere rapidamente ai dati dal BLOB:
+1. Accedere al [portale di Azure](https://portal.azure.com).
+
+1. Aprire l'area di lavoro.
+1. Fare clic su **Archiviazione**.
+
+    [![Archiviazione](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
+
+1. Seguire il percorso dei dati di output nel BLOB con questa sintassi:
+
+```
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+# example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
+```
+
+
+### <a name="analyzing-model-data-through-power-bi"></a>Analisi dei dati del modello tramite Power BI
+
+1. Scaricare e aprire [Power BI Desktop](http://www.powerbi.com)
+
+1. Selezionare **Recupera dati** e fare clic su [**Archivio BLOB di Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources).
+
+    [![Configurazione di BLOB per Power BI](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
+
+
+1. Aggiungere il nome dell'account di archiviazione e immettere la chiave di archiviazione. È possibile trovare queste informazioni in **Impostazioni** >> Chiavi di accesso per il BLOB. 
+
+1. Selezionare il contenitore **modeldata** e fare clic su **Modifica**. 
+
+    [![Strumento di navigazione Power BI](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
+
+1. Nell'editor di query fare clic sotto la colonna "Nome" e aggiungere l'account di archiviazione 1. Modellare il percorso nel filtro. Nota: se si vogliono esaminare solo i file da un anno o un mese specifico, espandere semplicemente il percorso di filtro. Ad esempio, esaminare semplicemente i dati di marzo: /modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/identifier>/year>/3
+
+1. Filtrare i dati di interesse in base a **Nome**. Se sono stati archiviati **stime** e **input**, sarà necessario creare una query per ognuno.
+
+1. Fare clic sulla freccia doppia a lato della colonna **Contenuto** per combinare i file. 
+
+    [![Contenuto di Power BI](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
+
+1. Fare clic su OK. I dati verranno precaricati.
+
+    [![Combinare file in Power BI](media/how-to-enable-data-collection/pbiCombine.png)](./media/how-to-enable-data-collection/pbiCombine.png#lightbox)
+
+1. È ora possibile fare clic su **Chiudi e applica**.
+
+1.  Se sono stati aggiunti input e stime, le tabelle verranno automaticamente correlate in base a **RequestId**.
+
+1. Iniziare a creare report personalizzati per i dati del modello.
+
+
+### <a name="analyzing-model-data-using-databricks"></a>Analisi dei dati del modello con Databricks
+
+1. Creare un'[area di lavoro di Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). 
+
+1. Passare all'area di lavoro di Databricks. 
+
+1. Nell'area di lavoro di Databricks selezionare **Upload Data** (Carica dati).
+
+    [![Caricamento dei dati](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
+
+1. Creare una nuova tabella e selezionare **Other Data Sources** (Altre origini dati) -> Azure Blob Storage (Archivio BLOB di Azure) -> Create Table in Notebook (Crea tabella in notebook).
+
+    [![Tabella di database](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
+
+1. Aggiornare il percorso dei dati. Di seguito è fornito un esempio: 
+
+    ```
+    file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 
+    file_type = "csv"
+    ```
+ 
+    [![Configurazione database](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
+
+1. Seguire i passaggi nel modello per visualizzare e analizzare i dati. 
 
 ## <a name="example-notebook"></a>Notebook di esempio
 

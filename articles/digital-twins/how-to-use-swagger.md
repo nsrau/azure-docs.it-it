@@ -6,20 +6,23 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/13/2018
 ms.author: adgera
-ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960200"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624251"
 ---
 # <a name="use-azure-digital-twins-swagger"></a>Usare Swagger per Gemelli digitali di Azure
 
 Ogni istanza di Gemelli digitali di Azure di cui è stato effettuato il provisioning include la propria documentazione di riferimento Swagger generata automaticamente.
 
 [Swagger](https://swagger.io/) (o [OpenAPI](https://www.openapis.org/)) raccoglie complesse informazioni sulle API in una risorsa di riferimento interattiva e indipendente dal linguaggio. Swagger fornisce materiale di riferimento di importanza critica sui payload JSON, i metodi HTTP e gli endpoint specifici da usare per eseguire operazioni su un'API.
+
+> [!IMPORTANT]
+> Il supporto per l'autenticazione Swagger è temporaneamente disabilitato durante l'anteprima pubblica.
 
 ## <a name="swagger-summary"></a>Riepilogo di Swagger
 
@@ -33,20 +36,7 @@ Swagger fornisce un riepilogo interattivo dell'API, che include:
 
 Swagger è un pratico strumento per semplificare lo sviluppo e i test delle chiamate effettuate all'API di gestione.
 
-> [!TIP]
-> Viene fornita un'anteprima di prova di Swagger per mostrare il set di funzionalità delle API.
-> L'anteprima è ospitata in [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
-
-È possibile accedere alla propria documentazione di Swagger generata automaticamente dell'API di gestione all'indirizzo:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
-```
-
-| Nome attributo personalizzato | Sostituire con |
-| --- | --- |
-| *yourInstanceName* | Nome dell'istanza di Gemelli digitali di Azure |
-| *yourLocation* | Area del server in cui è ospitata l'istanza |
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Materiale di riferimento
 
@@ -72,8 +62,8 @@ Swagger fornisce anche una panoramica completa di tutti gli endpoint che compong
 
 Ogni endpoint elencato include anche le informazioni obbligatorie sulla richiesta, tra cui:
 
-* Parametri obbligatori.
-* Tipi di dati dei parametri obbligatori.
+* I parametri obbligatori.
+* I tipi di dati dei parametri obbligatori.
 * Metodo HTTP per l'accesso alla risorsa.
 
 ![Endpoint di Swagger][4]
@@ -104,7 +94,10 @@ Gli esempi includono anche i codici di errore per facilitare il debug o migliora
 
 ## <a name="swagger-oauth-20-authorization"></a>Autorizzazione OAuth 2.0 di Swagger
 
-Per testare in modo interattivo le richieste sulle risorse API protette tramite OAuth 2.0, vedere la [documentazione ufficiale](https://swagger.io/docs/specification/authentication/oauth2/).
+Per altre informazioni sul test interattivo delle richieste protette tramite OAuth 2.0, vedere la [documentazione ufficiale](https://swagger.io/docs/specification/authentication/oauth2/).
+
+> [!NOTE]
+> Il supporto per l'autenticazione OAuth 2.0 è temporaneamente disabilitato durante l'anteprima pubblica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

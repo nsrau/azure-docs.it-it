@@ -7,110 +7,89 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1e8bad9a7a194c96c39be0ab4f1c2f40d79031ea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 683f8ef89b02679d1f3f1a66f867f0dde757ada1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209602"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564970"
 ---
-# <a name="map-virtual-networks-in-different-azure-regions"></a>Eseguire il mapping delle reti virtuali in aree di Azure differenti
+# <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurare il mapping di rete e gli indirizzi IP per reti virtuali
 
-
-Questo articolo descrive come eseguire il mapping tra due istanze della rete virtuale di Azure di due aree di Azure diverse. Il mapping di rete assicura che, quando nell'area di Azure di destinazione viene creata una macchina virtuale replicata, questa sia creata anche nella rete virtuale mappata alla rete virtuale della macchina virtuale di origine.  
+Questo articolo descrive come eseguire il mapping tra due istanze delle reti virtuali di Azure (VNet) di due aree di Azure diverse e come configurare gli indirizzi IP tra le reti. Il mapping della rete assicura che una machina virtuale (VM) replicata sia creata nell’area di destinazione Azure e sia creata nella VNet che è mappata sulla VNet della VM sorgente.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di eseguire il mapping di reti, assicurarsi di aver creato una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) sia nell'area di origine che nell'area di destinazione di Azure.
 
-## <a name="map-virtual-networks"></a>Mapping di reti virtuali
+Prima eseguire il mapping di reti, è necessario disporre di [reti virtuali di Azure](../virtual-network/virtual-networks-overview.md) nelle aree di origine e di destinazione di Azure. 
 
-Per mappare una rete virtuale di Azure situata in un'area di Azure (rete di origine) a un'altra rete virtuale situata in un'altra area (rete di destinazione) per le macchine virtuali di Azure, passare a **Infrastruttura di Site Recovery** > **Mapping di rete**. Eseguire il mapping di una rete.
+## <a name="set-up-network-mapping"></a>Configurare il mapping di rete
 
-![Finestra Mapping di rete - Crea mapping di rete](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
+Eseguire il mapping delle reti nel modo seguente:
 
+1. Nelle **infrastruttura di Site Recovery**, fare clic su **+ Mapping di rete**.
 
-Nell'esempio seguente, la macchina virtuale è in esecuzione nell'area Asia orientale. La macchina virtuale viene replicata nell'area Asia sud-orientale.
+    ![ Eseguire il mapping di una rete](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
-Per creare un mapping di rete dall'area Asia orientale nell'area Asia sud-orientale, selezionare il percorso della rete di origine e il percorso della rete di destinazione. Quindi selezionare **OK**.
+3. In **Aggiungi mapping di rete** selezionare le posizioni di origine e di destinazione. In questo esempio, l'origine della macchina virtuale è in esecuzione nell'area dell’Asia orientale e replicata nell'area dell’Asia sudorientale.
 
-![Dalla finestra Aggiungi mapping di rete, selezionare i percorsi di origine e di destinazione per la rete di origine](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Selezionare origine e destinazione ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+3. Creare ora un mapping di rete nella directory opposta. In questo esempio, l'origine sarà ora Asia sudorientale e la destinazione sarà Asia orientale.
 
-
-Ripetere il processo precedente per creare un mapping di rete dall'area Asia sud-orientale all'area Asia orientale.
-
-![Dal riquadro Aggiungi mapping di rete, selezionare i percorsi di origine e di destinazione per la rete di destinazione](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+    ![Dal riquadro Aggiungi mapping di rete, selezionare i percorsi di origine e di destinazione per la rete di destinazione](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
-## <a name="map-a-network-when-you-enable-replication"></a>Eseguire il mapping di una rete con replica abilitata
+## <a name="map-networks-when-you-enable-replication"></a>Eseguire il mapping di reti con replica abilitata
 
-Quando si replica una macchina virtuale da un'area di Azure in un'altra area per la prima volta, se non esiste alcun mapping di rete è possibile impostare la rete di destinazione quando si configura la replica. Azure Site Recovery crea mapping di rete dall'area di origine all'area di destinazione e dall'area di destinazione all'area di origine in base a queste impostazioni.   
+Se non è stato preparato il mapping della rete prima di configurare il ripristino di emergenza per le macchine virtuali Azure, è possibile specificare una rete di destinazione quando [si configura e si attiva la replica](azure-to-azure-how-to-enable-replication.md). Quando si esegue questa operazione, si verifica quanto segue:
 
-![Dal riquadro Configura impostazioni, scegliere il percorso di destinazione](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
+- A seconda della destinazione selezionata, Site Recovery crea automaticamente i mapping di rete dall'origine all'area di destinazione e dalla destinazione all'area di origine.
+- Per impostazione predefinita, Site Recovery crea nell'area di destinazione una rete identica alla rete di origine. Site Recovery aggiunge **-asr** come suffisso al nome della rete di origine. È possibile personalizzare la rete di destinazione.
+- Se il mapping di rete è già stato eseguito, non è possibile modificare la rete virtuale di destinazione durante l'abilitazione della replica. Per modificare la rete virtuale di destinazione, è necessario modificare il mapping di rete esistente.
+- Se si modifica un mapping di rete dall'area A all'area B, assicurarsi di modificare anche il mapping di rete dall'area B all'area A. ]
 
-Per impostazione predefinita, Site Recovery crea nell'area di destinazione una rete identica alla rete di origine. Site Recovery crea una rete mediante l'aggiunta di **-asr** come suffisso al nome della rete di origine. Per scegliere una rete già creata, selezionare **Personalizza**.
+## <a name="specify-a-subnet"></a>Specificare una subnet
 
-![Dal riquadro Personalizza impostazioni di destinazione, impostare il nome del gruppo di risorse di destinazione e quello della rete virtuale di destinazione](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+La subnet della macchina virtuale di destinazione viene selezionata in base al nome della subnet della macchina virtuale di origine.
 
-Se il mapping di rete è già stato eseguito, non è possibile modificare la rete virtuale di destinazione durante l'abilitazione della replica. In questo caso, per modificare la rete virtuale di destinazione, modificare il mapping di rete esistente.  
+- Se nella rete di destinazione è presente una subnet con nome corrispondente a quello della subnet della macchina virtuale di origine, tale subnet verrà impostata per la macchina virtuale di destinazione.
+- Se nella rete di destinazione non è presente alcuna subnet con lo stesso nome, verrà scelta come subnet di destinazione la prima subnet in ordine alfabetico.
+- La subnet può essere modificata nelle impostazioni **Calcolo e rete** per la macchina virtuale.
 
-![Dal riquadro Personalizza impostazioni di destinazione, impostare il nome del gruppo di risorse di destinazione](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
-
-![Dal riquadro Modificare il mapping di rete, modificare il nome di una rete virtuale di destinazione esistente](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
-
-> [!IMPORTANT]
-> Se si modifica un mapping di rete dall'area A all'area B, assicurarsi di modificare anche il mapping di rete dall'area B all'area A.
->
->
+    ![Finestra Calcolo e rete delle proprietà di calcolo](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
-## <a name="subnet-selection"></a>Selezione della subnet
-La subnet della macchina virtuale di destinazione viene selezionata in base al nome della subnet della macchina virtuale di origine. Se nella rete di destinazione è presente una subnet con nome corrispondente a quello della macchina virtuale di origine, tale subnet verrà impostata per la macchina virtuale di destinazione. Se nella rete di destinazione non è presente alcuna subnet con lo stesso nome, verrà scelta come subnet di destinazione la prima subnet in ordine alfabetico.
+## <a name="set-up-ip-addressing-for-target-vms"></a>Configurare gli indirizzi IP per le macchine virtuali di destinazione
 
-Per modificare la subnet, passare alle impostazioni **Calcolo e rete** per la macchina virtuale.
+L'indirizzo IP per ogni scheda NIC in una macchina virtuale di destinazione è configurato come indicato di seguito:
 
-![Finestra Calcolo e rete delle proprietà di calcolo](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
-
-
-## <a name="ip-address"></a>Indirizzo IP
-
-L'indirizzo IP per ogni interfaccia di rete della macchina virtuale di destinazione è impostato come descritto nelle sezioni seguenti.
-
-### <a name="dhcp"></a>DHCP
-Se l'interfaccia di rete della macchina virtuale di origine usa DHCP, anche l'interfaccia di rete della macchina virtuale di destinazione viene impostata come DHCP.
-
-### <a name="static-ip-address"></a>Indirizzo IP statico
-Se l'interfaccia di rete della macchina virtuale di origine usa un indirizzo IP statico, anche l'interfaccia di rete della macchina virtuale di destinazione viene impostata come indirizzo IP statico. Le sezioni seguenti descrivono le modalità d'impostazione di un indirizzo IP statico.
-
-### <a name="ip-assignment-behavior-during-failover"></a>Modalità di assegnazione dell'indirizzo IP durante il failover
-#### <a name="1-same-address-space"></a>1. Stesso spazio di indirizzi
-
-Se la subnet di origine e la subnet di destinazione hanno lo stesso spazio di indirizzi, per l'interfaccia di rete della macchina virtuale di origine verrà impostato un indirizzo IP identico a quello di destinazione. Se lo stesso indirizzo IP non è disponibile, verrà impostato come indirizzo IP di destinazione il successivo indirizzo IP disponibile.
-
-#### <a name="2-different-address-spaces"></a>2. Spazi di indirizzi diversi
-
-Se la subnet di origine e la subnet di destinazione hanno spazi di indirizzi diversi, come indirizzo IP di destinazione verrà impostato il successivo indirizzo IP disponibile nella subnet di destinazione.
+- **DHCP**: se la scheda NIC della macchina virtuale di origine usa DHCP, la scheda NIC della macchina virtuale di destinazione viene impostata anche per utilizzare DHCP.
+- **Indirizzo IP statico**: se la scheda NIC della macchina virtuale di origine usa indirizzi IP statici, la scheda NIC dell’interfaccia di rete di destinazione utilizzerà anche un indirizzo IP statico.
 
 
-### <a name="ip-assignment-behavior-during-test-failover"></a>Modalità di assegnazione dell'indirizzo IP durante il failover di test
-#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Se la rete di destinazione selezionata è la rete virtuale di produzione
-- L'indirizzo IP di ripristino (IP di destinazione) è un indirizzo IP statico, ma **non coincide con l'indirizzo IP** riservato per il failover.
-- L'indirizzo IP assegnato è il successivo indirizzo IP disponibile dalla fine dell'intervallo di indirizzi della subnet.
-- Si supponga, ad esempio, che come indirizzo IP statico della VM di origine sia configurato 10.0.0.19 e che sia stato tentato il failover di test con la rete di produzione configurata: ***dr-PROD-nw***, con intervallo di subnet 10.0.0.0/24. </br>
-Alla VM sottoposta a failover verrà assegnato il successivo indirizzo IP disponibile dalla fine dell'intervallo di indirizzi della subnet, ovvero 10.0.0.254. </br>
+## <a name="ip-address-assignment-during-failover"></a>Assegnazione indirizzo IP durante il failover
 
-**Nota:** il termine **rete virtuale di produzione** si riferisce alla "rete di destinazione" mappata durante la configurazione del ripristino di emergenza.
-#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Se la rete di destinazione selezionata non è la rete virtuale di produzione, ma ha lo stesso intervallo di subnet della rete di produzione
-
-- L'indirizzo IP di ripristino (IP di destinazione) è un indirizzo IP statico, ma **coincide con l'indirizzo IP** (ovvero l'indirizzo IP statico configurato) riservato per il failover, a condizione che lo stesso indirizzo IP sia disponibile.
-- Se l'indirizzo IP statico configurato è già assegnato a un'altra VM o a un altro dispositivo, l'indirizzo IP di ripristino sarà il successivo indirizzo IP disponibile dalla fine dell'intervallo di indirizzi della subnet.
-- Si supponga, ad esempio, che come indirizzo IP statico della VM di origine sia configurato 10.0.0.19 e che sia stato tentato il failover di test con una rete di test: ***dr-NON-PROD-nw***, con lo stesso intervallo di subnet della rete di produzione, 10.0.0.0/24. </br>
-  Alla VM sottoposta a failover verrà assegnato l'indirizzo IP statico seguente </br>
-    - Indirizzo IP statico configurato: 10.0.0.19, se disponibile.
-    - Indirizzo IP disponibile successivo: 10.0.0.254, se 10.0.0.19 è già in uso.
+**Subnet di origine e di destinazione** | **Dettagli**
+--- | ---
+Stesso spazio di indirizzi | L'indirizzo IP della scheda NIC della macchia virtuale di origine è impostato come indirizzo IP della scheda NIC della macchia virtuale di destinazione.<br/><br/> Se lo stesso non è disponibile, verrà impostato come indirizzo IP di destinazione il successivo disponibile.
+Spazio di indirizzi diverso<br/><br/> Il successivo indirizzo IP disponibile nella subnet di destinazione viene impostato come indirizzo NIC della macchina virtuale di destinazione.
 
 
-Per modificare l'indirizzo IP di destinazione in ogni interfaccia di rete, passare alle impostazioni **Calcolo e rete** della macchina virtuale.</br>
-Come procedura consigliata è sempre preferibile scegliere una rete di test per eseguire il failover di test.
+
+## <a name="ip-address-assignment-during-test-failover"></a>Assegnazione indirizzo IP durante il failover di test
+
+**Rete di destinazione** | **Dettagli**
+--- | ---
+Rete di destinazione è la rete virtuale di failover | - L'indirizzo IP di destinazione è statico, ma non lo stesso indirizzo IP di quello riservato al failover.<br/><br/>  - L'indirizzo assegnato è l’indirizzo successivo disponibile dalla fine dell'intervallo di subnet.<br/><br/> Ad esempio: se l'indirizzo IP di origine è 10.0.0.19 e la rete di failover usa l’intervallo 10.0.0.0/24, allora il successivo indirizzo IP assegnato alla macchina virtuale di destinazione è 10.0.0.254.
+La rete di destinazione è la rete virtuale di failover | - L'indirizzo IP di destinazione sarà statico con lo stesso indirizzo IP riservato al failover.<br/><br/>  - Se lo stesso indirizzo IP è già assegnato, allora l'indirizzo IP è il successivo disponibile in ogni intervallo di subnet.<br/><br/> Ad esempio: se l'indirizzo IP statico di origine è 10.0.0.19 e il failover è in una rete che non sia la rete di failover, con l’intervallo 10.0.0.0/24, allora l'indirizzo IP statico di destinazione sarà 10.0.0.0.19 se disponibile e in caso contrario sarà 10.0.0.254.
+
+- Il failover della rete virtuale è la rete di destinazione che si seleziona quando si configura il ripristino di emergenza.
+- È consigliabile usare sempre una rete non di produzione per il failover di test.
+- È possibile modificare l'indirizzo IP di destinazione nelle impostazioni **Calcolo e rete** della macchina virtuale.
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere il [materiale sussidiario del servizio di rete per la replica delle macchine virtuali di Azure](site-recovery-azure-to-azure-networking-guidance.md).
+- Consultare il [materiale sussidiario sulla rete](site-recovery-azure-to-azure-networking-guidance.md) per il ripristino di emergenza di macchine virtuali di Azure.
+- [Ulteriori informazioni](site-recovery-retain-ip-azure-vm-failover.md) sulla conservazione degli indirizzi IP dopo il failover.
+
+Se la rete di destinazione scelta è il failover vnet" e il secondo punto per dire "Se la rete di destinazione scelta è diversa dal failover vnet ma ha lo stesso intervallo di subnet del failover vnet"

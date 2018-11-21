@@ -3,24 +3,24 @@ title: Introduzione agli acceleratori di soluzioni Azure IoT | Microsoft Docs
 description: Informazioni sugli acceleratori di soluzioni di Azure IoT. Gli acceleratori di soluzioni IoT sono soluzioni complete, end-to-end, pronte per la distribuzione.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/24/2018
+ms.date: 11/09/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 7020d8a1756702d8c2b1998eef5a3fc64809ca5e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308113"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345114"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Informazioni sugli acceleratori di soluzioni Azure IoT
 
-Una soluzione IoT basata su cloud usa in genere codice personalizzato e più servizi cloud per gestire la connettività dei dispositivi, l'elaborazione e l'analisi dei dati e la presentazione.
+Una soluzione IoT basata su cloud usa in genere codice personalizzato e servizi cloud per gestire la connettività dei dispositivi, l'elaborazione e l'analisi dei dati e la presentazione.
 
-Gli acceleratori di soluzioni IoT sono un insieme di soluzioni IoT complete e pronte per la distribuzione che implementano scenari comuni di IoT come il monitoraggio remoto, la fabbrica connessa, la manutenzione predittiva e la simulazione di dispositivi. Quando si implementa un acceleratore di soluzioni, la distribuzione include tutti i servizi basati su cloud necessari insieme a qualsiasi codice applicativo richiesto.
+Gli acceleratori di soluzioni IoT sono soluzioni IoT complete pronte per la distribuzione che implementano scenari IoT comuni. Gli scenari includono il monitoraggio remoto, Connected Factory, la manutenzione predittiva e la simulazione dei dispositivi. Quando si implementa un acceleratore di soluzioni, la distribuzione include tutti i servizi basati su cloud necessari insieme a qualsiasi codice applicativo richiesto.
 
 Gli acceleratori di soluzioni sono punti di partenza per le soluzioni IoT. Il codice sorgente per tutti gli acceleratori di soluzioni è open source ed è disponibile in GitHub. Si consiglia di scaricare e personalizzare acceleratori di soluzioni adatti alle proprie esigenze.
 
@@ -34,7 +34,7 @@ Attualmente, sono disponibili per la distribuzione quattro acceleratori di soluz
 
 ### <a name="remote-monitoring"></a>Monitoraggio remoto
 
-Usare questo acceleratore di soluzioni per raccogliere la telemetria da più dispositivi remoti e per controllarli. I dispositivi di esempio includono sistemi di raffreddamento installati presso i clienti o valvole installate in stazioni di pompaggio remote.
+Usare questo acceleratore di soluzione per raccogliere i dati di telemetria dai dispositivi remoti e per controllarli. I dispositivi di esempio includono sistemi di raffreddamento installati presso i clienti o valvole installate in stazioni di pompaggio remote.
 
 È possibile usare un dashboard di monitoraggio remoto per visualizzare la telemetria dai dispositivi connessi, effettuare il provisioning di nuovi dispositivi o aggiornare il firmware sui dispositivi connessi:
 
@@ -58,7 +58,7 @@ Usare questo acceleratore di soluzioni per presumere quando si prevede il guasto
 
 ### <a name="device-simulation"></a>Simulazione dei dispositivi
 
-Usare questo acceleratore di soluzioni per eseguire più dispositivi simulati che generano una telemetria realistica. È possibile usare questo acceleratore di soluzioni per testare il comportamento degli altri acceleratori di soluzioni o per testare le proprie soluzioni IoT personalizzate.
+Usare questo acceleratore di soluzione per eseguire i dispositivi simulati che generano dati di telemetria realistici. È possibile usare questo acceleratore di soluzioni per testare il comportamento degli altri acceleratori di soluzioni o per testare le proprie soluzioni IoT personalizzate.
 
 È possibile usare l'app Web di simulazione dei dispositivi per configurare ed eseguire simulazioni:
 
@@ -93,7 +93,7 @@ Per altre informazioni sulle architetture dei microservizi, vedere [.NET Applica
 
 È possibile distribuire l'acceleratore di soluzioni Monitoraggio remoto nelle configurazioni seguenti:
 
-* **Standard:** distribuzione di infrastruttura estesa per lo sviluppo di una distribuzione di produzione. Il servizio contenitore di Azure distribuisce i microservizi in più macchine virtuali di Azure. Kubernetes orchestra i contenitori Docker che ospitano i singoli microservizi.
+* **Standard:** distribuzione di infrastruttura estesa per lo sviluppo di una distribuzione di produzione. Il servizio contenitore di Azure distribuisce i microservizi in diverse macchine virtuali di Azure. Kubernetes orchestra i contenitori Docker che ospitano i singoli microservizi.
 * **Basic:** versione a costo ridotto a scopo di dimostrazione o per testare una distribuzione. Tutti i microservizi vengono distribuiti in un'unica macchina virtuale di Azure.
 * **Locale:** distribuzione della macchina locale a scopo di test e sviluppo. Questo approccio prevede la distribuzione dei microservizi in un contenitore Docker locale e la connessione a Hub IoT, Cosmos DB e ai servizi di archiviazione di Azure nel cloud.
 

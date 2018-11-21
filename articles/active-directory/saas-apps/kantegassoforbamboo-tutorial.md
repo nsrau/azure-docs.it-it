@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ceab1293b5bd1fbae9088783651d0effa8c5a78a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e6e534aaa833d7c66216896765d20cdcf50a461
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449003"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568201"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Esercitazione: integrazione di Azure Active Directory con Kantega SSO for Bamboo
 
@@ -263,7 +263,7 @@ Per consentire agli utenti di Azure AD di accedere a Bamboo, è necessario effet
 
     ![Aggiungere un dipendente](./media/kantegassoforbamboo-tutorial/user1.png) 
 
-1. Fare clic su **Users**. Nella sezione **Add User** (Aggiungi utente) seguire questa procedura:
+1. Fare clic su **Users**. Nella sezione **Add User** (Aggiungi utente) eseguire questa procedura:
 
     ![Aggiungere un dipendente](./media/kantegassoforbamboo-tutorial/user2.png) 
 
@@ -314,7 +314,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Se si fa clic sul riquadro Kantega SSO for Bamboo nel pannello di accesso, si accede automaticamente all'applicazione Kantega SSO for Bamboo.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

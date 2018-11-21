@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319337"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621028"
 ---
 # <a name="what-is-azure-relay"></a>Che cos'è il servizio di inoltro di Azure?
-Il servizio Inoltro di Azure consente di esporre in modo sicuro nel cloud pubblico i servizi in esecuzione che vengono eseguiti nella rete aziendale. È possibile eseguire questa operazione senza aprire una connessione firewall o apportare modifiche di notevole impatto all'infrastruttura di rete aziendale. 
+Il servizio Inoltro di Azure consente di esporre in modo sicuro nel cloud pubblico i servizi in esecuzione che vengono eseguiti nella rete aziendale. È possibile eseguire questa operazione senza aprire una porta nel firewall o apportare modifiche di notevole impatto all'infrastruttura di rete aziendale. 
 
 Il servizio di inoltro supporta gli scenari seguenti tra servizi locali e applicazioni in esecuzione nel cloud o in un altro ambiente locale. 
 
@@ -56,7 +56,7 @@ Per informazioni dettagliate sul protocollo Connessioni ibride, vedere [Protocol
 > Connessioni ibride di Inoltro di Azure sostituisce la vecchia funzionalità Connessioni ibride di Servizi BizTalk. La funzionalità Connessioni ibride in Servizi BizTalk era basata sulla funzionalità Inoltro WCF del bus di servizio di Azure. La funzionalità Connessioni ibride di Inoltro di Azure è complementare a quella Inoltro WCF già esistente e queste due funzionalità coesistono fianco a fianco nel servizio Inoltro di Azure. Condividono un gateway comune, ma costituiscono per il resto implementazioni diverse.
 
 ## <a name="wcf-relay"></a>Inoltro WCF
-La funzionalità Inoltro WCF è compatibile con la versione completa di .NET Framework e con WCF. È possibile avviare una connessione tra il servizio locale e il servizio di inoltro usando un gruppo di binding di "inoltro" WCF. Dietro le quinte, eseguire il mapping delle associazioni di inoltro ai nuovi elementi di associazione di trasporto progettati per creare i componenti di canale WCF che si integrano con il bus di servizio nel cloud. Per altre informazioni, vedere [Introduzione all'inoltro WCF](relay-wcf-dotnet-get-started.md).
+La funzionalità Inoltro WCF è compatibile con la versione completa di .NET Framework e con WCF. È possibile avviare una connessione tra il servizio locale e il servizio di inoltro usando un gruppo di binding di "inoltro" WCF. Viene eseguito il mapping dei binding di inoltro ai nuovi elementi di binding del trasporto progettati per creare i componenti del canale WCF che si integrano con il bus di servizio nel cloud. Per altre informazioni, vedere [Introduzione all'inoltro WCF](relay-wcf-dotnet-get-started.md).
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>Connessioni ibride e Inoltro WCF
 Sia Connessioni ibride che Inoltro WCF consentono la connessione sicura ad asset presenti all'interno di una rete aziendale. L'uso dell'una o dell'altra funzionalità dipende dalle specifiche esigenze, come illustrato nella tabella seguente:
@@ -68,12 +68,12 @@ Sia Connessioni ibride che Inoltro WCF consentono la connessione sicura ad asset
 | **.NET Framework** |x |x |
 | **JavaScript/Node.JS** | |x |
 | **Protocollo aperto basato su standard** | |x |
-| **Più modelli di programmazione RPC** | |x |
+| **Modelli di programmazione RPC** | |x |
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Architettura: elaborazione delle richieste di inoltro in ingresso
 Il diagramma seguente mostra in che modo il servizio Inoltro di Azure gestisce le richieste di inoltro in ingresso:
 
-![Elaborazione delle richieste di inoltro Web application firewa in ingresso](./media/relay-what-is-it/ic690645.png)
+![Elaborazione delle richieste di inoltro WCF in ingresso](./media/relay-what-is-it/ic690645.png)
 
 1. Il client in ascolto invia una richiesta di ascolto al servizio Inoltro di Azure. Il servizio di bilanciamento del carico di Azure indirizza la richiesta a uno dei nodi del gateway. 
 2. Il servizio Inoltro di Azure crea un inoltro nell'archivio gateway. 
@@ -86,9 +86,9 @@ Il diagramma seguente mostra in che modo il servizio Inoltro di Azure gestisce l
 9. Il gateway inoltra i messaggi dal client di invio al client in ascolto.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Introduzione a Websockets .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Introduzione a WebSocket per .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione alle richieste HTTP .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-* [Introduzione a Websockets Node](relay-hybrid-connections-node-get-started.md)
+* [Introduzione a WebSocket per Node](relay-hybrid-connections-node-get-started.md)
 * [Introduzione alle richieste HTTP Node](relay-hybrid-connections-http-requests-node-get-started.md)
 * [Domande frequenti sull'inoltro](relay-faq.md)
 

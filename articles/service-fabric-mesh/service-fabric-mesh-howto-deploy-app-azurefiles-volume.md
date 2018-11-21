@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 08/09/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3b350deff2883761af6a3a2b3c5c9ef22235bde0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038096"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614260"
 ---
 # <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Archiviazione dello stato in un'applicazione di Azure Service Fabric Mesh tramite il montaggio di un volume basato su File di Azure all'interno del contenitore
 
-Questo articolo illustra come archiviare lo stato di File di Azure tramite il montaggio di un volume all'interno del contenitore di un'applicazione di Service Fabric Mesh. In questo esempio, l'applicazione Contatore ha un servizio ASP.NET Core con una pagina Web che mostra il valore del contatore in un browser. 
+Questo articolo illustra come archiviare lo stato di File di Azure tramite il montaggio del volume all'interno del contenitore dell'applicazione di Service Fabric Mesh. In questo esempio, l'applicazione Contatore ha un servizio ASP.NET Core con una pagina Web che mostra il valore del contatore in un browser. 
 
 `counterService` legge periodicamente un valore del contatore da un file, lo incrementa e lo riscrive nel file. Il file è archiviato in una cartella che è montata sul volume basato sulla condivisione File di Azure.
 
@@ -62,10 +62,10 @@ Creare l'applicazione e le risorse correlate usando il comando seguente e specif
 
 Il parametro `storageAccountKey` nel modello è una stringa sicura. Non verrà visualizzato nello stato della distribuzione e nei comandi `az mesh service show`. Assicurarsi che sia specificato correttamente nel comando seguente.
 
-Il comando seguente distribuisce un'applicazione Linux usando il [modello mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). Per distribuire un'applicazione Windows, usare il [modello mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Tenere presente che la distribuzione di immagini del contenitore di grandi dimensioni può richiedere più tempo.
+Il comando seguente distribuisce un'applicazione Linux usando il [modello counter.azurefilesvolume.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json). Per distribuire un'applicazione Windows, usare il [modello counter.azurefilesvolume.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json). Tenere presente che la distribuzione di immagini del contenitore di grandi dimensioni può richiedere più tempo.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
 Entro pochi minuti il comando dovrebbe restituire `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
@@ -88,7 +88,7 @@ Il file può essere scaricato usando qualsiasi strumento che consenta l'esploraz
 
 ## <a name="delete-the-resources"></a>Eliminare le risorse
 
-Eliminare con regolarità le risorse che non si usano più in Azure. Per eliminare le risorse correlate a questo esempio, eliminare il gruppo di risorse in cui sono state distribuite con il comando seguente. Questa operazione consente di eliminare tutti gli elementi associati al gruppo di risorse.
+Eliminare con regolarità le risorse che non si usano più in Azure. Per eliminare le risorse correlate a questo esempio, eliminare il gruppo di risorse in cui sono state distribuite con il comando seguente. Questa operazione consente di eliminare tutti gli elementi associati al gruppo di risorse:
 
 ```azurecli-interactive
 az group delete --resource-group myResourceGroup
@@ -98,4 +98,4 @@ az group delete --resource-group myResourceGroup
 
 - Vedere l'applicazione di esempio sul volume di File di Azure in [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
 - Per altre informazioni sul modello di risorse di Service Fabric, vedere il [Modello di risorsa di Service Fabric Mesh](service-fabric-mesh-service-fabric-resources.md).
-- Per altre informazioni su Service Fabric Mesh, leggere la [panoramica di Service Fabric Mesh](service-fabric-mesh-overview.md).
+- Per altre informazioni su mesh Service Fabric, leggere la [panoramica di mesh Service Fabric](service-fabric-mesh-overview.md).

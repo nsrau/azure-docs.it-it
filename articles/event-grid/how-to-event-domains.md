@@ -1,46 +1,65 @@
 ---
-title: Come gestire set di argomenti di grandi dimensioni in Griglia di eventi di Azure e pubblicarvi eventi con Domini eventi
-description: Viene illustrato come creare e gestire argomenti in Griglia di eventi di Azure e pubblicarvi eventi con Domini eventi.
+title: Gestire set di argomenti di grandi dimensioni in Griglia di eventi di Azure con Domini eventi
+description: Mostra come gestire set di argomenti di grandi dimensioni in Griglia di eventi di Azure e pubblicarvi eventi con Domini eventi.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: d6da1ee603c85556693b145ba17d1e0cd0dfabd7
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.date: 11/08/2018
+ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034541"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298531"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gestire argomenti e pubblicare eventi con Domini eventi
 
 Questo articolo illustra come:
 
 * Creare un dominio di Griglia di eventi
-* Sottoscrivere argomenti
+* Eseguire la sottoscrizione agli argomenti di Griglia di eventi
 * List keys
 * Pubblicare eventi in un dominio
+
+Per informazioni su Domini eventi, vedere [Informazioni sui domini eventi per la gestione di argomenti di Griglia di eventi](event-domains.md).
+
+## <a name="install-preview-feature"></a>Installare la funzionalità di anteprima
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-an-event-domain"></a>Creare un dominio eventi
 
-È possibile creare un dominio eventi tramite l'estensione `eventgrid` per l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Dopo aver creato un dominio, è possibile usarlo per gestire set di argomenti di grandi dimensioni.
+Per gestire set di argomenti di grandi dimensioni, creare un dominio eventi.
+
+Per l'interfaccia della riga di comando di Azure usare:
 
 ```azurecli-interactive
-# if you haven't already installed the extension, do it now.
+# If you haven't already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
 az eventgrid domain create \
   -g <my-resource-group> \
-  --name <my-domain-name>
+  --name <my-domain-name> \
   -l <location>
 ```
 
-In seguito alla creazione verrà restituito quanto segue:
+Per PowerShell, usare:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain-name> `
+  -Location <location>
+```
+
+In seguito alla creazione verranno restituiti i valori seguenti:
 
 ```json
 {
@@ -59,22 +78,57 @@ In seguito alla creazione verrà restituito quanto segue:
 
 Prendere nota del valore di `endpoint` e `id` perché verranno richiesti per gestire il dominio e pubblicare eventi.
 
+## <a name="manage-access-to-topics"></a>Gestire l'accesso agli argomenti
+
+Per gestire l'accesso agli argomenti, si usa l'[assegnazione di ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Per l'assegnazione di ruolo si usa il controllo dell'accesso basato sul ruolo per limitare le operazioni sulle risorse di Azure agli utenti autorizzati in un determinato ambito.
+
+In Griglia di eventi sono disponibili due ruoli predefiniti che è possibile usare per assegnare agli utenti l'accesso ai diversi argomenti in un dominio. Questi ruoli sono `EventGrid EventSubscription Contributor (Preview)`, che consente di creare ed eliminare le sottoscrizioni, e `EventGrid EventSubscription Reader (Preview)`, che consente solo di visualizzare l'elenco delle sottoscrizioni di eventi.
+
+Il comando seguente dell'interfaccia della riga di comando di Azure consente all'utente `alice@contoso.com` di creare ed eliminare le sottoscrizioni di eventi solo per l'argomento `demotopic1`:
+
+```azurecli-interactive
+az role assignment create \
+  --assignee alice@contoso.com \
+  --role "EventGrid EventSubscription Contributor (Preview)" \
+  --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+Il comando PowerShell seguente consente all'utente `alice@contoso.com` di creare ed eliminare le sottoscrizioni di eventi solo per l'argomento `demotopic1`:
+
+```azurepowershell-interactive
+New-AzureRmRoleAssignment `
+  -SignInName alice@contoso.com `
+  -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
+  -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+Per altre informazioni sulla gestione dell'accesso per le operazioni di Griglia di eventi, vedere [Sicurezza e autenticazione di Griglia di eventi](./security-authentication.md).
+
 ## <a name="create-topics-and-subscriptions"></a>Creare argomenti e sottoscrizioni
 
 Il servizio Griglia di eventi crea e gestisce automaticamente l'argomento corrispondente in un dominio in base alla chiamata per creare una sottoscrizione di eventi per un argomento del dominio. Non è previsto alcun passaggio apposito per creare un argomento in un dominio. Analogamente, quando viene eliminata l'ultima sottoscrizione di eventi per un argomento, viene eliminato anche l'argomento.
 
-La procedura di sottoscrizione di un argomento in un dominio è identica a quella per sottoscrivere qualsiasi altra risorsa di Azure:
+La procedura di sottoscrizione di un argomento in un dominio è identica a quella per sottoscrivere qualsiasi altra risorsa di Azure. Per l'ID della risorsa di origine specificare l'ID del dominio eventi restituito in precedenza durante la creazione del dominio. Per specificare l'argomento che si vuole sottoscrivere, aggiungere `/topics/<my-topic>` alla fine dell'ID risorsa di origine. Per creare una sottoscrizione di eventi con ambito di dominio che riceva tutti gli eventi nel dominio, specificare l'ID del dominio eventi senza specificare alcun argomento.
+
+In genere, l'utente a cui è stato concesso l'accesso nella sezione precedente creerà la sottoscrizione. Per semplificare questo articolo, creare la sottoscrizione. 
+
+Per l'interfaccia della riga di comando di Azure usare:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --name <event-subscription> \
-  --resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/<my-topic>" \
-  --endpoint https://contoso.azurewebsites.net/api/f1?code=code
+  --source-resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" \
+  --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-L'ID di risorsa specificato è lo stesso ID restituito durante la creazione del dominio in precedenza. Per specificare l'argomento che si vuole sottoscrivere, aggiungere `/topics/<my-topic>` alla fine dell'ID risorsa.
+Per PowerShell, usare:
 
-Per creare una sottoscrizione di eventi con ambito di dominio che riceva tutti gli eventi nel dominio, assegnare al dominio l'argomento `resource-id` senza specificarne altri, ad esempio `/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>`.
+```azurepowershell-interactive
+New-AzureRmEventGridSubscription `
+  -ResourceId "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" `
+  -EventSubscriptionName <event-subscription> `
+  -Endpoint https://contoso.azurewebsites.net/api/updates
+```
 
 Se è necessario un endpoint di test per sottoscrivere gli eventi, è sempre possibile distribuire un'[app Web preesistente](https://github.com/Azure-Samples/azure-event-grid-viewer) che visualizza gli eventi in ingresso. È possibile inviare gli eventi al sito Web di test all'indirizzo `https://<your-site-name>.azurewebsites.net/api/updates`.
 
@@ -82,23 +136,6 @@ Se è necessario un endpoint di test per sottoscrivere gli eventi, è sempre pos
 
 Le autorizzazioni impostate per un argomento vengono archiviate in Azure Active Directory e devono essere eliminate in modo esplicito. L'eliminazione di una sottoscrizione di eventi non implica la revoca di un accesso utente per creare le sottoscrizioni di eventi se l'utente ha accesso in scrittura per un argomento.
 
-## <a name="manage-access-to-topics"></a>Gestire l'accesso agli argomenti
-
-Per gestire l'accesso agli argomenti, si usa l'[assegnazione di ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Per l'assegnazione di ruolo si usa il controllo dell'accesso basato sul ruolo per limitare le operazioni sulle risorse di Azure agli utenti autorizzati in un determinato ambito.
-
-In Griglia di eventi sono disponibili due ruoli predefiniti che è possibile usare per assegnare agli utenti l'accesso ai diversi argomenti in un dominio. Questi ruoli sono `EventGrid EventSubscription Contributor (Preview)`, che consente di creare ed eliminare le sottoscrizioni, e `EventGrid EventSubscription Reader (Preview)`, che consente solo di visualizzare l'elenco delle sottoscrizioni di eventi.
-
-Il comando seguente consente all'utente `alice@contoso.com` solo di creare ed eliminare le sottoscrizioni per l'argomento `foo`:
-
-```azurecli-interactive
-az role assignment create --assignee alice@contoso.com --role "EventGrid EventSubscription Contributor (Preview)" --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/foo
-```
-
-Vedere [Sicurezza e autenticazione di Griglia di eventi di Azure](./security-authentication.md) per maggiori informazioni su:
-
-* Controllo di accesso per la gestione
-* Tipi di operazioni
-* Creazione di definizioni di ruolo personalizzate
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Pubblicare eventi in un dominio di Griglia di eventi
 
@@ -106,7 +143,7 @@ La procedura di pubblicazione di eventi in un dominio è identica a quella di [p
 
 ```json
 [{
-  "topic": "foo",
+  "topic": "demotopic1",
   "id": "1111",
   "eventType": "maintenanceRequested",
   "subject": "myapp/vehicles/diggers",
@@ -118,7 +155,7 @@ La procedura di pubblicazione di eventi in un dominio è identica a quella di [p
   "dataVersion": "1.0"
 },
 {
-  "topic": "bar",
+  "topic": "demotopic2",
   "id": "2222",
   "eventType": "maintenanceCompleted",
   "subject": "myapp/vehicles/tractors",
@@ -131,7 +168,7 @@ La procedura di pubblicazione di eventi in un dominio è identica a quella di [p
 }]
 ```
 
-Per ottenere le chiavi per usarle in un dominio:
+Per ottenere le chiavi per un dominio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -139,8 +176,16 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
+Per PowerShell, usare:
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomainKey `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
 Usare quindi il metodo preferito per effettuare una richiesta HTTP POST per la pubblicazione di eventi nel dominio di Griglia di eventi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sui concetti generali relativi ai domini eventi e sulla loro utilità, vedere la [panoramica concettuale dei domini eventi](./event-domains.md).
+* Per altre informazioni sui concetti generali relativi ai domini eventi e sulla loro utilità, vedere la [panoramica concettuale dei domini eventi](event-domains.md).

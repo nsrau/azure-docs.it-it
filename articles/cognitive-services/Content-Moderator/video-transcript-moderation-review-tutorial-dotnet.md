@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: moderare video e trascrizioni in .NET - Content Moderator'
+title: 'Esercitazione: Moderare video e trascrizioni in .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Come usare Content Moderator per moderare video e trascrizioni in .NET.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 12f03352373bebecb74b9dd8d31470ac337f5e71
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d156c481e3c16105ad85cbc793d93306a310d5ef
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227572"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567112"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Esercitazione: moderazione di video e trascrizioni
 
@@ -30,7 +30,7 @@ Scaricare l'[applicazione console C#](https://github.com/MicrosoftContentModerat
 - Usare i timestamp dei fotogrammi per creare (immagini)
 - Inviare timestamp e anteprime per creare le revisioni del video
 - Convertire il riconoscimento vocale video in testo (trascrizione) con l'API Media Indexer
-- Moderato la trascrizione con il servizio di moderazione del testo
+- Moderare la trascrizione con il servizio di moderazione del testo
 - Aggiungere la trascrizione moderata alla revisione del video
 
 ## <a name="sample-program-outputs"></a>Output di esempio del programma
@@ -51,7 +51,7 @@ Prima di procedere, esaminiamo gli output di esempio del programma seguenti:
 
 1. Modificare il file `App.config` e aggiungere il nome del tenant di Active Directory, gli endpoint del servizio e le chiavi di sottoscrizione indicate da `#####`. Sono necessarie le informazioni seguenti:
 
-|Chiave|DESCRIZIONE|
+|Chiave|Descrizione|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|Endpoint per l'API Servizi multimediali di Azure (AMS)|
 |`ClientSecret`|Chiave di sottoscrizione per Servizi multimediali di Azure|
@@ -67,7 +67,7 @@ La classe `Program` in `Program.cs` è il punto di ingresso principale per l'app
 
 ### <a name="methods-of-class-program"></a>Metodi della classe Program
 
-|Metodo|DESCRIZIONE|
+|Metodo|Descrizione|
 |-|-|
 |`Main`|Analizza la riga di comando, raccoglie l'input utente e inizia l'elaborazione.|
 |`ProcessVideo`|Comprime, carica, modera e crea revisioni video.|
@@ -132,7 +132,7 @@ Se non sono presenti argomenti della riga di comando, `Main()` chiama `GetUserIn
 
 Indipendentemente dal fatto che le opzioni del programma provengano dalla riga di comando e dall'input utente interattivo, `Main()` chiama in seguito `Initialize()` per creare le istanze seguenti:
 
-|Classe|DESCRIZIONE|
+|Classe|Descrizione|
 |-|-|
 |`AMSComponent`|Comprime i file video prima di inviarli per la moderazione.|
 |`AMSconfigurations`|Interfaccia i dati di configurazione dell'applicazione trovati in `App.config`.|

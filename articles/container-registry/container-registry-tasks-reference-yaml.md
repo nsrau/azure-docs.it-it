@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: de543798702137905ee5243c6ca8e502152f9c44
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854950"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634380"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Riferimenti ad Attività del Registro contenitori di Azure: YAML
 
@@ -83,17 +83,17 @@ az configure --defaults acr=myregistry
 
 Le proprietà delle attività vengono in genere visualizzate nella parte superiore di un file `acr-task.yaml` e sono proprietà globali applicate durante l'intera esecuzione dell'attività. Alcune proprietà globali possono essere sostituite all'interno di un singolo passaggio.
 
-| Proprietà | Tipo | Facoltativo | Descrizione | Override supportato | Valore predefinito |
+| Proprietà | type | Facoltativo | DESCRIZIONE | Override supportato | Valore predefinito |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | stringa | No  | Versione del file `acr-task.yaml` come analizzato dal servizio Attività del Registro contenitori di Azure. Attività del Registro contenitori di Azure cerca di mantenere la compatibilità con le versioni precedenti e questo valore consente di mantenere la compatibilità in una versione definita. | No  | Nessuno |
-| `stepTimeout` | intero (secondi) | Sì | Numero massimo di secondi per l'esecuzione di un passaggio. Questa proprietà può essere sottoposta a override in un passaggio impostando la proprietà [timeout](#timeout) del passaggio. | Sì | 600 (10 minuti) |
-| `totalTimeout` | intero (secondi) | Sì | Numero massimo di secondi per l'esecuzione di un'attività. Un'esecuzione include l'elaborazione e il completamento di tutti i passaggi dell'attività, sia con esito positivo che negativo. L'esecuzione include anche la stampa dell'output dell'attività, ad esempio le dipendenze delle immagini rilevato e lo stato di esecuzione dell'attività. | No  | 3600 (1 ora) |
+| `version` | stringa | No  | Versione del file `acr-task.yaml` come analizzato dal servizio Attività del Registro contenitori di Azure. Attività del Registro contenitori di Azure cerca di mantenere la compatibilità con le versioni precedenti e questo valore consente di mantenere la compatibilità in una versione definita. | No  | Nessuna |
+| `stepTimeout` | intero (secondi) | Yes | Numero massimo di secondi per l'esecuzione di un passaggio. Questa proprietà può essere sottoposta a override in un passaggio impostando la proprietà [timeout](#timeout) del passaggio. | Yes | 600 (10 minuti) |
+| `totalTimeout` | intero (secondi) | Yes | Numero massimo di secondi per l'esecuzione di un'attività. Un'esecuzione include l'elaborazione e il completamento di tutti i passaggi dell'attività, sia con esito positivo che negativo. L'esecuzione include anche la stampa dell'output dell'attività, ad esempio le dipendenze delle immagini rilevato e lo stato di esecuzione dell'attività. | No  | 3600 (1 ora) |
 
 ## <a name="task-step-types"></a>Tipi di passaggi delle attività
 
 Attività del Registro contenitori di Azure supporta tre tipi di passaggi. Ogni tipo di passaggio supporta diverse proprietà, indicate in dettaglio nella sezione per ogni tipo.
 
-| Tipo di passaggio | Descrizione |
+| Tipo di passaggio | DESCRIZIONE |
 | --------- | ----------- |
 | [`build`](#build) | Compila un'immagine del contenitore con la sintassi `docker build` nota. |
 | [`push`](#push) | Esegue un'operazione `docker push` delle immagini compilate o contrassegnate nuovamente in un registro contenitori. Sono supportati il Registro contenitori di Azure, altri registri privati e l'hub Docker.
@@ -112,12 +112,12 @@ steps:
       [property]: [value]
 ```
 
-Il tipo di passaggio `build` supporta i parametri seguenti:
+Il tipo di passaggio `build` supporta i parametri nella tabella seguente. Il tipo di passaggio `build` supporta anche tutte le opzioni di compilazione del comando [docker build](https://docs.docker.com/engine/reference/commandline/build/), ad esempio `--build-arg`, per impostare le variabili in fase di compilazione.
 
-| Parametro | Descrizione | Facoltativo |
+| Parametro | DESCRIZIONE | Facoltativo |
 | --------- | ----------- | :-------: |
-| `-t` &#124; `--image` | Definisce il percorso completo `image:tag` dell'immagine compilata.<br /><br />Poiché le immagini possono essere usate per le convalide di attività interne, ad esempio test funzionali, non tutte le immagini richiedono l'operazione `push` in un registro contenitori. Per creare un'istanza di un'immagine nell'esecuzione di un'attività, tuttavia, è necessario che all'immagine sia associato un nome di riferimento.<br /><br />A differenza di `az acr build`, l'esecuzione di Attività del Registro contenitori di Azure non prevede un comportamento del passaggio push predefinito. Con Attività del Registro contenitori di Azure, lo scenario predefinito presuppone la possibilità di compilare e di convalidare un'immagine e quindi di eseguirne il push. Per informazioni su come eseguire il push facoltativo di immagini compilate, vedere [push](#push). | Sì |
-| `-f` &#124; `--file` | Specifica l'elemento Dockerfile passato a `docker build`. Se non specificato, viene usato il valore predefinito Dockerfile nella directory radice del contesto. Per specificare un elemento Dockerfile alternativo, passare il nome del file relativo alla directory radice del contesto. | Sì |
+| `-t` &#124; `--image` | Definisce il percorso completo `image:tag` dell'immagine compilata.<br /><br />Poiché le immagini possono essere usate per le convalide di attività interne, ad esempio test funzionali, non tutte le immagini richiedono l'operazione `push` in un registro contenitori. Per creare un'istanza di un'immagine nell'esecuzione di un'attività, tuttavia, è necessario che all'immagine sia associato un nome di riferimento.<br /><br />A differenza di `az acr build`, l'esecuzione di Attività del Registro contenitori di Azure non prevede un comportamento del passaggio push predefinito. Con Attività del Registro contenitori di Azure, lo scenario predefinito presuppone la possibilità di compilare e di convalidare un'immagine e quindi di eseguirne il push. Per informazioni su come eseguire il push facoltativo di immagini compilate, vedere [push](#push). | Yes |
+| `-f` &#124; `--file` | Specifica l'elemento Dockerfile passato a `docker build`. Se non specificato, viene usato il valore predefinito Dockerfile nella directory radice del contesto. Per specificare un elemento Dockerfile alternativo, passare il nome del file relativo alla directory radice del contesto. | Yes |
 | `context` | Directory radice passata a `docker build`. La directory radice di ogni attività è impostata su un oggetto condiviso [workingDirectory](#task-step-properties) e include la radice della directory clonata Git associata. | No  |
 
 ### <a name="properties-build"></a>Proprietà: build
@@ -126,12 +126,12 @@ Il tipo di passaggio `build` supporta le proprietà seguenti. I dettagli di tali
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | booleano | Facoltativo |
+| `detach` | bool | Facoltativo |
 | `entryPoint` | stringa | Facoltativo |
 | `env` | [stringa, stringa, ...] | Facoltativo |
 | `id` | stringa | Facoltativo |
-| `ignoreErrors` | booleano | Facoltativo |
-| `keep` | booleano | Facoltativo |
+| `ignoreErrors` | bool | Facoltativo |
+| `keep` | bool | Facoltativo |
 | `startDelay` | intero (secondi) | Facoltativo |
 | `timeout` | intero (secondi) | Facoltativo |
 | `when` | [stringa, stringa, ...] | Facoltativo |
@@ -189,7 +189,7 @@ Il tipo di passaggio `push` supporta le proprietà seguenti. I dettagli di tali 
 | -------- | ---- | -------- |
 | `env` | [stringa, stringa, ...] | Facoltativo |
 | `id` | stringa | Facoltativo |
-| `ignoreErrors` | booleano | Facoltativo |
+| `ignoreErrors` | bool | Facoltativo |
 | `startDelay` | intero (secondi) | Facoltativo |
 | `timeout` | intero (secondi) | Facoltativo |
 | `when` | [stringa, stringa, ...] | Facoltativo |
@@ -230,12 +230,12 @@ Il tipo di passaggio `cmd` supporta le proprietà seguenti:
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | booleano | Facoltativo |
+| `detach` | bool | Facoltativo |
 | `entryPoint` | stringa | Facoltativo |
 | `env` | [stringa, stringa, ...] | Facoltativo |
 | `id` | stringa | Facoltativo |
-| `ignoreErrors` | booleano | Facoltativo |
-| `keep` | booleano | Facoltativo |
+| `ignoreErrors` | bool | Facoltativo |
+| `keep` | bool | Facoltativo |
 | `startDelay` | intero (secondi) | Facoltativo |
 | `timeout` | intero (secondi) | Facoltativo |
 | `when` | [stringa, stringa, ...] | Facoltativo |
@@ -315,18 +315,18 @@ Se si usa la convenzione di riferimento alle immagini `docker run` standard, `cm
 
 Ogni tipo di passaggio supporta diverse proprietà appropriate per il tipo stesso. La tabella seguente definisce tutte le proprietà disponibili per un passaggio. Non tutti i tipi di passaggi supportano tutte le proprietà. Per visualizzare le proprietà disponibili per ogni tipo di passaggio, vedere le sezioni d riferimento al tipo di passaggio [cmd](#cmd), [build](#build) e [push](#push).
 
-| Proprietà | Tipo | Facoltativo | Descrizione |
+| Proprietà | type | Facoltativo | DESCRIZIONE |
 | -------- | ---- | -------- | ----------- |
-| `detach` | booleano | Sì | Indica se il contenitore deve essere disconnesso durante l'esecuzione. |
-| `entryPoint` | stringa | Sì | Esegue l'override dell'elemento `[ENTRYPOINT]` di un contenitore del passaggio. |
-| `env` | [stringa, stringa, ...] | Sì | Matrice di stringhe in formato `key=value` che definiscono le variabili di ambiente per il passaggio. |
-| [`id`](#example-id) | stringa | Sì | Identifica in modo univoco il passaggio nell'attività. Altri passaggi nell'attività possono fare riferimento all'elemento `id` del passaggio, ad esempio per il controllo delle dipendenze con `when`.<br /><br />`id` è anche il nome del contenitore in esecuzione. I processi in esecuzione in altri contenitori nell'attività, ad esempio, possono fare riferimento all'elemento `id` come nome host DNS o per accedervi con l'elemento [id] dei log di Docker. |
-| `ignoreErrors` | booleano | Sì | Se impostato su `true`, il passaggio è contrassegnato come completato indipendentemente dal fatto che si sia verificato un errore durante l'esecuzione. Impostazione predefinita: `false`. |
-| `keep` | booleano | Sì | Indica se il contenitore del passaggio deve essere mantenuto dopo l'esecuzione. |
-| `startDelay` | intero (secondi) | Sì | Numero di secondi di ritardo per l'esecuzione di un passaggio. |
-| `timeout` | intero (secondi) | Sì | Numero massimo di secondi per l'esecuzione di un passaggio prima che venga terminato. |
-| [`when`](#example-when) | [stringa, stringa, ...] | Sì | Configura la dipendenza di un passaggio in uno o più passaggi nell'attività. |
-| `workingDirectory` | stringa | Sì | Imposta la directory di lavoro per un passaggio. Per impostazione predefinita, Attività del Registro contenitori di Azure crea una directory radice come directory di lavoro. Se la compilazione prevede diversi passaggi, tuttavia, i passaggi precedenti possono condividere artefatti con quelli successivi specificando la stessa directory di lavoro. |
+| `detach` | bool | Yes | Indica se il contenitore deve essere disconnesso durante l'esecuzione. |
+| `entryPoint` | stringa | Yes | Esegue l'override dell'elemento `[ENTRYPOINT]` di un contenitore del passaggio. |
+| `env` | [stringa, stringa, ...] | Yes | Matrice di stringhe in formato `key=value` che definiscono le variabili di ambiente per il passaggio. |
+| [`id`](#example-id) | stringa | Yes | Identifica in modo univoco il passaggio nell'attività. Altri passaggi nell'attività possono fare riferimento all'elemento `id` del passaggio, ad esempio per il controllo delle dipendenze con `when`.<br /><br />`id` è anche il nome del contenitore in esecuzione. I processi in esecuzione in altri contenitori nell'attività, ad esempio, possono fare riferimento all'elemento `id` come nome host DNS o per accedervi con l'elemento [id] dei log di Docker. |
+| `ignoreErrors` | bool | Yes | Se impostato su `true`, il passaggio è contrassegnato come completato indipendentemente dal fatto che si sia verificato un errore durante l'esecuzione. Impostazione predefinita: `false`. |
+| `keep` | bool | Yes | Indica se il contenitore del passaggio deve essere mantenuto dopo l'esecuzione. |
+| `startDelay` | intero (secondi) | Yes | Numero di secondi di ritardo per l'esecuzione di un passaggio. |
+| `timeout` | intero (secondi) | Yes | Numero massimo di secondi per l'esecuzione di un passaggio prima che venga terminato. |
+| [`when`](#example-when) | [stringa, stringa, ...] | Yes | Configura la dipendenza di un passaggio in uno o più passaggi nell'attività. |
+| `workingDirectory` | stringa | Yes | Imposta la directory di lavoro per un passaggio. Per impostazione predefinita, Attività del Registro contenitori di Azure crea una directory radice come directory di lavoro. Se la compilazione prevede diversi passaggi, tuttavia, i passaggi precedenti possono condividere artefatti con quelli successivi specificando la stessa directory di lavoro. |
 
 ### <a name="examples-task-step-properties"></a>Esempi: proprietà dei passaggi delle attività
 

@@ -8,21 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: sample
-ms.date: 09/15/2018
+ms.date: 11/12/2018
 ms.author: juliako
-ms.openlocfilehash: 53dc65c3d2c56308dd298f33bb78047904810ae5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 513c64ba7c9dad29fbef4a4010f5320dadda3c82
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377831"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625183"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
 Questo articolo illustra come caricare un video con Video Indexer di Azure. L'API Video Indexer offre due opzioni di caricamento: 
 
 * caricare il video da un URL (scelta consigliata),
-* inviare il file video come matrice di byte nel corpo della richiesta.
+* inviare il file video come matrice di byte nel corpo della richiesta,
+* Usare l'asset di Servizi multimediali di Azure esistente fornendo l'[id asset](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supportato solo negli account a pagamento).
 
 Questo articolo illustra come usare l'API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) per caricare e indicizzare i video in base a un URL. L'esempio di codice nell'articolo include il codice impostato come commento che mostra come caricare la matrice di byte.  
 
@@ -50,6 +51,35 @@ Questa sezione descrive alcuni dei parametri facoltativi e i casi in cui è util
 
 Questo parametro consente di specificare un ID che verrà associato al video. L'ID può essere applicato all'integrazione del sistema esterno di gestione di contenuti video (VCM). I video situati nel portale di Video Indexer si possono cercare usando l'ID esterno specificato.
 
+### <a name="callbackurl"></a>callbackUrl
+
+Un URL che viene usato per notificare al cliente (con una richiesta POST) gli eventi seguenti:
+
+- Modifica stato indicizzazione: 
+    - Proprietà:    
+    
+        |NOME|DESCRIZIONE|
+        |---|---|
+        |id|L'ID del video|
+        |state|Lo stato del video|  
+    - Esempio: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+- Persona identificata nel video:
+    - Properties
+    
+        |NOME|DESCRIZIONE|
+        |---|---|
+        |id| L'ID del video|
+        |faceId|L'ID viso che appare nell'indice video|
+        |knownPersonId|L'ID utente univoco all'interno di un modello di viso|
+        |personName|Il nome della persona|
+        
+     - Esempio: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+
+#### <a name="notes"></a>Note
+
+- Video Indexer restituisce tutti i parametri esistenti forniti nell'URL originale.
+- L'URL specificato deve essere codificato.
+
 ### <a name="indexingpreset"></a>indexingPreset
 
 Usare questo parametro se registrazioni non elaborate o esterne contengono rumore di fondo. Questo parametro si usa per configurare il processo di indicizzazione. È possibile specificare i valori seguenti:
@@ -60,11 +90,11 @@ Usare questo parametro se registrazioni non elaborate o esterne contengono rumor
 
 Il prezzo dipende dall'opzione di indicizzazione selezionata.  
 
-### <a name="callbackurl"></a>callbackUrl
+### <a name="priority"></a>priority
 
-URL POST a cui inviare una notifica quando l'indicizzazione è stata completata. Video Indexer vi aggiunge due parametri della stringa di query: id e state. Ad esempio, se l'URL di callback è 'https://test.com/notifyme?projectName=MyProject', la notifica verrà inviata con i parametri aggiuntivi a 'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
+I video vengono indicizzati da Video Indexer in base alle rispettive priorità. Usare il parametro **priority** per specificare la priorità dell'indice. Sono validi i valori seguenti: **Basso**, **Normale** (predefinito) e **Alto**.
 
-È anche possibile aggiungere altri parametri all'URL prima di inviare la chiamata a Video Indexer. Questi parametri verranno inclusi nel callback. In un secondo momento, all'interno del codice, è possibile analizzare la stringa di query e ottenere tutti i parametri specificati nella stringa di query (i dati aggiunti in origine all'URL e le informazioni fornite da Video Indexer). L'URL deve essere codificato.
+Il parametro **priority** è supportato solo per gli account a pagamento.
 
 ### <a name="streamingpreset"></a>streamingPreset
 

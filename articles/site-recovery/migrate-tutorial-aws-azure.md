@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d10464dac8d9e47d80f11b8bfaf70740e3ad250
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252140"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567095"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -241,7 +241,10 @@ Eseguire un failover per le istanze EC2 per eseguirne la migrazione alle macchin
 1. In **Elementi protetti** > **Elementi replicati** selezionare le istanze AWS e quindi selezionare **Failover**.
 2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. Selezionare l'ultimo punto di ripristino e avviare il failover. Nella pagina **Processi** è possibile seguire lo stato del failover.
 1. Assicurarsi che la macchina virtuale venga visualizzata in **Elementi replicati**.
-2. Fare clic con il pulsante destro del mouse su ogni macchina virtuale e quindi selezionare **Completa la migrazione**. Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale AWS e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
+2. Fare clic con il pulsante destro del mouse su ogni macchina virtuale e quindi selezionare **Completa la migrazione**. Vengono eseguite le operazioni seguenti:
+
+    - Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale AWS e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
+    - In questo passaggio vengono eliminati i dati di replica, ma non le macchine virtuali di cui è stata eseguita la migrazione. 
 
     ![Completare la migrazione](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

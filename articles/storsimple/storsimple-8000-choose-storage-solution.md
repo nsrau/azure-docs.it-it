@@ -5,14 +5,14 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/12/2018
 ms.author: alkohli
-ms.openlocfilehash: 0cb1a0bccbb989506988f36c515d59cddb832265
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c28eaf22d05bfda5085f9e269bda85ca0d46a7d3
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263396"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578127"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Confrontare le opzioni di trasferimento dei dati StorSimple, Sincronizzazione file di Azure e Data Box Edge 
  
@@ -24,7 +24,7 @@ Questo documento offre una panoramica delle opzioni per il trasferimento in Azur
 
 ## <a name="comparison-summary"></a>Riepilogo del confronto
 
-|                           |StorSimple 8000   |Sincronizzazione file di Azure   |Data Box Edge (Anteprima)           |
+|                           |StorSimple 8000   |Sincronizzazione file di Azure   |Data Box Edge (anteprima)           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
 |Panoramica         |Risorsa di archiviazione ibrida in livelli e archiviazione|Archiviazione generale su file server con cloud a livelli e sincronizzazione multisito.  |Soluzione di archiviazione per eseguire l'analisi preliminare dei dati e inviarli ad Azure attraverso la rete.        |
 |Scenari        |File server, archiviazione, destinazione di backup |File server, archiviazione (multisito)   |Trasferimento di dati, pre-elaborazione dei dati, inclusi inferenza ML, IoT, archiviazione    |
@@ -33,9 +33,9 @@ Questo documento offre una panoramica delle opzioni per il trasferimento in Azur
 |Hardware         |Dispositivo fisico offerto da Microsoft insieme al servizio | Fornito dal cliente |Dispositivo fisico offerto da Microsoft insieme al servizio  |
 |Formato dati      |Formato personalizzato   |File         |BLOB o File    |
 |Supporto dei protocolli |iSCSI          |SMB, NFS    | SMB o NFS      |
-|Prezzi          |[Prezzi di StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Prezzi di AFS](https://azure.microsoft.com/pricing/details/storage/files/)  |[Prezzi per Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|Prezzi          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Sincronizzazione file di Azure](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview.md) e [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview.md)
-- Informazioni su [Sincronizzazione file di Azure](/azure/storage/files/storage-sync-files-deployment-guide.md)
+- Informazioni su [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) e [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview)
+- Informazioni su [Sincronizzazione file di Azure](/azure/storage/files/storage-sync-files-deployment-guide)

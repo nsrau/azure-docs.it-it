@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: eae7f97799e38d5a4b09e3f193a84b423dced780
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/09/2018
+ms.openlocfilehash: 44d6135c8a259d3d4c791d359136963483088c5a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869330"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567894"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replica in database SQL singoli e in pool
 
@@ -65,7 +65,7 @@ La replica di SQL Server può essere configurata in database singoli e in pool s
 
 1. Creare una pubblicazione di replica transazionale in un database di SQL Server locale.  
 2. Nell'istanza di SQL Server locale usare la **Creazione guidata nuova sottoscrizione** o istruzioni Transact-SQL per creare una sottoscrizione al database SQL di Azure.  
-3. Il set di dati iniziale è in genere uno snapshot creato dall'agente di snapshot e distribuito e applicato dall'agente di distribuzione. Il set di dati iniziale può anche essere fornito tramite un backup o altri mezzi, come SQL Server Integration Services.  
+3. Con i database singoli e i database in pool nel database SQL di Azure, il set di dati iniziale è uno snapshot creato dall'agente di snapshot e distribuito e applicato dall'agente di distribuzione. Con Istanza gestita di database SQL di Azure si può anche usare un backup di database per inizializzare il database sottoscrittore.
 
 ### <a name="data-migration-scenario"></a>Scenario di migrazione dei dati  
 

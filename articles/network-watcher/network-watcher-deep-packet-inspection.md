@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 1ad6ca4abe73336ce9ce3539fdaf2a9d7dd23fa6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7af14143e8ce4924c17a41c6bb1ff33954f4b583
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036336"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568727"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Ispezione dei pacchetti con Azure Network Watcher
 
@@ -41,7 +41,7 @@ In questo scenario:
 
 In questo scenario viene illustrato come visualizzare il tempo di round trip (RTT, Round Trip Time) di una conversazione TCP (Transmission Control Protocol) che avviene tra due endpoint.
 
-Quando viene stabilita una connessione TCP, i primi tre pacchetti inviati nella connessione seguono un modello chiamato in genere handshake a tre livelli. Esaminando i primi due pacchetti inviati in questo handshake, una richiesta iniziale dal client e una risposta dal server, è possibile calcolare la latenza quando questa connessione viene stabilita. Questa latenza è chiamata tempo di round trip. Per altre informazioni sul protocollo TCP e l'handshake a tre livelli, vedere la risorsa seguente. https://support.microsoft.com/it-it/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+Quando viene stabilita una connessione TCP, i primi tre pacchetti inviati nella connessione seguono un modello chiamato in genere handshake a tre livelli. Esaminando i primi due pacchetti inviati in questo handshake, una richiesta iniziale dal client e una risposta dal server, è possibile calcolare la latenza quando questa connessione viene stabilita. Questa latenza è chiamata tempo di round trip. Per altre informazioni sul protocollo TCP e l'handshake a tre livelli, vedere la risorsa seguente. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
 
 ### <a name="step-1"></a>Passaggio 1
 
@@ -85,7 +85,7 @@ Usando la stessa acquisizione dello scenario precedente, fare clic su **Statisti
 
 Verrà visualizzata la finestra della gerarchia dei protocolli. Questa visualizzazione fornisce un elenco di tutti i protocolli usati durante la sessione di acquisizione e il numero di pacchetti trasmessi e ricevuti usando i protocolli. Si tratta di una visualizzazione utile per trovare il traffico di rete indesiderato nelle macchine virtuali o in rete.
 
-![Gerarchia dei protocolli aperta][3]
+![Gerarchia protocolli aperta][3]
 
 Come si può osservare nell'acquisizione della schermata seguente, parte del traffico usava il protocollo BitTorrent, che viene usato per la condivisione di file peer-to-peer. Un amministratore non si aspetta di trovare traffico BitTorrent in queste particolari macchine virtuali. Dopo avere trovato questo tipo di traffico, è possibile rimuovere il software peer-to-peer installato in questa macchina virtuale o bloccare il traffico usando i gruppi di sicurezza di rete o un firewall. È anche possibile scegliere di eseguire le acquisizioni di pacchetti in base a una pianificazione per poter esaminare periodicamente l'uso del protocollo nelle macchine virtuali. Per un esempio di come automatizzare le attività di rete in Azure, vedere [Monitor network resources with azure automation](network-watcher-monitor-with-azure-automation.md) (Monitorare le risorse di rete con Automazione di Azure)
 

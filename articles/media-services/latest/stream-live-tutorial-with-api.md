@@ -1,5 +1,5 @@
 ---
-title: Streaming live con Servizi multimediali di Azure v3 usando .NET Core | Microsoft Docs
+title: Streaming live con Servizi multimediali di Azure v3 | Microsoft Docs
 description: Questa esercitazione illustra i passaggi per lo streaming live con Servizi multimediali v3 usando .NET Core.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: bd149177a91bc0d5897723df2fad50fef11a37ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392336"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613393"
 ---
-# <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>Streaming live con Servizi multimediali di Azure v3 usando .NET Core
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Esercitazione: Streaming live con Servizi multimediali v3 usando le API
 
-In Servizi multimediali le entità [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents)sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità LiveEvent fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al codificatore live. L'entità LiveEvent riceve flussi di input live dal codificatore live e li rende disponibili per lo streaming mediante uno o più [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Le entità LiveEvent forniscono anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito. Questa esercitazione illustra come usare .NET Core per creare un evento live di tipo **pass-through**. 
+In Servizi multimediali di Azure le entità [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità LiveEvent fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al codificatore live. L'entità LiveEvent riceve flussi di input live dal codificatore live e li rende disponibili per lo streaming mediante uno o più [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Le entità LiveEvent forniscono anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito. Questa esercitazione illustra come usare .NET Core per creare un evento live di tipo **pass-through**. 
 
 > [!NOTE]
 > Assicurarsi di leggere [Live streaming with Azure Media Services v3](live-streaming-overview.md) (Streaming live con Servizi multimediali di Azure v3) prima di procedere. 
@@ -31,7 +31,6 @@ In Servizi multimediali le entità [LiveEvents](https://docs.microsoft.com/rest/
 L'esercitazione illustra come:    
 
 > [!div class="checklist"]
-> * Creare un account di Servizi multimediali
 > * Accedere all'API di Servizi multimediali
 > * Configurare l'app di esempio
 > * Esaminare il codice che esegue lo streaming live
@@ -44,9 +43,17 @@ L'esercitazione illustra come:
 
 Per completare l'esercitazione è necessario quanto segue.
 
-* Installare Visual Studio Code o Visual Studio
-* Una fotocamera o un dispositivo (ad esempio un laptop) usato per trasmettere un evento.
-* Un codificatore live locale in grado di convertire i segnali provenienti dalla fotocamera in flussi inviati al servizio di streaming live Servizi multimediali. Il flusso deve essere in formato **RTMP** oppure **Smooth Streaming**.
+- Installare Visual Studio Code o Visual Studio.
+- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+
+    Attualmente, non tutti i comandi delle [interfacce della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando solo in locale.
+
+- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+
+    Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
+
+- Una fotocamera o un dispositivo (ad esempio un laptop) usato per trasmettere un evento.
+- Un codificatore live locale in grado di convertire i segnali provenienti dalla fotocamera in flussi inviati al servizio di streaming live Servizi multimediali. Il flusso deve essere in formato **RTMP** oppure **Smooth Streaming**.
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
@@ -61,10 +68,6 @@ L'esempio di streaming live è disponibile nella cartella [Live](https://github.
 > [!IMPORTANT]
 > Questo esempio usa un suffisso univoco per ogni risorsa. Se si annulla il debug o si termina l'app senza eseguirla per intero, per l'account risulteranno disponibili più LiveEvent. <br/>
 > Assicurarsi di arrestare i LiveEvent in esecuzione. In caso contrario, verranno **fatturati**.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -176,9 +179,9 @@ Quando viene arrestato, l'evento live converte automaticamente gli eventi in con
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se nessuna delle risorse usate è più necessaria, compresi gli account di archiviazione e di Servizi multimediali creati per questa esercitazione, eliminare il gruppo di risorse creato in precedenza. A tal fine è possibile usare lo strumento **CloudShell**.
+Se nessuna delle risorse usate è più necessaria, compresi gli account di archiviazione e di Servizi multimediali creati per questa esercitazione, eliminare il gruppo di risorse creato in precedenza.
 
-In **CloudShell** eseguire il comando seguente:
+Eseguire il comando dell'interfaccia della riga di comando seguente:
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup

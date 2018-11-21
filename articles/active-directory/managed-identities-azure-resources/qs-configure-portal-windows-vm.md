@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
+ms.date: 11/10/2018
 ms.author: daveba
-ms.openlocfilehash: b73a79676be559ad491bd7bb16691369dd8fa271
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f0d207bb5db8d27765c608f07a9d2ed9dc2f08dd
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158632"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514996"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure
 
@@ -33,12 +33,6 @@ Questo articolo illustra come abilitare e disabilitare le identità gestite asse
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md).
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le seguenti assegnazioni di controllo degli accessi in base al ruolo:
-
-    > [!NOTE]
-    > Non sono necessarie altre assegnazioni di ruoli della directory di Azure AD.
-
-    - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per abilitare e rimuovere l'identità gestita assegnata dal sistema da una macchina virtuale di Azure.
 
 ## <a name="system-assigned-managed-identity"></a>Identità gestita assegnata dal sistema
 
@@ -46,7 +40,9 @@ Questa sezione illustra come abilitare e disabilitare l'identità gestita assegn
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-a-vm"></a>Abilitare l'identità gestita assegnata dal sistema durante la creazione di una macchina virtuale
 
-Per abilitare l'identità gestita assegnata dal sistema durante la creazione di una macchina virtuale, nella sezione **Identità** della scheda **Gestione** impostare **Identità del servizio gestita** su **Attivata**.  
+Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale durante la creazione, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
+
+- Nella sezione **Identità** della scheda **Gestione** **attivare** l'opzione **Identità del servizio gestita**.  
 
 ![Abilitare l'identità assegnata dal sistema durante la creazione di una macchina virtuale](./media/msi-qs-configure-portal-windows-vm/enable-system-assigned-identity-vm-creation.png)
 
@@ -58,7 +54,7 @@ Fare riferimento alle guide introduttive seguenti per creare una macchina virtua
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-vm"></a>Abilitare l'identità gestita assegnata dal sistema in una macchina virtuale esistente
 
-Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale di cui è stato originariamente eseguito il provisioning senza di essa:
+Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale di cui originariamente è stato effettuato il provisioning senza tale identità, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure che contiene la VM.
 
@@ -69,6 +65,8 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
    ![Schermata della pagina Configurazione](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ### <a name="remove-system-assigned-managed-identity-from-a-vm"></a>Rimuovere un'identità gestita assegnata dal sistema da una macchina virtuale
+
+Per rimuovere l'identità gestita assegnata dal sistema da una macchina virtuale, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
 
 Se si dispone di una macchina virtuale per cui non è più necessaria un'identità gestita assegnata dal sistema:
 
@@ -86,12 +84,16 @@ Se si dispone di una macchina virtuale per cui non è più necessaria un'identit
 
 ### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-vm"></a>Assegnare un'identità assegnata dall'utente durante la creazione di una macchina virtuale
 
+Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'account devono essere assegnati i ruoli [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e [Operatore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
+
 Attualmente il portale di Azure non supporta l'assegnazione di un'identità gestita assegnata dall'utente durante la creazione di una macchina virtuale. In alternativa, consultare una delle guide introduttive seguenti per creare prima una macchina virtuale e quindi proseguire con la sezione successiva per informazioni dettagliate sull'associazione di un'identità gestita assegnata dall'utente alla macchina virtuale:
 
 - [Creare una macchina virtuale Windows con il portale di Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Creare una macchina virtuale Linux con il portale di Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-vm"></a>Assegnare un'identità gestita assegnata dall'utente a una VM esistente
+
+Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'account devono essere assegnati i ruoli [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e [Operatore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure che contiene la VM.
 2. Passare alla macchina virtuale desiderata e fare clic su **Identità**, **Assegnata dall'utente** e quindi **\+Aggiungi**.
@@ -103,6 +105,8 @@ Attualmente il portale di Azure non supporta l'assegnazione di un'identità gest
     ![Aggiungere un'identità gestita assegnata dall'utente a una macchina virtuale](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
 
 ### <a name="remove-a-user-assigned-managed-identity-from-a-vm"></a>Rimuovere un'identità gestita assegnata dall'utente da una macchina virtuale
+
+Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor). Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure che contiene la VM.
 2. Passare alla macchina virtuale desiderata e selezionare **Identità**, **Assegnata dall'utente** e il nome dell'identità gestita assegnata dall'utente da eliminare e quindi fare clic su **Rimuovi** (scegliere **Sì** nel riquadro di conferma).

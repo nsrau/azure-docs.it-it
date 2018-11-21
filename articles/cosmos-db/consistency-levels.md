@@ -11,26 +11,22 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2611c25764503551c4da918d06bcaabe315cbf7c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963082"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624828"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
 
 I database distribuiti che si basano sulla replica per gestire la disponibilità elevata, la bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio richiede che gli sviluppatori scelgano tra due modelli di coerenza estremi: la coerenza assoluta e la coerenza finale. Anche se la  [linearizzabilità](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) o il modello di coerenza assoluta è lo standard più alto di programmabilità dei dati, presenta un notevole svantaggio in termini di maggiore latenza (in stato stazionario) e disponibilità ridotta (in caso di errori). La coerenza finale, d'altra parte, offre maggiore disponibilità e migliori prestazioni, ma è difficile da programmare.
 
-Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte che si collocano tra i due estremi. La coerenza assoluta e la coerenza finale sono le due estremità dello spettro, nel mezzo del quale sono disponibili molte altre opzioni. Queste opzioni di coerenza consentono agli sviluppatori di effettuare scelte precise e compromessi di granularità in relazione alla disponibilità o alle prestazioni. Cosmos DB offre agli sviluppatori la possibilità di scegliere tra cinque modelli di coerenza ben definiti nello spettro della coerenza (dal più sicuro al più debole): **assoluto**, **decadimento ristretto**, **sessione**, **coerenza del prefisso** e **finale**. Ognuno di questi modelli di coerenza è ben definito, intuitivo e può essere usato per scenari reali specifici. Ognuno dei cinque modelli prevede [compromessi in termini di disponibilità e prestazioni](consistency-levels-tradeoffs.md) ed è supportato da un contratto di servizio completo.
+Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte che si collocano tra i due estremi. La coerenza assoluta e la coerenza finale sono le due estremità dello spettro, nel mezzo del quale sono disponibili molte altre opzioni. Queste opzioni di coerenza consentono agli sviluppatori di effettuare scelte precise e compromessi di granularità in relazione alla disponibilità o alle prestazioni. Cosmos DB offre agli sviluppatori la possibilità di scegliere tra cinque modelli di coerenza ben definiti nello spettro della coerenza (dal più sicuro al più debole): **assoluto**, **decadimento ristretto**, **sessione**, **coerenza del prefisso** e **finale**. Ognuno di questi modelli di coerenza è ben definito, intuitivo e può essere usato per scenari reali specifici. Ognuno dei cinque modelli prevede [compromessi in termini di disponibilità e prestazioni](consistency-levels-tradeoffs.md) ed è supportato da un contratto di servizio completo. L'immagine seguente mostra i diversi livelli di coerenza sotto forma di spettro:
 
 ![La coerenza come spettro](./media/consistency-levels/five-consistency-levels.png)
 
-I livelli di coerenza sono indipendenti dall'area. Il livello di coerenza dell'account Cosmos DB è garantito per tutte le operazioni di lettura a prescindere dalle proprietà seguenti:
-
-- L'area da cui vengono gestite le letture e le scritture
-- Il numero di aree associate all'account Cosmos DB
-- La presenza di una o più aree di scrittura nella configurazione dell'account
+I livelli di coerenza sono indipendenti dall'area. Il livello di coerenza dell'account Cosmos DB è garantito per tutte le operazioni di lettura indipendentemente dall'area da cui vengono gestite le operazioni di lettura e scrittura, dal numero di aree associate all'account Cosmos o dal fatto che l'account sia configurato con una o più aree di scrittura.
 
 ## <a name="scope-of-the-read-consistency"></a>L'ambito della coerenza di lettura
 

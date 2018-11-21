@@ -1,6 +1,6 @@
 ---
-title: Azure Terraform contro il generatore di moduli di codice
-description: Informazioni su come usare Yeoman per creare un modello di base di Terraform.
+title: Creare un modello Terraform di base in Azure con Yeoman
+description: Informazioni su come creare un modello Terraform di base in Azure con Yeoman.
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, macchina virtuale, azure, yeoman
@@ -8,24 +8,26 @@ author: v-mavick
 manager: jeconnoc
 ms.author: v-mavick
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.openlocfilehash: 513b123c44cf2cd37cf81a91e0d2da9599eb1fcd
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 11/08/2018
+ms.openlocfilehash: 9ef27166e84192dec81fd8f8da508785342ffefc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47396361"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288017"
 ---
-# <a name="create-a-terraform-base-template-using-yeoman"></a>Creare un modello Terraform di base con Yeoman
+# <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Creare un modello Terraform di base in Azure con Yeoman
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
 ) fornisce un modo per creare con facilità l'infrastruttura in Azure. [Yeoman](http://yeoman.io/) semplifica notevolmente il lavoro dello sviluppatore di moduli Terraform fornendo al contempo un eccellente framework di *procedure consigliate*.
 
-Questo articolo descrive come usare il generatore di moduli Yeoman per creare un modello Terraform di base.
+Questo articolo descrive come usare il generatore di moduli Yeoman per creare un modello Terraform di base. Verrà quindi illustrato come testare il nuovo modello Terraform con due diversi metodi:
+
+- Esecuzione del modulo Terraform con un file Docker creato in questo articolo
+- Esecuzione del modulo Terraform in modalità nativa in Azure Cloud Shell
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un computer che esegue Windows 10, Linux o macOS 10.10+.
 - **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - **Visual Studio Code**: si userà [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) per esaminare i file creati dal generatore Yeoman. In alternativa è possibile usare qualsiasi editor di codice di propria scelta.
 - **Terraform**: è necessaria un'installazione di [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) per l'esecuzione del modulo creato da Yeoman.
@@ -33,7 +35,7 @@ Questo articolo descrive come usare il generatore di moduli Yeoman per creare un
 - **Linguaggio di programmazione Go**: è necessaria un'installazione di [Go](https://golang.org/) poiché i test case generati da Yeoman sono scritti in Go.
 
 >[!NOTE]
->La maggior parte delle procedure riportate in questa esercitazione prevede l'uso della riga di comando. I passaggi descritti di seguito si applicano a tutti i sistemi operativi e gli strumenti da riga di comando. In questi esempi si è scelto di usare PowerShell, ma ci sono diverse alternative, come Git Bash, il prompt dei comandi di Windows o i comandi della riga di comando di Linux o macOS.
+>La maggior parte delle procedure riportate in questa esercitazione prevede l'uso della riga di comando. I passaggi descritti di seguito si applicano a tutti i sistemi operativi e gli strumenti da riga di comando. Negli esempi si è scelto di usare PowerShell per l'ambiente locale e Git Bash per l'ambiente Cloud Shell.
 
 ## <a name="prepare-your-environment"></a>Preparare l'ambiente
 
@@ -57,7 +59,7 @@ Da un prompt dei comandi immettere `npm install -g generator-az-terra-module`.
 ![Installare generator-az-terra-module](media/terraform-vscode-module-generator/ymg-pm-install-generator-module.png)
 
 >[!NOTE]
->Per verificare che Yeoman ia installato, da una finestra del terminale immettere `yo --version`.
+>Per verificare che Yeoman sia installato, da una finestra del terminale immettere `yo --version`.
 
 ### <a name="create-an-empty-folder-to-hold-the-yeoman-generated-module"></a>Creare una cartella vuota per contenere il modulo generato da Yeoman
 
@@ -72,11 +74,11 @@ Da un prompt dei comandi:
 1. Immettere `mkdir <new-directory-name>`.
 
     >[!NOTE]
-    >Sostituire < new-directory-name > con il nome della nuova directory. In questo esempio la nuova directory viene denominata `GeneratorDocSample`.
+    >Sostituire <nuovo-nome-directory> con il nome della nuova directory. In questo esempio la nuova directory viene denominata `GeneratorDocSample`.
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
-1. Passare alla nuova directory digitando `cd <new directory's name>` e premendo **Invio**.
+1. Passare alla nuova directory digitando `cd <new directory's name>` e premendo **INVIO**.
 
     ![Passare alla nuova directory](media/terraform-vscode-module-generator/ymg-cd-GeneratorDocSample.png)
 
@@ -100,10 +102,10 @@ Da un prompt dei comandi:
 
     - *Si desidera includere il file di immagine Docker?*
 
-        ![Include il file di immagine Docker?](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
+        ![Includere il file di immagine Docker?](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
 
         >[!NOTE]
-        >Immettere `y`. Se si seleziona **n**, il codice di modulo generato supporterà solo l'esecuzione in modalità nativa.
+        >Immettere `y`. Se si seleziona **n**, il codice del modulo generato supporterà solo l'esecuzione in modalità nativa.
 
 3. Immettere `ls` per visualizzare i file risultanti che vengono creati.
 
@@ -149,7 +151,7 @@ Definisce i passaggi di compilazione. La procedura include i passaggi seguenti:
 - I test end-to-end provano a usare Terraform per effettuare il provisioning di tutti gli elementi definiti in **fixture** e quindi confrontano l'output nel codice **template_output.go** con i valori previsti predefiniti.
 - **Gopkg.lock** e **gopkg**: definiscono le dipendenze. 
 
-## <a name="test-the-module-using-docker"></a>Testare il modulo usando Docker
+## <a name="test-your-new-terraform-module-using-a-docker-file"></a>Testare il nuovo modulo Terraform con un file Docker
 
 >[!NOTE]
 >In questo esempio eseguiamo il modulo come modulo locale senza toccare Azure.
@@ -191,6 +193,8 @@ Per verificare che Docker sia in esecuzione, immettere `docker info`.
 
     ![Elencare il file Docker](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
 
+### <a name="build-the-module"></a>Compilare il modulo
+
 1. Immettere `bundle install`.
 
     Attendere che sia visualizzato il messaggio **Bundle complete** (Aggregazione completa), quindi continuare con il passaggio successivo.
@@ -199,7 +203,7 @@ Per verificare che Docker sia in esecuzione, immettere `docker info`.
 
     ![Compilazione di Rake](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
-### <a name="perform-the-end-to-end-test"></a>Eseguire il test end-to-end
+### <a name="run-the-end-to-end-test"></a>Eseguire il test end-to-end
 
 1. Immettere `rake e2e`.
 
@@ -207,7 +211,74 @@ Per verificare che Docker sia in esecuzione, immettere `docker info`.
 
     ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
-1. Immettere `exit` per completare il test end-to-end.
+1. Immettere `exit` per completare il test end-to-end e uscire dall'ambiente Docker.
+
+## <a name="use-yeoman-generator-to-create-and-test-a-module-in-cloud-shell"></a>Usare il generatore Yeoman per creare e testare un modulo in Cloud Shell
+
+Nella sezione precedente è stato illustrato come testare un modulo Terraform con un file Docker. In questa sezione si userà il generatore Yeoman per creare e testare un modulo in Cloud Shell.
+
+L'uso di Cloud Shell al posto di un file Docker semplifica notevolmente il processo. Con Cloud Shell:
+
+- Non è necessario installare Node.js
+- Non è necessario installare Yeoman
+- Non è necessario installare Terraform
+
+Tutti questi elementi sono preinstallati in Cloud Shell.
+
+### <a name="start-a-cloud-shell-session"></a>Avviare una sessione di Cloud Shell
+
+1. Avviare una sessione di Azure Cloud Shell tramite il [portale di Azure](https:/portal.azure.com/), [shell.azure.com](https://shell.azure.com) o l'[app per dispositivi mobili di Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+
+1. Verrà visualizzata la pagina **Benvenuto in Azure Cloud Shell**. Selezionare **Bash (Linux)**. PowerShell non è supportato.
+
+    ![Benvenuto in Azure Cloud Shell](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
+
+    >[!NOTE]
+    >In questo esempio è stato selezionato Bash (Linux).
+
+1. Se non si è già configurato un account di archiviazione di Azure, viene visualizzata la schermata seguente. Selezionare **Create storage** (Crea risorsa di archiviazione).
+
+    ![Non sono state montate risorse di archiviazione](media/terraform-vscode-module-generator/ymg-you-have-no-storage-mounted.png)
+
+1. Azure Cloud Shell viene avviato nella shell selezionata in precedenza e visualizza le informazioni per l'unità cloud appena creata per l'utente.
+
+    ![L'unità cloud è stata creata](media/terraform-vscode-module-generator/ymg-your-cloud-drive-has-been-created-in.png)
+
+### <a name="prepare-a-folder-to-hold-your-terraform-module"></a>Preparare una cartella in cui inserire il modulo Terraform
+
+1. A questo punto, Cloud Shell avrà già configurato automaticamente GOPATH nelle variabili di ambiente. Per visualizzare il percorso, immettere `go env`.
+
+1. Creare la cartella $GOPATH, se non ne esiste già una, immettendo `mkdir ~/go`.
+
+1. Creare una cartella all'interno della cartella $GOPATH immettendo `mkdir ~/go/src`. In questa cartella verranno inserite e organizzate le diverse cartelle di progetto eventualmente create, come la cartella <your-module-name> che verrà creata nel passaggio successivo.
+
+1. Creare una cartella in cui inserire il modulo Terraform immettendo `mkdir ~/go/src/<your-module-name>`.
+
+    >[!NOTE]
+    >In questo esempio, come nome della cartella è stato scelto `my-module-name`.
+
+1. Passare alla cartella del modulo immettendo `cd ~/go/src/<your-module-name>`.
+
+### <a name="create-and-test-your-terraform-module"></a>Creare e testare il modulo Terraform
+
+1. Immettere `yo az-terra-module` e seguire le istruzioni della procedura guidata.
+
+    >[!NOTE]
+    >Quando viene chiesto se si vogliono creare i file Docker, si può immettere `N`.
+
+1. Immettere `bundle install` per installare le dipendenze.
+
+    Attendere che sia visualizzato il messaggio **Bundle complete** (Aggregazione completa), quindi continuare con il passaggio successivo.
+
+1. Immettere `rake build` per compilare il modulo.
+
+    ![Compilazione di Rake](media/terraform-vscode-module-generator/ymg-rake-build.png)
+
+1. Immettere `rake e2e` per eseguire il test end-to-end.
+
+1. Dopo qualche istante sarà visualizzato il messaggio **PASS**.
+
+    ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

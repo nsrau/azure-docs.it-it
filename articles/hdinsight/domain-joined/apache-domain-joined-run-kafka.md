@@ -1,5 +1,5 @@
 ---
-title: Configurare i criteri per Kafka in HDInsight con Enterprise Security Package - Azure
+title: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package - Azure
 description: Informazioni su come configurare i criteri di Apache Ranger per Kafka in HDInsight di Azure con Enterprise Security Package.
 services: hdinsight
 ms.service: hdinsight
@@ -8,16 +8,16 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 48cfba6f62d75470efd27e3a4cdcb995e716798b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037142"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633049"
 ---
-# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri per Kafka in HDInsight con Enterprise Security Package (anteprima)
+# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package (anteprima)
 
-Informazioni su come configurare i criteri di Apache Ranger per i cluster Kafka Enterprise Security Package (ESP). Gli ESP cluster sono connessi a un dominio che consente agli utenti di eseguire l'autenticazione con le credenziali di dominio. In questa esercitazione vengono creati due criteri di Ranger per limitare l'accesso a `sales*` e `marketingspend`.
+Informazioni su come configurare i criteri di Apache Ranger per i cluster Apache Kafka Enterprise Security Package (ESP). Gli ESP cluster sono connessi a un dominio che consente agli utenti di eseguire l'autenticazione con le credenziali di dominio. In questa esercitazione vengono creati due criteri di Ranger per limitare l'accesso a `sales*` e `marketingspend`.
 
 In questa esercitazione si apprenderà come:
 

@@ -1,6 +1,6 @@
 ---
 title: Distribuire localmente la soluzione di monitoraggio remoto - Docker - Azure | Microsoft Docs
-description: Questa guida pratica illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo.
+description: Questa guida pratica illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale tramite Docker a scopo di test e sviluppo.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 91f43473a5648be5264038993f43b61887e0c363
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285413"
+ms.locfileid: "51288545"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. L'articolo illustra come distribuire i microservizi nei contenitori Docker locali. Una distribuzione di microservizi locale usa i servizi cloud seguenti: hub IoT, Cosmos DB, Analisi di flusso di Azure e Azure Time Series Insights nel cloud.
+Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Si apprenderà come distribuire i microservizi in contenitori Docker locali. Una distribuzione di microservizi locale usa i servizi cloud seguenti: hub IoT, Cosmos DB, Analisi di flusso di Azure e Azure Time Series Insights nel cloud.
 
 Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in un IDE nel computer locale, vedere [Distribuire l'acceleratore di soluzioni di monitoraggio remoto localmente - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -70,13 +70,13 @@ docker-compose up
 Alla prima esecuzione di questo comando, Docker scarica le immagini dei microservizi dall'hub Docker per creare i contenitori in locale. Nelle esecuzioni successive Docker esegue immediatamente i contenitori.
 
 > [!TIP]
-> Vengono spesso pubblicate nuove immagini di Docker con nuove funzionalità. È possibile usare il set di comandi seguente per la pulizia dei contenitori Docker locali e delle immagini corrispondenti prima di eseguire il pull di quelli più recenti. 
+> Microsoft pubblica spesso nuove immagini di Docker con nuove funzionalità. È possibile usare il set di comandi seguente per la pulizia dei contenitori Docker locali e delle immagini corrispondenti prima di eseguire il pull di quelli più recenti:
 
-```cmd/sh
-docker list
-docker rm <list_of_containers>
-docker rmi <list_of_images>
-```
+    ```cmd/sh
+    docker list
+    docker rm <list_of_containers>
+    docker rmi <list_of_images>
+    ```
 
 È possibile usare una shell separata per visualizzare i log del contenitore. Per prima cosa trovare l'ID contenitore con il comando `docker ps`. Usare quindi `docker logs {container-id} --tail 1000` per visualizzare le ultime 1000 voci per il contenitore specificato.
 
@@ -101,14 +101,4 @@ Usare il comando `docker-compose down --rmi all` per rimuovere le immagini Docke
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Configurare un ambiente di sviluppo locale
-> * Configurare l'acceleratore di soluzioni
-> * Distribuire l'acceleratore di soluzioni
-> * Accedere all'acceleratore di soluzioni
-
 Ora che è stata distribuita la soluzione di monitoraggio remoto, il passaggio successivo consiste nell'[esplorare le funzionalità del dashboard della soluzione](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->

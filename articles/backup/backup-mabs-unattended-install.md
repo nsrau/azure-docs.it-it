@@ -1,29 +1,29 @@
 ---
-title: Installazione invisibile all'utente del server di Backup di Azure v2
-description: Usare uno script di PowerShell per installare in modo invisibile il server di Backup di Azure v2. Questo tipo di installazione è chiamato anche installazione automatica.
+title: Installazione invisibile all'utente del server di Backup di Azure V2
+description: Usare uno script di PowerShell per installare in modo invisibile il server di Backup di Azure V2. Questo tipo di installazione è chiamato anche installazione automatica.
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/30/2017
+ms.date: 11/13/2018
 ms.author: markgal
-ms.openlocfilehash: 126c1971d83a8874c096caf407231fb6dee2ff59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f7bda070e613e5495d3733dd1610cb291e12c36
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606410"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612696"
 ---
-# <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Eseguire un'installazione automatica del server di Backup di Azure v2
+# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Eseguire un'installazione automatica del server di Backup di Azure
 
-Informazioni su come eseguire un'installazione automatica del server di Backup di Azure v2. 
+Informazioni su come eseguire un'installazione automatica del server di Backup di Azure.
 
-Questi passaggi non sono applicabili se si installa il server di Backup di Azure v1.
+Questa procedura non è applicabile se si installa il server di Backup di Azure V1.
 
-## <a name="install-backup-server-v2"></a>Installare il server di backup v2
+## <a name="install-backup-server"></a>Installare il server di Backup
 
-1. Nel server che ospita il server di Backup di Azure v2, creare un file di testo. (è possibile creare il file nel Blocco note o in un altro editor di testo). Salvare il file con il nome MABSSetup.ini. 
+1. Nel server che ospita il server di Backup di Azure V2 o versione successiva, creare un file di testo (è possibile creare il file nel Blocco note o in un altro editor di testo). Salvare il file con il nome MABSSetup.ini.
 
 2. Incollare il codice seguente nel file MABSSetup.ini. Sostituire il testo all'interno delle parentesi (\< \>) con i valori dell'ambiente. Il testo seguente è un esempio:
 

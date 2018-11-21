@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: e84d2a446de537924f55f1b784731e54c94c768d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b79d64cc063105cb8ecce537a09a7f39a78eef4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851571"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275028"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Rimuovere il provider di risorse SQL
 
@@ -28,20 +28,16 @@ Prima di rimuovere il provider di risorse SQL, è necessario rimuovere tutte le 
 > [!NOTE]
 > È possibile trovare i collegamenti di download per la risorsa di programmi di installazione di provider [distribuisce i prerequisiti di provider di risorse](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
+Il provider di risorse SQL di rimozione non elimina i database tenant dal server di hosting.
+
 ## <a name="dependency-cleanup"></a>Pulizia delle dipendenze
 
 Sono disponibili diverse attività di pulizia da eseguire prima di eseguire lo script DeploySqlProvider.ps1 per rimuovere il provider di risorse.
 
-Gli utenti tenant di Azure Stack sono responsabili per le seguenti attività di pulizia:
-
-* Eliminare tutti i database dal provider di risorse. (Eliminare i database tenant non eliminare i dati).
-* Annullare la registrazione dello spazio dei nomi del provider.
-
 L'operatore di Azure Stack è responsabile per le seguenti attività di pulizia:
 
-* Elimina il server di hosting dall'adattatore di MySQL.
-* Elimina i piani che fanno riferimento l'adattatore di MySQL.
-* Elimina eventuali quote associati con l'adattatore di MySQL.
+* Eliminare i piani che fanno riferimento all'Adapter SQL.
+* Eliminare eventuali quote associati con l'Adapter SQL.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Per rimuovere il provider di risorse SQL
 
@@ -50,9 +46,9 @@ L'operatore di Azure Stack è responsabile per le seguenti attività di pulizia:
    > [!NOTE]
    > Disinstallazione del provider di risorse SQL viene continuato anche se le risorse dipendenti utilizzano attualmente il provider di risorse.
   
-2. Ottenere una copia del provider di risorse SQL binario e quindi eseguire il programma di autoestrazione per estrarre il contenuto in una directory temporanea.
+2. Ottenere una copia del pacchetto di installazione di provider di risorse SQL e quindi eseguire il programma di autoestrazione per estrarre il contenuto in una directory temporanea.
 
-3. Aprire una finestra della console PowerShell nuovo con privilegi elevata e passare alla directory in cui sono stati estratti i file binari di risorsa del provider SQL.
+3. Aprire una finestra della console PowerShell nuovo con privilegi elevata e passare alla directory in cui sono stati estratti i file di installazione del provider di risorse SQL.
 
 4. Eseguire lo script DeploySqlProvider.ps1 usando i parametri seguenti:
 

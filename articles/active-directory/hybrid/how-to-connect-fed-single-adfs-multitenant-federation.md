@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5239788f06ed3e738d1f0b62ddcde77c2a13b5f2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241736"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621262"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Eseguire la federazione di più istanze di Azure AD con una singola istanza di AD FS
 
@@ -47,7 +47,7 @@ Per consentire all'istanza di AD FS in contoso.com di autenticare gli utenti in 
  
 L'autorità di certificazione predefinita impostata per un singolo dominio federato ad AD FS è "http://ADFSServiceFQDN/adfs/services/trust", ad esempio "http://fs.contoso.com/adfs/services/trust". Azure Active Directory richiede un'autorità di certificazione univoca per ogni dominio federato. Dato che la stessa istanza di AD FS eseguirà la federazione di due domini, il valore dell'autorità di certificazione deve essere modificato in modo che sia univoco per ogni dominio federato con Azure Active Directory da AD FS. 
  
-Nel server AD FS aprire Azure AD PowerShell e seguire questa procedura:
+Nel server AD FS aprire Azure AD PowerShell (verificare che sia installato il modulo MSOnline) ed eseguire i passaggi seguenti:
  
 Connettersi all'istanza di Azure Active Directory contenente il dominio contoso.com: Connect-MsolService. Aggiornare le impostazioni di federazione per contoso.com: Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain.
  

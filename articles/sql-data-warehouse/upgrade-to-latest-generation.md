@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fe1f2e026aaa4260d34b9b1cb96064053af1c3c7
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306981"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568013"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Ottimizzare le prestazioni aggiornando SQL Data Warehouse
 Aggiornare Azure SQL Data Warehouse alla generazione più recente dell'architettura hardware e di archiviazione di Azure.
@@ -34,7 +34,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 > [!NOTE]
-> Se il data warehouse di livello Gen1 con ottimizzazione per il calcolo non si trova in un'area in cui è disponibile il livello Gen2 con ottimizzazione per il calcolo, è possibile eseguire il [ripristino geografico](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) tramite PowerShell in un'area supportata.
+> Se il data warehouse di livello Gen1 con ottimizzazione per il calcolo non si trova in un'area in cui è disponibile il livello Gen2 con ottimizzazione per il calcolo, è possibile eseguire il [ripristino geografico](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) tramite PowerShell in un'area supportata.
 > 
 >
 
@@ -45,13 +45,17 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="start-the-upgrade"></a>Avviare l'aggiornamento
 
-1. Andare al data warehouse di livello Gen1 con ottimizzazione per il calcolo nel portale di Azure e fare clic su **Upgrade to Gen2** (Aggiorna alla seconda generazione): ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Passare al data warehouse di livello Gen1 con ottimizzazione per il calcolo nel portale di Azure e fare clic sulla scheda **Aggiorna alla seconda generazione** sotto la scheda Attività: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+    
+> [!NOTE]
+> Se la scheda **Aggiorna alla seconda generazione** non è visualizzata sotto la scheda Attività, il tipo di sottoscrizione è limitato nell'area corrente. [Inviare un ticket di supporto](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) per fare inserire la sottoscrizione nell'elenco elementi consentiti.
 
 2. Per impostazione predefinita **selezionare il livello di prestazioni consigliato** per il data warehouse in base al livello di prestazioni corrente del livello Gen1 con ottimizzazione per il calcolo usando il mapping seguente:
     
    | Livello Gen1 con ottimizzazione per il calcolo | Livello Gen2 con ottimizzazione per il calcolo |
    | :----------------------: | :-------------------: |
-   |      DW100 - DW1000      |        DW1000c        |
+   |      DW100 - DW600       |        DW500c         |
+   |          DW1000          |        DW1000c        |
    |          DW1200          |        DW1500c        |
    |          DW1500          |        DW1500c        |
    |          DW2000          |        DW2000c        |

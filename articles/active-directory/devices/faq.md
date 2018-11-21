@@ -15,37 +15,17 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139964"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515642"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
-**D: È possibile registrare dispositivi Android o iOS in modalità BYOD?**
-
-**R:** Sì, ma solo con il servizio di registrazione dispositivo di Azure e per clienti che usano ambienti ibridi. La modalità BYOD non è supportata con il servizio di registrazione dispositivo locale in AD FS.
-
-**D: Come si registra un dispositivo macOS?**
-
-**R:** Per registrare un dispositivo macOS:
-
-1.  [Creare i criteri di conformità del dispositivo](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [Definire i criteri di accesso condizionale per i dispositivi macOS](../active-directory-conditional-access-azure-portal.md) 
-
-**Osservazioni:**
-
-- Gli utenti che vengono inclusi nei criteri di accesso condizionale necessitano di una [versione di Office supportata per macOS](../conditional-access/technical-reference.md#client-apps-condition) per accedere alle risorse. 
-
-- Durante il primo tentativo di accesso, agli utenti viene richiesto di registrare il dispositivo tramite il portale aziendale.
-
----
-
-**D: Di recente è stato registrato un dispositivo. Perché non viene visualizzato nelle informazioni dell'utente all'interno del portale di Azure?**
-
-**R:** I dispositivi Windows 10 aggiunti ad Azure AD ibrido non vengono visualizzati tra i dispositivi utente.
+**D: Di recente è stato registrato un dispositivo. Perché non viene visualizzato nelle informazioni dell'utente all'interno del portale di Azure? Oppure Perché il proprietario del dispositivo è contrassegnato come N/D per i dispositivi aggiunti ad Azure AD ibrido?**
+**R:** I dispositivi Windows 10 aggiunti ad Azure AD ibrido non vengono visualizzati tra i dispositivi UTENTE.
 È necessario usare la visualizzazione Tutti i dispositivi nel portale di Azure. In alternativa, è possibile usare il cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) di PowerShell.
 
 Nei dispositivi utente vengono elencati solo i dispositivi seguenti:
@@ -58,12 +38,16 @@ Nei dispositivi utente vengono elencati solo i dispositivi seguenti:
 
 **D: Come è possibile conoscere lo stato di registrazione del dispositivo client?**
 
-**R:** È possibile usare il portale di Azure, selezionare Tutti i dispositivi e cercare il dispositivo tramite l'ID dispositivo. Controllare il valore nella colonna Tipo di join.
-
-Se si vuole controllare lo stato locale della registrazione del dispositivo da un dispositivo registrato:
+**R:** È possibile usare il portale di Azure, selezionare Tutti i dispositivi e cercare il dispositivo tramite l'ID dispositivo. Controllare il valore nella colonna Tipo di join. In alcuni casi, è possibile che il dispositivo sia stato reimpostato o che ne sia stata ricreata l'immagine. È quindi importante controllare anche lo stato di registrazione del dispositivo all'interno del dispositivo:
 
 - Per i dispositivi Windows 10 e Windows Server 2016 o versioni successive, eseguire dsregcmd.exe /status.
 - Per le versioni di sistemi operativi di livello inferiore, eseguire "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
+
+---
+
+**D: Il record del dispositivo è presente nelle informazioni UTENTE nel portale di Azure e viene indicato come registrato nel dispositivo. La configurazione è corretta per l'uso dell'accesso condizionale?**
+
+**R:** Lo stato di join del dispositivo, indicato dall'ID dispositivo, deve corrispondere a quello in Azure AD e soddisfare eventuali criteri di valutazione per l'accesso condizionale. Per altre informazioni, vedere [Richiedere dispositivi gestiti per l'accesso alle app cloud con l'accesso condizionale](../conditional-access/require-managed-devices.md).
 
 ---
 
@@ -88,25 +72,6 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 3.  Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-**D: In che modo è possibile separare un dispositivo aggiunto da Azure AD in locale sul dispositivo?**
-
-**R:** 
-- Per i dispositivi aggiunti all'identità ibrida di Azure AD, disattivare le registrazione automatica in modo che l'attività pianificata non registri nuovamente il dispositivo. A questo punto, aprire il prompt dei comandi come amministratore e digitare `dsregcmd.exe /debug /leave`. In alternativa, è possibile eseguire il comando come script tra più dispositivi per eseguire la separazione in blocco.
-
-- Per i dispositivi puri aggiunti ad Azure AD, assicurarsi di avere un account amministratore locale offline o crearne uno poiché non sarà possibile accedere con le credenziali di un utente Azure AD. A questo punto, passare a **Impostazioni** > **Account** > **Accedi all'azienda o all'istituto di istruzione**. Selezionare l'account e fare clic su **Disconnetti**. Seguire le istruzioni e, quando richiesto, fornire le credenziali di amministratore locale. Riavviare il dispositivo per completare il processo di separazione.
-
----
-
-**D: Gli utenti non possono eseguire la ricerca delle stampanti da dispositivi aggiunti ad Azure AD. In che modo è possibile abilitare la stampa a partire dai dispositivi aggiunti ad Azure AD?**
-
-**R:** Per la distribuzione delle stampanti nei dispositivi aggiunti ad Azure AD, vedere [Stampa di cloud ibrido](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). È necessario un Server Windows locale per la distribuzione della stampa di cloud ibrido. Il servizio di stampa basato sul cloud non è attualmente disponibile. 
-
----
-
-**D: Come è possibile connettersi a un dispositivo aggiunto a un'istanza remota di Azure AD?**
-**R:** Per i dettagli, vedere l'articolo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc.
-
----
 
 **D: Perché vengono visualizzate voci di dispositivo duplicate nel portale di Azure?**
 
@@ -128,7 +93,27 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 
 >[!Note] 
 >Per quanto riguarda i dispositivi registrati, è consigliabile cancellarli per assicurare che gli utenti non possano accedere alle relative risorse. Per altre informazioni, vedere [Registrare i dispositivi per la gestione in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+---
 
+# <a name="azure-ad-join-faq"></a>Domande frequenti sull'aggiunta ad Azure AD
+
+**D: In che modo è possibile separare un dispositivo aggiunto da Azure AD in locale sul dispositivo?**
+
+**R:** 
+- Per i dispositivi aggiunti all'identità ibrida di Azure AD, disattivare le registrazione automatica in modo che l'attività pianificata non registri nuovamente il dispositivo. A questo punto, aprire il prompt dei comandi come amministratore e digitare `dsregcmd.exe /debug /leave`. In alternativa, è possibile eseguire il comando come script tra più dispositivi per eseguire la separazione in blocco.
+
+- Per i dispositivi puri aggiunti ad Azure AD, assicurarsi di avere un account amministratore locale offline o crearne uno poiché non sarà possibile accedere con le credenziali di un utente Azure AD. A questo punto, passare a **Impostazioni** > **Account** > **Accedi all'azienda o all'istituto di istruzione**. Selezionare l'account e fare clic su **Disconnetti**. Seguire le istruzioni e, quando richiesto, fornire le credenziali di amministratore locale. Riavviare il dispositivo per completare il processo di separazione.
+
+---
+
+**D: Gli utenti non possono eseguire la ricerca delle stampanti da dispositivi aggiunti ad Azure AD. In che modo è possibile abilitare la stampa a partire dai dispositivi aggiunti ad Azure AD?**
+
+**R:** Per la distribuzione delle stampanti nei dispositivi aggiunti ad Azure AD, vedere [Stampa di cloud ibrido](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). È necessario un Server Windows locale per la distribuzione della stampa di cloud ibrido. Il servizio di stampa basato sul cloud non è attualmente disponibile. 
+
+---
+
+**D: Come è possibile connettersi a un dispositivo aggiunto a un'istanza remota di Azure AD?**
+**R:** Per i dettagli, vedere l'articolo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc.
 
 ---
 
@@ -144,12 +129,6 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 
 ---
 
-**D: Il record del dispositivo è presente nelle informazioni UTENTE nel portale di Azure e viene indicato come registrato nel dispositivo. La configurazione è corretta per l'uso dell'accesso condizionale?**
-
-**R:** Lo stato di join del dispositivo, indicato dall'ID dispositivo, deve corrispondere a quello in Azure AD e soddisfare eventuali criteri di valutazione per l'accesso condizionale. Per altre informazioni, vedere [Richiedere dispositivi gestiti per l'accesso alle app cloud con l'accesso condizionale](../conditional-access/require-managed-devices.md).
-
----
-
 **D: Perché viene visualizzato un messaggio di nome utente o password non corretti per un dispositivo appena aggiunto ad Azure AD?**
 
 **R:** Di seguito vengono elencati alcuni motivi comuni per questo scenario:
@@ -158,7 +137,7 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 
 - Il computer non riesce a comunicare con Azure Active Directory. Verificare la presenza di eventuali problemi di connettività di rete.
 
-- Gli accessi federati richiedono un server di federazione con supporto per endpoint attivi WS-Trust. 
+- Gli accessi federati richiedono un server di federazione con supporto per endpoint WS-Trust abilitati e accessibili. 
 
 - È stata abilitata l'Autenticazione pass-through e l'utente ha una password temporanea che deve essere modificata quando si esegue l'accesso.
 
@@ -170,14 +149,15 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 
 ---
 
-**D: Perché il tentativo di aggiunta di un PC non è andato a buon fine ma non vengono comunque visualizzate informazioni sull'errore?**
+**D: Perché il tentativo di aggiunta di un PC ad Azure AD non è andato a buon fine ma non vengono comunque visualizzate informazioni sull'errore?**
 
 **R:** È probabile che l'utente abbia effettuato l'accesso al dispositivo con l'account amministratore predefinito locale. Creare un account locale diverso prima di usare l'aggiunta ad Azure Active Directory per completare la configurazione. 
 
-
 ---
 
-**D: Dove è possibile trovare informazioni sulla risoluzione dei problemi legati alla registrazione automatica del dispositivo?**
+# <a name="hybrid-azure-ad-join-faq"></a>Domande frequenti sull'aggiunta ad Azure AD ibrido
+
+**D: Dov'è possibile trovare informazioni sulla risoluzione dei problemi per poter diagnosticare errori che si sono verificati durante l'aggiunta ad Azure AD ibrido?**
 
 **R:** Per informazioni sulla risoluzione dei problemi, vedere:
 
@@ -188,3 +168,23 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 
 ---
 
+# <a name="azure-ad-register-faq"></a>Domande frequenti sulla registrazione ad Azure AD
+
+**D: È possibile registrare dispositivi Android o iOS in modalità BYOD?**
+
+**R:** Sì, ma solo con il servizio di registrazione dispositivo di Azure e per clienti che usano ambienti ibridi. La modalità BYOD non è supportata con il servizio di registrazione dispositivo locale in AD FS.
+
+**D: Come si registra un dispositivo macOS?**
+
+**R:** Per registrare un dispositivo macOS:
+
+1.  [Creare i criteri di conformità del dispositivo](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [Definire i criteri di accesso condizionale per i dispositivi macOS](../active-directory-conditional-access-azure-portal.md) 
+
+**Osservazioni:**
+
+- Gli utenti che vengono inclusi nei criteri di accesso condizionale necessitano di una [versione di Office supportata per macOS](../conditional-access/technical-reference.md#client-apps-condition) per accedere alle risorse. 
+
+- Durante il primo tentativo di accesso, agli utenti viene richiesto di registrare il dispositivo tramite il portale aziendale.
+
+---

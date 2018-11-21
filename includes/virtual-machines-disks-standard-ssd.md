@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264319"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572300"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Managed Disks SSD Standard per carichi di lavoro delle macchine virtuali di Azure
 
@@ -46,9 +46,9 @@ La tabella seguente contiene le dimensioni dei dischi attualmente offerte per i 
 |E70 *    |16.384 GiB      |Fino a 2.000       |Fino a 500 MiB al secondo        |
 |E80 *    |32.767 GiB      |Fino a 2.000       |Fino a 500 MiB al secondo        |
 
-Le unità SSD Standard sono progettate per offrire latenze di pochi millisecondi a cifra singola per la maggior parte delle operazioni di I/O e per garantire operazioni di I/O al secondo e velocità effettiva fino ai limiti indicati nella tabella precedente. I valori reali delle operazioni di I/O al secondo e della velocità effettiva possono talvolta variare a seconda dei modelli di traffico. Le unità SSD Standard offrono prestazioni più coerenti rispetto ai dischi HDD con latenza più bassa.
+Le unità SSD Standard sono progettate per offrire latenze di pochi millisecondi a cifra singola per la maggior parte delle operazioni di I/O e per garantire operazioni di I/O al secondo e velocità effettiva fino ai limiti indicati nella tabella precedente nel 99% dei casi. I valori reali delle operazioni di I/O al secondo e della velocità effettiva possono talvolta variare a seconda dei modelli di traffico. Le unità SSD Standard offrono prestazioni più coerenti rispetto ai dischi HDD con latenza più bassa.
 
-D'altro canto, le unità SSD Premium hanno prestazioni migliori rispetto alle unità SSD Standard, con latenze basse, valori elevati di operazioni di I/O al secondo o velocità effettiva e una coerenza ancora migliore grazie alle prestazioni dei dischi di cui è stato effettuato il provisioning. Questo è il tipo di disco consigliato per carichi di lavoro di produzione critici. Se il carico di lavoro richiede un supporto dei dischi a bassa latenza e prestazioni elevate, è consigliabile valutare la possibilità di usare Archiviazione Premium.
+D'altro canto, le unità SSD Premium hanno prestazioni migliori rispetto alle unità SSD Standard, con latenze basse, valori elevati di operazioni di I/O al secondo o velocità effettiva e una coerenza ancora migliore grazie alle prestazioni dei dischi di cui è stato effettuato il provisioning. Le unità SSD Premium sono il tipo di disco consigliato per carichi di lavoro di produzione critici. Se il carico di lavoro richiede un supporto dei dischi a bassa latenza e prestazioni elevate, è consigliabile valutare la possibilità di usare Archiviazione Premium.
 
 Analogamente alle unità SSD Premium, le unità SSD Standard usano unità di I/O da 256 KiB. Se il volume dei dati trasferiti è inferiore a 256 KiB, viene considerata una singola unità di I/O. Le dimensioni di I/O superiori vengono calcolate come più unità di I/O da 256 KiB. Ad esempio, 1.100 KiB di I/O corrispondono a cinque unità di I/O.
 

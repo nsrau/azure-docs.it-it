@@ -3,7 +3,7 @@ title: Governance delle risorse di Azure Service Fabric per contenitori e i serv
 description: Azure Service Fabric consente di specificare limiti di risorse per i servizi in esecuzione all'interno o all'esterno di contenitori.
 services: service-fabric
 documentationcenter: .net
-author: masnider
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: subramar
-ms.openlocfilehash: 49c7e2c99cce13880781a67806543b1cde0c12b6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney, subramar
+ms.openlocfilehash: f2898de030a70d578eb45e81c9ccbef90bce96c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208013"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300473"
 ---
 # <a name="resource-governance"></a>Governance delle risorse 
 
@@ -78,12 +78,12 @@ Di seguito è fornito un esempio di come impostare Service Fabric per usare il 5
 Se è necessario configurare manualmente le capacità del nodo, è possibile usare il meccanismo standard per descrivere i nodi nel cluster. Di seguito è riportato un esempio di come configurare il nodo con quattro core e 2 GB di memoria: 
 
 ```xml
-    <NodeType Name="MyNodeType">
-      <Capacities>
-        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
-        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
-      </Capacities>
-    </NodeType>
+    <NodeType Name="MyNodeType">
+      <Capacities>
+        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
+        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
+      </Capacities>
+    </NodeType>
 ```
 
 Se è abilitato il rilevamento automatico delle risorse disponibili e le capacità del nodo sono definite manualmente nel manifesto del cluster, Service Fabric controlla che il nodo abbia risorse sufficienti per soddisfare la capacità definita dall'utente:
@@ -102,8 +102,8 @@ Se non è necessario, è possibile disattivare il rilevamento automatico delle r
 Per ottenere prestazioni ottimali, nel manifesto del cluster è necessario attivare anche l'impostazione seguente: 
 
 ```xml
-<Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
+<Section Name="PlacementAndLoadBalancing">
+    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
@@ -131,7 +131,7 @@ I limiti di governance delle risorse vengono specificati nel manifesto dell'appl
     </Policies>
   </ServiceManifestImport>
 ```
-  
+  
 In questo esempio il pacchetto servizio denominato **ServicePackageA** ottiene un core nei nodi in cui viene inserito. Il pacchetto servizio contiene due pacchetti di codice, **CodeA1** e **CodeA2**, che specificano entrambi il parametro `CpuShares`. La proporzione CpuShares 512:256 divide la memoria centrale tra i due pacchetti di codice. 
 
 Di conseguenza, in questo esempio CodeA1 ottiene due terzi di un core e CodeA2 ne ottiene un terzo, oltre a una prenotazione con garanzia flessibile dello stesso core. Se CpuShares non viene specificato per i pacchetti di codice, Service Fabric divide i core in parti uguali tra di essi.
@@ -180,8 +180,7 @@ In questo esempio sono impostati valori di parametro predefiniti per l'ambiente 
 </Application>
 ```
 
-> [!IMPORTANT] 
-> È possibile usare i parametri di applicazione per definire la governance delle risorse a partire dalla versione 6.1 di Service Fabric.<br> 
+> [!IMPORTANT]  È possibile usare parametri di applicazione per definire la governance delle risorse a partire dalla versione 6.1 di Service Fabric.<br> 
 >
 > Se per definire la governance delle risorse si usano parametri di applicazione, non è possibile eseguire il downgrade di Service Fabric a una versione precedente la 6.1. 
 

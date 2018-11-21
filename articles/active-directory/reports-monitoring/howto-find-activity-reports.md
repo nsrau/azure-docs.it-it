@@ -10,29 +10,31 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/06/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 182537d6f07b624f2395f591681ed4596579bde0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fab94088d1d54012a955b0663b078d03b13d6299
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42140097"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624913"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
-In questo articolo viene descritto come trovare i report attività utente di Azure Active Directory nel portale di Azure.
+In questo articolo viene descritto come trovare i report attività utente di Azure Active Directory (Azure AD) nel portale di Azure.
 
-## <a name="activity-and-integrated-app-reports"></a>Report attività e app integrate
+## <a name="audit-logs-report"></a>Report dei log di controllo
 
-Per i report basati sul contesto nel portale di Azure, i report esistenti vengono uniti in una singola visualizzazione. Una singola API sottostante fornisce i dati alla visualizzazione.
+Il report dei log di controllo combina diversi report relativi alle attività dell'applicazione in una singola vista per la creazione di report basati sul contesto. Per accedere al report dei log di controllo:
 
-Per accedere a questa visualizzazione, nel pannello **Azure Active Directory**, in **ATTIVITÀ** selezionare **Log di controllo**.
+1. Passare al [portale di Azure](https://portal.azure.com).
+2. Selezionare la directory nell'angolo in alto a destra, quindi selezionare il pannello **Azure Active Directory** nel riquadro di spostamento a sinistra.
+3. Selezionare **Log di controllo** nella sezione **Attività** del pannello Azure Active Directory. 
 
-![Log di controllo](./media/howto-find-activity-reports/482.png "Log di controllo")
+    ![Log di controllo](./media/howto-find-activity-reports/482.png "Log di controllo")
 
-In questa visualizzazione sono consolidati i report seguenti:
+Il report dei log di controllo consente di consolidare i report seguenti:
 
 * Report di controllo
 * Attività di reimpostazione password
@@ -43,26 +45,11 @@ In questa visualizzazione sono consolidati i report seguenti:
 * Stato rollover della password
 * Errori di provisioning dell'account
 
+### <a name="filtering-on-audit-logs"></a>Filtro dei log di controllo
 
-Il report Utilizzo delle applicazioni è stato migliorato e incluso nella visualizzazione **Accessi**. Per accedere a questa visualizzazione, nel pannello **Azure Active Directory**, in **ATTIVITÀ** selezionare **Accessi**.
+È possibile usare filtri avanzati nel report di controllo per accedere a una categoria specifica di dati di controllo, impostando la modalità di filtro desiderata nel filtro **Activity category** (Categoria attività). Ad esempio, per visualizzare tutte le attività relative alla reimpostazione password self-service, selezionare la categoria **Self-service Password Management** (Gestione delle password self-service). 
 
-![Visualizzazione Accessi](./media/howto-find-activity-reports/483.png "Visualizzazione Accessi")
-
-La visualizzazione **Accessi** include tutti gli accessi dell'utente. È possibile usare queste informazioni per ottenere informazioni sull'utilizzo dell'applicazione. È anche possibile visualizzare le informazioni sull'utilizzo dell'applicazione nella panoramica **Applicazioni aziendali**, nella sezione **GESTISCI**.
-
-![Applicazioni aziendali](./media/howto-find-activity-reports/484.png "Applicazioni aziendali")
-
-## <a name="access-a-specific-report"></a>Accedere a un report specifico
-
-Sebbene il portale di Azure offra una visualizzazione singola, è possibile anche esaminare report specifici.
-
-### <a name="audit-logs"></a>Log di controllo
-
-In risposta ai commenti dei clienti, nel portale di Azure è possibile usare filtri avanzati per accedere ai dati. Uno dei filtri che è possibile usare riguarda la *categoria di attività*, che elenca i diversi tipi di log attività disponibili in Azure AD. Per restringere i risultati della ricerca, è possibile selezionare una categoria.
-
-Ad esempio, se si è interessati solo alle attività relative alla reimpostazione password self-service, è possibile scegliere la categoria **Self-service Password Management** (Gestione delle password self-service). Le categorie visualizzate sono basate sulla risorsa in cui si sta lavorando.  
-
-![Opzioni Categoria nella pagina Filtra log di controllo](./media/howto-find-activity-reports/06.png "Opzioni Categoria nella pagina Filtra log di controllo")
+    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
 
 Le categorie delle attività includono:
 
@@ -71,19 +58,36 @@ Le categorie delle attività includono:
 - Gestione gruppi self-service
 - Provisioning degli account
 
-### <a name="application-usage"></a>Utilizzo applicazioni
 
-Per visualizzare informazioni dettagliate sull'utilizzo dell'applicazione per tutte le applicazioni o per una singola applicazione, in **ATTIVITÀ** selezionare **Accessi**. Per restringere i risultati, è possibile filtrare in base a nome utente o nome applicazione.
+## <a name="sign-ins-report"></a>Report sugli accessi 
+
+Nella vista **Accessi** sono inclusi tutti gli accessi utente, nonché il report **Utilizzo delle applicazioni**. È anche possibile visualizzare le informazioni sull'uso delle applicazioni nella sezione **Gestisci** della pagina di panoramica **Applicazioni aziendali**.
+
+    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
+
+Per accedere al report degli accessi:
+
+1. Passare al [portale di Azure](https://portal.azure.com).
+2. Selezionare la directory nell'angolo in alto a destra, quindi selezionare il pannello **Azure Active Directory** nel riquadro di spostamento a sinistra.
+3. Selezionare **Accessi** nella sezione **Attività** del pannello Azure Active Directory. 
+
+    ![Visualizzazione Accessi](./media/howto-find-activity-reports/483.png "Visualizzazione Accessi")
+
+
+### <a name="filtering-on-application-name"></a>Filtro in base al nome dell'applicazione
+
+È possibile usare i report degli accessi per visualizzare i dettagli sull'uso delle applicazioni, filtrando in base al nome utente o al nome dell'applicazione.
 
 ![Pagina Filtra eventi di accesso](./media/howto-find-activity-reports/07.png "Pagina Filtra eventi di accesso")
 
-### <a name="security-reports"></a>Report sulla sicurezza
+## <a name="security-reports"></a>Report sulla sicurezza
 
-#### <a name="azure-ad-anomalous-activity-reports"></a>Report di Anomalie dell'attività di Azure AD
+### <a name="anomalous-activity-reports"></a>Report Anomalie dell'attività
 
-I report di sicurezza sulle attività anomale di Azure AD sono stati consolidati per fornire una singola visualizzazione centralizzata. Questa visualizzazione mostra tutti gli eventi di rischio correlati alla sicurezza che Azure AD è in grado di rilevare e segnalare.
+I report Anomalie dell'attività forniscono informazioni sugli eventi di rischio correlati alla sicurezza che Azure AD può rilevare e segnalare.
 
-La tabella seguente elenca i report di sicurezza sulle attività anomale di Azure AD e le corrispondenti tipologie degli eventi di rischio nel portale di Azure.
+La tabella seguente elenca i report di sicurezza sulle attività anomale di Azure AD e le corrispondenti tipologie degli eventi di rischio nel portale di Azure. Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](concept-risk-events.md).  
+
 
 | Report di Anomalie dell'attività di Azure AD |  Tipo di evento di rischio di Identity Protection|
 | :--- | :--- |
@@ -99,29 +103,18 @@ I report di sicurezza sulle attività anomale di Azure AD seguenti non sono incl
 * Accessi dopo più errori
 * Accessi da più aree geografiche
 
-Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](concept-risk-events.md).  
 
+### <a name="detected-risk-events"></a>Eventi di rischio rilevati
 
-#### <a name="detected-risk-events"></a>Eventi di rischio rilevati
+È possibile accedere ai report sugli eventi di rischio rilevati nella sezione **Sicurezza** del pannello **Azure Active Directory** nel [portale di Azure](https://portal.azure.com). Gli eventi di rischio rilevati vengono registrati nei report seguenti:   
 
-Nel portale di Azure è possibile accedere ai report sugli eventi di rischio rilevati nella sezione **SICUREZZA** del pannello **Azure Active Directory**. Gli eventi di rischio rilevati vengono registrati nei report seguenti:   
+- [Utenti a rischio](concept-user-at-risk.md)
+- [Accessi a rischio](concept-risky-sign-ins.md)
 
-- Utenti a rischio
-- Accessi a rischio
-
-![Report di sicurezza](./media/howto-find-activity-reports/04.png "Report di sicurezza")
-
-Per altre informazioni sui report di sicurezza, vedere:
-
-- [Report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory](concept-user-at-risk.md)
-- [Report degli accessi a rischio nel portale di Azure Active Directory](concept-risky-sign-ins.md)
-
-
-Per visualizzare il report **Utilizzo applicazioni**, nel pannello **Azure Active Directory**, in **GESTISCI** selezionare **Applicazioni aziendali** e scegliere **Accessi**.
-
-
-![Report degli accessi alle applicazioni aziendali](./media/howto-find-activity-reports/199.png)
+    ![Report di sicurezza](./media/howto-find-activity-reports/04.png "Report di sicurezza")
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una panoramica della creazione di report, vedere [Creazione di report in Azure Active Directory](overview-reports.md).
+* [Panoramica dei log di controllo](concept-audit-logs.md)
+* [Panoramica degli accessi](concept-sign-ins.md)
+* [Panoramica degli eventi di rischio](concept-risk-events.md)

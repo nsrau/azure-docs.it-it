@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 632558760d0b4a00384763cc30de3b9241bb1ae6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049977"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300167"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Eseguire la migrazione di un nome DNS attivo al Servizio app di Azure
 
@@ -60,6 +60,13 @@ Il record TXT necessario varia a seconda del record DNS di cui si vuole eseguire
 | \* (wildcard) | _awverify.\*_ | _&lt;appname&gt;.azurewebsites.net_ |
 
 Nella pagina dei record DNS prendere nota del tipo di record del nome DNS di cui si vuole eseguire la migrazione. Il servizio app supporta i mapping da record CNAME e A.
+
+> [!NOTE]
+> Per alcuni provider, come ad esempio CloudFlare, `awverify.*` non è un record valido. Usare invece solo `*`.
+
+> [!NOTE]
+> I record con il carattere jolly `*` non convalideranno i sottodomini con un record CNAME esistente. Potrebbe essere necessario creare in modo esplicito un record TXT per ogni sottodominio.
+
 
 ### <a name="enable-the-domain-for-your-app"></a>Abilitare il dominio per l'app
 

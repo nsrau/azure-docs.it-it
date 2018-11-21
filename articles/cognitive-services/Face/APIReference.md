@@ -1,7 +1,21 @@
-title: Riferimento API - API Viso titleSuffix: Servizi cognitivi di Azure description: Le informazioni di riferimento per le API forniscono informazioni sulle API di gestione Person, LargePersonGroup/PersonGroup, LargeFaceList/FaceList e sull'API per l'algoritmo Viso.
-services: cognitive-services author: SteveMSFT manager: cgronlun
-
-ms.service: cognitive-services ms.component: face-api ms.topic: reference ms.date: 03/01/2018 ms.author: sbowles
+---
+title: Informazioni di riferimento per l'API - API Viso
+titleSuffix: Azure Cognitive Services
+description: Le informazioni di riferimento per le API forniscono informazioni sulle API di gestione Person, LargePersonGroup/PersonGroup, LargeFaceList/FaceList e sull'API per l'algoritmo Viso.
+services: cognitive-services
+author: SteveMSFT
+manager: cgronlun
+ms.service: cognitive-services
+ms.component: face-api
+ms.topic: reference
+ms.date: 03/01/2018
+ms.author: sbowles
+ms.openlocfilehash: 283a042bb8ea32f8f6db9bebb211bc2762a3a4c1
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578070"
 ---
 # <a name="api-reference"></a>Informazioni di riferimento sulle API
 

@@ -1,6 +1,6 @@
 ---
-title: Eseguire una query Hive tramite il driver JDBC - Azure HDInsight
-description: Usare il driver JDBC da un'applicazione Java per inviare query Hive a Hadoop in HDInsight. Connettersi a livello di codice e dal client SQuirrel SQL.
+title: Eseguire una query Apache Hive tramite il driver JDBC - Azure HDInsight
+description: Usare il driver JDBC da un'applicazione Java per inviare query Apache Hive a Hadoop in HDInsight. Connettersi a livello di codice e dal client SQuirrel SQL.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d47d6abe3adaf76b67b88cffd53b0b46258931c8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014415"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633445"
 ---
-# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Eseguire una query Hive tramite il driver JDBC in HDInsight
+# <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Eseguire una query Apache Hive tramite il driver JDBC in HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Informazioni su come usare il driver JDBC da un'applicazione Java per inviare query Hive a Hadoop in Azure HDInsight. Questo documento illustra come eseguire la connessione a livello di programmazione e dal client SQuirrel SQL.
+Informazioni su come usare il driver JDBC da un'applicazione Java per inviare query Apache Hive ad Apache Hadoop in Azure HDInsight. Questo documento illustra come eseguire la connessione a livello di programmazione e dal client SQuirrel SQL.
 
 Per altre informazioni sull'interfaccia Hive JDBC, vedere [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 

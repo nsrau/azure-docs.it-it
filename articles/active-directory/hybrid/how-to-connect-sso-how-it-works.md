@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 83a36c81ad88ccb37fe4a258f895b1e1cbe9299f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304550"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687402"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Accesso Single Sign-On facile di Azure Active Directory: approfondimento tecnico
 
@@ -79,8 +79,8 @@ Il flusso di accesso in un client nativo è il seguente:
 
 1. L'utente tenta di accedere a un'applicazione nativa, ad esempio il client Outlook, da un dispositivo aziendale appartenente a un dominio all'interno della rete aziendale.
 2. Se l'utente non ha ancora eseguito l'accesso, l'applicazione nativa recupera il relativo nome utente dalla sessione di Windows del dispositivo.
-3. L'app invia il nome utente ad Azure AD e recupera l'endpoint MEX di WS-Trust del tenant.
-4. L'app esegue quindi una query sull'endpoint MEX di WS-Trust per vedere se è disponibile l'endpoint per l'autenticazione integrata.
+3. L'app invia il nome utente ad Azure AD e recupera l'endpoint MEX di WS-Trust del tenant. Questo endpoint di WS-Trust viene usato esclusivamente per la funzionalità Seamless SSO e non è un'implementazione generale del protocollo WS-Trust in Azure AD.
+4. L'app esegue quindi una query sull'endpoint MEX di WS-Trust per vedere se è disponibile l'endpoint per l'autenticazione integrata. L'endpoint di autenticazione integrata viene usato esclusivamente dalla funzionalità Seamless SSO.
 5. Se il passaggio 4 ha esito positivo, viene generata una richiesta di verifica Kerberos.
 6. Se l'app è in grado di recuperare il ticket Kerberos, lo inoltra fino all'endpoint per l'autenticazione integrata di Azure AD.
 7. Azure AD decrittografa il ticket Kerberos e lo convalida.

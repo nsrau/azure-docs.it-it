@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 11/13/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 5f1b4cf63379f0007b87c44164168b8510612f52
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423358"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624098"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Aggiungere metriche estese per le macchine virtuali di Azure
 
@@ -67,6 +67,8 @@ Tenere presente che il monitoraggio a livello di guest sia di Azure che di Linux
 Quando si creano nuove macchine virtuali, nella scheda Gestione selezionare **Sì** per **Diagnostica sistema operativo guest**.
 
 ![Abilitare la diagnostica del sistema operativo guest](./media/azure-vm-extended-metrics/new-enable-diag.png)
+
+Per altre informazioni sull'abilitazione delle metriche estese per le macchine virtuali di Azure, vedere [Informazioni e uso dell'agente Linux di Azure](../virtual-machines/extensions/agent-linux.md) e [Panoramica dell'agente di macchine virtuali di Azure](../virtual-machines/extensions/agent-windows.md).
 
 ## <a name="resource-manager-credentials"></a>Credenziali di Resource Manager
 

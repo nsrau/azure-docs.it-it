@@ -1,6 +1,6 @@
 ---
-title: Creare an gateway applicazione con reindirizzamento basato sui percorsi URL - Interfaccia della riga di comando di Azure
-description: Informazioni su come creare un gateway applicazione con traffico reindirizzato in base ai percorsi URL usando l'interfaccia della riga di comando di Azure.
+title: 'Esercitazione: Creare un gateway applicazione con reindirizzamento basato su percorsi URL - Interfaccia della riga di comando di Azure'
+description: Questa esercitazione illustra come creare un gateway applicazione con traffico reindirizzato in base ai percorsi URL usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3515d603c16bffe911df1b927d02644fcffa0788
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8489cf79848eb41e3c6334242ca607e925ae0b31
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947551"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568149"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Esercitazione: Creare un gateway applicazione con reindirizzamento basato sui percorsi URL tramite l'interfaccia della riga di comando di Azure
 
@@ -313,14 +313,6 @@ Quando non sono più necessari, rimuovere il gruppo di risorse, il gateway appli
 az group delete --name myResourceGroupAG --location eastus
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un gateway applicazione
-> * Aggiungere i listener e le regole di routing
-> * Creare set di scalabilità di macchine virtuali per i pool back-end
 
 > [!div class="nextstepaction"]
 > [Altre informazioni sulle operazioni che è possibile eseguire con il gateway applicazione](application-gateway-introduction.md)

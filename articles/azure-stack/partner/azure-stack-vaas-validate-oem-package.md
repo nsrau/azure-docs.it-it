@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bcfc4cb65c94e34e9f6056ada53726f88489fefb
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646652"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261803"
 ---
 # <a name="validate-oem-packages"></a>Convalidare i pacchetti dell'OEM
 
@@ -58,22 +58,17 @@ Quando si crea una **convalida dei pacchetti** flusso di lavoro nel portale di V
 
 #### <a name="option-1-generating-an-account-sas-url"></a>Opzione 1: Generare un URL di firma di accesso condiviso dell'account
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+1. Nel [portale di Azure](https://portal.azure.com/), passare all'account di archiviazione e individuare il file zip contenente il pacchetto
 
-1. Selezionare **Blob** dalla **opzioni di servizi consentiti**. Deselezionare le altre opzioni.
+2. Selezionare **genera firma di accesso condiviso** dal menu di scelta rapida
 
-1. Selezionare **contenitore** e **oggetto** dalla **tipi di risorse consentiti**. Deselezionare le altre opzioni.
+3. Selezionare **Read** da **autorizzazioni**
 
-1. Selezionare **Read** e **elenco** dalla **disponga delle autorizzazioni**. Deselezionare le altre opzioni.
+4. Impostare **ora di inizio** sull'ora corrente, e **ora di fine** almeno 48 ore dal **ora di inizio**. Se si prevede di eseguire altri test con lo stesso pacchetto, provare ad aumentare **ora di fine** per la lunghezza delle attività di test. I test pianificati tramite VaaS dopo **ora di fine** avranno esito negativo e una nuova firma di accesso condiviso verrà dovranno essere generati.
 
-1. Impostare **ora di inizio** sull'ora corrente, e **ora di fine** a 1 ora dall'ora corrente.
+5. Selezionare **generare token di firma di accesso condiviso di blob e l'URL**
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    Ecco come deve venire visualizzata nel formato: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-1. Modificare l'URL di firma di accesso condiviso generato per includere il contenitore del pacchetto, `{containername}`e il nome del blob di pacchetto, `{mypackage.zip}`, come indicato di seguito:  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-    Utilizzare questo valore quando si avvia una nuova **convalida dei pacchetti** flusso di lavoro nel portale di VaaS.
+Uso **URL di firma di accesso condiviso di Blob** quando si avvia un nuovo **convalida dei pacchetti** flusso di lavoro nel portale di VaaS.
 
 #### <a name="option-2-using-public-read-container"></a>Opzione 2: Uso di contenitore di lettura pubblico
 

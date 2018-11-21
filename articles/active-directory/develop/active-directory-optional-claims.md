@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dcc27992c318a970a86f1ff5c60723daeef881b6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914652"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345488"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Procedura: Fornire attestazioni facoltative per l'applicazione Azure AD (anteprima pubblica)
 
@@ -42,7 +42,7 @@ Uno degli obiettivi dell'[endpoint Azure AD v2.0](active-directory-appmodel-v2-o
 | Tipo di account | Endpoint v1.0 | Endpoint v2.0  |
 |--------------|---------------|----------------|
 | Account Microsoft personale  | N/D - Vengono usati in alternativa i ticket RPS | Supporto presto disponibile |
-| Account Azure AD          | Supportato                          | Supportato con avvertenze      |
+| Account Azure AD          | Supportato                          | Supportato con avvertenze |
 
 > [!IMPORTANT]
 > Le app che supportano sia account personali che account Azure AD (registrati dal [portale di registrazione delle app](https://apps.dev.microsoft.com)) non possono usare le attestazioni facoltative. Tuttavia, le app registrate solo per Azure AD usando l'endpoint v2.0 possono ottenere le attestazioni facoltative richieste nel manifesto. Nel portale di Azure è possibile usare l'editor del manifesto dell'applicazione nel servizio **Registrazioni app** disponibile per modificare le attestazioni facoltative. Tuttavia questa funzionalità non è ancora disponibile usando l'editor del manifesto dell'applicazione nel nuovo servizio **Registrazioni app (anteprima)**.
@@ -60,8 +60,6 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Ora dell'ultima autenticazione dell'utente. Vedere la specifica di OpenID Connect.| Token JSON Web        |           |  |
 | `tenant_region_scope`      | Area del tenant della risorsa. | Token JSON Web        |           | |
-| `signin_state`             | Attestazione dello stato di accesso.   | Token JSON Web        |           | 6 valori restituiti, come flag:<br> "dvc_mngd": il dispositivo è gestito.<br> "dvc_cmp": il dispositivo è conforme.<br> "dvc_dmjd": il dispositivo è aggiunto a un dominio.<br> "dvc_mngd_app": il dispositivo è gestito tramite MDM.<br> "inknownntwk": il dispositivo si trova in una rete nota.<br> "kmsi": è stata usata l'opzione Mantieni l'accesso. <br> |
-| `controls`                 | Attestazione multivalore contenente i controlli di sessione applicati dai criteri di accesso condizionale. | Token JSON Web        |           | 3 valori:<br> "app_res": l'app deve applicare restrizioni più granulari. <br> "ca_enf": l'applicazione dell'accesso condizionale è stata rinviata ed è ancora richiesta. <br> "no_cookie": questo token non è sufficiente per lo scambio con un cookie nel browser. <br>  |
 | `home_oid`                 | Per gli utenti guest, l'ID oggetto dell'utente nel tenant home dell'utente.| Token JSON Web        |           | |
 | `sid`                      | ID sessione, usato per la disconnessione utente per ogni sessione. | Token JSON Web        |           |         |
 | `platf`                    | Piattaforma del dispositivo.    | Token JSON Web        |           | Limitato ai dispositivi gestiti che possono verificare il tipo di dispositivo.|
@@ -76,6 +74,7 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `xms_pl`                   | Lingua preferita dell'utente  | Token JSON Web ||La lingua preferita dell'utente, se impostata. Originato dal proprio tenant principale, negli scenari di accesso guest. LL-CC formattato ("en-us"). |
 | `xms_tpl`                  | Lingua preferita del tenant| Token JSON Web | | La lingua preferita del tenant risorse, se impostata. LL formattato ("en"). |
 | `ztdid`                    | ID distribuzione completamente automatico | Token JSON Web | | L'identità del dispositivo usata per [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+|`email`                     | Indirizzo di posta elettronica di riferimento, se l'utente ne ha uno.  | JWT, SAML | | Questo valore è incluso per impostazione predefinita se l'utente è un ospite nel tenant.  Per gli utenti gestiti (quelli all'interno del tenant) deve essere richiesto tramite questa attestazione facoltativa oppure, solo per la versione 2.0, con l'ambito OpenID.  Per gli utenti gestiti, l'indirizzo di posta elettronica deve essere impostato nel [portale di amministrazione di Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Stato dell'account degli utenti nel tenant. | JWT, SAML | | Se l'utente è membro del tenant, il valore è `0`. Se si tratta di un utente guest, il valore è `1`. |
 | `upn`                      | Attestazione UserPrincipalName. | JWT, SAML  |           | Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest. <br> Proprietà aggiuntive: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 

@@ -2,18 +2,18 @@
 title: Registrare un nuovo dispositivo Azure IoT Edge (VS Code) | Microsoft Docs
 description: Usare Visual Studio Code per creare un nuovo dispositivo IoT Edge nell'hub IoT di Azure
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7902461f58df1b4fe0c3ed3b577f668fe8be4cc2
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034961"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578706"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Registrare un nuovo dispositivo Azure IoT Edge da Visual Studio Code
 
@@ -33,11 +33,11 @@ Per eseguire operazioni con l'hub IoT, è possibile usare le estensioni Azure Io
 
 1. In Visual Studio Code aprire la **finestra di esplorazione**.
 
-2. Nella parte inferiore della finestra di esplorazione espandere la sezione **Azure IoT Hub dispositivi** (Dispositivi hub IoT di Azure). 
+2. Nella parte inferiore della finestra di esplorazione espandere la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). 
 
    ![Espandere i dispositivi dell'hub IoT di Azure](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
-3. Fare clic sui puntini di sospensione (**...**) nell'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione. 
+3. Fare clic sui puntini di sospensione (**...**) nell'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione o fare clic su di essa. 
 
 4. Scegliere **Select IoT Hub** (Seleziona l'hub IoT).
 
@@ -51,7 +51,7 @@ Per eseguire operazioni con l'hub IoT, è possibile usare le estensioni Azure Io
 
 1. Nella finestra di esplorazione di VS Code espandere la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). 
 
-2. Fare clic sui puntini di sospensione (**...**) nell'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione. 
+2. Fare clic sui puntini di sospensione (**...**) nell'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione o fare clic su di essa. 
 
 3. Selezionare **Create IoT Edge Device** (Crea dispositivo IoT Edge). 
 

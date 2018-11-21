@@ -12,12 +12,12 @@ ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
 ms.date: 11/07/2018
-ms.openlocfilehash: 75ec6a3fbfdd45575c46b763f1f5d0b69376e7a7
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 382ac23ea4c8e0ec54314bb754c00a8e6e43e9f6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285272"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300966"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Guida introduttiva: Usare Machine Learning Services (con R) nel database SQL di Azure (anteprima)
 
@@ -441,7 +441,7 @@ Se è necessario usare un pacchetto che non è già installato nel database SQL,
 
     Se si riceve un errore simile a **'R' non è riconosciuto come comando interno o esterno, un programma eseguibile o un file batch**, probabilmente il percorso di R.exe non è incluso nella variabile di ambiente **PATH** in Windows. È possibile aggiungere la directory alla variabile di ambiente o passare alla directory nel prompt dei comandi (ad esempio `cd C:\Program Files\R\R-3.5.1\bin`).
 
-1. Usare il comando **R CMD INSTALL** per installare **sqlmlutils**. Specificare il percorso della directory in cui è stato scaricato il file ZIP e il nome del file ZIP. Ad esempio: 
+1. Usare il comando **R CMD INSTALL** per installare **sqlmlutils**. Specificare il percorso della directory in cui è stato scaricato il file ZIP e il nome del file ZIP. Ad esempio:
 
     ```
     R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip

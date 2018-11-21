@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 19861955dcf82d0ffae674400552ca1f0c439a81
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cb02ed61ea050c17bc7e6dc0ebc724f29f885dd7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834886"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344336"
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Scoprire soluzioni in Azure AI Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="solutions"></a>Soluzioni
-Le **[soluzioni](https://gallery.cortanaintelligence.com/solutions)** disponibili in Gallery consentono di creare rapidamente soluzioni di Cortana Intelligence a partire da soluzioni preconfigurate, architetture di riferimento e modelli di progettazione.
+Le **[soluzioni](https://gallery.cortanaintelligence.com/solutions)** disponibili in [Azure AI Gallery](http://gallery.cortanaintelligence.com) consentono di creare rapidamente soluzioni di Cortana Intelligence a partire da soluzioni preconfigurate, architetture di riferimento e modelli di progettazione.
 Per usarle al meglio è possibile seguire le istruzioni fornite o rivolgersi a un partner di fiducia.  
 
 ## <a name="discover"></a>Scoprire

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281779"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616198"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -81,7 +81,7 @@ Il Keychain macOS può talvolta andare in uno stato che causa problemi alla libr
 * Riavviare Storage Explorer
 * Se la finestra di autenticazione è vuota, attendere almeno un minuto prima di chiudere la finestra di dialogo di autenticazione.
 * Verificare che le impostazioni del proxy e dei certificati siano configurate correttamente per il computer e per Storage Explorer.
-* Se si usa Windows e si ha accesso a Visual Studio 2017 nello stesso computer e con lo stesso account, provare ad accedere a Visual Studio 2017. Dopo aver eseguito correttamente l'accesso a Visual Studio 2017, dovrebbe essere possibile aprire Storage Explorer e visualizzare l'account nel pannello account. 
+* Se si usa Windows e si ha accesso a Visual Studio 2017 nello stesso computer e con lo stesso account, provare ad accedere a Visual Studio 2017. Dopo aver eseguito correttamente l'accesso a Visual Studio 2017, dovrebbe essere possibile aprire Storage Explorer e visualizzare l'account nel pannello account.
 
 Se nessuno di questi metodi funziona [aprire un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -115,6 +115,8 @@ In primo luogo, assicurarsi che le informazioni seguenti immesse siano corrette:
 
 * l'URL del proxy e il numero di porta
 * nome utente e password se richiesto dal proxy
+
+Tenere presente che Storage Explorer non supporta il file con estensione pac per la configurazione delle impostazioni del proxy.
 
 ### <a name="common-solutions"></a>soluzioni comuni
 

@@ -1,118 +1,141 @@
 ---
-title: Informazioni sull'estensione di Azure Machine Learning CLI
-description: Informazioni sull'estensione di apprendimento automatico CLI di Azure Machine Learning.
+title: Come usare l'estensione dell'interfaccia della riga di comando di Azure Machine Learning
+description: Informazioni sull'estensione dell'interfaccia della riga di comando di Azure Machine Learning per l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure è un'utilità della riga di comando multipiattaforma che consente di usare le risorse nel cloud di Azure. L'estensione di Machine Learning consente di usare il servizio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: reference
+ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 45ed1867d6d151250340bb21450b4b0d9b00e993
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5c74055747cacbede479e12397bbb66ac74d10e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243148"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615637"
 ---
-# <a name="what-is-the-azure-machine-learning-cli"></a>Cos'è Azure Machine Learning CLI?
+# <a name="use-the-azure-machine-learning-cli-extension"></a>Usare l'estensione dell'interfaccia della riga di comando di Azure Machine Learning
 
-L'estensione dell'interfaccia della riga di comando (CLI) di Azure Machine Learning è destinata ai data scientist e agli sviluppatori che lavorano con il servizio di Azure Machine Learning. Consente di automatizzare velocemente i flussi di lavoro di apprendimento automatico e inserirli in produzione, ad esempio:
+L'interfaccia della riga di comando di Azure Machine Learning è un'estensione dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), un'interfaccia della riga di comando multipiattaforma per la piattaforma Azure. Questa estensione fornisce i comandi per usare il servizio Azure Machine Learning dalla riga di comando. Consente di creare script per automatizzare i flussi di lavoro di apprendimento automatico. È ad esempio possibile creare script che eseguono le azioni seguenti:
+
 + Eseguire gli esperimenti per creare modelli di apprendimento automatico
 
 + Registrare modelli di Machine Learning per l'uso da parte dei clienti
 
 + Creare un pacchetto, distribuire e monitorare il ciclo di vita dei modelli di Machine Learning
 
-La CLI di machine learning in questione è un'estensione dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ed è stato compilato sulla base dell'<a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> basato su Python per il servizio Azure Machine Learning.
+L'interfaccia della riga di comando non sostituisce Azure Machine Learning SDK. È uno strumento complementare ottimizzato per gestire attività con un numero elevato di parametri, ad esempio:
+
+* Creazione di risorse di calcolo
+
+* Invio di un esperimento con parametri
+
+* Registrazione del modello
+
+* Creazione di immagini
+
+* Distribuzione di servizi
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 > [!NOTE]
-> L'interfaccia della riga di comando è attualmente in anteprima e verrà aggiornata.
+> Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="installing-and-uninstalling"></a>Installazione e disinstallazione
+## <a name="install-the-extension"></a>Installare l'estensione
 
-È possibile installare l'interfaccia della riga di comando usando questo comando dall'anteprima dell'indice PyPi:
-```AzureCLI
+Per installare l'estensione dell'interfaccia della riga di comando di Azure Machine Learning, usare il comando seguente:
+
+```azurecli-interactive
 az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
-È possibile eliminare l'interfaccia della riga di comando usando questo comando:
-```AzureCLI
+Quando richiesto, selezionare `y` per installare l'estensione.
+
+Per verificare che l'estensione sia stata installata, usare il comando seguente per visualizzare un elenco di sottocomandi specifici di ML:
+
+```azurecli-interactive
+az ml -h
+```
+
+> [!TIP]
+> Per aggiornare l'estensione, è necessario __rimuoverla__ e quindi __installarla__. In questo modo viene installata la versione più recente.
+
+## <a name="remove-the-extension"></a>Rimuovere l'estensione
+
+Per rimuovere l'estensione dell'interfaccia della riga di comando, usare il comando seguente:
+
+```azurecli-interactive
 az extension remove -n azure-cli-ml
 ```
 
-È possibile aggiornare l’interfaccia della riga di comando usando i passaggi precedenti **remove** e **add**.
+## <a name="resource-management"></a>Resource management
 
-## <a name="using-the-cli-vs-the-sdk"></a>Usare la CLI vs. l'SDK
-L'interfaccia della riga di comando è più adatta all'automazione da un utente tipo dev-ops o come parte di un'integrazione continua e di una pipeline di recapito. È ottimizzata per gestire attività non frequenti e con alti parametri. 
+I comandi seguenti illustrano come usare l'interfaccia della riga di comando per gestire le risorse usate da Azure Machine Learning.
 
-Tra gli esempi sono inclusi:
-- calcolo provisioning
-- invio di un esperimento con parametri
-- registrazione del modello, creazione di immagini
-- distribuzione di servizi
 
-Ai data scientist è consigliato usare l'SDK ML di Azure.
++ Creare un'area di lavoro del servizio Azure Machine Learning:
 
-## <a name="common-machine-learning-cli-commands"></a>Comandi comuni di apprendimento automatico CLI
-> [!NOTE]
-> Si trovano [qui](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli) i file di esempio che è possibile usare per eseguire correttamente i comandi di seguito.
-
-È possibile usare la vasta gamma di comandi `az ml` per interagire con il servizio in qualsiasi ambiente da riga di comando, incluso il cloud shell del portale di Azure.
-
-Ecco un esempio di comandi comuni:
-
-### <a name="workspace-creation--compute-setup"></a>Creazione dell'area di lavoro e configurazione di calcolo
-
-+ Creare un'area di lavoro del servizio Azure Machine Learning, la risorsa di primo livello per l'apprendimento automatico.
-   ```AzureCLI
+   ```azurecli-interactive
    az ml workspace create -n myworkspace -g myresourcegroup
    ```
 
-+ Impostare l'interfaccia della riga di comando per usare questa area di lavoro come impostazione predefinita.
-   ```AzureCLI
++ Impostare un'area di lavoro predefinita:
+
+   ```azurecli-interactive
    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
    ```
 
 + Creare una macchina virtuale data science. È anche possibile creare cluster BatchAI per il training distribuito o cluster AKS per la distribuzione.
-  ```AzureCLI
+
+
+  ```azurecli-interactive
   az ml computetarget setup dsvm -n mydsvm
   ```
 
-### <a name="experiment-submission"></a>Invio di esperimento
-+ Allegare a un progetto (eseguire la configurazione) per inviare un esperimento. Viene utilizzato per tenere traccia delle esecuzioni dell'esperimento.
-  ```AzureCLI
-  az ml project attach --experiment-name myhistory
-  ```
+## <a name="experiments"></a>Sperimentazioni
 
-+ Inviare un esperimento nel servizio di Azure Machine Learning nella destinazione di calcolo di propria scelta. Questo esempio verrà eseguito nell'ambiente di calcolo locale. Assicurarsi che il file di ambiente Conda acquisisca le proprie dipendenze python.
+I comandi seguenti illustrano come usare l'interfaccia della riga di comando per lavorare con gli esperimenti:
 
-  ```AzureCLI
-  az ml run submit -c local train.py
-  ```
+* Allegare un progetto (eseguire la configurazione) prima di inviare un esperimento:
 
-+ Visualizzare un elenco degli esperimenti inviati.
-```AzureCLI
-az ml history list
-```
+    ```azurecli-interactive
+    az ml project attach --experiment-name myhistory
+    ```
 
-### <a name="model-registration-image-ceation--deployment"></a>Registrazione del modello, creazione dell'immagine e distribuzione
+* Avviare un'esecuzione dell'esperimento. Quando si usa questo comando, specificare una destinazione di calcolo. In questo esempio `local` usa il computer locale per eseguire il training del modello con lo script `train.py`:
 
-+ Registrazione di un modello con Azure Machine Learning.
-  ```AzureCLI
+    ```azurecli-interactive
+    az ml run submit -c local train.py
+    ```
+
+* Visualizzare un elenco degli esperimenti inviati:
+
+    ```azurecli-interactive
+    az ml history list
+    ```
+
+## <a name="model-registration-image-creation--deployment"></a>Registrazione del modello, creazione dell'immagine e distribuzione
+
+I comandi seguenti illustrano come registrare un modello con training e quindi distribuirlo come servizio di produzione:
+
++ Registrare un modello con Azure Machine Learning:
+
+  ```azurecli-interactive
   az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
-+ Creare un'immagine per contenere il modello di apprendimento automatico e dipendenze. 
-  ```AzureCLI
++ Creare un'immagine che contiene il modello di Machine Learning e le dipendenze: 
+
+  ```azurecli-interactive
   az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
-+ Distribuire il modello del pacchetto anche nelle destinazioni ACI e AKS.
-  ```AzureCLI
++ Distribuire un'immagine in una destinazione di calcolo:
+
+  ```azurecli-interactive
   az ml service create aci -n myaciservice --image-id myimage:1
   ```
-    
-## <a name="full-command-list"></a>Elenco comandi completo
-È possibile trovare l'elenco completo dei comandi per l'estensione del CLI (e i relativi parametri supportati) atrraverso l'esecuzione ```az ml COMMANDNAME -h```. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: acac0a866d1f494830be45c23ebca6844431c9de
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40225452"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631660"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurare il rilevamento dell'inoltro bidirezionale su ExpressRoute
 
@@ -67,7 +67,7 @@ Di seguito è riportato un esempio di configurazione di router PE in cui è usat
 
 ## <a name="bfd-timer-negotiation"></a>Negoziazione dei timer di rilevamento dell'inoltro bidirezionale
 
-Tra i due peer di rilevamento dell'inoltro bidirezionale, quello più lento determina la velocità di trasmissione. Gli intervalli di trasmissione/ricezione del rilevamento dell'inoltro bidirezionale su dispositivi MSEE sono impostati su 300 millisecondi. Configurando valori più alti, è possibile imporre intervalli più lunghi, ma non più brevi.
+Tra i due peer di rilevamento dell'inoltro bidirezionale, quello più lento determina la velocità di trasmissione. Gli intervalli di trasmissione/ricezione del rilevamento dell'inoltro bidirezionale su dispositivi MSEE sono impostati su 300 millisecondi. In alcuni scenari, l'intervallo può essere impostato su un valore più elevato di 750 millisecondi. Configurando valori più alti, è possibile imporre intervalli più lunghi, ma non più brevi.
 
 >[!NOTE]
 >Se si sono configurati circuiti di peering privato ExpressRoute con ridondanza geografica o si usa la connettività VPN IPSec da sito a sito come backup per il peering privato ExpressRoute, l'abilitazione del rilevamento dell'inoltro bidirezionale sul peering privato può consentire un failover più veloce nel caso si verifichi un errore di connettività di ExpressRoute. 
@@ -86,7 +86,7 @@ Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:
 <!--Link References-->
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[ResetPeering]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-reset-peering
+[ResetPeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-reset-peering
 
 
 

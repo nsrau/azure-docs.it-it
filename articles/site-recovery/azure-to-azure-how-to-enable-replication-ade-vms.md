@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6d47fe29dab37523913b96ebae0ef3ef31d11210
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043278"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300575"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali abilitate per Crittografia dischi di Azure (ADE) in un'altra area di Azure
 
 Questo articolo illustra come abilitare la replica di VM abilitate per Crittografia dischi di Azure (ADE) da un'area di Azure a un'altra.
 
 >[!NOTE]
->Azure Site Recovery supporta attualmente solo macchine virtuali di Azure che eseguono il sistema operativo Windows e che sono [abilitate per la crittografia con l'app Azure AD](https://aka.ms/ade-aad-app).
+>Azure Site Recovery supporta attualmente solo macchine virtuali di Azure che eseguono il sistema operativo Windows e che sono [enabled abilitate per la crittografia con l'app Azure AD](https://aka.ms/ade-aad-app).
 >
 
 ## <a name="required-user-permissions"></a>Autorizzazioni utente necessarie
@@ -32,15 +32,15 @@ Per abilitare la replica di VM ADE dal portale, è necessario avere le autorizza
     - Get
 
 -   Autorizzazioni di accesso al segreto dell'insieme di credenziali delle chiavi
-    - List
+    - Elenco
     - Create
     - Get
 
 - Autorizzazioni di accesso alla chiave dell'insieme di credenziali delle chiavi (obbligatorie solo se le VM usano la chiave di crittografia delle chiavi per crittografare le chiavi di crittografia dei dischi)
-    - List
+    - Elenco
     - Get
     - Create
-    - Encrypt
+    - Crittografare il contenuto
     - Decrypt
 
 Per gestire le autorizzazioni, passare alla risorsa relativa all'insieme di credenziali delle chiavi nel portale e aggiungere all'utente le autorizzazioni necessarie.
@@ -104,7 +104,7 @@ Questa procedura presuppone che l'area di Azure primaria sia Asia orientale e l'
 
 1. Fare clic su **Personalizza:** accanto a "Sottoscrizione di destinazione" per modificare la sottoscrizione di destinazione predefinita. Selezionare la sottoscrizione dall'elenco di tutte le sottoscrizioni disponibili nello stesso tenant di Azure Active Directory (AAD).
 
-2. Fare clic su **Personalizza** accanto a Gruppo di risorse, Archiviazione, Rete e Set di disponibilità per modificare le impostazioni predefinite seguenti:
+2. Fare clic su **Personalizza** accanto a Gruppo di risorse, Rete, Archiviazione e Set di disponibilità per modificare le impostazioni predefinite seguenti:
     - In **Gruppo di risorse di destinazione** è possibile selezionare il gruppo di risorse dall'elenco di tutti i gruppi di risorse nel percorso di destinazione all'interno della sottoscrizione.
     - In **Rete virtuale di destinazione:**, selezionare la rete dall'elenco di tutte le reti virtuali nel percorso di destinazione.
     - In **Set di disponibilità** è possibile aggiungere le impostazioni del set di disponibilità per la macchina virtuale, se sono parte di un set di disponibilità nell'area di origine.

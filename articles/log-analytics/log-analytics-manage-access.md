@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: de464cfeca01e492139e8bf9679d8f9876eedda6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964153"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625624"
 ---
 # <a name="manage-workspaces"></a>Gestire le aree di lavoro
 
@@ -239,7 +239,7 @@ Il nuovo piano dati viene visualizzato nella barra multifunzione del portale di 
 ![Barra multifunzione di OMS](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere [Raccogliere dati dai computer nell'ambiente con Log Analytics](log-analytics-concept-hybrid.md) per raccogliere dati dai computer nel data center o in un altro ambiente cloud.
+* Vedere [Log Analytics agent overview](log-analytics-agent-overview.md) (Panoramica dell'agente di Log Analytics) per raccogliere dati dai computer nel data center o in un altro ambiente cloud.
 * Vedere [Raccogliere dati sulle macchine virtuali di Azure](log-analytics-quick-collect-azurevm.md) per configurare la raccolta di dati dalle macchine virtuali di Azure.  
 * [Aggiungere soluzioni di Log Analytics dalla raccolta soluzioni](../monitoring/monitoring-solutions.md) per aggiungere funzionalità e raccogliere i dati.
 

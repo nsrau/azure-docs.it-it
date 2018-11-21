@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: d58e5816c3b0e7c951c7d6bcfc6bfe4d0789f47a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233797"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621752"
 ---
 # <a name="azure-active-directory-faq"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -171,7 +171,7 @@ Per altre informazioni, vedere:
 * Accesso diretto alle applicazioni federate
 * Collegamenti diretti per applicazioni federate, basate su password o esistenti
 
-Per altre informazioni, vedere [Distribuzione di applicazioni integrate di Azure AD agli utenti](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+Per altre informazioni, vedere [End user experiences for applications](../manage-apps/end-user-experiences.md) (Esperienza degli utenti finali per le applicazioni).
 
 - - -
 **D: Quali sono le diverse modalità usate da Azure AD per abilitare l'autenticazione e l'accesso Single Sign-On alle applicazioni?**
@@ -182,7 +182,7 @@ Per altre informazioni, vedere:
 
 * [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md)
 * [Protocolli di autenticazione di Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Come funziona Single Sign-On con Azure Active Directory (PHP)?](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Single Sign-On per le applicazioni in Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **D: È possibile aggiungere applicazioni in esecuzione in locale?**

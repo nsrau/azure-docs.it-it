@@ -1,60 +1,65 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e cURL"
+title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e cURL"
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si userà l'API Viso con cURL per rilevare i visi in un'immagine.
+description: In questa guida introduttiva si userà l'API REST Viso di Azure con cURL per rilevare i visi in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ab403ec6a9db4d1a0dc03074044eeb424e4ba875
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953349"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578044"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-curl"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e cURL
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso e cURL
 
-In questa guida introduttiva si userà l'API Viso per rilevare i visi in un'immagine.
+In questa guida introduttiva si userà l'API REST Viso di Azure con cURL per rilevare i visi umani in un'immagine.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire l'esempio è necessaria una sottoscrizione. È possibile ottenere le chiavi di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
 
-## <a name="detect-faces-in-an-image"></a>Rilevare i visi in un'immagine
-
-Usare il metodo [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per rilevare i visi in un'immagine e restituirne gli attributi, tra cui:
-
-* ID viso: ID univoco usato in diversi scenari di API Viso.
-* Rettangolo del viso: riquadro i cui lati indicano la posizione del viso nell'immagine.
-* Punti di riferimento: matrice con 27 punti di riferimento che indicano le posizioni importanti dei componenti del viso.
-* Altri attributi del viso quali età, sesso, intensità del sorriso, orientamento della testa e peli del viso.
-
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Aprire il prompt dei comandi.
-2. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-3. Se necessario, modificare l'URL (`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`) impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione.
-4. Facoltativamente, modificare l'immagine (`"{\"url\":...`) da analizzare.
-5. Incollare il codice nella finestra di comando.
-6. Eseguire il comando.
-
-### <a name="face---detect-request"></a>Richiesta di rilevamento del viso
-
-> [!NOTE]
-> Usare lo stesso percorso nella chiamata REST usto per ottenere le chiavi di sottoscrizione. Se, ad esempio, le chiavi di sottoscrizione sono state ottenute da westus, nell'URL riportato di seguito sostituire "westcentralus" con "westus".
+## <a name="write-the-command"></a>Scrivere il comando
+ 
+Si userà un comando come il seguente per chiamare l'API Viso e ottenere i dati dell'attributo viso da un'immagine. In primo luogo, copiare il codice in un editor di testo. È necessario apportare modifiche ad alcune parti prima di poterlo eseguire.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
-### <a name="face---detect-response"></a>Risposta alla richiesta di rilevamento del viso
+### <a name="subscription-key"></a>Chiave della sottoscrizione
+Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione Viso valida.
 
-Una risposta con esito positivo viene restituita in JSON.
+### <a name="face-endpoint-url"></a>URL endpoint Viso
+
+L'URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica l'endpoint Viso di Azure su cui eseguire la query. È necessario modificare la prima parte dell'URL con l'area che corrisponde alla chiave di sottoscrizione (a meno che non sia già corretta).
+
+### <a name="url-query-string"></a>Stringa di query URL
+
+La stringa di query dell'URL endpoint Viso specifica gli attributi del viso da recuperare. È possibile modificare questa stringa in base all'uso previsto.
+
+```
+?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
+```
+
+### <a name="image-source-url"></a>URL origine immagine
+L'URL di origine indica l'immagine da usare come input. È possibile modificarlo in modo che punti a un'immagine che si vuole analizzare.
+
+```
+https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
+``` 
+
+## <a name="run-the-command"></a>Eseguire il comando
+
+Dopo aver apportato le modifiche, aprire un prompt dei comandi e immettere il nuovo comando. Le informazioni sul viso dovrebbero essere visualizzate come dati JSON nella finestra della console. Ad esempio: 
 
 ```json
 [
@@ -150,7 +155,7 @@ Una risposta con esito positivo viene restituita in JSON.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le API Viso usate per rilevare i visi umani in un'immagine, delimitare i visi con rettangoli e restituire gli attributi, ad esempio l'età e il sesso.
+In questa guida introduttiva è stato scritto un comando cURL che chiama l'API Viso di Azure per rilevare i visi in un'immagine e restituire i relativi attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni.
 
 > [!div class="nextstepaction"]
 > [API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9c206ac7a13ea222a01cac78c447c0764f753517
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669348"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622670"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Esercitazione - Personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C
 
@@ -64,13 +64,15 @@ I file possono essere archiviati in diversi modi, ma per questa esercitazione si
  Il codice Azure AD B2C in un browser usa un approccio moderno e standard per caricare il contenuto personalizzato da un URL specificato in un criterio. La funzionalità Condivisione di risorse tra le origini (CORS) abilita la richiesta di un numero limitato di risorse in una pagina Web da parte di altri domini.
 
 1. Nel menu selezionare **CORS**.
-2. Per **Origini consentite**, **Intestazioni consentite** e **Intestazioni esposte** immettere `your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `fabrikam.b2clogin.com`.
-3. Per **Verbi consentiti** selezionare sia `GET` che `OPTIONS`.
-4. Per **Età massima** immettere 200.
+2. Per **Origini consentite** immettere `your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `fabrikam.b2clogin.com`.
+3. Per **Metodi consentiti** selezionare sia `GET` che `OPTIONS`.
+4. Per **Intestazioni consentite** immettere un asterisco (*).
+5. Per **Intestazioni esposte** immettere un asterisco (*).
+6. Per **Età massima** immettere 200.
 
     ![Abilitare CORS](./media/tutorial-customize-ui/enable-cors.png)
 
-5. Fare clic su **Salva**.
+5. Fare clic su **Save**.
 
 ### <a name="create-the-customization-files"></a>Creare i file di personalizzazione
 
@@ -162,7 +164,7 @@ Per testare i file di personalizzazione, occorre creare un criterio predefinito 
 5. Selezionare **Attestazioni dell'applicazione** e scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione dopo un'esperienza di iscrizione o accesso riuscita. Selezionare ad esempio **Nome visualizzato**, **Provider di identità**, **Codice postale**, **Nuovo utente** e **ID oggetto dell'utente**, quindi fare clic su **OK**.
 6. Selezionare **Personalizzazione dell'interfaccia utente della pagina** e **Pagina unificata per l'iscrizione o l'accesso**, quindi fare clic su **Sì** per **Usa la pagina personalizzata**.
 7. In **URI della pagina personalizzata** immettere l'URL del file *custom-ui.html* registrato in precedenza, quindi fare clic su **OK**.
-8. Fare clic su **Crea**.
+8. Fare clic su **Create**(Crea).
 
 ## <a name="test-the-policy"></a>Testare i criteri
 

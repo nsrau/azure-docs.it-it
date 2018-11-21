@@ -1,26 +1,41 @@
 ---
-title: 'Genomica di Microsoft: Domande comuni | Documentazione Microsoft'
+title: 'Genomica di Microsoft: Domande comuni - Domande frequenti| Microsoft Docs'
 titleSuffix: Azure
 description: Risposte alle domande comuni poste ai clienti su Genomica di Microsoft.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: b3f30dc5d185615370a8273f71554f784d286cd9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517019"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683901"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Genomica di Microsoft: Domande comuni
 
 Questo articolo elenca le domande più importanti degli utenti su Genomica di Microsoft. Per altre informazioni sul servizio Genomica di Microsoft, vedere [Informazioni su Genomica di Microsoft](overview-what-is-genomics.md). Per altre informazioni sulla risoluzione dei problemi, vedere [Guida per la risoluzione dei problemi](troubleshooting-guide-genomics.md). 
+
+## <a name="what-is-the-microsoft-genomics-service-gatk-4-promotion"></a>Che cos'è la promozione GATK 4 del servizio Genomica di Microsoft?
+Fino alla fine dell'anno di calendario 2018, il servizio Genomica di Microsoft offre 20 esecuzioni di WGS con GATK4 senza costi aggiuntivi. Per aderire a questa offerta, registrarsi [qui](https://aka.ms/msgatk4). 
+
+### <a name="what-are-the-common-issues-i-might-encounter-while-running-the-microsoft-genomics-service-gatk4-promotion"></a>Quali sono i problemi comuni che possono verificarsi durante l'esecuzione della promozione GATK4 del servizio Genomica di Microsoft?
+Di seguito è riportato un elenco di errori comuni che è possibile riscontrare e la soluzione consigliata:
+
+| **Messaggio**                                                                                                                                                                                    | **Causa**                                                                                                    | **Risoluzione**                                                                                                                                                                                                       |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `gatk4-promo` non è abilitato per l'account personale. Per altre informazioni, vedere https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                               | Si sta tentando di eseguire flussi di lavoro GATK4 con il servizio Genomica di Microsoft senza che questo sia attivato.       | Accedere [qui](https://aka.ms/msgatk4) per attivare l'account. Tenere presente che la versione di valutazione scade alla fine dell'anno di calendario 2018. Dopo questa data, non sarà più possibile attivare un account per le esecuzioni promozionali. |
+| Grazie per aver provato `gatk4-promo`. Il periodo di valutazione è terminato. Per altre informazioni: https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                  | La versione di valutazione di GATK4 è scaduta alla fine dell'anno di calendario e si sta tentando a richiamare il parametro process_name `gatk4-promo`.  | Impostare il parametro process_name su `gatk4` anziché `gatk4-promo`. Questa è la versione ufficiale di gatk4 e, se si usa questo parametro, il flusso di lavoro verrà fatturato.                                         |
+| Grazie per aver provato `gatk4-promo`. Sono state usate tutte le esecuzioni allocate. Per altre informazioni, vedere https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics | Sono state completate tutte le 20 esecuzioni promozionali di GATK4.                               | Inviare eventuali nuove esecuzioni di gatk4 con l'argomento process_name impostato su `gatk4` anziché `gatk4-promo`. Se si usa questo parametro, il flusso di lavoro viene fatturato.                                                          |        
+
+
+## <a name="can-i-run-gatk4-workflows-on-microsoft-genomics-without-signing-up-for-the-gatk4-promotion"></a>È possibile eseguire flussi di lavoro GATK4 su Genomica di Microsoft senza aderire alla promozione GATK4?
+Sì, nel file config.txt del servizio Genomica di Microsoft impostare il parametro process_name su `gatk4`. In questo caso, l'utilizzo del servizio verrà fatturato periodicamente e le 20 esecuzione gratuite non verranno applicate all'account di Genomica di Microsoft personale.
+
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Qual è il contratto di servizio per Genomica di Microsoft?
@@ -50,7 +65,7 @@ Passare al portale di Azure e aprire la pagina dell'account di Genomica. Nell'in
 Passare al portale di Azure e aprire la pagina dell'account di Genomica. Nell'intestazione **Gestione**, scegliere **Chiavi di accesso**. Qui sono disponibili sia l'URL dell'API e le chiavi di accesso.
 
 ## <a name="why-do-i-need-two-access-keys"></a>Perché occorrono due chiavi di accesso?
-Sono necessarie due chiavi di accesso nel caso in cui si desideri aggiornare (rigenerare) le stesse senza interrompere l'utilizzo del servizio. Ad esempio, si desidera aggiornare la prima chiave. In tal caso, si passa alla seconda chiave per tutti i nuovi flussi di lavoro. Si attende quindi il completamento dei flussi di lavoro già in esecuzione che utilizzano la prima chiave. Solo a questo punto, è possibile aggiornare la chiave.
+Sono necessarie due chiavi di accesso nel caso in cui si desideri aggiornare (rigenerare) le stesse senza interrompere l'utilizzo del servizio. Se, ad esempio, si vuole aggiornare la prima chiave, tutti i nuovi flussi di lavoro dovranno usare la seconda chiave. Prima di aggiornare la prima chiave, attendere quindi che siano completati tutti i flussi di lavoro che usano la prima chiave.
 
 ## <a name="do-you-save-my-storage-account-keys"></a>Le chiavi dell'account di archiviazione vengono salvate?
 La chiave dell'account di archiviazione viene utilizzata per creare token di accesso a breve termine per permettere al servizio Genomica di Microsoft di leggere i file di input e scrivere i file di output. La durata predefinita dei token è di 48 ore. La durata del token può essere modificata con l'opzione `-sas/--sas-duration` del comando di invio; il valore è espresso in ore.
@@ -58,7 +73,7 @@ La chiave dell'account di archiviazione viene utilizzata per creare token di acc
 ## <a name="what-genome-references-can-i-use"></a>Quali rierimenti del genoma è possibile usare?
 
 Sono supportati questi riferimenti:
- |Riferimenti              | Valore di `-pa/--process-args` |
+ |riferimento              | Valore di `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

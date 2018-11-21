@@ -11,19 +11,19 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 255f23906bc93ce78b28f4f0806d7076a97b0ef2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 45d299e2d5e1f9c9c454e6b2f77df7cdf8295e5f
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698690"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568710"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Guida introduttiva: creare un'app Xamarin.Forms per le API MongoDB con .NET e il portale di Azure
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
-> * [Node.JS](create-mongodb-nodejs.md)
+> * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-golang.md)
@@ -173,7 +173,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 2. Fare clic su **Ripristina tutti i pacchetti NuGet**.
 3. Fare clic con il pulsante destro su **TaskList.Android** e selezionare **Imposta come progetto di avvio**.
 4. Premere F5 per avviare il debug dell'applicazione.
-5. Se si desidera eseguire l' su iOS, in primo luogo assicurarsi che il dispositivo sia connesso a un computer Mac (vedere [istruzioni](https://docs.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) su come eseguire questa operazione).
+5. Se si desidera eseguire l' su iOS, in primo luogo assicurarsi che il dispositivo sia connesso a un computer Mac (vedere [istruzioni](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) su come eseguire questa operazione).
 6. Fare clic con il pulsante destro sul progetto **TaskList.iOS** e selezionare **Imposta come progetto di avvio**.
 7. Fare clic su F5 per avviare il debug dell'applicazione.
 

@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429463"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345047"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Distribuire servizi Web nelle Istanze di contenitore di Azure 
 
@@ -48,9 +48,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="configure-an-image"></a>Configurare un'immagine
 
 Configurare l'immagine Docker che consente di archiviare tutti i file di modello.
-1. Creare uno script di assegnazione dei punteggi (score.py) [usando queste istruzioni](tutorial-deploy-models-with-aml.md#create-scoring-script)
+1. Creare uno script di assegnazione dei punteggi (score.py) [usando queste istruzioni](tutorial-deploy-models-with-aml.md#create-scoring-script).
 
-1. Creare un file di ambiente (myenv.yml) [usando queste istruzioni](tutorial-deploy-models-with-aml.md#create-environment-file) 
+    > [!IMPORTANT]
+    > Lo script di assegnazione dei punteggi riceve i dati inviati dai client e li passa al modello per l'assegnazione dei punteggi. Documentare la struttura dei data prevista dallo script e dal modello. Questa documentazione semplifica alcune operazioni durante la compilazione di un client che usa il servizio web.
+
+1. Creare un file di ambiente (myenv.yml) [usando queste istruzioni](tutorial-deploy-models-with-aml.md#create-environment-file).
 
 1. Usare questi due file per configurare l'immagine Docker in Python usando il SDK nel modo seguente:
 
@@ -217,8 +220,7 @@ Questo metodo offre il massimo controllo sulla creazione e la denominazione dei 
 
 È ora possibile testare il servizio Web.
 
-<a name='test-web-service'/>
-## <a name="test-the-web-service"></a>Testare il servizio Web
+## <a name="a-nametest-web-servicetest-the-web-service"></a><a name='test-web-service'/>Testare il servizio Web
 
 Il servizio Web è lo stesso, indipendentemente dal metodo usato.  Per ottenere le stime, usare il metodo `run` del servizio.  
 
@@ -261,4 +263,5 @@ service.delete()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [distribuire nel servizio Kubernetes di Azure](how-to-deploy-to-aks.md) per una distribuzione con maggiore scalabilità. 
+* Informazioni su come [usare un modello di ML distribuito come un servizio Web](how-to-consume-web-service.md).
+* Informazioni su come [distribuire nel servizio Kubernetes di Azure](how-to-deploy-to-aks.md) per una distribuzione con maggiore scalabilità. 

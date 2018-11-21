@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945179"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622092"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizzare i dati di Azure Cosmos DB con il connettore Power BI
 
@@ -76,11 +76,11 @@ I dati sui vulcani verranno recuperati dall'account di Azure Cosmos DB e i dati 
 
 5. Nella pagina **Anteprima connettore** fare clic su **Continua**. Viene visualizzata la finestra **Azure Cosmos DB**.
 
-6. Specificare l'URL dell'endpoint dell'account Azure Cosmos DB da cui recuperare i dati, come illustrato di seguito, e quindi fare clic su **OK**. Per usare il proprio account, è possibile recuperare l'URL dalla casella URI del pannello **[Chiavi](manage-account.md#keys)** del portale di Azure. Facoltativamente è possibile specificare il nome del database, il nome della raccolta oppure selezionare il database e la raccolta per identificare la provenienza dei dati.
+6. Specificare l'URL dell'endpoint dell'account Azure Cosmos DB da cui recuperare i dati, come illustrato di seguito, e quindi fare clic su **OK**. Per usare il proprio account, è possibile recuperare l'URL dalla casella URI nel pannello **Chiavi** del portale di Azure. Facoltativamente è possibile specificare il nome del database, il nome della raccolta oppure selezionare il database e la raccolta per identificare la provenienza dei dati.
    
-7. Se ci si connette a questo endpoint per la prima volta, viene richiesta la chiave dell'account. Per il proprio account, recuperare la chiave dalla casella **Chiave primaria** nel pannello **[Chiavi di sola lettura](manage-account.md#keys)** del portale di Azure. Immettere la chiave appropriata e quindi fare clic su **Connetti**.
+7. Se ci si connette a questo endpoint per la prima volta, viene richiesta la chiave dell'account. Per il proprio account, recuperare la chiave dalla casella **Chiave primaria** nel pannello **Chiavi di sola lettura** del portale di Azure. Immettere la chiave appropriata e quindi fare clic su **Connetti**.
    
-   È consigliabile usare la chiave di sola lettura durante la creazione di report. In questo modo si impedisce un'inutile esposizione della chiave master a potenziali rischi di sicurezza. La chiave di sola lettura è disponibile nel pannello [Chiavi](manage-account.md#keys) del portale di Azure. 
+   È consigliabile usare la chiave di sola lettura durante la creazione di report. In questo modo si impedisce un'inutile esposizione della chiave master a potenziali rischi di sicurezza. La chiave di sola lettura è disponibile nel pannello **Chiavi** del portale di Azure. 
     
 8. Una volta che l'account è connesso, viene visualizzato il riquadro **Strumento di navigazione**. Lo **Strumento di navigazione** mostra un elenco dei database che fanno parte dell'account.
 

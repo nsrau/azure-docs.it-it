@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f86d1d74f5139458999a8c91ac35ec76ac278c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262278"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300932"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Istruzioni di configurazione del dashboard di Power BI per il modello di soluzione per l'analisi dei dati di telemetria del veicolo
-Questo menu contiene i collegamenti alle sezioni dello studio: 
-
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 La soluzione per l'analisi dei dati di telemetria del veicolo illustra come le concessionarie, i produttori di automobili e le compagnie assicurative possono sfruttare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sull'integrità del veicolo e sulle abitudini di guida in modo da migliorare l'esperienza cliente, la ricerca e lo sviluppo e le campagne di marketing. Queste istruzioni dettagliate mostrano come configurare i report e il dashboard di Power BI dopo la distribuzione della soluzione nella sottoscrizione. 
+
+Per esaminare la descrizione di riepilogo di questa soluzione, vedere [Playbook della soluzione di analisi dei dati di telemetria del veicolo](cortana-analytics-playbook-vehicle-telemetry.md).
+Per esplorare ulteriormente questa soluzione, vedere [Playbook della soluzione di analisi dei dati di telemetria del veicolo: approfondimento della soluzione](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Distribuire la soluzione per l'[analisi dei dati di telemetria del veicolo](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 

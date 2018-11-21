@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sull'inoltro WCF del bus di servizio di Azure | Microsoft Docs
+title: Esporre un servizio REST WCF locale a client esterni tramite Inoltro WCF di Azure | Microsoft Docs
 description: Compilare un'applicazione client e un'applicazione di servizio con l'inoltro WCF.
 services: service-bus-relay
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2017
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262013"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615477"
 ---
-# <a name="azure-wcf-relay-tutorial"></a>Esercitazione sull'inoltro WCF di Azure
+# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Esporre un servizio REST WCF locale a client esterni tramite Inoltro WCF di Azure
 
 Questa esercitazione descrive come compilare una semplice applicazione e servizio client di inoltro WCF usando Inoltro di Azure. Per un'esercitazione simile che usa la [messaggistica del bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md), vedere [Introduzione alle code del bus di servizio](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -31,19 +31,32 @@ Dopo aver eseguito la sequenza di argomenti in questa esercitazione, saranno dis
 
 I tre passaggi finali descrivono come creare un'applicazione client, configurare l'applicazione client e creare e usare un client in grado di accedere alla funzionalità dell'host.
 
+In questa esercitazione vengono completati i passaggi seguenti:
+
+> [!div class="checklist"]
+> * Creare uno spazio dei nomi di inoltro.
+> * Creare un contratto del servizio WCF
+> * Implementare il contratto WCF
+> * Ospitare ed eseguire il servizio WCF per la registrazione con il servizio di inoltro
+> * Creare un client WCF per il contratto di servizio
+> * Configurare il client WCF
+> * Implementare il client WCF
+> * Eseguire le applicazioni. 
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione sono necessari gli elementi seguenti:
+Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
-* [Microsoft Visual Studio 2015 o versione successiva](https://visualstudio.com). Questa esercitazione usa Visual Studio 2017.
-* Un account Azure attivo. Se non si ha un account, è possibile crearne uno gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
+- Una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+- [Visual Studio 2015 o versione successiva](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2017.
+- Azure SDK per .NET. Installare l'SDK dalla [pagina Download per gli SDK](https://azure.microsoft.com/downloads/).
 
-## <a name="create-a-service-namespace"></a>Creare uno spazio dei nomi del servizio
+## <a name="create-a-relay-namespace"></a>Creare uno spazio dei nomi di inoltro
+Il primo passaggio consiste nel creare uno spazio dei nomi e nell'ottenere una chiave di [firma di accesso condiviso](../service-bus-messaging/service-bus-sas.md). Uno spazio dei nomi fornisce un limite per ogni applicazione esposta tramite il servizio di inoltro. Una chiave di firma di accesso condiviso viene generata dal sistema quando viene creato uno spazio dei nomi del servizio. La combinazione di spazio dei nomi servizio e chiave di firma di accesso condiviso fornisce le credenziali che consentono ad Azure di autenticare l'accesso a un'applicazione.
 
-Il primo passaggio consiste nel creare uno spazio dei nomi e nell'ottenere una chiave di [firma di accesso condiviso](../service-bus-messaging/service-bus-sas.md). Uno spazio dei nomi fornisce un limite per ogni applicazione esposta tramite il servizio di inoltro. Una chiave di firma di accesso condiviso viene generata dal sistema quando viene creato uno spazio dei nomi del servizio. La combinazione di spazio dei nomi servizio e chiave di firma di accesso condiviso fornisce le credenziali che consentono ad Azure di autenticare l'accesso a un'applicazione. Seguire [queste istruzioni](relay-create-namespace-portal.md) per creare uno spazio dei nomi di inoltro.
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>Definire un contratto del servizio WCF
-
 Il contratto di servizio specifica le operazioni (terminologia dei servizi Web per indicare metodi o funzioni) supportate dal servizio. I contratti vengono creati definendo un'interfaccia C++, C# o Visual Basic. Ogni metodo dell'interfaccia corrisponde a un'operazione di servizio specifico. A ogni interfaccia deve essere applicato l'attributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) e a ogni operazione deve essere applicato l'attributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx). Se un metodo di un'interfaccia con l'attributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) non ha l'attributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), il metodo non viene esposto. Il codice per eseguire queste attività viene fornito nell'esempio che segue la procedura. Per una descrizione più ampia dei contratti e dei servizi, vedere [Progettazione e implementazione di servizi](https://msdn.microsoft.com/library/ms729746.aspx) nella documentazione di WCF.
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>Creare un contratto di inoltro con un'interfaccia
@@ -51,13 +64,13 @@ Il contratto di servizio specifica le operazioni (terminologia dei servizi Web p
 1. Aprire Visual Studio con ruolo di amministratore. Fare clic con il pulsante destro del mouse sul programma nel menu **Start** e scegliere **Esegui come amministratore**.
 2. Creare un nuovo progetto di applicazione console. Fare clic sul menu**File**, selezionare **Nuovo** e fare clic su **Progetto**. Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#**. Se **Visual C#** non è visualizzato, vedere in **Altri linguaggi**. Fare clic sul modello **App console (.NET Framework)** e denominarlo **EchoService**. Fare clic su **OK** per creare il progetto.
 
-    ![][2]
+    ![Creare un'app console][2]
 
 3. Installare il pacchetto NuGet del bus di servizio. Questo pacchetto aggiunge automaticamente i riferimenti alle librerie del bus di servizio, oltre all'oggetto **System.ServiceModel** di WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) è lo spazio dei nomi che consente l'accesso a livello di codice alle funzionalità di base di WCF. Il bus di servizio utilizza molti degli oggetti e degli attributi di WCF per definire i contratti di servizio.
 
-    In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Gestisci pacchetti NuGet...**. Fare clic sulla scheda Sfoglia e quindi cercare **WindowsAzure.ServiceBus**. Assicurarsi che il nome del progetto sia selezionato nella casella **Versione**. Fare clic su **Installa**e accettare le condizioni per l'utilizzo.
+    In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Gestisci pacchetti NuGet...**. Fare clic sulla scheda **Sfoglia** e quindi cercare **WindowsAzure.ServiceBus**. Assicurarsi che il nome del progetto sia selezionato nella casella **Versione**. Fare clic su **Installa**e accettare le condizioni per l'utilizzo.
 
-    ![][3]
+    ![Pacchetto del bus di servizio][3]
 4. In Esplora soluzioni fare doppio clic sul file Program.cs per aprirlo nell'editor, se non è già aperto.
 5. Aggiungere le istruzioni using seguenti all'inizio del file:
 
@@ -231,7 +244,7 @@ Il codice seguente illustra il formato di base del file App.config associato all
 </configuration>
 ```
 
-## <a name="host-and-run-a-basic-web-service-to-register-with-the-relay-service"></a>Ospitare ed eseguire un servizio Web di base per la registrazione con il servizio di inoltro
+## <a name="host-and-run-the-wcf-service-to-register-with-the-relay-service"></a>Ospitare ed eseguire il servizio WCF per la registrazione con il servizio di inoltro
 
 Questo passaggio descrive come eseguire un servizio di inoltro di Azure.
 
@@ -501,7 +514,7 @@ In questo passaggio si crea un file App.config per un'applicazione client di bas
     Questo passaggio specifica il nome dell'endpoint, il contratto definito nel servizio e l'uso del protocollo TCP da parte dell'applicazione per comunicare con l'inoltro di Azure. Il nome dell'endpoint viene usato nel passaggio successivo per collegare questa configurazione dell'endpoint con l'URI del servizio.
 5. Fare clic su **File** quindi su **Salva tutto**.
 
-## <a name="example"></a>Esempio
+### <a name="example"></a>Esempio
 
 Il codice seguente mostra il file App.config per il client Echo.
 
@@ -607,7 +620,7 @@ Una delle differenze principali, tuttavia, consiste nel fatto che l'applicazione
     channelFactory.Close();
     ```
 
-## <a name="example"></a>Esempio
+### <a name="example"></a>Esempio
 
 Il codice completo dovrebbe apparire come mostrato di seguito e illustra come creare un'applicazione client, come chiamare le operazioni del servizio e come chiudere il client al termine della chiamata dell'operazione.
 
@@ -714,13 +727,10 @@ namespace Microsoft.ServiceBus.Samples
 12. È possibile continuare a inviare messaggi di testo dal client al servizio in questo modo. Al termine, premere INVIO nelle finestre del client e della console per terminare entrambe le applicazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
+Passare all'esercitazione seguente: 
 
-Questa esercitazione ha illustrato come compilare un'applicazione client e di servizio di inoltro di Azure usando le funzionalità di inoltro WCF del bus di servizio. Per un'esercitazione simile che usa la [messaggistica](../service-bus-messaging/service-bus-messaging-overview.md) del bus di servizio, vedere [Introduzione alle code del bus di servizio](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
-
-Per altre informazioni sul servizio d'inoltro di Azure, vedere gli argomenti seguenti.
-
-* [Panoramica del servizio di inoltro di Azure](relay-what-is-it.md)
-* [Come usare il servizio di inoltro WCF con .NET](relay-wcf-dotnet-get-started.md)
+> [!div class="nextstepaction"]
+>[Esporre un servizio REST WCF locale a un client esterno alla rete](service-bus-relay-rest-tutorial.md)
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

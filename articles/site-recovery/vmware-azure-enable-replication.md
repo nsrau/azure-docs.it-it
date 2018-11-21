@@ -1,8 +1,18 @@
 ---
-titolo: abilitare la replica di macchine virtuali VMware per il ripristino di emergenza di VMware in Azure con Azure Site Recovery | Descrizione Microsoft Docs: questo articolo descrive come abilitare la replica di macchine virtuali VMware per il ripristino di emergenza in Azure usando Azure Site Recovery.
-author: asgang ms.service: site-recovery ms.date: 07/06/2018 ms.topic: conceptual ms.author: asgang
-
-
+title: Abilitare la replica delle macchine virtuali VMware per il ripristino di emergenza di VMware in Azure con Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive come abilitare la replica delle macchine virtuali VMware per il ripristino di emergenza in Azure con Azure Site Recovery.
+author: asgang
+ms.service: site-recovery
+ms.date: 07/06/2018
+ms.topic: conceptual
+ms.author: asgang
+ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566362"
+---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
 
@@ -68,10 +78,7 @@ Quando si esegue la replica di macchine virtuali VMware:
     ![Abilitare la replica](./media/vmware-azure-enable-replication/enable-replication7.png)
 14. Fare clic su **Abilita la replica**. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
-> [!NOTE]
-> Se il computer è pronto per l'installazione push, il componente servizio Mobility verrà installato quando la protezione viene abilitata. Una volta installato il componente nel computer, un processo di protezione viene avviato e non riesce. Dopo l'errore, è necessario riavviare manualmente tutti i computer. Dopo il riavvio, il processo di protezione viene avviato nuovamente e viene eseguita la replica iniziale.
->
->
+
 
 ## <a name="view-and-manage-vm-properties"></a>Visualizzare e gestire le proprietà della macchina virtuale
 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 90dc603c0ee520774bd22531c7136e0949f6cf90
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 82d6106b7cebf47e6d68347857dd3d8a2d22dc3c
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264181"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298688"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Concetti relativi alla disponibilità elevata in Database di Azure per MySQL
 Il servizio Database di Azure per MySQL offre un livello di disponibilità elevata garantito. Il contratto di servizio con copertura finanziaria è del 99,99% in concomitanza con la disponibilità a livello generale. I tempi di inattività dell'applicazione sono praticamente nulli quando si usa questo servizio.
@@ -35,4 +35,5 @@ Come avviene per il modello a disponibilità elevata, quando un'istanza di Datab
 Durante l'operazione di ridimensionamento, si verifica un'interruzione delle connessioni al database. Le applicazioni client vengono disconnesse e le transazioni aperte non sottoposte a commit vengono annullate. Dopo che l'applicazione client ritenta la connessione o crea una nuova connessione, il gateway indirizza la connessione all'istanza appena ridimensionata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per una panoramica del servizio, vedere [Azure Database for MySQL Overview](overview.md) (Database di Azure per una panoramica di MySQL)
+- Per una panoramica del servizio, vedere  [Panoramica di Database di Azure per MySQL](overview.md)
+- Per una panoramica della logica di ripetizione dei tentativi, vedere [Gestione degli errori di connettività temporanei per Database di Azure per MySQL](concepts-connectivity.md)

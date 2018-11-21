@@ -1,372 +1,134 @@
 ---
 title: "Esercitazione: Rilevare e incorniciare i visi in un'immagine con Android SDK"
 titleSuffix: Azure Cognitive Services
-description: In questa esercitazione viene creata una semplice app Android che usa l'API Viso per rilevare e incorniciare i visi in un'immagine.
+description: In questa esercitazione verrà creata una semplice app Android che usa l'API Viso per rilevare e incorniciare i visi in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
-ms.date: 07/12/2018
+ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 99b2734745df722f45443b5347ae6dd054c8aa31
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4378d04d8909ecb0cd77c3196b74ecd51eb19638
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957038"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686229"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Esercitazione: Creare un'app Android per rilevare e incorniciare i visi in un'immagine
 
-In questa esercitazione viene creata una semplice applicazione Android che usa la libreria di classi Java del servizio Viso per rilevare i visi umani in un'immagine. L'applicazione mostra un'immagine selezionata con ogni viso rilevato incorniciato da un rettangolo. Il codice di esempio completo è disponibile su GitHub in [Detect and frame faces in an image on Android](https://github.com/Azure-Samples/cognitive-services-face-android-sample) (Rilevare e incorniciare i visi in un'immagine in Android).
-
-![Screenshot di Android di una foto con visi incorniciati da un rettangolo rosso](../Images/android_getstarted2.1.PNG)
+In questa esercitazione si creerà una semplice applicazione Android che usa l'API Viso di Azure, tramite Java SDK, per rilevare i visi umani in un'immagine. L'applicazione mostra un'immagine selezionata e traccia una cornice attorno a ogni viso rilevato.
 
 Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > - Creare un'applicazione Android
-> - Installare la libreria client del servizio Viso
+> - Installare la libreria client dell'API Viso
 > - Usare la libreria client per rilevare i visi in un'immagine
 > - Tracciare una cornice intorno a ogni viso rilevato
 
+![Screenshot di Android di una foto con visi incorniciati da un rettangolo rosso](../Images/android_getstarted2.1.PNG)
+
+Il codice di esempio completo è disponibile nell'archivio [Cognitive Services Face Android](https://github.com/Azure-Samples/cognitive-services-face-android-sample) su GitHub.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Per eseguire l'esempio è necessaria una sottoscrizione. È possibile ottenere le chiavi di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
-- [Android Studio](https://developer.android.com/studio/) con almeno SDK 22 (richiesto dalla libreria client del servizio Viso).
-- La libreria client [com.microsoft.projectoxford:face:1.4.3](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.projectoxford%22) del servizio Viso disponibile su Maven. Non è necessario scaricare il pacchetto. Le istruzioni di installazione sono disponibili più avanti.
+- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- [Android Studio](https://developer.android.com/studio/) con livello API 22 o successivo (richiesto dalla libreria client del servizio Viso).
 
-## <a name="create-the-project"></a>Creare il progetto
+## <a name="create-the-android-studio-project"></a>Creare il progetto Android Studio
 
-Creare il progetto di applicazione Android seguendo questa procedura:
+Seguire questa procedura per creare un nuovo progetto di applicazione Android.
 
-1. Aprire Android Studio. Questa esercitazione usa Android Studio 3.1.
-1. Selezionare **Start a new Android Studio project** (Avvia un nuovo progetto Android Studio).
+1. In Android Studio selezionare **Start a new Android Studio project** (Avvia un nuovo progetto Android Studio).
 1. Nella schermata **Create Android Project** (Crea progetto Android) modificare i campi predefiniti, se necessario, quindi fare clic su **Next** (Avanti).
-1. Nella schermata **Target Android Devices** (Dispositivi Android di destinazione) usare il selettore a discesa per scegliere **API 22** o superiore, quindi fare clic su **Next** (Avanti).
+1. Nella schermata **Target Android Devices** (Dispositivi Android di destinazione) usare il selettore a discesa per scegliere **API 22** o successivo, quindi fare clic su **Next** (Avanti).
 1. Selezionare **Empty Activity** (Attività vuota) e quindi fare clic su **Next** (Avanti).
 1. Deselezionare l'opzione **Backwards Compatibility** (Compatibilità con le versioni precedenti) e quindi fare clic su **Finish** (Fine).
 
-## <a name="create-the-ui-for-selecting-and-displaying-the-image"></a>Creare l'interfaccia utente per la selezione e la visualizzazione dell'immagine
+## <a name="add-the-initial-code"></a>Aggiungere il codice iniziale
 
-Aprire *activity_main.xml*. Verrà visualizzato l'editor di layout. Selezionare la scheda **Text** (Testo) e quindi sostituire i contenuti con il codice seguente.
+### <a name="create-the-ui"></a>Creare l'interfaccia utente
 
-```xml
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+Aprire *activity_main.xml*. Nell'editor di layout, selezionare la scheda **Text** (Testo) e quindi sostituire i contenuti con il codice seguente.
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/imageView1"
-        android:layout_above="@+id/button1"
-        android:contentDescription="Image with faces to analyze"/>
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?range=1-18)]
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Browse for face image"
-        android:id="@+id/button1"
-        android:layout_alignParentBottom="true"/>
-</RelativeLayout>
-```
+### <a name="create-the-main-class"></a>Creare la classe principale
 
-Aprire *MainActivity.java* e quindi sostituire tutti gli elementi tranne la prima istruzione `package` con il codice seguente.
+Aprire *MainActivity.java* e sostituire le istruzioni `import` esistenti con il codice seguente.
 
-Il codice imposta un gestore dell'evento su `Button` che avvia una nuova attività per consentire all'utente di selezionare un'immagine. Dopo la selezione, l'immagine viene visualizzata in `ImageView`.
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=3-11)]
 
-```java
-import java.io.*;
-import android.app.*;
-import android.content.*;
-import android.net.*;
-import android.os.*;
-import android.view.*;
-import android.graphics.*;
-import android.widget.*;
-import android.provider.*;
+Quindi, sostituire il contenuto della classe **MainActivity** con il codice riportato di seguito. Il codice crea un gestore dell'evento sul **pulsante** che avvia una nuova attività per consentire all'utente di selezionare un'immagine. Mostra l'immagine in **ImageView**.
 
-public class MainActivity extends Activity {
-    private final int PICK_IMAGE = 1;
-    private ProgressDialog detectionProgressDialog;
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=29-68)]
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            Button button1 = (Button)findViewById(R.id.button1);
-            button1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(Intent.createChooser(
-                        intent, "Select Picture"), PICK_IMAGE);
-            }
-        });
+### <a name="try-the-app"></a>Provare l'app
 
-        detectionProgressDialog = new ProgressDialog(this);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
-                data != null && data.getData() != null) {
-            Uri uri = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(
-                        getContentResolver(), uri);
-                ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-                imageView.setImageBitmap(bitmap);
-
-                // Uncomment
-                //detectAndFrame(bitmap);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-        }
-    }
-}
-```
-
-Ora l'app può cercare una foto e visualizzarla in una finestra simile all'immagine riportata di seguito.
+Commentare la chiamata a **detectAndFrame** nel metodo **onActivityResult**. Quindi, premere **Avvia** dal menu per testare l'app. Quando si apre l'app, in un emulatore o un dispositivo connesso, fare clic sui **Sfoglia** nella parte inferiore. Verrà visualizzata la finestra di dialogo di selezione dei file del dispositivo. Scegliere un'immagine e verificare che venga visualizzata nella finestra. Quindi, chiudere l'app e andare al passaggio successivo.
 
 ![Schermata di Android di una foto con visi](../Images/android_getstarted1.1.PNG)
 
-## <a name="configure-the-face-client-library"></a>Configurare la libreria client per il servizio Viso
+## <a name="add-the-face-sdk"></a>Aggiungere l'SDK Viso
 
-L'API Viso è un'API cloud che è possibile chiamare tramite richieste HTTPS. Questa esercitazione usa la libreria client del servizio Viso, che incapsula queste richieste Web per semplificare le attività dell'utente.
+### <a name="add-the-gradle-dependency"></a>Aggiungere la dipendenza Gradle
 
-Nel riquadro **Project** (Progetto) usare il selettore a discesa per selezionare **Android**. Espandere **Gradle Scripts** (Script Gradle) e quindi aprire *build.gradle (Module: app)* (build.gradle - Modulo: app).
-
-Aggiungere una dipendenza per la libreria client del servizio Viso, `com.microsoft.projectoxford:face:1.4.3`, come mostrato nello screenshot più avanti, quindi fare clic su **Sync Now** (Sincronizza adesso).
+Nel riquadro **Project** (Progetto) usare il selettore a discesa per selezionare **Android**. Espandere **Gradle Scripts** (Script Gradle) e quindi aprire *build.gradle (Module: app)* (build.gradle - Modulo: app). Aggiungere una dipendenza per la libreria client del servizio Viso, `com.microsoft.projectoxford:face:1.4.3`, come mostrato nello screenshot più avanti, quindi fare clic su **Sync Now** (Sincronizza adesso).
 
 ![Screenshot di Android Studio per il file build.gradle dell'app](../Images/face-tut-java-gradle.png)
 
-Aprire **MainActivity.java** e aggiungere le direttive import seguenti alla fine del file:
+### <a name="add-the-face-related-project-code"></a>Aggiungere il codice di progetto relativo al viso
+
+Tornare a **MainActivity.java** e aggiungere le istruzioni `import` seguenti:
+
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=13-14)]
+
+Quindi, inserire il codice seguente nella classe **MainActivity**, sopra il metodo **onCreate**:
+
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
+
+Sarà necessario sostituire `<Subscription Key>` con la chiave di sottoscrizione. Sostituire anche `<API endpoint>` con l'endpoint dell'API viso, usando l'identificatore di area geografica appropriato per la chiave. Le chiavi di sottoscrizione per la versione di valutazione gratuita vengono generate nell'area **westus**. Un valore dell'endpoint API di esempio sarebbe:
 
 ```java
-import com.microsoft.projectoxford.face.*;
-import com.microsoft.projectoxford.face.contract.*;
+apiEndpoint = "https://westus.api.cognitive.microsoft.com/face/v1.0";
 ```
 
-## <a name="add-the-face-client-library-code"></a>Aggiungere il codice della libreria client del servizio Viso
+Nel riquadro **Project** (Progetto) espandere **app**, quindi **manifests** (manifesti) e infine aprire *AndroidManifest.xml*. Inserire l'elemento seguente come figlio diretto dell'elemento `manifest`:
 
-Inserire il codice seguente nella classe `MainActivity`, sopra il metodo `onCreate`:
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?range=5)]
 
-```java
-private final String apiEndpoint = "<API endpoint>";
-private final String subscriptionKey = "<Subscription Key>";
+## <a name="upload-image-and-detect-faces"></a>Caricare l'immagine e rilevare i visi
 
-private final FaceServiceClient faceServiceClient =
-        new FaceServiceRestClient(apiEndpoint, subscriptionKey);
-```
+L'app rileverà i visi chiamando il metodo **FaceServiceClient.detect**, che esegue il wrapping dell'API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e restituisce un elenco di istanze di **Viso**.
 
-Sostituire `<API endpoint>` con l'endpoint API assegnato alla chiave. Le chiavi di sottoscrizione per la versione di valutazione gratuita vengono generate nell'area **westcentralus**. Se si usa una chiave di sottoscrizione per la versione di valutazione gratuita, l'istruzione sarà quindi simile alla seguente:
+Ogni elemento **Viso** restituito è racchiuso in un rettangolo che ne indica la posizione, combinata con una serie di attributi del viso facoltativi. In questo esempio sono necessari solo i rettangoli posizionati intorno ai visi.
 
-```java
-apiEndpoint = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
-```
+Inserire i due metodi seguenti nella classe **MainActivity**. Si noti che al termine del rilevamento volto, l'app chiama il metodo **drawFaceRectanglesOnBitmap** per modificare **ImageView**. Questo metodo verrà definito successivamente.
 
-Sostituire `<Subscription Key>` con la chiave di sottoscrizione. Ad esempio:
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=70-150)]
 
-```java
-subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-```
+## <a name="draw-face-rectangles"></a>Disegnare rettangoli intorno ai visi
 
-Nel riquadro **Project** (Progetto) espandere **app**, quindi **manifests** (manifesti) e infine aprire *AndroidManifest.xml*.
+Inserire il metodo dell'helper seguente nella classe **MainActivity**. Questo metodo traccia un rettangolo intorno a ogni viso rilevato usando le coordinate del rettangolo di ogni istanza **Viso**.
 
-Inserire l'elemento seguente come figlio diretto dell'elemento `manifest`:
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=152-173)]
 
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-```
-
-Compilare il progetto e verificare se sono presenti errori. Ora è possibile chiamare il servizio Viso.
-
-## <a name="upload-an-image-to-detect-faces"></a>Caricare un'immagine per rilevare i visi
-
-Il modo più semplice per rilevare i visi consiste nel chiamare il metodo `FaceServiceClient.detect`. Questo metodo esegue il wrapping del metodo dell'API [Rileva](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e restituisce una matrice di `Face`.
-
-Ogni elemento `Face` restituito è racchiuso in un rettangolo che ne indica la posizione, combinata con una serie di attributi del viso facoltativi. In questo esempio sono necessarie solo le posizioni dei visi.
-
-Se si verifica un errore, un elemento `AlertDialog` mostra la causa sottostante.
-
-Inserire i metodi seguenti nella classe `MainActivity`.
-
-```java
-// Detect faces by uploading a face image.
-// Frame faces after detection.
-private void detectAndFrame(final Bitmap imageBitmap) {
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-    ByteArrayInputStream inputStream =
-            new ByteArrayInputStream(outputStream.toByteArray());
-
-    AsyncTask<InputStream, String, Face[]> detectTask =
-            new AsyncTask<InputStream, String, Face[]>() {
-                String exceptionMessage = "";
-
-                @Override
-                protected Face[] doInBackground(InputStream... params) {
-                    try {
-                        publishProgress("Detecting...");
-                        Face[] result = faceServiceClient.detect(
-                                params[0],
-                                true,         // returnFaceId
-                                false,        // returnFaceLandmarks
-                                null          // returnFaceAttributes:
-                                /* new FaceServiceClient.FaceAttributeType[] {
-                                    FaceServiceClient.FaceAttributeType.Age,
-                                    FaceServiceClient.FaceAttributeType.Gender }
-                                */
-                        );
-                        if (result == null){
-                            publishProgress(
-                                    "Detection Finished. Nothing detected");
-                            return null;
-                        }
-                        publishProgress(String.format(
-                                "Detection Finished. %d face(s) detected",
-                                result.length));
-                        return result;
-                    } catch (Exception e) {
-                        exceptionMessage = String.format(
-                                "Detection failed: %s", e.getMessage());
-                        return null;
-                    }
-                }
-
-                @Override
-                protected void onPreExecute() {
-                    //TODO: show progress dialog
-                }
-                @Override
-                protected void onProgressUpdate(String... progress) {
-                    //TODO: update progress
-                }
-                @Override
-                protected void onPostExecute(Face[] result) {
-                    //TODO: update face frames
-                }
-            };
-
-    detectTask.execute(inputStream);
-}
-
-private void showError(String message) {
-    new AlertDialog.Builder(this)
-    .setTitle("Error")
-    .setMessage(message)
-    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-        }})
-    .create().show();
-}
-```
-
-## <a name="frame-faces-in-the-image"></a>Incorniciare i visi nell'immagine
-
-Inserire il metodo dell'helper seguente nella classe `MainActivity`. Questo metodo traccia un rettangolo intorno a ogni viso rilevato.
-
-```java
-private static Bitmap drawFaceRectanglesOnBitmap(
-        Bitmap originalBitmap, Face[] faces) {
-    Bitmap bitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
-    Canvas canvas = new Canvas(bitmap);
-    Paint paint = new Paint();
-    paint.setAntiAlias(true);
-    paint.setStyle(Paint.Style.STROKE);
-    paint.setColor(Color.RED);
-    paint.setStrokeWidth(10);
-    if (faces != null) {
-        for (Face face : faces) {
-            FaceRectangle faceRectangle = face.faceRectangle;
-            canvas.drawRect(
-                    faceRectangle.left,
-                    faceRectangle.top,
-                    faceRectangle.left + faceRectangle.width,
-                    faceRectangle.top + faceRectangle.height,
-                    paint);
-        }
-    }
-    return bitmap;
-}
-```
-
-Completare i metodi `AsyncTask`, indicati dai commenti `TODO`, nel metodo `detectAndFrame`. Se l'operazione ha esito positivo, l'immagine selezionata viene visualizzata con i visi incorniciati in `ImageView`.
-
-```java
-@Override
-protected void onPreExecute() {
-    detectionProgressDialog.show();
-}
-@Override
-protected void onProgressUpdate(String... progress) {
-    detectionProgressDialog.setMessage(progress[0]);
-}
-@Override
-protected void onPostExecute(Face[] result) {
-    detectionProgressDialog.dismiss();
-    if(!exceptionMessage.equals("")){
-        showError(exceptionMessage);
-    }
-    if (result == null) return;
-    ImageView imageView = findViewById(R.id.imageView1);
-    imageView.setImageBitmap(
-            drawFaceRectanglesOnBitmap(imageBitmap, result));
-    imageBitmap.recycle();
-}
-```
-
-Nel metodo `onActivityResult` rimuovere infine il commento dalla chiamata al metodo `detectAndFrame`, come mostrato di seguito.
-
-```java
-@Override
-protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
-
-    if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
-                data != null && data.getData() != null) {
-        Uri uri = data.getData();
-        try {
-            Bitmap bitmap = MediaStore.Images.Media.getBitmap(
-                    getContentResolver(), uri);
-            ImageView imageView = findViewById(R.id.imageView1);
-            imageView.setImageBitmap(bitmap);
-
-            // Uncomment
-            detectAndFrame(bitmap);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
+Infine, rimuovere il commento dalla chiamata al metodo **detectAndFrame** in **onActivityResult**.
 
 ## <a name="run-the-app"></a>Esecuzione dell'app
 
-Eseguire l'applicazione e quindi cercare un'immagine con un viso. Attendere qualche secondo per consentire al servizio Viso di rispondere. Successivamente, si otterrà un risultato simile all'immagine riportata di seguito:
+Eseguire l'applicazione e quindi cercare un'immagine con un viso. Attendere qualche secondo per consentire al servizio Viso di rispondere. Verrà visualizzato un rettangolo rosso intorno a ciascun viso nell'immagine.
 
-![GettingStartAndroid](../Images/android_getstarted2.1.PNG)
-
-## <a name="summary"></a>Summary
-
-In questa esercitazione si è appreso il processo di base per l'uso del servizio Viso ed è stata creata un'applicazione per visualizzare visi incorniciati in un'immagine.
+![Screenshot Android di volti con rettangoli rossi disegnati attorno a essi](../Images/android_getstarted2.1.PNG)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sul rilevamento e sull'uso dei punti di riferimento del viso.
+In questa esercitazione si è appreso il processo di base per l'uso di Java SDK dell'API Viso ed è stata creata un'applicazione per rilevare e incorniciare i visi in un'immagine. In seguito, si apprenderanno altre informazioni sul rilevamento volto.
 
 > [!div class="nextstepaction"]
 > [Come rilevare visi nelle immagini](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
-
-Esplorare le API Viso usate per rilevare i visi e i rispettivi attributi, tra cui posa, sesso, età, posizione della testa, presenza di barba e baffi e occhiali.
-
-> [!div class="nextstepaction"]
-> [Informazioni di riferimento per l'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).

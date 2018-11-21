@@ -10,12 +10,12 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: d500a5cab4373d21b729a177ef847c40c2f4211b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354020"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566449"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Creare un server di Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure
 
@@ -59,7 +59,7 @@ ssl-enforcement | **Enabled** | Indica se abilitare SSL per questo server. Valor
 storage-size | **51200** | Capacità di archiviazione del server (l'unità è MB). Le dimensioni di archiviazione valide partono da un minimo di 5120 MB e aumentano con incrementi di 1024 MB. Per altre informazioni sui limiti delle dimensioni di archiviazione, vedere i [Piani tariffari](./concepts-pricing-tiers.md). 
 version | **10.2** | La versione principale del motore MariaDB.
 admin-user | **myadmin** | Nome utente per l'account di accesso amministratore. Il parametro **admin-user** non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**.
-admin-password | *Password* | Password dell'utente amministratore. La password deve contenere da 8 a 128 caratteri. Deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri e caratteri non alfanumerici.
+admin-password | *password* | Password dell'utente amministratore. La password deve contenere da 8 a 128 caratteri. Deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri e caratteri non alfanumerici.
 
 Il valore del parametro **sku-name** segue la convenzione *piano tariffario*\_*generazione calcolo*\_*vCore* come illustrato negli esempi seguenti:
 + `--sku-name B_Gen5_4` esegue il mapping a piano tariffario Basic, generazione di calcolo Generazione 5 e 4 vCore.
@@ -211,12 +211,12 @@ Per connettersi al server usando lo strumento da riga di comando mysql:
 
   | Impostazione | Valore consigliato | DESCRIZIONE |
   |---|---|---|
-  | Connection Name (Nome connessione) | **Demo connection** | Immettere un'etichetta per la connessione (può essere qualsiasi nome) |
+  | Connection Name (Nome connessione) | **Demo Connection** | Immettere un'etichetta per la connessione (può essere qualsiasi nome) |
   | Connection Method (Metodo di connessione) | **Standard (TCP/IP)** | Usare il protocollo TCP/IP per connettersi a Database di Azure per MariaDB |
   | Nome host | **mydemoserver.mariadb.database.azure.com** | Il nome del server annotato in precedenza. |
   | Porta | **3306** | Porta predefinita per il Database di Azure per MariaDB. |
   | Username | **myadmin@mydemoserver** | Il nome di accesso dell'amministratore server annotato in precedenza. |
-  | Password | *Password* | Usare la password dell'account amministratore configurata in precedenza. |
+  | Password | *password* | Usare la password dell'account amministratore configurata in precedenza. |
 
 3. Per verificare che tutti i parametri siano configurati correttamente, selezionare **Test Connection** (Test connessione).
 
@@ -236,9 +236,7 @@ Se si vuole eliminare solo il server creato in questa guida introduttiva, esegui
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-<!--
-## Next steps
+## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-using-cli.md)
--->
+> [Progettare un database MariaDB con l'interfaccia della riga di comando di Azure](./tutorial-design-database-cli.md)

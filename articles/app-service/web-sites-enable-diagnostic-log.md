@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231624"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636969"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
 ## <a name="overview"></a>Panoramica
 Azure offre diagnostica integrata per facilitare il debug di un' [app Web del servizio app](https://go.microsoft.com/fwlink/?LinkId=529714). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione. Viene anche descritto come accedere alle informazioni registrate da Azure.
 
-L'articolo illustra anche l'uso del [portale di Azure](https://portal.azure.com), di Azure PowerShell e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+L'articolo illustra anche l'uso del [portale di Azure](https://portal.azure.com) e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -65,7 +65,7 @@ Per il **registro applicazioni** è possibile attivare l'opzione del file system
 
 Per la **registrazione del server Web** è possibile selezionare **archiviazione** o **file system**. Se si seleziona **Archiviazione**, è possibile selezionare un account di archiviazione e quindi un contenitore BLOB in cui scrivere i log. 
 
-Se si archiviano i log nel file system, è possibile accedere a questi file mediante FTP oppure scaricarli come archivio zip tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
+Se si archiviano i log nel file system, è possibile accedere a questi file mediante FTP oppure scaricarli come archivio zip tramite l'interfaccia della riga di comando di Azure.
 
 Per impostazione predefinita, i registri non vengono eliminati automaticamente, ad eccezione di **Registrazione applicazioni (file system)**. Per eliminare automaticamente i log, impostare il campo relativo al **periodo di conservazione (giorni)**.
 
@@ -73,24 +73,20 @@ Per impostazione predefinita, i registri non vengono eliminati automaticamente, 
 > Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, effettuare l'operazione seguente:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
-> 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione o alla tabella. Salvare l’impostazione.
+> 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione. Salvare l’impostazione.
 >
 >
 
-È possibile abilitare contemporaneamente qualsiasi combinazione di file system, archiviazione tabelle e archiviazione BLOB e disporre di singole configurazioni del livello di log. Ad esempio, può essere opportuno registrare gli errori e gli avvisi nell'archiviazione BLOB come soluzione di registrazione a lungo termine e abilitare la registrazione del file system a livello dettagliato.
+È possibile abilitare contemporaneamente qualsiasi combinazione di file system o archiviazione BLOB e disporre di singole configurazioni del livello di log. Ad esempio, può essere opportuno registrare gli errori e gli avvisi nell'archiviazione BLOB come soluzione di registrazione a lungo termine e abilitare la registrazione del file system a livello dettagliato.
 
-Benché tutti e tre i percorsi di archiviazione offrano le stesse informazioni di base per gli eventi registrati, l'**archiviazione tabelle** e l'**archiviazione BLOB** consentono di registrare informazioni aggiuntive come l'ID istanza, l'ID di thread e un timestamp maggiormente granulare (formato tick) rispetto alla registrazione sul **file system**.
+Benché entrambi i percorsi di archiviazione offrano le stesse informazioni di base per gli eventi registrati, l'**archiviazione BLOB** consente di registrare informazioni aggiuntive come l'ID istanza, l'ID di thread e un timestamp maggiormente granulare (formato tick) rispetto alla registrazione sul **file system**.
 
 > [!NOTE]
-> Le informazioni memorizzate nell'**archiviazione tabelle** o **nell'archiviazione BLOB** sono accessibili solo tramite un client o un'applicazione di archiviazione che possano funzionare direttamente con questi sistemi di archiviazione. Ad esempio, Visual Studio 2013 contiene lo strumento Esplora archivi, che può essere utilizzato per esplorare l'archiviazione tabelle o BLOB, e HDInsight, che può accedere ai dati memorizzati nell'archiviazione BLOB. È inoltre possibile scrivere un'applicazione che acceda all'archiviazione Azure mediante uno degli [Azure SDK](https://azure.microsoft.com/downloads/).
->
-> [!NOTE]
-> È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite** . Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
+> Le informazioni memorizzate nell'**archiviazione BLOB** sono accessibili solo tramite un client o un'applicazione di archiviazione in grado di funzionare direttamente con questi sistemi di archiviazione. Ad esempio, Visual Studio 2013 contiene uno strumento di esplorazione dell'archiviazione, che può essere usato per esplorare l'archiviazione BLOB, e HDInsight, che può accedere ai dati memorizzati nell'archiviazione BLOB. È inoltre possibile scrivere un'applicazione che acceda all'archiviazione Azure mediante uno degli [Azure SDK](https://azure.microsoft.com/downloads/).
 >
 
 ## <a name="download"></a> Procedura: Scaricare i log
-Le informazioni diagnostiche memorizzate nel file system dell'app Web sono accessibili direttamente tramite FTP. È inoltre possibile scaricarle come archivio zip mediante Azure PowerShell o l'interfaccia della riga di comando di Azure.
+Le informazioni diagnostiche memorizzate nel file system dell'app Web sono accessibili direttamente tramite FTP. È inoltre possibile scaricarle come archivio zip tramite l'interfaccia della riga di comando di Azure.
 
 La struttura di directory in cui sono memorizzati i log è la seguente:
 
@@ -106,19 +102,7 @@ Per aprire una connessione FTP al server FTP dell'app, vedere [Distribuire l'app
 
 Una volta connessi al server FTP/S dell'app web, aprire la cartella **LogFiles** in cui sono archiviati i file di log.
 
-### <a name="download-with-azure-powershell"></a>Download con Azure PowerShell
-Per scaricare i file di log, avviare una nuova istanza di Azure PowerShell e utilizzare il comando seguente:
-
-    Save-AzureWebSiteLog -Name webappname
-
-In questo modo i log dell'app Web specificata dal parametro **-Name** vengono salvati in un file denominato **logs.zip** nella directory corrente.
-
-> [!NOTE]
-> Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
-
-### <a name="download-with-azure-command-line-interface"></a>Download con l'interfaccia della riga di comando di Azure
+### <a name="download-with-azure-cli"></a>Download con l'interfaccia della riga di comando di Azure
 Per scaricare i file di log mediante l'interfaccia della riga di comando di Azure, aprire un nuovo prompt dei comandi o una sessione di PowerShell, bash o terminal e immettere il comando seguente:
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -126,7 +110,7 @@ Per scaricare i file di log mediante l'interfaccia della riga di comando di Azur
 In questo modo i log dell'app Web denominata 'webappname' vengono salvati in un file denominato **diagnostics.zip** nella directory corrente.
 
 > [!NOTE]
-> Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -143,7 +127,7 @@ Visual Studio Application Insights fornisce strumenti per il filtro e ricerca de
 [Ulteriori informazioni sulle prestazioni di rilevamento con Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Procedura: Eseguire lo streaming dei log
-Durante lo sviluppo di un'applicazione, è spesso utile visualizzare le informazioni di registrazione in tempo quasi reale. È possibile eseguire lo streaming delle informazioni di registrazione al proprio ambiente di sviluppo mediante Azure PowerShell o l'interfaccia della riga di comando di Azure.
+Durante lo sviluppo di un'applicazione, è spesso utile visualizzare le informazioni di registrazione in tempo quasi reale. È possibile eseguire lo streaming delle informazioni di registrazione al proprio ambiente di sviluppo tramite l'interfaccia della riga di comando di Azure.
 
 > [!NOTE]
 > Alcuni tipi di buffer di registrazione scrivono nel file di log, producendo nel caso eventi di "fuori servizio" nel flusso. Ad esempio, una voce del log di applicazione che si verifica quando un utente visita una pagina può essere visualizzata nel flusso prima della corrispondente voce di log HTTP per la richiesta della pagina.
@@ -153,29 +137,7 @@ Durante lo sviluppo di un'applicazione, è spesso utile visualizzare le informaz
 >
 >
 
-### <a name="streaming-with-azure-powershell"></a>Streaming con Azure PowerShell
-Per trasmettere le informazioni di registrazione, avviare una nuova istanza di Azure PowerShell e usare il comando seguente:
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-Il comando consente di connettersi all'app Web specificata dal parametro **-Name** e di iniziare lo streaming delle informazioni alla finestra di PowerShell mentre gli eventi del log si verificano nell'app Web. Eventuali informazioni scritte nei file con estensione txt, log o htm memorizzati nella directory /LogFiles (d:/home/logfiles) vengono trasmesse alla console locale.
-
-Per filtrare eventi specifici, ad esempio gli errori, utilizzare il parametro **-Message** . Ad esempio: 
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **-Path** . Ad esempio: 
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-Per visualizzare un elenco di percorsi disponibili usare il parametro -ListPath.
-
-> [!NOTE]
-> Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere [Come usare Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
->
->
-
-### <a name="streaming-with-azure-command-line-interface"></a>Streaming con l'interfaccia della riga di comando di Azure
+### <a name="streaming-with-azure-cli"></a>Streaming con l'interfaccia della riga di comando di Azure
 Per eseguire lo streaming delle informazioni di registrazione, aprire un nuovo prompt dei comandi o una sessione di PowerShell, bash o terminal e immettere il comando seguente:
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -191,13 +153,15 @@ Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
+> Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 >
 >
 
 ## <a name="understandlogs"></a> Procedura: Comprendere i log di diagnostica
 ### <a name="application-diagnostics-logs"></a>Log di diagnostica applicazioni
-La diagnostica applicazioni consente di memorizzare le informazioni in un formato specifico per le applicazioni .NET, a seconda della destinazione di archiviazione dei log: file system, archiviazione tabelle o archiviazione BLOB. Il set di base dei dati archiviati è lo stesso in tutti e tre i tipi di archiviazione: data e ora in cui si è verificato l'evento, l'ID del processo che ha generato l'evento, il tipo di evento (informazioni, avviso, errore) e il messaggio relativo all'evento.
+La diagnostica applicazioni consente di memorizzare le informazioni in un formato specifico per le applicazioni .NET, a seconda della destinazione di archiviazione dei log: file system o archiviazione BLOB. 
+
+Il set di base dei dati archiviati è lo stesso in entrambi i tipi di archiviazione: data e ora in cui si è verificato l'evento, l'ID del processo che ha generato l'evento, il tipo di evento (informazioni, avviso, errore) e il messaggio relativo all'evento. L'uso del file system per l'archiviazione dei log è utile quando è richiesto l'accesso immediato per la risoluzione di un problema, dal momento che i file di log vengono aggiornati quasi istantaneamente. L'archiviazione BLOB viene usata a scopo di archiviazione, dal momento che i file vengono memorizzati nella cache e quindi scaricati nel contenitore di archiviazione in base a una pianificazione.
 
 **File system**
 
@@ -211,27 +175,9 @@ Ad esempio, l'aspetto di un evento di errore sarà simile all'esempio seguente:
 
 La registrazione nel file system fornisce le informazioni più basilari dei tre metodi disponibili, indicando solo l'ora e la data, l'ID di processo, il livello dell'evento e il messaggio.
 
-**Archiviazione tabelle**
-
-Durante la registrazione nell'archiviazione tabelle verranno utilizzate proprietà aggiuntive per facilitare la ricerca dei dati memorizzati nella tabella, oltre a informazioni più granulari sull'evento. Verranno utilizzate le proprietà seguenti (colonne) per ogni entità (riga) memorizzata nella tabella.
-
-| Nome proprietà | Valore/formato |
-| --- | --- |
-| PartitionKey |Data/ora dell'evento nel formato aaaaMMggHH |
-| RowKey |Valore GUID che identifica questa entità in modo univoco |
-| Timestamp |Data e ora in cui si è verificato l'evento |
-| EventTickCount |Data e ora in cui si è verificato l'evento, in formato Tick (maggiore precisione) |
-| ApplicationName |Nome dell'app Web |
-| Level |Livello dell'evento, ad esempio, errore, avviso, informazioni |
-| EventId |ID evento di questo evento<p><p>Se non specificato, il valore predefinito è 0 |
-| InstanceId |Istanza dell'app Web sulla quale si è verificato l'evento |
-| Pid |ID di processo |
-| Tid |ID del thread che ha prodotto l'evento |
-| Message |Messaggio dettagliato sull'evento |
-
 **Archiviazione BLOB**
 
-Durante la registrazione sull'archiviazione BLOB, i dati vengono memorizzati in formato file con valori delimitati da virgole (CSV). In maniera analoga all'archiviazione tabelle, verranno registrati ulteriori campi per fornire informazioni più granulari sull'evento. Verranno utilizzate le proprietà seguenti per ogni riga memorizzata nel file CSV:
+Durante la registrazione sull'archiviazione BLOB, i dati vengono memorizzati in formato file con valori delimitati da virgole (CSV). Verranno registrati altri campi per fornire informazioni più granulari sull'evento. Verranno utilizzate le proprietà seguenti per ogni riga memorizzata nel file CSV:
 
 | Nome proprietà | Valore/formato |
 | --- | --- |
@@ -251,7 +197,7 @@ L'aspetto dei dati archiviati in un BLOB sarà simile all'esempio seguente:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> La prima riga del log contiene le intestazioni di colonna, come rappresentato in questo esempio.
+> Per ASP.NET Core, la registrazione viene eseguita tramite il provider [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices), che deposita altri file di log nel contenitore BLOB. Per altre informazioni, vedere [Registrazione in ASP.NET Core- Registrazione in Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
 >
 >
 

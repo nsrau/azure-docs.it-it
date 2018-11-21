@@ -1,187 +1,52 @@
 ---
-title: Impostare come scaduti i dati in Cosmos DB usando la durata (TTL) | Microsoft Docs
+title: Impostare la scadenza dei dati in Cosmos DB usando la durata (TTL)
 description: Con l'impostazione TTL, Microsoft Azure Cosmos DB offre la possibilità di eliminare automaticamente i documenti dal sistema dopo un periodo di tempo determinato.
-services: cosmos-db
-keywords: Durata (TTL)
-author: SnehaGunda
-manager: kfile
+author: markjbrown
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2017
-ms.author: sngun
-ms.openlocfilehash: 2cae74224a9d59939175ac7e43d4d6b183ca3933
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 11/14/2018
+ms.author: mjbrown
+ms.openlocfilehash: c08c171e3a95b0d0f408660a7ec9021ca0323fbd
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050745"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621277"
 ---
-# <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Impostare automaticamente come scaduti i dati nelle raccolte di Cosmos DB usando la durata (TTL)
-Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di questi, come i dati eventi generati da computer, i registri e le informazioni sulle sessioni utente sono utili per un periodo di tempo limitato. Quando i dati eccedono le esigenze dell'applicazione, è possibile eliminarli e ridurre le risorse di archiviazione necessarie per l'applicazione.
+# <a name="time-to-live-for-azure-cosmos-db-data"></a>Durata (TTL) dei dati Azure Cosmos DB
 
-Con l'impostazione della durata (TTL), Microsoft Azure Cosmos DB offre la possibilità di eliminare automaticamente i documenti dal database dopo un periodo di tempo determinato. La durata predefinita può essere impostata a livello di raccolta ed è possibile eseguirne l'override in base ai singoli documenti. Quando il valore di TTL è impostato, come impostazione predefinita di una raccolta o a livello di documento, Cosmos DB rimuove automaticamente i documenti esistenti dopo un numero di secondi dall'ultima modifica pari a tale valore.
+Impostando un valore di durata, o TTL, Azure Cosmos DB consente di eliminare automaticamente elementi da un contenitore dopo un determinato periodo di tempo. Per impostazione predefinita, è possibile impostare la durata a livello di contenitore ed eseguire l'override del valore per singolo elemento. Dopo aver impostato la durata a livello di contenitore o di elemento, Azure Cosmos DB rimuove automaticamente questi elementi dopo il periodo di tempo specificato, a partire dall'ora dell'ultima modifica. Il valore TTL viene configurato in secondi. Quando si configura il valore TTL, il sistema elimina automaticamente gli elementi scaduti in base a questo valore, a differenza di un'operazione di eliminazione che viene eseguita in modo esplicito dall'applicazione client.
 
-In Azure Cosmos DB la durata usa la differenza dall'ora dell'ultima modifica al documento. A tale scopo, viene usato il campo `_ts` che esiste in ogni documento. Il campo _ts è un timestamp Epoch di tipo Unix che rappresenta la data e l'ora e il campo `_ts` viene aggiornato ogni volta che si modifica un documento. 
+## <a name="time-to-live-for-containers-and-items"></a>Durata (TTL) per contenitori ed elementi
 
-## <a name="ttl-behavior"></a>Comportamento di TTL
-La funzionalità TTL è controllata dalle proprietà TTL a livello di raccolta e a livello di documento. I valori sono espressi in secondi e vengono trattati come differenziale dal `_ts` dell'ultima modifica al documento.
+Il valore TTL viene impostato in secondi e interpretato come differenziale dall'ora dell'ultima modifica di un elemento. È possibile impostare la durata per un contenitore o un elemento all'interno del contenitore:
 
-1. DefaultTTL per la raccolta:
-   
-   * Se non è presente o è impostata su Null, i documenti non vengono eliminati automaticamente.
-   * Se è presente e il valore è impostato su "-1" = infinito, i documenti non scadono per impostazione predefinita.
-   * Se è presente e il valore è impostato su un numero ("n"), i documenti scadono "n" secondi dopo l'ultima modifica
-2. TTL per i documenti: 
-   
-   * La proprietà è applicabile solo se DefaultTTL è presente per la raccolta padre.
-   * Esegue l'override del valore di DefaultTTL per la raccolta padre.
+1. **Durata (TTL) per un contenitore** (impostata tramite `DefaultTimeToLive`):
 
-Alla scadenza (`ttl` + `_ts` <= ora corrente del server), il documento viene contrassegnato come "scaduto". Da questo momento sui documenti scaduti non è possibile eseguire alcuna operazione e vengono esclusi dai risultati delle query. I documenti vengono eliminati fisicamente dal sistema e vengono eliminati in background in base alle esigenze in un secondo momento. L'operazione non utilizza le [unità richiesta (UR)](request-units.md) del budget della raccolta.
+   - Se non è presente o è impostata su Null, gli elementi non scadono automaticamente.
 
-La logica precedente può essere illustrata in questa matrice:
+   - Se è presente e il valore è impostato su "-1", che è uguale a infinito, gli elementi non scadono per impostazione predefinita.
 
-|  | DefaultTTL mancante o non impostata nella raccolta | DefaultTTL = -1 nella raccolta | DefaultTTL = n. nella raccolta |
-| --- |:--- |:--- |:--- |
-| TTL mancante nel documento |Non viene eseguito l'override a livello di documento, perché sia il documento che la raccolta sono privi di TTL. |I documenti in questa raccolta non scadono. |I documenti nella raccolta scadono al termine dell'intervallo n. |
-| Durata TTL = -1 nel documento |Non viene eseguito l'override a livello di documento, perché la raccolta non definisce la proprietà DefaultTTL di cui è possibile eseguire l'override a livello di documento. L'impostazione TTL a livello di documento non viene interpretata dal sistema. |I documenti in questa raccolta non scadono. |Il documento con TTL =-1 in questa raccolta non scade. Tutti gli altri documenti scadono dopo l'intervallo di tempo n. |
-| TTL = n nel documento |Non viene eseguito l'override a livello di documento. L'impostazione TTL a livello di documento non viene interpretata dal sistema. |Il documento con TTL = n scade dopo l'intervallo di tempo n, espresso in secondi. Gli altri documenti ereditano l'intervallo -1 e non scadono. |Il documento con TTL = n scade dopo l'intervallo di tempo n, espresso in secondi. Gli altri documenti ereditano l'intervallo n. dalla raccolta. |
+   - Se è presente e il valore è impostato su un numero ("n"), gli elementi scadono "n" secondi dopo l'ultima modifica.
 
-## <a name="configuring-ttl"></a>Configurazione di TTL
-Per impostazione predefinita, la durata è disabilitata in tutte le raccolte di Cosmos DB e in tutti i documenti. Il valore TTL può essere impostato a livello di codice o tramite il portale di Azure. Seguire questa procedura per configurare il TTL dal portale di Azure:
+2. **Durata (TTL) per un elemento** (impostata tramite `TimeToLive`):
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) e passare all'account Azure Cosmos DB.  
+   - Questa proprietà è applicabile solo se `DefaultTimeToLive` è presente e non è impostato su Null per il contenitore padre.
 
-2. Passare alla raccolta per cui si vuole impostare il valore TTL e aprire il riquadro **Scalabilità e impostazioni**. Come si può notare, l'opzione Durata (TTL) è **No** per impostazione predefinita. È possibile modificarla impostandola su **Sì (nessun valore predefinito)** oppure su **Sì**.
+   - Se presente, esegue l'override del valore `DefaultTimeToLive` del contenitore padre.
 
-   **No** - I documenti non vengono eliminati automaticamente.  
-   **Sì (nessun valore predefinito)** - Questa opzione imposta il valore TTL su "-1" (infinito) che indica che i documenti non scadono per impostazione predefinita.  
-   **Sì** - I documenti scadono "n" secondi dopo l'ultima modifica.  
+## <a name="time-to-live-configurations"></a>Configurazioni della durata (TTL)
 
-   ![Impostare la durata (TTL)](./media/time-to-live/set-ttl-in-portal.png)
+* Se la durata è impostata su "n" per un contenitore, gli elementi all'interno di quel contenitore scadono dopo n secondi.  Se nello stesso contenitore sono presenti elementi la cui durata è impostata su -1 (a indicare che non scadono mai) o se alcuni elementi hanno eseguito l'override dell'impostazione TTL con un altro numero, questi elementi scadono in base al valore TTL configurato. 
 
-## <a name="enabling-ttl"></a>Abilitazione di TTL
-Per abilitare la durata (TTL) in una raccolta o nei documenti all'interno di una raccolta, è necessario impostare la proprietà DefaultTTL della raccolta su -1 o su un numero positivo diverso da zero. Quando DefaultTTL = -1, per impostazione predefinita tutti i documenti nella raccolta hanno durata infinita. Il servizio Cosmos DB deve tuttavia monitorare i documenti per cui viene eseguito l'override di questa impostazione predefinita nella raccolta.
+* Se la durata (TTL) non è impostata per un contenitore, la durata impostata per un elemento all'interno del contenitore non ha alcun effetto. 
 
-    DocumentCollection collectionDefinition = new DocumentCollection();
-    collectionDefinition.Id = "orders";
-    collectionDefinition.PartitionKey.Paths.Add("/customerId");
-    collectionDefinition.DefaultTimeToLive =-1; //never expire by default
+* Se la durata per un contenitore è impostata su -1, un elemento all'interno del contenitore la cui durata è impostata su n scadrà dopo n secondi, mentre gli elementi rimanenti non scadono. 
 
-    DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(databaseName),
-        collectionDefinition,
-        new RequestOptions { OfferThroughput = 20000 });
-
-## <a name="configuring-default-ttl-on-a-collection"></a>Configurazione del valore TTL predefinito in una raccolta
-È possibile configurare una durata predefinita a livello di raccolta. Per impostare la durata (TTL) in una raccolta, è necessario specificare un numero positivo diverso da zero che indica il periodo di tempo, espresso in secondi, per la scadenza di tutti i documenti nella raccolta dopo l'ultimo timestamp di modifica del documento (`_ts`). In alternativa, è possibile impostare il valore predefinito su -1, per fare in modo che tutti i documenti inseriti nella raccolta abbiano una durata illimitata per impostazione predefinita.
-
-    DocumentCollection collectionDefinition = new DocumentCollection();
-    collectionDefinition.Id = "orders";
-    collectionDefinition.PartitionKey.Paths.Add("/customerId");
-    collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
-    
-    DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
-        "/dbs/salesdb",
-        collectionDefinition,
-        new RequestOptions { OfferThroughput = 20000 });
-
-
-## <a name="setting-ttl-on-a-document"></a>Impostazione di TTL in un documento
-Oltre al valore TTL predefinito in una raccolta, è possibile impostare una durata (TTL) specifica a livello di documento. Questa impostazione esegue l'override dell'impostazione predefinita della raccolta.
-
-* Per impostare la durata (TTL) in un documento, è necessario specificare un numero positivo diverso da zero che indica il periodo di tempo, espresso in secondi, per la scadenza del documento dopo l'ultimo timestamp di modifica del documento (`_ts`).
-* Se il documento non ha il campo TTL, viene applicata l'impostazione predefinita della raccolta.
-* Se la funzionalità TTL è disabilitata a livello di raccolta, il campo TTL del documento viene ignorato finché non viene abilitata nuovamente la funzionalità TTL per la raccolta.
-
-Di seguito è riportato un frammento di codice che illustra come impostare la scadenza della durata (TTL) su un documento:
-
-    // Include a property that serializes to "ttl" in JSON
-    public class SalesOrder
-    {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
-        
-        [JsonProperty(PropertyName="cid")]
-        public string CustomerId { get; set; }
-        
-        // used to set expiration policy
-        [JsonProperty(PropertyName = "ttl", NullValueHandling = NullValueHandling.Ignore)]
-        public int? TimeToLive { get; set; }
-        
-        //...
-    }
-    
-    // Set the value to the expiration in seconds
-    SalesOrder salesOrder = new SalesOrder
-    {
-        Id = "SO05",
-        CustomerId = "CO18009186470",
-        TimeToLive = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days 
-    };
-
-
-## <a name="extending-ttl-on-an-existing-document"></a>Estensione di TTL in un documento esistente
-Per reimpostare il valore TTL in un documento è possibile eseguire una qualsiasi operazione di scrittura nel documento. L'operazione imposta `_ts` sull'ora corrente e fa ripartire il conto alla rovescia per la scadenza del documento, data dal valore di `ttl`. Per modificare il valore `ttl` di un documento, è possibile aggiornare il campo come si fa con qualsiasi altro campo impostabile.
-
-    response = await client.ReadDocumentAsync(
-        "/dbs/salesdb/colls/orders/docs/SO05"), 
-        new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
-    
-    Document readDocument = response.Resource;
-    readDocument.TimeToLive = 60 * 30 * 30; // update time to live
-    
-    response = await client.ReplaceDocumentAsync(readDocument);
-
-## <a name="removing-ttl-from-a-document"></a>Rimozione di TTL da un documento
-Se è stato impostato un valore TTL per un documento ma si preferisce non farlo scadere, è possibile recuperare il documento, rimuovere il campo TTL e sostituire il documento nel server. Quando il campo TTL viene rimosso dal documento, viene applicata l'impostazione predefinita della raccolta. Per impedire la scadenza di un documento e fare in modo che non erediti dalla raccolta, è necessario impostare il valore TTL su -1.
-
-    response = await client.ReadDocumentAsync(
-        "/dbs/salesdb/colls/orders/docs/SO05"), 
-        new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
-    
-    Document readDocument = response.Resource;
-    readDocument.TimeToLive = null; // inherit the default TTL of the collection
-    
-    response = await client.ReplaceDocumentAsync(readDocument);
-
-## <a name="disabling-ttl"></a>Disabilitazione di TTL
-Per disabilitare del tutto la durata (TTL) in una raccolta e impedire al processo in background di cercare documenti scaduti, è necessario eliminare la proprietà DefaultTTL dalla raccolta. Eliminare questa proprietà non equivale a impostarla su -1. Se la proprietà è impostata su -1, i nuovi documenti aggiunti alla raccolta non hanno scadenza ma è possibile eseguire l'override dell'impostazione per documenti specifici nella raccolta. Se la proprietà viene rimossa dalla raccolta, nessuno dei documenti ha una scadenza, anche se sono presenti documenti con override esplicito di una impostazione predefinita precedente.
-
-    DocumentCollection collection = await client.ReadDocumentCollectionAsync("/dbs/salesdb/colls/orders");
-    
-    // Disable TTL
-    collection.DefaultTimeToLive = null;
-    
-    await client.ReplaceDocumentCollectionAsync(collection);
-
-<a id="ttl-and-index-interaction"></a> 
-## <a name="ttl-and-index-interaction"></a>Interazione di durata (TTL) e indice
-L'aggiunta o la modifica dell'impostazione TTL in una raccolta comporta la modifica dell'indice sottostante. Quando il valore TTL viene modificato dallo stato inattivo a quello attivo, la raccolta viene reindicizzata. Quando si apportano modifiche ai criteri di indicizzazione e la modalità di indicizzazione è coerente, gli utenti non noteranno cambiamenti nell'indice. Quando la modalità di indicizzazione è impostata su lazy, l'indice viene sempre aggiornato e se viene modificato il valore TTL, l'indice viene ricreato da zero. Quando viene modificato il valore TTL e la modalità di indicizzazione è impostata su lazy, le query eseguite durante la ricompilazione dell'indice non restituiscono risultati completati o corretti.
-
-Se è necessaria la restituzione di dati esatti, non modificare il valore TTL quando la modalità di indicizzazione è impostata su lazy. Per garantire risultati di query coerenti bisognerebbe scegliere sempre l'indice coerente. 
-
-## <a name="faq"></a>Domande frequenti
-**Quanto costa la durata (TTL)?**
-
-Non sono previsti costi aggiuntivi per l'impostazione di una durata (TTL) in un documento.
-
-**Quanto tempo è necessario per eliminare il documento dopo la scadenza?**
-
-I documenti scadono immediatamente dopo la scadenza e non sarà possibile accedervi usando operazioni CRUD o API di query. 
-
-**La durata (TTL) impostata per un documento influisce sugli addebiti delle unità richiesta?**
-
-No, gli addebiti delle unità richiesta non risentono delle eliminazioni di documenti scaduti con TTL in Cosmos DB.
-
-**La funzionalità TTL si applica solo all'intero documento o è possibile impostare come scaduti singoli valori delle proprietà di un documento?**
-
-La funzionalità TTL si applica all'intero documento. Per impostare come scaduta solo una parte di un documento, è consigliabile estrarla dal documento principale, inserirla in un documento "collegato" separato e usare la funzionalità TTL sul documento estratto.
-
-**La funzionalità TTL ha requisiti di indicizzazione specifici?**
-
-Sì. I [criteri di indicizzazione](indexing-policies.md) della raccolta devono essere impostati su Coerente o Differita. Il tentativo di impostare DefaultTTL in una raccolta la cui indicizzazione è impostata su None genera un errore, come anche il tentativo di disabilitare l'indicizzazione in una raccolta in cui la proprietà DefaultTTL è già impostata.
+L'eliminazione di elementi in base alla durata (TTL) è gratuita. Non vengono applicati costi aggiuntivi (ossia non vengono utilizzate UR aggiuntive) quando un elemento viene eliminato in seguito alla scadenza della durata.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su Azure Cosmos DB, vedere la pagina della [*documentazione*](https://azure.microsoft.com/documentation/services/cosmos-db/) del servizio.
 
+Informazioni su come configurare la durata (TTL) sono disponibili nell'articolo seguente:
+
+* [Come configurare la durata (TTL)](how-to-time-to-live.md)
