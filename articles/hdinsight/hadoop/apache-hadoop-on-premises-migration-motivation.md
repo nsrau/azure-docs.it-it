@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f899c2fb871ee528219bd48e94de62746626447f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416121"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288119"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Motivazione e vantaggi
 
@@ -62,7 +62,7 @@ Azure HDInsight è una distribuzione cloud dei componenti Hadoop di  [Hortonwor
     - Archiviazione BLOB di Azure
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
-    - database SQL di Azure
+    -  database SQL di Azure
     - Azure Analysis Services
 
 - **Riparazione automatica di processi e i componenti** - HDInsight controlla costantemente i componenti open source e dell'infrastruttura mediante la propria infrastruttura di monitoraggio. Ripristina automaticamente anche errori critici, ad esempio l'assenza di disponibilità di nodi e componenti open source. Vengono attivati avvisi in Ambari in caso di errore in qualsiasi componente OSS.
@@ -139,10 +139,10 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Destinazioni dei dati|Hadoop Distributed File System, RDBMS, Kafka, MPP ||
 |**Argomento**: **metadati**|||
 |Tipo di database Hive|MySQL, Postgres||
-|No. di metastore Hive|2||
-|No. di tabelle Hive|100||
-|No. di criteri di Ranger|20||
-|No. di flussi di lavoro Oozie|100||
+| No. di metastore Hive|2||
+| No. di tabelle Hive|100||
+| No. di criteri di Ranger|20||
+| No. di flussi di lavoro Oozie|100||
 |**Argomento**: **scalabilità**|||
 |Volume di dati, inclusa la replica|100 TB||
 |Volume di inserimento giornaliero|50 GB||
@@ -154,11 +154,11 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Spazio su disco usato|75%||
 |% media rete usata|25%
 |**Argomento**: **personale**|||
-|No. di amministratori|2||
-|No. di sviluppatori|10||
-|No. di utenti finali|100||
+| No. di amministratori|2||
+| No. di sviluppatori|10||
+| No. di utenti finali|100||
 |Competenze|Hadoop, Spark||
-|No. di risorse disponibili per le iniziative di migrazione|2||
+| No. di risorse disponibili per le iniziative di migrazione|2||
 |**Argomento**: **limitazioni**|||
 |Limitazioni correnti|Latenza elevata||
 |Sfide correnti|Problema di concorrenza||
@@ -182,7 +182,7 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Pipeline di dati privata e protetta?|Yes||
 |Cluster aggiunto a un dominio (ESP)?|     Yes||
 |Sincronizzazione da AD locale al cloud?|     Yes||
-|No. di utenti di Active Directory da sincronizzare?|          100||
+| No. di utenti di Active Directory da sincronizzare?|          100||
 |OK sincronizzare le password nel cloud?|    Yes||
 |Utenti solo cloud?|                 Yes||
 |MFA necessaria?|                       No || 

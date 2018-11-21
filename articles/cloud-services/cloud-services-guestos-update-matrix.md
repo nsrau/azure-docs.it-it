@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: raiye
-ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 35888b205822e5d7c9576c9855610bad814901b6
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978741"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346168"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest di Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -42,6 +42,9 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste informazioni][cloud updates].
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+
+###### <a name="november-8-2018"></a>**8 novembre 2018**
+È stato rilasciato il sistema operativo guest di ottobre.
 
 ###### <a name="october-12-2018"></a>**12 ottobre 2018**
 È stato rilasciato il sistema operativo guest di settembre.
@@ -74,8 +77,9 @@ Versione .NET Framework installata: 3.5, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-5.24_201810-01 |8 novembre 2018 |Post 5.26 |
 | WA-GUEST-OS-5.23_201809-01 |12 ottobre 2018 |Post 5.25 |
-| WA-GUEST-OS-5.22_201808-01 |12 settembre 2018 |Post 5.24 |
+|~~WA-GUEST-OS-5.22_201808-01~~ |12 settembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |3 agosto 2018 |12 ottobre 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |3 luglio 2018 |12 settembre 2018 |
 |~~WA-GUEST-OS-5.19_201805-01~~ |1 giugno 2018 |3 agosto 2018 |
@@ -88,8 +92,9 @@ Versione .NET Framework installata: 3.5, 4.5.1
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-4.59_201810-01 |8 novembre 2018 |Post 4.61 |
 | WA-GUEST-OS-4.58_201809-01 |12 ottobre 2018 |Post 4.60 |
-| WA-GUEST-OS-4.57_201808-01 |12 settembre 2018 |Post 4.59 |
+|~~WA-GUEST-OS-4.57_201808-01~~ |12 settembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |3 agosto 2018 |12 ottobre 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |3 luglio 2018 |12 settembre 2018 |
 |~~WA-GUEST-OS-4.54_201805-01~~ |1 giugno 2018 |3 agosto 2018 |
@@ -102,8 +107,9 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-3.66_201810-01 |8 novembre 2018 |Post 3.68 |
 | WA-GUEST-OS-3.65_201809-01 |12 ottobre 2018 |Post 3.67 |
-| WA-GUEST-OS-3.64_201808-01 |12 settembre 2018 |Post 3.66 |
+|~~WA-GUEST-OS-3.64_201808-01~~ |12 settembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |3 agosto 2018 |12 ottobre 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |3 luglio 2018 |12 settembre 2018 |
 |~~WA-GUEST-OS-3.61_201805-01~~ |1 giugno 2018 |3 agosto 2018 |
@@ -116,8 +122,9 @@ Versione .NET Framework installata: 3.5 (include 2.0 e 3.0)
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+| WA-GUEST-OS-2.79_201810-01 |8 novembre 2018 |Post 2.81 |
 | WA-GUEST-OS-2.78_201809-01 |12 ottobre 2018 |Post 2.80 |
-| WA-GUEST-OS-2.77_201808-01 |12 settembre 2018 |Post 2.79 |
+|~~WA-GUEST-OS-2.77_201808-01~~ |12 settembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |3 agosto 2018 |12 ottobre 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 luglio 2018 |12 settembre 2018 |
 |~~WA-GUEST-OS-2.74_201805-01~~ |1 giugno 2018 |3 agosto 2018|
@@ -148,13 +155,13 @@ Quando si supera la data di **scadenza** , qualsiasi servizio cloud che usa anco
 Le famiglie dei sistemi operativi guest sono basate sulle versioni rilasciate di Microsoft Windows Server e il sistema operativo guest è il sistema operativo sottostante in cui viene eseguito Servizi cloud di Azure. A ogni sistema operativo guest sono associati una famiglia, una versione e un numero di rilascio.
 
 * **Guest OS family**  
-  Una versione del sistema operativo Windows Server sulla quale è basato un sistema operativo guest. Ad esempio, la *famiglia 3* è basata su Windows Server 2012.
+   Una versione del sistema operativo Windows Server sulla quale è basato un sistema operativo guest. Ad esempio, la *famiglia 3* è basata su Windows Server 2012.
 * **Versione del sistema operativo guest**  
   Specifica per l'immagine di una famiglia di sistemi operativi guest e per le patch pertinenti di [Microsoft Security Response Center (MSRC)][msrc] disponibili al momento dell'introduzione della nuova versione del sistema operativo guest. È possibile che non siano incluse tutte le patch.
 
     I numeri iniziano da 0 e vengono incrementati di 1 a ogni aggiunta di un nuovo set di aggiornamenti. Gli zeri finali vengono visualizzati solo se sono importanti; ad esempio, la versione 2.10 è una versione diversa e successiva rispetto alla versione 2.1.
 * **Rilascio del sistema operativo guest**  
-  Un nuovo rilascio di una versione del sistema operativo guest. Il nuovo rilascio viene introdotto se durante la fase di test Microsoft rileva problemi che richiedono l'esecuzione di modifiche. L'ultimo rilascio sostituisce sempre quelli precedenti, che siano pubblici o meno. Il portale di Azure consentirà agli utenti di scaricare soltanto l'ultimo rilascio disponibile per una determinata versione. Le distribuzioni in cui si usa una versione precedente in genere non vengono forzate all'aggiornamento in base alla gravità del bug.
+   Un nuovo rilascio di una versione del sistema operativo guest. Il nuovo rilascio viene introdotto se durante la fase di test Microsoft rileva problemi che richiedono l'esecuzione di modifiche. L'ultimo rilascio sostituisce sempre quelli precedenti, che siano pubblici o meno. Il portale di Azure consentirà agli utenti di scaricare soltanto l'ultimo rilascio disponibile per una determinata versione. Le distribuzioni in cui si usa una versione precedente in genere non vengono forzate all'aggiornamento in base alla gravità del bug.
 
 Nell'esempio seguente, 2 rappresenta la famiglia, 12 la versione e "rel2" il rilascio.
 

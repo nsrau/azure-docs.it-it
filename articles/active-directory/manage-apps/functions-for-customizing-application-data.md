@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: d8e390fc185c3cb0b63bcea56feb4b133652673d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258834"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345794"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -37,13 +37,13 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 * Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio: "Nome società: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Elenco di funzioni
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Append
-**Funzione:**<br> Append(source, suffix)
+**Funzione:**<br>  Append(source, suffix)
 
-**Descrizione:**<br> Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
+**Descrizione:**<br>  Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
 
 **Parametri:**<br> 
 
@@ -54,9 +54,9 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**Funzione:**<br> FormatDateTime(source, inputFormat, outputFormat)
+**Funzione:**<br>  FormatDateTime(source, inputFormat, outputFormat)
 
-**Descrizione:**<br> Accetta una stringa data in un formato e la converte in un formato diverso.
+**Descrizione:**<br>  Accetta una stringa data in un formato e la converte in un formato diverso.
 
 **Parametri:**<br> 
 
@@ -68,7 +68,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 - - -
 ### <a name="join"></a>Join
-**Funzione:**<br> Join(separator, source1, source2, …)
+**Funzione:**<br>  Join(separator, source1, source2, …)
 
 **Descrizione:**<br> Join() è simile ad Append(), ma può combinare più valori di stringa **source** in un singola stringa e ogni valore sarà separato da una stringa **separator**.
 
@@ -83,9 +83,9 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 - - -
 ### <a name="mid"></a>Mid
-**Funzione:**<br> Mid(source, start, length)
+**Funzione:**<br>  Mid(source, start, length)
 
-**Descrizione:**<br> Restituisce una sottostringa del valore source. Una sottostringa è una stringa che contiene solo alcuni caratteri della stringa di origine.
+**Descrizione:**<br>  Restituisce una sottostringa del valore source. Una sottostringa è una stringa che contiene solo alcuni caratteri della stringa di origine.
 
 **Parametri:**<br> 
 
@@ -109,7 +109,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 - - -
 ### <a name="not"></a>not
-**Funzione:**<br> Not(source)
+**Funzione:**<br>  Not(source)
 
 **Descrizione:**<br> Inverte il valore booleano di **source**. Se il valore di **source** è "*True*", restituisce "*False*". In caso contrario, restituisce "*True*".
 
@@ -124,7 +124,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 **Funzione:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descrizione:**<br>
-Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seconda dei parametri forniti:
+ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seconda dei parametri forniti:
 
 * Se vengono forniti **oldValue** e **replacementValue**:
   
@@ -152,6 +152,24 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 | **template** |Facoltativo |string |Se viene fornito il valore **template**, il valore **oldValue** verrà cercato in template e sostituito con il valore source. |
 
 - - -
+### <a name="selectuniquevalue"></a>SelectUniqueValue
+**Funzione:**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
+
+**Descrizione:**<br> Richiede almeno due argomenti, costituiti da regole di generazione di valori univoci definite tramite espressioni. La funzione valuta ogni regola e controlla quindi il valore generato per verificarne l'univocità nella directory/app di destinazione. Il primo valore univoco trovato sarà quello restituito. Se tutti i valori trovati sono già presenti nella destinazione, la voce verrà depositata e il motivo verrà registrato nei log di controllo. Non è previsto alcun limite relativamente al numero di argomenti che è possibile specificare.
+
+> [!NOTE]
+>1. Si tratta di una funzione di primo livello che non può essere annidata.
+>2. Questa funzione è destinata a essere usata solo per la creazione di voci. Se viene usata con un attributo, impostare la proprietà **Applica questo mapping** su **Solo durante la creazione dell'oggetto**.
+
+
+**Parametri:**<br> 
+
+| NOME | Obbligatorio/Ripetuto | type | Note |
+| --- | --- | --- | --- |
+| **uniqueValueRule1  … uniqueValueRuleN ** |Sono necessari almeno 2 argomenti, nessun limite superiore |string | Elenco delle regole di generazione di valori univoci da valutare |
+
+
+- - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Funzione:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -165,9 +183,9 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**Funzione:**<br> StripSpaces(source)
+**Funzione:**<br>  StripSpaces(source)
 
-**Descrizione:**<br> Rimuove tutti i caratteri di spazio (" ") dalla stringa di origine.
+**Descrizione:**<br>  Rimuove tutti i caratteri di spazio (" ") dalla stringa di origine.
 
 **Parametri:**<br> 
 
@@ -177,7 +195,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 - - -
 ### <a name="switch"></a>Switch
-**Funzione:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Funzione:**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Descrizione:**<br> Quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore del parametro **source** non corrisponde ad alcuna chiave, verrà restituito **defaultValue**.  I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri.
 
@@ -193,7 +211,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 ## <a name="examples"></a>Esempi
 ### <a name="strip-known-domain-name"></a>Rimuovere un nome di dominio noto
 Occorre rimuovere un nome di dominio noto dall'indirizzo di posta elettronica di un utente per ottenere il nome utente. <br>
-Ad esempio, se il dominio è "contoso.com", è possibile usare l'espressione seguente:
+ Ad esempio, se il dominio è "contoso.com", è possibile usare l'espressione seguente:
 
 **Espressione:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -238,6 +256,7 @@ NormalizeDiacritics([givenName])
 * **OUTPUT**: "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Eseguire l'output della data come stringa in un formato specifico
+
 Occorre inviare date a un'applicazione SaaS in un formato specifico, <br>
 Ad esempio, formattare le date per ServiceNow.
 
@@ -251,8 +270,9 @@ Ad esempio, formattare le date per ServiceNow.
 * **OUTPUT**: "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Sostituire un valore in base a un set di opzioni predefinito
+
 È necessario definire il fuso orario dell'utente in base al codice di stato archiviato in Azure AD. <br>
-Se il codice di stato non corrisponde ad alcuna opzione predefinita, usare il valore predefinito "Australia/Sydney".
+ Se il codice di stato non corrisponde ad alcuna opzione predefinita, usare il valore predefinito "Australia/Sydney".
 
 **Espressione:** <br>
 
@@ -262,6 +282,26 @@ Se il codice di stato non corrisponde ad alcuna opzione predefinita, usare il va
 
 * **INPUT** (state): "QLD"
 * **OUTPUT**: "Australia/Brisbane"
+
+### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generare un valore univoco per l'attributo userPrincipalName (UPN)
+
+In base al nome, al secondo nome e al cognome dell'utente, è necessario generare un valore per l'attributo UPN e verificarne l'univocità nella directory di AD di destinazione prima di assegnare il valore all'attributo UPN.
+
+**Espressione:** <br>
+
+    SelectUniqueValue( 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
+    )
+
+**Input/output di esempio:**
+
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): "Smith"
+* **OUTPUT**: "John.Smith@contoso.com" se il valore UPN di John.Smith@contoso.com non esiste già nella directory
+* **OUTPUT**: "J.Smith@contoso.com" se il valore UPN di John.Smith@contoso.com esiste già nella directory
+* **OUTPUT**: "Jo.Smith@contoso.com" se i due valori UPN precedenti esistono già nella directory
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](user-provisioning.md)

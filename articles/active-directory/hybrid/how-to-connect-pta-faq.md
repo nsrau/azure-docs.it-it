@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637866"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685651"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
@@ -36,7 +36,7 @@ L'autenticazione pass-through è una funzionalità gratuita. Per usare Azure AD 
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L'autenticazione pass-through è disponibile nel [cloud Microsoft Azure Germania](http://www.microsoft.de/cloud-deutschland) e nel [cloud Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/)?
 
-No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello mondiale.
+ No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello mondiale.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>L'[accesso condizionale](../active-directory-conditional-access-azure-portal.md) funziona con l'autenticazione pass-through?
 
@@ -48,7 +48,7 @@ Sì. L'autenticazione pass-through supporta `Alternate ID` come nome utente quan
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La sincronizzazione dell'hash delle password agisce da fallback per l'autenticazione pass-through?
 
-No. L'autenticazione pass-through _non_ esegue automaticamente il failover sulla sincronizzazione dell'hash delle password. Per evitare errori di accesso dell'utente, è consigliabile configurare l'autenticazione pass-through per la [disponibilità elevata](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+ No. L'autenticazione pass-through _non_ esegue automaticamente il failover sulla sincronizzazione dell'hash delle password. Per evitare errori di accesso dell'utente, è consigliabile configurare l'autenticazione pass-through per la [disponibilità elevata](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>È possibile installare un connettore del [proxy di applicazione di Azure AD](../manage-apps/application-proxy.md) nello stesso server in cui è presente un agente di autenticazione pass-through?
 
@@ -79,6 +79,23 @@ Se non è stato configurato il writeback delle password per un utente specifico 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Gli agenti di autenticazione pass-through possono comunicare su un server proxy Web in uscita?
 
 Sì. Se Web Proxy Auto-Discovery (WPAD) è abilitato nell'ambiente locale, gli agenti di autenticazione provano automaticamente a individuare e usare un server proxy Web della rete.
+
+Se nell'ambiente in uso non è disponibile il protocollo WPAD, è possibile aggiungere informazioni sul proxy (come illustrato di seguito) per consentire all'agente di autenticazione pass-through di comunicare con Azure AD:
+- Configurare le informazioni sul proxy in Internet Explorer prima di installare l'agente di autenticazione pass-through sul server. In questo modo sarà possibile completare l'installazione dell'agente di autenticazione, ma tale agente verrà visualizzato come **non attivo** nel portale di amministrazione.
+- Nel server passare a "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
+- Modificare il file di configurazione "AzureADConnectAuthenticationAgentService" e aggiungere le righe seguenti (sostituire "http://contosoproxy.com:8080" con l'indirizzo proxy in uso):
+
+```
+   <system.net>
+      <defaultProxy enabled="true" useDefaultCredentials="true">
+         <proxy
+            usesystemdefault="true"
+            proxyaddress="http://contosoproxy.com:8080"
+            bypassonlocal="true"
+         />
+     </defaultProxy>
+   </system.net>
+```
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>È possibile installare due o più agenti di autenticazione pass-through nello stesso server?
 

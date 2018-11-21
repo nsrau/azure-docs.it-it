@@ -13,24 +13,21 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/10/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 68028fd1ba116251860e5c370e9e9ce61fd314bb
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 601169cc62a99438f661adc06ab166b545606edb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106699"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624591"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Criteri di conservazione dei report di Azure Active Directory
 
+In questo articolo vengono illustrati i criteri di conservazione dei dati per i diversi report attività in Azure Active Directory. 
 
-Questo articolo offre le risposte alle domande più comuni sulla conservazione dei dati per i diversi report attività in Azure Active Directory. 
-
-### <a name="q-how-can-you-get-the-collection-of-activity-data-started"></a>D: Come è possibile avviare la raccolta dei dati dell'attività?
-
-**R:**
+### <a name="when-does-azure-ad-start-collecting-data"></a>Quando Azure AD avvia la raccolta dei dati?
 
 | Edizione di Azure AD | Avvio della raccolta |
 | :--              | :--   |
@@ -38,25 +35,21 @@ Questo articolo offre le risposte alle domande più comuni sulla conservazione d
 | Azure AD Free | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
 
 ---
-### <a name="q-when-is-your-activity-data-available-in-the-azure-portal"></a>D: Quando i dati dell'attività sono disponibili nel portale di Azure?
 
-**R:**
+### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Quando i dati dell'attività sono disponibili nel portale di Azure?
 
 - **Immediatamente**: se si usano già i report nel portale di Azure.
 - **Entro 2 ore**: se non si è attivata la creazione di report nel portale di Azure.
 
 ---
 
-### <a name="q-how-can-you-get-the-collection-of-security-signals-started"></a>D: Come è possibile avviare la raccolta dei segnali di sicurezza?  
+### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Quando Azure AD avvia la raccolta dei dati dei segnali di sicurezza?  
 
-**R:** Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acconsente esplicitamente all'uso di Identity Protection Center. 
-
+Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acconsente esplicitamente all'uso di **Identity Protection Center**. 
 
 ---
 
-### <a name="q-for-how-long-is-the-collected-data-stored"></a>D: Per quanto tempo rimangono archiviati i dati raccolti?
-
-**R:**
+### <a name="how-long-does-azure-ad-store-the-data"></a>Per quanto tempo Azure AD archivia i dati?
 
 **Report attività**    
 

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 8a9342a2354cd4c92fa0230965b4eef6284ee826
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209123"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568853"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
 
@@ -79,4 +79,16 @@ Se il server di elaborazione usa un proxy per la connessione a Site Recovery in 
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
+## <a name="manage-anti-virus-software-on-process-servers"></a>Gestire il software antivirus nei server di elaborazione
+
+Se il software antivirus è attivo in un server di elaborazione autonomo o in un server di destinazione master, escludere le cartelle seguenti dalle operazioni antivirus:
+
+
+- C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure
+- C:\ProgramData\ASR
+- C:\ProgramData\ASRLogs
+- C:\ProgramData\ASRSetupLogs
+- C:\ProgramData\LogUploadServiceLogs
+- C:\ProgramData\Microsoft Azure Site Recovery
+- Directory di installazione del server di elaborazione, ad esempio: C:\Programmi (x86)\Microsoft Azure Site Recovery
 

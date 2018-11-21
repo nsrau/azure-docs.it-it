@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fe7d18cdfa88988e1c7dda7f1120d4750fa52e8c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269429"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578485"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui profili tecnici nei criteri personalizzati di Azure Active Directory B2C
 
@@ -38,8 +38,7 @@ Un profilo tecnico supporta i tipi di scenario riportati di seguito.
 - [SAML2](saml-technical-profile.md): federazione con qualsiasi provider di identità con protocollo SAML.
 - [Autocertificazione](self-asserted-technical-profile.md): interazione con l'utente, ad esempio per raccogliere le credenziali dell'utente per l'accesso, eseguire il rendering della pagina di iscrizione o reimpostare la password.
 - **WsFed**: federazione con qualsiasi provider di identità con protocollo WsFed. 
-- **Gestione delle sessioni**: gestione di diversi tipi di sessioni. 
-- **Provider del contesto del percorso utente**
+- [Gestione delle sessioni](active-directory-b2c-reference-sso-custom.md): gestione di diversi tipi di sessioni. 
 - **Application Insights**
 
 ## <a name="technical-profile-flow"></a>Flusso dei profili tecnici
@@ -56,9 +55,9 @@ Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attes
     - Crea o aggiorna l'account utente.
     - Invia e verifica il messaggio di testo di MFA.
 4. **Profili tecnici di convalida**: per un [profilo tecnico autocertificato](self-asserted-technical-profile.md), è possibile chiamare un [profilo tecnico di convalida](validation-technical-profile.md) dell'input, che convalida i dati inclusi nel profilo dall'utente e restituisce un messaggio di errore oppure OK, con o senza attestazioni di output. Prima che Azure AD B2C crei un nuovo account, ad esempio, controlla se l'utente esiste già nei servizi directory. È possibile chiamare un profilo tecnico API REST per aggiungere logica di business personalizzata.<p>L'ambito delle attestazioni di output di un profilo tecnico di convalida è limitato al profilo tecnico da cui è richiamato e agli altri profili tecnici di convalida nello stesso profilo tecnico. Se si vogliono usare le attestazioni di output nel passaggio di orchestrazione successivo, è necessario aggiungerle al profilo tecnico che richiama il profilo tecnico di convalida.
-5. **Attestazioni di output**: vengono restituite al contenitore delle attestazioni. È possibile usare queste attestazioni nel passaggio di orchestrazione successivo oppure nelle trasformazioni delle attestazioni di output.
+5. **Attestazioni di output**: le attestazioni vengono restituite al contenitore delle attestazioni. È possibile usare queste attestazioni nel passaggio di orchestrazione successivo oppure nelle trasformazioni delle attestazioni di output.
 6. **Trasformazioni delle attestazioni di output**: le attestazioni di input di ogni [trasformazione delle attestazioni](claimstransformations.md) di output vengono prelevate dal contenitore delle attestazioni. Le attestazioni di output del profilo tecnico provenienti dai passaggi precedenti possono essere le attestazioni di input di una trasformazione delle attestazioni di output. Al termine dell'esecuzione, le attestazioni di output vengono inserite nel contenitore delle attestazioni. Le attestazioni di output di una trasformazione delle attestazioni di output possono essere le attestazioni di input di una successiva trasformazione delle attestazioni di output.
-7. **Gestione delle sessioni Single Sign-On (SSO)**: la [gestione delle sessioni SSO](active-directory-b2c-reference-sso-custom.md) controlla l'interazione con un utente dopo la relativa autenticazione. L'amministratore può ad esempio controllare se verrà visualizzata la selezione dei provider di identità o se sarà necessario immettere nuovamente i dettagli dell'account locale.
+7. **Gestione delle sessioni Single Sign-On (SSO)** -  la [gestione delle sessioni SSO](active-directory-b2c-reference-sso-custom.md) controlla l'interazione con un utente dopo la relativa autenticazione. L'amministratore può ad esempio controllare se verrà visualizzata la selezione dei provider di identità o se sarà necessario immettere nuovamente i dettagli dell'account locale.
 
 Un profilo tecnico può ereditare da un altro profilo tecnico per modificare le impostazioni o aggiungere nuove funzionalità.  L'elemento **IncludeTechnicalProfile** è un riferimento al profilo tecnico di base da cui un profilo tecnico è derivato.  
 

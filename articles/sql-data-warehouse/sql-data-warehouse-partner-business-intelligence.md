@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 36f0b1c0ac503efb13f69b489557af891e1286fa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e7a94f7630df7b0571d9e47b383942da65c88123
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301490"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345035"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partner di business intelligence per SQL Data Warehouse
 Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tra una vasta gamma di strumenti leader nel settore.  Questo articolo evidenzia aziende partner di Microsoft con soluzioni di business intelligence (BI) che supportano Azure SQL Data Warehouse.
@@ -79,18 +79,13 @@ Per informazioni su altri partner, vedere [Partner di integrazione di dati][di_p
 [qlik_getstarted]:http://www.qlik.com/us/products/qlik-sense/getting-started
 
 <!--Datasheet Links-->
-<!--[birst_datasheet]:--> [clearstory_datasheet]:http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf [dell_statistica_datasheet]:http://www.statsoft.com/Portals/0/Support/Download/Brochures/STATISTICA_Data_Miner.pdf [dundas_bi_datasheet]:http://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf [jinfonet_datasheet]:http://www.jinfonet.com/products/JReport%20Brief.pdf [logianalytics_datasheet]:https://www.logianalytics.com/datasheet/logi-info/ [looker_datasheet]:https://info.looker.com/h/i/229169578-looker-for-microsoft-azure <!--[qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family-->
-[sisense_datasheet]:https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf [tableau_datasheet]:http://www.tableau.com/stories/workbook/azure-sql-data <!--[targit_datasheet]:-->
+<!--[birst_datasheet]:--> [clearstory_datasheet]:http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf [dell_statistica_datasheet]:http://www.statsoft.com/Portals/0/Support/Download/Brochures/STATISTICA_Data_Miner.pdf [dundas_bi_datasheet]:http://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf [jinfonet_datasheet]:http://www.jinfonet.com/products/JReport%20Brief.pdf [logianalytics_datasheet]:https://www.logianalytics.com/datasheet/logi-info/ [looker_datasheet]:https://info.looker.com/h/i/229169578-looker-for-microsoft-azure [qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family [sisense_datasheet]:https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf [tableau_datasheet]:http://www.tableau.com/stories/workbook/azure-sql-data <!--[targit_datasheet]:-->
 [yellowfin_datasheet]:http://www.yellowfinbi.com/Document.i4?DocumentId=877299
 
 <!--Marketplace Links -->
-[birst_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/birst/birst/
-<!--[clearstory_marketplace]:-->
-<!--[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner/--> [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ <!--[jinfonet_marketplace]:-->
-<!--[logianalytics_marketplace]:https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/--> 
-[looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/ <!--[qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/ -->
-<!--[sisense_marketplace]:https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/--> 
-[tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/ [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ [yellowfin_marketplace]:https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
+[birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
+<!--[clearstory_marketplace]:--> [dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ <!--[jinfonet_marketplace]:-->
+[logianalytics_marketplace]:https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/ [looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/ [qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/ [sisense_marketplace]:https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/ [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/ [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ [yellowfin_marketplace]:https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
 
 <!--Press links-->
 <!--[birst_press]:--> [clearstory_press]:http://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/ <!--[dell_statistica_press]:-->
@@ -103,7 +98,16 @@ Per informazioni su altri partner, vedere [Partner di integrazione di dati][di_p
 <!--YouTube links-->
 [birst_youtube]:https://www.youtube.com/user/BirstBI
 [clearstory_youtube]:https://www.youtube.com/user/ClearStoryData
-<!--[dell_statistica_youtube]:https://www.youtube.com/user/DellSoftwareVideo--> [dundas_bi_youtube]:https://www.youtube.com/user/dundasdv [jinfonet_youtube]:https://www.youtube.com/user/JinfonetSoftware [logianalytics_youtube]:https://www.youtube.com/user/LogiXMLblog [looker_youtube]:https://www.youtube.com/user/LookerData [qlik_youtube]:https://www.youtube.com/user/qlikview [sisense_youtube]:https://www.youtube.com/user/sisenseanalytics [tableau_youtube]:https://www.youtube.com/user/tableausoftware [targit_youtube]:https://www.youtube.com/user/TargitAS [yellowfin_youtube]:https://www.youtube.com/user/YellowfinTeamm
+[dell_statistica_youtube]:https://www.youtube.com/user/DellSoftwareVideo
+[dundas_bi_youtube]:https://www.youtube.com/user/dundasdv
+[jinfonet_youtube]:https://www.youtube.com/user/JinfonetSoftware
+[logianalytics_youtube]:https://www.youtube.com/user/LogiXMLblog
+[looker_youtube]:https://www.youtube.com/user/LookerData
+[qlik_youtube]:https://www.youtube.com/user/qlikview
+[sisense_youtube]:https://www.youtube.com/user/sisenseanalytics
+[tableau_youtube]:https://www.youtube.com/user/tableausoftware
+[targit_youtube]:https://www.youtube.com/user/TargitAS
+[yellowfin_youtube]:https://www.youtube.com/user/YellowfinTeam
 
 <!--Twitter links-->
 [birst_twitter]:https://twitter.com/BirstBI

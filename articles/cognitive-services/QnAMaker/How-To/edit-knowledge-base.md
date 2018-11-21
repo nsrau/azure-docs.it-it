@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: fa5b5e1998d54c7b22d01e7cc70e84059d482cfb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279762"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623547"
 ---
 # <a name="edit-a-knowledge-base"></a>Modificare una Knowledge Base
 
@@ -29,30 +29,25 @@ QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'espe
 
     ![Knowledge Base personali](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
-2. Selezionare una Knowledge Base per modificarla.
+1. Selezionare una Knowledge Base per modificarla.
  
-3. Fare clic su **Settings** (Impostazioni).
-
-   Qui è possibile modificare il campo obbligatorio Nome del servizio.
+1. Selezionare **Impostazioni**. Qui è possibile modificare il campo obbligatorio Nome del servizio.
   
-   È possibile aggiungere nuovi URL per aggiungere nuovo contenuto di domande frequenti sulla Knowledge Base facendo clic sul collegamento **Gestisci Knowledge Base -> " + Aggiungi URL"**.
-   
-   È possibile eliminare gli URL esistenti facendo clic sull'**icona di eliminazione**.
-   
-   Se si desidera che la Knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, spuntare il nome della casella di controllo **"Aggiorna"**, e la Knowledge base verrà aggiornata con il contenuto più recente dell'URL.
-   
-È possibile aggiungere il documento del file supportato come parte della Knowledge Base, facendo clic su **Gestisci knowledgebase -> '"+ Aggiungi File"**
+    |Obiettivo|Azione|
+    |--|--|
+    |Aggiungere URL|È possibile aggiungere nuovi URL per aggiungere nuovi contenuti delle domande frequenti alla knowledge base facendo clic sul collegamento **Gestisci Knowledge base -> "+ Aggiungi URL"**.|
+    |Eliminare URL|È possibile eliminare gli URL esistenti selezionando l'icona di eliminazione (cestino).|
+    |Aggiornare il contenuto degli URL|Se si vuole che la knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, selezionare la casella di controllo **Aggiorna**. La knowledge base verrà aggiornata con il contenuto più recente degli URL.|
+    |Aggiungere file|È possibile aggiungere un documento supportato come parte di una knowledge base selezionando **Gestisci Knowledge base** e quindi **+ Aggiungi file**.|
+    |Importa|È anche possibile importare le knowledge base esistenti selezionando il pulsante **Importa Knowledge base**. |
+    |Aggiornamento|L'aggiornamento della Knowledge base dipende dal **piano tariffario di gestione** usato durante la creazione del servizio QnA Maker associato alla knowledge base. Se necessario, è anche possibile aggiornare il livello di gestione dal portale di Azure.
 
-È anche possibile importare le Knowledge base esistenti facendo clic sul pulsante **"Importa Knowledge base'**. 
-   
-L'aggiornamento della Knowledge base dipende dal **Piano tariffario della gestione** utilizzato durante la creazione del servizio QnA Maker associato alla knowledgbase. Se necessario, è anche possibile aggiornare il livello di gestione dal portale di Azure.
-
-4. Dopo aver apportato le modifiche alla Knowledge Base, fare clic su **Save and train** (Salva ed esegui training) nell'angolo in alto a destra della pagina per salvare le modifiche in modo permanente.    
+1. Dopo aver apportato le modifiche alla knowledge base, selezionare **Save and train** (Salva ed esegui training) nell'angolo in alto a destra della pagina per salvare le modifiche in modo permanente.    
 
     ![Save and train (Salva ed esegui training)](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
-    >[!NOTE]
-    Se si lascia la pagina prima di fare clic su Save and train (Salva ed esegui training), le modifiche non verranno salvate in modo permanente.
+    >[!CAUTION]
+    >Se si lascia la pagina prima di selezionare **Save and train** (Salva ed esegui training), tutte le modifiche andranno perse.
 
 ## <a name="add-a-qna-pair"></a>Aggiungere una coppia domanda/risposta
 
@@ -62,7 +57,7 @@ Selezionare **Add QnA pair** (Aggiungi coppia domanda/risposta) per aggiungere u
 
 ## <a name="delete-a-qna-pair"></a>Eliminare una coppia domanda/risposta
 
-Per eliminare una coppia domanda/risposta, fare clic sull'icona **Elimina** all'estrema destra della riga.
+Per eliminare una coppia domanda/risposta, fare clic sull'icona **Elimina** all'estrema destra della riga. Si tratta di un'operazione definitiva. Non può essere modificata. Prendere in considerazione la possibilità di esportare la knowledge base dalla pagina **Pubblica** prima di eliminare le coppie. 
 
 ![Eliminare una coppia domanda/risposta](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -95,6 +90,10 @@ Aggiungere coppie di metadati selezionando l'icona del filtro
 L'eliminazione di una knowledge base (KB) è un'operazione definitiva. Non può essere modificata. Prima di eliminare una knowledge base è necessario esportarla dalla pagina **Impostazioni** del portale di QnA Maker. 
 
 Se si condivide la KB con i [collaboratori](collaborate-knowledge-base.md) e quindi la si elimina, tutti gli utenti perdono l'accesso alla knowledge base. 
+
+## <a name="delete-azure-resources"></a>Eliminare le risorse di Azure 
+
+Se si elimina una delle risorse di Azure usate per le knowledge base di QnA Maker, le knowledge base non funzioneranno più. Prima di eliminare qualsiasi risorsa, assicurarsi di esportare le knowledge base dalla pagina **Impostazioni**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

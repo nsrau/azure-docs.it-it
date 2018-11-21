@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: df29d0a55317d06d656d8444c6bd7754c6c955eb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407215"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567384"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Strumenti per la visualizzazione e l'esplorazione dei dati nella macchina virtuale per data science
 
@@ -60,7 +60,7 @@ Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli 
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Strumento di visualizzazione dei dati interattivo e di BI    |
-| Versioni supportate della macchina virtuale per data science      | Windows  |
+| Versioni supportate della macchina virtuale per data science      |  Windows  |
 | Usi tipici      |  Visualizzazione dei dati e creazione di dashboard   |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, Juno      |
