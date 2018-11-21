@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280674"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685702"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -59,12 +59,13 @@ Per aggiungere un identificatore univoco globale (GUID), si apporta una sola mod
 1. [Verificare l'esito positivo del GUID nella distribuzione del modello](#verify-the-guid-deployment).
 
 ### <a name="sample-resource-manager-template-code"></a>Esempio di codice di modello di Resource Manager
-Assicurarsi di modificare il seguente codice di esempio con il proprio input quando aggiunto al file del modello principale.
+
+Per abilitare il rilevamento delle risorse per il modello, è necessario aggiungere la risorsa aggiuntiva seguente nella sezione risorse. Assicurarsi di modificare il seguente codice di esempio con il proprio input quando aggiunto al file del modello principale.
 La risorsa deve essere aggiunta solo nel file **mainTemplate.json** o **azuredeploy.json**, non in un template annidato o collegato.
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
+{ // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
@@ -126,14 +127,14 @@ Un GUID è un numero di riferimento univoco con 32 cifre esadecimali. Per creare
 > [!Note]
 > Per la creazione di questo GUID è altamente consigliato l'uso del [form per il generatore di GUID di Archiviazione di Azure](https://aka.ms/StoragePartners). Per altre informazioni, vedere la sezione [Domande frequenti](#faq).
 
-Creare un GUID univoco per ogni canale di offerta e distribuzione. Se si utilizzano due soluzioni utilizzando un modello e ciascuna è disponibile su Azure Marketplace e su GitHub, è necessario creare quattro GUID:
+Si consiglia di creare un GUID univoco per ogni canale di offerta e distribuzione per ogni prodotto. È possibile scegliere di usare un unico GUID per i vari canali di distribuzione del prodotto se non si vuole suddividere la creazione di report. 
 
-*   Offerta A su Azure Marketplace 
-*   Offerta A su GitHub
-*   Offerta B su Azure Marketplace 
-*   Offerta B su GitHub
+Se si usa un modello per distribuire un prodotto disponibile su Azure Marketplace e su GitHub, è possibile creare e registrare 2 GUID distinti:
 
-La creazione di report viene effettuata in base al valore partner (ID partner Microsoft) e al GUID. 
+*   Prodotto A su Azure Marketplace 
+*   Prodotto A su GitHub
+
+La creazione di report viene effettuata in base al valore partner (ID partner Microsoft) e ai GUID. 
 
 È anche possibile tracciare i GUID a un livello più granulare, come a livello di SKU (dove le SKU sono varianti di un'offerta).
 

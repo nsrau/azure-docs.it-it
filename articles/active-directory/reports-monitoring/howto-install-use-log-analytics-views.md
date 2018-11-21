@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 10/01/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b1333eda0fa0bffdf3852f24414511f55acc090e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395532"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624642"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installare e usare le viste di Log Analytics per Azure Active Directory
 
@@ -42,7 +42,7 @@ Per usare le viste di Log Analytics, è necessario:
 
 1. Passare all'area di lavoro di Log Analytics. A tale scopo, passare innanzitutto al [portale di Azure](https://portal.azure.com) e selezionare **Tutti i servizi**. Digitare **Log Analytics** nella casella di testo e selezionare **Log Analytics**. Selezionare l'area di lavoro a cui sono stati indirizzati i log attività, come parte dei prerequisiti.
 2. Selezionare **Visualizza finestra di progettazione**, selezionare **Importa** e quindi selezionare **Scegli file** per importare le viste dal computer locale.
-3. Selezionare le viste scaricate dai prerequisiti e selezionare **Salva** per salvare l'importazione. Eseguire questa operazione per la vista **Azure AD Account Provisioning Events** (Eventi di provisioning account Azure AD), la vista **Sign-ins Events** (Eventi di accesso) e la vista **Users Performing Consent** (Consenso dagli utenti).
+3. Selezionare le viste scaricate dai prerequisiti e selezionare **Salva** per salvare l'importazione. Eseguire questa operazione per la vista **Azure AD Account Provisioning Events** (Eventi di provisioning account Azure AD) e la vista **Sign-ins Events** (Eventi di accesso).
 
 ## <a name="use-the-views"></a>Usare le viste
 
@@ -52,7 +52,6 @@ Per usare le viste di Log Analytics, è necessario:
 
     * **Azure AD Account Provisioning Events**(Eventi di provisioning account Azure AD): questa vista mostra i report relativi al controllo delle attività di provisioning, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e gli errori di provisioning, il numero di utenti aggiornati e gli errori di aggiornamento, nonché il numero di utenti di cui è stato annullato il provisioning e gli errori corrispondenti.    
     * **Sign-ins Events** (Eventi di accesso): questa vista mostra i report rilevanti relativi al monitoraggio delle attività di accesso, ad esempio gli accessi per applicazione, utente e dispositivo, nonché una visualizzazione di riepilogo che riporta il numero di accessi nel tempo.
-    * **Users Performing Consent** (Consenso dagli utenti): questa vista mostra i report relativi al consenso dell'utente, ad esempio i consensi per utente, gli accessi di utenti che hanno concesso il consenso e gli accessi per applicazione per tutte le applicazioni basate sul consenso dell'utente. 
 
 3. Selezionare una di queste viste per passare ai singoli report. È anche possibile impostare avvisi per qualsiasi parametro dei report. Ad esempio, di seguito viene descritto come impostare un avviso per ogni errore di accesso. Selezionare prima di tutto la vista **Sign-ins Events** (Eventi di accesso), selezionare il report **Sign-in errors over time** (Errori di accesso nel tempo) e quindi selezionare **Analytics** (Analisi) per aprire la pagina dei dettagli con la query effettiva associata al report. 
 

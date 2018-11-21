@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c16da55540faaf165faa592c3565b317a8eab922
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914091"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687334"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
@@ -91,7 +91,7 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 ![Portale di Azure: riquadro Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> L'accesso Single Sign-On facile crea un account computer denominato `AZUREADSSOACC`, che rappresenta Azure AD, in Active Directory (AD) locale in ciascuna foresta di AD. Questo account computer è necessario per poter usare questa funzionalità. Spostare l'account computer `AZUREADSSOACC` in un'unità organizzativa in cui sono archiviati altri account computer per assicurarsi che venga gestito allo stesso modo e non venga eliminato.
+> L'accesso Single Sign-On facile crea un account computer denominato `AZUREADSSOACC`, che rappresenta Azure AD, in Active Directory (AD) locale in ciascuna foresta di AD. Questo account computer è necessario per poter usare questa funzionalità. In caso di uso delle architetture Pass-the-Hash e Credential Theft Mitigation nell'ambiente locale, assicurarsi che l'account computer denominato `AZUREADSSOACC` non venga inserito nel contenitore Quarantine. Apportare le modifiche appropriate per creare l'account computer nel contenitore Computers. Dopo aver abilitato l'accesso Seamless SSO nella procedura guidata di Azure AD Connect, spostare l'account computer denominato `AZUREADSSOACC` in un'unità organizzativa in cui vengono gestiti altri account computer per assicurarsi che non venga eliminato per errore.
 
 ## <a name="step-3-roll-out-the-feature"></a>Passaggio 3: Distribuire la funzionalità
 

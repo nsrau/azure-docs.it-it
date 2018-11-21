@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7ce5c7007414bfe8e17727c25de9712e7993dc1e
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263753"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686263"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
 
@@ -73,7 +73,7 @@ In alternativa, è possibile specificare manualmente i criteri di ripetizione ne
 
 | Valore | type | DESCRIZIONE |
 |-------|------|-------------|
-| <*retry-policy-type*> | string | Il tipo di criteri di ripetizione che si desidera usare: "Predefiniti", "Nessuno", "Intervallo fisso" o "Intervallo esponenziale" | 
+| <*retry-policy-type*> | string | Il tipo di criteri di ripetizione da usare: `default`, `none`, `fixed` o `exponential` | 
 | <*retry-interval*> | string | L'intervallo di ripetizione in cui il valore deve usare il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L'intervallo minimo predefinito è `PT5S`, l'intervallo massimo è `PT1D`. Quando si usano i criteri a intervallo esponenziale, è possibile specificare valori minimi e massimi diversi. | 
 | <*retry-attempts*> | Integer | Numero di tentativi di ripetizione, che deve essere compresi tra 1 e 90 | 
 ||||
@@ -221,9 +221,9 @@ Per i limiti degli ambiti, vedere [Limiti e configurazione](../logic-apps/logic-
 
 ### <a name="get-context-and-results-for-failures"></a>Ottenere il contesto e i risultati per gli errori
 
-Rilevare gli errori è molto utile, ma può essere opportuno anche il contesto per comprendere esattamente quali azioni hanno avuto esito negativo e tutti gli errori o i codici di stato restituiti. L'espressione "@result()" offre il contesto relativo al risultato di tutte le azioni all'interno di un ambito.
+Rilevare gli errori è molto utile, ma può essere opportuno anche il contesto per comprendere esattamente quali azioni hanno avuto esito negativo e tutti gli errori o i codici di stato restituiti. L'espressione `@result()` offre il contesto relativo al risultato di tutte le azioni all'interno di un ambito.
 
-La funzione "@result()" accetta un unico parametro (il nome dell'ambito) e restituisce una matrice dei risultati di tutte le azioni all'interno di tale ambito. Questi oggetti azione includono gli stessi attributi dell'oggetto **@actions()**, ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID correlazione e gli output dell'azione. Per inviare il contesto per una qualsiasi azione non riuscita all'interno di un ambito, è possibile associare una funzione **@result()** a una proprietà **runAfter**.
+L'espressione `@result()` accetta un unico parametro (il nome dell'ambito) e restituisce una matrice dei risultati di tutte le azioni all'interno di tale ambito. Questi oggetti azione includono gli stessi attributi dell'oggetto **@actions()**, ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID correlazione e gli output dell'azione. Per inviare il contesto per una qualsiasi azione non riuscita all'interno di un ambito, è possibile associare una funzione **@result()** a una proprietà **runAfter**.
 
 Per eseguire un'azione per ogni azione di un ambito con risultato **Failed**, e per filtrare la matrice dei risultati in modo da ottenere le azioni non riuscite, è possibile associare **@result()** a un'azione **[Filter Array](../connectors/connectors-native-query.md)** e a un ciclo [**For each**](../logic-apps/logic-apps-control-flow-loops.md). La matrice dei risultati filtrata può quindi essere usata per eseguire un'azione per ogni errore con il ciclo **For each**. 
 
@@ -270,22 +270,22 @@ Di seguito è riportato un esempio, con una spiegazione dettagliata, che invia u
 
 Ecco la procedura dettagliata che descrive quanto accaduto in questo esempio:
 
-1. Per ottenere il risultato di tutte le azioni nell'ambito "My_Scope", l'azione **Filter Array** usa questa espressione filtro: "@result('My_Scope')"
+1. Per ottenere il risultato di tutte le azioni nell'ambito "My_Scope", l'azione **Filter Array** usa questa espressione filtro: `@result('My_Scope')`
 
-2. La condizione per **Filter Array** è qualsiasi elemento "@result()" con stato uguale a **Failed**. Questa condizione filtra la matrice che ha tutti i risultati dell'azione da "My_Scope" fino a una matrice con i soli risultati delle azioni non riuscite.
+2. La condizione per **Filter Array** richiede qualsiasi elemento `@result()` con stato uguale a **Failed**. Questa condizione filtra la matrice che ha tutti i risultati dell'azione da "My_Scope" fino a una matrice con i soli risultati delle azioni non riuscite.
 
 3. Eseguire un'azione del ciclo **For each** sugli output della *matrice filtrata*. Questo passaggio esegue un'azione per ogni risultato di azione non riuscita precedentemente filtrato.
 
    Se una sola azione nell'ambito ha avuto esito negativo, le azioni nel ciclo **For each** vengono eseguite una sola volta. 
    Molte azioni non riuscite determinano un'azione per errore.
 
-4. Inviare HTTP POST nel corpo della riposta dell'elemento **For each**, cioè l'espressione "@item()['outputs']['body']". 
+4. Inviare HTTP POST nel corpo della risposta dell'elemento **For each**, cioè l'espressione `@item()['outputs']['body']`. 
 
-   La forma dell'elemento "@result()" è uguale alla forma di "@actions()" e può essere analizzata nello stesso modo.
+   La forma dell'elemento `@result()` è uguale alla forma di `@actions()` e può essere analizzata nello stesso modo.
 
-5. Includere due intestazioni personalizzate con il nome dell'azione non riuscita ("@item()['name']") e l'ID di rilevamento del client dell'esecuzione non riuscita ("@item()['clientTrackingId']").
+5. Inclusione di due intestazioni personalizzate con il nome dell'azione non riuscita (`@item()['name']`) e l'ID rilevamento client dell'esecuzione non riuscita (`@item()['clientTrackingId']`).
 
-Come riferimento, di seguito è riportato un esempio di un singolo elemento "@result()", che mostra le proprietà **name**, **body** e **clientTrackingId** analizzate nell'esempio precedente. All'esterno di un'azione **For each**, "@result()" restituisce una matrice di questi oggetti.
+Come riferimento, di seguito è riportato un esempio di un singolo elemento `@result()`, che visualizza le proprietà **name**, **body** e **clientTrackingId** analizzate nell'esempio precedente. All'esterno di un'azione **For each**, `@result()` restituisce una matrice di questi oggetti.
 
 ```json
 {

@@ -10,25 +10,24 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: 404a40f8949add77153d3fbf53b5c68dfb866128
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: d2d648dd02426596e1c070ffd494458c68060085
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377881"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613444"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Esercitazione: Eseguire il caricamento, la codifica e lo streaming di video tramite API
 
-Servizi multimediali consente di codificare i file multimediali nei formati che possono essere riprodotti su una vasta gamma di browser e dispositivi. Ad esempio, potrebbe essere necessario trasmettere il contenuto nei formati HLS o MPEG DASH di Apple. Prima dello streaming, è consigliabile codificare il file multimediale digitale di alta qualità. Per indicazioni per la codifica, vedere i [concetti correlati alla codifica](encoding-concept.md). Questa esercitazione descrive come caricare un file video locale e codificare il file caricato. È anche possibile codificare contenuti resi accessibili tramite un URL HTTPS. Per altre informazioni, vedere [Creare un input del processo da un URL HTTP(s)](job-input-from-http-how-to.md).
+Servizi multimediali di Azure consente di codificare i file multimediali nei formati che possono essere riprodotti in una vasta gamma di browser e dispositivi. Ad esempio, potrebbe essere necessario trasmettere il contenuto nei formati HLS o MPEG DASH di Apple. Prima dello streaming, è consigliabile codificare il file multimediale digitale di alta qualità. Per indicazioni per la codifica, vedere i [concetti correlati alla codifica](encoding-concept.md). Questa esercitazione descrive come caricare un file video locale e codificare il file caricato. È anche possibile codificare contenuti resi accessibili tramite un URL HTTPS. Per altre informazioni, vedere [Creare un input del processo da un URL HTTP(s)](job-input-from-http-how-to.md).
 
 ![Riprodurre il video](./media/stream-files-tutorial-with-api/final-video.png)
 
 Questa esercitazione illustra come:    
 
 > [!div class="checklist"]
-> * Creare un account di Servizi multimediali
 > * Accedere all'API di Servizi multimediali
 > * Configurare l'app di esempio
 > * Esaminare il codice per caricamento, codifica e streaming
@@ -40,7 +39,14 @@ Questa esercitazione illustra come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se Visual Studio non è installato, è possibile scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Se Visual Studio non è installato, è possibile scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+
+    Attualmente, non tutti i comandi delle [interfacce della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando solo in locale.
+
+- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+
+    Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
@@ -51,10 +57,6 @@ Clonare nel computer un repository GitHub contenente l'esempio .NET di streaming
  ```
 
 L'esempio è disponibile nella cartella [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles).
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -172,7 +174,7 @@ Questo esempio visualizza gli URL che è possibile usare per riprodurre il video
 
 ## <a name="test-the-streaming-url"></a>Testare l'URL di streaming
 
-Per testare lo streaming in questo articolo viene usato Azure Media Player. 
+Per testare lo streaming, in questo articolo viene usato Azure Media Player. 
 
 > [!NOTE]
 > Se un lettore è ospitato in un sito https, assicurarsi di aggiornare l'URL impostandolo su "https".
@@ -185,11 +187,11 @@ Azure Media Player può essere usato a scopo di test ma non deve essere usato in
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se nessuna delle risorse usate è più necessaria, compresi gli account di archiviazione e di Servizi multimediali creati per questa esercitazione, eliminare il gruppo di risorse creato in precedenza. A tal fine è possibile usare lo strumento **CloudShell**.
+Se nessuna delle risorse usate è più necessaria, compresi gli account di archiviazione e di Servizi multimediali creati per questa esercitazione, eliminare il gruppo di risorse creato in precedenza.
 
-In **CloudShell** eseguire il comando seguente:
+Eseguire il comando dell'interfaccia della riga di comando seguente:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 820fd904ac4ab983f4bd9858f3cf1ecff147876e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a4519484c3319ca73bef2862db4d279ba117c4f
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386621"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636731"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Azure Active Directory usando criteri personalizzati in Azure Active Directory B2C 
 
@@ -31,20 +31,19 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 
 Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD, è necessario registrare un'applicazione all'interno del tenant aziendale di Azure AD.
 
->[!NOTE]
->Nelle istruzioni seguenti, `Contoso.com` viene usato come tenant di Azure AD dell'organizzazione e `fabrikamb2c.onmicrosoft.com` come tenant di Azure AD B2C.
-
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Assicurarsi di usare la directory contenente il tenant di Azure AD dell'organizzazione (contoso.com) facendo clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliendo tale directory.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 4. Selezionare **Registrazione nuova applicazione**.
 5. Immettere un nome per l'applicazione. Ad esempio: `Azure AD B2C App`.
 6. In **Tipo di applicazione** selezionare `Web app / API`.
-7. In **URL di accesso** immettere l'URL seguente, interamente in lettere minuscole, sostituendo `your-tenant` con il nome del tenant di Azure AD B2C (fabrikamb2c.onmicrosoft.com):
+7. In **URL di accesso** immettere l'URL seguente, interamente in lettere minuscole, sostituendo `your-B2C-tenant-name` con il nome del tenant di Azure AD B2C:
 
     ```
-    https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
+
+    Ad esempio: `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
 8. Fare clic su **Create**(Crea). Copiare l'**ID applicazione**, che dovrà essere usato in seguito.
 9. Selezionare l'applicazione e quindi **Impostazioni**.
@@ -85,7 +84,7 @@ Per consentire agli utenti di accedere con Azure AD, è necessario definire Azur
           <Protocol Name="OpenIdConnect"/>
           <OutputTokenFormat>JWT</OutputTokenFormat>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-tenant/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
             <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
@@ -119,7 +118,7 @@ Per consentire agli utenti di accedere con Azure AD, è necessario definire Azur
     </ClaimsProvider>
     ```
 
-4. Nell'elemento **ClaimsProvider** aggiornare il valore di **Domain** con un valore univoco che ne consenta la distinzione rispetto ad altri provider di identità.
+4. Nell'elemento **ClaimsProvider** aggiornare il valore di **Domain** con un valore univoco che ne consenta la distinzione rispetto ad altri provider di identità. Ad esempio, `Contoso`. Non aggiungere `.com` alla fine dell'impostazione del dominio.
 5. Nell'elemento **ClaimsProvider** aggiornare il valore di **DisplayName** con un nome descrittivo per il provider di attestazioni. Questo valore non è attualmente usato.
 
 ### <a name="update-the-technical-profile"></a>Aggiornare il profilo tecnico
@@ -130,7 +129,7 @@ Per ottenere un token dall'endpoint di Azure AD, è necessario definire i protoc
 2. Aggiornare il valore di **DisplayName**. Questo valore verrà visualizzato sul pulsante di accesso nella schermata di accesso.
 3. Aggiornare il valore di **Description**.
 4. Azure AD usa il protocollo OpenID Connect, pertanto è necessario verificare che il valore di **Protocol** sia `OpenIdConnect`.
-5. Impostare il valore di **METADATA** su `https://login.windows.net/your-tenant/.well-known/openid-configuration`, dove `your-tenant` è il nome del tenant di Azure AD, ad esempio, contoso.com.
+5. Impostare il valore di **METADATA** su `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, dove `your-AD-tenant-name` è il nome del tenant di Azure AD. Ad esempio: `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Aprire il browser, passare all'URL **METADATA** appena aggiornato, cercare l'oggetto **issuer**, quindi copiare e incollare il valore di **ProviderName** nel file XML.
 8. Impostare **client_id** e **IdTokenAudience** sull'ID applicazione ottenuto con la registrazione dell'applicazione.
 9. In **CryptograhicKeys** aggiornare il valore di **StorageReferenceId** sulla chiave criteri definita. Ad esempio: `ContosoAppSecret`.
@@ -158,7 +157,7 @@ Il provider di identità è a questo punto configurato, ma non è disponibile in
 L'elemento **ClaimsProviderSelection** è analogo a un pulsante per il provider di identità in una schermata di iscrizione/accesso. Se si aggiunge un elemento **ClaimsProviderSelection** per Azure AD, quando un utente apre la pagina viene visualizzato un nuovo pulsante.
 
 1. Trovare l'elemento **OrchestrationStep** che include `Order="1"` nel percorso utente creato.
-2. In **ClaimsProviderSelects** aggiungere l'elemento riportato di seguito. Impostare **TargetClaimsExchangeId** su un valore appropriato, ad esempio `ContosoExchange`:
+2. In **ClaimsProviderSelections** aggiungere l'elemento riportato di seguito. Impostare **TargetClaimsExchangeId** su un valore appropriato, ad esempio `ContosoExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />

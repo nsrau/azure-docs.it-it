@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 8c669e13ec3345ff75024c54eda8c13ad194705a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2e254faae0289cd00c7e66d430ec3148fccb364a
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741131"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Esercitazione: Integrazione di Azure Active Directory con Confluence SAML SSO by Microsoft
 
@@ -65,9 +65,17 @@ A tutt'oggi sono supportate le versioni seguenti di Confluence:
 
 - Confluence: da 5.0 a 5.10
 - Confluence: 6.0.1
+- Confluence: 6.1.1
 - Confluence: 6.2.1
+- Confluence: 6.3.4
+- Confluence: 6.4.0
+- Confluence: 6.5.0
 - Confluence: 6.6.2
+- Confluence: 6.7.0
 - Confluence: 6.8.1
+- Confluence: 6.9.0
+- Confluence: 6.10.0
+- Confluence: 6.11.0
 - Confluence: 6.12.0
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
@@ -144,7 +152,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. La porta è facoltativa nel caso di un URL denominato. Questi valori vengono ricevuti durante la configurazione del plug-in Confluence, illustrata più avanti nell'esercitazione.
 
-5. Nella pagina **Certificato di firma SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+5. Nella pagina **Certificato di firma SAML** nella sezione **Certificato di firma SAML** fare clic sul pulsante di copia per copiare il valore di **URL dei metadati di federazione dell'app** e incollarlo in Blocco note.
 
     ![Collegamento di download del certificato](./media/confluencemicrosoft-tutorial/tutorial_metadataurl.png)
 

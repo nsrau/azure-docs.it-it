@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: fcc10723b2fb750b099f99999de01ab699d5d5e8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 545d60207bbd1941920bc0e70096417c35486634
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887769"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634598"
 ---
 # <a name="what-is-text-analytics"></a>Informazioni su Analisi del testo
 
@@ -27,12 +27,16 @@ L'API è supportata dalle risorse dei [Servizi cognitivi Microsoft](https://docs
 
 Analisi del testo può avere diversi significati, ma nei Servizi cognitivi l'API Analisi del testo offre quattro tipi di analisi, come descritto nella tabella seguente.
 
-| Operazioni| DESCRIZIONE | API |
+| Operazioni| Descrizione | API |
 |-----------|-------------|------|
 |[**Analisi del sentiment**](how-tos/text-analytics-how-to-sentiment-analysis.md) | Serve a scoprire l'opinione dei clienti sul marchio o sull'argomento analizzando il testo non elaborato alla ricerca di indizi su sentiment positivo o negativo. L'API restituisce un punteggio sentiment compreso tra 0 e 1 per ogni documento, dove 1 è il risultato più positivo.<br /> I modelli di analisi vengono formati preventivamente usando un corpo completo di testo e tecnologie di linguaggio naturale di Microsoft. Per [alcune lingue](text-analytics-supported-languages.md), l'API può analizzare e assegnare punteggi a qualsiasi testo non elaborato fornito dall'utente, restituendo direttamente i risultati all'applicazione chiamante. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
 |[**Estrazione frasi chiave**](how-tos/text-analytics-how-to-keyword-extraction.md) | Estrae automaticamente frasi chiave per identificare rapidamente i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso".  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
 |[**Rilevamento lingua**](how-tos/text-analytics-how-to-language-detection.md) | Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report su un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) | 
-|[**Riconoscimento di entità (Anteprima)**](how-tos/text-analytics-how-to-entity-linking.md) | Identificare e classificare le entità nel testo come persone, luoghi, organizzazioni, data/ora, quantità, percentuali, valute e altro ancora. Le entità più note vengono anche riconosciute e collegate ad altre informazioni sul Web. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) | 
+|[**Riconoscimento di entità (Anteprima)**](how-tos/text-analytics-how-to-entity-linking.md) | Identificare e classificare le entità nel testo come persone, luoghi, organizzazioni, data/ora, quantità, percentuali, valute e altro ancora. Le entità più note vengono anche riconosciute e collegate ad altre informazioni sul Web. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) |
+
+## <a name="use-containers"></a>Usare i contenitori
+
+[Usare i contenitori di Analisi del testo](how-tos/text-analytics-how-to-install-containers.md) per estrarre frasi chiave, rilevare la lingua e analizzare il sentiment in locale installando contenitori Docker standardizzati più vicino ai dati.
 
 ## <a name="typical-workflow"></a>Flusso di lavoro tipico
 
@@ -88,6 +92,6 @@ Quando si è pronti per chiamare direttamente l'API:
 
 + I [contenuti esterni e della community](text-analytics-resource-external-community.md) forniscono un elenco di post di blog e video che mostrano come usare Analisi del testo con altri strumenti e tecnologie.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
  [Documentazione dei servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/)

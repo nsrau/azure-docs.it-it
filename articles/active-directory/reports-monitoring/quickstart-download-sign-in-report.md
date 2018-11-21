@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 334649dbe315cb54ba95a29f4c69441fcd2c3417
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46362970"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621429"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Guida introduttiva: Scaricare un report relativo agli accessi con il portale di Azure
 
@@ -32,7 +32,7 @@ In questa guida introduttiva si apprenderà come scaricare i dati di accesso per
 È necessario:
 
 * Un tenant di Azure Active Directory con una licenza Premium per visualizzare il report delle attività di accesso. 
-* Un utente con il ruolo Amministratore della sicurezza, Amministratore globale, Lettore report per il tenant o con un ruolo con autorizzazioni di lettura per la sicurezza. Qualsiasi utente nel tenant, inoltre, può visualizzare i propri accessi.
+* Un utente con ruolo di **Amministratore della sicurezza**, **Ruolo con autorizzazioni di lettura per la sicurezza**, **Ruolo con autorizzazioni di lettura per i report** o **Amministratore globale** per il tenant. Qualsiasi utente nel tenant, inoltre, può visualizzare i propri accessi.
 
 ## <a name="quickstart-download-a-sign-in-report"></a>Guida introduttiva: Scaricare un report relativo agli accessi
 

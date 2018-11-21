@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01e8f74f409271810652a9202b634762ad88dcea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981247"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613427"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Esercitazione: Creare e gestire macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
@@ -155,7 +155,7 @@ La dimensioni di una macchina virtuale determinano la quantità di risorse di ca
 
 La tabella seguente classifica le dimensioni a seconda dei casi d'uso.  
 
-| type                     | Dimensioni           |    DESCRIZIONE       |
+| type                     | Dimensioni           |    Descrizione       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Utilizzo generico](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
 | [Ottimizzate per il calcolo](sizes-compute.md)   | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
@@ -252,7 +252,7 @@ Una macchina virtuale di Azure può avere uno dei diversi stati di alimentazione
 
 ### <a name="power-states"></a>Stati di alimentazione
 
-| Stato di alimentazione | DESCRIZIONE
+| Stato di alimentazione | Descrizione
 |----|----|
 | Avvio in corso | Indica che è in corso l'avvio della macchina virtuale. |
 | In esecuzione | Indica che la macchina virtuale è in esecuzione. |
@@ -262,7 +262,7 @@ Una macchina virtuale di Azure può avere uno dei diversi stati di alimentazione
 | Deallocato | Indica che la macchina virtuale è stata rimossa dall'hypervisor, ma è ancora disponibile nel piano di controllo. Alle macchine virtuali con stato deallocato non vengono addebitati i costi di calcolo. |
 | - | Indica che lo stato di alimentazione della macchina virtuale è sconosciuto. |
 
-### <a name="find-power-state"></a>Trovare lo stato di alimentazione
+### <a name="find-the-power-state"></a>Trovare lo stato di alimentazione
 
 Per recuperare lo stato di una determinata VM, usare il comando [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). Assicurarsi di specificare un nome valido per una macchina virtuale e un gruppo di risorse. 
 
@@ -315,7 +315,7 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono illustrate la creazione e la gestione di VM di base, ad esempio:
+In questa esercitazione sono state illustrate la creazione e la gestione di VM di base, ad esempio:
 
 > [!div class="checklist"]
 > * Creare e connettersi a una macchina virtuale

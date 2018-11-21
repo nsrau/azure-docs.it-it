@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 3ca7897455f763237533aa15680fbfcf805cdaf9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4ef653a603bccc001a5bbbb4c2af97e5ca0b20a8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834727"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344434"
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Scoprire e condividere esercitazioni in Azure AI Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="tutorials"></a>Esercitazioni
-Azure AI Gallery offre diverse [esercitazioni](https://gallery.cortanaintelligence.com/tutorials) che illustrano in modo dettagliato i concetti e le tecnologie di apprendimento automatico. Queste esercitazioni descrivono anche metodi avanzati per risolvere i problemi associati a questo ambito.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) offre diverse [esercitazioni](https://gallery.cortanaintelligence.com/tutorials) che illustrano in modo dettagliato i concetti e le tecnologie di apprendimento automatico. Queste esercitazioni descrivono anche metodi avanzati per risolvere i problemi associati a questo ambito.
 
 ## <a name="discover"></a>Scoprire
 Per esplorare le esercitazioni [in Gallery](http://gallery.cortanaintelligence.com), selezionare **Esercitazioni** in **Altro**.

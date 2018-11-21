@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 92328ffd8b6dbbb2be82bc70352e19f3097eb2a7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637732"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568643"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -109,7 +109,7 @@ L'elemento **Mask** contiene gli attributi seguenti:
 | type | Yes | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
 | Regex (Espressione regolare) | No  | Se **Type** è impostato su `Regex`, specificare l'espressione regolare da usare.
 
-L'esempio seguente configura un'attestazione **PhoneNumber** (NumeroTelefono) con la maschera `Simple`:
+L'esempio seguente configura un'attestazione **PhoneNumber** con la maschera `Simple`:
 
 ```XML
 <ClaimType Id="PhoneNumber">
@@ -124,7 +124,7 @@ Il framework dell'esperienza di gestione delle identità esegue il rendering del
 
 ![Utilizzo del tipo di attestazione con maschera (mask)](./media/claimsschema/mask.png)
 
-L'esempio seguente configura un'attestazione **AlternateEmail** (E-mailAlternativo) con la maschera `Regex`:
+L'esempio seguente configura un'attestazione **AlternateEmail** con la maschera `Regex`:
 
 ```XML
 <ClaimType Id="AlternateEmail">

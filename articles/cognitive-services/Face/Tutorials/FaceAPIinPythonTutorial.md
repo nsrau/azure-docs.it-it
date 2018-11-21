@@ -1,41 +1,43 @@
 ---
-title: "Esercitazione: Rilevare e incorniciare i visi in un'immagine - API Viso, Python"
+title: "Guida introduttiva: Rilevare e incorniciare i visi in un'immagine con Python SDK"
 titleSuffix: Azure Cognitive Services
-description: Informazioni sull'uso dell'API Viso con Python SDK per rilevare visi umani in un'immagine.
+description: In questa guida introduttiva verrà creato un semplice script Python che usa l'API Viso per rilevare e incorniciare i visi in un'immagine remota.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: tutorial
-ms.date: 03/01/2018
+ms.topic: quickstart
+ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127738"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684002"
 ---
-# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>Esercitazione: Rilevare e incorniciare i visi con l'API Viso e Python 
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Guida introduttiva: Creare uno script Python per rilevare e incorniciare i visi in un'immagine
 
-In questa esercitazione si apprenderà come richiamare l'API Viso tramite Python SDK per rilevare visi umani in un'immagine.
+In questa guida introduttiva verrà creato un semplice script Python che usa l'API Viso di Azure, attraverso Python SDK, per rilevare visi umani in un'immagine remota. L'applicazione mostra un'immagine selezionata e traccia una cornice attorno a ogni viso rilevato.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare l'esercitazione è necessario eseguire le operazioni seguenti:
+- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- [Python 2.7 o 3.5 e versioni successive](https://www.python.org/downloads/)
+- Strumento [pip](https://pip.pypa.io/en/stable/installing/)
+- Python SDK dell'API Viso. È possibile installarlo eseguendo il comando seguente:
+    ```bash
+    pip install cognitive_face
+    ```
 
-- Installare Python 2.7+ o Python 3.5+.
-- Installare pip.
-- Installare Python SDK per l'API Viso come indicato di seguito:
+## <a name="detect-faces-in-an-image"></a>Rilevare i visi in un'immagine
 
-```bash
-pip install cognitive_face
-```
+Creare un nuovo script Python, _FaceQuickstart.py_. Aggiungere il codice seguente. Questa è la funzionalità principale di rilevamento volto. Sarà necessario sostituire `<Subscription Key>` con il valore della chiave. È anche necessario modificare il valore di `BASE_URL` per usare l'identificatore di area corretto per la chiave. Le chiavi di sottoscrizione per la versione di valutazione gratuita vengono generate nell'area **westus**. Facoltativamente, impostare `img_url` sull'URL di qualsiasi immagine si voglia usare.
 
-- Ottenere una [chiave di sottoscrizione](https://azure.microsoft.com/try/cognitive-services/) per Servizi cognitivi Microsoft. In questa esercitazione è possibile usare la chiave primaria o quella secondaria. Tenere presente che per usare qualsiasi API Viso è necessario avere una chiave di sottoscrizione valida.
-
-## <a name="detect-a-face-in-an-image"></a>Rilevare un viso in un'immagine
+Lo script rileverà i visi chiamando il metodo **cognitive_face.face.detect**, che esegue il wrapping dell'API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e restituisce un elenco di visi.
 
 ```python
 import cognitive_face as CF
@@ -52,15 +54,22 @@ faces = CF.face.detect(img_url)
 print(faces)
 ```
 
-Di seguito è riportato un risultato di esempio. Si tratta di un elemento `list` di visi rilevati. Ogni voce dell'elenco è un'istanza `dict` dove `faceId` è un ID univoco per il viso rilevato e `faceRectangle` descrive la posizione del viso rilevato. Un ID viso scade dopo 24 ore.
+### <a name="try-the-app"></a>Provare l'app
 
-```python
-[{u'faceId': u'68a0f8cf-9dba-4a25-afb3-f9cdf57cca51', u'faceRectangle': {u'width': 89, u'top': 66, u'height': 89, u'left': 446}}]
+Eseguire l'app con il comando `python FaceQuickstart.py`. Si otterrà una risposta di testo nella finestra della console, simile alla seguente:
+
+```shell
+[{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-## <a name="draw-rectangles-around-the-faces"></a>Disegnare rettangoli attorno ai visi
+Si tratta di un elenco dei visi rilevati. Ogni voce dell'elenco è un'istanza **dict** dove `faceId` è un ID univoco per il viso rilevato e `faceRectangle` descrive la posizione del viso rilevato. 
 
-Usando le coordinate JSON ricevute dal comando precedente, è possibile disegnare rettangoli sull'immagine per rappresentare visivamente ogni viso. È necessario eseguire l'operazione `pip install Pillow` per usare il modulo di immagini `PIL`.  All'inizio del file aggiungere quanto segue:
+> [!NOTE]
+> Gli ID viso scadono dopo 24 ore. È necessario archiviare i dati del viso in modo esplicito per poterli conservare a lungo termine.
+
+## <a name="draw-face-rectangles"></a>Disegnare rettangoli intorno ai visi
+
+Usando le coordinate ricevute dal comando precedente, è possibile disegnare rettangoli sull'immagine per rappresentare visivamente ogni viso. Sarà necessario installare Pillow (`pip install pillow`) per usare il modulo immagine Pillow. All'inizio dello script *FaceQuickstart.py* aggiungere il codice seguente:
 
 ```python
 import requests
@@ -68,7 +77,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Quindi, dopo `print(faces)`, includere nello script quanto segue:
+Quindi, nella parte inferiore dello script, aggiungere il codice seguente. Ciò consente di creare una semplice funzione per l'analisi delle coordinate del rettangolo e di usare Pillow per disegnare rettangoli sull'immagine originale. Quindi, mostra l'immagine nel visualizzatore immagine predefinito.
 
 ```python
 #Convert width height to a point in a rectangle
@@ -93,21 +102,15 @@ for face in faces:
 img.show()
 ```
 
-## <a name="further-exploration"></a>Esplorazione aggiuntiva
+## <a name="run-the-app"></a>Esecuzione dell'app
 
-Se si vuole esplorare ulteriormente l'API Viso, questa esercitazione offre un esempio di interfaccia utente grafica. Per eseguirla, installare prima [wxPython](https://wxpython.org/pages/downloads/) e quindi eseguire il comando seguente.
+Prima di tutto, potrebbe essere richiesto di selezionare un visualizzatore di immagini predefinito. Quindi, verrà visualizzata un'immagine simile alla seguente. Nella finestra della console dovrebbero essere visualizzati anche i dati del rettangolo.
 
-```bash
-git clone https://github.com/Microsoft/Cognitive-Face-Python.git
-cd Cognitive-Face-Python
-python sample
-```
+![Una giovane donna con un rettangolo rosso tracciato attorno al viso](../images/face-rectangle-result.png)
 
-## <a name="summary"></a>Summary
+## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso il processo di base per l'uso dell'API Viso tramite la chiamata di Python SDK. Per altre informazioni sui dettagli dell'API, vedere le guide pratiche e le [informazioni di riferimento dell'API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+In questa guida introduttiva si è appreso il processo di base per l'uso del Python SDK dell'API Viso ed è stato creato uno script per rilevare e incorniciare i visi in un'immagine. In seguito, si esaminerà l'uso di Python SDK in un esempio più complesso. Passare all'esempio Cognitive Face Python su GitHub, clonarlo nella propria cartella di progetto e seguire le istruzioni nel file _README.md_.
 
-## <a name="related-topics"></a>Argomenti correlati
-
-- [Getting Started with Face API in CSharp](FaceAPIinCSharpTutorial.md) (Introduzione all'API Viso in CSharp)
-- [Getting Started with Face API in Java for Android](FaceAPIinJavaForAndroidTutorial.md) (Introduzione all'API Viso in Java per Android)
+> [!div class="nextstepaction"]
+> [Esempio Cognitive Face Python](https://github.com/Microsoft/Cognitive-Face-Python)

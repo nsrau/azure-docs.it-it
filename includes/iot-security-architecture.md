@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 7407bed746f863a5daecfc98d2df89175ff35b5f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263950"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51293192"
 ---
-# <a name="internet-of-things-security-architecture"></a>Architettura di sicurezza di Internet delle cose
+# <a name="internet-of-things-iot-security-architecture"></a>Architettura della sicurezza di Internet delle cose (IoT)
 
 Quando si progetta un sistema, è importante comprendere le potenziali minacce e aggiungere le difese appropriate di conseguenza, perché il sistema è definito da una progettazione e un'architettura specifiche. È importante progettare il prodotto tenendo conto della sicurezza, perché comprendere in che modo un utente malintenzionato potrebbe compromettere un sistema aiuta ad implementare le misure appropriate fin dall'inizio.
 
@@ -27,23 +27,23 @@ L'obiettivo della modellazione delle minacce consiste nel comprendere in che mod
 
 Molti team di sviluppo svolgono un eccellente lavoro di acquisizione dei requisiti funzionali per il sistema da cui i clienti traggono vantaggio. Tuttavia, è molto più difficile identificare i modi impropri, ma non ovvi, in cui qualcuno potrebbe usare il sistema. La modellazione delle minacce può aiutare i team di sviluppo a comprendere cosa potrebbe fare un utente malintenzionato e perché. La modellazione delle minacce è un processo strutturato che favorisce una discussione sulle decisioni in merito alla progettazione di sicurezza nel sistema, nonché sulle modifiche alla progettazione effettuate lungo il percorso e che incidono sulla sicurezza. Mentre un modello di rischio è semplicemente un documento, questa documentazione rappresenta anche un modo ideale per garantire la continuità della conoscenza, la conservazione delle lezioni apprese e il rapido inserimento del nuovo team. Infine, uno dei risultati della modellazione delle minacce consiste nella possibilità di prendere in considerazione altri aspetti della sicurezza, ad esempio quali impegni di sicurezza si vogliono fornire ai clienti. Queste operazioni, in combinazione con la modellazione delle minacce, conducono all'esecuzione di un test informato della soluzione Internet delle cose (IoT).
 
-### <a name="when-to-threat-model"></a>Quando implementare la modellazione delle minacce
+### <a name="when-to-do-threat-modeling"></a>Quando implementare la modellazione delle minacce
 
 La [modellazione delle minacce](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) offre il massimo valore aggiunto se incorporata nella fase di progettazione. Durante la progettazione, si può contare sulla massima flessibilità nell'apportare modifiche al fine di evitare le minacce. L'eliminazione delle minacce prevista da progettazione è il risultato auspicato. È molto più semplice rispetto all'aggiunta e al test di misure preventive, oltre che al garantire che rimangano correnti; per di più, tale eliminazione non è sempre possibile. È sempre più difficile eliminare minacce con l'evolversi di un prodotto, attività che, a sua volta, richiede in ultima analisi un impegno maggiore e molti più compromessi rispetto alla modellazione delle minacce nella fase iniziale dello sviluppo.
 
-### <a name="what-to-threat-model"></a>Dove implementare la modellazione delle minacce
+### <a name="what-to-consider-for-threat-modeling"></a>Aspetti da considerare per la modellazione delle minacce
 
-È consigliabile applicare la modellazione delle minacce all'intera soluzione e concentrarsi anche sulle aree seguenti:
+È consigliabile considerare la soluzione nel suo complesso e concentrarsi anche sulle aree seguenti:
 
 * Funzionalità di sicurezza e privacy
 * Funzionalità con errori di sicurezza
 * Funzionalità che incontrano un limite di attendibilità
 
-### <a name="who-threat-models"></a>Chi implementa la modellazione delle minacce
+### <a name="who-performs-threat-modeling"></a>Utente che esegue la modellazione delle minacce
 
 La modellazione delle minacce è un processo come qualsiasi altro. È consigliabile considerare il documento di modellazione delle minacce come qualsiasi altro componente della soluzione e convalidarlo. Molti team di sviluppo svolgono un eccellente lavoro di acquisizione dei requisiti funzionali per il sistema da cui i clienti traggono vantaggio. Tuttavia, è molto più difficile identificare i modi impropri, ma non ovvi, in cui qualcuno potrebbe usare il sistema. La modellazione delle minacce può aiutare i team di sviluppo a comprendere cosa potrebbe fare un utente malintenzionato e perché.
 
-### <a name="how-to-threat-model"></a>Come implementare la modellazione delle minacce
+### <a name="how-to-perform-threat-modeling"></a>Come eseguire la modellazione delle minacce
 
 Il processo di modellazione delle minacce è composto da quattro passaggi, elencati di seguito:
 
@@ -57,16 +57,21 @@ Il processo di modellazione delle minacce è composto da quattro passaggi, elenc
 Ci sono tre regole empiriche da tenere presenti durante la creazione di un modello di rischio:
 
 1. Creare un diagramma basato sull'architettura di riferimento.
-1. Iniziare con la ricerca in ampiezza. Ottenere una panoramica e comprendere il sistema nel suo complesso, prima di addentrarsi. Questo garantisce un approfondimento nei posti giusti.
-1. È l'utente a guidare il processo, non il contrario. Se si riscontra un problema durante la fase di modellazione e lo si vuole esaminare, procedere pure: non è necessario seguire pedissequamente questa procedura.
+
+2. Iniziare con la ricerca in ampiezza. Ottenere una panoramica e comprendere il sistema nel suo complesso, prima di addentrarsi. Questo garantisce un approfondimento nei posti giusti.
+
+3. È l'utente a guidare il processo, non il contrario. Se si riscontra un problema durante la fase di modellazione e lo si vuole esaminare, procedere pure: non è necessario seguire pedissequamente questa procedura.
 
 #### <a name="threats"></a>Minacce
 
 I quattro elementi principali di un modello di rischio sono i seguenti:
 
 * Processi, ad esempio servizi Web, servizi di Win32 e * nix daemon. Alcune entità complesse (ad esempio, i sensori e i gateway sul campo) possono essere astratte come processo quando non è possibile eseguire un drill-down tecnico in queste aree.
+
 * Archivi di dati (qualsiasi punto in cui sono memorizzati dati, ad esempio un file di configurazione o un database)
+
 * Flusso di dati (in cui i dati si spostano tra altri elementi nell'applicazione)
+
 * Entità esterne (tutto ciò che interagisce con il sistema, ma non è sotto il controllo dell'applicazione, ad esempio utenti e immagini satellitari)
 
 Tutti gli elementi nel diagramma dell'architettura sono soggetti a varie minacce; in questo articolo viene usato l'elemento mnemonico STRIDE. Per altre informazioni sugli elementi STRIDE, leggere il post di blog [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) (Nuova modellazione delle minacce, STRIDE).
@@ -101,11 +106,11 @@ Anche i componenti rappresentati all'interno di ogni limite sono soggetti a STRI
 
 Le sezioni seguenti illustrano i componenti standard generalmente disponibili in queste zone.
 
-### <a name="the-device-zone"></a>Zona Dispositivo
+### <a name="the-device-zone"></a>Zona del dispositivo
 
 L'ambiente del dispositivo è lo spazio fisico immediato che circonda il dispositivo, in cui l'accesso fisico e/o l'accesso digitale peer-to-peer via "rete locale" al dispositivo è fattibile. Si presuppone che una "rete locale" sia una rete distinta e isolata dalla rete Internet pubblica (ma potenzialmente connessa con bridging alla stessa) che includa tutte le tecnologie wireless a corto raggio per consentire la comunicazione peer-to-peer dei dispositivi. La stessa rete *non* include tecnologie di virtualizzazione delle reti che creino l'illusione di una rete locale, né reti di operatore pubblico che richiedano la comunicazione di una coppia qualsiasi di dispositivi in uno spazio di rete pubblica, qualora dovessero entrare in una relazione di comunicazione peer-to-peer.
 
-### <a name="the-field-gateway-zone"></a>Zona Gateway sul campo
+### <a name="the-field-gateway-zone"></a>Zona del gateway sul campo
 
 Un gateway sul campo è un dispositivo o un software per server di uso generico che agisce come componente che abilita la comunicazione e, potenzialmente, come sistema di controllo dei dispositivi e hub di elaborazione dei dati dei dispositivi. La zona di un gateway sul campo include il gateway stesso e tutti i dispositivi collegati. Come suggerisce il nome, i gateway sul campo operano all'esterno della struttura di elaborazione dei dati, sono solitamente associati alla posizione, sono potenzialmente soggetti a intrusioni e hanno una limitata ridondanza operativa. Tutto ciò per affermare che un gateway sul campo è in genere un sistema che è possibile toccare e sabotare ben conoscendone la funzione.
 
@@ -135,7 +140,7 @@ I dispositivi per scopi specifici connessi tra loro sono caratterizzati da un nu
 
 Esplorando i modelli di interazione vengono presi in esame il controllo dei dispositivi e i dati del dispositivo con lo stesso livello di attenzione mostrato durante la modellazione delle minacce. Per controllo dei dispositivi si intende qualsiasi informazione fornita a un dispositivo da qualsiasi parte, con l'obiettivo di cambiarne o influenzarne il comportamento nei riguardi del suo stesso stato o dello stato del relativo ambiente. Per dati del dispositivo si intende qualsiasi informazione emessa da un dispositivo a qualsiasi altra parte riguardo il suo stato e lo stato osservato del relativo ambiente.
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Modellazione delle minacce nell'architettura di riferimento di Azure IoT
+## <a name="performing-threat-modeling-for-the-azure-iot-reference-architecture"></a>Esecuzione della modellazione delle minacce per l'architettura di riferimento di Azure IoT
 
 Microsoft usa il framework descritto in precedenza per eseguire la modellazione delle minacce per Azure IoT. Nella sezione seguente viene quindi usato un esempio concreto di Architettura di riferimento di Azure IoT per illustrare come gestire la modellazione delle minacce per IoT e come affrontare le minacce identificate. In questo esempio vengono identificate quattro aree principali di interesse:
 

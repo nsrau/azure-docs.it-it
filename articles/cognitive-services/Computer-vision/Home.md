@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250615"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634329"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -33,7 +33,7 @@ Il servizio Visione artificiale basato sul cloud consente agli sviluppatori di a
 
 Visione artificiale può eseguire le azioni seguenti durante l'analisi di un'immagine:
 
-| Azione | DESCRIZIONE |
+| Azione | Descrizione |
 | ------ | ----------- |
 |**[Assegnare tag agli elementi visivi](concept-tagging-images.md)**|È possibile identificare e assegnare tag agli elementi visivi di un'immagine in base a più di 2.000 oggetti riconoscibili, esseri viventi, panorami e azioni. Quando i tag sono ambigui o di conoscenza non comune, la risposta fornisce suggerimenti per chiarire il significato del tag nel contesto di un'impostazione nota. L'assegnazione di tag non è limitata al soggetto principale, ad esempio una persona in primo piano, ma include anche scenari (interni o esterni), arredamenti, strumenti, piante, animali, accessori, gadget e così via.|
 |**[Classificare un'immagine](concept-categorizing-images.md)**|È possibile identificare e classificare un'intera immagine usando una [tassonomia di categorie](Category-Taxonomy.md) con gerarchie ereditarie di tipo padre/figlio. Le categorie possono essere usate singolarmente o con i nuovi modelli di assegnazione di tag.<br/>L'inglese è attualmente l'unica lingua supportata per l'assegnazione di tag e la classificazione di immagini.|
@@ -53,6 +53,10 @@ Visione artificiale può eseguire le azioni seguenti durante l'analisi di un'imm
 ## <a name="moderating-content-in-images"></a>Moderazione di contenuti nelle immagini
 
 È possibile usare Visione artificiale per [rilevare contenuti per adulti e audaci](concept-detecting-adult-content.md) in un'immagine, determinando la probabilità che l'immagine contenga contenuti per adulti o audaci e generando un punteggio di attendibilità per entrambi. Il filtro per il rilevamento del contenuto audace e per adulti può essere impostato tramite un indicatore di scorrimento in base alle preferenze dell'utente.
+
+## <a name="using-containers"></a>Uso dei contenitori
+
+[Usare i contenitori di Visione artificiale](computer-vision-how-to-install-containers.md) per riconoscere testo stampato e scritto a mano in locale installando un contenitore Docker standardizzato più vicino ai dati.
 
 ## <a name="image-requirements"></a>Requisiti dell'immagine
 

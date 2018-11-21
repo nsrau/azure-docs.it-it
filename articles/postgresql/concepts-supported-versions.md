@@ -8,30 +8,30 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/01/2018
-ms.openlocfilehash: 821273f3f9b4fb1f617f9b9e5268d819396df2b0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.date: 11/12/2018
+ms.openlocfilehash: 04e47e15206e22e7965121c6c277e4032ea04ddf
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726398"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621055"
 ---
-# <a name="supported-postgresql-database-versions"></a>Versioni supportate del Database PostgreSQL
-Microsoft intende supportare n-2 versioni del motore PostgreSQL nel servizio Database di Azure per PostgreSQL, vale a dire la versione principale attuale (n) e le due versioni principali precedenti (-2).
+# <a name="supported-postgresql-database-versions"></a>Versione supportate del database PostgreSQL
+Microsoft punta a supportare n-2 versioni del motore PostgreSQL nel servizio Database di Azure per PostgreSQL. Le versioni sono la versione principale attuale in Azure (n) e le due versioni principali precedenti (-2).
 
 Al momento il Database di Azure per PostgreSQL supporta le versioni seguenti:
 
-## <a name="postgresql-version-103"></a>PostgreSQL versione 10.3
-Consultare la [documentazione di PostgreSQL](https://www.postgresql.org/docs/10/static/release-10-3.html) per ottenere altre informazioni sui miglioramenti e sulle correzioni presenti in PostgreSQL 10.3.
+## <a name="postgresql-version-105"></a>PostgreSQL versione 10.5
+Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/10/static/release-10-5.html) per ottenere altre informazioni sulle correzioni e sui miglioramenti apportati in questa versione secondaria.
 
-## <a name="postgresql-version-967"></a>PostgreSQL versione 9.6.7
-Consultare la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.6/static/release-9-6-7.html) per ottenere altre informazioni sui miglioramenti e sulle correzioni presenti in PostgreSQL 9.6.7.
+## <a name="postgresql-version-9610"></a>PostgreSQL versione 9.6.10
+Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.6/static/release-9-6-10.html) per ottenere altre informazioni sulle correzioni e sui miglioramenti apportati in questa versione secondaria.
 
-## <a name="postgresql-version-9511"></a>PostgreSQL versione 9.5.11
-Consultare la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.5/static/release-9-5-11.html) per ottenere informazioni sui miglioramenti e sulle correzioni presenti in PostgreSQL 9.5.11.
+## <a name="postgresql-version-9514"></a>PostgreSQL versione 9.5.14
+Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.5/static/release-9-5-14.html) per ottenere altre informazioni sulle correzioni e sui miglioramenti apportati in questa versione secondaria.
 
 ## <a name="managing-updates-and-upgrades"></a>Gestire gli aggiornamenti
-Il Database di Azure per PostgreSQL gestisce automaticamente l'applicazione di patch per gli aggiornamenti di versione secondari. L'aggiornamento di versione principale non è attualmente supportato. Ad esempio, l'aggiornamento da PostgreSQL 9.5 a PostgreSQL 9.6 non è supportato.
+Database di Azure per PostgreSQL gestisce automaticamente le patch per le versioni secondarie. L'aggiornamento di versione principale non è attualmente supportato. Ad esempio, l'aggiornamento da PostgreSQL 9.5 a PostgreSQL 9.6 non è supportato. Se si vuole eseguire l'aggiornamento alla versione principale successiva, eseguire un [dump e ripristinarlo](./howto-migrate-using-dump-and-restore.md) in un server creato con la nuova versione del motore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sul supporto delle diverse estensioni di PostgreSQL, vedere [Estensioni di PostgreSQL](concepts-extensions.md).

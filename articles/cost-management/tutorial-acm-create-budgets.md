@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 338035014cb8e34caa7aea688028a96d039b028c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 49341b320df98bb08ee4f5c4ee061a51bec29ff2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977669"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686161"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
-I budget in Gestione costi consentono di pianificare e promuovere la responsabilizzazione nell'organizzazione. Con i budget, è possibile tenere traccia dei costi sostenuti per i servizi di Azure consumati o sottoscritti per un determinato periodo. Risultano utili per informare altri utenti in merito alle spese per una gestione proattiva dei costi e per monitorare l'andamento della spesa nel tempo. È possibile visualizzare l'andamento della spesa nel tempo. Quando vengono superate le soglie di budget create, vengono attivate solo notifiche. Nessuna delle risorse è interessata e il consumo non viene interrotto. È possibile usare i budget per confrontare e tenere traccia della spesa durante l'analisi dei costi.
+I budget in Gestione costi consentono di pianificare e promuovere la responsabilizzazione nell'organizzazione. Con i budget, è possibile tenere traccia dei costi sostenuti per i servizi di Azure consumati o sottoscritti per un determinato periodo. Risultano utili per informare altri utenti in merito alle spese per una gestione proattiva dei costi e per monitorare l'andamento della spesa nel tempo. Quando vengono superate le soglie di budget create, vengono attivate solo notifiche. Nessuna delle risorse è interessata e il consumo non viene interrotto. È possibile usare i budget per confrontare e tenere traccia della spesa durante l'analisi dei costi.
 
 I budget vengono reimpostati automaticamente alla fine di un periodo (mensile, trimestrale o annuale) per lo stesso importo di budget quando si seleziona una data di scadenza nel futuro. Dato che vengono reimpostati con lo stesso importo di budget, è necessario creare budget distinti se gli importi in valuta previsti differiscono per periodi futuri.
 
-Gli esempi in questa esercitazione illustrano la creazione e modifica di un budget per una sottoscrizione di Azure Enterprise Agreement (EA).
+Gli esempi in questa esercitazione illustrano la creazione e la modifica di un budget per una sottoscrizione con contratto Enterprise di Azure.
 
 In questa esercitazione si apprenderà come:
 
@@ -77,7 +77,7 @@ Nell'esempio precedente, è stato creato un budget per una sottoscrizione. Tutta
 
 ## <a name="edit-a-budget"></a>Modificare un budget
 
-A seconda del livello di accesso disponibile, è possibile modificare un budget per modificare le relative proprietà. Nell'esempio seguente, alcune proprietà sono di sola lettura perché l'utente ha solo l'autorizzazione Collaboratore per la sottoscrizione. Attualmente, la **data di scadenza** è disabilitata e non può essere modificata dopo l'impostazione.
+A seconda del livello di accesso disponibile, è possibile modificare un budget per modificare le relative proprietà. Nell'esempio seguente alcune proprietà sono di sola lettura perché l'utente ha solo l'autorizzazione Collaboratore per la sottoscrizione. Attualmente, la **data di scadenza** è disabilitata e non può essere modificata dopo l'impostazione.
 
 ![Modifica del budget - autorizzazione Collaboratore](./media/tutorial-acm-create-budgets/edit-budget.png)
 

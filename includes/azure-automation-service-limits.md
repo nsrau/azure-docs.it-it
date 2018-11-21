@@ -5,20 +5,21 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 04/05/2018
+ms.date: 11/07/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964566"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285790"
 ---
 | Risorsa | Limite massimo |Note|
 | --- | --- |---|
 | Numero massimo di nuovi processi che possono essere inviati ogni 30 secondi per account di Automazione (processi non pianificati) |100 |Quando si raggiunge questo limite, le richieste successive di creazione di un processo avranno esito negativo. Il client riceve una risposta di errore.|
 | Numero massimo di processi in esecuzione simultaneamente alla stessa istanza di tempo per account di Automazione (processi non pianificati) |200 |Quando si raggiunge questo limite, le richieste successive di creazione di un processo avranno esito negativo. Il client riceve una risposta di errore.|
+| Dimensione massima di archiviazione dei metadati del processo per un periodo continuo di 30 giorni. | 10 GB (circa 4 milioni di processi)|Quando si raggiunge questo limite, le richieste successive di creazione di un processo avranno esito negativo. |
 | Numero massimo di moduli che possono essere importati ogni 30 secondi per ogni account di Automazione |5 ||
 | Dimensione massima di un modulo |100 MB ||
 | Tempo di esecuzione processo - livello gratuito |500 minuti per sottoscrizione al mese di calendario ||

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 09/22/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 68a1367eec5392036797612e631a438b076b2cfc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1f537a381bbd595e519aaeb4cadb5b9be4657b6b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210466"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566568"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Eseguire la migrazione di server con Windows Server 2008 in Azure
 
@@ -71,7 +71,7 @@ Il resto di questa esercitazione illustra come eseguire la migrazione di macchin
 
 - Può non essere possibile connettersi con RDP ai server Windows Server 2008 SP2 che eseguono il sistema operativo a 32 bit immediatamente dopo essere stati sottoposti al failover o al failover di test in Azure. Riavviare la macchina virtuale di cui è stato effettuato il failover dal portale di Azure e provare nuovamente a connettersi. Se non è ancora possibile connettersi, verificare se il server è configurato in modo da consentire le connessioni al desktop remoto e assicurarsi che non siano presenti regole di firewall o gruppi di sicurezza di rete che bloccano la connessione. 
   > [!TIP]
-  > Si consiglia di eseguire un failover di test prima della migrazione dei server. Assicurarsi di aver eseguito almeno un failover di test con esito positivo in ogni server di cui si esegue la migrazione. Come parte del failover di test, connettersi al computer sottoposto al failover e verificare che tutto funzioni come previsto.
+  > Si consiglia di eseguire un failover di test prima della migrazione dei server. Assicurarsi di aver eseguito almeno un failover di test riuscito in ogni server di cui si esegue la migrazione. Come parte del failover di test, connettersi al computer sottoposto al failover e verificare che tutto funzioni come previsto.
   >
   >L'operazione di failover di test non comporta interruzioni e consente di testare le migrazioni creando macchine virtuali in una rete isolata di propria scelta. A differenza dell'operazione di failover, durante l'operazione di failover di test la replica dei dati continua. È possibile eseguire qualsiasi numero di failover di test prima di essere pronti a eseguire la migrazione. 
   >
@@ -154,7 +154,10 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. Selezionare l'ultimo punto di ripristino.
 3. Selezionare **Arrestare la macchina prima di iniziare il failover**. Site Recovery tenta di arrestare il server prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
 4. Assicurarsi che la macchina virtuale di Azure sia visualizzata in Azure come previsto.
-5. In **Elementi replicati** fare clic con il pulsante destro del mouse su macchina virtuale > **Completa la migrazione**. Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
+5. In **Elementi replicati** fare clic con il pulsante destro del mouse su macchina virtuale > **Completa la migrazione**. Vengono eseguite le operazioni seguenti:
+
+    - Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale AWS e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
+    - In questo passaggio vengono eliminati i dati di replica, ma non le macchine virtuali di cui è stata eseguita la migrazione.
 
    ![Completare la migrazione](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 

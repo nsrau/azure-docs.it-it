@@ -1,6 +1,6 @@
 ---
-title: Usare Pig di Hadoop con Desktop remoto in HDInsight - Azure
-description: Informazioni su come usare il comando Pig per l'esecuzione di istruzioni Pig Latin da una connessione Desktop remoto a un cluster Hadoop basato su Windows in HDInsight.
+title: Usare Apache Pig con Desktop remoto in HDInsight - Azure
+description: Informazioni su come usare il comando Apache Pig per l'esecuzione di istruzioni Pig Latin da una connessione Desktop remoto a un cluster Apache Hadoop basato su Windows in HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a7dff2c44b7cc8ccd921d2371666cb19acffbb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007230"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633343"
 ---
-# <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Eseguire processi Pig da una connessione Desktop remoto
+# <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>Eseguire processi Apache Pig da una connessione Desktop remoto
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Questo documento fornisce una procedura dettagliata dell'uso del comando Pig per l'esecuzione di istruzioni Pig Latin da una connessione Desktop remoto a un cluster HDInsight basato su Windows. Pig Latin consente di creare applicazioni MapReduce descrivendo le trasformazioni di dati, anziché eseguendo il mapping e la riduzione delle funzioni.
+Questo documento fornisce una procedura dettagliata dell'uso del comando Apache Pig per l'esecuzione di istruzioni Pig Latin da una connessione Desktop remoto a un cluster HDInsight basato su Windows. Pig Latin consente di creare applicazioni MapReduce descrivendo le trasformazioni di dati, anziché eseguendo il mapping e la riduzione delle funzioni.
 
 > [!IMPORTANT]
 > Desktop remoto è disponibile solo nei cluster HDInsight che usano Windows come sistema operativo. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

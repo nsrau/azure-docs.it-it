@@ -1,5 +1,5 @@
 ---
-title: Installare SAP HANA su SAP HANA in Azure (istanze Large) | Microsoft Docs
+title: Installare SAP HANA su SAP HANA in Azure (istanze di grandi dimensioni) | Documentazione Microsoft
 description: Come installare SAP HANA in SAP HANA in Azure (istanze Large).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 160cc4fb3ccdabfd76e228c447ad179b3616d195
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad04b229e4c6ace3f87ba6e800c0a7c82eb76d92
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231101"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633955"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze Large) in Azure
 
@@ -105,7 +105,7 @@ Note di supporto SAP applicabili all'implementazione di SAP HANA su SLES 12:
 - [SAP Support Note #171356 – SAP Software on Linux:  General Information](https://launchpad.support.sap.com/#/notes/1984787) (Nota di supporto SAP n. 171356: informazioni generali sul software SAP in Linux)
 - [SAP Support Note #1391070 – Linux UUID Solutions](https://launchpad.support.sap.com/#/notes/1391070) (Nota di supporto SAP n. 1391070: soluzioni UUID Linux)
 
-[Red Hat Enterprise Linux for SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) è un'altra offerta per l'esecuzione di SAP HANA in istanze Large di HANA. Sono disponibili le versioni RHEL 6.7 e 7.2. Si noti che, diversamente dalle macchine virtuali Azure native, che supportano solo RHEL 7.2 e le versioni più recenti, le istanze Large HANA supportano anche RHEL 6.7. È consigliabile tuttavia usare una versione RHEL 7.x.
+[Red Hat Enterprise Linux for SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) è un'altra offerta per l'esecuzione di SAP HANA in istanze di grandi dimensioni di HANA. Sono disponibili le versioni RHEL 6.7 e 7.2. Si noti che, diversamente dalle macchine virtuali Azure native, che supportano solo RHEL 7.2 e le versioni più recenti, le istanze Large HANA supportano anche RHEL 6.7. È consigliabile tuttavia usare una versione RHEL 7.x.
 
 Collegamenti aggiuntivi utili correlati a SAP in Red Hat:
 - [Sito SAP HANA su Red Hat Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
@@ -170,7 +170,7 @@ Il volume HANA/log/backup non è il volume in cui salvare i backup dei database.
 
 Oltre alle risorse di archiviazione offerte, è possibile acquistare capacità di archiviazione aggiuntiva per incrementi di 1 TB. Questo ulteriore spazio di archiviazione può essere aggiunto come nuovi volumi alle istanze Large di HANA.
 
-Durante l'onboarding con SAP HANA nella gestione del servizio di Azure, il cliente specifica un ID utente (UID) e un ID gruppo (GID) per l'utente sidadm e il gruppo sapsys, ad esempio 1000,500. È necessario che questi stessi valori vengano usati durante l'installazione del sistema SAP HANA. Poiché si vogliono distribuire più istanze di HANA in un'unità, si ottengono più set di volumi, ovvero un set per ogni istanza. Al momento della distribuzione è pertanto necessario definire gli elementi seguenti:
+Durante l'onboarding con SAP HANA nella gestione del servizio di Azure, il cliente specifica un ID utente (UID) e un ID gruppo (GID) per l'utente sidadm e il gruppo sapsys, ad esempio 1000,500. È necessario usare questi stessi valori durante l'installazione del sistema SAP HANA. Poiché si vogliono distribuire più istanze di HANA in un'unità, si ottengono più set di volumi, ovvero un set per ogni istanza. Al momento della distribuzione è pertanto necessario definire gli elementi seguenti:
 
 - SID delle diverse istanze di HANA, da cui viene derivato il valore sidadm.
 - Dimensioni della memoria delle diverse istanze di HANA. Le dimensioni della memoria per ogni istanza definiscono le dimensioni dei volumi nei singoli set di volumi.
@@ -188,7 +188,7 @@ L'output del comando df -h in un'unità di istanze Large di HANA di tipo S72m è
 ![fstab di volumi montati in un'unità di istanze Large di HANA](./media/hana-installation/image2_df_output.PNG)
 
 
-Il controller di archiviazione e i nodi nei timestamp dell'istanza Large sono sincronizzati con i server NTP. Poiché si sincronizza SAP HANA nelle unità Azure (istanze Large) e le macchine virtuali di Azure in un server NTP, non dovrebbero verificarsi sfasamenti di orario significativi tra l'infrastruttura e le unità di calcolo nei timestamp di Azure o dell'istanza Large.
+Il controller di archiviazione e i nodi nei timestamp dell'istanza di grandi dimensioni sono sincronizzati con i server NTP. Poiché si sincronizza SAP HANA nelle unità Azure (istanze Large) e le macchine virtuali di Azure in un server NTP, non dovrebbero verificarsi sfasamenti di orario significativi tra l'infrastruttura e le unità di calcolo nei timestamp di Azure o dell'istanza Large.
 
 Per ottimizzare SAP HANA per la memoria sottostante, è necessario impostare anche i parametri di configurazione di SAP HANA seguenti:
 

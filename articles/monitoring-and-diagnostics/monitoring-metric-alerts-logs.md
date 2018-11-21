@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 461c6e3cbdfcc5ef8207277b08ad4a8cf492f796
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 66a10cdd6324147509bcb45dad9e9b40b5335fef
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282799"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684917"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creare avvisi delle metriche per i log in Monitoraggio di Azure  
 
@@ -48,7 +48,7 @@ Prima che sia possibile usare la metrica per i log raccolta sui dati di Log Anal
 1. **Area di lavoro di Log Analytics attiva**: è necessario che sia presente un'area di lavoro di Log Analytics valida e attiva. Per altre informazioni, vedere [Creare un'area di lavoro di Log Analytics nel portale di Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 2. **Agente configurato per l'area di lavoro di Log Analytics**: è necessario che un agente sia configurato per le macchine virtuali di Azure (e/o) per le macchine virtuali in locale per inviare i dati all'area di lavoro di Log Analytics usata nel passaggio precedente. Per altre informazioni, vedere [Panoramica degli agenti di Azure per monitorare macchine virtuali di Azure](../monitoring/monitoring-overview-azure-agents.md).
 3. **Soluzioni di Log Analytics supportate**: la soluzione Log Analytics deve essere configurata per inviare i dati nell'area di lavoro di Log Analytics. Le soluzioni supportate sono [contatori delle prestazioni per Windows e Linux](../log-analytics/log-analytics-data-sources-performance-counters.md), [record di heartbeat per Integrità agente](../monitoring/monitoring-solution-agenthealth.md), gestione degli aggiornamenti e [dati dell'evento](../log-analytics/log-analytics-data-sources-windows-events.md).
-4. **Soluzioni di Log Analytics configurate per inviare log**: per la soluzione Log Analytis è necessario che siano abilitati i log e i dati necessari corrispondenti alle [metriche supportate per le aree di lavoro di Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces). Ad esempio, per il valore relativo alla *percentuale di memoria disponibile* il contatore relativo deve essere prima configurato nella soluzione [contatori delle prestazioni](../log-analytics/log-analytics-data-sources-performance-counters.md).
+4. **Soluzioni di Log Analytics configurate per inviare log**: per la soluzione Log Analytics è necessario che siano abilitati i log e i dati necessari corrispondenti alle [metriche supportate per le aree di lavoro di Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces). Ad esempio, per il valore relativo alla *percentuale di memoria disponibile* il contatore relativo deve essere prima configurato nella soluzione [contatori delle prestazioni](../log-analytics/log-analytics-data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configurazione degli avvisi delle metriche per i log
  Gli avvisi delle metriche possono essere creati e gestiti tramite il portale di Azure, i modelli di Resource Manager, l'API REST, PowerShell e l'interfaccia della riga di comando di Azure. Poiché gli avvisi delle metriche per i log sono una variante degli avvisi delle metriche, dopo aver soddisfatto i prerequisiti, l'avviso delle metriche per i log possono essere creati per l'area di lavoro di Log Analytics specificata. Tutte le caratteristiche e le funzionalità degli [ avvisi delle metriche](monitoring-near-real-time-metric-alerts.md) sono applicabile agli avvisi delle metriche per i log, ad esempio lo schema di payload, i limiti di quota applicabile e il prezzo fatturato.
@@ -101,7 +101,7 @@ Per ottenere lo stesso risultato, è possibile usare il modello di esempio di Az
             "type": "string",
             "defaultValue": "true",
             "metadata": {
-                "description": "Specifies whether the log convertion rule is enabled"
+                "description": "Specifies whether the log conversion rule is enabled"
             }
         },
         "convertRuleMetric": {
@@ -218,9 +218,9 @@ Per ottenere lo stesso risultato, è possibile usare il modello di esempio di Az
         }
     },
     "variables": {
-        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resouceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
+        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
         "convertRuleSourceWorkspace": {
-            "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resouceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
+            "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
         }
     },
     "resources": [

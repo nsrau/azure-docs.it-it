@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 73b594aaabd814108dfce813b53a4ea865336e63
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985064"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687436"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Analisi di flusso di Azure in IoT Edge (anteprima)
 
@@ -71,13 +71,17 @@ Per esportare la query compilata e la configurazione del processo di Analisi di 
 
 1. Dal portale di Azure creare un nuovo "processo di Analisi di flusso". [Collegamento diretto per la creazione di un nuovo processo di Analisi di flusso di Azure](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
-2. Nella schermata di creazione selezionare **Edge** come **Ambiente host** (vedere la figura seguente). ![Creazione del processo](media/stream-analytics-edge/ASAEdge_create.png)
+2. Nella schermata di creazione selezionare **Edge** come **Ambiente host** (vedere la figura seguente).
+
+   ![Creazione del processo](media/stream-analytics-edge/ASAEdge_create.png)
 3. Definizione del processo
     1. **Define Input Stream(s)** (Definisci flussi di input). Definire uno o più flussi di input per il processo.
     2. Define Reference data (Definisci dati di riferimento) (facoltativo).
     3. **Define Output Stream(s)** (Definisci flussi di output). Definire uno o più flussi di ouput per il processo. 
     4. **Definisci query**. Definire la query di Analisi di flusso di Azure nel cloud tramite l'editor inline. Il compilatore verifica automaticamente la sintassi abilitata per i dispositivi Edge di Analisi di flusso di Azure. È anche possibile testare la query caricando dati di esempio. 
+
 4. Impostare le informazioni sul contenitore di archiviazione nel menu **Impostazioni di IoT Edge**.
+
 5. Configurare le impostazioni facoltative
     1. **Ordinamento eventi**. È possibile configurare criteri non ordinati nel portale. La documentazione è disponibile [qui](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Impostazioni locali**. Impostare il formato di internalizzazione.
@@ -181,20 +185,27 @@ Al momento, gli unici tipi supportati di input e output del flusso sono rapprese
 
 
 ##### <a name="reference-data"></a>Dati di riferimento
-I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato di natura statica o che cambia molto lentamente, usato per eseguire una ricerca o per la correlazione con il flusso di dati. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://msdn.microsoft.com/library/azure/dn949258.aspx) nella query. Per altre informazioni, vedere la [documentazione di Analisi di flusso di Azure relativa ai dati di riferimento](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato di natura statica o che cambia molto lentamente, usato per eseguire una ricerca o per la correlazione con il flusso di dati. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) nella query. Per altre informazioni, vedere [Uso dei dati di riferimento per le ricerche in Analisi di flusso](stream-analytics-use-reference-data.md).
 
-Per usare i dati di riferimento per Analisi di flusso di Azure in IoT Edge, seguire questa procedura: 
+Sono supportati solo dati di riferimento locali. Quando un processo viene distribuito in un dispositivo IoT Edge, carica i dati di riferimento dal percorso file definito dall'utente.
+
+Per creare un processo con i dati di riferimento in Edge:
+
 1. Creare un nuovo input per il processo.
+
 2. Scegliere **Dati di riferimento** come **Tipo di origine**.
-3. Impostare il percorso del file, che deve essere un percorso di file **assoluto** nel dispositivo. ![Creazione di dati di riferimento](media/stream-analytics-edge/ReferenceData.png)
-4. Abilitare le **unità condivise** nella configurazione di Docker e assicurarsi che l'unità sia abilitata prima di avviare la distribuzione.
 
-Per altre informazioni, vedere la [documentazione di Docker per Windows](https://docs.docker.com/docker-for-windows/#shared-drives).
+3. Tenere un file di dati di riferimento pronto nel dispositivo. Per un contenitore Windows, inserire il file di dati di riferimento nell'unità locale e condividere l'unità locale con il contenitore Docker. Per un contenitore Linux, creare un volume Docker e popolare il file di dati nel volume.
 
-> [!Note]
-> Al momento sono supportati solo dati di riferimento locali.
+4. Impostare il percorso del file. Per un dispositivo Windows, usare il percorso assoluto. Per un dispositivo Linux, usare il percorso nel volume.
 
+![Nuovo input dei dati di riferimento per il processo Analisi di flusso di Azure in IoT Edge](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
+L'aggiornamento dei dati di riferimento in IoT Edge viene attivato da una distribuzione. Una volta attivato, il modulo ASA seleziona i dati aggiornati senza interrompere il processo in esecuzione.
+
+È possibile aggiornare i dati di riferimento in due modi:
+* Aggiornare il percorso dei dati di riferimento nel processo ASA dal portale di Azure.
+* Aggiornare la distribuzione IoT Edge.
 
 
 ## <a name="license-and-third-party-notices"></a>Licenza e comunicazioni di terze parti

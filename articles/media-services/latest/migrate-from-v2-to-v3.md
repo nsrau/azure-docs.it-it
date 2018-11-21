@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 2f5c0ef63ba150fdad4aea1a0c65269611d56815
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247688"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616011"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -45,7 +45,7 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 * Introduce il concetto di [trasformazioni](transforms-jobs-concept.md) per l'elaborazione di processi basata su file. Una trasformazione consente di creare configurazioni riutilizzabili, creare modelli di Azure Resource Manager e isolare le impostazioni di elaborazione tra più clienti o tenant.
 * Un asset può avere [più StreamingLocator](streaming-locators-concept.md) con diverse impostazioni di creazione dinamica dei pacchetti e crittografia dinamica.
 * La [protezione del contenuto](content-key-policy-concept.md) supporta le funzionalità con più chiavi.
-* È possibile trasmettere eventi live con durata fino a 24 ore.
+* È possibile trasmettere eventi live per una durata massima di 24 ore quando si usa Servizi multimediali per la transcodifica di un feed di contributi a bitrate singolo in un flusso di output a bitrate multipli.
 * Nuovo supporto per streaming live a bassa latenza nelle entità LiveEvent.
 * L'anteprima di LiveEvent supporta la creazione dinamica dei pacchetti e la crittografia dinamica. Questo consente la protezione del contenuto nell'anteprima, nonché la creazione di pacchetti DASH e HLS.
 * L'entità LiveOuput è più semplice da usare rispetto all'entità Program nelle API v2. 
@@ -59,6 +59,7 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 * Gli SDK v3 di Servizi multimediali sono ora separati da Storage SDK, che conferisce maggiore controllo sulla versione di Storage SDK che si intende usare ed evitare problemi di controllo delle versioni. 
 * Nelle API v3 tutte le velocità in bit di codifica sono in bit al secondo. Questo comportamento è diverso dai set di impostazioni di Media Encoder Standard v2. Ad esempio, la velocità in bit che in v2 viene specificata come 128 (kbps), nella versione v3 sarà 128000 (bit/secondo). 
 * Le entità AssetFiles, AccessPolicies e IngestManifests non esistono in v3.
+* La proprietà IAsset.ParentAssets non esiste nella versione 3.
 * ContentKey non è più un'entità, ma una proprietà di StreamingLocator.
 * Il supporto della griglia di eventi sostituisce NotificationEndpoints.
 * Le entità seguenti sono state rinominate

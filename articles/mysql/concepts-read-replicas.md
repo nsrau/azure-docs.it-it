@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/13/2018
+ms.openlocfilehash: 82f80fc1342f0c76cb880b020dcd835a23635b0a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412449"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632561"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -60,12 +60,15 @@ I server di replica vengono creati usando le stesse configurazioni server del ma
 - Periodo di conservazione dei backup
 - Opzione di ridondanza per il backup
 - Versione del motore MySQL
+- Regole del firewall
 
 Dopo aver creato una replica, è possibile modificare il piano tariffario (tranne da e verso Basic), la generazione di calcolo, i vCore, l'archiviazione e la conservazione dei backup in modo indipendente dal server master.
 
 ### <a name="master-server-configuration"></a>Configurazione del server master
 
-Se viene aggiornata la configurazione server di un master, ad esempio i vCore o l'archiviazione, anche la configurazione delle repliche deve essere aggiornata a valori uguali o maggiori. In caso contrario, il server di replica potrebbe non essere in grado di stare al passo con le modifiche apportate al master e di conseguenza potrebbe bloccarsi. 
+Se viene aggiornata la configurazione server di un master, ad esempio i vCore o l'archiviazione, anche la configurazione delle repliche deve essere aggiornata a valori uguali o maggiori. In caso contrario, il server di replica potrebbe non essere in grado di stare al passo con le modifiche apportate al master e di conseguenza potrebbe bloccarsi.
+
+Le nuove regole del firewall aggiunte al server master dopo la creazione di un server di replica non vengono replicate nella replica. La replica deve essere aggiornata anche con questa nuova regola del firewall.
 
 ### <a name="deleting-the-master-server"></a>Eliminazione del server master
 
@@ -87,7 +90,4 @@ Gli utenti del server master vengono replicati nelle repliche in lettura. È pos
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [creare e gestire le repliche in lettura tramite il portale di Azure](howto-read-replicas-portal.md)
-
-<!--
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
--->
+- Leggere le informazioni su come [creare e gestire repliche in lettura tramite l'interfaccia della riga di comando di Azure](howto-read-replicas-cli.md)

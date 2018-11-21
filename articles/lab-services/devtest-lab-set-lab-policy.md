@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 378eb8c1f2070e8f4b28c221369938e2ff04e2f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255178"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622024"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gestire tutti i criteri per un lab in Azure DevTest Labs
 
@@ -42,32 +42,32 @@ I criteri per l'impostazione delle dimensioni consentite per le macchine virtual
 1. Selezionare **Salva**.
 
 ## <a name="set-virtual-machines-per-user"></a>Impostazione delle macchine virtuali per utente
-I criteri per **Macchine virtuali per utente** consentono di specificare il numero massimo di macchine virtuali che possono essere create da un singolo utente. Se un utente prova a creare o attestare una macchina virtuale quando è stato raggiunto il limite per utente, un messaggio di errore indica che non è possibile creare o attestare la macchina virtuale. 
+I criteri per **Macchine virtuali per utente** consentono di specificare il numero di macchine virtuali che possono essere create da un singolo utente. Se un utente prova a creare o attestare una macchina virtuale quando è stato raggiunto il limite per utente, un messaggio di errore indica che non è possibile creare o attestare la macchina virtuale. 
 
 1. Dal riquadro **Configurazione e criteri** del lab selezionare **Macchine virtuali per utente**.
    
     ![Macchine virtuali per utente](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Selezionare **Sì** per limitare il numero di macchine virtuali per utente. Se non si desidera limitare il numero di macchine virtuali per utente, selezionare **No**. Se si seleziona **Sì**, immettere un valore numerico per indicare il numero massimo di macchine virtuali che un utente può creare o attestare. 
+1. Selezionare **Sì** per limitare il numero di macchine virtuali per utente. Se non si desidera limitare il numero di macchine virtuali per utente, selezionare **No**. Se si seleziona **Sì**, immettere un valore numerico per indicare il numero di macchine virtuali che un utente può creare o attestare. 
 
-1. Selezionare **Sì** per limitare il numero di macchine virtuali che possono usare unità SSD. Se non si desidera limitare il numero di macchine virtuali che possono usare unità SSD, selezionare **No**. Se si seleziona **Sì**, immettere un valore numerico per indicare il numero massimo di macchine virtuali che possono essere create usando unità SSD. 
+1. Selezionare **Sì** per limitare il numero di macchine virtuali che possono usare unità SSD. Se non si desidera limitare il numero di macchine virtuali che possono usare unità SSD, selezionare **No**. Se si seleziona **Sì**, immettere un valore numerico per indicare il numero di macchine virtuali che possono essere create usando unità SSD. 
 
 1. Selezionare **Salva**.
 
 ## <a name="set-virtual-machines-per-lab"></a>Impostazione delle macchine virtuali per lab
-I criteri per **Macchine virtuali per lab** consentono di specificare il numero massimo di macchine virtuali che è possibile creare per il lab corrente. Se un utente prova a creare una VM quando è stato raggiunto il limite per lab, un messaggio di errore indica che non è possibile creare la VM. 
+I criteri per **Macchine virtuali per lab** consentono di specificare il numero di macchine virtuali che è possibile creare per il lab corrente. Se un utente prova a creare una macchina virtuale quando è stato raggiunto il limite per lab, un messaggio di errore indica che non è possibile creare la macchina virtuale. 
 
 1. Dal riquadro **Configurazione e criteri** del lab selezionare **Macchine virtuali per lab**.
    
     ![Macchine virtuali per lab](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
-1. Selezionare **Sì** per limitare il numero di macchine virtuali per lab. Se non si desidera limitare il numero di macchine virtuali per lab, selezionare **No**. Se si seleziona **Sì**, immettere un valore numerico per indicare il numero massimo di macchine virtuali che un utente può creare o attestare. 
+1. Selezionare **Sì** per limitare il numero di macchine virtuali per lab. Se non si desidera limitare il numero di macchine virtuali per lab, selezionare **No**. Se si seleziona **Sì**, immettere un valore numerico per indicare il numero di macchine virtuali che un utente può creare o attestare. 
 
-1. Selezionare **Sì** per limitare il numero di macchine virtuali che possono usare unità SSD. Se non si desidera limitare il numero di macchine virtuali che possono usare unità SSD, selezionare **No**. Se si seleziona **Sì**, immettere un valore numerico per indicare il numero massimo di macchine virtuali che possono essere create usando unità SSD. 
+1. Selezionare **Sì** per limitare il numero di macchine virtuali che possono usare unità SSD. Se non si desidera limitare il numero di macchine virtuali che possono usare unità SSD, selezionare **No**. Se si seleziona **Sì**, immettere un valore numerico per indicare il numero di macchine virtuali che possono essere create usando unità SSD. 
 
 1. Selezionare **Salva**.
 
-## <a name="set-auto-shutdown"></a>Impostazione dell'arresto automatico
+## <a name="set-auto-shutdown"></a>Impostare l'arresto automatico
 I criteri di arresto automatico consentono di ridurre al minimo gli sprechi nel lab permettendo di specificare l'ora dell'arresto delle macchine virtuali del lab.
 
 1. Nel riquadro **Configurazione e criteri** del lab selezionare **Arresto automatico**.
@@ -78,7 +78,7 @@ I criteri di arresto automatico consentono di ridurre al minimo gli sprechi nel 
 
 1. Se si abilita questo criterio, specificare l'ora e il fuso orario per l'arresto di tutte le macchine virtuali nel lab attuale.
 
-1. Specificare **Sì** o **No** per questa opzione per inviare una notifica 15 minuti prima del momento specificato per l'arresto automatico. Se si sceglie **Sì**, immettere un endpoint dell'URL webhook o un indirizzo di posta elettronica che specifica dove inviare o registrare la notifica. L'utente riceve la notifica e ha la possibilità di ritardare l'arresto.
+1. Specificare **Sì** o **No** per questa opzione per inviare una notifica 15 minuti prima del momento specificato per l'arresto automatico. Se si sceglie **Sì**, immettere un endpoint dell'URL webhook o un indirizzo di posta elettronica che specifica dove inviare o registrare la notifica. L'utente riceve la notifica e ha la possibilità di posporre l'arresto.
 
    Per altre informazioni sui webhook, vedere [Creare un webhook o una funzione API di Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
@@ -86,7 +86,31 @@ I criteri di arresto automatico consentono di ridurre al minimo gli sprechi nel 
 
 Per impostazione predefinita, dopo l'abilitazione questi criteri verranno applicati a tutte le macchine virtuali nel lab corrente. Per rimuovere questa impostazione da una macchina virtuale specifica, aprire il riquadro di gestione della macchina virtuale e modificare l'impostazione **Arresto automatico**.
 
-## <a name="set-auto-start"></a>Impostazione dell'avvio automatico
+## <a name="set-auto-shutdown-policy"></a>Impostare i criteri di arresto automatico
+I proprietari del lab possono configurare una pianificazione di arresto per tutte le macchine virtuali nel lab. In questo modo, è possibile ridurre i costi dovuti all'esecuzione di macchine virtuali che non vengono usate (inattive). È possibile applicare un criterio di arresto a tutte le macchine virtuali del lab a livello centrale, ma anche evitare agli utenti di dover configurare una pianificazione per i propri computer. Questa funzionalità consente di impostare il criterio per la pianificazione del lab, offrendo agli utenti del lab il livello di controllo desiderato. I proprietari del lab possono configurare questo criterio seguendo questa procedura:
+
+1. Nella home page del lab selezionare **Configurazione e criteri**.
+2. Selezionare **Criteri di arresto automatico** nella sezione **Pianificazioni** del menu a sinistra.
+3. Selezionare una delle opzioni disponibili. Le sezioni seguenti forniscono altri dettagli su queste opzioni: il criterio impostato si applica solo alle nuove macchine virtuali create nel lab e non alle macchine virtuali già esistenti. 
+
+    ![Opzioni dei criteri di arresto automatico](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
+
+### <a name="user-sets-a-schedule-and-can-opt-out"></a>L'utente imposta una pianificazione e può rifiutare esplicitamente
+Se si imposta il lab su questo criterio, gli utenti del lab possono eseguire l'override o rifiutare esplicitamente la pianificazione del lab. Questa opzione concede agli utenti del lab il controllo completo sulla pianificazione dell'arresto automatico delle macchine virtuali. Gli utenti del lab non notano alcuna modifica nella pagina della pianificazione dell'arresto automatico della macchina virtuale.
+
+![Opzioni dei criteri di arresto automatico - 1](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-1.png)
+
+### <a name="user-sets-a-schedule-and-cannot-opt-out"></a>L'utente imposta una pianificazione e non può rifiutare esplicitamente
+Se si imposta il lab su questo criterio, gli utenti del lab possono eseguire l'override della pianificazione del lab. Non possono tuttavia rifiutare esplicitamente il criterio di arresto automatico. Questa opzione assicura che ogni computer del lab sia soggetto a una pianificazione di arresto automatico. Gli utenti del lab possono aggiornare la pianificazione dell'arresto automatico delle macchine virtuali e configurare le notifiche di arresto.
+
+![Opzioni dei criteri di arresto automatico - 2](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-2.png)
+
+### <a name="user-has-no-control-over-the-schedule-set-by-lab-admin"></a>L'utente non ha alcun controllo sulla pianificazione impostata dall'amministratore del lab
+Se si imposta il lab su questo criterio, gli utenti del lab non possono eseguire l'override o rifiutare esplicitamente la pianificazione del lab. Questa opzione offre all'amministratore del lab il controllo completo sulla pianificazione per ogni computer del lab. Gli utenti del lab possono solo configurare le notifiche di arresto automatico per le macchine virtuali.
+
+![Opzioni dei criteri di arresto automatico - 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
+
+## <a name="set-autostart"></a>Impostare l'avvio automatico
 I criteri di avvio automatico consentono di specificare l'ora in cui devono essere avviate le macchine virtuali nel lab corrente.  
 
 1. Dal riquadro **Configurazione e criteri** del lab selezionare **Avvio automatico**.

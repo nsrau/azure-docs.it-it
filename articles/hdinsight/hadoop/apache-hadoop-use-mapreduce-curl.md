@@ -1,6 +1,6 @@
 ---
-title: Usare MapReduce e Curl con Hadoop in HDInsight - Azure
-description: Informazioni su come eseguire in modalità remota processi MapReduce con Hadoop in HDInsight mediante Curl.
+title: Usare MapReduce e Curl con Apache Hadoop in HDInsight - Azure
+description: Informazioni su come eseguire in modalità remota processi MapReduce con Apache Hadoop in HDInsight mediante Curl.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 496b7dacdb30507fe5eb2d4d7c5602003a944269
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010899"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632295"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Esecuzione di processi MapReduce con Hadoop in HDInsight tramite REST
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight usando REST
 
-Informazioni su come usare l'API REST WebHCat per l'esecuzione di processi MapReduce in un cluster Hadoop in HDInsight. Curl viene usato per illustrare come sia possibile interagire con HDInsight usando richieste HTTP non elaborate per eseguire processi MapReduce.
+Informazioni su come usare l'API REST WebHCat per l'esecuzione di processi MapReduce in un cluster Apache Hadoop in HDInsight. Curl viene usato per illustrare come sia possibile interagire con HDInsight usando richieste HTTP non elaborate per eseguire processi MapReduce.
 
 > [!NOTE]
 > Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere il documento [Informazioni utili su Hadoop basato su Linux in HDInsight](../hdinsight-hadoop-linux-information.md).

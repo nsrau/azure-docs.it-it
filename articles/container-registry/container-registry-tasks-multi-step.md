@@ -1,18 +1,18 @@
 ---
 title: Automatizzare la creazione, i test e l'applicazione di patch a un'immagine con le attività in più passaggi di Registro contenitori di Azure
-description: Introduzione alle attività in più passaggi, una funzionalità di Attività del Registro contenitori di Azure in Registro contenitori di Azure che offre flussi di lavoro basati su attività per creare, testare e applicare patch a immagini contenitore nel cloud.
+description: Introduzione alle attività in più passaggi, una funzionalità di Attività del Registro contenitori di Azure che fornisce flussi di lavoro basati su attività per la compilazione, i test e l'applicazione di patch di immagini dei contenitori nel cloud.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/29/2018
 ms.author: danlep
-ms.openlocfilehash: cdabafc4f70b08076820e7e0d39300b3eb0bc1e7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856718"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632693"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Eseguire attività di creazione, test e applicazione di patch in più passaggi in Attività di Registro contenitori di Azure
 
@@ -53,7 +53,7 @@ Un'attività in più passaggi in Attività di Registro contenitori di Azure vien
 * [`push`](container-registry-tasks-reference-yaml.md#push): eseguire il push di immagini create a un registro contenitori. Sono supportati i registri privati, ad esempio Registro contenitori di Azure, nonché l'hub Docker pubblico.
 * [`cmd`](container-registry-tasks-reference-yaml.md#cmd): eseguire un contenitore, in modo che possa operare come una funzione all'interno del contesto dell'attività in esecuzione. È possibile passare parametri a `[ENTRYPOINT]` del contenitore e specificare proprietà come env, detach e altri parametri `docker run` comuni. Il tipo di passaggio `cmd` consente l'esecuzione di test funzionali e di unit test, con l'esecuzione simultanea del contenitore.
 
-Le attività in più passaggi possono essere semplici come creare ed eseguire il push di una singola immagine:
+I frammenti di codice seguenti illustrano come combinare questi tipi di passaggi delle attività. Le attività in più passaggi possono essere semplici, come la creazione di un'unica immagine da un documento Dockerfile e il push nel registro, con un file YAML simile a:
 
 ```yaml
 version: 1.0-preview-1
@@ -62,7 +62,7 @@ steps:
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
 ```
 
-Oppure possono essere complesse, come ad esempio questa attività che include passaggi per la creazione, i test, il pacchetto helm e la distribuzione helm:
+Oppure possono essere più complesse, ad esempio la definizione fittizia di più passaggi, che includono i passaggi per compilazione, test, pacchetto Helm e distribuzione Helm (la configurazione del registro contenitori e del repository Helm non è illustrata):
 
 ```yaml
 version: 1.0-preview-1
@@ -84,6 +84,8 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
+
+Vedere gli [esempi di attività][task-examples] per file YAML di attività in più passaggi completi e documenti Dockerfile per diversi scenari.
 
 ## <a name="run-a-sample-task"></a>Eseguire un'attività di esempio
 
@@ -163,6 +165,7 @@ Sebbene la funzionalità dell'attività in più passaggi di Attività del Regist
 
 * [Task reference](container-registry-tasks-reference-yaml.md) (Riferimenti alle attività): tipi, proprietà e utilizzo dei passaggi di attività.
 * [Esempi di attività][task-examples]: file `task.yaml` di esempio per vari scenari da quelli semplici a quelli complessi.
+* [Repository di comandi](https://github.com/AzureCR/cmd): raccolta di contenitori come comandi per Attività del Registro contenitori di Azure.
 
 <!-- IMAGES -->
 

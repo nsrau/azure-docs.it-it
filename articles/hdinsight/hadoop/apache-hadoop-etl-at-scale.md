@@ -1,6 +1,6 @@
 ---
 title: Estrarre, trasformare e caricare (ETL) su larga scala - Azure HDInsight
-description: Informazioni sull'uso di ETL in HDInsight con Hadoop.
+description: Informazioni sull'uso di ETL in HDInsight con Apache Hadoop.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 6af55bf8311efc14687ee16c3226988fd730081d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049003"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633326"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Estrarre, trasformare e caricare (ETL) su larga scala
 
-Estrazione, trasformazione e caricamento (ETL) è il processo tramite il quale i dati vengono acquisiti da varie origini, raccolti in una posizione standard, puliti ed elaborati e infine caricati in un archivio dati da cui è possibile eseguire query. I processi ETL legacy importano i dati, li puliscono sul posto e quindi li archiviano in un motore dati relazionale. Con HDInsight, un'ampia gamma di componenti dell'ecosistema Hadoop supportano l'esecuzione di ETL su larga scala. 
+Estrazione, trasformazione e caricamento (ETL) è il processo tramite il quale i dati vengono acquisiti da varie origini, raccolti in una posizione standard, puliti ed elaborati e infine caricati in un archivio dati da cui è possibile eseguire query. I processi ETL legacy importano i dati, li puliscono sul posto e quindi li archiviano in un motore dati relazionale. Con HDInsight, un'ampia gamma di componenti dell'ecosistema Apache Hadoop supporta l'esecuzione di ETL su larga scala. 
 
 L'uso di HDInsight nel processo ETL può essere riassunto da questa pipeline:
 

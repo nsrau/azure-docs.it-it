@@ -1,6 +1,6 @@
 ---
-title: Eseguire processi Sqoop usando .NET e HDInsight - Azure
-description: Informazioni su come usare HDInsight .NET SDK per eseguire attività di importazione ed esportazione Sqoop tra un cluster Hadoop e un database SQL di Azure.
+title: Eseguire processi Apache Sqoop usando .NET e HDInsight - Azure
+description: Informazioni su come usare HDInsight .NET SDK per eseguire attività di importazione ed esportazione Apache Sqoop tra un cluster Apache Hadoop e un database SQL di Azure.
 keywords: processo sqoop
 ms.reviewer: jasonh
 services: hdinsight
@@ -10,17 +10,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 423934dee0b490bb12522cec6d37393a1ec5e2f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0b8d408482f1f6e2bcd25182208a46d28f7b4f7a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014874"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633039"
 ---
-# <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>Eseguire processi Sqoop con .NET SDK per Hadoop in HDInsight
+# <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Eseguire processi Apache Sqoop con .NET SDK per Apache Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Informazioni su come usare Azure HDInsight .NET SDK per eseguire processi Sqoop in HDInsight per attività di importazione ed esportazione tra un cluster HDInsight e un database SQL di Azure o un database di SQL Server.
+Informazioni su come usare Azure HDInsight .NET SDK per eseguire processi Apache Sqoop in HDInsight per attività di importazione ed esportazione tra un cluster HDInsight e un database SQL di Azure o un database di SQL Server.
 
 > [!NOTE]
 > Anche se le procedure illustrate in questo articolo possono essere usate sia con un cluster HDInsight basato su Windows che con uno basato su Linux, funzionano solo se eseguite da un client Windows. Per scegliere altri metodi, usare il selettore di schede all'inizio di questo articolo.

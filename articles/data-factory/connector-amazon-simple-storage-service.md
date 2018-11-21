@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 3635e8bf1d9ba4061da5b8f416a3b755f7064000
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4885693abd8c6b66f8e68d83a8d6a2db3b0ed438
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045637"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344128"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiare dati da Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,10 @@ In particolare, il connettore Amazon S3 supporta la copia dei file così come so
 Per copiare i dati da Amazon S3, assicurarsi di avere le autorizzazioni indicate di seguito:
 
 - `s3:GetObject` e `s3:GetObjectVersion` per le operazioni di oggetto Amazon S3.
-- `s3:ListBucket` o `s3:GetBucketLocation` per le operazioni di bucket Amazon S3. Se si usa la copia guidata di Data Factory, è necessario anche `s3:ListAllMyBuckets`.
+- `s3:ListBucket` o `s3:GetBucketLocation` per le operazioni di bucket Amazon S3. 
+
+>[!NOTE]
+>Se per la creazione si usa l'interfaccia utente grafica di Data Factory, per operazioni quali la connessione di test e la ricerca o l'esplorazione di percorsi di file è necessaria anche l'autorizzazione `s3:ListAllMyBuckets`. Se non si vuole concedere questa autorizzazione, ignorare la connessione di test nella pagina di creazione del servizio collegato e specificare il percorso direttamente nelle impostazioni del set di dati.
 
 Per informazioni dettagliate sull'elenco completo delle autorizzazioni di Amazon S3 con tutti i dettagli in [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Specificare le autorizzazioni in un criterio).
 
@@ -51,8 +54,8 @@ Per il servizio collegato di Amazon S3 sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AmazonS3**. | Sì |
-| accessKeyId | ID della chiave di accesso segreta. |Sì |
+| type | La proprietà type deve essere impostata su **AmazonS3**. | Yes |
+| accessKeyId | ID della chiave di accesso segreta. |Yes |
 | secretAccessKey | La stessa chiave di accesso segreta. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
@@ -90,8 +93,8 @@ Per copiare dati da Amazon S3, impostare la proprietà type del set di dati su *
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **AmazonS3Object** |Sì |
-| bucketName | Il nome del bucket S3. Il filtro con caratteri jolly non è supportato. |Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **AmazonS3Object** |Yes |
+| bucketName | Il nome del bucket S3. Il filtro con caratteri jolly non è supportato. |Sì per l'attività Copy/Lookup, no per l'attività GetMetadata |
 | key | Il **nome o il filtro con caratteri jolly** della chiave dell'oggetto S3 nel bucket specificato. Si applica solo se la proprietà "prefix" non è specificata. <br/><br/>Il filtro con caratteri jolly è supportato solo per la parte del nome file e non per la parte della cartella. I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Esempio 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape. |No  |
 | prefix | Il prefisso per la chiave dell'oggetto S3. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo se la proprietà "key" non è specificata. |No  |
 | version | La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. |No  |
@@ -168,7 +171,7 @@ Per copiare dati da Amazon S3, impostare il tipo di origine nell'attività di co
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **FileSystemSource** |Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **FileSystemSource** |Yes |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che se recursive è impostata su true e il sink è un archivio basato su file, la cartella o la sottocartella vuota non verrà copiata o creata nel sink.<br/>I valori consentiti sono: **true** (predefinito), **false** | No  |
 
 **Esempio:**

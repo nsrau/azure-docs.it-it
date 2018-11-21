@@ -1,6 +1,6 @@
 ---
 title: Log attività di Azure Active Directory in Monitoraggio di Azure (anteprima) | Microsoft Docs
-description: Panoramica dei log attività di Azure Active Directory in Monitoraggio di Azure (anteprima)
+description: Introduzione ai log attività di Azure Active Directory in Monitoraggio di Azure (anteprima)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -13,30 +13,30 @@ ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3a4fc814a40bf370a137a2045c6218d3ee4b8778
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395529"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625437"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Log attività di Azure AD in Monitoraggio di Azure (anteprima)
 
-È ora possibile instradare i log attività di Azure Active Directory (Azure AD) al proprio account di archiviazione o hub eventi usando Monitoraggio di Azure. Con l'anteprima pubblica dei log di Azure Active Directory in Monitoraggio di Azure, è possibile:
+È ora possibile instradare i log attività di Azure Active Directory (Azure AD) a diversi endpoint per la conservazione a lungo termine e per ottenere informazioni dettagliate sui dati. L'anteprima pubblica dei log di Azure AD in Monitoraggio di Azure consente di:
 
-* Archiviare i log di controllo per un account di archiviazione di Azure, per conservare i dati per un periodo di tempo prolungato.
-* Trasmettere i log di controllo in un hub eventi di Azure per l'analisi con i più diffusi strumenti di informazioni di sicurezza e gestione degli eventi, come Splunk e QRadar.
-* Integrare i log di controllo con soluzioni per i log personalizzate eseguendone la trasmissione a un hub eventi.
+* Archiviare i log attività di Azure AD in un account di archiviazione di Azure, per conservare i dati per un lungo periodo di tempo.
+* Trasmettere i log attività di Azure AD in un hub eventi di Azure per l'analisi usando i più diffusi strumenti di informazioni di sicurezza e gestione degli eventi (SIEM), come Splunk e QRadar.
+* Integrare i log attività di Azure AD con soluzioni per i log personalizzate eseguendone la trasmissione a un hub eventi.
 * Inviare i log attività di Azure AD a Log Analytics per abilitare viste avanzate, il monitoraggio e gli avvisi per i dati connessi.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Report supportati
 
-Usando questa funzionalità, è possibile trasmettere i log attività di controllo e i log attività di accesso a un account di archiviazione di Azure, a un hub eventi o a una soluzione personalizzata. 
+Usando questa funzionalità, è possibile instradare i log di accesso e i log di controllo di Azure AD all'account di archiviazione di Azure, a un hub eventi, a Log Analytics o a una soluzione personalizzata. 
 
 * **Log di controllo**: il [report sull'attività relativo ai log di controllo](concept-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
 * **Log di accesso**: il [report sull'attività di accesso](concept-sign-ins.md) consente di determinare chi ha eseguito le attività segnalate nei log di controllo.
@@ -101,25 +101,19 @@ Per esaminare i costi legati alla gestione l'area di lavoro di Log Analytics, ve
 
 Questa sezione contiene risposte a domande frequenti e i problemi noti relativi ai log di Azure AD in Monitoraggio di Azure.
 
-**D: Da dove è consigliabile iniziare?** 
-
-**R**: Questo articolo spiega gli elementi necessari per distribuire questa funzionalità. Dopo aver soddisfatto i prerequisiti, passare alle esercitazioni che consentono di configurare e instradare i log a un hub eventi.
-
----
-
 **D: Quali log sono inclusi?**
 
 **R**: Sia i log attività di accesso che i log di controllo sono disponibili per l'invio tramite questa funzionalità, tuttavia gli eventi di controllo correlati a B2C non sono attualmente inclusi. Per scoprire quali tipi di log e quali log basati sulle funzionalità sono attualmente supportati, vedere [Schema del log di controllo](reference-azure-monitor-audit-log-schema.md) e [Schema del log di accesso](reference-azure-monitor-sign-ins-log-schema.md). 
 
 ---
 
-**D: Quanto tempo dopo un'azione vengono visualizzati i log corrispondenti in Hub eventi?**
+**D: Quanto tempo dopo un'azione i log corrispondenti vengono visualizzati nell'hub eventi?**
 
 **R**: i log verranno visualizzati nell'hub eventi entro 2-5 minuti dall'esecuzione dell'azione. Per altre informazioni su Hub eventi, vedere [Informazioni su Hub eventi di Azure](../../event-hubs/event-hubs-about.md).
 
 ---
 
-**D: Quanto tempo dopo un'azione vengono visualizzati i log corrispondenti negli account di archiviazione?**
+**D: Quanto tempo dopo un'azione i log corrispondenti vengono visualizzati nell'account di archiviazione?**
 
 **R**: Per gli account di archiviazione di Azure, la latenza è compresa tra 5 e 15 minuti dopo l'esecuzione dell'azione.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b060fc3d273a0243271d2c38f90e81f83857e79
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b269b8db59c4aeecf182b6ea11b92a3980a2cd6d
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420329"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567418"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Backup e ripristino di macchine virtuali crittografate con Backup di Azure
 Questo articolo illustra i passaggi per eseguire il backup e il ripristino di macchine virtuali tramite Backup di Azure. L'articolo contiene anche informazioni sugli scenari supportati, sui prerequisiti e sui passaggi per la risoluzione dei problemi per i casi di errore.
@@ -76,47 +76,47 @@ Se si è un **utente membro**, il processo di abilitazione del backup accederà 
    Per un **utente guest**, per consentire il funzionamento dei backup, è necessario concedere le autorizzazioni al servizio Backup per l'accesso all'insieme di credenziali delle chiavi. Per concedere queste autorizzazioni, seguire la [procedura descritta nella sezione seguente](#provide-permissions-to-backup).
 
    ![Messaggio delle macchine virtuali crittografate](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
- 
+
     Dopo avere definito tutte le impostazioni per l'insieme di credenziali, selezionare **Abilita backup** nella parte inferiore della pagina. **Abilita backup** consente di distribuire i criteri nell'insieme di credenziali e nelle macchine virtuali.
-  
+
 1. La fase successiva di preparazione è l'installazione dell'agente di macchine virtuali o la verifica che l'agente di macchine virtuali sia installato. Per eseguire la stessa operazione, seguire la procedura descritta in [Preparare l'ambiente per il backup](backup-azure-arm-vms-prepare.md).
 
 ### <a name="trigger-a-backup-job"></a>Attivare un processo di backup
 Seguire la procedura descritta in [Backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino](backup-azure-arm-vms.md) per attivare un processo di backup.
 
 ### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>Continuare i backup delle macchine virtuali per cui l'operazione è già stata eseguita con la crittografia abilitata  
-Se sono presenti macchine virtuali per cui è già stato eseguito il backup in un insieme di credenziali di Servizi di ripristino e abilitate per la crittografia in un secondo momento, per continuare l'esecuzione dei backup è necessario concedere al servizio Backup le autorizzazioni per accedere a Key Vault. Per concedere queste autorizzazioni, seguire la [procedura descritta nella sezione seguente](#provide-permissions-to-azure-backup). In alternativa è possibile seguire la procedura di PowerShell nella sezione per l'abilitazione del backup nella [documentazione di PowerShell](backup-azure-vms-automation.md). 
+Se sono presenti macchine virtuali per cui è già stato eseguito il backup in un insieme di credenziali di Servizi di ripristino e abilitate per la crittografia in un secondo momento, per continuare l'esecuzione dei backup è necessario concedere al servizio Backup le autorizzazioni per accedere a Key Vault. Per concedere queste autorizzazioni, seguire la [procedura descritta nella sezione seguente](#provide-permissions-to-azure-backup). In alternativa è possibile seguire la procedura di PowerShell nella sezione per l'abilitazione del backup nella [documentazione di PowerShell](backup-azure-vms-automation.md).
 
-## <a name="provide-permissions-to-backup"></a>Concedere le autorizzazioni al servizio Backup
+## <a name="provide-permissions-to-azure-backup"></a>Concedere le autorizzazioni al servizio Backup
 Seguire questa procedura per concedere le autorizzazioni rilevanti al servizio Backup per l'accesso a Key Vault e l'esecuzione del backup delle macchine virtuali crittografate.
 1. Selezionare **Tutti i servizi** e cercare **Insiemi di credenziali delle chiavi**.
 
     ![Key Vault](./media/backup-azure-vms-encryption/search-key-vault.png)
-    
+
 1. Nell'elenco di Key Vault selezionare l'insieme associato alla macchina virtuale crittografata di cui deve essere eseguito il backup.
 
      ![Selezione di Key Vault](./media/backup-azure-vms-encryption/select-key-vault.png)
-     
+
 1. Selezionare **Criteri di accesso** e quindi selezionare **Aggiungi nuovo**.
 
     ![Aggiungi nuovo](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
-    
-1. Selezionare **Selezionare un'entità** e quindi digitare **servizio di gestione backup** nella casella di ricerca. 
+
+1. Selezionare **Selezionare un'entità** e quindi digitare **servizio di gestione backup** nella casella di ricerca.
 
     ![Ricerca del servizio di backup](./media/backup-azure-vms-encryption/search-backup-service.png)
-    
+
 1. Selezionare **Backup Management Service** (Servizio di gestione backup) e quindi selezionare **Seleziona**.
 
     ![Selezione del servizio di backup](./media/backup-azure-vms-encryption/select-backup-service.png)
-    
+
 1. In **Configura dal modello (facoltativo)** selezionare **Backup di Azure**. Le autorizzazioni necessarie sono precompilate per **Autorizzazioni chiave** e **Autorizzazioni segrete**. Se la macchina virtuale viene crittografata usando **solo la chiave BEK**, sono necessarie le autorizzazioni solo per i segreti ed è quindi necessario rimuovere la selezione per **Autorizzazioni chiave**.
 
     ![Selezione di Backup di Azure](./media/backup-azure-vms-encryption/select-backup-template.png)
-    
-1. Selezionare **OK**. Si noti che la voce **Backup Management Service** (Servizio di gestione backup) è stata aggiunta in **Criteri di accesso**. 
+
+1. Selezionare **OK**. Si noti che la voce **Backup Management Service** (Servizio di gestione backup) è stata aggiunta in **Criteri di accesso**.
 
     ![Criteri di accesso](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
-    
+
 1. Selezionare **Salva** per concedere le autorizzazioni necessarie al servizio Backup.
 
     ![Criteri di accesso per il backup](./media/backup-azure-vms-encryption/save-access-policy.png)
@@ -132,7 +132,7 @@ Per ripristinare una macchina virtuale crittografata, ripristinare prima i disch
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
 | Operazione | Dettagli errore | Risoluzione |
 | --- | --- | --- |
-|Backup | Il servizio Backup non dispone delle autorizzazioni sufficienti per Accedere a Key Vault per il backup di macchine virtuali crittografate. | Al servizio Backup devono essere concesse queste autorizzazioni seguendo la [procedura descritta nella sezione precedente](#provide-permissions-to-azure-backup). Oppure è possibile seguire la procedura di PowerShell nella sezione per abilitare la protezione della documentazione di PowerShell [Usare i cmdlet AzureRM.RecoveryServices.Backup per eseguire il backup di macchine virtuali](backup-azure-vms-automation.md#back-up-azure-vms). |  
+|Backup | Il servizio Backup non dispone delle autorizzazioni sufficienti per Accedere a Key Vault per il backup di macchine virtuali crittografate. | Al servizio Backup devono essere concesse queste autorizzazioni seguendo la [procedura descritta nella sezione precedente](#provide-permissions-to-azure-backup). Oppure è possibile seguire la procedura PowerShell descritta nella sezione "Abilitare la protezione" dell'articolo [Usare PowerShell per il backup e il ripristino di macchine virtuali](backup-azure-vms-automation.md#enable-protection). |  
 | Restore |Non è possibile ripristinare questa macchina virtuale crittografata perché il Key Vault associato alla macchina non esiste. |Creare un Key Vault come descritto in [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md). Vedere [Ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto per le macchine virtuali crittografate con Backup di Azure](backup-azure-restore-key-secret.md) per ripristinare una chiave e un segreto, se non sono presenti. |
 | Restore |Non è possibile ripristinare questa macchina virtuale crittografata perché la chiave e il segreto associati non esistono. |Vedere [Ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto per le macchine virtuali crittografate con Backup di Azure](backup-azure-restore-key-secret.md) per ripristinare una chiave e un segreto, se non sono presenti. |
 | Restore |Il servizio Backup non dispone dell'autorizzazione per accedere alle risorse nella sottoscrizione dell'utente. |Come accennato in precedenza, ripristinare prima i dischi seguendo la procedura descritta nella sezione "Ripristinare i dischi di cui è stato eseguito il backup" in [Scegliere una configurazione di ripristino per la macchina virtuale](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Usare quindi PowerShell per [creare una macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

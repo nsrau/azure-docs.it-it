@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.openlocfilehash: fcb9fa9004039205fa49f63c50d5907a8029a079
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7873192e4a66cd2faed5a1a1255377139d33d750
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153219"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616062"
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute
 ## <a name="overview"></a>Panoramica
@@ -93,7 +93,7 @@ L'approccio consigliato per la configurazione dell'accesso in uscita a Internet 
 
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
 
-Tenere presente che 0.0.0.0/0 è un intervallo di indirizzi ampio e verrà quindi sottoposto a override da intervalli di indirizzi più specifici annunciati da ExpressRoute.  Per reiterare il consiglio precedente, un UDR con una route 0.0.0.0/0 deve essere utilizzata insieme a una configurazione ExressRoute che allo stesso modo annuncia solo 0.0.0.0/0. 
+Tenere presente che 0.0.0.0/0 è un intervallo di indirizzi ampio e verrà quindi sottoposto a override da intervalli di indirizzi più specifici annunciati da ExpressRoute.  Per reiterare il consiglio precedente, un UDR con una route 0.0.0.0/0 deve essere utilizzata insieme a una configurazione ExpressRoute che allo stesso modo annuncia solo 0.0.0.0/0. 
 
 In alternativa, è possibile scaricare un elenco completo e aggiornato di intervalli CIDR utilizzato da Azure.  Il file XML contenente tutti gli intervalli di indirizzi IP di Azure è disponibile nell'[Area download Microsoft][DownloadCenterAddressRanges].  
 

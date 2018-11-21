@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7d044559d72b07dc86a5ee1c2269452a9059de61
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4f2fc320d0d66e19ec8a1e591377c482a7ec64d9
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471510"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626134"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -77,7 +77,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.ADHybridHealthService/addsservices/action | Crea una nuova foresta per il tenant. |
 > | Azione | Microsoft.ADHybridHealthService/addsservices/addomainservicemembers/read | Recupera tutti i server per il nome di servizio specificato. |
 > | Azione | Microsoft.ADHybridHealthService/addsservices/alerts/read | Recupera i dettagli degli avvisi per la foresta, come ID avviso, data di generazione dell'avviso, ultimo avviso rilevato, descrizione dell'avviso, ultimo aggiornamento, livello e stato dell'avviso, collegamenti per la risoluzione dei relativi problemi e così via. |
-> | Azione | Microsoft.ADHybridHealthService/addsservices/configuration/read | Recupera la configurazione del servizio per la foresta, ad esempio il nome della foresta, il livello funzionale, il ruolo di master FSMO per la denominazione dei domini, il ruolo di master FSMO per lo schema e così via. |
+> | Azione | Microsoft.ADHybridHealthService/addsservices/configuration/read | Recupera la configurazione del servizio per la foresta, ad esempio il nome della foresta, il livello funzionale, il ruolo master di denominazione dei domini FSMO, il ruolo master schema FSMO e così via. |
 > | Azione | Microsoft.ADHybridHealthService/addsservices/delete | Elimina un servizio e i relativi server, insieme ai dati di integrità. |
 > | Azione | Microsoft.ADHybridHealthService/addsservices/dimensions/read | Recupera i dettagli relativi ai domani e ai siti per la foresta, ad esempio stato di integrità, avvisi attivi, avvisi risolti, proprietà come livello funzionale del dominio, foresta, master infrastrutture, PDC, master RID e così via.  |
 > | Azione | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Recupera l'impostazione delle preferenze utente per la foresta.<br>Ad esempio, MetricCounterName come ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes e ldapsearches.<br>Include anche le impostazioni per i grafici dell'interfaccia utente e così via. |
@@ -395,7 +395,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | --- | --- | --- |
 > | Azione | Microsoft.Authorization/checkAccess/action | Controlla se il chiamante è autorizzato a eseguire un'azione specifica |
 > | Azione | Microsoft.Authorization/classicAdministrators/delete | Rimuove l'amministratore dalla sottoscrizione. |
-> | Azione | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Consente di ottenere gli stati delle operazioni dell'amministratore della sottoscrizione. |
+> | Azione | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Ottiene gli stati operativi dell'amministratore per la sottoscrizione. |
 > | Azione | Microsoft.Authorization/classicAdministrators/read | Esegue la lettura degli amministratori per la sottoscrizione. |
 > | Azione | Microsoft.Authorization/classicAdministrators/write | Aggiunge o modifica l'amministratore in una sottoscrizione. |
 > | Azione | Microsoft.Authorization/denyAssignments/delete | Consente di eliminare un'assegnazione di rifiuto nell'ambito specificato. |
@@ -552,7 +552,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | --- | --- | --- |
 > | Azione | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Elimina la risorsa directory B2C |
 > | Azione | Microsoft.AzureActiveDirectory/b2cDirectories/read | Visualizza la risorsa directory B2C |
-> | Azione | Microsoft.AzureActiveDirectory/b2cDirectories/write | Crea o aggiorna la risorsa directory B2C |
+> | Azione | Microsoft.AzureActiveDirectory/b2cDirectories/write | Crea o aggiorna una risorsa della directory B2C |
 > | Azione | Microsoft.AzureActiveDirectory/operations/read | Legge tutte le operazioni API disponibili per il provider di risorse Microsoft.AzureActiveDirectory |
 > | Azione | Microsoft.AzureActiveDirectory/register/action | Registra la sottoscrizione per il provider di risorse Microsoft.AzureActiveDirectory |
 
@@ -975,7 +975,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.ClassicNetwork/networkSecurityGroups/delete | Elimina il gruppo di sicurezza di rete. |
 > | Azione | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | Legge lo stato operazione del gruppo di sicurezza di rete. |
 > | Azione | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene le impostazioni di diagnostica dei gruppi di sicurezza di rete |
-> | Azione | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna le impostazioni di diagnostica dei gruppi di sicurezza di rete, questa operazione viene eseguita dal provider di risorse Insights. |
+> | Azione | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna le impostazioni di diagnostica dei gruppi di sicurezza di rete. L'operazione viene eseguita dal provider di risorse Insights. | 
 > | Azione | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Ottiene gli eventi per un gruppo di sicurezza di rete |
 > | Azione | Microsoft.ClassicNetwork/networkSecurityGroups/read | Ottiene il gruppo di sicurezza di rete. |
 > | Azione | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete | Elimina la regola di sicurezza. |
@@ -3453,7 +3453,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.Network/networkSecurityGroups/delete | Elimina un gruppo di sicurezza di rete |
 > | Azione | Microsoft.Network/networkSecurityGroups/join/action | Aggiunge un gruppo di sicurezza di rete |
 > | Azione | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene le impostazioni di diagnostica dei gruppi di sicurezza di rete |
-> | Azione | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna le impostazioni di diagnostica dei gruppi di sicurezza di rete, questa operazione viene eseguita dal provider di risorse Insights. |
+> | Azione | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna le impostazioni di diagnostica dei gruppi di sicurezza di rete. L'operazione viene eseguita dal provider di risorse Insights. |
 > | Azione | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Ottiene gli eventi per un gruppo di sicurezza di rete |
 > | Azione | Microsoft.Network/networkSecurityGroups/read | Ottiene una definizione del gruppo di sicurezza di rete |
 > | Azione | Microsoft.Network/networkSecurityGroups/securityRules/delete | Elimina una regola di sicurezza |
@@ -3573,7 +3573,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/read | Ottiene un endpoint annidato che appartiene a un profilo di Gestione traffico, incluse tutte le proprietà di tale endpoint annidato. |
 > | Azione | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/write | Aggiunge un nuovo endpoint annidato in un profilo di Gestione traffico esistente o aggiorna le proprietà di un endpoint annidato esistente in quel profilo di Gestione traffico. |
 > | Azione | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene le impostazioni di diagnostica di Gestione traffico |
-> | Azione | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna le impostazioni di diagnostica di Gestione traffico, questa operazione viene eseguita dal provider di risorse Insights. |
+> | Azione | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna le impostazioni di diagnostica di Gestione traffico. L'operazione viene eseguita dal provider di risorse Insights. |
 > | Azione | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/logDefinitions/read | Ottiene gli eventi per Gestione traffico |
 > | Azione | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/metricDefinitions/read | Ottiene la metrica disponibile per Gestione traffico. |
 > | Azione | Microsoft.Network/trafficManagerProfiles/read | Ottiene la configurazione del profilo di Gestione traffico. Include le impostazioni DNS, di routing del traffico, di monitoraggio dell'endpoint e un elenco degli endpoint instradati da questo profilo di Gestione traffico. |
@@ -3599,7 +3599,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | microsoft.network/virtualnetworkgateways/getvpnclientipsecparameters/action | Ottiene i parametri IPsec client VPN per il client P2S del gateway di rete virtuale. |
 > | Azione | microsoft.network/virtualnetworkgateways/getvpnprofilepackageurl/action | Ottiene l'URL di un pacchetto di profilo client VPN generato in precedenza |
 > | Azione | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene le impostazioni di diagnostica del gateway di rete virtuale |
-> | Azione | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna le impostazioni di diagnostica del gateway di rete virtuale, questa operazione viene eseguita dal provider di risorse Insights. |
+> | Azione | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna le impostazioni di diagnostica del gateway di rete virtuale. L'operazione viene eseguita dal provider di risorse Insights. |
 > | Azione | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/logDefinitions/read | Ottiene gli eventi per il gateway di rete virtuale |
 > | Azione | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read | Ottiene la metrica disponibile per il gateway di rete virtuale |
 > | Azione | Microsoft.Network/virtualNetworkGateways/read | Ottiene un gateway di rete virtuale |

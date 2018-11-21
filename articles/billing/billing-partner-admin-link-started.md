@@ -3,19 +3,19 @@ title: Collegare account Azure all'ID partner | Microsoft Docs
 description: Tenere traccia degli accordi con i clienti Azure tramite il collegamento dell'ID partner all'account utente usato per gestire le risorse del cliente.
 services: billing
 author: dhirajgandhi
-ms.author: dhgandhi
+ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a48298668e2297cb95f2a2f16eac6387ff509781
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608713"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686995"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Collegare l'ID partner agli account Azure
 
@@ -136,4 +136,4 @@ Il collegamento tra l'ID partner e l'account viene eseguito per ogni tenant del 
 
 **Altri partner o clienti possono modificare o rimuovere il collegamento all'ID partner?**
 
-Il collegamento è associato a livello di account. Solo il titolare dell'account può modificare o rimuovere il collegamento all'ID partner. Il cliente e altri partner non possono modificare il collegamento all'ID partner. 
+Il collegamento è associato a livello di account utente. Solo il titolare dell'account può modificare o rimuovere il collegamento all'ID partner. Il cliente e altri partner non possono modificare il collegamento all'ID partner. 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 523f5eba632b15eaaf45f24be820f7b255aae7c0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378432"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616028"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico Basic pubblico tramite il portale di Azure
 
@@ -159,6 +159,7 @@ Per consentire al servizio di bilanciamento del carico Basic di monitorare lo st
    - **myHealthProbe** come nome del probe di integrità.
    - **HTTP** come tipo di protocollo.
    - **80** come numero della porta.
+   - **Healthprobe.aspx** per il percorso dell'URI. È possibile sostituire questo valore con qualsiasi altro URI o mantenere il valore di percorso predefinito **"\\"** per ottenere l'URI predefinito.
    - **15** in **Intervallo** come numero di secondi tra i tentativi del probe.
    - **2** in **Soglia di non integrità** come numero di errori di probe consecutivi che devono verificarsi prima che una macchina virtuale venga considerata non integra.
 

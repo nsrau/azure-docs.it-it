@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c65cfedd398bbb18d65f36a3f2a768e11443687a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962538"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636510"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Eseguire l'aggiornamento alla versione 2 dello stack di macchine virtuali di Azure
 
@@ -86,15 +86,42 @@ Eseguire i cmdlet seguenti da un terminale di PowerShell con privilegi elevati:
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
+### <a name="cli"></a>CLI
+Eseguire i comandi seguenti da una shell:
+1.  Accedere all'account Azure:
+
+    ```
+    az login
+    ```
+
+2.  Selezionare la sottoscrizione da registrare:
+
+    ```
+    az account set --subscription "Subscription Name"
+    ```
+
+3.  Registrare questa sottoscrizione:
+
+    ```
+    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+    ```
 
 ## <a name="verify-that-the-upgrade-is-finished"></a>Verificare se l'aggiornamento è stato completato
+### <a name="powershell"></a>PowerShell
 Da un terminale di PowerShell con privilegi elevati eseguire il cmdlet seguente:
 
 ```
 Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-Se viene visualizzato "Registered" (Registrato), la sottoscrizione è aggiornata allo stack di backup di macchine virtuali del modello di distribuzione Resource Manager.
+### <a name="cli"></a>CLI
+Da una shell eseguire il comando seguente:
+
+```
+az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+```
+
+Se viene visualizzato "Registered", la sottoscrizione è aggiornata alla versione 2 dello stack di backup.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

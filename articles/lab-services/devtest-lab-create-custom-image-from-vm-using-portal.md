@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a91e14afa8325e75507b2f65cd9d71ab38df4524
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 780799103708483fb0092c7a4c15bfaa3269c073
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235242"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636480"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Creare un'immagine personalizzata da una VM
 
@@ -47,7 +47,7 @@ ms.locfileid: "51235242"
 
     ![Riquadro Crea immagine personalizzata](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Indicare se è stato eseguito sysprep nella macchina virtuale. Se non è stato eseguito sysprep nella VM, specificare se si desidera eseguirlo quando si crea una VM da questa immagine personalizzata.
+1. Indicare se è stato eseguito sysprep nella macchina virtuale. Se non è stato eseguito sysprep nella macchina virtuale, specificare se si vuole che sysprep venga eseguito nella macchina virtuale quando viene creata l'immagine personalizzata.
 
 1. Selezionare **OK** al termine per creare l'immagine personalizzata.
 

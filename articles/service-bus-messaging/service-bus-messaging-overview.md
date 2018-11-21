@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7b4045737ea2be466a436e6abb0de6a1a61e6a5b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342208"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636595"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 
-Il bus di servizio di Microsoft Azure è un broker di messaggi di integrazione aziendale completamente gestito. Il bus di servizio viene in genere usato per disaccoppiare applicazioni e servizi ed è una piattaforma affidabile e sicura per il trasferimento dello stato e dei dati asincrono. I dati vengono trasferiti tra applicazioni e servizi diversi usando i *messaggi*. Un messaggio è in formato binario, che può contenere solo testo, XML o JSON. 
+Il bus di servizio di Microsoft Azure è un broker di messaggi di integrazione aziendale completamente gestito. Il bus di servizio viene in genere usato per disaccoppiare applicazioni e servizi ed è una piattaforma affidabile e sicura per il trasferimento dello stato e dei dati asincrono. I dati vengono trasferiti tra applicazioni e servizi diversi usando i *messaggi*. Un messaggio è in formato binario e può contenere solo testo, XML o JSON. 
 
 Alcuni scenari di messaggistica comuni sono:
 
@@ -39,7 +39,7 @@ I messaggi vengono inviati e ricevuti dalle *code*. Le code consentono di archiv
 
 ![Coda](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-I messaggi nelle code vengono ordinati e vi viene aggiunto un timestamp all'arrivo. Dopo essere stato accettato, il messaggio viene conservato in modo sicuro nella risorsa di archiviazione ridondante. I messaggi vengono recapitati in modalità *pull*, ovvero su richiesta.
+I messaggi nelle code vengono ordinati e vi viene aggiunto un timestamp all'arrivo. Dopo essere stato accettato, il messaggio viene conservato in modo sicuro nella risorsa di archiviazione ridondante. I messaggi vengono recapitati in modalità  *pull*, ovvero su richiesta.
 
 ## <a name="topics"></a>Argomenti
 
@@ -115,9 +115,9 @@ Il bus di servizio supporta le librerie client per [.NET](https://github.com/Azu
 
 Il bus di servizio si integra completamente con i servizi di Azure seguenti:
 
-- [Griglia di eventi](https://azure.microsoft.com/services/event-grid/) 
-- [App per la logica](https://azure.microsoft.com/services/logic-apps/) 
-- [Funzioni](https://azure.microsoft.com/services/functions/) 
+- [Griglia di eventi](https://azure.microsoft.com/services/event-grid/) 
+- [App per la logica](https://azure.microsoft.com/services/logic-apps/) 
+- [Funzioni](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Analisi dei flussi](https://azure.microsoft.com/services/stream-analytics/)
  

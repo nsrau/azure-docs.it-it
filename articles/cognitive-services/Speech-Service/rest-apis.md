@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/12/2018
 ms.author: erhopf
-ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038604"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566619"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servizio Voce
 
@@ -59,7 +59,7 @@ I seguenti campi sono inviati nell'intestazione della richiesta HTTP.
 
 L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno dei formati elencati in questa tabella:
 
-| Formato | Codec | Bitrate | Frequenza di campionamento |
+| Format | Codec | Bitrate | Frequenza di campionamento |
 |--------|-------|---------|-------------|
 | WAV | PCM | 16 bit | 16 kHz, mono |
 | OGG | OPUS | 16 bit | 16 kHz, mono |
@@ -127,18 +127,47 @@ Codice HTTP|Significato|Possibile motivo
 
 ### <a name="json-response"></a>Risposta JSON
 
-I risultati sono restituiti in formato JSON. Il formato `simple` include solo i campi di primo livello seguenti.
+I risultati sono restituiti in formato JSON. A seconda dei parametri della query, viene restituito un formato `simple` o `detailed`.
+
+#### <a name="the-simple-format"></a>Formato `simple` 
+
+Questo formato include i campi di primo livello seguenti.
 
 |Nome campo|Content|
 |-|-|
-|`RecognitionStatus`|Lo stato, ad esempio `Success` per il riconoscimento con esito positivo. Vedere la tabella successiva.|
+|`RecognitionStatus`|Lo stato, ad esempio `Success` per il riconoscimento con esito positivo. Vedere questa [tabella](rest-apis.md#recognitionstatus).|
 |`DisplayText`|Il testo riconosciuto dopo maiuscole/minuscole, punteggiatura, normalizzazione del testo inversa (conversione del testo parlato in forme più brevi, ad esempio 200 per "duecento" o "Dr. Rossi" per "Dottor Rossi") e la maschera per le espressioni volgari. Presente solo con esito positivo.|
 |`Offset`|Il tempo (in unità di 100 nanosecondi) in corrispondenza del quale inizia l'input vocale riconosciuto nel flusso audio.|
 |`Duration`|La durata (in unità di 100 nanosecondi) dell'input vocale riconosciuto nel flusso audio.|
 
+#### <a name="the-detailed-format"></a>Formato `detailed` 
+
+Questo formato include i campi di primo livello seguenti.
+
+|Nome campo|Content|
+|-|-|
+|`RecognitionStatus`|Lo stato, ad esempio `Success` per il riconoscimento con esito positivo. Vedere questa [tabella](rest-apis.md#recognition-status).|
+|`Offset`|Il tempo (in unità di 100 nanosecondi) in corrispondenza del quale inizia l'input vocale riconosciuto nel flusso audio.|
+|`Duration`|La durata (in unità di 100 nanosecondi) dell'input vocale riconosciuto nel flusso audio.|
+|`NBest`|Un elenco di interpretazioni alternative dello stesso discorso, classificate dalla più probabile alla meno probabile. Vedere la [descrizione di NBest](rest-apis.md#nbest).|
+
+#### <a name="nbest"></a>NBest
+
+Il campo `NBest` è un elenco di interpretazioni alternative dello stesso discorso, classificate dalla più probabile alla meno probabile. La prima voce corrisponde al risultato del riconoscimento principale. Ciascuna voce include i campi seguenti:
+
+|Nome campo|Content|
+|-|-|
+|`Confidence`|Il punteggio di attendibilità della voce da 0.0 (nessuna attendibilità) a 1.0 (attendibilità completa)
+|`Lexical`|Il formato lessicale del testo riconosciuto: le parole effettive riconosciute.
+|`ITN`|Il testo riconosciuto dopo la normalizzazione inversa (forma "canonica"), con numeri di telefono, numeri, abbreviazioni ("Dottor Rossi" in "Dr. Rossi") e altre trasformazioni applicate.
+|`MaskedITN`| La forma ITN con la maschera per le volgarità applicata, se richiesta.
+|`Display`| Il modulo di visualizzazione del testo riconosciuto, con l'aggiunta di segni di punteggiatura e maiuscole.
+
+#### <a name="recognitionstatus"></a>RecognitionStatus
+
 Il campo `RecognitionStatus` può contenere i valori seguenti.
 
-|Valore di stato|Descrizione
+|Valore di stato|DESCRIZIONE
 |-|-|
 | `Success` | Il riconoscimento ha avuto esito positivo e il campo DisplayText è presente. |
 | `NoMatch` | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. In genere significa che la lingua di riconoscimento è una lingua diversa da quella parlata dall'utente. |
@@ -148,17 +177,6 @@ Il campo `RecognitionStatus` può contenere i valori seguenti.
 
 > [!NOTE]
 > Se l'audio è costituito solo da contenuto volgare e il parametro di query `profanity` è impostato su `remove`, il servizio non restituisce un risultato di riconoscimento vocale.
-
-
-Il formato `detailed` include gli stessi campi del formato `simple`, accompagnati da un campo `NBest`. Il campo `NBest` è un elenco di interpretazioni alternative dello stesso discorso, classificate dalla più probabile alla meno probabile. La prima voce corrisponde al risultato del riconoscimento principale. Ciascuna voce include i campi seguenti:
-
-|Nome campo|Content|
-|-|-|
-|`Confidence`|Il punteggio di attendibilità della voce da 0.0 (nessuna attendibilità) a 1.0 (attendibilità completa)
-|`Lexical`|Il formato lessicale del testo riconosciuto: le parole effettive riconosciute.
-|`ITN`|Il testo riconosciuto dopo la normalizzazione inversa (forma "canonica"), con numeri di telefono, numeri, abbreviazioni ("Dottor Rossi" in "Dr. Rossi") e altre trasformazioni applicate.
-|`MaskedITN`| La forma ITN con la maschera per le volgarità applicata, se richiesta.
-|`Display`| Il modulo di visualizzazione del testo riconosciuto, con l'aggiunta di segni di punteggiatura e maiuscole. Uguale a `DisplayText` nel risultato principale.
 
 ### <a name="sample-responses"></a>Risposte di esempio
 

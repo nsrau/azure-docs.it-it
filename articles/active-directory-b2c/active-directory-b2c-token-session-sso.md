@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0058ce8316fa8202cf53eaa1048a44b77efdecb5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012446"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636901"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configurazione di token, sessione e accesso Single Sign-On in Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Questa funzionalità offre un controllo dettagliato, in base ai [singoli criteri
 - Formati di attestazioni importanti nei token di sicurezza emessi da Azure AD B2C.
 - Comportamento dell'accesso Single Sign-On (SSO) in più app e criteri nel tenant di Azure AD B2C.
 
-Per i criteri predefiniti, è possibile usare questa funzionalità nella directory Azure AD B2C come segue:
+È possibile usare questa funzionalità per qualsiasi tipo di criterio, tuttavia questo esempio descrive come usare la funzionalità con i criteri di iscrizione o di accesso. Per i criteri predefiniti, è possibile usare questa funzionalità nella directory Azure AD B2C come segue:
 
-1. Fare clic su **Criteri di iscrizione o di accesso**. *Nota: è possibile usare questa funzionalità per qualsiasi tipo di criterio, non solo per i **criteri di iscrizione o di accesso*\*\*.
+1. Fare clic su **Criteri di iscrizione o di accesso**.
 2. Fare clic su un criterio per aprirlo. Ad esempio, fare clic su **B2C_1_SiUpIn**.
 3. Fare clic su **Modifica** nella parte superiore del menu.
 4. Fare clic su **Token, session & single sign-on config** (Configurazione di token, sessione e accesso Single Sign-On).

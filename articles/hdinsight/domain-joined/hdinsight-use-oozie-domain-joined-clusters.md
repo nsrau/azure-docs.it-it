@@ -9,15 +9,15 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 563a4c14d78b7edd228c998817f44c6b3f14efe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 298277b720045c06d78f1c4964de2246dac22f08
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947498"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633666"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Eseguire Apache Oozie nei cluster HDInsight Hadoop con Enterprise Security Package
-Oozie è un sistema di coordinamento dei flussi di lavoro che consente di gestire i processi Hadoop. Oozie è integrato con lo stack Hadoop e supporta i processi seguenti:
+Apache Oozie è un sistema di coordinamento dei flussi di lavoro che consente di gestire i processi Apache Hadoop. Oozie è integrato con lo stack Hadoop e supporta i processi seguenti:
 - Apache MapReduce
 - Apache Pig
 - Apache Hive

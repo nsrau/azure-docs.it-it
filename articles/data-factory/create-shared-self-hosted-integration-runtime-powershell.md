@@ -1,6 +1,6 @@
 ---
 title: Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory con PowerShell | Microsoft Docs
-description: Informazioni su come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory che consente a più data factory di accedere al runtime di integrazione.
+description: Informazioni su come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory, in modo che possano accedervi più data factory.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: d7f3fbcb3235c8c620876e68a62f3e491770779d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: b32ea4293daa9206c6b0da4bdee777677c5d340d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252033"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685515"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory con PowerShell
 
-Questa guida dettagliata illustra come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory usando Azure PowerShell. È quindi possibile usare il runtime di integrazione self-hosted condiviso in un'altra data factory. In questa esercitazione vengono completati i passaggi seguenti: 
+Questa guida dettagliata descrive come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory tramite Azure PowerShell. È quindi possibile usare il runtime di integrazione self-hosted condiviso in un'altra data factory. In questa esercitazione vengono completati i passaggi seguenti: 
 
 1. Creare una data factory. 
 1. Creare un runtime di integrazione self-hosted.
@@ -33,18 +33,16 @@ Questa guida dettagliata illustra come creare un runtime di integrazione self-ho
 
 - **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
 
-- **Azure PowerShell**. Seguire le istruzioni descritte in [Installare Azure PowerShell in Windows](/powershell/azure/install-azurerm-ps). Usare PowerShell per eseguire uno script per creare un runtime di integrazione self-hosted che può essere condiviso con altre data factory. 
+- **Azure PowerShell**. Seguire le istruzioni fornite in [Installare Azure PowerShell in Windows con PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0). Usare PowerShell per eseguire uno script per creare un runtime di integrazione self-hosted che può essere condiviso con altre data factory. 
 
-> [!NOTE]
-> Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
+> [!NOTE]  
+> Per un elenco delle aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse in [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Avviare Windows PowerShell ISE.
+1. Avviare Windows PowerShell Integrated Scripting Environment (ISE).
 
-1. Creare le variabili.
-
-    Copiare e incollare lo script seguente e sostituire le variabili (SubscriptionName, ResourceGroupName e così via) con i valori effettivi. 
+1. Creare le variabili. Copiare e incollare lo script seguente. Sostituire le variabili, ad esempio **SubscriptionName** e **ResourceGroupName**, con gli effettivi valori: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -65,9 +63,7 @@ Questa guida dettagliata illustra come creare un runtime di integrazione self-ho
     $LinkedIntegrationRuntimeDescription = "[Description for Linked Integration Runtime]"
     ```
 
-1. Eseguire l'accesso e selezionare una sottoscrizione.
-
-    Aggiungere il codice seguente allo script per eseguire l'accesso e selezionare la sottoscrizione di Azure:
+1. Eseguire l'accesso e selezionare una sottoscrizione. Aggiungere il codice seguente allo script per eseguire l'accesso e selezionare la sottoscrizione di Azure:
 
     ```powershell
     Connect-AzureRmAccount
@@ -76,9 +72,10 @@ Questa guida dettagliata illustra come creare un runtime di integrazione self-ho
 
 1. Creare un gruppo di risorse e una data factory.
 
-    *Questo passaggio è facoltativo. Se si ha già una data factory, ignorare questo passaggio.* 
+    > [!NOTE]  
+    > Questo passaggio è facoltativo. Se è già presente una data factory, ignorare questo passaggio. 
 
-    Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con il comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. L'esempio seguente crea un gruppo di risorse denominato `myResourceGroup` nell'area WestEurope. 
+    Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) tramite il comando [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. L'esempio seguente crea un gruppo di risorse denominato `myResourceGroup` nell'area Europa occidentale: 
 
     ```powershell
     New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -94,7 +91,8 @@ Questa guida dettagliata illustra come creare un runtime di integrazione self-ho
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creare un runtime di integrazione self-hosted
 
-*Questo passaggio è facoltativo. Se si ha già un runtime di integrazione self-hosted che si vuole condividere con altre data factory, ignorare questo passaggio.*
+> [!NOTE]  
+> Questo passaggio è facoltativo. Se è già presente un runtime di integrazione self-hosted che si vuole condividere con altre data factory, ignorare questo passaggio.
 
 Eseguire questo comando per creare un runtime di integrazione self-hosted:
 
@@ -132,7 +130,8 @@ La risposta contiene la chiave di autenticazione per il runtime di integrazione 
 
 ### <a name="create-another-data-factory"></a>Creare un'altra data factory
 
-*Questo passaggio è facoltativo. Se si ha già la data factory con cui si vuole condividere il runtime, ignorare questo passaggio.*
+> [!NOTE]  
+> Questo passaggio è facoltativo. Se è già presente la data factory per la condivisione, ignorare questo passaggio.
 
 ```powershell
 $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -143,7 +142,7 @@ $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 
 Concedere l'autorizzazione alla data factory che deve accedere al runtime di integrazione self-hosted creato e registrato.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Non ignorare questo passaggio.
 
 ```powershell
@@ -193,6 +192,6 @@ Remove-AzureRmDataFactoryV2IntegrationRuntime `
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Rivedere i concetti relativi al runtime di integrazione in [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
+- Vedere [Concetti relativi al runtime di integrazione in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime).
 
-- Per informazioni su come creare un runtime di integrazione self-hosted nel portale di Azure, vedere [Creare e configurare un runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
+- Informazioni su come [creare un runtime di integrazione self-hosted nel portale di Azure](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime).

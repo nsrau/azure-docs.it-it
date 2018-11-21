@@ -1,6 +1,6 @@
 ---
-title: 'Interoperabilità di ExpressRoute, VPN da sito a sito e peering reti virtuali - analisi del piano di controllo: interoperabilità delle funzionalità per la connettività di back-end di Azure | Microsoft Docs'
-description: Questa pagina contiene i dettagli dell'analisi del piano di controllo dell'installazione test creata per analizzare l'interoperabilità delle funzionalità ExpressRoute, VPN da sito a sito e peering reti virtuali.
+title: 'Interoperabilità nelle funzionalità di connettività back-end di Azure: analisi del piano di controllo | Microsoft Docs'
+description: Questo articolo illustra l'analisi del piano di controllo dell'installazione test che è possibile usare per analizzare l'interoperabilità tra ExpressRoute, una VPN da sito a sito e il peering reti virtuali in Azure.
 documentationcenter: na
 services: networking
 author: rambk
@@ -10,90 +10,94 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: ee887da18b5666e61bc25365791b2e7dffb925e0
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 37f5399426bebd375200bbc18dae7ed83f4fde3f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49947123"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614682"
 ---
-# <a name="interoperability-of-expressroute-site-to-site-vpn-and-vnet-peering---control-plane-analysis"></a>Interoperabilità di ExpressRoute, VPN da sito a sito e peering reti virtuali: analisi del piano di controllo
+# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interoperabilità nelle funzionalità di connettività back-end di Azure: analisi del piano di controllo
 
-Questo articolo illustra l'analisi del piano di controllo dell'installazione test. Per esaminare l'installazione test, vedere la relativa sezione in [questo articolo][Setup]. Per esaminare i dettagli di configurazione dell'installazione test, vedere [Configurazione dell'installazione test][Configuration].
+Questo articolo illustra l'analisi del piano di controllo dell'[installazione test][Setup]. È anche possibile esaminare la [configurazione dell'installazione test][Configuration] e l'[analisi del piano dati][Data-Analysis] dell'installazione test.
 
-L'analisi del piano di controllo essenzialmente esamina le route scambiate tra le reti all'interno di una topologia. Consente di analizzare il modo in cui diverse reti visualizzano la topologia.
+L'analisi del piano di controllo essenzialmente esamina le route scambiate tra le reti all'interno di una topologia. L'analisi del piano di controllo aiuta a capire come le diverse reti vedono la topologia.
 
-##<a name="hub-and-spoke-vnet-perspective"></a>Prospettiva delle reti virtuali spoke e dell'hub
+## <a name="hub-and-spoke-vnet-perspective"></a>Prospettiva delle reti virtuali spoke e dell'hub
 
-Il diagramma seguente illustra la rete dalla prospettiva della rete virtuale dell'hub e della rete virtuale spoke (evidenziata in blu). Il diagramma illustra anche il Numero sistema autonomo (ASN) di varie rete e le route scambiate tra reti diverse. 
+La figura seguente illustra la rete dalla prospettiva di una rete virtuale dell'hub e di una rete virtuale spoke (evidenziata in blu). La figura illustra anche il numero ASN (Autonomous System Number, numero sistema autonomo) di varie reti e le route scambiate tra reti diverse: 
 
 [![1]][1]
 
-Si noti che il numero ASN del gateway ExpressRoute della rete virtuale è diverso dal numero ASN dei router Microsoft Enterprise Edge (MSEE). Il gateway ExpressRoute usa un numero ASN privato (65515) e i MSEE usano un ASN pubblico (12076) a livello globale. Quando si configura il peering di ExpressRoute, poiché MSEE è il peer, si usa 12076 come ASN del peer. Sul lato Azure, MSEE stabilisce il peering eBGP con il gateway ExpressRoute. Il peering eBGP doppio che stabilisce il router MSEE ogni peering ExpressRoute è trasparente a livello di piano di controllo. Di conseguenza, quando viene visualizzata una tabella di route ExpressRoute, appare il numero ASN del gateway ExpressRoute della rete virtuale per i prefissi della rete virtuale. Nello screenshot seguente è riportato un esempio di tabella di route ExpressRoute: 
+Il numero ASN del gateway Azure ExpressRoute della rete virtuale è diverso da quello dei router Microsoft Enterprise Edge (MSEE). Un gateway ExpressRoute usa un numero ASN privato (con valore **65515**) e i router MSEE usano un numero ASN pubblico (con valore **12076**) a livello globale. Quando si configura il peering di ExpressRoute, poiché MSEE è il peer, si usa **12076** come numero ASN peer. Sul lato Azure, MSEE stabilisce il peering eBGP con il gateway ExpressRoute. Il peering eBGP doppio stabilito da MSEE per ogni peering di ExpressRoute è trasparente a livello di piano di controllo. Di conseguenza, quando si visualizza una tabella di route ExpressRoute, viene indicato il numero ASN del gateway ExpressRoute della rete virtuale per i prefissi della rete virtuale. 
+
+La figura seguente illustra un esempio di tabella di route ExpressRoute: 
 
 [![5]][5]
 
-In Azure il numero ASN è significativo solo dal punto di vista del peering. Per impostazione predefinita, l'ASN del gateway ExpressRoute e del gateway VPN è 65515.
+In Azure il numero ASN è significativo solo dal punto di vista del peering. Per impostazione predefinita, il numero ASN sia del gateway ExpressRoute che del gateway VPN nel gateway VPN di Azure è **65515**.
 
-##<a name="on-premises-location-1-and-remote-vnet-perspective-via-expressroute-1"></a>Prospettiva della rete locale Location-1 e della rete virtuale remota via ExpressRoute-1
+## <a name="on-premises-location-1-and-the-remote-vnet-perspective-via-expressroute-1"></a>Prospettiva della posizione 1 locale e della rete virtuale remota tramite ExpressRoute 1
 
-La rete locale Location-1 e la rete virtuale remota sono entrambe connesse alla rete virtuale dell'hub attraverso ExpressRoute 1 e di conseguenza condividono la stessa prospettiva della topologia, come illustrato nel diagramma seguente.
+Sia la posizione 1 locale che la rete virtuale remota sono connesse alla rete virtuale dell'hub tramite ExpressRoute 1. Viene condivisa la stessa prospettiva della topologia, come illustrato nel diagramma seguente:
 
 [![2]][2]
 
-##<a name="on-premises-location-1-and-branch-vnet-perspective-via-site-to-site-vpn"></a>Prospettiva della rete locale Location-1 e della rete virtuale di diramazione via VPN da sito a sito
+## <a name="on-premises-location-1-and-the-branch-vnet-perspective-via-a-site-to-site-vpn"></a>Prospettiva della posizione 1 locale e della rete virtuale della filiale tramite una VPN da sito a sito
 
-La rete locale Location-1 e la rete virtuale di diramazione sono entrambe connesse al gateway VPN della rete virtuale dell'hub attraverso connessioni VPN da sito a sito e di conseguenza condividono la stessa prospettiva della topologia, come illustrato nel diagramma seguente.
+Sia la posizione 1 locale che la rete virtuale della filiale sono connesse al gateway VPN di una rete di virtuale dell'hub tramite una connessione VPN da sito a sito. Viene condivisa la stessa prospettiva della topologia, come illustrato nel diagramma seguente:
 
 [![3]][3]
 
-##<a name="on-premises-location-2-perspective"></a>Prospettiva della rete locale Location-2
+## <a name="on-premises-location-2-perspective"></a>Prospettiva della posizione 2 locale
 
-La rete locale Location-2 è connessa alla rete virtuale dell'hub attraverso il peering privato di ExpressRoute 2. 
+La posizione 2 locale è connessa a una rete virtuale dell'hub tramite il peering privato di ExpressRoute 2: 
 
 [![4]][4]
 
-## <a name="further-reading"></a>Altre informazioni
+## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute e connettività VPN da sito a sito in parallelo
 
-### <a name="using-expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Uso di ExpressRoute e della connettività VPN da sito a sito in parallelo
+###  <a name="site-to-site-vpn-over-expressroute"></a>VPN da sito a sito con ExpressRoute
 
-####  <a name="site-to-site-vpn-over-expressroute"></a>VPN da sito a sito con ExpressRoute
+È possibile configurare una VPN da sito a sito con il peering Microsoft ExpressRoute per scambiare privatamente i dati tra la rete locale e le reti virtuali di Azure. Con questa configurazione, i dati possono essere scambiati garantendone riservatezza, autenticità e integrità. Lo scambio di dati è anche impossibile da riprodurre. Per altre informazioni su come configurare una VPN IPSec da sito a sito in modalità tunnel con il peering Microsoft ExpressRoute, vedere [Configurare una VPN da sito a sito tramite peering ExpressRoute Microsoft][S2S-Over-ExR]. 
 
-La connettività VPN da sito a sito può essere configurata con il peering ExpressRoute di Microsoft per scambiare privatamente i dati tra la rete locale e le reti virtuali di Azure con riservatezza, impossibilità di riproduzione, autenticità e integrità. Per altre informazioni su come configurare la VPN IPSec da sito a sito in modalità tunnel con il peering ExpressRoute di Microsoft, vedere [Configurare una VPN da sito a sito tramite peering ExpressRoute Microsoft][S2S-Over-ExR]. 
+La limitazione principale per la configurazione di una VPN da sito a sito che usa il peering Microsoft è rappresentata dalla velocità effettiva. La velocità effettiva nel tunnel IPSec è limitata dalla capacità del gateway VPN. La velocità effettiva del gateway VPN è inferiore alla velocità effettiva di ExpressRoute. In questo scenario, usando il tunnel IPSec per il traffico a sicurezza elevata e il peering privato per tutti gli altri tipi di traffico è possibile ottimizzare l'uso della larghezza di banda di ExpressRoute.
 
-La limitazione principale della configurazione VPN da sito a sito con peering Microsoft è la velocità effettiva. La velocità effettiva nel tunnel IPSec è limitata dalla capacità del gateway VPN. La velocità effettiva del gateway VPN è inferiore a quella di ExpressRoute. In questi scenari l'uso del tunnel IPSec per il traffico ad alta protezione e del peering privato per tutti gli altri tipi di traffico consente di ottimizzare l'uso della larghezza di banda di ExpressRoute.
+### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>VPN da sito a sito come percorso di failover sicuro per ExpressRoute
 
-#### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>VPN da sito a sito come percorso di failover protetto per ExpressRoute
-ExpressRoute viene offerto come coppia di circuiti ridondanti per garantire la disponibilità elevata. È possibile configurare la connettività ExpressRoute con ridondanza geografica in diverse aree di Azure. Inoltre, come si è visto nell'installazione test, se all'interno di una determinata area di Azure si vuole usare un percorso di failover per la connettività ExpressRoute, è possibile usare la VPN da sito a sito. Quando gli stessi prefissi vengono annunciati sia su ExpressRoute che sulla VPN da sito a sito, Azure preferisce ExpressRoute alla VPN da sito a sito. Per evitare il routing asimmetrico tra ExpressRoute e la VPN da sito a sito, la configurazione di rete locale deve anche ricambiare preferendo ExpressRoute piuttosto che la connettività VPN da sito a sito.
+ExpressRoute funge da coppia di circuiti ridondanti per garantire la disponibilità elevata. È possibile configurare la connettività ExpressRoute con ridondanza geografica in diverse aree di Azure. Come dimostrato nell'installazione test, in un'area di Azure è anche possibile usare una VPN da sito a sito per creare un percorso di failover per la connettività di ExpressRoute. Quando gli stessi prefissi vengono annunciati sia in ExpressRoute che in una VPN da sito a sito, Azure dà la priorità a ExpressRoute. Per evitare il routing asimmetrico tra ExpressRoute e la VPN da sito a sito, la configurazione di rete locale deve fare lo stesso, preferendo la connettività di ExpressRoute rispetto alla connettività VPN da sito a sito.
 
-Per altre informazioni su come configurare le connessioni ExpressRoute e VPN da sito a sito coesistenti, vedere [Configurare connessioni coesistenti da sito a sito ed ExpressRoute usando PowerShell][ExR-S2S-CoEx].
+Per altre informazioni su come configurare connessioni coesistenti per ExpressRoute e VPN da sito a sito, vedere [Configurare connessioni coesistenti da sito a sito ed ExpressRoute usando PowerShell][ExR-S2S-CoEx].
 
-### <a name="extending-backend-connectivity-to-spoke-vnets-and-branch-locations"></a>Estensione della connettività di back-end a reti virtuali spoke e diramazioni
+## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Estendere la connettività back-end a reti virtuali spoke e posizioni delle filiali
 
-#### <a name="spoke-vnet-connectivity-using-vnet-peering"></a>Connettività della rete virtuale spoke con il peering reti virtuali
+### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Connettività della rete virtuale spoke tramite il peering reti virtuali
 
-L'architettura di rete virtuale hub-spoke è ampiamente usata. L'hub è una rete virtuale di Azure che funge da punto centrale di connettività tra le reti virtuali spoke e la rete locale. Gli spoke sono reti virtuali che eseguono il peering con l'hub e possono essere usati per isolare i carichi di lavoro. Il traffico scorre tra il data center locale e l'hub attraverso una connessione VPN o ExpressRoute. Per maggiori dettagli sull'architettura, vedere [Implementare una topologia di rete hub-spoke in Azure][Hub-n-Spoke]
+L'architettura di rete virtuale dell'hub e spoke è molto diffusa. L'hub è una rete virtuale in Azure che funge da punto centrale di connettività tra le reti virtuali spoke e la rete locale. Gli spoke sono reti virtuali che eseguono il peering con l'hub e che è possibile usare per isolare i carichi di lavoro. Il traffico scorre tra il data center locale e l'hub attraverso una connessione VPN o ExpressRoute. Per altre informazioni sull'architettura, vedere [Implementare una topologia di rete hub-spoke in Azure][Hub-n-Spoke].
 
-Il peering reti virtuali all'interno di un'area consente alle reti virtuali spoke di usare i gateway di rete virtuale dell'hub (gateway ExpressRoute e VPN) per comunicare con le reti remote.
+Nel peering reti virtuali all'interno di un'area, le reti virtuali spoke possono usare i gateway di rete virtuale dell'hub (gateway ExpressRoute e VPN) per comunicare con le reti remote.
 
-#### <a name="branch-vnet-connectivity-using-site-to-site-vpn"></a>Creare un ramo della connettività di rete virtuale usando la VPN da sito a sito
+### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Connettività delle reti virtuali delle filiali tramite VPN da sito a sito
 
-Se si vuole creare un ramo di reti virtuali (in aree diverse) e le reti locali comunicano tra loro attraverso una rete virtuale dell'hub, la soluzione nativa di Azure è la connettività VPN da sito a sito che usa la VPN. Un'opzione alternativa è usare un'appliance virtuale di rete per il routing nell'hub.
+È possibile far comunicare tra loro le reti virtuali delle filiali, che si trovano in aree diverse, e le reti locali tramite una rete virtuale dell'hub. La soluzione di Azure nativa per questa configurazione è la connettività VPN da sito a sito tramite una rete VPN. In alternativa, è possibile usare un'appliance virtuale di rete per il routing nell'hub.
 
-Per configurare i gateway VPN, vedere [Configurazione del gateway VPN][VPN]. Per la distribuzione di appliance di rete virtuale con disponibilità elevata, vedere [Distribuire appliance virtuali di rete con disponibilità elevata][Deploy-NVA].
+Per altre informazioni, vedere [Che cos'è un Gateway VPN?][VPN] e [Distribuire appliance virtuali di rete con disponibilità elevata][Deploy-NVA].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per l'analisi del piano dati dell'installazione test e per le visualizzazioni delle funzionalità di monitoraggio della rete di Azure, vedere [Analisi del piano dati][Data-Analysis].
+Leggere le informazioni sull'[analisi del piano dati][Data-Analysis] dell'installazione test e sulle visualizzazioni delle funzionalità di monitoraggio di rete di Azure.
 
-Per informazioni sul numero di circuiti ExpressRoute che possono essere connessi a un gateway ExpressRoute, sul numero di gateway ExpressRoute che si possono connettere a un circuito ExpressRoute o per informazioni su altri limiti di scalabilità di ExpressRoute, vedere le [domande frequenti su ExpressRoute][ExR-FAQ]
+Vedere le [domande frequenti su ExpressRoute][ExR-FAQ] per:
+-   Informazioni sul numero di circuiti ExpressRoute che è possibile connettere a un gateway ExpressRoute.
+-   Informazioni sul numero di gateway ExpressRoute che è possibile connettere a un circuito ExpressRoute.
+-   Informazioni su altri limiti di scalabilità di ExpressRoute.
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubView.png "Prospettiva della topologia delle reti virtuali spoke e dell'hub"
-[2]: ./media/backend-interoperability/Loc1ExRView.png "Prospettiva della topologia della rete Location-1 e della rete virtuale remota via ExpressRoute 1"
-[3]: ./media/backend-interoperability/Loc1VPNView.png "Prospettiva della topologia della rete Location-1 e della rete virtuale di diramazione via VPN da sito a sito"
-[4]: ./media/backend-interoperability/Loc2View.png "Prospettiva della topologia di Location-2"
+[1]: ./media/backend-interoperability/HubView.png "Prospettiva della topologia delle reti virtuali dell'hub e spoke"
+[2]: ./media/backend-interoperability/Loc1ExRView.png "Prospettiva della topologia della posizione 1 e della rete virtuale remota tramite ExpressRoute 1"
+[3]: ./media/backend-interoperability/Loc1VPNView.png "Prospettiva della topologia della posizione 1 e della rete virtuale della filiale tramite VPN da sito a sito"
+[4]: ./media/backend-interoperability/Loc2View.png "Prospettiva della topologia della posizione 2"
 [5]: ./media/backend-interoperability/ExR1-RouteTable.png "Tabella di route di ExpressRoute 1"
 
 <!--Link References-->
@@ -111,7 +115,5 @@ Per informazioni sul numero di circuiti ExpressRoute che possono essere connessi
 [Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
 [Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
 [VNet-Config]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering
-
-
 
 

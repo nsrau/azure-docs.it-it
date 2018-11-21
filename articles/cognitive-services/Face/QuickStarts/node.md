@@ -1,47 +1,35 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Node.js"
+title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e Node.js"
 titleSuffix: Azure Cognitive Services
-description: In questa introduttiva si rileveranno i visi in un'immagine usando l'API Viso con Node.js in Servizi cognitivi.
+description: In questa guida introduttiva si userà l'API REST Viso di Azure con Node.js per rilevare i visi in un'immagine.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 06/08/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: b5258f1c465732df257a7db85e828effff200ee0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 76747f7e9f1a95ee14ee570dcc29b42f98c26838
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954099"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577991"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-nodejs"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso di Azure e Node.js
 
-In questa guida introduttiva si rileveranno i visi in un'immagine usando l'API Viso.
+In questa guida introduttiva si userà l'API REST Viso di Azure con Node.js per rilevare i visi umani in un'immagine.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire l'esempio è necessaria una sottoscrizione. È possibile ottenere le chiavi di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
 
-## <a name="face---detect-request"></a>Richiesta di rilevamento del viso
+## <a name="create-the-nodejs-script"></a>Creare lo script Node.js
 
-Usare il metodo [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per rilevare i visi in un'immagine e restituirne gli attributi, tra cui:
-
-* ID viso: ID univoco usato in diversi scenari di API Viso.
-* Rettangolo del viso: riquadro i cui lati indicano la posizione del viso nell'immagine.
-* Punti di riferimento: matrice con 27 punti di riferimento che indicano le posizioni importanti dei componenti del viso.
-* Altri attributi del viso quali età, sesso, intensità del sorriso, orientamento della testa e peli del viso.
-
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Copiare il codice seguente in un editor.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `uriBase` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, impostare `imageUri` sull'immagine che si vuole analizzare.
-1. Salvare il file con estensione `.js`.
-1. Aprire il prompt dei comandi di Node.js ed eseguire il file, ad esempio: `node myfile.js`.
+Il codice seguente chiamerà l'API Viso e otterrà i dati dell'attributo viso da un'immagine. In primo luogo, copiare il codice in un editor di testo. È necessario apportare alcune modifiche prima di poterlo eseguire.
 
 ```nodejs
 'use strict';
@@ -88,9 +76,29 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="face---detect-response"></a>Risposta alla richiesta di rilevamento del viso
+### <a name="subscription-key"></a>Chiave della sottoscrizione
+Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione Viso valida.
 
-Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
+### <a name="face-endpoint-url"></a>URL endpoint Viso
+
+L'URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica l'endpoint Viso di Azure su cui eseguire la query. È necessario modificare la prima parte dell'URL con l'area che corrisponde alla chiave di sottoscrizione (a meno che non sia già corretta).
+
+### <a name="url-query-string"></a>Stringa di query URL
+
+Il campo `returnFaceAttributes` specifica gli attributi del viso da recuperare. È possibile modificare questa stringa in base all'uso previsto.
+
+### <a name="image-source-url"></a>URL origine immagine
+Il campo `imageUrl` indica l'immagine da usare come input. È possibile modificarlo in modo che punti a un'immagine che si vuole analizzare.
+
+## <a name="save-and-run-the-script"></a>Salvare ed eseguire lo script
+
+Dopo aver apportato le modifiche, salvare il file come script JavaScript (.js). Quindi, aprire un prompt dei comandi ed eseguirlo con il comando `node`.
+
+```
+node myfile.js
+```
+
+Le informazioni sul viso dovrebbero essere visualizzate come dati JSON nella finestra della console. Ad esempio: 
 
 ```json
 [
@@ -273,7 +281,7 @@ Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le API Viso usate per rilevare i visi umani in un'immagine, delimitare i visi con rettangoli e restituire gli attributi, ad esempio l'età e il sesso.
+In questa guida introduttiva è stato scritto un comando cURL che chiama l'API Viso di Azure per rilevare i visi in un'immagine e restituire i relativi attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni.
 
 > [!div class="nextstepaction"]
 > [API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

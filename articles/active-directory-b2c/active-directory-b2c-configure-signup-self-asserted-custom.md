@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 37492e22b5615ae0b266bc8b2bb6d8f039fdaabe
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336856"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345001"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: modificare l'iscrizione per aggiungere nuove attestazioni e configurare l'input utente.
 
@@ -277,8 +277,8 @@ La verifica di posta elettronica è abilitata per impostazione predefinita in `<
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Aggiungere la nuova attestazione ai flussi per gli accessi con account di social networking modificando gli elementi TechnicalProfile elencati di seguito. Questi vengono usati per gli accessi con account di social networking/federati per scrivere e leggere i dati utente usando alternativeSecurityId come localizzatore.
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+Se il criterio supporta gli account di social networking, aggiungere la nuova attestazione ai flussi per gli accessi con account di social networking modificando i profili tecnici elencati di seguito. Queste attestazioni vengono usate dagli accessi con account di social networking per raccogliere e scrivere dati dell'utente.
+
+1. Individuare il profilo tecnico **SelfAsserted-Social** e aggiungere l'attestazione di output. L'ordine delle attestazioni in **OutputClaims** controlla l'ordine in cui Azure AD B2C esegue il rendering delle attestazioni sullo schermo. Ad esempio: `<OutputClaim ClaimTypeReferenceId="city" />`.
+2. Individuare il profilo tecnico **AAD-UserWriteUsingAlternativeSecurityId** e aggiungere l'attestazione di persistenza. Ad esempio: `<PersistedClaim ClaimTypeReferenceId="city" />`.
+3. Individuare il profilo tecnico **AAD-UserReadUsingAlternativeSecurityId** e aggiungere l'attestazione di output. Ad esempio: `<OutputClaim ClaimTypeReferenceId="city" />`.

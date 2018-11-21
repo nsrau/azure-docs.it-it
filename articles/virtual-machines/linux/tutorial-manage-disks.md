@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978319"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685379"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Esercitazione: gestire i dischi di Azure con l'interfaccia della riga di comando di Azure
 
@@ -36,9 +36,6 @@ Le macchine virtuali (VM) di Azure usano dischi per archiviare sistema operativo
 > * Ridimensionamento dei dischi
 > * Snapshot dei dischi
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Dischi di Azure predefiniti
 
@@ -48,35 +45,15 @@ Quando viene creata una macchina virtuale di Azure, due dischi vengono automatic
 
 **Disco temporaneo**: i dischi temporanei usano un'unità SSD che si trova nello stesso host della macchina virtuale di Azure. I dischi temporanei sono altamente efficienti e possono essere usati per operazioni quali l'elaborazione dei dati temporanei. Tuttavia, se la macchina virtuale viene spostata in un nuovo host, tutti i dati memorizzati su un disco temporaneo vengono rimossi. Le dimensioni del disco temporaneo sono determinate dalle dimensioni della macchina virtuale. I dischi temporanei vengono etichettati come */dev/sdb* e hanno un punto di montaggio */mnt*.
 
-### <a name="temporary-disk-sizes"></a>Dimensioni del disco temporaneo
-
-| type | Dimensioni comuni | Dimensioni massime del disco temporaneo (GiB) |
-|----|----|----|
-| [Utilizzo generico](sizes-general.md) | Serie A, B e D | 1600 |
-| [Ottimizzate per il calcolo](sizes-compute.md) | Serie F | 576 |
-| [Ottimizzate per la memoria](sizes-memory.md) | Serie D, E, G e M | 6144 |
-| [Ottimizzate per l'archiviazione](sizes-storage.md) | Serie L | 5630 |
-| [GPU](sizes-gpu.md) | Serie N | 1.440 |
-| [Prestazioni elevate](sizes-hpc.md) | Serie A e H | 2000 |
 
 ## <a name="azure-data-disks"></a>Dischi dati di Azure
 
-Per installare applicazioni e archiviare dati è possibile aggiungere altri dischi dati. I dischi dati devono essere usati in qualsiasi situazione in cui si desidera un'archiviazione dei dati durevoli e reattiva. Ogni disco dati ha una capacità massima di 4 TB. Le dimensione della macchina virtuale determinano il numero di dischi dati possono essere collegati a una macchina virtuale. Per ogni vCPU della macchina virtuale, è possibile collegare due dischi dati.
+Per installare applicazioni e archiviare dati è possibile aggiungere altri dischi dati. I dischi dati devono essere usati in qualsiasi situazione in cui si desidera un'archiviazione dei dati durevoli e reattiva. Ogni disco dati ha una capacità massima di 4 TB. Le dimensione della macchina virtuale determinano il numero di dischi dati possono essere collegati a una macchina virtuale. Per ogni vCPU della macchina virtuale, è possibile collegare quattro dischi dati.
 
-### <a name="max-data-disks-per-vm"></a>Numero massimo di dischi di dati per macchina virtuale
-
-| type | Dimensioni macchina virtuale | Numero massimo di dischi di dati per macchina virtuale |
-|----|----|----|
-| [Utilizzo generico](sizes-general.md) | Serie A, B e D | 64 |
-| [Ottimizzate per il calcolo](sizes-compute.md) | Serie F | 64 |
-| [Ottimizzate per la memoria](../virtual-machines-windows-sizes-memory.md) | Serie D, E e G | 64 |
-| [Ottimizzate per l'archiviazione](../virtual-machines-windows-sizes-storage.md) | Serie L | 64 |
-| [GPU](sizes-gpu.md) | Serie N | 64 |
-| [Prestazioni elevate](sizes-hpc.md) | Serie A e H | 64 |
 
 ## <a name="vm-disk-types"></a>Tipi di dischi per la VM
 
-Azure offre due tipi di dischi.
+Azure offre due tipi di dischi, ovvero standard e Premium.
 
 ### <a name="standard-disk"></a>Disco standard
 
@@ -88,13 +65,20 @@ I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazio
 
 ### <a name="premium-disk-performance"></a>Prestazioni disco premium
 
-|Tipo di disco di Archiviazione Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Dimensioni del disco (arrotondate) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2.048 GB (2 TB) | 4.095 GB (4 TB) |
-| Operazioni IOPS al secondo max per disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 |
-Velocità effettiva per disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
+|Tipo di disco di Archiviazione Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Dimensioni del disco (arrotondate) | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB)
+| Operazioni IOPS al secondo max per disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 | 12.500 |
+Velocità effettiva per disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
 
 Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni di I/O al secondo per disco, è possibile raggiungere un livello superiore di prestazioni tramite lo striping di più dischi di dati. Ad esempio, una macchina virtuale Standard_GS5 può raggiungere un massimo di 80.000 operazioni di I/O al secondo. Per informazioni dettagliate sul numero massimo di operazioni di I/O al secondo per macchina virtuale, vedere [Dimensioni delle VM Linux](sizes.md).
+
+
+## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
+
+Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. 
+
+Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/powershell](https://shell.azure.com/bash). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
 
 ## <a name="create-and-attach-disks"></a>Creare e collegare dischi
 
@@ -116,7 +100,6 @@ az vm create \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 128 128
 ```
@@ -137,9 +120,8 @@ az vm disk attach \
 
 ## <a name="prepare-data-disks"></a>Preparare i dischi di dati
 
-Dopo aver collegato un disco alla macchina virtuale, il sistema operativo deve essere configurato per l'uso del disco. L'esempio seguente illustra come configurare manualmente un disco. È anche possibile automatizzare questo processo puòcon cloud-init, di cui si parlerà nell'[esercitazione successiva](./tutorial-automate-vm-deployment.md).
+Dopo aver collegato un disco alla macchina virtuale, il sistema operativo deve essere configurato per l'uso del disco. L'esempio seguente illustra come configurare manualmente un disco. È anche possibile automatizzare questo processo con cloud-init, di cui si parlerà nell'[esercitazione successiva](./tutorial-automate-vm-deployment.md).
 
-### <a name="manual-configuration"></a>Configurazione manuale
 
 Creare una connessione SSH alla macchina virtuale. Sostituire l'indirizzo IP di esempio con l'indirizzo IP pubblico della macchina virtuale.
 
@@ -204,42 +186,10 @@ Ora che il disco è stato configurato, chiudere la sessione SSH.
 exit
 ```
 
-## <a name="resize-vm-disk"></a>Ridimensionare il disco della macchina virtuale
 
-Dopo la distribuzione di una macchina virtuale, è possibile aumentare le dimensioni del disco del sistema operativo o dei dischi dati collegati. L'aumento delle dimensioni di un disco è utile quando è necessario un maggiore spazio di archiviazione o un livello superiore di prestazioni, ad esempio P10, P20 o P30. Non è possibile diminuire le dimensioni dei dischi.
+## <a name="snapshot-a-disk"></a>Snapshot di un disco
 
-Prima di aumentare le dimensioni del disco, è necessario conoscerne l'ID o il nome. Usare il comando [az disk list](/cli/azure/disk#az-disk-list) per restituire tutti i dischi in un gruppo di risorse. Prendere nota del nome del disco di cui si desidera cambiare le dimensioni.
-
-```azurecli-interactive
-az disk list \
-    --resource-group myResourceGroupDisk \
-    --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' \
-    --output table
-```
-
-La macchina virtuale deve essere deallocata. Usare il comando [az vm deallocate](/cli/azure/vm#az-vm-deallocate) per arrestare e deallocare la VM.
-
-```azurecli-interactive
-az vm deallocate --resource-group myResourceGroupDisk --name myVM
-```
-
-Usare il comando [az disk update](/cli/azure/vm/disk#az-vm-disk-update) per ridimensionare il disco. In questo esempio un disco denominato *myDataDisk* viene ridimensionato a 1 terabyte.
-
-```azurecli-interactive
-az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
-```
-
-Dopo aver completato l'operazione di ridimensionamento, avviare la macchina virtuale.
-
-```azurecli-interactive
-az vm start --resource-group myResourceGroupDisk --name myVM
-```
-
-Se si ridimensiona il disco del sistema operativo, la partizione si espande automaticamente. Se si ridimensiona un disco dati, tutte le partizioni correnti devono essere estese nel sistema operativo delle macchine virtuali.
-
-## <a name="snapshot-azure-disks"></a>Snapshot di dischi di Azure
-
-Quando si crea uno snapshot del disco, Azure crea una copia temporizzata di sola lettura del disco. Gli snapshot della macchina virtuale di Azure sono utili per salvare rapidamente lo stato di una macchina virtuale prima di apportare modifiche alla configurazione. Nel caso in cui le modifiche alla configurazione si rivelino non volute, lo stato della macchina virtuale può essere ripristinato con lo snapshot. Quando una macchina virtuale dispone di più dischi, viene acquisito uno snapshot per ciascun disco separatamente dagli altri dischi. Per eseguire backup coerenti con l'applicazione, prendere in considerazione l'arresto della macchina virtuale prima di eseguire gli snapshot dei dischi. In alternativa, usare il [Servizio Backup di Microsoft Azure](/azure/backup/), che consente di eseguire backup automatici, mentre la macchina virtuale è in esecuzione.
+Quando si crea uno snapshot del disco, Azure crea una copia temporizzata di sola lettura del disco. Gli snapshot della macchina virtuale di Azure sono utili per salvare rapidamente lo stato di una macchina virtuale prima di apportare modifiche alla configurazione. In caso di problemi o errori, è possibile ripristinare la macchina virtuale usando uno snapshot. Quando una macchina virtuale dispone di più dischi, viene acquisito uno snapshot per ciascun disco separatamente dagli altri dischi. Per eseguire backup coerenti con l'applicazione, prendere in considerazione l'arresto della macchina virtuale prima di eseguire gli snapshot dei dischi. In alternativa, usare il [Servizio Backup di Microsoft Azure](/azure/backup/), che consente di eseguire backup automatici, mentre la macchina virtuale è in esecuzione.
 
 ### <a name="create-snapshot"></a>Creare uno snapshot
 

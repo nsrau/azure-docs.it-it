@@ -1,5 +1,5 @@
 ---
-title: 'Eseguire il debug di Hadoop in HDInsight: visualizzare i log e interpretare i messaggi di errore - Azure '
+title: 'Eseguire il debug di Apache Hadoop in HDInsight: visualizzare i log e interpretare i messaggi di errore - Azure '
 description: Informazioni sui messaggi di errore che vengono visualizzati durante l'amministrazione di HDInsight con PowerShell e sulle operazioni da eseguire per risolvere i problemi.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261150"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634635"
 ---
 # <a name="analyze-hadoop-logs"></a>Analizzare i log di Hadoop
 
-Ogni cluster Hadoop in Azure HDInsight ha un account di archiviazione di Azure usato come file system predefinito. L'account di archiviazione viene definito account di archiviazione predefinito. Il cluster usa l'archivio tabelle e l'archivio BLOB di Azure nell'account di archiviazione predefinito per archiviare i log.  Per trovare l'account di archiviazione predefinito per il cluster, vedere [Gestire cluster Hadoop in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). I log vengono conservati nell'account di archiviazione anche dopo l'eliminazione del cluster.
+Ogni cluster Apache Hadoop in Azure HDInsight ha un account di archiviazione di Azure usato come file system predefinito. L'account di archiviazione viene definito account di archiviazione predefinito. Il cluster usa l'archivio tabelle e l'archivio BLOB di Azure nell'account di archiviazione predefinito per archiviare i log.  Per trovare l'account di archiviazione predefinito per il cluster, vedere [Gestire cluster Hadoop in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). I log vengono conservati nell'account di archiviazione anche dopo l'eliminazione del cluster.
 
 ## <a name="logs-written-to-azure-tables"></a>Log scritti tabelle di Azure
 
@@ -131,7 +131,7 @@ I messaggi di errore indicati in questa sezione sono forniti per aiutare gli ute
 
 Alcuni di questi messaggi di errore possono essere visualizzati anche nel portale di Azure quando viene usato per la gestione dei cluster HDinsight. Altri messaggi di errore, invece, sono meno granulari a causa dei vincoli relativi alle azioni di correzione possibili in questo contesto. Altri messaggi di errore vengono visualizzati in contesti in cui la soluzione correttiva è ovvia. 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Descrizione**:per usare le impostazioni personalizzate per i metastore Hive e Oozie, è necessario specificare i dettagli del database SQL di Azure per almeno un componente.
 * **Soluzione**: è necessario specificare un metastore di SQL Azure valido e ripetere la richiesta.  
 

@@ -5,20 +5,20 @@ services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: d4f07896e835821612971f1558ca5a030a59d154
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597440"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632544"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Usare Apache Hive come strumento per estrazione, trasformazione e caricamento (ETL, Extract, Transform, and Load)
 
-In genere è necessario pulire e trasformare i dati in ingresso prima di caricarli in una destinazione adatta all'analisi. Le operazioni di estrazione, trasformazione e caricamento consentono di preparare i dati e caricarli in una destinazione dati.  Hive in HDInsight è in grado di leggere i dati non strutturati, elaborare i dati in base alle esigenze e quindi caricarli in un data warehouse relazionale per sistemi di supporto decisionale. In questo approccio i dati vengono estratti dall'origine e archiviati in un servizio di archiviazione scalabile, ad esempio nei BLOB del servizio di archiviazione di Azure o in Azure Data Lake Store. I dati vengono quindi trasformati mediante una sequenza di query Hive e infine vengono gestiti all'interno di Hive in preparazione al caricamento bulk nell'archivio dati di destinazione.
+In genere è necessario pulire e trasformare i dati in ingresso prima di caricarli in una destinazione adatta all'analisi. Le operazioni di estrazione, trasformazione e caricamento consentono di preparare i dati e caricarli in una destinazione dati.  Apache Hive in HDInsight è in grado di leggere i dati non strutturati, elaborare i dati in base alle esigenze e quindi caricarli in un data warehouse relazionale per sistemi di supporto decisionale. In questo approccio i dati vengono estratti dall'origine e archiviati in un servizio di archiviazione scalabile, ad esempio nei BLOB del servizio di archiviazione di Azure o in Azure Data Lake Store. I dati vengono quindi trasformati mediante una sequenza di query Hive e infine vengono gestiti all'interno di Hive in preparazione al caricamento bulk nell'archivio dati di destinazione.
 
 ## <a name="use-case-and-model-overview"></a>Panoramica del caso d'uso e del modello
 
@@ -92,4 +92,5 @@ Se è necessario eseguire diverse operazioni sui dati come parte del processo ET
 
 * [Estrarre, trasformare e caricare (ETL) su larga scala](apache-hadoop-etl-at-scale.md)
 * [Rendere operativa una pipeline di analisi dei dati](../hdinsight-operationalize-data-pipeline.md)
+
 <!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 11/14/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fcdc14534e833ee394645e19cf8bc4bd9d6a7aaa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c8bba283a0c3fde75966ae123023e50d497abd5a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961144"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687555"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Connettere Operations Manager a Log Analytics
-Per gestire l'investimento esistente in System Center Operations Manager e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro di Log Analytics. Ciò consente di sfruttare le opportunità di Log Analytics pur continuando a usare Operations Manager per:
+Per gestire l'investimento esistente in [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro di Log Analytics. Ciò consente di sfruttare le opportunità di Log Analytics pur continuando a usare Operations Manager per:
 
 * Monitorare l'integrità dei servizi IT con Operations Manager
 * Gestire l'integrazione con le soluzioni ITSM che supportano la gestione di eventi imprevisti e problemi
@@ -44,7 +44,7 @@ Prima di iniziare, esaminare i requisiti seguenti.
 
 * Log Analytics supporta solo System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 o versioni successive e Operations Manager 2012 R2 UR2 o versioni successive. Il supporto per il proxy è stato aggiunto in Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
 * Tutti gli agenti di Operations Manager devono soddisfare i requisiti di supporto minimo. Verificare che gli agenti dispongano dell'aggiornamento minimo richiesto, altrimenti le comunicazioni degli agenti di Windows possono avere esito negativo e generare errori nel log eventi di Operations Manager.
-* Un'area di lavoro di Log Analytics. Per altre informazioni, vedere [Raccogliere dati dai computer dell'ambiente con Log Analytics](log-analytics-concept-hybrid.md).
+* Un'area di lavoro di Log Analytics. Per altre informazioni, vedere [Panoramica delle aree di lavoro di Log Analytics](log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json).
 * Autenticazione in Azure con un account membro del [ruolo di collaboratore di Log Analytics](log-analytics-manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]
@@ -52,7 +52,7 @@ Prima di iniziare, esaminare i requisiti seguenti.
 >Per ogni versione di Operations Manager è stato rilasciato un nuovo Management Pack:  
 >* Per System Center Operations Manager 1801, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* Per System Center 2016 - Operations Manager, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57172)  
->* Per System Center Operations Manager 2012 R2, scaricare il Management Pack da [qui](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
+>* Per System Center Operations Manager 2012 R2, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57171)  
 
 ### <a name="network"></a>Rete
 Le informazioni di seguito elencano i dettagli di configurazione del proxy e del firewall necessari all'agente di Operations Manager, ai server di gestione e alla Console operatore per comunicare con Log Analytics. Il traffico in uscita da ogni componente di rete viene indirizzato al servizio Log Analytics.   
@@ -101,7 +101,7 @@ Dopo avere completato la procedura di integrazione con Log Analytics, è possibi
 1. Nella console di Operations Manager selezionare l'area di lavoro **Amministrazione** .
 1. Espandere il nodo Operations Management Suite e fare clic su **Connessione**.
 1. Fare clic sul collegamento **Registrazione a Operations Management Suite** .
-1. Nella pagina**Caricamento guidato di Operations Management Suite: Autenticazione** immettere l'indirizzo di posta elettronica o il numero di telefono e la password dell'account amministratore associato alla sottoscrizione OMS e quindi fare clic su **Accedi**.
+1. Nella pagina**Caricamento guidato di Operations Management Suite: Autenticazione**, immettere l'indirizzo di posta elettronica o il numero di telefono e la password dell'account amministratore associato alla sottoscrizione OMS e fare clic su **Accedi**.
 
    >[!NOTE]
    >OMS viene a questo punto indicato come Log Analytics.

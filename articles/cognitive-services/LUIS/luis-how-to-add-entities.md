@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
-ms.openlocfilehash: 178f4314f9ede86444ee60fd2a64f85dc283080b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5beb952c2330d44ffe090fc422afa6da67376b0d
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138532"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288051"
 ---
 # <a name="create-entities-without-utterances"></a>Creare entità senza espressioni
 
@@ -116,7 +116,7 @@ Nell'espressione `Where is Request relocation from employee new to the company o
 
 1. Nella sezione **Build** (Compila) fare clic su **Entities** (Entità) nel pannello a sinistra e quindi selezionare **Create new entity** (Crea nuova entità).
 
-1. Nella finestra di dialogo **Add Entity** (Aggiungi entità) digitare Department nella casella Entity name (Nome entità) e selezionare **Pattern.any** come **Entity type** (Tipo di entità).
+1. Nella finestra di dialogo **Add Entity** (Aggiungi entità) immettere `HumanResourcesFormTitle` nella casella **Entity name** (Nome entità) e selezionare **Pattern.any** come **Entity type** (Tipo di entità).
 
     Per usare l'entità pattern.any, aggiungere un criterio nella pagina **Patterns** (Criteri) nella sezione **Improve app performance** (Migliora prestazioni app) con la sintassi con parentesi graffe corretta, ad esempio `Where is **{HumanResourcesFormTitle}** on the server?`.
 

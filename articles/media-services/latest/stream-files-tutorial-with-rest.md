@@ -1,5 +1,5 @@
 ---
-title: Eseguire il caricamento, la codifica e lo streaming con Servizi multimediali di Azure | Microsoft Docs
+title: Eseguire il caricamento, la codifica e lo streaming con Servizi multimediali di Azure - REST | Microsoft Docs
 description: Seguire i passaggi di questa esercitazione per caricare un file, codificare il video ed eseguire lo streaming dei contenuti con Servizi multimediali di Azure usando REST.
 services: media-services
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: e49b450ef2c731e9ddbafa0c8366d9eae29dc5ef
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377432"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615773"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Esercitazione: Eseguire il caricamento, la codifica e lo streaming di video con REST
 
-Questa esercitazione illustra come eseguire il caricamento, la codifica e lo streaming di file video con Servizi multimediali di Azure.
+Servizi multimediali di Azure consente di codificare i file multimediali nei formati che possono essere riprodotti in una vasta gamma di browser e dispositivi. Ad esempio, potrebbe essere necessario trasmettere il contenuto nei formati HLS o MPEG DASH di Apple. Prima dello streaming, è consigliabile codificare il file multimediale digitale di alta qualità. Per indicazioni per la codifica, vedere i [concetti correlati alla codifica](encoding-concept.md).
 
-Servizi multimediali consente di codificare i file multimediali nei formati che possono essere riprodotti su una vasta gamma di browser e dispositivi. Ad esempio, potrebbe essere necessario trasmettere il contenuto nei formati HLS o MPEG DASH di Apple. Prima dello streaming, è consigliabile codificare il file multimediale digitale di alta qualità. Per indicazioni per la codifica, vedere i [concetti correlati alla codifica](encoding-concept.md).
+Questa esercitazione illustra come eseguire il caricamento, la codifica e lo streaming di file video con Servizi multimediali di Azure usando REST. 
 
 ![Riprodurre il video](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -42,6 +42,14 @@ Questa esercitazione illustra come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+
+    Attualmente, non tutti i comandi delle [interfacce della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando solo in locale.
+
+- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+
+    Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
+
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in alcune delle esercitazioni REST di AMS. 
 
     Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Tra le alternative vi sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
@@ -53,10 +61,6 @@ Clonare un repository di GitHub che contiene i file di raccolta e ambiente Postm
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -316,7 +320,7 @@ In questa sezione verrà creato un URL di streaming HLS. Gli URL sono costituiti
 
 2. Nome host di StreamingEndpoint. In questo caso, il nome è "amsaccount-usw22.streaming.media.azure.net".
 
-    Per ottenere il nome host è possibile usare l'operazione GET seguente:
+    Per ottenere il nome host, è possibile usare l'operazione GET seguente:
     
     ```
     https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
@@ -352,11 +356,11 @@ Per eliminare una risorsa, selezionare l'operazione "Elimina" per qualsiasi riso
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se nessuna delle risorse usate è più necessaria, compresi gli account di archiviazione e di Servizi multimediali creati per questa esercitazione, eliminare il gruppo di risorse creato in precedenza. A tal fine è possibile usare lo strumento **CloudShell**.
+Se nessuna delle risorse usate è più necessaria, compresi gli account di archiviazione e di Servizi multimediali creati per questa esercitazione, eliminare il gruppo di risorse creato in precedenza.  
 
-In **CloudShell** eseguire il comando seguente:
+Eseguire il comando dell'interfaccia della riga di comando seguente:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

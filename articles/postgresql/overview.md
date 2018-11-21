@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/15/2018
-ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/14/2018
+ms.openlocfilehash: c1e90e9e39bb9ff698b2e53a2b7cf02340e1111f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092158"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685855"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Che cos'è Database di Azure per PostgreSQL
 
-Database di Azure per PostgreSQL è un servizio di database relazionale in Microsoft Cloud creato per gli sviluppatori e basato sulla versione della community del motore di database open source [PostgreSQL](https://www.postgresql.org/). Database di Azure per PostgreSQL offre:
+Database di Azure per PostgreSQL è un servizio di database relazionale in Microsoft Cloud creato per gli sviluppatori e basato sulla versione della community del motore di database open source [PostgreSQL](https://www.postgresql.org/), versioni 9.5, 9.6 e 10. Database di Azure per PostgreSQL offre:
 
 - Disponibilità elevata incorporata senza costi aggiuntivi
 - Prestazioni prevedibili, con piano tariffario tutto incluso e pagamento in base al consumo
@@ -40,7 +40,7 @@ Per un set di esempi dell'interfaccia della riga di comando di Azure, vedere:
 - [Azure CLI samples for Azure Database for PostgreSQL](./sample-scripts-azure-cli.md) (Esempi di interfaccia della riga di comando di Azure per Database di Azure per PostgreSQL)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Regolare prestazioni e scalabilità in pochi secondi
-Il servizio Database di Azure per PostgreSQL offre tre piani tariffari: Basic, Utilizzo generico e Con ottimizzazione per la memoria. Ognuno offre diverse funzionalità in termini di risorse per il supporto dei carichi di lavoro dei database. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere [Piani tariffari](concepts-pricing-tiers.md).
+Il servizio Database di Azure per PostgreSQL offre tre piani tariffari: Basic, Utilizzo generico e Con ottimizzazione per la memoria. Ognuno offre diverse funzionalità in termini di risorse per il supporto dei carichi di lavoro dei database. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere  [Piani tariffari](concepts-pricing-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 Per decidere quando aumentare o ridurre le prestazioni, si usano le funzionalità di monitoraggio e avviso predefinite di Azure. Con questi strumenti, è possibile valutare rapidamente l'impatto del passaggio a un piano superiore o inferiore in base alle esigenze attuali o previste in termini di prestazioni o archiviazione. Per informazioni dettagliate, vedere [Avvisi](howto-alert-on-metric.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare macchine virtuali che eseguono uno stack SQL&#47;IIS&#47;.NET in Azure| Microsoft Docs'
+title: 'Esercitazione: Creare macchine virtuali che eseguono uno stack SQL, IIS, .NET in Azure| Microsoft Docs'
 description: In questa esercitazione viene descritto come installare lo stack SQL di Azure, IIS e .NET in una macchina virtuale Windows in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 357a81ef3ab23a1e06b88f083c2fcdc35b27853d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4909edf6e434e626e89409f01ae0f5fbca5bf442
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464911"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515489"
 ---
-# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Esercitazione: Installare lo stack SQL&#47;IIS&#47;.NET in una macchina virtuale Windows con Azure PowerShell
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Esercitazione: Installare lo stack SQL, IIS, .NET in una macchina virtuale Windows con Azure PowerShell
 
-In questa esercitazione verrà installato uno stack SQL&#47;IIS&#47;.NET usando Azure PowerShell. Questo stack è costituito da due VM che eseguono Windows Server 2016, una con IIS e .NET e l'altra con SQL Server.
+In questa esercitazione verrà installato uno stack SQL, IIS, .NET usando Azure PowerShell. Questo stack è costituito da due VM che eseguono Windows Server 2016, una con IIS e .NET e l'altra con SQL Server.
 
 > [!div class="checklist"]
 > * Creare una macchina virtuale 
@@ -57,7 +57,7 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-Installare IIS e .NET Framework usando l'estensione di script personalizzata.
+Installare IIS e .NET Framework usando l'estensione per script personalizzati con il cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
 
 ```azurepowershell-interactive
 Set-AzureRmVMExtension `

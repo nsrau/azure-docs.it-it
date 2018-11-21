@@ -1,25 +1,25 @@
 ---
-title: Risolvere i codici di errore per l'estensione NPS per MFA di Azure | Microsoft Docs
+title: Risolvere i codici di errore per l'estensione NPS MFA di Azure | Microsoft Docs
 description: Informazioni sulla risoluzione dei problemi relativi all'estensione del Server dei criteri di rete per Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/13/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58bb3ae39ecd5631508ca1d09bf1d9d8f4d75063
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3820aae1e926e51ffa88fabc94e3572b286162de
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036666"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634227"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure
 
-Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di Azure, usare questo articolo per ottenere una soluzione in modo rapido. 
+Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di Azure, usare questo articolo per ottenere una soluzione in modo rapido. I log di estensione del server dei criteri di rete sono disponibili nel Visualizzatore eventi in **Visualizzazioni personalizzate** > **Ruoli del server** > **Network Policy and Access Services (NPAS)** del server in cui è installato l'estensione del server dei criteri di rete.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Procedura per la risoluzione di errori comuni
 
@@ -36,9 +36,6 @@ Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di 
 | **REQUEST_MISSING_CODE** | Verificare che il protocollo di crittografia delle password tra i server dei criteri di rete e di accesso alla rete supporti il metodo di autenticazione secondario usato. **PAP** supporta tutti i metodi di autenticazione di Azure MFA nel cloud: chiamata telefonica, SMS unidirezionale, notifica dell'app per dispositivi mobili e codice di verifica dell'app per dispositivi mobili. **CHAPV2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili. |
 | **USERNAME_CANONICALIZATION_ERROR** | Verificare che l'utente sia presente nell'istanza di Active Directory locale e che il servizio NPS disponga delle autorizzazioni per accedere alla directory. Se si usano i trust tra foreste, [contattare il supporto tecnico](#contact-microsoft-support) per maggiore assistenza. |
 
-
-   
-
 ### <a name="alternate-login-id-errors"></a>Errori relativi all'ID di accesso alternativo
 
 | Codice di errore | Messaggio di errore | Passaggi per la risoluzione dei problemi |
@@ -46,7 +43,6 @@ Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di 
 | **ALTERNATE_LOGIN_ID_ERROR** | Errore: la ricerca di userObjectSid non è riuscita | Verificare che l'utente esista nell'istanza di Active Directory locale. Se si usano i trust tra foreste, [contattare il supporto tecnico](#contact-microsoft-support) per maggiore assistenza. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Errore: la ricerca dell'ID di accesso alternativo non è riuscita | Verificare che LDAP_ALTERNATE_LOGINID_ATTRIBUTE sia impostato su un [attributo di Active Directory valido](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Se LDAP_FORCE_GLOBAL_CATALOG è impostata su True o LDAP_LOOKUP_FORESTS è configurato con un valore non vuoto, verificare di avere configurato un catalogo globale e che vi sia stato aggiunto l'attributo AlternateLoginId. <br><br> Se LDAP_LOOKUP_FORESTS è configurato con un valore non vuoto, verificare che il valore sia corretto. Se è presente più di un nome di foresta, i nomi devono essere separati da punti e virgola, non da spazi. <br><br> Se questi passaggi non risolvono il problema, [contattare il supporto tecnico](#contact-microsoft-support) per maggiore assistenza. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Errore: il valore dell'ID di accesso alternativo è vuoto | Verificare che l'attributo AlternateLoginId sia configurato per l'utente. |
-
 
 ## <a name="errors-your-users-may-encounter"></a>Errori che possono verificarsi per gli utenti
 
@@ -97,7 +93,7 @@ Se si verifica uno di questi errori, è consigliabile [contattare il supporto te
 
 ### <a name="troubleshoot-user-accounts"></a>Risolvere i problemi relativi agli account utente
 
-Se gli utenti hanno [Problemi con la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-troubleshoot.md) è necessario aiutarli a diagnosticare autonomamente i problemi. 
+Se gli utenti hanno [Problemi con la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-troubleshoot.md) è necessario aiutarli a diagnosticare autonomamente i problemi.
 
 ### <a name="contact-microsoft-support"></a>Contattare il supporto Microsoft
 
@@ -131,5 +127,3 @@ Per raccogliere i registri debug per la diagnostica di supporto, attenersi alla 
 
 5. Aprire l'editor del Registro di sistema e passare a set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa impostando **VERBOSE_LOG** su **FALSE**
 6. Comprimere il contenuto della cartella C:\NPS e allegare il file compresso al caso di supporto.
-
-

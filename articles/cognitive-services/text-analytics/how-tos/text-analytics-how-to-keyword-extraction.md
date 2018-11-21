@@ -1,7 +1,6 @@
 ---
-title: 'Esempio: Come estrarre espressioni chiave in Analisi del testo'
-titleSuffix: Azure Cognitive Services
-description: Informazioni su come estrarre espressioni chiave usando l'API REST Analisi del testo.
+title: Come eseguire l'estrazione di espressioni chiave nell'API REST di Analisi del testo (Servizi cognitivi Microsoft in Azure) | Microsoft Docs
+description: In questa esercitazione dettagliata si apprenderà come estrarre espressioni chiave usando l'API REST di Analisi del testo in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605488"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632391"
 ---
 # <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Esempio: Come estrarre espressioni chiave in Analisi del testo
 
@@ -24,6 +23,9 @@ L'API [Estrazione frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/
 Questa funzionalità è utile se è necessario identificare rapidamente i punti rilevanti in una raccolta di documenti. Ad esempio, dato il testo di input "Il cibo era delizioso e il personale era meraviglioso", il servizio restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso".
 
 Per l'estrazione di espressioni chiave sono attualmente supportate le lingue inglese, tedesco, spagnolo e giapponese. Altre lingue sono disponibili in anteprima. Per altre informazioni, vedere [Linguaggi supportati](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Analisi del testo offre anche un'immagine del contenitore Docker basata su Linux per l'estrazione delle frasi chiave, di conseguenza è possibile [installare ed eseguire il contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) vicino ai dati.
 
 ## <a name="preparation"></a>Operazioni preliminari
 
@@ -71,7 +73,7 @@ I dettagli sulla definizione della richiesta sono reperibili in [How to call the
 
 + Creare una richiesta **POST**. Esaminare la documentazione dell'API per questa richiesta: [API Estrazione frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-+ Impostare l'endpoint HTTP per l'estrazione di espressioni chiave. È necessario includere la risorsa `/keyphrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Impostare l'endpoint HTTP per l'estrazione delle frasi chiave usando una risorsa di Analisi del testo in Azure oppure un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) di cui è stata creata un'istanza. È necessario includere la risorsa `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
 + Impostare un'intestazione della richiesta in modo da includere la chiave di accesso per le operazioni di Analisi del testo. Per altre informazioni, vedere [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Come trovare gli endpoint e le chiavi di accesso).
 
@@ -141,7 +143,7 @@ Di seguito è illustrato un esempio dell'output per l'estrazione di espressioni 
 
 Come indicato, l'analizzatore trova e ignora le parole non essenziali e mantiene singoli termini o espressioni che sembrano essere il soggetto o l'oggetto di una frase. 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per l'estrazione di espressioni chiave tramite Analisi del testo in Servizi cognitivi. In sintesi:
 
@@ -150,7 +152,7 @@ In questo articolo si sono appresi i concetti e il flusso di lavoro per l'estraz
 + La richiesta POST viene indirizzata a un endpoint `/keyphrases` usando una [chiave di accesso personalizzata e un endpoint](text-analytics-how-to-access-key.md) valido per la sottoscrizione.
 + L'output di risposta, costituito da parole o espressioni chiave per ogni ID documento, può essere trasmesso a qualsiasi app che accetta JSON, tra cui Excel e Power BI, per citarne alcune.
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
  [Panoramica di Analisi del testo](../overview.md)  
  [Domande frequenti (FAQ)](../text-analytics-resource-faq.md)</br>

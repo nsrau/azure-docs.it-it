@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f032e3ebf6a10411057cd6d41df0cad6248f328b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012463"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636238"
 ---
 # <a name="create-and-manage-role-assignments"></a>Creare e gestire le assegnazioni di ruoli
 
@@ -26,6 +26,8 @@ Ogni assegnazione di ruolo include:
 * Un **ID di definizione del ruolo**
 * Un **percorso di spazio**
 * Un **ID tenant**: nella maggior parte dei casi, un ID tenant di Azure Active Directory
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="role-definition-identifiers"></a>Identificatori delle definizioni di ruolo
 
@@ -57,7 +59,7 @@ La tabella seguente mostra che cosa è possibile ottenere eseguendo una query su
 ## <a name="create-a-role-assignment"></a>Creare un'assegnazione di ruolo
 
 ```plaintext
-HTTP POST /api/v1.0/roleassignments
+HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
 | **Nome** | **Obbligatorio** | **Tipo** | **Descrizione** |
@@ -108,22 +110,22 @@ Tutti gli utenti che fanno parte di un dominio riceveranno l'accesso in lettura 
 Usare GET per ottenere un'assegnazione di ruolo.
 
 ```plaintext
-HTTP GET /api/v1/roleassignments?path={path}
+HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
 | **Nome** | **In** | **Obbligatorio** |    **Tipo** |  **Descrizione** |
 | --- | --- | --- | --- | --- |
-| path | path | True  | string | Percorso completo dello spazio |
+| YOUR_PATH | path | True  | string |    Percorso completo dello spazio |
 
 Usare DELETE per eliminare un'assegnazione di ruolo.
 
 ```plaintext
-HTTP DELETE /api/v1/roleassignments/{id}
+HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
 ```
 
 | **Nome** | **In** | **Obbligatorio** | **Tipo** | **Descrizione** |
 | --- | --- | --- | --- | --- |
-| ID | path | True  | string |   ID assegnazione di ruolo |
+| YOUR_ROLE_ID | path | True  | string | ID assegnazione di ruolo |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

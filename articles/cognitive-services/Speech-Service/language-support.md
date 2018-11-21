@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: 5adc0e39c271b71d6c003eaba6cb5b8a71531bd7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471442"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622517"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Supporto di lingua e area geografica per API servizio di riconoscimento vocale
 
@@ -30,20 +30,20 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti. Livelli diver
  ar-EG | Arabo (Egitto), standard moderno | No  | Yes | No 
  ca-ES | Catalano (Spagna) | No  | No  | No 
  da-DK | Danese (Danimarca) | No  | No  | No 
- de-DE | Tedesco (Germania) | Yes | Yes | No 
+ de-DE | Tedesco (Germania) | Yes | Sì | No 
  en-AU | Inglese (Australia) | No  | Yes | Yes
  en-CA | Inglese (Canada) | No  | Yes | Yes
  en-GB | Inglese (Regno Unito) | No  | Yes | Yes
- en-IN | Inglese (India) | Yes | Yes | Yes
+ en-IN | Inglese (India) | Yes | Sì | Yes
  en-NZ | Inglese (Nuova Zelanda) | No  | Yes | Yes  
- it-IT | Inglese (Stati Uniti) | Yes | Yes | Yes
+ it-IT | Inglese (Stati Uniti) | Yes | Sì | Yes
  es-ES | Spagnolo (Spagna) | No  | Yes | No 
  es-MX | Spagnolo (Messico) | No  | Yes | No 
  fi-FI | Finlandese (Finlandia) | No  | No  | No 
  fr-CA | Francese (Canada) | No  | Yes | No 
- fr-FR | Francese (Francia) | Yes | Yes | No 
+ fr-FR | Francese (Francia) | Yes | Sì | No 
  hi-IN | Hindi (India) | No  | Yes | No 
- it-IT | Italiano (Italia) | Yes | Yes | No 
+ it-IT | Italiano (Italia) | Yes | Sì | No 
  ja-JP | Giapponese (Giappone) | No  | Yes | No 
  ko-KR | Coreano (Corea) | No  | Yes | No 
  nb-NO | Norvegese (Bokmål) (Norvegia) | No  | No  | No 
@@ -51,9 +51,9 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti. Livelli diver
  pl-PL | Polacco (Polonia) | No  | No  | No 
  pt-BR | Portoghese (Brasile) | No  | Yes | No 
  pt-PT | Portoghese (Portogallo) | No  | Yes | No 
- ru-RU | Russo (Russia) | Yes | Yes | No 
+ ru-RU | Russo (Russia) | Yes | Sì | No 
  sv-SE | Svedese (Svezia) | No  | No  | No 
- zh-CN | Cinese (mandarino, semplificato) | Yes | Yes | No 
+ zh-CN | Cinese (mandarino, semplificato) | Yes | Sì | No 
  zh-HK | Cinese (mandarino, tradizionale) | No  | Yes | No 
  zh-TW | Cinese (mandarino taiwanese) | No  | Yes | No 
  th-TH | Thailandese (Thailandia) | No  | No  | No 
@@ -160,7 +160,7 @@ La personalizzazione della voce è disponibile per l'inglese (Stati Uniti) (en-U
 
 ## <a name="speech-translation"></a>Traduzione vocale
 
-L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e con riconoscimento vocale. La lingua di origine deve essere sempre inclusa nella tabella Lingua per la sintesi vocale seguente. Le lingue di destinazione disponibili variano a seconda del fatto che siano parlate o scritte.
+L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e con riconoscimento vocale. La lingua di origine deve essere sempre inclusa nella tabella Lingua per la sintesi vocale seguente. Le lingue di destinazione disponibili variano a seconda del fatto che siano parlate o scritte. È possibile tradurre la voce in ingresso in più di [60 lingue](https://www.microsoft.com/translator/business/languages/). Un subset di queste lingue è disponibile per la [sintesi vocale](language-support.md#text-languages). 
 
 ### <a name="speech-languages"></a>Lingue per la sintesi vocale
 

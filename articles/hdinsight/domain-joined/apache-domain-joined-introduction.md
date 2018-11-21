@@ -1,5 +1,5 @@
 ---
-title: Introduzione alla sicurezza di HDInsight con Enterprise Security Package
+title: Introduzione alla sicurezza Apache Hadoop con Enterprise Security Package
 description: Informazioni su come Enterprise Security Package supporta i quattro capisaldi della sicurezza aziendale.
 services: hdinsight
 ms.service: hdinsight
@@ -9,23 +9,23 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf94ba73d57763f5e05ed9b33d10bb335103400a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946392"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632000"
 ---
-# <a name="an-introduction-to-hadoop-security-with-enterprise-security-package"></a>Introduzione alla sicurezza di HDInsight con Enterprise Security Package
+# <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Introduzione alla sicurezza Apache Hadoop con Enterprise Security Package
 
-Fino a questo momento, Azure HDInsight ha supportato solo un unico amministratore locale degli utenti. Questo funzionava bene per i team di applicazioni o i reparti di dimensioni ridotte. Man mano che i carichi di lavoro basati su Hadoop hanno continuato ad affermarsi nel settore aziendale, l'esigenza di funzionalità di livello aziendale come autenticazione basata su Active Directory, supporto multiutente e controllo degli accessi in base al ruolo è diventata sempre più importante. 
+Fino a questo momento, Azure HDInsight ha supportato solo un unico amministratore locale degli utenti. Questo funzionava bene per i team di applicazioni o i reparti di dimensioni ridotte. Man mano che i carichi di lavoro basati su Apache Hadoop hanno continuato ad affermarsi nel settore aziendale, l'esigenza di funzionalità di livello aziendale come autenticazione basata su Active Directory, supporto multiutente e controllo degli accessi in base al ruolo è diventata sempre più importante. 
 
 È possibile creare un cluster HDInsight con Enterprise Security Package (ESP) aggiunto a un dominio Active Directory. È quindi possibile configurare un elenco di dipendenti dell'azienda autorizzati a eseguire l'autenticazione tramite Azure Active Directory per accedere al cluster HDInsight. Nessun utente esterno all'azienda può accedere al cluster HDInsight. 
 
-L'amministratore può configurare il controllo degli accessi basato sui ruoli per la sicurezza di Hive usando [Apache Ranger](http://hortonworks.com/apache/ranger/). La configurazione di RBAC limita l'accesso ai dati solo ai ruoli interessati. Infine, l'amministratore può controllare l'accesso ai dati per i dipendenti e le eventuali modifiche apportate ai criteri di controllo degli accessi. L'amministratore può quindi ottenere un elevato livello di governance delle risorse aziendali.
+L'amministratore può configurare il controllo degli accessi basato sui ruoli per la sicurezza di Apache Hive usando [Apache Ranger](http://hortonworks.com/apache/ranger/). La configurazione di RBAC limita l'accesso ai dati solo ai ruoli interessati. Infine, l'amministratore può controllare l'accesso ai dati per i dipendenti e le eventuali modifiche apportate ai criteri di controllo degli accessi. L'amministratore può quindi ottenere un elevato livello di governance delle risorse aziendali.
 
 > [!NOTE]
-> Le nuove funzionalità descritte in questo articolo sono disponibili solo in versione di anteprima nei seguenti tipi di cluster: Hadoop, Spark e Interactive Query. Oozie ora è abilitato sui cluster ESP. Per poter accedere all'interfaccia utente Web Oozie, gli utenti devono essere abilitati a eseguire le operazioni di [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
+> Oozie ora è abilitato sui cluster ESP. Per poter accedere all'interfaccia utente Web Oozie, gli utenti devono essere abilitati a eseguire le operazioni di [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 La protezione aziendale si basa su quattro importanti pilastri: protezione perimetrale, autenticazione, autorizzazione e crittografia.
 

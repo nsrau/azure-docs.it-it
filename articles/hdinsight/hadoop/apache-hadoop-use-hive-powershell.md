@@ -1,6 +1,6 @@
 ---
-title: Usare Hive di Hadoop con PowerShell in HDInsight - Azure
-description: Usare PowerShell per eseguire query Hive in Hadoop in HDInsight.
+title: Usare Apache Hive con PowerShell in HDInsight - Azure
+description: Usare PowerShell per eseguire query Hive in Apache Hadoop in HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e02f6b17dff93ce2df1f06ad9681e3086c35300c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257868"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633112"
 ---
-# <a name="run-hive-queries-using-powershell"></a>Esecuzione di query Hive usando PowerShell
+# <a name="run-apache-hive-queries-using-powershell"></a>Eseguire query Apache Hive usando PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Questo documento fornisce un esempio di come usare Azure PowerShell nel gruppo di risorse Azure per eseguire query Hive in un cluster Hadoop in HDInsight.
+Questo documento fornisce un esempio di come usare Azure PowerShell nel gruppo di risorse Azure per eseguire query Hive in un cluster Apache Hadoop in HDInsight.
 
 > [!NOTE]
 > Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Hadoop basato su Linux in HDInsight versione 3.4 o successiva.
+* Un cluster Apache Hadoop basato su Linux in HDInsight versione 3.4 o successiva.
 
   > [!IMPORTANT]
   > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

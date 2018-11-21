@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: ea69befb1084b08352eb3cf38db0364c5c82c45b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237061"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684638"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtri di sicurezza per limitare i risultati di Ricerca di Azure usando le identità di Active Directory
 
@@ -98,7 +98,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Passaggio 4: memorizzare nella cache gli identificatori di gruppo
-Facoltativamente, per ridurre la latenza di rete, è possibile memorizzare nella cache le associazioni utente-gruppo in modo che quando viene emessa una richiesta di ricerca, i gruppi vengono restituiti dalla cache, senza generare un round trip in AAD. È possibile usare (API batch AAD) [https://developer.microsoft.com/graph/docs/concepts/json_batching] per inviare una singola richiesta Http con più utenti e creare la cache.
+Facoltativamente, per ridurre la latenza di rete, è possibile memorizzare nella cache le associazioni utente-gruppo in modo che quando viene emessa una richiesta di ricerca, i gruppi vengono restituiti dalla cache, senza generare un round trip in AAD. È possibile usare [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) per inviare una singola richiesta Http con più utenti e creare la cache.
 
 Microsoft Graph è progettato per gestire un volume elevato di richieste. Se si verifica un numero eccessivo di richieste, la richiesta con codice di stato HTTP 429 non verrà eseguita. Per altre informazioni, vedere [Microsoft Graph throttling](https://developer.microsoft.com/graph/docs/concepts/throttling) (Limitazione delle richieste di Microsoft Graph).
 

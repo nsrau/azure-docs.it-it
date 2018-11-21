@@ -1,6 +1,6 @@
 ---
-title: Funzione definita dall'utente (UDF) Java con Hive in HDInsight - Azure
-description: Informazioni su come creare una funzione definita dall'utente (UDF) basata su Java che funzioni con Hive. In questo esempio, UDF converte una tabella di stringhe di testo in caratteri minuscoli.
+title: Funzione definita dall'utente (UDF) Java con Apache Hive in HDInsight - Azure
+description: Informazioni su come creare una funzione definita dall'utente (UDF) basata su Java che funzioni con Apache Hive. In questo esempio, UDF converte una tabella di stringhe di testo in caratteri minuscoli.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3d8f1d75b8e61bd611f58ed953a8357fb4a47c78
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006244"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634074"
 ---
-# <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilizzare una UDF Java con Hive in HDInsight
+# <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usare una funzione definita dall'utente Java con Apache Hive in HDInsight
 
-Informazioni su come creare una funzione definita dall'utente (UDF) basata su Java che funzioni con Hive. La UDF Java di questo esempio converte una tabella di stringhe di testo in caratteri minuscoli.
+Informazioni su come creare una funzione definita dall'utente (UDF) basata su Java che funzioni con Apache Hive. La UDF Java di questo esempio converte una tabella di stringhe di testo in caratteri minuscoli.
 
 ## <a name="requirements"></a>Requisiti
 

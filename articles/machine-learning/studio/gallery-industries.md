@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: c1ca9c45a7bd070ba0dbcee3b428f986ebac47d3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d64395314f73c5d359b30c15ef11bfd3078e068f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062098"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346304"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Scoprire soluzioni specifiche di settore in Azure AI Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="industry-specific-cortana-intelligence-solutions"></a>Soluzioni specifiche del settore di Cortana Intelligence
-La sezione **[Industries](https://gallery.azure.ai/industries)** (Settori) di Gallery riunisce risorse specifiche di vari settori, tra cui:
+La sezione **[Industries](https://gallery.azure.ai/industries)** (Settori) di [Azure AI Gallery](http://gallery.cortanaintelligence.com) riunisce risorse specifiche di vari settori, tra cui:
 
 * [Retail](https://gallery.azure.ai/industries/retail) (Vendita al dettaglio): consente di trovare soluzioni specifiche per il settore della vendita al dettaglio, ad esempio per creare previsioni di vendita, stimare la varianza dei clienti o sviluppare modelli di prezzo.
 * [Manufacturing](https://gallery.azure.ai/industries/manufacturing) (Produzione): consente di trovare soluzione specifiche per il settore della produzione, ad esempio per prevedere le esigenze di manutenzione dei macchinari o stimare i prezzi dell'energia.

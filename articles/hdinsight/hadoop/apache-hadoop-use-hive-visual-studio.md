@@ -1,5 +1,5 @@
 ---
-title: Hive con strumenti Data Lake (Hadoop) per Visual Studio - Azure HDInsight
+title: Apache Hive con strumenti Data Lake (Apache Hadoop) per Visual Studio - Azure HDInsight
 description: Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguire query Apache Hive con Apache Hadoop in Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4cc2012e40fad9e1343804149cdffaa3a1ab9db4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bfb53ddf666426253cce08e6f09a5297f5d2f4d3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011086"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634108"
 ---
-# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Hive usando gli strumenti Data Lake per Visual Studio
+# <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Apache Hive usando gli strumenti Data Lake per Visual Studio
 
-Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguire query su Apache Hive. Gli strumenti Data Lake consentono di creare, inviare e monitorare facilmente query Hive in Hadoop in HDInsight di Azure.
+Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguire query su Apache Hive. Gli strumenti Data Lake consentono di creare, inviare e monitorare facilmente query Hive in Apache Hadoop in Azure HDInsight.
 
 ## <a id="prereq"></a>Prerequisiti
 
-* Un cluster Azure HDInsight (Hadoop in HDInsight)
+* Un cluster Azure HDInsight (Apache Hadoop in HDInsight)
 
   > [!IMPORTANT]
   > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

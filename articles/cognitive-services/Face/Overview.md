@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 3fe9dd713bef509b1972b51cb07d4f942c544544
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914193"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633462"
 ---
 # <a name="what-is-the-azure-face-api"></a>Informazioni sull'API Viso di Azure
 
@@ -63,6 +63,10 @@ L'immagine seguente è un esempio di un database denominato "myfriends". Ogni gr
 Dopo la creazione e il training di un database, è possibile eseguire l'identificazione in base al gruppo con un nuovo viso rilevato. Se il viso viene identificato come una persona nel gruppo, viene restituito l'oggetto persona.
 
 Per altre informazioni sull'identificazione di persone, vedere l'[API di identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+
+## <a name="use-containers"></a>Usare i contenitori
+
+[Usare il contenitore Viso](face-how-to-install-containers.md) per rilevare, riconoscere e identificare visi installando un contenitore Docker standardizzato più vicino ai dati.
 
 ## <a name="sample-apps"></a>App di esempio
 

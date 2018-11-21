@@ -13,49 +13,44 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/15/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f0de2f8700bef83b5a8a9303e90c97aab29722a3
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145571"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623180"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
 
-I [report](../active-directory-preview-explainer.md) di Azure Active Directory offrono tutte le informazioni necessarie per determinare lo stato dell'ambiente. Il tempo necessario per la visualizzazione dei dati di report nel portale di Azure è nota anche come latenza. 
-
-Questo argomento elenca le informazioni sulla latenza per tutte le categorie di report nel portale di Azure. 
-
+La latenza è il tempo necessario per la visualizzazione dei dati di report di Azure Active Directory (Azure AD) nel [portale di Azure](https://portal.azure.com). Questo articolo elenca la latenza prevista per i diversi tipi di report. 
 
 ## <a name="activity-reports"></a>Report sull’attività
 
-Esistono due aree di reporting sulle attività:
+Esistono due tipi di report attività:
 
-- **Attività di accesso** : informazioni sull'utilizzo delle applicazioni gestite e sulle attività di accesso utente
-- **Log di controllo** : informazioni relative alle attività di sistema sulla gestione di utenti e gruppi, sulle applicazioni gestite e sulle attività di directory
+- [Accessi](concept-sign-ins.md): fornisce informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti
+- [Log di controllo](concept-audit-logs.md): fornisce informazioni relative alle attività di sistema su utenti e gruppi, applicazioni gestite e attività di directory
 
-Nella tabella seguente sono elencate le informazioni sulla latenza per i report di attività.
+Nella tabella seguente sono elencate le informazioni sulla latenza per i report di attività. 
 
-| Report | Latenza (P95) |Latenza (P99)|
+> [!NOTE]
+> **Latenza (95° percentile)** si riferisce al tempo entro il quale verrà segnalato il 95% dei log e **Latenza (99° percentile)** si riferisce al tempo entro il quale verrà segnalato il 99% dei log. 
+>
+
+| Report | Latenza (95° percentile) |Latenza (99° percentile)|
 | :-- | --- | --- | 
 | Log di controllo | 2 min  | 5 min  |
 | Accessi | 2 min  | 5 min |
 
-
-
-
-
-
-
 ## <a name="security-reports"></a>Report sulla sicurezza
 
-Esistono due aree di reporting sulla sicurezza:
+Esistono due tipi di report sulla sicurezza:
 
-- **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. 
-- **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. 
+- [Accessi a rischio](concept-risky-sign-ins.md). Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. 
+- [Utenti contrassegnati per il rischio](concept-user-at-risk.md). Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. 
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i report di sicurezza.
 
@@ -66,7 +61,7 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per i report 
 
 ## <a name="risk-events"></a>Eventi di rischio
 
-Azure Active Directory usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record denominato evento di rischio.
+Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record detto **evento di rischio**.
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per gli eventi di rischio.
 
@@ -80,17 +75,8 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per gli event
 | Accessi da indirizzi IP con attività sospette |2 ore |4 ore |8 ore  |
 
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si desidera ottenere maggiori informazioni sui report dell’attività nel portale di Azure, vedere:
-
-- [Report delle attività di accesso nel portale di Azure Active Directory](concept-sign-ins.md)
-- [Report delle attività di controllo nel portale di Azure Active Directory](concept-audit-logs.md)
-
-Se si desidera ottenere maggiori informazioni sui report della sicurezza nel portale di Azure, vedere:
-
-- [Report della sicurezza per gli utenti a rischio nel portale di Azure Active Directory](concept-user-at-risk.md)
-- [Report degli accessi a rischio nel portale di Azure Active Directory](concept-risky-sign-ins.md)
-
-Se si desidera ottenere maggiori informazioni sugli eventi di rischio, vedere [Eventi di rischio di Azure Active Directory](concept-risk-events.md).
+* [Panoramica dei report di Azure AD](overview-reports.md)
+* [Accesso programmatico ai report di Azure AD](concept-reporting-api.md)
+* [Eventi di rischio di Azure Active Directory](concept-risk-events.md)

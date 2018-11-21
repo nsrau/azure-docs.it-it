@@ -2,18 +2,18 @@
 title: Sviluppare i moduli per Azure IoT Edge | Microsoft Docs
 description: Informazioni su come creare moduli personalizzati per Azure IoT Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: cb97e2cf6d554753f64afc76de84f43e38443909
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741429"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567231"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Informazioni sui requisiti e gli strumenti per sviluppare moduli di IoT Edge
 
@@ -28,7 +28,7 @@ L'hub di IoT Edge offre due funzionalità principali: proxy per l'hub IoT e comu
 ### <a name="iot-hub-primitives"></a>Primitive di hub IoT
 Hub IoT visualizza un'istanza del modulo analogamente a un dispositivo, nel senso che:
 
-* Ha un modulo gemello distinto e isolato dal [dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md) e dagli altri moduli gemelli del dispositivo;
+* Ha un modulo gemello distinto e isolato dal [dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md) e dagli altri moduli gemelli del dispositivo.
 * Può inviare [messaggi da dispositivo a cloud](../iot-hub/iot-hub-devguide-messaging.md);
 * Può ricevere [metodi diretti](../iot-hub/iot-hub-devguide-direct-methods.md) destinati in particolare alla propria identità.
 
@@ -41,7 +41,7 @@ Vedere [Sviluppare e distribuire un modulo di IoT Edge in un dispositivo simulat
 ### <a name="device-to-cloud-messages"></a>Messaggi da dispositivo a cloud
 Per abilitare la complessa elaborazione di messaggi da dispositivo a cloud, l'hub di IoT Edge offre un routing dichiarativo dei messaggi tra moduli e tra moduli e hub IoT. Il routing dichiarativo consente ai moduli di intercettare ed elaborare i messaggi inviati da altri moduli e di propagarli in pipeline complesse. L'articolo [Composizione di un modulo](module-composition.md) illustra come comporre i moduli in pipeline complesse usando le route.
 
-Un modulo di IoT Edge, diversamente da una normale applicazione del dispositivo dell'hub IoT, può ricevere messaggi da dispositivo a cloud che vengono trasmessi tramite proxy dall'hub di IoT Edge locale per elaborarli.
+Un modulo di IoT Edge, contrariamente a una normale applicazione del dispositivo dell'hub IoT, può ricevere messaggi da dispositivo a cloud che vengono trasmessi tramite proxy dall'hub di IoT Edge locale per elaborarli.
 
 L'hub di IoT Edge propaga i messaggi al modulo in base alle route dichiarative descritte nell'articolo [Composizione di un modulo](module-composition.md). Quando si sviluppa un modulo IoT Edge, è possibile ricevere questi messaggi impostando gestori di messaggi.
 
@@ -58,7 +58,9 @@ Infine, i messaggi da dispositivo a cloud gestiti dall'hub Edge vengono contrass
 | $outputName | L'output usato per inviare il messaggio. Può essere vuoto. |
 
 ### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Connessione all'hub di IoT Edge da un modulo
-La connessione all'hub di IoT Edge locale da un modulo prevede due passaggi: usare la stringa di connessione generata dal runtime di IoT Edge all'avvio di un modulo e assicurarsi che l'applicazione accetti il certificato presentato dall'hub di IoT Edge sul dispositivo.
+La connessione all'hub di IoT Edge locale da un modulo prevede due passaggi: 
+1. Usare la stringa di connessione fornita dal runtime IoT Edge all'avvio del modulo.
+2. Verificare che l'applicazione accetti il certificato presentato dall'hub di IoT Edge su tale dispositivo.
 
 La stringa di connessione da usare viene inserita dal runtime di IoT Edge nella variabile di ambiente `EdgeHubConnectionString`. Questo la rende disponibile per tutti i programmi che desiderano usarla.
 

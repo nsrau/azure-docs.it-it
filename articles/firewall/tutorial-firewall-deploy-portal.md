@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8a3a9e4019be0b6039fe43df11a5f6093545f9cd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278583"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685356"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -97,46 +97,36 @@ Creare un'altra subnet denominata **Jump-NS** e con **10.0.3.0/24** come interva
 
 Creare ora le macchine virtuali per il jump server e il server del carico di lavoro e posizionarle nelle subnet appropriate.
 
-1. Nella home page del portale di Azure fare clic su **Tutti i servizi**.
-2. In **Calcolo** fare clic su **Macchine virtuali**.
-3. Fare clic su **Aggiungi** > **Windows Server** > **Windows Server 2016 Datacenter** > **Crea**.
+1. Nel portale di Azure fare clic su **Crea una risorsa**.
+2. Fare clic su **Calcolo** e quindi selezionare **Windows Server 2016 Datacenter** nell'elenco In primo piano.
+3. Immettere i valori seguenti per la macchina virtuale:
 
-**Nozioni di base**
+    - *Test-FW-RG* per il gruppo di risorse.
+    - *Srv-Jump* come nome della macchina virtuale.
+    - *azureuser* come nome utente dell'amministratore.
+    - *Azure123456!* come password.
 
-1. In **Nome** immettere **Srv-Jump**.
-5. Immettere un nome utente e la password.
-6. In **Sottoscrizione** selezionare la propria sottoscrizione.
-7. In **Gruppo di risorse** fare clic su **Usa esistente** > **Test-FW-RG**.
-8. In **Località** selezionare la stessa località usata in precedenza.
-9. Fare clic su **OK**.
+4. In **Regole porta in ingresso** fare clic su **Consenti porte selezionate** per **Porte in ingresso pubbliche**.
+5. In **Selezionare le porte in ingresso** selezionare **RDP (3389)**.
 
-**Dimensione**
-
-1. Scegliere le dimensioni appropriate per una macchina virtuale di test che esegue Windows Server. Ad esempio, **B2ms** (8 GB di RAM, 16 GB di archiviazione).
-2. Fare clic su **Seleziona**.
-
-**Impostazioni**
-
-1. In **Rete** selezionare **Test-FW-VN** per **Rete virtuale**.
-2. In **Subnet** selezionare **Jump-SN**.
-3. In **Selezionare le porte in ingresso pubbliche** selezionare **RDP (3389)**. 
-
-    È opportuno limitare l'accesso all'indirizzo IP pubblico, ma è necessario aprire la porta 3389 per la connessione di una sessione di Desktop remoto al jump server. 
-2. Lasciare le altre impostazioni predefinite e fare clic su **OK**.
-
-**Summary**
-
-Controllare il riepilogo e quindi fare clic su **Crea**. Questa operazione richiederà qualche minuto.
+6. Accettare tutte le altre impostazioni predefinite e fare clic su **Avanti: Dischi**.
+7. Accettare le impostazioni predefinite del disco e fare clic su **Avanti: Rete**.
+8. Assicurarsi che **Test-FW-VN** sia selezionato per la rete virtuale e che la subnet sia **Jump-SN**.
+9. Per **IP pubblico** fare clic su **Crea nuovo**.
+10. Digitare **Srv-Jump-PIP** per il nome dell'indirizzo IP pubblico e fare clic su **OK**.
+11. Accettare tutte le altre impostazioni predefinite e fare clic su **Avanti: Gestione**.
+12. Fare clic su **Disattivato** per disabilitare la diagnostica di avvio. Accettare tutte le altre impostazioni predefinite e fare clic su **Rivedi e crea**.
+13. Verificare le impostazioni nella pagina di riepilogo e quindi fare clic su **Crea**.
 
 Ripetere questo processo per creare un'altra macchina virtuale denominata **Srv-Work**.
 
-Usare le informazioni nella tabella seguente per configurare le **Impostazioni** per la macchina virtuale Srv-Work. Il resto della configurazione è uguale a quella della macchina virtuale Srv-Jump.
+Usare le informazioni nella tabella seguente per configurare le Impostazioni per la macchina virtuale Srv-Work. Il resto della configurazione è uguale a quella della macchina virtuale Srv-Jump.
 
 |Impostazione  |Valore  |
 |---------|---------|
 |Subnet|Workload-SN|
-|Indirizzo IP pubblico|Nessuna|
-|Selezionare le porte in ingresso pubbliche|Nessuna porta in ingresso pubblica|
+|IP pubblico|Nessuna|
+|Porte in ingresso pubbliche|Nessuna|
 
 ## <a name="deploy-the-firewall"></a>Distribuire il firewall
 
@@ -196,15 +186,16 @@ Si tratta della regola di applicazione che consente l'accesso in uscita a github
 
 1. Aprire **Test-FW-RG** e fare clic sul firewall **Test-FW01**.
 2. Nella pagina **Test-FW01** fare clic su **Regole** in **Impostazioni**.
-3. Fare clic su **Aggiungi raccolta regole dell'applicazione**.
-4. In **Nome** immettere **App-Coll01**.
-5. In **Priorità** immettere **200**.
-6. In **Azione** selezionare **Consenti**.
-7. In **Regole** immettere **AllowGH** in **Nome**.
-8. In **Indirizzi di origine** immettere **10.0.2.0/24**.
-9. In **Protocollo:Porta** immettere **http, https**.
-10. In **FQDN di destinazione** immettere **github.com**
-11. Fare clic su **Aggiungi**.
+3. Fare clic sulla scheda **Raccolta regole dell'applicazione**.
+4. Fare clic su **Aggiungi raccolta regole dell'applicazione**.
+5. In **Nome** immettere **App-Coll01**.
+6. In **Priorità** immettere **200**.
+7. In **Azione** selezionare **Consenti**.
+8. In **Regole**, **FQDN di destinazione**, immettere **AllowGH** in **Nome**.
+9. In **Indirizzi di origine** immettere **10.0.2.0/24**.
+10. In **Protocollo:Porta** immettere **http, https**.
+11. In **FQDN di destinazione** immettere **github.com**
+12. Fare clic su **Aggiungi**.
 
 Firewall di Azure include una raccolta di regole predefinite per i nomi di dominio completi dell'infrastruttura consentiti per impostazione predefinita. Questi nomi di dominio completi sono specifici per la piattaforma e non possono essere usati per altri scopi. Per altre informazioni, vedere [Infrastructure FQDNs](infrastructure-fqdns.md) (FQDN dell'infrastruttura).
 
@@ -212,6 +203,7 @@ Firewall di Azure include una raccolta di regole predefinite per i nomi di domin
 
 Si tratta della regola di rete che consente l'accesso in uscita a due indirizzi IP sulla porta 53 (DNS).
 
+1. Fare clic sulla scheda **Raccolta regole di rete**.
 1. Fare clic su **Aggiungi raccolta regole di rete**.
 2. In **Nome** immettere **Net-Coll01**.
 3. In **Priorità** immettere **200**.

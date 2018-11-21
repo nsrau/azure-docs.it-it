@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba2784663a585aebb82ee149be3b54e73920f6dd
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816651"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622535"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Guida introduttiva: installare il pacchetto di contenuto Power BI di Azure Active Directory
 
@@ -29,7 +29,7 @@ ms.locfileid: "48816651"
 |Attualmente, il pacchetto di contenuto Power BI di Azure AD usa le API Graph di Azure AD per recuperare dati dal tenant di Azure AD. Di conseguenza, potrebbe notarsi una certa disparità tra i dati disponibili nel pacchetto di contenuto e i dati recuperati tramite le [API Microsoft Graph per la creazione di report](concept-reporting-api.md). |
 |  |
 
-Il pacchetto di contenuto Power BI per Azure Active Directory consente di ottenere informazioni dettagliate sulle attività di Active Directory. È possibile scaricare il pacchetto di contenuto predefinito e usarlo per creare report su tutte le attività all'interno della directory tramite l'esperienza di visualizzazione avanzata offerta da Power BI. È inoltre possibile creare dashboard personalizzati e condividerli facilmente con altri utenti nell'organizzazione. 
+Il pacchetto di contenuto di Power BI per Azure Active Directory (Azure AD) consente di visualizzare i dati dei report dall'ambiente specifico. È possibile scaricare il pacchetto di contenuto predefinito e usarlo per creare report su tutte le attività all'interno della directory tramite l'esperienza di visualizzazione avanzata offerta da Power BI. È inoltre possibile creare dashboard personalizzati e condividerli facilmente con altri utenti nell'organizzazione. 
 
 Questa Guida introduttiva descrive come installare il pacchetto di contenuto.
 

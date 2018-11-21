@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
-ms.openlocfilehash: ab47db7629c92b0e6a5b268c9d233135485a37a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dc2535bb8cae91e5df4554cdbc4239a5e81a4d90
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237715"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616266"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Esercitazione: Eseguire il push di notifiche ai dispositivi Android con Hub di notifica di Azure e Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -56,7 +56,7 @@ In questa esercitazione vengono completate le azioni seguenti:
 
 ### <a name="configure-gcm-setting-for-the-notification-hub"></a>Configurare l'impostazione di GCM per l'hub di notifica
 
-1. Selezionare **Google (GCM)** in **Impostazioni notifiche**. 
+1. Selezionare **Google (GCM)** in **IMPOSTAZIONI NOTIFICHE**. 
 2. Immettere la **Chiave API** ricevuta dalla console di Google Cloud. 
 3. Sulla barra degli strumenti selezionare **Salva**. 
 
@@ -663,7 +663,7 @@ In genere, le notifiche vengono inviate tramite un server back-end. In alcuni ca
                         bodyStream.write(json.getBytes());
                         bodyStream.close();
 
-                        // Get reponse
+                        // Get response
                         urlConnection.connect();
                         int responseCode = urlConnection.getResponseCode();
                         if ((responseCode != 200) && (responseCode != 201)) {

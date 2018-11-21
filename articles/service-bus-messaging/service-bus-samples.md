@@ -14,30 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: spelluru
-ms.openlocfilehash: d4b7babe9d8243c5240ab6d7f990bbaa2a6969a2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4713033ec8729a68f4c5ee13ac6140e0c5f33779
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854440"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578103"
 ---
 # <a name="service-bus-messaging-samples"></a>Esempi di messaggistica del bus di servizio
 
 Gli esempi di messaggistica del bus di servizio illustrano le funzionalità chiave nella [messaggistica del bus di servizio](https://azure.microsoft.com/services/service-bus/). Attualmente gli esempi sono disponibili in due posizioni:
 
-- [Esempi di messaggistica del bus di servizio su GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet): un gruppo più recente di esempi disponibili su GitHub. Vedere il [file Leggimi](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) nell'archivio per le descrizioni di questi esempi .NET. Verificare spesso la disponibilità di aggiornamenti poiché gli esempi vengono aggiornati continuamente.
-- [Pagina di esempi MSDN](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5): esempi meno recenti presenti in MSDN Code Gallery. Questi esempi continuano a funzionare, ma non vengono gestiti e potrebbero non essere aggiornati a livello di procedure di programmazione consigliate.
- 
+- [.NET e Java](https://github.com/Azure/azure-service-bus/tree/master/samples) . Vedere il [file Readme di .NET](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) nel repository per le descrizioni degli esempi in .NET e il [file Readme di Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) per le descrizioni degli esempi in Java.
+- [TypeScript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+
 ## <a name="service-bus-explorer"></a>Service Bus Explorer
 
 Inoltre [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) è un esempio disponibile su GitHub che consente di connettersi a uno spazio dei nomi del bus di servizio e gestire facilmente le entità di messaggistica. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione, nonché la possibilità di testare le entità di messaggistica e i servizi di inoltro. Il codice sorgente e la documentazione completa su Service Bus Explorer sono disponibili su [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Di seguito sono riportate le posizioni in cui si trovano gli esempi:
-
-- [Esempi in Github](https://github.com/Azure/azure-service-bus/tree/master/samples)
-- [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 
 Per altre panoramiche sul bus di servizio, vedere gli argomenti seguenti.
 

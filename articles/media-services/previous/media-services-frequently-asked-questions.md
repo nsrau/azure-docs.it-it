@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: d4b7d8ec5cb162e5fc844f107fbd5eb08fb00639
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf5bc66ce55b0b9d6095cd395a11f68b40af1639
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353534"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685719"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -28,7 +28,7 @@ Questo articolo contiene le domande frequenti sollevate dalla community di utent
 
 D: Come si esegue il flusso a dispositivi Apple iOS?
 
-R: Aggiungere il percorso "(format=m3u8-aapl)" alla parte "/Manifest" dell'URL per indicare al server di origine di streaming di restituire contenuto HLS per l'utilizzo in dispositivi nativi Apple iOS. Per informazioni, vedere (Distribuzione di contenuto)[media-services-deliver-content-overview.md].
+R: Aggiungere il percorso "(format=m3u8-aapl)" alla parte "/Manifest" dell'URL per indicare al server di origine di streaming di restituire contenuto HLS per l'utilizzo in dispositivi nativi Apple iOS. Per informazioni, vedere [Distribuzione di contenuto](media-services-deliver-content-overview.md).
 
 D: Come scalare l'indicizzazione?
 

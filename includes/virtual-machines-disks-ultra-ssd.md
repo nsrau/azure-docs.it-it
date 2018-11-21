@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bb9a2a884439b00f52adfa9b7c1010a4610a77f7
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401563"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285726"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Dischi gestiti SSD Ultra (anteprima) per carichi di lavoro delle macchine virtuali di Azure
 
@@ -23,7 +23,7 @@ Le unità SSD Ultra di Azure (anteprima) offrono una velocità effettiva elevata
 
 **Dischi gestiti**: le unità SSD Ultra sono disponibili solo come dischi gestiti. Le unità SSD Ultra non possono essere distribuite come dischi non gestiti o BLOB di pagine. Quando si crea un disco gestito, si specifica UltraSSD_LRS come tipo di SKU del disco e si indicano le dimensioni del disco, le operazioni di I/O al secondo e la velocità effettiva necessarie, quindi Azure crea e gestisce automaticamente il disco.  
 
-**Macchine virtuali**: le unità SSD Ultra sono progettate per funzionare con tutte le SKU di macchine virtuali di Azure abilitate per le unità SSD Premium, ma in fase di anteprima le dimensioni delle macchine virtuali saranno limitate alle istanze di macchine virtuali ES/DS v3.
+**Macchine virtuali**: le unità SSD ultra sono progettate per funzionare con tutti gli SKU di macchina virtuale di Azure abilitati per Premium SSD. Tuttavia, trattandosi di una funzionalità attualmente in anteprima, le macchine virtuali vengono impostate con le dimensioni ES/DS v3.
 
 **Configurazione dinamica delle prestazioni**: le unità SSD Ultra consentono di modificare dinamicamente le prestazioni (operazioni di I/O al secondo e velocità effettiva) del disco in base alle esigenze dei carichi di lavoro, senza riavviare le macchine virtuali.
 
@@ -64,11 +64,11 @@ Quando si usano le unità SSD Ultra, tenere presenti le considerazioni seguenti 
 
 ### <a name="managed-disk-size"></a>Dimensioni dei dischi gestiti
 
-La fatturazione dei dischi gestiti è basata sulle dimensioni di cui è stato effettuato il provisioning. Azure associa le dimensioni di cui è stato effettuato il provisioning (arrotondate per eccesso) all'offerta di dimensioni dei dischi più vicina. Per informazioni dettagliate sulle dimensioni dei dischi disponibili, vedere la tabella nella sezione Obiettivi di scalabilità e prestazioni precedente. Ogni disco è associato a una delle dimensioni del disco supportate di cui è stato effettuato il provisioning e la fatturazione viene calcolata di conseguenza su base oraria. Se, ad esempio, è stato effettuato il provisioning di un disco SSD Ultra da 200 GiB che è stato eliminato dopo 20 ore, il disco verrà associato all'offerta di dischi di dimensioni pari a 256 GiB e la fattura includerà addebiti per 256 GiB per 20 ore, indipendentemente dalla quantità di dati effettivamente scritti sul disco.
+I dischi gestiti vengono fatturati in base alle dimensioni di macchina virtuale scelte al momento del provisioning di una nuova macchina virtuale di Azure. Azure associa le dimensioni di cui è stato effettuato il provisioning (arrotondate per eccesso) all'offerta di dimensioni dei dischi più vicina. Per informazioni dettagliate sulle dimensioni dei dischi disponibili, vedere la tabella Obiettivi di scalabilità e prestazioni nella sezione precedente. Ogni disco è associato a una delle dimensioni del disco supportate di cui è stato effettuato il provisioning e la fatturazione verrà calcolata di conseguenza su base oraria. Se, ad esempio, è stato effettuato il provisioning di un disco SSD Ultra da 200 GiB che è stato eliminato dopo 20 ore, il disco verrà associato all'offerta di dischi di dimensioni pari a 256 GiB e la fattura includerà addebiti per 256 GiB per 20 ore, Questa fatturazione era basata sul consumo di ore di calcolo indipendentemente dal volume di dati effettivamente scritti sul disco.
 
 ### <a name="managed-disk-provisioned-iops"></a>Operazioni di I/O al secondo di cui è stato effettuato il provisioning per i dischi gestiti
 
-Le operazioni di I/O al secondo (IOPS) indicano il numero di richieste inviate dall'applicazione ai dischi in un secondo. Un'operazione di input/output può essere di lettura o di scrittura, sequenziale o casuale. Analogamente alle dimensioni dei dischi, le operazioni di I/O al secondo di cui è stato effettuato il provisioning vengono fatturate su base oraria. Per informazioni dettagliate sulle operazioni di I/O al secondo disponibili per i dischi, vedere la tabella nella sezione Obiettivi di scalabilità e prestazioni precedente.
+Le operazioni di I/O al secondo (IOPS) indicano il numero di richieste inviate dall'applicazione ai dischi al secondo. Un'operazione di input/output può essere di lettura o di scrittura, sequenziale o casuale. A seconda delle dimensioni del disco o del numero di dischi collegati alla macchina virtuale, il numero medio di IOPS viene fatturato su base oraria. Per informazioni dettagliate sulle operazioni di I/O al secondo disponibili per i dischi, vedere la tabella nella sezione Obiettivi di scalabilità e prestazioni precedente.
 
 ### <a name="managed-disk-provisioned-throughput"></a>Velocità effettiva di cui è stato effettuato il provisioning per i dischi gestiti
 
