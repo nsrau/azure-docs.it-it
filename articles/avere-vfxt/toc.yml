@@ -43,17 +43,15 @@ items:
     items:
     - name: Documentazione supplementare
       href: avere-vfxt-additional-resources.md
-    - name: Elenco di porte consentite
-      href: avere-vfxt-required-ports.md
     - name: Creare il ruolo del cluster senza controller
       href: avere-vfxt-pre-role.md
     - name: Configurazione DNS del cluster Avere
       href: avere-vfxt-configure-dns.md
     - name: Autorizzare i non proprietari a distribuire Avere vFXT
       href: avere-vfxt-non-owner.md
-ms.openlocfilehash: 6f99a33ffbf637e02d487a511d17bf8a365cb3ba
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 319745fad14ca3cce97e8735def901f380132eff
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669133"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273712"

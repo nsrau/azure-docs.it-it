@@ -5,37 +5,58 @@ items:
   items:
   - name: Informazioni su Identity Governance
     href: identity-governance-overview.md
-  expanded: true
+  - name: Informazioni sulle verifiche di accesso
+    href: access-reviews-overview.md
+  expanded: false
+- name: Concetti
+  items:
+  - name: Gestire l'accesso guest con le verifiche
+    href: manage-guest-access-with-access-reviews.md
+  - name: Gestire l'accesso utente con verifiche
+    href: manage-user-access-with-access-reviews.md
+  - name: Gestire i programmi e i relativi controlli
+    href: manage-programs-controls.md
+  - name: Gestire gli utenti esclusi dall'accesso condizionale
+    href: conditional-access-exclusion.md
+  expanded: false
 - name: Guide alle procedure
   items:
   - name: Verifiche di accesso
     items:
-    - name: Informazioni sulla verifica di accesso
-      href: access-reviews-overview.md
-    - name: Creare una verifica di accesso
-      href: create-access-review.md
-    - name: Completare una verifica di accesso
-      href: complete-access-review.md
-    - name: Eseguire una verifica di accesso
-      href: perform-access-review.md
-    - name: Verificare l'accesso
-      href: review-your-access.md
-    - name: Accesso guest con verifiche di accesso
-      href: manage-guest-access-with-access-reviews.md
-    - name: Gestire l'accesso utente con verifiche
-      href: manage-user-access-with-access-reviews.md
-    - name: Gestire i programmi e i relativi controlli
-      href: manage-programs-controls.md
-    - name: Recuperare i risultati della verifica di accesso
-      href: retrieve-access-review.md
-    - name: Gestire gli utenti esclusi
-      href: conditional-access-exclusion.md
+    - name: Gruppi e app
+      items:
+      - name: Creare una verifica di accesso
+        href: create-access-review.md
+      - name: Avviare una verifica dell'accesso
+        href: perform-access-review.md
+      - name: Verificare l'accesso personale
+        href: review-your-access.md
+      - name: Completare una verifica di accesso
+        href: complete-access-review.md
+      - name: Recuperare i risultati della verifica di accesso
+        href: retrieve-access-review.md
+    - name: Ruoli della directory
+      items:
+      - name: Verificare i ruoli della directory personali
+        href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Avviare una verifica dell'accesso
+        href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Completare una verifica di accesso
+        href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+    - name: Ruoli delle risorse
+      items:
+      - name: Verificare i ruoli delle risorse personali
+        href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Avviare una verifica dell'accesso
+        href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Completare una verifica di accesso
+        href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
   - name: Condizioni per l'utilizzo
     href: active-directory-tou.md
   expanded: true
-ms.openlocfilehash: b6280e42839344169ab651cd5d882bb6abfbf388
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1c70e219aab05e8f8bd905cdc341ccd0d7b563a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163138"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261147"
