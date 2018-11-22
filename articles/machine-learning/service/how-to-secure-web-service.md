@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801013"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344485"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Proteggere i servizi Web di Azure Machine Learning con SSL
 
@@ -53,9 +53,8 @@ Quando si richiede un certificato, è necessario fornire il nome di dominio comp
 > [!TIP]
 > Se l'autorità di certificazione non può fornire il certificato e la chiave come file con codifica PEM, è possibile usare un'utilità come [OpenSSL](https://www.openssl.org/) per modificare il formato.
 
-> [!IMPORTANT]
-> Usare i certificati autofirmati solo per lo sviluppo. Non usarli nell'ambiente di produzione. Se si usa un certificato autofirmato, vedere la sezione [Utilizzo di servizi Web con certificati autofirmati](#self-signed) per istruzioni specifiche.
-
+> [!WARNING]
+> Usare i certificati autofirmati solo per lo sviluppo. Non usarli nell'ambiente di produzione. I certificati autofirmati possono causare problemi nelle applicazioni client. Per altre informazioni, vedere la documentazione relativa alle librerie di rete usate nell'applicazione client.
 
 ## <a name="enable-ssl-and-deploy"></a>Abilitare SSL e distribuire
 
@@ -119,91 +118,8 @@ Successivamente, è necessario aggiornare il DNS in modo che punti al servizio W
 
   Aggiornare il DNS nella scheda "Configurazione" di "Indirizzo IP pubblico" del cluster AKS come illustrato nell'immagine. È possibile trovare l'indirizzo IP pubblico come uno dei tipi di risorse create nel gruppo di risorse che contiene i nodi agente AKS e altre risorse di rete.
 
-  ![Servizio Machine Learning: protezione dei servizi Web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![Servizio Machine Learning: protezione dei servizi Web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png) 
 
-## <a name="consume-authenticated-services"></a>Utilizzo di servizi autenticati
+## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="how-to-consume"></a>Modalità di utilizzo 
-+ **Per ACI e AKS**: 
-
-  Per i servizi Web ACI e AKS, questi articoli contengono informazioni su come utilizzare i servizi Web:
-  + [Come distribuire in ACI](how-to-deploy-to-aci.md)
-
-  + [Come distribuire in AKS](how-to-deploy-to-aks.md)
-
-+ **Per FPGA**:  
-
-  Gli esempi seguenti illustrano come utilizzare un servizio FPGA autenticato in Python e C#.
-  Sostituire `authkey` con la chiave primaria o secondaria restituita durante la distribuzione del servizio.
-
-  Esempio relativo a Python:
-    ```python
-    from amlrealtimeai import PredictionClient
-    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-    image_file = R'C:\path_to_file\image.jpg'
-    results = client.score_image(image_file)
-    ```
-
-  Esempio in C#:
-    ```csharp
-    var client = new ScoringClient(host, 50051, useSSL, "authKey");
-    float[,] result;
-    using (var content = File.OpenRead(image))
-        {
-            IScoringRequest request = new ImageRequest(content);
-            result = client.Score<float[,]>(request);
-        }
-    ```
-
-### <a name="set-the-authorization-header"></a>Impostare l'intestazione dell'autorizzazione
-Gli altri client gRPC possono autenticare le richieste impostando un'intestazione dell'autorizzazione. L'approccio generale consiste nel creare un oggetto `ChannelCredentials` che combina `SslCredentials` con `CallCredentials`. L'oggetto viene aggiunto all'intestazione dell'autorizzazione della richiesta. Per altre informazioni sull'implementazione del supporto per intestazioni specifiche, vedere [https://grpc.io/docs/guides/auth.html](https://grpc.io/docs/guides/auth.html).
-
-Gli esempi seguenti illustrano come impostare l'intestazione in C# e Go:
-
-+ Usare C# per impostare l'intestazione:
-    ```csharp
-    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                          async (context, metadata) =>
-                          {
-                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                              await Task.CompletedTask;
-                          }));
-    
-    ```
-
-+ Usare Go per impostare l'intestazione:
-    ```go
-    conn, err := grpc.Dial(serverAddr, 
-        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-        grpc.WithPerRPCCredentials(&authCreds{
-        Key: "authKey"}))
-    
-    type authCreds struct {
-        Key string
-    }
-    
-    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-        return map[string]string{
-            "authorization": c.Key,
-        }, nil
-    }
-    
-    func (c *authCreds) RequireTransportSecurity() bool {
-        return true
-    }
-    ```
-
-<a id="self-signed"></a>
-
-## <a name="consume-services-with-self-signed-certificates"></a>Utilizzo di servizi con certificati autofirmati
-
-Esistono due modi per consentire ai client di autenticarsi presso un server protetto con un certificato autofirmato:
-
-* Nel sistema client impostare la variabile di ambiente `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` in modo che punti al file del certificato.
-
-* Quando si costruisce un oggetto `SslCredentials`, passare il contenuto del file del certificato al costruttore.
-
-Con entrambi i metodi, gRPC userà il certificato come certificato radice.
-
-> [!IMPORTANT]
-> gRPC non accetta certificati non attendibili. Se si usa un certificato non attendibile, si verificherà un errore con un codice di stato `Unavailable`. I dettagli dell'errore contengono `Connection Failed`.
+Informazioni su come [usare un modello di ML distribuito come un servizio Web](how-to-consume-web-service.md).

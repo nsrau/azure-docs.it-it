@@ -13,55 +13,50 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bc8d3525ab7cdbdf298ecbbc686ced16fa7bc77c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146207"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623786"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
-I report di Azure Active Directory (Azure AD) nel [portale di Azure](https://portal.azure.com) offrono tutte le informazioni necessarie per determinare lo stato dell'ambiente.
-
-L'architettura di reporting in Azure Active Directory include i componenti seguenti:
+L'architettura di report in Azure Active Directory (Azure AD) include i componenti seguenti:
 
 - **Attività** 
-    - **Attività di accesso** : informazioni sull'utilizzo delle applicazioni gestite e sulle attività di accesso utente
-    - **Log di controllo**: informazioni relative alle attività di sistema sulla gestione di utenti e gruppi, sulle applicazioni gestite e sulle attività di directory.
+    - **Accessi**: informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
+    - **Log di controllo**: i [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative a gestione di utenti e gruppi, applicazioni gestite e attività di directory.
 - **Sicurezza** 
-    - **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. Per informazioni dettagliate, vedere Accessi a rischio.
-    - **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per informazioni dettagliate, vedere Utenti contrassegnati per il rischio.
+    - **Accessi a rischio**: un [accesso a rischio](concept-risky-sign-ins.md) indica un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente.
+    - **Utenti contrassegnati per il rischio**: un [utente a rischio](concept-user-at-risk.md) indica un account utente che potrebbe essere stato compromesso.
 
-In questo argomento viene offerta una panoramica delle attività di accesso.
+Questo articolo fornisce una panoramica del report degli accessi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
-* Gli utenti con ruolo Amministratore della sicurezza, Ruolo con autorizzazioni di lettura per la sicurezza, Lettore report
-* Gli amministratori globali
-* Qualsiasi utente (non amministratore) può visualizzare i propri accessi 
+* Utenti con il ruolo di Amministratore della sicurezza oppure con un ruolo con autorizzazioni di lettura per la sicurezza e per i report
+* Amministratori globali
+* Qualsiasi utente (non amministratore) può inoltre visualizzare i propri accessi 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Quale licenza di Azure AD è necessaria per visualizzare le attività di accesso?
 * Per visualizzare il report completo delle attività di accesso, è necessario che al tenant sia associata una licenza di Azure AD Premium
 
+## <a name="sign-ins-report"></a>Report sugli accessi
 
-## <a name="sign-in-activities"></a>Attività di accesso
-
-Le informazioni contenute nel report relativo all'accesso utente consentono di rispondere a domande come le seguenti:
+Il report relativo agli accessi utente fornisce le risposte alle domande seguenti:
 
 * Qual è il modello di accesso di un utente?
 * Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
 * Qual è lo stato di questi accessi?
 
-Il primo punto di ingresso a tutte le attività di accesso è **Accessi** nella sezione Attività di **Azure Active Directory**.
-
+Per accedere al report degli accessi, selezionare **Accessi** nella sezione **Attività** del pannello **Azure Active Directory** nel [portale di Azure](https://portal.azure.com).
 
 ![Attività di accesso](./media/concept-sign-ins/61.png "Attività di accesso")
-
 
 Un log di accesso ha una visualizzazione elenco predefinita che include:
 
@@ -82,7 +77,7 @@ In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già
 
 ![Attività di accesso](./media/concept-sign-ins/02.png "Attività di accesso")
 
-Facendo clic su un elemento nella visualizzazione elenco, è possibile ottenere tutti i dettagli disponibili sull'elemento in una visualizzazione orizzontale.
+Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
 ![Attività di accesso](./media/concept-sign-ins/03.png "Attività di accesso")
 
@@ -100,7 +95,7 @@ Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dat
 - Utente
 - Applicazione
 - Stato accesso
-- Status of the risk detection (Stato di rilevamento rischi)
+- Accesso condizionale
 - Data
 
 ![Attività di accesso](./media/concept-sign-ins/04.png "Attività di accesso")
@@ -115,11 +110,12 @@ Il filtro **Stato accesso** permette di selezionare:
 - Success
 - Esito negativo
 
-Il filtro **Risk Detected** (Rischio rilevato) permette di selezionare:
+Il filtro **Accesso condizionale** consente di selezionare lo stato dei criteri di accesso condizionale per l'accesso:
 
 - Tutti
-- Yes
-- No 
+- Non applicato
+- Success
+- Esito negativo
 
 Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.  
 I valori possibili sono:
@@ -149,11 +145,14 @@ Se si aggiungono altri campi alla visualizzazione degli accessi, questi campi ve
 
 ## <a name="download-sign-in-activities"></a>Scaricare le attività di accesso
 
-Se occorre usare i dati delle attività di accesso all'esterno del portale di Azure, è possibile scaricarli. Facendo clic su **Scarica**, viene creato un file CSV dei 5.000 record più recenti.  Oltre a un pulsante di download, il portale di Azure offre un'opzione per la generazione di uno script per scaricare i dati.  
+È possibile [scaricare i dati relativi agli accessi](quickstart-download-sign-in-report.md) per usarli esternamente al portale di Azure. Facendo clic su **Scarica**, viene creato un file CSV dei 5.000 record più recenti.  Oltre a un pulsante di download, il portale di Azure offre un'opzione per [generare uno script per scaricare i dati](tutorial-signin-logs-download-script.md).  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
 
 Se occorre una maggiore flessibilità, è possibile usare la soluzione tramite script. Facendo clic su **Script** si crea uno script di PowerShell che include tutti i filtri impostati. Scaricare ed eseguire lo script in **modalità amministratore** per generare il file CSV. 
+
+> [!IMPORTANT]
+> Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
 
 ### <a name="running-the-script-on-a-windows-10-machine"></a>Esecuzione dello script in un computer Windows 10
 
@@ -164,28 +163,18 @@ Se si desidera eseguire lo script in un computer **Windows 10**, è necessario e
 3. Eseguire **Set-ExecutionPolicy unrestricted** e scegliere **Sì a tutti**. 
 4. Ora è possibile eseguire lo script di PowerShell scaricato in modalità amministratore per generare il file CSV.
 
-Oltre che dall'implementazione tecnica, il numero di record che è possibile scaricare è limitato anche dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
+## <a name="sign-ins-data-shortcuts"></a>Tasti di scelta rapida per i dati degli accessi
 
+Oltre ad Azure AD, il portale di Azure fornisce altri punti di ingresso ai dati relativi agli accessi:
 
-## <a name="sign-in-activities-shortcuts"></a>Collegamenti alle attività di accesso
-
-Oltre ad Azure Active Directory, il portale di Azure offre ulteriori punti di ingresso ai dati sulle attività di accesso:
-
-- Panoramica di protezione e sicurezza delle identità
+- Panoramica Identity Security e Protection
 - Utenti
 - Gruppi
 - Applicazioni aziendali
 
+### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dati degli accessi degli utenti in Identity Security e Protection
 
-### <a name="users-sign-ins-activities"></a>Attività di accesso degli utenti
-
-Le informazioni contenute nel report relativo all'accesso utente consentono di rispondere a domande come le seguenti:
-
-- Qual è il modello di accesso di un utente?
-- Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
-- Qual è lo stato di questi accessi?
-
-Il punto di ingresso a questi dati è il grafico relativo agli accessi utente nella pagina della panoramica di **protezione e sicurezza delle identità**. Il grafico degli accessi utente visualizza le aggregazioni settimanali degli accessi per tutti gli utenti in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
+Il grafico degli accessi utente nella pagina di panoramica **Identity Security e Protection** mostra le aggregazioni settimanali degli accessi per tutti gli utenti in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
 ![Attività di accesso](./media/concept-sign-ins/06.png "Attività di accesso")
 
@@ -211,7 +200,6 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 - Data
 - Autenticazione a più fattori obbligatoria
 - Stato accesso
-
  
 Nella pagina **Utenti** è possibile accedere a una panoramica completa di tutti i accessi degli utenti facendo clic su **Accessi** nella sezione **Attività**.
 
@@ -243,9 +231,9 @@ L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di acces
 
 ![Attività di accesso](./media/concept-sign-ins/11.png "Attività di accesso")
 
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui codici di errore dell'attività di accesso, vedere [Codici di errore del report delle attività di accesso nel portale di Azure Active Directory](reference-sign-ins-error-codes.md).
+* [Codici di errore del report delle attività di accesso](reference-sign-ins-error-codes.md)
+* [Criteri di conservazione dei report di Azure AD](reference-reports-data-retention.md)
+* [Latenze dei report di Azure AD](reference-reports-latencies.md)
 
