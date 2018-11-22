@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 762997492d18e9b14525dc6a196f98815f27fbbb
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979506"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623945"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Riferimento alla query di sintassi SQL in Azure Cosmos DB
 
-Azure Cosmos DB supporta l'esecuzione di query sui documenti usando un linguaggio SQL (Structured Query Language) familiare come una grammatica per i documenti JSON gerarchici senza richiedere uno schema esplicito o la creazione di indici secondari. Questo articolo comprende la documentazione/sintassi di riferimento per il linguaggio delle query SQL, compatibile con gli account API SQL. Per informazioni dettagliate sulle query SQL con dati di esempio vedere [eseguire query sui dati di Azure Cosmos DB](sql-api-sql-query.md).  
+Azure Cosmos DB supporta l'esecuzione di query sui documenti usando un linguaggio SQL (Structured Query Language) familiare come una grammatica per i documenti JSON gerarchici senza richiedere uno schema esplicito o la creazione di indici secondari. Questo articolo comprende la documentazione per la sintassi del linguaggio delle query SQL, compatibile con gli account API SQL. Per informazioni dettagliate sulle query SQL di esempio, vedere [SQL queries in Cosmos DB](sql-api-sql-query.md) (Query SQL in Cosmos DB).  
   
-Visitare [Query Playground](http://www.documentdb.com/sql/demo) in cui è possibile provare Azure Cosmos DB ed eseguire query SQL usando il set di dati disponibile.  
+Visitare [Playground per le query](http://www.documentdb.com/sql/demo) in cui è possibile provare Cosmos DB ed eseguire query SQL usando il set di dati disponibile.  
   
 ## <a name="select-query"></a>Query SELECT  
 Ogni query consiste in una clausola SELECT e clausole FROM e WHERE facoltative in base agli standard ANSI-SQL. In genere, l'origine nella clausola FROM per ogni query viene enumerata, quindi il filtro nella clausola WHERE viene applicato all'origine per recuperare un sottoinsieme di documenti JSON. Infine, viene usata la clausola SELECT per proiettare i valori JSON richiesti nell'elenco selezionato. Le convenzioni usate per descrivere le istruzioni SELECT sono riportate nella sezione relativa alle convenzioni della sintassi. Per esempi, vedere [esempi di query SELECT](sql-api-sql-query.md#SelectClause)
@@ -69,7 +69,7 @@ Il linguaggio di query supporta i commenti in stile T-SQL come
 Anche se i commenti e gli spazi vuoti non hanno alcun significato nella grammatica, devono essere usati per separare i token. Ad esempio: `-1e5` è un token numero singolo, mentre `: – 1 e5` è un token meno seguito dal numero 1 e dall'identificatore e5.  
 
 ##  <a name="bk_select_query"></a> Clausola SELECT  
-Le clausole nell'istruzione SELECT devono essere ordinate come indicato sopra. Una clausola facoltativa può essere omessa. Ma se si usano clausole facoltative, è necessario specificarle nell'ordine corretto. Per esempi, vedere [esempi di query SELECT](sql-api-sql-query.md#SelectClause)
+Le clausole nell'istruzione SELECT devono essere ordinate come indicato sopra. Una clausola facoltativa può essere omessa. Ma se si usano clausole facoltative, è necessario specificarle nell'ordine corretto. Per esempi, vedere [esempi di query SELECT](sql-api-sql-query.md#SelectClause).
 
 **Sintassi**  
 
@@ -112,7 +112,7 @@ SELECT <select_specification>
   
 La sintassi di `SELECT *` è valida solo se la clausola FROM ha dichiarato esattamente un alias. `SELECT *` offre una proiezione dell'identità, che può essere utile se non è necessaria alcuna proiezione. SELECT * è valida solo se viene specificata la clausola FROM e se viene introdotta solo una singola origine di input.  
   
-Si noti che `SELECT <select_list>` e `SELECT *` sono "zucchero sintattico" e può essere espressi in alternativa usando semplici istruzioni SELECT, come illustrato di seguito.  
+`SELECT <select_list>` e `SELECT *` sono "zucchero sintattico" e possono essere espressi in alternativa usando semplici istruzioni SELECT, come illustrato di seguito.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
@@ -132,7 +132,7 @@ Si noti che `SELECT <select_list>` e `SELECT *` sono "zucchero sintattico" e pu�
 [Clausola SELECT](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> Clausola FROM  
-Specifica l'origine o le origini unite in join. La clausola FROM è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Lo scopo di questa query è specificare l'origine dati in base alla quale deve operare la query. Comunemente, l'origine è rappresentata dall'intera raccolta, ma è possibile specificare piuttosto un sottoinsieme della raccolta. Se questa clausola non viene specificata, le altre clausole verranno comunque eseguite come se la clausola FROM specificasse un singolo documento. Per esempi, vedere [esempi di clausola FROM](sql-api-sql-query.md#FromClause)
+Specifica l'origine o le origini unite in join. La clausola FROM è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Lo scopo di questa query è specificare l'origine dati in base alla quale deve operare la query. Comunemente, l'origine è rappresentata dall'intero contenitore, ma è possibile specificare piuttosto un sottoinsieme del contenitore. Se questa clausola non viene specificata, le altre clausole verranno comunque eseguite come se la clausola FROM specificasse un singolo documento. Per esempi, vedere [esempi di clausola FROM](sql-api-sql-query.md#FromClause)
   
 **Sintassi**  
   
@@ -143,98 +143,98 @@ FROM <from_specification>
         <from_source> {[ JOIN <from_source>][,...n]}  
   
 <from_source> ::=   
-          <collection_expression> [[AS] input_alias]  
-        | input_alias IN <collection_expression>  
+          <container_expression> [[AS] input_alias]  
+        | input_alias IN <container_expression>  
   
-<collection_expression> ::=   
+<container_expression> ::=   
         ROOT   
-     | collection_name  
+     | container_name  
      | input_alias  
-     | <collection_expression> '.' property_name  
-     | <collection_expression> '[' "property_name" | array_index ']'  
+     | <container_expression> '.' property_name  
+     | <container_expression> '[' "property_name" | array_index ']'  
 ```  
   
 **Argomenti**  
   
 - `<from_source>`  
   
-  Specifica un'origine dati, con o senza un alias. Se non viene specificato, l'alias verrà dedotto da `<collection_expression>` usando le seguenti regole:  
+  Specifica un'origine dati, con o senza un alias. Se non viene specificato, l'alias verrà dedotto da `<container_expression>` usando le seguenti regole:  
   
-  -  Se l'espressione è un nome di raccolta, come alias verrà usato il nome della raccolta.  
+  -  Se l'espressione è un nome di contenitore, come alias verrà usato il nome del contenitore.  
   
-  -  Se l'espressione è `<collection_expression>` seguito da un nome di proprietà, come alias verrà usato il nome della proprietà. Se l'espressione è un nome di raccolta, come alias verrà usato il nome della raccolta.  
+  -  Se l'espressione è `<container_expression>` seguito da un nome di proprietà, come alias verrà usato il nome della proprietà. Se l'espressione è un nome di contenitore, come alias verrà usato il nome del contenitore.  
   
 - AS `input_alias`  
   
-  Specifica che l'oggetto `input_alias` è un set di valori restituiti dall'espressione di raccolta sottostante.  
+  Specifica che l'oggetto `input_alias` è un set di valori restituiti dall'espressione di contenitore sottostante.  
  
 - `input_alias` IN  
   
-  Specifica che `input_alias` deve rappresentare il set di valori ottenuto eseguendo l'iterazione su tutti gli elementi di ogni matrice restituita dall'espressione di raccolta sottostante. Tutti i valori restituiti dall'espressione di raccolta sottostante che non sono matrici vengono ignorati.  
+  Specifica che `input_alias` deve rappresentare il set di valori ottenuto eseguendo l'iterazione su tutti gli elementi di ogni matrice restituita dall'espressione di contenitore sottostante. Tutti i valori restituiti dall'espressione di contenitore sottostante che non sono matrici vengono ignorati.  
   
-- `<collection_expression>`  
+- `<container_expression>`  
   
-  Specifica l'espressione di raccolta da usare per recuperare i documenti.  
+  Specifica l'espressione di contenitore da usare per recuperare i documenti.  
   
 - `ROOT`  
   
-  Specifica che il documento deve essere recuperato dalla raccolta predefinita attualmente connessa.  
+  Specifica che il documento deve essere recuperato dal contenitore predefinito attualmente connesso.  
   
-- `collection_name`  
+- `container_name`  
   
-  Specifica che il documento deve essere recuperato dalla raccolta specificata. Il nome della raccolta deve corrispondere al nome della raccolta a cui si è attualmente connessi.  
+  Specifica che il documento deve essere recuperato dal contenitore specificato. Il nome del contenitore deve corrispondere al nome del contenitore a cui si è attualmente connessi.  
   
 - `input_alias`  
   
   Specifica che il documento deve essere recuperato dall'altra origine definita dall'alias indicato.  
   
-- `<collection_expression> '.' property_`  
+- `<container_expression> '.' property_`  
   
-  Specifica che il documento deve essere recuperato eseguendo l'accesso alla proprietà `property_name` o all'elemento di matrice array_index per tutti i documenti recuperati dall'espressione di raccolta specificata.  
+  Specifica che il documento deve essere recuperato eseguendo l'accesso alla proprietà `property_name` o all'elemento di matrice array_index per tutti i documenti recuperati dall'espressione di contenitore specificata.  
   
-- `<collection_expression> '[' "property_name" | array_index ']'`  
+- `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Specifica che il documento deve essere recuperato eseguendo l'accesso alla proprietà `property_name` o all'elemento di matrice array_index per tutti i documenti recuperati dall'espressione di raccolta specificata.  
+  Specifica che il documento deve essere recuperato eseguendo l'accesso alla proprietà `property_name` o all'elemento di matrice array_index per tutti i documenti recuperati dall'espressione di contenitore specificata.  
   
 **Osservazioni:**  
   
-Tutti gli alias specificati o dedotti in `<from_source>(` devono essere univoci. La sintassi `<collection_expression>.`nome proprietà equivale a `<collection_expression>' ['"property_name"']'`. Tuttavia, la seconda sintassi può essere usata se un nome di proprietà contiene un carattere non identificatore.  
+Tutti gli alias specificati o dedotti in `<from_source>(` devono essere univoci. La sintassi `<container_expression>.`nome proprietà equivale a `<container_expression>' ['"property_name"']'`. Tuttavia, la seconda sintassi può essere usata se un nome di proprietà contiene un carattere non identificatore.  
   
-### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>gestione proprietà mancanti, elementi di matrice mancanti e valori non definiti
+### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>Gestione proprietà mancanti, elementi di matrice mancanti e valori non definiti
   
-Se un'espressione di raccolta accede alle proprietà o agli elementi di matrice e il valore non esiste, tale valore verrà ignorato e non elaborato ulteriormente.  
+Se un'espressione di contenitore accede alle proprietà o agli elementi di matrice e il valore non esiste, tale valore verrà ignorato e non elaborato ulteriormente.  
   
-### <a name="collection-expression-context-scoping"></a>Definizione dell'ambito per il contesto dell'espressione di raccolta  
+### <a name="container-expression-context-scoping"></a>Definizione dell'ambito per il contesto dell'espressione di contenitore  
   
-Un'espressione di raccolta può avere come ambito una raccolta o un documento:  
+Un'espressione di contenitore può avere come ambito un contenitore o un documento:  
   
--   Un'espressione ha un ambito raccolta se l'origine dell'espressione di raccolta sottostante è ROOT o `collection_name`. Un'espressione di questo tipo rappresenta un set di documenti recuperati direttamente dalla raccolta e non dipende dall'elaborazione di altre espressioni di raccolta.  
+-   Un'espressione ha un ambito contenitore se l'origine dell'espressione di contenitore sottostante è ROOT o `container_name`. Un'espressione di questo tipo rappresenta un set di documenti recuperati direttamente dal contenitore e non dipende dall'elaborazione di altre espressioni di contenitore.  
   
--   Un'espressione ha un ambito documento se l'origine dell'espressione di raccolta sottostante è `input_alias` introdotta in precedenza nella query. Tale espressione rappresenta un set di documenti ottenuti dalla valutazione dell'espressione di raccolta nell'ambito di ogni documento appartenente al set associato alla raccolta con alias.  Il set risultante sarà un'unione di set ottenuti dalla valutazione dell'espressione di raccolta per ogni documento del set sottostante.  
+-   Un'espressione ha un ambito documento se l'origine dell'espressione di contenitore sottostante è `input_alias` introdotta in precedenza nella query. Tale espressione rappresenta un set di documenti ottenuti dalla valutazione dell'espressione di contenitore nell'ambito di ogni documento appartenente al set associato al contenitore con alias.  Il set risultante sarà un'unione di set ottenuti dalla valutazione dell'espressione di contenitore per ogni documento del set sottostante.  
   
 ### <a name="joins"></a>Join 
   
-Nella versione corrente, Azure Cosmos DB supporta gli inner join. Altre funzionalità di join saranno presto disponibili. 
+Nella versione corrente, Cosmos DB supporta gli inner join. Altre funzionalità di join saranno presto disponibili. 
 
 Gli inner join generano un prodotto incrociato completo dei set che partecipano al join. Il risultato di un join a N vie è un set di tuple a N elementi, in cui ogni valore presente nella tupla è associato al set con alias che partecipa al join e l'accesso al set è possibile facendo riferimento a tale alias in altre clausole. Per esempi, vedere [esempi di parola chiave JOIN](sql-api-sql-query.md#Joins)
   
 La valutazione del join dipende dall'ambito del contesto dei set partecipanti:  
   
--  Un join tra il set di raccolta A e il set di raccolta con ambito B genera un prodotto incrociato di tutti gli elementi presenti nei set A e B.
+-  Un join tra il set di contenitore A e il set di contenitore con ambito B genera un prodotto incrociato di tutti gli elementi presenti nei set A e B.
   
 -   Un join tra il set A e il set con ambito documento B genera un'unione di tutti i set ottenuti dalla valutazione di un set con ambito documento B per ogni documento del set A.  
   
- Nella versione corrente l'elaborazione delle query supporta al massimo un'espressione con ambito raccolta.  
+ Nella versione corrente l'elaborazione delle query supporta al massimo un'espressione con ambito contenitore.  
   
 ### <a name="examples-of-joins"></a>Esempi di join  
   
 Verrà ora esaminata la seguente clausola FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Consentire a ogni origine di definire `input_alias1, input_alias2, …, input_aliasN`. Questa clausola FROM restituisce un set di N tuple (tuple con N valori). Ogni tupla ha valori prodotti dall'iterazione di tutti gli alias della raccolta sui rispettivi set.  
+ Consentire a ogni origine di definire `input_alias1, input_alias2, …, input_aliasN`. Questa clausola FROM restituisce un set di N tuple (tuple con N valori). Ogni tupla ha valori prodotti dall'iterazione di tutti gli alias del contenitore sui rispettivi set.  
   
 **Esempio 1** -2 origini  
   
-- Consentire a `<from_source1>` di avere un ambito raccolta e di rappresentare il set {A, B, C}.  
+- Consentire a `<from_source1>` di avere un ambito contenitore e di rappresentare il set {A, B, C}.  
   
 - Consentire a `<from_source2>` di avere un ambito documento che fa riferimento a input_alias1 e di rappresentare i set:  
   
@@ -252,7 +252,7 @@ Verrà ora esaminata la seguente clausola FROM: `<from_source1> JOIN <from_sourc
   
 **Esempio 2** -3 origini  
   
-- Consentire a `<from_source1>` di avere un ambito raccolta e di rappresentare il set {A, B, C}.  
+- Consentire a `<from_source1>` di avere un ambito contenitore e di rappresentare il set {A, B, C}.  
   
 - Consentire a `<from_source2>` di avere un ambito documento che fa riferimento `input_alias1` e di rappresentare i set:  
   
@@ -279,9 +279,9 @@ Verrà ora esaminata la seguente clausola FROM: `<from_source1> JOIN <from_sourc
   
 **Esempio 3** -3 origini  
   
-- Consentire a <from_source1> di avere un ambito raccolta e di rappresentare il set {A, B, C}.  
+- Consentire a <from_source1> di avere un ambito contenitore e di rappresentare il set {A, B, C}.  
   
-- Consentire a `<from_source1>` di avere un ambito raccolta e di rappresentare il set {A, B, C}.  
+- Consentire a `<from_source1>` di avere un ambito contenitore e di rappresentare il set {A, B, C}.  
   
 - Consentire a <from_source2> di avere un ambito documento che fa riferimento a input_alias1 e di rappresentare i set:  
   
@@ -371,12 +371,12 @@ ORDER BY <sort_specification>
   
  **Osservazioni:**  
   
- Benché la sintassi di query supporti più proprietà di ordinamento, il runtime di query di Azure Cosmos DB supporta l'ordinamento solo in base a una singola proprietà e solo in base ai nomi di proprietà, ovvero non in base a proprietà calcolate. L'ordinamento richiede anche che i criteri di indicizzazione includano un indice di intervallo per la proprietà e il tipo specificato, con la massima precisione. Per informazioni dettagliate, fare riferimento alla documentazione sui criteri di indicizzazione.  
+ Benché la sintassi di query supporti più proprietà di ordinamento, il runtime di query di Cosmos DB supporta l'ordinamento solo in base a una singola proprietà e solo in base ai nomi di proprietà, non in base a proprietà calcolate. L'ordinamento richiede anche che i criteri di indicizzazione includano un indice di intervallo per la proprietà e il tipo specificato, con la massima precisione. Per informazioni dettagliate, fare riferimento alla documentazione sui criteri di indicizzazione.  
   
 ##  <a name="bk_scalar_expressions"></a> Espressioni scalari  
  Un'espressione scalare è una combinazione di simboli e operatori che si può valutare per ottenere un singolo valore. Le espressioni semplici possono essere costanti, riferimenti a proprietà, riferimenti a elementi di matrice, riferimenti ad alias o chiamate di funzioni. Le espressioni semplici possono essere combinate in espressioni complesse usando gli operatori. Per esempi, vedere [esempi di espressioni scalari](sql-api-sql-query.md#scalar-expressions)
   
- Per informazioni dettagliate sui valori che possono essere contenuti nelle espressioni scalari, vedere la sezione relativa alle [costanti](#bk_constants).  
+ Per informazioni dettagliate sui valori che possono essere contenuti nelle espressioni scalari, vedere la sezione [Costanti](#bk_constants).  
   
  **Sintassi**  
   
@@ -517,9 +517,9 @@ ORDER BY <sort_specification>
   
  **Osservazioni:**  
   
- In Azure Cosmos DB i tipi di valori sono spesso sconosciuti finché non vengono materialmente recuperati dal database. Per supportare un'esecuzione efficiente delle query, gran parte degli operatori presentano rigorosi requisiti di tipi. Inoltre, gli operatori di per sé non eseguono conversioni implicite.  
+ In Cosmos DB i tipi di valori sono spesso sconosciuti finché non vengono recuperati dal database. Per supportare un'esecuzione efficiente delle query, gran parte degli operatori presentano rigorosi requisiti di tipi. Inoltre, gli operatori di per sé non eseguono conversioni implicite.  
   
- Ciò significa che una query come: SELECT * FROM ROOT r WHERE r.Age = 21 restituisce solo documenti con la proprietà Age uguale al numero 21. I documenti con la proprietà Age uguale alla stringa "21" o alla stringa "0021" non corrispondono, poiché l'espressione "21" = 21 restituisce un valore non definito. Questo consente un uso migliore degli indici, poiché la ricerca di un valore specifico, ovvero il numero 21, è più veloce rispetto alla ricerca di un numero indefinito di possibili corrispondenze (il numero 21 o le stringhe "21", "021", "21.0"...). Ciò si differenzia dal modo in cui JavaScript valuta gli operatori per valori di tipi diversi.  
+ Ciò significa che una query come: SELECT * FROM ROOT r WHERE r.Age = 21 restituisce solo documenti con la proprietà Age uguale al numero 21. I documenti con la proprietà Age uguale alla stringa "21" o alla stringa "0021" non corrispondono, poiché l'espressione "21" = 21 restituisce un valore non definito. Questo consente un uso migliore degli indici, poiché la ricerca di un valore specifico, ovvero il numero 21, è più veloce rispetto alla ricerca di un numero indefinito di possibili corrispondenze (il numero 21 o le stringhe "21", "021", "21.0" e così via). Ciò si differenzia dal modo in cui JavaScript valuta gli operatori per valori di tipi diversi.  
   
  **Confronto e uguaglianza di oggetti e matrici**  
   
@@ -632,7 +632,7 @@ ORDER BY <sort_specification>
 |\uXXXX|Carattere Unicode definito da 4 cifre esadecimali.|U + XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a> Linee guida sulle prestazioni delle query  
- Per poter eseguire una query in modo efficiente per una raccolta di grandi dimensioni, è necessario usare filtri che possano essere gestiti attraverso uno o più indici.  
+ Per poter eseguire una query in modo efficiente per un contenitore di grandi dimensioni, è necessario usare filtri che possano essere gestiti attraverso uno o più indici.  
   
  Per la ricerca negli indici vengono considerati questi filtri:  
   
@@ -640,15 +640,15 @@ ORDER BY <sort_specification>
   
 -   Usare gli operatori di intervallo (<, \<=, >, >=) con un'espressione percorso documenti e costanti numeriche.  
   
--   Con "espressione percorso documenti" si indica qualsiasi espressione che identifica un percorso costante nei documenti provenienti dalla raccolta di database a cui si fa riferimento.  
+-   Con espressione percorso documenti si indica qualsiasi espressione che identifica un percorso costante nei documenti provenienti dal contenitore di database a cui si fa riferimento.  
   
  **Espressione percorso documenti**  
   
- Le espressioni percorso documenti sono espressioni usate in un percorso di funzioni di valutazione dell'indicizzatore proprietà o matrice per un documento proveniente da documenti di una raccolta di database. Questo percorso può essere usato per identificare la posizione dei valori a cui si fa riferimento in un filtro direttamente all'interno dei documenti della raccolta di database.  
+ Le espressioni percorso documenti sono espressioni usate in un percorso di funzioni di valutazione dell'indicizzatore proprietà o matrice per un documento proveniente da documenti di un contenitore di database. Questo percorso può essere usato per identificare la posizione dei valori a cui si fa riferimento in un filtro direttamente all'interno dei documenti del contenitore di database.  
   
  Per essere considerata un'espressione percorso documenti, è necessario che un'espressione:  
   
-1.  Faccia riferimento direttamente alla radice della raccolta.  
+1.  Faccia riferimento direttamente alla radice del contenitore.  
   
 2.  Faccia riferimento all'indicizzatore di proprietà o matrici costanti di un'espressione percorso documenti  
   
@@ -674,9 +674,9 @@ ORDER BY <sort_specification>
     |[ ...n ]|Indica che l'elemento precedente può essere ripetuto n volte. Le occorrenze sono separate da spazi.|  
   
 ##  <a name="bk_built_in_functions"></a> Funzioni predefinite  
- In Azure Cosmos DB sono disponibili molte funzioni SQL predefinite. Le categorie di funzioni predefinite sono elencate di seguito.  
+ In Cosmos DB sono disponibili molte funzioni SQL predefinite. Le categorie di funzioni predefinite sono elencate di seguito.  
   
-|Funzione|DESCRIZIONE|  
+|Funzione|Descrizione|  
 |--------------|-----------------|  
 |[Funzioni matematiche](#bk_mathematical_functions)|Le funzioni matematiche eseguono un calcolo basato in genere su valori di input passati come argomenti e restituiscono un valore numerico.|  
 |[Funzioni di controllo del tipo](#bk_type_checking_functions)|Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione nell'ambito delle query SQL.|  
@@ -2904,7 +2904,7 @@ SELECT ST_ISVALIDDETAILED({
 ```  
   
 ## <a name="next-steps"></a>Passaggi successivi  
- [Query e sintassi SQL per Azure Cosmos DB](sql-api-sql-query.md)   
- [Documentazione di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  
-  
-  
+
+- [Query e sintassi SQL per Cosmos DB](sql-api-sql-query.md)
+
+- [Documentazione di Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  
