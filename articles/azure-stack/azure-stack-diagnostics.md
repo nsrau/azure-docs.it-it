@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8a2a9728a9fcc0c409cd2020c4aa831433538157
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: ef8a01228ff31afa78f469b2ad80b864fc9d3497
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976129"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283453"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Strumenti di diagnostica di Azure Stack
 
@@ -76,9 +76,6 @@ if($s)
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Eseguire Get-AzureStackLog su un sistema di Azure Stack Development Kit (ASDK)
 Usare questi passaggi per l'esecuzione di Get-AzureStackLog in un computer host ASDK.
 
-- I parametri **OutputSharePath** e **OutputShareCredential** vengono usati per archiviare i log di accesso dell'utente specificato percorso.
-- Il **FromDate** e **ToDate** parametri possono essere utilizzati per raccogliere i log per un periodo di tempo specifico. Se questi parametri vengono omessi, i log vengono raccolti per le ultime quattro ore per impostazione predefinita.
-
 1. Accedi come **AzureStack\CloudAdmin** nel computer host ASDK.
 2. Aprire una nuova finestra di PowerShell come amministratore.
 3. Eseguire la **Get-AzureStackLog** cmdlet di PowerShell.
@@ -111,7 +108,10 @@ Usare questi passaggi per l'esecuzione di Get-AzureStackLog in un computer host 
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considerazioni sui parametri per ASDK e i sistemi integrati
 
-- Se il **FromDate** e **ToDate** parametri vengono omessi, i log vengono raccolti per le ultime quattro ore per impostazione predefinita.
+- I parametri **OutputSharePath** e **OutputShareCredential** vengono usati per archiviare i log di accesso dell'utente specificato percorso.
+
+- Il **FromDate** e **ToDate** parametri possono essere utilizzati per raccogliere i log per un periodo di tempo specifico. Se questi parametri vengono omessi, i log vengono raccolti per le ultime quattro ore per impostazione predefinita.
+
 - Usare la **FilterByNode** parametro per filtrare i log dal nome del computer. Ad esempio: 
 
     ```powershell

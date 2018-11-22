@@ -39,8 +39,10 @@ items:
     href: troubleshoot-rdp-static-ip.md
   - name: Risolvere l'errore RDP nella macchina virtuale causato dalla disabilitazione della scheda di interfaccia di rete
     href: troubleshoot-rdp-nic-disabled.md
-  - name: Risolvere gli errori RDP provocati dalla modalità provvisoria
+  - name: Risolvere l'errore RDP provocato dalla modalità provvisoria
     href: troubleshoot-rdp-safe-mode.md
+  - name: Risolvere l'errore RDP provocato da netvsc.sys
+    href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
   items:
   - name: Risoluzione dei problemi relativi a SSH
@@ -151,9 +153,9 @@ items:
   href: understand-vm-reboot.md
 - name: Strumenti per la risoluzione remota dei problemi
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: fbbc44073d4cb27222800943826ab7a177709833
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5b5da17002955e7a5c24e1b528ebf3076f2de24a
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260630"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283820"
