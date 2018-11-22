@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e879e096fb990e4567b43b1938909449820edd42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412721"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262058"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -178,7 +178,7 @@ Questa sezione illustra come usare l'API di ricerca di Mappe per trovare un punt
      client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. Aggiungere quindi il blocco script seguente per compilare la query di ricerca. Viene usato il servizio di ricerca fuzzy, che è un'API di base del servizio di ricerca. Il servizio di ricerca fuzzy gestisce la maggior parte degli input fuzzy come indirizzi, località e punti di interesse. Questo codice consente di cercare nelle vicinanze le stazioni di servizio all'interno del raggio specificato. La risposta viene quindi analizzata in formato GeoJSON e aggiunta all'origine dati, in modo che venga eseguito automaticamente il rendering dei dati nella mappa tramite il livello simboli. Nell'ultima parte dello script viene impostata la visualizzazione delle videocamere della mappa usando il rettangolo di selezione dei risultati con la proprietà [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) della mappa. Per compensare le dimensioni in pixel delle icone di simbolo, viene aggiunta una spaziatura interna dal momento che il rettangolo di selezione viene calcolato in base alle coordinate. 
+2. Aggiungere quindi il blocco script seguente per compilare la query di ricerca. Viene usato il servizio di ricerca fuzzy, che è un'API di base del servizio di ricerca. Il servizio di ricerca fuzzy gestisce la maggior parte degli input fuzzy come indirizzi, località e punti di interesse. Questo codice consente di cercare nelle vicinanze le stazioni di servizio all'interno del raggio specificato. La risposta viene quindi analizzata in formato GeoJSON e aggiunta all'origine dati, in modo che venga eseguito automaticamente il rendering dei dati nella mappa tramite il livello simboli. Nell'ultima parte dello script viene impostata la visualizzazione delle videocamere della mappa usando il rettangolo di selezione dei risultati con la proprietà [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa. Per compensare le dimensioni in pixel delle icone di simbolo, viene aggiunta una spaziatura interna dal momento che il rettangolo di selezione viene calcolato in base alle coordinate. 
  
    ```JavaScript
    //Execute a POI search query then add the results to the map.
@@ -202,7 +202,7 @@ Questa sezione illustra come usare l'API di ricerca di Mappe per trovare un punt
     });
    ```
  
-3. Salvare il file **MapSearch.html** e aggiornare il browser. Ora la mappa è centrata su Seattle e punti di colore blu contrassegnano le posizioni delle stazioni di rifornimento nell'area.
+3. Salvare il file **MapSearch.html** e aggiornare il browser. Ora la mappa è centrata su Seattle e punti di colore blu contrassegnano le posizioni delle stazioni di benzina nell'area.
 
    ![Visualizzare la mappa con i risultati della ricerca](./media/tutorial-search-location/pins-map.png)
 
@@ -216,7 +216,7 @@ A questo punto la pagina MapSearch può visualizzare le posizioni dei punti di i
 
 ## <a name="add-interactive-data"></a>Aggiungere dati interattivi
 
-La mappa creata finora analizza solo i dati di longitudine/latitudine per i risultati della ricerca. Se si esamina il codice JSON non elaborato restituito dal servizio di ricerca di Mappe, si noterà che contiene anche altre informazioni su ogni stazione di rifornimento, inclusi il nome e il numero civico. È possibile incorporare questi dati nella mappa con finestre popup interattive.
+La mappa creata finora analizza solo i dati di longitudine/latitudine per i risultati della ricerca. Se si esamina il codice JSON non elaborato restituito dal servizio di ricerca di Mappe, si noterà che contiene anche altre informazioni su ogni stazione, inclusi il nome e il numero civico. È possibile incorporare questi dati nella mappa con finestre popup interattive.
 
 1. Per eseguire una query nel servizio di ricerca fuzzy, aggiungere le righe di codice seguenti nel gestore dell'evento di caricamento della mappa dopo il codice. Verrà creata un'istanza di un popup e verrà aggiunto un evento mouseover al livello simboli.
 
@@ -260,7 +260,7 @@ La mappa creata finora analizza solo i dati di longitudine/latitudine per i risu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare un account con Mppe di Azure

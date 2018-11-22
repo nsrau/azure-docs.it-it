@@ -1,24 +1,24 @@
 ---
-title: Trovare un itinerario con Mappe di Azure | Microsoft Docs
-description: Trovare l'itinerario per raggiungere un punto di interesse usando Mappe di Azure
+title: Trovare un percorso con Mappe di Azure | Microsoft Docs
+description: Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/22/2018
+ms.date: 11/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b6ce89d141af434d4f40e9079b39e4d7eed114df
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a3807dc792c2e56c3e7c1b74f7d3e8f73ac0f4b0
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420915"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705090"
 ---
-# <a name="route-to-a-point-of-interest-using-azure-maps"></a>Trovare l'itinerario per raggiungere un punto di interesse usando Mappe di Azure
+# <a name="route-to-a-point-of-interest-using-azure-maps"></a>Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
 
-Questa esercitazione illustra come usare l'account Mappe di Azure e l'SDK del servizio di pianificazione percorso per trovare l'itinerario per raggiungere un determinato punto di interesse. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come usare l'account Mappe di Azure e l'SDK del servizio di pianificazione percorso per trovare il percorso per raggiungere un determinato punto di interesse. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa
@@ -179,7 +179,7 @@ In questa esercitazione verrà eseguito il rendering di un itinerario semplice u
 
 ## <a name="get-directions"></a>Ottenere le indicazioni stradali
 
-Questa sezione illustra come usare l'API del servizio di pianificazione percorso di Mappe per trovare l'itinerario per raggiungere una destinazione da un determinato punto di partenza. Il servizio di pianificazione percorso fornisce le API per pianificare l'itinerario *più veloce*, *più breve*, *più ecologico* o *più interessante* tra due posizioni. Consente inoltre agli utenti di pianificare percorsi per il futuro usando il database dei dati storici sul traffico di Azure e fornendo stime della durata dei percorsi per qualsiasi giorno e ora. Per altre informazioni, vedere [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Ottenere le indicazioni stradali). Tutte le funzionalità seguenti devono essere aggiunte **all'interno del listener di eventi del caricamento mappa** per garantire che vengano caricate dopo che la mappa è stata caricata completamente.
+Questa sezione illustra come usare l'API del servizio di pianificazione percorso di Mappe per trovare il percorso per raggiungere una destinazione da un determinato punto di partenza. Il servizio di pianificazione percorso fornisce le API per pianificare il percorso *più veloce*, *più breve*, *più ecologico* o *più interessante* tra due posizioni. Consente inoltre agli utenti di pianificare percorsi per il futuro usando il database dei dati storici sul traffico di Azure e fornendo stime della durata dei percorsi per qualsiasi giorno e ora. Per altre informazioni, vedere [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Ottenere le indicazioni stradali). Tutte le funzionalità seguenti devono essere aggiunte **all'interno del listener di eventi del caricamento mappa** per garantire che vengano caricate dopo che la mappa è stata caricata completamente.
 
 1. Per creare un'istanza del servizio client, aggiungere il codice Javascript seguente nel gestore dell'evento di caricamento della mappa.
 
@@ -190,7 +190,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
     }
     ```
 
-2. Aggiungere il blocco di codice seguente per creare una stringa di query per l'itinerario.
+2. Aggiungere il blocco di codice seguente per creare una stringa di query di route.
     ```JavaScript
     //Create the route request with the query being the start and end point in the format 'startLongitude,startLatitude:endLongitude,endLatitude'.
     var routeQuery = startPoint.geometry.coordinates[1] +
@@ -202,7 +202,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
         endPoint.geometry.coordinates[0];
     ```
 
-3. Per ottenere l'itinerario, aggiungere allo script il blocco di codice seguente. Viene eseguita una query al servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) e viene quindi analizzata la risposta in formato GeoJSON usando [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes). Nella risposta all'origine dati viene quindi aggiunta la riga dell'itinerario, per eseguirne automaticamente il rendering nella mappa.
+3. Per ottenere la route, aggiungere allo script il blocco di codice seguente. Viene eseguita una query al servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) e viene quindi analizzata la risposta in formato GeoJSON usando [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes). Nella risposta all'origine dati viene quindi aggiunta la riga dell'itinerario, per eseguirne automaticamente il rendering nella mappa.
 
     ```JavaScript
     //Execute the car route query then add the route to the map once a response is received.
@@ -221,7 +221,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa
@@ -234,7 +234,7 @@ In questa esercitazione si è appreso come:
 
 [Vedere qui l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
-L'esercitazione successiva illustra come creare una query dell'itinerario con restrizioni, ad esempio la modalità di trasporto o il tipo di carico, e come visualizzare più percorsi sulla mappa stessa.
+L'esercitazione successiva illustra come creare una query del percorso con restrizioni, ad esempio la modalità di trasporto o il tipo di carico, e come visualizzare più percorsi sulla mappa stessa.
 
 > [!div class="nextstepaction"]
-> [Trovare gli itinerari per diverse modalità di trasporto](./tutorial-prioritized-routes.md)
+> [Find routes for different modes of travel (Trovare i percorsi per diverse modalità di trasporto)](./tutorial-prioritized-routes.md)

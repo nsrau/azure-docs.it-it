@@ -3,19 +3,19 @@ title: "Esercitazione: Creare un'app Web di una pagina - API Ricerca Web Bing"
 titleSuffix: Azure Cognitive Services
 description: Questa app di una pagina offre una dimostrazione dell'uso dell'API Ricerca Web Bing per recuperare, analizzare e visualizzare i risultati della ricerca pertinenti in un'app composta da una sola pagina.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: tutorial
 ms.date: 09/12/2018
-ms.author: erhopf
-ms.openlocfilehash: 670f02cbd8e994664e7c4edd75940ff43f9616b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: b94e6f70d4a28dc59ddaa62cfad55c6c8383b761
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126480"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161923"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Esercitazione: Creare un'app di una pagina con l'API Ricerca Web Bing
 
@@ -82,7 +82,7 @@ Questa esercitazione è incentrata su `scripts.js` e sulla logica necessaria per
 
 Il modulo HTML include opzioni che eseguono il mapping ai parametri di query nell'[API Ricerca Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). La tabella seguente mostra in che modo gli utenti possono filtrare i risultati della ricerca usando l'app di esempio:
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 |-----------|-------------|
 | `query` | Campo di testo in cui immettere una stringa di query. |
 | `where` | Menu a discesa in cui selezionare il mercato (località e lingua). |
@@ -386,7 +386,7 @@ Alcune delle funzioni di rendering accettano solo il parametro `item`. Altre acc
 
 Gli argomenti di contesto sono:
 
-| Parametro  | Descrizione |
+| Parametro  | DESCRIZIONE |
 |------------|-------------|
 | `section` | La sezione relativa ai risultati, ovvero `pole`, `mainline` o `sidebar`, in cui l'elemento compare. |
 | `index`<br>`count` | Disponibile quando l'elemento `RankingResponse` specifica che tutti i risultati di una determinata raccolta devono essere visualizzati; `undefined` in caso contrario. L'indice dell'elemento all'interno della raccolta e il numero totale di elementi della raccolta. È possibile usare queste informazioni per numerare i risultati, per generare codice HTML diverso per il primo o l'ultimo risultato e così via. |
@@ -429,7 +429,7 @@ La dimensione dell'anteprima viene usata sia nel tag `<img>` che nei campi `h` e
 
 Ecco un esempio del modo in cui vengono visualizzate le immagini nell'app di esempio:
 
-![[Immagine ottenuta come risultato da Bing]](media/cognitive-services-bing-web-api/web-search-spa-images.png)
+![[Immagine ottenute come risultato da Bing]](media/cognitive-services-bing-web-api/web-search-spa-images.png)
 
 ## <a name="persist-the-client-id"></a>Salvare l'ID client in modo permanente
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7c1e56b7c94c51a00fabdac56dd2d8c3eb621ae0
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: a5b6ae833fcd340a639c068156940e6b9ad469ca
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42139595"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711991"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico interno con il servizio di bilanciamento del carico di base sulle VM tramite il portale di Azure
 
@@ -102,7 +102,7 @@ In questa sezione si creano due macchine virtuali per il pool back-end del servi
 
 ## <a name="create-basic-load-balancer-resources"></a>Creare le risorse del servizio di bilanciamento del carico di base
 
-In questa sezione si configurano le impostazioni del servizio di bilanciamento del carico per un pool di indirizzi back-end e un probe di integrità e si specificano le regole NAT e di bilanciamento del carico.
+In questa sezione si configurano le impostazioni del servizio di bilanciamento del carico per un pool di indirizzi back-end e un probe di integrità e si specificano le regole di bilanciamento del carico.
 
 
 ### <a name="create-a-backend-address-pool"></a>Creare un pool di indirizzi back-end

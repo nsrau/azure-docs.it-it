@@ -9,13 +9,13 @@ ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
-manager: dougeby
-ms.openlocfilehash: b3dcfc1756932d75f9885490baa8d09af54d111c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: benshy
+ms.openlocfilehash: 19cb1e414ba4a486139a502034e958907d027470
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957470"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275268"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Esercitazione: Assegnare un accesso ai dati di Cloudyn
 
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>prerequisiti
 
 - È necessario disporre di un account Azure.
-- È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.
+- È necessario disporre di una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.
 
 ## <a name="create-a-user-with-admin-access"></a>Creare un utente con accesso amministrativo
 

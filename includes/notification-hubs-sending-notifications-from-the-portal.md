@@ -1,5 +1,16 @@
-
-
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: spelluru
+ms.openlocfilehash: 6c424f1ac77e70b8f1fd561ad5134ec86f652fa6
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52270665"
+---
 Le notifiche push vengono in genere inviate in un servizio back-end come App per dispositivi mobili o ASP.NET usando una libreria compatibile. Se non è disponibile una libreria per il back-end è anche possibile usare direttamente l'API REST per inviare messaggi di notifica.
 
 Di seguito è riportato un elenco di altre esercitazioni, che è possibile esaminare per l'invio di notifiche:

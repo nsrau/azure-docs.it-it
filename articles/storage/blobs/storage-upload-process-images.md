@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 237599a5dbd39147b02e9a85cbe34502d0d91923
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c58bb19a18e6f0f78e07e403df5489f2f7342203
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227045"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853099"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Caricare i dati immagine nel cloud con Archiviazione di Azure
 
@@ -24,7 +24,7 @@ Questa è la prima di una serie di esercitazioni. In questa esercitazione viene 
 # <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Visualizzazione del contenitore delle immagini](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 ![Visualizzazione del contenitore delle immagini](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
@@ -103,7 +103,7 @@ Creare un piano di servizio app con il comando [az appservice plan create](/cli/
 L'esempio seguente crea un piano di servizio app denominato `myAppServicePlan` nel piano tariffario **Gratuito**:
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
@@ -124,7 +124,7 @@ Il servizio app offre diversi modi per distribuire contenuto in un'applicazione 
 
 Il progetto di esempio contiene un'app [MVC ASP.NET](https://www.asp.net/mvc) che accetta un'immagine, la salva in un account di archiviazione e visualizza le immagini da un contenitore di anteprime. L'applicazione Web usa gli spazi dei nomi [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) e [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) dalla libreria client di archiviazione di Azure per interagire con Archiviazione di Azure.
 
-# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 Il servizio app offre diversi modi per distribuire contenuto in un'applicazione Web. In questa esercitazione si distribuisce l'app Web da un [repository pubblico di esempio GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configurare la distribuzione GitHub nell'applicazione Web con il comando [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Sostituire `<web_app>` con il nome dell'applicazione Web creata nel passaggio precedente.
 
 ---
@@ -197,7 +197,7 @@ Nell'attività precedente vengono usate le classi e i metodi seguenti:
 |[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_GetBlockBlobReference_System_String_)        |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
 
-# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 ![App per il caricamento di immagini](media/storage-upload-process-images/upload-app-nodejs.png)
 
@@ -281,7 +281,7 @@ Tornare all'app per verificare che l'immagine caricata nel contenitore **thumbna
 # <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Visualizzazione del contenitore delle immagini](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 ![Visualizzazione del contenitore delle immagini](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---

@@ -3,19 +3,19 @@ title: 'Guida introduttiva: API Controllo ortografico Bing, Java'
 titlesuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Controllo ortografico Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 20677167c88b4e3cf326067fac7a33bede9ee4c3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: aahi
+ms.openlocfilehash: 988bf8aeea2bd3b172803dac19584b1d3019b178
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420343"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161040"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-java"></a>Guida introduttiva all'API Controllo ortografico Bing con Java 
 
@@ -133,7 +133,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [!div class="nextstepaction"]
 > [Esercitazione sul Controllo ortografico Bing](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 - [Panoramica del Controllo ortografico Bing](../proof-text.md)
 - [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

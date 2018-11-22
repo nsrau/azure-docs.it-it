@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 965a35eb4cf33abe78ca802e8d59f13a649dec0a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e0d25fc2ac84e9c9d71a9fd5971d4e57134e43a7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279229"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819373"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Ricevere una notifica quando un valore della metrica soddisfa una condizione
 
 Monitoraggio di Azure rende le metriche disponibili per molte risorse di Azure. Tali metriche trasmettono prestazioni e integrità delle risorse. In molti casi i valori della metrica possono puntare a un elemento errato per una risorsa. È possibile creare avvisi di metrica per monitorare i comportamenti anomali e ricevere una notifica quando questi si verificano. Questa guida rapida affronta la creazione di un'app per la logica, la creazione di un processo e la visualizzazione delle metriche per l'app per la logica. Passa quindi alla creazione di un avviso e alla ricezione di una notifica relativa a una metrica per la risorsa dell'app per la logica.
 
-Per altre informazioni sulle metriche e gli avvisi per la metrica, vedere [Panoramica delle metriche di Monitoraggio di Azure](../monitoring/monitoring-data-collection.md) e [Panoramica degli avvisi di Monitoraggio di Azure](./monitoring-overview-alerts.md). 
+Per altre informazioni sulle metriche e gli avvisi per la metrica, vedere [Panoramica delle metriche di Monitoraggio di Azure](../azure-monitor/platform/data-collection.md) e [Panoramica degli avvisi di Monitoraggio di Azure](./monitoring-overview-alerts.md). 
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

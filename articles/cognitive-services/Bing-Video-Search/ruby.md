@@ -3,19 +3,19 @@ title: Guida introduttiva di API Ricerca video Bing, Ruby
 titlesuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca video Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: dfabfe24a653f84e5e242f32167b57b6a28b0075
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: aahi
+ms.openlocfilehash: b92fbbfdeb38c0fadca038007918c882c16e97cd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223574"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165714"
 ---
 # <a name="quickstart-bing-video-search-api-with-ruby"></a>Guida introduttiva di API Ricerca video Bing con Ruby
 

@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288034"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264127"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guida introduttiva: Creare una pipeline di ricerca cognitiva con competenze e dati di esempio
 
@@ -33,9 +33,16 @@ In questa Guida introduttiva è possibile provare la pipeline di arricchimento n
 * Stati Uniti centro-occidentali
 * Stati Uniti centro-meridionali
 * Stati Uniti orientali
+* Stati Uniti orientali 2
+* Stati Uniti occidentali 2
+* Canada centrale
 * Europa occidentale
+* Regno Unito meridionale
 * Europa settentrionale
+* Brasile meridionale
 * Asia sud-orientale
+* India centrale
+* Australia orientale
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

@@ -3,19 +3,19 @@ title: "Guida introduttiva: Chiamare l'endpoint usando Node.js - Ricerca persona
 titlesuffix: Azure Cognitive Services
 description: Questa guida introduttiva mostra come richiedere risultati delle ricerche dall'istanza di ricerca personalizzata usando Node.js per chiamare l'endpoint di Ricerca personalizzata Bing.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: af77b4c06b61cda4fd18d19ac3578129004c4914
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.author: aahi
+ms.openlocfilehash: 64fc631e3d8473b53e4b360001dcc4e87dd27be6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167206"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162620"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-nodejs"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing (Node.js)
 

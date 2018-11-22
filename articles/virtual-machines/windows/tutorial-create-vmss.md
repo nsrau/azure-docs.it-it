@@ -16,18 +16,18 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: aa4957375a368da193cb27fd3c8c32651f425a2d
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 561bd71f371be9261686c0a4c34f388ed8324d76
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515506"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284422"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Esercitazione: Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Windows con Azure PowerShell
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile adattare manualmente il numero di macchine virtuali nel set di scalabilità, nonché definire regole di scalabilità automatica in base all'utilizzo della CPU, alla richiesta di memoria o al traffico di rete. In questa esercitazione viene distribuito un set di scalabilità di macchine virtuali in Azure e viene spiegato come:
 
 > [!div class="checklist"]
-> * Usare l'estensione per script personalizzati per definire un sito IIS da ridimensionare
+> * Usare l'estensione dello script personalizzata per definire un sito IIS da ridimensionare
 > * Creare un bilanciamento del carico per il set di scalabilità
 > * Creare un set di scalabilità di macchine virtuali
 > * Aumentare o diminuire il numero di istanze in un set di scalabilità
@@ -65,7 +65,7 @@ La creazione e la configurazione di tutte le macchine virtuali e risorse del set
 
 
 ## <a name="deploy-sample-application"></a>Distribuire l'applicazione di esempio
-Per testare il set di scalabilità, installare un'applicazione Web di base. Usare l'estensione per script personalizzati di Azure per scaricare ed eseguire uno script che installa IIS nelle istanze di macchina virtuale. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Per altre informazioni, vedere [Panoramica dell'estensione per script personalizzati](extensions-customscript.md).
+Per testare il set di scalabilità, installare un'applicazione Web di base. Usare l'estensione script personalizzati di Azure per scaricare ed eseguire uno script che installa IIS nelle istanze di macchina virtuale. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](extensions-customscript.md).
 
 Usare l'estensione script personalizzati per installare un server Web IIS di base. Applicare l'estensione di script personalizzati che installa IIS nel modo seguente:
 
@@ -96,10 +96,9 @@ Update-AzureRmVmss `
     -VirtualMachineScaleSet $vmss
 ```
 
-
 ## <a name="allow-traffic-to-application"></a>Consentire il traffico verso l'applicazione
 
-Per consentire l'accesso all'applicazione Web di base, creare un gruppo di sicurezza di rete con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.compute/new-azurermnetworksecurityruleconfig) e [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.compute/new-azurermnetworksecuritygroup). Per altre informazioni, vedere [Rete per i set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
+Per consentire l'accesso all'applicazione Web di base, creare un gruppo di sicurezza di rete con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) e [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). Per altre informazioni, vedere [Rete per i set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
 # Get information about the scale set
@@ -277,7 +276,7 @@ Per altre informazioni di progettazione sull'uso della scalabilità automatica, 
 In questa esercitazione è stato creato un set di scalabilità di macchine virtuali. Si è appreso come:
 
 > [!div class="checklist"]
-> * Usare l'estensione per script personalizzati per definire un sito IIS da ridimensionare
+> * Usare l'estensione dello script personalizzata per definire un sito IIS da ridimensionare
 > * Creare un bilanciamento del carico per il set di scalabilità
 > * Creare un set di scalabilità di macchine virtuali
 > * Aumentare o diminuire il numero di istanze in un set di scalabilità

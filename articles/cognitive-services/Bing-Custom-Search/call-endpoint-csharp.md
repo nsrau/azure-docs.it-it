@@ -3,19 +3,19 @@ title: "Guida introduttiva: Chiamare l'endpoint usando C# - Ricerca personalizza
 titlesuffix: Azure Cognitive Services
 description: Questa guida introduttiva mostra come richiedere risultati delle ricerche dall'istanza di ricerca personalizzata usando C# per chiamare l'endpoint di Ricerca personalizzata Bing.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: maheshb
-ms.openlocfilehash: c0e315f9b96133d68bf1f9c02da1436b877baf40
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a04d2a2bcaaf4edcf03fac3e2242f94712ce8022
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468416"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163045"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-c"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing (C#)
 

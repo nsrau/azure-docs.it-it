@@ -11,12 +11,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 1865fcf47510bbaae82f98ccad85993a85ffc1ab
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fc4ccdc2d73d0aa7213db9b1d9a28d029ec032b7
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959138"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284660"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
 
@@ -44,7 +44,7 @@ Per completare questa esercitazione, sono necessari:
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Abilitare Rilevamento modifiche e inventario
 
@@ -72,7 +72,7 @@ Per eseguire ricerche nei log tramite l'esecuzione di query, selezionare **Log A
 I dati di Rilevamento modifiche vengono archiviati sotto il tipo **ConfigurationChange**.
 L'esempio di query di Log Analytics seguente restituisce tutti i servizi di Windows arrestati.
 
-```
+```loganalytics
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```

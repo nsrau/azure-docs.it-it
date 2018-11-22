@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d94f8d38ef771bd5ab03f4d3cef25233c33e7546
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7ebe81565bc6bd28747f3a251b39a3c010493307
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282618"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819101"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Esercitazione: rilevare i problemi con i dispositivi connessi alla soluzione di monitoraggio
 
@@ -112,11 +112,23 @@ Per apportare una modifica a una regola esistente, selezionare la regola nell'el
 
 ## <a name="disable-a-rule"></a>Disabilitare una regola
 
-Per disattivare temporaneamente una regola, è possibile disabilitarla nell'elenco delle regole. Scegliere la regola da disabilitare e quindi scegliere **Disable** (Disabilita). Il valore di **Status** (Stato) per la regole nell'elenco cambia per indicare che la regola è ora disabilitata. È possibile riabilitare una regola precedentemente disabilitata usando la stessa procedura.
+Per disattivare temporaneamente una regola, è possibile disabilitarla nell'elenco delle regole. Selezionare la regola da disabilitare e quindi scegliere **Disable** (Disabilita). Il valore di **Status** (Stato) per la regole nell'elenco cambia per indicare che la regola è ora disabilitata. È possibile riabilitare una regola precedentemente disabilitata usando la stessa procedura.
 
 [![Disabilitare una regola](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 È possibile attivare e disattivare più regole contemporaneamente selezionando più regole nell'elenco.
+
+## <a name="delete-a-rule"></a>Eliminare una regola
+
+Per eliminare definitivamente una regola, è possibile eliminarla nell'elenco di regole. Selezionare la regola da eliminare e quindi scegliere **Delete** (Elimina).
+
+[![Eliminare una regola](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+
+Dopo aver confermato che si vuole eliminare la regola, l'utente ha la possibilità di eliminare tutti gli avvisi associati alla regola dalla pagina **Manutenzione**.
+
+[![Eliminare una regola](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
+
+È possibile eliminare solo una regola alla volta.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

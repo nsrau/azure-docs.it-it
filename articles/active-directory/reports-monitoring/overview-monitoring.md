@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0afa4f85f443789d1ce7e79d0708967e308a4683
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 92e200f358098d5516246d057d1cef406750e326
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623200"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264683"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>Che cos'è il monitoraggio di Azure Active Directory? (anteprima)
 
@@ -32,6 +32,8 @@ Attualmente, è possibile indirizzare i log a:
 - Un account di archiviazione di Azure.
 - Un hub eventi di Azure, in modo da poterli integrare con le istanze di Splunk e Sumologic.
 - Un'area di lavoro di Azure Log Analytics, in cui è possibile analizzare i dati, creare dashboard e generare avvisi per eventi specifici.
+
+> [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="diagnostic-settings-configuration"></a>Configurazione delle impostazioni di diagnostica
 

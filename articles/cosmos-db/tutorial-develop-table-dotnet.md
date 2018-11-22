@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: c41873d8f87a9a1203cefa37f99098f23e7aab92
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e198a85d1c04cbc437ad23dadfa3005a72eaa2ce
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239007"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161634"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: sviluppare con l'API Table in .NET
 
@@ -293,7 +293,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure Cosmos DB supporta le stesse funzionalità relative alle query rispetto all'archiviazione tabelle di Azure per l'API Table. Azure Cosmos DB supporta anche l'ordinamento, le aggregazioni, le query geospaziali, la gerarchia e un'ampia gamma di funzioni predefinite. La funzionalità aggiuntiva verrà fornita nell'API Table in un aggiornamento futuro del servizio. Vedere [Query in Azure Cosmos DB](sql-api-sql-query.md) per una panoramica di queste funzionalità. 
+Azure Cosmos DB supporta le stesse funzionalità relative alle query rispetto all'archiviazione tabelle di Azure per l'API Table. Azure Cosmos DB supporta anche l'ordinamento, le aggregazioni, le query geospaziali, la gerarchia e un'ampia gamma di funzioni predefinite. Vedere [Query in Azure Cosmos DB](how-to-sql-query.md) per una panoramica di queste funzionalità. 
 
 ## <a name="replace-an-entity"></a>Sostituire un'entità
 Per aggiornare un'entità, recuperarla dal servizio tabelle, modificare l'oggetto entità e quindi salvare le modifiche nel servizio tabelle. Il codice seguente consente di modificare il numero di telefono di un cliente esistente. 

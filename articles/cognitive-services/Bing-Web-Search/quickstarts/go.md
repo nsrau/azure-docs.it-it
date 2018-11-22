@@ -3,20 +3,20 @@ title: 'Guida introduttiva: Eseguire una ricerca con Go - API Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come eseguire la prima chiamata all'API Ricerca Web Bing usando Go e ricevere una risposta JSON.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
+ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
-ms.openlocfilehash: 7ce3dd565709567bf75dbbb4ec8f206bba96c195
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9ba0501f9d4b408e4972f36806ab21cba6519b59
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408678"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163776"
 ---
 # <a name="quickstart-use-go-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare Go per chiamare l'API Ricerca Web Bing  
 
