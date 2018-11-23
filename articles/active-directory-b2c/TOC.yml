@@ -71,6 +71,8 @@ items:
   items:
   - name: Accedere ai log di controllo
     href: active-directory-b2c-reference-audit-logs.md
+  - name: Controllo dell'accesso in base all'età
+    href: basic-age-gating.md
   - name: Configurare i token
     href: active-directory-b2c-token-session-sso.md
   - name: Personalizzare la lingua
@@ -123,6 +125,8 @@ items:
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: Salesforce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: Tenere traccia del comportamento degli utenti
+      href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Flussi degli utenti
       items:
       - name: Configurare l'input utente
@@ -264,8 +268,6 @@ items:
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Credenziali password del proprietario della risorsa
     href: configure-ropc.md
-  - name: Configurare il controllo dell'accesso in base all'età
-    href: basic-age-gating.md
   - name: Configurare l'accesso diretto
     href: direct-signin.md
   - name: Configurare la reimpostazione self-service delle password
@@ -274,8 +276,6 @@ items:
     href: b2clogin.md
   - name: Usare l'API Graph di Azure AD
     href: active-directory-b2c-devquickstarts-graph-dotnet.md
-  - name: Tenere traccia del comportamento degli utenti
-    href: active-directory-b2c-custom-guide-eventlogger-appins.md
   - name: App Web
     items:
     - name: ASP.NET
@@ -300,6 +300,8 @@ items:
       href: active-directory-b2c-support-create-directory.md
     - name: App Extensions
       href: active-directory-b2c-reference-extensions-app.md
+    - name: Versioni del flusso utente
+      href: user-flow-versions.md
 - name: Risorse
   items:
   - name: Roadmap per Azure
@@ -322,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 276a67a6dc5708f5e4f25796d7d31523db7a7446
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 55fb2bda4013369cecd797cd90b152ad58d2bd6e
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415866"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291402"
