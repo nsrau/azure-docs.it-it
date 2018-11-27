@@ -90,7 +90,7 @@ en-IE | Inglese (Irlanda) |Maschio | "Microsoft Server Speech Text to Speech Voi
 en-IN | Inglese (India) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 | | |Femmina | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 | | |Maschio | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
-it-IT | Inglese (Stati Uniti) |Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
+en-US | Inglese (Stati Uniti) |Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
 | | |Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
 | | |Maschio | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
 | | |Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)"
