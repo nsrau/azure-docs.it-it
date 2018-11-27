@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140858"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824779"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Guida introduttiva: Provare una soluzione di monitoraggio remoto basata sul cloud
 
@@ -32,7 +32,7 @@ Prima di distribuire l'acceleratore della soluzione nella sottoscrizione di Azur
 
 Accedere ad [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) usando le credenziali dell'account Azure.
 
-Fare clic su **Try Now** (Prova) nel riquadro **Monitoraggio remoto**.
+Fare clic sul riquadro **Monitoraggio remoto**. Nella pagina **Monitoraggio remoto** fare clic su **Prova adesso**:
 
 ![Scegliere il monitoraggio remoto](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
@@ -40,9 +40,10 @@ Nella pagina **Create Remote Monitoring solution** (Creare soluzione di monitora
 
 Scegliere **.NET** come linguaggio. Le implementazioni di Java e .NET hanno funzionalità identiche.
 
-Immettere un valore univoco in **Solution name** (Nome soluzione) per l'acceleratore della soluzione di monitoraggio remoto. Per questa guida introduttiva usare il nome **contoso-rm2**.
+Immettere un valore univoco in **Solution name** (Nome soluzione) per l'acceleratore della soluzione di monitoraggio remoto. Per questa guida introduttiva usare il nome **contoso-rm**.
 
-Selezionare **Sottoscrizione** e **Area** da usare per distribuire l'acceleratore della soluzione. In genere, si sceglie l'area più vicina. Per questa guida introduttiva selezionare **Visual Studio Enterprise** ed **Europa occidentale**. È necessario essere [amministratore globale o utente](iot-accelerators-permissions.md) nella sottoscrizione.
+Selezionare **Sottoscrizione** e **Area** da usare per distribuire l'acceleratore della soluzione. In genere, si sceglie l'area più vicina. Per questa guida introduttiva usare l'area **Stati Uniti orientali**.
+È possibile scegliere **Visual Studio Enterprise**, ma per farlo è necessario essere un [utente o amministratore globale](iot-accelerators-permissions.md).
 
 Per iniziare la distribuzione, fare clic su **Crea soluzione**. Questo processo richiede almeno cinque minuti:
 

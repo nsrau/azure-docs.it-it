@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1481c32512266f494c03f9ffdc1ce67ef503b4a8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 415652739c4987deafe820c31499132ec3829c8b
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255201"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263316"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Esercitazione: creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell
 
@@ -101,7 +101,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>Creare VM dall'immagine
 
-Ora che si dispone di un'immagine, è possibile creare una o più nuove VM dall'immagine. La creazione di una macchina virtuale da un'immagine personalizzata è un'operazione simile alla creazione di una macchina virtuale con un'immagine del Marketplace. Quando si usa un'immagine del Marketplace, è necessario immettere le informazioni sull'immagine, il provider dell'immagine, l'offerta, lo SKU e la versione. Usando il parametro semplificato impostato per il cmdlet [New-AzureRMVM](), è sufficiente specificare il nome dell'immagine personalizzata, purché sia nello stesso gruppo di risorse. 
+Ora che si dispone di un'immagine, è possibile creare una o più nuove VM dall'immagine. La creazione di una macchina virtuale da un'immagine personalizzata è un'operazione simile alla creazione di una macchina virtuale con un'immagine del Marketplace. Quando si usa un'immagine del Marketplace, è necessario immettere le informazioni sull'immagine, il provider dell'immagine, l'offerta, lo SKU e la versione. Usando il parametro semplificato impostato per il cmdlet [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm), è sufficiente specificare il nome dell'immagine personalizzata, purché sia nello stesso gruppo di risorse. 
 
 Questo esempio crea una VM denominata *myVMfromImage* dall'immagine denominata *myImage* in *myResourceGroup*.
 
@@ -130,11 +130,11 @@ $images = Get-AzureRMResource -ResourceType Microsoft.Compute/images
 $images.name
 ```
 
-Eliminare un'immagine. Questo esempio elimina l'immagine denominata *myOldImage* da *myResourceGroup*.
+Eliminare un'immagine. Questo esempio elimina l'immagine denominata *myImage* da *myResourceGroup*.
 
 ```azurepowershell-interactive
 Remove-AzureRmImage `
-    -ImageName myOldImage `
+    -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```
 

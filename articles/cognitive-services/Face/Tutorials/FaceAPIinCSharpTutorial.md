@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 5319584d892c261dcc6290703e9ca6518640cc94
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685481"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852674"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Esercitazione: Creare un'app WPF per mostrare i dati sui volti in un'immagine
 
@@ -67,7 +67,7 @@ Aprire *MainWindow.xaml.cs* e aggiungere spazi dei nomi della libreria client, a
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-Quindi, inserire il codice seguente nella classe **MainWindow**. In tal modo, viene creata un'istanza **FaceClient** usando la chiave di sottoscrizione, che è necessario immettere manualmente. È anche necessario impostare la stringa di area geografica in `faceEndpoint` sull'area corretta per la sottoscrizione.
+Quindi, inserire il codice seguente nella classe **MainWindow**. In tal modo, viene creata un'istanza **FaceClient** usando la chiave di sottoscrizione, che è necessario immettere manualmente. È inoltre necessario impostare la stringa dell'area in `faceEndpoint` sull'area corretta per la sottoscrizione (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree).
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 

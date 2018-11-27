@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741029"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706977"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Esercitazione: Eseguire la migrazione dei dati nell'account dell'API per MongoDB di Azure Cosmos DB
 
@@ -36,13 +36,13 @@ Prima della migrazione dei dati all'account dell'API di MongoDB, assicurarsi di 
 
 1. Creare in anticipo le raccolte e ridimensionarle:
         
-    * Per impostazione predefinita, Azure Cosmos DB effettua il provisioning di una nuova raccolta MongoDB con 1.000 unità richiesta al secondo (UR/sec). Prima di iniziare la migrazione tramite mongoimport o mongorestore, creare tutte le raccolte dal [portale di Azure](https://portal.azure.com) o da strumenti e driver di MongoDB. Se le dimensioni dei dati superano 10 GB, assicurarsi di creare una [raccolta partizionata](partition-data.md) con una chiave di partizione appropriata.
+   * Per impostazione predefinita, Azure Cosmos DB effettua il provisioning di una nuova raccolta MongoDB con 1.000 unità richiesta al secondo (UR/sec). Prima di iniziare la migrazione tramite mongoimport o mongorestore, creare tutte le raccolte dal [portale di Azure](https://portal.azure.com) o da strumenti e driver di MongoDB. Se le dimensioni dei dati superano 10 GB, assicurarsi di creare una [raccolta partizionata](partition-data.md) con una chiave di partizione appropriata. MongoDB consiglia di archiviare i dati entità in raccolte. È possibile condividere il percorso di entità di dimensioni e velocità effettiva di provisioning simili a livello del database Azure Cosmos.
 
-    * Nel [portale di Azure](https://portal.azure.com) aumentare la velocità effettiva delle raccolte da 1.000 unità richiesta/secondo per una singola raccolta a partizione e da 2.500 unità richiesta/secondo per una raccolta partizionata solo per la migrazione. Con una velocità effettiva più elevata, è possibile evitare la limitazione di velocità e completare più rapidamente la migrazione. È possibile ridurre la velocità effettiva immediatamente dopo la migrazione per ridurre i costi.
+   * Nel [portale di Azure](https://portal.azure.com) aumentare la velocità effettiva delle raccolte da 1.000 unità richiesta/secondo per una singola raccolta a partizione e da 2.500 unità richiesta/secondo per una raccolta partizionata solo per la durata della migrazione. Con una velocità effettiva più elevata, è possibile evitare la limitazione di velocità e completare più rapidamente la migrazione. È possibile ridurre la velocità effettiva immediatamente dopo la migrazione per ridurre i costi.
 
-    * Oltre a impostare le unità richiesta/secondo a livello di raccolta, è possibile eseguire il provisioning di unità richiesta al secondo per un set di raccolte a livello di database padre. Ciò presuppone che vengano prima creati il database e le raccolte e che venga definita una chiave di partizione per ogni raccolta.
+   * Oltre a impostare le unità richiesta/secondo a livello di raccolta, è possibile eseguire il provisioning di unità richiesta al secondo per un set di raccolte a livello di database padre. Ciò presuppone che vengano prima creati il database e le raccolte e che venga definita una chiave di partizione per ogni raccolta.
 
-    * È possibile creare raccolte partizionate usando lo strumento, il driver o l'SDK che si preferisce. In questo esempio, per creare una raccolta partizionata viene usata la shell di Mongo:
+   * È possibile creare raccolte partizionate usando lo strumento, il driver o l'SDK che si preferisce. In questo esempio, per creare una raccolta partizionata viene usata la shell di Mongo:
 
         ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )

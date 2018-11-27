@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345114"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824541"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Informazioni sugli acceleratori di soluzioni Azure IoT
 
@@ -50,7 +50,7 @@ Usare questo acceleratore di soluzioni per raccogliere la telemetria da asset in
 
 ### <a name="predictive-maintenance"></a>Manutenzione predittiva
 
-Usare questo acceleratore di soluzioni per presumere quando si prevede il guasto di un dispositivo remoto, in modo da poter eseguire la manutenzione prima che si verifichi il guasto previsto. Questo acceleratore di soluzioni usa algoritmi di apprendimento macchina per prevedere i guasti a partire dalla telemetria del dispositivo. I dispositivi di esempio possono essere motori di aereo o ascensori.
+Usare questo acceleratore di soluzione per prevedere il guasto di un dispositivo remoto, in modo da poter eseguire la manutenzione prima che tale guasto si verifichi. Questo acceleratore di soluzioni usa algoritmi di apprendimento macchina per prevedere i guasti a partire dalla telemetria del dispositivo. I dispositivi di esempio possono essere motori di aereo o ascensori.
 
 È possibile usare il dashboard di manutenzione predittiva per visualizzare le analisi di manutenzione predittiva:
 
@@ -97,7 +97,7 @@ Per altre informazioni sulle architetture dei microservizi, vedere [.NET Applica
 * **Basic:** versione a costo ridotto a scopo di dimostrazione o per testare una distribuzione. Tutti i microservizi vengono distribuiti in un'unica macchina virtuale di Azure.
 * **Locale:** distribuzione della macchina locale a scopo di test e sviluppo. Questo approccio prevede la distribuzione dei microservizi in un contenitore Docker locale e la connessione a Hub IoT, Cosmos DB e ai servizi di archiviazione di Azure nel cloud.
 
-Il costo di esecuzione di un acceleratore di soluzione è un'aggregazione del [costo dei servizi Azure sottostanti](https://azure.microsoft.com/pricing). Vengono visualizzati i dettagli dei servizi Azure usati quando si scelgono le opzioni di distribuzione.
+Il costo di esecuzione di un acceleratore di soluzione è un'aggregazione del [costo di esecuzione dei servizi di Azure sottostanti](https://azure.microsoft.com/pricing). Vengono visualizzati i dettagli dei servizi Azure usati quando si scelgono le opzioni di distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

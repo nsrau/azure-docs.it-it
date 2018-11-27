@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 65d0d6848534326bb3ef43f1bd8bc700971603e6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: a514359edcf21d5882b2361d10c06214d8e39502
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636799"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274867"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Copiare i dischi gestiti nella stessa sottoscrizione o in una sottoscrizione diversa con l'interfaccia della riga di comando
 
-Questo script consente di copiare un disco gestito nella stessa sottoscrizione o in una sottoscrizione diversa ma nella stessa area. Per eseguire questo script, è necessario essere un amministratore del tenant AAD globale di entrambe le sottoscrizioni.
+Questo script consente di copiare un disco gestito nella stessa sottoscrizione o in una sottoscrizione diversa ma nella stessa area. La copia funziona solo quando le sottoscrizioni fanno parte dello stesso tenant AAD.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

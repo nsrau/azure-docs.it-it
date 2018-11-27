@@ -10,32 +10,33 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 8ea45d202e550e16a7afd11e056738b2b21bd963
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: f2e576b421526c0245ff249d77214b27c9fd649a
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267716"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283945"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Java per chiamare il servizio cognitivo Analisi del testo
 <a name="HOLTop"></a>
 
-Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711) con Java.
+Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con Java.
 
 Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.microsoft.com/fwlink/?LinkID=759346).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Analisi del testo**. Per completare questo Avvio rapido è possibile usare il **livello gratuito per 5.000 transazioni/mese**.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+
 È anche necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione. 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>Rileva lingua
 
-L'API Rilevamento lingua rileva la lingua di un documento di testo usando il [metodo per il rilevamento della lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+L'API Rilevamento lingua rileva la lingua di un documento di testo usando il  [metodo per il rilevamento della lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
-1. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato preferito.
+1. Creare un nuovo progetto Java nell'IDE preferito.
 2. Aggiungere il codice riportato di seguito.
 3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
 4. Sostituire la località in `host` (attualmente `westus`) con l'area per cui è stata fatta l'iscrizione.

@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222150"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821064"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Esercitazione: configurare e gestire i dispositivi connessi alla soluzione di monitoraggio
 
@@ -63,7 +63,7 @@ Per visualizzare i dati di diagnostica dettagliati, scorrere verso il basso nel 
 
 ## <a name="act-on-a-device"></a>Eseguire operazioni su un dispositivo
 
-Per verificare che il dispositivo motore simulato risponda correttamente alle azioni avviate dal dashboard, eseguire il metodo **FirmwareUpdate**. Per agire su un dispositivo eseguendo un metodo, selezionare il dispositivo nell'elenco dei dispositivi, quindi fare clic su **Processi**. È possibile selezionare più di un dispositivo se si desidera agire su più dispositivi. Nel pannello **Processi** (job), selezionare **Run method** (Esegui metodo). Il modello di dispositivo **Motore** specifica tre metodi: **FirmwareUpdate**, **FillTank** ed **EmptyTank**:
+Per verificare che il dispositivo motore simulato risponda correttamente alle azioni avviate dal dashboard, eseguire il metodo **FirmwareUpdate**. Per agire su un dispositivo eseguendo un metodo, selezionare il dispositivo nell'elenco dei dispositivi, quindi fare clic su **Processi**. È possibile selezionare più di un dispositivo se si desidera agire su più dispositivi. Nel pannello **Processi** selezionare **Metodi**. Il modello di dispositivo **Motore** specifica tre metodi: **FirmwareUpdate**, **FillTank** ed **EmptyTank**:
 
 [![Metodi per il motore](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -81,7 +81,7 @@ Se si selezionano più dispositivi di tipi diversi nella pagina **Dispositivi**,
 
 ## <a name="reconfigure-a-device"></a>Riconfigurare un dispositivo
 
-Per verificare che sia possibile aggiornare le proprietà di configurazione del motore, selezionarlo nell'elenco dispositivi nella pagina **Dispositivi**. Quindi fare clic su **Processi** e scegliere **Riconfigura**. Il pannello dei processi mostra i valori delle proprietà per il dispositivo selezionato che è possibile aggiornare:
+Per verificare che sia possibile aggiornare le proprietà di configurazione del motore, selezionarlo nell'elenco dispositivi nella pagina **Dispositivi**. Fare quindi clic su **Processi** e scegliere **Proprietà**. Il pannello dei processi mostra i valori delle proprietà per il dispositivo selezionato che è possibile aggiornare:
 
 [![Riconfigurare un dispositivo](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 

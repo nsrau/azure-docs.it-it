@@ -3,18 +3,18 @@ title: Più itinerari con Mappe di Azure | Microsoft Docs
 description: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/29/2018
+ms.date: 11/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 67b68489f2e06b9149f842f293a769fa7f688be0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a278eb1612ec9573c4d12611ccce2d1b5b971bc
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412704"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705280"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 
@@ -176,7 +176,7 @@ In questa esercitazione verranno calcolati due itinerari e ne verrà eseguito il
     });
     ```
     
-    Questo codice crea due [oggetti GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti di partenza e di arrivo dell'itinerario. A ogni punto vengono aggiunge le proprietà `title` e `icon`.
+    Questo codice crea due [oggetti GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti iniziale e finale del percorso. A ogni punto vengono aggiunge le proprietà `title` e `icon`.
 
 3. Aggiungere quindi il codice JavaScript seguente per includere nella mappa i segnaposto per i punti di partenza e di arrivo:
 
@@ -212,7 +212,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
     }
     ```
     
-2. Aggiungere il blocco di codice seguente per creare una stringa di query per l'itinerario.
+2. Aggiungere il blocco di codice seguente per creare una stringa di query di route.
 
     ```JavaScript
     //Create the route request with the query being the start and end point in the format 'startLongitude,startLatitude:endLongitude,endLatitude'.
@@ -271,13 +271,13 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
 
 5. Salvare il file **MapTruckRoute.html** e aggiornare il browser per osservare il risultato. Se la connessione con le API di Mappe è stata stabilita correttamente, verrà visualizzata una mappa simile alla seguente.
 
-    ![Itinerari classificati in ordine di priorità con il servizio di pianificazione percorso](./media/tutorial-prioritized-routes/prioritized-routes.png)
+    ![Percorsi classificati in ordine di priorità con il servizio di pianificazione percorso](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
     L'itinerario per gli autocarri è blu e più è spesso, mentre l'itinerario per le auto è viola e più sottile. L'itinerario per le auto passa attraverso Washington Lake tramite la I-90, che attraversa i tunnel sotto le zone residenziali e pertanto è interdetto ai carichi di rifiuti pericolosi. L'itinerario per gli autocarri, che specifica il tipo di carico USHazmatClass2, suggerisce correttamente di usare un'autostrada diversa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa
@@ -291,12 +291,7 @@ In questa esercitazione si è appreso come:
 
 [Vedere qui l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
-Per altre informazioni sulla copertura e sulle funzionalità di Mappe di Azure:
+L'esercitazione successiva illustra il processo di creazione di un semplice localizzatore di punti vendita con Mappe di Azure.
 
 > [!div class="nextstepaction"]
-> [Livelli di zoom e griglia riquadri](zoom-levels-and-tile-grid.md)
-
-Per altri esempi di codice e un'esperienza di codifica interattiva:
-
-> [!div class="nextstepaction"]
-> [Come usare il controllo mappa](how-to-use-map-control.md)
+> [Creare un localizzatore di punti vendita con Mappe di Azure](./tutorial-create-store-locator.md)

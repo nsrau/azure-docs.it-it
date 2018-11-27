@@ -8,12 +8,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 85d6ac0084343dc821a4eaf91c8053c9885ccfeb
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366047"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706994"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Esercitazione: Esplorare la libreria client JavaScript per Azure Time Series Insights
 
@@ -36,7 +36,7 @@ Questa esercitazione descrive quanto segue:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa esercitazione usa la funzionalità "Strumenti di sviluppo" (nota anche come DevTools o F12), disponibile nella maggior parte dei Web browser moderni, come [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) e altri. Se non si ha già familiarità con questa funzionalità, potrebbe essere utile esplorarla nel browser prima di continuare.
+Questa esercitazione usa la funzionalità "Strumenti di sviluppo" (nota anche come DevTools o F12), disponibile nella maggior parte dei Web browser moderni, come [Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) e altri. Se non si ha già familiarità con questa funzionalità, potrebbe essere utile esplorarla nel browser prima di continuare.
 
 ## <a name="time-series-insights-sample-application"></a>Applicazione di esempio Time Series Insights
 

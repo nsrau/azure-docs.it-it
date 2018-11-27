@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Come usare Azure Key Vault con una macchina virtuale Linux di Azure in .NET | Microsoft Docs'
+title: 'Esercitazione: Come usare Azure Key Vault con una macchina virtuale Windows di Azure in .NET | Microsoft Docs'
 description: "Esercitazione: Configurare un'applicazione ASP.NET Core per la lettura di un segreto da un insieme di credenziali delle chiavi"
 services: key-vault
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: d5596343a293d333dac9ca7e31a9fbc3363f3fd9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: d1f24c8bebc8740f47dc0f02089db1091c22f597
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688227"
+ms.locfileid: "51711328"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Esercitazione: Come usare Azure Key Vault con una macchina virtuale Linux di Azure in .NET
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Esercitazione: Come usare Azure Key Vault con una macchina virtuale Windows di Azure in .NET
 
 Azure Key Vault facilita la protezione di segreti come le chiavi API, le stringhe di connessione di database necessarie per accedere alle applicazioni, i servizi e le risorse IT.
 
-In questa esercitazione si eseguiranno i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni da Azure Key Vault usando le identità gestite per le risorse di Azure. L'esercitazione è basata su [App Web di Azure](../app-service/app-service-web-overview.md). Nel corso dell'esercitazione si apprenderà come:
+In questa esercitazione si eseguiranno i passaggi necessari per fare in modo che un'applicazione Console legga informazioni da Azure Key Vault usando le identità gestite per le risorse di Azure. L'esercitazione è basata su [App Web di Azure](../app-service/app-service-web-overview.md). Nel corso dell'esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un insieme di credenziali delle chiavi.
@@ -202,8 +202,7 @@ Modificare quindi il file di classe in modo da includere il codice riportato di 
                 String responseString = reader.ReadToEnd();
 
                 JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];
-                Console.WriteLine(ojObject.Value);                
+                JValue ojObject = (JValue)joResponse[tokenName];             
                 token = ojObject.Value.ToString();
             }
             return token;

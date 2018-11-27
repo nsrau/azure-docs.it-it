@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/23/2018
 ms.author: pareshmu
-ms.openlocfilehash: a55e57c2cc1c0ff2ba44f681cbae90ba69fdc434
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ead7ad9178264bc2cfa323eb440c235ab52c069b
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957792"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275854"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -40,18 +40,18 @@ Si otterrà l'accesso al servizio di Azure in tutte le aree di un'area geopoliti
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Aree di Azure e località ExpressRoute in un'area geopolitica
 La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRoute in un'area geopolitica.
 
-| **Area geopolitica** | **Aree di Azure** | **Località per ExpressRoute** |
-| --- | --- | --- |
-| **America del Nord** |Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Canada centrale, Canada orientale |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
-| **America del Sud** |Brasile meridionale |Sao Paulo |
-| **Europa** |Francia centrale, Francia meridionale, Europa settentrionale, Europa occidentale, Regno Unito occidentale, Regno Unito meridionale |Amsterdam, Amsterdam2, Dublino, Marsiglia, Londra, Newport (Galles), Parigi |
-| **Asia** |Asia orientale, Asia sudorientale |Hong Kong, Kuala Lumpur, Singapore, Singapore2 |
-| **Giappone** |Giappone occidentale, Giappone orientale |Osaka, Tokyo |
-| **Australia** |Australia sudorientale, Australia orientale |Melbourne, Sydney |
-| **Australia Government** | Australia centrale, Australia centrale 2 |Canberra, Canberra2 | 
-| **India** |India occidentale, India centrale, India Meridionale |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Corea del Sud** |Corea del Sud centrale, Corea del Sud meridionale |Busan, Seoul |
-| **Sud Africa** |[Sudafrica occidentale+, Sudafrica settentrionale+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Città del Capo, Johannesburg |
+| **Area geopolitica** | **Zona** | **Aree di Azure** | **Località per ExpressRoute** |
+| --- | --- | --- | --- |
+| **Australia Government** |Zona 1 | Australia centrale, Australia centrale 2 |Canberra, Canberra2 |
+| **Europa** |Zona 1 |Francia centrale, Francia meridionale, Europa settentrionale, Europa occidentale, Regno Unito occidentale, Regno Unito meridionale |Amsterdam, Amsterdam2, Dublino, Londra, Marsiglia, Newport (Galles), Parigi |
+| **America del Nord** |Zona 1 |Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Canada centrale, Canada orientale |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
+| **Asia** |Zona 2 |Asia orientale, Asia sudorientale |Hong Kong, Kuala Lumpur, Singapore, Singapore2 |
+| **Australia** |Zona 2 |Australia sudorientale, Australia orientale |Melbourne, Sydney | 
+| **India** |Zona 2 |India occidentale, India centrale, India Meridionale |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **Giappone** |Zona 2 |Giappone occidentale, Giappone orientale |Osaka, Tokyo |
+| **Corea del Sud** |Zona 2 |Corea del Sud centrale, Corea del Sud meridionale |Busan, Seoul|
+| **Sud Africa** |Zona 3 |[Sudafrica occidentale+, Sudafrica settentrionale+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Città del Capo, Johannesburg |
+| **America del Sud** |Zona 3 |Brasile meridionale |Sao Paulo |
 
  **+** indica disponibile a breve
 
@@ -164,7 +164,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 * Richiedere al provider di connettività di estendere la rete alla località di peering scelta.
   * Assicurarsi che il provider di connettività estenda la connettività con disponibilità elevata, in modo che non siano presenti singoli punti di errore.
 * Ordinare a un circuito ExpressRoute con scambio come provider di connettività di connettersi a Microsoft.
-  * Per configurare la connettività, eseguire la procedura illustrata in [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
+  * Per configurare la connettività, eseguire la procedura illustrata in [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) .
 
 ## <a name="c1partners"></a>Connettività con provider di servizi aggiuntivi
 | **Posizione** | **Exchange** | **Provider di connettività** |

@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 76747f7e9f1a95ee14ee570dcc29b42f98c26838
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: ba42cc7ede2ab790e5f50f3db525e48ebd21f522
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577991"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852504"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso di Azure e Node.js
 
@@ -81,7 +81,7 @@ Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione Viso val
 
 ### <a name="face-endpoint-url"></a>URL endpoint Viso
 
-L'URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica l'endpoint Viso di Azure su cui eseguire la query. È necessario modificare la prima parte dell'URL con l'area che corrisponde alla chiave di sottoscrizione (a meno che non sia già corretta).
+L'URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica l'endpoint Viso di Azure su cui eseguire la query. Può essere necessario modificare la prima parte dell'URL con l'area che corrisponde alla chiave di sottoscrizione (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree).
 
 ### <a name="url-query-string"></a>Stringa di query URL
 

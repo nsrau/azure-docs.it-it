@@ -4,17 +4,17 @@ description: Questa guida introduttiva descrive come distribuire codice precompi
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/14/2018
+ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a392c4c20e54081ae5e4876b7c718759b8200ce5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: d4ea7d3fba891e954ca7faa5176a73d2341630d6
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566432"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976911"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Guida introduttiva: Distribuire il primo modulo IoT Edge in un dispositivo Linux x64
 
@@ -58,8 +58,10 @@ Dispositivo IoT Edge:
 * Un dispositivo o macchina virtuale Linux da usare come dispositivo IoT Edge. Se si vuole creare una macchina virtuale in Azure, usare il comando seguente per iniziare rapidamente:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
+
+   Quando si crea una nuova macchina virtuale, prendere nota del valore di **publicIpAddress**, che viene fornito come parte dell'output del comando di creazione. Questo indirizzo IP pubblico verrà usato per connettersi alla macchina virtuale più avanti in questa guida introduttiva.
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -75,7 +77,7 @@ Il codice seguente crea un hub **F1** gratuito nel gruppo di risorse **IoTEdgeRe
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
-   Se si verifica un errore perché è già presente un hub gratuito nella sottoscrizione, modificare lo SKU in **S1**.
+   Se si verifica un errore perché è già presente un hub gratuito nella sottoscrizione, modificare lo SKU in **S1**. Se si verifica un errore che indica che il nome dell'hub IoT non è disponibile, significa che qualcuno ha già un hub con lo stesso nome. Provare con un nuovo nome. 
 
 ## <a name="register-an-iot-edge-device"></a>Registrare un dispositivo IoT Edge
 
@@ -84,7 +86,7 @@ Registrare un dispositivo IoT Edge con l'hub IoT appena creato.
 
 Creare un'identità del dispositivo per il dispositivo simulato in modo che possa comunicare con l'hub IoT. L'identità del dispositivo si trova nel cloud e si usa una stringa di connessione del dispositivo univoca per associare un dispositivo fisico a un'identità del dispositivo. 
 
-Poiché i dispositivi IoT Edge si comportano e possono essere gestiti in modo diverso dai dispositivi IoT tipici, dichiarare fin dall'inizio che si tratta di un dispositivo IoT Edge. 
+Poiché i dispositivi IoT Edge si comportano e possono essere gestiti in modo diverso rispetto ai dispositivi IoT tipici, indicare con un flag `--edge-enabled` che l'identità si riferisce a un dispositivo IoT Edge. 
 
 1. In Azure Cloud Shell immettere il comando seguente per creare un dispositivo denominato **myEdgeDevice** nell'hub.
 
@@ -92,13 +94,15 @@ Poiché i dispositivi IoT Edge si comportano e possono essere gestiti in modo di
    az iot hub device-identity create --hub-name {hub_name} --device-id myEdgeDevice --edge-enabled
    ```
 
-1. Recuperare la stringa di connessione per il dispositivo, che collega il dispositivo fisico alla sua identità nell'hub IoT. 
+   Se viene visualizzato un errore relativo alle chiavi dei criteri iothubowner, assicurarsi che Cloud Shell esegua la versione più recente dell'estensione azure-cli-iot-ext. 
+
+2. Recuperare la stringa di connessione per il dispositivo, che collega il dispositivo fisico alla sua identità nell'hub IoT. 
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-1. Copiare la stringa di connessione e salvarla. Usare questo valore per configurare il runtime IoT Edge nella sezione successiva. 
+3. Copiare la stringa di connessione e salvarla. Usare questo valore per configurare il runtime IoT Edge nella sezione successiva. 
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Installare e avviare il runtime di IoT Edge
 
@@ -109,13 +113,21 @@ Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È cos
 
 Durante la configurazione del runtime, si immette una stringa di connessione del dispositivo. Usare la stringa recuperata tramite l'interfaccia della riga di comando di Azure. La stringa associa il dispositivo fisico all'identità del dispositivo IoT Edge in Azure. 
 
-Completare i passaggi seguenti nel computer o nella macchina virtuale Linux preparata per essere usata come dispositivo IoT Edge. 
+### <a name="connect-to-your-iot-edge-device"></a>Stabilire la connessione al dispositivo IoT Edge
+
+I passaggi descritti in questa sezione vengono eseguiti nel dispositivo IoT Edge. Se si usa il proprio computer come dispositivo IoT Edge, è possibile ignorare questa parte. Se si usa una macchina virtuale o hardware secondario, stabilire ora la connessione. 
+
+Se per questa guida è stata creata una macchina virtuale di Azure, recuperare l'indirizzo IP pubblico indicato nell'output del comando di creazione. È anche possibile trovare l'indirizzo IP pubblico nella pagina di panoramica della macchina virtuale nel portale di Azure. Usare il comando seguente per connettersi alla macchina virtuale. Sostituire **{publicIpAddress}** con l'indirizzo del computer. 
+
+```azurecli-interactive
+ssh azureuser@{publicIpAddress}
+```
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registrare il dispositivo per usare il repository software
 
 I pacchetti necessari per eseguire il runtime IoT Edge vengono gestiti in un repository software. Configurare il dispositivo IoT Edge per accedere a questo repository. 
 
-I passaggi descritti in questa sezione sono destinati ai dispositivi x64 che eseguono **Ubuntu 16.04**. Per accedere al repository software con altre versioni di Linux o da dispositivi con altre architetture, vedere [Installare il runtime Azure IoT Edge in Linux (x64)](how-to-install-iot-edge-linux.md) o [Installare il runtime di Azure IoT Edge in Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+I passaggi descritti in questa sezione sono destinati ai dispositivi x64 che eseguono **Ubuntu 16.04**. Per accedere al repository software in altre versioni di Linux o da dispositivi con altre architetture, vedere [Installare il runtime di Azure IoT Edge in Linux (x64)](how-to-install-iot-edge-linux.md) o [Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. Nel computer usato come dispositivo IoT Edge, installare la configurazione del repository.
 
@@ -242,7 +254,7 @@ Visualizzare i messaggi inviati dal modulo tempSensor:
 
 Il modulo del sensore temperatura può attendere di connettersi all'hub di IoT Edge se l'ultima riga visualizzata nel log è `Using transport Mqtt_Tcp_Only`. Provare a terminare il modulo e permettere all'agente IoT Edge di riavviarlo. È possibile terminare il modulo con il comando `sudo docker stop tempSensor`.
 
-È anche possibile visualizzare la telemetria non appena arriva all'hub IoT usando l'[estensione Azure IoT Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+È anche possibile visualizzare i messaggi ricevuti dall'hub IoT usando l'[estensione Azure IoT Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -250,7 +262,7 @@ Se si vuole continuare con le esercitazioni su IoT Edge, è possibile usare il d
 
 ### <a name="delete-azure-resources"></a>Eliminare le risorse di Azure
 
-Se la macchina virtuale e l'hub IoT sono stati creati in un nuovo gruppo di risorse, è possibile eliminare il gruppo e tutte le risorse associate. Se nel gruppo sono presenti risorse che si vuole conservare, eliminare solo le singole risorse che si vuole pulire. 
+Se la macchina virtuale e l'hub IoT sono stati creati in un nuovo gruppo di risorse, è possibile eliminare il gruppo e tutte le risorse associate. Verificare il contenuto del gruppo di risorse per assicurarsi che non vi siano dati da conservare. Se non si vuole eliminare l'intero gruppo, è possibile eliminare le singole risorse.
 
 Rimuovere il gruppo **IoTEdgeResources**.
 

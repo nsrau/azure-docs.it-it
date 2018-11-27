@@ -5,15 +5,15 @@ author: aditidugar
 ms.author: adugar
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/11/2018
+ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8258c8f34b4b9a1b216d9d497dcdf7d3b8db1373
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369513"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284564"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Esercitazione: Eseguire un'analisi della causa radice di un avviso
 
@@ -40,7 +40,7 @@ Per selezionare i dispositivi connessi da visualizzare nella pagina **Dashboard*
 
 [![Applicare un filtro per visualizzare solo i veicoli nel dashboard](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
-Quando si applica un filtro, nella mappa e nel pannello di telemetria della pagina **Dashboard** vengono visualizzati solo i dispositivi che soddisfano le condizioni di filtro. Come si può vedere, ci sono due veicoli collegati all'acceleratore di soluzione, tra cui **truck-02**.
+Quando si applica un filtro, nella mappa e nel pannello di telemetria in **Dashboard** vengono visualizzati solo i dispositivi che soddisfano le condizioni di filtro. Come si può vedere, ci sono due veicoli collegati all'acceleratore di soluzione, tra cui **truck-02**.
 
 ## <a name="view-real-time-telemetry"></a>Visualizzare i dati di telemetria in tempo reale
 
@@ -62,25 +62,25 @@ All'avvio di Explorer saranno elencati tutti i dispositivi:
 
 [![Visualizzazione iniziale di Time Series Insights Explorer](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-expanded.png#lightbox)
 
-Filtrare i dispositivi digitando **delivery-truck** nella casella del filtro e selezionare **temperature** (temperatura) come **Measure** (Misura) nel pannello a sinistra:
+Filtrare i dispositivi digitando **delivery-truck** nella casella di filtro e selezionare **temperature** (temperatura) come **Misura** nel pannello a sinistra:
 
 [![Temperatura del veicolo in Time Series Insights Explorer](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
 
-Viene aperta la stessa visualizzazione già vista nel dashboard di Monitoraggio remoto ed è ora possibile ingrandirla per esaminare l'intervallo di tempo entro il quale è stato attivato l'avviso:
+Viene visualizzata una vista analoga a quella del dashboard di monitoraggio remoto. È ora possibile anche fare zoom avanti per esaminare l'intervallo di tempo in cui è stato attivato l'avviso:
 
 [![Zoom di Time Series Insights Explorer](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
 
-È anche possibile aggiungere altri flussi di dati di telemetria provenienti dai veicoli. Fare clic sul pulsante **Add** (Aggiungi) nell'angolo superiore sinistro. Viene visualizzato un nuovo riquadro:
+È anche possibile aggiungere altri flussi di dati di telemetria provenienti dai veicoli. Fare clic sul pulsante **Aggiungi** nell'angolo superiore sinistro. Viene visualizzato un nuovo riquadro:
 
 [![Time Series Insights Explorer con il nuovo riquadro](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-expanded.png#lightbox)
 
-Nel nuovo riquadro modificare il nome della nuova etichetta impostando **Devices** (Dispositivi) in modo che corrisponda a quella precedente. Selezionare **altitude** (altitudine) come **Measure** (Misura) e **iothub-connection-device-id** come valore **Split By** (Diviso per) da aggiungere ai dati di telemetria sull'altitudine nella visualizzazione:
+Nel nuovo riquadro modificare il nome della nuova etichetta impostando **Devices** (Dispositivi) in modo che corrisponda a quella precedente. Selezionare **altitude** (altitudine) come **Misura** e **iothub-connection-device-id** come valore **Dividi per** per aggiungere i dati di telemetria relativi all'altitudine nella vista:
 
 [![Time Series Insights Explorer con temperatura e altitudine](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-expanded.png#lightbox)
 
 ## <a name="diagnose-the-alert"></a>Diagnosticare l'avviso
 
-Quando si esaminano i flussi nella visualizzazione corrente, è possibile notare che i profili di altitudine per i due veicoli sono molto diversi. Inoltre, il calo di temperatura in **delivery-truck-02** si verifica quando il veicolo raggiunge un'altitudine elevata. Si è sorpresi della scoperta, perché era previsto che i veicoli seguissero lo stesso percorso.
+Quando si esaminano i flussi nella vista corrente, è possibile notare che i profili di altitudine per i due veicoli sono diversi. Inoltre, il calo di temperatura in **delivery-truck-02** si verifica quando il veicolo raggiunge un'altitudine elevata. Si è sorpresi della scoperta, perché era previsto che i veicoli seguissero lo stesso percorso.
 
 Per confermare il sospetto che i veicoli abbiano preso percorsi diversi, aggiungere un altro riquadro al pannello laterale usando il pulsante **Add** (Aggiungi). Nel nuovo riquadro modificare il nome della nuova etichetta impostando **Devices** (Dispositivi) in modo che corrisponda a quella precedente. Selezionare **longitude** (longitudine) come **Measure** (Misura) e **iothub-connection-device-id** come valore **Split By** (Diviso per) da aggiungere ai dati di telemetria sulla longitudine nella visualizzazione. È possibile verificare che i veicoli hanno preso percorsi diversi esaminando la differenza tra i flussi della **longitudine**:
 
@@ -88,7 +88,7 @@ Per confermare il sospetto che i veicoli abbiano preso percorsi diversi, aggiung
 
 ## <a name="create-a-new-rule"></a>Creare una nuova regola
 
-Anche se i percorsi per i veicoli sono in genere ottimizzati in anticipo, ci si rende conto che il traffico, le condizioni meteo e altri eventi imprevedibili possono causare ritardi e quindi si lasciano le decisioni dell'ultimo minuto agli autisti in base al loro giudizio. Tuttavia, dato che la temperatura delle merci all'interno del veicolo è cruciale, è necessario creare una regola aggiuntiva nella soluzione Monitoraggio remoto per assicurarsi di ricevere un avviso se l'altitudine media per un intervallo di 1 minuto supera i 350 piedi:
+Anche se i percorsi per i veicoli sono in genere ottimizzati in anticipo, ci si rende conto che il traffico, le condizioni meteo e altri eventi imprevedibili possono causare ritardi e quindi si lasciano le decisioni dell'ultimo minuto agli autisti in base al loro giudizio. Tuttavia, dato che la temperatura delle merci all'interno del veicolo è cruciale, è necessario creare una regola aggiuntiva nella soluzione di monitoraggio remoto. Questa regola serve per assicurarsi di ricevere un avviso se l'altitudine media per un intervallo di 1 minuto supera i 350 piedi:
 
 [![Impostazione di una regola per l'altitudine nella scheda delle regole di monitoraggio](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 

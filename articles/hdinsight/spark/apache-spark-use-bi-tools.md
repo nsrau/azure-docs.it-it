@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Analizzare dati di Apache Spark con Power BI in Azure HDInsight '
-description: Usare Microsoft Power BI per visualizzare i dati Spark archiviati nei cluster HDInsight
+description: Usare Microsoft Power BI per visualizzare i dati Apache Spark archiviati nei cluster HDInsight
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 341346b290fc3dab94773f75f2269cc147e71b82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252463"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712416"
 ---
-# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Esercitazione: Analizzare i dati Spark con Power BI in HDInsight 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Esercitazione: Analizzare dati di Apache Spark con Power BI in HDInsight 
 
 Informazioni sull'uso di Microsoft Power BI per visualizzare i dati nel cluster Apache Spark in Azure HDInsight.
 
@@ -78,7 +78,7 @@ I primi passaggi nell'uso di Spark sono la connessione al cluster in Power BI De
     ![Ottenere i dati in Power BI Desktop da HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Ottenere i dati in Power BI Desktop da HDInsight Apache Spark")
 
 
-2. Immettere `Spark` nella casella di ricerca, selezionare **Azure HDInsight Spark (beta)** e quindi fare clic su **Connetti**.
+2. Immettere `Spark` nella casella di ricerca, selezionare **Azure HDInsight Spark** e quindi fare clic su **Connetti**.
 
     ![Ottenere i dati in Power BI da Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Ottenere i dati in Power BI da Apache Spark BI")
 

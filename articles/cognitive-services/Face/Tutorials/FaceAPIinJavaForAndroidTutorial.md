@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 4378d04d8909ecb0cd77c3196b74ecd51eb19638
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 92344943d2ec19f6730387221974a001e6a2045a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686229"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852895"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Esercitazione: Creare un'app Android per rilevare e incorniciare i visi in un'immagine
 
@@ -92,11 +92,7 @@ Quindi, inserire il codice seguente nella classe **MainActivity**, sopra il meto
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
 
-Sarà necessario sostituire `<Subscription Key>` con la chiave di sottoscrizione. Sostituire anche `<API endpoint>` con l'endpoint dell'API viso, usando l'identificatore di area geografica appropriato per la chiave. Le chiavi di sottoscrizione per la versione di valutazione gratuita vengono generate nell'area **westus**. Un valore dell'endpoint API di esempio sarebbe:
-
-```java
-apiEndpoint = "https://westus.api.cognitive.microsoft.com/face/v1.0";
-```
+Sarà necessario sostituire `<Subscription Key>` con la chiave di sottoscrizione. È anche necessario modificare il valore di `<API endpoint>` in modo che usi l'identificatore di area corretto per la chiave (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree). Le chiavi di sottoscrizione per la versione di valutazione gratuita vengono generate nell'area **westus**.
 
 Nel riquadro **Project** (Progetto) espandere **app**, quindi **manifests** (manifesti) e infine aprire *AndroidManifest.xml*. Inserire l'elemento seguente come figlio diretto dell'elemento `manifest`:
 

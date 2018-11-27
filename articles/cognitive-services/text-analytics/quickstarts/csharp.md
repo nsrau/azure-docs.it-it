@@ -10,25 +10,25 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: a5223b026705cef5abbcd0be6f64cf0c98fd0930
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 59469b6c27ceb0ed96659198edd6ddbca12685e2
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309026"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283962"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di C# per chiamare il servizio cognitivo Analisi del testo
 <a name="HOLTop"></a>
 
-Questo articolo mostra come rilevare il linguaggio, analizzare il sentiment ed estrarre frasi chiave usando le [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711) con C#. Il codice è stato scritto per lavorare su un'applicazione .Net Core, con riferimenti minimi a librerie esterne, in modo che sia possibile eseguirlo in Linux o MacOS.
+Questo articolo mostra come rilevare la lingua, analizzare il sentiment ed estrarre frasi chiave usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con C#. Il codice è stato scritto per lavorare su un'applicazione .Net Core, con riferimenti minimi a librerie esterne, in modo che sia possibile eseguirlo in Linux o MacOS.
 
 Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.microsoft.com/fwlink/?LinkID=759346).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Analisi del testo**. Per completare questo Avvio rapido è possibile usare il **livello gratuito per 5.000 transazioni/mese**.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-È inoltre necessario disporre della [chiave di accesso e dell'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione. 
+È anche necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione. 
 
 
 ## <a name="install-the-nuget-sdk-package"></a>Installare il pacchetto Nuget SDK

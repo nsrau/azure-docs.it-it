@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003748"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852198"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Scegliere tra i servizi di Azure che recapitano messaggi
 
@@ -54,6 +54,8 @@ I messaggi sono dati non elaborati generati da un servizio da utilizzare o archi
 Griglia di eventi è un backplane eventi che abilita la programmazione reattiva basata su eventi. Usa un modello di pubblicazione-sottoscrizione. Gli autori emettono gli eventi, ma non hanno aspettative sugli eventi che vengono gestiti. I sottoscrittori decidono quali eventi vogliono gestire.
 
 Griglia di eventi è strettamente integrato con i servizi di Azure e può essere integrato con i servizi di terze parti. Semplifica l'utilizzo degli eventi e riduce i costi eliminando la necessità di polling costante. Griglia di eventi instrada in modo efficiente e affidabile gli eventi dalle risorse di Azure e non di Azure. Distribuisce gli eventi agli endpoint dei sottoscrittori registrati. Il messaggio dell'evento contiene le informazioni necessarie per reagire alle modifiche apportate ai servizi e alle applicazioni. Griglia di eventi non è una pipeline di dati e non recapita l'oggetto effettivo aggiornato.
+
+Griglia di eventi supporta l'Inserimento degli eventi che non vengono recapitati a un endpoint nella coda dei messaggi non recapitabili.
 
 Presenta le caratteristiche seguenti:
 

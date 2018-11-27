@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b98653ea0896e617a666147d243f24cb55483a28
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091690"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974990"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Usare il portale di Azure per amministrare Data Box Disk (anteprima)
 
@@ -109,7 +109,7 @@ Eseguire la procedura seguente per modificare l'ordine.
 
 ## <a name="edit-notification-details"></a>Modificare i dettagli della notifica
 
-Potrebbe essere necessario cambiare gli utenti che riceveranno le email di stato dell'ordine. Ad esempio, un utente deve essere informato quando il disco viene recapitato o ritirato. Potrebbe essere necessario informare un altro utente quando la copia dei dati è completa, in modo che possa verificare che i dati siano nell'account di archiviazione di Azure prima di eliminarli dall'origine. In questi casi è possibile modificare i dettagli di notifica.
+Potrebbe essere necessario cambiare gli utenti che riceveranno i messaggi di posta elettronica sullo stato dell'ordine. Ad esempio, un utente deve essere informato quando il disco viene recapitato o ritirato. Potrebbe essere necessario informare un altro utente quando la copia dei dati è completa, in modo che possa verificare che i dati siano nell'account di archiviazione di Azure prima di eliminarli dall'origine. In questi casi è possibile modificare i dettagli di notifica.
 
 Eseguire la procedura seguente per modificare i dettagli di notifica.
 
@@ -129,7 +129,7 @@ Eseguire la procedura seguente per modificare i dettagli di notifica.
 |Elaborato     | L'elaborazione dell'ordine è stata completata. <br> Durante l'elaborazione dell'ordine si verificano le azioni seguenti:<li>I dischi vengono crittografati usando la crittografia BitLocker AES-128. </li> <li>Data Box Disk viene bloccato per impedire eventuali accessi non autorizzati.</li><li>Durante questo processo viene generata la passkey che sblocca i dischi.</li>        |
 |Spedito     | L'ordine è stato spedito. Si dovrebbe ricevere l'ordine in 1-2 giorni.        |
 |Recapitato     | L'ordine è stato recapitato all'indirizzo specificato.        |
-|Ritirato     |La spedizione di ritorno è stata ritirata. <br> Dopo che la spedizione è stata ricevuta al data center di Azure, i dati vengono caricati automaticamente in Azure.         |
+|Ritirato     |La spedizione di ritorno è stata ritirata. <br> Dopo che la spedizione è stata ricevuta dal data center di Azure, i dati vengono caricati automaticamente in Azure.         |
 |Ricevuto     | I dischi sono stati ricevuti nel data center di Azure. La copia dei dati inizierà a breve.        |
 |Dati copiati     |La copia dei dati è in corso.<br> Attendere il completamento della copia dei dati.         |
 |Completed       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |

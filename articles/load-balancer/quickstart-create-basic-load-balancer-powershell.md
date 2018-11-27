@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: c675b6d50cf6bf5c4e7ea064f3741cae7a091946
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c21d5618b3e3223297ddd97dc5c98e5eb8c18c0b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578317"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974819"
 ---
 # <a name="get-started"></a>Guida introduttiva - Creare un'istanza di Load Balancer Basic usando Azure PowerShell
 In questa guida introduttiva si apprende come creare un'istanza di Load Balancer Basic usando Azure PowerShell. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali che eseguono Windows Server e si bilancia il carico di un'app Web tra le due macchine virtuali.
@@ -44,7 +44,7 @@ Per accedere all'app in Internet, assegnare un indirizzo IP pubblico al servizio
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName "myResourceGroupLB" `
   -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
+  -AllocationMethod "Static" `
   -Name "myPublicIP"
 ```
 ## <a name="create-basic-load-balancer"></a>Creare un servizio di bilanciamento del carico di base
@@ -251,7 +251,7 @@ Impostare nome utente e password dell'amministratore delle macchine virtuali con
 $cred = Get-Credential
 ```
 
-A questo punto è possibile creare le macchine virtuale con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Nell'esempio seguente vengono creare due macchine virtuali e i componenti di rete virtuale necessari, se non esistono già:
+A questo punto è possibile creare le macchine virtuale con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Nell'esempio seguente vengono creare due macchine virtuali e i componenti di rete virtuale necessari, se non esistono già. Durante la creazione della macchina virtuale nell'esempio seguente, le schede di rete create in precedenza sono associate a macchine virtuali poiché sono assegnate alla stessa rete (*myVnet*) e subnet (*mySubnet*) virtuali:
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)

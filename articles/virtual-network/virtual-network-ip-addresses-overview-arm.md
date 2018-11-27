@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: 65dc420b6832b7b0a4cf14d63203d4c66e2a4254
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6b8bf4a0bc6b5e5e9b9ad7f91ba409aaf922e8e9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993596"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822236"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -75,7 +75,7 @@ Gli indirizzi IP pubblici con SKU Standard sono:
 
 - Assegnati solo con il metodo di allocazione statica.
 - Sono protetti per impostazione predefinita e chiusi al traffico in ingresso. È necessario inserire esplicitamente in un elenco di elementi consentiti il traffico di rete in ingresso con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups).
-- Sono assegnati a interfacce di rete o servizi di bilanciamento del carico Standard. Per altre informazioni sui servizi di bilanciamento del carico Standard di Azure, vedere [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Assegnato a interfacce di rete, servizi pubblici di bilanciamento del carico standard, gateway applicazione o gateway VPN. Per altre informazioni sui servizi di bilanciamento del carico Standard di Azure, vedere [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Con ridondanza della zona per impostazione predefinita. Può essere creato a livello di zona ed è garantito in una zona di disponibilità specifica. Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
@@ -132,8 +132,8 @@ La tabella seguente illustra la proprietà specifica tramite la quale un indiriz
 | --- | --- | --- | --- |
 | Macchina virtuale |interfaccia di rete |Yes |Yes |
 | Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Yes |Yes |
-| gateway VPN |Configurazione IP del gateway |Yes |No  |
-| gateway applicazione |Configurazione front-end |Yes |No  |
+| gateway VPN |Configurazione IP del gateway |Yes |Yes |
+| gateway applicazione |Configurazione front-end |Yes |Yes |
 
 ## <a name="private-ip-addresses"></a>Indirizzi IP privati
 Gli indirizzi IP privati consentono alle risorse di Azure di comunicare con altre risorse in una [rete virtuale](virtual-networks-overview.md) o in una rete locale tramite un gateway VPN o un circuito ExpressRoute, senza usare un indirizzo IP raggiungibile tramite Internet.

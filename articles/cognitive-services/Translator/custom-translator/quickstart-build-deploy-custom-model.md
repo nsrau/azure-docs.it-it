@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: quickstart
-ms.openlocfilehash: 949fb2487c3ca519c1d7022c1434d0a029ed20bb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cb713ac53b399d8ba79d003ee6d948bb5af5220b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626550"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975773"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Guida introduttiva: Creare, distribuire e usare un modello personalizzato per la traduzione
 
@@ -26,7 +26,7 @@ Questo articolo contiene istruzioni dettagliate per creare un sistema di traduzi
 
 2. Una sottoscrizione all'API Traduzione testuale tramite il portale di Azure. Per l'associazione all'area di lavoro in Custom Translator è necessaria la chiave di sottoscrizione dell'API Traduzione testuale. Vedere [come registrarsi all'API Traduzione testuale](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
-3. Dopo aver ottenuto entrambe, accedere al portale di [Custom Translator](https://portal.customtranslator.azure.ai). Dopo aver eseguito l'accesso al portale Custom Translator, passare alla pagina Impostazioni, dove è possibile associare la chiave di sottoscrizione dell'API Traduzione testuale all'area di lavoro. 
+3. Dopo aver ottenuto entrambe, accedere al portale di [Custom Translator](https://portal.customtranslator.azure.ai). Dopo aver eseguito l'accesso al portale Custom Translator, passare alla pagina Impostazioni, dove è possibile associare la chiave di sottoscrizione dell'API Traduzione testuale all'area di lavoro.
 
 ## <a name="create-a-project"></a>Creare un progetto
 

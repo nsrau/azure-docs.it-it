@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913564"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822365"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
-Se è già stata seguita l'esercitazione sull'analisi dei costi, si ha familiarità con il download manuale di dati di Gestione costi. Tuttavia, è possibile creare un'attività periodica giornaliera che esporta automaticamente i dati di Gestione costi nell'archiviazione di Azure. I dati esportati sono in formato CSV e contengono tutte le informazioni raccolte da Gestione costi. È quindi possibile usare i dati esportati nell'archiviazione di Azure con sistemi esterni e combinarli con dati personalizzati. È possibile usare i dati esportati anche in un sistema esterno come un dashboard o un altro sistema finanziario.
+Se è già stata seguita l'esercitazione sull'analisi dei costi, si ha familiarità con il download manuale di dati di Gestione costi. Tuttavia, è possibile creare un'attività periodica che esporta automaticamente i dati di Gestione costi nell'archiviazione di Azure su base giornaliera, settimanale o mensile. I dati esportati sono in formato CSV e contengono tutte le informazioni raccolte da Gestione costi. È quindi possibile usare i dati esportati nell'archiviazione di Azure con sistemi esterni e combinarli con dati personalizzati. È possibile usare i dati esportati anche in un sistema esterno come un dashboard o un altro sistema finanziario.
 
 Gli esempi contenuti in questa esercitazione descrivono in modo dettagliato come esportare dati di gestione dei costi e come verificare che i dati siano stati esportati correttamente.
 
@@ -48,11 +48,17 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 Gestione costi e fatturazione &gt; Gestione costi &gt; Selezionare una sottoscrizione o un gruppo di risorse in una sottoscrizione &gt; Esporta &gt; **Aggiungi**.
 
-Digitare un nome per l'esportazione e specificare la sottoscrizione, l'account di archiviazione di Azure, il contenitore e la directory di archiviazione file o il contenitore BLOB, quindi fare clic su **Crea**.
+Digitare un nome per l'esportazione e selezionare l'opzione "Daily export of month-to-date costs" (Esportazione giornaliera dei costi da inizio mese). Fare clic su **Avanti**.
 
-![Nuova esportazione](./media/tutorial-export-acm-data/new-export01.png)
+![Nuova esportazione: tipo di esportazione](./media/tutorial-export-acm-data/basics_exports.png)
 
-La nuova esportazione viene visualizzata nell'elenco delle esportazioni. Per impostazione predefinita, le nuove esportazioni sono abilitate e vengono eseguite ogni giorno. Se si vuole disabilitare o eliminare un'esportazione pianificata, fare clic su qualsiasi voce nell'elenco e quindi fare clic su **Disabilita** o **Elimina**.
+Specificare la sottoscrizione per l'account di archiviazione di Azure, quindi selezionare l'account di archiviazione.  Specificare il contenitore di archiviazione e il percorso della directory dove si desidera memorizzare il file di esportazione.  Fare clic su **Avanti**.
+
+![Nuova esportazione: archiviazione](./media/tutorial-export-acm-data/storage_exports.png)
+
+Verificare i dati dell'esportazione e fare clic su **Crea**.
+
+La nuova esportazione viene visualizzata nell'elenco delle esportazioni. Per impostazione predefinita, le nuove esportazioni sono abilitate. Se si vuole disabilitare o eliminare un'esportazione pianificata, fare clic su qualsiasi voce nell'elenco e quindi fare clic su **Disabilita** o **Elimina**.
 
 Inizialmente, possono essere necessarie da una a due ore prima che l'esportazione venga eseguita. Tuttavia, possono essere necessarie fino a quattro ore prima che i dati vengano visualizzati nei file esportati.
 

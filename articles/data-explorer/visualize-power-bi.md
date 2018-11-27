@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393713"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854102"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Esercitazione: visualizzare i dati in Power BI da Esplora dati di Azure
 
@@ -36,9 +36,9 @@ Oltre alle sottoscrizioni ad Azure e Power BI, per completare quest'esercitazion
 
 * [Un cluster e un database di test](create-cluster-database-portal.md)
 
-* [I dati di esempio di StormEvents](ingest-sample-data.md)
+* [I dati di esempio di StormEvents](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (fare clic su **SCARICA GRATUITAMENTE**)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (selezionare **SCARICA GRATUITAMENTE**)
 
 ## <a name="render-visuals-in-azure-data-explorer"></a>Eseguire il rendering degli oggetti visivi in Esplora dati di Azure
 
@@ -82,17 +82,17 @@ Si passa ora a Power BI, sebbene gli oggetti visivi offrano molte più possibili
 
 Collegarsi ora a Esplora dati di Azure in Power BI Desktop.
 
-1. In Power BI Desktop selezionare **Ottieni dati**, quindi **Ulteriori**.
+1. Nella scheda **Home** di Power BI Desktop selezionare **Recupera dati** e quindi **Altro**.
 
     ![Ottenere i dati](media/visualize-power-bi/get-data-more.png)
 
-1. Cercare *Kusto*, selezionare **Kusto di Azure (Beta)**, quindi **Connetti**.
+1. Cercare *Esplora dati di Azure*, selezionare **Esplora dati di Azure (beta)** e quindi **Connetti**.
 
     ![Cercare e ottenere i dati](media/visualize-power-bi/search-get-data.png)
 
 1. Nella schermata **Anteprima connettore** selezionare **Continua**.
 
-1. Nella schermata **Kusto** immettere il nome dei cluster e del database di test. Il cluster deve essere nel formato `https://<ClusterName>.<Region>.kusto.windows.net`. Immettere *StormEvents* come nome della tabella. Lasciare i valori predefiniti per tutte le altre opzioni e selezionare **OK**.
+1. Nella schermata successiva immettere il nome dei cluster e del database di test. Il cluster deve essere nel formato `https://<ClusterName>.<Region>.kusto.windows.net`. Immettere *StormEvents* come nome della tabella. Lasciare i valori predefiniti per tutte le altre opzioni e selezionare **OK**.
 
     ![Opzioni di cluster, database e tabelle](media/visualize-power-bi/cluster-database-table.png)
 
