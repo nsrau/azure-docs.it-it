@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: a92621d852ec60fb4773957d71dc6a55caaf991c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b719f45a2b76b41408593649e9e5cfe21dcf9179
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092199"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443793"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Guida introduttiva: Creare un'app Web ASP.NET 
 
@@ -190,16 +190,16 @@ Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'eleme
 4. In **Esplora soluzioni** espandere la cartella **Views** > **Shared**. Aprire quindi il file *_Layout.cshtml*.
 
     Sostituire:
-
-        ```csharp
-        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        ```
+    
+    ```csharp
+    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    ```
 
     con:
 
-        ```csharp
-        @Html.ActionLink("Azure Redis Cache Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        ```
+    ```csharp
+    @Html.ActionLink("Azure Redis Cache Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    ```
 
 ### <a name="to-add-a-new-rediscache-view"></a>Per aggiungere una nuova visualizzazione RedisCache
 

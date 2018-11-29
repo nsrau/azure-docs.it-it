@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ad6b296543cffedb215c87b1fc893a22b29a3052
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 841448f477accb8a73d543447cd317bb9b427408
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427349"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497590"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Esercitazione n. 2: distribuire un modello di classificazione di immagini nell'istanza di contenitore di Azure (ACI)
 
@@ -35,7 +35,7 @@ ACI non è ideale per le distribuzioni di produzione, ma è ideale per i test e 
 
 ## <a name="get-the-notebook"></a>Ottenere il notebook
 
-Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb). Eseguire il notebook `02.deploy-models.ipynb` in Azure Notebooks o nel server di Jupyter Notebook personale.
+Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyter](https://aka.ms/aml-notebook-tut-02). Eseguire il notebook `02.deploy-models.ipynb` in Azure Notebooks o nel server di Jupyter Notebook personale.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

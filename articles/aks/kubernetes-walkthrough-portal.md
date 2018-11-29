@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4da20ffebb9943787fa487336dbd2ba22fdcf875
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: fb1ef9c2bb448d74d447e647f6dc8122cda6e1f7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458174"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445756"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guida introduttiva: distribuire un cluster di Azure Kubernetes Service (AKS)
 
@@ -188,7 +188,7 @@ spec:
 Usare il comando [kubectl apply][kubectl-apply] per eseguire l'applicazione.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 L'output di esempio seguente mostra le risorse di Kubernetes create nel cluster del servizio Kubernetes di Azure:
