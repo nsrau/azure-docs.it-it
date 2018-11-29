@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2f690e6c930a1a119c9b7bf4b83ec04a564e47c9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288748"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582429"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Informazioni su Azure IoT (Internet of Things)
 
@@ -113,7 +113,7 @@ Azure include alcuni servizi correlati a IoT e può essere difficile individuare
 
 5. [**IoT Edge**](/azure/iot-edge/): questo servizio è basato sull'hub IoT. Può essere usato per analizzare i dati nei dispositivi IoT invece che sul cloud. Lo spostamento di parti del carico di lavoro nei dispositivi perimetrali consente di inviare al cloud un numero minore di messaggi. 
 
-6. [**Gemelli digitali di Azure**](/azure/azure-digital-twins/): questo servizio consente di creare modelli completi dell'ambiente fisico. È possibile modellare fedelmente le relazioni e le interazioni tra persone, spazi e dispositivi. È ad esempio possibile prevedere le esigenze a livello di manutenzione per uno stabilimento, analizzare in tempo reale i requisiti a livello energetico per una rete elettrica oppure ottimizzare l'uso dello spazio disponibile per un ufficio.
+6. [**Gemelli digitali di Azure**](../digital-twins/index.yml): questo servizio consente di creare modelli completi dell'ambiente fisico. È possibile modellare fedelmente le relazioni e le interazioni tra persone, spazi e dispositivi. È ad esempio possibile prevedere le esigenze a livello di manutenzione per uno stabilimento, analizzare in tempo reale i requisiti a livello energetico per una rete elettrica oppure ottimizzare l'uso dello spazio disponibile per un ufficio.
 
 7. [**Time Series Insights**](/azure/time-series-insights): questo servizio consente di archiviare, visualizzare ed eseguire query su quantità elevate di dati relativi alle serie temporali generati dai dispositivi IoT. È possibile usare questo servizio con l'hub IoT. 
 
