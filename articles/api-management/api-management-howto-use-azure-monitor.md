@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 683b77e47857e4efbe2c24425953e9a3d83177f9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418845"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443118"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -42,6 +42,8 @@ Il video seguente illustra come monitorare Gestione API usando Monitoraggio di A
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="view-metrics-of-your-apis"></a>Visualizzare le metriche delle API
 

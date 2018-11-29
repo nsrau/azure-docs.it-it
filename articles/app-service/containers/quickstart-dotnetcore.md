@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 89973581d7c6aa99ab671d5bd04f258898e9235e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5aff783735d38a2707f42efe8a1632bd5aaafc4b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306838"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316770"
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Creare un'app Web .NET Core nel Servizio app in Linux
 
@@ -37,7 +37,7 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva:
 
@@ -61,10 +61,11 @@ dotnet new web
 
 ## <a name="run-the-app-locally"></a>Eseguire l'app in locale
 
+Eseguire l'applicazione in locale, in modo da verificare l'aspetto che assumerà dopo la distribuzione in Azure. 
+
 Ripristinare i pacchetti NuGet ed eseguire l'app.
 
 ```bash
-dotnet restore
 dotnet run
 ```
 

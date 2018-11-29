@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 84ced8a529c2e717dc3e5888466d9a2e1e7e928a
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 044cc30a418f3c54053a6f4878f97f5c9ea9f9e2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180944"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335113"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Esercitazione: Simulare un errore nell'accesso all'archiviazione con ridondanza e accesso in lettura
 
@@ -145,7 +145,7 @@ Per aggiungere una route statica per un host di destinazione, digitare il comand
  
 Sostituire `<destination_ip>` con l'indirizzo IP dell'account di archiviazione e `<gateway_ip>` con l'indirizzo IP dell'host locale. Per riprendere l'esecuzione dell'applicazione, premere **qualsiasi tasto**.
 
-Dopo aver avviato di nuovo l'applicazione, le richieste all'endpoint primario iniziano a segnalare errori. L'applicazione tenta di ristabilire la connessione all'endpoint primario per 5 volte. Dopo aver superato la soglia di errore di cinque tentativi, richiede l'immagine dall'endpoint secondario di sola lettura. Dopo che l'applicazione ha recuperato correttamente l'immagine dall'endpoint secondario per 20 volte, l'applicazione tenta di connettersi all'endpoint primario. Se l'endpoint primario non è ancora raggiungibile, l'applicazione riprende a leggere l'endpoint secondario. Questo è il modello [Interruttore](/azure/architecture/patterns/circuit-breaker.md) descritto nell'esercitazione precedente.
+Dopo aver avviato di nuovo l'applicazione, le richieste all'endpoint primario iniziano a segnalare errori. L'applicazione tenta di ristabilire la connessione all'endpoint primario per 5 volte. Dopo aver superato la soglia di errore di cinque tentativi, richiede l'immagine dall'endpoint secondario di sola lettura. Dopo che l'applicazione ha recuperato correttamente l'immagine dall'endpoint secondario per 20 volte, l'applicazione tenta di connettersi all'endpoint primario. Se l'endpoint primario non è ancora raggiungibile, l'applicazione riprende a leggere l'endpoint secondario. Questo è il modello [Interruttore](/azure/architecture/patterns/circuit-breaker) descritto nell'esercitazione precedente.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simulare il ripristino di un endpoint primario
 

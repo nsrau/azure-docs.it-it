@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 8a629a7b1340547f43919a1e88abbda53e9e2ae0
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9d47928984330f2366da066c221e2bb502aa7193
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763392"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442948"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Esercitazione: Eseguire query in Azure Cosmos DB con l'API di tabella
 
@@ -41,7 +41,7 @@ Vedere [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storag
 
 Per altre informazioni sulle funzionalità Premium offerte da Azure Cosmos DB, vedere [Introduzione all'API di tabella di Azure Cosmos DB](table-introduction.md) e [Sviluppare con l'API di tabella in .NET](tutorial-develop-table-dotnet.md). 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per il funzionamento di queste query è necessario disporre di un account Azure Cosmos DB e nel contenitore devono essere presenti dati di entità. Questi requisiti non sono disponibili? Completare la [Guida introduttiva di 5 minuti](create-table-dotnet.md) o l'[esercitazione per sviluppatori](tutorial-develop-table-dotnet.md) per creare un account e popolare il database.
 
@@ -95,9 +95,9 @@ CloudTable table = tableClient.GetTableReference("people");
 TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
     .Where(
         TableQuery.CombineFilters(
-            TableQuery.GenerateFilterCondition(PartitionKey, QueryComparisons.Equal, "Smith"),
+            TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
             TableOperators.And,
-            TableQuery.GenerateFilterCondition(Email, QueryComparisons.Equal,"Ben@contoso.com")
+            TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal,"Ben@contoso.com")
     ));
 
 await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);

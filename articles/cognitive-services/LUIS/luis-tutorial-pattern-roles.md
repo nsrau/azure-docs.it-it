@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: dd73ca876385cf81059228088f7b027f533315eb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277837"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427489"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Esercitazione 4: estrarre criteri correlati in base al contesto
 
@@ -49,7 +49,7 @@ Se si hanno difficoltà con il rilevamento di entità semplici perché l'entità
 > * Creare un elenco di frasi con città
 > * Ottenere finalità ed entità dall'endpoint
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
 Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
@@ -64,7 +64,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 ## <a name="create-new-entities"></a>Creare nuove entità
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Entities** (Entità) nel riquadro di spostamento a sinistra. 
 
@@ -254,7 +254,7 @@ In modo analogo ai nomi di persone, i nomi di città sono complessi perché poss
 
 ## <a name="get-intent-and-entities-from-endpoint"></a>Ottenere finalità ed entità dall'endpoint
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `Move wayne berry from miami to mount vernon`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
 

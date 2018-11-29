@@ -2,7 +2,7 @@
 title: Creare un'app Web PHP e MySQL in Azure | Microsoft Docs
 description: Informazioni su come ottenere un'app PHP che è possibile usare in Azure con connessione a un database MySQL in Azure.
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: php
 author: cephalin
 manager: erikre
 editor: ''
@@ -10,17 +10,17 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: php
 ms.topic: tutorial
-ms.date: 10/20/2017
+ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 4bb6f12781666792aad31789a59d752dd5a822de
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9a1468c27e668663ca9079f5f1c9e5e97e51d2d5
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307188"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291288"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Esercitazione: Creare un'app Web PHP e MySQL in Azure
 
@@ -44,7 +44,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -163,12 +163,12 @@ In questo passaggio viene creato un database MySQL in [Database di Azure per MyS
 
 ### <a name="create-a-mysql-server"></a>Creare un server MySQL
 
-In Cloud Shell creare un server in Database di Azure per MySQL con il comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+In Cloud Shell creare un server in Database di Azure per MySQL con il comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-Nel comando seguente sostituire il segnaposto *\<mysql_server_name>* con un nome di server univoco, *\<admin_user>* con un nome utente e il segnaposto *\<admin_password>* con una password. Poiché il nome del server viene usato come parte dell'endpoint di PostgreSQL (`https://<mysql_server_name>.mysql.database.azure.com`), è necessario che il nome sia univoco in tutti i server di Azure.
+Nel comando seguente sostituire il segnaposto *\<mysql_server_name>* con un nome di server univoco, *\<admin_user>* con un nome utente e il segnaposto *\<admin_password>* con una password. Poiché il nome del server viene usato come parte dell'endpoint MySQL (`https://<mysql_server_name>.mysql.database.azure.com`), il nome deve essere univoco in tutti i server in Azure.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
+az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
 ```
 
 > [!NOTE]
@@ -185,9 +185,9 @@ Al termine della creazione del server MySQL, l'interfaccia della riga di comando
   "resourceGroup": "myResourceGroup",
   "sku": {
     "additionalProperties": {},
-    "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "capacity": 1,
+    "family": "Gen5",
+    "name": "B_Gen5_1",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -199,7 +199,7 @@ Al termine della creazione del server MySQL, l'interfaccia della riga di comando
 
 ### <a name="configure-server-firewall"></a>Configurare il firewall del server
 
-In Cloud Shell creare una regola del firewall per il server MySQL per consentire le connessioni client usando il comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create). Quando sia l'IP iniziale che l'IP finale sono impostati su 0.0.0.0, il firewall viene aperto solo per le altre risorse di Azure. 
+In Cloud Shell creare una regola del firewall per il server MySQL per consentire le connessioni client usando il comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). Quando sia l'IP iniziale che l'IP finale sono impostati su 0.0.0.0, il firewall viene aperto solo per le altre risorse di Azure. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -209,12 +209,18 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > È possibile rendere ancora più restrittiva la regola del firewall [usando solo gli indirizzi IP in uscita usati dall'app](app-service-ip-addresses.md#find-outbound-ips).
 >
 
+In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your_ip_address>* con l'[indirizzo IPv4 locale](http://www.whatsmyip.org/).
+
+```azurecli-interactive
+az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
+```
+
 ### <a name="connect-to-production-mysql-server-locally"></a>Connettersi al server MySQL di produzione in locale
 
 Nella finestra del terminale locale connettersi al server MySQL in Azure. Usare il valore specificato in precedenza per _&lt;mysql_server_name>_. Quando viene richiesta una password, usare la password specificata al momento della creazione del database in Azure.
 
 ```bash
-mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com-P 3306 -p
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
 ```
 
 ### <a name="create-a-production-database"></a>Creare un database di produzione
@@ -347,7 +353,7 @@ In questo passaggio viene distribuita l'applicazione PHP connessa a MySQL nel se
 
 Come evidenziato in precedenza, è possibile connettersi al database MySQL di Azure mediante le variabili di ambiente nel servizio app.
 
-In Cloud Shell, le variabili di ambiente vengono configurate come _impostazioni dell'app_ usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
+In Cloud Shell, le variabili di ambiente vengono configurate come _impostazioni dell'app_ usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
 Il comando seguente configura le impostazioni dell'app `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Sostituire i segnaposto _&lt;appname>_ e _&lt;mysql_server_name>_.
 
@@ -378,7 +384,7 @@ Nella finestra del terminale locale usare `php artisan` per generare una nuova c
 php artisan key:generate --show
 ```
 
-In Cloud Shell impostare la chiave applicazione nell'app Web del servizio app usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+In Cloud Shell impostare la chiave applicazione nell'app Web del servizio app usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -390,7 +396,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Impostare il percorso virtuale dell'applicazione per l'app Web. Questo passaggio è necessario perché il [ciclo di vita dell'applicazione Laravel](https://laravel.com/docs/5.4/lifecycle) ha inizio nella directory _public_ anziché nella directory radice dell'applicazione. Gli altri framework PHP il cui ciclo di vita si avvia nella directory radice funzionano anche senza la configurazione manuale del percorso dell'applicazione virtuale.
 
-In Cloud Shell impostare il percorso virtuale dell'applicazione con il comando [`az resource update`](/cli/azure/resource#az_resource_update). Sostituire il segnaposto _&lt;appname>_ .
+In Cloud Shell impostare il percorso virtuale dell'applicazione con il comando [`az resource update`](/cli/azure/resource#az-resource-update). Sostituire il segnaposto _&lt;appname>_ .
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -581,7 +587,7 @@ Le attività aggiunte vengono mantenute nel database. Gli aggiornamenti allo sch
 
 Mentre l'applicazione PHP è in esecuzione nel servizio app di Azure, è possibile fare in modo che i log di console siano inviati tramite pipe al terminale. Ciò consente di ottenere gli stessi messaggi di diagnostica per il debug degli errori dell'applicazione.
 
-Per avviare lo streaming dei log, usare il comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) in Cloud Shell.
+Per avviare lo streaming dei log, usare il comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) in Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

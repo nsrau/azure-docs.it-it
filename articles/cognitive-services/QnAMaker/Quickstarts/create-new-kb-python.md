@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: f878e365dd43aa8735a0270124038c292d97ed6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 598a861c207aaff6e61f7ffcb0fd6bf7a9b506a1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234290"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335798"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con Python
 
@@ -65,7 +65,7 @@ Aggiungere la funzione seguente per inviare una richiesta HTTP POST per creare l
 
 [!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=48-59 "Add function to create KB")]
 
-Questa chiamata API restituisce una risposta JSON che include l'ID operazione nel campo di intestazione **Location**. Usare l'ID operazione per determinare se la knowledge base è stata creata. 
+Questa chiamata API restituisce una risposta JSON che include l'ID operazione. Usare l'ID operazione per determinare se la knowledge base è stata creata. 
 
 ```JSON
 {

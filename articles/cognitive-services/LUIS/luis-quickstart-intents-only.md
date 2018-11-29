@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: cc631f139e7f11d82f2caac83770754060353d07
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277716"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426860"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Esercitazione 1: creare un'app personalizzata per determinare le intenzioni dell'utente
 
@@ -71,7 +71,7 @@ Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non 
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Schermata di immissione di nuove espressioni per la finalità MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
 ## <a name="none-intent"></a>Finalità None 
@@ -156,11 +156,11 @@ Tornare al sito Web LUIS e creare una nuova finalità per determinare se l'espre
 
 ## <a name="train-again"></a>Eseguire nuovamente il training
 
-[!INCLUDE[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-again"></a>Pubblicare nuovamente
 
-[!INCLUDE[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="get-intent-again"></a>Ottenere nuovamente la finalità
 

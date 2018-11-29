@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 983b966ad304afb467df26193dd609f6f21a1b32
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614278"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427030"
 ---
 # <a name="what-is-azure-network-watcher"></a>Informazioni su Azure Network Watcher
 
@@ -37,7 +37,7 @@ Se un endpoint smette di essere raggiungibile, la funzionalità di risoluzione d
 
 La funzionalità di monitoraggio connessione indica anche la latenza minima, media e massima osservata nel corso del tempo. Dopo aver appreso la latenza per una connessione, è possibile riuscire a ridurla spostando le risorse di Azure in aree di Azure diverse. Leggere altre informazioni su come determinare le [latenze relative tra aree di Azure e provider di servizi Internet](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) e su come monitorare la comunicazione tra una macchina virtuale e un endpoint con la funzionalità di [monitoraggio connessione](connection-monitor.md). Se si preferisce testare una connessione in un determinato momento invece che monitorarla nel tempo come con la funzionalità di monitoraggio connessione, usare la funzionalità di [risoluzione dei problemi di connessione](#connection-troubleshoot).
 
-Monitoraggio prestazioni rete è una soluzione di monitoraggio reti ibrida basata sul cloud che consente di monitorare le prestazioni della rete tra vari punti dell'infrastruttura di rete. Consente anche di monitorare la connettività di rete al servizio e agli endpoint dell'applicazione e di monitorare le prestazioni di Microsoft Azure ExpressRoute. Monitoraggio prestazioni rete rileva i problemi di rete, ad esempio buchi neri del traffico, errori di routing e altri problemi che i metodi di monitoraggio di rete tradizionali non riescono a rilevare. La soluzione genera avvisi e invia notifiche quando viene superata una soglia per un collegamento di rete. Garantisce anche una tempestiva individuazione dei problemi legati alle prestazioni di rete e localizza l'origine del problema in un dispositivo o segmento di rete specifico. Altre informazioni su [Monitoraggio prestazioni rete](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Monitoraggio prestazioni rete è una soluzione di monitoraggio reti ibrida basata sul cloud che consente di monitorare le prestazioni della rete tra vari punti dell'infrastruttura di rete. Consente anche di monitorare la connettività di rete al servizio e agli endpoint dell'applicazione e di monitorare le prestazioni di Microsoft Azure ExpressRoute. Monitoraggio prestazioni rete rileva i problemi di rete, ad esempio buchi neri del traffico, errori di routing e altri problemi che i metodi di monitoraggio di rete tradizionali non riescono a rilevare. La soluzione genera avvisi e invia notifiche quando viene superata una soglia per un collegamento di rete. Garantisce anche una tempestiva individuazione dei problemi legati alle prestazioni di rete e localizza l'origine del problema in un dispositivo o segmento di rete specifico. Altre informazioni su [Monitoraggio prestazioni rete](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Visualizzare le risorse in una rete virtuale e le relative relazioni
 
@@ -97,7 +97,7 @@ Ottenere altre informazioni sui log di flusso NSG completando l'esercitazione [R
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Visualizzare i log di diagnostica per le risorse di rete
 
-È possibile abilitare la registrazione diagnostica per le risorse di rete di Azure, ad esempio gruppi di sicurezza di rete, indirizzi IP pubblici, servizi di bilanciamento del carico, gateway di rete virtuale e gateway applicazione. La funzionalità di *log di diagnostica* offre una singola interfaccia per abilitare e disabilitare i log di diagnostica per qualsiasi risorsa di rete esistente che genera un log di diagnostica. È possibile visualizzare i log di diagnostica usando strumenti come Microsoft Power BI e Azure Log Analytics. Per altre informazioni sull'analisi dei log di diagnostica di rete di Azure, vedere [Soluzioni di monitoraggio di rete di Azure in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+È possibile abilitare la registrazione diagnostica per le risorse di rete di Azure, ad esempio gruppi di sicurezza di rete, indirizzi IP pubblici, servizi di bilanciamento del carico, gateway di rete virtuale e gateway applicazione. La funzionalità di *log di diagnostica* offre una singola interfaccia per abilitare e disabilitare i log di diagnostica per qualsiasi risorsa di rete esistente che genera un log di diagnostica. È possibile visualizzare i log di diagnostica usando strumenti come Microsoft Power BI e Azure Log Analytics. Per altre informazioni sull'analisi dei log di diagnostica di rete di Azure, vedere [Soluzioni di monitoraggio di rete di Azure in Log Analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Abilitazione automatica di Network Watcher
 Quando si crea o si aggiorna una rete virtuale nella sottoscrizione, Network Watcher viene abilitato automaticamente nell'area della rete virtuale. Non è previsto alcun impatto sulle risorse o alcun addebito associato per l'abilitazione automatica di Network Watcher. Per altre informazioni, vedere [Creare un'istanza di Network Watcher](network-watcher-create.md).

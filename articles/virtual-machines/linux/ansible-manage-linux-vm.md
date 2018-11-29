@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: 06a0f2416ecff9e2f9a21877e26487b56452d0a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14e675097a23b50c8ff193c69c377ac8edfb989f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251322"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317263"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Usare Ansible per gestire una macchina virtuale Linux in Azure
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per gestire le macchine virtuali in Azure, allo stesso modo di qualsiasi altra risorsa. Questo articolo descrive come usare un playbook Ansible per avviare e arrestare una macchina virtuale di Linux. 
@@ -141,4 +141,4 @@ Questa sezione descrive come usare Ansible per avviare una macchina virtuale di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"] 
-> [Usare Ansible per gestire gli inventari dinamici di Azure](/articles/ansible/ansible-manage-azure-dynamic-inventories)
+> [Usare Ansible per gestire gli inventari dinamici di Azure](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

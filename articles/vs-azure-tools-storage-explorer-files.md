@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d039654fc1d652a3997515a12caa48acaac124fe
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429788"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425293"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso di Storage Explorer con Archiviazione file di Azure
 
@@ -29,7 +29,7 @@ Archiviazione file di Azure offre condivisioni file nel cloud usando il protocol
 
 Per seguire la procedura descritta in questo articolo, è necessario eseguire queste operazioni:
 
-- [Scaricare e installare Storage Explorer](http://www.storageexplorer.com/)
+- [Scaricare e installare Storage Explorer](https://www.storageexplorer.com/)
 
 - [Connettersi a un account o a un servizio di archiviazione di Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -259,6 +259,6 @@ La procedura seguente illustra come gestire i file e le cartelle all'interno di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Note sulla versione e video più recenti per Storage Explorer](http://www.storageexplorer.com/).
+- [Note sulla versione e video più recenti per Storage Explorer](https://www.storageexplorer.com/).
 
 - Informazioni su come creare applicazioni con BLOB, tabelle, code e file di Azure nella [Documentazione su Archiviazione](https://azure.microsoft.com/documentation/services/storage/).

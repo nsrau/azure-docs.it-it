@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
-ms.openlocfilehash: 539e863d05c2d343a643c54c39c1e5a28694c03a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 00098b02e5f007cfad1076eb3759c424dd9a5d3e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163219"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333871"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: esempi di Java dell'API SQL
 
@@ -123,7 +123,7 @@ Il file [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/b
 | --- | --- |
 | [Creare un indice e impostare i criteri di indicizzazione](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L125-L141) | [Index](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._index)<br>[IndexingPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._indexing_policy) |
 
-Per altre informazioni sull'indicizzazione, vedere [Criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md).
+Per altre informazioni sull'indicizzazione, vedere [Criteri di indicizzazione di Azure Cosmos DB](index-policy.md).
 
 ## <a name="query-examples"></a>Esempi di query
 Il file [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) illustra come eseguire le attività seguenti:

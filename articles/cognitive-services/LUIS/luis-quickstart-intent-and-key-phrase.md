@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d6feb24b1e59aee70204d8438f1a4c51f71d1835
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281813"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424813"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Esercitazione 8: estrarre frasi chiave di espressione
 In questa esercitazione viene usata l'entità KeyPhrase predefinita per estrarre domini chiave da espressioni. Non è necessario etichettare ogni espressione con entità predefinite. L'entità viene rilevata automaticamente.
@@ -56,7 +56,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 ## <a name="add-keyphrase-entity"></a>Aggiungere entità KeyPhrase 
 Aggiungere entità KeyPhrase predefinite per estrarre domini da espressioni.
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Entità** nel menu a sinistra.
 

@@ -3,17 +3,17 @@ title: File di inclusione
 description: File di inclusione
 services: functions
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a8be74558fb71ceb1c28c27004b27a5a5f477a8f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c746fc86ea4d260575eb97b16d4a190b175f754
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650702"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585739"
 ---
 Il modello di progetto Funzioni di Azure in Visual Studio crea un progetto che può essere pubblicato in un'app per le funzioni in Azure. Un'app per le funzioni consente di raggruppare le funzioni come un'unità logica per la gestione, la distribuzione e la condivisione delle risorse.
 
@@ -27,7 +27,7 @@ Il modello di progetto Funzioni di Azure in Visual Studio crea un progetto che p
 
     ![Finestra di dialogo Nuova funzione in Visual Studio](./media/functions-vstools-create/functions-vs-new-function.png) 
 
-    | Impostazione      | Valore consigliato  | Descrizione                      |
+    | Impostazione      | Valore consigliato  | DESCRIZIONE                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Versione** | Funzioni di Azure 2.x <br />(.NET Core) | Viene creato un progetto per le funzioni che usa la versione 2.x del runtime di Funzioni di Azure e supporta .NET Core. Funzioni di Azure 1.x supporta .NET Framework. Per altre informazioni, vedere [Come specificare le versioni del runtime per Funzioni di Azure](../articles/azure-functions/functions-versions.md).   |
     | **Modello** | Trigger HTTP | Viene creata una funzione attivata da una richiesta HTTP. |

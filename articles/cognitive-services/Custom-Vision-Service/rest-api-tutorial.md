@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a38f737b5281903328a53d6552b1666ca4f58d80
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: afdc306a3d5a3130ecb44f88910e76f23f7c0c0e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364959"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334721"
 ---
 # <a name="tutorial-use-the-custom-vision-rest-api"></a>Esercitazione: Usare l'API REST di Servizio visione artificiale personalizzato
 
@@ -100,7 +100,7 @@ La risposta alla richiesta è simile al seguente documento JSON:
 > [!TIP]
 > La voce `id` nella risposta è l'ID del nuovo progetto. Questo verrà usato in altri esempi più avanti in questo documento.
 
-Per altre informazioni sulla richiesta, vedere [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290).
+Per altre informazioni sulla richiesta, vedere [CreateProject](https://go.microsoft.com/fwlink/?linkid=865446).
 
 ### <a name="specific-domains"></a>Domini specifici
 

@@ -1,6 +1,6 @@
 ---
 title: Esercitazione - Installare applicazioni in un set di scalabilità con Azure PowerShell | Microsoft Docs
-description: Informazioni su come usare Azure PowerShell per installare applicazioni nei set di scalabilità di macchine virtuali con l'estensione per script personalizzati
+description: Informazioni su come usare Azure PowerShell per installare applicazioni nei set di scalabilità di macchine virtuali con l'estensione Script personalizzato
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: zr-msft
@@ -16,19 +16,19 @@ ms.topic: tutorial
 ms.date: 11/08/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 75ab381d481e51483db5661fe2f6d473f21670fc
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a806c83f585ff276d9cbfe7cca63ab15011949bb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514792"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311399"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Esercitazione: Installare applicazioni in set di scalabilità di macchine virtuali con Azure PowerShell
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. In un'esercitazione precedente si è appreso come usare un'immagine di macchina virtuale personalizzata per distribuire le istanze di macchina virtuale. Questa immagine personalizzata includeva installazioni e configurazioni manuali di applicazioni. È anche possibile automatizzare l'installazione delle applicazioni in un set di scalabilità dopo la distribuzione di ogni istanza di macchina virtuale oppure aggiornare un'applicazione che è già in esecuzione in un set di scalabilità. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Installare automaticamente le applicazioni nel set di scalabilità
-> * Usare l'estensione per script personalizzati di Azure
+> * Usare l'estensione Script personalizzato di Azure
 > * Aggiornare un'applicazione in esecuzione in un set di scalabilità
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -38,12 +38,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell 6.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure. 
 
 
-## <a name="what-is-the-azure-custom-script-extension"></a>Informazioni sull'estensione per script personalizzati di Azure
-L'estensione per script personalizzati consente di scaricare ed eseguire script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione.
+## <a name="what-is-the-azure-custom-script-extension"></a>Informazioni sull'estensione Script personalizzato di Azure
+L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione.
 
-L'estensione per script personalizzati è integrabile con i modelli di Azure Resource Manager. Può essere usato con l'interfaccia della riga di comando di Azure, Azure PowerShell, il portale di Azure o l'API REST. Per altre informazioni, vedere [Panoramica dell'estensione per script personalizzati](../virtual-machines/windows/extensions-customscript.md).
+L'estensione per script personalizzati è integrabile con i modelli di Azure Resource Manager. Può essere usato con l'interfaccia della riga di comando di Azure, Azure PowerShell, il portale di Azure o l'API REST. Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](../virtual-machines/windows/extensions-customscript.md).
 
-Per vedere in azione l'estensione per script personalizzati, creare un set di scalabilità che installa il server Web IIS e restituisce il nome host dell'istanza di macchina virtuale del set di scalabilità. La definizione dell'estensione per script personalizzati scarica uno script di esempio da GitHub, installa i pacchetti richiesti, quindi scrive il nome host dell'istanza di macchina virtuale in una pagina HTML di base.
+Per vedere l'estensione Script personalizzato in azione, creare un set di scalabilità che installa il server Web IIS e restituisce il nome host dell'istanza di macchina virtuale del set di scalabilità. La definizione dell'estensione Script personalizzato scarica uno script di esempio da GitHub, installa i pacchetti richiesti, quindi scrive il nome host dell'istanza di macchina virtuale in una pagina HTML di base.
 
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
@@ -64,7 +64,7 @@ New-AzureRmVmss `
 La creazione e la configurazione di tutte le macchine virtuali e risorse del set di scalabilità richiedono alcuni minuti.
 
 
-## <a name="create-custom-script-extension-definition"></a>Creare una definizione di estensione per script personalizzati
+## <a name="create-custom-script-extension-definition"></a>Creare una definizione di estensione Script personalizzato
 Azure PowerShell usa una tabella hash per archiviare i file da scaricare e il comando da eseguire. Nell'esempio seguente viene usato script di esempio di GitHub. Creare prima questo oggetto di configurazione nel modo seguente:
 
 ```azurepowershell-interactive
@@ -74,7 +74,7 @@ $customConfig = @{
 }
 ```
 
-Applicare ora l'estensione per script personalizzati con [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension). L'oggetto di configurazione definito in precedenza viene passato all'estensione. Aggiornare ed eseguire l'estensione nelle istanze di macchina virtuale con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss).
+Applicare ora l'estensione Script personalizzato con [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension). L'oggetto di configurazione definito in precedenza viene passato all'estensione. Aggiornare ed eseguire l'estensione nelle istanze di macchina virtuale con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss).
 
 ```azurepowershell-interactive
 # Get information about the scale set
@@ -98,12 +98,12 @@ Update-AzureRmVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-Ogni istanza di macchina virtuale nel set di scalabilità scarica ed esegue lo script da GitHub. In un esempio più complesso sarebbe possibile installare più componenti e file di applicazione. Se si aumentano le prestazioni del set di scalabilità, le nuove istanze di macchina virtuale applicano automaticamente la stessa definizione dell'estensione per script personalizzati e installano l'applicazione necessaria.
+Ogni istanza di macchina virtuale nel set di scalabilità scarica ed esegue lo script da GitHub. In un esempio più complesso sarebbe possibile installare più componenti e file di applicazione. Se si aumentano le prestazioni del set di scalabilità, le nuove istanze di macchina virtuale applicano automaticamente la stessa definizione dell'estensione Script personalizzato e installano l'applicazione necessaria.
 
 
 ## <a name="allow-traffic-to-application"></a>Consentire il traffico verso l'applicazione
 
-Per consentire l'accesso all'applicazione Web di base, creare un gruppo di sicurezza di rete con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.compute/new-azurermnetworksecurityruleconfig) e [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.compute/new-azurermnetworksecuritygroup). Per altre informazioni, vedere [Rete per i set di scalabilità di macchine virtuali](virtual-machine-scale-sets-networking.md).
+Per consentire l'accesso all'applicazione Web di base, creare un gruppo di sicurezza di rete con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) e [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). Per altre informazioni, vedere [Rete per i set di scalabilità di macchine virtuali](virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
 # Get information about the scale set
@@ -168,7 +168,7 @@ Lasciare aperto il Web browser per poter visualizzare una versione aggiornata ne
 
 
 ## <a name="update-app-deployment"></a>Aggiornare la distribuzione dell'app
-Nel ciclo di vita di un set di scalabilità potrebbe essere necessario distribuire una versione aggiornata dell'applicazione. Con l'estensione per script personalizzati è possibile fare riferimento a uno script di distribuzione aggiornato e quindi riapplicare l'estensione al set di scalabilità. Quando è stato creato il set di scalabilità in un passaggio precedente, `-UpgradePolicyMode` è stato impostato su *Automatic*. Questa impostazione consente di aggiornare automaticamente le istanze di macchina virtuale nel set di scalabilità e di applicare automaticamente la versione più recente dell'applicazione.
+Nel ciclo di vita di un set di scalabilità potrebbe essere necessario distribuire una versione aggiornata dell'applicazione. Con l'estensione Script personalizzato è possibile fare riferimento a uno script di distribuzione aggiornato e quindi riapplicare l'estensione al set di scalabilità. Quando è stato creato il set di scalabilità in un passaggio precedente, `-UpgradePolicyMode` è stato impostato su *Automatic*. Questa impostazione consente di aggiornare automaticamente le istanze di macchina virtuale nel set di scalabilità e di applicare automaticamente la versione più recente dell'applicazione.
 
 Creare una nuova definizione di configurazione denominata *customConfigv2*. Questa definizione esegue una versione *v2* aggiornata dello script di installazione dell'applicazione:
 
@@ -212,7 +212,7 @@ In questa esercitazione si è appreso come installare e aggiornare automaticamen
 
 > [!div class="checklist"]
 > * Installare automaticamente le applicazioni nel set di scalabilità
-> * Usare l'estensione per script personalizzati di Azure
+> * Usare l'estensione Script personalizzato di Azure
 > * Aggiornare un'applicazione in esecuzione in un set di scalabilità
 
 Passare all'esercitazione successiva per informazioni su come ridimensionare automaticamente il set di scalabilità.

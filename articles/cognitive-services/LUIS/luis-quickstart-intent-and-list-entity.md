@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 2ce6e7c796faf0c7377a33dabe1e8c05e81fde2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280708"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425072"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Esercitazione 4: estrarre corrispondenze esatte del testo
 Questa esercitazione spiega come ottenere dati corrispondenti a un elenco predefinito di elementi. Ogni elemento nell'elenco può includere un elenco di sinonimi. Per l'app HumanResources, un dipendente può essere identificato tramite diverse informazioni essenziali, ad esempio nome, indirizzo di posta elettronica, numero di telefono e codice fiscale federale degli Stati Uniti. 
@@ -41,7 +41,7 @@ Un'entità elenco è una scelta appropriata per questo tipo di dati quando:
 > * Pubblica
 > * Ottenere finalità ed entità dall'endpoint
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
 Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
@@ -57,7 +57,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 ## <a name="moveemployee-intent"></a>Finalità MoveEmployee
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Create new intent** (Crea nuova finalità). 
 
@@ -84,7 +84,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
     Tenere presente che numero e datetimeV2 sono stati aggiunti in un'esercitazione precedente e saranno etichettati automaticamente quando si trovano in ogni espressione di esempio.
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="employee-list-entity"></a>Entità elenco dipendenti
 Ora che la finalità **MoveEmployee** ha espressioni di esempio, LUIS deve capire cos'è un dipendente. 

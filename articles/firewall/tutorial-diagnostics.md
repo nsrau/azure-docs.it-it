@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987433"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426168"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Esercitazione: Monitorare i log e le metriche di Firewall di Azure
 
 È possibile monitorare Firewall di Azure con i log del firewall. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure. Usando le metriche, è possibile visualizzare i contatori delle prestazioni nel portale. 
 
-Alcuni di questi log sono accessibili tramite il portale. I log possono essere inviati a [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Archiviazione e Hub eventi ed essere analizzati in Log Analytics o con strumenti diversi come ad esempio Excel e Power BI.
+Alcuni di questi log sono accessibili tramite il portale. I log possono essere inviati a [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Archiviazione e Hub eventi ed essere analizzati in Log Analytics o con strumenti diversi come ad esempio Excel e Power BI.
 
 In questa esercitazione si apprenderà come:
 
@@ -90,11 +90,11 @@ Per abilitare la registrazione diagnostica, eseguire la procedura seguente:
 È possibile visualizzare e analizzare i dati del log attività usando uno dei metodi seguenti:
 
 * **Strumenti di Azure**: recuperare le informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando (CLI) di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI**: se non si ha ancora un account [Power BI](https://powerbi.microsoft.com/pricing), è possibile crearne uno di prova gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
+* **Power BI**: se non si ha ancora un account [Power BI](https://powerbi.microsoft.com/pricing) , è possibile crearne uno di prova gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Visualizzare e analizzare i log delle regole di rete e di applicazione
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) raccoglie i file di log di contatori ed eventi. Include visualizzazioni e funzionalità di ricerca avanzate per analizzare i log.
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) raccoglie i file di log di contatori ed eventi. Include visualizzazioni e funzionalità di ricerca avanzate per analizzare i log.
 
 Per query di esempio di Log Analytics di Firewall di Azure, vedere [Azure Firewall Log Analytics samples](log-analytics-samples.md) (Esempi di Log Analytics di Firewall di Azure).
 
@@ -111,7 +111,7 @@ Passare a un firewall di Azure e in **Monitoraggio** fare clic su **Metriche**. 
 Dopo avere configurato il firewall per raccogliere i log, è possibile esplorare Log Analytics per visualizzare i dati.
 
 > [!div class="nextstepaction"]
-> [Soluzioni di monitoraggio di rete in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
+> [Soluzioni di monitoraggio di rete in Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

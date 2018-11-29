@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/6/2018
 ms.author: diberry
-ms.openlocfilehash: bcb19ebdcf6d4ca1c01612f815700fbbc0dd2fda
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 190a937a4239c08d844d271d2e1d8e858215a5c2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567724"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334960"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con C#
 
@@ -67,7 +67,7 @@ Nel codice seguente viene effettuata una richiesta HTTPS all'API QnA Maker per c
 
 [!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=91-105 "Add a POST request to create KB")]
 
-Questa chiamata API restituisce una risposta JSON che include l'ID operazione nel campo di intestazione **Location**. Usare l'ID operazione per determinare se la knowledge base è stata creata. 
+Questa chiamata API restituisce una risposta JSON che include l'ID operazione. Usare l'ID operazione per determinare se la knowledge base è stata creata. 
 
 ```JSON
 {

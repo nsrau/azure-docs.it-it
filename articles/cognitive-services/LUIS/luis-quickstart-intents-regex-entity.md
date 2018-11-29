@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 82d7e5ab57d9cf12c6917386282182faacb07725
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282391"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423416"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>Esercitazione 3: estrarre dati con formattazione corretta
 Questa esercitazione illustra come modificare l'app Human Resources per estrarre dati formattati in modo coerente da un'espressione usando l'entità **Espressione regolare**.
@@ -48,7 +48,7 @@ Un'espressione regolare è una scelta appropriata per questo tipo di dati quando
 > * Pubblica
 > * Ottenere finalità ed entità dall'endpoint
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
 Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
@@ -63,7 +63,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 ## <a name="findform-intent"></a>Finalità FindForm
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Create new intent** (Crea nuova finalità). 
 
@@ -90,7 +90,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
     L'applicazione ha un'entità numero predefinita aggiunta con l'esercitazione precedente, quindi ogni numero di modulo è contrassegnato. Ciò può essere sufficiente per l'applicazione client, ma il numero non sarà etichettato con il tipo di numero. La creazione di una nuova entità con un nome appropriato consente all'applicazione client di elaborare correttamente l'entità quando viene restituita da Language Understanding.
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="regular-expression-entity"></a>Entità di espressione regolare 
 L'entità di espressione regolare per individuare il numero di modulo è `hrf-[0-9]{6}`. Questa espressione regolare individua i caratteri letterali `hrf-` ma ignora le varianti di maiuscole/minuscole e di cultura. Individua le cifre 0-9, esattamente per 6 cifre.

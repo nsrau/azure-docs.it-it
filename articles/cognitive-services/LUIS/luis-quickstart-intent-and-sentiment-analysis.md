@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 95d1c4ffe76cf4c652f347014a838f1250c0ca15
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277478"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424851"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Esercitazione 9: estrazione della valutazione dell'intera espressione
 Questa esercitazione mostra come creare un'app che illustra come estrarre una valutazione positiva, negativa e neutra da espressioni. La valutazione è determinata dall'intera espressione.
@@ -60,7 +60,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 ## <a name="employeefeedback-intent"></a>Finalità EmployeeFeedback 
 Aggiungere una nuova finalità per acquisire il feedback dei dipendenti dai membri dell'azienda. 
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Create new intent** (Crea nuova finalità).
 
