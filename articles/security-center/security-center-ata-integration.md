@@ -3,7 +3,7 @@ title: Connessione di Microsoft Advanced Threat Analytics al Centro sicurezza di
 description: Informazioni sull'integrazione del Centro sicurezza di Azure con Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
-ms.author: yurid
-ms.openlocfilehash: 6129c83e33d046c2fc9ce1724a27efce5efdfa0e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: bcd9b006c5451cb2d251cd5ff9e6ae5e0bd17f3c
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258800"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634014"
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Connessione di Microsoft Advanced Threat Analytics al Centro sicurezza di Azure
 Questo documento consente di configurare l'integrazione tra Microsoft Advanced Threat Analytics e il Centro sicurezza di Azure.
 
 ## <a name="why-add-advanced-threat-analytics-data"></a>Perché aggiungere i dati di Advanced Threat Analytics?
-[Advanced Threat Analytics (ATA)](https://docs.microsoft.com/advanced-threat-analytics/what-is-ata) è una piattaforma locale che aiuta a rilevare i comportamenti sospetti degli utenti. Una volta stabilita la connessione, è possibile visualizzare le azioni sospette rilevate da ATA nel Centro sicurezza. Questa integrazione consente di visualizzare, correlare e analizzare tutti gli avvisi di sicurezza relativi ai carichi di lavoro cloud ibridi nel Centro sicurezza. 
+[Advanced Threat Analytics (ATA)](https://docs.microsoft.com/advanced-threat-analytics/what-is-ata) è una piattaforma locale che aiuta a rilevare i comportamenti sospetti degli utenti. Una volta stabilita la connessione, è possibile visualizzare le azioni sospette rilevate da ATA nel Centro sicurezza. Questa integrazione consente di visualizzare, correlare e analizzare tutti gli avvisi di sicurezza relativi ai carichi di lavoro cloud ibridi nel Centro sicurezza.
 
 ## <a name="how-do-i-configure-this-integration"></a>Come si configura l'integrazione?
 Presupponendo che ATA sia già installato e che funzioni correttamente in locale, seguire questa procedura per configurare l'integrazione:
@@ -46,7 +46,7 @@ Presupponendo che ATA sia già installato e che funzioni correttamente in locale
 8. In **Advanced Threat Analytics** fare clic su **AGGIUNGI**.
 
     ![ATA](./media/security-center-ata-integration/security-center-ata-integration-fig3.png)
-    
+
 9. Andare all'ultimo passaggio e fare clic su **Scarica l'agente**.
 
     ![ATA](./media/security-center-ata-integration/security-center-ata-integration-fig4.png)
@@ -62,13 +62,13 @@ Presupponendo che ATA sia già installato e che funzioni correttamente in locale
 12. Installare l'agente nel Centro ATA. Durante l'installazione, assicurarsi di selezionare l'opzione **Connettere l'agente a Azure Log Analytics** e, quando richiesto, specificare *ID area di lavoro* e *chiave primaria*.
 
 
-Una volta terminata l'installazione, l'integrazione è completata e sarà possibile visualizzare i nuovi avvisi inviati da ATA al Centro sicurezza nei risultati della **ricerca**. La soluzione è visualizzata nella pagina **Soluzioni di sicurezza** in **Soluzioni connesse**. 
+Una volta terminata l'installazione, l'integrazione è completata e sarà possibile visualizzare i nuovi avvisi inviati da ATA al Centro sicurezza nei risultati della **ricerca**. La soluzione è visualizzata nella pagina **Soluzioni di sicurezza** in **Soluzioni connesse**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Microsoft ATA al Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
 * [Connessione di Azure Active Directory Identity Protection al Centro sicurezza di Azure](security-center-aadip-integration.md)
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md) : informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
@@ -76,5 +76,3 @@ In questo documento si è appreso come connettere Microsoft ATA al Centro sicure
 - [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md): informazioni sulla gestione e la protezione dei dati nel Centro sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : informazioni e notizie aggiornate sulla sicurezza di Azure.
-
-

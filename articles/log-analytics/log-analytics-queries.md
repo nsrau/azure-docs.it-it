@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0a8a1ab41972aa2ae184b900c2dab94ec58f3e7c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4aeb14bd7962205b89e1207e082f551999f54558
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612755"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634524"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analizzare i dati di Log Analytics in Monitoraggio di Azure
 
@@ -42,8 +42,8 @@ Di seguito sono indicati alcuni dei vari modi in cui verranno usate le query in 
 
 - **Portali.** È possibile eseguire un'analisi interattiva dei dati di log nel [portale di Azure](log-analytics-log-search-portals.md).  In questo modo è possibile modificare le query e analizzare i risultati in una vasta gamma di formati e visualizzazioni.  
 - **Regole di avviso.** Le [regole di avviso](../monitoring-and-diagnostics/monitoring-overview-alerts.md) consentono di identificare in modo proattivo i problemi dai dati nell'area di lavoro.  Ogni regola di avviso è basata su una ricerca log che viene eseguita automaticamente a intervalli regolari.  I risultati vengono esaminati per determinare se è necessario creare un avviso.
-- **Dashboard.** È possibile aggiungere i risultati di qualsiasi query in un [dashboard Azure]() che consente di visualizzare i dati di metriche e log insieme ed eventualmente condividerli con altri utenti di Azure. 
-- **Visualizzazioni.**  È possibile creare visualizzazioni dei dati da includere nei dashboard degli utenti con [Progettazione viste](log-analytics-view-designer.md).  Le query di log forniscono i dati usati da [riquadri](log-analytics-view-designer-tiles.md) e [parti della visualizzazione](log-analytics-view-designer-parts.md) in ogni vista.  
+- **Dashboard.** È possibile aggiungere i risultati di qualsiasi query in un [dashboard Azure](../azure-monitor/platform/dashboards.md) che consente di visualizzare i dati di metriche e log insieme ed eventualmente condividerli con altri utenti di Azure. 
+- **Visualizzazioni.**  È possibile creare visualizzazioni dei dati da includere nei dashboard degli utenti con [Progettazione viste](../azure-monitor/platform/view-designer.md).  Le query di log forniscono i dati usati da [riquadri](../azure-monitor/platform/view-designer-tiles.md) e [parti della visualizzazione](../azure-monitor/platform/view-designer-parts.md) in ogni vista.  
 - **Esportazione.**  Quando si importano dati dall'area di lavoro di Log Analytics in Excel o [Power BI](log-analytics-powerbi.md), si crea una query di log per definire i dati da esportare.
 - **PowerShell.** È possibile eseguire uno script di PowerShell da una riga di comando o un runbook di Automazione di Azure che usa [Get AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) per recuperare dati da Log Analytics.  Questo cmdlet richiede una query per determinare i dati da recuperare.
 - **API di Log Analytics.**  L'[API di ricerca log di Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) consente a qualsiasi client API REST di recuperare dati di log da un'area di lavoro.  La richiesta dell'API include una query eseguita su Log Analytics per determinare i dati da recuperare.
@@ -111,4 +111,4 @@ Sebbene [Application Insights](../application-insights/app-insights-overview.md)
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere le informazioni sui [portali usati per creare e modifiche le ricerche log](log-analytics-log-search-portals.md).
-- Vedere un'[esercitazione sulla scrittura di query](log-analytics-tutorial-viewdata.md) con il nuovo linguaggio di query.
+- Vedere un'[esercitazione sulla scrittura di query](query-language/get-started-queries.md) con il nuovo linguaggio di query.

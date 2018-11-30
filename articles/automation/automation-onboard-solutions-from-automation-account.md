@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b91c3dec1dda401fbacab39325b2c8980ec7254f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6ee89f3d57ded382b4d4519e4054448c144b10c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625065"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632691"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
 
@@ -81,7 +81,7 @@ Fare clic su **+ Aggiungi macchine virtuali di Azure** e selezionare una o più 
 
 I computer non in Azure devono essere aggiunti manualmente. Dall'account di Automazione selezionare **Inventario** o **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE** oppure **Gestione aggiornamenti** in **GESTIONE AGGIORNAMENTI**.
 
-Fare clic su **Aggiungi computer non di Azure**. Verrà visualizzata una nuova finestra del browser con le [istruzioni su come installare e configurare Microsoft Monitoring Agent nel computer](../log-analytics/log-analytics-agent-overview.md), in modo che possa iniziare a inviare report alla soluzione. In caso di onboarding di un computer attualmente gestito da System Center Operations Manager, non è richiesto un nuovo agente, dal momento che le informazioni dell'area di lavoro vengono inserite nell'agente esistente.
+Fare clic su **Aggiungi computer non di Azure**. Verrà visualizzata una nuova finestra del browser con le [istruzioni su come installare e configurare Microsoft Monitoring Agent nel computer](../azure-monitor/platform/log-analytics-agent.md), in modo che possa iniziare a inviare report alla soluzione. In caso di onboarding di un computer attualmente gestito da System Center Operations Manager, non è richiesto un nuovo agente, dal momento che le informazioni dell'area di lavoro vengono inserite nell'agente esistente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Eseguire l'onboarding di computer nell'area di lavoro
 

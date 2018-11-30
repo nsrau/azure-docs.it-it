@@ -3,7 +3,7 @@ title: Connessione di Azure Active Directory Identity Protection al Centro sicur
 description: Informazioni su come il Centro sicurezza di Azure si integra con Azure Active Directory Identity Protection.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 0d4b77c2-dba4-4e46-8f55-ab04ddd92496
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2018
-ms.author: yurid
-ms.openlocfilehash: 9c13bd671efee5bc07885320cbaa0bd090cc1390
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 2ed5791b352ee4b19f707e52bc6f8f78e1f0e5b5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226361"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635306"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Connessione di Azure Active Directory Identity Protection al Centro sicurezza di Azure
 Questo documento consente di configurare l'integrazione tra Azure Active Directory (AD) Identity Protection e il Centro sicurezza di Azure.
 
 ## <a name="why-connect-azure-ad-identity-protection"></a>Perché connettere Azure AD Identity Protection?
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) consente di rilevare le potenziali vulnerabilità per le identità dell'organizzazione. Quando si è connessi, si è in grado di visualizzare gli avvisi di Azure AD Identity Protection nel Centro sicurezza. Questa integrazione consente di visualizzare, correlare e analizzare tutti gli avvisi di sicurezza relativi a carichi di lavoro di cloud ibrido nel Centro sicurezza. 
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) consente di rilevare le potenziali vulnerabilità per le identità dell'organizzazione. Quando si è connessi, si è in grado di visualizzare gli avvisi di Azure AD Identity Protection nel Centro sicurezza. Questa integrazione consente di visualizzare, correlare e analizzare tutti gli avvisi di sicurezza relativi a carichi di lavoro di cloud ibrido nel Centro sicurezza.
 
 ## <a name="how-do-i-configure-this-integration"></a>Come si configura l'integrazione?
 Se l'organizzazione sta già usando Azure AD Identity Protection, seguire questa procedura per configurare l'integrazione:
@@ -42,13 +42,13 @@ Se l'organizzazione sta già usando Azure AD Identity Protection, seguire questa
 
 5. Fare clic su **Connetti**.
 
-Dopo aver completato la configurazione, la soluzione Azure AD Identity Protection viene visualizzata nella pagina **Soluzioni di sicurezza** in **Soluzioni connesse**. 
+Dopo aver completato la configurazione, la soluzione Azure AD Identity Protection viene visualizzata nella pagina **Soluzioni di sicurezza** in **Soluzioni connesse**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Azure AD Identity Protection al Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
 * [Connecting Microsoft Advanced Threat Analytics to Azure Security Center (Connessione di Microsoft Advanced Threat Analytics al Centro sicurezza di Azure)](security-center-ata-integration.md)
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md) : informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
@@ -56,5 +56,3 @@ In questo documento si è appreso come connettere Azure AD Identity Protection a
 - [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md): informazioni sulla gestione e la protezione dei dati nel Centro sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : informazioni e notizie aggiornate sulla sicurezza di Azure.
-
-

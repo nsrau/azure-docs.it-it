@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 04c7b521ad13db9f5ec9573fd1ab966ad1282e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 442aa7034c3fec57b3b9394e6b0f46d4dec47849
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954314"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633113"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Aggiungere, modificare o eliminare le subnet di rete virtuale
 
@@ -69,7 +69,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
 4. Nell'elenco di subnet selezionare la subnet per cui si vogliono modificare le impostazioni. È possibile modificare le impostazioni seguenti:
 
     - **Intervallo di indirizzi:** se nessuna risorsa viene distribuita all'interno della subnet, è possibile modificare l'intervallo di indirizzi. Se esistono risorse nella subnet, è necessario spostare le risorse in un'altra subnet o eliminarle prima di tutto dalla subnet. La procedura per spostare o eliminare una risorsa è diversa a seconda della risorsa. Per informazioni su come spostare o eliminare le risorse disponibili nelle subnet, leggere la documentazione relativa a ogni tipo di risorsa che si vuole spostare o eliminare. Vedere i vincoli per **Intervallo di indirizzi** nel passaggio 5 di [Aggiungere una subnet](#add-a-subnet).
-    - **Utenti**: è possibile controllare l'accesso alla subnet tramite i ruoli predefiniti o i ruoli personalizzati. Per altre informazioni sull'assegnazione di ruoli e utenti per l'accesso alla subnet, leggere l'articolo [Usare l'assegnazione del ruolo per gestire l'accesso alle risorse di Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access).
+    - **Utenti**: è possibile controllare l'accesso alla subnet tramite i ruoli predefiniti o i ruoli personalizzati. Per altre informazioni sull'assegnazione di ruoli e utenti per l'accesso alla subnet, leggere l'articolo [Usare l'assegnazione del ruolo per gestire l'accesso alle risorse di Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
     - **Gruppo di sicurezza di rete** e **Tabella di route**: vedere il passaggio 5 di [Aggiungere una subnet](#add-a-subnet).
     - **Endpoint del servizio**: vedere gli endpoint di servizio nel passaggio 5 di [Aggiungere una subnet](#add-a-subnet). Quando si abilita un endpoint di servizio per una subnet esistente, assicurarsi che non vi siano attività critiche in esecuzione in nessuna risorsa nella subnet. Gli endpoint del servizio cambiano le route in ogni interfaccia di rete nella subnet dall'uso della route predefinita con il prefisso dell'indirizzo *0.0.0.0/0* e il tipo dell'hop successivo di *Internet*, all'uso di una nuova route con i prefissi dell'indirizzo del servizio e un tipo di hop successivo di *VirtualNetworkServiceEndpoint*. Durante il cambio, tutte le connessioni TCP aperte possono essere terminate. L'endpoint di servizio non è attivato fino a quando i flussi di traffico al servizio per tutte le interfacce di rete non vengono aggiornati con la nuova route. Per altre informazioni sul routing, vedere [Panoramica sul routing](virtual-networks-udr-overview.md).
     - **Delega di subnet**: vedere gli endpoint di servizio nel passaggio 5 di [Aggiungere una subnet](#add-a-subnet). Una delega di subnet può essere modificata per avere da zero a più deleghe abilitate. Se una risorsa per un servizio è già distribuita nella subnet, la delega di subnet non può essere rimossa fino a quando non vengono rimosse tutte le risorse per il servizio. Per la delega per un altro servizio, selezionare il servizio che si desidera delegare dall'elenco **Servizi**. 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8337d6b353b6651a2699176813220ed7a7a0f879
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612806"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634796"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portale di che si sposta in Azure
 
@@ -84,7 +84,7 @@ Non è più possibile creare nuove aree di lavoro usando il portale di OMS. Per 
 Gli avvisi sono stati [estesi al portale di Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Dopo questa procedura guidata, le azioni di gestione degli avvisi saranno disponibili solo nel portale di Azure. Gli avvisi esistenti continueranno a essere elencati nel portale di OMS, Se si accede agli avvisi a livello di codice tramite l'API REST per gli avvisi di Log Analytics o il modello risorse degli avvisi di Log Analytics sarà necessario usare i gruppi di azioni invece delle azioni nelle chiamate API, dei modelli di Azure Resource Manager e dei comandi di PowerShell.
 
 ### <a name="alert-management-solution"></a>soluzione Alert Management
-Anziché la [soluzione di gestione di avviso](log-analytics-solution-alert-management.md), è possibile usare l'[interfaccia di avviso unificata del Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) per visualizzare e gestire gli avvisi. Questa nuova esperienza aggrega avvisi provenienti da più origini tra cui gli avvisi di registro di Azure da Log Analytics. È possibile vedere le distribuzioni degli avvisi, sfruttare i vantaggi del raggruppamento automatizzato degli avvisi correlati tramite gruppi smart e visualizzare gli avvisi tra più sottoscrizioni durante l'applicazione di filtri avanzati. Tutte queste funzionalità sono disponibili in anteprima di avvio il 4 giugno 2018. La soluzione di gestione degli avvisi non sarà disponibile nel portale di Azure. 
+Anziché la [soluzione di gestione di avviso](../azure-monitor/platform/alert-management-solution.md), è possibile usare l'[interfaccia di avviso unificata del Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) per visualizzare e gestire gli avvisi. Questa nuova esperienza aggrega avvisi provenienti da più origini tra cui gli avvisi di registro di Azure da Log Analytics. È possibile vedere le distribuzioni degli avvisi, sfruttare i vantaggi del raggruppamento automatizzato degli avvisi correlati tramite gruppi smart e visualizzare gli avvisi tra più sottoscrizioni durante l'applicazione di filtri avanzati. Tutte queste funzionalità sono disponibili in anteprima di avvio il 4 giugno 2018. La soluzione di gestione degli avvisi non sarà disponibile nel portale di Azure. 
 
 I dati raccolti dalla soluzione di gestione degli avvisi (record con un tipo di avviso) continuano a essere in Log Analytics fino a quando la soluzione è installata per l'area di lavoro. All'inizio di agosto 2018, il flusso di avvisi dagli avvisi unificati nelle aree di lavoro verrà abilitato, sostituendo questa funzionalità. Alcune modifiche dello schema sono previste e verranno annunciate in un secondo momento.
 
@@ -98,7 +98,7 @@ Con il supporto delle [query tra risorse](log-analytics-cross-workspace-search.m
 
 
 ## <a name="azure-network-security-group-analytics"></a>Analisi del gruppo di sicurezza di rete di Azure
-La [soluzione Analisi gruppo di sicurezza di rete di Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) verrà sostituita con l'ultimo lancio [Analisi del traffico](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) che offre visibilità nelle attività e nell'applicazione dell'utente su reti cloud. Analisi del traffico consente di controllare l'attività di rete dell'organizzazione, proteggere applicazioni e dati, ottimizzare le prestazioni dei carichi di lavoro e garantire la conformità. 
+La [soluzione Analisi gruppo di sicurezza di rete di Azure](../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) verrà sostituita con l'ultimo lancio [Analisi del traffico](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) che offre visibilità nelle attività e nell'applicazione dell'utente su reti cloud. Analisi del traffico consente di controllare l'attività di rete dell'organizzazione, proteggere applicazioni e dati, ottimizzare le prestazioni dei carichi di lavoro e garantire la conformità. 
 
 Questa soluzione consente di analizzare i Log del flusso del gruppo di sicurezza di rete e offre informazioni approfondite su quanto segue.
 
