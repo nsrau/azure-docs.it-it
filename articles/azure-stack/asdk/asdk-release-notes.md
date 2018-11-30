@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515761"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427251"
 ---
 # <a name="asdk-release-notes"></a>Note sulla versione ASDK  
 Questo articolo fornisce informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit (ASDK). Se non si conosce quale versione in esecuzione, è possibile [usare il portale per controllare](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -233,7 +233,7 @@ Questa build include i seguenti miglioramenti e correzioni per Azure Stack.
 
 - <!-- ASDK --> **Gli elementi della raccolta per il set di scalabilità di macchine virtuali sono ora incorporati**.  Elementi della raccolta di Set di scalabilità di macchine virtuali sono ora reso disponibili nei portali di utenti e amministratori senza la necessità di eseguirne il download. 
 
-- <!-- IS, ASDK --> **Set di scalabilità di macchine virtuali ridimensionamento**.  È possibile usare il portale per [scalare un Set di scalabilità di macchine virtuali](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
+- <!-- IS, ASDK --> **Set di scalabilità di macchine virtuali ridimensionamento**.  È possibile usare il portale per [scalare un Set di scalabilità di macchine virtuali](../azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
 
 - <!-- 2489570 | IS ASDK--> **Supporto per le configurazioni di criteri IPSec/IKE personalizzati** per [i gateway VPN di Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 

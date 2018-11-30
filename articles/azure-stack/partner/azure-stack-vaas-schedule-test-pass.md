@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: How to
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1fbda6c0351287b9bc7574d100c0862b172a0aed
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3021fafe7d74f71450eec9b3720c974b04ada224
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651769"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426928"
 ---
 # <a name="schedule-your-first-test"></a>Pianificare il primo test
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Pianificare un test di convalida come portale del servizio (VaaS) per la soluzione di Azure Stack. Una soluzione VaaS rappresenta una soluzione di Azure Stack con hardware specifiche di una distinta base (BoM). È possibile pianificare un test per verificare che l'hardware è possibile eseguire Azure Stack.
 
