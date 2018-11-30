@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7e93e83f7594d30d223d37454e09943beba6d3ce
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113995"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976732"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Come avviare e arrestare il runtime di integrazione Azure SSIS in base a una pianificazione
 Questo articolo descrive come pianificare l'avvio e l'arresto di un runtime di integrazione SSIS di Azure usando Automazione di Azure e Azure Data Factory. Eseguire un runtime di integrazione SSIS (SQL Server Integration Services) di Azure ha un costo. Di conseguenza, in genere è opportuno eseguire il runtime di integrazione solo quando si devono eseguire pacchetti SSIS in Azure e arrestarlo quando non è necessario. Per [avviare o arrestare manualmente un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md), è possibile usare l'interfaccia utente di Data Factory o Azure PowerShell.
@@ -60,7 +60,7 @@ Se non si ha un account di Automazione di Azure, crearne uno seguendo le istruzi
     4. Selezionare una **località** per l'account di Automazione. 
     5. Verificare che **Crea un account RunAs di Azure** sia impostato su **Sì**. In Azure Active Directory viene creata un'entità servizio e aggiunta al ruolo **Collaboratore** della sottoscrizione di Azure.
     6. Selezionare **Aggiungi al dashboard** in modo da visualizzare l'entità nel dashboard del portale. 
-    7. Selezionare **Crea**. 
+    7. Selezionare **Create**. 
 
         ![Nuovo -> Monitoraggio e gestione -> Automazione](./media/how-to-schedule-azure-ssis-integration-runtime/add-automation-account-window.png)
 3. Lo **stato della distribuzione** verrà visualizzato nel dashboard e nelle notifiche. 
@@ -94,7 +94,7 @@ La procedura seguente descrive le operazioni necessarie per creare un runbook Po
 
     1. In **Nome** digitare **StartStopAzureSsisRuntime**.
     2. In **Tipo di runbook** selezionare **PowerShell**.
-    3. Selezionare **Crea**.
+    3. Selezionare **Create**.
     
         ![Pulsante Aggiungi runbook](./media/how-to-schedule-azure-ssis-integration-runtime/add-runbook-window.png)
 3. Copiare e incollare lo script seguente nella finestra di script del runbook. Salvare e pubblicare il runbook usando i pulsanti **Salva** e **Pubblica** sulla barra degli strumenti. 
@@ -186,7 +186,7 @@ Nella sezione precedente è stato creato un runbook di Automazione di Azure capa
     4. Nella sezione **Inizia**, relativa alla data e all'ora, specificare un valore di pochi minuti successivo alla data e all'ora correnti. 
     5. In **Ricorrenza** selezionare **Ricorrente**. 
     6. Nella sezione **Ricorre ogni** selezionare **Giorno**. 
-    7. Selezionare **Crea**. 
+    7. Selezionare **Create**. 
 
         ![Pianificazione per l'avvio del runtime di integrazione SSIS di Azure](./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png)
 3. Passare alla scheda **Parametri e impostazioni di esecuzione**. Specificare il nome del gruppo di risorse, il nome della data factory e il nome del runtime di integrazione SSIS di Azure. In **OPERATION** immettere **START**. Selezionare **OK**. Selezionare nuovamente **OK** per visualizzare la pianificazione nella pagina **Pianificazioni** del runbook. 
@@ -253,7 +253,7 @@ Dopo aver creato e testato la pipeline, è necessario creare un trigger di piani
 4. Selezionare **V2** per **version**.
 5. Selezionare la **località** per la data factory. Nell'elenco vengono mostrate solo le località supportate per la creazione di data factory.
 6. Selezionare **Aggiungi al dashboard**.     
-7. Fare clic su **Crea**.
+7. Fare clic su **Create**(Crea).
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
@@ -347,7 +347,7 @@ Dopo aver creato e testato la pipeline, è necessario creare un trigger di piani
     6. Fare clic con il pulsante destro del mouse sul pacchetto SSIS e selezionare **Report** -> **Report standard** -> **Tutte le esecuzioni**. 
     7. Verificare che il pacchetto SSIS sia stato eseguito. 
 
-        ![Verificare l'esecuzione del pacchetto SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/verfiy-ssis-package-run.png)
+        ![Verificare l'esecuzione del pacchetto SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
 
 ### <a name="schedule-the-pipeline"></a>Pianificare la pipeline 
 Ora che la pipeline funziona come previsto, è possibile creare un trigger per l'esecuzione della pipeline con una frequenza specificata. Per informazioni dettagliate sull'associazione di un trigger di pianificazione a una pipeline, vedere [Attivare la pipeline in base a una pianificazione](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
