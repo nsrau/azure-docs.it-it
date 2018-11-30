@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 03efe32e7a9a29318e4f97ce5636616fad443284
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c4a4b70e39731b3a78fd42078bfa1b7340343f9a
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956664"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334372"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Monitorare e gestire i test nel portale di VaaS
 
@@ -72,7 +72,7 @@ Ogni istanza di test pianificato Mostra le informazioni seguenti:
 | Started | Ora in cui il test ha iniziato l'esecuzione. |
 | Duration | Il periodo di tempo che è stato eseguito il test. |
 | Status | Lo stato o risultato del test. Sono stati pre-esecuzione o in corso: `Pending`, `Running`. Sono stati terminali: `Cancelled`, `Failed`, `Aborted`, `Succeeded`. |
-| Nome dell'agente | Il nome dell'agente che ha eseguito il test. |
+| Nome agente | Il nome dell'agente che ha eseguito il test. |
 | Operazioni totali | Numero totale delle operazioni tentate durante il test. |
 | Operazioni passate | Il numero di operazioni che è riuscita durante il test. |
 |  Operazioni non riuscite | Il numero di operazioni riuscite durante il test. |

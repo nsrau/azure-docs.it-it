@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 11/23/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: cc6af421551ba8ca973c15455daebf58c317d6f5
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976486"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314673"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -88,7 +88,7 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
 - Servizio di backup dell'infrastruttura viene spostato dal [rete infrastruttura pubblico](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) per il [rete indirizzi VIP pubblici](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). I clienti dovranno assicurarsi che il servizio ha accesso il percorso di archiviazione di backup dalla rete VIP pubblica.  
 
 > [!IMPORTANT]  
-> Se è presente un firewall che non consente le connessioni dalla rete VIP pubblica al file server, questa modifica causa backup infrastructure con "Errore 53 il percorso di rete non trovato". Si tratta di una modifica sostanziale che non dispone di alcuna soluzione ragionevole. In base ai suggerimenti dei clienti, Microsoft sarà annullare questa modifica in un aggiornamento rapido. Vedere le [post sezione passaggi di aggiornamento](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-update-1809#post-update-steps) per altre informazioni sulle correzioni disponibili per 1809. Dopo l'aggiornamento rapido è disponibile, assicurarsi di applicarlo dopo l'aggiornamento a 1809 solo se i criteri di rete non consentono la rete VIP pubblica accedere alle risorse di infrastruttura. in 1811, questa modifica verrà applicata a tutti i sistemi. Se è applicato l'aggiornamento rapido in 1809, non è richiesta alcuna azione ulteriore.  
+> Se è presente un firewall che non consente le connessioni dalla rete VIP pubblica al file server, questa modifica causa backup infrastructure con "Errore 53 il percorso di rete non trovato". Si tratta di una modifica sostanziale che non dispone di alcuna soluzione ragionevole. In base ai suggerimenti dei clienti, Microsoft sarà annullare questa modifica in un aggiornamento rapido. Vedere le [post sezione passaggi di aggiornamento](#post-update-steps) per altre informazioni sulle correzioni disponibili per 1809. Dopo l'aggiornamento rapido è disponibile, assicurarsi di applicarlo dopo l'aggiornamento a 1809 solo se i criteri di rete non consentono la rete VIP pubblica accedere alle risorse di infrastruttura. in 1811, questa modifica verrà applicata a tutti i sistemi. Se è applicato l'aggiornamento rapido in 1809, non è richiesta alcuna azione ulteriore.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
 
@@ -173,7 +173,7 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 > Preparare la distribuzione di Azure Stack per l'host dell'estensione abilitata per il pacchetto di aggiornamento successivo. Preparare il sistema le seguenti linee guida [prepararsi host dell'estensione per Azure Stack](azure-stack-extension-host-prepare.md).
 
 Dopo l'installazione di questo aggiornamento, installare eventuali hotfix applicabili. Per altre informazioni, visualizzare i seguenti articoli della knowledge base, nonché nostri [criteri per la manutenzione](azure-stack-servicing-policy.md).  
-- [KB 4471993 – Azure Stack hotfix per Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [KB 4477849 – Azure Stack hotfix per Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
 
 ## <a name="known-issues-post-installation"></a>Problemi noti (post-installazione)
 
@@ -226,7 +226,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
    
   Eseguire la [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet per verificare l'integrità delle istanze del ruolo di infrastruttura e ridimensionare i nodi di unità. Se viene rilevato alcun problema dal [Test-AzureStack](azure-stack-diagnostic-test.md), è possibile ignorare questi avvisi. Se viene rilevato un problema, è possibile provare ad avviare l'istanza del ruolo di infrastruttura o un nodo tramite il portale di amministrazione o PowerShell.
 
-  Questo problema viene risolto nella versione più recente [versione dell'hotfix 1809](https://support.microsoft.com/help/4471993/), pertanto assicurarsi di installare questo hotfix, se si è verificato il problema. 
+  Questo problema viene risolto nella versione più recente [versione dell'hotfix 1809](https://support.microsoft.com/help/4477849/), pertanto assicurarsi di installare questo hotfix, se si è verificato il problema. 
 
 <!-- 1264761 - IS ASDK -->  
 - Si potrebbero visualizzare avvisi per i **controller integrità** componente con i dettagli seguenti:  

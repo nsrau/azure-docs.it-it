@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5a3d63637d7b680a012057b92546ccde87ac73de
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 61af2c13a7cf395b5a96dc7b7ba63ad4d70dcf36
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233362"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333011"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Aggiungere Kubernetes per il Marketplace di Azure Stack
 
@@ -136,7 +136,7 @@ Per rimuovere l'elemento di Kubernetes:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Si noti, ad esempio nome dell'elemento corrente, `Microsoft.AzureStackKubernetesCluster.0.2.0`
+3. Si noti, ad esempio nome dell'elemento corrente, `Microsoft.AzureStackKubernetesCluster.0.3.0`
 
 4. Usare il cmdlet di PowerShell seguente per rimuovere l'elemento:
 
