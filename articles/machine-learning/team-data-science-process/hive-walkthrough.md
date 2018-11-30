@@ -1,26 +1,22 @@
 ---
 title: Esplorare i dati in un cluster Hadoop e di creare modelli in Azure Machine Learning | Documentazione Microsoft
 description: Uso di Team Data Science Process per uno scenario end-to-end, insieme a un cluster Hadoop di HDInsight per creare e distribuire un modello.
-services: machine-learning,hdinsight
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: deguhath
-ms.openlocfilehash: 09ca6fdc40aec84bcc7523bae0dee348d00f6d9f
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586122"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444206"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight
 In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 

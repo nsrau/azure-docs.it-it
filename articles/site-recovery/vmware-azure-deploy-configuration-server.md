@@ -1,20 +1,21 @@
 ---
 title: Distribuire il server di configurazione per il ripristino di emergenza di VMware con Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive come distribuire un server di configurazione per il ripristino di emergenza di VMware in Azure con Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
+description: Questo articolo descrive come distribuire un server di configurazione per il ripristino di emergenza di VMware con Azure Site Recovery
+services: site-recovery
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: raynew
-ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 11/18/2018
+ms.author: ramamill
+ms.openlocfilehash: 8b67947412055d0c0b9f39cb49961e435393cec9
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233158"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162603"
 ---
-# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Distribuire un server di configurazione per il ripristino di emergenza di VMware in Azure
+# <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
 Si distribuisce un server di configurazione locale quando si usa [Azure Site Recovery](site-recovery-overview.md) per il ripristino di emergenza di server fisici e macchine virtuali VMware in Azure. Il server di configurazione coordina le comunicazioni tra VMware locale e Azure. Gestisce anche la replica dei dati. Questo articolo illustra i passaggi necessari per distribuire il server di configurazione quando si esegue la replica di macchine virtuali VMware in Azure. [Seguire le indicazioni di questo articolo](physical-azure-set-up-source.md) se è necessario configurare un server di configurazione per la replica di server fisici.
 

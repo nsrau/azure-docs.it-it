@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8e404651fa315f630ff190c9e70ccdd3eec7f117
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 487b9d8d02909913f251ae7547d75669fa90f8d9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230003"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313301"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Limitare l'accesso tramite endpoint con connessione Internet in Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglia di limitare l'accesso tramite endpoint con connessione Internet se uno dei gruppi di sicurezza di rete contiene una o più regole in ingresso che consentono l'accesso da "qualsiasi" indirizzo IP di origine. L'accesso su "qualsiasi" origine potrebbe abilitare utenti malintenzionati ad accedere alle risorse. Il Centro sicurezza consiglierà di modificare queste regole in ingresso per limitare l'accesso agli indirizzi IP di origine che necessitano effettivamente dell'accesso.
@@ -60,7 +60,7 @@ Questo articolo illustra come implementare la raccomandazione "Restrict access t
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.

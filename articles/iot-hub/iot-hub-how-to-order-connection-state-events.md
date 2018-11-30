@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: df680469541885ab6413800ee3b9806975e34dba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 77615705ade42a2afcc8e3a9f662b0551a2411fd
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258664"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582453"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordinare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB
 
@@ -315,7 +315,7 @@ Dovrebbe essere visibile l'output seguente che mostra i dati del sensore e i mes
 
 ## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
-Anziché tramite il [portale di Azure](http://portal.azure.com), è possibile eseguire le procedure relative all'hub IoT usando l'interfaccia della riga di comando di Azure. Per informazioni dettagliate, vedere le pagine relative all'interfaccia della riga di comando di Azure per la [creazione di una sottoscrizione di eventi](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) e la [creazione di un dispositivo IoT](https://docs.microsoft.com/cli/azure/iot/device).
+Anziché tramite il [portale di Azure](http://portal.azure.com), è possibile eseguire le procedure relative all'hub IoT usando l'interfaccia della riga di comando di Azure. Per informazioni dettagliate, vedere le pagine relative all'interfaccia della riga di comando di Azure per la [creazione di una sottoscrizione di eventi](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) e la [creazione di un dispositivo IoT](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

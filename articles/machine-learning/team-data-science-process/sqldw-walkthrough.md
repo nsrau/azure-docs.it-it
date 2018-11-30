@@ -2,30 +2,26 @@
 title: 'Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse | Documentazione Microsoft'
 description: Advanced Analytics Process and Technology in azione
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: deguhath
-ms.openlocfilehash: 192af40df3a8bc0545c9c3a86792e7eb8cb31de9
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586105"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445709"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse
 In questa esercitazione verranno esaminate la compilazione e la distribuzione di un modello di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Il modello di classificazione binaria costruito stabilisce se sia stata lasciata o meno una mancia per una corsa. Vengono illustrati anche i modelli per la regressione e la classificazione multiclasse che consentono di stimare la distribuzione delle mance pagate.
 
-La procedura segue il flusso di lavoro del [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) . Viene illustrato come configurare un ambiente di scienza dei dati, come caricare i dati in SQL DW e come usare SQL DW o IPython Notebook per esplorare i dati e progettare le funzionalità da modellare. Viene quindi illustrato come compilare e distribuire un modello con Azure Machine Learning.
+La procedura segue il flusso di lavoro del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Viene illustrato come configurare un ambiente di scienza dei dati, come caricare i dati in SQL DW e come usare SQL DW o IPython Notebook per esplorare i dati e progettare le funzionalità da modellare. Viene quindi illustrato come compilare e distribuire un modello con Azure Machine Learning.
 
 ## <a name="dataset"></a>Set di dati NYC Taxi Trips
 I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file CSV compressi (circa 48 GB non compressi) e registrano oltre 173 milioni di corse singole nonché le tariffe pagate per ogni corsa. Il record di ogni corsa include le posizioni e l'ora di partenza e arrivo, il numero della patente illegale (del tassista) reso anonimo e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
@@ -442,7 +438,7 @@ In questo esempio viene calcolata la distribuzione degli intervalli delle mance 
 | 4 |85765 |
 
 ### <a name="exploration-compute-and-compare-trip-distance"></a>Esplorazione: calcolo e confronto della distanza delle corse
-In questo esempio, la longitudine e la latitudine del prelievo e dello scarico vengono convertite in punti geografici SQL, viene calcolata la distanza della corsa mediante la differenza dei punti geografici di SQL e viene restituito un campione casuale dei risultati per il confronto. Nell'esempio i risultati vengono limitati unicamente alle coordinate valide tramite la query per la valutazione della qualità dei dati illustrata in precedenza.
+In questo esempio, la longitudine e la latitudine del prelievo e dello scarico vengono convertite in punti geografici SQL, viene calcolata la distanza della corsa tramite la differenza dei punti geografici di SQL e viene restituito un campione casuale dei risultati per il confronto. Nell'esempio i risultati vengono limitati unicamente alle coordinate valide tramite la query per la valutazione della qualità dei dati illustrata in precedenza.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
     SET ANSI_NULLS ON

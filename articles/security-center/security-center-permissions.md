@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007859"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313440"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
 
@@ -59,7 +59,7 @@ La tabella seguente contiene i ruoli e le azioni consentite in Centro sicurezza.
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come Centro sicurezza usa PC usa il controllo degli accessi in base al ruolo per assegnare autorizzazioni agli utenti e sono state identificate le azioni consentite per ogni ruolo. Ora che è stata acquisita familiarità con le assegnazioni di ruolo necessari per monitorare lo stato di sicurezza della sottoscrizione, modificare i criteri di sicurezza e applicare i consigli, si apprenderà come eseguire queste operazioni:
 
-- [Impostare criteri di sicurezza in Centro sicurezza](security-center-policies.md)
+- [Impostare criteri di sicurezza in Centro sicurezza](security-center-azure-policy.md)
 - [Gestire i suggerimenti per la sicurezza in Centro sicurezza](security-center-recommendations.md)
 - [Monitorare l'integrità della sicurezza delle risorse di Azure](security-center-monitoring.md)
 - [Gestire e rispondere agli avvisi di sicurezza in Centro sicurezza](security-center-managing-and-responding-alerts.md)

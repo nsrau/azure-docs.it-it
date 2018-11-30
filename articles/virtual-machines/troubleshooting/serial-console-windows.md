@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 0a4a31a4905de38de444604c8ffdf4d4a2e632d4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e4deb40f2c9dfb080739f4426129223b152baea9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515863"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335658"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Console seriale per macchine virtuali per Windows
 
@@ -133,7 +133,7 @@ Per impostazione predefinita, tutte le sottoscrizioni hanno accesso alla console
 > Per abilitare o disabilitare la console seriale per una sottoscrizione, è necessario avere le autorizzazioni di scrittura per la sottoscrizione. Queste autorizzazioni includono quelle di amministratore o proprietario, ma anche altri. Anche i ruoli personalizzati possono avere le autorizzazioni di scrittura.
 
 ### <a name="subscription-level-disable"></a>Disattivazione a livello di sottoscrizione
-La console seriale può essere disabilitata per un'intera sottoscrizione tramite la [chiamata all'API REST di Disabilita console](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). È possibile usare la funzionalità **Try It** disponibile nella pagina della documentazione API per disabilitare e abilitare la console seriale per una sottoscrizione. Immettere l'ID sottoscrizione per **subscriptionId**, immettere "default" per **default** e quindi selezionare **Esegui**. I comandi dell'interfaccia della riga di comando di Azure non sono ancora disponibili.
+La console seriale può essere disabilitata per un'intera sottoscrizione tramite la [chiamata all'API REST di Disabilita console](/rest/api/serialconsole/console/disableconsole). È possibile usare la funzionalità **Try It** disponibile nella pagina della documentazione API per disabilitare e abilitare la console seriale per una sottoscrizione. Immettere l'ID sottoscrizione per **subscriptionId**, immettere "default" per **default** e quindi selezionare **Esegui**. I comandi dell'interfaccia della riga di comando di Azure non sono ancora disponibili.
 
 ![API REST Try It](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

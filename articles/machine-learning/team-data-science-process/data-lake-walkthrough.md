@@ -2,28 +2,24 @@
 title: 'Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end | Documentazione Microsoft'
 description: Come usare Azure Data Lake per eseguire attività di esplorazione di dati e di classificazione binaria su un set di dati.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 91a8207f-1e57-4570-b7fc-7c5fa858ffeb
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 6688432342ff08d2ca177570cc6bbbe0095ccbe0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 52518f8c9295f00b93dee0ea356513605450aed7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229066"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443560"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end
-Questa procedura dettagliata illustra come usare Azure Data Lake per eseguire attività di esplorazione dei dati e di classificazione binaria su un campione del set di dati relativo alle corse e alle tariffe dei taxi di NYC, in modo da prevedere se un passeggero pagherà la mancia. Vengono esaminati i passaggi del [processo di analisi scientifica dei dati del team](https://aka.ms/datascienceprocess), end-to-end, dall'acquisizione dei dati al training modello e quindi alla distribuzione di un servizio Web che pubblica il modello.
+Questa procedura dettagliata illustra come usare Azure Data Lake per eseguire attività di esplorazione dei dati e di classificazione binaria su un campione del set di dati relativo alle corse e alle tariffe dei taxi di NYC, in modo da prevedere se un passeggero pagherà la mancia. Vengono esaminati i passaggi del [processo di analisi scientifica dei dati del team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, dall'acquisizione dei dati al training modello e quindi alla distribuzione di un servizio Web che pubblica il modello.
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics.
 [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) include tutte le funzionalità che consentono ai data scientist di archiviare con facilità dati di qualsiasi dimensione, forma e velocità e di eseguire attività di elaborazione di dati, analisi avanzate e modellazione di Machine Learning con scalabilità elevata e costi contenuti.   Il pagamento viene effettuato per i singoli processi, solo quando i dati vengono effettivamente elaborati. Analisi Azure Data Lake include U-SQL, un linguaggio che unisce la natura dichiarativa di SQL all'efficacia espressiva di C# per offrire funzionalità di query distribuite e scalabili. Consente di elaborare dati non strutturati applicando lo schema in fase di lettura, nonché di inserire logica e funzioni UDF personalizzate e aggiungere estensibilità per permettere il controllo granulare sulle modalità di esecuzione in scala. Per altre informazioni sulla filosofia di progettazione alla base di U-SQL, vedere questo [post di blog su Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
@@ -684,7 +680,7 @@ Il dashboard del servizio Web verrà visualizzato a breve:
 Seguendo questa procedura dettagliata è stato creato un ambiente di analisi scientifica dei dati per la creazione di soluzioni end-to-end scalabili in Azure Data Lake. Questo ambiente è stato quindi usato per analizzare un set di dati pubblico di grandi dimensioni, sottoposto ai passaggi del processo di analisi scientifica dei dati: dall'acquisizione dei dati al training del modello, fino alla distribuzione del modello come servizio Web. Per elaborare, esplorare e campionare i dati è stato usato U-SQL, mentre per creare e distribuire i modelli predittivi sono stati usati Python e Hive con Azure Machine Learning Studio.
 
 ## <a name="whats-next"></a>Passaggi successivi
-Nel percorso di apprendimento relativo al [Processo di analisi scientifica dei dati per i team (TDSP)](https://aka.ms/datascienceprocess) sono inclusi alcuni collegamenti ad argomenti che descrivono ogni passaggio del processo di analisi avanzata. È disponibile una serie di procedure dettagliate collegate alla pagina [Processo di analisi scientifica dei dati per i team](walkthroughs.md) che illustrano come usare risorse e servizi nei vari scenari di analisi predittiva:
+Nel percorso di apprendimento relativo al [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) sono inclusi alcuni collegamenti ad argomenti che descrivono ogni passaggio del processo di analisi avanzata. È disponibile una serie di procedure dettagliate collegate alla pagina [Processo di analisi scientifica dei dati per i team](walkthroughs.md) che illustrano come usare risorse e servizi nei vari scenari di analisi predittiva:
 
 * [Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse](sqldw-walkthrough.md)
 * [Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight](hive-walkthrough.md)

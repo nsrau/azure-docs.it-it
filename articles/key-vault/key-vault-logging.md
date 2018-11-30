@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: e86d68107278641e40346327fa3a8cb7059b7d71
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 9790cd7c79efa1b64220f9e128de9a3b8eb902c0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159589"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426945"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione dell'insieme di credenziali delle chiavi di Azure
 L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -265,7 +265,7 @@ La tabella seguente include un elenco di operationName con il comando API REST c
 
 ## <a id="loganalytics"></a>Usare Log Analytics
 
-È possibile usare la soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics per esaminare i log AuditEvent dell'Insieme di credenziali delle chiavi di Azure. Per altre informazioni e per approfondire l'impostazione di questa funzionalità vedere [Soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). Questo articolo contiene inoltre istruzioni su come eseguire la migrazione, nel caso fosse necessario, dalla soluzione Key Vault offerta nell'anteprima di Log Analytics, dove sono stati indirizzati la prima volta i log a un account di Archiviazione di Azure e da dove è stato configurato Log Analytics per la lettura.
+È possibile usare la soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics per esaminare i log AuditEvent dell'Insieme di credenziali delle chiavi di Azure. Per altre informazioni e per approfondire l'impostazione di questa funzionalità vedere [Soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics](../azure-monitor/insights/azure-key-vault.md). Questo articolo contiene inoltre istruzioni su come eseguire la migrazione, nel caso fosse necessario, dalla soluzione Key Vault offerta nell'anteprima di Log Analytics, dove sono stati indirizzati la prima volta i log a un account di Archiviazione di Azure e da dove è stato configurato Log Analytics per la lettura.
 
 ## <a id="next"></a>Passaggi successivi
 Per un'esercitazione sull'uso dell'insieme di credenziali delle chiavi di Azure in un'applicazione Web, vedere [Usare l'insieme di credenziali delle chiavi di Azure da un'applicazione Web](key-vault-use-from-web-application.md).

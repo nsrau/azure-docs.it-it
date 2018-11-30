@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 5267ce5c50e8a57843f0bc54165289b38013ad91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2baae0a1932bdcb7fa5e29ac06dd8ae7a7020a30
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986116"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421845"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurare una rete virtuale (classica) usando un file di configurazione di rete
 > [!IMPORTANT]
@@ -46,7 +46,7 @@ La creazione e la configurazione di una rete virtuale (classica) con un file di 
 
 ### <a name="azure-classic-cli"></a>Interfaccia della riga di comando classica di Azure
 
-1. [Installare l'interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Completare i passaggi rimanenti dal prompt dei comandi dell'interfaccia della riga di comando classica.
+1. [Installare l’interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Completare i passaggi rimanenti dal prompt dei comandi dell'interfaccia della riga di comando classica.
 2. Accedere ad Azure immettendo il comando `azure login`.
 3. Verificare di essere in modalità asm immettendo il comando `azure config mode asm`.
 4. Modificare la directory (e verificare che sia presente) e il nome file nel comando seguente nel modo desiderato, quindi eseguire il comando per esportare il file di configurazione di rete:
@@ -134,7 +134,7 @@ Se il file di configurazione di rete esportato non include alcun contenuto, è p
 
 ### <a name="azure-classic-cli"></a>Interfaccia della riga di comando classica di Azure
 
-1. [Installare l’interfaccia della riga di comando classica di Azure](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Completare i passaggi rimanenti dal prompt dei comandi dell'interfaccia della riga di comando classica.
+1. [Installare l’interfaccia della riga di comando classica di Azure](/cli/azure/install-classic-cli). Completare i passaggi rimanenti dal prompt dei comandi dell'interfaccia della riga di comando classica.
 2. Accedere ad Azure immettendo il comando `azure login`.
 3. Verificare di essere in modalità asm immettendo il comando `azure config mode asm`.
 4. Modificare la directory e il nome file nel comando seguente in base alle esigenze, quindi eseguire il comando per importare il file di configurazione di rete:

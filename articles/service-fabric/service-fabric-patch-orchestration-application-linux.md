@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746718"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285153"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Linux nel cluster di Service Fabric
 
@@ -147,7 +147,7 @@ Il comportamento di Patch Orchestration App può essere configurato per soddisfa
 
 1. Preparare il cluster completando tutti i passaggi preliminari.
 2. Distribuire Patch Orchestration App come qualsiasi altra app di Service Fabric. È possibile distribuire l'app tramite l'interfaccia della riga di comando di Service Fabric PowerShell o Azure. Seguire la procedura descritta in [Distribuire e rimuovere applicazioni con PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) o [Distribuire un'applicazione con l'interfaccia della riga di comando di Service Fabric Azure](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)
-3. Per configurare l'applicazione al momento della distribuzione, passare `ApplicationParamater` al cmdlet `New-ServiceFabricApplication` o agli script forniti. Per comodità, insieme all'applicazione vengono forniti gli script powershell (Deploy.ps1) e bash (Deploy.sh). Per usare lo script:
+3. Per configurare l'applicazione al momento della distribuzione, passare `ApplicationParameter` al cmdlet `New-ServiceFabricApplication` o agli script forniti. Per comodità, insieme all'applicazione vengono forniti gli script powershell (Deploy.ps1) e bash (Deploy.sh). Per usare lo script:
 
     - Connettersi a un cluster di Service Fabric.
     - Eseguire lo script di distribuzione. Facoltativamente, passare il parametro dell'applicazione allo script. Ad esempio: .\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} OPPURE ./Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 

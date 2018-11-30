@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2d3d48db5a1eb329d854d1c062d23dfaf63ad9fa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cef080707d6745459f27450c2c66f4aa2ea50ec7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963133"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710682"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Creare un'area di lavoro di Log Analytics con l'interfaccia della riga di comando di Azure 2.0
 
@@ -131,4 +131,4 @@ Dopo aver creato un'area di lavoro, è possibile configurare la raccolta di dati
 * Per abilitare la raccolta di dati dalle risorse di Azure con Diagnostica di Azure o l'archiviazione di Azure, vedere [Raccolta di log e metriche per i servizi di Azure da usare in Log Analytics](log-analytics-azure-storage.md).  
 * Aggiungere [System Center Operations Manager come origine dati](log-analytics-om-agents.md) per raccogliere i dati da agenti di creazione report per il gruppo di gestione Operations Manager e archiviarli nell'area di lavoro di Log Analytics.  
 * Connettere [Configuration Manager](log-analytics-sccm.md) per importare computer che sono membri di raccolte nella gerarchia.  
-* Esaminare le [soluzioni di gestione](../monitoring/monitoring-solutions.md) disponibili e verificare come aggiungere o rimuovere una soluzione dall'area di lavoro.
+* Esaminare le [soluzioni di gestione](../azure-monitor/insights/solutions.md) disponibili e verificare come aggiungere o rimuovere una soluzione dall'area di lavoro.

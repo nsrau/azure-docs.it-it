@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
-ms.openlocfilehash: 8908a6ceb87e2c0e4c7222e8a8e72fa7ebfa7f82
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309264"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421284"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Come inviare messaggi di posta elettronica usando SendGrid da Node.js
 
@@ -131,7 +131,7 @@ sendgrid.send({
 ```
 
 > [!NOTE]
-> Quando si usa la proprietà **files**, il file deve essere accessibile tramite [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Se il file da allegare è ospitato in Archiviazione di Azure, ad esempio in un contenitore BLOB, prima di poterlo inviare come allegato usando la proprietà **files** è necessario copiarlo nell'archiviazione locale o in un'unità Azure.
+> Quando si usa la proprietà **files**, il file deve essere accessibile tramite [fs.readFile](https://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Se il file da allegare è ospitato in Archiviazione di Azure, ad esempio in un contenitore BLOB, prima di poterlo inviare come allegato usando la proprietà **files** è necessario copiarlo nell'archiviazione locale o in un'unità Azure.
 > 
 > 
 

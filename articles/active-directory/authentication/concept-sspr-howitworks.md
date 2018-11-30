@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296397"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426205"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -72,7 +72,7 @@ Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi
 > [!WARNING]
 > Gli account assegnati i ruoli di amministratore di Azure verrà richiesto di utilizzare i metodi definiti nella sezione [Differenze dei criteri di reimpostazione degli amministratori](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Autenticazione][Authentication]
+![autenticazione][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Numero di metodi di autenticazione necessari
 
@@ -189,7 +189,7 @@ La modifica e la reimpostazione della password sono completamente supportate in 
    * **Utenti che hanno usato l'iscrizione self-service**: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](../users-groups-roles/directory-self-service-signup.md) per accedere a un tenant, gli utenti possono eseguire la reimpostazione con l'indirizzo di posta elettronica registrato.
    * **Utenti B2B**: tutti i nuovi utenti B2B creati usando le nuove [funzionalità B2B di Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) potranno anche reimpostare le password con l'indirizzo di posta elettronica registrato durante il processo di invito.
 
-Per testare questo scenario, passare a http://passwordreset.microsoftonline.com con uno di questi utenti partner. Se l'utente ha un indirizzo di posta elettronica alternativo o un indirizzo di posta elettronica per l'autenticazione, la reimpostazione della password funziona come previsto.
+Per testare questo scenario, passare a https://passwordreset.microsoftonline.com con uno di questi utenti partner. Se l'utente ha un indirizzo di posta elettronica alternativo o un indirizzo di posta elettronica per l'autenticazione, la reimpostazione della password funziona come previsto.
 
 > [!NOTE]
 > Gli account Microsoft a cui è stato concesso l'accesso guest al tenant di Azure AD, ad esempio Hotmail.com, Outlook.com o altri indirizzi di posta elettronica personali, non saranno in grado di utilizzare la funzionalità di reimpostazione delle password self-service di Azure AD. Tali account devono reimpostare le password usando le informazioni riportate nell'articolo [Quando non riesci ad accedere al tuo account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

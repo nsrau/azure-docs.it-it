@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040041"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335624"
 ---
 # <a name="prebuilt-domain-reference"></a>Informazioni di riferimento sui domini predefiniti
 Queste informazioni di riferimento descrivono i [domini predefiniti](luis-how-to-use-prebuilt-domains.md) che sono raccolte predefinite delle finalità ed delle entità offerte da LUIS.
@@ -27,27 +27,27 @@ LUIS offre 20 domini predefiniti.
 
 | Dominio predefinito | DESCRIZIONE | Lingue supportate |
 | ---------------- |-----------------------|:------:|
-| Calendario | Il dominio Calendar (Calendario) offre finalità ed entità per l'aggiunta, l'eliminazione o la modifica di un appuntamento, la verifica della disponibilità dei partecipanti e la ricerca di informazioni su un evento del calendario.| it-IT<br/> zh-CN |
-| Camera | Il dominio Camera (Fotocamera) offre finalità ed entità per l'acquisizione di foto, la registrazione di video e la trasmissione di video in un'applicazione.| it-IT |
-| Comunicazione | Invio di messaggi e chiamate telefoniche.| it-IT <br/> zh-CN |
-| Entertainment  | Gestione delle query correlate a musica, film e TV.| it-IT |
-| Eventi | Prenotazione di biglietti per concerti, festival, competizioni sportive e spettacoli.| it-IT |
-| Fitness | Gestione delle richieste correlate alla registrazione delle attività di fitness.| it-IT |
-| Giochi | Gestisce le richieste relative a una partita in un gioco multiplayer.| it-IT |
-| HomeAutomation | Controllo dei dispositivi domestici intelligenti come luci e accessori.| it-IT<br/> zh-CN |
-| MovieTickets | Prenotazione di biglietti per film in una sala cinematografica.| it-IT |
-| Musica | Riproduzione di musica su un lettore.| it-IT<br/> zh-CN |
-| Note | Il dominio Note (Nota) offre finalità ed entità correlate alla creazione, alla modifica e alla ricerca di note.| it-IT<br/> zh-CN |
-| OnDevice | Il dominio OnDevice (Dispositivo) offre finalità ed entità correlate al controllo del dispositivo.| it-IT<br/> zh-CN |
-| Località  | Gestione delle query correlate a luoghi come aziende, istituzioni, ristoranti, spazi pubblici e indirizzi.| it-IT<br/> zh-CN |
-| Reminder | Gestione delle richieste correlate alla creazione, alla modifica e alla ricerca di promemoria.| it-IT<br/> zh-CN |
-| RestaurantReservation | Gestione delle richieste di prenotazione per i ristoranti.| it-IT<br/> zh-CN |
-| Taxi | Gestione delle prenotazioni di taxi.| it-IT<br/> zh-CN |
-| Translate | Traduzione del testo nella lingua di destinazione.| it-IT<br/> zh-CN |
-| TV | Controllo dei televisori.| it-IT |
-| Servizi pubblici  | Gestione delle richieste comuni a più domini, ad esempio le richieste di aiuto, di ripetizione o di riavvio.| it-IT |
-| Weather | Recupero dei report e delle previsioni meteo.| it-IT<br/> zh-CN |
-| Web | Navigazione di un sito Web.| it-IT<br/> zh-CN |
+| Calendario | Il dominio Calendar (Calendario) offre finalità ed entità per l'aggiunta, l'eliminazione o la modifica di un appuntamento, la verifica della disponibilità dei partecipanti e la ricerca di informazioni su un evento del calendario.| en-US<br/> zh-CN |
+| Camera | Il dominio Camera (Fotocamera) offre finalità ed entità per l'acquisizione di foto, la registrazione di video e la trasmissione di video in un'applicazione.| en-US |
+| Comunicazione | Invio di messaggi e chiamate telefoniche.| en-US <br/> zh-CN |
+| Entertainment  | Gestione delle query correlate a musica, film e TV.| en-US |
+| Eventi | Prenotazione di biglietti per concerti, festival, competizioni sportive e spettacoli.| en-US |
+| Fitness | Gestione delle richieste correlate alla registrazione delle attività di fitness.| en-US |
+| Giochi | Gestisce le richieste relative a una partita in un gioco multiplayer.| en-US |
+| HomeAutomation | Controllo dei dispositivi domestici intelligenti come luci e accessori.| en-US<br/> zh-CN |
+| MovieTickets | Prenotazione di biglietti per film in una sala cinematografica.| en-US |
+| Musica | Riproduzione di musica su un lettore.| en-US<br/> zh-CN |
+| Note | Il dominio Note (Nota) offre finalità ed entità correlate alla creazione, alla modifica e alla ricerca di note.| en-US<br/> zh-CN |
+| OnDevice | Il dominio OnDevice (Dispositivo) offre finalità ed entità correlate al controllo del dispositivo.| en-US<br/> zh-CN |
+| Località  | Gestione delle query correlate a luoghi come aziende, istituzioni, ristoranti, spazi pubblici e indirizzi.| en-US<br/> zh-CN |
+| Reminder | Gestione delle richieste correlate alla creazione, alla modifica e alla ricerca di promemoria.| en-US<br/> zh-CN |
+| RestaurantReservation | Gestione delle richieste di prenotazione per i ristoranti.| en-US<br/> zh-CN |
+| Taxi | Gestione delle prenotazioni di taxi.| en-US<br/> zh-CN |
+| Translate | Traduzione del testo nella lingua di destinazione.| en-US<br/> zh-CN |
+| TV | Controllo dei televisori.| en-US |
+| Servizi pubblici  | Gestione delle richieste comuni a più domini, ad esempio le richieste di aiuto, di ripetizione o di riavvio.| en-US |
+| Weather | Recupero dei report e delle previsioni meteo.| en-US<br/> zh-CN |
+| Web | Navigazione di un sito Web.| en-US<br/> zh-CN |
 
 Per informazioni dettagliate su ogni dominio, vedere le sezioni che seguono.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 0f6c0e9206d9e056ee0496b6cc515625b08b1e4a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959917"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975857"
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Microservizi della versione canary con Vamp in un cluster DC/OS del servizio contenitore di Azure
 
@@ -291,7 +291,7 @@ Sono state trattate anche alcune funzioni importanti di Vamp: l'unione di una nu
 
 * Informazioni sulla gestione delle azioni Vamp attraverso le [API REST di Vamp](http://vamp.io/documentation/api/api-reference/).
 
-* Creazione di script di automazione Vamp in Node.js ed esecuzione degli stessi come [flussi di lavoro di Vamp](http://vamp.io/documentation/tutorials/create-a-workflow/).
+* Creazione di script di automazione Vamp in Node.js ed esecuzione degli stessi come [flussi di lavoro di Vamp](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
 
 * Vedere altre [esercitazioni su Vamp](http://vamp.io/documentation/tutorials/).
 

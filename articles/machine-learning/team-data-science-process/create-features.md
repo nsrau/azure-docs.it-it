@@ -2,30 +2,26 @@
 title: Progettazione di funzionalità nell'analisi scientifica dei dati | Documentazione Microsoft
 description: Illustra le finalità della progettazione di funzioni e offre esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 3fde69e8-5e7b-49ad-b3fb-ab8ef6503a4d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: fd3f010c3fccca679daa6639c1427d17ae64a0d1
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 80e925fddf1aebd9f699ee8e22b96cc496faeba6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51343993"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446676"
 ---
 # <a name="feature-engineering-in-data-science"></a>Progettazione di funzionalità nell'analisi scientifica dei dati
 Questo articolo illustra le finalità della progettazione di funzioni e offre esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Gli esempi utilizzati per illustrare questo processo sono tratti da Azure Machine Learning Studio. 
 
-Questa attività è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Questa attività è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 La progettazione di funzionalità tenta di aumentare la capacità predittiva degli algoritmi di apprendimento tramite la creazione di funzionalità da dati non elaborati che contribuiscono a semplificare il processo di apprendimento. La progettazione e la selezione delle funzionalità sono parti del processo TDSP descritto in [Informazioni sul Processo di analisi scientifica dei dati per i team](overview.md) La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo TDSP. 
 

@@ -1,26 +1,22 @@
 ---
 title: Spostare i dati da e verso l'archiviazione BLOB di Azure usando AzCopy | Documentazione Microsoft
 description: Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando AzCopy.
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: c309ceb2-0e83-4a07-b16d-c997dcd62d5c
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 41e89aab65b19e22ad6f8fe0d3087c4e7f5430ab
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 9e8b852b9f13e8f41daff27e305bc9c0cda78cb7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393405"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442999"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Spostamento dei dati da e verso l'archivio BLOB di Azure tramite AzCopy
 AzCopy è un'utilità della riga di comando progettata per le operazioni di caricamento, download e copia dei dati in e da servizi di archiviazione BLOB, file e tabelle di Microsoft Azure.

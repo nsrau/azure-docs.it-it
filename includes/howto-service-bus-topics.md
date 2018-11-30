@@ -1,3 +1,16 @@
+---
+author: spelluru
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: spelluru
+ms.openlocfilehash: ef6d5d22f70d5fff38f90b457a7c945ab59fc67c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331129"
+---
 ## <a name="what-are-service-bus-topics-and-subscriptions"></a>Cosa sono gli argomenti e le sottoscrizioni del bus di servizio?
 Gli argomenti e le sottoscrizioni del bus di servizio supportano un modello di comunicazione con messaggistica di *pubblicazione-sottoscrizione* . Quando si usano gli argomenti e le sottoscrizioni, i componenti di un'applicazione distribuita non comunicano direttamente l'uno con l'altro, ma scambiano messaggi tramite un argomento, che agisce da intermediario.
 
@@ -23,7 +36,7 @@ Per creare uno spazio dei nomi:
 7. In **Località**scegliere il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
    
     ![Crea spazio dei nomi][create-namespace]
-8. Selezionare il pulsante **Create** . A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+8. Fare clic sul pulsante **Create** (Crea). A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
 ### <a name="obtain-the-credentials"></a>Ottenere le credenziali
 1. Nell'elenco degli spazi dei nomi fare clic sul nome dello spazio dei nomi appena creato.

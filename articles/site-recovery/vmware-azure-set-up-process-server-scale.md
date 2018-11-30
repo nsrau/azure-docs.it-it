@@ -1,18 +1,18 @@
 ---
 title: Configurare un server di elaborazione in Azure per il failback durante il ripristino di emergenza da macchine virtuali VMware e server fisici con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come configurare un server di elaborazione in Azure per eseguire il failback da Azure a locale durante il ripristino di emergenza di macchine virtuali VMware e server fisici.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
-ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/19/2018
+ms.author: ramamill
+ms.openlocfilehash: 50d1170f64ae199f4a1bf4b852c1ed3232df4d42
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212234"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974802"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Scalabilità per il failback con server di elaborazione aggiuntivi
 
@@ -41,6 +41,7 @@ In cui ogni computer di origine protetto è configurato con tre dischi da 100 GB
 Nella tabella seguente sono riepilogati i prerequisiti per il server di elaborazione aggiuntivo.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
 
 
 ## <a name="download-installation-file"></a>Scaricare il file di installazione

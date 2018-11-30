@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cynthn
+ms.openlocfilehash: 7e390e2134df02b0ca9c0d1752c3207aff7b9314
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279712"
+---
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
 | [Macchine virtuali](../articles/virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per servizio cloud<sup>1</sup> |50 |50 |
@@ -6,4 +19,3 @@
 <sup>1</sup>Macchine virtuali create in Gestione dei servizi (anziché Gestione risorse) vengono automaticamente archiviate in un servizio cloud. È possibile aggiungere più macchine virtuali al servizio cloud per il bilanciamento del carico e disponibilità. 
 
 <sup>2</sup>Endpoint di input consentire le comunicazioni a una macchina virtuale da fuori servizio cloud della macchina virtuale. Le macchine virtuali nello stesso servizio cloud o rete virtuale può comunicare automaticamente tra loro. Vedere [Come configurare gli endpoint in una macchina virtuale](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
-

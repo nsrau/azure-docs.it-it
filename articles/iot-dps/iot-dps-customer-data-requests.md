@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d6355926c8fac62b01c36d28265842b1233ce213
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666944"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584152"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
 
@@ -39,9 +39,9 @@ Per altre informazioni, vedere l'argomento relativo a [come gestire le registraz
 
 È anche possibile eseguire le operazioni di eliminazione per le registrazioni e i record di registrazione usando le API REST:
 
-* Per eliminare le informazioni di registrazione per un singolo dispositivo è possibile usare [Device Enrollment - Delete](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete) (Registrazione dispositivo - Elimina).
-* Per eliminare le informazioni di registrazione per un gruppo di dispositivi è possibile usare [Device Enrollment group - Delete](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete) (Registrazione gruppo di dispositivi - Elimina).
-* Per eliminare le informazioni sui dispositivi che sono stati sottoposti a provisioning, è possibile usare [Registration State - Delete Registration State](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate) (Stato di registrazione - Elimina stato di registrazione).
+* Per eliminare le informazioni di registrazione per un singolo dispositivo è possibile usare [Device Enrollment - Delete](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment) (Registrazione dispositivo - Elimina).
+* Per eliminare le informazioni di registrazione per un gruppo di dispositivi è possibile usare [Device Enrollment group - Delete](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup) (Registrazione gruppo di dispositivi - Elimina).
+* Per eliminare le informazioni sui dispositivi che sono stati sottoposti a provisioning, è possibile usare [Registration State - Delete Registration State](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate) (Stato di registrazione - Elimina stato di registrazione).
 
 ## <a name="exporting-customer-data"></a>Esportazione di dati del cliente
 
@@ -53,9 +53,9 @@ Per altre informazioni su come gestire le registrazioni, vedere l'argomento rela
 
 È anche possibile eseguire le operazioni di esportazione per le registrazioni e i record di registrazione usando le API REST:
 
-* Per esportare le informazioni di registrazione per un singolo dispositivo è possibile usare [Device Enrollment - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get) (Registrazione dispositivo - Ottieni).
-* Per esportare le informazioni di registrazione per un gruppo di dispositivi è possibile usare [Device Enrollment group - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get) (Registrazione gruppo di dispositivi - Ottieni).
-* Per esportare le informazioni sui dispositivi che sono già stati sottoposti a provisioning, è possibile usare [Registration State - Get Registration State](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate) (Stato di registrazione - Ottieni stato di registrazione).
+* Per esportare le informazioni di registrazione per un singolo dispositivo è possibile usare [Device Enrollment - Get](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment) (Registrazione dispositivo - Ottieni).
+* Per esportare le informazioni di registrazione per un gruppo di dispositivi è possibile usare [Device Enrollment group - Get](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup) (Registrazione gruppo di dispositivi - Ottieni).
+* Per esportare le informazioni sui dispositivi che sono già stati sottoposti a provisioning, è possibile usare [Registration State - Get Registration State](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate) (Stato di registrazione - Ottieni stato di registrazione).
 
 > [!NOTE]
 > Quando si usano i servizi enterprise di Microsoft, Microsoft genera alcune informazioni note come log generati dal sistema. Alcuni log generati dal sistema del servizio di provisioning di dispositivi non sono accessibili o esportabili dagli amministratori del tenant. Questi log costituiscono azioni pratiche eseguite nel servizio e i dati diagnostici relativi ai singoli dispositivi.

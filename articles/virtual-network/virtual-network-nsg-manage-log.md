@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 81809660bdda957eb4502e02799b9f7f5538ae51
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: bf7f1f58250d94d821e6ec41266b518d7ebe105b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114024"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427557"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registrazione diagnostica per un gruppo di sicurezza di rete
 
@@ -140,7 +140,7 @@ Per le categorie di log seguenti vengono scritti dati in formato JSON:
 
 ### <a name="event"></a>Event
 
-Il registro eventi contiene informazioni su quali regole del gruppo di sicurezza di rete vengono applicate alle macchine virtuali, in base all'indirizzo MAC. I dati nell'esempio seguente vengono registrati per ogni evento:
+Il registro eventi contiene informazioni su quali regole del gruppo di sicurezza di rete vengono applicate alle macchine virtuali, in base all'indirizzo MAC. I dati seguenti vengono registrati per ogni evento. Nell'esempio seguente, i dati vengono registrati per una macchina virtuale con indirizzo IP 192.168.1.4 e indirizzo MAC 00-0D-3A-92-6A-7C:
 
 ```json
 {
@@ -154,16 +154,16 @@ Il registro eventi contiene informazioni su quali regole del gruppo di sicurezza
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"[SECURITY RULE NAME]",
-        "direction":"In",
-        "priority":1000,
-        "type":"allow",
+        "ruleName":"[SECURITY-RULE-NAME]",
+        "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+        "priority":[PRIORITY-SPECIFIED-IN-RULE],
+        "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "conditions":{
-            "protocols":"6",
-            "destinationPortRange":"[PORT RANGE]",
-            "sourcePortRange":"0-65535",
-            "sourceIP":"0.0.0.0/0",
-            "destinationIP":"0.0.0.0/0"
+            "protocols":"[PROTOCOLS-SPECIFIED-IN-RULE]",
+            "destinationPortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+            "sourcePortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+            "sourceIP":"[SOURCE-IP-OR-RANGE-SPECIFIED-IN-RULE]",
+            "destinationIP":"[DESTINATION-IP-OR-RANGE-SPECIFIED-IN-RULE]"
             }
         }
 }
@@ -171,7 +171,7 @@ Il registro eventi contiene informazioni su quali regole del gruppo di sicurezza
 
 ### <a name="rule-counter"></a>Contatore regole
 
-Il log contatore regole contiene informazioni su ogni regola applicata alle risorse. I dati nell'esempio seguente vengono registrati ogni volta che viene applicata una regola:
+Il log contatore regole contiene informazioni su ogni regola applicata alle risorse. I dati di esempio seguenti vengono registrati ogni volta che viene applicata una regola. Nell'esempio seguente, i dati vengono registrati per una macchina virtuale con indirizzo IP 192.168.1.4 e indirizzo MAC 00-0D-3A-92-6A-7C:
 
 ```json
 {
@@ -185,9 +185,9 @@ Il log contatore regole contiene informazioni su ogni regola applicata alle riso
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"[SECURITY RULE NAME]",
-        "direction":"In",
-        "type":"allow",
+        "ruleName":"[SECURITY-RULE-NAME]",
+        "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+        "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "matchedConnections":125
         }
 }
@@ -199,7 +199,7 @@ Il log contatore regole contiene informazioni su ogni regola applicata alle riso
 ## <a name="view-and-analyze-logs"></a>Visualizzare e analizzare i log
 
 Per informazioni su come visualizzare i dati dei log di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se si inviano i dati di diagnostica a:
-- **Log Analytics**: è possibile usare la soluzione di [analisi del gruppo di sicurezza di rete](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
+- **Log Analytics**: è possibile usare la soluzione di [analisi del gruppo di sicurezza di rete](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) per ottenere ulteriori informazioni dettagliate. La soluzione offre visualizzazioni per le regole dei gruppi di sicurezza di rete che consentono o negano il traffico, in base all'indirizzo MAC, dell'interfaccia di rete in una macchina virtuale.
 - **Account di archiviazione Azure**: i dati vengono scritti in un file PT1H.json. È possibile trovare il:
     - Registro eventi nel percorso seguente: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`

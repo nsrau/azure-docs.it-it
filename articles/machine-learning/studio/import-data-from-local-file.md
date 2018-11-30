@@ -4,8 +4,9 @@ description: Informazioni su come caricare un file di dati di training dal disco
 keywords: dati di importazione, formato dati, tipi di dati, origini dati, dati di training
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c0dd9e90-23c4-4f64-8b8f-489ad79f047b
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 70e159e7b7b2b5934cc584e9eb2e511d2b0ce0db
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 057142911d8179fac0ad3e47563a4f49a9ae8d60
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346211"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263860"
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Importare dati di training da un file sul disco rigido in Machine Learning Studio
 

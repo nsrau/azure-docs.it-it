@@ -1,29 +1,31 @@
 ---
-title: Usare i report di Gestione costi in Gestione costi di Azure | Microsoft Docs
-description: Questo articolo descrive come usare i diversi report di Gestione costi nel portale di Cloudyn.
+title: Usare i report di Cloudyn in Azure | Microsoft Docs
+description: Questo articolo descrive come usare i diversi report nel portale di Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 055584bd27c978fb71e6c09995c28be7348acda8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906377"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276024"
 ---
-# <a name="use-cost-management-reports"></a>Usare i report di Gestione costi
+# <a name="use-cloudyn-reports"></a>Usare i report di Cloudyn
 
-Questo articolo illustra lo scopo dei report di Gestione costi che sono inclusi nel portale Cloudyn. Descrive anche come usare in modo efficace i report. La maggior parte dei report presenta le informazioni in modo intuitivo e con un aspetto grafico uniforme. La maggior parte delle azioni che è possibile eseguire in un report, è possibile anche in altri report. Per una panoramica su come usare i report di Gestione costi, incluse le procedure per personalizzare e salvare o pianificare i report, vedere [Informazioni sui report dei costi](understanding-cost-reports.md).
+Questo articolo illustra lo scopo dei report di Cloudyn costi che sono inclusi nel portale di Cloudyn. Descrive anche come usare in modo efficace i report. La maggior parte dei report presenta le informazioni in modo intuitivo e con un aspetto grafico uniforme. La maggior parte delle azioni che è possibile eseguire in un report, è possibile anche in altri report. Per una panoramica su come usare i report di Cloudyn, incluse le procedure per personalizzare e salvare o pianificare i report, vedere [Informazioni sui report dei costi](understanding-cost-reports.md).
+
+Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione costi di Azure è una soluzione di gestione costi nativa di Azure. È un modo per analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare gli elementi consigliati per l'ottimizzazione e di conseguenza risparmiare. Per altre informazioni, vedere [Gestione costi di Azure](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Tipi di report
 
-Esistono tre tipi di report di Gestione costi:
+Esistono tre tipi di report di Cloudyn:
 
 - Report nel tempo. Ad esempio, il report dei costi nel tempo. I report nel tempo mostrano una serie temporale di dati in un intervallo selezionato con una risoluzione predefinita e mostrano una risoluzione settimana per gli ultimi due mesi. È possibile usare il raggruppamento e i filtri per ingrandire i vari punti dati.
   - I report nel tempo consentono di visualizzare le tendenze e di rilevare i picchi o le anomalie.
@@ -49,7 +51,7 @@ I report di _analisi dei costi_ mostrato i dati di fatturazione dei provider di 
 
 Alcuni report di _analisi dei costi_ non raggruppano i costi per tag delle risorse. Le informazioni di fatturazione basate sui tag vengono visualizzate solo nei report dopo l'allocazione dei costi mediante la creazione di un modello di costo con [Allocazione dei costi a 360°](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-I report di _allocazione dei costi_ sono disponibili dopo la creazione di un modello di costo tramite [Allocazione dei costi a 360°](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Gestione costi elabora i dati dei costi o di fatturazione e _abbina_ i dati ai dati relativi all'uso e ai tag degli account cloud. Per effettuare l'abbinamento dei dati, Gestione costi richiede l'accesso ai dati relativi all'uso. Se l'utente dispone di account per i quali non sono disponibili le credenziali, questi vengono etichettati come _risorse non classificate_.
+I report di _allocazione dei costi_ sono disponibili dopo la creazione di un modello di costo tramite [Allocazione dei costi a 360°](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn elabora i dati dei costi e di fatturazione e _abbina_ i dati ai dati di utilizzo e dei tag degli account cloud. Per effettuare l'abbinamento dei dati, Cloudyn richiede l'accesso ai dati di utilizzo. Se l'utente dispone di account per i quali non sono disponibili le credenziali, questi vengono etichettati come _risorse non classificate_.
 
 ## <a name="dashboards"></a>Dashboard
 
@@ -57,7 +59,7 @@ I dashboard di Cloudyn offrono una panoramica dei report di livello elevato. I d
 
 ## <a name="budget-information-in-reports"></a>Informazioni sul budget nei report
 
-Molti report di Gestione costi mostrano informazioni sul budget dopo che l'utente ne ha creato uno manualmente. Pertanto i report non mostreranno informazioni sul budget fino a quando non si crea un budget. Per altre informazioni, vedere [Impostazioni del budget](#budget-settings).
+Molti report di Cloudyn mostrano informazioni sul budget dopo che l'utente ne ha creato uno manualmente. Pertanto i report non mostreranno informazioni sul budget fino a quando non si crea un budget. Per altre informazioni, vedere [Impostazioni del budget](#budget-settings).
 
 ## <a name="reports-and-reporting-features"></a>Report e funzionalità di creazione dei report
 
@@ -81,7 +83,7 @@ Il report Analisi dei costi è un calcolo di showback e chargeback, in base i cr
 
 I criteri configurati in [Allocazione dei costi a 360°](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) vengono usati nel report Analisi dei costi e i risultati vengono combinati con le informazioni dei dati non elaborati del proprio fornitore di servizi cloud.
 
-Come viene calcolato il report? Per garantire che l'allocazione mantenga l'integrità di ogni account collegato, il servizio Gestione costi applica l'_affinità degli account_. L'affinità garantisce che a un account che non usa un servizio specifico non venga allocato alcun costo per tale servizio. I costi accumulati nell'account rimangono all'interno di questo e non vengono calcolati in base ai criteri di allocazione. Si supponga ad esempio di avere cinque account collegati. Se solo tre di questi usano servizi di archiviazione, il costo di tali servizi viene allocato attraverso tag solo ai tre account.
+Come viene calcolato il report? Per garantire che l'allocazione mantenga l'integrità di ogni account collegato, il servizio Cloudyn applica il principio dell'_affinità degli account_. L'affinità garantisce che a un account che non usa un servizio specifico non venga allocato alcun costo per tale servizio. I costi accumulati nell'account rimangono all'interno di questo e non vengono calcolati in base ai criteri di allocazione. Si supponga ad esempio di avere cinque account collegati. Se solo tre di questi usano servizi di archiviazione, il costo di tali servizi viene allocato attraverso tag solo ai tre account.
 
 Usare il report di analisi dei costi per:
 
@@ -147,7 +149,7 @@ Questo set di report dei costi ammortizzati illustra i corrispettivi di servizio
 - Corrispettivi per l'acquisto di istanze riservate
 - Spese per l'acquisto di alcuni elementi di Azure Marketplace
 
-Nel file di fatturazione, le tariffe una tantum sono caratterizzate dal fatto che la data di inizio e la data di fine del consumo del servizio, ovvero timestamp, hanno gli stessi valori. A questo punto il servizio Gestione costi le riconosce come tariffe una tantum che vengono ammortizzate. Altri servizi in base al consumo con costi di relativi all'uso su richiesta non vengono ammortizzati.
+Nel file di fatturazione, le tariffe una tantum sono caratterizzate dal fatto che la data di inizio e la data di fine del consumo del servizio, ovvero timestamp, hanno gli stessi valori. A questo punto il servizio Cloudyn le riconosce come tariffe una tantum che vengono ammortizzate. Altri servizi in base al consumo con costi di relativi all'uso su richiesta non vengono ammortizzati.
 
 I report dei costi ammortizzati includono:
 
@@ -158,9 +160,9 @@ I report dei costi ammortizzati includono:
 
 Il report di analisi dei costi offre informazioni approfondite sul consumo e sulla spesa relativi al cloud durante un intervallo di tempo selezionato. Questo report usa i criteri impostati in [Allocazione dei costi a 360°](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) nel report Analisi dei costi.
 
-In che modo Gestione costi calcola questo report?
+Modalità di calcolo di Cloudyn per questo report
 
-Per garantire che l'allocazione mantenga l'integrità di ogni account collegato, Gestione costi applica l'_affinità degli account_. L'affinità garantisce che a un account che non usa un servizio specifico non venga allocato alcun costo per tale servizio. I costi accumulati nell'account rimangono al suo interno e non vengono calcolati in base ai criteri di allocazione. Si supponga ad esempio di avere cinque account collegati. Se solo tre di questi usano servizi di archiviazione, il costo di tali servizi viene allocato attraverso tag solo ai tre account.
+Per garantire che l'allocazione mantenga l'integrità di ogni account collegato, Cloudyn applica il principio dell'_affinità degli account_. L'affinità garantisce che a un account che non usa un servizio specifico non venga allocato alcun costo per tale servizio. I costi accumulati nell'account rimangono al suo interno e non vengono calcolati in base ai criteri di allocazione. Si supponga ad esempio di avere cinque account collegati. Se solo tre di questi usano servizi di archiviazione, il costo di tali servizi viene allocato attraverso tag solo ai tre account.
 
 Usare il report di analisi dei costi per:
 
@@ -206,7 +208,7 @@ Gli addebiti personalizzati vengono visualizzati nel report dei costi. Ad esempi
 
 Allocazione dei costi a 360° consente di creare modelli di allocazione dei costi personalizzati per assegnare i costi alle risorse cloud usate. Molti report mostrano le informazioni dei modelli di costo personalizzato che sono stati creati con i modelli di costo personalizzato. Alcuni report mostrano le informazioni solo dopo che l'utente ha creato un modello di costo personalizzato con allocazione dei costi.
 
-Per altre informazioni sulla creazione dei modelli di costo personalizzati, vedere [Esercitazione: Gestire i costi tramite Gestione costi di Azure](tutorial-manage-costs.md).
+Per altre informazioni sulla creazione dei modelli di costo personalizzati, vedere [Esercitazione: Gestire i costi tramite Cloudyn](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Report Costi e budget nel tempo
 
@@ -248,11 +250,11 @@ Al termine dell'operazione, il budget viene mostrato nel report Analisi dei cost
 
 ### <a name="azure-resource-explorer-report"></a>Report Azure Resource Explorer
 
-Il report Azure Resource Explorer mostra un elenco in blocco di tutte le risorse di Azure disponibili in Gestione costi. Per usare in modo efficace il report, gli account Azure devono aver abilitato le metriche estese. Le metriche estese consentono a Gestione costi di accedere alle macchine virtuali di Azure. Per altre informazioni, consultare [Aggiungere metriche estese per le macchine virtuali di Azure](azure-vm-extended-metrics.md).
+Il report Azure Resource Explorer mostra un elenco in blocco di tutte le risorse di Azure disponibili in Cloudyn. Per usare in modo efficace il report, gli account Azure devono aver abilitato le metriche estese. Le metriche estese consentono a Cloudyn di accedere alle macchine virtuali di Azure. Per altre informazioni, consultare [Aggiungere metriche estese per le macchine virtuali di Azure](azure-vm-extended-metrics.md).
 
 ### <a name="azure-resources-over-time-report"></a>Report Risorse di Azure nel tempo
 
-Il report Risorse di Azure nel tempo mostra una suddivisione di tutte le risorse in esecuzione in un determinato periodo. Per usare in modo efficace il report, gli account Azure devono aver abilitato le metriche estese. Le metriche estese consentono a Gestione costi di accedere alle macchine virtuali di Azure. Per altre informazioni, consultare [Aggiungere metriche estese per le macchine virtuali di Azure](azure-vm-extended-metrics.md).
+Il report Risorse di Azure nel tempo mostra una suddivisione di tutte le risorse in esecuzione in un determinato periodo. Per usare in modo efficace il report, gli account Azure devono aver abilitato le metriche estese. Le metriche estese consentono a Cloudyn di accedere alle macchine virtuali di Azure. Per altre informazioni, consultare [Aggiungere metriche estese per le macchine virtuali di Azure](azure-vm-extended-metrics.md).
 
 ### <a name="instance-explorer-report"></a>Report Esplora istanze
 
@@ -355,7 +357,7 @@ Esistono tre opzioni di pagamento per le istanze riservate, tutte stabilite in a
 - Nessun pagamento anticipato, in cui il costo dell'istanza riservata viene pagato in rate mensili per tutta la durata dell'istanza riservata, offre lo sconto più basso
 - Pagamento parziale anticipato, in cui un quarto o la metà del prezzo viene pagato in anticipo e il resto in rate mensili, con un tasso di sconto che è inferiore, ma si avvicina, al tasso di sconto del pagamento in anticipo
 
-Gestione costi valuta il tempo di attività di ogni computer negli ultimi 30 giorni. Gestione costi consiglia l'acquisto delle istanze riservate quando è più conveniente eseguire il computer con un'istanza riservata rispetto al tempo di attività corrente.
+Cloudyn valuta il tempo di attività di ogni computer negli ultimi 30 giorni. Cloudyn consiglia l'acquisto delle istanze riservate quando è più conveniente eseguire il computer con un'istanza riservata rispetto al tempo di attività corrente.
 
 Il report motiva i propri consigli per risparmiare più denaro possibile durante l'anno. I consigli suggeriscono di sostituire le istanze su richiesta con le istanze riservate. È possibile acquistare le istanze riservate direttamente dal report.
 
@@ -363,9 +365,9 @@ Ogni scheda si apre come un report completo. Le sezioni rilevanti delle schede i
 
 - **EC2 RI Purchase Impact** (Impatto dell'acquisto di istanze riservate EC2): questa sezione offre una simulazione della differenza tra le istanze riservate e le istanze su richiesta. Fare clic su **Zoom avanti** per visualizzare il report Impatto dell'acquisto delle istanze riservate EC2 completo con i filtri già definiti per i consigli. Questo report mostra l'impatto dell'acquisto di tutti i potenziali acquisti di istanze riservate. È possibile modificare il tempo di attività medio previsto per visualizzare il potenziale risparmio quando si acquistano le istanze riservate EC2.
 
-- **Saving Analysis** (Analisi di risparmio): questa sezione include i possibili risparmi ottenuti e il mese in cui i risparmi vengono resi effettivi quando si seguono i consigli di Gestione costi. I risparmi effettivi e la percentuale risparmiata sono evidenziati in rosso.
+- **Saving Analysis** (Analisi di risparmio): questa sezione include i possibili risparmi ottenuti e il mese in cui i risparmi vengono resi effettivi quando si seguono i consigli di Cloudyn. I risparmi effettivi e la percentuale risparmiata sono evidenziati in rosso.
 
-- **EC2 RI Type Comparison** (Confronto dei tipi di istanza riservata EC2): questa sezione enfatizza i ROI evidenziati della distribuzione consigliata di Gestione costi, incluse tutte le opzioni pertinenti. I risultati di questo report presuppongono che il computer sia in esecuzione al 100% di attività. Fare clic su **Zoom avanti** per aprire il report dettagliato.
+- **EC2 RI Type Comparison** (Confronto dei tipi di istanza riservata EC2): questa sezione enfatizza i ritorni sugli investimenti evidenziati della distribuzione consigliata di Cloudyn, incluse tutte le opzioni pertinenti. I risultati di questo report presuppongono che il computer sia in esecuzione al 100% di attività. Fare clic su **Zoom avanti** per aprire il report dettagliato.
 
 - **Instances Over Time** (Istanze nel tempo): questa sezione mostra una suddivisione di tutte le istanze associate ai consigli, istanze su richiesta, istanze riservate e istanze spot. Fare clic su **Zoom avanti** per aprire il report dettagliato.
 - **Breakeven Points** (Punti di pareggio): questa sezione mostra una tabella di tutte le possibili distribuzioni consigliate, del ROI e del mese in cui questo si verifica. Fare clic su **Zoom avanti** per aprire il report dettagliato.
@@ -394,7 +396,7 @@ Il report Consigli per l'acquisto dell'istanza riservata RDS consiglia quando us
 Ogni scheda si apre come un report completo. Le sezioni rilevanti delle schede includono:
 
 - **RDS RI Purchase Impact** (Impatto dell'acquisto di istanze riservate RDS): questa sezione offre una simulazione della differenza tra le istanze riservate e le istanze su richiesta. Fare clic su **Zoom avanti** per visualizzare il report sull'impatto dell'acquisto delle istanze riservate RDS completo con i filtri già definiti per i consigli. Questo report consente di vedere l'impatto dell'acquisto di tutti i potenziali acquisti di istanze riservate.  È possibile modificare la media del tempo di attività previsto e visualizzare il potenziale risparmio dovuto all'acquisto di istanze riservate.
-- **Saving Analysis** (Analisi di risparmio): questa sezione include i possibili risparmi ottenuti e il mese in cui i risparmi vengono resi effettivi quando si seguono i consigli di Gestione costi. I risparmi effettivi e la percentuale risparmiata sono evidenziati in rosso.
+- **Saving Analysis** (Analisi di risparmio): questa sezione include i possibili risparmi ottenuti e il mese in cui i risparmi vengono resi effettivi quando si seguono i consigli di Cloudyn. I risparmi effettivi e la percentuale risparmiata sono evidenziati in rosso.
 
 - **RDS RI Type Comparison** (Confronto dei tipi di istanza riservata RDS): questa sezione enfatizza i ROI evidenziati della distribuzione consigliata, incluse tutte le opzioni pertinenti. I risultati di questo report presuppongono che il computer sia in esecuzione al 100% di attività. Fare clic su **Zoom avanti** per aprire il report dettagliato per il computer selezionato.
 - **Instances Over Time** (Istanze nel tempo): questa sezione mostra una suddivisione di tutte le istanze associate ai consigli, istanze su richiesta, istanze riservate e istanze spot. Fare clic su **Zoom avanti** per aprire il report dettagliato.
@@ -417,7 +419,7 @@ Il report Consigli sul ridimensionamento conveniente offre risultati per AWS e A
 
 Si consideri l'esempio di ridimensionamento seguente:
 
-L'utente ha sei istanze m3.xlarge in esecuzione. L'analisi di Gestione costi mostra che cinque di queste presentano un basso uso della CPU. È consigliabile ridimensionarle.
+L'utente ha sei istanze m3.xlarge in esecuzione. L'analisi di Cloudyn mostra che cinque di queste presentano un basso uso della CPU. È consigliabile ridimensionarle.
 
 Nel report Impatto sui costi viene calcolato l'impatto sui costi. In questo esempio, espandendo la voce, è possibile visualizzare che il prezzo corrente per un'istanza m3.xlarge (Linux/Unix) è di $ 0,266 all'ora e che un'istanza m3.large (Linux/Unix) costa $ 0,133 all'ora. Pertanto, il costo annuo è di $ 11.651 per cinque istanze m3.xlarge in esecuzione e usate al 100%. Il costo annuo è di $ 5.825 per cinque istanze m3.large in esecuzione e usate al 100%. Il risparmio potenziale è $ 5.825.
 
@@ -425,7 +427,7 @@ Per visualizzare i motivi del ridimensionamento conveniente, fare clic su + per 
 
 - La sezione **Recommendation Justification** (Motivo consiglio) mostra la distribuzione attuale e il numero di istanze per cui si consiglia il ridimensionamento.
 - La sezione **Cost Impact** (Impatto sui costi) mostra il calcolo usato per determinare i potenziali risparmi.
-- La sezione **Potential Annual Savings** (Potenziali risparmi annuali) mostra i potenziali risparmi annuali quando si effettua il ridimensionamento in base ai consigli di Gestione costi.
+- La sezione **Potential Annual Savings** (Potenziali risparmi annuali) mostra i potenziali risparmi annuali quando si effettua il ridimensionamento in base ai consigli di Cloudyn.
 
 ### <a name="all-sizing-recommendations-report"></a>Report Tutti i consigli di ridimensionamento
 
@@ -483,11 +485,11 @@ Per visualizzare le metriche di un'istanza specifica nel tempo:
 
 ### <a name="rds-sizing-recommendations-report"></a>Report Consigli di ridimensionamento RDS
 
-Il report Consigli di ridimensionamento RDS offre consigli di ridimensionamento RDS per ottimizzare l'uso del cloud. Offre un elenco di istanze non usate in pieno che sono candidate al ridimensionamento. I consigli di Gestione costi si basano sui dati relativi all'uso e alle prestazioni degli ultimi 30 giorni. È possibile filtrare i consigli in base a nome dell'account, area, tipo di istanza e stato.
+Il report Consigli di ridimensionamento RDS offre consigli di ridimensionamento RDS per ottimizzare l'uso del cloud. Offre un elenco di istanze non usate in pieno che sono candidate al ridimensionamento. I consigli di Cloudyn si basano sui dati relativi all'uso e alle prestazioni degli ultimi 30 giorni. È possibile filtrare i consigli in base a nome dell'account, area, tipo di istanza e stato.
 
 ### <a name="sizing-threshold-manager-report"></a>Report Gestione ridimensionamento della soglia
 
-I consigli di ridimensionamento predefiniti di Gestione costi vengono calcolati usando un algoritmo complesso per dare consigli di ridimensionamento accurate. È possibile modificare le soglie per i consigli di ridimensionamento.
+I consigli di ridimensionamento predefiniti di Cloudyn vengono calcolati usando un algoritmo complesso per dare consigli di ridimensionamento accurati. È possibile modificare le soglie per i consigli di ridimensionamento.
 
 Per regolare manualmente i consigli sul ridimensionamento della soglia:
 

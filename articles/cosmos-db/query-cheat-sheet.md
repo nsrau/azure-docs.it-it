@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c79a1c0e6449e1ae87c2ed09acdc1ecd380cfaaf
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230870"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160971"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Fogli informativi sulle query per Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Scaricare i [fogli informativi sulle query per Azure Cosmos DB in formato A3](ht
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla scrittura di query, vedere gli articoli seguenti:
-* Per le query relative all'API SQL, vedere [Query using the SQL API](tutorial-query-sql-api.md) (Eseguire una query tramite l'API SQL), [Query SQL per Azure Cosmos DB](sql-api-sql-query.md) e [SQL syntax reference](sql-api-sql-query-reference.md) (Riferimento alla sintassi SQL)
+* Per le query relative all'API SQL, vedere [Query using the SQL API](tutorial-query-sql-api.md) (Eseguire una query tramite l'API SQL), [Query SQL per Azure Cosmos DB](how-to-sql-query.md) e [SQL syntax reference](sql-api-sql-query-reference.md) (Riferimento alla sintassi SQL)
 * Per le query su MongoDB, vedere [Query using the MongoDB AP](tutorial-query-mongodb.md) (Eseguire una Query tramite l'API MongoDB) e [Supporto dell'API MongoDB per le funzionalità e la sintassi MongoDB](mongodb-feature-support.md)
 * Per query sull'API Gremlin, vedere [Query using the Gremlin API](tutorial-query-graph.md) (Eseguire una query tramite l'API Gremlin) e [Supporto Gremlin Graph di Azure Cosmos DB](gremlin-support.md)
 * Per le query sull'API di tabella, vedere [Eseguire query tramite l'API di tabella](tutorial-query-table.md)

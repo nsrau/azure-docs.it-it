@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 3c07f39a6c6c4ce244ba49a26617b3e645c57acb
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345047"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710376"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Distribuire servizi Web nelle Istanze di contenitore di Azure 
 
@@ -28,7 +28,7 @@ Questo articolo illustra tre diversi modi per distribuire un modello su ACI. Si 
 * Distribuire da modelli registrati tramite `Webservice.deploy_from_model()`
 * Distribuire il modello registrato dall'immagine tramite `Webservice.deploy_from_image()`
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
 
 
 ## <a name="prerequisites"></a>Prerequisiti

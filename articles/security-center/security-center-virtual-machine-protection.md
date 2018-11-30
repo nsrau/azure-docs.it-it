@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0bd93e0732b0e822fae68b4ac2cc5e28fb246808
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016965"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316651"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protezione delle macchine virtuali nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali (VM) e computer, applicazioni, risorse di rete, SQL, identità e accesso.
@@ -205,7 +205,7 @@ Esistono tre tipi di icone rappresentate in questo elenco:
 |Risorse di calcolo (Service Fabric)|5|Abilitare i log di diagnostica in Service Fabric|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Risorse di calcolo (Batch)|5|Abilitare i log di diagnostica negli account Batch|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Risorse di calcolo (Hub eventi)|5|Abilitare i log di diagnostica in Hub eventi|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
-|Risorse di calcolo (App per la logica)|5|Abilitare i log di diagnostica in App per la logica|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
+|Risorse di calcolo (App per la logica)|5|Abilitare i log di diagnostica in App per la logica|Abilitare i log e conservarli fino a un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |
 |Machine|30|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|Installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali|
 |Machine|15|Aggiungere un Web Application Firewall| Aggiungere una soluzione WAF (web application firewall) per proteggere le applicazioni Web. |
 |Machine|30|Risolvere le vulnerabilità tramite una soluzione di valutazione della vulnerabilità|Le macchine virtuali per cui viene distribuita una soluzione di terze parti per la valutazione della vulnerabilità vengono costantemente controllate per individuare vulnerabilità del sistema operativo e delle applicazioni. Ogni volta che vengono individuate queste vulnerabilità, sono disponibili altre informazioni nell'ambito dell'indicazione.|
@@ -249,7 +249,7 @@ Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risors
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
-ms.openlocfilehash: bb3dca56583296bab42fe9804a32e0690ace5897
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: f4340d1ef30bb4317e658c9a9a936f009054e784
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578230"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710631"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
@@ -50,7 +50,7 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+- Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
 
 - Un'area di lavoro del servizio Azure Machine Learning, una directory locale contenente gli script e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
 

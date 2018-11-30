@@ -3,19 +3,19 @@ title: Definire una vista personalizzata - Ricerca personalizzata Bing
 titlesuffix: Azure Cognitive Services
 description: Descrive come creare un sito e servizi di ricerca verticale
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.author: aahi
+ms.openlocfilehash: d45d917d733727eca3286bb6335ce77591f39685
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282924"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427285"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configurare un'esperienza di ricerca personalizzata
 
@@ -160,7 +160,7 @@ Seguire questi passaggi per usare Bing per aggiungere sezioni all'istanza di Ric
 5.  Fare clic su **Add site** (Aggiungi sito) accanto al risultato da includere.
 6.  Fare clic sul pulsante **OK** .
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="view-statistics"></a>Visualizzare le statistiche
 

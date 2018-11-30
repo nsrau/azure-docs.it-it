@@ -3,19 +3,19 @@ title: Ricerca del sito, usare Ricerca personalizzata Bing dell'interfaccia uten
 titlesuffix: Azure Cognitive Services
 description: Descrive come configurare l'interfaccia utente in hosting di Ricerca personalizzata Bing.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 77845cb60dac707326acdb08b0198f8725a36f62
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813975"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424987"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurare l'esperienza dell'interfaccia utente ospitata
 
@@ -105,7 +105,7 @@ Per configurare un'interfaccia utente ospitata per l'app Web, completare questi 
 > [!NOTE]
 > Quando si apportano modifiche alla configurazione dell'interfaccia utente ospitata personalizzata, il riquadro a destra fornisce un riferimento visivo per le modifiche apportate. I risultati della ricerca visualizzati non sono effettivi risultati per l'istanza.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>Utilizzare l'interfaccia utente personalizzata
 

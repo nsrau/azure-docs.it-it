@@ -2,25 +2,21 @@
 title: Configurare ambienti di analisi scientifica dei dati in Azure | Documentazione Microsoft
 description: Configurare gli ambienti per l'analisi scientifica dei dati in Azure da usare nel processo di analisi scientifica dei dati eseguito dai team.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 481cfa6a-7ea3-46ac-b0f9-2e3982c37153
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: deguhath
-ms.openlocfilehash: 996c7b4332326ddf1ef18ca732677a85b6df6046
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: c8154400621fae719c7097e36c8e14d3f946d7c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345981"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445908"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Impostare gli ambienti per la scienza dei dati per l'uso nel Processo di analisi scientifica dei dati per i team
 Il Processo di analisi scientifica dei dati per i team usa diversi ambienti per la scienza dei dati per l'archiviazione, l'elaborazione e l'analisi dei dati. Tra questi rientrano l'archiviazione BLOB di Azure, diversi tipi di macchine virtuali di Azure, i cluster HDInsight (Hadoop) e le aree di lavoro di Azure Machine Learning. La scelta riguardante quale ambiente usare dipende dal tipo e dalla quantità di dati da modellare e dalla destinazione di quei dati nel cloud. 

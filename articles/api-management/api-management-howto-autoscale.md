@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 1d996469c01640a70b68d70e8c24c617e0defd64
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250755"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444803"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Ridimensionare automaticamente un'istanza di Gestione API di Azure  
 
@@ -32,6 +32,8 @@ Per eseguire i passaggi in questo articolo è necessario:
 + Disporre di un'istanza di Gestione API. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
 + Comprendere il concetto di [Capacità di un'istanza di Gestione API di Azure](api-management-capacity.md).
 + Comprendere il [processo di scalabilità manuale di un'istanza di Gestione API di Azure](upgrade-and-scale.md), incluse le conseguenze di costo.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Limitazioni di scalabilità automatica per Gestione API di Azure
 

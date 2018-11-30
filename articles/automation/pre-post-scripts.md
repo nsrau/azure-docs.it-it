@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956623"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584622"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gestire i pre-script e i post-script (anteprima)
 
@@ -220,8 +220,6 @@ if ($summary.Type -eq "Error")
 ## <a name="known-issues"></a>Problemi noti
 
 * Quando si usano pre-script o post-script, non è possibile passare oggetti o matrici ai parametri. Il runbook avrà esito negativo.
-* I runbook non pubblicati vengono visualizzati come selezionabili quando si sceglie un pre-script o un post-script. Scegliere solo runbook pubblicati, perché quelli non pubblicati non possono essere richiamati e avranno esito negativo.
-* I computer aggiunti a una distribuzione usando [Gruppi dinamici (anteprima)](automation-update-management.md#using-dynamic-groups) non fanno attualmente parte del parametro **SoftwareUpdateConfigurationRunContext** che viene passato nei pre-script e post-script.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

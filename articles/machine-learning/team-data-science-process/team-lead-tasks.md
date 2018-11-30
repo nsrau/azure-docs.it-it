@@ -1,25 +1,21 @@
 ---
 title: Attività del responsabile del team nel processo di data science per i team - Azure | Microsoft Docs
 description: Descrizione delle attività di un responsabile del team in un progetto team di data science.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 86ab49cb0acd9ffee47fb1f8f531c3a0cd6e6730
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297962"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443850"
 ---
 # <a name="team-lead-tasks"></a>Attività del responsabile del team
 
@@ -43,7 +39,7 @@ Dopo che il responsabile del gruppo ha completato le numerose attività prelimin
 4. (Facoltativo) Montare la risorsa di archiviazione file di Azure nella **macchina virtuale data science** (DSVM) del responsabile del team e aggiungervi gli asset di dati.
 5. Configurare il **controllo di sicurezza** aggiungendo i membri del team e configurandone i privilegi.
 
->[AZURE.NOTE] Nelle istruzioni seguenti vengono illustrati i passaggi necessari per configurare un ambiente TDSP usando Azure DevOps. Viene specificato come eseguire queste attività con Azure DevOps dal momento che questa è la modalità di implementazione di TDSP in Microsoft. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano. È invece diverso il modo in cui devono essere completate.
+>[AZURE.NOTE] Vengono illustrati i passaggi necessari per configurare un ambiente di collaborazione TDSP usando Azure DevOps nelle istruzioni seguenti. Viene specificato come eseguire queste attività con Azure DevOps dal momento che questa è la modalità di implementazione di TDSP in Microsoft. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano. È invece diverso il modo in cui devono essere completate.
 
 ## <a name="repositories-and-directories"></a>Repository e directory
 
@@ -75,7 +71,7 @@ I prerequisiti vengono soddisfatti completando le attività assegnate al respons
 - Si deve disporre dell'**autorizzazione** nell'account di gruppo necessaria per creare i repository per il team.
 - Git deve essere installato nel computer in uso. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).  
 - Se si usa una **DSVM per Windows**, è necessario avere installato [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) nel computer. Nel file README.md scorrere fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il file con estensione exe del programma di installazione ed eseguirlo. 
-- Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla agli Azure DevOps Services del gruppo. Per altre informazioni sul protocollo SSH, vedere la sezione **Creare una chiave pubblica SSH** nell'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix). 
+- Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al gruppo Azure DevOps Services. Per altre informazioni sul protocollo SSH, vedere la sezione **Creare una chiave pubblica SSH** nell'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix). 
     
 ## <a name="1-create-a-project-and-repositories"></a>1. Creare un progetto e repository
 

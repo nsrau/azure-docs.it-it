@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0376f09d4d7d6c952cbef40751a2729045f68061
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9cfb098fd8e6cb777b6cd968f92b20baabfab705
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255837"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313985"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
@@ -205,7 +205,7 @@ Usare i caratteri jolly per semplificare le attività di rilevamento nelle direc
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come usare il monitoraggio dell'integrità dei file nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Impostazione dei criteri di sicurezza](security-center-azure-policy.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione dei consigli di sicurezza](security-center-recommendations.md): informazioni su come i consigli semplificano la protezione delle risorse di Azure.
 * [Monitoraggio dell'integrità della sicurezza](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md): informazioni su come gestire gli avvisi di sicurezza e rispondervi.

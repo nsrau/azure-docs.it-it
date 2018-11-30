@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959044"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443526"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -27,7 +27,8 @@ Gestione API di Azure può essere distribuito all'interno della rete virtuale (V
 
 > [!NOTE]
 > Gestione API di Azure supporta le reti virtuali classiche e Azure Resource Manager.
->
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +39,6 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + Un'istanza di Gestione API. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
-+ La connettività di rete virtuale è disponibile solo nei livelli Premium e Developer. Per passare a uno di questi livelli, seguire le istruzioni indicate nell'argomento relativo all'[aggiornamento e alla scalabilità](upgrade-and-scale.md#upgrade-and-scale).
 
 ## <a name="enable-vpn"></a>Attivare la connessione VNET
 
@@ -157,7 +157,7 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 ## <a name="troubleshooting"> </a>Risoluzione dei problemi
 * **Installazione iniziale**: quando la distribuzione iniziale del servizio Gestione API in una subnet non ha esito positivo, è consigliabile distribuire prima una macchina virtuale nella stessa subnet. Accedere successivamente al desktop remoto nella macchina virtuale e convalidare l'esistenza di connettività a una delle risorse indicate di seguito nella sottoscrizione di Azure in uso:
     * BLOB di Archiviazione di Azure
-    * database SQL di Azure
+    * Database SQL di Azure
     * Tabella di archiviazione di Azure
 
  > [!IMPORTANT]

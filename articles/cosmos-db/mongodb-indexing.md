@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: a3dadfc4257d43f9df1b93f5d486e5577b7889d6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055312"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312698"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indicizzazione in Azure Cosmos DB: API MongoDB
 
@@ -99,5 +99,5 @@ Il comando precedente causerà l'eliminazione di tutti i documenti della raccolt
 Attualmente, gli indici univoci possono essere creati solo quando la raccolta non contiene alcun documento. Gli strumenti di migrazione più diffusi di MongoDB provano a creare gli indici univoci dopo l'importazione dei dati. Per aggirare questo problema, è consigliabile creare manualmente le raccolte e gli indici univoci corrispondenti, invece di far eseguire l'operazione allo strumento di migrazione. Per ```mongorestore``` questo comportamento si ottiene usando il flag --noIndexRestore nella riga di comando.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Come vengono indicizzati i dati da Azure Cosmos DB?](../cosmos-db/indexing-policies.md)
+* [Come vengono indicizzati i dati da Azure Cosmos DB?](../cosmos-db/index-policy.md)
 * [Impostare la scadenza automatica dei dati nelle raccolte di Azure Cosmos DB con la durata (TTL)](../cosmos-db/time-to-live.md)

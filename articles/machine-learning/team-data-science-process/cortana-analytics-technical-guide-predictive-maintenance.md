@@ -2,25 +2,21 @@
 title: Manutenzione predittiva nel settore aerospaziale con Azure - Guida tecnica alla soluzione Cortana Intelligence | Documentazione Microsoft
 description: Guida tecnica del modello di soluzione con Microsoft Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale, nei servizi pubblici e nei trasporti.
 services: machine-learning
-documentationcenter: ''
-author: fboylu
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 2c4d2147-0f05-4705-8748-9527c2c1f033
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: fboylu
-ms.openlocfilehash: 28900c39e658a2a8c66b2ded6f2d70b50bf17e80
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=fboylu, ms.author=fboylu)
+ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231522"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443747"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guida tecnica del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi
 
@@ -73,7 +69,7 @@ Tramite HDInsight eseguire script [Hive](https://blogs.msdn.com/b/bigdatasupport
 Eseguire stime sulla vita utile rimanente di un determinato motore di aereo in base agli input ricevuti mediante il servizio [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orchestrato da Azure Data Factory). 
 
 ## <a name="data-publishing"></a>Pubblicazione dei dati
-### <a name="azure-sql-database"></a>database SQL di Azure
+### <a name="azure-sql-database"></a>Database SQL di Azure
 Usare [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) per archiviare le stime ricevute dal servizio Azure Machine Learning che vengono poi usate nel dashboard di [Power BI](https://powerbi.microsoft.com).
 
 ## <a name="data-consumption"></a>Utilizzo dei dati

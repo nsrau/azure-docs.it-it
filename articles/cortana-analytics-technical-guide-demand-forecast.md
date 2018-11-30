@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238863"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427064"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guida tecnica per il modello di soluzione di Cortana Intelligence per la previsione della domanda nel settore energetico
 ## <a name="overview"></a>**Panoramica**
@@ -159,14 +159,14 @@ Dopo aver avviato il generatore di dati, la pipeline inizia ad attivarsi e i div
 Questa sezione descrive come configurare il dashboard di Power BI per visualizzare i dati in tempo reale provenienti da Analisi di flusso di Azure (percorso critico), nonché i risultati di previsione provenienti da Azure Machine Learning (percorso non critico).
 
 ### <a name="setup-hot-path-dashboard"></a>Configurare il dashboard per il percorso critico
-La procedura seguente mostra come visualizzare l'output dei dati in tempo reale da processi di Analisi di flusso generati al momento della distribuzione della soluzione. Per eseguire la procedura è necessario un account di [Power BI online](http://www.powerbi.com/) . Se non si ha un account, [crearne uno](https://powerbi.microsoft.com/pricing).
+La procedura seguente mostra come visualizzare l'output dei dati in tempo reale da processi di Analisi di flusso generati al momento della distribuzione della soluzione. Per eseguire la procedura è necessario un account di [Power BI online](https://www.powerbi.com/) . Se non si ha un account, [crearne uno](https://powerbi.microsoft.com/pricing).
 
 1. Aggiungere l'output di Power BI ad Analisi di flusso di Azure.
 
    * Per impostare l'output del processo di Analisi di flusso di Azure come dashboard di Power BI, seguire le istruzioni in [Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati](stream-analytics/stream-analytics-power-bi-dashboard.md).
    * Trovare il processo di Analisi di flusso nel [portale di Azure](https://portal.azure.com). Il nome del processo deve essere nel formato seguente: NomeSoluzione+"streamingjob"+numero casuale+"asapbi", ad esempio demostreamingjob123456asapbi.
    * Aggiungere un output di PowerBI per il processo ASA. Impostare il valore di **Alias di output** su **"PBIoutput"**. Impostare il valore di **Nome del set di dati** e di **Nome tabella** su **"EnergyStreamData"**. Dopo aver aggiunto l'output, fare clic su **"Avvia"** nella parte inferiore della pagina per avviare il processo di Analisi di flusso. Verrà visualizzato un messaggio di conferma simile al seguente: "L'avvio del processo di Analisi di flusso myteststreamingjob12345asablob è stato completato".
-2. Accedere a [Power BI online](http://www.powerbi.com)
+2. Accedere a [Power BI online](https://www.powerbi.com)
 
    * In Area di lavoro personale, nella sezione Dataset del pannello di sinistra di Power BI, dovrebbe essere visualizzato un nuovo set di dati. Si tratta dei dati di flusso di cui si è eseguito il push da Analisi di flusso di Azure nel passaggio precedente.
    * Assicurarsi che il riquadro ***Visualizzazioni*** sia aperto e visualizzato sul lato destro dello schermo.
@@ -207,7 +207,7 @@ Nella pipeline di dati del percorso non critico l'obiettivo principale consiste 
    * Nella finestra popup sostituire **"Server"** e **"Database"** con i nomi del server e del database usati e quindi fare clic su **"OK"**. Per il nome del server, assicurarsi di specificare la porta 1433:**NomeSoluzione.database.windows.net, 1433**. Ignorare i messaggi di avviso visualizzati sullo schermo.
    * Nella finestra popup successiva sono disponibili due opzioni nel pannello di sinistra, **Windows** e **Database**. Fare clic su **"Database"** e inserire il proprio **"nome utente"** e **"password"**, ovvero il nome utente e la password immessi al momento della prima distribuzione della soluzione e della creazione del database SQL di Azure. In ***Selezionare il livello a cui applicare queste impostazioni*** selezionare l'opzione relativa al livello di database. Fare quindi clic su **"Connetti"**.
    * Quando viene di nuovo visualizzata la pagina precedente, chiudere la finestra. Nel messaggio popup visualizzato fare clic su **Applica**. Infine, fare clic sul pulsante **Salva** per salvare le modifiche apportate. Il file di Power BI è ora connesso al server. Se le visualizzazioni sono vuote, assicurarsi di annullare le selezioni per visualizzare tutti i dati facendo clic sull'icona della gomma nell'angolo superiore destro della legenda. Usare il pulsante Aggiorna per aggiornare le visualizzazioni con i nuovi dati. Inizialmente le visualizzazioni contengono solo i dati di seeding, perché l'aggiornamento della data factory è pianificato ogni 3 ore. Dopo 3 ore, aggiornando i dati nelle visualizzazioni saranno disponibili le nuove stime.
-3. (Facoltativo) Pubblicare il dashboard per il percorso non critico in [Power BI online](http://www.powerbi.com/). Si noti che per questo passaggio è necessario un account Power BI o Office 365.
+3. (Facoltativo) Pubblicare il dashboard per il percorso non critico in [Power BI online](https://www.powerbi.com/). Si noti che per questo passaggio è necessario un account Power BI o Office 365.
 
    * Fare clic su **Pubblica** . Dopo alcuni secondi viene visualizzato un messaggio di conferma della pubblicazione in Power BI con un segno di spunta verde. Fare clic sul collegamento sotto Apri demoprediction.pbix in Power BI. Per istruzioni dettagliate, vedere [Pubblicare da Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Per creare un nuovo dashboard, fare clic sul segno **+** accanto alla sezione **Dashboard** nel riquadro di sinistra. Immettere il nome "Demand Forecasting Demo" per questo nuovo dashboard.

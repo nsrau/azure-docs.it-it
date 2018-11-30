@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304442"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284524"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Gestire l'accesso di utenti esterni tramite il controllo degli accessi in base al ruolo
 
@@ -45,7 +45,7 @@ Dopo avere eseguito l'accesso come amministratore dal portale di Azure, selezion
 ![Pannello delle sottoscrizioni nel portale di Azure](./media/role-assignments-external-users/0.png) Per impostazione predefinita, se l'utente amministratore ha acquistato la sottoscrizione di Azure, l'utente verrà visualizzato come **amministratore dell'account**, vale a dire con il ruolo di sottoscrizione. Per altre informazioni sui ruoli di sottoscrizione di Azure, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 In questo esempio l'utente "alflanigan@outlook.com" è **Proprietario** della sottoscrizione nella "versione di valutazione gratuita" nel tenant AAD "Default tenant Azure". Poiché questo utente ha creato la sottoscrizione di Azure con l'account Microsoft iniziale "Outlook" (account Microsoft = Outlook, Live e così via), il nome di dominio predefinito per tutti gli altri utenti aggiunti in questo tenant sarà **"\@alflaniganuoutlook.onmicrosoft.com"**. Per impostazione predefinita, la sintassi del nuovo dominio è costituita dalla combinazione di nome utente e nome dominio dell'utente che ha creato il tenant con l'aggiunta dell'estensione **".onmicrosoft.com"**.
-Gli utenti possono anche accedere con un nome di dominio personalizzato nel tenant dopo averlo aggiunto e verificato per il nuovo tenant. Per altre informazioni su come verificare un nome di dominio personalizzato in un tenant di Azure Active Directory, vedere [Aggiungere un nome di dominio personalizzato alla directory](/active-directory/active-directory-add-domain).
+Gli utenti possono anche accedere con un nome di dominio personalizzato nel tenant dopo averlo aggiunto e verificato per il nuovo tenant. Per altre informazioni su come verificare un nome di dominio personalizzato in un tenant di Azure Active Directory, vedere [Aggiungere un nome di dominio personalizzato alla directory](../active-directory/fundamentals/add-custom-domain.md).
 
 In questo esempio la directory "Default tenant Azure" contiene solo gli utenti con il nome di dominio "\@alflanigan.onmicrosoft.com".
 
@@ -85,7 +85,7 @@ Pur essendo un utente guest nella directory, l'utente esterno può gestire tutte
 
 ![accesso limitato ad Azure Active Directory nel portale di Azure](./media/role-assignments-external-users/9.png)
 
-Azure Active Directory e una sottoscrizione di Azure non hanno una relazione padre-figlio come quella che hanno altre risorse di Azure, ad esempio le macchine virtuali, le reti virtuali, le app Web, le risorse di archiviazione e così via, con una sottoscrizione di Azure. Tutte queste ultime vengono create, gestite e fatturate in una sottoscrizione di Azure, mentre una sottoscrizione di Azure viene usata per gestire l'accesso a una directory di Azure. Per altre informazioni, vedere [Come associare una sottoscrizione di Azure ad Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
+Azure Active Directory e una sottoscrizione di Azure non hanno una relazione padre-figlio come quella che hanno altre risorse di Azure, ad esempio le macchine virtuali, le reti virtuali, le app Web, le risorse di archiviazione e così via, con una sottoscrizione di Azure. Tutte queste ultime vengono create, gestite e fatturate in una sottoscrizione di Azure, mentre una sottoscrizione di Azure viene usata per gestire l'accesso a una directory di Azure. Per altre informazioni, vedere [Come associare una sottoscrizione di Azure ad Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 Da tutti i ruoli predefiniti di controllo degli accessi in base al ruolo, **Proprietario** e **Collaboratore** offrono l'accesso completo a livello di gestione a tutte le risorse nell'ambiente, ma il ruolo Collaboratore non può creare ed eliminare nuovi ruoli di controllo degli accessi in base al ruolo. Altri ruoli predefiniti, come **Collaboratore Macchina Virtuale**, offrono l'accesso completo a livello di gestione solo alle risorse indicate dal nome, indipendentemente dal **gruppo di risorse** in cui sono state create.
 

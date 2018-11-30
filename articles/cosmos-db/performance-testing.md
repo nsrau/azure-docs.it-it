@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: ce2c0ddcce3813990bf819477f7db425d70e3595
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09ed72c73acf16f944c3b1101aff5ea04acb624d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612300"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308172"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test delle prestazioni e della scalabilità con Azure Cosmos DB
 
@@ -95,7 +95,7 @@ Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET, come d
 
 **Passaggio 4 (se necessario)** : la velocità effettiva segnalata (UR/sec) dallo strumento deve essere analoga o superiore a quella della raccolta o di un set di raccolte. In caso contrario, l'aumento di DegreeOfParallelism a piccoli incrementi può aiutare a raggiungere il limite. Se la velocità effettiva dall'app client si stabilizza, avviare più istanze dell'app in altri computer client. Per ottenere assistenza per questo passaggio, inviare un messaggio di posta elettronica all'indirizzo askcosmosdb@microsoft.com o creare un ticket di supporto dal [portale di Azure](https://portal.azure.com).
 
-Quando l'app è in esecuzione, è possibile provare [criteri di indicizzazione](indexing-policies.md) e [livelli di coerenza](consistency-levels.md) diversi per comprenderne l'impatto sulla velocità effettiva e sulla latenza. È anche possibile esaminare il codice sorgente e implementare configurazioni analoghe alle suite di test o alle applicazioni di produzione.
+Quando l'app è in esecuzione, è possibile provare [criteri di indicizzazione](index-policy.md) e [livelli di coerenza](consistency-levels.md) diversi per comprenderne l'impatto sulla velocità effettiva e sulla latenza. È anche possibile esaminare il codice sorgente e implementare configurazioni analoghe alle suite di test o alle applicazioni di produzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha illustrato come eseguire i test delle prestazioni e della scalabilità con Azure Cosmos DB usando un'app console .NET. Per altre informazioni, vedere gli articoli seguenti:

@@ -3,19 +3,19 @@ title: Domande frequenti - API Ricerca immagini Bing
 titleSuffix: Azure Cognitive Services
 description: Questo articolo offre risposte alle domande frequenti su concetti, codice e scenari correlati all'API Ricerca immagini Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: cdc8d8cad26ce4807c8f7bf8fe1d33f13d5799c1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.author: aahi
+ms.openlocfilehash: ab67769aee5347fdf21a58c6af5b9af02b4f36ba
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232937"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161226"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Domande frequenti sull'API Ricerca immagini Bing
 

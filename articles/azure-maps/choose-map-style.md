@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 32571d88ffc08c19f819335254b4f5dda521bdb0
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c77467efbbc1c33be5bc2aaf3251a5803beee864
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885922"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317110"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Scegliere uno stili delle mappe in Mappe di Azure
 
@@ -42,7 +42,7 @@ Il secondo blocco di codice usa il metodo [setStyle](https://docs.microsoft.com/
 
 Il primo blocco di codice imposta la chiave di sottoscrizione e crea un oggetto Mappa con lo stile mappa preimpostato su grayscale_dark. Per le istruzioni è possibile vedere [creare una mappa](./map-create.md).
 
-Il secondo blocco di codice costruisce un selettore di stile usando il costruttore [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) dell'atlante.
+Il secondo blocco di codice costruisce un selettore di stile usando il costruttore [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) dell'atlante.
 
 Un selettore di stile consente di selezionare lo stile per la mappa. Il terzo blocco di codice aggiunge il selettore di stile alla mappa usando il metodo [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) della mappa. Il selettore di stile è all'interno del **listener di eventi** della mappa per garantire il caricamento dopo che la mappa è stata caricata completamente.
 

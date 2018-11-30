@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409357"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285051"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -167,7 +167,7 @@ Il comportamento di Patch Orchestration App può essere configurato per soddisfa
 
 1. Completare tutti i passaggi preliminari per preparare il cluster.
 2. Distribuire Patch Orchestration App come qualsiasi altra app di Service Fabric. È possibile distribuire l'app tramite PowerShell. Seguire la procedura in [Distribuire e rimuovere applicazioni con PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-3. Per configurare l'applicazione al momento della distribuzione, passare `ApplicationParamater` al cmdlet `New-ServiceFabricApplication`. Per praticità, è stato fornito lo script Deploy.ps1 insieme all'applicazione. Per usare lo script:
+3. Per configurare l'applicazione al momento della distribuzione, passare `ApplicationParameter` al cmdlet `New-ServiceFabricApplication`. Per praticità, è stato fornito lo script Deploy.ps1 insieme all'applicazione. Per usare lo script:
 
     - Connettersi a un cluster di Service Fabric tramite `Connect-ServiceFabricCluster`.
     - Eseguire lo script Deploy.ps1 di PowerShell con il valore `ApplicationParameter` appropriato.

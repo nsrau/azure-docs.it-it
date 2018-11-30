@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ad7bb3c3a7bd50521b968b7c1a4e21027fbe18f2
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0fc81a75e79d7f570bd55c9c30a464e5bbb9ad1c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986053"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423433"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Flusso on-behalf-of di Azure Active Directory v2.0 e di OAuth 2.0
 
@@ -133,7 +133,7 @@ Una risposta di esito positivo è una risposta OAuth 2.0 JSON con i parametri se
 
 | Parametro | DESCRIZIONE |
 | --- | --- |
-| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui token di connessione, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)(Framework di autorizzazione di OAuth 2.0: uso dei token di connessione - RFC 6750). |
+| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui token di connessione, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)(Framework di autorizzazione di OAuth 2.0: uso dei token di connessione - RFC 6750). |
 | scope |L'ambito di accesso concesso nel token. |
 | expires_in |Il periodo di validità del token di accesso (in secondi). |
 | access_token |Token di accesso richiesto. Il servizio chiamante può usare questo token per l'autenticazione nel servizio ricevente. |

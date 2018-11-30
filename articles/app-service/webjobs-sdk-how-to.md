@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577012"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335215"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -462,7 +462,7 @@ I filtri funzione (anteprima) offrono un modo per personalizzare la pipeline di 
 
 ### <a name="log-filtering"></a>Filtro del log
 
-Ogni log creato da un'istanza `ILogger` ha `Category` e `Level` associati. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) è un'enumerazione e il codice integer ne indica la relativa importanza:
+Ogni log creato da un'istanza `ILogger` ha `Category` e `Level` associati. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) è un'enumerazione e il codice integer ne indica la relativa importanza:
 
 |LogLevel    |Codice|
 |------------|---|
@@ -474,7 +474,7 @@ Ogni log creato da un'istanza `ILogger` ha `Category` e `Level` associati. [LogL
 |Critico    | 5 |
 |Nessuna        | 6 |
 
-Ogni categoria può essere filtrata in modo indipendente a un determinato [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel). Ad esempio, si potrebbe voler vedere tutti i log per l'elaborazione del trigger del log ma solo `Error` e superiori per tutto il resto.
+Ogni categoria può essere filtrata in modo indipendente a un determinato [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel). Ad esempio, si potrebbe voler vedere tutti i log per l'elaborazione del trigger del log ma solo `Error` e superiori per tutto il resto.
 
 Per rendere più semplice specificare le regole di filtro, WebJobs SDK offre `LogCategoryFilter` che può essere trasmesso a molti dei provider di log esistenti, inclusi Application Insights e Console.
 

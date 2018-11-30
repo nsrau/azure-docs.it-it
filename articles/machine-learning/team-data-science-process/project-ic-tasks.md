@@ -1,25 +1,21 @@
 ---
 title: Attività del processo di data science per i team di un singolo collaboratore - Azure | Microsoft Docs
 description: Descrizione delle attività di un singolo collaboratore in un progetto di data science in team.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: f21098381d75a4843e9300beaae687adc6ec107d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: d8e51dcf8434508664801f53391592aab34d7e4a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303762"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447062"
 ---
 # <a name="individual-contributor-tasks"></a>Attività del singolo collaboratore
 
@@ -61,7 +57,7 @@ Il secondo prerequisito, relativo al repository **TeamUtilities**, è facoltativ
 
 - Git deve essere installato nel computer. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).  
 - Se si usa una **DSVM per Windows**, è necessario avere installato [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) nel computer. Nel file README.md scorrere fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il file con estensione exe del programma di installazione ed eseguirlo. 
-- Se si usa **DSVM Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al gruppo dei servizi di Azure DevOps. Per altre informazioni sul protocollo SSH, vedere la sezione **Creare una chiave pubblica SSH** nell'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix). 
+- Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al gruppo Azure DevOps Services. Per altre informazioni sul protocollo SSH, vedere la sezione **Creare una chiave pubblica SSH** nell'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix). 
 - Se il responsabile del team e/o del progetto ha creato una risorsa di archiviazione file di Azure che è necessario montare nella DSVM, è consigliabile chiedergli informazioni in proposito. 
 
 ## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Passaggi 1-3: Clonare i repository del gruppo, del team e del progetto nel computer locale

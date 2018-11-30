@@ -3,7 +3,7 @@ title: Guida alla pianificazione e alla gestione del Centro sicurezza di Azure |
 description: Questo documento contiene indicazioni utili per l'adozione del Centro sicurezza di Azure e considerazioni relative alle operazioni quotidiane.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2018
-ms.author: yurid
-ms.openlocfilehash: 76d472ff75f66973b3e680d8a30d7691c1cd36dc
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: f24baaf07f86722bc461cbb79e262f63b46c8a1f
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622568"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619947"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni intendano usare il Centro sicurezza di Azure.
 
-    
+
 ## <a name="planning-guide"></a>Guida alla pianificazione
 Questa guida illustra una serie di passaggi e attività che è possibile eseguire per ottimizzare l'uso del Centro sicurezza in base ai requisiti di sicurezza e al modello di gestione cloud dell'organizzazione. Per sfruttare tutti i vantaggi del Centro sicurezza, è importante sapere come i vari utenti o team dell'organizzazione usano il servizio per soddisfare le esigenze di gestione e sviluppo, monitoraggio, governance e risposta agli eventi imprevisti in modo sicuro. Le aree principali da considerare quando si intende usare il Centro sicurezza sono:
 
@@ -40,7 +40,7 @@ Nella sezione successiva si apprenderà come pianificare ogni singola area e app
 
 > [!NOTE]
 > Per un elenco delle domande comuni che possono risultare utili anche durante la fase di progettazione e di pianificazione, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) .
-> 
+>
 
 ## <a name="security-roles-and-access-controls"></a>Ruoli di sicurezza e controlli di accesso
 A seconda delle dimensioni e della struttura dell'organizzazione, il Centro sicurezza di Azure potrebbe essere usato da più utenti e team per l'esecuzione di diverse attività correlate alla sicurezza. Nel diagramma seguente è riportato un esempio di utenti fittizi e dei rispettivi ruoli e responsabilità in materia di sicurezza:
@@ -74,7 +74,7 @@ Il Centro sicurezza consente a questi utenti di svolgere i relativi ruoli, Ad es
 **Sam (analista della sicurezza)**
 
 * Analizza gli attacchi
-* Collabora con il proprietario del carico di lavoro cloud per applicare la correzione. 
+* Collabora con il proprietario del carico di lavoro cloud per applicare la correzione.
 
 Il Centro sicurezza usa il [controllo degli accessi in base al ruolo (RBAC)o](../role-based-access-control/role-assignments-portal.md), che fornisce [ruoli predefiniti](../role-based-access-control/built-in-roles.md) assegnabili a utenti, gruppi e servizi in Azure. Quando un utente apre il Centro sicurezza, visualizza solo informazioni correlate alle risorse a cui ha accesso. All'utente viene infatti assegnato il ruolo Proprietario, Collaboratore o Lettore per la sottoscrizione o il gruppo di risorse a cui appartiene la risorsa. Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
 
@@ -84,9 +84,9 @@ Il Centro sicurezza usa il [controllo degli accessi in base al ruolo (RBAC)o](..
 I ruoli del Centro sicurezza descritti in precedenza non hanno accesso ad altre aree del servizio di Azure come Archiviazione, Web e dispositivi mobili o Internet delle cose.  
 
 > [!NOTE]
-> Un utente deve essere almeno proprietario di una sottoscrizione o di un gruppo di risorse oppure un collaboratore per poter visualizzare il Centro sicurezza di Azure. 
-> 
-> 
+> Un utente deve essere almeno proprietario di una sottoscrizione o di un gruppo di risorse oppure un collaboratore per poter visualizzare il Centro sicurezza di Azure.
+>
+>
 
 Con gli utenti tipo descritti nel diagramma precedente sarebbe necessario il controllo degli accessi in base al ruolo seguente:
 
@@ -118,8 +118,8 @@ Quando si pianifica il controllo di accesso con il Controllo degli accessi in ba
 
 > [!NOTE]
 > È consigliabile assegnare il ruolo con il minor numero di autorizzazioni che permetta agli utenti di completare le attività. Ad esempio, agli utenti che hanno solo necessità di visualizzare le informazioni sullo stato di sicurezza delle risorse senza intervenire, per applicare le raccomandazioni o modificare i criteri, deve essere assegnato il ruolo Lettore.
-> 
-> 
+>
+>
 
 ## <a name="security-policies-and-recommendations"></a>Criteri di sicurezza e raccomandazioni
 Un criterio di sicurezza definisce la configurazione specifica dei carichi di lavoro e contribuisce ad assicurare la conformità ai requisiti aziendali o normativi per la sicurezza. Nel Centro sicurezza è possibile definire criteri per le sottoscrizioni di Azure, che possono essere adattati al tipo di carico di lavoro o alla riservatezza dei dati.
@@ -151,15 +151,15 @@ Per disabilitare successivamente la raccolta dati, è possibile usare i criteri 
 
 > [!NOTE]
 > Per un elenco delle macchine virtuali supportate, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
-> 
+>
 
 ### <a name="workspace"></a>Area di lavoro
 
 Un'area di lavoro di Azure è una risorsa usata come contenitore per i dati. Nell'organizzazione è possibile usare più aree di lavoro per gestire diversi set di dati raccolti dall'intera infrastruttura IT o da una parte di essa.
 
-I dati raccolti da Microsoft Monitoring Agent (per conto del Centro sicurezza di Azure) verranno archiviati in una o più aree di lavoro di Log Analytics esistenti associate alla sottoscrizione di Azure o in una o più aree di lavoro nuove, a seconda dell'area geografica della macchina virtuale. 
+I dati raccolti da Microsoft Monitoring Agent (per conto del Centro sicurezza di Azure) verranno archiviati in una o più aree di lavoro di Log Analytics esistenti associate alla sottoscrizione di Azure o in una o più aree di lavoro nuove, a seconda dell'area geografica della macchina virtuale.
 
-Nel portale di Azure è possibile visualizzare un elenco delle aree di lavoro di Log Analytics, incluse quelle create dal Centro sicurezza di Azure. Per le nuove aree di lavoro verrà creato un gruppo di risorse correlato. Entrambi seguiranno questa convenzione di denominazione: 
+Nel portale di Azure è possibile visualizzare un elenco delle aree di lavoro di Log Analytics, incluse quelle create dal Centro sicurezza di Azure. Per le nuove aree di lavoro verrà creato un gruppo di risorse correlato. Entrambi seguiranno questa convenzione di denominazione:
 
 * Area di lavoro: *DefaultWorkspace-[subscription-ID]-[geo]*
 * Gruppo di risorse: *DefaultResourceGroup-[geo]*
@@ -168,7 +168,7 @@ Per le aree di lavoro create dal Centro sicurezza di Azure, i dati vengono conse
 
 > [!NOTE]
 > Microsoft è fortemente impegnata nella protezione della privacy e della sicurezza dei dati. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio. Per altre informazioni sulla privacy e sulla gestione dei dati, leggere [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md).
-> 
+>
 
 ## <a name="onboarding-non-azure-resources"></a>Onboarding delle risorse non Azure
 
@@ -195,7 +195,7 @@ Pianificare una verifica dell'opzione [Intelligence per le minacce](https://docs
 ### <a name="monitoring-for-new-or-changed-resources"></a>Monitoraggio di risorse nuove o modificate
 Gli ambienti Azure sono per la maggior parte dinamici, con nuove risorse che vengono attivate e disattivate a intervalli regolari, nuove configurazioni, modifiche e così via. Il Centro sicurezza contribuisce a garantire la visibilità dello stato di sicurezza delle nuove risorse.
 
-Quando si aggiungono nuove risorse all'ambiente Azure, come VM o database SQL, il Centro sicurezza le individua automaticamente e iniziare a monitorarne la sicurezza. Ciò include anche i ruoli di lavoro e i ruoli Web PaaS. Se la raccolta dati è abilitata nei [criteri di sicurezza](security-center-policies.md), vengono abilitate automaticamente funzionalità di monitoraggio aggiuntive per le macchine virtuali.
+Quando si aggiungono nuove risorse all'ambiente Azure, come VM o database SQL, il Centro sicurezza le individua automaticamente e iniziare a monitorarne la sicurezza. Ciò include anche i ruoli di lavoro e i ruoli Web PaaS. Se la raccolta dati è abilitata nei [criteri di sicurezza](security-center-azure-policy.md), vengono abilitate automaticamente funzionalità di monitoraggio aggiuntive per le macchine virtuali.
 
 ![Aree principali](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
@@ -214,7 +214,7 @@ Quando si aggiungono nuove risorse all'ambiente Azure, come VM o database SQL, i
 
 ### <a name="hardening-access-and-applications"></a>Applicare la protezione avanzata all'accesso e alle applicazioni
 
-Come parte delle operazioni di sicurezza è consigliabile adottare misure preventive per limitare l'accesso alle VM e controllare le applicazioni in esecuzioni sulle VM. Bloccando il traffico in ingresso nelle VM di Azure si riduce l'esposizione agli attacchi e si offre al tempo stesso un accesso facilitato per la connessione alle VM quando necessario. Usare la funzionalità [Accesso Just-In-Time alla VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) per applicare la protezione avanzata all'accesso alle VM. 
+Come parte delle operazioni di sicurezza è consigliabile adottare misure preventive per limitare l'accesso alle VM e controllare le applicazioni in esecuzioni sulle VM. Bloccando il traffico in ingresso nelle VM di Azure si riduce l'esposizione agli attacchi e si offre al tempo stesso un accesso facilitato per la connessione alle VM quando necessario. Usare la funzionalità [Accesso Just-In-Time alla VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) per applicare la protezione avanzata all'accesso alle VM.
 
 È possibile usare i [controlli delle applicazioni adattivi](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) per controllare quali applicazioni possono essere eseguite nelle macchine virtuali in Azure. Questo approccio consente anche di garantire la protezione avanzata delle macchine virtuali contro i malware. Il Centro sicurezza usa Machine Learning per analizzare i processi in esecuzione nella macchina virtuale e, grazie a questa funzionalità intelligente, aiuta ad applicare regole di inserimento nell'elenco elementi consentiti.
 
@@ -228,11 +228,11 @@ Per quanto offrire una guida alla creazione di un piano di risposta agli eventi 
 
 > [!NOTE]
 > Per tale scopo è possibile usare la [Computer Security Incident Handling Guide](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) (Guida alla gestione degli eventi imprevisti della sicurezza nei computer) del National Institute of Standards and Technology (NIST).
-> 
+>
 
 È possibile usare gli avvisi del Centro sicurezza durante le fasi seguenti.
 
-* **Rilevamento**: identificazione di un'attività sospetta in una o più risorse. 
+* **Rilevamento**: identificazione di un'attività sospetta in una o più risorse.
 * **Valutazione**: esecuzione della valutazione iniziale per ottenere altre informazioni sull'attività sospetta.
 * **Diagnosi**: uso dei passaggi di correzione per completare la procedura tecnica per risolvere il problema.
 
@@ -251,9 +251,9 @@ Dopo avere identificato il sistema danneggiato, è possibile eseguire i [playboo
 Nel video [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Come sfruttare il Centro sicurezza di Azure e Microsoft Operations Management Suite per la risposta a un evento imprevisto) è possibile vedere alcune demo che consentono di comprendere come usare il Centro sicurezza per ognuna di queste fasi.
 
 > [!NOTE]
-> Vedere [Uso del Centro sicurezza di Azure per rispondere agli eventi imprevisti](security-center-incident-response.md) per altre informazioni sull'uso delle funzionalità del Centro sicurezza di Azure per rispondere agli eventi imprevisti. 
-> 
-> 
+> Vedere [Uso del Centro sicurezza di Azure per rispondere agli eventi imprevisti](security-center-incident-response.md) per altre informazioni sull'uso delle funzionalità del Centro sicurezza di Azure per rispondere agli eventi imprevisti.
+>
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento è stato descritto come pianificare l'adozione del Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -263,4 +263,3 @@ In questo documento è stato descritto come pianificare l'adozione del Centro si
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.
-

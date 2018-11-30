@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4c6765e54dc881c35e344f111e82721be0852052
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961824"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823759"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -71,7 +71,7 @@ Per inviare dati dal log attività di Azure in uno spazio dei nomi di Hub eventi
 
 Le risorse di Azure generano due tipi di dati di monitoraggio:
 1. [Log di diagnostica delle risorse](./monitoring-overview-of-diagnostic-logs.md)
-2. [Metriche](../monitoring/monitoring-data-collection.md)
+2. [Metriche](../azure-monitor/platform/data-collection.md)
 
 Entrambi i tipi di dati vengono inviati a un hub eventi tramite un'impostazione di diagnostica delle risorse. [Seguire queste istruzioni](./monitoring-stream-diagnostic-logs-to-event-hubs.md) per configurare un'impostazione di diagnostica per una determinata risorsa. Configurare un'impostazione di diagnostica per ogni risorsa di cui si vogliono raccogliere i log.
 

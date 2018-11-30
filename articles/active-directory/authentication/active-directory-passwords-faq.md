@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 50edabb395380c8b0185736205834dd65e47317f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160743"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425254"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -35,7 +35,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
 * **D: Gli utenti possono registrare i propri dati per la reimpostazione della password?**
 
-  > **R:** Sì. Se la reimpostazione della password è abilitata, gli utenti con licenza possono accedere al portale di registrazione per la reimpostazione della password (https://aka.ms/ssprsetup) per registrare le proprie informazioni di autenticazione. La registrazione può essere eseguita anche tramite il pannello di accesso (http://myapps.microsoft.com). Per la registrazione tramite il pannello di accesso, gli utenti devono selezionare la propria immagine del profilo, quindi **Profilo** e infine l'opzione **Registrazione per reimpostazione password**.
+  > **R:** Sì. Se la reimpostazione della password è abilitata, gli utenti con licenza possono accedere al portale di registrazione per la reimpostazione della password (https://aka.ms/ssprsetup) per registrare le proprie informazioni di autenticazione. La registrazione può essere eseguita anche tramite il pannello di accesso (https://myapps.microsoft.com). Per la registrazione tramite il pannello di accesso, gli utenti devono selezionare la propria immagine del profilo, quindi **Profilo** e infine l'opzione **Registrazione per reimpostazione password**.
   >
   >
 * **D: Se si abilita la reimpostazione della password per un gruppo e quindi si decide di abilitare questa funzionalità per tutti gli utenti, è necessario che gli utenti ripetano la registrazione?**

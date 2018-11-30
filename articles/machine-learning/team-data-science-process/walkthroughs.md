@@ -2,25 +2,21 @@
 title: Procedure dettagliate per l'esecuzione del processo di data science per i Team in Azure | Microsoft Docs
 description: Come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: deguhath
-ms.openlocfilehash: 86024316344ccbce87f48adbc0598c94e61c5e6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253568"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495896"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Procedure dettagliate del processo di data science per i team
 
@@ -32,7 +28,6 @@ Queste **procedure dettagliate complete** illustrano i passaggi del processo di 
 Di seguito sono riportate brevi descrizioni di quanto fornito da questi esempi di procedure dettagliate nelle rispettive piattaforme:
 
 
-- [Azure Machine Learning Workbench](walkthroughs-aml-with-tdsp.md) Queste procedure dettagliate di esercitazione e di esempio illustrano come creare progetti strutturati di data science per i team con Azure Machine Learning Workbench per eseguire processi di elaborazione e classificazione in linguaggio naturale.
 - [Procedure dettagliate di HDInsight Spark con PySpark e Scala](walkthroughs-spark.md) Queste procedure dettagliate usano PySpark e Scala in un cluster Spark di Azure per eseguire analisi predittive.
 - [Procedure dettagliate di HDInsight Hadoop con Hive](walkthroughs-hdinsight-hadoop.md) Queste procedure dettagliate usano Hive con un cluster HDInsight Hadoop per eseguire analisi predittive.
 - [Procedure dettagliate di Azure Data Lake con U-SQL](walkthroughs-azure-data-lake.md) Queste procedure dettagliate usano U-SQL con Azure Data Lake per eseguire analisi predittive.

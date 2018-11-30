@@ -1,23 +1,23 @@
 ---
-title: Informazioni sui report di gestione dei costi in Gestione costi di Azure | Microsoft Docs
+title: Informazioni sui report di gestione dei costi Cloudyn in Azure | Microsoft Docs
 description: Questo articolo contiene informazioni utili per comprendere le funzioni e la struttura di base dei report di gestione dei costi Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/18/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: b4e1ffa0b7bd524fc9029b21e77b09ea07e1f202
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064627"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276653"
 ---
-# <a name="understanding-cost-management-reports"></a>Informazioni sui report di gestione dei costi
+# <a name="understanding-cloudyn-cost-management-reports"></a>Informazioni sui report di gestione dei costi Cloudyn
 
 Questo articolo contiene informazioni utili per comprendere le funzioni e la struttura di base dei report di gestione dei costi Cloudyn. La maggior parte dei report Cloudyn presenta le informazioni in modo intuitivo e con un aspetto grafico uniforme. Dopo avere letto questo articolo, sarà possibile usare qualsiasi report di gestione dei costi. Nei vari report sono disponibili molte funzionalità standard che ne facilitano l'esplorazione. I report sono personalizzabili ed è possibile selezionare diverse opzioni per calcolare e visualizzare i risultati.
 
@@ -105,7 +105,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
         - Tipo di risorsa in uso.
     - **Sub-Type** (Sottotipo)
         - Selezionare il sottotipo.
-    - **Operazione**
+    - **operazione**
         - Selezionare l'operazione o **Show all** (Mostra tutto).
     - **Price Model** (Modello di prezzo)
         - All Upfront (Tutto anticipato)
@@ -203,5 +203,5 @@ Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selez
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sui report inclusi in Cloudyn in [Usare i report di Gestione costi](use-reports.md).
+- Informazioni sui report inclusi in Cloudyn in [Usare i report di Cloudyn](use-reports.md).
 - Informazioni su come usare i report per creare [dashboard](dashboards.md).

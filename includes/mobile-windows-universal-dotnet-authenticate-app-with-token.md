@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+ms.openlocfilehash: b5368123d6d96e6a58a6926539d6ef22ec68c28b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440221"
+---
 1. Nel file di progetto MainPage.xaml.cs aggiungere le istruzioni **using** seguenti:
    
         using System.Linq;        

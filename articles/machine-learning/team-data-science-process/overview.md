@@ -2,25 +2,21 @@
 title: Introduzione a Team Data Science Process | Microsoft Docs
 description: Fornisce una metodologia di data science per offrire soluzioni di analisi predittiva e applicazioni intelligenti.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: b1f677bb-eef5-4acb-9b3b-8a5819fb0e78
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: deguhath
-ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 44da452b0ec07eaa1b1446de5dab5bedaac3bc30
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125760"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446841"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Introduzione a Team Data Science Process
 
@@ -71,7 +67,7 @@ Il diagramma seguente offre una visualizzazione a griglia delle attività (in bl
 
 ## <a name="standardized-project-structure"></a>Struttura di progetto standardizzata
 
-Poiché tutti i progetti condividono la stessa struttura di directory e usano modelli per i documenti di progetto è più facile per i membri del team trovare informazioni relative ai propri progetti. Tutto il codice e i documenti vengono archiviati in un sistema di controllo di versione (VCS) come Git, TFS o Subversion per consentire la collaborazione tra team. Monitorare le attività e funzionalità in un sistema di monitoraggio di progetto agile come Jira, Rally o Visual Studio Team Services consente un monitoraggio più stretto delle singole funzionalità. Tale monitoraggio permette inoltre ai team di ottenere stime dei costi migliori. Il TDSP consiglia di creare un repository separato per ogni progetto del VCS per il controllo delle versioni, la protezione delle informazioni e la collaborazione. La struttura standard per tutti i progetti consente di creare conoscenze istituzionali nell'intera organizzazione.
+Poiché tutti i progetti condividono la stessa struttura di directory e usano modelli per i documenti di progetto è più facile per i membri del team trovare informazioni relative ai propri progetti. Tutto il codice e i documenti vengono archiviati in un sistema di controllo di versione (VCS) come Git, TFS o Subversion per consentire la collaborazione tra team. Monitorare le attività e le funzionalità in un sistema di monitoraggio di progetto agile come Jira, Rally o Azure DevOps consente un monitoraggio più stretto delle singole funzionalità. Tale monitoraggio permette inoltre ai team di ottenere stime dei costi migliori. Il TDSP consiglia di creare un repository separato per ogni progetto del VCS per il controllo delle versioni, la protezione delle informazioni e la collaborazione. La struttura standard per tutti i progetti consente di creare conoscenze istituzionali nell'intera organizzazione.
 
 Sono forniti modelli per la struttura di cartelle e i documenti richiesti in posizioni standard. Questa struttura di cartelle consente di organizzare i file che contengono codice per l'esplorazione dei dati e l'estrazione delle funzioni e che registrano le iterazioni del modello. Questi modelli semplificano ai membri del team la comprensione delle attività completate da altri utenti e l'aggiunta di nuovi membri ai team. È facile visualizzare e aggiornare i modelli di documento in formato markdown. Utilizzare modelli per fornire elenchi di controllo con domande chiave per ogni progetto per assicurarsi che il problema sia ben definito e che i risultati finali soddisfino la qualità prevista. Tra gli esempi sono inclusi:
 
@@ -89,10 +85,10 @@ La struttura di directory può essere clonata da [Github](https://github.com/Azu
 
 Il TDSP fornisce suggerimenti per la gestione dell'infrastruttura di analisi e archiviazione, ad esempio:
 
-- file system su cloud per l'archiviazione dei set di dati, 
+- file system su cloud per l'archiviazione dei set di dati 
 - database
 - cluster Big Data (Hadoop o Spark) 
-- servizi di Machine Learning. 
+- servizio Machine Learning 
 
 L'infrastruttura di analisi e archiviazione può essere su cloud o in locale. Si tratta della posizione in cui sono archiviati i set di dati non elaborati ed elaborati. Questa infrastruttura consente di eseguire analisi riproducibili. Inoltre evita la duplicazione, che può causare incoerenze e costi di infrastruttura non necessari. Vengono forniti strumenti per eseguire il provisioning di risorse condivise, monitorarle e consentire a ogni membro del team di connettersi a quelle risorse in modo sicuro. È inoltre consigliabile che i membri del progetto creino un ambiente di calcolo coerente. Diversi membri del team possono quindi replicare e convalidare gli esperimenti.
 

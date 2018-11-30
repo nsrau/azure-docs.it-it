@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad37a9e6cc13ef8bd805fe025806d37d17a857c2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d7fb03cf5dbcd7455f0d4e8f4a69bb1c6d23a83
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656330"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497084"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Creare una configurazione di SAP NetWeaver a più SID
 
@@ -454,7 +454,7 @@ Questo articolo si concentra sul passaggio da un'installazione di ASCS/SCS singo
 > [!NOTE]
 > Questa funzionalità è disponibile solo nel modello di distribuzione Azure Resource Manager.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 È già stato configurato un cluster WSFC che viene usato per un'istanza di SAP ASCS/SCS, come descritto in [SAP NetWeaver in macchine virtuali Windows: guida alle funzionalità di disponibilità elevata][sap-ha-guide] e come illustrato nella figura seguente.
 
 ![Istanza di SAP ASCS/SCS a disponibilità elevata][sap-ha-guide-figure-6001]

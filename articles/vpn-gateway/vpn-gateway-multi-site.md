@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 768f06c9d007e716f89ca61ccd9f8a2ccd575efd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399373"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160869"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente (modello classico)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Portale di Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (classic)](vpn-gateway-multi-site.md) (PowerShell (classico))
 >
 >
@@ -36,7 +36,7 @@ Questo articolo illustra come usare PowerShell per aggiungere connessioni da sit
 
 ### <a name="deployment-models-and-methods"></a>Metodi e modelli di distribuzione
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 Questa tabella viene aggiornata man mano che per questa configurazione diventano disponibili nuovi articoli e altri strumenti. Quando un articolo è disponibile, nella tabella sarà presente un collegamento diretto.
 
@@ -138,7 +138,7 @@ Aprire il file di configurazione di rete scaricato nell'ultimo passaggio. Usare 
 ## <a name="4-add-multiple-site-references"></a>4. Aggiungere riferimenti a più siti
 Quando si aggiungono o rimuovono le informazioni di riferimento ai siti, si apporteranno modifiche alla configurazione in ConnectionsToLocalNetwork/LocalNetworkSiteRef. L'aggiunta di un nuovo riferimento a siti locali induce Azure a creare un nuovo tunnel. Nell'esempio seguente, la configurazione di rete è per una connessione a un singolo sito. Dopo aver apportato le modifiche, salvare il file.
 
-```
+```xml
   <Gateway>
     <ConnectionsToLocalNetwork>
       <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
@@ -148,7 +148,7 @@ Quando si aggiungono o rimuovono le informazioni di riferimento ai siti, si appo
 
 Per aggiungere riferimenti ad altri siti (creare una configurazione multisito), è sufficiente aggiungere altre righe "LocalNetworkSiteRef", come illustrato nell'esempio riportato di seguito:
 
-```
+```xml
   <Gateway>
     <ConnectionsToLocalNetwork>
       <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>

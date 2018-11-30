@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: f5c74055747cacbede479e12397bbb66ac74d10e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 13d09471191deed670db97a9f18e15bc9577dd1a
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615637"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713419"
 ---
 # <a name="use-the-azure-machine-learning-cli-extension"></a>Usare l'estensione dell'interfaccia della riga di comando di Azure Machine Learning
 
@@ -43,7 +43,7 @@ L'interfaccia della riga di comando non sostituisce Azure Machine Learning SDK. 
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 > [!NOTE]
-> Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+> Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
 
 ## <a name="install-the-extension"></a>Installare l'estensione
 

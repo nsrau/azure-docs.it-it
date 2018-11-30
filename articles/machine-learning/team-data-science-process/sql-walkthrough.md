@@ -2,25 +2,21 @@
 title: Compilare e distribuire un modello di Machine Learning utilizzando SQL Server in una macchina virtuale di Azure | Documentazione Microsoft
 description: Advanced Analytics Process and Technology in azione
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: deguhath
-ms.openlocfilehash: 23766598b1af4e05b007e5ba844190f1fe03a660
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: cad56d2e8de071feb9a02e0cfc6bcc884eebe91a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394375"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445464"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
 Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.

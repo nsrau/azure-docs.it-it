@@ -17,12 +17,12 @@ ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: bebabad4c7beb27022e12e5d48b77d88fc054fc2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 0a9ec2e84197729f98fbf90bac53b505a8c99a19
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190116"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427333"
 ---
 # <a name="app-registration-reference"></a>Riferimento alla registrazione delle app
 Questo documento contiene il contesto e le descrizioni di varie funzionalità disponibili nel [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
@@ -37,7 +37,7 @@ Questo elenco include tutte le applicazioni registrate per essere usate con l'en
 Questo elenco include tutte le applicazioni registrate per l'uso solo con l'account Microsoft. Non sono abilitate per l'uso con Azure Active Directory. Qui è possibile trovare tutte le applicazioni registrate in precedenza con il portale per sviluppatori di account del servizio gestito, all'indirizzo `https://account.live.com/developers/applications`. Tutte le funzioni eseguite in precedenza in `https://account.live.com/developers/applications` ora possono essere eseguite nel nuovo portale, `https://apps.dev.microsoft.com`.
 
 ## <a name="application-secrets"></a>Segreti applicazione
-I segreti applicazione sono credenziali che consentono all'applicazione di eseguire [l'autenticazione client](http://tools.ietf.org/html/rfc6749#section-2.3) in modo affidabile con Azure AD. In OAuth e OpenID Connect il segreto dell'applicazione è noto come `client_secret`. Nel protocollo della versione 2.0, qualsiasi applicazione che riceve un token di sicurezza in una posizione con indirizzo Web, usando uno schema `https` , deve fare uso di un segreto applicazione per identificarsi in Azure AD al momento del riscatto del token di sicurezza. Inoltre i client nativi che ricevono i token in un dispositivo non possono usare un segreto dell'applicazione per eseguire l'autenticazione client. Questo scoraggia l'archiviazione dei segreti in ambienti non protetti.
+I segreti applicazione sono credenziali che consentono all'applicazione di eseguire [l'autenticazione client](https://tools.ietf.org/html/rfc6749#section-2.3) in modo affidabile con Azure AD. In OAuth e OpenID Connect il segreto dell'applicazione è noto come `client_secret`. Nel protocollo della versione 2.0, qualsiasi applicazione che riceve un token di sicurezza in una posizione con indirizzo Web, usando uno schema `https` , deve fare uso di un segreto applicazione per identificarsi in Azure AD al momento del riscatto del token di sicurezza. Inoltre i client nativi che ricevono i token in un dispositivo non possono usare un segreto dell'applicazione per eseguire l'autenticazione client. Questo scoraggia l'archiviazione dei segreti in ambienti non protetti.
 
 Ogni app può contenere due segreti applicazione validi in qualsiasi momento. Mantenendo due segreti è possibile eseguire periodicamente un rollover della chiave nell'intero ambiente dell'applicazione. Dopo aver eseguito la migrazione dell'intera applicazione in un nuovo segreto, è possibile eliminare quello precedente ed eseguire il provisioning di un nuovo segreto.
 

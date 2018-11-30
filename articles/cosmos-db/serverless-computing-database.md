@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623155"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582786"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Elaborazione di database serverless con Azure Cosmos DB e Funzioni di Azure
 
@@ -124,7 +124,7 @@ Funzioni di Azure offre la possibilità di creare unità di lavoro scalabili o p
 
 Azure Cosmos DB è il database consigliato per l'architettura di elaborazione senza server per i motivi seguenti:
 
-* **Accesso immediato a tutti i dati**: l'utente ha accesso granulare a ogni valore archiviato poiché Azure Cosmos DB [indicizza automaticamente](indexing-policies.md) tutti i dati per impostazione predefinita e rende gli indici immediatamente disponibili. Ciò significa che è sempre possibile eseguire query, aggiornare e aggiungere nuovi elementi al database e avere accesso immediato tramite Funzioni di Azure.
+* **Accesso immediato a tutti i dati**: l'utente ha accesso granulare a ogni valore archiviato poiché Azure Cosmos DB [indicizza automaticamente](index-policy.md) tutti i dati per impostazione predefinita e rende gli indici immediatamente disponibili. Ciò significa che è sempre possibile eseguire query, aggiornare e aggiungere nuovi elementi al database e avere accesso immediato tramite Funzioni di Azure.
 
 * **Senza schema**. Azure Cosmos DB è senza schema, quindi è in grado di gestire in modo univoco qualsiasi output di dati di una funzione di Azure. Questo approccio di "gestione di tutti gli elementi" rende più semplice creare una vasta gamma di funzioni inviate tutte ad Azure Cosmos DB.
 

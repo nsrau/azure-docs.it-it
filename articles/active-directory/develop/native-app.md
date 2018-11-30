@@ -16,16 +16,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8879cc331c5d0e8c6aab24e8c6178d96ab23bf9d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8738205aec8e0b00115a185886ca293b2f96033c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955402"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422372"
 ---
 # <a name="native-apps"></a>App native
 
-Le app native sono applicazioni che chiamano un'API Web per conto di un utente. Questo scenario è basato sul tipo di concessione del codice di autorizzazione OAuth 2.0 con un client pubblico, come descritto nella sezione 4.1 della [specifica OAuth 2.0](http://tools.ietf.org/html/rfc6749). L'applicazione nativa ottiene un token di accesso per l'utente tramite il protocollo OAuth 2.0. Questo token di accesso viene quindi inviato nella richiesta all'API Web, che autorizza l'utente e restituisce la risorsa desiderata.
+Le app native sono applicazioni che chiamano un'API Web per conto di un utente. Questo scenario è basato sul tipo di concessione del codice di autorizzazione OAuth 2.0 con un client pubblico, come descritto nella sezione 4.1 della [specifica OAuth 2.0](https://tools.ietf.org/html/rfc6749). L'applicazione nativa ottiene un token di accesso per l'utente tramite il protocollo OAuth 2.0. Questo token di accesso viene quindi inviato nella richiesta all'API Web, che autorizza l'utente e restituisce la risorsa desiderata.
 
 ## <a name="diagram"></a>Diagramma
 
@@ -62,5 +62,5 @@ Quando l'applicazione nativa usa il proprio codice di autorizzazione per ottener
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su altri [Tipi di applicazione e scenari](app-types.md)
+- Altre informazioni su altri [tipi di applicazione e scenari](app-types.md)
 - [Nozioni di base sull'autenticazione](authentication-scenarios.md) in Azure AD

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 2aef9b6f32d562776be3e3da25b017d5ff88c4c4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 1b681b4344512f26f1edc4a5264e718deac569ae
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024330"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441690"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API di Azure  
 
@@ -40,6 +40,8 @@ Per eseguire i passaggi in questo articolo è necessario:
 + Avere un'istanza di Gestione API. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
 
 + Comprendere il concetto di [Capacità di un'istanza di Gestione API di Azure](api-management-capacity.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="upgrade-and-scale"></a>Aggiornare e ridimensionare  
 

@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: 400c8ac229e00e818e336f1c47b126d3e8a2d155
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253840"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421948"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Come inviare messaggi di posta elettronica usando SendGrid da Java in una distribuzione Azure
 L'esempio seguente illustra come è possibile usare SendGrid per inviare messaggi di posta elettronica da una pagina Web ospitata in Azure. L'applicazione risultante chiederà all'utente di inserire i valori relativi al messaggio di posta elettronica, come illustrato nella schermata seguente.
@@ -32,7 +32,7 @@ Il messaggio di posta elettronica finale dovrebbe essere simile a quello riporta
 
 Per usare il codice in questo argomento è necessario eseguire le operazioni seguenti:
 
-1. Ottenere i file JAR javax.mail, ad esempio da <http://www.oracle.com/technetwork/java/javamail/index.html>.
+1. Ottenere i file JAR javax.mail, ad esempio da <https://www.oracle.com/technetwork/java/javamail/index.html>.
 2. Aggiungere i file JAR al percorso di compilazione Java.
 3. Se si usa Eclipse per creare l'applicazione Java, è possibile includere le librerie SendGrid nel file di distribuzione dell'applicazione (WAR) usando l'assembly di distribuzione di Eclipse. Se non si usa Eclipse per creare l'applicazione Java, verificare che le librerie siano incluse nello stesso ruolo di Azure dell'applicazione Java e che sia stato aggiunto al percorso della classe dell'applicazione.
 
@@ -45,7 +45,7 @@ Nel codice seguente viene illustrato come creare un modulo Web per recuperare i 
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -101,7 +101,7 @@ Il codice seguente, chiamato quando si completa il modulo in emailform.jsp, crea
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" import="javax.activation.*, javax.mail.*, javax.mail.internet.*, java.util.Date, java.util.Properties" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

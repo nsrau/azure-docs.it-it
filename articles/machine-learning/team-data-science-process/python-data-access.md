@@ -2,25 +2,21 @@
 title: Accedere a set di dati tramite la libreria client Python di Azure Machine Learning | Microsoft Docs
 description: Installare e usare la libreria client Python per accedere e gestire i dati di Azure Machine Learning in modo protetto da un ambiente Python locale.
 services: machine-learning
-documentationcenter: python
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 9f84686f8689a40cf002035053236b415481488f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 43812b68b10f9e4f8510d24cb08c8bb368b3b8f8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838351"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445762"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accedere a set di dati con Python mediante la libreria client Python di Azure Machine Learning
 L'anteprima della libreria client Python di Microsoft Azure Machine Learning consente l'accesso sicuro a set di dati di Azure Machine Learning da un ambiente Python locale, nonché la creazione e la gestione di set di dati in un'area di lavoro.
@@ -65,7 +61,7 @@ Se nel proprio computer è installato Git, è possibile usare pip per installarl
 ## <a name="datasetAccess"></a>Usare frammenti di codice di Studio per accedere a set di dati
 La libreria client Python consente l'accesso a livello di codice a set di dati esistenti in esperimenti in esecuzione.
 
-Dall'interfaccia Web di Studio è possibile generare frammenti di codice che includono tutte le informazioni necessarie per scaricare e deserializzare set di dati come oggetti Pandas DataFrame nel proprio computer locale.
+Dall'interfaccia Web di Studio è possibile generare frammenti di codice che includono tutte le informazioni necessarie per scaricare e deserializzare set di dati come oggetti DataFrame pandas nel computer locale.
 
 ### <a name="security"></a>Sicurezza per l'accesso ai dati
 I frammenti di codice forniti da Studio per essere usati con la libreria client Python includono l'ID dell'area di lavoro e il token di autorizzazione, che offrono l'accesso completo all'area di lavoro e pertanto devono essere protetti, come una password.
@@ -197,7 +193,7 @@ Altri valori vengono assegnati da Azure Machine Learning:
 Vedere la classe `SourceDataset` per altre informazioni sui metadati disponibili.
 
 ### <a name="read-contents"></a>Leggere il contenuto
-I frammenti di codice forniti da Machine Learning Studio scaricano e deserializzano automaticamente il set di dati in un oggetto Pandas DataFrame. Questa operazione viene eseguita con il metodo `to_dataframe` :
+I frammenti di codice disponibili in Machine Learning Studio scaricano e deserializzano automaticamente il set di dati in un oggetto DataFrame pandas. Questa operazione viene eseguita con il metodo `to_dataframe` :
 
     frame = ds.to_dataframe()
 
@@ -220,7 +216,7 @@ Per leggere il contenuto come file binario:
 ### <a name="create-a-new-dataset"></a>Creare un nuovo set di dati
 La libreria client Python consente di caricare set di dati dal programma Python, per poterli usare nell'area di lavoro.
 
-Se i dati sono contenuti in un oggetto DataFrame Pandas, usare il codice seguente:
+Se i dati si trovano in un oggetto DataFrame pandas, usare il codice seguente:
 
     from azureml import DataTypeIds
 
@@ -242,7 +238,7 @@ Se invece i dati sono già serializzati, è possibile usare:
         description='my description'
     )
 
-La libreria client Python è in grado di serializzare un oggetto DataFrame Pandas nei formati seguenti (le costanti per questi formati sono disponibili nella classe `azureml.DataTypeIds` ):
+La libreria client Python è in grado di serializzare un oggetto DataFrame pandas nei formati seguenti (le costanti per questi formati sono disponibili nella classe `azureml.DataTypeIds`):
 
 * PlainText
 * GenericCSV

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 020923a76c94b10165e95bb4c5950419595dff0b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2aea370d7de063805eb584cd7d90395ca725b4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252344"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275488"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Avvio di un Runbook in Automazione di Azure
 La tabella seguente aiuta a determinare il metodo per avviare un runbook in Automazione di Azure più adatto per uno scenario specifico. Questo articolo include informazioni dettagliate sull'avvio di un Runbook con il portale di Azure e con Windows PowerShell. Le informazioni sulle altre modalità sono contenute in altri documenti accessibili dai collegamenti seguenti.
@@ -43,13 +43,13 @@ L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di un ru
 ## <a name="starting-a-runbook-with-windows-powershell"></a>Avvio di un Runbook con Windows PowerShell
 È possibile usare [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) per avviare un runbook con Windows PowerShell. Il codice di esempio seguente avvia un Runbook denominato Test-Runbook.
 
-```
+```azurepowershell-interactive
 Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
 Start-AzureRmAutomationRunbook restituisce un oggetto processo che è possibile usare per tenere traccia dello stato dopo l'avvio del runbook. È quindi possibile usare questo oggetto processo con [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) per determinare lo stato del processo e con [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) per ottenere il relativo output. L'esempio di codice seguente avvia un Runbook denominato Test-Runbook, attende che venga completato e quindi visualizza l'output corrispondente.
 
-```
+```azurepowershell-interactive
 $runbookName = "Test-Runbook"
 $ResourceGroup = "ResourceGroup01"
 $AutomationAcct = "MyAutomationAccount"
@@ -68,7 +68,7 @@ Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job
 
 Se il Runbook richiede parametri, è necessario fornirli come [tabella hash](https://technet.microsoft.com/library/hh847780.aspx) , dove la chiave della tabella hash corrisponde al nome del parametro e il valore al valore del parametro. L'esempio seguente illustra come avviare un Runbook con due parametri di stringa denominati FirstName e LastName, un parametro di tipo intero denominato RepeatCount e un parametro booleano denominato Show. Per altre informazioni sui parametri, vedere [Parametri di runbook](#Runbook-parameters) più avanti.
 
-```
+```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
 ```
@@ -83,7 +83,7 @@ Se il parametro è un tipo di dati [object], è possibile usare il formato JSON 
 
 Si consideri il Runbook di test seguente che accetta un parametro denominato user.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -101,13 +101,13 @@ Workflow Test-Parameters
 
 È possibile usare il testo seguente per il parametro user.
 
-```
+```json
 {FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
 Si ottiene l'output seguente:
 
-```
+```output
 Joe
 Smith
 Joe
@@ -119,7 +119,7 @@ Se il parametro è una matrice, ad esempio [array] o [string[]], è possibile us
 
 Si consideri il Runbook di test seguente che accetta un parametro denominato *user*.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -136,13 +136,13 @@ Workflow Test-Parameters
 
 È possibile usare il testo seguente per il parametro user.
 
-```
+```input
 ["Joe","Smith",2,true]
 ```
 
 Si ottiene l'output seguente:
 
-```
+```output
 Joe
 Smith
 Joe
@@ -154,7 +154,7 @@ Se il parametro è un tipo di dati **PSCredential**, è possibile specificare il
 
 Si consideri il Runbook di test seguente che accetta un parametro denominato credential.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -166,13 +166,13 @@ Workflow Test-Parameters
 
 È possibile usare il testo seguente per il parametro user presumendo l'esistenza di un asset credenziali denominato *My Credential*.
 
-```
+```input
 My Credential
 ```
 
 Presupponendo che il nome utente nelle credenziali sia *jsmith*, si ottiene l'output seguente:
 
-```
+```output
 jsmith
 ```
 

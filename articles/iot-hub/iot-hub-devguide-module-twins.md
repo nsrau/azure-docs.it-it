@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 1b76bfded6562f61a0a9f4a870a18a1fff71bc6a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309737"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284314"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendere e usare i moduli gemelli nell'hub IoT
 
@@ -327,7 +327,7 @@ Queste informazioni vengono mantenute a ogni livello (non solo al livello foglia
 ## <a name="optimistic-concurrency"></a>Concorrenza ottimistica
 
 I tag e le proprietà desiderate e segnalate supportano la concorrenza ottimistica.
-I tag sono dotati di un ETag, come indicato in [RFC7232]()https://tools.ietf.org/html/rfc7232, che rappresenta il JSON del tag. Per garantire la coerenza è possibile usare l'ETag nelle operazioni di aggiornamento condizionale dal back-end della soluzione.
+I tag sono dotati di un ETag, come indicato in [RFC7232](https://tools.ietf.org/html/rfc7232), che rappresenta il JSON del tag. Per garantire la coerenza è possibile usare l'ETag nelle operazioni di aggiornamento condizionale dal back-end della soluzione.
 
 Le proprietà desiderate e segnalate del modulo gemello non sono dotate di ETag, ma hanno un valore `$version` sempre incrementale. In modo analogo a un valore ETag, la versione può essere usata dall'entità di aggiornamento per garantire la coerenza degli aggiornamenti. Ad esempio, un'app per modulo per una proprietà segnalata o il back-end della soluzione per una proprietà desiderata.
 

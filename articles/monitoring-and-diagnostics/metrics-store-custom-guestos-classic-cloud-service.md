@@ -8,14 +8,15 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 30b08062aa360c4a43dc1bfe9f574447b58521f5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7f10495e22cf6750fdc5891d760885a238175da8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095212"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711780"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Inviare le metriche del sistema operativo guest ai Servizi cloud classici dell'archivio delle metriche di Monitoraggio di Azure 
+
 L'[estensione Diagnostica](azure-diagnostics.md) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di un cluster di Service Fabric. L'estensione può inviare i dati di telemetria a [molti percorsi diversi](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
 Questo articolo descrive il processo di invio delle metriche sulle prestazioni del sistema operativo guest per i Servizi cloud classici di Azure all'archivio delle metriche di Monitoraggio di Azure. A partire dalla versione 1.11 della diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. 
@@ -23,16 +24,14 @@ Questo articolo descrive il processo di invio delle metriche sulle prestazioni d
 L'archiviazione in questo percorso consente di accedere alle stesse azioni disponibili per le metriche della piattaforma. Le azioni includono quasi in tempo reale gli avvisi, i grafici, il routing, l'accesso dall'API REST e altro ancora.  Le versioni precedenti dell'estensione di diagnostica scrivono in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure.  
 
 Il processo illustrato in questo articolo funziona solo per i contatori delle prestazioni nei Servizi cloud di Azure, mentre non funziona per altre metriche personalizzate. 
-   
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario disporre del ruolo di [amministratore del servizio o coamministratore](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) nella sottoscrizione di Azure. 
+- È necessario disporre del ruolo di [amministratore del servizio o coamministratore](~/articles/billing/billing-add-change-azure-subscription-administrator.md) nella sottoscrizione di Azure. 
 
 - La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
 - È necessario aver installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) oppure [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview).
-
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Eseguire il provisioning del servizio cloud e dell'account di archiviazione 
 
@@ -42,15 +41,13 @@ Il processo illustrato in questo articolo funziona solo per i contatori delle pr
 
    ![Chiavi dell'account di archiviazione](./media/metrics-store-custom-guestos-classic-cloud-service/storage-keys.png)
 
-
-
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio 
 
 Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni riportate in [Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tenere presente quanto segue durante questo processo: 
 
-  - È possibile inserire qualsiasi URL come URL di accesso.  
-  - Creare un nuovo segreto client per l'app.  
-  - Salvare la chiave e l'ID client, in quanto saranno necessari nei passaggi successivi.  
+- È possibile inserire qualsiasi URL come URL di accesso.  
+- Creare un nuovo segreto client per l'app.  
+- Salvare la chiave e l'ID client, in quanto saranno necessari nei passaggi successivi.  
 
 Assegnare all'app creata nel passaggio precedente *Monitoring Metrics Publisher* (Autore delle metriche di monitoraggio) le autorizzazioni per la risorsa di cui si desidera generare le metriche. Se si prevede di usare l'app per generare metriche personalizzate di numerose risorse, è possibile concedere queste autorizzazioni a livello di gruppo di risorse o di sottoscrizione.  
 
@@ -136,7 +133,7 @@ Nella configurazione privata infine aggiungere una sezione per l'*account di Mon
     </AzureMonitorAccount> 
 </PrivateConfig> 
 ```
- 
+
 Salvare questo file di diagnostica in locale.  
 
 ## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Distribuire l'estensione Diagnostica al servizio cloud 
@@ -153,19 +150,19 @@ Usare i comandi seguenti per archiviare i dettagli dell'account di archiviazione
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
- 
+
 Impostare anche il percorso del file di diagnostica su una variabile usando il comando seguente:
 
 ```PowerShell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
- 
+
 Distribuire l'estensione Diagnostica al servizio cloud con il file di diagnostica con il sink di Monitoraggio di Azure configurato usando il comando seguente:  
 
 ```PowerShell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
- 
+
 > [!NOTE] 
 > Resta obbligatorio specificare un account di archiviazione nell'ambito dell'installazione dell'estensione Diagnostica. Tutti i log o i contatori delle prestazioni specificati nel file di configurazione di diagnostica vengono scritti nell'account di archiviazione specificato.  
 
@@ -190,7 +187,5 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
  ![Metriche nel portale di Azure](./media/metrics-store-custom-guestos-classic-cloud-service/metrics-graph.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Altre informazioni sulle [metriche personalizzate](metrics-custom-overview.md).
-
-
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8bf87f9d1d1ab6da4b034890f1fbe058199eca41
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007137"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334636"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Linux in Azure usando l'autenticazione di Azure Active Directory (anteprima)
 
@@ -39,7 +39,7 @@ L'uso dell'autenticazione di Azure AD per accedere alle macchine virtuali Linux 
 
 - **Collaborazione semplificata:** con il controllo degli accessi in base al ruolo è possibile specificare chi può accedere a una determinata macchina virtuale come utente normale o con privilegi di amministratore. Quando gli utenti si uniscono o abbandonano il team, è possibile aggiornare i criteri del controllo degli accessi in base al ruolo per la macchina virtuale per concedere l'accesso in base alle esigenze. Questa esperienza è molto più semplice rispetto alla necessità di eseguire lo scrubbing delle macchine virtuali per rimuovere le chiavi pubbliche SSH non necessarie. Quando i dipendenti lasciano l'organizzazione e l'account utente viene disabilitato o rimosso da Azure AD, non hanno più accesso alle risorse.
 
-### <a name="supported-azure-regions-and-linux-distributions"></a>Aree di Azure e distribuzioni di Linux supportate
+## <a name="supported-azure-regions-and-linux-distributions"></a>Aree di Azure e distribuzioni di Linux supportate
 
 Durante l'anteprima di questa funzionalità sono attualmente supportate le distribuzioni di Linux seguenti:
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7a787535d6e6e216df27c8cf7448fa584e85ef2b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c0729fd4c6d5e387b38c310a708505c3395ea41f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306610"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284881"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Approfondimento di sicurezza sull'autenticazione pass-through di Azure Active Directory
 
@@ -209,7 +209,7 @@ Per eseguire l'aggiornamento automatico degli agenti di autenticazione:
 ## <a name="next-steps"></a>Passaggi successivi
 - [Limitazioni correnti](how-to-connect-pta-current-limitations.md): apprendere quali sono gli scenari supportati.
 - [Avvio rapido](how-to-connect-pta-quick-start.md): iniziare a usare l'autenticazione pass-through di Azure AD.
-- [Eseguire la migrazione da AD FS all'autenticazione pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx): una guida dettagliata per la migrazione da AD FS (o altre tecnologie federative) per l'autenticazione pass-through.
+- [Eseguire la migrazione da AD FS all'autenticazione pass-through](https://aka.ms/adfstoptadpdownload): una guida dettagliata per la migrazione da AD FS (o altre tecnologie federative) per l'autenticazione pass-through.
 - [Blocco intelligente](../authentication/howto-password-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
 - [Come funziona](how-to-connect-pta-how-it-works.md): nozioni di base sul funzionamento dell'autenticazione pass-through di Azure AD.
 - [Domande frequenti](how-to-connect-pta-faq.md): risposte alle domande più frequenti.

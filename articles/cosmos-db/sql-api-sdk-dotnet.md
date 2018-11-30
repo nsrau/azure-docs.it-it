@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27b7b4efdb14872ee2d841e17d2e253b6c7c30c3
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f7f8af635eb7d5449a242f3a7708d865c13bb448
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389769"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162807"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK per API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -182,7 +182,7 @@ ms.locfileid: "49389769"
 * Correzione di un problema relativo al mancato funzionamento della continuazione della query di tipo order-by tra partizioni in caso di ordinamento in un campo di tipo stringa.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG). Vedere [Supporto dell'aggregazione](sql-api-sql-query.md#Aggregates).
+* Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG). Vedere [Supporto dell'aggregazione](how-to-sql-query.md#Aggregates).
 * Velocità effettiva minima ridotta nelle raccolte partizionate da 10.100 UR/s a 2.500 UR/s.
 
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 52ca063a2e6345f80370c64b376ff09d72643ccc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 626b9199f3de6fe9aba03ba537aa6e6b6e28ba5c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230615"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310924"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Informazioni sulle raccomandazioni delle risorse per Centro sicurezza di Azure
 
@@ -76,7 +76,7 @@ Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risors
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 

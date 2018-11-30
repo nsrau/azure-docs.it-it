@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d894dd85bda63c724e391193615e91fc5ca51a3f
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 8f32d8f05d5ba5a7a813157adbf07ff7590153bb
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986152"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425379"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Chiamate da servizio a servizio mediante le credenziali client (certificato o segreto condiviso)
 
@@ -105,7 +105,7 @@ Una risposta corretta contiene una risposta OAuth 2.0 JSON con i parametri segue
 | Parametro | DESCRIZIONE |
 | --- | --- |
 | access_token |Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente. |
-| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui token di connessione, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)(Framework di autorizzazione di OAuth2.0: uso dei token di connessione - RFC 6750). |
+| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui token di connessione, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)(Framework di autorizzazione di OAuth2.0: uso dei token di connessione - RFC 6750). |
 | expires_in |Validità del token di accesso (espressa in secondi). |
 | expires_on |Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache. |
 | not_before |Ora da cui il token di accesso diventa utilizzabile. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino all'ora di validità per il token.|

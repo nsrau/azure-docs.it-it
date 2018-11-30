@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685175"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262900"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
 Quando si distribuisce un modello di Azure Machine Learning come servizio Web, viene creata un’API REST. È possibile inviare dati a questa API per ottenere la stima restituita dal modello. In questo documento, viene spiegato come creare client per il servizio Web utilizzando C#, Go, Java e Python.
 
-Quando si distribuisce un'immagine in un'istanza di contenitore di Azure, del servizio Kubernetes di Azure o di Project Brainwave (Field Programmable Gate Array), viene creato un servizio Web. Le immagini vengono create con i modelli registrati e i file di assegnazione di punteggio. L'URI utilizzato per accedere a un servizio Web può essere recuperato tramite l’[SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se è abilitata l'autenticazione, è anche possibile usare l’SDK per ottenere le chiavi di autenticazione.
+Quando si distribuisce un'immagine in un'istanza di contenitore di Azure, del servizio Kubernetes di Azure o di Project Brainwave (Field Programmable Gate Array), viene creato un servizio Web. Le immagini vengono create con i modelli registrati e i file di assegnazione di punteggio. L'URI utilizzato per accedere a un servizio Web può essere recuperato tramite l’[SDK di Azure Machine Learning](https://aka.ms/aml-sdk). Se è abilitata l'autenticazione, è anche possibile usare l’SDK per ottenere le chiavi di autenticazione.
 
 Il flusso di lavoro generale per creare un client che utilizzi un servizio Web di Machine Learning è:
 

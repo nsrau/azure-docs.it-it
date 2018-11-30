@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: barclayn
-ms.openlocfilehash: f027ced7d6e317bfdf101cb792d9f2f2b7612242
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2294e65a552b0bf0a428e5272610abc1f63229e6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247745"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308291"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
 
@@ -491,7 +491,7 @@ Usare un'unità USB o un altro dispositivo di archiviazione portatile per copiar
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Passaggio 5: Trasferire la chiave all'insieme di credenziali delle chiavi di Azure
 
-Per questo passaggio finale, nella workstation connessa a Internet usare il cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-add-azurekeyvaultkey), per caricare il pacchetto di trasferimento della chiave copiato dalla workstation disconnessa al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure:
+Per questo passaggio finale, nella workstation connessa a Internet usare il cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey), per caricare il pacchetto di trasferimento della chiave copiato dalla workstation disconnessa al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure:
 
    ```powershell
         Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'

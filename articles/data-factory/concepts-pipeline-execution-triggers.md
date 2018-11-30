@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 8dfc2448861ca9b376246ac42f7563e44422d6de
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 890ef4baf27e193fecc17d8435998604ce25e282
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122434"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162688"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -36,43 +36,43 @@ Si supponga ad esempio che sia disponibile una pipeline denominata **copyPipelin
 
 ```json
 {
-  "name": "copyPipeline",
-  "properties": {
-    "activities": [
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-        "name": "CopyBlobtoBlob",
-        "inputs": [
-          {
-            "referenceName": "sourceBlobDataset",
-            "type": "DatasetReference"
-          }
+    "name": "copyPipeline",
+    "properties": {
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "name": "CopyBlobtoBlob",
+                "inputs": [
+                    {
+                        "referenceName": "sourceBlobDataset",
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "sinkBlobDataset",
+                        "type": "DatasetReference"
+                    }
+                ]
+            }
         ],
-        "outputs": [
-          {
-            "referenceName": "sinkBlobDataset",
-            "type": "DatasetReference"
-          }
-        ]
-      }
-    ],
-    "parameters": {
-      "sourceBlobContainer": {
-        "type": "String"
-      },
-      "sinkBlobContainer": {
-        "type": "String"
-      }
+        "parameters": {
+            "sourceBlobContainer": {
+                "type": "String"
+            },
+            "sinkBlobContainer": {
+                "type": "String"
+            }
+        }
     }
-  }
 }
 ```
 
@@ -106,7 +106,7 @@ I parametri vengono passati nel corpo del payload della richiesta. In .NET SDK, 
 ```json
 {
   "sourceBlobContainer": "MySourceFolder",
-  "sinkBlobCountainer": "MySinkFolder"
+  "sinkBlobContainer": "MySinkFolder"
 }
 ```
 
@@ -146,12 +146,11 @@ Pipeline e trigger hanno una relazione molti-a-molti. Più trigger possono avvia
 ### <a name="basic-trigger-definition"></a>Definizione del trigger di base
 
 ```json
+{
     "properties": {
         "name": "MyTrigger",
         "type": "<type of trigger>",
-        "typeProperties": {
-            …
-        },
+        "typeProperties": {...},
         "pipelines": [
             {
                 "pipelineReference": {
@@ -161,13 +160,14 @@ Pipeline e trigger hanno una relazione molti-a-molti. Più trigger possono avvia
                 "parameters": {
                     "<parameter 1 Name>": {
                         "type": "Expression",
-                          "value": "<parameter 1 Value>"
+                        "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name>" : "<parameter 2 Value>"
+                    "<parameter 2 Name>": "<parameter 2 Value>"
                 }
             }
         ]
     }
+}
 ```
 
 ## <a name="schedule-trigger"></a>Trigger di pianificazione
@@ -187,40 +187,39 @@ Per fare in modo che il trigger di pianificazione attivi l'esecuzione di una pip
     "typeProperties": {
       "recurrence": {
         "frequency": <<Minute, Hour, Day, Week, Year>>,
-        "interval": <<int>>,             // How often to fire
+        "interval": <<int>>, // How often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": "UTC"
-        "schedule": {                    // Optional (advanced scheduling specifics)
+        "timeZone": "UTC",
+        "schedule": { // Optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
-          "weekDays": ": [<<Monday-Sunday>>],
+          "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-60>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurences": [
-               {
-                    "day": <<Monday-Sunday>>,
-                    "occurrence": <<1-5>>
-               }
-           ] 
+            {
+              "day": <<Monday-Sunday>>,
+              "occurrence": <<1-5>>
+            }
+          ]
         }
       }
     },
-   "pipelines": [
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "<Name of your pipeline>"
-                },
-                "parameters": {
-                    "<parameter 1 Name>": {
-                        "type": "Expression",
-                        "value": "<parameter 1 Value>"
-                    },
-                    "<parameter 2 Name>" : "<parameter 2 Value>"
-                }
-           }
-      ]
-  }
+  "pipelines": [
+    {
+      "pipelineReference": {
+        "type": "PipelineReference",
+        "referenceName": "<Name of your pipeline>"
+      },
+      "parameters": {
+        "<parameter 1 Name>": {
+          "type": "Expression",
+          "value": "<parameter 1 Value>"
+        },
+        "<parameter 2 Name>": "<parameter 2 Value>"
+      }
+    }
+  ]}
 }
 ```
 

@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 35e6cd988a0532221d88b22cdd51fc29d7f17ba9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ab2c0f671eaf6147baad24b426c4a527f07e136f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158755"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422406"
 ---
 # <a name="id-tokens"></a>Token ID
 
@@ -53,7 +53,7 @@ Questo token v2.0 di esempio viene visualizzato in [jwt.ms](https://jwt.ms/#id_t
 
 ### <a name="header-claims"></a>Attestazioni di intestazione
 
-|Attestazione | Format | Descrizione |
+|Attestazione | Format | DESCRIZIONE |
 |-----|--------|-------------|
 |`typ` | Stringa, sempre "JWT" | Indica che il token è un token JWT.|
 |`alg` | string | Indica che l'algoritmo è stato usato per firmare il token. Esempio: "RS256" |
@@ -62,7 +62,7 @@ Questo token v2.0 di esempio viene visualizzato in [jwt.ms](https://jwt.ms/#id_t
 
 ### <a name="payload-claims"></a>Attestazioni di payload
 
-|Attestazione | Format | Descrizione |
+|Attestazione | Format | DESCRIZIONE |
 |-----|--------|-------------|
 |`aud` |  Stringa, un URI ID app | Identifica il destinatario del token. Negli `id_tokens` il destinatario è l'ID applicazione assegnato all'app nel portale di Azure. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
 |`iss` |  Stringa, un URI del servizio token di sicurezza | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di Azure AD in cui l'utente è stato autenticato. Se il token è stato rilasciato dall'endpoint v2.0, l'URI termina con `/v2.0`.  Il GUID che indica che l'utente è un utente consumer di un account Microsoft è `9188040d-6c67-4c5b-b112-36a304b66dad`. L'app deve usare la parte relativa al GUID dell'attestazione per limitare il set di tenant che possono accedere all'app, se applicabile. |
@@ -70,8 +70,8 @@ Questo token v2.0 di esempio viene visualizzato in [jwt.ms](https://jwt.ms/#id_t
 |`idp`|Stringa, di solito un URI del servizio token di sicurezza | Registra il provider di identità che ha autenticato l'oggetto del token. Questo valore è identico al valore dell'attestazione Autorità di certificazione, a meno che l'account utente non sia nello stesso tenant dell'autorità di certificazione, ad esempio guest. Se l'attestazione non è presente, è possibile usare il valore di `iss`.  Per gli account personali usati in un contesto aziendale (ad esempio, un account personale invitato in un tenant di Azure AD), l'attestazione `idp` potrebbe essere "live.com" o un URI STS contenente il tenant dell'account Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, timestamp UNIX | L'attestazione "nbf" (not before) identifica l'ora prima della quale il token JWT non deve essere accettato per l'elaborazione.|
 |`exp` |  int, timestamp UNIX | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione.  È importante notare che una risorsa può rifiutare il token anche prima di questa ora, ad esempio quando è necessaria una modifica nell'autenticazione oppure quando è stata rilevata una revoca di un token. |
-| `c_hash`| string |L'hash del codice è incluso in un token ID solo quando quest'ultimo viene generato con un codice di autorizzazione di OAuth 2.0. Può essere usato per convalidare l'autenticità di un codice di autorizzazione. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| string |L'hash del token di accesso è incluso in un token ID solo quando quest'ultimo viene generato con un token di accesso di OAuth 2.0. Può essere usato per convalidare l'autenticità di un token di accesso. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
+| `c_hash`| string |L'hash del codice è incluso in un token ID solo quando quest'ultimo viene generato con un codice di autorizzazione di OAuth 2.0. Può essere usato per convalidare l'autenticità di un codice di autorizzazione. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| string |L'hash del token di accesso è incluso in un token ID solo quando quest'ultimo viene generato con un token di accesso di OAuth 2.0. Può essere usato per convalidare l'autenticità di un token di accesso. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Stringa opaca | Attestazione interna usata da Azure AD per registrare i dati per il riutilizzo dei token. Deve essere ignorata.|
 |`preferred_username` | string | Nome utente primario che rappresenta l'utente. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può variare nel tempo. Poiché è mutevole, questo valore non deve essere usato per prendere decisioni in merito alle autorizzazioni. Per ricevere questa attestazione, è necessario l'ambito `profile` .|
 |`email` | string | L'attestazione `email` è presente per impostazione predefinita per gli account guest che dispongono di un indirizzo di posta elettronica.  L'app può richiedere l'attestazione di posta elettronica per gli utenti gestiti, quelli dello stesso tenant della risorsa, tramite l'[attestazione facoltativa](active-directory-optional-claims.md) `email`.  Nell'endpoint 2.0 l'app può anche richiedere l'ambito `email` di OpenID Connect. Non è necessario richiedere l'attestazione facoltativa e l'ambito per ottenere l'attestazione.  L'attestazione di posta elettronica supporta solo posta elettronica indirizzabile dalle informazioni sul profilo dell'utente. |

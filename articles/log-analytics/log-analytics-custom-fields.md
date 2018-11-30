@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3e1acb714cfc1c059f8d02240c2a6d49be9f4971
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010588"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335283"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campi personalizzati in Log Analytics
 La funzionalità **Campi personalizzati** di Log Analytics consente di estendere i record esistenti in Log Analytics con l'aggiunta di campi ricercabili personalizzati.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
@@ -81,7 +81,7 @@ Dopo aver eseguito l'estrazione iniziale, Log Analytics ne visualizza i risultat
 Per rimuovere un campo personalizzato è possibile procedere in due modi.  Il primo consiste nel selezionare l'opzione **Remove** per ogni campo quando si visualizza l'elenco completo, come descritto in precedenza.  Il secondo metodo consiste nel recuperare un record e fare clic sul pulsante a sinistra del campo.  Sarà disponibile un'opzione di menu per rimuovere il campo personalizzato.
 
 ## <a name="sample-walkthrough"></a>Procedura dettagliata di esempio
-La sezione seguente descrive un esempio completo di creazione di un campo personalizzato.  L'esempio estrae il nome del servizio dagli eventi Windows che indicano la modifica dello stato di un servizio.  Si basa sugli eventi creati da Gestione controllo servizi nel registro di sistema nei computer Windows.  Per seguire questo esempio, è necessario eseguire la [raccolta di eventi informativi per il registro di sistema](log-analytics-data-sources-windows-events.md).
+La sezione seguente descrive un esempio completo di creazione di un campo personalizzato.  L'esempio estrae il nome del servizio dagli eventi Windows che indicano la modifica dello stato di un servizio.  Si basa sugli eventi creati da Gestione controllo servizi nel registro di sistema nei computer Windows.  Per seguire questo esempio, è necessario eseguire la [raccolta di eventi informativi per il registro di sistema](../azure-monitor/platform/data-sources-windows-events.md).
 
 Immettere la query seguente per restituire tutti gli eventi di Gestione controllo servizi con ID evento 7036, ovvero l'evento che indica l'avvio o l'arresto di un servizio.
 
@@ -141,5 +141,5 @@ Ora il campo personalizzato può essere usato come le altre proprietà del recor
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni su come creare query usando i campi personalizzati come criteri, vedere l'articolo relativo alle [ricerche nei log](log-analytics-queries.md) .
-* Monitorare i [file di log personalizzati](log-analytics-data-sources-custom-logs.md) analizzati usando campi personalizzati.
+* Monitorare i [file di log personalizzati](../azure-monitor/platform/data-sources-custom-logs.md) analizzati usando campi personalizzati.
 

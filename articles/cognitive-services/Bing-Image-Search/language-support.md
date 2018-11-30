@@ -3,19 +3,19 @@ title: Supporto per la lingua - API Ricerca immagini Bing
 titleSuffix: Azure Cognitive Services
 description: Informazioni su quali paesi/aree e lingue sono supportati dall'API Ricerca immagini Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: db9e1acec881a182b111cb1c913da607e4f8311a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: aahi
+ms.openlocfilehash: e5c9a4291501c657a94509aec2edd90d00ab795d
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435303"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160428"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Lingua e regioni supportate dall'API Ricerca immagini Bing
 
@@ -115,7 +115,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Taiwan|Cinese tradizionale|zh-TW|
 |Turchia|Turco|tr-TR|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|it-IT|
+|Stati Uniti|Inglese|en-US|
 |Stati Uniti|Spagnolo|es-US|
 
 ## <a name="next-steps"></a>Passaggi successivi

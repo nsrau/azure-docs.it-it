@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: ef1b8b2dd96a89a553239168d412d84e63a29f2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254588"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284915"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -31,7 +31,7 @@ La firma di accesso condiviso consente inoltre l'accesso al bus di servizio in b
 
 Le firme di accesso condiviso (SAS) sono un meccanismo di autorizzazione basato sulle attestazioni che usa token semplici. Quando si usano le firme di accesso, le chiavi non vengono mai passate durante il transito. Le chiavi vengono usate per firmare crittograficamente informazioni che possono essere verificate in un secondo momento dal servizio. L'uso delle firme di accesso condiviso è paragonabile a quello della combinazione di nome utente e password in cui il client entra immediatamente in possesso di un nome di regola di autorizzazione e una chiave corrispondente. È paragonabile anche a un modello di sicurezza federata, in cui il client riceve un token di accesso firmato per un tempo limitato da un servizio token di sicurezza senza mai entrare in possesso della chiave di firma.
 
-L'autenticazione SAS nel bus di servizio è configurata con il nome [Regole di autorizzazione di accesso condiviso](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) e a essa sono associati diritti di accesso e una coppia di chiavi di crittografia primaria e secondaria. Le chiavi sono valori a 256 bit nella rappresentazione Base64. È possibile configurare le regole a livello di spazio dei nomi nel bus di servizio [inoltri](../service-bus-relay/relay-what-is-it.md), [code](/service-bus-messaging/service-bus-messaging-overview.md#queues) e [argomenti](/service-bus-messaging/service-bus-messaging-overview.md#topics).
+L'autenticazione SAS nel bus di servizio è configurata con il nome [Regole di autorizzazione di accesso condiviso](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) e a essa sono associati diritti di accesso e una coppia di chiavi di crittografia primaria e secondaria. Le chiavi sono valori a 256 bit nella rappresentazione Base64. È possibile configurare le regole a livello di spazio dei nomi nel bus di servizio [inoltri](../service-bus-relay/relay-what-is-it.md), [code](service-bus-messaging-overview.md#queues) e [argomenti](service-bus-messaging-overview.md#topics).
 
 Il token [Firma di accesso condiviso](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) include il nome della regola di autorizzazione scelta, l'URI della risorsa alla quale si avrà accesso, un'istante di scadenza e una firma crittografica HMAC-SHA256 calcolata in base a questi campi mediante la chiave crittografica primaria o secondaria della regola di autorizzazione scelta.
 

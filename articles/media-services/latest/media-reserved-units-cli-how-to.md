@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: db1915f23c33b5cc0d504f8fcc21b9533228247f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: dd587e5fc2082d1e496fbc05d5b25cf6692413bc
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634397"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713062"
 ---
 # <a name="scaling-media-processing"></a>Ridimensionamento dell'elaborazione di contenuti multimediali
 
-Servizi multimediali di Azure consente di ridimensionare l'elaborazione di contenuti multimediali nell'account gestendo le Media Reserved Unit (MRU). Per una panoramica dettagliata, vedere [Ridimensionamento dell'elaborazione di contenuti multimediali](../previous/media-services-scale-media-processing-overview.md). Questo articolo illustra come usare l'[interfaccia della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) per ridimensionare le MRU.
+Servizi multimediali di Azure consente di ridimensionare l'elaborazione di contenuti multimediali nell'account gestendo le Media Reserved Unit (MRU). Per una panoramica dettagliata, vedere [Ridimensionamento dell'elaborazione di contenuti multimediali](../previous/media-services-scale-media-processing-overview.md). 
 
-> [!IMPORTANT]
-> Vedere le considerazioni descritte in [questa sezione](#considerations).  
-> 
->
+Questo articolo illustra come usare l'[interfaccia della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) per ridimensionare le MRU.
+
+> [!NOTE]
+> Per i processi di analisi audio e video generati da Servizi multimediali v3 o Video Indexer, è fortemente consigliato effettuare il provisioning dell'account con 10 MRU S3. <br/>Se sono necessarie più di 10 MRU S3, aprire un ticket di supporto dal [portale di Azure](https://portal.azure.com/).
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -44,11 +44,6 @@ Il comando [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account
 ```azurecli
 az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
-
-## <a name="considerations"></a>Considerazioni
-
-- Per i processi di analisi audio e video generati da Servizi multimediali v3 o Video Indexer, è fortemente consigliato effettuare il provisioning dell'account con 10 MRU S3.
-- Se sono necessarie più di 10 MRU S3, aprire un ticket di supporto dal [portale di Azure](https://portal.azure.com/).
 
 ## <a name="billing"></a>Fatturazione
 

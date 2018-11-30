@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: ddd78e2fad401add35bc246a64236e2679c33cbc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023546"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620524"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicazione remota nei servizi C# con Reliable Services
 
@@ -98,7 +98,7 @@ La creazione del proxy servizio è un'operazione semplice e, pertanto, potrai cr
 
 ### <a name="service-proxy-factory-lifetime"></a>Durata del proxy servizio factory
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) è una factory che crea istanze di proxy per interfacce di connessione remota diverse. Se si usa l'API `ServiceProxy.Create` per la creazione di un proxy, il framework crea un singleton proxy servizio.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) è una factory che crea istanze di proxy per interfacce di connessione remota diverse. Se si usa l'API `ServiceProxyFactory.CreateServiceProxy` per la creazione di un proxy, il framework crea un singleton proxy servizio.
 È utile per crearne una manualmente quando è necessario eseguire l'override delle proprietà [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory).
 La creazione di una factory è un'operazione costosa. Il proxy servizio factory mantiene una cache interna di comunicazione client.
 Una best practice consiste nel salvare nella cache il proxy servizio factory il più a lungo possibile.
@@ -227,7 +227,7 @@ Questa modifica assicura che il servizio sia in ascolto sul listener V1 e V2.
       ```
 2. Aggiornare il client dalla versione V1 a quella V2 con l'attributo client V2.
 Questo passaggio garantisce che il client usi lo stack V2.
-Non è richiesta alcuna modifica nel progetto/servizio client. La compilazione di progetti client con assembly di interfaccia aggiornata è sufficiente.
+Non è richiesta alcuna modifica nel progetto/servizio client. È sufficiente la compilazione di progetti client con assembly di interfaccia aggiornata.
 
 3. Questo passaggio è facoltativo. Usare l'attributo del listener V2 e aggiornare il servizio V2.
 Questo passaggio assicura che il servizio sia in ascolto solo sul listener V2.

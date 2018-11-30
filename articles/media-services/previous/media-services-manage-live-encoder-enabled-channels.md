@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222064"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262619"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 
@@ -268,8 +268,8 @@ Quando è impostata su true, questa opzione configura il codificatore live in mo
 facoltativo. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null. 
 
 
->[!NOTE] 
->Prima di creare il canale, è necessario caricare l'immagine di slate con le limitazioni seguenti come asset dedicato, nel quale non dovranno essere presenti altri file. Questa immagine viene usata solo quando il codificatore live inserisce uno slate a causa di un'interruzione pubblicitaria o è stato segnalato in modo esplicito di inserire uno slate. Il codificatore live può passare in modalità slate anche in presenza di determinate condizioni di errore, ad esempio in caso di perdita del segnale di input. Non è attualmente possibile usare un'immagine personalizzata quando il codificatore live passa a uno stato di perdita del segnale di input. È possibile votare per l'aggiunta di questa funzionalità [qui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+> [!NOTE] 
+> Prima di creare il canale, è necessario caricare l'immagine di slate con le limitazioni seguenti come asset dedicato, nel quale non dovranno essere presenti altri file. Questa immagine viene usata solo quando il codificatore live inserisce uno slate a causa di un'interruzione pubblicitaria o è stato segnalato in modo esplicito di inserire uno slate. Non è attualmente possibile usare un'immagine personalizzata quando il codificatore live passa a uno stato di perdita del segnale di input. È possibile votare per l'aggiunta di questa funzionalità [qui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
 
 * Risoluzione massima: 1920x1080.

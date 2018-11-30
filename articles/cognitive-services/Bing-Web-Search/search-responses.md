@@ -3,19 +3,19 @@ title: Risposte della ricerca - API Ricerca Web Bing
 titleSuffix: Azure Cognitive Services
 description: Informazioni sui tipi e sulla struttura delle risposte fornite dall'API Ricerca Web Bing.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
-ms.author: erhopf
-ms.openlocfilehash: f3a4c8bb024aa5e92365b72b8cc2180cc6f4d6d4
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: c7626f08dcfad76724a4d1f5d88fbd10c78c62c6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123777"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164773"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipi e struttura delle risposte dell'API Ricerca Web Bing  
 
@@ -287,7 +287,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 Un'espressione matematica può contenere i simboli seguenti:
 
-|Simbolo|Descrizione|
+|Simbolo|DESCRIZIONE|
 |------------|-----------------|
 |+|Addizione|
 |-|Sottrazione|
@@ -301,7 +301,7 @@ Un'espressione matematica può contenere i simboli seguenti:
 
 Un'espressione matematica può contenere le costanti seguenti:
 
-|Simbolo|Descrizione|
+|Simbolo|DESCRIZIONE|
 |------------|-----------------|
 |Pi|3,14159...|
 |Gradi|Gradi|
@@ -311,7 +311,7 @@ Un'espressione matematica può contenere le costanti seguenti:
 
 Un'espressione matematica può contenere le funzioni seguenti:
 
-|Simbolo|Descrizione|
+|Simbolo|DESCRIZIONE|
 |------------|-----------------|
 |Sqrt|Radice quadrata|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funzioni trigonometriche con argomenti in radianti|

@@ -15,17 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 0c045d82e47d2554c2767e6f52491c780618abc2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409527"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822756"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
  
-Questo articolo descrive come monitorare un account Batch tramite le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../monitoring/monitoring-data-collection.md#metrics) e [log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per le risorse nell'account Batch. È possibile raccogliere e utilizzare i dati in svariati modi per monitorare l'account Batch e diagnosticare i problemi. È anche possibile configurare [avvisi sulle metriche](../monitoring-and-diagnostics/monitoring-overview-alerts.md) per ricevere notifiche quando una metrica raggiunge un valore specificato. 
+Questo articolo descrive come monitorare un account Batch tramite le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/platform/data-collection.md#metrics) e [log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per le risorse nell'account Batch. È possibile raccogliere e utilizzare i dati in svariati modi per monitorare l'account Batch e diagnosticare i problemi. È anche possibile configurare [avvisi sulle metriche](../monitoring-and-diagnostics/monitoring-overview-alerts.md) per ricevere notifiche quando una metrica raggiunge un valore specificato. 
 
 ## <a name="batch-metrics"></a>Metriche di Batch
 
