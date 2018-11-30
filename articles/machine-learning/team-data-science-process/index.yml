@@ -1,23 +1,24 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 608ba8a5bb6fe4376a569eb3ee5d630b1517061a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7a71873e5129d8aa4522e44daa4017202cd6c34c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391939"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497387"
 documentType: LandingData
+title: Documentazione del processo data science per i team
 metadata:
-  author: cjgronlund
-  description: Informazioni su come usare il processo di data science per i team, una metodologia di data science agile e iterativa mirata a offrire soluzioni di analisi predittiva e applicazioni intelligenti in modo efficiente. Il TDSP consente di migliorare la collaborazione tra team e l'apprendimento. Contiene procedure consigliate e strutture messe a punto da Microsoft e altre aziende del settore che facilitano la corretta implementazione delle iniziative di data science. L'obiettivo è aiutare le aziende a realizzare completamente i vantaggi del proprio programma di analisi.
-  ms.author: cgronlun
-  ms.component: team-data-science-process
-  ms.date: 01/18/2018
-  ms.devlang: na
-  ms.service: machine-learning
-  ms.tgt_pltfrm: na
-  ms.topic: landing-page
-  services: machine-learning
   title: Documentazione del processo data science per i team
+  meta.description: Learn how to use the Team Data Science Process, an agile, iterative data science methodology to deliver predictive analytics solutions and intelligent applications efficiently. TDSP helps improve team collaboration and learning. It contains a distillation of the best practices and structures from Microsoft and others in the industry that facilitate the successful implementation of data science initiatives. The goal is to help companies fully realize the benefits of their analytics program.
+  services: machine-learning
+  author: cjgronlund
+  ms.service: machine-learning
+  ms.component: team-data-science-process
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/18/2018
+  ms.author: cgronlun
 abstract:
   description: Il processo di analisi scientifica dei dati per i team è una metodologia di data science agile e iterativa mirata a offrire soluzioni di analisi predittiva e applicazioni intelligenti in modo efficiente. Il TDSP consente di migliorare la collaborazione tra team e l'apprendimento. Contiene procedure consigliate e strutture messe a punto da Microsoft e altre aziende del settore che facilitano la corretta implementazione delle iniziative di data science. L'obiettivo è aiutare le aziende a realizzare completamente i vantaggi del proprio programma di analisi.
 sections:
@@ -37,7 +38,6 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="walkthroughs-aml-with-tdsp">Azure Machine Learning Workbench</a>
     - html: <a href="walkthroughs-spark">Spark con PySpark e Scala</a>
     - html: <a href="walkthroughs-hdinsight-hadoop">Hive con Hadoop di HDInsight</a>
     - html: <a href="walkthroughs-azure-data-lake">U-SQL con Azure Data Lake</a>
