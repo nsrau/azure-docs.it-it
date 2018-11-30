@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306411"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705685"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Risolvere i problemi di accesso e utilizzo del portale delle app personali
 
@@ -57,7 +57,7 @@ Verificare che vengano soddisfatti i requisiti del browser seguenti:
 È anche possibile scaricare l'estensione direttamente dai siti seguenti:
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Se l'estensione è stata installata e continuano a verificarsi problemi, procedere come segue:

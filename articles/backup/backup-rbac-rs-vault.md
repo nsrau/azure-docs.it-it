@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.date: 11/14/2018
 ms.author: trinadhk
-ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011324"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704648"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure
 Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
@@ -41,7 +41,7 @@ La tabella seguente riporta le azioni di gestione di Backup e il ruolo Controllo
 | | Collaboratore macchine virtuali | Risorsa della VM |
 | Backup su richiesta della VM | Operatore di backup | Risorsa dell'insieme di credenziali di ripristino |
 | Ripristino della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
-| | Collaboratore macchine virtuali | Gruppo di risorse in cui verrà distribuita la VM |
+| | Collaboratore | Gruppo di risorse in cui verrà distribuita la VM |
 | | Collaboratore macchine virtuali | Macchina virtuale di origine di cui è stato eseguito il backup |
 | Ripristinare dischi non gestiti dal backup delle VM | Operatore di backup | Risorsa dell'insieme di credenziali di ripristino |
 | | Collaboratore macchine virtuali | Macchina virtuale di origine di cui è stato eseguito il backup |

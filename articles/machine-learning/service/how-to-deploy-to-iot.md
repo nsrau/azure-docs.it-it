@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: dc6119bdca850a71064795a80f3087c15189a2e5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091624"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710002"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Preparare la distribuzione di modelli nei dispositivi IoT Edge
 
@@ -27,7 +27,7 @@ Prima di distribuire un modello in un dispositivo periferico, usare la procedura
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+* Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
 
 * Un'area di lavoro del servizio Azure Machine Learning. Per crearne una, usare la procedura descritta nel documento [Iniziare a usare il servizio Azure Machine Learning](quickstart-get-started.md).
 

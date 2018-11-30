@@ -1,3 +1,16 @@
+---
+author: Juliako
+ms.service: media-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: juliako
+ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52270694"
+---
 Il processo genera un file di output JSON che contiene i metadati sui volti rilevati e monitorati. I metadati includono coordinate che indicano la posizione dei volti e un numero di ID volto che indica il monitoraggio della persona specifica. I codici ID del volto sono soggetti a ripristino quando le riprese non sono frontali o sono sovrapposte nel fotogramma, causando l'assegnazione di diversi ID alla stessa persona.
 
 L'output JSON include gli elementi seguenti:

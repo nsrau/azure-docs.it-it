@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 1521bba188fcd7d8bade88196fe687929f414f93
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283513"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423502"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Esercitazione 6: raggruppare ed estrarre dati correlati
 Questa esercitazione illusta come aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
@@ -97,7 +97,7 @@ I dati estratti dall'endpoint devono contenere tali informazioni e restituirle n
 ]
 ```
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Nella pagina **Intents** (Finalità) selezionare la finalità **MoveEmployee**. 
 

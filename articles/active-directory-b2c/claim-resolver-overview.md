@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dab6b87c2785d3331817d6c191be64d406683a51
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312014"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852385"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -33,10 +33,10 @@ Nell'esempio seguente viene definito un tipo di attestazione denominato `correla
 </ClaimType>
 ```
 
-Nel profilo tecnico, mappare il resolver di attestazioni al tipo di attestazione. Azure AD B2C popola il valore del resolver di attestazioni `{context:corelationId}` nell'attestazione `correlationId` e invia l'attestazione al profilo tecnico.
+Nel profilo tecnico, mappare il resolver di attestazioni al tipo di attestazione. Azure AD B2C popola il valore del resolver di attestazioni `{Context:CorrelationId}` nell'attestazione `correlationId` e invia l'attestazione al profilo tecnico.
 
 ```XML
-<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{context:corelationId}" />
+<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
 ## <a name="claim-resolver-types"></a>Tipi di resolver di attestazioni
@@ -50,7 +50,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {Culture:LanguageName} | Codice ISO di due lettere per la lingua. | en |
 | {Culture:LCID}   | Identificatore LCID del codice della lingua. | 1040 |
 | {Culture:RegionName} | Codice ISO di due lettere per la regione. | Stati Uniti |
-| {Culture:RFC5646} | Codice RFC5646 della lingua. | it-IT |
+| {Culture:RFC5646} | Codice RFC5646 della lingua. | en-US |
 
 ### <a name="policy"></a>Criterio
 

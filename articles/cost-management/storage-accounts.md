@@ -1,27 +1,27 @@
 ---
-title: Configurare gli account di archiviazione per Gestione costi di Azure | Microsoft Docs
-description: Questo articolo descrive come configurare gli account di archiviazione di Azure e i bucket di archiviazione di AWS per Gestione costi di Azure.
+title: Configurare gli account di archiviazione per Cloudyn di Azure | Microsoft Docs
+description: Questo articolo descrive come configurare gli account di archiviazione di Azure e i contenitori di archiviazione di AWS per Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: dab7100c97fab7e086352916ec222ec70a0d0400
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 398472df7caf0f702f43bc9d025d1e6ad7dcdd7e
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145965"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275080"
 ---
-# <a name="configure-storage-accounts-for-cost-management"></a>Configurare gli account di archiviazione per Gestione costi
+# <a name="configure-storage-accounts-for-cloudyn"></a>Configurare gli account di archiviazione per Cloudyn
 
-<!--- intent: As a Cost Management user, I want to configure Cost Management to use my cloud service provider storage account to store my reports. -->
+<!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
-È possibile salvare i report di Gestione costi nel portale di Cloudyn, nell'archiviazione di Azure o nei bucket di archiviazione di AWS. Il salvataggio dei report nel portale di Cloudyn è gratuito. Il salvataggio dei report in una risorsa di archiviazione del provider di servizi cloud è tuttavia facoltativo e comporta un costo aggiuntivo. Questo articolo consente di configurare gli account di archiviazione di Azure e i bucket di archiviazione di Amazon Web Services (AWS) per l'archiviazione dei report.
+È possibile salvare i report di Cloudyn nel portale di Cloudyn, nell'archiviazione di Azure o nei contenitori di archiviazione di AWS. Il salvataggio dei report nel portale di Cloudyn è gratuito. Il salvataggio dei report in una risorsa di archiviazione del provider di servizi cloud è tuttavia facoltativo e comporta un costo aggiuntivo. Questo articolo consente di configurare gli account di archiviazione di Azure e i bucket di archiviazione di Amazon Web Services (AWS) per l'archiviazione dei report.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ Se non si ha un bucket di archiviazione di AWS Simple Storage Service (S3), è n
 
 ## <a name="configure-your-azure-storage-account"></a>Configurare l'account di archiviazione di Azure
 
-La configurazione dell'archiviazione di Azure per l'uso con Cost Management è semplice. Raccogliere informazioni dettagliate sull'account di archiviazione e copiarle nel portale di Cloudyn.
+La configurazione dell'archiviazione di Azure per l'uso di Cloudyn è semplice. Raccogliere informazioni dettagliate sull'account di archiviazione e copiarle nel portale di Cloudyn.
 
 1. Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 2. Fare clic su **Tutti i servizi**, selezionare **Account di archiviazione**, scorrere fino all'account di archiviazione da usare e quindi selezionarlo.
@@ -163,4 +163,4 @@ Per collegare il nuovo criterio, aprire la console di AWS e modificare il ruolo 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per comprendere le funzioni e la struttura di base dei report di gestione dei costi, vedere [Informazioni sui report di gestione dei costi](understanding-cost-reports.md).
+- Per comprendere le funzioni e la struttura di base dei report di Cloudyn, vedere [Informazioni sui report di Cloudyn](understanding-cost-reports.md).

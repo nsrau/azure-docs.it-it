@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58992c80344902674b2b21a71b07925c752911a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eb0fa1edaadddfe055f3fc53a6d232e5a1293490
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230945"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424936"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
@@ -212,7 +212,7 @@ Seguire questa procedura per rimuovere il proprio account dall'app per dispositi
 
 L'errore 0x800434D4L si verifica quando si tenta di accedere a un'applicazione diversa da un browser, installata in un computer locale, che non funziona con account che richiedono la verifica in due passaggi.
 
-Una soluzione alternativa per questo errore consiste nel disporre di account utente separati per le operazioni correlate all'amministrazione e per quelle non amministrative. In un secondo momento è possibile collegare le cassette postali tra l'account amministratore e l'account non amministratore in modo da poter accedere a Outlook usando l'account non amministratore. Per altri dettagli su questa soluzione, vedere come [consentire a un amministratore di aprire e visualizzare il contenuto della cassetta postale di un utente](http://help.outlook.com/141/gg709759.aspx?sl=1).
+Una soluzione alternativa per questo errore consiste nel disporre di account utente separati per le operazioni correlate all'amministrazione e per quelle non amministrative. In un secondo momento è possibile collegare le cassette postali tra l'account amministratore e l'account non amministratore in modo da poter accedere a Outlook usando l'account non amministratore. Per altri dettagli su questa soluzione, vedere come [consentire a un amministratore di aprire e visualizzare il contenuto della cassetta postale di un utente](https://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

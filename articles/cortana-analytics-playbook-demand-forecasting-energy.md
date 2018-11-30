@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231533"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426255"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Studio del modello di soluzione Cortana Intelligence per la previsione della domanda di energia
 ## <a name="executive-summary"></a>Sunto
@@ -122,7 +122,7 @@ Come si può notare dalla tabella, la distinzione tra scenari di previsione a br
 ### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Caso d'uso di esempio 1: eSmart Systems - Ottimizzazione del sovraccarico
 Tra i compiti importanti di una [smart grid](https://en.wikipedia.org/wiki/Smart_grid) c'è quello di eseguire l'ottimizzazione e la regolazione in modo dinamico e costante in base agli schemi di variazione dei consumi. Il consumo energetico può essere influenzato da cambiamenti a breve termine causati principalmente da variazioni della temperatura. *Ad esempio*, i maggiori consumi dovuti all'uso del riscaldamento o dell'aria condizionata. Allo stesso tempo, il consumo energetico è influenzato anche da tendenze a lungo termine. Sono inclusi, ad esempio, effetti stagionali, festività nazionali, aumento del consumo a lungo termine e persino fattori economici come l'indice al consumo, il prezzo del greggio e il PIL.
 
-In questo caso d'uso [eSmart Systems](http://www.esmartsystems.com/) vuole distribuire una soluzione basata sul cloud che consenta di prevedere la propensione a una situazione di sovraccarico per una data sottostazione della rete. In particolare, eSmart Systems vuole identificare le sottostazioni con una maggiore probabilità di sovraccarico nell'ora successiva, per poter intervenire immediatamente ed evitare o risolvere tale situazione.
+In questo caso d'uso [eSmart Systems](https://www.esmartsystems.com/) vuole distribuire una soluzione basata sul cloud che consenta di prevedere la propensione a una situazione di sovraccarico per una data sottostazione della rete. In particolare, eSmart Systems vuole identificare le sottostazioni con una maggiore probabilità di sovraccarico nell'ora successiva, per poter intervenire immediatamente ed evitare o risolvere tale situazione.
 
 Una previsione rapida e accurata richiede l'implementazione di tre modelli predittivi:
 
@@ -365,7 +365,7 @@ Dopo aver stabilito la fase di modellazione e convalidato le prestazioni del mod
 Nel contesto della previsione della domanda di energia, l'obiettivo è richiamare previsioni continue e periodiche garantendo anche la disponibilità di dati aggiornati per il modello e l'invio dei dati di previsione al client di utilizzo.
 
 ### <a name="web-services-deployment"></a>Distribuzione di servizi Web
-Il principale blocco predefinito distribuibile in Azure ML è il servizio Web. Si tratta del modo più efficace per consentire l'utilizzo di un modello predittivo nel cloud. Il servizio Web incapsula il modello e lo include in un'API [RESTful](http://www.restapitutorial.com/) . L'API (Application Programming Interface) può essere usata in qualsiasi codice client, come illustrato nel diagramma seguente.
+Il principale blocco predefinito distribuibile in Azure ML è il servizio Web. Si tratta del modo più efficace per consentire l'utilizzo di un modello predittivo nel cloud. Il servizio Web incapsula il modello e lo include in un'API [RESTful](https://www.restapitutorial.com/) . L'API (Application Programming Interface) può essere usata in qualsiasi codice client, come illustrato nel diagramma seguente.
 
 ![Distribuzione del servizio e consumo](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32ce9cb456e302647e2e09db6ed549cd4795fed7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448391"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635153"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 Usare il modello di dati di Log Analytics per creare report. Con il modello di dati, è possibile creare dashboard e query personalizzate o personalizzare i dati di Backup di Azure, come si preferisce.
@@ -281,4 +281,4 @@ Questa tabella offre dettagli sui campi relativi all'insieme di credenziali.
 | ResourceType |Text |Tipo di risorse per il quale vengono raccolti i dati. Ad esempio, Insieme di credenziali |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver verificato il modello di dati per la creazione di report di Backup di Azure, è possibile iniziare [la creazione di dashboard](../log-analytics/log-analytics-dashboards.md) in Log Analytics.
+Dopo aver verificato il modello di dati per la creazione di report di Backup di Azure, è possibile iniziare [la creazione di dashboard](../azure-monitor/platform/dashboards.md) in Log Analytics.

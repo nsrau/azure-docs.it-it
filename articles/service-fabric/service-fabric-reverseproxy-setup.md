@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: c590c9d1ccbbb84a76ba09021a97464ec85c5784
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507212"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852980"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Configurare il proxy inverso in Azure Service Fabric
 Il proxy inverso è un servizio facoltativo di Azure Service Fabric che consente ai microservizi in esecuzione in un cluster di Service Fabric di rilevare e comunicare con altri servizi che hanno endpoint HTTP. Per altre informazioni, vedere [Proxy inverso in Azure Service Fabric](service-fabric-reverseproxy.md). Questo articolo illustra come configurare il proxy inverso nel cluster. 
@@ -231,7 +231,7 @@ La procedura seguente illustra le impostazioni da usare per abilitare il proxy i
 
    Per altre informazioni sulla configurazione e sulla gestione dei certificati per un cluster autonomo e per altri dettagli sulla configurazione dei certificati usati per proteggere il proxy inverso, vedere [Sicurezza basata su certificati X509](./service-fabric-windows-cluster-x509-security.md).
 
-Dopo avere modificato il file ClusterConfig.json per abilitare il proxy inverso, seguire le istruzioni disponibili in per eseguire il push [delle modifiche nel cluster](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration).
+Dopo avere modificato il file ClusterConfig.json per abilitare il proxy inverso, seguire le istruzioni disponibili in per eseguire il push [delle modifiche nel cluster](service-fabric-cluster-config-upgrade-windows-server.md).
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Esporre il proxy inverso su una porta pubblica tramite Azure Load Balancer
@@ -332,7 +332,7 @@ Il codice JSON seguente fa riferimento allo stesso modello usato in [Abilitare i
    }
    ``` 
 
-Per altre informazioni sull'aggiornamento delle impostazioni di infrastruttura per i cluster di Azure, vedere [Personalizzare le impostazioni del cluster usando i modelli di Resource Manager](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). Per i cluster autonomi vedere [Personalizzare le impostazioni del cluster per i cluster autonomi](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
+Per altre informazioni sull'aggiornamento delle impostazioni di infrastruttura per i cluster di Azure, vedere [Personalizzare le impostazioni del cluster usando i modelli di Resource Manager](service-fabric-cluster-config-upgrade-azure.md). Per i cluster autonomi vedere [Personalizzare le impostazioni del cluster per i cluster autonomi](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Alcune impostazioni di infrastruttura vengono usate per stabilire comunicazioni sicure tra il proxy inverso e i servizi. Per informazioni dettagliate su queste impostazioni, vedere [Connettersi a un servizio protetto con il proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md).
 

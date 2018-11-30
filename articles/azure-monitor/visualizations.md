@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7a3545e3fdf37f33db4c3b77be6cf6d5db0f6aef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4200accee94840a8a4455308f24a857fd5d7034a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973576"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632977"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
-Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati archiviati in Monitoraggio di Azure, tra cui le [metriche nell'archivio delle metriche di Azure](../monitoring/monitoring-data-collection.md#metrics) e i [dati di log in Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
+Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati archiviati in Monitoraggio di Azure, tra cui le [metriche nell'archivio delle metriche di Azure](../azure-monitor/platform/data-collection.md#metrics) e i [dati di log in Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
 
 Visualizzazioni come grafici e grafi consentono di analizzare i dati di monitoraggio per il drill-down dei problemi e per identificare i criteri. A seconda dello strumento usato, potrebbe essere possibile anche condividere visualizzazioni con altri utenti all'interno e all'esterno dell'organizzazione.
 
@@ -50,7 +50,7 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecno
 - Drill-down contestuale limitato.
 
 ## <a name="azure-monitor-views"></a>Visualizzazioni di Monitoraggio di Azure
-Le [visualizzazioni di Monitoraggio di Azure](../log-analytics/log-analytics-view-designer.md) consentono di creare visualizzazioni personalizzate con i dati di log archiviati in Log Analytics. Vengono usate dalle [soluzioni di monitoraggio](../monitoring/monitoring-solutions.md) per presentare i dati raccolti.
+Le [visualizzazioni di Monitoraggio di Azure](../azure-monitor/platform/view-designer.md) consentono di creare visualizzazioni personalizzate con i dati di log archiviati in Log Analytics. Vengono usate dalle [soluzioni di monitoraggio](../azure-monitor/insights/solutions.md) per presentare i dati raccolti.
 
 ![Visualizza](media/visualizations/view.png)
 
@@ -58,7 +58,7 @@ Le [visualizzazioni di Monitoraggio di Azure](../log-analytics/log-analytics-vie
 - Visualizzazioni avanzate per i dati di Log Analytics.
 - Esportazione e importazione delle visualizzazioni per trasferirle ad altri gruppi di risorse e sottoscrizioni.
 - Integrazione nel modello di gestione di Log Analytics con le aree di lavoro e le soluzioni di monitoraggio.
-- [Filtri](../log-analytics/log-analytics-view-designer-filters.md) per i parametri personalizzati.
+- [Filtri](../azure-monitor/platform/view-designer-filters.md) per i parametri personalizzati.
 - Interattività, supporto per il drill-in a più livelli con una visualizzazione che analizza un'altra visualizzazione.
 
 ### <a name="limitations"></a>Limitazioni
@@ -138,9 +138,9 @@ Le [cartelle di lavoro](../application-insights/app-insights-usage-workbooks.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni sui [dati raccolti da Monitoraggio di Azure](../monitoring/monitoring-data-collection.md).
+- Informazioni sui [dati raccolti da Monitoraggio di Azure](../azure-monitor/platform/data-collection.md).
 - Informazioni sui [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).
-- Informazioni sulle [visualizzazioni in Monitoraggio di Azure](../log-analytics/log-analytics-view-designer.md).
+- Informazioni sulle [visualizzazioni in Monitoraggio di Azure](../azure-monitor/platform/view-designer.md).
 - Informazioni sulle [cartelle di lavoro di Application Insights](../application-insights/app-insights-usage-workbooks.md).
 - Informazioni sull'[importazione dei dati di log in Power BI](../log-analytics/log-analytics-powerbi.md).
 - Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

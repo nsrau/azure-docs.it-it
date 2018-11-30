@@ -2,25 +2,21 @@
 title: Previsione dell'integrità dei veicoli e abitudini di guida - Azure | Documentazione Microsoft
 description: Usare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-ms.author: deguhath
+author: marktab
+ms.author: tdsp
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 09fad60b-2f48-488b-8a7e-47d1f969ec6f
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 0594b9b40fdf8647f99946a31dbb47a95c9694ac
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 688a821667b38423b43af87b7a26525e52d9a7aa
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300354"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444160"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Studio della soluzione di analisi dei dati di telemetria del veicolo
 

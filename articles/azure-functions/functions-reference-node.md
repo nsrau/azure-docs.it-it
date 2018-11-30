@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 44a2cb196e1a89b0abe229f478c0b76b146aa268
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567146"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620626"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -70,8 +70,6 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### <a name="exporting-an-async-function"></a>Esportazione di una funzione asincrona
-Quando si usa la dichiarazione JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) o si restituisce in altro modo un oggetto [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) JavaScript (non disponibile con Funzioni di Azure v1.x), non è necessario chiamare in modo esplicito il callback [`context.done`](#contextdone-method) per segnalare che la funzione è stata completata. La funzione viene completata al termine della funzione asincrona esportata o di Promise.
-
 Quando si usano la dichiarazione [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) o semplici oggetti [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) JavaScript nella versione 2.x del runtime di Funzioni, non è necessario chiamare in modo esplicito il callback [`context.done`](#contextdone-method) per segnalare che la funzione è stata completata. La funzione viene completata al termine della funzione asincrona esportata o di Promise. Per le funzioni destinate alla versione 1.x del runtime, è necessario chiamare comunque [`context.done`](#contextdone-method) al termine dell'esecuzione del codice.
 
 L'esempio seguente è una semplice funzione che registra che è stata attivata e termina immediatamente l'esecuzione.

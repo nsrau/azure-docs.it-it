@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 18e668249c50ffbc1020aa12455fdfb87dcb8a24
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855392"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282550"
 ---
 # <a name="message-deferral"></a>Differimento di messaggi
 
@@ -40,7 +40,6 @@ Per recuperare un messaggio rinviato, il proprietario deve ricordarsi il [Sequen
 
 Se non è possibile elaborare un messaggio perché una determinata risorsa che deve gestirlo non è temporaneamente disponibile ma l'elaborazione del messaggio non deve essere sospesa sommariamente, per mettere da parte quel messaggio per alcuni minuti, memorizzare il **SequenceNumber** in un [messaggio pianificato](message-sequencing.md) da pubblicare dopo qualche minuto e recuperare di nuovo il messaggio rinviato quando arriva il messaggio pianificato. Se un gestore di messaggi dipende da un database per tutte le operazioni e quel database è temporaneamente non disponibile, è preferibile non usare il differimento, ma sospendere completamente la ricezione dei messaggi finché il database non sarà di nuovo disponibile.
 
-Il rinvio dei messaggi non influisce sulla scadenza del messaggio, vale a dire che i messaggi rinviati scadranno all'orario inizialmente pianificato e verranno quindi spostati nella coda di messaggi non recapitati (in base alle configurazioni). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

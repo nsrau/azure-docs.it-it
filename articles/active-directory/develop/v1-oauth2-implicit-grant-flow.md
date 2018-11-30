@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985727"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422032"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory (AD)
 
@@ -34,7 +34,7 @@ ms.locfileid: "49985727"
 
 La tipica [concessione del codice di autorizzazione OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.1) è la concessione di autorizzazione che usa due endpoint separati. L'endpoint di autorizzazione viene usato per la fase di interazione dell'utente, che restituisce un codice di autorizzazione. L'endpoint di token viene quindi usato dal client per cambiare il codice in un token di accesso e spesso anche in un token di aggiornamento. Le applicazioni Web devono presentare le proprie credenziali all'endpoint di token, in modo che il server di autorizzazione possa autenticare il client.
 
-La [concessione implicita OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) è una variante di altre concessioni di autorizzazione e consente a un client di ottenere un token di accesso (e un elemento id_token, quando si usa [OpenId Connect](http://openid.net/specs/openid-connect-core-1_0.html)) direttamente dall'endpoint di autorizzazione, senza contattare l'endpoint di token né autenticare il client. Questa variante è stata progettata per le applicazioni basate su JavaScript in esecuzione in un Web browser: nella specifica OAuth2 originale i token vengono restituiti in un frammento di URI. In questo modo i bit dei token diventano disponibili per il codice JavaScript nel client, ma non verranno inclusi nei reindirizzamenti al server. La restituzione dei token tramite i reindirizzamenti del browser direttamente dagli endpoint di autorizzazione ha anche il vantaggio di eliminare eventuali requisiti per le chiamate tra origini, necessarie se l'applicazione JavaScript deve contattare l'endpoint di token.
+La [concessione implicita OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) è una variante di altre concessioni di autorizzazione e consente a un client di ottenere un token di accesso (e un elemento id_token, quando si usa [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) direttamente dall'endpoint di autorizzazione, senza contattare l'endpoint di token né autenticare il client. Questa variante è stata progettata per le applicazioni basate su JavaScript in esecuzione in un Web browser: nella specifica OAuth2 originale i token vengono restituiti in un frammento di URI. In questo modo i bit dei token diventano disponibili per il codice JavaScript nel client, ma non verranno inclusi nei reindirizzamenti al server. La restituzione dei token tramite i reindirizzamenti del browser direttamente dagli endpoint di autorizzazione ha anche il vantaggio di eliminare eventuali requisiti per le chiamate tra origini, necessarie se l'applicazione JavaScript deve contattare l'endpoint di token.
 
 Un caratteristica importante della concessione implicita OAuth2 è che tali flussi non restituiscono mai token di aggiornamento al client. La sezione successiva spiega che questo non è davvero necessario e costituirebbe anzi un problema di sicurezza.
 

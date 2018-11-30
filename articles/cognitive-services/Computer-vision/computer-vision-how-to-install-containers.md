@@ -10,16 +10,16 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 2ba7039fe42e3b5638b99161e12e9888bc852f87
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634902"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634643"
 ---
 # <a name="install-and-run-containers"></a>Installare ed eseguire i contenitori
 
-La containerizzazione è un approccio alla distribuzione del software in cui un'applicazione o un servizio viene compresso come un'immagine del contenitore. La configurazione e le dipendenze per l'applicazione o il servizio sono incluse nell'immagine del contenitore. L'immagine del contenitore può quindi essere distribuita in un host contenitore senza alcuna variazione o con modifiche minime. I contenitori sono isolati fra loro e il sistema operativo sottostante, con un footprint ridotto rispetto a una macchina virtuale. È possibile creare istanze dei contenitori dalle immagini per attività a breve termine e rimuoverle quando non sono più necessarie.
+La containerizzazione è un approccio alla distribuzione del software in cui un'applicazione o un servizio viene compresso come immagine del contenitore. La configurazione e le dipendenze dell'applicazione o del servizio sono incluse nell'immagine del contenitore. L'immagine del contenitore può quindi essere distribuita in un host contenitore senza alcuna variazione o con modifiche minime. I contenitori sono isolati fra loro e dal sistema operativo sottostante, con un footprint inferiore a quello di una macchina virtuale. È possibile creare istanze dei contenitori dalle immagini per attività a breve termine e rimuoverle quando non sono più necessarie.
 
 La parte di riconoscimento del testo di Visione artificiale è disponibile anche come un contenitore Docker. Permette di rilevare ed estrarre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita.  
 > [!IMPORTANT]
@@ -31,13 +31,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare il contenitore Riconoscimento del testo, è necessario soddisfare i prerequisiti seguenti:
 
-**Motore Docker**: il motore Docker deve essere installato localmente. Docker offre pacchetti per la configurazione dell'ambiente in [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). In Windows, Docker deve essere configurato per supportare i contenitori Linux. I contenitori Docker possono anche essere distribuiti direttamente nel [servizio Kubernetes di Azure](/azure/aks/), in [istanze di contenitore di Azure](/azure/container-instances/) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](/azure/azure-stack/). Per altre informazioni sulla distribuzione di Kubernetes in Azure Stack, vedere [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuzione di Kubernetes in Azure Stack).
+**Motore Docker**: il motore Docker deve essere installato localmente. Docker offre pacchetti per la configurazione dell'ambiente in [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). In Windows Docker deve essere configurato per supportare i contenitori Linux. I contenitori Docker possono anche essere distribuiti direttamente nel [servizio Kubernetes di Azure](/azure/aks/), in [Istanze di contenitore di Azure](/azure/container-instances/) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](/azure/azure-stack/). Per altre informazioni sulla distribuzione di Kubernetes in Azure Stack, vedere [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuzione di Kubernetes in Azure Stack).
 
 Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure.
 
-**Familiarità con Registro contenitori Microsoft e Docker**: è opportuno avere una conoscenza di base dei concetti relativi a Registro contenitori Microsoft e Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.  
+**Familiarità con Registro contenitori di Microsoft e Docker**: è opportuno avere una conoscenza di base dei concetti relativi a Registro contenitori di Microsoft e Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.  
 
-Per una panoramica sui concetti fondamentali relativi a Docker e ai contenitori, vedere [Panoramica Docker](https://docs.docker.com/engine/docker-overview/).
+Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).
 
 ### <a name="server-requirements-and-recommendations"></a>Indicazioni e requisiti del server
 
@@ -60,9 +60,6 @@ Seguire i passaggi seguenti per creare e recuperare informazioni da una risorsa 
 
 1. Creare una risorsa di Azure nel portale di Azure.  
    Per usare il contenitore Riconoscimento del testo, è necessario creare innanzitutto una risorsa Visione artificiale corrispondente nel portale di Azure. Per altre informazioni, vedere [Guida introduttiva: creare un account Servizi cognitivi nel portale di Azure](../cognitive-services-apis-create-account.md).
-
-   > [!IMPORTANT]
-   > La risorsa Visione artificiale deve usare il piano tariffario F0.
 
 1. Ottenere l'URL dell'endpoint e la chiave di sottoscrizione per la risorsa di Azure.  
    Una volta creata la risorsa di Azure, sarà necessario usare l'URL dell'endpoint e la chiave di sottoscrizione della risorsa per creare un'istanza del contenitore Riconoscimento del testo corrispondente. È possibile copiare l'URL dell'endpoint e la chiave di sottoscrizione rispettivamente dalle pagine di Avvio rapido e Chiavi della risorsa Visione artificiale nel portale di Azure.
@@ -96,7 +93,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 Per una descrizione completa dei tag disponibili per il contenitore Riconoscimento del testo, vedere [Riconoscimento del testo](https://go.microsoft.com/fwlink/?linkid=2018655) nell'hub Docker.
 
 > [!TIP]
-> È possibile usare il comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) per elencare le immagini dei contenitori scaricate. Il comando seguente elenca ad esempio l'ID, il repository e il tag di ogni immagine del contenitore scaricata, formattata come tabella:
+> È possibile usare il comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) per elencare le immagini dei contenitori scaricate. Ad esempio, il comando seguente visualizza l'ID, il repository e il tag di ogni immagine del contenitore scaricata, in formato tabella:
 >
 >  ```Docker
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
@@ -152,7 +149,7 @@ Il contenitore Riconoscimento del testo invia le informazioni di fatturazione ad
 | `Eula` | Indica che è stata accettata la licenza per il contenitore.<br/>Il valore di questa opzione deve essere impostato su `accept`. |
 
 > [!IMPORTANT]
-> Tutte le tre opzioni devono essere specificate con valori validi per consentire l'avvio del contenitore.
+> Tutte e tre le opzioni devono essere specificate con valori validi per consentire l'avvio del contenitore.
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](computer-vision-resource-container-config.md).
 
@@ -169,7 +166,7 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Rivedere [Configurare i contenitori](computer-vision-resource-container-config.md) per le impostazioni di configurazione
+* Rivedere [Configurare i contenitori](computer-vision-resource-container-config.md) per informazioni sulle impostazioni di configurazione.
 * Rivedere [Panoramica di Visione artificiale](Home.md) per altre informazioni sul riconoscimento di testo scritto a mano e stampato  
 * Fare riferimento all'[API Visione artificiale](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) per informazioni dettagliate sui metodi supportati dal contenitore.
 * Fare riferimento alle [domande frequenti](FAQ.md) per risolvere i problemi correlati alla funzionalità Visione artificiale.

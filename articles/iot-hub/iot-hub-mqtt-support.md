@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 6e2ab773f865a8e52c7b04b94a188dd244540e0d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 53643b185825d4cc03073144e1b3547452629c08
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344966"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497622"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -66,11 +66,11 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 
 * Per il campo **ClientId** usare **deviceId**.
 
-* Per il campo **Username** usare `{iothubhostname}/{device_id}/api-version=2016-11-14`, dove `{iothubhostname}` rappresenta il record CName completo dell'hub IoT.
+* Per il campo **Username** usare `{iothubhostname}/{device_id}/api-version=2018-06-30`, dove `{iothubhostname}` rappresenta il record CName completo dell'hub IoT.
 
     Ad esempio, se il nome dell'hub IoT è **contoso.azure-devices.net** e il nome del dispositivo è **MyDevice01**, il campo **Username** completo deve contenere:
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`
+    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
 
 * Per il campo **Password** usare un token di firma di accesso condiviso. Il formato del token di firma di accesso condiviso è identico a quello per i protocolli HTTPS e AMQP:
 

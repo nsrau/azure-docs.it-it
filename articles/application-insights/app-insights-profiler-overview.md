@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: bba15ee901e7ccecc513f526339bde2fcc6277fa
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 7e0734790a0b33a52ace01ad961b1bc3127fa3d4
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142860"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976520"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilare le applicazioni di produzione in Azure con Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Abilitare Profiler per l'applicazione
@@ -38,7 +38,7 @@ L'esecuzione del profiler in locale non è ufficialmente supportata, ma sono dis
 
 ## <a name="view-profiler-data"></a>Visualizzare i dati del profiler
 
-L'applicazione gestisce attivamente le richieste per consentire al profiler di caricare le tracce. Se si sta eseguendo un esperimento, è possibile generare le richieste da indirizzare all'app Web usando il [test delle prestazioni di Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se è stato appena abilitato Profiler, è possibile eseguire un breve test di carico. Durante l'esecuzione del test di carico, premere il pulsante **Profile Now** (Profila adesso) nella [**pagina delle impostazioni del profiler**](). Mentre è in esecuzione, il profiler eseguirà la profilatura in modo casuale circa una volta ogni ora e per una durata di due minuti. Se l'applicazione sta gestendo un flusso costante di richieste, il profiler caricherà le tracce ogni ora.
+L'applicazione gestisce attivamente le richieste per consentire al profiler di caricare le tracce. Se si sta eseguendo un esperimento, è possibile generare le richieste da indirizzare all'app Web usando il [test delle prestazioni di Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se è stato appena abilitato Profiler, è possibile eseguire un breve test di carico. Durante l'esecuzione del test di carico, premere il pulsante **Profile Now** (Profila adesso) nella [**pagina delle impostazioni del profiler**](app-insights-profiler-settings.md#profiler-settings-page). Mentre è in esecuzione, il profiler eseguirà la profilatura in modo casuale circa una volta ogni ora e per una durata di due minuti. Se l'applicazione sta gestendo un flusso costante di richieste, il profiler caricherà le tracce ogni ora.
 
 Dopo che l'applicazione riceve una parte del traffico e il profiler ha avuto tempo per caricare le tracce, le tracce dovrebbero essere disponibili per la visualizzazione. Il processo potrebbe richiedere da 5 a 10 minuti. Per visualizzare le tracce, passare al riquadro **Prestazioni**, selezionare **Take Actions** (Esegui azioni) per visualizzare le tracce del profiler e quindi fare clic sul pulsante **Tracce del profiler**.
 

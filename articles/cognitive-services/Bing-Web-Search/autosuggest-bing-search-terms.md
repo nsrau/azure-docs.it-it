@@ -1,23 +1,23 @@
 ---
-title: Suggerimenti automatici per i termini di ricerca Bing
-titleSuffix: Microsoft Cognitive Services
-description: L'API Ricerca Web Bing può essere usata insieme all'API Suggerimenti automatici Bing per offrire agli utenti un'esperienza di ricerca migliorata.
+title: Suggerimenti automatici per i termini di ricerca - API Ricerca Web Bing
+titleSuffix: Azure Cognitive Services
+description: L'API Ricerca Web Bing può essere usata insieme all'API Suggerimenti automatici Bing per offrire agli utenti un'esperienza di ricerca avanzata.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
-ms.author: erhopf
-ms.openlocfilehash: df8a57b3136abfacce971f4d01ccb2296dfa784c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.author: aahi
+ms.openlocfilehash: 1df478f02e90c95d11c9305381e89e147fee3077
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889390"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164025"
 ---
-# <a name="autosuggest-bing-search-terms"></a>Suggerimenti automatici per i termini di ricerca Bing
+# <a name="autosuggest-bing-search-terms-in-your-application"></a>Suggerimenti automatici per i termini di ricerca di Bing nell'applicazione
 
 Se si fornisce una casella di ricerca in cui l'utente immette il termine di ricerca, usare l'[API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md) per migliorare l'esperienza. Mentre l'utente digita, l'API restituisce le stringhe di query suggerite, in base ai termini di ricerca parziali.
 

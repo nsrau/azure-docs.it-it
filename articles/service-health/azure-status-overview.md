@@ -3,7 +3,7 @@ title: Panoramica dello stato di Azure | Microsoft Docs
 description: Visualizzazione globale dell'integrità dei servizi di Azure.
 services: Azure status
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shtabriz
-ms.openlocfilehash: 6bb67fa17ace2e662091c6b66a774baf9d7d8bfd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 11/16/2018
+ms.author: stbaron
+ms.openlocfilehash: be3c8d10ef034a4bd03f178bc1334b8a9eeb2f58
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181821"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282907"
 ---
 # <a name="azure-status"></a>Stato di Azure
 Lo [stato di Azure](https://azure.microsoft.com/status/) offre una visualizzazione globale dell'integrità dei servizi di Azure. Con lo stato di Azure è possibile ottenere informazioni aggiornate sulla disponibilità del servizio. Chiunque disponga dell'accesso allo stato di Azure e possa visualizzare tutti i servizi che segnalano lo stato di integrità del servizio. 
@@ -37,7 +37,7 @@ Mentre la pagina relativa allo stato di Azure mostra sempre i dati sull'integrit
 Qui è possibile visualizzare gli eventi dei 90 giorni precedenti, incluso una causa radice preliminare, la mitigazione dei rischi e i passaggi successivi in Azure.
 
 ## <a name="rss-feed"></a>Feed RSS
-Lo stato di Azure offre anche un [feed RSS](https://azure.microsoft.com/status/feed/) delle modifiche all'integrità dei servizi di Azure che è possibile sottoscrivere.
+Lo stato di Azure offre anche un [feed RSS](https://azure.microsoft.com/en-us/status/feed/) delle modifiche all'integrità dei servizi di Azure che è possibile sottoscrivere.
 
 # <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come ottenere una visualizzazione più personalizzata dello stato di integrità di Azure tramite [Integrità dei servizi](./service-health-overview.md).

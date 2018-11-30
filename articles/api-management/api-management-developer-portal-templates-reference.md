@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0f339984a9db1a337f97e6db24571004cc34f679
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26128750"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445481"
 ---
 # <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori
 
@@ -27,11 +27,13 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).  
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ##  <a name="DeveloperPortalTemplates"></a> Modelli del portale per sviluppatori  
   
 -   [API](api-management-api-templates.md)  
     -   [Elenco API](api-management-api-templates.md#APIList)  
-    -   [Operazione](api-management-api-templates.md#Product)  
+    -   [operazione](api-management-api-templates.md#Product)  
     -   [Esempi di codice](api-management-api-templates.md#CodeSamples)  
         -   [Curl](api-management-api-templates.md#Curl)  
         -   [C#](api-management-api-templates.md#CSharp)  

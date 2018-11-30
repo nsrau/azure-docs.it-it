@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 6c730455e2d8b590a4e4b9ca0392985918678bf4
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167699"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426469"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Metriche e diagnostica dell'integrità per Load Balancer Standard
 
@@ -220,6 +220,6 @@ La tabella seguente elenca i diversi stati di integrità delle risorse e le rela
 - Altre informazioni su [Load Balancer Standard](load-balancer-standard-overview.md).
 - Altre informazioni sulla [connettività in uscita di Load Balancer](https://aka.ms/lboutbound).
 - Informazioni su [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Informazioni sull'[API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/) e su [come recuperare le metriche tramite l'API REST](https://docs.microsoft.com/rest/api/monitor/metrics/metrics_list).
+- Informazioni sull'[API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/) e su [come recuperare le metriche tramite l'API REST](/rest/api/monitor/metrics/list).
 
 

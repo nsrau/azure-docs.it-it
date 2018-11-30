@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259174"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284796"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Esempio di utilizzo: distribuzione continua in Macchine virtuali di Microsoft Azure tramite Automation DSC e Chocolatey
 
@@ -34,14 +34,14 @@ Dopo l'implementazione di entrambi questi processi di base, si potrà aggiornare
 ## <a name="component-overview"></a>Panoramica dei componenti
 
 Gli strumenti di gestione dei pacchetti, ad esempio [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) , sono ben noti nell'ambiente Linux, ma non lo sono altrettanto nell'ambiente Windows.
-[Chocolatey](https://chocolatey.org/) è uno di questi e il [blog](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) di Scott Hanselman sull'argomento costituisce un'introduzione molto interessante. In breve, Chocolatey consente di installare pacchetti da un repository di pacchetti centrale in un sistema Windows usando la riga di comando. È possibile creare e gestire un repository personalizzato e Chocolatey può installare pacchetti da tutti i repository designati dall'utente.
+[Chocolatey](https://chocolatey.org/) è uno di questi e il [blog](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) di Scott Hanselman sull'argomento costituisce un'introduzione molto interessante. In breve, Chocolatey consente di installare pacchetti da un repository di pacchetti centrale in un sistema Windows usando la riga di comando. È possibile creare e gestire un repository personalizzato e Chocolatey può installare pacchetti da tutti i repository designati dall'utente.
 
 DSC (Desired State Configuration) ([panoramica](/powershell/dsc/overview)) è uno strumento di PowerShell che consente di dichiarare la configurazione che si desidera applicare a un computer. Si può ad esempio dichiarare di voler installare Chocolatey o IIS, di voler aprire la porta 80 e di voler installare la versione 1.0.0 del proprio sito Web. Gestione configurazione locale per DSC implementa tale configurazione. Un server di pull DSC mantiene un repository di configurazioni per i computer dell'utente. Gestione configurazione locale in ogni computer controlla periodicamente se la configurazione esistente corrisponde a quella archiviata. Può segnalare lo stato o provare a riallineare il computer con la configurazione archiviata. È possibile modificare la configurazione archiviata nel server di pull per fare in modo che il computer o un set di computer venga allineato con la configurazione modificata.
 
 Automazione di Azure è un servizio gestito di Microsoft Azure che consente di automatizzare diverse attività tramite runbook, nodi, credenziali, risorse e asset, ad esempio pianificazioni e variabili globali.
 Automation DSC per Azure estende questa funzionalità di automazione includendo strumenti DSC di PowerShell. Ecco un'interessante [panoramica](automation-dsc-overview.md).
 
-Una risorsa DSC è un modulo di codice con funzionalità specifiche, ad esempio per la gestione della rete, di Active Directory o SQL Server. La risorsa DSC di Chocolatey riconosce in che modo accedere, tra gli altri, a un server NuGet, scaricare pacchetti, installare pacchetti e così via. In [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)sono disponibili numerose altre risorse DSC.
+Una risorsa DSC è un modulo di codice con funzionalità specifiche, ad esempio per la gestione della rete, di Active Directory o SQL Server. La risorsa DSC di Chocolatey riconosce in che modo accedere, tra gli altri, a un server NuGet, scaricare pacchetti, installare pacchetti e così via. In [PowerShell Gallery](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)sono disponibili numerose altre risorse DSC.
 Questi moduli vengono installati dall'utente nel server di pull di Automation DSC per Azure, per poter essere usati nelle configurazioni personalizzate.
 
 I modelli di Resource Manager offrono un modo dichiarativo per la generazione dell'infrastruttura, ad esempio reti, subnet, routing e sicurezza di rete, servizi di bilanciamento del carico, NIC, VM e così via. Ecco un [articolo](../azure-resource-manager/resource-manager-deployment-model.md) che confronta il modello di distribuzione (dichiarativo) di Resource Manager con il modello di distribuzione ASM o classica (imperativo) e illustra i principali provider di risorse, calcolo, archiviazione e rete.
@@ -64,8 +64,10 @@ Il procedimento funziona anche se non si inizia con un modello di Resource Manag
 
 Da una riga di comando di PowerShell (`Connect-AzureRmAccount`) autenticata (la configurazione del server di pull può richiedere alcuni minuti):
 
-    New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```azurepowershell-interactive
+New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```
 
 È possibile inserire l'account di automazione in una qualsiasi delle aree seguenti (dette anche località): Stati Uniti orientali 2, Stati Uniti centro-meridionali, US Gov Virginia, Europa occidentale, Asia sud-orientale, Giappone orientale, India centrale e Australia sud-orientale, Canada centrale ed Europa settentrionale.
 
@@ -177,7 +179,7 @@ Questi passaggi generano una nuova configurazione di nodi denominata "ISVBoxConf
 ## <a name="step-5-creating-and-maintaining-package-metadata"></a>Passaggio 5: Creazione e gestione dei metadati del pacchetto
 
 Per ogni pacchetto inserito nel repository di pacchetti, è necessario un Nuspec che lo descriva.
-Questo Nuspec deve essere compilato e archiviato nel server NuGet. Questo processo è descritto [qui](http://docs.nuget.org/create/creating-and-publishing-a-package). È possibile usare MyGet.org come server NuGet. Il servizio è a pagamento, ma viene offerto gratuitamente uno SKU di avvio. In NuGet.org sono disponibili istruzioni sull'installazione di un server NuGet personalizzato per i pacchetti privati.
+Questo Nuspec deve essere compilato e archiviato nel server NuGet. Questo processo è descritto [qui](https://docs.nuget.org/create/creating-and-publishing-a-package). È possibile usare MyGet.org come server NuGet. Il servizio è a pagamento, ma viene offerto gratuitamente uno SKU di avvio. In NuGet.org sono disponibili istruzioni sull'installazione di un server NuGet personalizzato per i pacchetti privati.
 
 ## <a name="step-6-tying-it-all-together"></a>Passaggio 6: Verifica di tutti gli elementi
 

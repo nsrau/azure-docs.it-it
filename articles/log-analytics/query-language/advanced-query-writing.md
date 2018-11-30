@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 11/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3bb7e9837f74fd04d38cc77a9504cc26c6dcf803
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958558"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854187"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Scrittura di query avanzate in Log Analytics
 
@@ -76,28 +76,6 @@ Event
 | extend USTimeGenerated = utc_to_us_date_format(TimeGenerated)
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
-
-## <a name="functions"></a>Funzioni
-È possibile salvare una query con un alias di funzione in modo che sia possibile farvi riferimento con altre query. La query standard seguente, ad esempio, restituisce tutti gli aggiornamenti della sicurezza mancanti segnalati nell'ultimo giorno:
-
-```Kusto
-Update
-| where TimeGenerated > ago(1d) 
-| where Classification == "Security Updates" 
-| where UpdateState == "Needed"
-```
-
-È possibile salvare questa query come funzione e assegnarle un alias, ad esempio _security_updates_last_day_, che può essere usato successivamente in un'altra query per cercare gli aggiornamenti della sicurezza necessari correlati a SQL:
-
-```Kusto
-security_updates_last_day | where Title contains "SQL"
-```
-
-Per salvare una query come funzione, selezionare il pulsante **Salva** nel portale e impostare **Salva con nome** su _Funzione_. L'alias della funzione può contenere lettere, cifre o caratteri di sottolineatura, ma deve iniziare con una lettera o un carattere di sottolineatura.
-
-> [!NOTE]
-> Il salvataggio di una funzione è possibile per le query di Log Analytics, ma attualmente non lo è per le query di Application Insights.
-
 
 ## <a name="print"></a>Print
 `print` restituisce una tabella con una sola colonna e una sola riga, che mostra il risultato di un calcolo. Questa funzione viene spesso usata nei casi in cui è necessario eseguire un calcolo semplice. Ad esempio, per trovare l'ora corrente in PST e aggiungere una colonna con EST:

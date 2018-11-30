@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/24/2018
-ms.openlocfilehash: 7322b07740d5dec85b6217e122fb262647527c96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 792ac3f26bdea6c6ccb084d893925d60e6333edb
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258409"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852454"
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Distribuire un modello di Azure Machine Learning in un dispositivo Azure IoT Edge
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 
 I modelli di Azure Machine Learning possono essere nei contenitori come i servizi Web basati su Docker. Azure IoT Edge consente di distribuire contenitori in modalità remota nei dispositivi. Usare questi servizi insieme per eseguire i modelli nei dispositivi perimetrali per tempi di risposta più rapidi e per ridurre il trasferimento dei dati. 
 

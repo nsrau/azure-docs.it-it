@@ -1,25 +1,21 @@
 ---
 title: Esecuzione di progetti di data science - Azure Machine Learning | Microsoft Docs
 description: In che modo un data scientist può monitorare l'avanzamento di un progetto di data science.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-ms.openlocfilehash: 32390b05d2ec258a68ed4f53135399675105a7e9
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 202ac89b8a281012dbcf5f4c4df11e97ba2c8c65
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302086"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441469"
 ---
 # <a name="track-progress-of-data-science-projects"></a>Monitorare l'avanzamento dei progetti di data science
 

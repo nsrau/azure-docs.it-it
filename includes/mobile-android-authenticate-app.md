@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440246"
+---
 1. Aprire il progetto in Android Studio.
 
 2. In **Project Explorer** (Esplora progetti) in Android Studio aprire il file `ToDoActivity.java` e aggiungere le istruzioni import seguenti:

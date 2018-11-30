@@ -1,21 +1,21 @@
 ---
-title: Visualizzare le metriche chiave nei dashboard di Gestione costi di Azure | Microsoft Docs
-description: Questo articolo descrive come visualizzare le metriche chiave con i dashboard in Gestione costi di Azure.
+title: Visualizzare le metriche chiave con i dashboard di Cloudyn in Azure | Microsoft Docs
+description: Questo articolo descrive come visualizzare le metriche chiave con i dashboard in Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/05/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: b1dc2e2eca900ca0ae72329c3c373b2d24f1b2e0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e053f2387df5d9a2855ce3242d4d7121452a73d8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302758"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275939"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Visualizzare le metriche di costo chiave con i dashboard
 
@@ -34,7 +34,7 @@ Le versioni dei dashboard sono diverse per gli utenti di Cloudyn Management (MSP
 
 La disponibilità dei dashboard dipende dal tipo di account del provider di servizi cloud che viene usato quando si visualizzano i dashboard. Il tipo di informazioni disponibili e raccolte da Cloudyn influisce sui report nei dashboard. Se ad esempio non si ha un account AWS, il dashboard S3 Tracker (Rilevamento S3) non verrà visualizzato. Analogamente, se non si abilita l'accesso di Azure Resource Manager a Cloudyn, non verranno visualizzate informazioni specifiche di Azure nel widget del dashboard Optimizer.
 
-È possibile usare qualsiasi dashboard preconfezionato o creare il proprio dashboard con report personalizzati. Se non si ha familiarità con i report di Cloudyn, vedere [Usare i report di Gestione costi](use-reports.md).
+È possibile usare qualsiasi dashboard preconfezionato o creare il proprio dashboard con report personalizzati. Se non si ha familiarità con i report di Cloudyn, vedere [Usare i report di Cloudyn](use-reports.md).
 
 ## <a name="create-a-custom-dashboard"></a>Creare un dashboard personalizzato
 
@@ -284,7 +284,7 @@ Il dashboard Cloud Comparison (Confronto cloud) consente di confrontare i costi 
 ![Dashboard Cloud Comparison (Confronto cloud)](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Cost in Azure by Instance Type (Costo EC2 in Azure per tipo di istanza)
-Questo widget evidenzia gli ultimi 30 giorni di utilizzo nelle tariffe on demand. Confronta il costo con il costo corrente di Amazon EC2 rispetto al costo potenziale in Azure.
+Questo widget evidenzia gli ultimi 30 giorni di utilizzo nelle tariffe on demand. Confronta il costo corrente di Amazon EC2 rispetto al costo potenziale in Azure.
 - Passare il puntatore sulle barre per confrontare i costi per tipo di istanza.
 - Fare clic sul widget per aprire il report Porting Your Deployment – Cost Analysis (Portabilità della distribuzione - Analisi dei costi).
 
@@ -295,3 +295,6 @@ Questo widget mostra i costi di Amazon EC2 correnti e li confronta con Azure. Il
 ### <a name="ec2azure-instance-type-mapping"></a>EC2/Azure Instance Type Mapping (Mapping del tipo di istanza EC2/Azure)
 Questo widget evidenzia il mapping migliore delle unità di calcolo elastiche tra Amazon EC2 e Azure.
 - Fare clic sul widget per aprire il report Instances Type Mapping (Mapping del tipo di istanza).
+
+## <a name="next-steps"></a>Passaggi successivi
+- Per altre informazioni sui report, leggere l'articolo [Usare i report di Cloudyn](use-reports.md).

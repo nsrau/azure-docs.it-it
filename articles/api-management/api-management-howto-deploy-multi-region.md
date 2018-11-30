@@ -3,7 +3,7 @@ title: Distribuire servizi di Gestione API di Azure in più aree di Azure | Docu
 description: Informazioni su come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,30 +11,30 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ff0101bde54f99f99461d0f042af520b1642d0df
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 27bfd3176ecad847f9bba2a62abd66b55484443b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586807"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443016"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
-Gestione API supporta la distribuzione in più aree che consente agli autori di API di distribuire un solo servizio Gestione API in qualsiasi numero di aree di Azure. Ciò consente di ridurre la latenza delle richieste percepita dagli utenti dell'API distribuiti geograficamente, oltre a migliorare la disponibilità del servizio se un'area viene portata offline. 
 
-Quando un servizio di gestione API viene creato, inizialmente contiene una sola [unità][unit] e si trova in una sola area di Azure, designata come area primaria. È possibile aggiungere facilmente altre aree tramite il portale di Azure. Un server gateway di gestione API viene distribuito in ogni area e il traffico delle chiamate verrà indirizzato al gateway più vicino. Quando un'area passa offline, il traffico viene automaticamente reindirizzato al gateway successivo più vicino. 
+Gestione API di Azure supporta la distribuzione in più aree che consente agli autori di API di distribuire un solo servizio Gestione API do Azure in qualsiasi numero di aree di Azure. Ciò consente di ridurre la latenza delle richieste percepita dagli utenti dell'API distribuiti geograficamente, oltre a migliorare la disponibilità del servizio se un'area viene portata offline.
 
-> [!IMPORTANT]
-> La distribuzione in più aree è disponibile solo nel livello **[Premium][Premium]**.
-> 
-> 
+Un nuovo servizio Gestione API di Azure contiene inizialmente una sola [unità] [ unit] in una singola area di Azure, nell'area primaria. È possibile aggiungere facilmente altre aree tramite il portale di Azure. Un server gateway di gestione API viene distribuito in ogni area e il traffico delle chiamate verrà indirizzato al gateway più vicino. Quando un'area passa offline, il traffico viene automaticamente reindirizzato al gateway successivo più vicino.
+
+> [!NOTE]
+> Gestione API di Azure replica solo il componente gateway API tra le aree. Il componente di gestione del servizio è ospitato solo nell'area primaria. In caso di interruzione nell'area primaria, non è possibile applicare modifiche alla configurazione di un'istanza del servizio Gestione API di Azure, tra cui le impostazioni o gli aggiornamenti di criteri.
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"></a>Distribuire un'istanza del servizio Gestione API in una nuova area
+
 > [!NOTE]
 > Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance].
-> 
-> 
 
 Passare alla pagina **Scalabilità** nel portale di Azure per l'istanza del servizio di Gestione API. 
 
@@ -62,6 +62,50 @@ Per la località che si vuole rimuovere aprire il menu di scelta rapida usando i
 
 Confermare l'eliminazione e fare clic su **Salva** per applicare le modifiche.
 
+## <a name="route-backend"> </a>Chiamate di route API per servizi back-end a livello di area
+
+Gestione API di Azure include un solo URL del servizio back-end. Anche se sono presenti istanze di gestione API di Azure in diverse aree, il gateway API inoltrerà comunque le richieste al servizio back-end stesso, che viene distribuito in una sola area. In questo caso, il miglioramento delle prestazioni proverrà solo dalle risposte memorizzate nella cache in Gestione API di Azure in un'area specifica per la richiesta, ma il tentativo di contattare il back-end in tutto il mondo potrebbe comunque causare una latenza elevata.
+
+Per sfruttare completamente la distribuzione geografica del sistema, è necessario disporre di servizi di back-end distribuiti nelle stesse aree come istanze di gestione API di Azure. Quindi, usando i criteri e la proprietà `@(context.Deployment.Region)`, è possibile instradare il traffico alle istanze locali di back-end.
+
+1. Passare all'istanza di gestione API di Azure e fare clic su **API** nel menu a sinistra.
+2. Selezionare l'API desiderata.
+3. Fare clic su **editor di codice** dall'elenco a discesa sulla freccia nel **l'elaborazione in ingresso**.
+
+    ![Editor di codice API](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
+
+4. Usare i criteri `set-backend` combinati con condizionale`choose` per creare un criterio di routing appropriato nella `<inbound> </inbound>` sezione del file.
+
+    Ad esempio, il file XML seguente funzionerà per le aree Stati Uniti occidentali e Asia orientale:
+
+    ```xml
+    <policies>
+        <inbound>
+            <base />
+            <choose>
+                <when condition="@("West US".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-us.com/" />
+                </when>
+                <when condition="@("East Asia".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-asia.com/" />
+                </when>
+                <otherwise>
+                    <set-backend-service base-url="http://contoso-other.com/" />
+                </otherwise>
+            </choose>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
+
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 
 [api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
@@ -77,4 +121,3 @@ Confermare l'eliminazione e fare clic su **Salva** per applicare le modifiche.
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
-

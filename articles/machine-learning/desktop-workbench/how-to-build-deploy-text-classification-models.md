@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 97d988332a2c5234cb260cef29f195f0fecfee45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73f95280cc02b6f891c4ef67cd11084768d7d282
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994939"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853014"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Compilare e distribuire modelli di classificazione del testo con Azure Machine Learning
 
@@ -436,7 +436,7 @@ I parametri vengono generalmente impostati prima di adattare un modello.
 
 Gli esempi di codice seguente mostrano come eseguire il training del modello usando la pipeline e i parametri predefiniti del modello. 
 
-Per vedere quali parametri sono inclusi per "text_word_ngrams", usare [get_step_param_names_by_name](https://docs.microsoft.com/python/api/tatk.core.base_text_model.basetextmodel). Questa funzione restituisce i parametri come lowercase, input_col, output_col e così via. 
+Per vedere quali parametri sono inclusi per "text_word_ngrams", usare [get_step_param_names_by_name](/python/api/msft-tatk/tatk.core.base_text_model.basetextmodel#get-step-param-names-by-name). Questa funzione restituisce i parametri come lowercase, input_col, output_col e così via. 
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
@@ -625,7 +625,7 @@ Applicare il classificatore di testo sottoposto a training al set di dati di tes
 </div>
 
 ## <a name="evaluate-model-performance"></a>Valutare le prestazioni dei modelli
-Il [modello di valutazione](https://docs.microsoft.com/python/api/tatk.evaluation) valuta l'accuratezza del classificatore di testo sottoposto a training sul set di dati di test. La funzione di valutazione genera una matrice di confusione e fornisce un punteggio macro-F1.
+Il [modello di valutazione](/python/api/msft-tatk/tatk.evaluation) valuta l'accuratezza del classificatore di testo sottoposto a training sul set di dati di test. La funzione di valutazione genera una matrice di confusione e fornisce un punteggio macro-F1.
 
 ```python
  text_classifier.evaluate(df_test)          

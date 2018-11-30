@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0be10c155398133887fadb1fe9954068f3afb9d9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568115"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282533"
 ---
 # <a name="add-a-popup-to-the-map"></a>Aggiungere un popup alla mappa
 
@@ -33,7 +33,7 @@ Il secondo blocco di codice crea un oggetto di origine dati usando la classe [Da
 
 Un [livello simbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa testo o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) come simboli sulla mappa.  Nel terzo blocco di codice viene creato un livello simbolo. L'origine dati viene aggiunta al livello simbolo, che viene quindi aggiunto alla mappa.
 
-Il quarto blocco di codice crea un [oggetto popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) tramite `new atlas.Popup()`. Le proprietà del popup, ad esempio position e pixelOffset, fanno parte di [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.popupoptions?view=azure-iot-typescript-latest). La classe PopupOptions può essere definita nel costruttore del popup tramite la funzione [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) della classe Popup. Viene quindi creato un listener di eventi `mouseover` per il livello simbolo.
+Il quarto blocco di codice crea un [oggetto popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) tramite `new atlas.Popup()`. Le proprietà del popup, ad esempio position e pixelOffset, fanno parte di [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions). La classe PopupOptions può essere definita nel costruttore del popup tramite la funzione [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) della classe Popup. Viene quindi creato un listener di eventi `mouseover` per il livello simbolo.
 
 L'ultimo blocco di codice crea una funzione che viene attivata dal listener di eventi `mouseover`. Imposta il contenuto e le proprietà del popup e aggiunge l'oggetto popup alla mappa.
 

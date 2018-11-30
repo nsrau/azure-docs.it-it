@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a7f21d0ebebbe2c811470de384cc5ee9a34ab060
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 449fdbceeb0b64d58c589fe5dbde61302ee27afb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006159"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309209"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteggere le risorse di Azure nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
@@ -128,16 +128,16 @@ Il terzo livello contiene le macchine virtuali, che è simile a quello descritta
 
 ## <a name="network-recommendations"></a>Indicazioni per la rete
 
-|Tipo di risorsa|Punteggio di sicurezza|Raccomandazione|Descrizione|
+|Tipo di risorsa|Punteggio di sicurezza|Raccomandazione|DESCRIZIONE|
 |----|----|----|----|
 |Machine|40|Abilita i gruppi di sicurezza di rete sulle macchine virtuali|Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle macchine virtuali.|
 |Subnet|35|Abilita i gruppi di sicurezza di rete nelle subnet |Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle risorse distribuite nelle subnet.|
 |Machine|30|Applica un controllo di accesso di rete Just-In-Time|Applica un controllo di accesso Just-In-Time delle macchine virtuali per bloccare l'accesso in modo permanente ad alcune porte e consente agli utenti autorizzati di aprirle tramite lo stesso meccanismo e per un periodo di tempo limitato.|
 |Machine|20|Restrict access through Internet facing endpoint (Limita accesso tramite endpoint con connessione Internet)|Finalizza i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet limitando l'accesso delle regole di autorizzazione esistenti.|
-|Machine|10|Aggiungi un firewall di nuova generazione|Consente di aggiungere una soluzione Firewall di nuova generazione per proteggere le macchine virtuali con connessione Internet.|
+|Machine|10|Aggiunger un firewall di nuova generazione|Consente di aggiungere una soluzione Firewall di nuova generazione per proteggere le macchine virtuali con connessione Internet.|
 |Machine|5|Route traffic through network gateway firewall only (Instrada il traffico solo attraverso il firewall gateway di rete)|Per completare la distribuzione della soluzione Firewall di nuova generazione, il traffico verso le macchine virtuali protette con connessione Internet deve essere instradato solo tramite la soluzione Firewall di nuova generazione.|
 |VNet|5|Abilita Protezione DDoS Standard|Le applicazioni con indirizzi IP pubblici in queste reti virtuali non sono protette con lo standard del servizio Protezione DDOS. È consigliabile abilitarlo per consentire la mitigazione di attacchi volumetrici e ai protocolli della rete.|
-|Machine|10|Aggiungi un firewall di nuova generazione|Consente di aggiungere una soluzione Firewall di nuova generazione per proteggere le macchine virtuali con connessione Internet.|
+|Machine|10|Aggiunger un firewall di nuova generazione|Consente di aggiungere una soluzione Firewall di nuova generazione per proteggere le macchine virtuali con connessione Internet.|
 |Machine|5|Route traffic through network gateway firewall only (Instrada il traffico solo attraverso il firewall gateway di rete)|Per completare la distribuzione della soluzione Firewall di nuova generazione, il traffico verso le macchine virtuali protette con connessione Internet deve essere instradato solo tramite la soluzione Firewall di nuova generazione.|
 VNet|5|Abilita Protezione DDoS Standard|Le applicazioni con indirizzi IP pubblici in queste reti virtuali non sono protette con lo standard del servizio Protezione DDOS. È consigliabile abilitarlo per consentire la mitigazione di attacchi volumetrici e ai protocolli della rete.|
 ## <a name="see-also"></a>Vedere anche 
@@ -149,6 +149,6 @@ Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risors
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9dead2c8801340a736b6f67010a85f3dd34fbe85
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298948"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820259"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
 Questo articolo illustra come configurare la distribuzione continua per il [servizio app di Azure](app-service-web-overview.md). Il servizio app consente la distribuzione continua da BitBucket, GitHub e [Azure DevOps Services](https://www.visualstudio.com/team-services/) effettuando il pull degli aggiornamenti più recenti dal repository esistente in uno di questi servizi.
@@ -50,7 +50,7 @@ Nella pagina **Configura** selezionare l'organizzazione, il repository e il ramo
 ### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Opzione 2: usare il recapito continuo di Azure DevOps Services
 
 > [!NOTE]
-> Per il servizio App per creare le Azure Pipelines necessarie nell'organizzazione di Azure DevOps Services, l'account di Azure deve avere il ruolo del **Proprietario** nella sottoscrizione di Azure.
+> Per il servizio App per creare le Azure Pipelines necessarie nell'organizzazione di servizi di Azure DevOps, l'account di Azure deve avere il ruolo di **Proprietario** nella sottoscrizione di Azure.
 >
 
 Nella sezione **Codice** della pagina **Configura** selezionare l'organizzazione, il repository e il ramo da cui si vuole eseguire la distribuzione continua. Al termine dell'operazione, fare clic su **Continua**.
@@ -58,7 +58,7 @@ Nella sezione **Codice** della pagina **Configura** selezionare l'organizzazione
 Nella sezione **Compila** della pagina **Configura**, configurare una nuova organizzazione di Azure DevOps Services o specificare un'organizzazione esistente. Al termine dell'operazione, fare clic su **Continua**.
 
 > [!NOTE]
-> Se si desidera usare un'organizzazione di Azure DevOps Services esistente non elencata, è necessario [collegare l'organizzazione di Azure DevOps Services alla sottoscrizione di Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Se si desidera usare un'organizzazione di Azure DevOps Services esistente non presente in elenco, è necessario [collegare l'organizzazione di Azure DevOps Services alla sottoscrizione di Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Nella pagina **Test** scegliere se abilitare i test di carico e fare clic su **Continua**.
 
@@ -113,7 +113,7 @@ Nella pagina **Configura** selezionare l'organizzazione, il progetto, il reposit
 Nella sezione **Codice** della pagina **Configura**, selezionare l'organizzazione, il progetto, il repository e il ramo Azure DevOps Services da cui si vuole eseguire la distribuzione continua. Al termine dell'operazione, fare clic su **Continua**.
 
 > [!NOTE]
-> Se si desidera usare un'organizzazione di Azure DevOps Services esistente non elencata, è necessario [collegare l'organizzazione di Azure DevOps Services alla sottoscrizione di Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Se si desidera usare un'organizzazione di Azure DevOps Services esistente non presente in elenco, è necessario [collegare l'organizzazione di Azure DevOps Services alla sottoscrizione di Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Nella sezione **Compila** della pagina **Configura**, specificare il framework del linguaggio che Azure DevOps Services userà per eseguire le attività di compilazione per il repository selezionato. Al termine dell'operazione, fare clic su **Continua**.
 
@@ -152,5 +152,5 @@ Nel menu a sinistra fare clic su **Centro distribuzione** > **GitHub** oppure **
 [Documentazione su Git]: http://git-scm.com/documentation
 
 [creazione di repository (GitHub)]: https://help.github.com/articles/create-a-repo
-[creazione di repository (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
+[creazione di repository (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
 [Introduzione ad Azure DevOps Services]: https://www.visualstudio.com/docs/vsts-tfs-overview

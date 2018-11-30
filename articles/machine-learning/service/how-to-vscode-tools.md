@@ -5,16 +5,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: jmartens
-author: j-martens
+ms.author: shwinne
+author: swinner95
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: a2f37cffb37ce7008c3e372763784240e0d4250b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 57fe511e5de0d73f2a372da0ecab3e9a3039b194
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945553"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854204"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>Visual Studio Code Tools for AI: introduzione a Azure Machine Learning da Visual Studio Code
 
@@ -28,7 +28,7 @@ Usare l'estensione Tools for AI in Visual Studio code per usufruire del servizio
 
 + [Installare Python 3.5 o versione successiva](https://www.anaconda.com/download/).
 
-+ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
++ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
 
 ## <a name="install-vs-code-tools-for-ai-extension"></a>Installare l'estensione Visual Studio Code Tools for AI
 
@@ -40,7 +40,7 @@ Per usare Azure Machine Learning, è necessario trasformare Visual Studio Code i
 
 1. Avviare VS Code.
 
-1. In un browser, visitare: http://aka.ms/vscodetoolsforai. 
+1. In un browser, visitare: https://aka.ms/vscodetoolsforai. 
 
 1. Nella pagina web, fare clic su **Installa**. 
 

@@ -1,25 +1,21 @@
 ---
 title: Attività del responsabile del gruppo in un processo di data science per i team - Azure | Microsoft Docs
 description: Descrizione delle attività di un responsabile del gruppo in un progetto di data science in team.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: a89c0f916f67de1bae81a5e1b3dcfc2cae41d248
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ee10f17f76f7c3745cb32223c58b0d2d12f7d6b6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304187"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446348"
 ---
 # <a name="group-manager-tasks"></a>Attività del responsabile del gruppo
 

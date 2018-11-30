@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238778"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317496"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Correggere le configurazioni di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle macchine virtuali e dei computer per trovare eventuali configurazioni che li renderebbero più vulnerabili agli attacchi. Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo non corrisponde alle regole di configurazione della sicurezza consigliate e suggerisce di modificare la configurazione per risolvere le vulnerabilità.
@@ -101,7 +101,7 @@ Per esaminare le configurazioni specifiche sottoposte a monitoraggio, vedere l'[
 Per altre informazioni sul Centro sicurezza, vedere le risorse seguenti:
 
 * Per un elenco di macchine virtuali Windows e Linux supportate, vedere [Piattaforme supportate nel Centro sicurezza di Azure](security-center-os-coverage.md).
-* Per informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure, vedere [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md).
+* Per informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure, vedere [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md).
 * Per informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 * Per informazioni su come monitorare l'integrità delle risorse di Azure, vedere [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md).
 * Per informazioni su come gestire e rispondere agli avvisi di sicurezza, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).

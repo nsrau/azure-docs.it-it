@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dbd3d4e34df3bf918c831a3d9c74de8a9015b50e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623945"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163606"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Riferimento alla query di sintassi SQL in Azure Cosmos DB
 
-Azure Cosmos DB supporta l'esecuzione di query sui documenti usando un linguaggio SQL (Structured Query Language) familiare come una grammatica per i documenti JSON gerarchici senza richiedere uno schema esplicito o la creazione di indici secondari. Questo articolo comprende la documentazione per la sintassi del linguaggio delle query SQL, compatibile con gli account API SQL. Per informazioni dettagliate sulle query SQL di esempio, vedere [SQL queries in Cosmos DB](sql-api-sql-query.md) (Query SQL in Cosmos DB).  
+Azure Cosmos DB supporta l'esecuzione di query sui documenti usando un linguaggio SQL (Structured Query Language) familiare come una grammatica per i documenti JSON gerarchici senza richiedere uno schema esplicito o la creazione di indici secondari. Questo articolo comprende la documentazione per la sintassi del linguaggio delle query SQL, compatibile con gli account API SQL. Per informazioni dettagliate sulle query SQL di esempio, vedere [SQL queries in Cosmos DB](how-to-sql-query.md) (Query SQL in Cosmos DB).  
   
 Visitare [Playground per le query](http://www.documentdb.com/sql/demo) in cui è possibile provare Cosmos DB ed eseguire query SQL usando il set di dati disponibile.  
   
 ## <a name="select-query"></a>Query SELECT  
-Ogni query consiste in una clausola SELECT e clausole FROM e WHERE facoltative in base agli standard ANSI-SQL. In genere, l'origine nella clausola FROM per ogni query viene enumerata, quindi il filtro nella clausola WHERE viene applicato all'origine per recuperare un sottoinsieme di documenti JSON. Infine, viene usata la clausola SELECT per proiettare i valori JSON richiesti nell'elenco selezionato. Le convenzioni usate per descrivere le istruzioni SELECT sono riportate nella sezione relativa alle convenzioni della sintassi. Per esempi, vedere [esempi di query SELECT](sql-api-sql-query.md#SelectClause)
+Ogni query consiste in una clausola SELECT e clausole FROM e WHERE facoltative in base agli standard ANSI-SQL. In genere, l'origine nella clausola FROM per ogni query viene enumerata, quindi il filtro nella clausola WHERE viene applicato all'origine per recuperare un sottoinsieme di documenti JSON. Infine, viene usata la clausola SELECT per proiettare i valori JSON richiesti nell'elenco selezionato. Le convenzioni usate per descrivere le istruzioni SELECT sono riportate nella sezione relativa alle convenzioni della sintassi. Per esempi, vedere [esempi di query SELECT](how-to-sql-query.md#SelectClause)
   
 **Sintassi**  
   
@@ -69,7 +69,7 @@ Il linguaggio di query supporta i commenti in stile T-SQL come
 Anche se i commenti e gli spazi vuoti non hanno alcun significato nella grammatica, devono essere usati per separare i token. Ad esempio: `-1e5` è un token numero singolo, mentre `: – 1 e5` è un token meno seguito dal numero 1 e dall'identificatore e5.  
 
 ##  <a name="bk_select_query"></a> Clausola SELECT  
-Le clausole nell'istruzione SELECT devono essere ordinate come indicato sopra. Una clausola facoltativa può essere omessa. Ma se si usano clausole facoltative, è necessario specificarle nell'ordine corretto. Per esempi, vedere [esempi di query SELECT](sql-api-sql-query.md#SelectClause).
+Le clausole nell'istruzione SELECT devono essere ordinate come indicato sopra. Una clausola facoltativa può essere omessa. Ma se si usano clausole facoltative, è necessario specificarle nell'ordine corretto. Per esempi, vedere [esempi di query SELECT](how-to-sql-query.md#SelectClause).
 
 **Sintassi**  
 
@@ -132,7 +132,7 @@ La sintassi di `SELECT *` è valida solo se la clausola FROM ha dichiarato esatt
 [Clausola SELECT](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> Clausola FROM  
-Specifica l'origine o le origini unite in join. La clausola FROM è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Lo scopo di questa query è specificare l'origine dati in base alla quale deve operare la query. Comunemente, l'origine è rappresentata dall'intero contenitore, ma è possibile specificare piuttosto un sottoinsieme del contenitore. Se questa clausola non viene specificata, le altre clausole verranno comunque eseguite come se la clausola FROM specificasse un singolo documento. Per esempi, vedere [esempi di clausola FROM](sql-api-sql-query.md#FromClause)
+Specifica l'origine o le origini unite in join. La clausola FROM è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Lo scopo di questa query è specificare l'origine dati in base alla quale deve operare la query. Comunemente, l'origine è rappresentata dall'intero contenitore, ma è possibile specificare piuttosto un sottoinsieme del contenitore. Se questa clausola non viene specificata, le altre clausole verranno comunque eseguite come se la clausola FROM specificasse un singolo documento. Per esempi, vedere [esempi di clausola FROM](how-to-sql-query.md#FromClause)
   
 **Sintassi**  
   
@@ -216,7 +216,7 @@ Un'espressione di contenitore può avere come ambito un contenitore o un documen
   
 Nella versione corrente, Cosmos DB supporta gli inner join. Altre funzionalità di join saranno presto disponibili. 
 
-Gli inner join generano un prodotto incrociato completo dei set che partecipano al join. Il risultato di un join a N vie è un set di tuple a N elementi, in cui ogni valore presente nella tupla è associato al set con alias che partecipa al join e l'accesso al set è possibile facendo riferimento a tale alias in altre clausole. Per esempi, vedere [esempi di parola chiave JOIN](sql-api-sql-query.md#Joins)
+Gli inner join generano un prodotto incrociato completo dei set che partecipano al join. Il risultato di un join a N vie è un set di tuple a N elementi, in cui ogni valore presente nella tupla è associato al set con alias che partecipa al join e l'accesso al set è possibile facendo riferimento a tale alias in altre clausole. Per esempi, vedere [esempi di parola chiave JOIN](how-to-sql-query.md#Joins)
   
 La valutazione del join dipende dall'ambito del contesto dei set partecipanti:  
   
@@ -311,7 +311,7 @@ Verrà ora esaminata la seguente clausola FROM: `<from_source1> JOIN <from_sourc
  [Clausola SELECT](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> Clausola WHERE  
- Specifica la condizione di ricerca per i documenti restituiti dalla query. Per esempi, vedere [esempi di clausola WHERE](sql-api-sql-query.md#WhereClause)
+ Specifica la condizione di ricerca per i documenti restituiti dalla query. Per esempi, vedere [esempi di clausola WHERE](how-to-sql-query.md#WhereClause)
   
  **Sintassi**  
   
@@ -336,7 +336,7 @@ WHERE <filter_condition>
  Affinché il documento venga restituito, un'espressione specificata come condizione di filtro deve restituire true. Solo un valore booleano true soddisferà la condizione, i valori non definiti, null, false, numero, matrice o oggetto non soddisfano la condizione.  
   
 ##  <a name="bk_orderby_clause"></a> Clausola ORDER BY  
- Specifica l'ordinamento dei risultati restituiti dalla query. Per esempi, vedere [esempi di clausola ORDER BY](sql-api-sql-query.md#OrderByClause)
+ Specifica l'ordinamento dei risultati restituiti dalla query. Per esempi, vedere [esempi di clausola ORDER BY](how-to-sql-query.md#OrderByClause)
   
  **Sintassi**  
   
@@ -374,7 +374,7 @@ ORDER BY <sort_specification>
  Benché la sintassi di query supporti più proprietà di ordinamento, il runtime di query di Cosmos DB supporta l'ordinamento solo in base a una singola proprietà e solo in base ai nomi di proprietà, non in base a proprietà calcolate. L'ordinamento richiede anche che i criteri di indicizzazione includano un indice di intervallo per la proprietà e il tipo specificato, con la massima precisione. Per informazioni dettagliate, fare riferimento alla documentazione sui criteri di indicizzazione.  
   
 ##  <a name="bk_scalar_expressions"></a> Espressioni scalari  
- Un'espressione scalare è una combinazione di simboli e operatori che si può valutare per ottenere un singolo valore. Le espressioni semplici possono essere costanti, riferimenti a proprietà, riferimenti a elementi di matrice, riferimenti ad alias o chiamate di funzioni. Le espressioni semplici possono essere combinate in espressioni complesse usando gli operatori. Per esempi, vedere [esempi di espressioni scalari](sql-api-sql-query.md#scalar-expressions)
+ Un'espressione scalare è una combinazione di simboli e operatori che si può valutare per ottenere un singolo valore. Le espressioni semplici possono essere costanti, riferimenti a proprietà, riferimenti a elementi di matrice, riferimenti ad alias o chiamate di funzioni. Le espressioni semplici possono essere combinate in espressioni complesse usando gli operatori. Per esempi, vedere [esempi di espressioni scalari](how-to-sql-query.md#scalar-expressions)
   
  Per informazioni dettagliate sui valori che possono essere contenuti nelle espressioni scalari, vedere la sezione [Costanti](#bk_constants).  
   
@@ -676,7 +676,7 @@ ORDER BY <sort_specification>
 ##  <a name="bk_built_in_functions"></a> Funzioni predefinite  
  In Cosmos DB sono disponibili molte funzioni SQL predefinite. Le categorie di funzioni predefinite sono elencate di seguito.  
   
-|Funzione|Descrizione|  
+|Funzione|DESCRIZIONE|  
 |--------------|-----------------|  
 |[Funzioni matematiche](#bk_mathematical_functions)|Le funzioni matematiche eseguono un calcolo basato in genere su valori di input passati come argomenti e restituiscono un valore numerico.|  
 |[Funzioni di controllo del tipo](#bk_type_checking_functions)|Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione nell'ambito delle query SQL.|  
@@ -2905,6 +2905,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [Query e sintassi SQL per Cosmos DB](sql-api-sql-query.md)
+- [Query e sintassi SQL per Cosmos DB](how-to-sql-query.md)
 
 - [Documentazione di Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

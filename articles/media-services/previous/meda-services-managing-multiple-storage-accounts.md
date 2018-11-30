@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89d1838eb9fed1751581b026d82b06bc20de4ecc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aa9386182f521119012ea59fe6b64fb31099169e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783270"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620269"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestione di asset di Servizi multimediali su più account di archiviazione
 A partire da Servizi multimediali di Microsoft Azure 2.2 è possibile collegare più account di archiviazione a un unico account di Servizi multimediali. La possibilità di collegare più account di archiviazione a un account di Servizi multimediali offre i vantaggi seguenti:
@@ -26,7 +26,7 @@ A partire da Servizi multimediali di Microsoft Azure 2.2 è possibile collegare 
 * Bilanciamento del carico degli asset tra più account di archiviazione.
 * Ridimensionamento di Servizi multimediali per l'elaborazione di grandi quantità di contenuti (attualmente è previsto un limite massimo di 500 TB per ogni account di archiviazione). 
 
-Questo articolo illustra come collegare più account di archiviazione a un account Servizi multimediali mediante le [API di Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](/powershell/module/azurerm.media). Spiega inoltre come specificare diversi account di archiviazione durante la creazione di asset mediante l'SDK di Servizi multimediali. 
+Questo articolo illustra come collegare più account di archiviazione a un account Servizi multimediali mediante le [API di Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](/powershell/module/azurerm.media). Spiega inoltre come specificare diversi account di archiviazione durante la creazione di asset mediante l'SDK di Servizi multimediali. 
 
 ## <a name="considerations"></a>Considerazioni
 Quando si collegano più account di archiviazione a un account di Servizi multimediali, tenere presente quanto segue:
@@ -42,7 +42,7 @@ Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante 
 
 ## <a name="to-attach-storage-accounts"></a>Per collegare account di archiviazione  
 
-Per collegare account di archiviazione all'account Servizi multimediali di Microsoft Azure (AMS), usare le [API di Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](/powershell/module/azurerm.media), come illustrato nell'esempio seguente:
+Per collegare account di archiviazione all'account Servizi multimediali di Microsoft Azure (AMS), usare le [API di Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](/powershell/module/azurerm.media), come illustrato nell'esempio seguente:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "

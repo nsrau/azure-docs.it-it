@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8aabcf342cde6de9fd4438014c9c400b28470e9b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612574"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632671"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Estendere gli avvisi di Log Analytics in Avvisi di Azure
 Azure Log Analytics includeva fino a poco tempo fa una propria funzionalità di avviso, in grado di informare l'utente in modo proattivo relativamente ad alcune condizioni in base ai dati di Log Analytics. Le regole degli avvisi venivano gestite nel portale Microsoft Operations Management Suite (OMS). La nuova esperienza Avvisi è ora integrata nei diversi servizi e componenti di Microsoft Azure. È disponibile come **Avvisi** in Monitoraggio di Azure nel portale di Azure e supporta avvisi dei log attività, avvisi delle metriche e avvisi relativi ai log per Log Analytics e Application Insights. 
@@ -55,7 +55,7 @@ Quando si tenta di modificare un avviso esistente o di creare un nuovo avviso ne
 > Assicurarsi che le autorizzazioni assegnate ai singoli utenti che hanno necessità di aggiungere o modificare gli avvisi siano assegnate correttamente in Azure. Per comprendere quali autorizzazioni è necessario concedere vedere le [autorizzazioni per l'uso di Monitoraggio di Azure e Avvisi di Azure](monitoring-roles-permissions-security.md).  
 > 
 
-È possibile continuare a creare avvisi dall'[API di Log Analytics](../log-analytics/log-analytics-api-alerts.md) e dal [modello di risorsa di Log Analytics](../monitoring/monitoring-solutions-resources-searches-alerts.md). Quando si esegue questa operazione, è necessario includere i gruppi di azioni.
+È possibile continuare a creare avvisi dall'[API di Log Analytics](../azure-monitor/platform/api-alerts.md) e dal [modello di risorsa di Log Analytics](../azure-monitor/insights/solutions-resources-searches-alerts.md). Quando si esegue questa operazione, è necessario includere i gruppi di azioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

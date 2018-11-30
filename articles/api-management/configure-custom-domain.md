@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
-ms.locfileid: "29345371"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446374"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato 
 
@@ -37,6 +37,8 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 + Un nome di dominio personalizzato di proprietà dell'utente. Il nome di dominio personalizzato che si vuole usare deve essere acquistato separatamente e ospitato in un server DNS. Questo argomento fornisce istruzioni su come ospitare un nome di dominio personalizzato.
 + È necessario avere un certificato valido con una chiave pubblica e privata (.PFX). Il soggetto o il nome alternativo del soggetto (SAN) deve corrispondere al nome di dominio (questo consente ad APIM di esporre in modo sicuro gli URL tramite SSL).
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Usare il portale di Azure per impostare un nome di dominio personalizzato
 
 1. Nel [portale di Azure](https://portal.azure.com/) passare all'istanza di Gestione API.
@@ -53,7 +55,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 3. Selezionare l'endpoint che si vuole aggiornare. 
 4. Nella finestra di destra fare clic su **Personalizzato**.
 
-    + In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio, `api.contoso.com`. <br/>Sono supportati anche i nomi di dominio con caratteri jolly (ad esempio *.dominio.com).
+    + In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio: `api.contoso.com`. <br/>Sono supportati anche i nomi di dominio con caratteri jolly (ad esempio *.dominio.com).
     + In **Certificato** specificare un file .PFX valido che si vuole caricare. 
     + Se il certificato ha una password, immetterla nel campo **Password**.
 1. Fare clic su Applica.

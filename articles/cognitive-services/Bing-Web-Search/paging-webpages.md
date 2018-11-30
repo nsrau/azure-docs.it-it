@@ -10,13 +10,13 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: erhopf
-ms.openlocfilehash: e98407dface348dfdbc99a1146d50c46f3bb03a7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.author: aahi
+ms.openlocfilehash: d161d377b3ad8792e1be9c9a86a7aa53ff185468
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739244"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161318"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Come sfogliare i risultati nell'API Ricerca Web Bing
 

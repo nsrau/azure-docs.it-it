@@ -2,25 +2,21 @@
 title: Procedure dettagliate di data science per SQL Server con R, Python e T-SQL | Microsoft Docs
 description: Esempi che illustrano l'uso di R, Python e T-SQL in SQL Server per eseguire analisi predittive.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 671153e8159af6ce2eb46caa5d77d707c437a99a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 9c97d38bc278ff3632031138e2ac0326200f741f
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839028"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442064"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Procedure dettagliate di data science per SQL Server con R, Python e T-SQL
 

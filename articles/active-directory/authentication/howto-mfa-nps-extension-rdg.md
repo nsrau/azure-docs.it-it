@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 14607e01c0bd51ca9ae98f969c9cd6e1c8c62bb9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 10b2b6e67c22efaf1dcab2cfe8abdd42b7576dbc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294272"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426068"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) e Azure AD
 
@@ -47,12 +47,12 @@ Un'istanza di Gateway Desktop remoto può essere configurata per l'uso di un arc
 Quando l'estensione NPS per Azure è integrata con Server dei criteri di rete e Gateway Desktop remoto, il corretto flusso di autenticazione è quello illustrato di seguito:
 
 1. Il server Gateway Desktop remoto riceve da un utente Desktop remoto una richiesta di autenticazione per la connessione a una risorsa, ad esempio una sessione Desktop remoto. Fungendo da client RADIUS, il server Gateway Desktop remoto converte la richiesta in un messaggio di richiesta di accesso RADIUS e invia il messaggio al server RADIUS (Server dei criteri di rete) in cui è installata l'estensione NPS. 
-2. La combinazione di nome utente e password viene verificata in Active Directory e l'utente viene autenticato.
-3. Se vengono soddisfatte tutte le condizioni specificate nella richiesta di connessione NPS e nei criteri di rete (ad esempio per quanto riguarda le restrizioni relative all'ora del giorno o all'appartenenza a gruppi), l'estensione NPS attiva una richiesta di autenticazione secondaria con Azure MFA. 
-4. Azure MFA comunica con Azure AD, recupera i dettagli dell'utente ed esegue l'autenticazione secondaria usando il metodo configurato dall'utente (messaggio di testo, app per dispositivi mobili e così via). 
-5. Una volta completata la verifica MFA, Azure MFA comunica il risultato all'estensione NPS.
-6. Il Server dei criteri di rete in cui è installata l'estensione invia un messaggio di autorizzazione di accesso RADIUS per i criteri di autorizzazione connessioni Desktop remoto al server Gateway Desktop remoto.
-7. All'utente viene concesso l'accesso alla risorsa di rete richiesta tramite Gateway Desktop remoto.
+1. La combinazione di nome utente e password viene verificata in Active Directory e l'utente viene autenticato.
+1. Se vengono soddisfatte tutte le condizioni specificate nella richiesta di connessione NPS e nei criteri di rete (ad esempio per quanto riguarda le restrizioni relative all'ora del giorno o all'appartenenza a gruppi), l'estensione NPS attiva una richiesta di autenticazione secondaria con Azure MFA. 
+1. Azure MFA comunica con Azure AD, recupera i dettagli dell'utente ed esegue l'autenticazione secondaria usando il metodo configurato dall'utente (messaggio di testo, app per dispositivi mobili e così via). 
+1. Una volta completata la verifica MFA, Azure MFA comunica il risultato all'estensione NPS.
+1. Il Server dei criteri di rete in cui è installata l'estensione invia un messaggio di autorizzazione di accesso RADIUS per i criteri di autorizzazione connessioni Desktop remoto al server Gateway Desktop remoto.
+1. All'utente viene concesso l'accesso alla risorsa di rete richiesta tramite Gateway Desktop remoto.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questa sezione illustra in modo dettagliato i prerequisiti necessari per l'integrazione di Azure MFA con Gateway Desktop remoto. Prima di iniziare, è necessario che siano soddisfatti i prerequisiti seguenti.  
@@ -105,9 +105,9 @@ Questa sezione fornisce istruzioni per configurare l'infrastruttura Servizi Desk
 Come parte della configurazione dell'estensione NPS, è necessario fornire le credenziali di amministratore e l'ID di Azure AD per il tenant di Azure AD. La procedura seguente mostra come ottenere l'ID tenant.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale del tenant di Azure.
-2. Nel riquadro di spostamento sinistro fare clic sull'icona di **Azure Active Directory**.
-3. Selezionare **Proprietà**.
-4. Nel pannello Proprietà, accanto all'ID directory, fare clic sull'icona **Copia**, mostrata di seguito, per copiare l'ID negli Appunti.
+1. Nel riquadro di spostamento sinistro fare clic sull'icona di **Azure Active Directory**.
+1. Selezionare **Proprietà**.
+1. Nel pannello Proprietà, accanto all'ID directory, fare clic sull'icona **Copia**, mostrata di seguito, per copiare l'ID negli Appunti.
 
  ![Properties](./media/howto-mfa-nps-extension-rdg/image1.png)
 
@@ -119,13 +119,13 @@ Installare l'estensione NPS in un server con il ruolo Servizi di accesso e crite
 > 
 
 1. Scaricare l'[estensione NPS](https://aka.ms/npsmfa). 
-2. Copiare il file eseguibile di installazione (NpsExtnForAzureMfaInstaller.exe) nel server NPS.
-3. Nel server NPS fare doppio clic su **NpsExtnForAzureMfaInstaller.exe**. Se richiesto, fare clic su **Esegui**.
-4. Nella finestra di dialogo NPS Extension For Azure MFA Setup (Estensione Server dei criteri di rete per la configurazione di Azure MFA) leggere le condizioni di licenza software, selezionare **Accetto i termini e le condizioni di licenza** e fare clic su **Installa**.
+1. Copiare il file eseguibile di installazione (NpsExtnForAzureMfaInstaller.exe) nel server NPS.
+1. Nel server NPS fare doppio clic su **NpsExtnForAzureMfaInstaller.exe**. Se richiesto, fare clic su **Esegui**.
+1. Nella finestra di dialogo NPS Extension For Azure MFA Setup (Estensione Server dei criteri di rete per la configurazione di Azure MFA) leggere le condizioni di licenza software, selezionare **Accetto i termini e le condizioni di licenza** e fare clic su **Installa**.
  
   ![Installazione dell'estensione per Azure MFA](./media/howto-mfa-nps-extension-rdg/image2.png)
 
-5. Nella finestra di dialogo NPS Extension For Azure MFA Setup (Estensione Server dei criteri di rete per la configurazione di Azure MFA) fare clic su **Chiudi**. 
+1. Nella finestra di dialogo NPS Extension For Azure MFA Setup (Estensione Server dei criteri di rete per la configurazione di Azure MFA) fare clic su **Chiudi**. 
 
   ![Per installare l'estensione NPS per Azure MFA](./media/howto-mfa-nps-extension-rdg/image3.png)
 
@@ -145,20 +145,20 @@ Per usare certificati personali è necessario associare la chiave pubblica del c
 Per usare lo script, specificare l'estensione con le credenziali amministrative di Azure AD e l'ID tenant di Azure AD copiato in precedenza. Eseguire lo script in ogni server NPS in cui è stata installata l'estensione NPS. Eseguire quindi le operazioni seguenti:
 
 1. Aprire un prompt di Windows PowerShell come amministratore.
-2. Al prompt di PowerShell digitare `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’` e premere **INVIO**.
-3. Digitare `.\AzureMfsNpsExtnConfigSetup.ps1` e premere **INVIO**. Lo script verifica se il modulo di PowerShell per Azure Active Directory è installato. Se non è installato, lo installa.
+1. Al prompt di PowerShell digitare `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’` e premere **INVIO**.
+1. Digitare `.\AzureMfsNpsExtnConfigSetup.ps1` e premere **INVIO**. Lo script verifica se il modulo di PowerShell per Azure Active Directory è installato. Se non è installato, lo installa.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
-4. Dopo che lo script ha verificato l'installazione del modulo di PowerShell, viene visualizzata la finestra di dialogo relativa al modulo di PowerShell per Azure Active Directory. Nella finestra di dialogo immettere le credenziali e la password di amministratore di Azure AD e fare clic su **Accedi**.
+1. Dopo che lo script ha verificato l'installazione del modulo di PowerShell, viene visualizzata la finestra di dialogo relativa al modulo di PowerShell per Azure Active Directory. Nella finestra di dialogo immettere le credenziali e la password di amministratore di Azure AD e fare clic su **Accedi**.
 
   ![Aprire l'account di PowerShell](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-5. Quando viene chiesto, incollare l'ID tenant copiato negli Appunti in precedenza e premere **INVIO**.
+1. Quando viene chiesto, incollare l'ID tenant copiato negli Appunti in precedenza e premere **INVIO**.
 
   ![Immettere l'ID tenant](./media/howto-mfa-nps-extension-rdg/image6.png)
 
-6. Lo script crea un certificato autofirmato e apporta altre modifiche alla configurazione. L'output è come quello nell'immagine seguente.
+1. Lo script crea un certificato autofirmato e apporta altre modifiche alla configurazione. L'output è come quello nell'immagine seguente.
 
   ![Certificato autofirmato](./media/howto-mfa-nps-extension-rdg/image7.png)
 
@@ -171,22 +171,22 @@ Il flusso di autenticazione richiede che vengano scambiati messaggi RADIUS tra G
 I criteri di autorizzazione connessioni Desktop remoto specificano i requisiti per la connessione a un server Gateway Desktop remoto. I criteri di autorizzazione connessioni Desktop remoto possono essere archiviati in locale (impostazione predefinita) oppure in un archivio di criteri di autorizzazione connessioni Desktop remoto centrale che esegue Server dei criteri di rete. Per configurare l'integrazione di Azure MFA con Servizi Desktop remoto, è necessario specificare l'uso di un archivio centrale.
 
 1. Nel server Gateway Desktop remoto aprire **Server Manager**. 
-2. Scegliere **Strumenti** dal menu, fare clic su **Servizi Desktop remoto** e quindi su **Gestione Gateway Desktop remoto**.
+1. Scegliere **Strumenti** dal menu, fare clic su **Servizi Desktop remoto** e quindi su **Gestione Gateway Desktop remoto**.
 
   ![Servizi Desktop remoto](./media/howto-mfa-nps-extension-rdg/image8.png)
 
-3. In Gestione Gateway Desktop remoto fare clic con il pulsante destro del mouse su **\[Nome server\] (locale)** e quindi scegliere **Proprietà**.
+1. In Gestione Gateway Desktop remoto fare clic con il pulsante destro del mouse su **\[Nome server\] (locale)** e quindi scegliere **Proprietà**.
 
   ![Server Name](./media/howto-mfa-nps-extension-rdg/image9.png)
 
-4. Nella finestra di dialogo Proprietà selezionare la scheda **Archivio criteri di autorizzazione connessioni Desktop remoto**.
-5. Nella scheda Archivio criteri di autorizzazione connessioni Desktop remoto selezionare **Server dei criteri di rete centrale**. 
-6. Nel campo **Immettere il nome o l'indirizzo IP del Server dei criteri di rete** digitare l'indirizzo IP o il nome del server in cui è stata installata l'estensione NPS.
+1. Nella finestra di dialogo Proprietà selezionare la scheda **Archivio criteri di autorizzazione connessioni Desktop remoto**.
+1. Nella scheda Archivio criteri di autorizzazione connessioni Desktop remoto selezionare **Server dei criteri di rete centrale**. 
+1. Nel campo **Immettere il nome o l'indirizzo IP del Server dei criteri di rete** digitare l'indirizzo IP o il nome del server in cui è stata installata l'estensione NPS.
 
   ![Immettere il nome o l'indirizzo IP](./media/howto-mfa-nps-extension-rdg/image10.png)
   
-7. Fare clic su **Aggiungi**.
-8. Nella finestra di dialogo **Segreto condiviso** immettere un segreto condiviso e quindi fare clic su **OK**. Assicurarsi di registrare il segreto condiviso e di archiviare il record in modo sicuro.
+1. Fare clic su **Aggiungi**.
+1. Nella finestra di dialogo **Segreto condiviso** immettere un segreto condiviso e quindi fare clic su **OK**. Assicurarsi di registrare il segreto condiviso e di archiviare il record in modo sicuro.
 
  >[!NOTE]
  >Il segreto condiviso viene usato per stabilire un trust tra i server e i client RADIUS. Creare un segreto lungo e complesso.
@@ -194,45 +194,45 @@ I criteri di autorizzazione connessioni Desktop remoto specificano i requisiti p
 
  ![Segreto condiviso](./media/howto-mfa-nps-extension-rdg/image11.png)
 
-9. Fare clic su **OK** per chiudere la finestra di dialogo.
+1. Fare clic su **OK** per chiudere la finestra di dialogo.
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>Configurare il valore di timeout RADIUS in Server dei criteri di rete per Gateway Desktop remoto
 Per garantire il tempo necessario per convalidare le credenziali degli utenti, eseguire la verifica in due passaggi, ricevere le risposte e rispondere a messaggi RADIUS, è necessario regolare il valore di timeout RADIUS.
 
 1. Nel server Gateway Desktop remoto aprire Gestione server. Nel menu fare clic su **Strumenti** e quindi su **Server dei criteri di rete**. 
-2. Nella console **Server dei criteri di rete (locale)** espandere **Client e server RADIUS** e quindi selezionare **Gruppi di server RADIUS remoti**.
+1. Nella console **Server dei criteri di rete (locale)** espandere **Client e server RADIUS** e quindi selezionare **Gruppi di server RADIUS remoti**.
 
  ![Gruppi di server RADIUS remoti](./media/howto-mfa-nps-extension-rdg/image12.png)
 
-3. Nel riquadro dei dettagli fare doppio clic su **GRUPPO DI SERVER GATEWAY DI SERVIZI TERMINAL**.
+1. Nel riquadro dei dettagli fare doppio clic su **GRUPPO DI SERVER GATEWAY DI SERVIZI TERMINAL**.
 
  >[!NOTE]
  >Questo gruppo di server RADIUS è stato creato durante la configurazione del server centrale per i criteri NPS. Gateway Desktop remoto inoltra i messaggi RADIUS a questo server o gruppo di server, se il gruppo ne contiene più di uno.
  >
 
-4. Nella finestra di dialogo **Proprietà GRUPPO DI SERVER GATEWAY DI SERVIZI TERMINAL** selezionare l'indirizzo IP o il nome del server NPS configurato per archiviare i criteri di autorizzazione connessioni Desktop remoto e quindi fare clic su **Modifica**. 
+1. Nella finestra di dialogo **Proprietà GRUPPO DI SERVER GATEWAY DI SERVIZI TERMINAL** selezionare l'indirizzo IP o il nome del server NPS configurato per archiviare i criteri di autorizzazione connessioni Desktop remoto e quindi fare clic su **Modifica**. 
 
  ![Gruppo di server gateway di Servizi terminal](./media/howto-mfa-nps-extension-rdg/image13.png)
 
-5. Nella finestra di dialogo **Modifica server RADIUS** selezionare la scheda **Bilanciamento del carico**.
-6. Nella campo **Numero di secondi senza risposta prima che la richiesta venga annullata** della scheda **Bilanciamento del carico** modificare il valore predefinito da 3 a un valore compreso tra 30 e 60 secondi.
-7. Nel campo **Numero di secondi tra le richieste quando il server viene identificato come non disponibile** modificare il valore di 30 secondi in un valore uguale o maggiore del valore specificato nel passaggio precedente.
+1. Nella finestra di dialogo **Modifica server RADIUS** selezionare la scheda **Bilanciamento del carico**.
+1. Nella campo **Numero di secondi senza risposta prima che la richiesta venga annullata** della scheda **Bilanciamento del carico** modificare il valore predefinito da 3 a un valore compreso tra 30 e 60 secondi.
+1. Nel campo **Numero di secondi tra le richieste quando il server viene identificato come non disponibile** modificare il valore di 30 secondi in un valore uguale o maggiore del valore specificato nel passaggio precedente.
 
  ![Modificare il server RADIUS](./media/howto-mfa-nps-extension-rdg/image14.png)
 
-8.  Fare clic su **OK** due volte per chiudere le finestre di dialogo.
+1.  Fare clic su **OK** due volte per chiudere le finestre di dialogo.
 
 ### <a name="verify-connection-request-policies"></a>Verificare i criteri di richiesta di connessione 
 Per impostazione predefinita, quando si configura Gateway Desktop remoto per l'uso di un archivio centrale di criteri per i criteri di autorizzazione connessioni, Gateway Desktop remoto viene configurato per inoltrare richieste di criteri di autorizzazione connessioni al server NPS. Il server NPS in cui è installata l'estensione per Azure MFA elabora la richiesta di accesso RADIUS. I passaggi seguenti mostrano come verificare i criteri di richiesta di connessione predefiniti. 
 
 1. Nella console Server dei criteri di rete (locale) in Gateway Desktop remoto espandere **Criteri** e selezionare **Criteri di richiesta di connessione**.
-2. Fare doppio clic su **CRITERI DI AUTORIZZAZIONE GATEWAY DI SERVIZI TERMINAL**.
-3. Nella finestra **Proprietà CRITERI DI AUTORIZZAZIONE GATEWAY DI SERVIZI TERMINAL** fare clic sulla scheda **Impostazioni**.
-4. Nella scheda **Impostazioni** fare clic su **Autenticazione** in Inoltro richiesta di connessione. Il client RADIUS è configurato per inoltrare le richieste di autenticazione.
+1. Fare doppio clic su **CRITERI DI AUTORIZZAZIONE GATEWAY DI SERVIZI TERMINAL**.
+1. Nella finestra **Proprietà CRITERI DI AUTORIZZAZIONE GATEWAY DI SERVIZI TERMINAL** fare clic sulla scheda **Impostazioni**.
+1. Nella scheda **Impostazioni** fare clic su **Autenticazione** in Inoltro richiesta di connessione. Il client RADIUS è configurato per inoltrare le richieste di autenticazione.
 
  ![Impostazioni di autenticazione](./media/howto-mfa-nps-extension-rdg/image15.png)
  
-5. Fare clic su **Annulla**. 
+1. Fare clic su **Annulla**. 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Configurare Server dei criteri di rete nel server in cui è installata l'estensione NPS
 Il server NPS in cui è installata l'estensione NPS deve essere in grado di scambiare messaggi RADIUS con il server NPS in Gateway Desktop remoto. Per consentire questo scambio di messaggi, è necessario configurare i componenti di Server dei criteri di rete nel server in cui è installata l'estensione NPS. 
@@ -241,13 +241,13 @@ Il server NPS in cui è installata l'estensione NPS deve essere in grado di scam
 Per il corretto funzionamento in questo scenario, è necessario registrare il server NPS in Active Directory.
 
 1. Nel Server dei criteri di rete aprire **Gestione server**.
-2. In Server Manager fare clic su **Strumenti** e quindi su **Server dei criteri di rete**. 
-3. Nella console di Server dei criteri di rete fare clic con il pulsante destro del mouse su **Server dei criteri di rete (locale)** e quindi scegliere **Registra server in Active Directory**. 
-4. Fare clic su **OK** due volte.
+1. In Server Manager fare clic su **Strumenti** e quindi su **Server dei criteri di rete**. 
+1. Nella console di Server dei criteri di rete fare clic con il pulsante destro del mouse su **Server dei criteri di rete (locale)** e quindi scegliere **Registra server in Active Directory**. 
+1. Fare clic su **OK** due volte.
 
  ![Registrare il server in Active Directory](./media/howto-mfa-nps-extension-rdg/image16.png)
 
-5. Lasciare aperta la console per la procedura successiva.
+1. Lasciare aperta la console per la procedura successiva.
 
 ### <a name="create-and-configure-radius-client"></a>Creare e configurare il client RADIUS 
 Gateway Desktop remoto deve essere configurato come client RADIUS per il server NPS. 
@@ -256,39 +256,39 @@ Gateway Desktop remoto deve essere configurato come client RADIUS per il server 
 
  ![Nuovo client RADIUS](./media/howto-mfa-nps-extension-rdg/image17.png)
 
-2. Nella finestra di dialogo **Nuovo client RADIUS** immettere un nome descrittivo, ad esempio _Gateway_, e l'indirizzo IP o il nome DNS del server Gateway Desktop remoto. 
-3. Nei campi **Segreto condiviso** e **Conferma segreto condiviso** immettere lo stesso segreto usato in precedenza.
+1. Nella finestra di dialogo **Nuovo client RADIUS** immettere un nome descrittivo, ad esempio _Gateway_, e l'indirizzo IP o il nome DNS del server Gateway Desktop remoto. 
+1. Nei campi **Segreto condiviso** e **Conferma segreto condiviso** immettere lo stesso segreto usato in precedenza.
 
  ![Nome e indirizzo](./media/howto-mfa-nps-extension-rdg/image18.png)
 
-4. Fare clic su **OK** per chiudere la finestra di dialogo Nuovo client RADIUS.
+1. Fare clic su **OK** per chiudere la finestra di dialogo Nuovo client RADIUS.
 
 ### <a name="configure-network-policy"></a>Configurare i criteri di rete
 Tenere presente che il Server dei criteri di rete con l'estensione per Azure MFA è l'archivio centrale di criteri designato per i criteri di autorizzazione delle connessioni. Di conseguenza, è necessario implementare criteri di autorizzazione connessioni nel server NPS per autorizzare richieste di connessione valide.  
 
 1. Nel server di Server dei criteri di rete aprire la console Server dei criteri di rete (locale), espandere **Criteri** e fare clic su **Criteri di rete**.
-2. Fare clic con il pulsante destro del mouse su **Connessioni ad altri server di accesso** e scegliere **Duplica criterio**. 
+1. Fare clic con il pulsante destro del mouse su **Connessioni ad altri server di accesso** e scegliere **Duplica criterio**. 
 
  ![Duplica criterio](./media/howto-mfa-nps-extension-rdg/image19.png)
 
-3. Fare clic con il pulsante destro del mouse su **Copia di Connessioni ad altri server di accesso remoto** e scegliere **Proprietà**.
+1. Fare clic con il pulsante destro del mouse su **Copia di Connessioni ad altri server di accesso remoto** e scegliere **Proprietà**.
 
  ![Proprietà di rete](./media/howto-mfa-nps-extension-rdg/image20.png)
 
-4. Nella finestra di dialogo **Copia di Connessioni ad altri server di accesso** immettere un nome appropriato, ad esempio _RDG_CAP_ in **Nome criterio**. Selezionare **Criterio attivato** e fare clic su **Concedi accesso**. Facoltativamente, in **Tipo di server di accesso alla rete** selezionare **Gateway Desktop remoto** oppure lasciare l'impostazione **Non specificato**.
+1. Nella finestra di dialogo **Copia di Connessioni ad altri server di accesso** immettere un nome appropriato, ad esempio _RDG_CAP_ in **Nome criterio**. Selezionare **Criterio attivato** e fare clic su **Concedi accesso**. Facoltativamente, in **Tipo di server di accesso alla rete** selezionare **Gateway Desktop remoto** oppure lasciare l'impostazione **Non specificato**.
 
  ![Copia di Connessioni ad altri server di accesso remoto](./media/howto-mfa-nps-extension-rdg/image21.png)
 
-5.  Fare clic sulla scheda **Vincoli** e selezionare **Consenti ai client di connettersi senza negoziare il metodo di autenticazione**.
+1.  Fare clic sulla scheda **Vincoli** e selezionare **Consenti ai client di connettersi senza negoziare il metodo di autenticazione**.
 
  ![Consenti ai client di connettersi senza negoziare il metodo di autenticazione](./media/howto-mfa-nps-extension-rdg/image22.png)
 
-6. Facoltativamente, è possibile fare clic sulla scheda **Condizioni** e aggiungere le condizioni che devono essere soddisfatte perché la connessione venga autorizzata, ad esempio l'appartenenza a un gruppo di Windows specifico.
+1. Facoltativamente, è possibile fare clic sulla scheda **Condizioni** e aggiungere le condizioni che devono essere soddisfatte perché la connessione venga autorizzata, ad esempio l'appartenenza a un gruppo di Windows specifico.
 
  ![Condizioni](./media/howto-mfa-nps-extension-rdg/image23.png)
 
-7. Fare clic su **OK**. Quando viene chiesto se visualizzare l'argomento della Guida corrispondente, fare clic su **No**.
-8. Assicurarsi che i nuovi criteri siano visualizzati all'inizio dell'elenco, che siano abilitati e che concedano l'accesso.
+1. Fare clic su **OK**. Quando viene chiesto se visualizzare l'argomento della Guida corrispondente, fare clic su **No**.
+1. Assicurarsi che i nuovi criteri siano visualizzati all'inizio dell'elenco, che siano abilitati e che concedano l'accesso.
 
  ![Criteri di rete](./media/howto-mfa-nps-extension-rdg/image24.png)
 
@@ -359,7 +359,7 @@ Per opzioni avanzate di risoluzione dei problemi, consultare i file di log in fo
 
 Per una descrizione di questi file di log, vedere [Interpret NPS Database Format Log Files](https://technet.microsoft.com/library/cc771748.aspx) (Interpretare i file di log in formato database di Server dei criteri di rete). Le voci di questi file di log sono difficili da interpretare senza importarle in un foglio di calcolo o in un database. Online sono disponibili diversi parser IAS che possono aiutare a interpretare i file di log. 
 
-L'immagine seguente mostra l'output di una di queste [applicazioni shareware](http://www.deepsoftware.com/iasviewer) che è possibile scaricare. 
+L'immagine seguente mostra l'output di una di queste [applicazioni shareware](https://www.deepsoftware.com/iasviewer) che è possibile scaricare. 
 
 ![App shareware](./media/howto-mfa-nps-extension-rdg/image35.png)
 

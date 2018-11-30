@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 4ed0008f4b574691387d6e0ee0300b5f05f1ec1b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c330171f0c85bce6451b8f342203e2eeeccb3c5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798696"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425140"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
 
-Azure Cosmos DB fornisce un'[API SQL per le query sui dati](sql-api-sql-query.md), senza che siano necessari schemi o indici secondari. In questo articolo vengono fornite le seguenti informazioni per gli sviluppatori:
+Azure Cosmos DB fornisce un'[API SQL per le query sui dati](how-to-sql-query.md), senza che siano necessari schemi o indici secondari. In questo articolo vengono fornite le seguenti informazioni per gli sviluppatori:
 
 * Informazioni generali sull'esecuzione delle query SQL di Azure Cosmos DB
 * Dettagli sulle intestazioni di richiesta e risposta delle query e le opzioni SDK client
@@ -218,7 +218,7 @@ Per configurare la distribuzione globale e connettersi all'area più vicina, ved
 La sezione sulle metriche di esecuzione delle query descrive come recuperare la durata di esecuzione delle query del server ( `totalExecutionTimeInMs`), in modo da poter differenziare tra il tempo impiegato dall'esecuzione delle query e quello impiegato per il trasferimento di rete.
 
 ### <a name="indexing-policy"></a>Criterio di indicizzazione
-Per informazioni su percorsi, tipi e modalità di indicizzazione e sul relativo impatto sull'esecuzione delle query, vedere [Configurazione dei criteri di indicizzazione](indexing-policies.md). Per impostazione predefinita, i criteri di indicizzazione usano l'indicizzazione hash per le stringhe, che è efficace per le query di uguaglianza, ma non per le query di intervallo o orderby. Se sono necessarie query di intervallo per le stringhe, è consigliabile specificare il tipo di indice di intervallo per tutte le stringhe. 
+Per informazioni su percorsi, tipi e modalità di indicizzazione e sul relativo impatto sull'esecuzione delle query, vedere [Configurazione dei criteri di indicizzazione](index-policy.md). Per impostazione predefinita, i criteri di indicizzazione usano l'indicizzazione hash per le stringhe, che è efficace per le query di uguaglianza, ma non per le query di intervallo o orderby. Se sono necessarie query di intervallo per le stringhe, è consigliabile specificare il tipo di indice di intervallo per tutte le stringhe. 
 
 ## <a name="query-execution-metrics"></a>Metriche di esecuzione delle query
 È possibile ottenere metriche dettagliate sull'esecuzione delle query passando l'intestazione facoltativa `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` in .NET SDK). Il valore restituito in `x-ms-documentdb-query-metrics` contiene le seguenti coppie chiave-valore, pensate per risoluzione dei problemi più avanzati di esecuzione delle query. 
@@ -274,8 +274,8 @@ Di seguito sono riportate alcune query di esempio, con informazioni su come inte
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sulle parole chiave e gli operatori di query SQL supportati, vedere [Query SQL](sql-api-sql-query.md). 
+* Per informazioni sulle parole chiave e gli operatori di query SQL supportati, vedere [Query SQL](how-to-sql-query.md). 
 * Per informazioni sulle unità richiesta, vedere [Unità richiesta](request-units.md).
-* Per informazioni sui criteri di indicizzazione, vedere [Criteri di indicizzazione](indexing-policies.md) 
+* Per informazioni sui criteri di indicizzazione, vedere [Criteri di indicizzazione](index-policy.md) 
 
 

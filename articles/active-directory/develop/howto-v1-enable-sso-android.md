@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c7d1665eece966053f52e118bb0d6f7f5ec4cba6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2c7ccd8d2022631e32c240007a782d2382aac518
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957864"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422848"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedura: Abilitare l'accesso Single Sign-On tra app su Android tramite ADAL
 
@@ -130,7 +130,7 @@ Ad esempio: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
 #### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Passaggio 3: Impostare le autorizzazioni corrette all'interno dell'applicazione
 
-L'applicazione broker in Android usa la funzionalità Account Manager del sistema operativo Android per gestire le credenziali nelle applicazioni. Per utilizzare il broker in Android, il manifesto dell'app deve disporre delle autorizzazioni per usare gli account di AccountManager. Le autorizzazioni vengono discusse in modo dettagliato nella [documentazione di Google relativa ad Account Manager qui](http://developer.android.com/reference/android/accounts/AccountManager.html)
+L'applicazione broker in Android usa la funzionalità Account Manager del sistema operativo Android per gestire le credenziali nelle applicazioni. Per utilizzare il broker in Android, il manifesto dell'app deve disporre delle autorizzazioni per usare gli account di AccountManager. Le autorizzazioni vengono discusse in modo dettagliato nella [documentazione di Google relativa ad Account Manager qui](https://developer.android.com/reference/android/accounts/AccountManager.html)
 
 In particolare, le autorizzazioni sono:
 

@@ -1,3 +1,16 @@
+---
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tomfitz
+ms.openlocfilehash: 5e483ecfcbddfcf5aa7f8a41c1ee75136c86b656
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440223"
+---
 Per applicare un tag a una risorsa durante la distribuzione, aggiungere l'elemento `tags` alla risorsa distribuita e specificare il nome e il valore del tag.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>Applicare un valore letterale al nome del tag

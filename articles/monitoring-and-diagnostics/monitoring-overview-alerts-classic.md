@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2caf3d6373e764f5d5538a14a1750f1bfee2871d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614141"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822280"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
@@ -89,7 +89,7 @@ I webhook consentono l'automazione e la correzione, ad esempio, usando:
 ## <a name="next-steps"></a>Passaggi successivi
 Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione usando:
 
-* Altre informazioni sulle [metriche](../monitoring/monitoring-data-collection.md)
+* Altre informazioni sulle [metriche](../azure-monitor/platform/data-collection.md)
 * Configurare gli [avvisi delle metriche classici tramite il portale di Azure](alert-metric-classic.md)
 * Configurare gli [avvisi delle metriche classici per PowerShell](alert-metric-classic.md)
 * Configurare gli [avvisi delle metriche classici per l'interfaccia della riga di comando](alert-metric-classic.md)

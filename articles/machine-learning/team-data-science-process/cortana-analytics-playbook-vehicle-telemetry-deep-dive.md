@@ -2,25 +2,21 @@
 title: Approfondimento su come fare una previsione dell'integrità dei veicoli e delle abitudini di guida - Azure | Microsoft Docs
 description: Usare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
-ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b1c01bcd15c5cfc63eae7c2b1983fc9075d4220c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300949"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444379"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Playbook della Soluzione di analisi dei dati di telemetria del veicolo: approfondimento della soluzione
 
@@ -670,7 +666,7 @@ Questo documento contiene un'analisi dettagliata e approfondita della soluzione 
 ### <a name="references"></a>Riferimenti
 
 * [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)
-* [Data factory di Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+* [Data factory di Azure](https://docs.microsoft.com/rest/api/datafactory/)
 * [SDK di Hub eventi di Azure per l'inserimento di flussi](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Funzionalità di spostamento dei dati di Azure Data Factory](../../data-factory/copy-activity-overview.md)
 * [Attività .NET di Azure Data Factory](../../data-factory/transform-data-using-dotnet-custom-activity.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261161"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162467"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gestire Azure Cosmos DB in Azure Storage Explorer
 
@@ -152,7 +152,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 - Fare clic sul pulsante **Elimina** per eliminare il documento esistente.
 
 #### <a name="query-for-documents"></a>Eseguire query per documenti
-- Modificare il filtro documento immettendo una [query SQL](sql-api-sql-query.md), quindi fare clic su **Applica**.
+- Modificare il filtro documento immettendo una [query SQL](how-to-sql-query.md), quindi fare clic su **Applica**.
 
     ![Filtro del documento](./media/storage-explorer/document-filter.png)
 

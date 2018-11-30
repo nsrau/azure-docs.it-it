@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: e8d8067fcf30b16dd3dbc7f6cf50129d837aa3a5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4ab2c58e5a0f9e04d824eeea443a13af7a32617d
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306857"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619657"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
 
 Quando si crea un nuovo account di Servizi multimediali di Azure (AMS), viene chiesto di selezionare anche un account di archiviazione di Azure da usare per l'archiviazione dei contenuti multimediali. È possibile aggiungere più di un account di archiviazione all'account di Servizi multimediali. Questo articolo illustra come far ruotare le chiavi di archiviazione. Viene inoltre illustrato come aggiungere gli account di archiviazione a un account multimediale. 
 
-Per eseguire le operazioni descritte in questo articolo è necessario usare [Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Per altre informazioni, vedere [Gestire le risorse di Azure con PowerShell e Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
+Per eseguire le operazioni descritte in questo articolo è necessario usare [Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Per ulteriori informazioni, vedere [Gestire le risorse di Azure con PowerShell e Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
 
 ## <a name="overview"></a>Panoramica
 

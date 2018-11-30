@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c1247dfca6dea638da2113fef940b97ad3348b9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160281"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423118"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
 
@@ -122,7 +122,7 @@ Se il modulo PowerShell di Microsoft Azure Active Directory non è già presente
 
 Per usare l'estensione Server dei criteri di rete, gli utenti locali devono essere sincronizzati con Azure Active Directory e abilitati per MFA. Questa guida presuppone che gli utenti locali siano sincronizzati con Azure Active Directory tramite Azure AD Connect. Le istruzioni per abilitare gli utenti per MFA sono disponibili più avanti.
 
-Per informazioni su Azure AD Connect, vedere [Integrare le directory locali con Azure Active Directory](../connect/active-directory-aadconnect.md). 
+Per informazioni su Azure AD Connect, vedere [Integrare le directory locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>ID GUID di Azure Active Directory 
 
@@ -438,7 +438,7 @@ Un evento correlato dal log di Azure Multi-Factor Authentication è illustrato d
 
 Per la risoluzione dei problemi avanzata, consultare i file di log in formato database di Server dei criteri di rete nella posizione in cui è installato il servizio Server dei criteri di rete. I file di log vengono creati nella cartella _%SystemRoot%\System32\Logs_ come file di testo con valori delimitati da virgole. Per una descrizione dei file di log, vedere [Interpret NPS Database Format Log Files](https://technet.microsoft.com/library/cc771748.aspx) (Interpretare i file di log in formato database di Server dei criteri di rete). 
 
-Le voci di questi file di log sono difficili da interpretare senza esportarle in un foglio di calcolo o in un database. È possibile trovare molti strumenti di analisi Servizio Autenticazione Internet online per semplificare l'interpretazione dei file di log. Di seguito è riportato l'output di una di queste [applicazioni shareware](http://www.deepsoftware.com/iasviewer) che è possibile scaricare: 
+Le voci di questi file di log sono difficili da interpretare senza esportarle in un foglio di calcolo o in un database. È possibile trovare molti strumenti di analisi Servizio Autenticazione Internet online per semplificare l'interpretazione dei file di log. Di seguito è riportato l'output di una di queste [applicazioni shareware](https://www.deepsoftware.com/iasviewer) che è possibile scaricare: 
 
 ![Applicazione shareware](./media/howto-mfa-nps-extension-vpn/image49.png)
 
@@ -453,5 +453,5 @@ Per altre informazioni, vedere [Integrare l'infrastruttura NPS esistente con Azu
 
 [Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integrare le directory locali con Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Integrare le directory locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

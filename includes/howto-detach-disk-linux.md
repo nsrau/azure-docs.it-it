@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+ms.openlocfilehash: 7c9c52c5cda258908ac8463dd06044e244c75ee2
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331133"
+---
 Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Quando si scollega un disco dalla macchina virtuale, quest'ultimo non viene rimosso dalla risorsa di archiviazione. Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.  
 
 > [!NOTE]

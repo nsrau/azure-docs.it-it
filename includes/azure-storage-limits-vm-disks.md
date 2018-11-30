@@ -1,3 +1,16 @@
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: rogarana
+ms.openlocfilehash: aa701ada917811382351fee9469a5cfa9a7599b8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279719"
+---
 Una macchina virtuale di Azure supporta il collegamento di un numero di dischi dati. In questo articolo vengono descritti gli obiettivi di scalabilità e prestazioni per i dischi dati di una macchina virtuale. Usare questi obiettivi per stabilire il numero e il tipo di dischi necessari per soddisfare i requisiti di capacità e prestazioni. 
 
 > [!IMPORTANT]
@@ -12,7 +25,6 @@ Una macchina virtuale di Azure supporta il collegamento di un numero di dischi d
 > | Managed Disks Premium | 10.000 | 50.000 |
 > | Snapshot Standard_LRS | 10.000 | 50.000 |
 > | Snapshot Standard_ZRS | 10.000 | 50.000 |
-> | Snapshot Premium_LRS | 10.000 | 50.000 |
 > | Immagine gestita | 10.000 | 50.000 |
 
 * **Per gli account di archiviazione standard:** un account di archiviazione standard con una frequenza totale massima di richieste di 20.000 IOPS. Il numero totale di IOPS in tutti i dischi della macchina virtuale in un account di archiviazione standard non deve superare questo limite.

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: eb3bd1b2186d323c5b9d10d89bb68c03bd2b84a8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a36dc0cd8148b8cf58729d2e8d22011e61140b0f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305710"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426331"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Passaggi successivi
 Dopo aver definito i requisiti ed esaminato tutte le opzioni per la soluzione di gestione dei dispositivi mobili, è possibile eseguire i passaggi successivi per la distribuzione dell'infrastruttura di supporto adatta alle esigenze dell'utente e dell'organizzazione.
@@ -43,10 +43,10 @@ I contenuti concettuali, sulla pianificazione delle procedure, sulla distribuzio
 Il monitoraggio frequente di queste risorse consente di ottenere informazioni sulle notizie più recenti e aggiornamenti relativi alle soluzioni di gestione dei dispositivi mobili:
 
 * [Blog di Microsoft Enterprise Mobility](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
-* [Blog di Microsoft In The Cloud](http://blogs.technet.com/b/in_the_cloud/)
-* [Blog di Microsoft Intune](http://blogs.technet.com/b/microsoftintune/)
-* [Blog di Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
-* [Blog del team di Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
+* [Blog di Microsoft In The Cloud](https://blogs.technet.com/b/in_the_cloud/)
+* [Blog di Microsoft Intune](https://blogs.technet.com/b/microsoftintune/)
+* [Blog di Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configurationmgr/)
+* [Blog del team di Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configmgrteam/)
 
 ## <a name="see-also"></a>Vedere anche 
 [Panoramica delle considerazioni di progettazione](plan-hybrid-identity-design-considerations-overview.md)

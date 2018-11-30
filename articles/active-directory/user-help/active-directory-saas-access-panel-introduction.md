@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: d0d07e235c33877ede7f47a6095482b2acec18d0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d9ed140d404387b94428cea5d925911806b62552
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239840"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705857"
 ---
 # <a name="what-is-the-myapps-portal"></a>Che cos'è il portale App personali?
 
@@ -83,7 +83,7 @@ Per usare l'accesso Single Sign-On basato su password, è necessario usare l'est
 >
 È possibile scaricare l'estensione direttamente dai siti seguenti:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Se si usa un URL delle app personali diverso da `https://myapps.microsoft.com`, configurare l'URL predefinito seguendo questa procedura:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: d8be831469659993da4f9f392e23b9408eb283e3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 2b16bc98c456c9c85d8e49e01171086933533707
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302221"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312630"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Centro sicurezza di Azure e servizio Database SQL di Azure
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/documentation/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -60,7 +60,7 @@ I criteri di sicurezza definiscono il set di controlli consigliati per le risors
 Per impostare criteri di sicurezza, selezionare il riquadro **Criteri** nel pannello Centro sicurezza. Nel pannello **Criteri di sicurezza** selezionare la sottoscrizione in cui abilitare i criteri di sicurezza. Selezionare **Criteri di prevenzione** e impostare su **On** le raccomandazioni di sicurezza da usare per la sottoscrizione.
 ![Criteri di sicurezza][3]
 
-Per altre informazioni, vedere [Impostare i criteri di sicurezza](security-center-policies.md).
+Per altre informazioni, vedere [Impostare i criteri di sicurezza](security-center-azure-policy.md).
 
 ## <a name="manage-security-recommendation"></a>Gestire una raccomandazione di sicurezza
 Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure. Quando identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni. Queste raccomandazioni illustrano in dettaglio il processo di configurazione dei controlli necessari.
@@ -85,7 +85,7 @@ Seguire i passaggi in [SQL Database Threat Detection in the Azure portal](../sql
 Per altre informazioni sulle raccomandazioni, vedere [Gestione delle raccomandazioni di sicurezza](security-center-recommendations.md).
 
 ## <a name="monitor-security-health"></a>Monitorare l'integrità della sicurezza
-Una volta abilitati i [criteri di sicurezza](security-center-policies.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità.  Nel riquadro **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse. Quando si fa clic su **Dati** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **Data Resources** (Risorse dati) con le raccomandazioni SQL relative a problemi come la mancata abilitazione del controllo e di Transparent Data Encryption. Include anche raccomandazioni relative allo stato di integrità generale del database.
+Una volta abilitati i [criteri di sicurezza](security-center-azure-policy.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità.  Nel riquadro **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse. Quando si fa clic su **Dati** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **Data Resources** (Risorse dati) con le raccomandazioni SQL relative a problemi come la mancata abilitazione del controllo e di Transparent Data Encryption. Include anche raccomandazioni relative allo stato di integrità generale del database.
 ![Integrità della sicurezza delle risorse][6]
 
 Per altre informazioni, vedere [Monitoraggio dell'integrità della sicurezza](security-center-monitoring.md).
