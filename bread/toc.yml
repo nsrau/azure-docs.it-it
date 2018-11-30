@@ -127,6 +127,10 @@ items:
   - name: Funzioni
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
+    items:
+    - name: Funzioni permanenti
+      topicHref: /azure/azure-functions/durable/durable-functions-overview
+      tocHRef: /azure/azure-functions/durable/
   - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
@@ -620,22 +624,25 @@ items:
       - name: Distribuzioni classiche di Linux
         tocHref: /azure/virtual-machines/linux/classic/
         topicHref: /azure/virtual-machines/linux/classic/
-    - name: Windows
+    - name: " Windows"
       tocHref: /azure/virtual-machines/windows/
       topicHref: /azure/virtual-machines/windows/
       items:
       - name: Distribuzioni classiche di Windows
         tocHref: /azure/virtual-machines/windows/classic/
         topicHref: /azure/virtual-machines/windows/classic/
+      - name: VM SQL
+        tocHref: /azure/virtual-machines/windows/sql
+        topicHref: /azure/virtual-machines/windows/sql
   - name: Rete virtuale
     tocHref: /azure/virtual-network/
     topicHref: /azure/virtual-network/
   - name: Gateway VPN
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: d5accdc05b632921d62c083772c4f289ca901ab2
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 33835959e4a8524c6f9f6ed43a9f7daddf9f7dec
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377574"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635850"

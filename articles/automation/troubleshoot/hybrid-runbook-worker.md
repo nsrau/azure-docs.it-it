@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cae7253a4bfcb4f83baf003a4d9d3c367d8f014
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 38e2589365c2f1c88145fbf068d3ed267d4a4621
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064474"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284569"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Risolvere i problemi di ruoli di lavoro ibridi per runbook
 
@@ -24,13 +24,13 @@ Questo articolo contiene informazioni sulla risoluzione di problemi relativi ai 
 
 Il ruolo di lavoro ibrido per runbook dipende da un agente per comunicare con l'account di Automazione di Azure per registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Per Windows, questo agente è Microsoft Monitoring Agent. Per Linux, è l'agente di OMS per Linux.
 
-###<a name="runbook-execution-fails"></a>Scenario: l'esecuzione del runbook ha esito negativo
+### <a name="runbook-execution-fails"></a>Scenario: l'esecuzione del runbook ha esito negativo
 
 #### <a name="issue"></a>Problema
 
 L'esecuzione del runbook ha esito negativo e viene visualizzato l'errore seguente:
 
-```
+```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
@@ -62,7 +62,7 @@ Controllare il registro eventi **Microsoft-SMA** per un evento corrispondente co
 
 Il ruolo di lavoro ibrido per runbook di Linux dipende dall'agente OMS per Linux per comunicare con l'account di automazione per registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro non riesce, ecco alcune possibili cause dell'errore:
 
-###<a name="oms-agent-not-running"></a>Scenario: l'agente di OMS per Linux non è in esecuzione
+### <a name="oms-agent-not-running"></a>Scenario: l'agente di OMS per Linux non è in esecuzione
 
 Se l'agente OMS per Linux non è in esecuzione, il ruolo di lavoro ibrido per runbook di Linux non è in grado di comunicare con Automazione di Azure. Verificare l'esecuzione dell'agente immettendo il comando seguente: `ps -ef | grep python`. L'output dovrebbe essere simile al seguente, i processi Python con l'account utente **nxautomation**. Se le soluzioni Gestione aggiornamenti e Automazione di Azure non sono abilitate, nessuno dei processi seguenti viene eseguito.
 
@@ -82,7 +82,7 @@ L'elenco seguente mostra i processi avviati per un ruolo di lavoro ibrido per ru
 
 Se l'agente OMS per Linux non è in esecuzione, eseguire il comando seguente per avviare il servizio: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
-###<a name="class-does-not-exist"></a>Scenario: la classe specificata non esiste
+### <a name="class-does-not-exist"></a>Scenario: la classe specificata non esiste
 
 Se viene visualizzato l'errore: **The specified class does not exist.** (La classe specificata non esiste) nel log `/var/opt/microsoft/omsconfig/omsconfig.log`, è necessario aggiornare l'agente OMS per Linux. Eseguire il comando seguente per reinstallare l'agente OMS:
 
@@ -90,11 +90,11 @@ Se viene visualizzato l'errore: **The specified class does not exist.** (La clas
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 Il ruolo di lavoro ibrido per runbook di Windows dipende da Microsoft Monitoring Agent per comunicare con l'account di Automazione di Azure per registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro non riesce, ecco alcune possibili cause dell'errore:
 
-###<a name="mma-not-running"></a>Scenario: Microsoft Monitoring Agent non è in esecuzione
+### <a name="mma-not-running"></a>Scenario: Microsoft Monitoring Agent non è in esecuzione
 
 #### <a name="issue"></a>Problema
 
@@ -108,7 +108,7 @@ Se il servizio Microsoft Monitoring Agent di Windows non è in esecuzione, il ru
 
 Verificare l'esecuzione dell'agente immettendo il comando seguente in PowerShell: `Get-Service healthservice`. Se il servizio viene arrestato, immettere il comando seguente in PowerShell per avviare il servizio: `Start-Service healthservice`.
 
-###<a name="event-4502"></a> Evento 4502 nel registro Operations Manager
+### <a name="event-4502"></a> Evento 4502 nel registro Operations Manager
 
 #### <a name="issue"></a>Problema
 

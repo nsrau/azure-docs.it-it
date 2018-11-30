@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387278"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311454"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
 
@@ -255,7 +255,7 @@ Tuttavia, perché gli utenti B2B possano accedere all'applicazione SaaS con Azur
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Il provisioning utenti automatico nelle app SaaS funziona con i gruppi dinamici in Azure AD?
 
-Sì. Il servizio di provisioning utenti di Azure AD, se configurato per "sincronizzare solo utenti e gruppi assegnati", può effettuare il provisioning o il deprovisioning degli utenti in un'applicazione SaaS a seconda che siano o meno membri di un [gruppo dinamico](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). I gruppi dinamici funzionano anche con l'opzione "Sincronizza tutti gli utenti e i gruppi".
+Sì. Il servizio di provisioning utenti di Azure AD, se configurato per "sincronizzare solo utenti e gruppi assegnati", può effettuare il provisioning o il deprovisioning degli utenti in un'applicazione SaaS a seconda che siano o meno membri di un [gruppo dinamico](../users-groups-roles/groups-create-rule.md). I gruppi dinamici funzionano anche con l'opzione "Sincronizza tutti gli utenti e i gruppi".
 
 Tuttavia, l'utilizzo di gruppi dinamici può compromettere le prestazioni complessive del provisioning utenti end-to-end da Azure AD alle applicazioni SaaS. Quando si usano i gruppi dinamici, tenere presenti queste avvertenze e raccomandazioni:
 
@@ -265,7 +265,7 @@ Tuttavia, l'utilizzo di gruppi dinamici può compromettere le prestazioni comple
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Il provisioning utenti automatico nelle app SaaS funziona con i gruppi annidati in Azure AD?
 
-No. Il servizio di provisioning utenti di Azure AD, se configurato per "sincronizzare solo utenti e gruppi assegnati", non riesce a effettuare la lettura o il provisioning di utenti inclusi in gruppi annidati. Può effettuare la lettura e il provisioning solo degli utenti che sono membri immediati del gruppo assegnato in modo esplicito.
+ No. Il servizio di provisioning utenti di Azure AD, se configurato per "sincronizzare solo utenti e gruppi assegnati", non riesce a effettuare la lettura o il provisioning di utenti inclusi in gruppi annidati. Può effettuare la lettura e il provisioning solo degli utenti che sono membri immediati del gruppo assegnato in modo esplicito.
 
 Si tratta di una limitazione delle "assegnazioni basate su gruppi alle applicazioni", che ha effetto anche su Single Sign-On e viene descritta in [Uso di un gruppo per gestire l'accesso ad applicazioni SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 

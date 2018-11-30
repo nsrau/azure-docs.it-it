@@ -3,7 +3,7 @@ title: Domande frequenti su Integrità risorse di Azure | Microsoft Docs
 description: Panoramica su Integrità risorse di Azure
 services: Resource health
 documentationcenter: dev-center-name
-author: BernardoAMunoz
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: BernardoAMunoz
-ms.openlocfilehash: 2a0758f5db381f721120cbc1c018a491c018aa8d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 11/16/2018
+ms.author: stbaron
+ms.openlocfilehash: 821495ceb052184f3216c8ed696b39db33db00ac
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264235"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977208"
 ---
 # <a name="azure-resource-health-faq"></a>Domande frequenti su Integrità risorse di Azure
 Risposte alle domande comuni su Integrità risorse di Azure.
@@ -62,7 +62,7 @@ Integrità risorse è un servizio progettato per facilitare la diagnosi e attenu
 ## <a name="where-do-i-find-resource-health"></a>Dove si trova Integrità risorse?
 Dopo avere eseguito l'accesso al portale di Azure, è possibile accedere a Integrità risorse in diversi modi:
 - Passare alla risorsa. Nel riquadro di spostamento a sinistra selezionare **Integrità risorse**.
-- Passare al pannello Monitoraggio di Azure.  Nel riquadro di spostamento a sinistra selezionare **Integrità risorse**.
+- Passare al pannello Integrità dei servizi di Azure.  Nel riquadro di spostamento a sinistra selezionare **Integrità risorse**.
 - Aprire il pannello **Guida e supporto** selezionando il punto interrogativo nell'angolo in alto a destra del portale e quindi selezionando **Guida e supporto**. Quando il pannello si apre, selezionare **Integrità risorse**.
 
 È anche possibile usare l'API di Integrità risorse per ottenere informazioni sullo stato delle risorse.
@@ -77,8 +77,8 @@ Durante il controllo dell'integrità di una risorsa, immediatamente sotto lo sta
 Integrità risorse è disponibile in tutte le aree geografiche di Azure, ad eccezione delle aree seguenti:
 - US Gov Virginia
 - Governo degli Stati Uniti - Iowa
-- Dipartimento della difesa Stati Uniti orientali
-- Dipartimento della difesa Stati Uniti centrali
+- US DoD (area orientale)
+- US DoD (area centrale)
 - Germania centrale
 - Germania nord-orientale
 
@@ -93,7 +93,7 @@ Diversamente dallo [Stato di Azure](https://status.azure.com) e dal dashboard pe
 No, le informazioni di integrità sono disponibili per tutti i tipi di risorse supportati da Integrità risorse. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>È necessario abilitare Integrità risorse per l'organizzazione?
-di serie  Integrità risorse di Azure è accessibile dal portale di Azure e non prevede requisiti di configurazione.
+ No.  Integrità risorse di Azure è accessibile dal portale di Azure e non prevede requisiti di configurazione.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>Integrità risorse è disponibile gratuitamente?
 Sì.  Integrità risorse di Azure è gratuito.

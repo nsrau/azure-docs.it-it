@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4785f87515663831b1177c6c0958d3d965351797
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 45cf987d9af7b7dd0e8f05056b49ba56835603e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996571"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313942"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Domande frequenti su Azure Machine Learning
 
@@ -112,11 +112,11 @@ Azure Machine Learning Workbench è un'applicazione complementare progettata per
 
 **Machine Learning Workbench è un ambiente di sviluppo integrato?**
 
-No. Machine Learning Workbench è stato progettato come complemento per gli ambienti di sviluppo integrato (IDE) più diffusi, ad esempio Notebook di Jupyter, PyCharm e Visual Studio Code, ma non si tratta di un IDE completamente funzionale. È dotato di alcune funzionalità di base per l'editing di testo, ma non supporta altre funzionalità IDE quali debug, intellisense e altre comunemente usate. È consigliabile usare l'IDE preferito per lo sviluppo di codice, la modifica e il debug. Può anche essere utile provare gli strumenti [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
+ No. Machine Learning Workbench è stato progettato come complemento per gli ambienti di sviluppo integrato (IDE) più diffusi, ad esempio Notebook di Jupyter, PyCharm e Visual Studio Code, ma non si tratta di un IDE completamente funzionale. È dotato di alcune funzionalità di base per l'editing di testo, ma non supporta altre funzionalità IDE quali debug, intellisense e altre comunemente usate. È consigliabile usare l'IDE preferito per lo sviluppo di codice, la modifica e il debug. Può anche essere utile provare gli strumenti [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
 
 **È previsto un addebito per l'utilizzo di Azure Machine Learning Workbench?**
 
-No. Azure Machine Learning Workbench è un'applicazione gratuita. È possibile scaricarla nel numero di computer e per il numero di utenti necessario. Per usare Azure Machine Learning Workbench, è necessario disporre di un account di Sperimentazione. .  
+ No. Azure Machine Learning Workbench è un'applicazione gratuita. È possibile scaricarla nel numero di computer e per il numero di utenti necessario. Per usare Azure Machine Learning Workbench, è necessario disporre di un account di Sperimentazione. .  
 
 **Sono supportate le funzionalità dell'interfaccia della riga di comando?**
 
@@ -125,7 +125,7 @@ Sì. Azure Machine Learning offre un'interfaccia della riga di comando completa,
 
 **È possibile usare Notebook di Jupyter con Azure Machine Learning Workbench?**
 
-Sì. È possibile eseguire Notebook di Jupyter in Workbench come applicazione di hosting del client, nello stesso modo in cui si userebbe come client un browser. 
+ Sì. È possibile eseguire Notebook di Jupyter in Workbench come applicazione di hosting del client, nello stesso modo in cui si userebbe come client un browser. 
 
 **Quali sono i kernel di Notebook di Jupyter supportati?**
 
@@ -171,4 +171,4 @@ I prodotti e i servizi in anteprima includono il meglio della community open sou
 
 **Qual è la relazione tra Azure Machine Learning e Microsoft Cognitive Toolkit?**
 
-Il [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) è uno dei tanti framework supportati dai nuovi strumenti e servizi. È costituito da un toolkit di apprendimento avanzato unificato che consente di usare e combinare i modelli di machine learning più diffusi, tra cui reti neurali feed-forward, reti convoluzionali, sequenziali e ricorsive. Per altre informazioni su Microsoft Cognitive Toolkit, visitare la [documentazione del prodotto](https://docs.microsoft.com/cognitive-toolkit/). 
+Il [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/) è uno dei tanti framework supportati dai nuovi strumenti e servizi. È costituito da un toolkit di apprendimento avanzato unificato che consente di usare e combinare i modelli di machine learning più diffusi, tra cui reti neurali feed-forward, reti convoluzionali, sequenziali e ricorsive. Per altre informazioni su Microsoft Cognitive Toolkit, visitare la [documentazione del prodotto](https://docs.microsoft.com/cognitive-toolkit/). 

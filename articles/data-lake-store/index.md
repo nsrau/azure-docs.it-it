@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: dc37a9f514069f49f6188caf2e22c24494d2a272
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 14fde29a898eb42d57e67dc843c0c565c4c661c3
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185297"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494865"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentazione di Azure Data Lake Storage Gen1
 
@@ -172,49 +172,49 @@ Per informazioni sull'anteprima di Data Lake Storage Gen2, vedere la [pagina del
 </ul>
 
 ---
- 
+ 
 <h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Riga di comando</h3>
-                        <p><a href="/powershell/module/azurerm.datalakestore">PowerShell</a></p>
-                        <p><a href="/cli/azure/dls">Interfaccia della riga di comando di Azure 2.0</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Riga di comando</h3>
+                        <p><a href="/powershell/module/azurerm.datalakestore/">PowerShell</a></p>
+                        <p><a href="/cli/azure/dls">Interfaccia della riga di comando di Azure</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Lingue</h3>
-                        <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
-                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.JS</a></p>
-                        <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python (gestione di account)</a></p>
-                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (gestione del file system)</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Lingue</h3>
+                        <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python (gestione di account)</a></p>
+                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (gestione del file system)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/datalakestore">API REST</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/datalakestore">API REST</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 

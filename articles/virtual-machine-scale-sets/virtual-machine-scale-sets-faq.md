@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 7b8faca82a23875b403d0b51b2e8719549d845fb
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 40af55e48e0097f1ad6cb52a76b78fab40c2074c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740689"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447181"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -69,7 +69,7 @@ Risposte alle domande frequenti sui set di scalabilità di macchine virtuali in 
 
 **D.** I set di scalabilità si integrano con le zone di disponibilità di Azure?
 
-**R.** Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
+**R.**  Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale
@@ -134,7 +134,7 @@ Per configurare la scalabilità automatica in un set di scalabilità di macchine
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Una VM arrestata (deallocata) verrà avviata come parte di un'operazione di scalabilità automatica?
 
-No. Se le regole di scalabilità automatica richiedono istanze aggiuntive della VM come parte di un set di scalabilità, verrà creata una nuova istanza di VM. Le istanze di VM arrestate (deallocate) non vengono avviate come parte di un evento di scalabilità automatica. Tuttavia, le VM arrestate (deallocate) possono essere eliminate come parte di un evento di scalabilità automatica che riduce il numero di istanze, allo stesso modo in cui qualsiasi istanza di VM può essere eliminata in base all'ordine di ID istanza della VM.
+ No. Se le regole di scalabilità automatica richiedono istanze aggiuntive della VM come parte di un set di scalabilità, verrà creata una nuova istanza di VM. Le istanze di VM arrestate (deallocate) non vengono avviate come parte di un evento di scalabilità automatica. Tuttavia, le VM arrestate (deallocate) possono essere eliminate come parte di un evento di scalabilità automatica che riduce il numero di istanze, allo stesso modo in cui qualsiasi istanza di VM può essere eliminata in base all'ordine di ID istanza della VM.
 
 
 
@@ -371,7 +371,7 @@ Per emulare il passaggio di un certificato come stringa Base64, è possibile est
 
 Nei set di scalabilità di macchine virtuali e nelle macchine virtuali è necessario eseguire il wrapping dei certificati in oggetti JSON. 
 
-È anche supportato il tipo di contenuto application/x-pkcs12. Per istruzioni sull'uso di application/x-pkcs12, vedere [PFX certificates in Azure Key Vault](http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/) (Certificati PFX in Azure Key Vault).
+È anche supportato il tipo di contenuto application/x-pkcs12. 
  
 Non sono attualmente supportati i file con estensione cer. Per usare i file con estensione cer, esportarli in contenitori PFX.
 

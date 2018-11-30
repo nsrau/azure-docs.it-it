@@ -3,8 +3,9 @@ title: Domande frequenti sui concorsi Microsoft Cortana Intelligence | Microsoft
 description: Domande frequenti sui concorsi Microsoft Cortana Intelligence.
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: (previous ms.author=haining, author=hning86)
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 28be219c35d382cbd141bb050b35893da02ab775
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8782af26056f8341ee68ed87f003bc585e0c4e69
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256450"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265106"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Domande frequenti sui concorsi Microsoft Cortana Intelligence
 **Informazioni sui concorsi Cortana Intelligence**
@@ -55,7 +56,7 @@ I partecipanti al concorso usano Azure Machine Learning Studio, un servizio basa
 
 **La competizione è riservata ai data scientist?**
 
-No. Sono invitati a partecipare gli appassionati di analisi scientifica dei dati, gli aspiranti data scientist e chiunque sia interessato alla materia. Sono stati preparati documenti di supporto per consentire a chiunque di partecipare. I destinatari sono:
+ No. Sono invitati a partecipare gli appassionati di analisi scientifica dei dati, gli aspiranti data scientist e chiunque sia interessato alla materia. Sono stati preparati documenti di supporto per consentire a chiunque di partecipare. I destinatari sono:
 
 * **Sviluppatori di dati**, **data scientist** e **professionisti di analisi** e **business intelligence**: sono responsabili della produzione di dati e contenuti di analisi utilizzati da altri utenti
 * **Amministratori dei dati**: hanno informazioni relative ai dati, al significato dei dati, al metodo d'uso e allo scopo
@@ -106,7 +107,7 @@ Per lo spareggio viene presa in considerazione l'ora di invio. I contributi invi
 
 **È possibile partecipare usando l'area di lavoro guest?**
 
-No. Per partecipare, è necessario usare un'area di lavoro standard o gratuita. In un'area di lavoro guest si può aprire l'esperimento iniziale del concorso, ma non sarà possibile creare un contributo valido per l'invio da tale area di lavoro. 
+ No. Per partecipare, è necessario usare un'area di lavoro standard o gratuita. In un'area di lavoro guest si può aprire l'esperimento iniziale del concorso, ma non sarà possibile creare un contributo valido per l'invio da tale area di lavoro. 
 
 **È possibile partecipare usando un'area di lavoro in qualsiasi area di Azure?**
 
