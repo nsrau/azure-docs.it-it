@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5127b748111f993f95f940f4add81c42a032e038
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087492"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722089"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Dimensioni delle macchine virtuali supportate in Azure Stack
 
@@ -28,7 +28,7 @@ Questo articolo elenca le dimensioni di macchina virtuale (VM) che sono disponib
 
 ## <a name="general-purpose"></a>Scopo generico
 
-Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-memoria equilibrato. Vengono utilizzati per il test e sviluppo, database medio-piccoli e da server web con traffico medio a ridotto.
+Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-memoria equilibrato. Vengono utilizzati per il test e sviluppo, database medio-piccoli e da server web con traffico medio a ridotto. Ogni disco dati è 2300 IOPS per le dimensioni di VM premium, ad eccezione della serie Basic. Per una base, le dimensioni del disco dati sono 500 IOPS.
 
 ### <a name="basic-a"></a>Basic A
 

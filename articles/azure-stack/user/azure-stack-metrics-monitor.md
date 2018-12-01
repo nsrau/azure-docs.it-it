@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: b6196ec434d00a6fbc6714095fa4182ede98ce91
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fbd4552a9e40f16a6fedec4e04be0d7d6d39351d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633436"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724486"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Come usare i dati di monitoraggio di Azure Stack
 
-*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
+*Si applica a: i sistemi integrati di Azure Stack*
 
 È possibile trovare i dati di monitoraggio in un'unica posizione con la pipeline di monitoraggio di Azure, semplicemente, ad esempio monitoraggio di Azure in Azure globale. Ma non tutti i dati di monitoraggio disponibili in Azure globale è disponibile in Azure Stack. In questo articolo, è possibile trovare un riepilogo dei vari metodi che a livello di codice è possibile inserire i dati di monitoraggio dal servizio.
  
