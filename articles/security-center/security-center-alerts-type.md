@@ -3,7 +3,7 @@ title: Avvisi di sicurezza per tipo nel Centro sicurezza di Azure | Microsoft Do
 description: Questo articolo illustra i diversi tipi di avvisi di sicurezza disponibili nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2018
-ms.author: yurid
-ms.openlocfilehash: 0573442568115fc872cc4cf4cf8c369cd635028e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 24c6487ee7ec7d8398f933e29ca51cc9e390f47f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262115"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633266"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo articolo consente di comprendere i diversi tipi di avvisi di sicurezza e le informazioni significative che ne derivano disponibili nel Centro sicurezza di Azure. Per altre informazioni sulla gestione degli avvisi e degli eventi imprevisti, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
 
-Per configurare le funzionalità di rilevamento avanzato, eseguire l'aggiornamento al livello Standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita di 60 giorni. Per eseguire l'aggiornamento, selezionare il **Piano tariffario** nei [criteri di sicurezza](security-center-policies.md). Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+Per configurare le funzionalità di rilevamento avanzato, eseguire l'aggiornamento al livello Standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita di 60 giorni. Per eseguire l'aggiornamento, selezionare il **Piano tariffario** nei [criteri di sicurezza](security-center-azure-policy.md). Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > Il Centro sicurezza ha rilasciato un'anteprima limitata di un nuovo set di strumenti di rilevamento, che sfruttano i record di controllo, un framework di controllo comune, per rilevare comportamenti dannosi nei computer Linux. Inviare un messaggio di posta elettronica con l'ID sottoscrizione a [Microsoft](mailto:ASC_linuxdetections@microsoft.com) per accedere all'anteprima.
@@ -57,7 +57,7 @@ Il Centro sicurezza usa l'analisi avanzata per identificare le risorse compromes
     * È stato eseguito un processo con un'estensione sospetta.
     * È stato eseguito un processo con un'estensione doppia sospetta.
     * È stato eseguito un processo con un carattere da destra a sinistra sospetto nel nome del file.
-    * È stato eseguito un processo con un nome molto simile, anche se diverso, a quello di un processo di uso molto frequente
+    * È stato eseguito un processo con un nome simile, anche se diverso, a quello di un processo di uso frequente
     * È stato eseguito un processo il cui nome corrisponde a quello di uno strumento di attacco noto.
     * È stato eseguito un processo con un nome casuale.
     * È stato eseguito un processo con un'estensione sospetta.
@@ -96,7 +96,7 @@ Il Centro sicurezza usa l'analisi avanzata per identificare le risorse compromes
 * **Tutte le copie shadow dei file sono state eliminate**: un avviso simile a questo indica che le copie shadow sono state eliminate.
 * **Comandi sospetti di pulizia file**: un avviso simile a questo indica una combinazione di comandi systeminfo usati per eseguire un'attività di pulizia automatica successiva a una compromissione.  Anche se *systeminfo.exe* è uno strumento legittimo di Windows, è raro che venga eseguito due volte in successione, seguito da una comando di eliminazione come in questo caso.
 * **Creazione sospetta di account**: un avviso simile a questo indica che è stato creato un account molto somigliante a un account predefinito esistente con privilegi amministrativi. Questa tecnica può essere usata da utenti malintenzionati per creare un account non autorizzato senza essere rilevati.
-* **Attività di copia Shadow del volume sospetta**: un avviso simile a questo indica un'attività di eliminazione della copia shadow sulla risorsa. Copia Shadow del volume è un importante elemento che archivia gli snapshot di dati. Questa attività, anche se in genere è associata a Ransowmare, può tuttavia essere legittima.
+* **Attività di copia Shadow del volume sospetta**: un avviso simile a questo indica un'attività di eliminazione della copia shadow sulla risorsa. Copia Shadow del volume è un importante elemento che archivia gli snapshot di dati. Questa attività, anche se è associata a Ransowmare, può tuttavia essere legittima.
 * **Metodo di salvataggio permanente del Registro di sistema di Windows**: un avviso simile a questo indica un tentativo di salvare in modo permanente un file eseguibile nel Registro di sistema di Windows. Il malware usa spesso tale tecnica per superare un avvio.
 * **Nuova regola del firewall sospetta**: un avviso simile a questo indica che è stata aggiunta una nuova regola del firewall tramite *netsh.exe* per consentire il traffico da un file eseguibile in una posizione sospetta.
 * **Esecuzioni XCOPY sospette**: un avviso simile a questo indica una serie di esecuzioni XCOPY che potrebbero segnalare che uno dei computer è stato compromesso ed è stato usato per propagare il malware.
@@ -192,7 +192,7 @@ Se sono disponibili ulteriori informazioni, verrà visualizzato nell'evento impr
 - Dispositivi Plug and Play collegati da dispositivi sconosciuti
 - Avvisi non operativi
 - Creazione di nuovi account
-- File decodificato tramite lo strumento certutil 
+- File decodificato tramite lo strumento certutil
 
 ![Avviso di accesso insolito](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

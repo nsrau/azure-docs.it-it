@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: b4704e9f078b248ef1835babb3b63c378b011c4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516590"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445022"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Ruoli di amministratore da attività di identità in Azure Active Directory
 
@@ -147,7 +147,7 @@ Assegnare una licenza | Amministratore account utente |
 Creare un gruppo | Amministratore account utente | 
 Creare, aggiornare o cancellare la verifica di accesso di un gruppo o di un'applicazione | Amministratore account utente | 
 Gestire la scadenza dei gruppi | Amministratore account utente | 
-Gestire le impostazioni dei gruppi | Amministratore account utente | 
+Gestire le impostazioni dei gruppi | Amministratore globale | 
 Leggere tutta la configurazione (eccetto l'appartenenza nascosta) | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Leggere le appartenenze nascoste | Membro di un gruppo | Proprietario del gruppo, amministratore password, amministratore di Exchange, amministratore di SharePoint, amministratore del team, amministratore dell'account utente
 Leggere l'appartenenza dei gruppi con appartenenza nascosta | Amministratore del supporto tecnico | Amministratore account utente o amministratore del team

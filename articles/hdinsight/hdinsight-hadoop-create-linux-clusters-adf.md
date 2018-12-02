@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 1e55da981daf29aca491c480d58f399bc681fd27
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036377"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499556"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Esercitazione: Creare cluster Apache Hadoop on demand in HDInsight con Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In questo articolo si apprenderà come creare un cluster Apache Hadoop on demand in Azure HDInsight con Azure Data Factory. Si useranno quindi le pipeline di dati in Azure Data Factory per eseguire i processi Hive ed eliminare il cluster. Al termine di questa esercitazione, si apprenderà come rendere operativa l'esecuzione di un processo Big Data in cui la creazione del cluster, l'esecuzione del processo e l'eliminazione del cluster vengono eseguite in base a una pianificazione.
+In questo articolo si apprenderà come creare un cluster [Apache Hadoop](https://hadoop.apache.org/) on demand in Azure HDInsight con Azure Data Factory. Si useranno quindi le pipeline di dati in Azure Data Factory per eseguire i processi Hive ed eliminare il cluster. Al termine di questa esercitazione, si apprenderà come rendere operativa l'esecuzione di un processo Big Data in cui la creazione del cluster, l'esecuzione del processo e l'eliminazione del cluster vengono eseguite in base a una pianificazione.
 
 Questa esercitazione illustra le attività seguenti: 
 
@@ -43,7 +43,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
-In questa sezione, creare un account di archiviazione che verrà usato come risorsa di archiviazione predefinita per il cluster HDInsight creato on demand. Questo account di archiviazione contiene anche lo script HiveQL di esempio (**hivescript.hql**) che consente di simulare un processo Hive di esempio eseguito nel cluster.
+In questa sezione, creare un account di archiviazione che verrà usato come risorsa di archiviazione predefinita per il cluster HDInsight creato on demand. Questo account di archiviazione contiene anche lo script [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) di esempio (**hivescript.hql**) che consente di simulare un processo [Apache Hive](https://hive.apache.org/) di esempio eseguito nel cluster.
 
 In questa sezione viene usato uno script Azure PowerShell per creare l'account di archiviazione e copiare i file necessari al suo interno. Lo script di esempio di Azure PowerShell di questa sezione consente di eseguire queste operazioni:
 
@@ -338,7 +338,7 @@ In alternativa, è possibile eliminare l'intero gruppo di risorse creato per que
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questo articolo descrive come usare Azure Data Factory per creare il cluster HDInsight on demand per l'elaborazione dei processi Hive. Passare all'articolo successivo per apprendere come creare i cluster HDInsight con la configurazione personalizzata.
+Questo articolo descrive come usare Azure Data Factory per creare il cluster HDInsight on demand per l'elaborazione dei processi [Apache Hive](https://hive.apache.org/). Passare all'articolo successivo per apprendere come creare i cluster HDInsight con la configurazione personalizzata.
 
 > [!div class="nextstepaction"]
 >[Creare cluster HDInsight di Azure con la configurazione personalizzata](hdinsight-hadoop-provision-linux-clusters.md)

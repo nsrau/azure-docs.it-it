@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241317"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581001"
 ---
-# <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creare processi di Spark Streaming con elaborazione di eventi di tipo exactly-once
+# <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creare processi di Apache Spark Streaming con elaborazione di eventi di tipo exactly-once
 
 Le applicazioni di elaborazione di flussi usano approcci diversi per la gestione della rielaborazione dei messaggi dopo un errore nel sistema:
 
@@ -25,7 +25,7 @@ Le applicazioni di elaborazione di flussi usano approcci diversi per la gestione
 
 Questo articolo illustra come configurare Spark Streaming per ottenere l'elaborazione di tipo exactly-once.
 
-## <a name="exactly-once-semantics-with-spark-streaming"></a>Semantica exactly-once in Spark Streaming
+## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>Semantica exactly-once in Apache Spark Streaming
 
 Valutare prima di tutto la modalità di riavvio per tutti i punti di errore del sistema dopo un problema e come è possibile evitare perdite di dati. Un'applicazione Spark Streaming ha:
 
@@ -41,11 +41,11 @@ La semantica exactly-once richiede che non si verifichi alcuna perdita di dati i
 
 L'origine da cui l'applicazione Spark Streaming legge gli eventi deve essere *riproducibile*. Ciò significa che nei casi in cui il messaggio è stato recuperato ma si è verificato un errore nel sistema prima che il messaggio potesse essere salvato in modo permanente o elaborato, l'origine deve fornire di nuovo lo stesso messaggio.
 
-In Azure, sia Hub eventi di Azure che Kafka in HDInsight forniscono origini riproducibili. Un altro esempio di origine riproducibile è un file system a tolleranza di errore come HDFS, BLOB del servizio di archiviazione di Azure o Azure Data Lake Store, in cui tutti i dati vengono mantenuti per sempre e in qualsiasi momento è possibile leggere nuovamente i dati nella loro interezza.
+In Azure, sia Hub eventi di Azure che [Apache Kafka](https://kafka.apache.org/) in HDInsight forniscono origini riproducibili. Un altro esempio di origine riproducibile è un file system a tolleranza di errore come [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), BLOB del servizio di archiviazione di Azure o Azure Data Lake Store, in cui tutti i dati vengono mantenuti per sempre e in qualsiasi momento è possibile leggere nuovamente i dati nella loro interezza.
 
 ### <a name="reliable-receivers"></a>Ricevitori affidabili
 
-In Spark Streaming le origini come Hub eventi e Kafka hanno *ricevitori affidabili*, ognuno dei quali tiene traccia dello stato di lettura dell'origine. Un ricevitore affidabile salva in modo permanente il proprio stato in un archivio a tolleranza di errore, all'interno di ZooKeeper oppure in checkpoint di Spark Streaming scritti in HDFS. In caso di errore e successivo riavvio, un ricevitore di questo tipo può continuare da dove si è interrotto.
+In Spark Streaming le origini come Hub eventi e Kafka hanno *ricevitori affidabili*, ognuno dei quali tiene traccia dello stato di lettura dell'origine. Un ricevitore affidabile salva in modo permanente il proprio stato in un archivio a tolleranza di errore, all'interno di [Apache ZooKeeper](https://zookeeper.apache.org/) oppure in checkpoint di Spark Streaming scritti in Hadoop Distributed File System. In caso di errore e successivo riavvio, un ricevitore di questo tipo può continuare da dove si è interrotto.
 
 ### <a name="use-the-write-ahead-log"></a>Usare il log write-ahead
 
@@ -89,5 +89,5 @@ Un altro esempio consiste nell'usare un file system partizionato, come BLOB del 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica di Spark Streaming](apache-spark-streaming-overview.md)
-* [Creare processi di Spark Streaming a disponibilità elevata in YARN](apache-spark-streaming-high-availability.md)
+* [Panoramica di Apache Spark Streaming](apache-spark-streaming-overview.md)
+* [Creare processi di Apache Spark Streaming a disponibilità elevata in Apache Hadoop YARN](apache-spark-streaming-high-availability.md)

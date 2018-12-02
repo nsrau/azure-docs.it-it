@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: b978adcdcc025c24746167ef5ab92aebe94aca8b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016234"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584180"
 ---
-# <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster HBase nelle reti virtuali di Azure
+# <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure
 
-Informazioni su come configurare la replica HBase in una rete virtuale o tra due reti virtuali in Azure.
+Informazioni su come configurare la replica [Apache HBase](http://hbase.apache.org/) in una rete virtuale o tra due reti virtuali in Azure.
 
 La replica di cluster usa una metodologia con push dell'origine. Un cluster HBase può essere un'origine o una destinazione o può soddisfare entrambi i ruoli in una sola volta. La replica è asincrona. L'obiettivo della replica è la coerenza finale. Quando l'origine riceve una modifica a una famiglia di colonne con la replica abilitata, tale modifica viene propagata in tutti i cluster di destinazione. Quando i dati vengono replicati da un cluster a un altro, viene tenuta traccia del cluster di origine e di tutti i cluster che hanno già usato i dati, per evitare cicli di replica.
 
@@ -46,16 +46,16 @@ Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento
 
 Sono disponibili tre opzioni di configurazione:
 
-- Due cluster HBase in una rete virtuale di Azure.
-- Due cluster HBase in due reti virtuali diverse nella stessa area.
-- Due cluster HBase in due reti virtuali diverse in due aree diverse (replica geografica).
+- Due cluster Apache HBase in una rete virtuale di Azure.
+- Due cluster Apache HBase in due reti virtuali diverse nella stessa area.
+- Due cluster Apache HBase in due reti virtuali diverse in due aree diverse (replica geografica).
 
 Questo articolo illustra lo scenario di replica geografica.
 
 Per semplificare la configurazione degli ambienti, sono disponibili alcuni [modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Se si preferisce configurare gli ambienti con altri metodi, vedere:
 
-- [Creare cluster Hadoop in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-- [Creare cluster HBase nella rete virtuale di Azure](apache-hbase-provision-vnet.md)
+- [Creare cluster Apache Hadoop in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
+- [Creare cluster Apache HBase nella rete virtuale di Azure](apache-hbase-provision-vnet.md)
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configurare due reti virtuali in due aree diverse
 
@@ -256,9 +256,9 @@ Per testare la configurazione DNS, è possibile connettersi alle due macchine vi
 sudo service bind9 status
 ```
 
-## <a name="create-hbase-clusters"></a>Creare i cluster HBase
+## <a name="create-apache-hbase-clusters"></a>Creare i cluster Apache HBase
 
-Creare un cluster HBase in ognuna delle due reti virtuali con la configurazione seguente:
+Creare un cluster [Apache HBase](http://hbase.apache.org/) in ognuna delle due reti virtuali con la configurazione seguente:
 
 - **Nome gruppo di risorse**: usare lo stesso nome di gruppo di risorse creato per le reti virtuali.
 - **Tipo di cluster**: HBase
@@ -274,7 +274,7 @@ Per verificare che l'ambiente sia configurato correttamente, provare a effettuar
 
 Quando si esegue la replica di un cluster, è necessario specificare le tabelle da replicare. In questa sezione, alcuni dati verranno caricati nel cluster di origine. Nella sezione successiva viene abilitata la replica tra i due cluster.
 
-Per creare una tabella **Contatti** e inserire alcuni dati nella tabella, seguire le istruzioni in [Esercitazione su HBase: Iniziare a usare un esempio di Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Per creare una tabella **Contatti** e inserire alcuni dati nella tabella, seguire le istruzioni in [Esercitazione su Apache HBase: Iniziare a usare un esempio di Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Abilitare la replica
 
@@ -293,7 +293,7 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
   3.  **Head**: assicurarsi che questa opzione sia selezionata. Deselezionare gli altri tipi di nodo.
   4. **Parametri**: i parametri di esempio seguenti abilitano la replica per tutte le tabelle esistenti e quindi copiano tutti i dati dal cluster di origine al cluster di destinazione:
 
-          -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+          -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
     >[!note]
     >
@@ -317,7 +317,7 @@ Argomenti facoltativi:
 |-su, --src-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di origine. Il valore predefinito è **admin**. |
 |-du, --dst-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di destinazione. Il valore predefinito è **admin**. |
 |-t, --table-list | Specifica le tabelle da replicare. Ad esempio: --table-list="table1;table2;table3". Se non si specificano tabelle, vengono replicate tutte le tabelle HBase esistenti.|
-|-m, --machine | Specifica il nodo head in cui viene eseguita l'azione script. Il valore è **hn1** o **hn0**. Poiché il nodo head **hn0** è in genere più occupato, si consiglia di usare **hn1**. Usare questa opzione quando si esegue lo script $0 come azione script dal portale di HDInsight o da Azure PowerShell.|
+|-m, --machine | Specifica il nodo head in cui viene eseguita l'azione script. Il valore può essere **hn0** oppure **hn1** e deve essere selezionato in base al nodo head attivo. Usare questa opzione quando si esegue lo script $0 come azione script dal portale di HDInsight o da Azure PowerShell.|
 |-cp, -copydata | Abilita la migrazione dei dati esistenti nelle tabelle in cui è abilitata la replica. |
 |-rpm, -replicate-phoenix-meta | Abilita la replica nelle tabelle di sistema Phoenix. <br><br>*Questa opzione deve essere usata con attenzione.* È consigliabile ricreare le tabelle di Phoenix nei cluster di replica prima di usare questo script. |
 |-h, --help | Visualizza le informazioni sull'utilizzo. |
@@ -332,19 +332,19 @@ L'elenco seguente illustra alcuni casi di utilizzo generale e le relative impost
 
 - **Abilitare la replica su tutte le tabelle tra i due cluster**. Questo scenario non richiede la copia o la migrazione dei dati esistenti nelle tabelle e non usa tabelle Phoenix. È possibile usare i parametri seguenti:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
 
 - **Abilitare la replica su tabelle specifiche**. Per abilitare la replica in table1, table2 e table3, usare i parametri seguenti:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
 
 - **Abilitare la replica in tabelle specifiche e copiare i dati esistenti**. Per abilitare la replica in table1, table2 e table3, usare i parametri seguenti:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
 
 - **Abilitare la replica in tutte le tabelle e replicare i metadati di Phoenix dall'origine alla destinazione**. La replica dei metadati di Phoenix non è perfetta. Usarla con cautela. È possibile usare i parametri seguenti:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
 
 ## <a name="copy-and-migrate-data"></a>Copia e migrazione dei dati
 
@@ -379,7 +379,7 @@ La sezione `print_usage()` dello [script](https://github.com/Azure/hbase-utils/b
 
 Per disabilitare la replica, usare un altro script di azione script disponibile in [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). È possibile eseguire la stessa procedura descritta in [Abilitare la replica](#enable-replication) per chiamare l'azione script. È possibile usare i parametri seguenti:
 
-    -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
+    -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
 La sezione `print_usage()` dello [script](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) contiene una spiegazione dettagliata dei parametri.
 
@@ -387,20 +387,20 @@ La sezione `print_usage()` dello [script](https://raw.githubusercontent.com/Azur
 
 - **Disabilitare la replica in tutte le tabelle**:
 
-        -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
+        -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
   oppure
 
-        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
+        --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
 - **Disabilitare la replica in tabelle specifiche (table1, table2 e table3)**:
 
-        -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come configurare la replica HBase in una rete virtuale o tra due reti virtuali. Per altre informazioni su HDInsight e HBase, vedere questi articoli:
+In questa esercitazione si è appreso come configurare la replica Apache HBase in una rete virtuale o tra due reti virtuali. Per altre informazioni su HDInsight e Apache HBase, vedere questi articoli:
 
 * [Introduzione ad Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
-* [Panoramica di HBase di HDInsight](./apache-hbase-overview.md)
-* [Creare cluster HBase nella rete virtuale di Azure](./apache-hbase-provision-vnet.md)
+* [Panoramica di Apache HBase di HDInsight](./apache-hbase-overview.md)
+* [Creare cluster Apache HBase nella rete virtuale di Azure](./apache-hbase-provision-vnet.md)
 

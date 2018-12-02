@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: c5445eb5e936fe73d51a41936b052f6495b1bcc6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 09ecd46837a12f5f1a8278b1644dc099701bcd00
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39633648"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584724"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>Scenari di automazione della fatturazione e della gestione dei costi
 
@@ -36,7 +36,7 @@ Gli scenari più comuni di fatturazione e gestione dei costi sono identificati d
 
 - **Ottimizzazione dei costi**: conoscendo l'importo da pagare, come è possibile sfruttare al massimo l'importo speso per Azure?
 
-- **Verifica dei costi**: come si fa a verificare quanto si spende per Azure, quanto si usa questo servizio nel tempo e quali sono le tendenze? Come si può ottenere una maggiore efficienza?
+- **Verifica dei costi**: come si fa a verificare quanto si spende per Azure, quanto si usa questo servizio nel tempo e Quali sono le tendenze? Come si può ottenere una maggiore efficienza?
 
 - **Spesa di Azure durante il mese**: qual è la spesa mensile corrente fino a oggi? Sono necessarie rettifiche alla spesa e/o all'utilizzo di Azure? Qual è il periodo del mese in cui l'utilizzo di Azure è maggiore?
 
@@ -122,4 +122,4 @@ Queste API forniscono set simili di dati, ma hanno destinatari diversi. Le infor
 
 - Per informazioni sull'uso delle API di Azure per ottenere informazioni dettagliate a livello di codice relativamente all'utilizzo di Azure, vedere [Panoramica delle API per il consumo di Azure](billing-consumption-api-overview.md) e [Panoramica delle API di fatturazione di Azure](billing-usage-rate-card-overview.md).
 - Per confrontare la fattura con il file dettagliato sull'utilizzo giornaliero e i report di gestione dei costi nel portale di Azure, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md)
-- Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+- In caso di domande, creare una [Richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) per assistenza.

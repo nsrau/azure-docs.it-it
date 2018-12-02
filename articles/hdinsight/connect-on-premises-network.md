@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d8ab61d99b617f21557b6f1ef476418e25bcee55
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1d5a6dc6db3eaa46f6f2bd9944af7aefe759fbc7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016931"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496126"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -321,12 +321,12 @@ Per connettersi direttamente a HDInsight attraverso la rete virtuale, seguire qu
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. Per determinare la porta su cui un servizio è disponibile, vedere il documento [Porte usate dai servizi Hadoop su HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
+2. Per determinare la porta su cui un servizio è disponibile, vedere il documento [Porte usate dai servizi Apache Hadoop su HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
 
     > [!IMPORTANT]
-    > Alcuni servizi ospitati nei nodi head sono attivi solo in un nodo per volta. Se si prova ad accedere a un servizio in un nodo head e si verifica un errore, passare all'altro nodo head.
+    > Alcuni servizi ospitati nei nodi head sono attivi solo in un nodo alla volta. Se si prova ad accedere a un servizio in un nodo head e si verifica un errore, passare all'altro nodo head.
     >
-    > Ambari, ad esempio, è attivo solo in un nodo head per volta. Se si prova ad accedere ad Ambari in un nodo head e viene restituito un errore 404, significa che è in esecuzione nell'altro nodo head.
+    > Apache Ambari, ad esempio, è attivo solo in un nodo head per volta. Se si prova ad accedere ad Ambari in un nodo head e viene restituito un errore 404, significa che è in esecuzione nell'altro nodo head.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

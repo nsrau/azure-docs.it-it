@@ -8,18 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830991"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580960"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Usare gli elenchi di frasi in segnali boost dell'elenco di parole
 
 È possibile aggiungere funzionalità alla propria app LUIS per migliorarne l'accuratezza. Le funzionalità consentono a LUIS di suggerire determinate parole e frasi che fanno parte del vocabolario del dominio dell'app. 
+
+Un [elenco di frasi](luis-concept-feature.md) comprende un gruppo di valori (parole o frasi) che appartengono alla stessa classe e devono essere trattati in modo analogo (ad esempio i nomi di città o prodotti). Ciò che LUIS apprende in merito a uno di essi viene applicato automaticamente anche agli altri. L'elenco non è un'entità elenco chiusa (esatte corrispondenze di testo) di parole associate.
+
+Viene integrato un elenco di frasi al vocabolario del dominio dell'applicazione come secondo segnale di LUIS in merito a tali parole.
 
 ## <a name="add-phrase-list"></a>Aggiungere un elenco di frasi
 
@@ -47,9 +51,6 @@ ms.locfileid: "48830991"
 
 > [!Note]
 > È possibile eliminare o disattivare un elenco di frasi nella barra degli strumenti contestuale nella pagina **Phrase lists** (Elenchi di frasi).
-
-## <a name="pattern-regular-expression-feature"></a>Funzioni di criterio (espressione regolare) 
-**Questa funzionalità è deprecata**. Non è possibile aggiungere nuove funzionalità di criteri a LUIS. Tutte le funzionalità di criteri esistenti sono supportate fino a maggio 2018. Contribuire all'associazione di espressioni regolari di LUIS standard con un PR nel [repository GitHub Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

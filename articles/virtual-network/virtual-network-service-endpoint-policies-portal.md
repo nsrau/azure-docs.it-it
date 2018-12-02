@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 3c28181e1d1a4fd1cdac530ed8f393c7e0c7ea92
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426302"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633011"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Creare, modificare o eliminare i criteri degli endpoint di servizio usando il portale di Azure
 
@@ -64,7 +64,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
    
    ![Creare definizioni di criteri di endpoint di servizio](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. Facoltativo: immettere o selezionare le informazioni seguenti in **Tag**
+5. Facoltativo: immettere o selezionare le informazioni seguenti in **Tag**:
    
    - Chiave: selezionare la chiave per il criterio, ad esempio Rep.     
    - Valore: immettere la coppia chiave-valore, ad esempio Finanza.
