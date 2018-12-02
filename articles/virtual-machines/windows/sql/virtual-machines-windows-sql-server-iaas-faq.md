@@ -72,15 +72,46 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 1. **Come si installa una copia di SQL Server con licenza in una VM di Azure?**
 
    Per eseguire questa operazione è possibile procedere in due modi: È possibile eseguire il provisioning di una delle [immagini di macchina virtuale che supporta le licenze](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), un'operazione nota anche come Bring Your Own License (BYOL). Un'altra possibilità consiste nel copiare il supporto di installazione di SQL Server in una VM Windows Server, quindi installare SQL Server nella VM. Tuttavia, se si installa manualmente SQL Server, non è prevista alcuna integrazione del portale e l'estensione SQL Server IaaS Agent non è supportata, pertanto funzionalità quali Backup automatizzato e Applicazione automatica delle patch non funzioneranno in questo scenario. Per questo motivo, è consigliabile usare una delle immagini della raccolta BYOL. Per usare BYOL o il proprio supporto di SQL Server in una VM di Azure, è necessario disporre della [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Per altre informazioni, vedere [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
-
-1. **È possibile modificare una VM per l'uso di una licenza di SQL Server, se è stata creata da una delle immagini della raccolta con pagamento in base al consumo?**
-
-   No. Non è possibile sostituire una licenza con costo al secondo con una propria licenza. Creare una nuova macchina virtuale di Azure usando una delle [immagini BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) e quindi migrare i database nel nuovo server utilizzando le [tecniche di migrazione dei dati](virtual-machines-windows-migrate-sql.md) standard.
-
+   
 1. **È necessario pagare la licenza di SQL Server in una VM di Azure se viene utilizzata solo per standby/failover?**
 
    Se è disponibile Software Assurance e si usa la mobilità delle licenze come descritto in [Domande frequenti sulle licenze di Macchine virtuali](https://azure.microsoft.com/pricing/licensing-faq/), non è necessario pagare la licenza per un'istanza di SQL Server che funge da replica secondaria passiva in una distribuzione a disponibilità elevata. In caso contrario, è necessario pagare la licenza.
 
+1. **È possibile modificare una VM per l'uso di una licenza di SQL Server, se è stata creata da una delle immagini della raccolta con pagamento in base al consumo?**
+
+   Si. E' possibile modificare il modello di licenza, a prescindere da quello utilizzato inizialmente dall'immagine utilizzata per creare la VM. Per maggiori informazioni, consultare [Come modificare il modello di licenza per una VM SQL](virtual-machines-windows-sql-ahb.md).
+
+1. **E' consigliabile utilizzare immagini BYOL o il resource provider SQL VM per creare una nuova VM SQL?**
+
+   Le immagini Bring-your-own-license (BYOL) sono disponibili solo per i clienti che hanno sottoscritto Enterprise Agreement. Altri clienti che dispongono di Software Assurance dovrebbero utilizzare il resource provider SQL VM per creare una VM SQL con [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/licensing-faq/).
+
+1. **La modifica del modello di licenza causa fermi di servizio a SQL Server?** 
+
+   No. [Modificare il modello di licenza](virtual-machines-windows-sql-ahb.md) non richiede fermi di servizio per SQL Server, in quanto la modifica ha effetto immediato e non richiede riavvii della VM. 
+
+1. **Le sottoscrizioni CSP possono attivare Azure Hybrid Benefit?**
+
+   Si. [La modifica del modello di licenza](virtual-machines-windows-sql-ahb.md) è disponibile per le sottoscrizioni CSP. 
+
+1. **La registrazione del resource provider SQL VM comporta costi aggiuntivi per la mia VM?**
+
+   No. Il resource provider SQL VM si limita ad abilitare nuovi parametri di configurazione per SQL Server eseguito VM Azure, senza costi addizionali. 
+
+1. **Il resource provider SQL VM è disponibile per tutti i clienti?**
+ 
+   Si. Tutti i clienti possono registrare il resource provider SQL VM. Ad ogni modo, solo i clienti con Software Assurance Benefit possono attivare la funzionalità [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (o BYOL) su una VM SQL Server. 
+
+1. **Cosa accade alla risorsa _*Microsoft.SqlVirtualMachine_* se la risorsa VM a cui è collegata viene spostata o eliminata?** 
+
+   Quando la risorsa Microsoft.Compute/VirtualMachine viene rimossa o spostata, alla risorsa Microsoft.SqlVirtualMachine ad essa associata viene notificato di replicare in maniera asincrona l'operazione.
+
+1. **Cosa accade alla VM se la risorsa _*Microsoft.SqlVirtualMachine_* viene eliminata?**
+
+   La risorsa Microsoft.Compute/VirtualMachine non subisce impatti se la risorsa Microsoft.SqlVirtualMachine viene eliminata. Ad ogni modo, viene riapplicato il modello di licenza utilizzato inizialmente dall'immagine usata per distribuire la VM. 
+
+1. **E' possibile registrare il resource provider SQL VM su VM generate a partire da immagini custom?**
+
+   Si. Se la VM SQL viene creata a partire da una propria immagine, è possibile registrare il resource provider SQL VM per abilitare i vantaggi di amministrazione introdotti dall'estensione SQL IaaS extension. Ad ogni buon conto, non sarà possibile modificare il modello di licenza di una VM distribuita a partire da un'immagine custom per abilitare il modello di licenza PAYG.
 
 ## <a name="administration"></a>Administration
 
