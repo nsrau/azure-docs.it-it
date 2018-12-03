@@ -1,6 +1,6 @@
 ---
 title: Distribuire un'applicazione contenitore con CI/CD in un cluster di Azure Service Fabric
-description: In questa esercitazione si apprenderà come configurare l'integrazione continua e la distribuzione continua per un'applicazione contenitore di Azure Service Fabric tramite Visual Studio Team Services (VSTS).
+description: In questa esercitazione si apprenderà come configurare l'integrazione continua e la distribuzione continua per un'applicazione contenitore di Azure Service Fabric usando Visual Studio e Azure DevOps.
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
@@ -15,23 +15,23 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: a7cb139da2cdbfb187a62eeadc707f7206de8a34
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 06bc4be6ee485e61523d210b692c3fe2567cc62c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300195"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443492"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Esercitazione: Distribuire un'applicazione contenitore con CI/CD in un cluster di Service Fabric
 
-Questa esercitazione è la seconda di una serie e illustra come configurare l'integrazione continua e la distribuzione continua per un'applicazione contenitore di Azure Service Fabric tramite Visual Studio Team Services.  È necessaria un'applicazione di Service Fabric esistente. Viene usata come esempio l'applicazione creata in [Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric](service-fabric-host-app-in-a-container.md).
+Questa esercitazione è la seconda di una serie e illustra come configurare l'integrazione continua e la distribuzione continua per un'applicazione contenitore di Azure Service Fabric usando Visual Studio e Azure DevOps.  È necessaria un'applicazione di Service Fabric esistente. Viene usata come esempio l'applicazione creata in [Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric](service-fabric-host-app-in-a-container.md).
 
 Nella seconda parte della serie si apprenderà come:
 
 > [!div class="checklist"]
 > * Aggiungere il controllo del codice sorgente al progetto
-> * Creare una definizione di compilazione in Team Services
-> * Creare una definizione di versione in Team Services
+> * Creare una definizione di compilazione in Visual Studio Team Explorer
+> * Creare una definizione di versione in Visual Studio Team Explorer
 > * Distribuire automaticamente e aggiornare un'applicazione
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -43,23 +43,23 @@ Prima di iniziare questa esercitazione:
 
 ## <a name="prepare-a-publish-profile"></a>Preparare un profilo di pubblicazione
 
-Dopo aver [distribuito un'applicazione contenitore](service-fabric-host-app-in-a-container.md), si è pronti per configurare l'integrazione continua.  Prima di tutto, preparare un profilo di pubblicazione all'interno dell'applicazione destinato all'uso da parte del processo di distribuzione eseguito in Team Services.  Il profilo di pubblicazione deve essere configurato impostando il cluster preparato in precedenza come destinazione.  Avviare Visual Studio e aprire un progetto di applicazione di Service Fabric esistente.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse sull'applicazione e scegliere **Pubblica**.
+Dopo aver [distribuito un'applicazione contenitore](service-fabric-host-app-in-a-container.md), si è pronti per configurare l'integrazione continua.  Prima di tutto, preparare un profilo di pubblicazione all'interno dell'applicazione destinato all'uso da parte del processo di distribuzione eseguito in Azure DevOps.  Il profilo di pubblicazione deve essere configurato impostando il cluster preparato in precedenza come destinazione.  Avviare Visual Studio e aprire un progetto di applicazione di Service Fabric esistente.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse sull'applicazione e scegliere **Pubblica**.
 
-Scegliere un profilo di destinazione all'interno del progetto di applicazione da usare per il flusso di lavoro di integrazione continua, ad esempio Cloud.  Specificare l'endpoint di connessione del cluster.  Selezionare la casella di controllo **Aggiorna l'applicazione** in modo che l'applicazione venga aggiornata per ogni distribuzione in Team Services.  Fare clic sul collegamento ipertestuale **Salva** per salvare le impostazioni per il profilo di pubblicazione e quindi fare clic su **Annulla** per chiudere la finestra di dialogo.
+Scegliere un profilo di destinazione all'interno del progetto di applicazione da usare per il flusso di lavoro di integrazione continua, ad esempio Cloud.  Specificare l'endpoint di connessione del cluster.  Selezionare la casella di controllo **Aggiorna l'applicazione** in modo che l'applicazione venga aggiornata per ogni distribuzione in Azure DevOps.  Fare clic sul collegamento ipertestuale **Salva** per salvare le impostazioni per il profilo di pubblicazione e quindi fare clic su **Annulla** per chiudere la finestra di dialogo.
 
 ![Profilo di push][publish-app-profile]
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Condividere la soluzione di Visual Studio in un nuovo repository GIT di Team Services
+## <a name="share-your-visual-studio-solution-to-a-new-azure-devops-git-repo"></a>Condividere la soluzione di Visual Studio in un nuovo repository GIT di Azure DevOps
 
-È possibile condividere i file di origine dell'applicazione in un progetto team in Team Services, in modo da poter generare le compilazioni.
+Condividere i file di origine dell'applicazione in un progetto team in Azure DevOps, per poter generare le compilazioni.
 
 Creare un nuovo repository Git locale per il progetto selezionando **Aggiungi al controllo del codice sorgente** -> **Git** sulla barra di stato nell'angolo inferiore destro di Visual Studio.
 
-Nella visualizzazione **Push** in **Team Explorer**, selezionare il pulsante **Pubblica repository GIT** nella sezione **Effettua il push in Visual Studio Team Services**.
+Nella visualizzazione **Push** in **Team Explorer** selezionare il pulsante **Pubblica repository GIT** nella sezione **Esegui push in Azure DevOps**.
 
 ![Pubblicare il repository GIT][push-git-repo]
 
-Controllare la posta elettronica e selezionare il proprio account nell'elenco a discesa **Dominio Team Services**. Immettere il nome del repository e selezionare **Pubblica repository**.
+Controllare la posta elettronica e selezionare l'organizzazione nell'elenco a discesa **Account**. Può essere necessario configurare un'organizzazione, se non è già presente. Immettere il nome del repository e selezionare **Pubblica repository**.
 
 ![Pubblicare il repository GIT][publish-code]
 
@@ -67,22 +67,22 @@ Con la pubblicazione del repository viene creato un nuovo progetto team nell'acc
 
 ## <a name="configure-continuous-delivery-with-vsts"></a>Configurare il recapito continuo con VSTS
 
-Una definizione di compilazione di Team Services descrive un flusso di lavoro costituito da un set di istruzioni di compilazione che vengono eseguite in sequenza. Creare una definizione di compilazione che produca un pacchetto di applicazione di Service Fabric, e altri artefatti, per la distribuzione in un cluster di Service Fabric. Sono disponibili maggiori informazioni sulle [definizioni di compilazione di Team Services](https://www.visualstudio.com/docs/build/define/create). 
+Una definizione di compilazione di Azure DevOps descrive un flusso di lavoro costituito da un set di istruzioni di compilazione che vengono eseguite in sequenza. Creare una definizione di compilazione che produca un pacchetto di applicazione di Service Fabric, e altri artefatti, per la distribuzione in un cluster di Service Fabric. Altre informazioni sulle [definizioni di compilazione](https://www.visualstudio.com/docs/build/define/create) di Azure DevOps. 
 
-Una definizione di versione di Team Services descrive un flusso di lavoro che distribuisce un pacchetto di applicazione in un cluster. Se usate insieme, la definizione di compilazione e la definizione di versione eseguono l'intero flusso di lavoro a partire dai file di origine fino alla creazione di un'applicazione funzionante nel cluster. Sono disponibili maggiori informazioni sulle [definizioni di versione](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)di Team Services.
+Una definizione di versione di Azure DevOps descrive un flusso di lavoro che distribuisce un pacchetto di applicazione in un cluster. Se usate insieme, la definizione di compilazione e la definizione di versione eseguono l'intero flusso di lavoro a partire dai file di origine fino alla creazione di un'applicazione funzionante nel cluster. Altre informazioni sulle [definizioni di versione](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) di Azure DevOps.
 
 ### <a name="create-a-build-definition"></a>Creare una definizione di compilazione
 
-Aprire un Web browser e passare al nuovo progetto team all'indirizzo [https://&lt;account&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
+Per aprire il nuovo progetto team, passare a https://dev.azure.com in un Web browser e selezionare l'organizzazione, seguita dal nuovo progetto. 
 
-Selezionare la scheda **Compilazione e versione**, **Compilazioni** e quindi fare clic su **Nuova pipeline**.
+Selezionare l'opzione **Pipeline** nel riquadro a sinistra, quindi fare clic su **Nuova pipeline**.
 
 >[!NOTE]
 >Se non viene visualizzato il modello di definizione di compilazione, assicurarsi che la funzionalità **Nuova esperienza di creazione pipeline YAML** sia disattivata. Questa funzionalità viene configurata all'interno della sezione **Funzionalità di anteprima** dell'account DevOps.
 
 ![Nuova pipeline][new-pipeline]
 
-Selezionare **VSTS GIT** come origine, **Voting** come progetto team, **Voting** come repository e **master** come ramo predefinito per le compilazioni manuale e pianificata.  Fare quindi clic su **Continue** (Continua).
+Selezionare **Azure Repos Git** come origine, il nome del proprio progetto team, il repository del progetto e il ramo predefinito **master** o le compilazioni manuale e pianificata.  Fare quindi clic su **Continue** (Continua).
 
 In **Seleziona un modello** selezionare il modello **Applicazione Azure Service Fabric con supporto Docker** e quindi fare clic su **Applica**.
 
@@ -104,7 +104,7 @@ In **Tipo di registro contenitori** selezionare **Registro contenitori di Azure*
 
 ![Selezionare l'opzione per eseguire il push di immagini][select-push-images]
 
-In **Trigger** abilitare l'integrazione continua selezionando **Abilita l'integrazione continua**. In **Filtri per rami** fare clic su **+ Aggiungi** e **Specifica rami** verrà automaticamente impostato su **master**.
+Nella scheda **Trigger** abilitare l'integrazione continua selezionando **Abilita l'integrazione continua**. In **Filtri per rami** fare clic su **+ Aggiungi** e **Specifica rami** verrà automaticamente impostato su **master**.
 
 Nella finestra di dialogo **Salva pipeline di compilazione e accoda** fare clic su **Salva e accoda** per avviare manualmente una compilazione.
 
@@ -114,7 +114,7 @@ Le compilazioni vengono attivate anche al momento del push o dell'archiviazione.
 
 ### <a name="create-a-release-definition"></a>Creare una definizione di versione
 
-Selezionare la scheda **Compilazione e versione**, **Versioni** e quindi **+ Nuova pipeline**.  In **Seleziona un modello** selezionare il modello **Distribuzione di Azure Service Fabric** dall'elenco e quindi fare clic su **Applica**.
+Selezionare l'opzione **Pipeline** nel riquadro a sinistra, quindi **Versioni**, quindi **+ Nuova pipeline**.  In **Seleziona un modello** selezionare il modello **Distribuzione di Azure Service Fabric** dall'elenco e quindi fare clic su **Applica**.
 
 ![Scegliere un modello di versione][select-release-template]
 
@@ -151,7 +151,7 @@ Verificare che la distribuzione venga completata correttamente e che l'applicazi
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Eseguire commit e push delle modifiche, attivare la compilazione di una versione
 
-Per verificare che la pipeline di integrazione continua funzioni correttamente, è possibile archiviare alcune modifiche al codice in Team Services.
+Per verificare che la pipeline di integrazione continua funzioni correttamente, è possibile archiviare alcune modifiche al codice in Azure DevOps.
 
 Durante la scrittura del codice, le modifiche vengono rilevate automaticamente da Visual Studio. Per eseguire il commit delle modifiche nel repository GIT locale, selezionare l'icona di modifiche in sospeso (![In sospeso][pending]) sulla barra di stato in basso a destra.
 
@@ -159,11 +159,11 @@ Nella visualizzazione **Modifiche** in Team Explorer aggiungere un messaggio che
 
 ![Esegui commit di tutto][changes]
 
-Selezionare l'icona della barra di stato delle modifiche non pubblicate (![Modifiche non pubblicate][unpublished-changes]) oppure la visualizzazione Sincronizza in Team Explorer. Selezionare **Push** per aggiornare il codice in Team Services/TFS.
+Selezionare l'icona della barra di stato delle modifiche non pubblicate (![Modifiche non pubblicate][unpublished-changes]) oppure la visualizzazione Sincronizza in Team Explorer. Selezionare **Esegui push** per aggiornare il codice in Azure DevOps.
 
 ![Effettuare il push delle modifiche][push]
 
-Il push delle modifiche in Team Services attiva automaticamente una compilazione.  Quando la definizione di compilazione viene completata correttamente, viene creata automaticamente una versione con avvio dell'aggiornamento dell'applicazione nel cluster.
+Il push delle modifiche in Azure DevOps attiva automaticamente una compilazione.  Quando la definizione di compilazione viene completata correttamente, viene creata automaticamente una versione con avvio dell'aggiornamento dell'applicazione nel cluster.
 
 Per controllare lo stato di avanzamento della compilazione, passare alla scheda **Compilazioni** in **Team Explorer** in Visual Studio.  Dopo aver verificato che la compilazione viene eseguita correttamente, definire una definizione di versione per la distribuzione dell'applicazione in un cluster.
 

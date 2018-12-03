@@ -3,23 +3,25 @@ items:
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni su Funzioni
+  - name: Informazioni su Funzioni di Azure
     href: functions-overview.md
+  - name: Durable Functions
+    href: durable/durable-functions-overview.md
   - name: Confronto senza server
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Guide introduttive
   items:
-  - name: 'Creare una funzione: portale'
+  - name: Creare una funzione - Portale
     href: functions-create-first-azure-function.md
-  - name: 'Creare una funzione: Visual Studio'
+  - name: Creare una funzione - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
-  - name: 'Creare una funzione: Visual Studio Code'
+  - name: Creare una funzione - Visual Studio Code
     href: functions-create-first-function-vs-code.md
   - name: Creare una funzione - Java/Maven
     href: functions-create-first-java-maven.md
-  - name: 'Creare una funzione: interfaccia della riga di comando di Azure'
+  - name: Creare una funzione - Interfaccia della riga di comando di Azure
     href: functions-create-first-azure-function-azure-cli.md
-  - name: 'Creare una funzione: Linux'
+  - name: Creare una funzione - Linux
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Trigger
     items:
@@ -94,44 +96,6 @@ items:
     href: ip-addresses.md
   - name: Funzioni locali
     href: functions-runtime-overview.md
-  - name: Funzioni permanenti
-    items:
-    - name: Panoramica
-      href: durable-functions-overview.md
-    - name: Tipi e funzionalità delle funzioni
-      href: durable-functions-types-features-overview.md
-    - name: Associazioni
-      href: durable-functions-bindings.md
-    - name: Checkpoint e riproduzione
-      href: durable-functions-checkpointing-and-replay.md
-    - name: Stato personalizzato dell'orchestrazione
-      href: durable-functions-custom-orchestration-status.md
-    - name: Gestione delle istanze
-      href: durable-functions-instance-management.md
-    - name: API HTTP
-      href: durable-functions-http-api.md
-    - name: Gestione degli errori
-      href: durable-functions-error-handling.md
-    - name: Diagnostica
-      href: durable-functions-diagnostics.md
-    - name: Timer
-      href: durable-functions-timers.md
-    - name: Eventi esterni
-      href: durable-functions-external-events.md
-    - name: Orchestrazioni perenni
-      href: durable-functions-eternal-orchestrations.md
-    - name: Orchestrazioni singleton
-      href: durable-functions-singletons.md
-    - name: Orchestrazioni secondarie
-      href: durable-functions-sub-orchestrations.md
-    - name: Hub attività
-      href: durable-functions-task-hubs.md
-    - name: Controllo delle versioni
-      href: durable-functions-versioning.md
-    - name: Prestazioni e scalabilità
-      href: durable-functions-perf-and-scale.md
-    - name: Ripristino di emergenza e distribuzione geografica
-      href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Guide alle procedure
   items:
   - name: Sviluppo
@@ -180,6 +144,30 @@ items:
       href: disable-function.md
   - name: Monitorare
     href: functions-monitoring.md
+  - name: Proteggere
+    items:
+    - name: Acquistare un certificato SSL
+      href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Autenticare gli utenti
+      items:
+      - name: Eseguire l'autenticazione con Azure AD
+        href: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Eseguire l'autenticazione con Facebook
+        href: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Eseguire l'autenticazione con Google
+        href: ../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Eseguire l'autenticazione con l'account Microsoft
+        href: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Eseguire l'autenticazione con Twitter
+        href: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Autenticazione avanzata
+      href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Limitare gli indirizzi IP
+      href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Usare un'identità gestita
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Fare riferimento a segreti da Key Vault
+      href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Integrare
     items:
     - name: Connessione al database SQL
@@ -194,29 +182,11 @@ items:
       href: functions-flow-scenario.md
     - name: Usare un'identità gestita
       href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Funzioni permanenti
-    items:
-    - name: Installa
-      href: durable-functions-install.md
-    - name: Concatenamento
-      href: durable-functions-sequence.md
-    - name: Fan-out/fan-in
-      href: durable-functions-cloud-backup.md
-    - name: Monitoraggi
-      href: durable-functions-monitor.md
-    - name: Interazione umana
-      href: durable-functions-phone-verification.md
-    - name: Testing unità
-      href: durable-functions-unit-testing.md
-    - name: Pubblicazione di eventi
-      href: durable-functions-event-publishing.md
-    - name: Usare WebJobs SDK
-      href: durable-functions-webjobs-sdk.md
   - name: Risolvere problemi
     items:
     - name: Risolvere i problemi relativi alle risorse di archiviazione
       href: functions-recover-storage-account.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Associazioni
     items:
@@ -288,13 +258,15 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter
     href: https://twitter.com/azurefunctions
+  - name: Inviare commenti e suggerimenti per il prodotto
+    href: https://feedback.azure.com/forums/355860-azure-functions
   - name: Repository GitHub di Funzioni di Azure
     href: https://github.com/Azure/Azure-Functions/
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: eb408491ee9ed4994324a5fd425e87da6e4c59a1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: facc469c576bf1de905441bb5b56a00bd745e924
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633785"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632297"

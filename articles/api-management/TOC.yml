@@ -5,11 +5,13 @@ items:
   items:
   - name: Informazioni su Gestione API
     href: api-management-key-concepts.md
+  - name: Disponibilità delle funzioni di Gestione API
+    href: api-management-features.md
 - name: Guide introduttive
   items:
-  - name: "Creare un'istanza: portale"
+  - name: Creare un'istanza - Portale
     href: get-started-create-service-instance.md
-  - name: "Creare un'istanza: PowerShell"
+  - name: Creare un'istanza- PowerShell
     href: powershell-create-service-instance.md
   expanded: true
 - name: Esercitazioni
@@ -48,6 +50,8 @@ items:
       href: api-management-howto-policies.md
     - name: Indice delle informazioni di riferimento per i criteri
       href: api-management-policies.md
+  - name: Sottoscrizioni
+    href: api-management-subscriptions.md
   - name: Gestire con l'automazione
     href: automation-manage-api-management.md
   - name: Gestione degli errori
@@ -56,7 +60,7 @@ items:
     href: api-management-api-import-restrictions.md
 - name: Guide alle procedure
   items:
-  - name: 'Definire API '
+  - name: Definire API
     items:
     - name: Aggiungere manualmente un'API
       href: add-api-manually.md
@@ -90,6 +94,14 @@ items:
     items:
     - name: Aggiungere il caching per migliorare le prestazioni
       href: api-management-howto-cache.md
+    - name: Usare una cache esterna
+      href: api-management-howto-cache-external.md
+  - name: Proteggere le API
+    items:
+    - name: Creare sottoscrizioni
+      href: api-management-howto-create-subscriptions.md
+    - name: Proteggere le API usando l'autenticazione con certificati client
+      href: api-management-howto-mutual-certificates-for-clients.md
   - name: Proteggere il back-end
     items:
     - name: Proteggere l'API con Azure AD
@@ -138,8 +150,6 @@ items:
       href: api-management-sample-send-request.md
     - name: Gestire i segreti con le proprietà
       href: api-management-howto-properties.md
-    - name: Proteggere le API usando l'autenticazione con certificati client
-      href: api-management-howto-mutual-certificates-for-clients.md
     - name: Criteri di limitazione dell'accesso
       href: api-management-access-restriction-policies.md
     - name: Criteri avanzati
@@ -200,7 +210,7 @@ items:
         href: ../service-fabric/service-fabric-api-management-overview.md
       - name: Esercitazione
         href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/azure/overview
@@ -232,9 +242,9 @@ items:
     href: http://aka.ms/apimblog
   - name: Richieste di funzionalità
     href: http://aka.ms/apimwish
-ms.openlocfilehash: bbd98974e763ae98d7f754e9d8e690d0a8c62870
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 93a5457286e5e69e504e6858d6b9f0e8491b3c30
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339393"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620048"

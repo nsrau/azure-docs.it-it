@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: creare una query di ricerca visiva, Python - Ricerca visiva Bing'
+title: 'Guida introduttiva: creare una query di ricerca visiva, Python - Ricerca visiva Bing'
 titleSuffix: Azure Cognitive Services
 description: Viene illustrato come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate sull'immagine.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 16d3d0ddf77e37e32cc50961a3870b820ac2748e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3a0d92e42eed097e244118a60ec0a4223c9cedf5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884242"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52440942"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Avvio rapido: la prima query di Ricerca visiva Bing in Python
+# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Guida introduttiva: Prima query di Ricerca visiva Bing in Python
 
 L'API Ricerca visiva Bing restituisce informazioni su un'immagine fornita. È possibile fornire l'immagine usando l'URL dell'immagine o un token di informazioni dettagliate oppure caricando l'immagine. Per informazioni su queste opzioni, vedere [Informazioni sull'API Ricerca visiva Bing](../overview.md) Questo articolo illustra come caricare un'immagine. Caricare un'immagine può essere utile negli scenari per dispositivi mobili in cui si acquisisce un'immagine di un punto di riferimento ben noto e si ottengono le relative informazioni. Le informazioni dettagliate, ad esempio, possono includere curiosità sul punto di riferimento. 
 
@@ -27,7 +27,7 @@ Se si carica un'immagine locale, la figura seguente illustra i dati del modulo c
 --boundary_1234-abcd
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -38,14 +38,22 @@ Questo articolo include una semplice applicazione console che invia una richiest
 
 Per eseguire questo codice è necessario [Python 3](https://www.python.org/).
 
-Per questo Avvio rapido, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
+Per questa guida introduttiva è necessario avviare una sottoscrizione in base al piano tariffario S9, come illustrato in [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Per avviare una sottoscrizione nel portale di Azure:
+1. Nella parte superiore del portale di Azure immettere 'BingSearchV7' nella casella di testo `Search resources, services, and docs`.  
+2. Nella sezione Marketplace dell'elenco a discesa selezionare `Bing Search v7`.
+3. Immettere `Name` per la nuova risorsa.
+4. Selezionare la sottoscrizione `Pay-As-You-Go`.
+5. Selezionare il piano tariffario `S9`.
+6. Fare clic su `Enable` per iniziare a usare la sottoscrizione.
 
 ## <a name="running-the-walkthrough"></a>Esecuzione della procedura dettagliata
 
 Per eseguire l'applicazione seguire questa procedura:
 
 1. Creare un nuovo progetto Python nell'ambiente di sviluppo integrato o nell'editor preferito.
-2. Creare un file denominato visualsearch.py e aggiungere il codice illustrato in questo Avvio rapido.
+2. Creare un file denominato visualsearch.py e aggiungere il codice illustrato in questa guida introduttiva.
 3. Sostituire il valore `SUBSCRIPTION_KEY` con la chiave di sottoscrizione.
 3. Sostituire il valore di `imagePath` con il percorso dell'immagine da caricare.
 4. Eseguire il programma.

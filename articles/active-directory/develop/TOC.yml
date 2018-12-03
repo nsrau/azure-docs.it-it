@@ -73,7 +73,7 @@ items:
         href: app-types.md
       - name: Applicazione a pagina singola
         href: single-page-application.md
-      - name: app Web
+      - name: App Web
         href: web-app.md
       - name: API Web
         href: web-api.md
@@ -334,6 +334,8 @@ items:
           href: v2-oauth2-on-behalf-of-flow.md
         - name: Concessione di credenziali client OAuth 2.0
           href: v2-oauth2-client-creds-grant-flow.md
+        - name: Concessione delle credenziali di tipo password del proprietario delle risorse in OAuth 2.0
+          href: v2-oauth-ropc.md
       - name: Rollover della chiave di firma
         href: active-directory-signing-key-rollover.md
       - name: Token ID
@@ -433,9 +435,9 @@ items:
     href: developer-support-help-options.md
   - name: Identità gestite per le risorse di Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 00aa04556d555c5e29707287e2cb91db22f34ac7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 71ba5312a5cfaf10ee2ece5ae376b87fe44d231f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011630"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497488"

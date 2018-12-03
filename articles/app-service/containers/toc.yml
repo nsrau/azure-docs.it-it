@@ -156,6 +156,8 @@ items:
       href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Abilitare i log
       href: ../web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Integrazioni di Application Performance Monitoring in Java
+      href: how-to-java-apm-monitoring.md
   - name: Gestire un'app
     items:
     - name: Eseguire il backup di un'app
@@ -166,7 +168,7 @@ items:
       href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Spostare le risorse
       href: ../../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
     href: /cli/azure/appservice
@@ -244,9 +246,9 @@ items:
         href: ../app-service-web-open-source-technologies-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Domande frequenti su configurazione e gestione
         href: ../app-service-web-configuration-and-management-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-ms.openlocfilehash: bce6a2c196027b0e437207572c95e33b7f62809e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bccfbf49565b519a279dc77730410f3d9391d5e8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684716"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498730"

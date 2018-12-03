@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d3a3b30539ed33bf3e8d21a8cc5e5f2692308f98
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: cb6153d2859968a02345cfbcfa66bd9a4177d864
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283193"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427419"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Guida introduttiva: ridimensionare le risorse di calcolo in Azure SQL Data Warehouse con PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "43283193"
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-Questa esercitazione richiede il modulo Azure PowerShell 5.1.1 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione attualmente in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps.md).
+Questa esercitazione richiede il modulo Azure PowerShell 5.1.1 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione attualmente in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -43,10 +43,10 @@ Per vedere quale sottoscrizione si sta usando, eseguire [Get-AzureRmSubscription
 Get-AzureRmSubscription
 ```
 
-Per usare una sottoscrizione diversa da quella predefinita, eseguire [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
+Per usare una sottoscrizione diversa da quella predefinita, eseguire [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>Cercare informazioni sul data warehouse

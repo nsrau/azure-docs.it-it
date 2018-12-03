@@ -1,6 +1,7 @@
 # Panoramica
 ## [Informazioni sulle VM di SQL Server Windows](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [Note sulla versione](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # Guide introduttive
 ## [Creare una VM SQL - Portale](quickstart-sql-vm-create-portal.md)
 ## [Creare una VM SQL - PowerShell](quickstart-sql-vm-create-powershell.md)
@@ -39,9 +40,10 @@
 #### [Bilanciamento del carico - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Più aree geografiche](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Istanza del cluster di failover
-#### [Configura](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+#### [Configurare](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+## [Cambiare il modello di licenza per la macchina virtuale SQL](virtual-machines-windows-sql-ahb.md)
 
-# Riferimenti
+# Informazioni di riferimento
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
@@ -49,7 +51,7 @@
 ## [REST](/rest/api/)
 
 # Risorse
-## [DOMANDE FREQUENTI](virtual-machines-windows-sql-server-iaas-faq.md)
+## [Domande frequenti](virtual-machines-windows-sql-server-iaas-faq.md)
 ## [Prezzi](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [PaaS o IaaS](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json)
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)

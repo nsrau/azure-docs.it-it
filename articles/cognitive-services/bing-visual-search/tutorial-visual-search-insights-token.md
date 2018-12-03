@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 06d6bc8e53276b5542210c2843d7221d6fd79c09
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 62780500d29c891182d3869bf0ba3ccdc5e2f715
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386435"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441062"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Esercitazione: SDK di Ricerca visiva Bing - ImageInsightsToken e risultati
 L'SDK di Ricerca visiva Bing include un'opzione per trovare immagini online da una ricerca precedente che restituisce un oggetto `ImageInsightsToken`.  Questo esempio ottiene un oggetto `ImageInsightsToken` e usa il token in una ricerca successiva.  Il codice invia l'oggetto `ImageInsightsToken` a Bing e restituire risultati che includono gli URL di ricerca Bing e gli URL di immagini simili trovate online.
@@ -24,6 +24,16 @@ L'SDK di Ricerca visiva Bing include un'opzione per trovare immagini online da u
 Visual Studio 2017. Se necessario, è possibile scaricare la versione gratuita della community da qui: https://www.visualstudio.com/vs/community/.
 Per autenticare le chiamate SDK, è necessaria una chiave di API di Servizi cognitivi. Iscriversi per ottenere una chiave di prova gratuita. La chiave di prova è valida per sette giorni, con una chiamata al secondo. Per gli scenari di produzione acquistare una chiave di accesso. Vedere anche le informazioni sui prezzi.
 Possibilità di eseguire .NET Core SDK e app .NET Core 1.1. CORE, Framework e Runtime sono disponibili qui: https://www.microsoft.com/net/download/.
+
+Per questa esercitazione è necessario avviare una sottoscrizione in base al piano tariffario S9, come illustrato in [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Per avviare una sottoscrizione nel portale di Azure:
+1. Nella parte superiore del portale di Azure immettere 'BingSearchV7' nella casella di testo `Search resources, services, and docs`.  
+2. Nella sezione Marketplace dell'elenco a discesa selezionare `Bing Search v7`.
+3. Immettere `Name` per la nuova risorsa.
+4. Selezionare la sottoscrizione `Pay-As-You-Go`.
+5. Selezionare il piano tariffario `S9`.
+6. Fare clic su `Enable` per iniziare a usare la sottoscrizione.
 
 ## <a name="application-dependencies"></a>Dipendenze dell'applicazione
 Per configurare un'applicazione console tramite l'SDK di Ricerca Web Bing, passare all'opzione Gestisci pacchetti NuGet in Esplora soluzioni in Visual Studio. Aggiungere:

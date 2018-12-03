@@ -8,18 +8,19 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 12/15/2017
+ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 62c04e5893eaefcc5eb7272eb9a99cf932086205
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 2d50e4c2352444d29bdb090bc9a2a7947ecc6a50
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086865"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496039"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Creare una definizione OpenAPI per una funzione
+
 Le API REST vengono spesso descritte usando una definizione OpenAPI (detta in precedenza file [Swagger](http://swagger.io/)). Questa definizione contiene informazioni sulle operazioni disponibili in un'API e su come devono essere strutturati i dati della richiesta e della risposta per l'API.
 
 In questa esercitazione si crea una funzione che determina se una riparazione urgente di una turbina eolica è conveniente. Si crea quindi una definizione OpenAPI per l'app per le funzioni, in modo che sia possibile chiamare la funzione da altri servizi e app.
@@ -33,7 +34,7 @@ In questa esercitazione si apprenderà come:
 > * Testare la definizione chiamando la funzione
 
 > [!IMPORTANT]
-> La funzionalità di anteprima di OpenAPI è attualmente disponibile solo nella versione 1.x del runtime. [Qui](./functions-versions.md#creating-1x-apps) è possibile trovare informazioni su come creare un'app per le funzioni 1.x.
+> La funzionalità OpenAPI è attualmente in anteprima e disponibile solo per la versione 1.x del runtime di Funzioni di Azure.
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
@@ -41,6 +42,11 @@ Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. U
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
+## <a name="set-the-functions-runtime-version"></a>Impostare la versione del runtime di Funzioni
+
+Per impostazione predefinita, l'app per le funzioni creata usa la versione 2.x del runtime. Prima di creare la funzione, è necessario impostare la versione del runtime su 1.x.
+
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 ## <a name="create-the-function"></a>Creare la funzione
 
@@ -50,34 +56,27 @@ Questa esercitazione usa una funzione attivata tramite HTTP che accetta due para
 
     ![Pagina della guida introduttiva di Funzioni nel portale di Azure](media/functions-openapi-definition/add-first-function.png)
 
-2. Nel campo di ricerca digitare `http` e quindi scegliere **C#** per il modello di trigger HTTP. 
- 
+1. Nel campo di ricerca digitare `http` e quindi scegliere **C#** per il modello di trigger HTTP. 
+
     ![Scegliere un trigger HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
-3. Digitare `TurbineRepair` per il **Nome** della funzione, scegliere `Function` per **[Livello autenticazione](functions-bindings-http-webhook.md#http-auth)** e quindi selezionare **Crea**.  
+1. Digitare `TurbineRepair` per il **Nome** della funzione, scegliere `Function` per **[Livello autenticazione](functions-bindings-http-webhook.md#http-auth)** e quindi selezionare **Crea**.  
 
     ![Creare la funzione attivata tramite HTTP](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Sostituire il contenuto del file run.csx con il codice seguente e quindi fare clic su **Salva**:
 
     ```csharp
-    #r "Newtonsoft.Json"
-
     using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Primitives;
-    using Newtonsoft.Json;
 
-    const double revenuePerkW = 0.12; 
-    const double technicianCost = 250; 
+    const double revenuePerkW = 0.12;
+    const double technicianCost = 250;
     const double turbineCost = 100;
 
-    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-    {   
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
         //Get request body
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
+        dynamic data = await req.Content.ReadAsAsync<object>();
         int hours = data.hours;
         int capacity = data.capacity;
 
@@ -93,13 +92,14 @@ Questa esercitazione usa una funzione attivata tramite HTTP che accetta due para
             repairTurbine = "No";
         }
 
-        return (ActionResult) new OkObjectResult(new{
+        return req.CreateResponse(HttpStatusCode.OK, new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
-            costToFix = "$"+ costToFix         
-        }); 
+            costToFix = "$"+ costToFix
+        });
     }
     ```
+
     Il codice di questa funzione restituisce un messaggio `Yes` o `No` per indicare se una riparazione urgente è conveniente, oltre che l'opportunità di ricavi offerta dalla turbina e il costo per riparare la turbina. 
 
 1. Per testare la funzione, fare clic su **Test** a destra per espandere la scheda Test. Immettere il valore seguente per **Corpo della richiesta** e quindi fare clic su **Esegui**.
@@ -132,7 +132,7 @@ A questo punto si è pronti per generare la definizione OpenAPI. Questa definizi
     1. In **Metodi HTTP selezionati** deselezionare tutte le opzioni ad eccezione di **POST**, quindi fare clic su **Salva**.
 
         ![Metodi HTTP selezionati](media/functions-openapi-definition/selected-http-methods.png)
-        
+
 1. Fare clic sul nome dell'app per le funzioni (ad esempio **function-demo-energy**) > **Funzionalità della piattaforma** > **Definizione API**.
 
     ![Definizione API](media/functions-openapi-definition/api-definition.png)
@@ -185,6 +185,7 @@ A questo punto si è pronti per generare la definizione OpenAPI. Questa definizi
     Questa definizione è descritta come _modello_ perché richiede più metadati per essere una definizione OpenAPI completa. Nel passaggio successivo si modificherà la definizione.
 
 ## <a name="modify-the-openapi-definition"></a>Modificare la definizione OpenAPI
+
 Ora che si ha una definizione modello, si apportano modifiche per fornire metadati aggiuntivi sulle operazioni e sulle strutture dei dati dell'API. In **Definizione API** eliminare la definizione generata da `post` fino alla parte inferiore della definizione, incollare il contenuto seguente e quindi fare clic su **Salva**.
 
 ```yaml
@@ -249,15 +250,15 @@ securityDefinitions:
 
 In questo caso è sufficiente incollare metadati aggiornati, ma è importante comprendere i tipi di modifiche apportate al modello predefinito::
 
-+ Si specifica che l'API produce e utilizza dati in un formato JSON.
+* Si specifica che l'API produce e utilizza dati in un formato JSON.
 
-+ Si specificano i parametri obbligatori, con i relativi nomi e tipi di dati.
+* Si specificano i parametri obbligatori, con i relativi nomi e tipi di dati.
 
-+ Si specificano i valori restituiti per una risposta con esito positivo, con i relativi nomi e tipi di dati.
+* Si specificano i valori restituiti per una risposta con esito positivo, con i relativi nomi e tipi di dati.
 
-+ Si forniscono descrizioni e riepiloghi descrittivi per l'API, con i relativi parametri e operazioni. Questo aspetto è importante per le persone che useranno questa funzione.
+* Si forniscono descrizioni e riepiloghi descrittivi per l'API, con i relativi parametri e operazioni. Questo aspetto è importante per le persone che useranno questa funzione.
 
-+ Si aggiungono le proprietà x-ms-summary e x-ms-visibility, usate nell'interfaccia utente per Microsoft Flow e App per la logica. Per altre informazioni, vedere [Estensioni OpenAPI per API personalizzate in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
+* Si aggiungono le proprietà x-ms-summary e x-ms-visibility, usate nell'interfaccia utente per Microsoft Flow e App per la logica. Per altre informazioni, vedere [Estensioni OpenAPI per API personalizzate in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
 
 > [!NOTE]
 > La definizione di sicurezza è stata lasciata con il metodo di autenticazione predefinito della chiave API. Se si usasse un tipo diverso di autenticazione, sarebbe necessario modificare questa sezione della definizione.
@@ -265,6 +266,7 @@ In questo caso è sufficiente incollare metadati aggiornati, ma è importante co
 Per altre informazioni sulla definizione delle operazioni dell'API, vedere la [specifica OpenAPI](https://swagger.io/specification/#operationObject).
 
 ## <a name="test-the-openapi-definition"></a>Testare la definizione OpenAPI
+
 Prima di usare la definizione API, è consigliabile testarla nell'interfaccia utente di Funzioni di Azure.
 
 1. Nella scheda **Gestisci** della funzione, in **Chiavi host**, copiare la chiave **predefinita**.
@@ -305,5 +307,6 @@ Questa esercitazione illustra come:
 > * Testare la definizione chiamando la funzione
 
 Passare all'argomento successivo per imparare a creare un'app di PowerApps che usa la definizione OpenAPI creata.
+
 > [!div class="nextstepaction"]
 > [Chiamare una funzione da PowerApps](functions-powerapps-scenario.md)

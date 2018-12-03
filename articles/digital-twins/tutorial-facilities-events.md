@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 994c864f04980dc963f9e7c4eb99b33382ad17e4
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614906"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583262"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Esercitazione: Ricevere notifiche dagli spazi di Gemelli digitali di Azure usando App per la logica
 
@@ -194,6 +194,10 @@ Per smettere di ricevere questi messaggi, passare alla risorsa di App per la log
 Se si non si vuole esplorare ulteriormente Gemelli digitali di Azure, è possibile eliminare le risorse create in questa esercitazione:
 
 1. Nel [portale di Azure](http://portal.azure.com) selezionare **Tutte le risorse** nel menu a sinistra, selezionare il gruppo di risorse di Gemelli digitali e quindi fare clic su **Elimina**.
+
+    > [!TIP]
+    > Se si sono riscontrati problemi durante l'eliminazione dell'istanza di Gemelli digitali, è stato reso disponibile un aggiornamento del servizio con la correzione. Riprovare a eliminare l'istanza.
+
 2. Se necessario, eliminare le applicazioni di esempio nel computer di lavoro. 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure
+title: Creare un'assegnazione di criteri per identificare le risorse non conformi in Azure
 description: Questo articolo illustra i passaggi per creare una definizione dei criteri per identificare le risorse non conformi.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 60b8663c5b465fecd3275def7d1e85f4511a23e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ee22208f9f55840b80392ef2b0a9fce0da4c4db7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954263"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584690"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure
 
@@ -43,9 +43,9 @@ In questa guida introduttiva si crea un'assegnazione dei criteri e si assegna la
 
 1. Nella pagina **Assegna criterio** selezionare il valore di **Ambito** facendo clic sui puntini di sospensione e quindi selezionando un gruppo di gestione o una sottoscrizione. Facoltativamente, selezionare un gruppo di risorse. L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri  Fare quindi clic su **Seleziona** nella parte inferiore della pagina **Ambito**.
 
-   Questo esempio descrive come usare la sottoscrizione **Contoso**, ma le opzioni disponibili sono diverse.
+   Questo esempio descrive come usare la sottoscrizione **Contoso**. ma le opzioni disponibili sono diverse.
 
-1. Le risorse possono essere escluse in base all'**ambito**.  Le **esclusioni** iniziano a un livello inferiore rispetto al livello dell'**ambito**. Le **esclusioni** sono facoltative quindi per il momento è possibile lasciare vuoto il campo.
+1. Le risorse possono essere escluse in base all'**Ambito**.  Le **esclusioni** iniziano a un livello inferiore rispetto al livello dell'**Ambito**. Le **esclusioni** sono facoltative quindi per il momento è possibile lasciare vuoto il campo.
 
 1. Selezionare i puntini di sospensione per **Definizione criteri** per aprire l'elenco delle definizioni disponibili. Criteri di Azure include definizioni di criteri predefinite che è possibile usare. Sono disponibili molte definizioni, ad esempio:
 

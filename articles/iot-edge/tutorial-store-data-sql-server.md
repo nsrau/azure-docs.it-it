@@ -9,12 +9,12 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fc83546080111554446cb8f7b7ca97026f99e02e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 95041ca77930d87bff6ea31e2eab89a6634cfcf5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283430"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442965"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati nei dispositivi perimetrali con database di SQL Server
 
@@ -56,9 +56,9 @@ In questa esercitazione si usa l'estensione Azure IoT Edge per Visual Studio Cod
 
 È possibile usare qualsiasi registro compatibile con Docker per inserire le immagini dei contenitori. Due servizi di registro Docker molto diffusi sono [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro contenitori di Azure. 
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori**.
+Se non è ancora disponibile alcun registro contenitori, seguire questa procedura per crearne uno nuovo in Azure:
 
-    ![Creare un registro di contenitori](./media/tutorial-deploy-function/create-container-registry.png)
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori**.
 
 2. Specificare i valori seguenti per creare il registro contenitori:
 
@@ -75,7 +75,7 @@ In questa esercitazione si usa l'estensione Azure IoT Edge per Visual Studio Cod
 
 6. Dopo aver creato il registro contenitori, passare al registro e quindi selezionare **Chiavi di accesso**. 
 
-7. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**. Usare questi valori più avanti nell'esercitazione per fornire l'accesso al registro contenitori. 
+7. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**. Usare questi valori più avanti nell'esercitazione per fornire l'accesso al registro contenitori.  
 
 ## <a name="create-a-function-project"></a>Creare un progetto per le funzioni
 
@@ -229,9 +229,9 @@ Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che 
        "type": "docker",
        "status": "running",
        "restartPolicy": "always",
+       "env":{},
        "settings": {
            "image": "",
-           "environment": "",
            "createOptions": ""
        }
    }
@@ -239,50 +239,47 @@ Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che 
 
    ![Aggiungere un contenitore di SQL Server](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-5. A seconda del tipo di contenitori Docker presenti nel dispositivo IoT Edge, aggiornare i parametri **sql.settings** con il codice seguente:
-
+5. A seconda del tipo di contenitori Docker presenti nel dispositivo IoT Edge, aggiornare i parametri del modulo **sql** con il codice seguente:
    * Contenitori Windows:
 
-        ```json
-        {
-            "image": "microsoft/mssql-server-windows-developer",
-            "environment": {
-                "ACCEPT_EULA": "Y",
-                "SA_PASSWORD": "Strong!Passw0rd"
-            },
-            "createOptions": {
-                "HostConfig": {
-                    "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
-                    "PortBindings": {
-                        "1433/tcp": [{"HostPort": "1401"}]
-                    }
-                }
-            }
-        }
-        ```
- 
+      ```json
+      "env": {
+         "ACCEPT_EULA": {"value": "Y"},
+         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+       },
+       "settings": {
+          "image": "microsoft/mssql-server-windows-developer",
+          "createOptions": {
+              "HostConfig": {
+                  "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+                  "PortBindings": {
+                      "1433/tcp": [{"HostPort": "1401"}]
+                  }
+              }
+          }
+      }
+      ```
 
    * Contenitori Linux:
 
-        ```json
-        {
-            "image": "mcr.microsoft.com/mssql/server:latest",
-            "environment": {
-                "ACCEPT_EULA": "Y",
-                "SA_PASSWORD": "Strong!Passw0rd"
-            },
-            "createOptions": {
-                "HostConfig": {
-                    "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
-                    "PortBindings": {
-                        "1433/tcp": [{"HostPort": "1401"}]
-                    }
-                }
-            }
-        }
-        ```
-    
-    
+      ```json
+      "env": {
+         "ACCEPT_EULA": {"value": "Y"},
+         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+       },
+       "settings": {
+          "image": "mcr.microsoft.com/mssql/server:latest",
+          "createOptions": {
+              "HostConfig": {
+                  "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
+                  "PortBindings": {
+                      "1433/tcp": [{"HostPort": "1401"}]
+                  }
+              }
+          }
+      }
+      ```
+
    >[!Tip]
    >Ogni volta che si crea un contenitore SQL Server in un ambiente di produzione, è necessario [modificare la password dell'amministratore di sistema predefinita](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 

@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bd1b53acb619130a84400c49aba0cb2b710ad7e3
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616113"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582332"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Esercitazione: Distribuire Gemelli digitali di Azure e configurare un grafico spaziale
 
@@ -170,7 +170,11 @@ Salvare e chiudere il file provisionSample.yaml. Nella prossima esercitazione ve
 Se si non si vuole esplorare ulteriormente Gemelli digitali di Azure, è possibile eliminare le risorse create in questa esercitazione:
 
 1. Nel [portale di Azure](http://portal.azure.com) selezionare **Tutte le risorse** nel menu a sinistra, selezionare il gruppo di risorse di Gemelli digitali e quindi fare clic su **Elimina**.
-2. Se necessario, eliminare l'applicazione di esempio nel computer di lavoro. 
+   
+    > [!TIP]
+    > Se si sono riscontrati problemi durante l'eliminazione dell'istanza di Gemelli digitali, è stato reso disponibile un aggiornamento del servizio con la correzione. Riprovare a eliminare l'istanza.
+
+1. Se necessario, eliminare l'applicazione di esempio nel computer di lavoro. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

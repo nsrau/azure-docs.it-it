@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 2a72afe708c157fb2a19ac0bfcea2bea34f7b56f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625649"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584197"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Esercitazione: Effettuare il provisioning dell'edificio e monitorare le condizioni di lavoro con Gemelli digitali di Azure
 
@@ -253,6 +253,10 @@ Se la condizione monitorata viene soddisfatta, la funzione definita dall'utente 
 Se si non si vuole esplorare ulteriormente Gemelli digitali di Azure, è possibile eliminare le risorse create in questa esercitazione:
 
 1. Nel [portale di Azure](http://portal.azure.com) selezionare **Tutte le risorse** nel menu a sinistra, selezionare il gruppo di risorse di Gemelli digitali e quindi fare clic su **Elimina**.
+
+    > [!TIP]
+    > Se si sono riscontrati problemi durante l'eliminazione dell'istanza di Gemelli digitali, è stato reso disponibile un aggiornamento del servizio con la correzione. Riprovare a eliminare l'istanza.
+
 2. Se necessario, eliminare le applicazioni di esempio nel computer di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi

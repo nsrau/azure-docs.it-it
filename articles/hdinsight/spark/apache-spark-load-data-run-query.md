@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244074"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495773"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight
 
-In questa esercitazione si apprenderà come creare un frame di dati da un file CSV e come eseguire query interattive Spark SQL in un cluster Apache Spark in Azure HDInsight. In Spark un frame di dati è una raccolta distribuita di dati organizzati in colonne denominate. Dal punto di vista concettuale in frame di dati equivale a una tabella in un database relazionale o a un frame di dati in R/Python.
+In questa esercitazione si apprenderà come creare un frame di dati da un file CSV e come eseguire query interattive Spark SQL in un cluster [Apache Spark](https://spark.apache.org/) in Azure HDInsight. In Spark un frame di dati è una raccolta distribuita di dati organizzati in colonne denominate. Dal punto di vista concettuale in frame di dati equivale a una tabella in un database relazionale o a un frame di dati in R/Python.
  
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -99,10 +99,10 @@ Aprire il cluster nel portale di Azure e selezionare **Elimina**.
 
 Questa esercitazione illustra come:
 
-* Creare un frame di dati di Spark.
+* Creare un frame di dati di Apache Spark.
 * Eseguire Spark SQL sul frame di dati.
 
-Passare all'articolo successivo per scoprire come eseguire il pull dei dati registrati in Spark in uno strumento di analisi BI come Power BI. 
+Passare all'articolo successivo per scoprire come eseguire il pull dei dati registrati in Apache Spark in uno strumento di analisi BI come Power BI. 
 > [!div class="nextstepaction"]
 > [Analizzare i dati usando gli strumenti di business intelligence](apache-spark-use-bi-tools.md)
 

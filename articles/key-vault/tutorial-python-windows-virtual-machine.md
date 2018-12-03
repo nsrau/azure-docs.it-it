@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Come usare Azure Key Vault con una macchina virtuale Linux di Azure in Python | Microsoft Docs'
+title: 'Esercitazione: Come usare Azure Key Vault con una macchina virtuale Windows di Azure in Python | Microsoft Docs'
 description: "Esercitazione: Configurare un'applicazione ASP.NET Core per la lettura di un segreto da un insieme di credenziali delle chiavi"
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 863f3a8c18eab5b42b5f1377ca0f91f9740c06e7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 26b5b16e3eb016edbe53c3526e51c3aa44f307b5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265970"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583585"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Esercitazione: Come usare Azure Key Vault con una macchina virtuale Linux di Azure in Python
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>Esercitazione: Come usare Azure Key Vault con una macchina virtuale Windows di Azure in Python
 
 Azure Key Vault facilita la protezione di segreti come le chiavi API, le stringhe di connessione di database necessarie per accedere alle applicazioni, i servizi e le risorse IT.
 

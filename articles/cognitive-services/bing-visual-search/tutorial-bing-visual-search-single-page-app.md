@@ -10,16 +10,26 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: b493f65e47f5e4c932ed1229e4c00ee1af3cd5ab
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161855"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443892"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>Esercitazione: Ricerca visiva in un'app Web a pagina singola
 
 L'API Ricerca visiva Bing restituisce un'esperienza simile ai dettagli delle immagini visualizzati in Bing.com/images. Con Ricerca visiva è possibile specificare un'immagine e ottenere informazioni correlate dettagliate, ad esempio immagini visivamente simili, venditori degli oggetti raffigurati nelle immagini, pagine Web che includono l'immagine e altro ancora. 
+
+Per questa esercitazione è necessario avviare una sottoscrizione in base al piano tariffario S9, come illustrato in [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Per avviare una sottoscrizione nel portale di Azure:
+1. Nella parte superiore del portale di Azure immettere 'BingSearchV7' nella casella di testo `Search resources, services, and docs`.  
+2. Nella sezione Marketplace dell'elenco a discesa selezionare `Bing Search v7`.
+3. Immettere `Name` per la nuova risorsa.
+4. Selezionare la sottoscrizione `Pay-As-You-Go`.
+5. Selezionare il piano tariffario `S9`.
+6. Fare clic su `Enable` per iniziare a usare la sottoscrizione.
 
 Questa esercitazione estende l'app Web a pagina singola dell'esercitazione sulla Ricerca immagini Bing (vedere [App Web a pagina singola](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Per il codice sorgente completo di partenza per questa esercitazione, vedere [App Web a pagina singola (codice sorgente)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Per il codice sorgente finale di questa esercitazione, vedere [Ricerca visiva in un'app Web a pagina singola](tutorial-bing-visual-search-single-page-app-source.md).
 

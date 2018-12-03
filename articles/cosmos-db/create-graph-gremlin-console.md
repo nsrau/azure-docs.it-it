@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 8e98c778c89a74b6c3c1cfa7dc7feb311c62b076
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422967"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499515"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Creare, eseguire query e attraversare un grafo nella console Gremlin
 
@@ -23,7 +23,7 @@ ms.locfileid: "47422967"
 > * [Console Gremlin](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Node.JS](create-graph-nodejs.md)
+> * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
@@ -42,7 +42,7 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-È anche necessario installare la [console Gremlin](http://tinkerpop.apache.org/). Usare la versione 3.2.5 o successiva.
+È anche necessario installare la [console Gremlin](http://tinkerpop.apache.org/). Usare la versione 3.2.5 o successiva. Per usare la console Gremlin in Windows, è necessario installare [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -56,7 +56,7 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione remote-secure.yaml nella directory `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Immettere le configurazioni per *host*, *port*, *username*, *password*, *connectionPool* e *serializer* in base alla tabella seguente:
 
-    Impostazione|Valore consigliato|DESCRIZIONE
+    Impostazione|Valore consigliato|Descrizione
     ---|---|---
     hosts|[*account-name*.gremlin.cosmosdb.azure.com] o [*account-name*.graphs.azure.com] per gli account creati prima del 20 dicembre 2017|Vedere lo screenshot seguente. Si tratta del valore URI Gremlin disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/.
     port|443|Impostare su 443.

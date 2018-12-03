@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cd57e9a90b07447392fbff48017bb29f002ad29e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035952"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495584"
 ---
-# <a name="use-batch-transcription"></a>Usare la trascrizione batch
+# <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
-La trascrizione batch è ideale se nello spazio di archiviazione sono presenti grandi quantità di dati audio. Usando l'API REST è possibile fare riferimento ai file audio tramite URI di firma di accesso condiviso e ricevere trascrizioni in modo asincrono.
+La trascrizione Batch è ideale se nello spazio di archiviazione sono presenti grandi quantità di dati audio. Usando l'API REST dedicato è possibile fare riferimento ai file audio tramite URI di firma di accesso condiviso e ricevere trascrizioni in modo asincrono.
 
 ## <a name="the-batch-transcription-api"></a>API di trascrizione batch
 
@@ -36,16 +36,16 @@ L'API di trascrizione batch offre la trascrizione asincrona della voce in testo 
 
 L'API di trascrizione batch supporta i formati seguenti:
 
-Nome| Canale  |
-----|----------|
-mp3 |   Mono   |   
-mp3 |  Stereo  | 
-wav |   Mono   |
-wav |  Stereo  |
-opus|   Mono   |
-opus|  Stereo  |
+| Format | Codec | Bitrate | Frequenza di campionamento |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16 bit | 8 o 16 kHz, mono, stereo |
+| MP3 | PCM | 16 bit | 8 o 16 kHz, mono, stereo |
+| OGG | OPUS | 16 bit | 8 o 16 kHz, mono, stereo |
 
-Per i flussi audio stereo, la trascrizione batch divide i canali sinistro e destro durante la trascrizione. I due file JSON con il risultato vengono creati ognuno da un singolo canale. I timestamp per espressione consentono allo sviluppatore di creare una trascrizione finale ordinata. L'esempio JSON seguente illustra l'output di un canale, incluse le proprietà per impostare il filtro per le espressioni volgari e il modello di punteggiatura:
+> [!NOTE]
+> L'API di trascrizione batch richiede una chiave S0 (livello di pagamento). Non funziona con una chiave (f0) gratuita.
+
+Per i flussi audio stereo, l'API di trascrizione batch divide i canali sinistro e destro durante la trascrizione. I due file JSON con il risultato vengono creati ognuno da un singolo canale. I timestamp per espressione consentono allo sviluppatore di creare una trascrizione finale ordinata. L'esempio JSON seguente illustra l'output di un canale, incluse le proprietà per impostare il filtro per le espressioni volgari e il modello di punteggiatura.
 
 ```json
 {
@@ -62,6 +62,16 @@ Per i flussi audio stereo, la trascrizione batch divide i canali sinistro e dest
 
 > [!NOTE]
 > L'API di trascrizione batch usa un servizio REST per richiedere le trascrizioni, il relativo stato e i risultati associati. È possibile usare l'API da qualsiasi linguaggio. La sezione seguente descrive come viene usata l'API.
+
+### <a name="query-parameters"></a>Parametri di query
+
+Questi parametri possono essere inclusi nella stringa di query della richiesta REST.
+
+| Parametro | DESCRIZIONE | Obbligatoria / Facoltativa |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `none` che disabilita i filtri del contenuto volgare, `masked` che sostituisce il contenuto volgare con gli asterischi, `removed` che rimuove tutto il contenuto volgare dal risultato, o `tags` che aggiunge tag "contenuti volgari". L'impostazione predefinita è `masked`. | Facoltativo |
+| `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `none` che consente di disattivare la punteggiatura, `dictated` che implica la punteggiatura esplicita, `automatic` che permette al decodificatore di occuparsi della punteggiatura, o `dictatedandautomatic` che implica segni di punteggiatura dettata o automatica. | Facoltativo |
+
 
 ## <a name="authorization-token"></a>Token di autorizzazione
 
@@ -178,7 +188,7 @@ Per informazioni dettagliate sulle chiamate precedenti, vedere il [documento di 
 
 Prendere nota della configurazione asincrona per l'inserimento dell'audio e la ricezione dello stato della trascrizione. Viene creato un client HTTP .NET. Il metodo `PostTranscriptions` consente di inviare i dettagli del file audio e il metodo `GetTranscriptions` consente di ricevere i risultati. `PostTranscriptions` restituisce un handle e `GetTranscriptions` usa l'handle per crearne uno nuovo per ottenere lo stato della trascrizione.
 
-Il codice di esempio corrente non specifica un modello personalizzato. Per la trascrizione dei file, il servizio usa i modelli di base. Per specificare i modelli, è possibile passare nello stesso metodo gli ID per il modello acustico e per quello linguistico. 
+Il codice di esempio corrente non specifica un modello personalizzato. Per la trascrizione dei file, il servizio userà i modelli di base. Per specificare i modelli, è possibile passare nello stesso metodo gli ID per il modello acustico e per quello linguistico. 
 
 Se non si vogliono usare i modelli di base, passare gli ID per il modello acustico e per quello linguistico.
 

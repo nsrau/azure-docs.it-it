@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913989"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632790"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
 
@@ -43,18 +43,33 @@ No, le identità gestite per le risorse di Azure non sono ancora integrate con A
 
 Il limite di sicurezza dell'identità è la risorsa a cui è collegata. Ad esempio, il limite di sicurezza per una macchina virtuale con le identità gestite per le risorse di Azure abilitate è la macchina virtuale. Qualsiasi codice in esecuzione su quella macchina virtuale può chiamare l'endpoint delle identità gestite per le risorse di Azure e richiedere i token. L'esperienza è simile a quella con altre risorse che supportano le identità gestite per le risorse di Azure.
 
+### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>Quale identità sarà predefinita da IMDS se non si specifica l'identità nella richiesta?
+
+- Se è abilitata l'identità gestita assegnata dal sistema e non viene specificata nessuna identità nella richiesta, IMDS userà come predefinita l'identità gestita assegnata dal sistema.
+- Se non è abilitata l'identità gestita assegnata dal sistema ed esiste solo un'identità gestita assegnata dall'utente, IMDS userà come predefinita quella singola identità gestita assegnata dall'utente. 
+- Se non è abilitata l'identità gestita assegnata dal sistema ed esistono più identità gestite assegnate dall'utente, è necessario allora specificare un'identità gestita nella richiesta.
+
 ### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>È preferibile usare l'endpoint IMDS di macchina virtuale relativo alle identità gestite per le risorse di Azure o l'endpoint dell'estensione per macchina virtuale?
 
 Quando si usano le identità gestite per le risorse di Azure con macchine virtuali, è consigliabile usare l'endpoint IMDS relativo alle identità gestite per le risorse di Azure. Il Servizio metadati dell'istanza di Azure è un endpoint REST accessibile a tutte le macchine virtuali IaaS create tramite Azure Resource Manager. Alcuni vantaggi dell'uso delle identità gestite per le risorse di Azure nel servizio metadati dell'istanza sono:
-
-1. Tutti i sistemi operativi supportati da IaaS di Azure possono usare le identità gestite per le risorse di Azure sul servizio metadati dell'istanza. 
-2. Non è più necessario installare un'estensione nella macchina virtuale per abilitare le identità per le risorse di Azure. 
-3. I certificati usati dalle identità gestite per le risorse di Azure non sono più presenti nella macchina virtuale. 
-4. L'endpoint IMDS è un indirizzo IP non instradabile noto disponibile solo dalla macchina virtuale. 
+    - Tutti i sistemi operativi supportati da IaaS di Azure possono usare le identità gestite per le risorse di Azure sul servizio metadati dell'istanza.
+    - Non è più necessario installare un'estensione nella macchina virtuale per abilitare le identità per le risorse di Azure. 
+    - I certificati usati dalle identità gestite per le risorse di Azure non sono più presenti nella macchina virtuale.
+    - L'endpoint IMDS è un indirizzo IP non instradabile noto disponibile solo dalla macchina virtuale.
 
 L'estensione della macchina virtuale relativa alle identità gestite per le risorse di Azure è ancora disponibile per l'uso, ma nel futuro verrà usato l'endpoint IMDS per impostazione predefinita. L'estensione della macchina virtuale relativa alle identità gestite per le risorse di Azure verrà deprecata a gennaio 2019. 
 
 Per altre informazioni sul servizio metadati dell'istanza di Azure, vedere la [documentazione di IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+
+### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Le identità gestite saranno ricreate automaticamente se si sposta una sottoscrizione in un'altra directory?
+
+ No. Se si sposta una sottoscrizione in un'altra directory, sarà necessario ricrearla manualmente e concedere nuovamente le assegnazioni di ruolo del Controllo degli accessi in base al ruolo di Azure.
+    - Per le identità gestite assegnate dal sistema: disabilitare e abilitare di nuovo.
+    - Per le identità gestite assegnate dall'utente: eliminare, ricreare e collegare nuovamente alle risorse necessarie (ad esempio macchine virtuali)
+
+### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>È possibile usare un'identità gestita per accedere a risorse in tenant/directory diversi?
+
+ No. Le identità gestite attualmente non supportano gli scenari tra directory. 
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quali sono le distribuzioni di Linux supportate?
 

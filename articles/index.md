@@ -6,12 +6,12 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 189e1745a0768f36dd776ba88230a2d47037f9c2
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: ef9cb669db24cf2b68de955047e8e2d2f9fb04e9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285170"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499633"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -329,7 +329,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                             <li></li>
                             <li class="bottomRightItem">
                                 <a href="https://docs.microsoft.com/azure/index#pivot=products&panel=all">
-                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">Visualizzare tutti i servizi di Azure<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
+                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">Visualizzare tutti i servizi di Azure<svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
                                 </a>
                             </li>
                         </ul>
@@ -403,7 +403,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Kubernetes Service (AKS)</p>
+                                                <p>Servizio Azure Kubernetes</p>
                                             </a>
                                         </li>
                                         <li>
@@ -541,7 +541,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Kubernetes Service (AKS)</p>
+                                                <p>Servizio Azure Kubernetes</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1132,7 +1132,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Analytics</h3>
+                                    <h3>Analisi</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
@@ -1485,7 +1485,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Mobile</h3>
+                                    <h3>Dispositivi mobili</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/app-service-mobile/">
@@ -1545,7 +1545,13 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-network/ddos-protection-overview">
+                                        <li>
+                                            <a href="/azure/dedicated-hsm">
+                                                <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                <p>Modulo di protezione hardware dedicato di Azure</p>
+                                            </a>
+                                        </li>
+                        <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Protezione DDoS di Azure</p>
                                             </a>
@@ -1962,7 +1968,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Kubernetes Service (AKS)</h3>
+                                                    <h3>Servizio Azure Kubernetes</h3>
                                                     <p>Semplificare la distribuzione, la gestione e le operazioni di Kubernetes</p>
                                                 </div>
                                             </div>
@@ -2956,7 +2962,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Kubernetes Service (AKS)</h3>
+                                                    <h3>Servizio Azure Kubernetes</h3>
                                                     <p>Semplificare la distribuzione, la gestione e le operazioni di Kubernetes</p>
                                                 </div>
                                             </div>
@@ -4565,7 +4571,26 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-network/ddos-protection-overview">
+                                <a href="/azure/dedicated-hsm/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Modulo di protezione hardware dedicato</h3>
+                                                    <p>Usare l'archiviazione delle chiavi di crittografia in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                    <a href="/azure/virtual-network/ddos-protection-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4857,7 +4882,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#devtools">Strumenti per sviluppatori</a>
+                        <a href="#devtools">Strumenti di sviluppo</a>
                         <ul id="devtools" class="cardsA">
                             <li>
                                 <a href="/visualstudio/products/">
@@ -6153,7 +6178,7 @@ Azure Resource Manager </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com">Storage Explorer</a>
+                                                    <a href="https://storageexplorer.com">Storage Explorer</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Introduzione</a>

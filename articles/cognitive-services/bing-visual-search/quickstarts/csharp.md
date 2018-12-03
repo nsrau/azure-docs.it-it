@@ -10,14 +10,14 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6cec0e178c4ff5b27722cb8de258a1f78e6acc51
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 2f22c240eedf9a720912e96bc8f3c7ac269c1bc7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883344"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441180"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-c"></a>Guida Introduttiva: la prima query in C# di Ricerca visiva Bing
+# <a name="quickstart-your-first-bing-visual-search-query-in-c"></a>Guida introduttiva: Prima query in C# di Ricerca visiva Bing
 
 L'API Ricerca visiva Bing restituisce informazioni su un'immagine fornita. È possibile fornire l'immagine usando l'URL dell'immagine o un token di informazioni dettagliate oppure caricando l'immagine. Per informazioni su queste opzioni, vedere [Informazioni sull'API Ricerca visiva Bing](../overview.md) Questo articolo illustra come caricare un'immagine. Caricare un'immagine può essere utile negli scenari per dispositivi mobili in cui si acquisisce un'immagine di un punto di riferimento ben noto e si ottengono le relative informazioni. Le informazioni dettagliate, ad esempio, possono includere curiosità sul punto di riferimento. 
 
@@ -27,7 +27,7 @@ Se si carica un'immagine locale, la figura seguente illustra i dati del modulo c
 --boundary_1234-abcd
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -38,10 +38,17 @@ Il programma di esempio usa solo le classi di .NET Core e viene eseguito in Wind
 
 
 ## <a name="prerequisites"></a>Prerequisiti
+Per questa guida introduttiva è necessario avviare una sottoscrizione in base al piano tariffario S9, come illustrato in [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
 
-È necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/) perché questo codice possa essere eseguito su Windows. (La Community Edition funzionerà.)
+Per avviare una sottoscrizione nel portale di Azure:
+1. Nella parte superiore del portale di Azure immettere 'BingSearchV7' nella casella di testo `Search resources, services, and docs`.  
+2. Nella sezione Marketplace dell'elenco a discesa selezionare `Bing Search v7`.
+3. Immettere `Name` per la nuova risorsa.
+4. Selezionare la sottoscrizione `Pay-As-You-Go`.
+5. Selezionare il piano tariffario `S9`.
+6. Fare clic su `Enable` per iniziare a usare la sottoscrizione.
 
-Per questa guida introduttiva, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
+È necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/) perché questo codice possa essere eseguito su Windows. È possibile usare la versione gratuita Community Edition.  
 
 ## <a name="running-the-application"></a>Esecuzione dell'applicazione
 
@@ -50,7 +57,7 @@ La schermata seguente mostra come inviare un messaggio tramite HttpWebRequest. P
 Per eseguire l'applicazione seguire questa procedura:
 
 1. Creare una nuova soluzione di Console in Visual Studio.
-1. Sostituire il contenuto di `Program.cs` con il codice illustrato in questo Avvio rapido.
+1. Sostituire il contenuto di `Program.cs` con il codice illustrato in questa guida introduttiva.
 2. Sostituire il valore `accessKey` con la chiave di sottoscrizione.
 2. Sostituire il valore di `imagePath` con il percorso dell'immagine da caricare.
 3. Eseguire il programma.

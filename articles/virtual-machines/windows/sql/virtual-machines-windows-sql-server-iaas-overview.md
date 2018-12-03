@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/12/2018
 ms.author: jroth
-ms.openlocfilehash: 905caa7d0de514ae9fd13cb058b2b7826b8b6abf
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 141a65032d3d97a7977bb3e725edb47b6f25d55c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003672"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496659"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Cos'è SQL Server in Macchine virtuali di Azure? (Windows)
 
@@ -67,8 +67,13 @@ La tabella seguente fornisce una matrice delle immagini di SQL Server con pagame
 
 Per le immagini di macchine virtuali SQL Server disponibili per Linux, vedere [Panoramica di SQL Server in macchine virtuali di Azure (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
 
+> [!NOTE]
+> Per usare la licenza personale, è ora possibile modificare il modello di licenza di una macchina virtuale di SQL Server con pagamento in base all'utilizzo. Per altre informazioni, vedere [Come cambiare il livello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md). 
+
 ### <a id="BYOL"></a> Bring Your Own License
 È anche possibile scegliere l'opzione Bring Your Own License (BYOL). In questo scenario si paga solo per la VM senza altre spese per le licenze di SQL Server.  L'opzione Bring Your Own License consente di risparmiare denaro nel tempo per i carichi di lavoro di produzione continui. Per i requisiti per questa opzione, vedere [Guida ai prezzi per le VM di SQL Server in Azure](virtual-machines-windows-sql-server-pricing-guidance.md#byol).
+
+Per usare l'opzione Bring Your Own License, è possibile convertire una macchina virtuale SQL con pagamento in base all'utilizzo esistente oppure distribuire un'immagine con il prefisso **{BYOL}**. Per altre informazioni sul passaggio tra il modello di licenza con pagamento in base all'utilizzo e BYOL, vedere [Come cambiare il livello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md). 
 
 | Version | Sistema operativo | Edizione |
 | --- | --- | --- |
@@ -77,7 +82,6 @@ Per le immagini di macchine virtuali SQL Server disponibili per Linux, vedere [P
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-Nel portale questi nomi di immagine hanno il prefisso **{BYOL}**.
 
 ### <a name="connect-to-the-vm"></a>Connettersi alla VM
 Una volta creata la VM di SQL Server, stabilire la connessione con applicazioni o strumenti come SQL Server Management Studio (SSMS). Per istruzioni, vedere [Connettersi a una macchina virtuale di SQL Server in Azure ](virtual-machines-windows-sql-connect.md).
@@ -89,7 +93,7 @@ Se esiste già un database, è possibile spostarlo nella nuova VM di SQL di cui 
 Azure gestisce una sola immagine di macchina virtuale per ogni combinazione supportata di sistema operativo, versione ed edizione. Ciò significa che le immagini vengono aggiornate nel tempo e quelle meno recenti vengono rimosse. Per altre informazioni, vedere la sezione **Immagini** delle [domande frequenti sulle macchine virtuali SQL Server](virtual-machines-windows-sql-server-iaas-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Analisi utilizzo software
-Il programma Analisi utilizzo software è abilitato per impostazione predefinita. Invia periodicamente report a Microsoft per contribuire a migliorare SQL Server. Non sono necessarie attività di gestione per il programma Analisi utilizzo software, a meno che non lo si voglia disabilitare dopo il provisioning. È possibile personalizzare o disabilitare Analisi utilizzo software connettendosi alla VM con Desktop remoto. Eseguire quindi l'utilità **Segnalazione errori e utilizzo funzionalità di SQL Server** . Seguire le istruzioni per disabilitare il reporting. Per altre informazioni sulla raccolta di dati, vedere l'[informativa sulla privacy di SQL Server](https://docs.microsoft.com/sql/getting-started/microsoft-sql-server-privacy-statement).
+Il programma Analisi utilizzo software è abilitato per impostazione predefinita. Invia periodicamente report a Microsoft per contribuire a migliorare SQL Server. Non sono necessarie attività di gestione per il programma Analisi utilizzo software, a meno che non lo si voglia disabilitare dopo il provisioning. È possibile personalizzare o disabilitare Analisi utilizzo software connettendosi alla VM con Desktop remoto. Eseguire quindi l'utilità **Segnalazione errori e utilizzo funzionalità di SQL Server**. Seguire le istruzioni per disabilitare il reporting. Per altre informazioni sulla raccolta di dati, vedere l'[informativa sulla privacy di SQL Server](https://docs.microsoft.com/sql/getting-started/microsoft-sql-server-privacy-statement).
 
 ## <a name="related-products-and-services"></a>Prodotti e servizi correlati
 ### <a name="windows-virtual-machines"></a>Macchine virtuali Windows

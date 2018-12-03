@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: creare una query di ricerca visiva, Node.js - Ricerca visiva Bing'
+title: 'Guida introduttiva: Creare una query di ricerca visiva, Node.js - Ricerca visiva Bing'
 titleSuffix: Azure Cognitive Services
 description: Come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate sull'immagine.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 3490f7722ca0c1331ccea26cd18398cff1317aee
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 553d068d70f7e722f3c8e4de3978f3583b941963
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887413"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442529"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>Avvio rapido: la prima query di Ricerca visiva Bing in JavaScript
+# <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>Guida introduttiva: Prima query di Ricerca visiva Bing in JavaScript
 
 L'API Ricerca visiva Bing restituisce informazioni su un'immagine fornita. È possibile fornire l'immagine usando l'URL dell'immagine o un token di informazioni dettagliate oppure caricando l'immagine. Per informazioni su queste opzioni, vedere [Informazioni sull'API Ricerca visiva Bing](../overview.md) Questo articolo illustra come caricare un'immagine. Caricare un'immagine può essere utile negli scenari per dispositivi mobili in cui si acquisisce un'immagine di un punto di riferimento ben noto e si ottengono le relative informazioni. Le informazioni dettagliate, ad esempio, possono includere curiosità sul punto di riferimento. 
 
@@ -27,7 +27,7 @@ Se si carica un'immagine locale, la figura seguente illustra i dati del modulo c
 --boundary_1234-abcd
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -35,10 +35,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Questo articolo include una semplice applicazione console che invia una richiesta all'API Ricerca visiva Bing e visualizza i risultati della ricerca JSON. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione che sia in grado di effettuare richieste HTTP e analizzare una stringa JSON. 
 
 ## <a name="prerequisites"></a>Prerequisiti
+Per questa guida introduttiva è necessario avviare una sottoscrizione in base al piano tariffario S9, come illustrato in [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Per avviare una sottoscrizione nel portale di Azure:
+1. Nella parte superiore del portale di Azure immettere 'BingSearchV7' nella casella di testo `Search resources, services, and docs`.  
+2. Nella sezione Marketplace dell'elenco a discesa selezionare `Bing Search v7`.
+3. Immettere `Name` per la nuova risorsa.
+4. Selezionare la sottoscrizione `Pay-As-You-Go`.
+5. Selezionare il piano tariffario `S9`.
+6. Fare clic su `Enable` per iniziare a usare la sottoscrizione.
 
 Per eseguire questo codice è necessario [Node.js 6](https://nodejs.org/en/download/).
-
-Per questa guida introduttiva, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
 
 ## <a name="running-the-application"></a>Esecuzione dell'applicazione
 

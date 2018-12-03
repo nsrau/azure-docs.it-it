@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 8/8/2018
+ms.date: 11/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: fe84dfcef2a5dad1c170592f933638b984e16a05
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 439a3338d5b2104d20e8de99a83fe19c6935a5ac
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717030"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499477"
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
-Rete virtuale di Azure consente a diversi tipi di risorse di Azure, ad esempio Macchine virtuali di Azure, di comunicare in modo sicuro tra di esse, con Internet e con le reti locali. Rete virtuale di Azure offre le funzionalità chiave seguenti:
+Rete virtuale di Azure consente a diversi tipi di risorse di Azure, ad esempio Macchine virtuali di Azure, di comunicare in modo sicuro tra di esse, con Internet e con le reti locali. L'ambito di una rete virtuale è una singola area; tuttavia, è possibile connettere più reti virtuali da diverse aree usando il peering di rete virtuale.
+
+Rete virtuale di Azure offre le funzionalità chiave seguenti:
 
 ## <a name="isolation-and-segmentation"></a>Isolamento e segmentazione
 

@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eebeb8d1f27631e7ecb40072f78d6a04b5152a8f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9811c51485ec30e7fe692c52f4e65cefd93e5cb0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277138"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499078"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorare la sincronizzazione di Azure AD Connect con Azure AD Connect Health
 La documentazione seguente è specifica per il monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health.  Per informazioni sul monitoraggio di AD FS con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](how-to-connect-health-adds.md).
@@ -62,7 +62,7 @@ Questa funzionalità fornisce una tendenza grafica del numero di modifiche valut
 
 ![Latenza della sincronizzazione](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## <a name="object-level-synchronization-error-report-preview"></a>Report degli errori di sincronizzazione a livello di oggetto (anteprima)
+## <a name="object-level-synchronization-error-report"></a>Report degli errori di sincronizzazione a livello di oggetto
 Questa funzionalità offre un report sugli errori di sincronizzazione che possono verificarsi durante la sincronizzazione dei dati relativi alle identità tra Active Directory di Windows Server e Azure AD con Azure AD Connect.
 
 * Il report contiene gli errori registrati dal client di sincronizzazione (Azure AD Connect versione 1.1.281.0 o successiva).
@@ -74,12 +74,12 @@ Questa funzionalità offre un report sugli errori di sincronizzazione che posson
   * Elenco degli oggetti con errore per categoria
   * Tutti i dati sugli errori in un'unica posizione
   * Confronto affiancato degli oggetti con errore a causa di un conflitto
-  * Download del report degli errori in formato CSV (presto disponibile)
+  * Download del report degli errori in formato CSV
 
 ### <a name="categorization-of-errors"></a>Categorizzazione degli errori
 Il report suddivide gli errori di sincronizzazione esistenti nelle categorie seguenti:
 
-| Categoria | DESCRIZIONE |
+| Categoria | Descrizione |
 | --- | --- |
 | Attributo duplicato |Errori che si verificano quando Azure AD Connect prova a creare o aggiornare oggetti con valori duplicati per uno o più attributi di Azure AD che devono essere univoci in un tenant, come proxyAddresses o UserPrincipalName. |
 | Dati non corrispondenti |Errori di sincronizzazione che si verificano quando la funzionalità di corrispondenza flessibile non riesce a trovare una corrispondenza con l'oggetto. |

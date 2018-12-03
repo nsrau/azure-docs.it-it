@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: 463a00823997f1acfb65fdd739a093e556982a61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411951"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495980"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Estensione di driver GPU NVIDIA per Windows
 
 ## <a name="overview"></a>Panoramica
 
-Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Windows serie N. A seconda della famiglia di macchine virtuali, l'estensione installa i driver CUDA o GRID. Quando si installano i driver NVIDIA con questa estensione, l'utente accetta e acconsente ai termini del contratto di licenza dell'utente finale di NVIDIA. Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
+Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Windows serie N. A seconda della famiglia di macchine virtuali, l'estensione installa i driver CUDA o GRID. Quando si installano i driver NVIDIA con questa estensione, l'utente accetta e acconsente ai termini del [contratto di licenza dell'utente finale di NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
 
 È anche disponibile un'estensione per installare i driver GPU NVIDIA nelle [macchine virtuali serie N di Linux](hpccompute-gpu-linux.md).
-
-I termini del contratto di licenza dell'utente finale di NVIDIA si trovano qui: https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -63,22 +61,31 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
 }
 ```
 
-### <a name="property-values"></a>Valori delle proprietà
+### <a name="properties"></a>Properties
 
 | NOME | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | stringa |
 | type | NvidiaGpuDriverWindows | stringa |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.2 | int |
 
+### <a name="settings"></a>Impostazioni
+
+Tutte le impostazioni sono facoltative. Il comportamento predefinito è installare il driver più recente supportato come applicabile.
+
+| NOME | DESCRIZIONE | Default Value | Valori validi | Tipo di dati |
+| ---- | ---- | ---- | ---- | ---- |
+| driverVersion | NV: Versione del driver GRID<br> NC/NS: Versione del driver CUDA | più recenti | GRID: "411.81", "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | stringa |
+| installGridND | Installare iL driver GRID nelle macchine virtuali serie ND | false | true, false | boolean |
 
 ## <a name="deployment"></a>Distribuzione
 
@@ -103,7 +110,8 @@ L'esempio seguente presuppone che l'estensione sia annidata all'interno della ri
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -120,12 +128,14 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+L'esempio seguente rispecchia l'esempio precedente di PowerShell e ARM e inoltre aggiunge le impostazioni personalizzate come esempio per l'installazione di driver non predefinita. In particolare, viene installato un driver GRID specifico, anche se viene effettuato il provisioning di una macchina virtuale serie ND.
 
 ```azurecli
 az vm extension set `
@@ -133,8 +143,10 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.2 `
   --settings '{ `
+    "driverVersion": "391.03",
+    "installGridND": true
   }'
 ```
 
@@ -164,7 +176,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Operazione riuscita |
 | 1 | Operazione riuscita. Riavvio richiesto. |
-| 4, 10 | Timeout dell'operazione. | Ripetere l'operazione.
+| 100 | Operazione non supportata o non completata. | Possibili cause: versione di PowerShell non supportata, la macchina virtuale non è una macchina virtuale serie N, errore di download dei dati. Controllare i file di log per determinare la causa dell’errore. |
+| 240, 840 | Timeout dell'operazione. | Ripetere l'operazione. |
 | -1 | Si è verificata un'eccezione. | Controllare i file di log per determinare la causa dell'eccezione. |
 | -5x | Operazione interrotta a causa di un riavvio in sospeso. | Riavviare la macchina virtuale. L'installazione continuerà dopo il riavvio. La disinstallazione deve essere richiamata manualmente. |
 

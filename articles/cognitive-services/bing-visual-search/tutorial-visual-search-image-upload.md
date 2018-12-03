@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2e65313207e2bb29ae269425012cc6c340261ba4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888340"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443458"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Esercitazione: Suddivisione del processo di caricamento in Ricerca visiva Bing
 
@@ -23,6 +23,15 @@ Questa esercitazione suddivide il processo di caricamento di un'immagine in Bing
 
 Questa esercitazione è destinata agli sviluppatori che vogliono esaminare il contenuto della risposta di Ricerca visiva Bing. Non si applica a tutti i requisiti per l'uso e la visualizzazione (ad esempio non contiene alcun collegamento all'Informativa sulla privacy di Microsoft). Per tutti i requisiti per l'uso e la visualizzazione, vedere [Requisiti per l'uso e la visualizzazione delle API di ricerca Bing](./use-and-display-requirements.md).
 
+Per questa esercitazione è necessario avviare una sottoscrizione in base al piano tariffario S9, come illustrato in [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Per avviare una sottoscrizione nel portale di Azure:
+1. Nella parte superiore del portale di Azure immettere 'BingSearchV7' nella casella di testo `Search resources, services, and docs`.  
+2. Nella sezione Marketplace dell'elenco a discesa selezionare `Bing Search v7`.
+3. Immettere `Name` per la nuova risorsa.
+4. Selezionare la sottoscrizione `Pay-As-You-Go`.
+5. Selezionare il piano tariffario `S9`.
+6. Fare clic su `Enable` per iniziare a usare la sottoscrizione.
 
 ## <a name="where-to-start"></a>Dove iniziare?
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: 590a7aa875f5f8c40576d69d7e73bdfc31fffbf8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636255"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582395"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guida introduttiva: Trovare le stanze disponibili usando Gemelli digitali di Azure
 
@@ -150,6 +150,10 @@ Per continuare con le esercitazioni, non eliminare le risorse create in questa g
 
 1. Eliminare la cartella che è stata creata durante il download del repository di esempio.
 1. Scegliere [Tutte le risorse](http://portal.azure.com) dal menu a sinistra nel **portale di Azure**. Selezionare quindi la risorsa Gemelli digitali. Nella parte superiore del riquadro **Tutte le risorse** selezionare **Elimina**.
+   
+    > [!TIP]
+    > Se si sono riscontrati problemi durante l'eliminazione dell'istanza di Gemelli digitali, è stato reso disponibile un aggiornamento del servizio con la correzione. Riprovare a eliminare l'istanza.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f8f7d43d4b42f5236c6c8d25c88314043053b0cc
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515727"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445711"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guida introduttiva - Esplorare e analizzare i costi di Azure con l'analisi dei costi
 
@@ -84,17 +84,17 @@ Per impostazione predefinita, l'analisi dei costi mostra i costi **accumulati**.
 
 ![Visualizzazione giornaliera](./media/quick-acm-cost-analysis/daily-view.png)
 
-È possibile usare l'opzione **Raggruppa per** per selezionare una categoria di gruppi e cambiare i dati visualizzati nel grafico ad area del totale nella parte superiore. Il raggruppamento consente di visualizzare rapidamente come la spesa viene organizzata per tipo di risorsa. Ecco una visualizzazione dei costi dei servizi di Azure nell'ultimo mese.
+È possibile usare l'opzione **Raggruppa per** per selezionare una categoria di gruppi e cambiare i dati visualizzati nel grafico ad area del totale nella parte superiore. Il raggruppamento consente di visualizzare rapidamente come la spesa viene organizzata in base alle proprietà di risorse e utilizzo comuni, come un gruppo di risorse o i tag delle risorse. Per raggruppare in base ai tag, selezionare la chiave del tag in base alla quale si vuole raggruppare: i costi verranno suddivisi in base al rispettivo valore per tale tag, con un segmento extra per le risorse a cui non è applicato quel tag. Nota: Gestione costi supporta solo i tag delle risorse a partire dalla data in cui i tag vengono applicati direttamente alla risorsa. I tag del gruppo di risorse non sono ancora supportati. Ecco una visualizzazione dei costi dei servizi di Azure nell'ultimo mese.
 
 ![Visualizzazione cumulativa giornaliera raggruppata](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-I grafici pivot sotto la visualizzazione del totale superiore mostrano visualizzazioni per categorie di raggruppamenti e filtri diverse. Quando si seleziona una categoria di gruppi, il set completo di dati per la visualizzazione del totale è nella parte inferiore della visualizzazione. Di seguito è riportato un esempio per i gruppi di risorse.
+I grafici pivot nel grafico principale mostrano diversi raggruppamenti per offrire un quadro più ampio dei costi complessivi per il periodo di tempi e i filtri selezionati. Selezionare una proprietà o un tag per visualizzare i costi aggregati per qualsiasi dimensione. Il set completo di dati per la visualizzazione totale è visibile nella parte inferiore della schermata, espandendo il menu **Dati** o selezionando **Esporta > Scarica CSV** nella parte superiore della schermata. Di seguito è riportato un esempio del menu dati per i gruppi di risorse.
 
 ![Dati completi per la visualizzazione corrente](./media/quick-acm-cost-analysis/full-data-set.png)
 
-L'immagine precedente mostra i nomi dei gruppi di risorse. I tag di visualizzazione per le risorse non sono disponibili in alcuna visualizzazione di analisi dei costi, nonché in alcun filtro o raggruppamento.
+L'immagine precedente mostra i nomi dei gruppi di risorse. Anche se è possibile raggruppare in base a tag per visualizzare i costi totali per ogni tag, la visualizzazione di tutti i tag per risorsa o gruppo di risorse non è disponibile in nessuna delle visualizzazioni di analisi dei costi.
 
-Quando si raggruppano i costi in base a un attributo specifico, vengono visualizzati in ordine decrescente i primi 10 gruppi di risorse che hanno contribuito maggiormente ai costi. Se sono presenti più di 10 gruppi, vengono visualizzati i primi nove gruppi, oltre a un gruppo **Others** (Altri), che riunisce tutti gli altri gruppi.
+Quando si raggruppano i costi in base a un attributo specifico, vengono visualizzati in ordine decrescente i primi 10 gruppi di risorse che hanno contribuito maggiormente ai costi. Se sono presenti più di 10 gruppi, vengono visualizzati i primi nove gruppi, oltre a un gruppo **Others** (Altri), che riunisce tutti gli altri gruppi. Quando si raggruppa in base ai tag, è anche possibile visualizzare un gruppo **Senza tag** a cui non è applicata la chiave del tag. **Senza tag** è sempre ultimo, anche se esistono più costi senza tag che costi con tag. Se sono presenti 10 o più valori di tag, i costi senza tag faranno parte del gruppo **Altri**.
 
 Le macchine virtuali, le risorse di rete e le risorse di archiviazione *classiche* (Gestione dei servizi di Azure o ASM) non condividono dati di fatturazione dettagliati. Tali risorse vengono unite nel gruppo **Classic services** (Servizi classici) quando si raggruppano i costi.
 

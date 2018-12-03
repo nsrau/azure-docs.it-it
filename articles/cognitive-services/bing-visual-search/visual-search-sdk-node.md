@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 77b8f956ca2a6985121cb5dbfebc2755fa73a35c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: cca39fb16c47eb13887f6198833dafc64974d301
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685974"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444461"
 ---
 # <a name="quickstart-bing-visual-search-sdk-node"></a>Guida introduttiva: Nodo di Ricerca visiva Bing SDK 
 
@@ -28,7 +28,15 @@ Gli scenari di codice sono illustrati negli argomenti seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Per autenticare le chiamate SDK, è necessaria una chiave di API di Servizi cognitivi. Iscriversi per ottenere una [chiave di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). La chiave di prova è valida per sette giorni, con una chiamata al secondo. Per gli scenari di produzione [acquistare una chiave di accesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Vedere anche le [informazioni sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Per questa guida introduttiva è necessario avviare una sottoscrizione in base al piano tariffario S9, come illustrato in [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Per avviare una sottoscrizione nel portale di Azure:
+1. Nella parte superiore del portale di Azure immettere 'BingSearchV7' nella casella di testo `Search resources, services, and docs`.  
+2. Nella sezione Marketplace dell'elenco a discesa selezionare `Bing Search v7`.
+3. Immettere `Name` per la nuova risorsa.
+4. Selezionare la sottoscrizione `Pay-As-You-Go`.
+5. Selezionare il piano tariffario `S9`.
+6. Fare clic su `Enable` per iniziare a usare la sottoscrizione.
 
 ## <a name="application-dependencies"></a>Dipendenze dell'applicazione
 

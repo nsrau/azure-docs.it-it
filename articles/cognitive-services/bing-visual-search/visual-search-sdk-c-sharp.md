@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Uso dell'SDK di Ricerca visiva Bing, C#"
+title: 'Guida introduttiva: Uso di Bing Visual Search SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: Configurare l'applicazione console SDK di Ricerca visiva per C#.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4cb6e79b563ac0172f93b3a721b79c230a96a1d5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 25b01de47767e335d614aa0a8cf32c344c7305d8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457987"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442847"
 ---
 # <a name="quickstart-bing-visual-search-sdk-c"></a>Guida introduttiva: SDK di Ricerca visiva Bing per C#
 
@@ -33,7 +33,16 @@ Gli scenari di codice sono illustrati negli argomenti seguenti:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Visual Studio 2017. Se necessario, è possibile scaricare la versione gratuita della community da qui: https://www.visualstudio.com/vs/community/.
-* Per autenticare le chiamate SDK, è necessaria una chiave di API di Servizi cognitivi. Iscriversi per ottenere una [chiave di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). La chiave di prova è valida per sette giorni, con una chiamata al secondo. Per gli scenari di produzione [acquistare una chiave di accesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Vedere anche le [informazioni sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Per questa guida introduttiva è necessario avviare una sottoscrizione in base al piano tariffario S9, come illustrato in [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Per avviare una sottoscrizione nel portale di Azure:
+1. Nella parte superiore del portale di Azure immettere 'BingSearchV7' nella casella di testo `Search resources, services, and docs`.  
+2. Nella sezione Marketplace dell'elenco a discesa selezionare `Bing Search v7`.
+3. Immettere `Name` per la nuova risorsa.
+4. Selezionare la sottoscrizione `Pay-As-You-Go`.
+5. Selezionare il piano tariffario `S9`.
+6. Fare clic su `Enable` per iniziare a usare la sottoscrizione.
+
 * Possibilità di eseguire .NET Core SDK e app .NET Core 1.1. CORE, Framework e Runtime sono disponibili qui: https://www.microsoft.com/net/download/.
 
 ## <a name="application-dependencies"></a>Dipendenze dell'applicazione

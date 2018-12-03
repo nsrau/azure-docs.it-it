@@ -9,10 +9,12 @@ items:
     href: rbac-and-directory-admin-roles.md
 - name: Guide introduttive
   items:
-  - name: Concedere l'accesso per un utente
-    href: quickstart-assign-role-user-portal.md
+  - name: Visualizzare i ruoli per un utente
+    href: check-access.md
 - name: Esercitazioni
   items:
+  - name: Concedere l'accesso per un utente - Portale
+    href: quickstart-assign-role-user-portal.md
   - name: Concedere l'accesso per un utente - PowerShell
     href: tutorial-role-assignments-user-powershell.md
   - name: Concedere l'accesso per un gruppo - PowerShell
@@ -47,6 +49,8 @@ items:
       href: role-assignments-template.md
   - name: Rifiutare l'accesso
     items:
+    - name: Portale
+      href: deny-assignments-portal.md
     - name: API REST
       href: deny-assignments-rest.md
   - name: Ruoli personalizzati
@@ -66,7 +70,7 @@ items:
     href: role-assignments-external-users.md
   - name: Risolvere problemi
     href: troubleshooting.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Ruoli predefiniti
     href: built-in-roles.md
@@ -84,9 +88,9 @@ items:
   items:
   - name: Sviluppare le proprie competenze con Microsoft Learn
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: d7f84aefad411d8fd8d4ac7541871c7f4c50e2c9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6f967caa9aa90f06833bee1f830b60ea0f13c14f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431543"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632943"

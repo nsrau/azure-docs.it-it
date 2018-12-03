@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 4bb37032f2ecdfecf08adec3f32aa00d5ad12897
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 370503cc463fd3683f47fe0b573ad83daa0b9d14
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255524"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584554"
 ---
-# <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-the-azure-portal"></a>Guida introduttiva: Creare un cluster Spark in HDInsight usando il portale di Azure
+# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>Guida introduttiva: Creare un cluster Apache Spark in HDInsight usando il portale di Azure
 Informazioni su come creare un cluster Apache Spark in Azure HDInsight ed eseguire query Spark SQL sulle tabelle Hive. Apache Spark consente cluster computing e analisi dei dati veloci grazie all'elaborazione in memoria. Per informazioni su Spark in HDInsight, vedere [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md).
 
 In questa guida introduttiva si userà il portale di Azure per creare un cluster Spark in HDInsight. Il cluster usa i BLOB del servizio di archiviazione di Azure come archiviazione cluster. Per maggiori informazioni sull'uso di Data Lake Storage Gen2, vedere [Avvio rapido: configurare cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
     ![HDInsight nel portale di Azure](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "HDInsight nel portale di Azure")
 2. In **Informazioni di base** specificare i valori seguenti:
      
-    |Proprietà  |DESCRIZIONE  |
+    |Proprietà  |Descrizione  |
     |---------|---------|
     |**Nome cluster**     | Assegnare un nome al cluster HDInsight Spark. Il nome del cluster usato per questa guida introduttiva è **myspark20180403**.|
     |**Sottoscrizione**     | Nell'elenco a discesa selezionare la sottoscrizione di Azure usata per questo cluster. La sottoscrizione di Azure usata in questa guida introduttiva è **&lt;Azure subscription**. |
@@ -133,4 +133,5 @@ Tornare al portale di Azure e selezionare **Elimina**.
 In questa guida introduttiva si è appreso come creare un cluster HDInsight Spark ed eseguire una query Spark SQL di base. Passare all'esercitazione successiva per imparare come usare un cluster HDInsight Spark per eseguire query interattive su dati di esempio.
 
 > [!div class="nextstepaction"]
->[Eseguire query interattive su Spark](./apache-spark-load-data-run-query.md)
+>[Eseguire query interattive su Apache Spark](./apache-spark-load-data-run-query.md)
+
