@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: 14227239f3772f7c820f0c5dc941a89da9675f4e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 435f7840e2d3d7d8a4d1d53a0a3e8b4e85fe4dce
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162414"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312647"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Guida introduttiva: Usare l'SDK di Ricerca Web Bing per Node.js
 
@@ -25,8 +25,9 @@ Per vedere il codice subito, gli [esempi dell'SDK di Ricerca Web Bing per Node.j
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## <a name="prerequisites"></a>Prerequisiti
 Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare di avere quanto segue:
 
 * [Node.js 6](https://nodejs.org/en/download/) o versione successiva

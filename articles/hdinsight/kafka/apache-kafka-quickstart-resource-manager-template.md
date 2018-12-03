@@ -8,16 +8,16 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: dea69e9cfcd3cff24c77698ee4a8ed729a18f087
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 03d7c63d09ddaf64a552a4534612f0f7e9fd249b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011928"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312368"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guida introduttiva: Creare un cluster Kafka in HDInsight
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Guida introduttiva: Creare un cluster Apache Kafka in HDInsight
 
-Kafka è una piattaforma di streaming open source distribuita. Viene spesso usata come broker di messaggi perché offre funzionalità simili a una coda messaggi di pubblicazione/sottoscrizione. 
+[Apache Kafka](https://kafka.apache.org/) è una piattaforma di streaming open source distribuita. Viene spesso usata come broker di messaggi perché offre funzionalità simili a una coda messaggi di pubblicazione/sottoscrizione. 
 
 Questa guida di avvio rapido illustra come creare un cluster [Apache Kafka](https://kafka.apache.org) in Azure HDInsight tramite il portale di Azure. Illustra anche come usare le utilità incluse per inviare e ricevere messaggi tramite Kafka.
 
@@ -26,7 +26,7 @@ Questa guida di avvio rapido illustra come creare un cluster [Apache Kafka](http
 > [!IMPORTANT]
 > Possono accedere all'API Kafka solo risorse interne alla stessa rete virtuale. In questa guida di avvio rapido si accede al cluster direttamente usando SSH. Per connettere altri servizi, reti o macchine virtuali a Kafka, è necessario prima di tutto creare una rete virtuale e quindi creare le risorse all'interno della rete.
 >
-> Per altre informazioni, vedere il documento [Connettersi a Kafka da una rete locale](apache-kafka-connect-vpn-gateway.md).
+> Per altre informazioni, vedere il documento [Connettersi ad Apache Kafka da una rete locale](apache-kafka-connect-vpn-gateway.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,7 +45,7 @@ Questa guida di avvio rapido illustra come creare un cluster [Apache Kafka](http
     >
     > Per altre informazioni, vedere il documento [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="create-a-kafka-cluster"></a>Creare un cluster Kafka
+## <a name="create-an-apache-kafka-cluster"></a>Creare un cluster Apache Kafka
 
 1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure.
 
@@ -107,9 +107,9 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Ottenere le informazioni sugli host Zookeeper e broker
+## <a id="getkafkainfo"></a>Ottenere le informazioni sugli host Apache Zookeeper e broker
 
-Quando si usa Kafka, è necessario conoscere gli host *Zookeeper* e *broker*. Questi host vengono usati con l'API Kafka e molte delle utilità offerte con Kafka.
+Quando si usa Kafka, è necessario conoscere gli host *Apache Zookeeper* e *broker*. Questi host vengono usati con l'API Kafka e molte delle utilità offerte con Kafka.
 
 In questa sezione si ottengono le informazioni sull'host dall'API REST Ambari nel cluster.
 
@@ -166,7 +166,7 @@ In questa sezione si ottengono le informazioni sull'host dall'API REST Ambari ne
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## <a name="manage-kafka-topics"></a>Gestire gli argomenti Kafka
+## <a name="manage-apache-kafka-topics"></a>Gestire gli argomenti di Apache Kafka
 
 Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è possibile usare l'utilità `kafka-topics.sh`.
 
@@ -192,7 +192,7 @@ Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è pos
         > [!IMPORTANT] 
         > Kafka non rileva i domini di errore di Azure. Quando si creano le repliche di partizione per gli argomenti, è possibile che le repliche non vengano distribuite in modo corretto per la disponibilità elevata.
 
-        Per garantire la disponibilità elevata, usare lo [strumento per il ribilanciamento delle partizioni Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Questo strumento deve essere eseguito da una sessione SSH al nodo head del cluster Kafka.
+        Per garantire la disponibilità elevata, usare lo [strumento per il ribilanciamento delle partizioni Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Questo strumento deve essere eseguito da una sessione SSH al nodo head del cluster Kafka.
 
         Per garantire la massima disponibilità dei dati Kafka, è consigliabile ribilanciare le repliche di partizione per l'argomento nelle situazioni seguenti:
 
@@ -254,7 +254,7 @@ Seguire questa procedura per archiviare i record nell'argomento test creato in p
 
 4. Usare __Ctrl + C__ per arrestare il consumer.
 
-È possibile creare producer e consumer anche a livello di codice. Per un esempio dell'uso di questa API, vedere il documento relativo alle [API Producer e Consumer Kafka con HDInsight](apache-kafka-producer-consumer-api.md).
+È possibile creare producer e consumer anche a livello di codice. Per un esempio dell'uso di questa API, vedere il documento relativo alle [API Producer e Consumer Apache Kafka con HDInsight](apache-kafka-producer-consumer-api.md).
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
@@ -278,5 +278,5 @@ Per rimuovere il gruppo di risorse usando il portale di Azure:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Usare Apache Spark con Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Usare Apache Spark con Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
 

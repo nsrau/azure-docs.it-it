@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva: Cercare immagini con l'SDK di Ricerca immagini Bing per C#"
-description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione C# invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
+title: 'Guida introduttiva: Cercare immagini con Bing Image Search SDK per C#'
+description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite Bing Image Search SDK, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione C# invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -10,28 +10,28 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: edebd1361e39a338672b4249dd159e5c1d4078ce
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2df767ef92ca056535e2d70a53a1588c9e89c647
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294153"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316787"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>Guida introduttiva: Cercare immagini con l'SDK di Ricerca immagini Bing e C#
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>Guida introduttiva: Cercare immagini con Bing Image Search SDK e C#
 
-Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione C# invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
+Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite Bing Image Search SDK, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione C# invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) con annotazioni aggiuntive e altre informazioni sulla gestione degli errori.
 
 ## <a name="prerequisites"></a>Prerequisiti
-
 * Qualsiasi edizione di [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/).
 * Il [pacchetto NuGet di ricerca cognitiva di immagini](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
-Per installare l'SDK di Ricerca immagini Bing in Visual Studio, usare l'opzione `Manage NuGet Packages` da Esplora soluzioni in Visual Studio.
+Per installare Bing Image Search SDK in Visual Studio, usare l'opzione `Manage NuGet Packages` da Esplora soluzioni in Visual Studio.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
+Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Creare e inizializzare l'applicazione
 

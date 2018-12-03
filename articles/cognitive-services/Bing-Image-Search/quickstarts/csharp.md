@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 897e380092b029855ac6c986c1126ca4b2d657a9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3819b476c5d3638f409b4195d6340920032d7b99
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296645"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307492"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>Guida introduttiva: Inviare query di ricerca con l'API Ricerca immagini Bing e C#
 
@@ -26,12 +26,13 @@ L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) con altre annotazioni di codice e informazioni sulla gestione degli errori.
 
 ## <a name="prerequisites"></a>Prerequisiti
-
 * Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 

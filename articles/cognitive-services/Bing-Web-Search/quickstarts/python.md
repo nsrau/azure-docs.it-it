@@ -10,18 +10,21 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: 2f034bd60747282ac9724250ab260e06122def6f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0f6f3991e01e4eb6919d958002ef6230a2570dbe
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160995"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309455"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare Python per chiamare l'API Ricerca Web Bing  
+Ottenere una [chiave di accesso di Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/) in **Ricerca**.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere una risposta JSON in meno di 10 minuti.  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+
+Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Questo esempio viene eseguito come notebook di Jupyter su [MyBinder](https://mybinder.org). Fare clic sulla notifica di avvio di Binder:
 

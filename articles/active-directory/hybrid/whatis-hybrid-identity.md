@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: c8ab6b6e6bab7451de7d975dde644386fd4cb84e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979472"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311535"
 ---
 # <a name="hybrid-identity-and-microsoft-identity-solutions"></a>Identità ibrida e soluzioni Microsoft per la gestione delle identità
 Le soluzioni ibride di gestione delle identità di [Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) consentono di sincronizzare oggetti di directory locali con Azure AD gestendo al contempo gli utenti in locale. La prima decisione da adottare quando si intende sincronizzare Windows Server Active Directory in locale con Azure AD è se usare le identità gestite o l'identità federata. 
 
-- **Identità gestite**: account utente e gruppi sincronizzati da un ambiente Active Directory in locale; l'autenticazione degli utenti viene gestita da Azure.   
+- **Identità gestite**: account utente e gruppi vengono sincronizzati da un'istanza locale di Active Directory e l'autenticazione utente viene gestita da Azure.   
 - Le **identità federate** garantiscono maggiore controllo sugli utenti separando l'autenticazione utente da Azure e delegandola a un provider di identità locale attendibile. 
 
 Sono disponibili diverse opzioni per la configurazione della gestione di identità ibrida. Quando si valuta il modello di identità migliore in base alle esigenze specifiche dell'organizzazione, è necessario considerare fattori come il tempo, l'infrastruttura esistente, la complessità e i costi. Questi fattori variano in base all'organizzazione e possono cambiare nel tempo. Tuttavia, se i requisiti cambiano, si dispone della flessibilità per passare a un modello di gestione delle identità diverso.
@@ -42,7 +42,7 @@ Benché l'identità gestita sia il metodo più semplice e rapido, gli utenti dev
 Per la maggior parte delle organizzazioni che ha solo la necessità di consentire agli utenti di accedere a Office 365, alle applicazioni SaaS e ad altre risorse basate su Azure AD, è consigliabile l'opzione di sincronizzazione dell'hash delle password predefinita. Se questa opzione non è adatta, è necessario scegliere tra l'autenticazione pass-through e AD FS.
 
 > [!TIP]
-> Le password utente vengono archiviate in Windows Server Active Directory locale sotto forma di un valore hash che rappresenta la password utente effettiva. Un valore hash è il risultato di una funzione matematica unidirezionale, chiamata algoritmo di hash. Non esiste un metodo per ripristinare la versione in testo normale di una password dal risultato di una funzione unidirezionale. Non è possibile usare l'hash della password per accedere alla rete locale. Se si sceglie di sincronizzare le password, Azure AD Connect estrae gli hash delle password da Active Directory locale e applica un'elaborazione della sicurezza aggiuntiva all'hash delle password prima della sincronizzazione in Azure AD. La sincronizzazione dell'hash delle password può essere usata anche insieme al writeback delle password per consentire la reimpostazione autonoma delle password in Azure AD. È possibile abilitare l'accesso Single Sign-On anche per gli utenti di computer aggiunti al dominio connessi alla rete aziendale. Con l'accesso Single Sign-On, gli utenti abilitati possono accedere in modo sicuro alle risorse cloud immettendo semplicemente un nome utente. 
+> Le password utente vengono archiviate in Windows Server Active Directory locale sotto forma di un valore hash che rappresenta la password utente effettiva. Un valore hash è il risultato di una funzione matematica unidirezionale, chiamata algoritmo di hash. Non esiste un metodo per ripristinare la versione in testo normale di una password dal risultato di una funzione unidirezionale. Non è possibile usare l'hash della password per accedere alla rete locale. Se si sceglie di sincronizzare gli hash delle password, Azure AD Connect li estrae dall'istanza locale di Active Directory e applica un'elaborazione della sicurezza aggiuntiva all'hash delle password prima della relativa sincronizzazione in Azure AD. La sincronizzazione dell'hash delle password può essere usata anche insieme al writeback delle password per consentire la reimpostazione autonoma delle password in Azure AD. È possibile abilitare l'accesso Single Sign-On anche per gli utenti di computer aggiunti al dominio connessi alla rete aziendale. Con l'accesso Single Sign-On, gli utenti abilitati possono accedere in modo sicuro alle risorse cloud immettendo semplicemente un nome utente. 
 >
 
 ## <a name="pass-through-authentication"></a>Autenticazione pass-through
@@ -117,7 +117,7 @@ Azure Active Directory (Azure AD) Connect Health consente di monitorare e ottene
 
 Queste informazioni vengono visualizzate nel [portale di Azure AD Connect Health](https://aka.ms/aadconnecthealth). Nel portale di Azure AD Connect Health è possibile visualizzare avvisi, informazioni sul monitoraggio delle prestazioni, analisi sull'utilizzo e altre informazioni. Azure AD Connect Health abilita la singola sezione dell'integrità per i componenti chiave per l'identità, in un'unica posizione.
 
-![Cos’è Azure AD Connect Health](./media/whatis-hybrid-identity-health/aadconnecthealth2.png)
+![Che cos'è Azure AD Connect Health](./media/whatis-hybrid-identity-health/aadconnecthealth2.png)
 
 
 Per quanto aumentino le funzionalità in Azure AD Connect Health, il portale offre un unico dashboard nella sezione dell'identità. L'ambiente risultante è ancora più affidabile, integro e integrato e offre agli utenti maggiori possibilità di eseguire le operazioni necessarie.

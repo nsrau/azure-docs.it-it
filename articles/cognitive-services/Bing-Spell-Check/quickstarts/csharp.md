@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
-ms.openlocfilehash: 4e5bc56a74a8280954e278f00639b7a774d516ce
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: fbad56b59664a6c75e6bec911e891145a18b1161
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165553"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315172"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-c"></a>Guida introduttiva all'API Controllo ortografico Bing con C#
 
@@ -23,7 +23,7 @@ Questo articolo spiega come usare l'[API Controllo ortografico Bing](https://azu
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition.
+Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition. Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Controllo ortografico Bing versione 7**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/#lang). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
 

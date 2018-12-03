@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 2a441e3cd90eba8fc2b1201671047cfcd9d277a6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277733"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313822"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Esercitazione: Usare le API Apache Kafka Producer e Consumer
 
-Informazioni su come usare le API Kafka Producer e Consumer con Kafka in HDInsight.
+Informazioni su come usare l'API Apache Kafka Producer e Consumer con Kafka in HDInsight.
 
 L'API Kafka Producer consente alle applicazioni di inviare flussi di dati al cluster Kafka. L'API Kafka Consumer consente alle applicazioni di leggere flussi di dati dal cluster Kafka.
 
@@ -56,7 +56,7 @@ Le variabili di ambiente seguenti possono essere impostate quando si installa Ja
 
 ## <a name="set-up-your-deployment-environment"></a>Configurare l'ambiente di sviluppo
 
-Questa esercitazione richiede Apache Kafka in HDInsight 3.6. Per informazioni su come creare un cluster Kafka in HDInsight, vedere il documento su come [iniziare a usare Kafka in HDInsight](apache-kafka-get-started.md).
+Questa esercitazione richiede Apache Kafka in HDInsight 3.6. Per informazioni su come creare un cluster Kafka in HDInsight, vedere il documento su come [iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).
 
 ## <a name="understand-the-code"></a>Informazioni sul codice
 
@@ -171,7 +171,7 @@ Il file [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-sta
         read -p 'Enter your Kafka cluster name:' CLUSTERNAME
         ```
     
-    2. Per ottenere gli host del broker Kafka e gli host Zookeeper, usare i comandi seguenti. Quando richiesto, immettere la password dell'account (admin) di accesso al cluster.
+    2. Per ottenere gli host del broker Kafka e gli host Apache Zookeeper, usare i comandi seguenti. Quando richiesto, immettere la password dell'account (admin) di accesso al cluster.
     
         ```bash
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
@@ -227,8 +227,8 @@ I record vengono archiviati in Kafka nell'ordine in cui vengono ricevuti in una 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo documento si è appreso come usare le API Kafka Producer e Consumer con Kafka in HDInsight. Per altre informazioni sull'uso di Kafka, vedere:
+In questo documento si è appreso come usare le API Apache Kafka Producer e Consumer con Kafka in HDInsight. Per altre informazioni sull'uso di Kafka, vedere:
 
-* [Analizzare i log di Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Replicare i dati tra cluster Kafka](apache-kafka-mirroring.md)
-* [API Kafka Streams con HDInsight](apache-kafka-streams-api.md)
+* [Analizzare i log di Apache Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Replicare i dati tra cluster Apache Kafka](apache-kafka-mirroring.md)
+* [API Apache Kafka Streams con HDInsight](apache-kafka-streams-api.md)

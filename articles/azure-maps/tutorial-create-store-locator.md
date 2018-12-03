@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9f77beb8c51fb3a06045183433907e1c634fb45d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820274"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317909"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -81,7 +81,7 @@ Esaminando lo screenshot dei dati è possibile fare le osservazioni seguenti:
 * Alcune colonne aggiuntive contengono metadati correlati ai bar, ovvero numero di telefono, colonne booleane per hotspot Wi-Fi, accessibilità per disabili e orari di apertura e chiusura del bar in formato di 24 ore. È possibile creare colonne personalizzate contenenti i metadati più rilevanti per i dati di posizione specifici.
 
 > [!Note]
-> Mappe di Azure usa una proiezione Mercato sferica (EPSG:3857).
+> Mappe di Azure esegue il rendering dei dati nella proiezione sferica di Mercatore "EPSG:3857", ma legge i dati in "EPSG:4325" che usano il dato WGS84. 
 
 È possibile esporre in molti modi il set di dati all'applicazione. Un approccio consiste nel caricare i dati in un database ed esporre un servizio Web che esegue query sui dati e invia i risultati al browser dell'utente. Questa opzione è ideale per set di dati di grandi dimensioni o per set di dati che vengono aggiornati spesso. Questa opzione richiede tuttavia un numero significativamente superiore di attività di sviluppo e ha un costo maggiore. 
 

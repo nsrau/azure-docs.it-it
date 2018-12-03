@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/18/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cff6d38867ef8ecaf1435fd4c4cc22fe63d70575
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 586e60316ba8bf4f485a151e77015fa3ed104df7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283247"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317416"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria
 
@@ -154,7 +154,14 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
       >
 
     - **Dischi gestiti di replica (se la VM di origine usa i dischi gestiti)**: per impostazione predefinita, Site Recovery crea dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della VM di origine con lo stesso tipo di archiviazione (Standard o Premium) del disco gestito della VM di origine.
-    - **Set di disponibilità di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con il suffisso "asr". I set di disponibilità possono essere aggiunti solo se le VM fanno parte di un set nell'area di origine.
+    - **Set di disponibilità di destinazione**: per impostazione predefinita, Azure Site Recovery crea nell'area di destinazione un nuovo set di disponibilità il cui nome include il suffisso "asr" relativo alla parte delle macchine virtuali di un set di disponibilità nell'area di origine. Nel caso in cui il set di disponibilità creato da Azure Site Recovery esista già, verrà riusato.
+    - **Zone di disponibilità di destinazione**: per impostazione predefinita, Site Recovery assegna nell'area di origine lo stesso numero di zona dell'area di origine se l'area di destinazione supporta le zone di disponibilità. 
+
+    Se l'area di destinazione non supporta le zone di disponibilità, per impostazione predefinita le macchine virtuali di destinazione vengono configurate come istanze singole. Se necessario, è possibile configurare tali macchine virtuali in modo che siano incluse nel set di disponibilità dell'area di destinazione facendo clic su 'Personalizza'.
+
+    >[!NOTE]
+    >Dopo avere abilitato la replica non è possibile modificare il tipo di disponibilità, ovvero l'istanza singola, il set di disponibilità o la zona di disponibilità. Per modificare il tipo di disponibilità, è necessario disabilitare e abilitare la replica.
+    >
 
 4. Per personalizzare le impostazioni per i criteri di replica, fare clic su **Personalizza** accanto a **Criteri di replica** e modificare le impostazioni seguenti in base alle esigenze:
 

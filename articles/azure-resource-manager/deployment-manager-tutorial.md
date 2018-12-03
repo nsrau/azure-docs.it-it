@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345573"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425004"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager (anteprima privata)
 
-Questo articolo illustra come usare [Azure Deployment Manager](./deployment-manager-overview.md) per distribuire le applicazioni in più aree. Per usare Deployment Manager, è necessario creare due modelli.
+Questo articolo illustra come usare [Azure Deployment Manager](./deployment-manager-overview.md) per distribuire le applicazioni in più aree. Per usare Deployment Manager è necessario creare due modelli.
 
 * **Modello di topologia**: descrive le risorse di Azure che costituiscono l'applicazione e la posizione in cui devono essere distribuite.
 * **Modello di implementazione**: descrive i passaggi da eseguire durante la distribuzione delle applicazioni.
@@ -41,6 +41,8 @@ Questa esercitazione illustra le attività seguenti:
 > * Distribuire la versione più recente
 > * Pulire le risorse
 
+Le informazioni di riferimento sull'API REST di Azure Deployment Manager sono disponibili [qui](https://docs.microsoft.com/rest/api/deploymentmanager/).
+
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -50,12 +52,12 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 * Esperienza nello sviluppo di [modelli di Azure Resource Manager](./resource-group-overview.md).
 * Azure Deployment Manager è nella versione di anteprima privata. Per iscriversi e poter usare Azure Deployment Manager, compilare il [modulo di iscrizione](https://aka.ms/admsignup). 
 * Azure PowerShell. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
-* Cmdlet di Deployment Manager. Per installare questi cmdlet in versione non definitiva, è necessaria l'ultima versione di PowerShellGet. Per ottenere l'ultima versione, vedere [Installazione di PowerShellGet](/powershell/gallery/installing-psget). Al termine dell'installazione di PowerShellGet, chiudere la finestra di PowerShell. Aprire una nuova finestra di PowerShell e usare il comando seguente:
+* Cmdlet di Deployment Manager. Per installare questi cmdlet in versione non definitiva, è necessaria l'ultima versione di PowerShellGet. Per ottenere l'ultima versione, vedere [Installazione di PowerShellGet](/powershell/gallery/installing-psget). Al termine dell'installazione di PowerShellGet, chiudere la finestra di PowerShell. Aprire una nuova finestra di PowerShell con privilegi elevati e usare il comando seguente:
 
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
-* [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). Azure Storage Explorer non è obbligatorio, ma semplifica alcune operazioni.
+* [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Azure Storage Explorer non è obbligatorio, ma semplifica alcune operazioni.
 
 ## <a name="understand-the-scenario"></a>Informazioni sullo scenario
 
@@ -145,10 +147,10 @@ Più avanti nell'esercitazione si distribuisce un'implementazione. Pe eseguire l
 È necessario creare un'identità gestita assegnata dall'utente e configurare il controllo di accesso per la sottoscrizione.
 
 > [!IMPORTANT]
-> L'identità gestita assegnata dall'utente deve trovarsi nella stessa località dell'[implementazione](#create-the-rollout-template). Attualmente, è possibile creare le risorse di Deployment Manager, inclusa l'implementazione, solo in Stati Uniti centrali o Stati Uniti orientali 2.
+> L'identità gestita assegnata dall'utente deve trovarsi nella stessa località dell'[implementazione](#create-the-rollout-template). Attualmente, è possibile creare le risorse di Deployment Manager, inclusa l'implementazione, solo in Stati Uniti centrali o Stati Uniti orientali 2. Questa limitazione si applica, tuttavia, solo alle risorse di Deployment Manager, come topologia del servizio, servizi, unità di servizio, implementazione e passaggi. Le risorse di destinazione possono essere distribuite in qualsiasi area di Azure supportata. In questa esercitazione, ad esempio, le risorse di Deployment Manager vengono distribuite nell'area Stati Uniti centrali, ma i servizi vengono distribuiti in Stati Uniti orientali e Stati Uniti occidentali. Questa limitazione verrà rimossa in futuro.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Creare un'[identità gestita assegnata dall'utente](../active-directory/managed-identities-azure-resources/overview.md).
+2. Creare un'[identità gestita assegnata dall'utente](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. Nel portale selezionare **Sottoscrizioni** nel menu a sinistra e quindi la sottoscrizione.
 4. Selezionare **Controllo di accesso (IAM)** e quindi **Aggiungi**.
 5. Immettere o selezionare i valori seguenti:
@@ -200,6 +202,9 @@ Lo screenshot seguente mostra solo alcune parti delle definizioni della topologi
 - **dependsOn**: tutte le risorse della topologia del servizio dipendono dalla risorsa origine degli artefatti.
 - **artifacts**: punta agli artefatti modello.  Vengono usati percorsi relativi. Il percorso completo viene costruito concatenando i valori di artifactSourceSASLocation e artifactRoot (definiti nell'origine degli artefatti) e templateArtifactSourceRelativePath (o parametersArtifactSourceRelativePath).
 
+> [!NOTE]
+> I nomi delle unità di servizio possono contenere al massimo 31 caratteri. 
+
 ### <a name="topology-parameters-file"></a>File dei parametri della topologia
 
 Creare un file dei parametri da usare con il modello di topologia.
@@ -211,7 +216,7 @@ Creare un file dei parametri da usare con il modello di topologia.
     - **azureResourceLocation**: se non si ha familiarità con le località di Azure, in questa esercitazione usare **centralus**.
     - **artifactSourceSASLocation**: immettere l'URI di firma di accesso condiviso della directory radice (contenitore BLOB) in cui vengono archiviati i file del modello e dei parametri delle unità di servizio per la distribuzione.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
     - **templateArtifactRoot**: se non si modifica la struttura di cartelle degli artefatti, in questa esercitazione usare **templates/1.0.0.0**.
-    - **tragetScriptionID**: immettere l'ID sottoscrizione di Azure.
+    - **targetScriptionID**: immettere l'ID sottoscrizione di Azure.
 
 > [!IMPORTANT]
 > Il modello di topologia e il modello di implementazione condividono alcuni parametri comuni, che devono avere gli stessi valori. Tali parametri sono **namePrefix**, **azureResourceLocation** e **artifactSourceSASLocation** (in questa esercitazione, entrambe le origini degli artefatti condividono lo stesso account di archiviazione).
@@ -242,7 +247,7 @@ La sezione variables definisce i nomi delle risorse. Verificare che il nome dell
 
 A livello di radice sono definite tre risorse: un'origine degli artefatti, un passaggio e un'implementazione.
 
-La definizione dell'origine degli artefatti è identica a quella presente nel modello di topologia.  Per altre informazioni, vedere [Creare il modello di topologia del servizio](#create-the-service-topology-tempate).
+La definizione dell'origine degli artefatti è identica a quella presente nel modello di topologia.  Per altre informazioni, vedere [Creare il modello di topologia del servizio](#create-the-service-topology-template).
 
 Lo screenshot seguente mostra la definizione del passaggio di attesa:
 
@@ -310,7 +315,7 @@ Per distribuire i modelli è possibile usare Azure PowerShell.
 
     Per visualizzare le risorse deve essere selezionata l'opzione **Mostra tipi nascosti**.
 
-3. Distribuire il modello di implementazione:
+3. <a id="deploy-the-rollout-template"></a>Distribuire il modello di implementazione:
 
     ```azurepowershell-interactive
     # Create the rollout
@@ -325,7 +330,7 @@ Per distribuire i modelli è possibile usare Azure PowerShell.
 
     ```azurepowershell-interactive
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>"
+    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName
@@ -365,7 +370,7 @@ Quando è disponibile una nuova versione (1.0.0.1), è possibile ridistribuire l
 
 1. Aprire CreateADMRollout.Parameters.json.
 2. Aggiornare **binaryArtifactRoot** in **binaries/1.0.0.1**.
-3. Ridistribuire l'implementazione come illustrato in [Distribuire i modelli](#deploy-the-templates).
+3. Ridistribuire l'implementazione come illustrato in [Distribuire i modelli](#deploy-the-rollout-template).
 4. Verificare la distribuzione come illustrato in [Verificare la distribuzione](#verify-the-deployment). Nella pagina Web verrà visualizzata la versione 1.0.0.1.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

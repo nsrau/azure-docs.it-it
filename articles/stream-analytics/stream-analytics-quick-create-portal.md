@@ -4,21 +4,20 @@ description: Questa guida introduttiva descrive come iniziare a creare un proces
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 08/20/2018
+ms.date: 11/21/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: 15f465bf2aaf7c8b3a4a49819548c8db0b2ea014
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958857"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311926"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure
 
-Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso. In questa guida introduttiva si definirà un processo di Analisi di flusso che legge dati di esempio di sensori e filtra le righe che contengono una temperatura media maggiore di 100 per ogni 30 secondi. In questo articolo i dati vengono letti dall'archiviazione BLOB, vengono trasformati e quindi vengono scritti in un contenitore diverso nella stessa risorsa di archiviazione BLOB. Il file di dati di input utilizzati in questa guida introduttiva contiene i dati statici solo a scopo illustrativo. In uno scenario reale, si utilizza il flusso di dati di input per un processo di Analisi di flusso.
+Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso. In questa guida introduttiva si definirà un processo di Analisi di flusso che legge dati di streaming in tempo reale e filtra i messaggi con una temperatura maggiore di 27. Il processo di Analisi di flusso leggerà i dati da un dispositivo hub IoT, li trasformerà e quindi li scriverà in un contenitore nell'archiviazione BLOB. I dati di input usati in questa guida introduttiva sono generati da un simulatore online Raspberry Pi. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -28,33 +27,54 @@ Questa guida introduttiva descrive come iniziare a creare un processo di Analisi
 
 ## <a name="prepare-the-input-data"></a>Preparare i dati di input
 
-Prima di definire il processo di Analisi di flusso, è necessario preparare i dati configurati come input per il processo. Per preparare i dati di input richiesti dal processo, seguire questa procedura:
+Prima di definire il processo di Analisi di flusso, è necessario preparare i dati, che saranno poi configurati come input per il processo. Per preparare i dati di input richiesti dal processo, completare questa procedura:
 
-1. Scaricare i [dati di esempio dei sensori](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) da GitHub. I dati di esempio contengono informazioni sui sensori nel formato JSON seguente:  
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-   ```json
-   {
-     "time": "2018-08-19T21:18:52.0000000",
-     "dspl": "sensorC",
-     "temp": 87,
-     "hmdt": 44
-   }
-   ```
-2. Accedere al [portale di Azure](https://portal.azure.com/).  
+2. Selezionare **Crea una risorsa** > **Internet delle cose** > **Hub IoT**.
 
-3. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea risorsa** > **Archiviazione** > **Account di archiviazione**. Compilare la pagina del processo dell'account di archiviazione impostando **Nome** su "asaquickstartstorage", **Località** su "Stati Uniti occidentali 2", **Gruppo di risorse** su "asaquickstart-resourcegroup" (ospitare l'account di archiviazione nello stesso gruppo di risorse del processo di streaming per ottenere prestazioni migliori). Per le altre impostazioni è possibile lasciare i valori predefiniti.  
+3. Nel riquadro **Hub IoT** immettere le informazioni seguenti:
+   
+   |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
+   |---------|---------|---------|
+   |Sottoscrizione  | \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure da usare. |
+   |Gruppo di risorse   |   asaquickstart-resourcegroup  |   Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account. |
+   |Region  |  \<Selezionare l'area più vicina agli utenti\> | Selezionare la posizione geografica in cui è possibile ospitare l'hub IoT. Usare la località più vicina agli utenti. |
+   |Nome hub IoT  | MyASAIoTHub  |   Scegliere un nome per l'hub IoT.   |
 
-   ![Crea account di archiviazione](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
+   ![Creare un hub IoT](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. Nella pagina **Tutte le risorse** individuare l'account di archiviazione creato nel passaggio precedente. Aprire la pagina **Panoramica** e quindi il riquadro **BLOB**.  
+4. Selezionare **Avanti: Dimensioni e piano**.
 
-5. Nella pagina **Servizio BLOB** selezionare **Contenitore**, impostare il campo **Nome** per il contenitore, ad esempio *container1*, modificare il **Livello di accesso pubblico** in Privato (accesso anonimo non consentito) e quindi selezionare **OK**.  
+5. Scegliere un valore per **Piano tariffario e livello di scalabilità**. Per questa guida introduttiva, selezionare il livello **F1 - Gratuito** se ancora disponibile nella sottoscrizione. Per altre informazioni, vedere i [prezzi dell'hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   ![Creare un contenitore](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
+   ![Impostare dimensioni e piano dell'hub IoT](./media/stream-analytics-quick-create-portal/iot-hub-size-and-scale.png)
 
-6. Andare al contenitore creato nel passaggio precedente. Selezionare **Carica** e caricare i dati del sensore ottenuti nel primo passaggio.  
+6. Selezionare **Rivedi e crea**. Esaminare le informazioni sull'hub IoT e fare clic su **Crea**. La creazione dell'hub IoT può richiedere alcuni minuti. È possibile monitorare lo stato di avanzamento nel riquadro **Notifiche**.
 
-   ![Caricare i dati di esempio nel BLOB](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
+7. Nel menu di spostamento dell'hub IoT, fare clic su **Aggiungi** in **Dispositivi IoT**. Aggiungere un **ID dispositivo** e fare clic su **Salva**.
+
+   ![Aggiungere un dispositivo all'hub IoT](./media/stream-analytics-quick-create-portal/add-device-iot-hub.png)
+
+8. Dopo la creazione del dispositivo, aprirlo dall'elenco **Dispositivi IoT**. Copiare il valore di **Stringa di connessione -- Chiave primaria** e salvarlo in un Blocco note per usarlo in seguito.
+
+   ![Copiare la stringa di connessione del dispositivo hub IoT](./media/stream-analytics-quick-create-portal/save-iot-device-connection-string.png)
+
+## <a name="create-blob-storage"></a>Creare l'archiviazione BLOB
+
+1. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea risorsa** > **Archiviazione** > **Account di archiviazione**.
+
+2. Nel riquadro **Crea account di archiviazione** immettere un nome, una posizione e un gruppo di risorse per l'account di archiviazione. Scegliere la stessa posizione e lo stesso gruppo di risorse dell'hub IoT creato. Quindi fare clic su **Rivedi e crea**. per creare l'account.
+
+   ![Crea account di archiviazione](./media/stream-analytics-quick-create-portal/create-storage-account.png)
+
+3. Dopo aver creato l'account di archiviazione, selezionare il riquadro **BLOB** nella sezione **Panoramica**.
+
+   ![Panoramica dell'account di archiviazione](./media/stream-analytics-quick-create-portal/blob-storage.png)
+
+4. Nella pagina **Servizio BLOB** selezionare **Contenitore** e specificare un nome per il contenitore, ad esempio *container1*. Lasciare il **Livello di accesso pubblico** come **Privato (accesso anonimo non consentito)** e selezionare **OK**.
+
+   ![Creare un contenitore BLOB](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso.
 
@@ -68,47 +88,44 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
-   |Nome processo   |  myasajob   |   Immettere un nome per identificare il processo di Analisi di flusso. Il nome del processo di Analisi di flusso può contenere solo caratteri alfanumerici, trattini e caratteri di sottolineatura e deve avere una lunghezza compresa tra 3 e 63 caratteri. |
+   |Nome processo   |  MyASAJob   |   Immettere un nome per identificare il processo di Analisi di flusso. Il nome del processo di Analisi di flusso può contenere solo caratteri alfanumerici, trattini e caratteri di sottolineatura e deve avere una lunghezza compresa tra 3 e 63 caratteri. |
    |Sottoscrizione  | \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure che si vuole usare per il processo. |
-   |Gruppo di risorse   |   asaquickstart-resourcegroup  |   Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account. |
+   |Gruppo di risorse   |   asaquickstart-resourcegroup  |   Selezionare lo stesso gruppo di risorse dell'hub IoT. |
    |Località  |  \<Selezionare l'area più vicina agli utenti\> | Selezionare la posizione geografica in cui è possibile ospitare il processo di Analisi di flusso. Usare la località più vicina agli utenti per ottenere prestazioni migliori e ridurre i costi di trasferimento dati. |
    |Unità di streaming  | 1  |   Le unità di streaming rappresentano le risorse di calcolo necessarie per eseguire un processo. Il valore predefinito di questa impostazione è 1. Per informazioni sul ridimensionamento delle unità di streaming, vedere l'articolo [Informazioni sulle unità di streaming](stream-analytics-streaming-unit-consumption.md).   |
    |Ambiente di hosting  |  Cloud  |   Per la distribuzione dei processi di Analisi di flusso è possibile scegliere tra Cloud o Edge. L'opzione Cloud consente di eseguire la distribuzione nel cloud di Azure, mentre l'opzione Edge consente di eseguire la distribuzione in un dispositivo IoT Edge. |
 
-   ![Creare il processo](./media/stream-analytics-quick-create-portal/create-job.png)
+   ![Creare il processo](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
 5. Selezionare la casella **Aggiungi al dashboard** per inserire il processo nel dashboard e quindi selezionare **Crea**.  
 
-6. In alto a destra nella finestra del browser verrà visualizzato il messaggio "Distribuzione in corso". 
+6. In alto a destra nella finestra del browser verrà visualizzata la notifica *Distribuzione in corso...*. 
 
-## <a name="configure-input-to-the-job"></a>Configurare l'input per il processo
+## <a name="configure-job-input"></a>Configurare l'input del processo
 
-In questa sezione viene configurata l'archiviazione BLOB come input per il processo di Analisi di flusso. Prima di configurare l'input, creare un account di archiviazione BLOB.  
-
-### <a name="add-the-input"></a>Aggiungere l'input 
+In questa sezione si configurerà l'input del dispositivo hub IoT per il processo di Analisi di flusso. Usare l'hub IoT creato nella sezione precedente della guida introduttiva.
 
 1. Passare al processo di Analisi di flusso.  
 
-2. Selezionare **Input** > **Aggiungi input del flusso** > **Archivio BLOB**.  
+2. Selezionare **Input** > **Aggiungi input del flusso** > **Hub IoT**.  
 
-3. Compilare la pagina **Archivio BLOB** con i valori seguenti:
+3. Compilare la pagina **Hub IoT** con i valori seguenti:
 
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
-   |Alias di input  |  BlobInput   |  Immettere un nome per identificare l'input del processo.   |
+   |Alias di input  |  IoTHubInput   |  Immettere un nome per identificare l'input del processo.   |
    |Sottoscrizione   |  \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione. |
-   |Account di archiviazione  |  myasastorageaccount |  Scegliere o immettere il nome dell'account di archiviazione. I nomi degli account di archiviazione vengono rilevati automaticamente se sono stati creati nella stessa sottoscrizione. |
-   |Contenitore  | container1 | Scegliere il nome del contenitore che include dati di esempio. I nomi dei contenitori vengono rilevati automaticamente se sono stati creati nella stessa sottoscrizione. |
+   |Hub IoT  |  MyASAIoTHub |  Immettere il nome dell'hub IoT creato nella sezione precedente. |
 
 4. Lasciare le altre opzioni impostate sui valori predefiniti e selezionare **Salva** per salvare le impostazioni.  
 
-   ![Configurare i dati di input](./media/stream-analytics-quick-create-portal/configure-input.png)
+   ![Configurare i dati di input](./media/stream-analytics-quick-create-portal/configure-asa-input.png)
  
-## <a name="configure-output-to-the-job"></a>Configurare l'output per il processo
+## <a name="configure-job-output"></a>Configurare l'output del processo
 
 1. Passare al processo di Analisi di flusso creato in precedenza.  
 
-2. Selezionare **Output > Aggiungi > Archivio BLOB**.  
+2. Selezionare**Output** > **Aggiungi** > **Archiviazione BLOB**.  
 
 3. Compilare la pagina **Archivio BLOB** con i valori seguenti:
 
@@ -118,11 +135,10 @@ In questa sezione viene configurata l'archiviazione BLOB come input per il proce
    |Sottoscrizione  |  \<Sottoscrizione in uso\>  |  Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione. |
    |Account di archiviazione |  asaquickstartstorage |   Scegliere o immettere il nome dell'account di archiviazione. I nomi degli account di archiviazione vengono rilevati automaticamente se sono stati creati nella stessa sottoscrizione.       |
    |Contenitore |   container1  |  Selezionare il contenitore esistente creato nell'account di archiviazione.   |
-   |Modello di percorso |   output  |  Immettere un nome da usare come percorso all'interno del contenitore esistente per l'output.   |
 
 4. Lasciare le altre opzioni impostate sui valori predefiniti e selezionare **Salva** per salvare le impostazioni.  
 
-   ![Configurare l'output](./media/stream-analytics-quick-create-portal/configure-output.png)
+   ![Configurare l'output](./media/stream-analytics-quick-create-portal/configure-asa-output.png)
  
 ## <a name="define-the-transformation-query"></a>Definire la query di trasformazione
 
@@ -131,43 +147,35 @@ In questa sezione viene configurata l'archiviazione BLOB come input per il proce
 2. Selezionare **Query** e aggiornare la query nel modo seguente:  
 
    ```sql
-   SELECT 
-   System.Timestamp AS OutputTime,
-   dspl AS SensorName,
-   Avg(temp) AS AvgTemperature
-   INTO
-     BlobOutput
-   FROM
-     BlobInput TIMESTAMP BY time
-   GROUP BY TumblingWindow(second,30),dspl
-   HAVING Avg(temp)>100
+   SELECT *
+   INTO BlobOutput
+   FROM IoTHubInput
+   HAVING Temperature > 27
    ```
 
-3. In questo esempio la query legge i dati dal BLOB e li copia in un nuovo file nel BLOB. Selezionare **Salva**.  
+3. In questo esempio la query legge i dati dall'hub IoT e li copia in un nuovo file nel BLOB. Selezionare **Salva**.  
 
-   ![Configurare la trasformazione del processo](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+   ![Configurare la trasformazione del processo](./media/stream-analytics-quick-create-portal/add-asa-query.png)
 
-## <a name="configure-late-arrival-policy"></a>Configurare il criterio di arrivo in ritardo
+## <a name="run-the-iot-simulator"></a>Eseguire il simulatore IoT
 
-1. Passare al processo di Analisi di flusso creato in precedenza.
+1. Aprire il [simulatore online Azure IoT Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/).
 
-2. In **Configura** selezionare **Ordinamento eventi**.
+2. Sostituire il segnaposto nella riga 15 con la stringa di connessione del dispositivo hub IoT di Azure salvato in una sezione precedente.
 
-3. Impostare **Eventi pervenuti in ritardo** su 20 giorni e selezionare **Salva**.
+3. Fare clic su **Run**. L'output mostra i dati del sensore e i messaggi inviati all'hub IoT.
 
-   ![Configurare il criterio di arrivo in ritardo](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
+   ![Simulatore online Azure IoT Raspberry Pi](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Avviare il processo di Analisi di flusso e controllare l'output
 
 1. Tornare alla pagina della panoramica del processo e selezionare **Avvia**.
 
-2. In **Avvia processo** selezionare **Personalizzata** per il campo **Ora inizio**. Selezionare `2018-01-24` come data di inizio, ma non modificare l'ora. La data di inizio viene selezionata in quanto precede il timestamp dell'evento dai dati di esempio. Al termine, selezionare **Salva**.
+2. In **Avvia processo**, selezionare **Ora** per il campo **Ora di inizio dell'output del processo**. Quindi, selezionare quindi **Avvia** per avviare il processo.
 
-   ![Avviare il processo](./media/stream-analytics-quick-create-portal/start-the-job.png)
+3. Dopo pochi minuti, individuare nel portale l'account di archiviazione e il contenitore configurato come output per il processo. È ora possibile visualizzare il file di output nel contenitore. L'avvio del processo richiede pochi minuti la prima volta e, dopo l'avvio, l'esecuzione prosegue man mano che arrivano i dati.  
 
-3. Dopo pochi minuti, individuare nel portale l'account di archiviazione e il contenitore configurato come output per il processo. Selezionare il percorso di output. È ora possibile visualizzare il file di output nel contenitore. L'avvio del processo richiede pochi minuti la prima volta e, dopo l'avvio, l'esecuzione prosegue man mano che arrivano i dati.  
-
-   ![Output trasformato](./media/stream-analytics-quick-create-portal/transformed-output.png)
+   ![Output trasformato](./media/stream-analytics-quick-create-portal/check-asa-results.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -10,14 +10,14 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: d4852c78b7f85c568bb34aaf86ada09fdc2c3ff0
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 714f28166b8d24a5b8a69fe4f76ba1737de56e1d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161482"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315087"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Avvio rapido per l'API Ricerca notizie Bing con Ruby
+# <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Guida introduttiva per l'API Ricerca notizie Bing con Ruby
 
 Questo articolo spiega come usare l'API Ricerca notizie Bing, inclusa in Servizi cognitivi Microsoft in Azure. Questo articolo riguarda Ruby, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione che sia in grado di effettuare richieste HTTP e analizzare una stringa JSON. 
 
@@ -27,7 +27,7 @@ Per i dettagli tecnici sulle API, vedere le [informazioni di riferimento sulle A
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questo Avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso che viene fornita quando si attiva la versione di valutazione gratuita. Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="bing-news-search"></a>Ricerca notizie Bing
 

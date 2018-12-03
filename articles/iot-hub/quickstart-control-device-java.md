@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 172c3011221e04bfdb4a4f3ae1515fe0eb10065b
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 454c3961cb31e147f647095c0a3a71a6c65630f1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515251"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422118"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Java)
 
@@ -71,7 +71,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
    **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
 
-   **MyJavaDevice**: nome specificato per il dispositivo registrato. Usare MyJavaDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyJavaDevice**: questo valore è il nome specificato per il dispositivo registrato. Usare MyJavaDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -85,7 +85,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      -hub-name YourIoTHubName \
+      --hub-name YourIoTHubName \
       --device-id MyJavaDevice \
       --output table
     ```

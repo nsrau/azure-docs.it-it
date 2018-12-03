@@ -55,6 +55,8 @@ items:
     href: templates-cloud-consistency.md
   - name: Modalità di distribuzione
     href: deployment-modes.md
+  - name: Eliminazione delle risorse
+    href: resource-group-delete.md
   - name: Resource Manager e distribuzione classica
     href: resource-manager-deployment-model.md
 - name: Procedure
@@ -66,7 +68,7 @@ items:
       items:
       - name: Parametri
         href: resource-manager-templates-parameters.md
-      - name: variables
+      - name: Variabili
         href: resource-manager-templates-variables.md
       - name: Funzioni
         href: resource-group-authoring-templates.md#functions
@@ -182,7 +184,7 @@ items:
     href: resource-manager-request-limits.md
   - name: Tenere traccia delle operazioni asincrone
     href: resource-manager-async-operations.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Informazioni di riferimento sul modello
     href: subtoc/toc.yml
@@ -233,9 +235,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: ad0eb8fc77214214fee617398c43e3745f250ac7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 472d31764efb3793508502ce8585bac3f9a948cc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261883"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315325"

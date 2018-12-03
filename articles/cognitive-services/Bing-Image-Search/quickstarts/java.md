@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 1a7cc7d58975aa0cd5903581610d642193951ec4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 63add2406b4535747c09299ecc0df6d1b6b47da3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412467"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315869"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-java"></a>Guida introduttiva: Inviare query di ricerca con l'API REST Ricerca immagini Bing e Java
 
@@ -27,6 +27,7 @@ L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibi
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) con altre annotazioni di codice e informazioni sulla gestione degli errori.
 
 ## <a name="prerequisites"></a>Prerequisiti
+* Ottenere una [chiave di accesso di Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/) in **Ricerca**.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 * [Java Development Kit (JDK) 7 o 8](https://aka.ms/azure-jdks)
 

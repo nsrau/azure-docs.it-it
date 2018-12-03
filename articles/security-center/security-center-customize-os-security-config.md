@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 925f45f8d251882cfc8acf4b04902cea45451dd4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007256"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334194"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizzare le configurazioni di sicurezza del sistema operativo nel Centro sicurezza di Azure (anteprima)
 
@@ -32,7 +32,7 @@ Il Centro sicurezza di Azure monitora le configurazioni di sicurezza applicando 
 Personalizzando le regole, le organizzazioni possono controllare quali opzioni di configurazione sono più appropriate per il proprio ambiente. È possibile impostare un criterio personalizzato di valutazione e quindi applicarlo in tutti i computer applicabili nella sottoscrizione.
 
 > [!NOTE]
-> - La personalizzazione della configurazione di sicurezza del sistema operativo è attualmente disponibile solo per i sistemi operativi Windows Server versioni 2008, 2008 R2, 2012 e 2012 R2.
+> - La personalizzazione della configurazione di sicurezza del sistema operativo è attualmente disponibile solo per i sistemi operativi Windows Server versioni 2008, 2008 R2, 2012, 2012 R2 e 2016.
 > - La configurazione si applica a tutte le macchine virtuali e a tutti i computer connessi a tutte le aree di lavoro nella sottoscrizione selezionata.
 > - La personalizzazione della configurazione di sicurezza del sistema operativo è disponibile solo nel livello Standard del Centro sicurezza.
 >
@@ -60,7 +60,7 @@ Per personalizzare la configurazione di sicurezza predefinita del sistema operat
 3.  Nella riga della sottoscrizione che si desidera personalizzare, fare clic su **Modifica impostazioni**.
 
 4. Selezionare **Modifica le configurazioni di sicurezza**.  
-    
+
     ![Finestra "Modifica le configurazioni della sicurezza"](media/security-center-customize-os-security-config/blade.png)
 
 5. Seguire i passaggi per scaricare, modificare e caricare il file modificato.

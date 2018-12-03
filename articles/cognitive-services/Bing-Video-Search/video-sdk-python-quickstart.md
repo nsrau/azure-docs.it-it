@@ -10,21 +10,23 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: rosh
-ms.openlocfilehash: 9784894ea9a9deb350171e0d19042eb65644093b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2c099f3520b697e8ec2f7ef39c4525298182a697
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225651"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307917"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-python"></a>Guida introduttiva: Ricerca video Bing con Python
 
-L'SDK di Ricerca immagini Bing contiene la funzionalità dell'API REST per query Web e analisi dei risultati.
+Bing Image Search SDK contiene la funzionalità dell'API REST per query Web e analisi dei risultati.
 
 Il [codice sorgente per gli esempi dell'SDK di Ricerca video Bing per Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) è disponibile su Git Hub.
 
 
 ## <a name="application-dependencies"></a>Dipendenze dell'applicazione
+Ottenere una [chiave di accesso di Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/) in **Ricerca**.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
 Se Python non è disponibile, installarlo. L'SDK è compatibile con Python 2.7, 3.3, 3.4, 3.5 e 3.6.
 
 L'indicazione generale per lo sviluppo di Python è di usare un [ambiente virtuale](https://docs.python.org/3/tutorial/venv.html). Installare e inizializzare l'ambiente virtuale con il [modulo venv](https://pypi.python.org/pypi/virtualenv). Installare virtualenv per Python 2.7.

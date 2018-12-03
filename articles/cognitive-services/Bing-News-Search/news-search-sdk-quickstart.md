@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 447c59d45e3b1614ce8dbddc56f9dba0dd156e90
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802985"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317059"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-c"></a>Guida introduttiva: Bing News Search SDK con C#
 
@@ -24,6 +24,7 @@ L'SDK di Ricerca notizie Bing contiene la funzionalità dell'API REST per query 
 Il [codice sorgente per gli esempi dell'SDK di Ricerca notizie Bing per C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) è disponibile su GitHub.
 
 ## <a name="application-dependencies"></a>Dipendenze dell'applicazione
+Ottenere una [chiave di accesso di Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/) in **Ricerca**.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).  
 
 Per configurare un'applicazione console tramite l'SDK di Ricerca notizie Bing, passare all'opzione `Manage NuGet Packages` da Esplora soluzioni in Visual Studio.  Aggiungere il pacchetto `Microsoft.Azure.CognitiveServices.Search.NewsSearch`.
 

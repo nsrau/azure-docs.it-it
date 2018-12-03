@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 10a63768550182309f3193b39c2d00992398d190
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b3b15db171dc00519c532a229205df96ef29e31
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244560"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316889"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione alla macchina virtuale data science di Azure per Linux e Windows
 
@@ -86,7 +86,7 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim ed Emacs | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git e GitBash | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | S | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | S | N |
 | PowerBI Desktop | S | N |
 | SDK per accedere alla suite di servizi di Cortana Intelligence e di Azure | S | S |
 | **Strumenti di gestione e spostamento dati** | | |
@@ -108,9 +108,9 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](https://togaware.com/rattle/) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (soltanto Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CatBoost](https://tech.yandex.com/catboost/) | N | Y (soltanto Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/), [Deep Water](https://www.h2o.ai/deep-water/) | N | Y (soltanto Ubuntu) |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/) | N | Y (soltanto Ubuntu) |
 | **Strumenti per Deep Learning** <br>Tutti gli strumenti funzioneranno su GPU o CPU |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) (Windows 2016) | S | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | S (Windows 2016) | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | S (Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | S (Windows 2016) | S|

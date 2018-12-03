@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/18/2018
-ms.openlocfilehash: b0e8c4dabea6aeae8d93d64d97b598ec97b2d18a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: e734f11fb3f6a833b8c080deb57b9153c6c12dde
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277082"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290689"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Guida introduttiva: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)
 
-Esplora dati di Azure (ADX) è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per .NET Standard: una [libreria di inserimento](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e una [libreria di dati](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questa guida introduttiva, è innanzitutto necessario creare una tabella e il mapping dei dati in un cluster di prova. Quindi viene accodato l'inserimento nel cluster e vengono convalidati i risultati.
+Esplora dati di Azure (ADX) è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per .NET Standard: una [libreria di inserimento](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e una [libreria di dati](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questa guida introduttiva, è innanzitutto necessario creare una tabella e il mapping dei dati in un cluster di prova. Quindi viene accodato un inserimento nel cluster e vengono convalidati i risultati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -75,14 +75,14 @@ var kustoConnectionStringBuilder =
 
 ## <a name="set-source-file-information"></a>Impostare le informazioni sul file di origine
 
-Impostare le costanti per il file di origine dati. Questo esempio usa un file di esempio ospitato nell'archiviazione BLOB di Azure. Il set di dati di esempio **StormEvents** contiene dati relativi al meteo del [National Center for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
+Impostare il percorso del file di origine. Questo esempio usa un file di esempio ospitato nell'archiviazione BLOB di Azure. Il set di dati di esempio **StormEvents** contiene dati relativi al meteo del [National Center for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
 ```csharp
 var blobPath = "https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
 ```
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Creare una tabella nel cluster di prova
-Creare una tabella che corrisponda allo schema dei dati nel file `StormEvents.csv`. Quando viene eseguito questo codice, restituisce un messaggio simile al seguente: *Per accedere, usare un web browser per aprire la pagina https://microsoft.com/devicelogin e immettere il codice F3W4VWZDM per l'autenticazione*. Seguire i passaggi per l'accesso, quindi tornare a eseguire il blocco di codice successivo. I blocchi di codice successivi che stabiliscono una connessione richiedono di eseguire nuovamente l'accesso.
+Creare una tabella denominata `StormEvents` che corrisponda allo schema dei dati nel file `StormEvents.csv`.
 
 ```csharp
 var table = "StormEvents";
@@ -122,7 +122,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 
 ## <a name="define-ingestion-mapping"></a>Definire il mapping di inserimento
 
-Eseguire il mapping dei dati CSV in ingresso sui nomi di colonna e tipi di dati usati durante la creazione della tabella.
+Eseguire il mapping dei dati CSV in ingresso sui nomi di colonna usati durante la creazione della tabella.
 Effettuare il provisioning di un [oggetto di mapping di colonne CSV](/azure/kusto/management/tables#create-ingestion-mapping) su tale tabella
 
 ```csharp
@@ -193,12 +193,12 @@ using (var ingestClient = KustoIngestFactory.CreateQueuedIngestClient(ingestConn
 
 ## <a name="validate-data-was-ingested-into-the-table"></a>Verificare che i dati siano stati inseriti nella tabella
 
-Attendere da cinque a dieci minuti per l'operazione di inserimento in coda per pianificare l'inserimento e caricare i dati in Esplora dati di Azure. Eseguire quindi il codice seguente per ottenere il numero di record nella tabella StormEvents.
+Attendere da cinque a dieci minuti per l'operazione di inserimento in coda per pianificare l'inserimento e caricare i dati in Esplora dati di Azure. Eseguire quindi il codice seguente per ottenere il numero di record nella tabella `StormEvents`.
 
 ```csharp
 using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoConnectionStringBuilder))
 {
-    var query = "StormEvents | count";
+    var query = $"{table} | count";
 
     var results = cslQueryProvider.ExecuteQuery<long>(query);
     Console.WriteLine(results.Single());
@@ -224,7 +224,7 @@ Eseguire il comando seguente per visualizzare lo stato di tutte le operazioni di
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di seguire altre guide introduttive ed esercitazioni, non eliminare le risorse create. In caso contrario, eseguire il comando seguente nel database per pulire la tabella StormEvents.
+Se si prevede di seguire altre guide introduttive ed esercitazioni, non eliminare le risorse create. In caso contrario, eseguire il comando seguente nel database per pulire la tabella `StormEvents`.
 
 ```Kusto
 .drop table StormEvents

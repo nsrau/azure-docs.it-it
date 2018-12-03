@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 8f552967dcf7e5c5d41d468914a2c829cad3dc96
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8ac288a3b62b305ca45ba8ef2dcc6cdaf6aaf6bd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010293"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309642"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guida introduttiva: Creare un cluster Kafka in HDInsight
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Guida introduttiva: Creare un cluster Apache Kafka in HDInsight
 
-Kafka è una piattaforma di streaming open source distribuita. Viene spesso usata come broker di messaggi perché offre funzionalità simili a una coda messaggi di pubblicazione/sottoscrizione. 
+[Apache Kafka](https://kafka.apache.org/) è una piattaforma di streaming open source distribuita. Viene spesso usata come broker di messaggi perché offre funzionalità simili a una coda messaggi di pubblicazione/sottoscrizione. 
 
 Questa guida di avvio rapido illustra come creare un cluster[Apache Kafka](https://kafka.apache.org) tramite Azure PowerShell. Illustra anche come usare le utilità incluse per inviare e ricevere messaggi tramite Kafka.
 
@@ -27,7 +27,7 @@ Questa guida di avvio rapido illustra come creare un cluster[Apache Kafka](https
 > [!IMPORTANT]
 > Possono accedere all'API Kafka solo risorse interne alla stessa rete virtuale. In questa guida di avvio rapido si accede al cluster direttamente usando SSH. Per connettere altri servizi, reti o macchine virtuali a Kafka, è necessario prima di tutto creare una rete virtuale e quindi creare le risorse all'interno della rete.
 >
-> Per altre informazioni, vedere il documento [Connettersi a Kafka da una rete locale](apache-kafka-connect-vpn-gateway.md).
+> Per altre informazioni, vedere il documento [Connettersi ad Apache Kafka da una rete locale](apache-kafka-connect-vpn-gateway.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -95,9 +95,9 @@ $storageContext = New-AzureStorageContext `
 New-AzureStorageContainer -Name $containerName -Context $storageContext 
 ```
 
-## <a name="create-a-kafka-cluster"></a>Creare un cluster Kafka
+## <a name="create-an-apache-kafka-cluster"></a>Creare un cluster Apache Kafka
 
-Creare un cluster Kafka in HDInsight con [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+Creare un cluster Apache Kafka in HDInsight con [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -182,11 +182,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Ottenere le informazioni sugli host Zookeeper e broker
+## <a id="getkafkainfo"></a>Ottenere le informazioni sugli host Apache Zookeeper e broker
 
-Quando si usa Kafka, è necessario conoscere gli host *Zookeeper* e *broker*. Questi host vengono usati con l'API Kafka e molte delle utilità offerte con Kafka.
+Quando si usa Kafka, è necessario conoscere gli host *Apache Zookeeper* e *broker*. Questi host vengono usati con l'API Kafka e molte delle utilità offerte con Kafka.
 
-In questa sezione si ottengono le informazioni sull'host dall'API REST Ambari nel cluster.
+In questa sezione si ottengono le informazioni sull'host dall'API REST Apache Ambari nel cluster.
 
 1. Da una connessione SSH al cluster, usare il comando seguente per installare l'utilità `jq`. Questa utilità consente di analizzare i documenti JSON ed è utile nel recupero delle informazioni sull'host:
    
@@ -241,7 +241,7 @@ In questa sezione si ottengono le informazioni sull'host dall'API REST Ambari ne
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## <a name="manage-kafka-topics"></a>Gestire gli argomenti Kafka
+## <a name="manage-apache-kafka-topics"></a>Gestire gli argomenti di Apache Kafka
 
 Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è possibile usare l'utilità `kafka-topics.sh`.
 
@@ -267,7 +267,7 @@ Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è pos
         > [!IMPORTANT] 
         > Kafka non rileva i domini di errore di Azure. Quando si creano le repliche di partizione per gli argomenti, è possibile che le repliche non vengano distribuite in modo corretto per la disponibilità elevata.
 
-        Per garantire la disponibilità elevata, usare lo [strumento per il ribilanciamento delle partizioni Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Questo strumento deve essere eseguito da una sessione SSH al nodo head del cluster Kafka.
+        Per garantire la disponibilità elevata, usare lo [strumento per il ribilanciamento delle partizioni Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Questo strumento deve essere eseguito da una sessione SSH al nodo head del cluster Kafka.
 
         Per garantire la massima disponibilità dei dati Kafka, è consigliabile ribilanciare le repliche di partizione per l'argomento nelle situazioni seguenti:
 
@@ -329,7 +329,7 @@ Seguire questa procedura per archiviare i record nell'argomento test creato in p
 
 4. Usare __Ctrl + C__ per arrestare il consumer.
 
-È possibile creare producer e consumer anche a livello di codice. Per un esempio dell'uso di questa API, vedere il documento relativo alle [API Producer e Consumer Kafka con HDInsight](apache-kafka-producer-consumer-api.md).
+È possibile creare producer e consumer anche a livello di codice. Per un esempio dell'uso di questa API, vedere il documento relativo alle [API Producer e Consumer Apache Kafka con HDInsight](apache-kafka-producer-consumer-api.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -347,4 +347,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Usare Apache Spark con Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Usare Apache Spark con Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

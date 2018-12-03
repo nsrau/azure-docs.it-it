@@ -10,42 +10,42 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: e0edd31027480df3592b46a4c1246462611da26e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 11/21/2018
+ms.openlocfilehash: f0e76dff32038ba53dbdf7f869f5a04e75316e12
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265330"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290706"
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Node.js per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando [Node.js](https://nodejs.org/) dalle piattaforme Windows, Ubuntu Linux e Mac. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Node.js, ma non con Database di Azure per MySQL.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
 - [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 È anche necessario:
 - Installare il runtime di [Node.js](https://nodejs.org).
-- Installare il pacchetto [mysql2](https://www.npmjs.com/package/mysql2) per connettersi a MySQL dall'applicazione Node.js. 
+- Installare il pacchetto [mysql](https://www.npmjs.com/package/mysql) per connettersi a MySQL dall'applicazione Node.js. 
 
 ## <a name="install-nodejs-and-the-mysql-connector"></a>Installare Node.js e il connettore MySQL
-A seconda della piattaforma, seguire le istruzioni nella sezione appropriata per installare Node.js. Usare npm per installare il pacchetto mysql2 e le relative dipendenze nella cartella del progetto.
+A seconda della piattaforma, seguire le istruzioni nella sezione appropriata per installare Node.js. Usare npm per installare il pacchetto mysql e le relative dipendenze nella cartella del progetto.
 
 ### <a name="windows"></a>**Windows**
 1. Visitare la [pagina di download di Node.js](https://nodejs.org/en/download/) e quindi selezionare l'opzione di installazione di Windows desiderata.
 2. Creare una cartella di progetto locale, ad esempio `nodejsmysql`. 
 3. Avviare il prompt dei comandi e quindi passare alla cartella del progetto, ad esempio `cd c:\nodejsmysql\`
-4. Eseguire lo strumento NPM per installare la libreria mysql2 nella cartella del progetto.
+4. Eseguire lo strumento NPM per installare la libreria mysql nella cartella del progetto.
 
    ```cmd
    cd c:\nodejsmysql\
-   "C:\Program Files\nodejs\npm" install mysql2
+   "C:\Program Files\nodejs\npm" install mysql
    "C:\Program Files\nodejs\npm" list
    ```
 
-5. Verificare l'installazione controllando il testo di output `npm list` per `mysql2@1.3.5`.
+5. Verificare l'installazione controllando il testo di output `npm list`. Il numero di versione può variare nel momento in cui vengono rilasciate nuove patch.
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 1. Eseguire questi comandi per installare **Node.js** e la gestione pacchetti **npm** per Node.js.
@@ -54,15 +54,15 @@ A seconda della piattaforma, seguire le istruzioni nella sezione appropriata per
    sudo apt-get install -y nodejs npm
    ```
 
-2. Eseguire questi comandi per creare una cartella di progetto `mysqlnodejs` e installare il pacchetto mysql2 nella cartella.
+2. Eseguire questi comandi per creare una cartella di progetto `mysqlnodejs` e installare il pacchetto mysql nella cartella.
 
    ```bash
    mkdir nodejsmysql
    cd nodejsmysql
-   npm install --save mysql2
+   npm install --save mysql
    npm list
    ```
-3. Verificare l'installazione controllando il testo di output npm list per `mysql2@1.3.5`.
+3. Verificare l'installazione controllando il testo di output npm list. Il numero di versione può variare nel momento in cui vengono rilasciate nuove patch.
 
 ### <a name="mac-os"></a>**Mac OS**
 1. Immettere i comandi seguenti per installare **brew**, una gestione pacchetti facile da usare per Mac OS X e **Node.js**.
@@ -71,16 +71,16 @@ A seconda della piattaforma, seguire le istruzioni nella sezione appropriata per
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install node
    ```
-2. Eseguire questi comandi per creare una cartella di progetto `mysqlnodejs` e installare il pacchetto mysql2 nella cartella.
+2. Eseguire questi comandi per creare una cartella di progetto `mysqlnodejs` e installare il pacchetto mysql nella cartella.
 
    ```bash
    mkdir nodejsmysql
    cd nodejsmysql
-   npm install --save mysql2
+   npm install --save mysql
    npm list
    ```
 
-3. Verificare l'installazione controllando il testo di output `npm list` per `mysql2@1.3.6`. Il numero di versione può variare nel momento in cui vengono rilasciate nuove patch.
+3. Verificare l'installazione controllando il testo di output `npm list`. Il numero di versione può variare nel momento in cui vengono rilasciate nuove patch.
 
 ## <a name="get-connection-information"></a>Ottenere informazioni di connessione
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per MySQL. Sono necessari il nome del server completo e le credenziali di accesso.
@@ -105,7 +105,7 @@ Il metodo [mysql.createConnection()](https://github.com/mysqljs/mysql#establishi
 Sostituire i parametri `host`, `user`, `password` e `database` con i valori specificati al momento della creazione del server e del database.
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -172,7 +172,7 @@ Il metodo [mysql.createConnection()](https://github.com/mysqljs/mysql#establishi
 Sostituire i parametri `host`, `user`, `password` e `database` con i valori specificati al momento della creazione del server e del database.
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -224,7 +224,7 @@ Il metodo [mysql.createConnection()](https://github.com/mysqljs/mysql#establishi
 Sostituire i parametri `host`, `user`, `password` e `database` con i valori specificati al momento della creazione del server e del database.
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -272,7 +272,7 @@ Il metodo [mysql.createConnection()](https://github.com/mysqljs/mysql#establishi
 Sostituire i parametri `host`, `user`, `password` e `database` con i valori specificati al momento della creazione del server e del database.
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {

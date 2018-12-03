@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: d2d648dd02426596e1c070ffd494458c68060085
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: a8d2cf577a6b637e910c283ba8c70d9ea4eedfbb
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613444"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334126"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Esercitazione: Eseguire il caricamento, la codifica e lo streaming di video tramite API
 
@@ -40,9 +40,9 @@ Questa esercitazione illustra come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se Visual Studio non è installato, è possibile scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+- Installare e usare l'interfaccia della riga di comando in locale. Per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versioni successive. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
-    Attualmente, non tutti i comandi delle [interfacce della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando solo in locale.
+    Attualmente, non tutti i comandi dell'[interfaccia della riga di comando di Servizi multimediali v3](https://aka.ms/ams-v3-cli-ref) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando in locale.
 
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
 
@@ -74,7 +74,7 @@ L'esempio esegue le azioni seguenti:
 6. Crea un oggetto StreamingLocator.
 7. Crea gli URL di streaming.
 
-### <a name="start-using-media-services-apis-with-net-sdk"></a>Iniziare a usare le API di Servizi multimediali con .NET SDK
+### <a name="a-idstartusingdotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Iniziare a usare le API di Servizi multimediali con .NET SDK
 
 Per iniziare a usare le API di Servizi multimediali con .NET, è necessario creare un oggetto **AzureMediaServicesClient**. Per eseguire questa operazione, specificare le credenziali necessarie per consentire al client di connettersi ad Azure tramite Azure AD. Nel codice clonato all'inizio dell'articolo, la funzione **GetCredentialsAsync** crea l'oggetto ServiceClientCredentials in base alle credenziali fornite nel file di configurazione locale. 
 
@@ -174,7 +174,7 @@ Questo esempio visualizza gli URL che è possibile usare per riprodurre il video
 
 ## <a name="test-the-streaming-url"></a>Testare l'URL di streaming
 
-Per testare lo streaming, in questo articolo viene usato Azure Media Player. 
+Per testare lo streaming in questo articolo viene usato Azure Media Player. 
 
 > [!NOTE]
 > Se un lettore è ospitato in un sito https, assicurarsi di aggiornare l'URL impostandolo su "https".

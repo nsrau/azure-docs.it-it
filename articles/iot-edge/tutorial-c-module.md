@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 09/21/2018
+ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e5c6b523a098bef4bb40ccd924750cc8aefd0e87
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: bc66e143dc8cb98f08080092af95661ba50be9a3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567367"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317705"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Esercitazione: Sviluppare un modulo C per IoT Edge e distribuirlo in un dispositivo simulato
 
@@ -53,27 +53,32 @@ Risorse per lo sviluppo:
 >[!Note]
 >I moduli C per Azure IoT Edge non supportano i contenitori Windows. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
-In questa esercitazione viene usata l'estensione Azure IoT Edge per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.  
 
-È possibile usare qualsiasi registro compatibile con Docker per questa esercitazione. Due servizi molto diffusi per il registro Docker disponibili sul cloud sono il [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro contenitori di Azure. 
+In questa esercitazione si usa l'estensione Azure IoT Edge per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.  
 
-Il comando dell'interfaccia della riga di comando di Azure seguente crea un registro in un gruppo di risorse denominato **IoTEdgeResources**. Sostituire **{acr_name}** con un nome univoco per il registro. 
+È possibile usare qualsiasi registro compatibile con Docker per inserire le immagini dei contenitori. Due servizi di registro Docker molto diffusi sono [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro contenitori di Azure. 
 
-   ```azurecli-interactive
-   az acr create --resource-group IoTEdgeResources --name {acr_name} --sku Basic --admin-enabled true
-   ```
+Se non è ancora disponibile alcun registro contenitori, seguire questa procedura per crearne uno nuovo in Azure:
 
-Recuperare le credenziali per il registro. 
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori**.
 
-   ```azurecli-interactive
-   az acr credential show --name {acr_name}
-   ```
+2. Specificare i valori seguenti per creare il registro contenitori:
 
-Copiare i valori per **Nome utente** e una delle password. Questi valori verranno usati più avanti nel corso dell'esercitazione, per pubblicare l'immagine Docker nel Registro di sistema e per aggiungere le credenziali del registro al runtime di Edge. 
+   | Campo | Valore | 
+   | ----- | ----- |
+   | Nome registro | Specificare un nome univoco. |
+   | Sottoscrizione | Selezionare una sottoscrizione nell'elenco a discesa. |
+   | Gruppo di risorse | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |
+   | Località | Scegliere una località vicina. |
+   | Utente amministratore | Impostare su **Abilita**. |
+   | SKU | Selezionare **Basic**. | 
+
+5. Selezionare **Create**.
+
+6. Dopo aver creato il registro contenitori, passare al registro e quindi selezionare **Chiavi di accesso**. 
+
+7. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**. Usare questi valori più avanti nell'esercitazione per fornire l'accesso al registro contenitori. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Creare un progetto di modulo IoT Edge
 La procedura seguente illustra come creare un progetto di modulo di IoT Edge basato su .NET Core 2.0 tramite Visual Studio Code e l'estensione Azure IoT Edge.
@@ -86,21 +91,25 @@ Creare un modello di soluzione C che è possibile personalizzare con il proprio 
 
 2. Nel riquadro comandi digitare ed eseguire il comando **Azure: Sign in** (Azure: Accedi) e seguire le istruzioni per accedere all'account Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
 
-3. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione: 
+3. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Seguire i prompt nel riquadro comandi per creare la soluzione.
 
-   1. Selezionare la cartella in cui si vuole creare la soluzione. 
-   2. Specificare un nome per la soluzione o accettare quello predefinito **EdgeSolution**.
-   3. Scegliere **C Module** (Modulo C) come modello di modulo. 
-   4. Assegnare al modulo il nome **CModule**. 
-   5. Specificare il registro contenitori di Azure creato nella sezione precedente come repository di immagini per il primo modulo. Sostituire **localhost:5000** con **\<nome registro\>.azurecr.io**. Sostituire solo la parte localhost della stringa, non eliminare il nome del modulo. 
-
+   | Campo | Valore |
+   | ----- | ----- |
+   | Selezionare la cartella | Nel computer di sviluppo scegliere la posizione in cui Visual Studio Code dovrà creare i file della soluzione. |
+   | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione oppure accettare quello predefinito **EdgeSolution**. |
+   | Select module template (Selezionare un modello di modulo) | Scegliere **C Module** (Modulo C). |
+   | Provide a module name (Specificare un nome per il modulo) | Assegnare al modulo il nome **CModule**. |
+   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso nel registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. La stringa finale è simile a \<nome registro\>.azurecr.io/cmodule. |
+ 
    ![Specificare il repository di immagini Docker](./media/tutorial-c-module/repository.png)
 
-La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. L'area di lavoro della soluzione contiene cinque componenti di livello superiore. In questa esercitazione non verranno modificati né la cartella **\.vscode** né il file **\.gitignore**. La cartella **modules** contiene il codice C per il modulo e i Dockerfile per creare il modulo come un'immagine del contenitore. Il file **\.env** archivia le credenziali del registro contenitori. Il file **deployment.template.json** contiene le informazioni che il runtime IoT Edge usa per distribuire i moduli in un dispositivo. 
+La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. L'area di lavoro della soluzione contiene cinque componenti di livello superiore. La cartella **modules** contiene il codice C per il modulo e i Dockerfile per creare il modulo come un'immagine del contenitore. Il file **\.env** archivia le credenziali del registro contenitori. Il file **deployment.template.json** contiene le informazioni che il runtime IoT Edge usa per distribuire i moduli in un dispositivo. Il file **deployment.debug.template.json** contiene invece la versione di debug dei moduli. In questa esercitazione non verranno modificati né la cartella **\.vscode** né il file **\.gitignore**.
 
 Se non è stato specificato un registro contenitori durante la creazione della soluzione, ma è stato accettato il valore predefinito localhost:5000, non sarà presente il file con estensione \. env. 
 
-   ![Area di lavoro della soluzione C](./media/tutorial-c-module/workspace.png)
+<!--
+   ![C solution workspace](./media/tutorial-c-module/workspace.png)
+-->
 
 ### <a name="add-your-registry-credentials"></a>Aggiungere le credenziali del registro
 
@@ -285,7 +294,23 @@ Aggiungere il codice al modulo C che gli consente di leggere i dati dal sensore,
 
 11. Salvare il file **main.c**.
 
-## <a name="build-your-iot-edge-solution"></a>Compilare la soluzione IoT Edge
+12. Nello strumento di esplorazione di VS Code aprire il file **deployment.template.json** nell'area di lavoro della soluzione IoT Edge. Questo file comunica a `$edgeAgent` di distribuire due moduli: **tempSensor** e **CModule**. La piattaforma predefinita del dispositivo IoT Edge è impostata su **amd64** nella barra di stato di VS Code, di conseguenza **NodeModule** è impostato sulla versione amd64 Linux dell'immagine. Cambiare la piattaforma predefinita nella barra di stato da **amd64** a **arm32v7** se corrisponde all'architettura del dispositivo IoT Edge. Per altre informazioni sui manifesti di distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli IoT Edge](module-composition.md).
+
+13. Aggiungere il modulo gemello CModule al manifesto della distribuzione. Inserire il contenuto JSON seguente alla fine della sezione `moduleContent`, dopo il modulo gemello `$edgeHub`: 
+
+    ```json
+        "CModule": {
+            "properties.desired":{
+                "TemperatureThreshold":25
+            }
+        }
+    ```
+
+   ![Aggiungere CModule gemello al modello di distribuzione](./media/tutorial-c-module/module-twin.png)
+
+14. Salvare il file **deployment.template.json**.
+
+## <a name="build-and-push-your-solution"></a>Compilare ed eseguire il push della soluzione
 
 Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggiunto a CModule il codice per filtrare i messaggi in cui la temperatura del computer segnalata è compresa nei limiti accettabili. È ora necessario compilare la soluzione come immagine del contenitore ed eseguirne il push nel registro contenitori. 
 
@@ -298,22 +323,7 @@ Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggi
    ```
    Usare il nome utente, la password e il server di accesso copiati dal registro contenitori di Azure nella prima sezione oppure recuperarli nuovamente dalla sezione **Chiavi di accesso** del registro nel portale di Azure.
 
-2. Nello strumento di esplorazione di VS Code aprire il file **deployment.template.json** nell'area di lavoro della soluzione IoT Edge. Questo file comunica a `$edgeAgent` di distribuire due moduli: **tempSensor** e **CModule**. Il valore `CModule.image` è impostato su una versione di Linux amd64 dell'immagine. Per altre informazioni sui manifesti di distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli IoT Edge](module-composition.md).
-
-4. Aggiungere il modulo gemello CModule al manifesto della distribuzione. Inserire il contenuto JSON seguente alla fine della sezione `moduleContent`, dopo il modulo gemello `$edgeHub`: 
-
-    ```json
-        "CModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
-
-   ![Aggiungere CModule gemello al modello di distribuzione](./media/tutorial-c-module/module-twin.png)
-
-4. Salvare il file **deployment.template.json**.
-5. Nello strumento di esplorazione di Visual Studio Code fare clic con il pulsante destro del mouse sul file **deployment.template.json** e scegliere **Build and Push IoT Edge solution** (Compila ed esegui il push della soluzione IoT Edge). 
+2. Nello strumento di esplorazione di Visual Studio Code fare clic con il pulsante destro del mouse sul file **deployment.template.json** e scegliere **Build and Push IoT Edge solution** (Compila ed esegui il push della soluzione IoT Edge). 
 
 Quando si comunica a Visual Studio Code di compilare la soluzione, prima di tutto viene generato un file `deployment.json` in una nuova cartella **config**. Le informazioni per il file deployment.json vengono raccolte dal file del modello aggiornato, dal file ENV usato per archiviare le credenziali del registro contenitori e dal file module.json nella cartella CModule. 
 

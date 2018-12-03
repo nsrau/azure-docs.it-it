@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: rosh
-ms.openlocfilehash: 9a2544fe5a3c0bac763b9aee79c36893ec56f351
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 985ddcff35a16c747fff34ed487c72744e1ee466
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686688"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313448"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-node"></a>Guida introduttiva: SDK di Ricerca video Bing con Node
 
@@ -24,6 +24,7 @@ Bing Video Search SDK contiene la funzionalità dell'API REST per query di video
 Il [codice sorgente per esempi Node di Bing Video Search SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js) è disponibile su Git Hub.
 
 ## <a name="application-dependencies"></a>Dipendenze dell'applicazione
+Ottenere una [chiave di accesso di Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/) in **Ricerca**.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Per configurare un'applicazione console usando Bing Video Search SDK:
 * Eseguire `npm install ms-rest-azure` nell'ambiente di sviluppo.

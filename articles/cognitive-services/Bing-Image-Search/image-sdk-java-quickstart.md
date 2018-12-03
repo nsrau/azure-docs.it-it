@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva: cercare immagini con l'SDK di Ricerca immagini Bing per Java"
-description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Java invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
+title: 'Guida introduttiva: Cercare immagini con Bing Image Search SDK per Java'
+description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite Bing Image Search SDK, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Java invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -10,24 +10,25 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: b6cecdb2418be78c40ff08c53f98f4c709a47728
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 81bd7356579b3e4f7b82497bb2163c85374fd0d9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974410"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316328"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>Guida introduttiva: cercare immagini con l'SDK di Ricerca immagini Bing e Java
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>Guida introduttiva: Cercare immagini con Bing Image Search SDK e Java
 
-Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Java invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
+Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite Bing Image Search SDK, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Java invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) con annotazioni aggiuntive e altre informazioni sulla gestione degli errori.
 
 ## <a name="prerequisites"></a>Prerequisiti
+Ottenere una [chiave di accesso di Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/) in **Ricerca**.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 La versione più recente di [Java Development Kit](https://aka.ms/azure-jdks) (JDK)
 
-Installare le dipendenze dell'SDK di Ricerca immagini Bing usando Maven, Gradle o un altro sistema di gestione delle dipendenze. Il file POM di Maven richiede la dichiarazione seguente:
+Installare le dipendenze di Bing Image Search SDK usando Maven, Gradle o un altro sistema di gestione delle dipendenze. Il file POM di Maven richiede la dichiarazione seguente:
 
 ```xml
  <dependencies>

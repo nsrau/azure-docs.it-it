@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 9edb85fcaa2c3f9c58cc74c55d52e4dbbf751727
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5b1768978425d3153f775e20a1a4c44a39794779
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014517"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315955"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Guida introduttiva: Creare un cluster Apache Kafka in HDInsight
 
@@ -161,11 +161,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Ottenere le informazioni sugli host Zookeeper e broker
+## <a id="getkafkainfo"></a>Ottenere le informazioni sugli host Apache Zookeeper e broker
 
-Quando si usa Kafka, è necessario conoscere gli host *Zookeeper* e *broker*. Questi host vengono usati con l'API Apache Kafka e molte delle utilità offerte con Kafka.
+Quando si usa Kafka, è necessario conoscere gli host *Apache Zookeeper* e *broker*. Questi host vengono usati con l'API Apache Kafka e molte delle utilità offerte con Kafka.
 
-In questa sezione si ottengono le informazioni sull'host dall'API REST Ambari nel cluster.
+In questa sezione si ottengono le informazioni sull'host dall'API REST Apache Ambari nel cluster.
 
 1. Da una connessione SSH al cluster, usare il comando seguente per installare l'utilità `jq`. Questa utilità consente di analizzare i documenti JSON ed è utile nel recupero delle informazioni sull'host:
    
@@ -249,7 +249,7 @@ Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è pos
         > [!IMPORTANT] 
         > Apache Kafka non rileva i domini di errore di Azure. Quando si creano le repliche di partizione per gli argomenti, è possibile che le repliche non vengano distribuite in modo corretto per la disponibilità elevata.
 
-        Per garantire la disponibilità elevata, usare lo [strumento per il ribilanciamento delle partizioni Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Questo strumento deve essere eseguito da una connessione SSH al nodo head del cluster Apache Kafka.
+        Per garantire la disponibilità elevata, usare lo [strumento per il ribilanciamento delle partizioni Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Questo strumento deve essere eseguito da una connessione SSH al nodo head del cluster Apache Kafka.
 
         Per garantire la massima disponibilità dei dati Apache Kafka, è consigliabile ribilanciare le repliche di partizione per l'argomento nelle situazioni seguenti:
 
@@ -311,7 +311,7 @@ Seguire questa procedura per archiviare i record nell'argomento test creato in p
 
 4. Usare __Ctrl + C__ per arrestare il consumer.
 
-È possibile creare producer e consumer anche a livello di codice. Per un esempio dell'uso di questa API, vedere il documento relativo alle [API Producer e Consumer Kafka con HDInsight](apache-kafka-producer-consumer-api.md).
+È possibile creare producer e consumer anche a livello di codice. Per un esempio dell'uso di questa API, vedere il documento relativo alle [API Producer e Consumer Apache Kafka con HDInsight](apache-kafka-producer-consumer-api.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -331,5 +331,5 @@ Per rimuovere il gruppo di risorse usando il portale di Azure:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Usare Apache Spark con Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Usare Apache Spark con Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
 

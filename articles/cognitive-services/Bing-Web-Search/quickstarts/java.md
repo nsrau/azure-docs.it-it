@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: 1a942e39e680c9399145a629d03a1202b1f85ae7
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: bd6630f67e151dd2ee1e60654352f3070466899b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164235"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312664"
 ---
 # <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare Java per chiamare l'API Ricerca Web Bing  
 
@@ -23,8 +23,9 @@ Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca W
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## <a name="prerequisites"></a>Prerequisiti
 Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare di avere quanto segue:
 
 * [JDK 7 o 8](https://aka.ms/azure-jdks)

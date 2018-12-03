@@ -10,16 +10,16 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 29ee7cb4ee648d20b425939553ba31cd9ac150f0
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4af90c0e1ffd6dbadcb31eb6141bc24f746d01f9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804192"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316413"
 ---
 # <a name="quickstart-your-first-spell-check-request"></a>Guida introduttiva: Prima richiesta di controllo ortografico
 
-Prima di poter effettuare la prima chiamata, è necessario ottenere una chiave di sottoscrizione di Servizi cognitivi. Per ottenere una chiave, vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Ottenere una [chiave di accesso di Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/) in **Ricerca**.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Per controllare gli errori di ortografia e grammatica di una stringa di testo è consigliabile inviare una richiesta GET all'endpoint seguente:  
   
