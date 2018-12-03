@@ -51,8 +51,8 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
 ### <a name="application-2"></a>Applicazione n°2: 
 Seguire gli stessi passaggi usati per l'applicazione n°1, con le eccezioni seguenti: 
 
-**Passaggio 5**: l'URL interno deve ora corrispondere all'URL Qlik Sense con la porta di autenticazione usata dall'applicazione. Il valore predefinito è **4244** per HTTPS e 4248 per HTTP. Ad esempio, **https&#58;//demo.qlik.com:4244**</br></br> 
-**Passaggio 10:** non configurare SSO e lasciare il **Single Sign-On disabilitato**
+**Passaggio 5**: l'URL interno deve ora corrispondere all'URL Qlik Sense con la porta di autenticazione usata dall'applicazione. Il valore predefinito è **4244** per HTTPS e 4248 per HTTP. Ad esempio, **https&#58;//demo.qlik.com:4244**</br></br>**Passaggio 10:** non configurare SSO e lasciare il **Single Sign-On disabilitato** 
+
  
  
 ## <a name="testing"></a>Test 
