@@ -72,7 +72,7 @@ items:
     items:
     - name: Usare un DVR cloud
       href: live-event-cloud-dvr.md
-    - name: Confronto tra tipi
+    - name: Confronto tra le funzionalità
       href: live-event-types-comparison.md
     - name: Stati e fatturazione
       href: live-event-states-billing.md
@@ -120,7 +120,7 @@ items:
     href: media-rest-apis-with-postman.md
   - name: Ridimensionare le Media Reserved Unit - Interfaccia della riga di comando
     href: media-reserved-units-cli-how-to.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Specifica OpenAPI (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
@@ -182,9 +182,9 @@ items:
     href: limits-quotas-constraints.md
   - name: Domande frequenti
     href: frequently-asked-questions.md
-ms.openlocfilehash: 499be85399b338ba12a4904cc06be4ffd9bdc06c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: adde15ac255a6d6d918bd0caa12b8ffe47762a09
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633028"
+ms.locfileid: "52678458"
