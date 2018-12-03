@@ -25,12 +25,14 @@ items:
       href: iot-accelerators-remote-monitoring-monitor.md
     - name: Rilevare i problemi dei dispositivi
       href: iot-accelerators-remote-monitoring-automate.md
-    - name: Configurare e gestire i dispositivi
+    - name: Configurare dispositivi
       href: iot-accelerators-remote-monitoring-manage.md
     - name: Eseguire un'analisi della causa radice su un avviso
       href: iot-accelerators-remote-monitoring-root-cause-analysis.md
     - name: Usare gli avvisi e risolvere i problemi dei dispositivi
       href: iot-accelerators-remote-monitoring-maintain.md
+    - name: Aggiornare la configurazione di dispositivi in blocco
+      href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
     - name: Rilevare anomalie nei dispositivi perimetrali
       href: iot-accelerators-remote-monitoring-edge.md
   - name: Simulazione dei dispositivi
@@ -81,6 +83,8 @@ items:
       href: iot-accelerators-remote-monitoring-add-edge-device.md
     - name: Importare un pacchetto IoT Edge
       href: iot-accelerators-remote-monitoring-import-edge-package.md
+    - name: Importare il pacchetto di gestione dispositivi automatica
+      href: iot-accelerators-remote-monitoring-import-adm-package.md
     - name: Integrare dati SIM
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: Creare un dispositivo simulato
@@ -147,7 +151,7 @@ items:
       href: iot-accelerators-device-simulation-protobuf.md
     - name: Distribuire un'immagine Docker personalizzata
       href: iot-accelerators-device-simulation-deploy-image.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Monitoraggio remoto
     items:
@@ -225,9 +229,9 @@ items:
     href: iot-accelerators-faq-cf.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-ms.openlocfilehash: bdd52d0023fbf43343cc5108216c6f11e35b89aa
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b36278d1e2a85cd7759d81b022fb1883b7ca2aa6
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824847"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680940"

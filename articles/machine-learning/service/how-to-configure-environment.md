@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 11/6/2018
-ms.openlocfilehash: 2fd2d35bde95a3e268f46b398f2163f9d40ab1ee
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: fa70e0dfa1f131e38e43faa3d80497d50a52e135
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613954"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275215"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -57,7 +57,7 @@ Per iniziare a sviluppare con notebook di Azure, seguire il documento [Introduzi
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
-La Data Science Virtual Machine (DSVM) è una macchina virtuale (VM) personalizzata **progettata per operare in ambito data science**. Sono inclusi:
+La Data Science Virtual Machine (DSVM) è una macchina virtuale (VM) personalizzata **progettata per operare in ambito data science**.  Sono inclusi:
 
   - Strumenti di data science comuni
   - Ambienti di sviluppo integrato (IDE) come RStudio e PyCharm
@@ -157,10 +157,10 @@ I passaggi descritti nella sezione [Computer locale](#local) illustrano come ins
     conda install nb_conda
 
     # install experiment widget
-    jupyter nbextension install --py --user azureml.train.widgets
+    jupyter nbextension install --py --user azureml.widgets
 
     # enable experiment widget
-    jupyter nbextension enable --py --user azureml.train.widgets
+    jupyter nbextension enable --py --user azureml.widgets
     ```
 
 1. Aprire Jupyter Notebook con il comando seguente:

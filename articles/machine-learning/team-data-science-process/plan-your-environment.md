@@ -2,25 +2,21 @@
 title: Identificare gli scenari e pianificare il processo di analisi - Azure | Documentazione Microsoft
 description: Pianificare l'analisi avanzata prendendo in considerazione una serie di domande chiave.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 949bd8337ced7aa12d4354a46f6ee887a1922a7c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227740"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446420"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
 Quali risorse è necessario pianificare quando si configura un ambiente per l'elaborazione dell'analisi avanzata su un set di dati? Questo articolo suggerisce una serie di domande che contribuiscono a identificare le attività e le risorse attinenti allo scenario. L'ordine dei passaggi generali per l'analisi predittiva è illustrato in [Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Ognuno di questi passaggi richiede risorse specifiche per le attività attinenti allo scenario specifico. Le domande principali per identificare lo scenario riguardano la logistica dei dati, le caratteristiche, la qualità dei set di dati e gli strumenti e linguaggi preferiti per eseguire l'analisi.
@@ -30,13 +26,13 @@ Quali risorse è necessario pianificare quando si configura un ambiente per l'el
 ## <a name="logistic-questions-data-locations-and-movement"></a>Logistica: percorsi dei dati e spostamento
 Le domande di logistica riguardano la posizione dell'**origine dati**, la **destinazione** in Azure e i requisiti per lo spostamento dei dati, incluse la pianificazione, la quantità e le risorse coinvolte. Potrebbe essere necessario spostare i dati più volte durante il processo di analisi. Uno scenario frequente consiste nello spostamento di dati locali in una qualche forma di archiviazione in Azure e quindi in Machine Learning Studio.
 
-1. **Qual è l'origine dati?** È locale o nel cloud? Ad esempio: 
+1. **Qual è l'origine dati?**  È locale o nel cloud? Ad esempio: 
    
    * I dati sono disponibili a un indirizzo HTTP.
    * I dati si trovano in un percorso locale/di rete.
    * I dati si trovano in un database di SQL Server.
    * I dati sono archiviati in un contenitore di archiviazione di Azure.
-2. **Qual è la destinazione di Azure?** Quale deve essere la destinazione per l'elaborazione o la modellazione? Ad esempio: 
+2. **Qual è la destinazione di Azure?**  Quale deve essere la destinazione per l'elaborazione o la modellazione? Ad esempio: 
    
    * Archiviazione BLOB di Azure
    * Database SQL Azure
@@ -83,7 +79,7 @@ Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Domande sulla qualità dei dati: esplorazione e pre-elaborazione
 1. **Quali sono le informazioni necessarie sui dati?** Esplorare i dati per comprenderne le caratteristiche di base, i modelli o le tendenze, gli outlier o gli eventuali valori mancanti. Questo passaggio è importante per determinare la quantità di pre-elaborazione necessaria, per formulare ipotesi che potrebbero suggerire le funzionalità o il tipo di analisi più appropriato e per formulare piani per la raccolta di dati aggiuntivi. Alcune tecniche utili per l'analisi dei dati consistono nel calcolare statistiche descrittive e tracciare visualizzazioni. Per informazioni dettagliate su come esplorare un set di dati in vari ambienti di Azure, vedere [Esplorare i dati nel Processo di analisi scientifica dei dati per i team](explore-data.md).
 2. **I dati necessitano di pre-elaborazione o pulizia?**
-   La pre-elaborazione e la pulizia dei dati rappresentano attività importanti che in genere devono essere eseguite prima di poter usare un set di dati in modo efficace per Machine Learning. I dati non elaborati sono fastidiosi, non affidabili e potrebbero non contenere alcuni valori. Utilizzare tali dati per la modellazione può produrre risultati fuorvianti. Per una descrizione, vedere [Attività per preparare i dati per operazioni avanzate con Machine Learning](prepare-data.md).
+    La pre-elaborazione e la pulizia dei dati rappresentano attività importanti che in genere devono essere eseguite prima di poter usare un set di dati in modo efficace per Machine Learning. I dati non elaborati sono fastidiosi, non affidabili e potrebbero non contenere alcuni valori. Utilizzare tali dati per la modellazione può produrre risultati fuorvianti. Per una descrizione, vedere [Attività per preparare i dati per operazioni avanzate con Machine Learning](prepare-data.md).
 
 ## <a name="tools-and-languages-questions"></a>Domande su strumenti e linguaggi
 Sono disponibili numerose opzioni a seconda dei linguaggi e degli strumenti o ambienti di sviluppo usati.

@@ -9,7 +9,7 @@ items:
       href: translator-info-overview.md
   - name: Guide introduttive
     items:
-    - name: Traduci testo
+    - name: Tradurre testo
       items:
       - name: C#, REST
         href: quickstart-csharp-translate.md
@@ -125,20 +125,24 @@ items:
       href: profanity-filtering.md
     - name: Ricevere informazioni sull'allineamento delle parole
       href: word-alignment.md
+    - name: Impedire la traduzione del contenuto
+      href: prevent-translation.md
     - name: Usare la funzione di dizionario dinamico
       href: dynamic-dictionary.md
-  - name: riferimento
+    - name: Tradurre in ambienti protetti da firewall
+      href: firewalls.md
+  - name: Informazioni di riferimento
     items:
     - name: Informazioni di riferimento sull'API Traduzione testuale v3
       href: reference/v3-0-reference.md
       items:
       - name: Lingue
         href: reference/v3-0-languages.md
-      - name: Translate
+      - name: Tradurre
         href: reference/v3-0-translate.md
-      - name: Transliterate
+      - name: Traslitterare
         href: reference/v3-0-transliterate.md
-      - name: Rilevamento
+      - name: Rilevare
         href: reference/v3-0-detect.md
       - name: BreakSentence
         href: reference/v3-0-break-sentence.md
@@ -235,9 +239,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice
       href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide
-ms.openlocfilehash: fd4087d50e8e1213d95548b148dd7ceaeaae8b8b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 4a1d51ba49f50ba5450a725e530a490f32b4acf4
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974972"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678407"

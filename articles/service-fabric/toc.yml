@@ -56,7 +56,7 @@ items:
       href: service-fabric-tutorial-monitoring-wincontainers.md
   - name: Creare un'app contenitore Linux
     items:
-    - name: '1: Creare immagini del contenitore'
+    - name: 1 - Creare immagini del contenitore
       href: service-fabric-tutorial-create-container-images.md
     - name: 2 - Pacchetto e contenitori di distribuzione
       href: service-fabric-tutorial-package-containers.md
@@ -66,9 +66,9 @@ items:
     items:
     - name: 1- Creare un cluster in Azure
       items:
-      - name: 1a- Creare un cluster Windows
+      - name: 1a - Creare un cluster Windows
         href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
-      - name: 1b- Creare un cluster Linux
+      - name: 1b - Creare un cluster Linux
         href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
     - name: 2- Ridimensionare il cluster
       href: service-fabric-tutorial-scale-cluster.md
@@ -124,9 +124,9 @@ items:
         href: service-fabric-reliable-services-introduction.md
       - name: Partizionamento del servizio
         href: service-fabric-concepts-partitioning.md
-      - name: 'Ciclo di vita di Reliable Services: C#'
+      - name: Ciclo di vita di Reliable Services - C#
         href: service-fabric-reliable-services-lifecycle.md
-      - name: 'Ciclo di vita di Reliable Services: Java'
+      - name: Ciclo di vita di Reliable Services - Java
         href: service-fabric-reliable-services-lifecycle-java.md
       - name: Ciclo di vita dell'istanza e della replica
         href: service-fabric-concepts-replica-lifecycle.md
@@ -227,6 +227,10 @@ items:
       items:
       - name: Informazioni sulla configurazione del backup periodico
         href: service-fabric-backuprestoreservice-configure-periodic-backup.md
+      - name: Attivazione del ripristino della partizione
+        href: service-fabric-backup-restore-service-trigger-restore.md
+      - name: Backup su richiesta della partizione
+        href: service-fabric-backup-restore-service-ondemand-backup.md
   - name: Cluster
     items:
     - name: Panoramica dei cluster
@@ -389,9 +393,9 @@ items:
         items:
         - name: Comunicare con Reliable Services
           href: service-fabric-reliable-services-communication.md
-        - name: 'Servizio remoto: C#'
+        - name: Servizio remoto - C#
           href: service-fabric-reliable-services-communication-remoting.md
-        - name: 'Servizio remoto: Java'
+        - name: Servizio remoto - Java
           href: service-fabric-reliable-services-communication-remoting-java.md
         - name: WCF
           href: service-fabric-reliable-services-communication-wcf.md
@@ -459,6 +463,8 @@ items:
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configurare i backup periodici (cluster autonomi)
       href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
+    - name: Backup su richiesta della partizione
+      href: service-fabric-backuprestoreservice-ondemand-backup.md
     - name: Eseguire la migrazione di applicazioni Java precedenti per il supporto di Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: Lavorare in un IDE
@@ -663,10 +669,14 @@ items:
         href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Eseguire query sulle API di EventStore
         href: service-fabric-diagnostics-eventstore-query.md
-      - name: Personalizzare l'agente WAD
+      - name: Diagnostica del cluster Windows
         href: service-fabric-diagnostics-event-aggregation-wad.md
-      - name: Personalizzare l'agente LAD
-        href: service-fabric-diagnostics-event-aggregation-lad.md
+      - name: Diagnostica del cluster Linux
+        href: service-fabric-diagnostics-oms-syslog.md
+      - name: Configurare Log Analytics
+        href: service-fabric-diagnostics-oms-setup.md
+      - name: Monitorare con Log Analytics
+        href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Monitorare l'infrastruttura
       items:
       - name: Raccogliere contatori delle prestazioni con l'agente di Log Analytics
@@ -689,7 +699,7 @@ items:
     items:
     - name: Elenco di controllo per l'idoneità per la produzione
       href: service-fabric-production-readiness-checklist.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.servicefabric/
@@ -782,9 +792,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 320399b277b7b6aa05b128994f68058455353e7b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 1b610207303b7a1b7ec283217830fe89f07f43e9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291505"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721749"

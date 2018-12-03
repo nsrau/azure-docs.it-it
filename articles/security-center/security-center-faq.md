@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sul Centro sicurezza di Azure | Microsoft Docs
+title: Domande frequenti sul Centro sicurezza di Azure | Documentazione Microsoft
 description: Queste FAQ rispondono alle domande sul Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 16291e4f4915dd6328a2015407fa06dc8f62fba1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 10ff2118ade13980250608bf4bc238e8ff2f9c64
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011885"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312987"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Domande frequenti sul Centro sicurezza di Azure
 Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio che consente di prevenire, rilevare e rispondere alle minacce con visibilità e controllo maggiori sulla sicurezza delle risorse di Microsoft Azure.
@@ -55,7 +55,7 @@ Per altre informazioni sui ruoli e sulle azioni consentite in Centro sicurezza, 
 Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer che non hanno Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai registri eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi.
 
 ### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Vengono addebitati costi per Log Analytics nelle aree di lavoro create dal Centro sicurezza?
-No. Le aree di lavoro create dal Centro sicurezza non comportano addebiti di Log Analytics, benché siano configurate per la fatturazione di Log Analytics per nodo. La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
+ No. Le aree di lavoro create dal Centro sicurezza non comportano addebiti di Log Analytics, benché siano configurate per la fatturazione di Log Analytics per nodo. La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
 
 - **Livello Gratuito**: il Centro sicurezza abilita la soluzione 'SecurityCenterFree' nell'area di lavoro predefinita. Non viene applicato alcun addebito per il livello Gratuito.
 - **Livello Standard**: il Centro sicurezza abilita la soluzione 'Security' nell'area di lavoro predefinita.
@@ -250,7 +250,7 @@ I criteri di sicurezza abilitati nel Centro sicurezza di Azure determinano il mo
 ### <a name="who-can-modify-a-security-policy"></a>Chi può modificare i criteri di sicurezza?
 Per modificare i criteri di sicurezza, è necessario essere Amministratore della protezione, proprietario o collaboratore di tale sottoscrizione.
 
-Per informazioni su come configurare i criteri di sicurezza, vedere [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md).
+Per informazioni su come configurare i criteri di sicurezza, vedere [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md).
 
 ### <a name="what-is-a-security-recommendation"></a>Che cos'è un suggerimento per la sicurezza?
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando vengono identificate potenziali vulnerabilità di sicurezza, vengono creati i suggerimenti. Tali suggerimenti illustrano in dettaglio il processo di configurazione dei controlli necessari. Alcuni esempi:

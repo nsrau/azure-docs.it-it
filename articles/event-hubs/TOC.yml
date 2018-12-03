@@ -104,6 +104,8 @@ items:
     maintainContext: true
 - name: Guide alle procedure
   items:
+  - name: Inviare, ricevere e acquisire eventi con Python
+    href: event-hubs-python.md
   - name: Configurare i log di diagnostica
     href: event-hubs-diagnostic-logs.md
   - name: Hub eventi per Apache Kafka
@@ -142,7 +144,7 @@ items:
     href: event-hubs-streaming-azure-diags-data.md
   - name: Scambiare eventi tra applicazioni che usano protocolli diversi
     href: event-hubs-exchange-events-different-protocols.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Java
     items:
@@ -184,9 +186,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 28260650a8859f76aa6d8bd6ff9333d57c65e55a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d6fb88ed6bfcf48cb35da068e50b670f4b1b685c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281457"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726968"

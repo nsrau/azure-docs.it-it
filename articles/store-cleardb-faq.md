@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 253f817099bd2705d8b9ea98741dc8fd28f09efe
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230632"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421658"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Domande frequenti per i database MySQL ClearDB con il Servizio app di Azure
 Queste domande frequenti offrono risposte a domande comuni sull'uso e l'acquisto di database MySQL ClearDB per App Web di Azure.
@@ -25,7 +25,7 @@ Queste domande frequenti offrono risposte a domande comuni sull'uso e l'acquisto
 > [!IMPORTANT]
 > A partire dal 13 giugno 2018, ClearDB ha passato i clienti basati su Azure attualmente fatturati da Microsoft a un modello di fatturazione diretto con ClearDB. Le informazioni contenute in questo articolo sono ormai obsolete. Non sarà più possibile creare o aggiornare un database ClearDB creato in Azure.
 >
-> Per altre informazioni e per conoscere i passaggi successivi, vedere [Changes to ClearDB service plans](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) (Modifiche ai piani di servizio ClearDB).
+> Per altre informazioni e per conoscere i passaggi successivi, vedere [Changes to ClearDB service plans](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) (Modifiche ai piani di servizio ClearDB).
 
 
 ## <a name="what-options-do-i-have-for-mysql-on-azure"></a>Quali sono le opzioni disponibili per MySQL in Azure?
@@ -77,7 +77,7 @@ Se è stato creato un database ClearDB nel portale classico, non sarà possibile
 Per tutti i problemi relativi al database, contattare il [supporto ClearDB](https://www.cleardb.com/developers/help/support) . Tenersi pronti a comunicare le informazioni relative alla sottoscrizione di Azure.
 
 ## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>È possibile creare altri utenti dalla soluzione cluster database MySQL ClearDB?
-No. Non è possibile creare altri utenti, ma è possibile creare altri database nel cluster database ClearDB.  
+ No. Non è possibile creare altri utenti, ma è possibile creare altri database nel cluster database ClearDB.  
 
 ## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>È possibile aggiornare database Basic/Pro in loco in modo allo stesso modo dei piani Planetary nel portale di ClearDB?
 Sì, i database della serie Basic possono essere aggiornati sul posto (da Basic 60 a Basic 500). Quelli della serie Pro possono essere aggiornati sul posto (da Pro 125 a Pro 1000) ad eccezione di Pro 60. L'aggiornamento del database Pro 60 attualmente non è supportato. 
