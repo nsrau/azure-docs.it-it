@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 74bfd49fd69353e95a275f31fa0bba9e9b558227
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636544"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632926"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Esercitazione: Configurare Slack per il provisioning utenti automatico
 
@@ -113,6 +113,14 @@ Verrà così eseguita la sincronizzazione completa da Azure AD a Slack di tutti 
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
+## <a name="connector-limitations"></a>Limitazioni dei connettori
+
+  * Durante la configurazione dell'attributo **displayName** di Slack, tenere presente i seguenti comportamenti: 
+  * I valori non sono completamente univoci (2 utenti, ad esempio, possono avere lo stesso nome visualizzato)
+  * Supporta caratteri non inglesi, spazi, maiuscole/minuscole. 
+  * I segni di punteggiature consentiti sono punti, caratteri di sottolineatura, trattini, apostrofi, parentesi (ad esempio **( [ { } ] )**) e separatori (ad esempio **, / ;**).
+  * Si aggiorna solo se queste due impostazioni sono configurate nell'area di lavoro/organizzazione di Slack: **è abilitata la sincronizzazione del profilo** e **gli utenti non possono modificare il nome visualizzato**.
+  * L'attributo **userName** di Slack deve essere inferiore a 21 caratteri e avere un valore univoco. 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

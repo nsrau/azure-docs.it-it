@@ -6,20 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: cb02ecb06728f5f36a0d51a3ec22cc8ba5cb44e7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.reviewer: kivenkat
+ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094756"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847525"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerazioni sull'utilizzo delle macchine virtuali in Azure Stack
 
@@ -40,7 +40,7 @@ Macchine virtuali di Azure Stack forniscono le risorse di calcolo on demand e sc
 | Prestazioni di dischi di macchina virtuale | Varia a seconda delle dimensioni e tipo di disco. | Dipende dalle dimensioni della macchina virtuale della VM che i dischi sono collegati a, fare riferimento al [le dimensioni di macchina virtuale supportate in Azure Stack](azure-stack-vm-sizes.md) articolo.
 | Versioni dell'API | Azure ha sempre le versioni dell'API più recente per tutte le funzionalità di macchina virtuale. | Azure Stack supporta specifiche versioni di API e servizi di Azure specifici per questi servizi. Per visualizzare l'elenco delle versioni API supportate, vedere la [le versioni API](#api-versions) sezione di questo articolo. |
 |Set di disponibilità della macchina virtuale|Più domini di errore (2 o 3 per ogni area)<br>Più domini di aggiornamento<br>Supporto di dischi gestiti|Più domini di errore (2 o 3 per ogni area)<br>Più domini di aggiornamento (fino a 20)<br>Nessun supporto del disco gestito|
-|set di scalabilità di macchine virtuali|È supportata la scalabilità automatica|Scalabilità automatica non è supportata.<br>Aggiungere altre istanze di un set di scalabilità tramite il portale, modelli di Resource Manager o PowerShell.
+|set di scalabilità di macchine virtuali|Scalabilità automatica è supportata|Scalabilità automatica non è supportata.<br>Aggiungere altre istanze di un set di scalabilità tramite il portale, modelli di Resource Manager o PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Dimensioni delle macchine virtuali
 

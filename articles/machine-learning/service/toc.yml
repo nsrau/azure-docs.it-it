@@ -12,6 +12,9 @@ items:
   - name: Informazioni sullo stato di Workbench
     displayName: desktop
     href: overview-what-happened-to-workbench.md
+  - name: Note sulla versione
+    displayName: what's new
+    href: azure-machine-learning-release-notes.md
   expanded: true
 - name: Guide introduttive
   items:
@@ -31,7 +34,7 @@ items:
     href: tutorial-auto-train-models.md
 - name: Esempi
   items:
-  - name: Jupyter Notebooks (GitHub)
+  - name: Notebook di Jupyter (GitHub)
     displayName: example, examples
     href: https://aka.ms/aml-notebooks
 - name: Concetti
@@ -43,7 +46,7 @@ items:
     href: concept-accelerate-with-fpgas.md
   - name: Pipeline di apprendimento automatico
     href: concept-ml-pipelines.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
   - name: Gestire le aree di lavoro
     href: how-to-manage-workspace.md
@@ -126,7 +129,7 @@ items:
       href: how-to-consume-web-service.md
   - name: Monitorare i servizi Web
     items:
-    - name: Raccogliere e valutare i dati
+    - name: Raccogliere e valutare i dati dei modelli
       href: how-to-enable-data-collection.md
     - name: Monitorare con Application Insights
       href: how-to-enable-app-insights.md
@@ -136,7 +139,7 @@ items:
   - name: Usare l'interfaccia della riga di comando di Machine Learning
     displayName: cli, command line, command-line, az,
     href: reference-azure-machine-learning-cli.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Machine Learning SDK
     displayName: api, core, package
@@ -155,9 +158,6 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Disponibilità internazionale
     href: https://azure.microsoft.com/regions/services/
-  - name: Note sulla versione
-    displayName: what's new
-    href: azure-machine-learning-release-notes.md
   - name: Problemi noti
     href: resource-known-issues.md
   - name: Supporto
@@ -285,9 +285,9 @@ items:
         href: ../desktop-workbench/scenario-churn-prediction.md
       - name: Analisi del sentiment con apprendimento avanzato
         href: ../desktop-workbench/scenario-sentiment-analysis-deep-learning.md
-      - name: 'Riconoscimento di entità biomediche: progetto TDSP'
+      - name: Riconoscimento di entità biomediche - Progetto TDSP
         href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
-      - name: 'Classificazione di redditi negli Stati Uniti: progetto TDSP'
+      - name: Classificazione di redditi negli Stati Uniti - Progetto TDSP
         href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
       - name: Classificazione delle immagini con CNTK
         href: ../desktop-workbench/scenario-image-classification-using-cntk.md
@@ -368,9 +368,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemi precedenti
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 14ba5fa2b31c6695737b3250521d0904c950cf30
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 308c767eb4a4bd332037093e23a1cb53a9fd1dc7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264897"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845060"

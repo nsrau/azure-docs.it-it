@@ -4,7 +4,7 @@ description: L'articolo descrive come modificare il profilo dell'account di Azur
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 09ac7659487a81d68089a060bf038213722d4dbb
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422627"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580428"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Modificare le informazioni sul profilo dell'account di Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto
 
@@ -46,7 +46,7 @@ Sì. L'amministratore account è la persona che ha configurato l'account Azure e
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>L'aggiornamento dell'indirizzo di posta elettronica del profilo provoca anche l'aggiornamento dell'indirizzo di posta elettronica di accesso?
 
-No. L'aggiornamento dell'indirizzo di posta elettronica del profilo non provoca l'aggiornamento dell'indirizzo di posta elettronica di accesso. Per modificare l'indirizzo di posta elettronica di accesso è necessario trasferire la proprietà dell'account.
+ No. L'aggiornamento dell'indirizzo di posta elettronica del profilo non provoca l'aggiornamento dell'indirizzo di posta elettronica di accesso. Per modificare l'indirizzo di posta elettronica di accesso è necessario trasferire la proprietà dell'account.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>L'aggiornamento dell'indirizzo del profilo provoca l'aggiornamento dell'indirizzo di fatturazione della carta di credito?
 
@@ -56,7 +56,7 @@ Per informazioni su come aggiornare le informazioni di fatturazione, vedere [Mod
 
 A causa di limiti tecnici non è possibile modificare il paese di un account esistente. È possibile tuttavia creare un account nel paese desiderato e contattare il supporto tecnico di Azure per eseguire la migrazione dei servizi verso l'account.
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattare Microsoft.
 
-Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema. 
+In caso di domande, [creare una richiesta di supporto per assistenza](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

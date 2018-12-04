@@ -9,16 +9,18 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bb84a3ddfba54c47cdf91aa72889a960722cdbd3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626909"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633249"
 ---
 # <a name="upload-a-document"></a>Caricare un documento
 
 In [Custom Translator](https://portal.customtranslator.azure.ai) è possibile caricare documenti paralleli per eseguire il training dei modelli di traduzione. I [documenti paralleli](what-are-parallel-documents.md) sono coppie di documenti in cui uno è una traduzione dell'altro. Un documento della coppia contiene frasi nella lingua di origine, mentre l'altro contiene le stesse frasi tradotte nella lingua di destinazione.
+
+Prima di caricare i documenti, consultare la [guida ai formati dei documenti e alle convenzioni di denominazione](document-formats-naming-convention.md) per assicurarsi che il formato del file sia supportato da Custom Translator.
 
 ## <a name="how-to-upload-document"></a>Come caricare i documenti?
 

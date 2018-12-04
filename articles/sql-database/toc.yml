@@ -63,19 +63,19 @@ items:
   expanded: true
 - name: Esercitazioni
   items:
-  - name: '1: Progettare database con SSMS'
+  - name: 1 - Progettare database con SSMS
     href: sql-database-design-first-database.md
-  - name: '2: Progettare database con .NET'
+  - name: 2 - Progettare database con .NET
     href: sql-database-design-first-database-csharp.md
-  - name: '3: Eseguire la migrazione a un database SQL di Azure singolo usando il servizio Migrazione del database'
+  - name: 3 - Eseguire la migrazione a un database SQL di Azure singolo usando il servizio Migrazione del database
     href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-  - name: '4: Proteggere il database SQL'
+  - name: 4 - Proteggere il database SQL
     href: sql-database-security-tutorial.md
-  - name: '5: Implementare un database con distribuzione geografica'
+  - name: 5 - Implementare un database con distribuzione geografica
     href: sql-database-implement-geo-distributed-database.md
-  - name: "6: Eseguire la migrazione a un'istanza gestita con il servizio Migrazione del database di Azure"
+  - name: 6 - Eseguire la migrazione a un'istanza gestita con il servizio Migrazione del database di Azure
     href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: '7: Configurare la sincronizzazione dati SQL'
+  - name: 7 - Configurare la sincronizzazione dati SQL
     href: sql-database-get-started-sql-data-sync.md
 - name: Esempi
   items:
@@ -143,8 +143,10 @@ items:
     items:
     - name: Istanze gestite
       href: sql-database-managed-instance-index.yml
-    - name: Panoramica
+    - name: Panoramica sull'istanza gestita
       href: sql-database-managed-instance.md
+    - name: Creare e gestire
+      href: sql-database-managed-instance-create-manage.md
     - name: Limiti delle risorse
       href: sql-database-managed-instance-resource-limits.md
     - name: Integrazione rete virtuale
@@ -157,6 +159,8 @@ items:
         href: sql-database-managed-instance-sync-network-configuration.md
       - name: Architettura della connettività
         href: sql-database-managed-instance-connectivity-architecture.md
+      - name: Endpoint di gestione
+        href: sql-database-managed-instance-management-endpoint.md
       - name: Connettere le applicazioni
         href: sql-database-managed-instance-connect-app.md
     - name: Differenze con T-SQL
@@ -211,7 +215,7 @@ items:
     items:
     - name: Sicurezza
       href: sql-database-security-index.yml
-    - name: Panoramica
+    - name: Panoramica della sicurezza
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
       items:
@@ -461,7 +465,7 @@ items:
       href: sql-database-temporal-tables-retention-policy.md
     - name: Configurare in memoria
       href: sql-database-in-memory-oltp-migration.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
   - name: Eseguire la migrazione al database SQL
     items:
@@ -581,7 +585,7 @@ items:
         href: saas-multitenantdb-schema-management.md
       - name: ETL per l'analisi
         href: saas-multitenantdb-tenant-analytics.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
@@ -652,9 +656,9 @@ items:
     href: /azure/architecture/
   - name: Casi di successo dei clienti
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 12add5f8ee32ce3c5207a604ef7cad821d5e5a4e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 2cc5240aa7302d687f0b7a2fad2af29105e86de0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165264"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840419"

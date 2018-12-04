@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 664d52a96f1e724502f82f5f72567f87c74e716b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989878"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444257"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Copertura per la geocodifica in Mappe di Azure
 
 Quando si cerca una posizione con Mappe di Azure, il servizio di ricerca accetta i termini di ricerca e restituisce le coordinate di latitudine e longitudine, un processo denominato geocodifica. Tuttavia Mappe non ha lo stesso livello di informazioni e accuratezza per tutti i paesi e le aree. Usare questo articolo per determinare il tipo di posizioni che è possibile cercare in modo affidabile in ogni area. 
+
+La capacità di geocodifica in un paese dipende dalla copertura dei dati stradali e dalla precisione di geocodifica del servizio di geocodifica. Vengono utilizzate le seguenti categorizzazioni per specificare il livello di supporto per la geocodifica in ogni paese.
+* **Punti di indirizzo**: i dati degli indirizzi possono essere risolti in una coordinata di latitudine/longitudine all'interno del lotto di indirizzo (limite di proprietà). Talvolta definito come accurato in modo "Rooftop". Questo è il massimo livello di accuratezza disponibile per gli indirizzi. 
+* **Numeri civici**: Gli indirizzi sono interpolati a una coordinata latitudine/longitudine sulla strada.
+* **Livello stradale**: Gli indirizzi vengono risolti in base alla coordinata latitudine/longitudine della strada che contiene l'indirizzo. Il numero civico può non essere elaborato.
+* **Livello città**: Sono supportati i nomi delle città.
 
 ## <a name="americas"></a>Americhe
 
@@ -52,6 +58,7 @@ Quando si cerca una posizione con Mappe di Azure, il servizio di ricerca accetta
 | Guadalupa|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Guiana        |                |             |           |      ✓     |                 |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Giamaica                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -101,6 +108,7 @@ Quando si cerca una posizione con Mappe di Azure, il servizio di ricerca accetta
 | Isole Heard e McDonald                   |                 |                |              |      ✓     |          ✓         |
 | RAS di Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| India       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Giappone                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
@@ -152,7 +160,7 @@ Quando si cerca una posizione con Mappe di Azure, il servizio di ricerca accetta
 | Belgio                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnia ed Erzegovina                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bulgaria                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Belarus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Bielorussia|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croazia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cipro                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Repubblica ceca                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

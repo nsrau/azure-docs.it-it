@@ -123,7 +123,7 @@ items:
     href: pricing-concepts.md
   - name: Regole di denominazione
     href: naming-rules.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
   - name: Autore
     items:
@@ -347,6 +347,8 @@ items:
     items:
     - name: Aggiungere un'attività variabile
       href: control-flow-append-variable-activity.md
+    - name: Attività di Funzione di Azure
+      href: control-flow-azure-function-activity.md
     - name: Eseguire l'attività di pipeline
       href: control-flow-execute-pipeline-activity.md
     - name: Filtrare attività
@@ -441,7 +443,7 @@ items:
       href: how-to-create-tumbling-window-trigger.md
     - name: Creare un trigger basato su eventi
       href: how-to-create-event-trigger.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
@@ -469,9 +471,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opzioni di supporto
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: b740634a25ea6391e024bc4d3a50c1e8a82e52f1
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: eb6bdf7d9665e46012f7edc1acb558bf7edbe717
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620558"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840487"
