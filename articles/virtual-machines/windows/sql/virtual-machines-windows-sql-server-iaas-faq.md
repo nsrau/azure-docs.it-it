@@ -1,4 +1,4 @@
----
+﻿---
 title: Domande frequenti su SQL Server in macchine virtuali Windows in Azure| Microsoft Docs
 description: Questo articolo offre risposta ad alcune domande frequenti sull'esecuzione di SQL Server in macchine virtuali di Azure.
 services: virtual-machines-windows
