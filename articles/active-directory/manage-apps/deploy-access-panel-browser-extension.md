@@ -40,7 +40,7 @@ Per prima cosa, salvare il pacchetto del programma di installazione in un percor
 2. Nella finestra **Server Manager** passare a **Servizi file e archiviazione**.
    
     ![Apertura di Servizi file e archiviazione](./media/deploy-access-panel-browser-extension/files-services.png)
-3. Passare alla scheda **Condivisioni** . Fare clic su Attività****Nuova condivisione...**
+3. Passare alla scheda **Condivisioni** . Fare clic su **Attività** > **Nuova condivisione...**
    
     ![Apertura di Servizi file e archiviazione](./media/deploy-access-panel-browser-extension/shares.png)
 4. Completare la **Creazione guidata nuova condivisione** e impostare le autorizzazioni per assicurarsi che i computer degli utenti possano accedervi. [Altre informazioni sulle condivisioni.](https://technet.microsoft.com/library/cc753175.aspx)
