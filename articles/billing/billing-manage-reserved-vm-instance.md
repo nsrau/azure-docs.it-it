@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: yashesvi
-ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.author: cwatson
+ms.openlocfilehash: 6a070d9ebd46d117041276436107abcc958d58d4
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382151"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583738"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
@@ -28,7 +28,7 @@ Se si acquistano le istanze di macchina virtuale riservate di Azure, è possibil
 
 ## <a name="change-the-scope-for-a-reservation"></a>Modificare l'ambito di una prenotazione
 
- Lo sconto si applica alle macchine virtuali, ai database SQL o ad altre risorse che corrispondono alla prenotazione e vengono eseguiti all'interno dell'ambito di prenotazione. L'ambito di una prenotazione può fare riferimento a una singola sottoscrizione o a tutte le sottoscrizioni nel contesto di fatturazione. Se si imposta l'ambito su una singola sottoscrizione, la prenotazione corrisponde alle risorse in esecuzione nella sottoscrizione selezionata. Se si imposta l'ambito su un ambito condiviso, Azure individua la prenotazione corrispondente relativa alle risorse in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Il contesto di fatturazione dipende dalla sottoscrizione usata per acquistare la prenotazione.
+ Lo sconto si applica alle macchine virtuali, ai database SQL, Azure Cosmos DB o ad altre risorse che corrispondono alla prenotazione e vengono eseguiti all'interno dell'ambito di prenotazione. L'ambito di una prenotazione può fare riferimento a una singola sottoscrizione o a tutte le sottoscrizioni nel contesto di fatturazione. Se si imposta l'ambito su una singola sottoscrizione, la prenotazione corrisponde alle risorse in esecuzione nella sottoscrizione selezionata. Se si imposta l'ambito su un ambito condiviso, Azure individua la prenotazione corrispondente relativa alle risorse in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Il contesto di fatturazione dipende dalla sottoscrizione usata per acquistare la prenotazione.
 
 Per aggiornare l'ambito di una prenotazione:
 
@@ -91,9 +91,17 @@ Per delegare la gestione dell'accesso per una prenotazione:
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
+## <a name="cancellations-and-exchanges"></a>Annullamenti e scambi
+
+A seconda del tipo di prenotazione, potrebbe essere possibile annullare o scambiare una prenotazione. Per altre informazioni, vedere le sezioni relative all'annullamento e agli scambi negli argomenti seguenti:
+
+- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
+- [Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Modifica l'impostazione di ottimizzazione per le istanze di macchina virtuale riservate
 
- Quando si acquista un'istanza di macchina virtuale riservata, si sceglie la flessibilità delle dimensioni istanza o la priorità di capacità. La flessibilità delle dimensioni istanza applicherà lo sconto di prenotazione ad altre macchine virtuali dello stesso [gruppo di macchine virtuali](https://aka.ms/RIVMGroups). La priorità di capacità riserva capacità del data center per le distribuzioni. Questa opzione aumenta la certezza di avere la possibilità di avviare le istanze di macchina virtuale quando servono.
+ Quando si acquista un'istanza di macchina virtuale riservata, si sceglie la flessibilità delle dimensioni istanza o la priorità di capacità. La flessibilità delle dimensioni istanza applicherà lo sconto di prenotazione ad altre macchine virtuali dello stesso [gruppo di macchine virtuali](https://aka.ms/RIVMGroups). La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Questa opzione aumenta la certezza di avere la possibilità di avviare le istanze di macchina virtuale quando servono.
 
 Per impostazione predefinita, quando l'ambito della prenotazione è condiviso, la flessibilità delle dimensioni istanza è attiva. La capacità del data center non viene classificata per le distribuzioni di macchine virtuali.
 
@@ -114,6 +122,7 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 - [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md)
+- [Pagare in anticipo le risorse di Azure Cosmos DB con capacità riservata di Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Informazioni su come viene applicato lo sconto sulla prenotazione di macchine virtuali](billing-understand-vm-reservation-charges.md)
 - [Informazioni su come viene applicato lo sconto relativo al piano software SUSE Linux Enterprise](../billing/billing-understand-suse-reservation-charges.md)
@@ -122,6 +131,6 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Costi del software Windows non inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+In caso di domande, [creare una richiesta di supporto per assistenza](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

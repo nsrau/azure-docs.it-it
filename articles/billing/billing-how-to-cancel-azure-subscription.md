@@ -4,7 +4,7 @@ description: Descrive come annullare la sottoscrizione di Azure, ad esempio la s
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: cwatson
-ms.openlocfilehash: c39dcdc0c4a89aa01c31dde1c5354ef1d4afe91d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395567"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584350"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Annullare la sottoscrizione di Azure
 
@@ -58,6 +58,6 @@ Se la sottoscrizione con pagamento in base al consumo viene annullata erroneamen
 
 Se la sottoscrizione non è con pagamento in base al consumo, contattare il supporto tecnico entro 90 giorni dall'annullamento per riattivare la sottoscrizione.
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Per eventuali domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+In caso di domande, [creare una richiesta di supporto per assistenza](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685447"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632484"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK del processore dei feed delle modifiche .NET: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -43,8 +43,18 @@ ms.locfileid: "51685447"
 
 ### <a name="v2-builds"></a>Build della seconda versione
 
+### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
+* Nuova proprietà aggiunta ChangeFeedProcessorOptions.StartContinuation per supportare l'avvio del feed di modifica dal token di continuazione della richiesta. Viene utilizzato solo quando la raccolta di lease è vuota o un lease non ha impostato ContinuationToken. Per i lease nella raccolta di lease con ContinuationToken impostato, viene usato ContinuationToken e viene ignorato ChangeFeedProcessorOptions.StartContinuation.
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* Aggiunto il supporto per l'uso dell’archivio personalizzato per rendere persistenti i token di continuazione per ogni partizione.
+  * Ad esempio, un archivio personalizzato lease può essere raccolta di lease Azure Cosmos DB partizionata in modo personalizzato.
+  * Gli archivi di lease personalizzati possono utilizzare il nuovo punto di estensibilità ChangeFeedProcessorBuilder.WithLeaseStoreManager (ILeaseStoreManager) e l’interfaccia pubblica ILeaseStoreManager.
+  * L'interfaccia di ILeaseManager è stata trasformata in interfacce di ruolo multiple.
+* Modifica di rilievo secondaria: rimosso il punto di estensibilità ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), viene utilizzato ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) al suo posto.
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* Risolto un problema che poteva verificarsi durante l'elaborazione suddivisa in caso di raccolta di lease partizionata. A causa di questo problema, i lease per partizioni non più disponibili potevano non essere eliminati dalla raccolta di lease. Il problema è risolto in questa versione.
+* Questa versione corregge un problema che si verifica durante l'elaborazione di una divisione nella raccolta monitorata e l'utilizzo di una raccolta di lease partizionata. Durante l'elaborazione di un lease per partizione divisa, il lease corrispondente a quella partizione non può essere eliminato. Il problema è stato corretto in questa versione.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Correzione del calcolo di stima per gli account Multimaster e nuovo formato del Token di sessione.

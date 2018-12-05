@@ -10,21 +10,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: f26355f32eeeb6b6e195b838bed502271533f4f4
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ae22319c54335695a52e803c0c030858e2782c38
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047741"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582480"
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Eseguire il debug delle applicazioni Spark in modalità remota o locale su un cluster HDInsight con Azure Toolkit per IntelliJ tramite SSH
 
-Questo articolo contiene istruzioni dettagliate su come usare gli strumenti HDInsight in Azure Toolkit for IntelliJ per eseguire il debug remoto di applicazioni in un cluster di HDInsight. Per eseguire il debug del progetto, è anche possibile guardare il video [Debug HDInsight Spark applications with Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (Eseguire il debug delle applicazioni Spark di HDInsight con Azure Toolkit for IntelliJ).
+Questo articolo contiene istruzioni dettagliate su come usare gli strumenti HDInsight in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) per eseguire il debug remoto di applicazioni in un cluster di HDInsight. Per eseguire il debug del progetto, è anche possibile guardare il video [Debug HDInsight Spark applications with Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (Eseguire il debug delle applicazioni Spark di HDInsight con Azure Toolkit for IntelliJ).
 
 **Prerequisiti**
-* **Strumenti HDInsight in Azure Toolkit per IntelliJ**. Questo strumento fa parte di Azure Toolkit for IntelliJ. Per altre informazioni, vedere [Installare Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). **Azure Toolkit for IntelliJ**. Usare questo toolkit per creare applicazioni Spark per cluster HDInsight. Per altre informazioni, seguire le istruzioni in [Usare Azure Toolkit per IntelliJ per creare applicazioni Spark per il cluster HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
+* **Strumenti HDInsight in Azure Toolkit per IntelliJ**. Questo strumento fa parte di Azure Toolkit for IntelliJ. Per altre informazioni, vedere [Installare Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). **Azure Toolkit for IntelliJ**. Usare questo toolkit per creare applicazioni Apache Spark per cluster HDInsight. Per altre informazioni, seguire le istruzioni in [Usare Azure Toolkit per IntelliJ per creare applicazioni Apache Spark per il cluster HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
 
-* **Servizio SSH di HDInsight con gestione di nome utente e password**. Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) e [Usare il tunneling SSH per accedere all'interfaccia utente Web di Ambari, JobHistory, NameNode, Oozie e altre interfacce utente Web](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* **Servizio SSH di HDInsight con gestione di nome utente e password**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) e [Usare il tunneling SSH per accedere all'interfaccia utente Web di Ambari, JobHistory, NameNode, Oozie e altre interfacce utente Web](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
 ## <a name="learn-how-to-perform-local-run-and-debugging"></a>Informazioni su esecuzione e debug in modalità locale
 ### <a name="scenario-1-create-a-spark-scala-application"></a>Scenario 1: Creare un'applicazione Spark Scala 
@@ -157,26 +157,26 @@ Per risolvere questo errore, [scaricare il file eseguibile](http://public-repo-1
 * [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo
-* Creare il progetto Scala (video): [Create Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (Creare applicazioni Spark Scala)
-* Debug remoto (video): [Usare Azure Toolkit for IntelliJ per eseguire il debug remoto di applicazioni Spark nel cluster HDInsight](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Creare il progetto Scala (video): [Create Apache Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (Creare applicazioni Apache Spark in Scala)
+* Debug remoto (video): [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely on HDInsight Cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (Usare Azure Toolkit for IntelliJ per il debug remoto di applicazioni Apache Spark nel cluster HDInsight)
 
 ### <a name="scenarios"></a>Scenari
-* [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione usando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](apache-spark-machine-learning-mllib-ipython.md)
-* [Analisi dei log del sito Web con Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione usando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per prevedere i risultati di un controllo alimentare](apache-spark-machine-learning-mllib-ipython.md)
+* [Analisi dei log del sito Web con Apache Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creare ed eseguire applicazioni
 * [Creare un'applicazione autonoma con Scala](../hdinsight-apache-spark-create-standalone-application.md)
-* [Eseguire processi in modalità remota in un cluster Spark usando Livy](apache-spark-livy-rest-interface.md)
+* [Eseguire processi in modalità remota in un cluster Apache Spark usando Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Strumenti ed estensioni
-* [Usare Azure Toolkit for IntelliJ per creare applicazioni Spark per un cluster HDInsight](apache-spark-intellij-tool-plugin.md)
-* [Usare Azure Toolkit per IntelliJ per il debug remoto di applicazioni Spark tramite VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight](apache-spark-intellij-tool-plugin.md)
+* [Usare Azure Toolkit for IntelliJ per il debug remoto di applicazioni Apache Spark tramite VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usare gli strumenti HDInsight per IntelliJ con Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications (Usare gli strumenti HDInsight nel Toolkit di Azure per Eclipse per creare applicazioni Spark)](../hdinsight-apache-spark-eclipse-tool-plugin.md)
-* [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications (Usare gli strumenti HDInsight nel Toolkit di Azure per Eclipse per creare applicazioni Apache Spark)](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Usare i notebook di Apache Zeppelin con cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernel disponibili per notebook di Jupyter nel cluster Apache Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)
 

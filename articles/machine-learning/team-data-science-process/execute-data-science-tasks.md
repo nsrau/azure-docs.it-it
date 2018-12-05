@@ -1,25 +1,21 @@
 ---
 title: Eseguire attività di data science - Azure Machine Learning | Microsoft Docs
 description: Informazioni su come un esperto di dati può eseguire un progetto di data science in modo tracciabile, collaborativo e con controllo della versione.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-ms.openlocfilehash: 19267429510207129b0229dc55fbd46f12977d5d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 7e25e2c95f377b1ad40cba24b29ababd0561e32a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112645"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495693"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Eseguire attività di data science: esplorazione, modellazione e distribuzione
 
@@ -34,7 +30,7 @@ Le tipiche attività di data science includono esplorazione, modellazione e dist
 
 Un data scientist può esplorare i dati e creare report in diversi modi, usando le librerie e i pacchetti disponibili per Python (ad esempio matplotlib) o con R (ad esempio ggplot o reticolo). I data scientist possono personalizzare il codice in base alle esigenze di esplorazione dei dati per scenari specifici. Le esigenze quando si gestiscono i dati strutturati sono diverse rispetto a quelle per i dati non strutturati, ad esempio testo o immagini. 
 
-Prodotti come Azure Machine Learning Workbench consentono anche la [preparazione avanzata dei dati](../desktop-workbench/tutorial-bikeshare-dataprep.md) per la gestione e l'esplorazione, inclusa la creazione di caratteristiche. L'utente deve scegliere gli strumenti, le librerie e i pacchetti più adatti alle proprie esigenze. 
+Prodotti come il servizio Azure Machine Learning consentono anche la [preparazione avanzata dei dati](../service/how-to-transform-data.md) per la gestione e l'esplorazione, inclusa la creazione di caratteristiche. L'utente deve scegliere gli strumenti, le librerie e i pacchetti più adatti alle proprie esigenze. 
 
 Il risultato finale alla fine di questa fase è un report di esplorazione dei dati. Il report deve fornire una vista abbastanza completa dei dati da usare per la modellazione e una valutazione del fatto che i dati siano o meno adatti per procedere con il passaggio di modellazione. L'utilità TDSP (Team Data Science Process) descritta nelle sezioni seguenti per l'esplorazione semi-automatica, la modellazione e la creazione di report offre anche esplorazione dei dati standard e report di modellazione. 
 
@@ -90,7 +86,7 @@ La distribuzione nell'ambiente di produzione consente di usare attivamente un mo
 Ci sono diversi approcci e piattaforme per usare un modello in ambiente di produzione. Ecco alcune opzioni:
 
 
-- [Distribuzione di modelli in Azure Machine Learning](../desktop-workbench/model-management-overview.md)
+- [Distribuzione di modelli nel servizio Azure Machine Learning](../service/how-to-deploy-and-where.md)
 - [Distribuzione di un modello in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
