@@ -1,4 +1,4 @@
----
+﻿---
 title: Come cambiare il modello di licenza per una macchina virtuale SQL in Azure | Microsoft Docs
 description: Informazioni su come cambiare le licenze per una macchina virtuale SQL in Azure.
 services: virtual-machines-windows
