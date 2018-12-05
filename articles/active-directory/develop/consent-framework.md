@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 942151c0ce2a3a79dbdce9b90adea721456f920f
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2f9cefa31b007cae715ff2ea98bccb3112babbef
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288476"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619793"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework di consenso di Azure Active Directory
 
@@ -39,23 +39,29 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 
 1. Si supponga di avere un'applicazione client Web che deve richiedere autorizzazioni specifiche per accedere a una risorsa/API. Si apprenderà come eseguire questa configurazione nella sezione successiva, ma essenzialmente il portale di Azure viene usato per dichiarare le richieste di autorizzazione al momento della configurazione. Come altre impostazioni di configurazione, diventano parte della registrazione dell'applicazione in Azure Active Directory:
 
-  ![Autorizzazioni per altre applicazioni](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
+    ![Autorizzazioni per altre applicazioni](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
 
 1. Considerare che sono state aggiornate le autorizzazioni dell'applicazione, che l'applicazione è in esecuzione e che un utente sta per usarla per la prima volta. L'applicazione deve prima ottenere un codice di autorizzazione dall'endpoint `/authorize` di Azure AD. Il codice di autorizzazione può quindi essere usato per acquisire un nuovo un token di accesso e aggiornamento.
 
 1. Se l'utente non è già autenticato, l'endpoint `/authorize` di Azure AD chiede all'utente di effettuare l'accesso.
 
-  ![Accesso utente o amministratore ad Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
+    [Accesso utente o amministratore ad Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
 
 1. Dopo che l'utente ha effettuato l'accesso, Azure AD determinerà se l'utente deve essere reindirizzato a una pagina di consenso. Questa decisione dipende dal fatto che l'utente o l'amministratore dell'organizzazione abbia o meno già concesso il consenso dell'applicazione. Se il consenso non è già stato concesso, Azure AD lo richiede all'utente e visualizza le autorizzazioni necessarie per il funzionamento. Il set di autorizzazioni visualizzate nella finestra di dialogo di consenso corrisponde a quelle selezionate in **Autorizzazioni delegate** nel portale di Azure.
 
-  ![Esperienza di autorizzazione utente](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Esperienza di autorizzazione utente](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. Dopo che l'utente ha concesso il consenso, all'applicazione viene restituito un codice di autorizzazione, che viene riscattato per acquisire un token di accesso e di aggiornamento. Per altre informazioni su questo flusso, vedere [Tipo di app API Web](web-api.md).
 
-1. In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso amministrativo evita la visualizzazione della finestra di dialogo di consenso per ogni utente del tenant e può essere eseguito nel [portale di Azure](https://portal.azure.com) da utenti con ruolo di amministratore. Nella pagina **Impostazioni** dell'applicazione selezionare **Autorizzazioni necessarie** e fare clic sul pulsante **Concedi autorizzazioni**.
+1. In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso amministrativo evita la visualizzazione della finestra di dialogo di consenso per ogni utente del tenant e può essere eseguito nel [portale di Azure](https://portal.azure.com) da utenti con ruolo di amministratore. Per informazioni su quali ruoli di amministratore possono fornire il consenso per le autorizzazioni delegate, vedere [Autorizzazioni del ruolo di amministratore in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-  ![Concedere le autorizzazioni per il consenso esplicito dell'amministratore](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+    **Per fornire il consenso per le autorizzazioni delegate di un'app**
+
+    1. Passare alla pagina **Impostazioni** dell'applicazione
+    1. Selezionare **Autorizzazioni necessarie**.
+    1. Fare clic sul pulsante **Concedi autorizzazioni**.
+
+    ![Concedere le autorizzazioni per il consenso esplicito dell'amministratore](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
   > [!IMPORTANT]
   > La concessione esplicita del consenso usando il pulsante **Concedi autorizzazioni** è attualmente richiesta per le applicazioni a pagina singola (SPA) che usano ADAL.js. In caso contrario, l'applicazione non funziona quando viene richiesto il token di accesso.

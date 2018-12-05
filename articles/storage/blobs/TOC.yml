@@ -122,7 +122,7 @@ items:
   - name: Livelli di accesso
     href: storage-blob-storage-tiers.md
   - name: Gestione del ciclo di vita di archiviazione BLOB di Azure
-    href: ../common/storage-lifecycle-managment-concepts.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    href: ../common/storage-lifecycle-management-concepts.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reazione agli eventi
     href: storage-blob-event-overview.md
   - name: Obiettivi di scalabilità e prestazioni
@@ -149,7 +149,7 @@ items:
           href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Progettare per prestazioni elevate
           href: ../../virtual-machines/linux/premium-storage-performance.md
-      - name: Windows
+      - name: " Windows"
         items:
         - name: Archiviazione Premium con prestazioni elevate per dischi di macchine virtuali
           href: ../../virtual-machines/windows/premium-storage.md
@@ -163,7 +163,7 @@ items:
         items:
         - name: Archiviazione Standard per i dischi delle macchine virtuali
           href: ../../virtual-machines/linux/standard-storage.md
-      - name: Windows
+      - name: " Windows"
         items:
         - name: Archiviazione Standard per i dischi delle macchine virtuali
           href: ../../virtual-machines/windows/standard-storage.md
@@ -176,7 +176,7 @@ items:
           href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
         - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
           href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
-      - name: Windows
+      - name: " Windows"
         items:
         - name: Errori nell'eliminazione di risorse di archiviazione
           href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
@@ -467,9 +467,9 @@ items:
       href: https://github.com/Azure/azure-storage-ruby
     - name: iOS
       href: https://github.com/Azure/azure-storage-ios
-ms.openlocfilehash: d0273edd4660fb0b646844022205243a0af3b6b9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 9728d6b7a7dc0d198291098d81b84026b0b6aed8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712076"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864297"

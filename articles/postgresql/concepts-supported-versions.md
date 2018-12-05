@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/12/2018
-ms.openlocfilehash: 04e47e15206e22e7965121c6c277e4032ea04ddf
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a03ead5e577b261b99e635addf6f9a98d8f3cadd
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621055"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619693"
 ---
 # <a name="supported-postgresql-database-versions"></a>Versione supportate del database PostgreSQL
 Microsoft punta a supportare n-2 versioni del motore PostgreSQL nel servizio Database di Azure per PostgreSQL. Le versioni sono la versione principale attuale in Azure (n) e le due versioni principali precedenti (-2).
@@ -31,7 +31,7 @@ Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.6/sta
 Vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.5/static/release-9-5-14.html) per ottenere altre informazioni sulle correzioni e sui miglioramenti apportati in questa versione secondaria.
 
 ## <a name="managing-updates-and-upgrades"></a>Gestire gli aggiornamenti
-Database di Azure per PostgreSQL gestisce automaticamente le patch per le versioni secondarie. L'aggiornamento di versione principale non è attualmente supportato. Ad esempio, l'aggiornamento da PostgreSQL 9.5 a PostgreSQL 9.6 non è supportato. Se si vuole eseguire l'aggiornamento alla versione principale successiva, eseguire un [dump e ripristinarlo](./howto-migrate-using-dump-and-restore.md) in un server creato con la nuova versione del motore.
+Database di Azure per PostgreSQL gestisce automaticamente le patch per le versioni secondarie. L'aggiornamento di versione principale non è attualmente supportato. Ad esempio, l'aggiornamento da PostgreSQL 9.5 a PostgreSQL 9.6 non è supportato. Se si vuole eseguire l'aggiornamento alla versione principale successiva, creare un database [dump e ripristinarlo](./howto-migrate-using-dump-and-restore.md) in un server creato con la nuova versione del motore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sul supporto delle diverse estensioni di PostgreSQL, vedere [Estensioni di PostgreSQL](concepts-extensions.md).

@@ -10,12 +10,12 @@ ms.author: mattcon
 author: matthewconners
 ms.date: 07/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06613ed1eac43ebe865666f85235de74903b1d5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f06f4f958d59978e886cbfda47a9ed73f8353592
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953599"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634983"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Creare e distribuire modelli di previsione con Azure Machine Learning
 
@@ -109,7 +109,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Caricare i dati ed esplorare
 
-Questo frammento di codice illustra il processo tipico che consiste nell'iniziare con un set di dati non elaborato, in questo caso i [dati di Dominick's Finer Foods](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  È anche possibile usare la pratica funzione [load_dominicks_oj_data](https://docs.microsoft.com/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Questo frammento di codice illustra il processo tipico che consiste nell'iniziare con un set di dati non elaborato, in questo caso i [dati di Dominick's Finer Foods](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  È anche possibile usare la pratica funzione [load_dominicks_oj_data](/python/api/azuremlftk/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -340,7 +340,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 I dati contengono circa 250 diverse combinazioni di punto vendita e marchio in un frame di dati. Ogni combinazione definisce una specifica serie temporale delle vendite. 
 
-È possibile usare la classe [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) per modellare facilmente più serie in una singola struttura di dati in base al _livello di dettaglio_, che è specificato dalle colonne `store` e `brand`.
+È possibile usare la classe [TimeSeriesDataFrame](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe) per modellare facilmente più serie in una singola struttura di dati in base al _livello di dettaglio_, che è specificato dalle colonne `store` e `brand`.
 
 La differenza tra _livello di dettaglio_ (grain) e _gruppo_ (group) consiste nel fatto che il livello di dettaglio è sempre fisicamente significativo nel mondo reale, mentre il gruppo non deve necessariamente esserlo. Le funzioni interne del pacchetto usano un gruppo per creare un singolo modello da più serie temporali se l'utente ritiene che il raggruppamento consenta di migliorare le prestazioni del modello. Per impostazione predefinita, il gruppo equivale al livello di dettaglio e viene creato un singolo modello per ogni livello di dettaglio. 
 
@@ -500,10 +500,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
   </tbody>
 </table>
 
-
-
-La funzione [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) genera un report completo del frame di dati delle serie temporali. Il report include una descrizione generale dei dati e le statistiche specifiche dei dati delle serie temporali. 
-
+La funzione [TimeSeriesDataFrame.ts_report](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe#ts-report) genera un report completo del frame di dati delle serie temporali. Il report include una descrizione generale dei dati e le statistiche specifiche dei dati delle serie temporali. 
 
 ```python
 whole_tsdf.ts_report()
@@ -889,14 +886,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Pre-elaborare i dati e attribuire i valori mancanti
 
-Per iniziare, suddividere i dati in un set di training e in un set di testing tramite la funzione di utilità [last_n_periods_split](https://docs.microsoft.com/python/api/ftk.ts_utils?view=azure-ml-py-latest). Il set di testing risultante contiene le ultime 40 osservazioni di ogni serie temporale. 
+Per iniziare, suddividere i dati in un set di training e in un set di testing tramite la funzione di utilità [last_n_periods_split](/python/api/azuremlftk/ftk.ts_utils#last-n-periods-split). Il set di testing risultante contiene le ultime 40 osservazioni di ogni serie temporale. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-I modelli di base richiedono serie temporali contigue. Verificare se le serie sono regolari, ovvero se hanno un indice temporale campionato a intervalli regolari, usando la funzione [check_regularity_by_grain](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain).
+I modelli di base richiedono serie temporali contigue. Verificare se le serie sono regolari, ovvero se hanno un indice temporale campionato a intervalli regolari, usando la funzione [check_regularity_by_grain](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe#check-regularity-by-grain).
 
 
 ```python
@@ -971,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-È possibile notare che la maggior parte delle serie (213 su 249) è irregolare. Per completare i valori mancanti per le quantità di vendita è necessario eseguire una [trasformazione di attribuzione](https://docs.microsoft.com/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest). Sono disponibili numerose opzioni di attribuzione, ma il codice di esempio seguente usa un'interpolazione lineare.
+È possibile notare che la maggior parte delle serie (213 su 249) è irregolare. Per completare i valori mancanti per le quantità di vendita è necessario eseguire una [trasformazione di attribuzione](/python/api/azuremlftk/ftk.transforms.time_series_imputer.timeseriesimputer). Sono disponibili numerose opzioni di attribuzione, ma il codice di esempio seguente usa un'interpolazione lineare.
 
 
 ```python
@@ -1037,8 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Combinare più modelli
 
-Lo stimatore [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) consente di combinare più stimatori per l'adattamento o la stima usando una sola riga di codice.
-
+Lo stimatore [ForecasterUnion](/python/api/azuremlftk/ftk.models.forecaster_union.forecasterunion) consente di combinare più stimatori per l'adattamento o la stima usando una sola riga di codice.
 
 ```python
 forecaster_union = ForecasterUnion(
@@ -1251,7 +1247,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-La funzione [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) esegue il wrapping degli stimatori di regressione sklearn in modo che sia possibile eseguirne il training su TimeSeriesDataFrame. Il modulo di previsione sottoposto a wrapping inserisce nello stesso modello anche ogni gruppo incluso nell'archivio di casi. Il modulo di previsione può apprendere da un unico modello per un gruppo di serie considerate simili che possono essere raggruppate. Un modello per un gruppo di serie usa spesso i dati di serie più lunghe per migliorare le previsioni relative alle serie brevi. È possibile usare questi modelli in sostituzione di altri modelli della libreria con supporto per la regressione. 
+La funzione [RegressionForecaster](/python/api/azuremlftk/ftk.models.regression_forecaster.regressionforecaster) esegue il wrapping degli stimatori di regressione sklearn in modo che sia possibile eseguirne il training su TimeSeriesDataFrame. Il modulo di previsione sottoposto a wrapping inserisce nello stesso modello anche ogni gruppo incluso nell'archivio di casi. Il modulo di previsione può apprendere da un unico modello per un gruppo di serie considerate simili che possono essere raggruppate. Un modello per un gruppo di serie usa spesso i dati di serie più lunghe per migliorare le previsioni relative alle serie brevi. È possibile usare questi modelli in sostituzione di altri modelli della libreria con supporto per la regressione. 
 
 
 ```python
@@ -1369,13 +1365,13 @@ Alcuni modelli di apprendimento automatico sono riusciti a sfruttare le caratter
 
 ### <a name="cross-validation-parameter-and-model-sweeping"></a>Convalida incrociata, sweep dei parametri e dei modelli    
 
-Il pacchetto adatta alcune funzioni di apprendimento automatico tradizionali per un'applicazione di previsione.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator?view=azure-ml-py-latest) esegue la convalida incrociata a livello temporale, rispettando ciò che è presumibilmente noto e ciò che non lo è in un framework di previsione. 
+Il pacchetto adatta alcune funzioni di apprendimento automatico tradizionali per un'applicazione di previsione.  [RollingOriginValidator](/python/api/azuremlftk/ftk.model_selection.cross_validation.rollingoriginvalidator) esegue la convalida incrociata a livello temporale, rispettando ciò che è presumibilmente noto e ciò che non lo è in un framework di previsione. 
 
 Nella figura seguente ogni quadratino rappresenta i dati relativi a un momento specifico. I quadratini blu rappresentano il training, mentre quelli arancioni rappresentano il testing in ogni fase. I dati di testing devono provenire dai momenti successivi al momento di training più ampio, altrimenti alcuni dati futuri passeranno ai dati di training e la valutazione del modello non risulterà valida. 
 ![png](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
 **Sweep dei parametri**  
-La classe [TSGridSearchCV](https://docs.microsoft.com/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) ricerca in modo esauriente i valori dei parametri specificati e usa `RollingOriginValidator` per valutare le prestazioni dei parametri in modo da trovare i parametri ottimali.
+La classe [TSGridSearchCV](/python/api/azuremlftk/ftk.model_selection.search.tsgridsearchcv) ricerca in modo esauriente i valori dei parametri specificati e usa `RollingOriginValidator` per valutare le prestazioni dei parametri in modo da trovare i parametri ottimali.
 
 
 ```python
@@ -1390,10 +1386,10 @@ grid_cv_rf = TSGridSearchCV(randomforest_model_for_cv, param_grid_rf, cv=rollcv)
 
 # fit and predict
 randomforest_cv_fitted= grid_cv_rf.fit(train_feature_tsdf, y=train_feature_tsdf.ts_value)
-print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
+print('Best parameter: {}'.format(randomforest_cv_fitted.best_params_))
 ```
 
-    Best paramter: {'estimator__n_estimators': 100}
+    Best parameter: {'estimator__n_estimators': 100}
     
 
 **Sweep dei modelli**  
@@ -1647,7 +1643,7 @@ aml_deployment.deploy()
 
 ### <a name="score-the-web-service"></a>Assegnare un punteggio al servizio Web
 
-Per assegnare un punteggio a un set di dati di piccole dimensioni, usare il metodo [score](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) per inviare una chiamata al servizio Web per tutti i dati.
+Per assegnare un punteggio a un set di dati di piccole dimensioni, usare il metodo [score](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score) per inviare una chiamata al servizio Web per tutti i dati.
 
 
 ```python
@@ -1668,8 +1664,7 @@ aml_web_service = aml_deployment.get_deployment()
 results = aml_web_service.score(score_context=score_context)
 ```
 
-Per assegnare un punteggio a un set di dati di grandi dimensioni, usare la modalità di [assegnazione di punteggio in parallelo](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) per inviare più chiamate al servizio Web, una per ogni gruppo di dati.
-
+Per assegnare un punteggio a un set di dati di grandi dimensioni, usare la modalità di [assegnazione di punteggio in parallelo](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score-parallel) per inviare più chiamate al servizio Web, una per ogni gruppo di dati.
 
 ```python
 results = aml_web_service.score(score_context=score_context, method='parallel')
@@ -1679,7 +1674,7 @@ results = aml_web_service.score(score_context=score_context, method='parallel')
 
 Per altre informazioni sul pacchetto di Azure Machine Learning per la previsione:
 
-+ Vedere la [panoramica dei pacchetti](https://aka.ms/aml-packages/forecasting).
++ Consultare la [panoramica dei pacchetti](https://aka.ms/aml-packages/forecasting).
 
 + Esplorare la [documentazione di riferimento](https://aka.ms/aml-packages/forecasting) relativa a questo pacchetto.
 

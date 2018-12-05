@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 11/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 083cb4eb84746f4a61b51f3573a0bf66110fe1ee
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435049"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274739"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gestire l'accesso alla gestione di Azure con accesso condizionale
 
@@ -32,7 +32,7 @@ Per creare un criterio per la gestione di Azure, selezionare **Gestione di Micro
 
 ![Accesso condizionale per la gestione di Azure](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-Il criterio creato si applica a tutti gli endpoint di gestione di Azure, tra cui il portale di Azure classico, il portale di Azure, il provider di Azure Resource Manager, le API Gestione dei servizi classiche e Azure PowerShell.
+Il criterio creato si applica a tutti gli endpoint di gestione di Azure, tra cui il portale di Azure classico, il portale di Azure, il provider di Azure Resource Manager, le API Gestione dei servizi classiche e Azure PowerShell. Si noti che il criterio si applica ad Azure PowerShell che chiama l'API di Azure Resource Manager. Non si applica ad [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2) che chiama Microsoft Graph.
 
 > [!CAUTION]
 > È importante comprendere il funzionamento dell'accesso condizionale prima di configurare un criterio per gestire l'accesso alla gestione di Azure. Assicurarsi di non creare condizioni che potrebbero bloccare il proprio accesso al portale.

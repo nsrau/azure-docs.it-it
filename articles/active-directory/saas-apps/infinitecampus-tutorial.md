@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 7ce577901530856690754f3db18ba9f40bfb8a51
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019915"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Esercitazione: Integrazione di Azure Active Directory con Infinite Campus
 
@@ -48,6 +48,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione a meno che non sia necessario.
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
+- Per completare la configurazione è necessario avere almeno il ruolo di amministratore di Azure Active Directory.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -110,7 +111,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](common/editconfigure.png)
 
-5. Nella sezione **Configurazione SAML di base**, se si dispone di un **file di metadati di un provider di servizi**, seguire questa procedura:
+5. Nella sezione **Configurazione SAML di base**, se si dispone di un **file di metadati di un provider di servizi** (passaggio **11.b**), seguire questa procedura:
 
     a. Fare clic su **Carica il file di metadati**.
 
@@ -124,7 +125,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![image](./media/infinitecampus-tutorial/tutorial_infinitecampus_url.png)
 
-    d. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+    d. Nella casella di testo **URL di accesso** digitare l'URL usando il criterio seguente (il dominio varia in funzione del modello di hosting): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
     > Il **file di metadati del provider di servizi** sarà disponibile nella pagina di configurazione del provider di servizi SSO di Infinite Campus, come spiegato più avanti nell'esercitazione.
@@ -143,7 +144,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento di download del certificato](./media/infinitecampus-tutorial/tutorial_infinitecampus_certificate.png) 
 
-7. Nella sezione **Configura Infinite Campus** copiare l'URL appropriato in base alle proprie esigenze.
+7. Nella sezione **Configura Infinite Campus** usare i valori seguenti per la convalida durante il caricamento o l'uso del file/URL dei metadati di Azure.
 
     a. URL di accesso
 
@@ -169,7 +170,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Selezionare **Enable SAML Single Sign On** (Abilita SAML Single Sign On).
 
-    b. Fare clic sul collegamento **Service Provider Metadata** (Metadati del provider di servizi) per salvare il **file di metadati del provider di servizi** nel computer e caricarlo nella sezione **Configurazione SAML di base** per popolare automaticamente i valori **Identificatore** e **URL di risposta** nel portale di Azure.
+    b. Fare clic sul collegamento **Service Provider Metadata** (Metadati del provider di servizi) per salvare il **file di metadati del provider di servizi** nel computer e caricarlo nella sezione **Configurazione SAML di base** per popolare automaticamente i valori **Identificatore** e **URL di risposta** nel portale di Azure (fare riferimento al passaggio 5).
 
     c. Nella sezione **Select an option to retrieve Identity Provider (IDP) server data** (Selezionare un'opzione per recuperare i dati del server del provider di identità) selezionare **Metadata URL** (URL dei metadati), incollare l'**URL dei metadati di federazione dell'app** nella casella di testo e quindi fare clic su **Sync** (Sincronizza).
 
@@ -179,7 +180,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un _singolo_ utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -234,8 +235,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Infinite Campus nel pannello di accesso, si accederà automaticamente all'applicazione Infinite Campus.
-Per ulteriori informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Quando si fa clic sul riquadro Infinite Campus nel pannello di accesso, si accederà automaticamente all'applicazione Infinite Campus. Se si esegue l'accesso all'applicazione Infinite Campus nello stesso browser con cui si amministra Azure Active Directory, assicurarsi di aver fatto accesso ad Azure Active Directory come utente di test. Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

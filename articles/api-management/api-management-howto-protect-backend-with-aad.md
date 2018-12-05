@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576995"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635068"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteggere un'API usando OAuth 2.0 con Azure Active Directory e Gestione API
 
@@ -100,8 +100,6 @@ Ora che sono state registrate due applicazioni per rappresentare l'API e la cons
 
 > [!NOTE]
 > Se **Azure Active Directory** non è presente nell'elenco di autorizzazioni per altre applicazioni, selezionare **Aggiungi** per aggiungere la voce all'elenco.
-> 
-> 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Abilitare l'autorizzazione utente OAuth 2.0 nella console per sviluppatori
 
@@ -109,7 +107,7 @@ A questo punto sono state create le applicazioni in Azure AD e sono state conces
 
 In questo esempio la console per sviluppatori è l'app client. La procedura seguente descrive come abilitare l'autorizzazione utente OAuth 2.0 nella console per sviluppatori. 
 
-1. Passare all'istanza di Gestione API.
+1. Passare all'istanza di Gestione API nel portale di Azure.
 
 2. Selezionare **OAuth 2.0** > **Aggiungi**.
 
@@ -120,6 +118,9 @@ In questo esempio la console per sviluppatori è l'app client. La procedura segu
 5. Per **Tipi di concessione di autorizzazione** selezionare **Codice di autorizzazione**.
 
 6. Specificare **URL dell'endpoint autorizzazione** e **URL dell'endpoint token**. Recuperare questi valori nella pagina **Endpoint** nel tenant di Azure AD. Passare di nuovo alla pagina **Registrazioni per l'app** e selezionare **Endpoint**.
+
+    >[!NOTE]
+    > Usare gli endpoint **v1** qui
 
 7. Copiare il valore di **Endpoint di autorizzazione OAuth 2.0** e incollarlo nella casella di testo **URL dell'endpoint autorizzazione**.
 
@@ -154,6 +155,9 @@ Il passaggio successivo consiste nell'abilitare l'autorizzazione utente OAuth 2.
 5. Selezionare **Salva**.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Eseguire la chiamata all'API dal portale per sviluppatori
+
+> [!NOTE]
+> Questa sezione non si applica al livello **Consumo**, che non supporta il portale per sviluppatori.
 
 Ora che l'autorizzazione utente OAuth 2.0 è stata abilitata su `Echo API`, la console per sviluppatori ottiene un token di accesso per conto dell'utente prima di chiamare l'API.
 

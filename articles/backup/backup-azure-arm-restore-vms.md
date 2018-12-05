@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0d78ae294cea383fbe59a1f7968d8bf18b1942d1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420524"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422957"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usare il portale di Azure per ripristinare macchine virtuali
 È possibile proteggere i dati mediante la creazione di snapshot dei dati a intervalli definiti. Questi snapshot sono noti come punti di ripristino e vengono archiviati negli insiemi di credenziali dei servizi di ripristino. Se è necessario ripristinare o ricreare una macchina virtuale (VM), è possibile ripristinare la macchina virtuale da qualsiasi punto di ripristino salvato. Quando si ripristina un punto di ripristino, è possibile:
@@ -151,7 +151,7 @@ Nel pannello **Configurazione di ripristino** selezionare **OK** per portare a t
 Il **ripristino sul posto** viene eseguito tramite la scheda **Sostituisci esistente**.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>Sostituire i dischi esistenti da un punto di ripristino
-L'opzione **Sostituisci esistente** consente di sostituire i dischi esistenti nella macchina virtuale corrente con il punto di ripristino selezionato. Questa operazione può essere eseguita solo se la macchina virtuale corrente esiste. Se è stata eliminata per qualsiasi motivo, questa operazione non può essere eseguita. In alternativa, è consigliabile scegliere **Crea nuova** per creare una nuova macchina virtuale o nuovi dischi per continuare le operazioni di ripristino. Come misura precauzionale, prima di iniziare le operazioni di sostituzione dei dischi esistenti viene eseguito il backup dei dati. Se il punto di ripristino ha più o meno dischi della macchina virtuale corrente, nella macchina virtuale verrà riportato solo il numero di dischi nel punto di ripristino. L'opzione **Sostituisci esistente** non è attualmente supportata per i dischi non gestiti e le macchine virtuali crittografate. Non è supportata neanche per le [macchine virtuali generalizzate](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) e per le macchine virtuali create con [immagini personalizzate](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
+L'opzione **Sostituisci esistente** consente di sostituire i dischi esistenti nella macchina virtuale corrente con il punto di ripristino selezionato. Questa operazione può essere eseguita solo se la macchina virtuale corrente esiste. Se è stata eliminata per qualsiasi motivo, questa operazione non può essere eseguita. In alternativa, è consigliabile scegliere **Crea nuova** per creare una nuova macchina virtuale o nuovi dischi per continuare le operazioni di ripristino. Durante queste operazioni, come misura precauzionale, si esegue il backup dei dati prima di iniziare la sostituzione dei dischi. Viene creato uno snapshot e anche un punto di ripristino nell'insieme di credenziali con il periodo di conservazione indicato dai criteri di backup configurati. Se il punto di ripristino ha più o meno dischi della macchina virtuale corrente, nella macchina virtuale verrà riportato solo il numero di dischi nel punto di ripristino. L'opzione **Sostituisci esistente** non è attualmente supportata per i dischi non gestiti e le macchine virtuali crittografate. Non è supportata neanche per le [macchine virtuali generalizzate](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) e per le macchine virtuali create con [immagini personalizzate](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
  L'unico input che deve essere selezionato nel pannello **Configurazione di ripristino**è **Percorso di gestione temporanea**.
 

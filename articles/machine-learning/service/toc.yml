@@ -1,5 +1,5 @@
 items:
-- name: Documentazione di Azure Machine Learning (anteprima)
+- name: Documentazione di Azure Machine Learning
   href: index.yml
 - name: Panoramica
   items:
@@ -25,18 +25,22 @@ items:
     href: quickstart-create-workspace-with-python.md
 - name: Esercitazioni
   items:
-  - name: 'Eseguire il training dei modelli: parte 1'
-    href: tutorial-train-models-with-aml.md
-  - name: 'Distribuire i modelli: parte 2'
-    href: tutorial-deploy-models-with-aml.md
-  - name: Eseguire il training di modelli di apprendimento automatico automatizzati
-    displayName: automl
-    href: tutorial-auto-train-models.md
+  - name: Classificazione delle immagini (dati di MNIST)
+    items:
+    - name: 1. Eseguire il training di un modello
+      href: tutorial-train-models-with-aml.md
+    - name: 2. Distribuire un modello
+      href: tutorial-deploy-models-with-aml.md
+  - name: Regressione (dati di NYC Taxi)
+    items:
+    - name: 1. Preparare i dati per la modellazione
+      href: tutorial-data-prep.md
+    - name: 2. Eseguire il training automatico di un modello di Machine Learning
+      displayName: automl, automated, auto ml,
+      href: tutorial-auto-train-models.md
 - name: Esempi
-  items:
-  - name: Notebook di Jupyter (GitHub)
-    displayName: example, examples
-    href: https://aka.ms/aml-notebooks
+  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  href: samples-notebooks.md
 - name: Concetti
   items:
   - name: Gestione di modelli
@@ -46,17 +50,17 @@ items:
     href: concept-accelerate-with-fpgas.md
   - name: Pipeline di apprendimento automatico
     href: concept-ml-pipelines.md
-- name: Guide pratiche
+- name: Guide alle procedure
   items:
   - name: Gestire le aree di lavoro
     href: how-to-manage-workspace.md
   - name: Configurare l'ambiente di sviluppo 
     items:
-    - name: Configurare un ambiente
-      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
+    - name: Configurare l'ambiente di sviluppo
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: Visual Studio Code Tools for AI
-      displayName: Visual Studio Code, vscode
+    - name: Estensione Visual Studio Code
+      displayName: Visual Studio Code, vscode, tools, ai, vs
       items:
       - name: Attività iniziali
         href: how-to-vscode-tools.md
@@ -75,7 +79,7 @@ items:
   - name: Eseguire il training dei modelli
     items:
     - name: Configurare ambienti di training
-      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Accedere ai dati durante il training
       href: how-to-access-data.md
@@ -127,12 +131,16 @@ items:
     - name: Utilizzo in tempo reale
       displayName: create client, client, consume
       href: how-to-consume-web-service.md
+    - name: Eseguire previsioni in batch
+      href: how-to-run-batch-predictions.md
   - name: Monitorare i servizi Web
     items:
     - name: Raccogliere e valutare i dati dei modelli
       href: how-to-enable-data-collection.md
     - name: Monitorare con Application Insights
       href: how-to-enable-app-insights.md
+  - name: Creare la prima pipeline
+    href: how-to-create-your-first-pipeline.md
   - name: Gestire le quote di risorse
     displayName: limits
     href: how-to-manage-quotas.md
@@ -285,9 +293,9 @@ items:
         href: ../desktop-workbench/scenario-churn-prediction.md
       - name: Analisi del sentiment con apprendimento avanzato
         href: ../desktop-workbench/scenario-sentiment-analysis-deep-learning.md
-      - name: Riconoscimento di entità biomediche - Progetto TDSP
+      - name: 'Riconoscimento di entità biomediche: progetto TDSP'
         href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
-      - name: Classificazione di redditi negli Stati Uniti - Progetto TDSP
+      - name: 'Classificazione di redditi negli Stati Uniti: progetto TDSP'
         href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
       - name: Classificazione delle immagini con CNTK
         href: ../desktop-workbench/scenario-image-classification-using-cntk.md
@@ -368,9 +376,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemi precedenti
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 308c767eb4a4bd332037093e23a1cb53a9fd1dc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 67bf0dfb2939cfd561f4558f9003c36883dcef93
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845060"
+ms.locfileid: "52864826"

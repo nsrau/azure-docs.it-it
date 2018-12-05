@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457409"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443033"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -53,9 +53,39 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 
 ## <a name="supported-regions"></a>Aree supportate
 
-È possibile usare Analisi del traffico per i gruppi di sicurezza di rete in tutte le aree seguenti: Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti occidentali 2, Canada centrale, Europa occidentale, Europa settentrionale, Regno Unito occidentale, Regno Unito meridionale, Giappone orientale, India centrale, Australia orientale, Australia sud-orientale e Asia sud-orientale. 
+È possibile usare l'analisi del traffico per NSG in una qualsiasi delle aree supportate seguenti:
 
-L'area di lavoro di Log Analytics deve esistere nell'area Stati Uniti centro-occidentali, Stati Uniti orientali, Europa occidentale, Regno Unito meridionale, Canada centrale, Giappone orientale, India centrale, Australia sud-orientale o Asia sud-orientale.
+* Canada centrale
+* Stati Uniti centro-occidentali
+* Stati Uniti orientali
+* Stati Uniti orientali 2
+* Stati Uniti centro-settentrionali
+* Stati Uniti centro-meridionali
+* Stati Uniti centrali
+* Stati Uniti occidentali
+* Stati Uniti occidentali 2
+* Europa occidentale
+* Europa settentrionale
+* Brasile meridionale
+* Regno Unito occidentale
+* Regno Unito meridionale
+* Australia orientale
+* Australia sud-orientale
+* Asia sud-orientale
+* India centrale
+* India meridionale
+* Giappone orientale 
+
+L'area di lavoro di Log Analytics deve esistere nelle aree indicate di seguito:
+* Canada centrale
+* Stati Uniti centro-occidentali
+* Stati Uniti orientali
+* Europa occidentale
+* Regno Unito meridionale
+* Australia sud-orientale
+* Asia sud-orientale
+* India centrale
+* Giappone orientale
 
 ## <a name="prerequisites"></a>Prerequisiti
 

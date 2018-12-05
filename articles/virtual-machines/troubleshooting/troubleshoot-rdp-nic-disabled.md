@@ -1,5 +1,5 @@
 ---
-title: Non è possibile stabilire una connessione Desktop remoto a Macchine virtuali di Azure perché la scheda di interfaccia di rete è disabilitata | Microsoft Docs
+title: Non è possibile stabilire una connessione remota a macchine virtuali di Azure perché la scheda di interfaccia di rete è disabilitata | Microsoft Docs
 description: Informazioni su come risolvere un errore RDP a causa della scheda di interfaccia di rete disabilitata nella macchina virtuale di Azure
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6b14530bd6b4c1b6617cb1d5c88d710a32e5372c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f9e4731146409f51d16a8c92c01d07a8ff11a7ea
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634835"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314525"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Non è possibile stabilire una connessione Desktop remoto a Macchine virtuali di Azure perché la scheda di interfaccia di rete è disabilitata
 
-Questo articolo illustra come risolvere un problema che impedisce di stabilire una connessione Desktop remoto a Macchine virtuali di Azure perché l'interfaccia di rete è disabilitata.
+Questo articolo spiega come risolvere un problema che impedisce di stabilire una connessione Desktop remoto a macchine virtuali Windows di Azure se l'interfaccia di rete è disabilitata.
 
 > [!NOTE] 
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'utilizzo del modello di distribuzione Resource Manager, che Microsoft consiglia di usare per le nuove distribuzioni in sostituzione del modello di distribuzione classica. 
@@ -66,4 +66,4 @@ Per abilitare l'interfaccia per la macchina virtuale, usare il controllo seriale
 
 ## <a name="reset-network-interface"></a>Reimpostare l'interfaccia di rete
 
-Per reimpostare l'interfaccia di rete, sostituire l'indirizzo IP con un altro indirizzo IP disponibile nella subnet usando il portale di Azure o Azure PowerShell. Per altre informazioni, vedere [Come reimpostare l'interfaccia di rete per la VM Windows di Azure](reset-network-interface.md). 
+Per reimpostare l'interfaccia di rete, cambiare l'indirizzo IP in un altro indirizzo IP disponibile nella subnet. A tale scopo usare il portale di Azure o Azure PowerShell. Per altre informazioni, vedere [Come reimpostare l'interfaccia di rete per la VM Windows di Azure](reset-network-interface.md). 

@@ -1,10 +1,11 @@
 ---
-title: Come usare un servizio Web di Azure Machine Learning | Microsoft Docs
-description: Dopo la pubblicazione di un servizio di Machine Learning, è possibile usare il servizio Web RESTFul che viene reso disponibile come servizio di richiesta-risposta o come un servizio di esecuzione del batch.
+title: Come usare un servizio Web di Azure Machine Learning Studio | Microsoft Docs
+description: Dopo la distribuzione di un servizio di apprendimento automatico da Azure Machine Learning Studio è possibile usare il servizio Web RESTFul come servizio di richiesta-risposta o come un servizio di esecuzione batch.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
@@ -15,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: b89fb0fbb499fa06c9e56f02937b1c586efde9b6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: df837c64cf0e40f3bfc1c596b2950a9d23c74a90
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833375"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309107"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Come usare un servizio Web di Azure Machine Learning
+# <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Come usare un servizio Web di Azure Machine Learning Studio
 
 Dopo aver distribuito un modello predittivo di Azure Machine Learning come servizio Web, è possibile usare un'API REST per inviare dati e ottenere stime. È possibile inviare i dati in tempo reale o in modalità batch.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 212e7ea7bb2ffea63c7ba210195df0da38aa8f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22983786"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444768"
 ---
 # <a name="azure-api-management-template-resources"></a>Risorse del modello Gestione API di Azure
 Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli del portale per sviluppatori.  
@@ -27,6 +27,8 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 -   [Risorse di tipo stringa](#strings)  
   
 -   [Risorse di tipo glifo](#glyphs)  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="strings"></a> Risorse di tipo stringa  
  Gestione API offre un set completo di risorse di tipo stringa da usare nel portale per sviluppatori. Tali risorse sono localizzate in tutte le lingue supportate da Gestione API. Il set predefinito di modelli usa queste risorse per le intestazioni di pagina, le etichette e per ogni altra stringa costante visualizzata nel portale per sviluppatori. Per usare una risorsa di tipo stringa nei modelli, specificare il prefisso della stringa della risorsa seguito dal nome della stringa, come illustrato nell'esempio seguente.  
@@ -145,7 +147,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |PagerButtonLabelLast|Last (Ultimo)|  
 |PagerButtonLabelNext|Avanti|  
 |PagerButtonLabelPrevious|Prev (Precedente)|  
-|PagerLabelPageNOfM|Page {0} of {1} (Pagina {0} di {1})|  
+|PagerLabelPageNOfM|Pagina {0} di {1}|  
 |PasswordTooShort|The Password is too short (La password è troppo breve)|  
 |EmailAsPassword|Do not use your email as your password (La password non può contenere l'indirizzo di posta elettronica)|  
 |PasswordSameAsUserName|Your password cannot contain your username (La password non può contenere il nome utente)|  
@@ -161,20 +163,20 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 |NOME|Text|  
 |----------|----------|  
-|WebDocumentationInvalidHeaderErrorMessage|Invalid header '{0}' (Intestazione '{0}' non valida)|  
+|WebDocumentationInvalidHeaderErrorMessage|Intestazione "{0}" non valida|  
 |WebDocumentationInvalidRequestErrorMessage|Invalid Request URL (URL della richiesta non valido)|  
 |TextboxLabelAccessToken|Token di accesso *|  
-|DropdownOptionPrimaryKeyFormat|Primary-{0} ({0}-primario)|  
-|DropdownOptionSecondaryKeyFormat|Secondary-{0} (Secondario-{0})|  
+|DropdownOptionPrimaryKeyFormat|Primario:{0}|  
+|DropdownOptionSecondaryKeyFormat|Secondario:{0}|  
 |WebDocumentationSubscriptionKeyText|Your subscription key (Chiave della sottoscrizione)|  
 |WebDocumentationTemplatesAddHeaders|Add required HTTP headers (Aggiungere intestazioni HTTP obbligatorie)|  
 |WebDocumentationTemplatesBasicAuthSample|Basic Authorization Sample (Esempio di autorizzazione di base)|  
 |WebDocumentationTemplatesCurlForBasicAuth|for Basic Authorization use: --user {username}:{password} (per l'utilizzo dell'autorizzazione di base:--user {nomeutente}: {password})|  
 |WebDocumentationTemplatesCurlValuesForPath|Specify values for path parameters (shown as {...}), your subscription key and values for query parameters (Specificare i valori dei parametri del percorso (mostrati come {…}), la chiave di sottoscrizione e i valori dei parametri di query)|  
 |WebDocumentationTemplatesDeveloperKey|Specify your subscription key (Specificare la chiave della sottoscrizione)|  
-|WebDocumentationTemplatesJavaApache|Questo esempio usa il client HTTP di Apache reperibile in HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)|  
+|WebDocumentationTemplatesJavaApache|In questo esempio si usa il client HTTP Apache dai componenti HTTP (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|Specify values for optional parameters, as needed (Specificare i valori per i parametri facoltativi in base alle esigenze)|  
-|WebDocumentationTemplatesPhpPackage|This sample uses the HTTP_Request2 package. (Questo esempio usa il pacchetto HTTP_Request2.) (for more information: http://pear.php.net/package/HTTP_Request2) ((per altre informazioni: http://pear.php.net/package/HTTP_Request2))|  
+|WebDocumentationTemplatesPhpPackage|This sample uses the HTTP_Request2 package. (Questo esempio usa il pacchetto HTTP_Request2.) (per altre informazioni: http://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Specify values for path parameters (shown as {...}) and request body if needed (Specificare i valori dei parametri del percorso (mostrati come {…}) e il corpo della richiesta se necessario)|  
 |WebDocumentationTemplatesRequestBody|Specify request body (Specificare il corpo della richiesta)|  
 |WebDocumentationTemplatesRequiredParams|Specify values for the following required parameters (Specificare i valori per i parametri obbligatori seguenti)|  
@@ -273,7 +275,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |OAuth2TokenType_ImplicitGrant_AuthorizationResponse|OBBLIGATORIO. The type of the token issued. (Il tipo di token generato.)|  
 |OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|OBBLIGATORIO. The type of the token issued. (Il tipo di token generato.)|  
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|OBBLIGATORIO. Il nome utente del proprietario delle risorse.|  
-|OAuth2UnsupportedTokenType|Token type '{0}' is not supporetd. (Il tipo di token "{0}" non è supportato.)|  
+|OAuth2UnsupportedTokenType|Il tipo di token "{0}" non è supportato.|  
 |OAuth2InvalidState|Invalid response from authorization server (Risposta non valida dal server di autorizzazione)|  
 |OAuth2GrantType_AuthorizationCode|Authorization code (Codice di autorizzazione)|  
 |OAuth2GrantType_Implicit|Implicit (Implicita)|  
@@ -283,16 +285,16 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |WebDocumentation400Code|400 - Richiesta non valida|  
 |OAuth2SendingMethod_AuthHeader|Authorization header (Intestazione dell'autorizzazione)|  
 |OAuth2SendingMethod_QueryParam|Query parameter (Parametro di query)|  
-|OAuth2AuthorizationServerGeneralException|An error has occurred while authorizing access via {0} (Si è verificato un errore durante l'autorizzazione all'accesso tramite {0})|  
+|OAuth2AuthorizationServerGeneralException|Si è verificato un errore durante l'autorizzazione di accesso tramite {0}|  
 |OAuth2AuthorizationServerCommunicationException|An HTTP connection to authorization server could not be established or it has been unexpectedly closed. (Non è stato possibile stabilire la connessione HTTP al server di autorizzazione oppure è stata chiusa in modo imprevisto.)|  
 |WebDocumentationOAuth2GeneralErrorMessage|Errore imprevisto.|  
 |AuthorizationServerCommunicationException|Authorization server communication exception has happened. (Si è verificata un'eccezione di comunicazione con il server di autorizzazione.) Contattare l'amministratore.|  
 |TextblockSubscriptionKeyHeaderDescription|Subscription key which provides access to this API. (Chiave di sottoscrizione che fornisce l'accesso a questa API.) Si trova in <a href='/developer'\>Profilo</a\>.|  
-|TextblockOAuthHeaderDescription|OAuth 2.0 access token obtained from <i\>{0}</i\>. (Token di accesso OAuth 2.0 ottenuto da <> </> \>{0}\>.) Supported grant types: <i\>{1}</i\>. (Tipi di concessione supportati: <i\>{1}</i\>.)|  
+|TextblockOAuthHeaderDescription|Token di accesso OAuth 2.0 ottenuto da <i\>{0}</i\>. Tipi di concessione supportati: <i\>{1}</i\>.|  
 |TextblockContentTypeHeaderDescription|Media type of the body sent to the API. (Tipo di supporto del corpo inviato all'API.)|  
 |ErrorMessageApiNotAccessible|The API you are trying to call is not accessible at this time. (Si sta tentando di chiamare un'API non accessibile al momento.) Contattare l'autore dell'API <a href="/issues"\>qui</a\>.|  
 |ErrorMessageApiTimedout|The API you are trying to call is taking longer than normal to get response back. (L'API che si sta tentando di chiamare impiega più tempo del previsto per ottenere risposta.) Contattare l'autore dell'API <a href="/issues"\>qui</a\>.|  
-|BadRequestParameterExpected|"'{0}' parameter is expected" ("È previsto il parametro '{0}'")|  
+|BadRequestParameterExpected|"È previsto il parametro "{0}""|  
 |TooltipTextDoubleClickToSelectAll|Double click to select all. (Fare doppio clic per selezionare tutto.)|  
 |TooltipTextHideRevealSecret|Mostra/Nascondi|  
 |ButtonLinkOpenConsole|Prova|  
@@ -303,7 +305,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |SectionHeadingRequestHeaders|Intestazioni della richiesta|  
 |FormLabelSubtextOptional|Facoltativo|  
 |SectionHeadingCodeSamples|Esempi di codice|  
-|TextblockOpenidConnectHeaderDescription|OpenID Connect id token obtained from <i\>{0}</i\>. (Token ID di OpenID Connect ottenuto da <i\>{0}</i\>.) Supported grant types: <i\>{1}</i\>. (Tipi di concessione supportati: <i\>{1}</i\>.)|  
+|TextblockOpenidConnectHeaderDescription|ID token OpenID Connect ottenuto da <i\>{0}< /i\>. Tipi di concessione supportati: <i\>{1}</i\>.|  
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
@@ -317,9 +319,9 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |TextblockPotentialCauseOldLink|The link you have clicked on may be old and not point to the correct location anymore. (Il collegamento selezionato potrebbe essere obsoleto e non puntare più al percorso corretto.)|  
 |TextblockPotentialCauseTechnicalProblem|There may be a technical problem on our end. (Potenziale problema tecnico.)|  
 |TextblockPotentialSolutionRefresh|Provare ad aggiornare la pagina.|  
-|TextblockPotentialSolutionStartOver|Start over from our {0}. (Ricominciare dal nostro {0}.)|  
-|TextblockPotentialSolutionTryAgain|Go {0} and try the action you performed again. (Passare a {0} e ripetere nuovamente l'azione eseguita.)|  
-|TextReportProblem|{0} describing what went wrong and we will look at it as soon as we can. ({0} descrivendo l'errore; verrà esaminato non appena possibile.)|  
+|TextblockPotentialSolutionStartOver|Ricominciare dal nostro {0}.|  
+|TextblockPotentialSolutionTryAgain|Passare a {0} e ripetere nuovamente l'azione eseguita.|  
+|TextReportProblem|{0} descrivendo l'errore riscontrato. Il problema verrà esaminato non appena possibile.|  
 |TitlePotentialCause|Potential cause (Causa potenziale)|  
 |TitlePotentialSolution|It's possibly just a temporary issue, a few things to try (Potrebbe trattarsi di un problema temporaneo, alcune soluzioni da provare)|  
   
@@ -329,10 +331,10 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |----------|----------|  
 |WebIssuesIndexTitle|Problemi|  
 |WebIssuesNoActiveSubscriptions|Non si dispone di sottoscrizioni attive. You need to subscribe for a product to report an issue. (È necessario disporre della sottoscrizione al prodotto per segnalare un problema.)|  
-|WebIssuesNotSignin|You're not signed in. (Non è stato eseguito l'accesso.) Please {0} to report an issue or post a comment. ({0} per segnalare un problema o inviare un commento.)|  
+|WebIssuesNotSignin|You're not signed in. (Non è stato eseguito l'accesso.) {0} per segnalare un problema o pubblicare un commento.|  
 |WebIssuesReportIssueButton|Report Issue (Segnala un problema)|  
 |WebIssuesSignIn|sign in|  
-|WebIssuesStatusReportedBy|Status: {0} &#124; Reported by {1} (Stato: {0} &#124; Segnalato da {1})|  
+|WebIssuesStatusReportedBy|Stato: {0} &#124; Segnalato da {1}|  
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
@@ -344,8 +346,8 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |TextblockPotentialCauseMisspelledUrl|You may have misspelled the URL if you typed it in. (L'URL digitato potrebbe essere errato.)|  
 |TextblockPotentialCauseOldLink|The link you have clicked on may be old and not point to the correct location anymore. (Il collegamento selezionato potrebbe essere obsoleto e non puntare più al percorso corretto.)|  
 |TextblockPotentialSolutionRetype|Try retyping the URL. (Digitare nuovamente l'URL.)|  
-|TextblockPotentialSolutionStartOver|Start over from our {0}. (Ricominciare dal nostro {0}.)|  
-|TextReportProblem|{0} describing what went wrong and we will look at it as soon as we can. ({0} descrivendo l'errore; verrà esaminato non appena possibile.)|  
+|TextblockPotentialSolutionStartOver|Ricominciare dal nostro {0}.|  
+|TextReportProblem|{0} descrivendo l'errore riscontrato. Il problema verrà esaminato non appena possibile.|  
 |TitlePotentialCause|Potential cause (Causa potenziale)|  
 |TitlePotentialSolution|Potential solution (Potenziale soluzione)|  
   
@@ -353,7 +355,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 |NOME|Text|  
 |----------|----------|  
-|WebProductsAgreement|By subscribing to {0} Product, I agree to the `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`. (Con la sottoscrizione al prodotto {0}, accetto le `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.)|  
+|WebProductsAgreement|Con la sottoscrizione al Prodotto {0}, accetto il `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Condizioni per l'utilizzo|  
 |WebProductsSubscribeButton|Sottoscrivi|  
 |WebProductsUsageLimitsHeader|Limiti di consumo|  
@@ -363,10 +365,10 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |ButtonLabelAddSubscription|Aggiungi sottoscrizione|  
 |LinkLabelChangeSubscriptionName|change (modifica)|  
 |ButtonLabelConfirm|Confirm|  
-|TextblockMultipleSubscriptionsCount|You have {0} subscriptions to this product: (Sono presenti {0} sottoscrizioni al prodotto:)|  
-|TextblockSingleSubscriptionsCount|You have {0} subscription to this product: (Sono presenti {0} sottoscrizioni al prodotto:)|  
-|TextblockSingleApisCount|This product contains {0} API: (Questo prodotto contiene {0} API:)|  
-|TextblockMultipleApisCount|This product contains {0} APIs: (Questo prodotto contiene {0} API:)|  
+|TextblockMultipleSubscriptionsCount|Sono presenti {0} sottoscrizioni al prodotto:|  
+|TextblockSingleSubscriptionsCount|È presente {0} sottoscrizione al prodotto:|  
+|TextblockSingleApisCount|Questo prodotto contiene {0} API:|  
+|TextblockMultipleApisCount|Questo prodotto contiene {0} API:|  
 |TextblockHeaderSubscribe|Subscribe to product (Sottoscrizione al prodotto)|  
 |TextblockSubscriptionDescription|A new subscription will be created as follows: (Verrà creata la nuova sottoscrizione indicata di seguito:)|  
 |TextblockSubscriptionLimitReached|Subscriptions limit reached. (È stato raggiunto il limite di sottoscrizioni.)|  
@@ -393,14 +395,14 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |ErrorSsoAuthenticationFailed|SSO authentication failed (Autenticazione SSO non riuscita)|  
 |ErrorSsoAuthenticationFailedDetailed|Invalid token provided or signature cannot be verified. (È stato fornito un token non valido oppure è impossibile verificare la firma.)|  
 |ErrorSsoTokenInvalid|SSO token is invalid (Token SSO non valido.)|  
-|ValidationErrorSpecificEmailAlreadyExists|Email '{0}' already registered (L'indirizzo di posta elettronica '{0}' è già registrato)|  
-|ValidationErrorSpecificEmailInvalid|Email '{0}' is invalid (L'indirizzo di posta elettronica '{0}' non è valido)|  
+|ValidationErrorSpecificEmailAlreadyExists|Indirizzo di posta elettronica "{0}" già registrato|  
+|ValidationErrorSpecificEmailInvalid|L'indirizzo di posta elettronica "{0}" non è valido|  
 |ValidationErrorPasswordInvalid|Password non valida. Correggere gli errori e riprovare.|  
-|PropertyTooShort|{0} is too short ({0} è troppo breve)|  
+|PropertyTooShort|{0} è troppo breve|  
 |WebAuthenticationAddresserEmailInvalidErrorMessage|Indirizzo di posta elettronica non valido.|  
 |ValidationMessageNewPasswordConfirmationRequired|Conferma nuova password|  
 |ValidationErrorPasswordConfirmationRequired|Confirm password is empty (La password di conferma è vuota)|  
-|WebAuthenticationEmailChangeNotice|Change confirmation email is on the way to {0}. (Il messaggio di conferma di modifica della posta elettronica è stato inviato a {0}.) Please follow instructions within it to confirm your new email address. (Seguire le istruzioni in esso contenute per confermare il nuovo indirizzo.) If the email does not arrive to your inbox in the next few minutes, please check your junk email folder. (Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata.)|  
+|WebAuthenticationEmailChangeNotice|Il messaggio di posta elettronica di modifica è stato inviato a {0}. Please follow instructions within it to confirm your new email address. (Seguire le istruzioni in esso contenute per confermare il nuovo indirizzo.) If the email does not arrive to your inbox in the next few minutes, please check your junk email folder. (Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata.)|  
 |WebAuthenticationEmailChangeNoticeHeader|Your email change request was successfully processed (La richiesta di modifica dell'indirizzo di posta elettronica è stata elaborata)|  
 |WebAuthenticationEmailChangeNoticeTitle|Email change requested (Modifica dell'indirizzo di posta elettronica richiesta)|  
 |WebAuthenticationEmailHasBeenRevertedNotice|You email already exist. (Indirizzo di posta elettronica già esistente.) Request has been reverted (La richiesta è stata ripristinata)|  
@@ -409,7 +411,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|L'indirizzo di posta elettronica è obbligatorio.|  
 |WebAuthenticationErrorNoticeHeader|Tipi di errore|  
-|WebAuthenticationFieldLengthErrorMessage|{0} must be a maximum length of {1} ({0} deve avere una lunghezza massima di {1})|  
+|WebAuthenticationFieldLengthErrorMessage|{0} deve avere una lunghezza massima di {1}|  
 |TextboxLabelEmailFirstName|Nome|  
 |ValidationErrorFirstNameRequired|First name is required. (Un nome è obbligatorio.)|  
 |ValidationErrorFirstNameInvalid|Invalid first name (Nome non valido)|  
@@ -434,13 +436,13 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |ValidationErrorPasswordInvalidDetailed|Password is too weak. (La password è troppo debole.)|  
 |WebAuthenticationPasswordLabel|Password|  
 |ValidationErrorPasswordRequired|Password is required. (La password è obbligatoria.)|  
-|WebAuthenticationPasswordResetSendNotice|Change password confirmation email is on the way to {0}. (Il messaggio di conferma di modifica password è stato inviato a {0}.) Please follow the instructions within the email to continue your password change process. (Seguire le istruzioni contenute nel messaggio per continuare la procedura di modifica della password.)|  
+|WebAuthenticationPasswordResetSendNotice|Il messaggio di posta elettronica per cambiare la password è stato inviato a {0}. Please follow the instructions within the email to continue your password change process. (Seguire le istruzioni contenute nel messaggio per continuare la procedura di modifica della password.)|  
 |WebAuthenticationPasswordResetSendNoticeHeader|Your passowrd change request was successfully processed (La richiesta di modifica della password è stata elaborata)|  
 |WebAuthenticationPasswordResetSendNoticeTitle|Password reset requested (Reimpostazione password richiesta)|  
 |WebAuthenticationRequestNotFoundNotice|Request not found (Richiesta non trovata)|  
 |WebAuthenticationSenderEmailRequiredErrorMessage|Notifications sender email is empty (L'indirizzo di posta elettronica del mittente delle notifiche è vuoto)|  
 |WebAuthenticationSigninPasswordLabel|Please confirm the change by entering a password (Per confermare la modifica, immettere una password)|  
-|WebAuthenticationSignupConfirmNotice|Registration confirmation email is on its way to {0}.<br /\> Please follow instructions within the email to activate your account.<br /\> If the email does not arrive in your inbox within the next few minutes, please check your junk email folder. (Il messaggio di conferma della registrazione è stato inviato a {0}.<br /\> Seguire le istruzioni contenute nel messaggio per attivare l'account.<br /\> Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata.)|  
+|WebAuthenticationSignupConfirmNotice|Il messaggio di posta elettronica di conferma della registrazione è stato inviato a {0}. <br /\> Seguire le istruzioni contenute nel messaggio di posta elettronica per attivare l'account.<br /\> Se non si riceve il messaggio di posta elettronica entro pochi minuti, controllare la cartella della posta indesiderata.|  
 |WebAuthenticationSignupConfirmNoticeHeader|Your account was successfully created (L'account è stato creato)|  
 |WebAuthenticationSignupConfirmNoticeRepeatHeader|Registration confirmation email was sent again (Il messaggio di posta elettronica di conferma della registrazione è stato inviato di nuovo)|  
 |WebAuthenticationSignupConfirmNoticeTitle|Account creato|  
@@ -455,26 +457,26 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |ValidationErrorCredentialsInvalid|Email or password is invalid. (Indirizzo email o password non validi.) Correggere gli errori e riprovare.|  
 |WebAuthenticationRequestIsNotValid|Richiesta non valida.|  
 |WebAuthenticationUserIsNotConfirm|Please confirm your registration before attempting to sign in. (Confermare la registrazione prima di tentare l'accesso.)|  
-|WebAuthenticationInvalidEmailFormated|Email is invalid: {0} (L'indirizzo di posta elettronica non è valido: {0})|  
+|WebAuthenticationInvalidEmailFormated|L'indirizzo di posta elettronica non è valido: {0}|  
 |WebAuthenticationUserNotFound|Utente non trovato|  
 |WebAuthenticationTenantNotRegistered|Your account belongs to a Azure Active Directory tenant which is not authorized to access this portal. (L'account appartiene a un tenant Azure Active Directory non autorizzato ad accedere a questo portale.)|  
 |WebAuthenticationAuthenticationFailed|Authentication has failed. (Autenticazione non riuscita.)|  
 |WebAuthenticationGooglePlusNotEnabled|Authentication has failed. (Autenticazione non riuscita.) If you authorized the application then please contact the admin to make sure that Google authentication is configured correctly. (Se l'applicazione è stata autorizzata, contattare l'amministratore per assicurarsi che l'autenticazione di Google sia configurata correttamente.)|  
 |ValidationErrorAllowedTenantIsRequired|Allowed Tenant is required (Il campo Tenant consentito è obbligatorio)|  
-|ValidationErrorTenantIsNotValid|The Azure Active Directory tenant '{0}' is not valid. (Il tenant Azure Active Directory '{0}' non è valido.)|  
+|ValidationErrorTenantIsNotValid|Il tenant Azure Active Directory "{0}" non è valido.|  
 |WebAuthenticationActiveDirectoryTitle|Azure Active Directory|  
-|WebAuthenticationLoginUsingYourProvider|Log in using your {0} account (Accedere con l'account {0})|  
+|WebAuthenticationLoginUsingYourProvider|Accedere usando il proprio account {0}|  
 |WebAuthenticationUserLimitNotice|This service has reached the maximum number of allowed users. (È stato raggiunto il numero massimo di utenti consentiti dal servizio.) Please `<a href="mailto:{0}"\>contact the administrator</a\>` to upgrade their service and re-enable user registration. (`<a href="mailto:{0}"\>contact the administrator</a\>` per aggiornare il servizio e riabilitare la registrazione dell'utente.)|  
 |WebAuthenticationUserLimitNoticeHeader|User registration disabled (Registrazione utente disabilitata)|  
 |WebAuthenticationUserLimitNoticeTitle|User registration disabled (Registrazione utente disabilitata)|  
 |WebAuthenticationUserRegistrationDisabledNotice|Registration of users has been disabled by the administrator. (La registrazione degli utenti è stata disabilitata dall'amministratore.) Please login with external identity provider. (Accedere con un provider di identità esterno.)|  
 |WebAuthenticationUserRegistrationDisabledNoticeHeader|User registration disabled (Registrazione utente disabilitata)|  
 |WebAuthenticationUserRegistrationDisabledNoticeTitle|User registration disabled (Registrazione utente disabilitata)|  
-|WebAuthenticationSignupPendingConfirmationNotice|Before we can complete the creation of your account we need to verify your e-mail address. (Prima di completare la creazione dell'account è necessario verificare l'indirizzo di posta elettronica.) We've sent an e-mail to {0}. (Un messaggio di posta elettronica è stato inviato a {0}.) Please follow the instructions inside the e-mail to activate your account. (Seguire le istruzioni contenute nel messaggio per attivare l'account.) If the e-mail doesn't arrive within the next few minutes, please check your junk email folder. (Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata.)|  
-|WebAuthenticationSignupPendingConfirmationAccountFoundNotice|We found an unconfirmed account for the e-mail address {0}. (È presente un account non confermato per l'indirizzo di posta elettronica {0}.) To complete the creation of your account we need to verify your e-mail address. (Per completare la creazione dell'account è necessario verificare l'indirizzo di posta elettronica.) We've sent an e-mail to {0}. (Un messaggio di posta elettronica è stato inviato a {0}.) Please follow the instructions inside the e-mail to activate your account. (Seguire le istruzioni contenute nel messaggio per attivare l'account.) If the e-mail doesn't arrive within the next few minutes, please check your junk email folder (Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata)|  
+|WebAuthenticationSignupPendingConfirmationNotice|Before we can complete the creation of your account we need to verify your e-mail address. (Prima di completare la creazione dell'account è necessario verificare l'indirizzo di posta elettronica.) Un messaggio di posta elettronica è stato inviato a {0}. Please follow the instructions inside the e-mail to activate your account. (Seguire le istruzioni contenute nel messaggio per attivare l'account.) If the e-mail doesn't arrive within the next few minutes, please check your junk email folder. (Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata.)|  
+|WebAuthenticationSignupPendingConfirmationAccountFoundNotice|È stato trovato un account non confermato per l'indirizzo di posta elettronica {0}. To complete the creation of your account we need to verify your e-mail address. (Per completare la creazione dell'account è necessario verificare l'indirizzo di posta elettronica.) Un messaggio di posta elettronica è stato inviato a {0}. Please follow the instructions inside the e-mail to activate your account. (Seguire le istruzioni contenute nel messaggio per attivare l'account.) If the e-mail doesn't arrive within the next few minutes, please check your junk email folder (Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata)|  
 |WebAuthenticationSignupConfirmationAlmostDone|Almost Done (La procedura è quasi completata)|  
-|WebAuthenticationSignupConfirmationEmailSent|We've sent an e-mail to {0}. (Un messaggio di posta elettronica è stato inviato a {0}.) Please follow the instructions inside the e-mail to activate your account. (Seguire le istruzioni contenute nel messaggio per attivare l'account.) If the e-mail doesn't arrive within the next few minutes, please check your junk email folder. (Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata.)|  
-|WebAuthenticationEmailSentNotificationMessage|Email sent successfully to {0} (Messaggio di posta elettronica inviato a {0})|  
+|WebAuthenticationSignupConfirmationEmailSent|Un messaggio di posta elettronica è stato inviato a {0}. Please follow the instructions inside the e-mail to activate your account. (Seguire le istruzioni contenute nel messaggio per attivare l'account.) If the e-mail doesn't arrive within the next few minutes, please check your junk email folder. (Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata.)|  
+|WebAuthenticationEmailSentNotificationMessage|Messaggio di posta elettronica inviato a {0} con successo|  
 |WebAuthenticationNoAadTenantConfigured|No Azure Active Directory tenant configured for the service. (Nessun tenant Azure Active Directory configurato per il servizio.)|  
 |CheckboxLabelUserRegistrationTermsConsentRequired|I agree to the `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`. (Accetto le `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`.)|  
 |TextblockUserRegistrationTermsProvided|Please review `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>` (Rivedere le `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`)|  
@@ -509,13 +511,13 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |----------|----------|  
 |SubscriptionCancelConfirmation|Are you sure that you want to cancel this subscription? (Annullare la sottoscrizione?)|  
 |SubscriptionRenewConfirmation|Are you sure that you want to renew this subscription? (Rinnovare la sottoscrizione?)|  
-|WebDevelopersManageSubscriptions|Gestisci sottoscrizioni|  
+|WebDevelopersManageSubscriptions|Gestire le sottoscrizioni|  
 |WebDevelopersPrimaryKey|Chiave primaria|  
 |WebDevelopersRegenerateLink|Regenerate (Rigenera)|  
 |WebDevelopersSecondaryKey|Secondary key (Chiave secondaria)|  
 |ButtonLabelShowKey|Mostra|  
 |ButtonLabelRenewSubscription|Renew|  
-|WebDevelopersSubscriptionReqested|Requested on {0} (Richiesta il {0})|  
+|WebDevelopersSubscriptionReqested|Richiesta in data {0}|  
 |WebDevelopersSubscriptionRequestedState|Requested (Richiesta)|  
 |WebDevelopersSubscriptionTableNameHeader|NOME|  
 |WebDevelopersSubscriptionTableStateHeader|Stato|  
@@ -562,8 +564,8 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |SubscriptionStateRejected|Rifiutato|  
 |SubscriptionStateRequested|Requested (Richiesta)|  
 |SubscriptionStateSuspended|Suspended|  
-|DefaultSubscriptionNameTemplate|{0}  (impostazione predefinita)|  
-|SubscriptionNameTemplate|Accesso sviluppatore n.: {0}|  
+|DefaultSubscriptionNameTemplate|{0} (impostazione predefinita)|  
+|SubscriptionNameTemplate|Accesso sviluppatore n. {0}|  
 |TextboxLabelSubscriptionName|Nome della sottoscrizione|  
 |ValidationMessageSubscriptionNameRequired|Il nome della sottoscrizione non può essere vuoto.|  
 |ApiManagementUserLimitReached|This service has reached the maximum number of allowed users. (È stato raggiunto il numero massimo di utenti consentiti dal servizio.) Please upgrade to a higher pricing tier. (Eseguire l'aggiornamento a un piano tariffario superiore.)|  

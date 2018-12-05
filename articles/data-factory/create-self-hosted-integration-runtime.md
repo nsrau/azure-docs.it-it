@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038469"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284830"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
@@ -198,7 +198,9 @@ Per un'introduzione di dodici minuti e una dimostrazione di questa funzionalità
 
 * La versione di Azure PowerShell che supporta questa funzionalità è 6.6.0 o successiva (AzureRM.DataFactoryV2, 0.5.7 o versione successiva).
 
-* Per concedere l'autorizzazione, l'utente deve disporre del ruolo di proprietario o del ruolo di proprietario ereditato nella data factory in cui è presente il runtime di integrazione condiviso. 
+* Per concedere l'autorizzazione, l'utente deve disporre del ruolo di proprietario o del ruolo di proprietario ereditato nella data factory in cui è presente il runtime di integrazione condiviso.
+
+* La funzionalità di condivisione funziona solo per le Data Factory nel medesimo tenant di Azure Active Directory.
 
 * Per gli [utenti guest](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) di Active Directory, la funzionalità di ricerca nell'interfaccia utente, ovvero l'elenco di tutte le data factory ottenuto tramite una parola chiave, [non funziona](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Se tuttavia l'utente guest è il proprietario della data factory, può condividere il runtime di integrazione self-hosted senza usare la funzionalità di ricerca digitando direttamente l'identità del servizio gestita della data factory con cui il runtime deve essere condiviso nella casella di testo **Assign Permission** (Assegna autorizzazione) e selezionando **Add** (Aggiungi) nell'interfaccia utente di Azure Data Factory. 
 
@@ -218,7 +220,7 @@ Se si sposta il cursore sul messaggio di notifica o sull'icona nell'area di noti
 
 A livello di *firewall aziendale* è necessario configurare le porte in uscita e i domini seguenti:
 
-Nomi di dominio | Porte | Descrizione
+Nomi di dominio | Porte | DESCRIZIONE
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443 | Usato per la comunicazione con il servizio di spostamento di dati back-end
 *.core.windows.net | 443 | Usato per la copia di gestione temporanea tramite Archiviazione BLOB di Azure (se configurata)

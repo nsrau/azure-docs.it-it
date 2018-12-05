@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 93ee51c8a00e5cfcbffd56f96b627b68dd124aea
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 03d51cfb03de071f63578717a65eeda4b119bf0d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034694"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497851"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
 
@@ -120,19 +120,19 @@ Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisit
 
 Dopo aver correttamente creato un cluster HDInsight tramite l'interfaccia della riga di comando di Azure, usare le informazioni seguenti per acquisire familiarità con il cluster:
 
-### <a name="hadoop-clusters"></a>Cluster Hadoop
+### <a name="apache-hadoop-clusters"></a>Cluster Apache Hadoop
 
-* [Usare Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Usare Pig con HDInsight](hadoop/hdinsight-use-pig.md)
-* [Usare MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Usare Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
+* [Usare Pig con Hadoop in HDInsight](hadoop/hdinsight-use-pig.md)
+* [Usare Apache Hadoop MapReduce in HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>Cluster HBase
+### <a name="apache-hbase-clusters"></a>Cluster Apache HBase
 
-* [Introduzione a HBase in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Sviluppare applicazioni Java per HBase in HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Introduzione ad Apache HBase in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Sviluppare applicazioni Java per Apache HBase in HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a>Cluster Storm
+### <a name="apache-storm-clusters"></a>Cluster Apache Storm
 
-* [Sviluppare topologie Java per Storm in HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Usare i componenti di Python in Storm in HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Distribuire e monitorare le topologie con Storm in HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [Sviluppare topologie Java per Apache Storm in HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Usare i componenti di Python in Apache Storm in HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Distribuzione e monitoraggio di topologie con Apache Storm in HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

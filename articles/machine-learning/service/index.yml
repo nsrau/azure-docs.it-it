@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 96efb64ce7d77da567d587857e4a25ae334a3ffc
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 1add464c85d30622bf0940bf20a483ae22d07ea6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707113"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865319"
 documentType: LandingData
-title: Documentazione del servizio Azure Machine Learning (anteprima)
+title: Documentazione del servizio Azure Machine Learning
 metadata:
-  title: Documentazione di Azure Machine Learning (anteprima) - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
+  title: Documentazione di Azure Machine Learning - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
   meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
   author: j-martens
@@ -41,6 +41,7 @@ sections:
     style: unordered
     items:
     - html: <a href="quickstart-get-started.md">Operazioni iniziali nel portale di Azure</a>
+    - html: <a href="quickstart-create-workspace-with-python.md">Introduzione all'uso di Python </a>
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
@@ -48,12 +49,13 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Eseguire il training di un modello di Machine Learning</a>
-    - html: <a href="tutorial-auto-train-models">Automatizzare la generazione e l'ottimizzazione di un modello</a>
-    - html: <a href="tutorial-deploy-models-with-aml">Distribuire un modello come servizio Web</a>
+    - html: Classificazione delle immagini (parte 1)&#58; <a href="tutorial-train-models-with-aml">Eseguire il training di un modello di Machine Learning</a>
+    - html: Classificazione delle immagini (parte 2)&#58; <a href="tutorial-deploy-models-with-aml">Distribuire il modello</a></br>&nbsp;
+    - html: Regressione (parte 1)&#58; <a href="tutorial-data-prep">Preparare i dati di NYC Taxi per la modellazione</a>
+    - html: Regressione (parte 2)&#58; <a href="tutorial-auto-train-models">Generare un modello usando l'apprendimento automatico automatizzato</a>
   - type: paragraph
     text: '<b>Notebook di esempio</b>: è possibile esplorare Azure Machine Learning con <a href="https://aka.ms/aml-notebooks">questi esempi di Jupyter Notebooks</a>, disponibili in GitHub.'
-- title: riferimento
+- title: Informazioni di riferimento
   items:
   - type: list
     style: unordered

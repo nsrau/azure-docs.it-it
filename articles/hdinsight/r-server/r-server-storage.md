@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 466cb9ea116030d3f6ee6b41809011dae9acc00b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 578479d43279dc1edb9edd24fd57d6841784166a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011205"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498145"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluzioni di Archiviazione di Azure per ML Services in Azure HDInsight
 
@@ -26,7 +26,7 @@ ML Services in HDInsight può usare un'ampia gamma di soluzioni di archiviazione
 
 È possibile anche accedere a più account di archiviazione o contenitori di Azure con il cluster HDInsight. Archiviazione di File di Azure è un'opzione di archiviazione di dati ideale per l'uso nel nodo perimetrale che consente di montare ad esempio una condivisione di file di Archiviazione di Azure sul file system di Linux. Tuttavia, le condivisioni File di Azure possono essere montate e usate in qualsiasi sistema dotato di un sistema operativo supportato, ad esempio Windows o Linux. 
 
-Quando si crea un cluster Hadoop in HDInsight, si specifica un account di **Archiviazione di Azure** o un **archivio Data Lake**. Un contenitore di archiviazione specifico dell'account include il file system del cluster creato, ad esempio Hadoop Distributed File System. Per altre informazioni e istruzioni, vedere:
+Quando si crea un cluster Apache Hadoop in HDInsight, si specifica un account di **Archiviazione di Azure** o un **archivio Data Lake**. Un contenitore di archiviazione specifico dell'account include il file system del cluster creato, ad esempio Hadoop Distributed File System. Per altre informazioni e istruzioni, vedere:
 
 - [Usare l'Archiviazione di Azure con HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Usare Data Lake Store con cluster Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md)
@@ -170,6 +170,6 @@ Un vantaggio importante di File di Azure riguarda la possibilità di montare e u
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica del cluster ML Services in HDInsight](r-server-overview.md)
-* [Introduzione all'uso di un cluster ML Services su Hadoop](r-server-get-started.md)
-* [Opzioni del contesto di calcolo per il cluster ML Services in HDInsight](r-server-compute-contexts.md)
+* [Introduzione all'utilizzo di un cluster ML Services in Apache Hadoop](r-server-get-started.md)
+* [Opzioni del contesto di calcolo per un cluster ML Services su HDInsight](r-server-compute-contexts.md)
 

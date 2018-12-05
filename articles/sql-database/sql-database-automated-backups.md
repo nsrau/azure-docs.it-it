@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 36099a49cc9e6c810727606bb73d2669f1e0df79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985693"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422511"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Informazioni sui backup automatici del database SQL
 
@@ -42,7 +42,7 @@ Il database SQL usa la tecnologia di SQL Server per creare backup [completi](htt
 
 ## <a name="how-long-are-backups-kept"></a>Per quanto tempo sono conservati i backup
 
-Ogni backup del database SQL ha un periodo di conservazione predefinito basato sul livello di servizio e distingue tra il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). È possibile aggiornare il periodo di conservazione dei backup per un database. Visualizzare [Modifica del periodo di conservazione backup](#how-to-change-backup-retention-period) per ulteriori dettagli.
+Ogni database SQL ha un periodo di conservazione dei backup predefinito che varia da 7 e 35 giorni e dipende dal [modello di acquisto e dal livello di servizio](#pitr-retention-period). È possibile aggiornare il periodo di conservazione dei backup per un database nel server logico di Azure. Questa funzionalità sarà abilitata a breve nell'istanza gestita. Visualizzare [Modifica del periodo di conservazione backup](#how-to-change-backup-retention-period) per ulteriori dettagli.
 
 Se si elimina un database, il database SQL manterrà i backup come farebbe con un database online. Ad esempio, se si elimina un database Basic con un periodo di conservazione di sette giorni, un backup di quattro giorni viene salvato per altri tre giorni.
 

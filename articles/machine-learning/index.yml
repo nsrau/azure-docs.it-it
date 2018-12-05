@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6dc003473ed228fa8e10bd6a10d5b4b9a3d0ac49
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ef0ecc7a9e89168ed57c75ab24c3233692d77151
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621361"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863568"
 documentType: LandingData
 title: Documentazione di Azure Machine Learning
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/31/2018
+  ms.date: 12/04/2018
   ms.author: jmartens
 abstract:
   description: Informazioni su come creare algoritmi intelligenti in app e siti Web con questi prodotti di Azure Machine Learning.  Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.
@@ -32,53 +32,42 @@ sections:
       html: <p>Informazioni su come questo servizio consenta ai data scientist di sviluppare e gestire soluzioni di intelligenza artificiale<br/> usando gli strumenti e le librerie dell'interfaccia della riga di comando e di Python con svariati servizi di calcolo e dati di Azure. Altre informazioni...</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Servizio Azure Machine Learning (anteprima)
-    - href: /azure/machine-learning/studio/
-      html: <p>Informazioni su come questo strumento di trascinamento collaborativo possa essere usato per compilare, testare e distribuire soluzioni di analisi predittiva sui dati. Altre informazioni... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-      title: Azure Machine Learning Studio
+      title: Servizio Azure Machine Learning
 - title: Guide introduttive ed esercitazioni
   items:
   - type: paragraph
-    text: 'Informazioni su come configurare rapidamente e usare il servizio Azure Machine Learning (anteprima) e Studio:'
+    text: 'Informazioni su come configurare rapidamente e usare il servizio Azure Machine Learning:'
   - type: table
     style: dataMatrix
     columns:
     - image:
         src: media/index/i_machine-learning.svg
-    - image:
-        src: media/index/machine-learning-studio.svg
     rows:
-    - title: Introduzione al servizio
+    - title: Introduzione al servizio nel portale di Azure
       values:
       - href: /azure/machine-learning/service/quickstart-get-started
-      - href: /azure/machine-learning/studio/create-workspace
+    - title: Introduzione al servizio in Python
+      values:
+      - href: /azure/machine-learning/service/quickstart-create-workspace-with-python
     - title: Preparare i dati per la modellazione
       values:
-      - href: /azure/machine-learning/service/how-to-data-prep
-      - href: /azure/machine-learning/studio/walkthrough-2-upload-data
+      - href: /azure/machine-learning/service/tutorial-data-prep
     - title: Compilare i modelli di Machine Learning
       values:
       - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-      - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
     - title: Generare e ottimizzare automaticamente gli algoritmi
       values:
       - href: /azure/machine-learning/service/tutorial-auto-train-models
-      - href: 
     - title: Distribuire il modello come servizio Web
       values:
       - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-      - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
     - title: Utilizzare i modelli di Machine Learning
       values:
       - href: /azure/machine-learning/service/how-to-consume-web-service
-      - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
-    - title: Creare, ottimizzare e gestire le pipeline di Machine Learning
+    - title: Creare e gestire pipeline di apprendimento automatico
       values:
-      - href: /azure/machine-learning/service/concept-ml-pipelines
-      - href: 
-- title: Altre tecnologie di Microsoft Machine Learning
+      - href: /azure/machine-learning/service/how-to-create-your-first-pipeline
+- title: Altre tecnologie di apprendimento automatico Microsoft
   items:
   - type: list
     style: cards
@@ -90,11 +79,11 @@ sections:
       image:
         src: /azure/machine-learning/media/index/cognitive-services.png
       title: Servizi cognitivi
-    - href: /azure/batch-ai/
-      html: <p>Servizio gestito che consente di sperimentare in parallelo con i modelli di intelligenza artificiale, usando qualsiasi framework, e quindi esegue il training dei modelli su larga scala in GPU cluster.</p>
+    - href: /azure/machine-learning/studio/
+      html: <p>Informazioni su come questo strumento di trascinamento collaborativo possa essere usato per compilare, testare e distribuire soluzioni di analisi predittiva sui dati. Altre informazioni... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
       image:
-        src: /azure/machine-learning/media/index/batch.png
-      title: Batch AI Training
+        src: /azure/machine-learning/media/index/machine-learning-studio.svg
+      title: Azure Machine Learning Studio
     - href: /sql/advanced-analytics/r/r-services
       html: <p>Analisi nel database con il supporto di R e Python.</p>
       image:

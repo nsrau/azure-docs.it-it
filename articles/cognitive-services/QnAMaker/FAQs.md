@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 2e4a5d9b7ee2a1a88bcfe819be6540385458108f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 28153e71ba6f2336398517454a81cfce39b93956
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622364"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496346"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -25,7 +25,7 @@ ms.locfileid: "51622364"
 
 Tutte le eliminazioni sono permanenti, incluse le coppie di domande e risposte, i file, gli URL, le domande e risposte personalizzate, le knowledge base e le risorse di Azure. Prima di eliminare qualsiasi parte della knowledge base, quindi, assicurarsi di esportare le knowledge base dalla pagina **Impostazioni**. 
 
-### <a name="why-is-my-urlsfiles-is-not-extracting-question-answer-pairs"></a>Perché i miei URL/file non estraggono coppie di domanda/risposta?
+### <a name="why-is-my-urlsfiles-not-extracting-question-answer-pairs"></a>Perché i miei URL/file non estraggono coppie di domanda/risposta?
 
 È possibile che QnA Maker non possa estrarre automaticamente alcune coppie di domanda/riposta da URL di domande frequenti validi. In questi casi è possibile incollare il contenuto di domande/risposte in un file TXT e verificare se lo strumento è in grado di inglobarlo. In alternativa è possibile aggiungere contenuti alla Knowledge Base in modo editoriale tramite il [portale QnA Maker](https://qnamaker.ai).
 
@@ -41,13 +41,13 @@ Non è stato ancora creato alcun servizio QnA Maker in Azure. Per altre informaz
 
 La condivisione funziona a livello di servizio QnA Maker, in altre parole vengono condivise tutte le Knowledge Base all'interno di un servizio. Vedere [qui](./How-To/collaborate-knowledge-base.md) per informazioni su come collaborare a una Knowledge Base.
 
-### <a name="can-you-share-a-kb-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-kb"></a>È possibile condividere una Knowledge Base con un collaboratore che non è nello stesso tenant di AAD, per modificare una Knowledge Base? 
+### <a name="can-you-share-a-knowledge-base-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-knowledge-base"></a>È possibile condividere una knowledge base con un collaboratore che non è nello stesso tenant di AAD, per modificare una knowledge base? 
 
 La condivisione è basata sul controllo degli accessi in base al ruolo di Azure. Se è possibile condividere _qualsiasi_ risorsa in Azure con un altro utente, è anche possibile condividere QnA Maker.
 
-### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-kbs-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-kb"></a>Se si dispone di un piano di servizio app con 5 Knowledge Base QnAMaker. È possibile assegnare diritti di lettura/scrittura per 5 utenti diversi in modo che ognuno di essi possa accedere solo a 1 Knowledge Base QnAMaker?
+### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-knowledge-bases-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-knowledge-base"></a>Se si dispone di un piano di servizio app con 5 knowledge base QnAMaker. È possibile assegnare diritti di lettura/scrittura per 5 utenti diversi in modo che ognuno di essi possa accedere solo a 1 knowledge base QnAMaker?
 
-È possibile condividere un intero servizio QnAMaker, non i singoli Knowledge Base.
+È possibile condividere un intero servizio QnAMaker, non i singoli knowledge base.
 
 ### <a name="how-can-i-change-the-default-message-when-no-good-match-is-found"></a>Come si modifica il messaggio predefinito visualizzato se non viene trovata alcuna corrispondenza?
 
@@ -65,8 +65,7 @@ Il messaggio predefinito fa parte delle impostazioni del servizio app.
 
 ### <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>Perché il collegamento SharePoint non viene estratto?
 
-Lo strumento analizza solo gli URL pubblici e non supporta attualmente le origini dati autenticate. In alternativa è possibile scaricare il file e usare l'opzione di caricamento file per estrarre domande e risposte.
-
+Per altre informazioni, vedere [Posizioni della data factory](./Concepts/data-sources-supported.md#data-source-locations).
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>Gli aggiornamenti apportati alla Knowledge Base non sono riflesse nella pubblicazione. Perché?
 
@@ -84,7 +83,7 @@ Vedere altri dettagli sulle [lingue supportate](./Overview/languages-supported.m
 
 Se sono presenti contenuti in più lingue, assicurarsi di creare un servizio separato per ciascuna lingua.
 
-## <a name="manage-service"></a>Gestione del servizio
+## <a name="manage-service"></a>Gestire il servizio
 
 ### <a name="when-should-i-restart-my-app-service"></a>Quando è consigliabile riavviare un servizio app? 
 
@@ -94,9 +93,13 @@ Aggiornare il servizio app quando viene visualizzata l'icona di avviso accanto a
 
 Aggiornare le chiavi endpoint se si sospetta che siano state compromesse.
 
-### <a name="can-i-use-the-same-azure-search-resource-for-kbs-using-multiple-languages"></a>È possibile usare la stessa risorsa di Ricerca di Azure per le Knowledge Base con più lingue?
+### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>È possibile usare la stessa risorsa di Ricerca di Azure per le knowledge base con più lingue?
 
-Per usare più lingue e Knowledge Base, l'utente deve creare una risorsa di QnA Maker per ciascuna lingua. Verrà creato un servizio di ricerca di Azure separato per ogni lingua. La combinazione di Knowledge Base in lingue diverse in un singolo servizio di ricerca di Azure comporterà una ridotta pertinenza dei risultati.
+Per usare più lingue e knowledge base, l'utente deve creare una risorsa di QnA Maker per ciascuna lingua. Verrà creato un servizio di ricerca di Azure separato per ogni lingua. La combinazione di knowledge base in lingue diverse in un singolo servizio di Ricerca di Azure comporterà una ridotta pertinenza dei risultati.
+
+### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>Come è possibile modificare il nome della risorsa di Ricerca di Azure usato da QnA Maker?
+
+Il nome della risorsa di Ricerca di Azure è il nome della risorsa QnA Maker a cui vengono aggiunte alcune lettere casuali alla fine del nome. La distinzione tra più risorse di ricerca per QnA Maker risulta quindi più difficile. Creare un servizio separato di Ricerca di Azure (assegnandogli un nome nel modo desiderato) e collegarlo al servizio QnA. I passaggi sono simili ai passaggi per [eseguire l'aggiornamento di Ricerca di Azure](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
 
 ## <a name="integrate-with-other-services-including-bots"></a>Integrazione con altri servizi, inclusi Bot
 

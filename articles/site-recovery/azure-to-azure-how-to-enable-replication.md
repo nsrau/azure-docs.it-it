@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: 2f4721155610da3be3ff0db3608d7c1e163aa344
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e73659dca034c0333a73786788c8f342b57598da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211843"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314665"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali di Azure in un'altra area di Azure
 
@@ -53,7 +53,15 @@ Abilitare la replica. Questa procedura presuppone che l'area di Azure primaria s
     - **Account di archiviazione di destinazione (se la VM di origine non usa dischi gestiti)**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione di destinazione, che rispecchia la configurazione delle risorse di archiviazione della VM di origine. Nel caso in cui l'account di archiviazione esista già, verrà riusato.
     - **Dischi gestiti di replica (se la VM di origine usa dischi gestiti)**: Site Recovery crea dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della VM di origine con lo stesso tipo di archiviazione (Standard o Premium) del disco gestito della VM di origine.
     - **Account di archiviazione della cache:** Site Recovery necessita di un account di archiviazione aggiuntivo, definito account di archiviazione della cache, nell'area di origine. Tutte le modifiche apportate nelle VM di origine vengono registrate e inviate all'account di archiviazione della cache prima della replica nella posizione di destinazione.
-    - **Set di disponibilità:** per impostazione predefinita, Azure Site Recovery crea un nuovo set di disponibilità nell'area di destinazione, con un nome con suffisso "asr". Nel caso in cui il set di disponibilità creato da Azure Site Recovery esista già, verrà riusato.
+    - **Set di disponibilità di destinazione**: per impostazione predefinita, Azure Site Recovery crea nell'area di destinazione un nuovo set di disponibilità il cui nome include il suffisso "asr" per la parte attinente alle macchine virtuali di un set di disponibilità nell'area di origine. Nel caso in cui il set di disponibilità creato da Azure Site Recovery esista già, verrà riusato.
+    - **Zone di disponibilità di destinazione**: per impostazione predefinita, Site Recovery assegna lo stesso numero di zona dell'area di origine nell'area di destinazione se l'area di destinazione supporta le zone di disponibilità.
+
+    Se l'area di destinazione non supporta le zone di disponibilità, le macchine virtuali di destinazione vengono configurate come singole istanze per impostazione predefinita. Se necessario è possibile configurare tali macchine virtuali come parte dei set di disponibilità nell'area di destinazione facendo clic su "Personalizza".
+
+    >[!NOTE]
+    >Dopo aver abilitato la replica non è possibile modificare il tipo di disponibilità, ovvero istanza singola, set di disponibilità o zona di disponibilità. Per modificare il tipo di disponibilità è necessario disabilitare e abilitare la replica.
+    >
+    
     - **Criteri di replica:** definisce le impostazioni per la cronologia della conservazione del punto di ripristino e per la frequenza snapshot coerenti con l'app. Per impostazione predefinita, Azure Site Recovery crea nuovi criteri di replica con impostazioni predefinite di 24 ore per la conservazione del punto di recupero e di 60 minuti per la frequenza snapshot coerente con l'app.
 
     ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)

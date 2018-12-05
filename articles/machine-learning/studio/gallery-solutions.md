@@ -1,10 +1,11 @@
 ---
-title: Soluzioni di Azure AI Gallery| Microsoft Docs
+title: Soluzioni Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
 description: Scoprire soluzioni in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c0be3f10-9e54-4fc1-b5df-725c2e919f65
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: cb02ed61ea050c17bc7e6dc0ebc724f29f885dd7
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 4a16cdde41e17b334df389c4ef9dab64d959885a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344336"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308954"
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Scoprire soluzioni in Azure AI Gallery
 

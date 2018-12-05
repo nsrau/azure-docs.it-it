@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9e68e60fa22964f43680cd2070a09fffc98fbee3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7591e1303e69df522a02b08a079ac00bdac5f6bc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163388"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870300"
 documentType: LandingData
 title: Documentazione sul database SQL di Azure
 metadata:
@@ -53,7 +53,7 @@ sections:
       image:
         src: media/index/i_scale.svg
       title: Scalabilità
-    - href: /azure/sql-database/sql-database-servers-databases
+    - href: /azure/sql-database/sql-database-single-index
       html: <p>Usare il database singolo ospitato in server logici per le applicazioni SaaS e i microservizi che richiedono un database singolo con prestazioni prevedibili.</p>
       image:
         src: media/index/i_db.svg

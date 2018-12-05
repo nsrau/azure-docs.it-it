@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 59dab4651366c3ad6579e0da660baee0c653d1a3
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 534714accb504e4ce487950fef028ab675c46a87
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666003"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496415"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Attivare i ruoli della directory di Azure AD in PIM
 
@@ -70,9 +70,25 @@ Quando è necessario usare un ruolo della directory di Azure AD è possibile ric
 
 1. Fare clic su **Attiva**.
 
-    Se il ruolo non richiede l'approvazione, viene attivato ora e visualizzato nell'elenco dei ruoli attivi. Se il [ruolo richiede l'approvazione](./azure-ad-pim-approval-workflow.md) per l'attivazione, nell'angolo superiore destro del browser verrà visualizzata una notifica che informa che la richiesta è in attesa di approvazione.
+    Se il ruolo non richiede l'approvazione, viene attivato e aggiunto all'elenco di ruoli attivi. Se si vuole usare il ruolo immediatamente, seguire i passaggi descritti nella sezione successiva.
+
+    Se il [ruolo richiede l'approvazione](./azure-ad-pim-approval-workflow.md) per l'attivazione, nell'angolo superiore destro del browser verrà visualizzata una notifica che informa che la richiesta è in attesa di approvazione.
 
     ![Notifica di richiesta in attesa](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
+
+## <a name="use-a-role-immediately-after-activation"></a>Usare un ruolo immediatamente dopo l'attivazione
+
+Quando si attiva un ruolo in PIM, sono necessari almeno 10 minuti prima di poter accedere al portale di amministrazione desiderato o eseguire funzioni all'interno di un carico di lavoro amministrativo specifico. Per forzare un aggiornamento delle autorizzazioni personali, usare la pagina **Accesso all'applicazione**, come descritto nei passaggi successivi.
+
+1. Aprire Azure AD Privileged Identity Management.
+
+1. Fare clic sulla pagina **Accesso all'applicazione**.
+
+    ![Accesso all'applicazione PIM](./media/pim-how-to-activate-role/pim-application-access.png)
+
+1. Fare clic sul collegamento **Azure Active Directory** per aprire nuovamente il portale nella pagina **Tutti gli utenti**.
+
+    Quando si fa clic su questo collegamento si rende non valido il token corrente, forzando il portale di Azure a ottenere un nuovo token che deve contenere le autorizzazioni aggiornate.
 
 ## <a name="view-the-status-of-your-requests"></a>Visualizzare lo stato della richiesta da attivare
 
@@ -85,20 +101,6 @@ Quando è necessario usare un ruolo della directory di Azure AD è possibile ric
 1. Fare clic su **Richieste personali** per visualizzare un elenco delle richieste.
 
     ![Ruoli della directory di Azure AD - Richieste personali](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Usare un ruolo immediatamente dopo l'attivazione
-
-A causa della memorizzazione nella cache, le attivazioni non si verificano immediatamente nel portale di Azure senza un aggiornamento. Se è necessario ridurre la possibilità di ritardi dopo l'attivazione di un ruolo, è possibile usare la pagina **Accesso all'applicazione** nel portale. Le applicazioni a cui si esegue l'accesso da questa pagina verificano immediatamente la presenza di nuove assegnazioni di ruolo.
-
-1. Aprire Azure AD Privileged Identity Management.
-
-1. Fare clic sulla pagina **Accesso all'applicazione**.
-
-    ![Accesso all'applicazione PIM](./media/pim-how-to-activate-role/pim-application-access.png)
-
-1. Fare clic su **Azure Active Directory** per aprire nuovamente il portale nella pagina **Tutti gli utenti**.
-
-    Quando si fa clic su questo collegamento, viene eseguito un aggiornamento forzato e quindi un controllo per le nuove assegnazioni di ruolo delle risorse di Azure AD.
 
 ## <a name="deactivate-a-role"></a>Disattivare un ruolo
 
@@ -131,6 +133,14 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
     Quando si sceglie Annulla, la richiesta verrà annullata. Per attivare nuovamente il ruolo, è necessario inviare una nuova richiesta per l'attivazione.
 
    ![Annullare una richiesta in sospeso](./media/pim-how-to-activate-role/directory-role-cancel.png)
+
+## <a name="troubleshoot"></a>Risolvere problemi
+
+### <a name="permissions-not-granted-after-activating-a-role"></a>Autorizzazioni non concesse dopo l'attivazione di un ruolo
+
+Quando si attiva un ruolo in PIM, sono necessari almeno 10 minuti prima di poter accedere al portale di amministrazione desiderato o eseguire funzioni all'interno di un carico di lavoro amministrativo specifico. Per forzare un aggiornamento delle autorizzazioni, usare la pagina **Accesso all'applicazione**, come descritto nella sezione precedente [Usare un ruolo immediatamente dopo l'attivazione](#use-a-role-immediately-after-activation).
+
+Per altri passaggi per la risoluzione dei problemi, vedere [Risoluzione dei problemi di autorizzazioni elevate](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

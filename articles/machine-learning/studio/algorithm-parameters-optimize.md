@@ -1,10 +1,11 @@
 ---
-title: Ottimizzare gli algoritmi in Azure Machine Learning | Documentazione Microsoft
-description: Viene illustrato come scegliere il set di parametri ottimale per un algoritmo in Azure Machine Learning.
+title: Ottimizzare gli algoritmi per Azure Machine Learning Studio | Microsoft Docs
+description: Spiega come scegliere il set di parametri ottimale per un algoritmo in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
@@ -15,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 64d725712dc8cf87deb150944a390c9cef87b56f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833897"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314713"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio
+
 In questo argomento viene descritto come scegliere il set di iperparametri corretto per un algoritmo in Azure Machine Learning. Per la maggior parte degli algoritmi di Machine Learning è necessario impostare i parametri. Quando si esegue il training di un modello, è necessario specificare valori per questi parametri. L'efficacia del modello di cui è stato eseguito il training dipende dai parametri scelti per il modello. Il processo per trovare il set ottimale di parametri è noto come *selezione del modello*.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]

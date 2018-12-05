@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262336"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584877"
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -253,7 +253,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 -   **Ambiti del criterio:** tutti gli ambiti
 
 ##  <a name="LimitConcurrency"></a>Limita concorrenza
- Il criterio `limit-concurrency` previene ai criteri racchiusi l’esecuzione di un numero maggiore di richieste in un dato momento rispetto a quello specificato. In caso di superamento di tale numero, le nuove richieste avranno subito esito negativo con codice di stato 429 Troppe richieste.
+ Il criterio `limit-concurrency` impedisce ai criteri racchiusi di eseguire un numero maggiore di richieste in qualsiasi momento rispetto a quello specificato. In caso di superamento di tale numero, le nuove richieste avranno subito esito negativo con codice di stato 429 Troppe richieste.
 
 ###  <a name="LimitConcurrencyStatement"></a>Istruzione del criterio
 
@@ -876,7 +876,7 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

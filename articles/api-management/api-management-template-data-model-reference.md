@@ -14,18 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8c21ed737cab98c9136e1c1991997ff3931a4c9d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "29378157"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447198"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure
 Questo argomento descrive le rappresentazioni di entità e tipi per elementi comuni usati nei modelli di dati per i modelli del portale per sviluppatori in Gestione API di Azure.  
   
  Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
-  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+Il portale per sviluppatori non è disponibile al livello A consumo.
+
+## <a name="reference"></a>riferimento
+
 -   [API](#API)  
 -   [Riepilogo delle API](#APISummary)  
 -   [Applicazione](#Application)  
@@ -37,7 +43,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 -   [Richiesta HTTP](#HTTPRequest)  
 -   [Risposta HTTP](#HTTPResponse)  
 -   [Problema](#Issue)  
--   [Operazione](#Operation)  
+-   [operazione](#Operation)  
 -   [Menu operazione](#Menu)  
 -   [Voce di menu operazione](#MenuItem)  
 -   [Paging](#Paging)  
@@ -80,7 +86,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |Proprietà|type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |ID|stringa|Identificatore univoco dell'applicazione.|  
-|Titolo|stringa|Titolo dell'applicazione.|  
+|Title|stringa|Titolo dell'applicazione.|  
 |DESCRIZIONE|stringa|Descrizione dell'applicazione.|  
 |Url|URI|URI per l'applicazione.|  
 |Version|stringa|Informazioni sulla versione per l'applicazione.|  
@@ -136,7 +142,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |--------------|----------|-----------------|  
 |ID|stringa|Identificatore univoco per il problema.|  
 |ApiID|stringa|ID per l'API per cui è stato segnalato il problema.|  
-|Titolo|stringa|Titolo del problema.|  
+|Title|stringa|Titolo del problema.|  
 |DESCRIZIONE|stringa|Descrizione del problema.|  
 |SubscriptionDeveloperName|stringa|Nome dello sviluppatore che ha segnalato il problema.|  
 |IssueState|stringa|Stato attuale del problema. I valori possibili sono Proposto, Aperto e Chiuso.|  

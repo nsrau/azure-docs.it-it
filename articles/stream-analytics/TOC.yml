@@ -129,6 +129,8 @@ items:
       href: stream-analytics-dotnet-management-sdk.md
     - name: Uso di Azure PowerShell
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
+    - name: Uso dell'API
+      href: stream-analytics-cicd-api.md
   - name: Strumenti di Visual Studio
     items:
     - name: Installare gli strumenti
@@ -391,7 +393,7 @@ items:
   - name: Garanzie di recapito degli eventi
     href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
   maintainContext: true
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.streamanalytics
@@ -425,9 +427,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: White paper - Elaborazione di eventi in tempo reale
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: bcc4a9e82e5cf44c16bb1b597a9b4f9962318b5e
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: ae1d1362fd8cc38dbaaae3723a7ed7962fc8d6f8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275448"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891113"

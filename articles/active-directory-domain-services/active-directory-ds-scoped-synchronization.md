@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 7726a28e0254f4316759c3d8c74f57db6a9e399e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242195"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442982"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurare la sincronizzazione con ambito da Azure AD nel dominio gestito
 Questo articolo illustra come configurare solo account utente specifici per sincronizzarli dalla directory di Azure AD nel dominio gestito di Azure AD Domain Services.
@@ -47,7 +47,12 @@ La tabella riportata di seguito consente di determinare come usare la sincronizz
 >
 
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization"></a>Creare un nuovo dominio gestito e abilitare la sincronizzazione con ambito basata sui gruppi
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Creare un nuovo dominio gestito e abilitare la sincronizzazione con ambito basata sui gruppi mediante il portale di Azure
+
+1. Seguire le istruzioni fornite nella [Guida introduttiva](active-directory-ds-getting-started.md) per creare un dominio gestito.
+2. Scegliere **scoped** durante la selezione dello stile di sincronizzazione nella procedura guidata di creazione di Azure AD Domain Services.
+
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Creare un nuovo dominio gestito e abilitare la sincronizzazione con ambito basata sui gruppi mediante PowerShell
 Usare PowerShell per completare questa serie di passaggi. Consultare le istruzioni in [Abilitare Azure Active Directory Domain Services con PowerShell](active-directory-ds-enable-using-powershell.md). In questo articolo un paio di passaggi sono stati leggermente modificati per configurare la sincronizzazione con ambito.
 
 Completare i passaggi seguenti per configurare la sincronizzazione con ambito basata sui gruppi nel dominio gestito:

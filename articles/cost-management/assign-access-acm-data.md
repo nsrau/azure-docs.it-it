@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: e32e281509da32d4816c9e137a462553891c82f1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686144"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582599"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
@@ -42,7 +42,7 @@ L'ambito selezionato dall’utente viene usato in Gestione costi per fornire il 
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Abilitare l'accesso ai costi nel portale EA
 
-Per l’ambito dell'account di fatturazione, l’opzione **Visualizzazione addebiti abilitata per gli amministratori di reparto** deve essere **abilitata** nel portale EA. Per tutti gli altri ambiti, l’opzione **Visualizzazione addebiti abilitata per i proprietari dell'account** deve essere **abilitata** nel portale EA.
+Per l'ambito del reparto di fatturazione, l'opzione **Visualizzazione addebiti abilitata per gli amministratori di reparto** deve essere **abilitata** nel portale EA. Per tutti gli altri ambiti, l’opzione **Visualizzazione addebiti abilitata per i proprietari dell'account** deve essere **abilitata** nel portale EA.
 
 Per abilitare un'opzione:
 
@@ -51,7 +51,7 @@ Per abilitare un'opzione:
 3. Per gli ambiti di Gestione costi ai quali si desidera fornire l’accesso, abilitare l’opzione **Visualizzazione addebiti abilitata per gli amministratori di reparto** e/o **Visualizzazione addebiti abilitata per i proprietari dell'account**.  
     ![Scheda di registrazione che mostra le opzioni di visualizzazione addebiti per amministratori di reparto e per i proprietari dell’account](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-Una volta abilitate le opzioni di visualizzazione addebiti, per la maggior parte degli ambiti è anche necessario configurare l’autorizzazione di controllo degli accessi in base al ruolo (RBAC) nel portale di Azure.
+Una volta abilitate le opzioni di visualizzazione addebiti, per la maggior parte degli ambiti è anche necessario configurare l'autorizzazione di controllo degli accessi in base al ruolo (RBAC) nel portale di Azure.
 
 ## <a name="enterprise-administrator-role"></a>Ruolo Amministratore azienda
 
@@ -75,7 +75,7 @@ Potrebbero occorrere fino a 30 minuti prima che il nuovo utente possa accedere a
 
 ### <a name="assign-department-scope-access"></a>Assegnare l'accesso all’ambito di reparto
 
-Per l’accesso all'ambito di reparto è richiesto l'accesso come amministratore di reparto (Visualizzazione addebiti abilitata per gli amministratori di reparto) nel portale EA. L'amministratore di reparto può accedere per visualizzare i costi e i dati di utilizzo associati a un reparto o a più reparti.  I dati del reparto comprendono tutte le sottoscrizioni che appartengono a un account di registrazione collegate al reparto. Nel portale di Azure non è richiesta alcuna azione.
+Per l’accesso all'ambito di reparto è richiesto l'accesso come amministratore di reparto (Visualizzazione addebiti abilitata per gli amministratori di reparto) nel portale EA. L'amministratore di reparto può accedere per visualizzare i costi e i dati di utilizzo associati a un reparto o a più reparti. I dati del reparto comprendono tutte le sottoscrizioni che appartengono a un account di registrazione collegate al reparto. Nel portale di Azure non è richiesta alcuna azione.
 
 1. Accedere al portale EA dalla pagina [https://ea.azure.com](https://ea.azure.com) con un account di amministratore aziendale.
 2. Nel riquadro sinistro, selezionare **Gestisci**.
@@ -89,7 +89,7 @@ Per l’accesso all'ambito di reparto è richiesto l'accesso come amministratore
 
 ## <a name="assign-enrollment-account-scope-access"></a>Assegnare l'accesso all'ambito di account di registrazione
 
-Per l’accesso all'ambito di account di registrazione è richiesto l'accesso come proprietario dell'account (Visualizzazione addebiti abilitata per i proprietari dell'account) nel portale EA. Il proprietario dell'account può visualizzare i costi e i dati di utilizzo associati a un account di registrazione. I dati nell'account di registrazione includono tutte le sottoscrizioni di Azure associate alla registrazione. Nel portale di Azure non è richiesta alcuna azione.
+Per l’accesso all'ambito di account di registrazione è richiesto l'accesso come proprietario dell'account (Visualizzazione addebiti abilitata per i proprietari dell'account) nel portale EA. Il proprietario dell'account può visualizzare i costi e i dati di utilizzo associati alle sottoscrizioni create dall'account di registrazione. Nel portale di Azure non è richiesta alcuna azione.
 
 1. Accedere al portale EA dalla pagina [https://ea.azure.com](https://ea.azure.com) con un account di amministratore aziendale.
 2. Nel riquadro sinistro, selezionare **Gestisci**.
@@ -101,9 +101,11 @@ Per l’accesso all'ambito di account di registrazione è richiesto l'accesso co
 8. Fare clic su **Aggiungi** per creare l'account.  
     ![Casella Aggiungi account](./media/assign-access-acm-data/add-account.png)
 
+Dopo aver completato i passaggi precedenti, l'account utente diventa un account di registrazione nel portale aziendale e può creare sottoscrizioni. L'utente può accedere ai dati relativi all'utilizzo e ai costi per le sottoscrizioni create.
+
 ## <a name="assign-management-group-scope-access"></a>Assegnare l'accesso all’ambito Gruppo di gestione
 
-Per l’accesso all’ambito Gruppo di gestione è richiesta almeno l’autorizzazione Lettore Gestione costi (o Lettore). Assegnare l’autorizzazione a un gruppo di gestione nel portale di Azure. Per consentire l’accesso da parte di altri utenti è necessario disporre almeno dell'autorizzazione di collaboratore del gruppo di gestione. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
+Per l'accesso all'ambito Gruppo di gestione è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile configurare le autorizzazioni per un gruppo di gestione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di gestione. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
 
 1. Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
 2. Selezionare **Tutti i servizi** nella barra laterale, cercare _Gruppi di gestione_, quindi selezionare **Gruppi di gestione**.
@@ -119,7 +121,7 @@ Per l’accesso all’ambito Gruppo di gestione è richiesta almeno l’autorizz
 
 ## <a name="assign-subscription-scope-access"></a>Assegnare l'accesso all'ambito di sottoscrizione
 
-Per accedere a una sottoscrizione è richiesta almeno l’autorizzazione Lettore Gestione costi (o Lettore). Assegnare l’autorizzazione a una sottoscrizione nel portale di Azure. Per consentire l’accesso da parte di altri utenti è necessario disporre almeno dell'autorizzazione di collaboratore della sottoscrizione. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
+Per accedere a una sottoscrizione è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile assegnare l'autorizzazione a una sottoscrizione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per la sottoscrizione. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
 
 1. Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
 2. Selezionare **Tutti i servizi** nella barra laterale, cercare _Sottoscrizioni_, quindi selezionare **Sottoscrizioni**.
@@ -133,7 +135,7 @@ Per accedere a una sottoscrizione è richiesta almeno l’autorizzazione Lettore
 
 ## <a name="assign-resource-group-scope-access"></a>Assegnare l'accesso all’ambito Gruppo di risorse
 
-Per accedere a un gruppo di risorse è richiesta almeno l’autorizzazione Lettore Gestione costi (o Lettore). Assegnare l’autorizzazione a un gruppo di risorse nel portale di Azure. Per consentire l’accesso da parte di altri utenti è necessario disporre almeno dell'autorizzazione di collaboratore del gruppo di risorse. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
+Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore Gestione costi (o Lettore). È possibile assegnare le autorizzazioni a un gruppo di risorse nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di risorse. Inoltre, è necessario abilitare l’impostazione **Visualizzazione addebiti abilitata per i proprietari dell'account** nel portale EA.
 
 1. Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
 2. Selezionare **Tutti i servizi** nella barra laterale, cercare _Gruppi di risorse_, quindi selezionare **Gruppi di risorse**.

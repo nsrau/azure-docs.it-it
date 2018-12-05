@@ -50,7 +50,7 @@ items:
       href: concept-risky-sign-ins.md
     - name: Eventi di rischio
       href: concept-risk-events.md
-    - name: Utenti a rischio.
+    - name: Utenti a rischio
       href: concept-user-at-risk.md
     - name: API di creazione di report
       href: concept-reporting-api.md
@@ -82,6 +82,8 @@ items:
       href: howto-install-use-log-analytics-views.md
     - name: Integrare i log attività con SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md
+    - name: Integrare i log attività con ArcSight
+      href: howto-integrate-activity-logs-with-arcsight.md
   - name: Risolvere problemi
     items:
     - name: Dati di controllo mancanti
@@ -93,7 +95,7 @@ items:
     - name: Errori nel pacchetto di contenuto di Power BI
       href: troubleshoot-content-pack.md
   expanded: true
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Report
     items:
@@ -118,9 +120,9 @@ items:
     - name: Schema dei log di accesso
       href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: 4763477baca827eca93f05356dd92249f4c0e63c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9f5447c644d49c3c1919bb933762392b987b45f6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276606"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870135"

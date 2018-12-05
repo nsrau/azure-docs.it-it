@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 400ac3232b7e7dcd594734d818e3cafef09188fd
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: ade5fa78191fe670bd898e8edcbb1fab3b9b2379
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614549"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273998"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Creare un gateway di rete virtuale con ridondanza della zona in zone di disponibilità di Azure
 
@@ -152,7 +152,7 @@ Sì, è possibile usare il portale di Azure per distribuire le nuove SKU. Tuttav
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>In quali aree è possibile usare le nuove SKU?
 
-Le nuove SKU sono disponibili nelle aree di Azure con zone di disponibilità di Azure - Stati Uniti centrali, Francia centrale ed Europa occidentale. In una fase successiva, i gateway con ridondanza della zona saranno disponibili in altre aree pubbliche di Azure.
+Le nuove SKU sono disponibili nelle aree di Azure con zone di disponibilità di Azure: Stati Uniti centrali, Francia centrale, Europa settentrionale, Europa occidentale e Stati Uniti occidentali 2. In una fase successiva, i gateway con ridondanza della zona saranno disponibili in altre aree pubbliche di Azure.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>È possibile modificare, eseguire la migrazione o aggiornare i gateway di rete virtuale esistenti in gateway con ridondanza della zona o a livello di zona?
 

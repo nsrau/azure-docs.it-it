@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256273"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422797"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparare il backup delle macchine virtuali di Azure
 
@@ -34,7 +34,7 @@ Se nell'ambiente esistono già queste condizioni, passare all'articolo su come [
 
 ## <a name="supported-operating-systems-for-backup"></a>Sistemi operativi supportati per il backup
 
- * **Linux**: Backup di Azure supporta [un elenco di distribuzioni approvate da Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), ad eccezione di CoreOS Linux. Per l'elenco dei sistemi operativi Linux che supportano il ripristino dei file, vedere [Recupero file da backup della macchina virtuale](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux**: Backup di Azure supporta [un elenco di distribuzioni approvate da Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), ad eccezione di CoreOS Linux e il sistema operativo a 32 bit. Per l'elenco dei sistemi operativi Linux che supportano il ripristino dei file, vedere [Recupero file da backup della macchina virtuale](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > È possibile usare altre distribuzioni Bring Your Own Linux, a condizione che l'agente di macchine virtuali sia disponibile nella VM e che sia presente il supporto per Python. Tuttavia, queste distribuzioni non sono supportate.
@@ -49,13 +49,14 @@ Prima di preparare l'ambiente, assicurarsi di conoscere queste limitazioni:
 * Il backup di VM Linux crittografate con la crittografia Linux Unified Key Setup (LUKS) non è supportato.
 * Non è consigliabile eseguire il backup di VM contenenti la configurazione di volumi condivisi del cluster o file server di scalabilità orizzontale, in caso contrario, potranno verificarsi errori dei writer CSV per cui durante un'attività di snapshot è necessario il coinvolgimento di tutte le VM incluse nella configurazione cluster. Backup di Azure non supporta la coerenza tra più macchine virtuali.
 * I dati di backup non includono le unità di rete montate che sono collegate a una VM.
-* La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. Se si tenta di ripristinare una macchina virtuale che esiste, l'operazione di ripristino non viene eseguita.
+* L'opzione **Sostituisci esistente**  in **Configurazione di ripristino** consente di sostituire i dischi esistenti nella macchina virtuale corrente con il punto di ripristino selezionato. Questa operazione può essere eseguita solo se la macchina virtuale corrente esiste. 
 * L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
 * Durante la configurazione del backup, verificare che le impostazioni di **Firewall e reti virtuali** per l'account di archiviazione consentano l'accesso da Tutte le reti.
 * Per le reti selezionate, dopo la configurazione del firewall e delle impostazioni di rete virtuale per l'account di archiviazione, selezionare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** come un'eccezione per abilitare il servizio Backup di Azure per accedere all'account di archiviazione di rete con restrizioni. Il ripristino a livello di elemento non è supportato per gli account di archiviazione di rete con restrizioni.
 * È possibile eseguire il backup di macchine virtuali in tutte le aree pubbliche di Azure. Vedere l'[elenco di controllo](https://azure.microsoft.com/regions/#services) delle aree supportate. Se l'area desiderata non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
 * Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Per altre informazioni, vedere la sezione relativa al [ripristino di un controller di dominio con più controller di dominio](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * La creazione di snapshot su dischi abilitati per l'acceleratore di scrittura non è supportata. Questa restrizione impedisce al servizio Backup di Azure di creare uno snapshot coerente con l'applicazione di tutti i dischi della macchina virtuale.
+* Backup di Azure non supporta l'adattamento automatico dell'orologio per l'ora legale per il backup delle macchine virtuali di Azure. Se necessario, modificare i criteri per tenere conto dell'ora legale.
 * Il ripristino delle macchine virtuali che presentano le seguenti configurazioni di rete speciali è supportato solo tramite PowerShell. Le VM create tramite il flusso di lavoro di ripristino nell'interfaccia utente non avranno queste configurazioni di rete al termine dell'operazione di ripristino. Per altre informazioni, vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Macchine virtuali con configurazione del servizio di bilanciamento del carico (interno ed esterno)
   * Macchine virtuali con più indirizzi IP riservati

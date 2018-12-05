@@ -1,11 +1,12 @@
 ---
-title: Domande frequenti su Azure Machine Learning | Documentazione Microsoft
-description: Introduzione ad Azure Machine Learning; domande frequenti su fatturazione, funzionalità e limitazioni di un servizio cloud per la modellazione predittiva semplificata.
+title: Domande frequenti su Azure Machine Learning Studio | Microsoft Docs
+description: 'Azure Machine Learning Studio: domande frequenti su fatturazione, funzionalità e limitazioni di un servizio cloud per la modellazione predittiva semplificata.'
 keywords: introduzione al machine learning, modellazione predittiva, cos’è il machine learning
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
 ms.component: studio
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247773"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309141"
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Domande frequenti su Azure Machine Learning: fatturazione, funzionalità, limitazioni e supporto
+# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Domande frequenti su Azure Machine Learning Studio: fatturazione, funzionalità, limitazioni e supporto
 Di seguito sono riportate alcune domande frequenti e le corrispondenti risposte su Azure Machine Learning, un servizio cloud che consente di sviluppare modelli predittivi e rendere operative le soluzioni tramite servizi Web. Questo articolo contiene domande sull'uso del servizio, includendo il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
 
 **Non è possibile trovare la risposta a una domanda?**
@@ -29,12 +30,6 @@ Di seguito sono riportate alcune domande frequenti e le corrispondenti risposte 
 È disponibile un forum della community di Azure Machine Learning su MSDN in cui i membri che si occupano di analisi scientifica dei dati possono porre domande su Azure Machine Learning. Il forum è monitorato dal team di Azure Machine Learning. Per cercare risposte o pubblicare una nuova domanda, accedere al [Forum di Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## <a name="general-questions"></a>Domande generali
-**Cos'è Azure Machine Learning?**
-
-Azure Machine Learning è un servizio completamente gestito che è possibile usare per creare, testare, usare e gestire le soluzioni per l'analisi predittiva nel cloud. Con un semplice browser è possibile accedere, caricare i dati e avviare immediatamente esperimenti di Machine Learning. La modellazione predittiva con trascinamento della selezione, un'ampia gamma di moduli e una libreria di modelli iniziali consentono di eseguire le attività comuni di Machine Learning in modo semplice e rapido. Per altre informazioni, vedere la [panoramica del servizio di Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). Per un'introduzione all'apprendimento automatico, con una spiegazione dei concetti e della terminologia di base, vedere l'[introduzione ad Azure Machine Learning](what-is-machine-learning.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 **Cos'è Machine Learning Studio?**
 
 Machine Learning Studio è un ambiente workbench accessibile con un Web browser. Machine Learning Studio ospita diversi moduli in un'interfaccia di composizione visiva che consente di compilare un flusso di lavoro di analisi scientifica dei dati end-to-end sotto forma di esperimento.
@@ -173,7 +168,7 @@ No. Attualmente è supportata solo la ripetizione del training a livello di codi
 
 **È possibile visualizzare i livelli di un modello di rete neurale usando il modulo predefinito?**
 
-No.
+ No.
 
 **È possibile creare dei moduli personalizzati in C# o in altri linguaggi?**
 
@@ -210,7 +205,7 @@ Usare le API per la ripetizione del training. Per altre informazioni, vedere [Ri
 ### <a name="create"></a>Create
 **È possibile distribuire il modello in locale o in un'applicazione senza una connessione Internet?**
 
-No.
+ No.
 
 **Esiste una latenza di base prevista per tutti i servizi Web?**
 
@@ -251,7 +246,7 @@ Attualmente, il provisioning dell'endpoint predefinito viene effettuato con 20 r
 
 **I processi R sono distribuiti in più nodi?**
 
-No.  
+ No.  
 
 **Quanti dati è possibile usare per il training?**
 
@@ -280,7 +275,7 @@ Le righe e le colonne sono limitate singolarmente in base alla limitazione .NET 
 
 **È possibile modificare le dimensioni della macchina virtuale che esegue il servizio Web?**
 
-No.  
+ No.  
 
 ## <a name="security-and-availability"></a>Sicurezza e disponibilità
 **Chi può accedere per impostazione predefinita all'endpoint HTTP per il servizio Web? Come limitare l'accesso all'endpoint?**

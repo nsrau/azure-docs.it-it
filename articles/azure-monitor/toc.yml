@@ -62,6 +62,8 @@ items:
   items:
   - name: Gestione di Azure
     href: azure-management.md?toc=/azure/azure-monitor/toc.json
+  - name: Monitoraggio continuo
+    href: continuous-monitoring.md
   - name: Dati di monitoraggio
     items:
     - name: Metriche e log
@@ -75,13 +77,13 @@ items:
     - name: Log di diagnostica
       href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
     - name: Tempo di inserimento dati di log
-      href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json
+      href: platform/data-ingestion-time.md
     - name: Metriche personalizzate nell'archivio delle metriche
       href: ../monitoring-and-diagnostics/metrics-custom-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Sicurezza dei dati
       items:
       - name: Dati di log
-        href: ../log-analytics/log-analytics-data-security.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-security.md
       - name: Gestione dei dati di log personali
         href: ../log-analytics/log-analytics-personal-data-mgmt.md?toc=/azure/azure-monitor/toc.json
       - name: Raccolta, conservazione e archiviazione dei dati dell'applicazione
@@ -109,7 +111,7 @@ items:
     - name: Log Analytics
       href: log-query/log-query-overview.md
     - name: Portali per query sui log
-      href: ../log-analytics/log-analytics-log-search-portals.md?toc=/azure/azure-monitor/toc.json
+      href: log-query/portals.md
     - name: Transizione del portale di OMS
       items:
       - name: Panoramica
@@ -139,7 +141,7 @@ items:
   - name: Domande frequenti
     items:
     - name: Log Analytics
-      href: ../log-analytics/log-analytics-faq.md?toc=/azure/azure-monitor/toc.json
+      href: platform/log-faq.md
     - name: Application Insights
       href: ../application-insights/app-insights-troubleshoot-faq.md?toc=/azure/azure-monitor/toc.json
 - name: Guide alle procedure
@@ -199,7 +201,7 @@ items:
         - name: Estensione macchina virtuale per Linux
           href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
         - name: Operations Manager
-          href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
+          href: platform/om-agents.md
         - name: Gateway OMS
           href: platform/gateway.md
         - name: Gestione dell'agente
@@ -257,7 +259,7 @@ items:
       - name: Log personalizzati
         href: platform/data-sources-custom-logs.md
       - name: Campi personalizzati
-        href: ../log-analytics/log-analytics-custom-fields.md?toc=/azure/azure-monitor/toc.json
+        href: platform/custom-fields.md
     - name: Configurare le applicazioni
       items:
       - name: App Azure
@@ -423,7 +425,7 @@ items:
     - name: Raccogliere dati personalizzati
       items:
       - name: API di raccolta dati di Log Analytics
-        href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-collector-api.md
       - name: Esempio di pipeline con l'API di raccolta dati di Log Analytics
         href: platform/create-pipeline-datacollector-api.md
       - name: Dati dell'applicazione
@@ -514,7 +516,7 @@ items:
         - name: Workbooks
           href: ../application-insights/app-insights-usage-workbooks.md?toc=/azure/azure-monitor/toc.json
       - name: Soluzione di analisi per app Web
-        href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=/azure/azure-monitor/toc.json
+        href: insights/azure-web-apps-analytics.md
     - name: Monitorare i contenitori
       items:
       - name: Monitoraggio di Azure per contenitori
@@ -532,7 +534,7 @@ items:
         - name: risoluzione dei problemi
           href: insights/container-insights-troubleshoot.md
       - name: Monitoraggio dei contenitori Docker e Windows
-        href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
+        href: insights/containers.md
       - name: Monitorare applicazioni Docker
         href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
     - name: Monitorare i gruppi di risorse
@@ -540,7 +542,7 @@ items:
     - name: Monitorare i database
       items:
       - name: SQL di Azure
-        href: ../log-analytics/log-analytics-azure-sql.md?toc=/azure/azure-monitor/toc.json
+        href: insights/azure-sql.md
       - name: SQL Server
         href: insights/sql-assessment.md
     - name: Monitorare le reti
@@ -661,55 +663,55 @@ items:
     - name: Eseguire query sui dati di log
       items:
       - name: Documentazione del linguaggio di query
-        href: ../log-analytics/query-language/query-language.md
+        href: log-query/query-language.md
       - name: Differenze di lingua
-        href: ../log-analytics/query-language/data-explorer-difference.md?toc=/azure/azure-monitor/toc.json
+        href: log-query/data-explorer-difference.md
       - name: Attività iniziali
         items:
         - name: Introduzione al portale di Analytics
-          href: ../log-analytics/query-language/get-started-analytics-portal.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/get-started-portal.md
         - name: Introduzione alle query
-          href: ../log-analytics/query-language/get-started-queries.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/get-started-queries.md
         - name: Query di ricerca
-          href: ../log-analytics/query-language/search-queries.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/search-queries.md
         - name: Operatori utili
-          href: ../log-analytics/query-language/useful-operators.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/useful-operators.md
       - name: Lezioni
         items:
         - name: Operazioni con stringhe
-          href: ../log-analytics/query-language/string-operations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/string-operations.md
         - name: Operazioni con data e ora
-          href: ../log-analytics/query-language/datetime-operations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/datetime-operations.md
         - name: Funzioni di aggregazione
-          href: ../log-analytics/query-language/aggregations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/aggregations.md
         - name: Aggregazioni avanzate
-          href: ../log-analytics/query-language/advanced-aggregations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/advanced-aggregations.md
         - name: Join
-          href: ../log-analytics/query-language/joins.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/joins.md
         - name: Strutture dei dati e JSON
-          href: ../log-analytics/query-language/json-data-structures.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/json-data-structures.md
         - name: Scrittura di query avanzate
-          href: ../log-analytics/query-language/advanced-query-writing.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/advanced-query-writing.md
         - name: Grafici e diagrammi
-          href: ../log-analytics/query-language/charts.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/charts.md
         - name: Funzioni
-          href: ../log-analytics/query-language/functions.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/functions.md
       - name: Schede di riferimento rapido
         items:
         - name: SQL
-          href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/sql-cheatsheet.md
         - name: Splunk
-          href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/splunk-cheatsheet.md
       - name: Linguaggio di query
         items:
         - name: Esempi
-          href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/examples.md
         - name: Ricerche in più risorse
-          href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/cross-workspace-query.md
         - name: Espressione dell'app
-          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/app-expression.md
         - name: Espressione dell'area di lavoro
-          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/workspace-expression.md
       - name: Dati di log
         items:
         - name: Dati dell'applicazione
@@ -717,11 +719,11 @@ items:
         - name: Proprietà standard
           href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Intervenire dai risultati della ricerca
-        href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
+        href: log-query/take-action.md
       - name: Gruppi di computer
         href: platform/computer-groups.md
       - name: Connettore di flusso
-        href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
+        href: platform/flow-tutorial.md
       - name: API di ricerca nei log
         href: https://dev.loganalytics.io/
   - name: Rispondere agli eventi imprevisti
@@ -821,11 +823,11 @@ items:
     - name: Gestione dei servizi IT
       items:
       - name: IT Service Management Connector
-        href: ../log-analytics/log-analytics-itsmc-overview.md?toc=/azure/azure-monitor/toc.json
+        href: platform/itsmc-overview.md
       - name: Connessioni di IT Service Management
         href: platform/itsmc-connections.md
       - name: Creare un'app Web di Service Manager
-        href: ../log-analytics/log-analytics-itsmc-service-manager-script.md?toc=/azure/azure-monitor/toc.json
+        href: platform/itsmc-service-manager-script.md
   - name: Gestire l'utilizzo e il costo
     items:
     - name: Utilizzo e costi stimati
@@ -902,7 +904,7 @@ items:
         href: insights/solutions-best-practices.md
       - name: Raccogliere i dati di monitoraggio da un runbook
         href: platform/runbook-datacollect.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Application Insights
     items:
@@ -1007,9 +1009,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 46f8dfa668deed1be2b955fd42b894dfa5513a20
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d87574fb4e430742a733d92992ef2009e0240d43
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846182"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889753"

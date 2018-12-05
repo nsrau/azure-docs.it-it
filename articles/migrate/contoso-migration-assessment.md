@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: ea0987eaea8ee558df35ecce6afb5e7bab3ac4de
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087627"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635017"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migrazione di Contoso: valutare i carichi di lavoro in locale per la migrazione ad Azure
 
@@ -125,8 +125,8 @@ Contoso e gli altri utenti devono soddisfare i prerequisiti seguenti per la valu
 - Almeno due VM VMware locali, in una delle quali viene eseguito un database di SQL Server.
 - Autorizzazioni per installare gli agenti di Azure Migrate in ogni macchina virtuale.
 - Connettività diretta a Internet delle VM.  
-        - È possibile limitare l'accesso a Internet agli [URL necessari](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        - Se le macchine virtuali non hanno connettività Internet, è necessario installare il [gateway di Azure Log Analytics](../log-analytics/log-analytics-oms-gateway.md) e indirizzare il traffico dell'agente tramite questo gateway.
+    - È possibile limitare l'accesso a Internet agli [URL necessari](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+    - Se le macchine virtuali non hanno connettività Internet, è necessario installare il [gateway di Azure Log Analytics](../azure-monitor/platform/gateway.md) e indirizzare il traffico dell'agente tramite questo gateway.
 - Nome di dominio completo della VM che esegue l'istanza di SQL Server, per la valutazione del database.
 - Windows Firewall in esecuzione nella macchina virtuale di SQL Server deve consentire le connessioni esterne sulla porta TCP 1433 (predefinita). Questa configurazione consente la connessione di Data Migration Assistant.
 

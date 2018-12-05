@@ -1,18 +1,25 @@
 ---
 title: Risoluzione dei problemi di failover di Azure | Microsoft Docs
-description: Questo articolo descrive come risolvere i problemi comuni durante il failover di Azure con Azure Site Recovery.
+description: Questo articolo descrive come risolvere gli errori comuni durante l'esecuzione del failover in Azure
+services: site-recovery
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
+ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: 420d061b34734c7b5997f5cdd58fe7faaee9cb82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: 1e7486dc646843c473cfb355445e194893934a1a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236757"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447147"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Risolvere gli errori durante il failover di una macchina virtuale in Azure
 
@@ -22,7 +29,7 @@ Durante il failover di una macchina virtuale in Azure è possibile che l'utente 
 
 Site Recovery non è riuscito a creare un'operazione di failover sulla macchina virtuale in Azure. Questo può verificarsi a causa di uno dei motivi seguenti:
 
-* Non è disponibile una quota sufficiente per creare la macchina virtuale: è possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](https://aka.ms/getazuresupport) per aumentare la quota.
+* Non è disponibile una quota sufficiente per creare la macchina virtuale: è possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](http://aka.ms/getazuresupport) per aumentare la quota.
 
 * Si sta tentando di effettuare il failover delle macchine virtuali delle famiglie di dimensioni diverse nello stesso set di disponibilità. Assicurarsi di aver scelto la stessa famiglia di dimensioni per tutte le macchine virtuali nello stesso set di disponibilità. È possibile modificare le dimensioni passando alle impostazioni Calcolo e rete della macchina virtuale e ritentando il failover.
 
@@ -30,7 +37,7 @@ Site Recovery non è riuscito a creare un'operazione di failover sulla macchina 
 
 ## <a name="failover-failed-with-error-id-28092"></a>Il failover non è riuscito con errore ID 28092
 
-Site Recovery non è riuscito a creare un'interfaccia di rete per il failover della macchina virtuale. Assicurarsi di disporre di una quota sufficiente per creare interfacce di rete nella sottoscrizione. È possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](https://aka.ms/getazuresupport) per aumentare la quota. Se si dispone di una quota sufficiente, potrebbe trattarsi di un problema intermittente, riprovare. Se il problema persiste anche dopo vari tentativi, lasciare un commento alla fine di questo documento.  
+Site Recovery non è riuscito a creare un'interfaccia di rete per il failover della macchina virtuale. Assicurarsi di disporre di una quota sufficiente per creare interfacce di rete nella sottoscrizione. È possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](http://aka.ms/getazuresupport) per aumentare la quota. Se si dispone di una quota sufficiente, potrebbe trattarsi di un problema intermittente, riprovare. Se il problema persiste anche dopo vari tentativi, lasciare un commento alla fine di questo documento.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>Il failover non è riuscito con errore ID 70038
 
@@ -38,7 +45,37 @@ Site Recovery non è riuscito a creare un'operazione di failover sulla macchina 
 
 * Non esiste una delle risorse, ad esempio una rete virtuale necessaria per la macchina virtuale da creare. Creare la rete virtuale come specificato nelle impostazioni di Calcolo e rete della macchina virtuale o modificare l'impostazione per una rete virtuale che esiste già, quindi riprovare a eseguire il failover.
 
-## <a name="unable-to-connectrdpssh---vm-connect-button-grayed-out"></a>La connessione a RDP/SSH non è riuscita - Pulsante di connessione alla macchina virtuale disabilitato
+## <a name="failover-failed-with-error-id-170010"></a>Il failover non è riuscito con errore ID 170010
+
+Site Recovery non è riuscito a creare un'operazione di failover sulla macchina virtuale in Azure. Questa condizione potrebbe essersi verificata perché un'attività di idratazione interna non è riuscita per la macchina virtuale locale.
+
+Per visualizzare tutte le macchine in Azure, l'ambiente Azure richiede che alcuni driver siano in stato di esecuzione avvio e che servizi come DHCP siano nello stato di avvio automatico. Di conseguenza, l'attività di idratazione, al momento del failover, converte il tipo di **driver atapi, intelide, storflt, vmbus, e storvsc** in esecuzione avvio. Converte anche il tipo di avvio di alcuni servizi, ad esempio DHCP in avvio automatico. Questa attività può non essere eseguita correttamente a causa di problemi specifici nell'ambiente. Per modificare manualmente il tipo di avvio dei driver, seguire la procedura seguente:
+
+1. [Scaricare](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) lo script no-hydration ed eseguirlo nel modo seguente. Questo script verifica se è necessario eseguire l'idratazione della macchina virtuale.
+
+    `.\Script-no-hydration.ps1`
+
+    Se è necessaria, genera il risultato seguente:
+
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+
+        This system doesn't meet no-hydration requirement.
+
+    Nel caso in cui la macchina virtuale soddisfi il requisito di non idratazione, lo script genererà il risultato indicante che questo sistema soddisfa il requisito di non attivazione. In questo caso, tutti i driver e i servizi hanno lo stato richiesto da Azure e l'idratazione della macchina virtuale non è necessaria.
+
+2. Eseguire lo script no-hydration-set come indicato di seguito se la macchina virtuale non soddisfa il requisito di non idratazione.
+
+    `.\Script-no-hydration.ps1 -set`
+    
+    In questo modo si convertirà il tipo di avvio automatico dei driver e si otterrà un risultato simile al seguente:
+    
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
+
+        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+
+        This system is now no-hydration compatible. 
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Impossibile connettersi o stabilire una connessione RDP/SSH alla macchina virtuale con failover perché il pulsante di connessione è disabilitato nella macchina virtuale
 
 Se su una macchina virtuale in cui è stato eseguito il failover, il pulsante **Connetti** risulta disabilitato e non si è connessi ad Azure tramite una connessione di Ciclo di lavorazione espresso o VPN da sito a sito, allora:
 

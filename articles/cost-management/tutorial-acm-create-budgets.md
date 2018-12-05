@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 49341b320df98bb08ee4f5c4ee061a51bec29ff2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb8eb4eae192cf0dd3a3555a3b1209705dd83aaf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686161"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583692"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -33,13 +33,15 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-I budget sono disponibili per tutti i clienti con contratto Enterprise (EA) di Azure. È necessario avere accesso in lettura a una sottoscrizione EA di Azure per creare e gestire I budget. È possibile creare singoli budget per le sottoscrizioni EA e gruppi di risorse. È tuttavia possibile creare budget per gli account di fatturazione EA.
+I budget sono disponibili per tutti i clienti con contratto Enterprise (EA) di Azure. È necessario avere accesso in lettura a una sottoscrizione EA di Azure per visualizzare i budget. Per creare e gestire i budget, è necessario disporre dell'autorizzazione di collaboratore. È possibile creare singoli budget per le sottoscrizioni EA e gruppi di risorse. È tuttavia possibile creare budget per gli account di fatturazione EA.
 
 Le seguenti autorizzazioni di Azure sono supportate per ogni sottoscrizione per i budget, in base a utente e gruppo:
 
 - Proprietario - Può creare, modificare o eliminare budget per una sottoscrizione.
-- Collaboratore - Può creare, modificare o eliminare i propri budget. Può modificare l'importo di budget per budget creati da altri utenti.
-- Lettore - Può visualizzare i budget per cui ha l'autorizzazione.
+- Collaboratore e collaboratore Gestione costi: può creare, modificare o eliminare i propri budget. Può modificare l'importo di budget per budget creati da altri utenti.
+- Lettore e lettore Gestione costi: può visualizzare i budget per cui ha l'autorizzazione.
+
+Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione costi, vedere [Assegnare l'accesso ai dati di Gestione costi](assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
