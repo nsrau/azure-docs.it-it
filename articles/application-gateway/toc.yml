@@ -146,7 +146,7 @@ items:
       href: application-gateway-create-probe-ps.md
   - name: Risolvere problemi
     items:
-    - name: Risolvere i problemi di un gateway applicazione in Azure - Ambiente del servizio app ILB
+    - name: Risolvere i problemi relativi a un gateway applicazione - Ambiente del servizio app di Azure ILB
       href: create-gateway-internal-load-balancer-app-service-environment.md
     - name: Risolvere gli errori di tipo Gateway non valido (502)
       href: application-gateway-troubleshooting-502.md
@@ -154,7 +154,7 @@ items:
       href: application-gateway-diagnostics.md
   - name: Pagine di errore personalizzate
     href: custom-error.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Regole CRS
     href: application-gateway-crs-rulegroups-rules.md
@@ -190,9 +190,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-application-gateway
   - name: Domande frequenti
     href: application-gateway-faq.md
-ms.openlocfilehash: 945db004a91da966b8f10b7bfb0dbf3b84799bad
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 3c1dafb0dd665a55daef276d210a5064cdfffd81
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275164"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964731"

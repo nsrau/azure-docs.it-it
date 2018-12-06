@@ -30,18 +30,18 @@ items:
     - name: Raccolta - Computer Linux
       href: ../log-analytics/log-analytics-quick-collect-linux-computer.md?toc=/azure/azure-monitor/toc.json
     - name: Raccolta - Computer Windows
-      href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-collect-windows-computer.md
   expanded: true
 - name: Esercitazioni
   items:
   - name: Analizzare i dati in Log Analytics
-    href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-viewdata.md
   - name: Visualizzare i dati in Log Analytics
-    href: ../log-analytics/log-analytics-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-logs-dashboards.md
   - name: Archiviare dati metrici e di log della piattaforma
     href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
   - name: Avvisi per i dati di log
-    href: ../log-analytics/log-analytics-tutorial-response.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-response.md
   - name: Scalabilità automatica su prestazioni e pianificazione
     href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
   - name: Trovare le eccezioni di runtime dell'applicazione
@@ -175,15 +175,15 @@ items:
       - name: Creare un'area di lavoro
         items:
         - name: Usare il portale di Azure
-          href: ../log-analytics/log-analytics-quick-create-workspace.md?toc=/azure/azure-monitor/toc.json
+          href: learn/quick-create-workspace.md
         - name: Utilizzare l'interfaccia della riga di comando di Azure
-          href: ../log-analytics/log-analytics-quick-create-workspace-cli.md?toc=/azure/azure-monitor/toc.json
+          href: learn/quick-create-workspace-cli.md
         - name: Usare Azure PowerShell
-          href: ../log-analytics/log-analytics-quick-create-workspace-posh.md?toc=/azure/azure-monitor/toc.json
+          href: learn/quick-create-workspace-posh.md
       - name: Eliminazione di un'area di lavoro
         href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
       - name: Progettare per i provider di servizi
-        href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
+        href: platform/service-providers.md
   - name: Raccogliere i dati
     items:
     - name: Installare e configurare agenti
@@ -717,7 +717,8 @@ items:
         - name: Dati dell'applicazione
           href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
         - name: Proprietà standard
-          href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
+        - name: Analizzare i dati di testo
+          href: log-query/parse-text.md
       - name: Intervenire dai risultati della ricerca
         href: log-query/take-action.md
       - name: Gruppi di computer
@@ -861,7 +862,7 @@ items:
     - name: Esempi dell'interfaccia della riga di comando di Azure
       href: ../monitoring-and-diagnostics/insights-cli-samples.md?toc=/azure/azure-monitor/toc.json
     - name: Modelli di Gestione risorse
-      href: ../log-analytics/log-analytics-template-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
+      href: platform/template-workspace-configuration.md
     - name: API
       items:
       - name: Procedura dettagliata sull'uso dell'API REST
@@ -1009,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: d87574fb4e430742a733d92992ef2009e0240d43
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: ee2702e834ce782f5b690cbfc78d300efa1ee602
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889753"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968170"

@@ -32,6 +32,8 @@ items:
     href: resource-manager-tutorial-deploy-vm-extensions.md
   - name: Distribuire estensioni SQL
     href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
+  - name: Proteggere gli artefatti
+    href: resource-manager-tutorial-secure-artifacts.md
   - name: Usare procedure di distribuzione sicure
     href: deployment-manager-tutorial.md
 - name: Esempi
@@ -68,7 +70,7 @@ items:
       items:
       - name: Parametri
         href: resource-manager-templates-parameters.md
-      - name: Variabili
+      - name: variables
         href: resource-manager-templates-variables.md
       - name: Funzioni
         href: resource-group-authoring-templates.md#functions
@@ -235,9 +237,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 472d31764efb3793508502ce8585bac3f9a948cc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5888edddf19001e985badfda4d430e77891cc3e6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315325"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960227"

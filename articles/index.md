@@ -6,12 +6,12 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ef9cb669db24cf2b68de955047e8e2d2f9fb04e9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 5860d828a4edffa130ecfd2f5cf37c236b3cf3fc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499633"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963794"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -297,22 +297,22 @@ Azure DevOps Projects </a>
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
-                                                            <img src="/learn/achievements/tour-azure-services-and-features.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
 Presentazione dei servizi e delle funzionalità di Azure </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/principles-cloud-computing/">
-                                                            <img src="/learn/achievements/principles-cloud-computing.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/principles-cloud-computing.svg" alt="">
 Principi del cloud computing </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">
-                                                            <img src="/learn/achievements/control-azure-services-with-cli.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/control-azure-services-with-cli.svg" alt="">
 Controllare i servizi di Azure con l'interfaccia della riga di comando </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/automate-azure-tasks-with-powershell/">
-                                                            <img src="/learn/achievements/automate-azure-tasks-with-powershell.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/automate-azure-tasks-with-powershell.svg" alt="">
 Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </li>
                                                     <li>
@@ -403,7 +403,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Servizio Azure Kubernetes</p>
+                                                <p>Azure Kubernetes Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -541,7 +541,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Servizio Azure Kubernetes</p>
+                                                <p>Azure Kubernetes Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1060,7 +1060,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/data-lake-storage/introduction">
+                                            <a href="/azure/storage/blobs/data-lake-storage-introduction">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen2</p>
                                             </a>
@@ -1132,7 +1132,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Analisi</h3>
+                                    <h3>Analytics</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
@@ -1225,9 +1225,14 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/storage/blobs/data-lake-storage-introduction">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Storage Gen2</p>
+                                            </a>
+                                            <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Data Lake Storage Gen1</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1485,7 +1490,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Dispositivi mobili</h3>
+                                    <h3>Mobile</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/app-service-mobile/">
@@ -1968,7 +1973,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servizio Azure Kubernetes</h3>
+                                                    <h3>Azure Kubernetes Service (AKS)</h3>
                                                     <p>Semplificare la distribuzione, la gestione e le operazioni di Kubernetes</p>
                                                 </div>
                                             </div>
@@ -2367,7 +2372,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/storage/data-lake-storage/introduction">
+                                <a href="/azure/storage/blobs/data-lake-storage-introduction">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2378,7 +2383,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
-                                                    <p>Data Lake Storage sicuro con scalabilità elevatissima e integrazione con l'archivio BLOB</p>
+                                                    <p>Data Lake Storage sicuro con scalabilità elevatissima basato sull'archiviazione BLOB</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2962,7 +2967,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servizio Azure Kubernetes</h3>
+                                                    <h3>Azure Kubernetes Service (AKS)</h3>
                                                     <p>Semplificare la distribuzione, la gestione e le operazioni di Kubernetes</p>
                                                 </div>
                                             </div>
@@ -3532,6 +3537,25 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/storage/blobs/data-lake-storage-introduction">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Storage Gen2</h3>
+                                                    <p>Data Lake Storage sicuro con scalabilità elevatissima basato sull'archiviazione BLOB</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3542,7 +3566,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Data Lake Storage Gen1</h3>
                                                     <p>Repository con iperscalabilità per i carichi di lavoro di analisi dei Big Data</p>
                                                 </div>
                                             </div>
@@ -4882,7 +4906,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#devtools">Strumenti di sviluppo</a>
+                        <a href="#devtools">Strumenti per sviluppatori</a>
                         <ul id="devtools" class="cardsA">
                             <li>
                                 <a href="/visualstudio/products/">
