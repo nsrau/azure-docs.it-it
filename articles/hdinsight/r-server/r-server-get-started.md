@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 0811f0e115545a37b6c570c436900a8548adae61
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006363"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496465"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introduzione all'uso di ML Services in HDInsight
 
-Azure HDInsight permette di creare un cluster ML Services. Con questa opzione, gli script R possono usare Spark e MapReduce per eseguire i calcoli distribuiti. In questo articolo si apprenderà come creare un cluster ML Service in HDInsight e come eseguire uno script R che illustra l'uso di Spark per i calcoli R distribuiti.
+Azure HDInsight permette di creare un cluster ML Services. Con questa opzione, gli script R possono usare [Apache Spark](https://spark.apache.org/) e [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) per eseguire i calcoli distribuiti. In questo articolo si apprenderà come creare un cluster ML Service in HDInsight e come eseguire uno script R che illustra l'uso di Spark per i calcoli R distribuiti.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +37,7 @@ Azure HDInsight permette di creare un cluster ML Services. Con questa opzione, g
 
     * **Nome del cluster**: nome del cluster HDInsight.
     * **Sottoscrizione**: selezionare la sottoscrizione da usare.
-    * **Nome utente dell'account di accesso del cluster** e **Password dell'account di accesso del cluster**: account di accesso usato per il cluster su HTTPS. Queste credenziali vengono usate per accedere a servizi quali l'interfaccia utente Web di Ambari o l'API REST.
+    * **Nome utente dell'account di accesso del cluster** e **Password dell'account di accesso del cluster**: account di accesso usato per il cluster su HTTPS. Queste credenziali vengono usate per accedere a servizi quali l'interfaccia utente Web di Apache Ambari o l'API REST.
     * **Secure Shell (SSH) username** (Nome utente SSH): account di accesso usato per il cluster su SSH. Per impostazione predefinita, la password corrisponde alla password di accesso al cluster.
     * **Gruppo di risorse**: il gruppo di risorse nel quale viene creato il cluster.
     * **Posizione**: area di Azure in cui creare il cluster.

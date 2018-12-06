@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/08/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f3086f09e29664b816ba709fc5cda75d7b11d1b4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bb41331228e700c55da21c627d617d16faa2dcb9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035250"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335401"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gestire l'account e la chiave di creazione
 Le informazioni principali di un account LUIS sono l'account utente e la chiave di creazione. Le informazioni di accesso sono gestite in [account.microsoft.com](https://account.microsoft.com). La chiave di creazione viene gestita dalla pagina [Settings](luis-reference-regions.md) (Impostazioni) del sito Web **LUIS**. 
@@ -24,7 +24,7 @@ Le informazioni principali di un account LUIS sono l'account utente e la chiave 
 
 La chiave di creazione specifica dell'area nella pagina **Settings** (Impostazioni) consente di creare tutte le app dal sito Web [LUIS](luis-reference-regions.md) e dalle [API di creazione](https://aka.ms/luis-authoring-api). Per praticità, la chiave di creazione è autorizzata a creare un numero [limitato](luis-boundaries.md) di query di endpoint al mese. 
 
-![Pagina Settings (Impostazioni) di LUIS](./media/luis-how-to-account-settings/account-settings.png)
+[![Pagina delle impostazioni di LUIS](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 
 La chiave di creazione viene usata per le app di cui si è titolari e per le app di cui si è collaboratori.
 

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bebe9b6565d618cb773de0379122a17bf7f70403
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914295"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165425"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -34,7 +34,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Query parameter (Parametro di query)</th>
+  <th width="20%">Parametro di query</th>
   <th>DESCRIZIONE</th>
   <tr>
     <td>api-version</td>
@@ -84,12 +84,17 @@ I parametri della richiesta inviati a una stringa di query sono:
     <td>toScript</td>
     <td>*Parametro facoltativo*.<br/>Specifica l'alfabeto del testo tradotto.</td>
   </tr>
+  <tr>
+    <td>allowFallback</td>
+    <td>*Parametro facoltativo*.<br/>Specifica che il servizio può eseguire il fallback in un sistema generale quando non esiste un sistema personalizzato. I valori possibili sono: `true` (impostazione predefinita) o `false`.<br/><br/>`allowFallback=false` specifica che la traduzione deve usare solo sistemi sottoposti a training per il valore di `category` definito dalla richiesta. Se una traduzione dalla lingua X alla lingua Y richiede un concatenamento tramite una lingua pivot E, tutti i sistemi nella catena (X->E ed E->Y) dovranno essere personalizzati e avere la stessa categoria. Se non viene trovato alcun sistema con la specifica categoria, la richiesta restituirà un codice di stato 400. `allowFallback=true` specifica che il servizio può eseguire il fallback in un sistema generale quando non esiste un sistema personalizzato.
+</td>
+  </tr>
 </table> 
 
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Headers</th>
+  <th width="20%">Intestazioni</th>
   <th>DESCRIZIONE</th>
   <tr>
     <td>_Intestazione_<br/>_di autorizzazione_</td>
@@ -164,6 +169,21 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
 Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 
+## <a name="response-headers"></a>Intestazioni della risposta
+
+<table width="100%">
+  <th width="20%">Intestazioni</th>
+  <th>DESCRIZIONE</th>
+    <tr>
+    <td>X-RequestId</td>
+    <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
+  </tr>
+  <tr>
+    <td>X-MT-System</td>
+    <td>Specifica il tipo di sistema che è stato usato per la traduzione per ogni lingua di destinazione richiesta. Il valore è un elenco di stringhe delimitate da virgole. Ogni stringa indica un tipo:<br/><ul><li>Custom: la richiesta include un sistema personalizzato e durante la traduzione è stato usato almeno un sistema personalizzato.</li><li>Team: tutte le altre richieste.</li></td>
+  </tr>
+</table> 
+
 ## <a name="response-status-codes"></a>Codici di stato della risposta
 
 Di seguito sono riportati i possibili codici di stato HTTP restituiti da una richiesta. 
@@ -186,6 +206,10 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <tr>
     <td>403</td>
     <td>La richiesta non è autorizzata. Controllare il messaggio di errore per i dettagli. Ciò spesso indica che tutte le traduzioni gratuite fornite con una sottoscrizione di prova sono state usate.</td>
+  </tr>
+  <tr>
+    <td>408</td>
+    <td>Non è stato possibile soddisfare la richiesta perché manca una risorsa. Controllare il messaggio di errore per i dettagli. Quando si usa un valore di `category` personalizzato, il messaggio spesso indica che il sistema di traduzione personalizzato non è ancora disponibile per rispondere alle richieste. Il tentativo di richiesta deve essere ripetuto dopo un periodo di attesa, ad esempio 1 minuto.</td>
   </tr>
   <tr>
     <td>429</td>

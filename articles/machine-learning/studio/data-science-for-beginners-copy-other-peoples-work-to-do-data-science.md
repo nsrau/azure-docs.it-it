@@ -1,11 +1,12 @@
 ---
-title: Copiare gli esempi di data science di altre persone - Azure Machine Learning | Microsoft Docs
+title: Copiare gli esempi di data science di altre persone - Azure Machine Learning Studio | Microsoft Docs
 description: "Il segreto commerciale dell'analisi scientifica dei dati: far svolgere il proprio lavoro ad altre persone. Esempi di Machine Learning dalla raccolta di intelligenza artificiale per Azure."
 keywords: esempi di analisi scientifica dei dati, esempio di Machine Learning, algoritmo di clustering
 services: machine-learning
 documentationcenter: na
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
@@ -16,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: 84c6f4a1cedc0a04ee820f1de60f51e653f28425
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e573a0394fa47cd6325fe582366242644232cf3d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833880"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313776"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Analisi scientifica dei dati per principianti

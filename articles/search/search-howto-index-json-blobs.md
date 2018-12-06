@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: a4689093508c3287e60da9d4668393e71211fbdd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405703"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711073"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure
 Questo articolo illustra come configurare un indicizzatore di BLOB di Ricerca di Azure per estrarre contenuto strutturato dai BLOB JSON in Archiviazione BLOB di Azure.
@@ -24,11 +24,8 @@ I BLOB JSON in Archiviazione BLOB di Azure consistono in genere in un singolo do
 | Documento JSON | parsingMode | DESCRIZIONE | Disponibilità |
 |--------------|-------------|--------------|--------------|
 | Un solo documento per BLOB | `json` | Analizza i BLOB JSON come un singolo blocco di testo. Ogni BLOB JSON diventa un singolo documento di Ricerca di Azure. | Disponibile a livello generale nelle API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
-| Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, dove ogni elemento della matrice diventa un documento separato di Ricerca di Azure.  | In anteprima, in [REST api-version=`2017-11-11-Preview`](search-api-2017-11-11-preview.md) e nella [versione di anteprima di .NET SDK](https://aka.ms/search-sdk-preview). |
+| Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, dove ogni elemento della matrice diventa un documento separato di Ricerca di Azure.  | Disponibile a livello generale nelle API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
 
-> [!Note]
-> Le API di anteprima sono destinate alle attività di test e valutazione e non devono essere usate negli ambienti di produzione.
->
 
 ## <a name="setting-up-json-indexing"></a>Configurazione dell'indicizzazione JSON
 L'indicizzazione dei BLOB JSON è simile all'estrazione normale dei documenti in un flusso di lavoro in tre fasi comune a tutti gli indicizzatori di Ricerca di Azure.
@@ -103,9 +100,9 @@ Una richiesta completamente specificata può avere l'aspetto seguente:
 
 Come già indicato, i mapping dei campi non sono obbligatori. Dato un indice con i campi "text", "datePublished" e "tag", l'indicizzatore di BLOB è in grado di dedurre il mapping corretto senza che sia definito un mapping di campi nella richiesta.
 
-## <a name="how-to-parse-json-arrays-preview"></a>Come analizzare le matrici JSON (anteprima)
+## <a name="how-to-parse-json-arrays"></a>Come analizzare le matrici JSON
 
-In alternativa, è possibile scegliere la funzionalità di anteprima per le matrici JSON. Questa funzionalità è utile quando i BLOB contengono una *matrice di oggetti JSON* e si vuole che ogni elemento della matrice diventi un documento separato di Ricerca di Azure. Ad esempio, dato il BLOB JSON seguente, è possibile popolare l'indice di Ricerca di Azure con tre documenti separati, ognuno con i campi "id" e "text".  
+In alternativa, è possibile scegliere la funzionalità per le matrici JSON. Questa funzionalità è utile quando i BLOB contengono una *matrice di oggetti JSON* e si vuole che ogni elemento della matrice diventi un documento separato di Ricerca di Azure. Ad esempio, dato il BLOB JSON seguente, è possibile popolare l'indice di Ricerca di Azure con tre documenti separati, ognuno con i campi "id" e "text".  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -115,9 +112,9 @@ In alternativa, è possibile scegliere la funzionalità di anteprima per le matr
 
 ### <a name="indexer-definition-for-a-json-array"></a>Definizione dell'indicizzatore per una matrice JSON
 
-Per una matrice JSON, la richiesta dell'indicizzatore usa l'API di anteprima e la modalità di analisi `jsonArray`. Questi sono gli unici due requisiti specifici delle matrici per l'indicizzazione di BLOB JSON.
+Per una matrice JSON, la richiesta dell'indicizzatore usa la modalità di analisi `jsonArray`. Questi sono gli unici due requisiti specifici delle matrici per l'indicizzazione di BLOB JSON.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

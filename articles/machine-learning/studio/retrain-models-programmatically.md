@@ -1,10 +1,11 @@
 ---
-title: Ripetere il training dei modelli di Machine Learning a livello di codice | Documentazione Microsoft
+title: Ripetere il training dei modelli di Machine Learning Studio a livello di codice - Azure | Microsoft Docs
 description: Informazioni su come ripetere il training di un modello a livello di codice e aggiornare il servizio Web per l'uso del modello appena sottoposto a training in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
@@ -15,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: b2090b39991363ee2a5b2e12945d97dc0fa9f2b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b38143fe6f1f1cf3e65a2989e1b0a71c28530b2a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835505"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313386"
 ---
-# <a name="retrain-machine-learning-models-programmatically"></a>Ripetere il training dei modelli di Machine Learning a livello di codice
-Questa procedura dettagliata descrive come ripetere il training di un servizio Web di Azure Machine Learning a livello di codice usando C# e il servizio Esecuzione batch di Machine Learning.
+# <a name="retrain-machine-learning-studio-models-programmatically"></a>Ripetere il training dei modelli di Machine Learning Studio a livello di codice
+Questa procedura dettagliata descrive come ripetere il training di un servizio Web di Azure Machine Learning Studio a livello di codice usando C# e il servizio Esecuzione batch di Machine Learning.
 
 Dopo aver ripetuto il training del modello, attenersi alle procedure dettagliate seguenti che descrivono come aggiornare il modello nel servizio Web predittivo:
 

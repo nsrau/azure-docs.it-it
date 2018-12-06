@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/6/2018
 ms.author: tylerfox
-ms.openlocfilehash: 4bf46501a75b9dd5be7ae1b446a0db90c20be559
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 936e53ca328b0f54bfd75e7b3d4f6747b0037669
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235259"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495160"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestire cluster Apache Hadoop in HDInsight usando Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Questo articolo contiene informazioni su come gestire i cluster Apache Hadoop in Azure HDInsight tramite Azure PowerShell. Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento dei cmdlet di HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+Azure PowerShell può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Questo articolo contiene informazioni su come gestire i cluster [Apache Hadoop](https://hadoop.apache.org/) in Azure HDInsight tramite Azure PowerShell. Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento dei cmdlet di HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Prerequisiti**
 
@@ -80,12 +80,12 @@ La funzionalità di scalabilità del cluster consente di modificare il numero di
 
 Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogni tipo di cluster supportato da HDInsight:
 
-* Hadoop
+* Apache Hadoop
 
     È possibile aumentare facilmente il numero di nodi del ruolo di lavoro in un cluster Hadoop in esecuzione senza conseguenze per eventuali processi in sospeso o in esecuzione. È inoltre possibile inviare nuovi processi mentre è in corso l'operazione. Gli errori in un'operazione di scalabilità vengono gestiti in modo che il cluster rimanga sempre in uno stato funzionale.
 
     Quando un cluster Hadoop viene ridimensionato riducendo il numero di nodi dati, alcuni dei servizi del cluster vengono riavviati. A causa del riavvio dei servizi, tutti i processi in esecuzione e in attesa daranno esito negativo dopo il completamento dell'operazione di ridimensionamento. È tuttavia possibile inviare nuovamente i processi una volta completata l'operazione.
-* hbase
+* Apache HBase
 
     È possibile aggiungere o rimuovere facilmente nodi nel cluster HBase mentre è in esecuzione. I server a livello di area vengono bilanciati automaticamente entro pochi minuti dal completamento dell'operazione di ridimensionamento. È tuttavia possibile anche bilanciare manualmente i server a livello di area accedendo al nodo head del cluster ed eseguendo i comandi seguenti da una finestra del prompt dei comandi:
 
@@ -95,7 +95,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
     >balancer
     ```
 
-* Storm
+* Apache Storm
 
     È possibile aggiungere o rimuovere facilmente nodi dati dal cluster Storm mentre è in esecuzione. Tuttavia, dopo il completamento dell'operazione di ridimensionamento, è necessario bilanciare nuovamente la topologia.
 
@@ -207,25 +207,25 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## <a name="submit-jobs"></a>Inviare i processi
-**Inviare processi MapReduce**
+**Per inviare i processi Apache Hadoop MapReduce**
 
-Vedere [Eseguire gli esempi di MapReduce inclusi in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Vedere [Eseguire gli esempi di Apache Hadoop MapReduce inclusi in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Inviare processi Hive**
+**Inviare i processi Apache Hive**
 
-Vedere [Esecuzione di query Hive tramite PowerShell](hadoop/apache-hadoop-use-hive-powershell.md)
+Vedere [Eseguire query Apache Hive usando PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**Inviare processi Pig**
+**Inviare i processi Apache Pig**
 
-Vedere [Eseguire processi Pig mediante PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
+Vedere [Eseguire processi Apache Pig mediante PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
-**Inviare processi Sqoop**
+**Inviare i processi Apache Sqoop**
 
-Vedere [Usare Sqoop con Hadoop in HDInsight](hadoop/hdinsight-use-sqoop.md).
+Vedere [Usare Apache Sqoop con HDInsight](hadoop/hdinsight-use-sqoop.md).
 
-**Inviare processi Oozie**
+**Inviare i processi Apache Oozie**
 
-Vedere [Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight](hdinsight-use-oozie.md).
+Vedere [Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in HDInsight](hdinsight-use-oozie.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Caricare dati nell'archivio BLOB di Azure
 Vedere[Caricare dati in HDInsight][hdinsight-upload-data].
@@ -236,7 +236,7 @@ Vedere[Caricare dati in HDInsight][hdinsight-upload-data].
 * [Amministrare HDInsight con l'interfaccia della riga di comando][hdinsight-admin-cli]
 * [Creare cluster HDInsight][hdinsight-provision]
 * [Caricare dati in HDInsight][hdinsight-upload-data]
-* [Inviare processi Hadoop a livello di codice][hdinsight-submit-jobs]
+* [Inviare processi Apache Hadoop a livello di codice][hdinsight-submit-jobs]
 * [Introduzione ad Azure HDInsight][hdinsight-get-started]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

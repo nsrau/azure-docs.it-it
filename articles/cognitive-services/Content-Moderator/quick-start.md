@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Introduzione a Content Moderator'
+title: 'Avvio rapido: Introduzione a Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Come iniziare a usare Content Moderator.
 services: cognitive-services
@@ -10,23 +10,23 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260007"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852691"
 ---
-# <a name="quickstart-get-familiar-with-content-moderator"></a>Guida introduttiva: Acquisire familiarità con Content Moderator
+# <a name="quickstart-get-familiar-with-content-moderator"></a>Avvio rapido: Acquisire familiarità con Content Moderator
 
-In questa guida introduttiva verrà usato lo strumento di revisione di Content Moderator online per testare le funzionalità di base di Content Moderator senza dover scrivere codice. Se si vuole integrare questo servizio nell'app più rapidamente, vedere le altre guide introduttive elencate nella sezione [Passaggi successivi](#next-steps).
+In questo avvio rapido si userà lo strumento di revisione di Content Moderator online per testare le funzionalità di base di Content Moderator senza dover scrivere codice. Se si vuole integrare questo servizio nell'app più rapidamente, vedere le altre guide introduttive elencate nella sezione [Passaggi successivi](#next-steps).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un Web browser
 
 ## <a name="set-up-the-review-tool"></a>Configurare lo strumento di revisione
-Lo strumento di revisione di Content Moderator è uno strumento basato sul Web che consente a revisori umani di supportare i servizi cognitivi nel processo decisionale. In questa Guida esamineremo il breve processo di configurazione dello strumento di revisione in modo da vedere come funziona il servizio Content Moderator. Passare al sito dello [strumento di revisione di Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e registrarsi.
+Lo strumento di revisione di Content Moderator è uno strumento basato sul Web che consente ai revisori umani di facilitare il servizio cognitivo nel processo decisionale. In questa Guida esamineremo il breve processo di configurazione dello strumento di revisione in modo da vedere come funziona il servizio Content Moderator. Passare al sito dello [strumento di revisione di Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e registrarsi.
 
 ![Home page di Content Moderator](images/homepage.PNG)
 
@@ -54,11 +54,11 @@ Esaminare i tag di moderazione applicati. È possibile visualizzare i tag che so
 
 In un progetto l'utente o il team di revisione può modificare questi tag o aggiungere altri tag in base alle esigenze. Per inviare le modifiche, fare clic sul pulsante **Next** (Avanti). Mentre l'applicazione aziendale chiama le API di Content Moderator, il contenuto taggato verrà accodato qui, pronto per essere rivisto dai team di revisione umana. Con questo approccio è possibile esaminare rapidamente volumi elevati di contenuto.
 
-Si è quindi usato lo strumento di revisione di Content Moderator per vedere esempi di operazioni che è possibile eseguire con il servizio Content Moderator. A questo punto è possibile approfondire la conoscenza dello strumento di revisione e imparare a integrarlo in un progetto software usando le API di revisione oppure passare alla sezione [Passaggi successivi](#next-steps) per ottenere informazioni su come usare le API di moderazione nell'app.
+Si è quindi usato lo strumento di revisione di Content Moderator per vedere esempi di operazioni che può eseguire il servizio Content Moderator. A questo punto è possibile approfondire la conoscenza dello strumento di revisione e imparare a integrarlo in un progetto software usando le API di revisione oppure passare alla sezione [Passaggi successivi](#next-steps) per ottenere informazioni su come usare le API di moderazione nell'app.
 
 ## <a name="learn-more-about-the-review-tool"></a>Altre informazioni sullo strumento di revisione
 
-Per altre informazioni sull'uso dello strumento di revisione di Content Moderator, consultare la guida [Human-in-the-Loop](Review-Tool-User-Guide/human-in-the-loop.md) e vedere le API dello strumento di revisione per sapere come ottimizzare l'esperienza di revisione umana:
+Per altre informazioni sull'uso dello strumento di revisione di Content Moderator, consultare l'articolo introduttivo allo [strumento di revisione](Review-Tool-User-Guide/human-in-the-loop.md) e vedere le API di questo strumento per comprendere come ottimizzare l'esperienza di revisione umana:
 - L'[API Job](try-review-api-job.md) (Processo) esegue l'analisi dei contenuti usando le API di moderazione e genera revisioni nello strumento di revisione. 
 - L'[API Review](try-review-api-review.md) (Revisione) crea direttamente revisioni di immagini, testi o video per i moderatori umani senza eseguire prima l'analisi del contenuto. 
 - L'[API Workflow](try-review-api-workflow.md) (Flusso di lavoro) crea, aggiorna e ottiene i dettagli sui flussi di lavoro personalizzati creati dal team.

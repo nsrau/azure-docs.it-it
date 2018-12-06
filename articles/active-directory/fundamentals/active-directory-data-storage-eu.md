@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro
-ms.openlocfilehash: d0015f40714b639d15245827ae0da3ca0f132df4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733398"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976894"
 ---
 # <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Percorso di archiviazione dei dati di identità per i clienti europei di Microsoft Azure Active Directory (Azure AD)
 Azure AD aiuta a gestire le identità degli utenti e a creare criteri di accesso basati su intelligence che consentono di proteggere le risorse dell'organizzazione. I dati di identità vengono archiviati in un percorso basato sull'indirizzo dell'organizzazione fornito quando è stato sottoscritto il servizio, ad esempio quando è stata effettuata la sottoscrizione di Office 365 o Azure. Per informazioni specifiche su dove vengono archiviati i dati di identità, è possibile usare la sezione [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Percorso di archiviazione dei dati) di Microsoft Trust Center.
@@ -25,7 +25,7 @@ Anche se la maggior parte dei dati di identità europei relativi ad Azure AD rim
 
 ## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>Dati archiviati al di fuori dei data center europei per i clienti europei
 
-La maggior parte dei dati di identità europei relativi ad Azure AD, per le organizzazioni con sede in Europa, rimane in data center europei. I dati di Azure AD che non vengono archiviati in data center europei includono:
+La maggior parte dei dati di identità europei relativi ad Azure AD, per le organizzazioni con sede in Europa, rimane in data center europei. I dati di Azure AD archiviati in data center europei e replicati anche in data center degli Stati Uniti includono:
 
 - **Attributi relativi all'identità**
 

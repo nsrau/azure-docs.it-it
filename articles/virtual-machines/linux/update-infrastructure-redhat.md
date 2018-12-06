@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 11/27/2018
 ms.author: borisb
-ms.openlocfilehash: ad28e30f7f31ec61332faac3ab3ee3c3e2fd67ca
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 4ccfc7d185281f4c3a76e211aecff0f60298c92a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024155"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446484"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure per VM Red Hat Enterprise Linux su richiesta in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) consente ai provider di servizi cloud (come Azure) di eseguire il mirroring del contenuto dei repository ospitati in Red Hat, creare repository personalizzati con contenuto specifico di Azure e garantirne la disponibilità per le VM degli utenti finali.
@@ -29,7 +29,7 @@ Le immagini di Red Hat Enterprise Linux (RHEL) con pagamento in base al consumo 
 ## <a name="important-information-about-azure-rhui"></a>Informazioni importanti su Azure RHUI
 * L'infrastruttura RHUI di Azure attualmente supporta solo la versione secondaria più recente di ogni famiglia RHEL (RHEL6 o RHEL7). Per aggiornare un'istanza di VM RHEL connessa a RHUI all'ultima versione secondaria, eseguire `sudo yum update`.
 
-    Se si effettua il provisioning di una VM da un'immagine di RHEL 7.2 con pagamento in base al consumo e si esegue `sudo yum update`, ad esempio, verrà creata una VM RHEL 7.5 (ultima versione secondaria della famiglia RHEL7).
+    Se si effettua il provisioning di una macchina virtuale da un'immagine di RHEL 7.4 con pagamento in base al consumo e si esegue `sudo yum update`, ad esempio, verrà creata una VM RHEL 7.6 (ultima versione secondaria della famiglia RHEL7).
 
     Per evitare questo comportamento, è necessario compilare un'immagine personalizzata come descritto nell'articolo su come [creare e caricare una macchina virtuale basata su Red Hat per Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). L'immagine deve quindi essere connessa a una diversa infrastruttura di aggiornamento ([direttamente a server per la distribuzione di contenuti Red Hat](https://access.redhat.com/solutions/253273) o a un [server Red Hat Satellite](https://access.redhat.com/products/red-hat-satellite)).
 
@@ -66,6 +66,16 @@ Se si usa una configurazione di rete per limitare ulteriormente l'accesso da VM 
 Nel mese di settembre 2016 è stata distribuita un'infrastruttura RHUI di Azure aggiornata e nel mese di aprile 2017 è stata arrestata quella precedente. Se si usano immagini RHEL con pagamento in base al consumo (o i relativi snapshot) da settembre 2016 o da un momento successivo, si viene connessi automaticamente alla nuova infrastruttura RHUI di Azure. Se nelle VM sono presenti snapshot precedenti, invece, per accedere all'infrastruttura RHUI di Azure è necessario aggiornarne manualmente la configurazione come descritto in una sezione successiva.
 
 I nuovi server RHUI di Azure vengono distribuiti con [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/). In Gestione traffico, un singolo endpoint (rhui-1.micrsoft.com) può essere usato da qualsiasi VM, indipendentemente dall'area. 
+
+### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Aggiornare il certificato client RHUI scaduto in una macchina virtuale
+
+Se si usa un'immagine di macchina virtuale RHEL di una versione precedente, ad esempio RHEL 7.4 (URN immagine: `RedHat:RHEL:7.4:7.4.2018010506`), si riscontreranno problemi di connettività a RHUI dovuti a un certificato client SSL scaduto (il 21 novembre 2018). Per risolvere il problema, aggiornare il pacchetto client RHUI nella macchina virtuale usando il comando seguente 
+
+```bash
+sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
+```
+
+In alternativa, anche l'esecuzione di `sudo yum update` aggiornerà il pacchetto, nonostante gli errori di "certificato SSL scaduto" visualizzati per altri repository. Dopo l'aggiornamento dovrebbe essere ripristinata la normale connettività agli altri repository RHUI.
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Risoluzione dei problemi di connessione all'infrastruttura RHUI di Azure
 Se si verificano problemi di connessione all'infrastruttura RHUI di Azure da una VM RHEL di Azure con pagamento in base al consumo, seguire questa procedura:
@@ -135,12 +145,12 @@ Questa procedura viene illustrata solo per riferimento. Le immagini RHEL con pag
    
     - Per RHEL 6:
         ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.1-32.noarch.rpm 
+        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.2-74.noarch.rpm 
         ```
     
     - Per RHEL 7:
         ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.1-19.noarch.rpm  
+        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.2-74.noarch.rpm  
         ```
 
    b. Verificare.

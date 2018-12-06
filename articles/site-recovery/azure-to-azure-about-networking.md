@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 37db2dd5908b231b9f04a5c009052d91724f6333
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915926"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976249"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
@@ -60,10 +60,9 @@ Se si usa un proxy firewall basato su IP o regole NSG per controllare la connett
 - Tutti gli intervalli di indirizzi IP che corrispondono agli account di archiviazione nell'area di origine
     - Creare una regola NSG basata su [tag del servizio di archiviazione](../virtual-network/security-overview.md#service-tags) per l'area di origine.
     - Consentire questi indirizzi in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
-- Tutti gli intervalli di indirizzi IP che corrispondono agli [endpoint di autenticazione e identità IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) di Office 365.
-    - Se in futuro vengono aggiunti nuovi indirizzi agli intervalli di Office 365, è necessario creare nuove regole NSG.
+- Creare una regola NSG basata su [tag del servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso a tutti gli indirizzi IP corrispondenti ad AAD
+    - Se in futuro vengono aggiunti nuovi indirizzi ad Azure Active Directory (AAD), è necessario creare nuove regole NSG.
 - Indirizzi IP dell'endpoint di servizio di Site Recovery, disponibili in un [file XML](https://aka.ms/site-recovery-public-ips) e che variano a seconda della posizione di destinazione.
--  Per creare automaticamente le regole richieste nel gruppo di sicurezza di rete, è possibile [scaricare e usare questo script](https://aka.ms/nsg-rule-script).
 - Prima di creare le regole in un gruppo di sicurezza di rete di produzione, è consigliabile creare le regole del gruppo di sicurezza di rete necessarie in un NSG di test e verificare che non siano presenti problemi.
 
 
@@ -72,7 +71,7 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    **Destinazione** | **IP di Site Recovery** |  **IP di monitoraggio di Site Recovery**
    --- | --- | ---
    Asia orientale | 52.175.17.132 | 13.94.47.61
-   Asia sudorientale | 52.187.58.193 | 13.76.179.223
+   Asia sud-orientale | 52.187.58.193 | 13.76.179.223
    India centrale | 52.172.187.37 | 104.211.98.185
    India meridionale | 52.172.46.220 | 104.211.224.190
    Stati Uniti centro-settentrionali | 23.96.195.247 | 168.62.249.226
@@ -87,7 +86,7 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Giappone occidentale | 52.175.146.69 | 138.91.17.38
    Brasile meridionale | 191.234.185.172 | 23.97.97.36
    Australia orientale | 104.210.113.114 | 191.239.64.144
-   Australia sudorientale | 13.70.159.158 | 191.239.160.45
+   Australia sud-orientale | 13.70.159.158 | 191.239.160.45
    Canada centrale | 52.228.36.192 | 40.85.226.62
    Canada orientale | 52.229.125.98 | 40.86.225.142
    Stati Uniti centro-occidentali | 52.161.20.168 | 13.78.149.209

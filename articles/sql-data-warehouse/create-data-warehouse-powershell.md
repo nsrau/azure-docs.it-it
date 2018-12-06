@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/01/2018
+ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ecde7cb3662fc80e7968acfcac99bc8f28e8b15b
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287574"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852640"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query con Azure PowerShell
 
@@ -31,7 +31,7 @@ Questa esercitazione richiede il modulo Azure PowerShell 5.1.1 o versioni succes
 >
 >
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere alla sottoscrizione di Azure con il comando [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) e seguire le istruzioni visualizzate.
 
@@ -45,10 +45,10 @@ Per vedere quale sottoscrizione si sta usando, eseguire [Get-AzureRmSubscription
 Get-AzureRmSubscription
 ```
 
-Per usare una sottoscrizione diversa da quella predefinita, eseguire [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
+Per usare una sottoscrizione diversa da quella predefinita, eseguire [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 
@@ -60,10 +60,10 @@ Definire le variabili da usare negli script di questa guida introduttiva.
 # The data center and resource name for your resources
 $resourcegroupname = "myResourceGroup"
 $location = "WestEurope"
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
+# The logical server name: Use a random value or replace with your own value (don't capitalize)
 $servername = "server-$(Get-Random)"
-# Set an admin login and password for your database
-# The login information for the server
+# Set an admin name and password for your database
+# The sign-in information for the server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The ip address range that you want to allow to access your server - change as appropriate
@@ -82,7 +82,7 @@ New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Creare un server logico
 
-Creare un [server logico di SQL di Azure](../sql-database/sql-database-logical-servers.md) con il comando [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Un server logico contiene un gruppo di database gestiti come gruppo. L'esempio seguente crea un server con un nome casuale nel gruppo di risorse con un account di accesso amministratore denominato `ServerAdmin` e la password `ChangeYourAdminPassword1`. Sostituire questi valori predefiniti con quelli desiderati.
+Creare un [server logico di SQL di Azure](../sql-database/sql-database-logical-servers.md) con il comando [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Un server logico contiene un gruppo di database gestiti come gruppo. L'esempio seguente crea un server con un nome casuale nel gruppo di risorse con un utente amministratore denominato `ServerAdmin` e la password `ChangeYourAdminPassword1`. Sostituire questi valori predefiniti con quelli desiderati.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
@@ -102,7 +102,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> Il database SQL ed SQL Data Warehouse comunicano sulla porta 1433. Se si sta tentando di connettersi da una rete aziendale, il traffico in uscita attraverso la porta 1433 potrebbe non essere autorizzato dal firewall della rete. In questo caso, non sarà possibile connettersi al server SQL di Azure, a meno che il reparto IT non apra la porta 1433.
+> Il database SQL ed SQL Data Warehouse comunicano sulla porta 1433. Se si sta tentando di connettersi da una rete aziendale, il traffico in uscita attraverso la porta 1433 potrebbe non essere autorizzato dal firewall della rete. In questo caso, sarà possibile connettersi al server SQL di Azure solo se il reparto IT apre la porta 1433.
 >
 
 
@@ -123,9 +123,9 @@ New-AzureRmSqlDatabase `
 I parametri obbligatori sono:
 
 * **RequestedServiceObjectiveName**: quantità di [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) richiesta. L'aumento di questa quantità comporta l'aumento dei costi di calcolo. Per un elenco di valori supportati, vedere [Memory and concurrency limits](memory-and-concurrency-limits.md) (Limiti di memoria e concorrenza).
-* **DatabaseName**: il nome dell'istanza di SQL Data Warehouse che si sta creando.
+* **DatabaseName**: nome dell'istanza di SQL Data Warehouse che si sta creando.
 * **ServerName**: nome del server che si sta usando per la creazione.
-* **ResourceGroupName**: il gruppo di risorse in uso. Per trovare i gruppi di risorse disponibili nella sottoscrizione, usare Get-AzureResource.
+* **ResourceGroupName**: gruppo di risorse in uso. Per trovare i gruppi di risorse disponibili nella sottoscrizione, usare Get-AzureResource.
 * **Edition**: per creare un'istanza di SQL Data Warehouse, deve essere "DataWarehouse".
 
 I parametri facoltativi sono:
@@ -141,7 +141,7 @@ Per altre informazioni sulle opzioni dei parametri, vedere [New-AzureRmSqlDataba
 Altre esercitazioni introduttive della raccolta si basano su questa guida introduttiva. 
 
 > [!TIP]
-> Se si prevede di continuare a usare le esercitazioni introduttive successive, non pulire le risorse create in questa guida di avvio rapido. Se non si prevede di continuare, seguire questa procedura per eliminare tutte le risorse create da questa guida di avvio rapido nel portale di Azure.
+> Se si prevede di continuare con le esercitazioni introduttive successive, non eseguire la pulizia delle risorse create in questo avvio rapido. Se non si prevede di continuare, seguire questa procedura per eliminare tutte le risorse create da questo avvio rapido nel portale di Azure.
 >
 
 ```powershell

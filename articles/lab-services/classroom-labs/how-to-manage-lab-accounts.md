@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c672634e79cbc0850edfe7f7fbdb0a880d5cf0d8
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140824"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707130"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gestire account lab in Azure Lab Services 
 In Azure Lab Services, un account lab è un contenitore per lab gestiti, ad esempio, laboratori di classe. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. Questo articolo descrive come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab.
@@ -114,7 +114,9 @@ Per visualizzare un elenco dei lab nell'account lab, seguire le istruzioni nella
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Introduzione alla configurazione di un lab usando Azure Lab Services:
+Vedere gli articoli seguenti:
 
-- [Configurare un lab per le classi](tutorial-setup-classroom-lab.md)
-- [Configurare un lab](../tutorial-create-custom-lab.md)
+- [Creare e gestire lab come proprietario](how-to-manage-classroom-labs.md)
+- [Configurare e pubblicare modelli come proprietario](how-to-create-manage-template.md)
+- [Configurare e controllare l'uso di un lab come proprietario](how-to-configure-student-usage.md)
+- [Come utente di lab, accedere ai lab per le classi](how-to-use-classroom-lab.md)

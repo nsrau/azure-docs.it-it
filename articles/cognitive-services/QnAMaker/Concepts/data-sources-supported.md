@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624878"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422355"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
@@ -23,12 +23,16 @@ QnA Maker estrae automaticamente coppie di domande e risposte da contenuto semis
 
 La tabella seguente riepiloga i tipi di contenuto e di formato di file supportati da QnA Maker.
 
-|Tipo di origine|Content Type| Esempi|
+|Tipo di origine|Tipo di contenuto| Esempi|
 |--|--|--|
 |URL|Domande frequenti (con struttura piatta, a sezioni o con collegamenti ad altre pagine)|[Pagine semplici di domande frequenti](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [pagine di domande frequenti con collegamenti](https://www.microsoft.com/software-download/faq), [pagine di domande frequenti con collegamenti ad altre pagine](https://support.microsoft.com/products/windows?os=windows-10)|
 |PDF/DOC|Domande frequenti, manuale del prodotto, brochure, documenti, volantino con i Criteri di Azure, guida di supporto tecnico, domanda-risposta strutturato e così via.|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
 |Excel|File domanda-risposta strutturato (tra cui RTF, supporto HTML)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|File domanda-risposta strutturato|[Esempio chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
+
+## <a name="data-source-locations"></a>Percorsi di origine dati
+
+Solo gli URL pubblici sono validi per tutte le origini dati. Non inviare origini dati che richiedono l'autenticazione. È possibile scaricare il file dal sito autenticato e quindi usare l'opzione di caricamento file per estrarre domande e risposte.
 
 ## <a name="faq-urls"></a>Indirizzo Web di domande frequenti
 

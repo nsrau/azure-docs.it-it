@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 8f66c95202e0ccdef86f9630f7a98c20023a8955
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087747"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426000"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica 
 
@@ -101,7 +101,7 @@ Per abilitare il flusso di dati di telemetria di diagnostica per il **database S
    ![Configurare la diagnostica per il database SQL](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> Non è possibile abilitare l'audit trail dalle impostazioni di Diagnostica del database. Per abilitare lo streaming dell'audit trail vedere [Configurare il controllo per il database](sql-database-auditing.md#subheading-2) e vedere inoltre [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/) (Audit trail SQL in Analisi dei log di Azure e Hub eventi di Azure).
+> Non è possibile abilitare i log dei controlli di sicurezza dalle impostazioni di diagnostica del database. Per abilitare lo streaming dell'audit trail vedere [Configurare il controllo per il database](sql-database-auditing.md#subheading-2) e vedere inoltre [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/) (Audit trail SQL in Analisi dei log di Azure e Hub eventi di Azure).
 >
 
 > [!TIP]
@@ -182,7 +182,7 @@ Per abilitare il flusso di dati di telemetria di diagnostica per la **risorsa di
 2. Selezionare **Impostazioni di diagnostica**
 3. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente
 
-   ![Abilitare la diagnostica per Istanza gestita](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Abilitare la diagnostica per Istanza gestita](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 4. Digitare il nome dell'impostazione come riferimento personale
 5. Selezionare a quale risorsa trasmettere i dati di diagnostica dal pool elastico: **Archivia in un account di archiviazione**, **Streaming in un hub eventi** o **Invia a Log Analytics**
@@ -190,7 +190,7 @@ Per abilitare il flusso di dati di telemetria di diagnostica per la **risorsa di
 7. Selezionare la casella di controllo per la telemetria di diagnostica dell'istanza **ResourceUsageStats**
 8. Fare clic su **Save**
 
-   ![Configurare la diagnostica per Istanza gestita](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Configurare la diagnostica per Istanza gestita](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
 > Ripetere i passaggi precedenti per ogni istanza gestita che si vuole monitorare.
@@ -403,7 +403,7 @@ I dati di telemetria di monitoraggio raccolti possono essere usati per **l'anali
 
 |**Risorsa**|**Metriche**|
 |---|---|
-|database SQL di Azure|Percentuale DTU, DTU usata, limite DTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, percentuale di archiviazione XTP, deadlock |
+|Database SQL di Azure|Percentuale DTU, DTU usata, limite DTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, percentuale di archiviazione XTP, deadlock |
 
 ## <a name="logs"></a>Log
 

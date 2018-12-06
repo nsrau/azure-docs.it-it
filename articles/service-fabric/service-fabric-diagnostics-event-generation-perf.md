@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 1e6ea5d6ae321a0443631ec928912611a68346c6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408014"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290774"
 ---
 # <a name="performance-metrics"></a>Metriche delle prestazioni
 
@@ -31,14 +31,15 @@ Per i computer presenti nel cluster è opportuno raccogliere i contatori delle p
 
 | Categoria contatore | Nome contatore |
 | --- | --- |
+| Logical Disk | Spazio disponibile su disco logico |
 | PhysicalDisk(per Disk) | Avg. Disk Read Queue Length |
 | PhysicalDisk(per Disk) | Avg. Disk Write Queue Length |
 | PhysicalDisk(per Disk) | Avg. Disk sec/Read |
 | PhysicalDisk(per Disk) | Avg. Disk sec/Write |
 | PhysicalDisk(per Disk) | Letture disco/sec  |
 | PhysicalDisk(per Disk) | Byte letti da disco/sec  |
-| PhysicalDisk(per Disk) | Scritture disco/sec |
-| PhysicalDisk(per Disk) | Byte scritti su disco/sec |
+| PhysicalDisk(per Disk) |  Scritture disco/sec |
+| PhysicalDisk(per Disk) |  Byte scritti su disco/sec |
 | Memoria | MByte disponibili |
 | PagingFile | % Usage |
 | Processor(Total) | % di tempo processore |
@@ -49,6 +50,9 @@ Per i computer presenti nel cluster è opportuno raccogliere i contatori delle p
 | Process (per service) | Virtual Bytes |
 | Process (per service) | Working Set |
 | Process (per service) | Working Set - Private |
+| Network Interface(all-instances) | Byte ricevuti |
+| Network Interface(all-instances) | Byte inviati |
+| Network Interface(all-instances) | Byte totali |
 | Network Interface(all-instances) | Lunghezza della coda di output |
 | Network Interface(all-instances) | Pacchetti in uscita scartati |
 | Network Interface(all-instances) | Pacchetti ricevuti scartati |
@@ -65,6 +69,8 @@ Se si distribuiscono servizi .NET nel cluster, raccogliere i contatori seguenti.
 | .NET CLR Memory (per service) | # Total committed Bytes |
 | .NET CLR Memory (per service) | # Total reserved Bytes |
 | .NET CLR Memory (per service) | # Bytes in all Heaps |
+| .NET CLR Memory (per service) | Dimensione heap Large Object |
+| .NET CLR Memory (per service) | Handle GC |
 | .NET CLR Memory (per service) | # Gen 0 Collections |
 | .NET CLR Memory (per service) | # Gen 1 Collections |
 | .NET CLR Memory (per service) | # Gen 2 Collections |
@@ -76,7 +82,7 @@ Service Fabric genera una quantità significativa di contatori delle prestazioni
 
 Se si usa Reliable Actors, nelle applicazioni che si sta distribuendo nel cluster aggiungere i contatori delle categorie `Service Fabric Actor` e `Service Fabric Actor Method` (vedere [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)).
 
-Analogamente, se si usa Reliable Services, è necessario raccogliere i contatori delle categorie `Service Fabric Service` e `Service Fabric Service Method`. 
+Analogamente, se si usa Reliable Services o Servizio remoto, sono presenti categorie di contatori `Service Fabric Service` e `Service Fabric Service Method` da cui è necessario raccogliere contatori. Vedere [Monitoraggio con Servizio remoto](service-fabric-reliable-serviceremoting-diagnostics.md) e [Contatori delle prestazioni di Reliable Services](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
 Se si usa Reliable Collection, infine, è consigliabile aggiungere il contatore `Avg. Transaction ms/Commit` della categoria `Service Fabric Transactional Replicator` per raccogliere la latenza di commit media per ogni transazione.
 

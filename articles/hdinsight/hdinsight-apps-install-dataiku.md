@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: feb94f450621e999da01f77f0b5550258377d6c9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038264"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499132"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Installare un'applicazione pubblicata - Dataiku DDS
 
-Questo articolo descrive come installare ed eseguire l'applicazione Apache Hadoop pubblicata [Dataiku DDS](https://www.dataiku.com/) in HDInsight di Azure. Per una panoramica della piattaforma applicativa HDInsight e un elenco delle applicazioni pubblicate di fornitori di software indipendente, vedere [Installare applicazioni Hadoop di terze parti](hdinsight-apps-install-applications.md). Per istruzioni sull'installazione di un'applicazione personalizzata, vedere l'articolo su come [installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
+Questo articolo descrive come installare ed eseguire l'applicazione [Apache Hadoop](https://hadoop.apache.org/) pubblicata [Dataiku DDS](https://www.dataiku.com/) in HDInsight di Azure. Per una panoramica della piattaforma applicativa HDInsight e un elenco delle applicazioni pubblicate di fornitori di software indipendente, vedere [Installare applicazioni Hadoop di terze parti](hdinsight-apps-install-applications.md). Per istruzioni sull'installazione di un'applicazione personalizzata, vedere l'articolo su come [installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-dataiku-dss"></a>Informazioni su Dataiku DSS
 
@@ -26,9 +26,9 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 
 È possibile usare DSS per implementare una soluzione di analisi completa, che includa inserimento dei dati, preparazione ed elaborazione. Una soluzione DSS può includere anche funzioni di formazione e applicazione di modelli di Machine Learning, di visualizzazione e di messa in funzione.
 
-È possibile installare DSS in HDInsight usando cluster Hadoop o Spark. È possibile installare DSS in cluster in esecuzione esistenti o durante la creazione di nuovi cluster. DSS supporta anche l'utilizzo di Archiviazione BLOB di Azure come connettore per la lettura dei dati.
+È possibile installare DSS in HDInsight usando cluster [Apache Hadoop](https://hadoop.apache.org/) o [Apache Spark](https://spark.apache.org/). È possibile installare DSS in cluster in esecuzione esistenti o durante la creazione di nuovi cluster. DSS supporta anche l'utilizzo di Archiviazione BLOB di Azure come connettore per la lettura dei dati.
 
-È possibile usare DSS per compilare progetti, che possono quindi generare processi MapReduce o Spark. Questi processi vengono eseguiti come normali processi MapReduce o Spark in HDInsight e, quindi, è possibile ridimensionare il cluster in base alle necessità.
+È possibile usare DSS per compilare progetti, che possono quindi generare processi [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) o Spark. Questi processi vengono eseguiti come normali processi MapReduce o Spark in HDInsight e, quindi, è possibile ridimensionare il cluster in base alle necessità.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +40,7 @@ Per installare questa app in un nuovo cluster HDInsight o in un cluster esistent
 
 ## <a name="install-the-dataiku-dss-published-application"></a>Installare l'applicazione pubblicata Dataiku DSS
 
-Per istruzioni dettagliate sull'installazione di questa e delle altre applicazioni di fornitori di software indipendenti disponibili, vedere [Installare applicazioni Hadoop di terze parti](hdinsight-apps-install-applications.md).
+Per istruzioni dettagliate sull'installazione di questa e delle altre applicazioni di fornitori di software indipendenti disponibili, vedere [Installare applicazioni Apache Hadoop di terze parti](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-dataiku-dss"></a>Avviare Dataiku DSS
 

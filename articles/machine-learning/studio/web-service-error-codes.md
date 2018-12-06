@@ -1,11 +1,12 @@
 ---
-title: Codici errore dell'API REST di Azure Machine Learning | Documentazione Microsoft
+title: Codici errore dell'API REST di Azure Machine Learning Studio | Microsoft Docs
 description: Questi codici errore possono essere restituiti da un'operazione in un servizio Web di Azure Machine Learning.
 keywords: ''
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
@@ -16,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: fbedf355c6b1c45d581408a962b875544838087f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 274fbced61318a6617b04ea3092e8e2f96a10940
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836090"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314902"
 ---
-# <a name="machine-learning-rest-api-error-codes"></a>Codici errore dell'API REST di Azure Machine Learning
+# <a name="machine-learning-studio-rest-api-error-codes"></a>Codici errore dell'API REST di Machine Learning Studio
  
-I codici errore seguenti possono essere restituiti da un'operazione in un servizio Web di Azure Machine Learning.
+I codici errore seguenti possono essere restituiti da un'operazione in un servizio Web di Azure Machine Learning Studio.
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (codice di stato HTTP 400)
  

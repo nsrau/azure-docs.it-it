@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037690"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498692"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux
 
@@ -39,7 +39,7 @@ I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esem
 
 ## <a name="configuration"></a>Informazioni sulla configurazione dei dump dell'heap
 
-I dump dell'heap vengono abilitati mediante il passaggio di opzioni (talvolta noto come parametri) a JVM quando viene avviato un servizio. Per la maggior parte dei servizi Hadoop è possibile modificare lo script della shell usato per avviare il servizio per passare queste opzioni.
+I dump dell'heap vengono abilitati mediante il passaggio di opzioni (talvolta noto come parametri) a JVM quando viene avviato un servizio. Per la maggior parte dei servizi [Apache Hadoop](https://hadoop.apache.org/) è possibile modificare lo script della shell usato per avviare il servizio per passare queste opzioni.
 
 In ogni script è presente un'esportazione per **\*\_OPTS**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop-env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
 
@@ -49,7 +49,7 @@ I processi di mapping e riduzione sono leggermente diversi, in quanto queste ope
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> È consigliabile usare Apache Ambari per modificare gli script e le impostazioni di mapred-site.xml, in quanto Ambari gestisce la replica delle modifiche tra i nodi del cluster. Per i passaggi specifici, vedere la sezione [Uso di Ambari](#using-ambari) .
+> È consigliabile usare [Apache Ambari](https://ambari.apache.org/) per modificare gli script e le impostazioni di mapred-site.xml, in quanto Ambari gestisce la replica delle modifiche tra i nodi del cluster. Per i passaggi specifici, vedere la sezione [Uso di Apache Ambari](#using-apache-ambari).
 
 ### <a name="enable-heap-dumps"></a>Abilitare i dump dell'heap
 
@@ -77,11 +77,11 @@ Ad esempio, se si usa `-XX:HeapDumpPath=/tmp`, il dump viene archiviato nella di
     -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
-> Poiché Hadoop è un sistema distribuito, tutti gli script usati devono essere posizionati in tutti i nodi del cluster in cui viene eseguito il servizio.
+> Poiché Apache Hadoop è un sistema distribuito, tutti gli script usati devono essere posizionati in tutti i nodi del cluster in cui viene eseguito il servizio.
 > 
 > Lo script deve anche trovarsi in un percorso accessibile dall'account con cui viene eseguito il servizio e deve fornire autorizzazioni di esecuzione. Ad esempio, è possibile archiviare gli script in `/usr/local/bin` e usare `chmod go+rx /usr/local/bin/filename.sh` per concedere autorizzazioni di lettura ed esecuzione.
 
-## <a name="using-ambari"></a>Uso di Ambari
+## <a name="using-apache-ambari"></a>Uso di Apache Ambari
 
 Per modificare la configurazione di un servizio, attenersi alla procedura seguente:
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240104"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821086"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -102,7 +102,7 @@ Alla prima persona che usa Azure AD Privileged Identity Management nel tenant ve
 
 Dopo avere attivato Azure AD Privileged Identity Management, visualizzare gli utenti con i ruoli della directory di amministratore globale, amministratore del ruolo con privilegi, amministratore di Exchange Online e amministratore di SharePoint Online. Se nel tenant non è presente Azure AD PIM, è possibile usare l'[API di PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Iniziare con il ruolo di amministratore globale, che è un ruolo generico: un utente a cui è assegnato questo ruolo amministratore ha le stesse autorizzazioni in tutti i servizi cloud sottoscritti dall'organizzazione, indipendentemente dal fatto che il ruolo sia stato assegnato nel portale di Office 365, nel portale di Azure oppure usando il modulo di Azure AD per Microsoft PowerShell. 
 
-Rimuovere tutti gli account che non sono più necessari in questi ruoli e classificare gli account rimanenti assegnati ai ruoli di amministratore:
+Rimuovere tutti gli account non più necessari in questi ruoli. Classificare quindi gli account rimanenti assegnati ai ruoli di amministratore:
 
 * Singolarmente assegnati a utenti amministratori e che possono anche essere usati per scopi non amministrativi (ad esempio, posta elettronica personale)
 * Singolarmente assegnati a utenti amministratori e designati esclusivamente per scopi amministrativi
@@ -113,7 +113,7 @@ Rimuovere tutti gli account che non sono più necessari in questi ruoli e classi
 
 #### <a name="define-at-least-two-emergency-access-accounts"></a>Definire almeno due account di accesso di emergenza 
 
-Assicurarsi che non possano verificarsi situazioni in cui agli utenti venga inavvertitamente impedito di eseguire attività di amministrazione del tenant di Azure AD perché non è possibile accedere o attivare un account di un singolo utente esistente come amministratore. Se, ad esempio, l'organizzazione è federata con un provider di identità locale, tale provider di identità potrebbe non essere disponibile e quindi gli utenti non sarebbero in grado di accedere in locale. È possibile ridurre l'impatto di una accidentale mancanza di accesso amministrativo archiviando due o più account di accesso di emergenza nel tenant.
+Assicurarsi che non possano verificarsi situazioni in cui agli utenti venga inavvertitamente impedito di eseguire attività di amministrazione del tenant di Azure AD a causa dell'impossibilità di accedere o attivare un account di un singolo utente esistente come amministratore. Se, ad esempio, l'organizzazione è federata con un provider di identità locale, tale provider di identità potrebbe non essere disponibile e quindi gli utenti non sarebbero in grado di accedere in locale. È possibile ridurre l'impatto di una accidentale mancanza di accesso amministrativo archiviando due o più account di accesso di emergenza nel tenant.
 
 Gli account di accesso di emergenza consentono alle organizzazioni di limitare l'accesso con privilegi in un ambiente Azure Active Directory esistente. Si tratta di account con privilegi elevati non assegnati a utenti specifici. Gli account di accesso di emergenza sono limitati a scenari di emergenza critici, in cui non è possibile usare i normali account amministrativi. Le organizzazioni devono impegnarsi a controllare e limitare l'uso dell'account di emergenza solo per il tempo strettamente necessario. 
 
@@ -127,11 +127,11 @@ Richiedere Azure Multi-Factor Authentication (MFA) all'accesso per tutti i singo
 
 ![Fase 2](./media/directory-admin-roles-secure/stage-two.png)
 
-La fase 2 della roadmap è incentrata sull'attenuazione delle tecniche di attacco usate più di frequente per il furto e l'abuso di credenziali ed è pensata per essere implementata in circa 2-4 settimane. Questa fase della roadmap per la sicurezza dell'accesso con privilegi include le attività seguenti.
+La fase 2 della roadmap è incentrata sull'attenuazione delle tecniche di attacco usate più di frequente per il furto e l'abuso di credenziali e può essere implementata in circa 2-4 settimane. Questa fase della roadmap per la sicurezza dell'accesso con privilegi include le attività seguenti.
 
 ### <a name="general-preparation"></a>Preparazione generale
 
-#### <a name="conduct-a-inventory-of-services-owners-and-admins"></a>Eseguire un inventario di servizi, proprietari e amministratori
+#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>Eseguire un inventario di servizi, proprietari e amministratori
 
 Con l'aumentare degli scenari BYOD (Bring Your Own Device) e di lavoro da casa e con la diffusione della connettività wireless nelle aziende, è fondamentale monitorare chi si connette alla rete. Un controllo di sicurezza efficace spesso individua dispositivi, applicazioni e programmi in esecuzione nella rete che non sono supportati dall'IT e quindi potenzialmente non sicuri. Per altre informazioni, vedere [Panoramica su gestione e monitoraggio della sicurezza di Azure](../../security/security-management-and-monitoring-overview.md). Assicurarsi di includere tutte le attività seguenti nel processo di inventario. 
 
@@ -337,7 +337,7 @@ Oltre a gestire gli account di accesso con privilegi, è consigliabile prestare 
 * Concedere l'accesso con privilegi solo quando necessario e successivamente rimuoverlo (JIT).
 * Conservare ed esaminare le attività di controllo correlate agli account con privilegi.
 
-Per altre informazioni sulla creazione di una roadmap di sicurezza completa, vedere [Risorse sull'architettura IT del cloud Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Per altre informazioni sull'uso dei servizi Microsoft per le attività illustrate in questi argomenti, contattare il rappresentante Microsoft oppure vedere [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx) (Preparare difese informatiche critiche per proteggere l'azienda).
+Per altre informazioni sulla creazione di una roadmap di sicurezza completa, vedere [Risorse sull'architettura IT del cloud Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Per altre informazioni sull'uso dei servizi Microsoft per le attività illustrate in questi argomenti, contattare il rappresentante Microsoft oppure vedere [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx) (Preparare difese informatiche critiche per proteggere l'azienda).
 
 La fase finale e continuativa della roadmap per la sicurezza dell'accesso con privilegi include i componenti seguenti.
 

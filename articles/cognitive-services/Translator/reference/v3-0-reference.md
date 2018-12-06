@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430035"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853354"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -33,7 +33,7 @@ La versione 3 dell'API Traduzione testuale fornisce un'API Web moderna basata su
 
 L'API Traduzione testuale v3.0 è disponibile nel cloud seguente:
 
-| Descrizione | Region | URL di base                                        |
+| DESCRIZIONE | Area | URL di base                                        |
 |-------------|--------|-------------------------------------------------|
 | Azure       | Globale | api.cognitive.microsofttranslator.com           |
 
@@ -46,7 +46,7 @@ Il modo più semplice consiste nel passare la chiave privata di Azure al servizi
 
 Un'alternativa è quella di usare la chiave privata per ottenere un token di autorizzazione dal servizio token, che verrà a sua volta passato al servizio Translator usando l'intestazione della richiesta `Authorization`. Per ottenere un token di autorizzazione, effettuare una richiesta `POST` all'URL seguente:
 
-| Environment     | URL servizio di autenticazione                                |
+| Ambiente     | URL servizio di autenticazione                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
@@ -70,8 +70,8 @@ Un token di autenticazione è valido per 10 minuti. Il token deve essere riutili
 Riassumendo, una richiesta client all'API del servizio Translator includerà un'intestazione dell'autorizzazione ricavata dalla tabella seguente:
 
 <table width="100%">
-  <th width="30%">Headers</th>
-  <th>Descrizione</th>
+  <th width="30%">Intestazioni</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>Ocp-Apim-Subscription-Key</td>
     <td>*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.</td>
@@ -102,7 +102,7 @@ Ad esempio, un cliente con una sottoscrizione della versione di valutazione grat
 ```
 Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. Codici errore comuni sono:
 
-| Codice | Descrizione |
+| Codice | DESCRIZIONE |
 |:----|:-----|
 | 400000| Uno degli input della richiesta non è valido.|
 | 400001| Il parametro "scope" non è valido.|
@@ -135,6 +135,7 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 403000| L'operazione non è consentita.|
 | 403001| L'operazione non è consentita perché la sottoscrizione ha superato la quota gratuita.|
 | 405000| Il metodo della richiesta non è supportato per la risorsa richiesta.|
+| 408001| Il sistema di traduzione personalizzato richiesto non è ancora disponibile. Riprovare tra qualche minuto.|
 | 415000| L'intestazione Content-Type manca o non è valida.|
 | 429000, 429001, 429002| Il server ha rifiutato la richiesta perché il client invia un numero eccessivo di richieste. Ridurre la frequenza per evitare la limitazione delle richieste.|
 | 500000| Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|

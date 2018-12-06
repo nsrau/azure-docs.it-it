@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 343264f90ecf067786db9c0096625b87b2dbd319
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 40b8dfef3100ff8440165de74fb41f6b36afe37a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004409"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315104"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare ed eseguire il debug delle funzioni di Azure per Azure IoT Edge
 
@@ -71,6 +71,7 @@ Nella soluzione sono presenti quattro elementi:
    >Il file dell'ambiente viene creato solo se si specifica un repository di immagini per il modulo. Se sono state accettate le impostazioni predefinite di localhost per testare ed eseguire il debug in locale, non è necessario dichiarare le variabili di ambiente. 
 
 * Un file **deployment.template.json** in cui sono elencati il nuovo modulo e un modulo **tempSensor** di esempio che simula i dati utilizzabili per il test. Per altre informazioni su come funzionano i manifesti di distribuzione, vedere [Informazioni su come usare i manifesti della distribuzione per distribuire moduli e definire route](module-composition.md).
+* Un file **deployment.debug.template.json** contenente la versione di debug delle immagini del modulo con le opzioni per il contenitore appropriato.
 
 ## <a name="develop-your-module"></a>Sviluppare il modulo
 
@@ -79,12 +80,10 @@ Il codice funzione di Azure predefinito disponibile con la soluzione si trova in
 Quando si è pronti per personalizzare il modello di funzione di Azure con il proprio codice, usare gli [SDK per l'hub IoT di Azure](../iot-hub/iot-hub-devguide-sdks.md) per compilare moduli che rispondano alle esigenze chiave delle soluzioni IoT quali sicurezza, gestione dei dispositivi e affidabilità. 
 
 ## <a name="build-your-module-for-debugging"></a>Compilare il modulo per il debug
-1. Per iniziare il debug, usare **Dockerfile.amd64.debug** per ricompilare l'immagine Docker e distribuire nuovamente la soluzione Edge. In Esplora codice di Visual Studio passare al file `deployment.template.json`. Aggiornare l'URL dell'immagine della funzione aggiungendo `.debug` alla fine.
-
-    ![Compilare l'immagine di debug](./media/how-to-debug-csharp-function/build-debug-image.png)
-
+1. Per iniziare il debug, usare **Dockerfile.amd64.debug** per ricompilare l'immagine Docker e distribuire nuovamente la soluzione Edge. In Esplora codice di Visual Studio passare al file `deployment.debug.template.json`.
 2. Ricompilare la soluzione. Nel riquadro comandi di VS Code immettere ed eseguire il comando **Azure IoT Edge: Build IoT Edge solution** (Azure IoT Edge: Compila soluzione IoT Edge).
-3. Fare clic con il pulsante destro del mouse sull'ID di un dispositivo IoT Edge nell'apposito strumento di esplorazione per l'hub IoT di Azure, quindi scegliere **Create deployment for Edge device** (Crea distribuzione per dispositivo Edge). Selezionare il file `deployment.json` nella cartella `config`. Si noterà quindi che la distribuzione è stata creata correttamente con un ID distribuzione in un terminale integrato di Visual Studio Code.
+3. Selezionare il file `deployment.debug.template.json` per la soluzione dal riquadro comandi. 
+4. Fare clic con il pulsante destro del mouse sull'ID di un dispositivo IoT Edge nell'apposito strumento di esplorazione per l'hub IoT di Azure, quindi scegliere **Create deployment for Edge device** (Crea distribuzione per dispositivo Edge). Selezionare il file `deployment.debug.amd64.json` nella cartella `config`. Si noterà quindi che la distribuzione è stata creata correttamente con un ID distribuzione in un terminale integrato di Visual Studio Code.
 
 Controllare lo stato del contenitore nello strumento di esplorazione Docker di Visual Studio Code o tramite il comando `docker ps` nel terminale.
 

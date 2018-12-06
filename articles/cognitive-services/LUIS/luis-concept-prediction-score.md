@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637963"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264387"
 ---
 # <a name="prediction-score"></a>Punteggio di previsione
 Il punteggio di stima indica il grado di attendibilità rispetto ai risultati di stima di LUIS. 
@@ -62,7 +62,7 @@ Quando si esegue il training dello stesso modello in un'altra app e i punteggi d
 Se il chatbot richiede un punteggio LUIS specifico per indicare l'attentibilità in una finalità, è consigliabile usare la differenza di punteggio tra le due finalità principali. Questo conferisce flessibilità in caso di variazioni nel training. 
 
 ## <a name="punctuation"></a>Punteggiatura
-Punteggiatura è un token separato in LUIS. Un'espressione contenente un punto alla fine e un'espressione che non lo contiene sono due espressioni separate e possono ottenere due stime diverse. Assicurarsi che il modello gestisca la punteggiatura nelle [espressioni di esempio](luis-concept-utterance.md) (con e senza punteggiatura) o in [patterns}(luis-concept-patterns.md) dove risulta più semplice ignorare la punteggiatura con la sintassi speciale: `I am applying for the {Job} position[.]`
+Punteggiatura è un token separato in LUIS. Un'espressione contenente un punto alla fine e un'espressione che non lo contiene sono due espressioni separate e possono ottenere due stime diverse. Verificare che il modello gestisca la punteggiatura nelle [espressioni di esempio](luis-concept-utterance.md) (con e senza punteggiatura) o nei [modelli](luis-concept-patterns.md) dove risulta più semplice ignorare la punteggiatura con la sintassi speciale: `I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

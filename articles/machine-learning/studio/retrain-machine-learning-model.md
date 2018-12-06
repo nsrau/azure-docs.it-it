@@ -1,10 +1,11 @@
 ---
-title: Ripetere il training di un modello di Machine Learning | Documentazione Microsoft
+title: Ripetere il training di un modello di Machine Learning Studio - Azure | Microsoft Docs
 description: Informazioni su come ripetere il training di un modello e aggiornare il servizio Web per usare il modello appena sottoposto a training in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 46aa2c209f782706357f9a928ddbaa6321abdd77
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1f2505eda232c518ccb24b32fad91fb36dd11b01
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115528"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317926"
 ---
-# <a name="retrain-a-machine-learning-model"></a>Ripetere il training di un modello di Machine Learning
+# <a name="retrain-an-azure-machine-learning-studio-model"></a>Ripetere il training di un modello di Azure Machine Learning Studio
 Come parte del processo di messa in funzione dei modelli di apprendimento automatico in Azure Machine Learning, è necessario sottoporre a training e salvare il modello. Lo si userà quindi per creare un servizio Web predicativo. Il servizio Web potrà quindi essere utilizzato in siti Web, dashboard e app per dispositivi mobili. 
 
 I modelli creati con Machine Learning in genere non sono statici. Quando sono disponibili nuovi dati o quando il consumer dell'API ha i propri dati, è necessario ripetere il training del modello. 

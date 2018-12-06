@@ -1,10 +1,11 @@
 ---
-title: Valutare le prestazioni del modello in Machine Learning | Documentazione Microsoft
-description: Viene spiegato come valutare le prestazioni del modello in Azure Machine Learning.
+title: Valutare le prestazioni del modello - Azure Machine Learning Studio | Microsoft Docs
+description: Questo articolo illustra come valutare le prestazioni di un modello in Azure Machine Learning Studio e offre una breve spiegazione delle metriche disponibili per questa attività.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: bb49fd2fe7f72e211fbbda7cffdd2308c2c36fba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: de013f8deb5e64077aad96bd34d64135f981166d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834234"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311496"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Come valutare le prestazioni del modello in Azure Machine Learning
 Questo articolo illustra come valutare le prestazioni di un modello in Azure Machine Learning Studio e offre una breve spiegazione delle metriche disponibili per questa attività. L'argomento presenta inoltre tre scenari di apprendimento sorvegliato comuni: 
@@ -65,7 +66,7 @@ Figura 1. Valutazione di un modello di regressione.
 ### <a name="inspecting-the-evaluation-results"></a>Controllo dei risultati di valutazione
 Dopo aver eseguito l'esperimento, è possibile fare clic sulla porta di output del modulo [Evaluate Model][evaluate-model] e selezionare *Visualize* (Visualizza) per visualizzare i risultati della valutazione. Le metriche di valutazione disponibili per i modelli di regressione sono: *Mean Absolute Error* (Errore assoluto medio), *Root Mean Absolute Error* (Errore assoluto medio radice), *Relative Absolute Error* (Errore assoluto relativo), *Relative Squared Error* (Errore quadratico relativo) e *Coefficient of Determination* (Coefficiente di determinazione).
 
-In questo caso, il termine "errore" rappresenta la differenza tra il valore stimato e il valore reale. Il valore assoluto o il quadrato di tale differenza solitamente vengono calcolati per ottenere il margine totale dell'errore in tutte le istanze, poiché la differenza tra il valore stimato e quello reale potrebbe essere negativa in alcuni casi. Le metriche di errore misurano le prestazioni predittive di un modello di regressione in termini di deviazione media delle stime rispetto ai valori reali. Più i valori di errore sono bassi, più il modello effettua stime precise. Una metrica di errore complessivo pari a 0 indica che il modello corrisponde perfettamente ai dati.
+In questo caso, il termine "errore" rappresenta la differenza tra il valore stimato e il valore reale. Il valore assoluto o il quadrato di questa differenza viene calcolato in genere per ottenere il margine totale dell'errore in tutte le istanze, poiché la differenza tra il valore stimato e quello reale potrebbe essere negativa in alcuni casi. Le metriche di errore misurano le prestazioni predittive di un modello di regressione in termini di deviazione media delle stime rispetto ai valori reali. Più i valori di errore sono bassi, più il modello effettua stime precise. Una metrica di errore complessivo pari a 0 indica che il modello corrisponde perfettamente ai dati.
 
 Il coefficiente di determinazione, altrimenti noto come "valore quadratico R", rappresenta, inoltre, un modo standard di misurazione della percentuale di idoneità del modello rispetto ai dati. Può essere definito come la percentuale di variazione esplicitata dal modello. Una percentuale più elevata è migliore nel caso in cui 1 indica un'idoneità perfetta.
 
@@ -74,7 +75,7 @@ Il coefficiente di determinazione, altrimenti noto come "valore quadratico R", r
 Figura 2. Metriche di valutazione della regressione lineare.
 
 ### <a name="using-cross-validation"></a>Uso della convalida incrociata
-Come accennato in precedenza, è possibile ripetere il training, l'assegnazione del punteggio e le valutazioni in modo automatico usando il modulo [Cross-Validate Model][cross-validate-model]. In questo caso occorrono semplicemente un set di dati, un modello non sottoposto a training e un modulo [Cross-Validate Model][cross-validate-model] (vedere la figura seguente). Si noti che è necessario impostare la colonna delle etichette su *price* nelle proprietà del modulo [Cross-Validate Model][cross-validate-model].
+Come accennato in precedenza, è possibile ripetere il training, l'assegnazione del punteggio e le valutazioni in modo automatico usando il modulo [Cross-Validate Model][cross-validate-model]. In questo caso occorrono semplicemente un set di dati, un modello non sottoposto a training e un modulo [Cross-Validate Model][cross-validate-model] (vedere la figura seguente). È necessario impostare la colonna delle etichette su *price* nelle proprietà del modulo [Cross-Validate Model][cross-validate-model].
 
 ![Convalida incrociata di un modello di regressione](./media/evaluate-model-performance/3.png)
 
@@ -115,11 +116,11 @@ Per questo motivo è utile calcolare metriche aggiuntive che raccolgano aspetti 
 
 Figura 6. Matrice di confusione di classificazione binaria.
 
-Tornando al problema della classificazione del reddito, di seguito vengono fornite alcune domande sulla valutazione, utili a comprendere le prestazioni del classificatore usato. Una domanda da porsi è: "Delle persone con un modello di guadagno stimato >50.000 (VP+FP), quante sono state classificate correttamente (VP)?" È possibile rispondere a questa domanda osservando la **precisione** del modello, che è la percentuale di positivi classificati correttamente: VP/(VP+FP). Un'altra domanda comune è la seguente: "Di tutti i dipendenti con un reddito >50.000 (VP+FN), quanti sono stati classificati correttamente dal classificatore (VP)?". Questo è il **richiamo** o tasso di veri positivi, VP/(VP+FN), del classificatore. Come si può notare, vi è un chiaro compromesso tra precisione e richiamo. Ad esempio, in presenza di un set di dati relativamente bilanciato, un classificatore che stima istanze soprattutto positive avrà un richiamo elevato ma una precisione più bassa, poiché molte delle istanze negative verranno classificate in modo errato dando come risultato una serie di falsi positivi. Per vedere un tracciato delle variazioni di queste due metriche, è possibile fare clic sulla curva "PRECISIONE/RICHIAMO" nella pagina di output dei risultati di valutazione (la parte superiore sinistra della figura 7).
+Tornando al problema della classificazione del reddito, di seguito vengono fornite alcune domande sulla valutazione, utili a comprendere le prestazioni del classificatore usato. Una domanda da porsi è: "Delle persone con un modello di guadagno stimato >50.000 (VP+FP), quante sono state classificate correttamente (VP)?" È possibile rispondere a questa domanda osservando la **precisione** del modello, che è la percentuale di positivi classificati correttamente: VP/(VP+FP). Un'altra domanda comune è la seguente: "Di tutti i dipendenti con un reddito >50.000 (VP+FN), quanti sono stati classificati correttamente dal classificatore (VP)?". Questo è il **richiamo** o tasso di veri positivi, VP/(VP+FN), del classificatore. Come si può notare, vi è un chiaro compromesso tra precisione e richiamo. Ad esempio, in presenza di un set di dati relativamente bilanciato, un classificatore che stima istanze soprattutto positive avrà un richiamo elevato ma una precisione più bassa, poiché molte delle istanze negative verranno classificate in modo errato dando come risultato una serie di falsi positivi. Per vedere un tracciato delle variazioni di queste due metriche, è possibile fare clic sulla curva **PRECISIONE/RICHIAMO** nella pagina di output dei risultati di valutazione (la parte superiore sinistra della figura 7).
 
 ![Risultati della valutazione della classificazione binaria](./media/evaluate-model-performance/7.png)
 
-Figura 7. Risultati della valutazione della classificazione binaria.
+ Figura 7. Risultati della valutazione della classificazione binaria.
 
 Un'altra metrica correlata spesso usata è **Punteggio F1**, che prende in considerazione precisione e richiamo. Si tratta della media armonica di queste 2 metriche ed è calcolata nel modo seguente: F1 = 2 (precisione x richiamo) / (precisione + richiamo). Il punteggio F1 è un buon modo per riassumere la valutazione in un unico numero, ma si dovrebbe sempre tenere conto di precisione e richiamo parallelamente per comprendere meglio il comportamento di un classificatore.
 

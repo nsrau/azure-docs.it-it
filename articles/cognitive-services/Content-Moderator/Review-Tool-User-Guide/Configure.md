@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: a3432a1d8f424fbe78570f47b774c6e7942e16b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2ffed5e561cf9988ec10ecb7e10318d148281057
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372905"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851539"
 ---
-# <a name="about-review-tool-settings"></a>Informazioni sulle impostazioni dello strumento di revisione #
+# <a name="review-tool-settings"></a>Impostazioni dello strumento di revisione #
 
-Usando la scheda Impostazioni del dashboard dello strumento di revisione, è facile definire e modificare molti componenti.
+Usando la scheda delle impostazioni nel dashboard dello strumento di revisione, è possibile definire e modificare con facilità molti componenti.
 
 ![Impostazioni di revisione di Content Moderator](images/settings-1.png)
 
@@ -36,7 +36,7 @@ Qui è possibile [definire tag personalizzati](tags.md) immettendo il codice bre
 
 ## <a name="connectors"></a>Connettori ##
 
-I flussi di lavoro aggiungono funzionalità usando connettori per comunicare con lo strumento di revisione. Lo strumento di revisione chiama le API di Content Moderator con il flusso di lavoro predefinito per la moderazione del contenuto. Quando ci si registra per lo strumento di revisione, viene automaticamente eseguito il provisioning delle credenziali per le API di Content Moderator. L'integrazione di altre API connettore è supportata, purché sia disponibile un connettore. Sono disponibili alcuni connettori predefiniti.
+I flussi di lavoro aggiungono funzionalità per comunicare con lo strumento di revisione tramite connettori. Lo strumento di revisione chiama le API di Content Moderator con il flusso di lavoro predefinito per la moderazione del contenuto. Quando ci si registra per lo strumento di revisione, viene automaticamente eseguito il provisioning delle credenziali per le API di Content Moderator. L'integrazione di altre API connettore è supportata, purché sia disponibile un connettore. Sono disponibili alcuni connettori predefiniti.
 
 La [scheda Connettori](connectors.md) consente di gestire i connettori. È possibile aggiungere o eliminare connettori e individuare la chiave di sottoscrizione per un particolare connettore. Fare clic su Connetti per aggiungere i connettori ai flussi di lavoro personalizzati. 
 

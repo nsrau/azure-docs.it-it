@@ -1,5 +1,5 @@
 ---
-title: Come gestire le funzionalità di connettività e messaggistica affidabile con gli SDK per dispositivi dell'hub IoT di Azure
+title: Come gestire le funzionalità di connettività e messaggistica affidabile con gli Azure IoT Hub SDK per dispositivi
 description: Informazioni su come migliorare le funzionalità di connettività e messaggistica dei dispositivi quando si usano gli SDK per dispositivi dell'hub IoT di Azure
 services: iot-hub
 keywords: ''
@@ -12,63 +12,65 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9a07fa2010eef22c4d1477641d07dee70ab5a9cb
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 64bd250f324bed53a9f33aa72f6b1daa48e0dc86
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227447"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424647"
 ---
-# <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Come gestire le funzionalità di connettività e messaggistica affidabile con gli SDK per dispositivi dell'hub IoT di Azure
+# <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gestire le funzionalità di connettività e messaggistica affidabile con gli Azure IoT Hub SDK per dispositivi
 
-Questa guida fornisce indicazioni approfondite per progettare applicazioni resilienti per dispositivi sfruttando i vantaggi offerti dalle funzionalità di connettività e messaggistica affidabile in Azure IoT SDK per dispositivi. Questo articolo consente di risolvere dubbi e gestire gli scenari seguenti:
+Questa guida fornisce indicazioni approfondite per progettare applicazioni per dispositivi più resilienti. Illustra anche come sfruttare i vantaggi offerti dalle funzionalità di connettività e messaggistica affidabile negli Azure IoT SDK per dispositivi. L'obiettivo di questa guida è fornire le informazioni necessarie per gestire gli scenari seguenti:
 
-- Gestione di una connessione di rete interrotta
-- Gestione del passaggio tra connessioni di rete diverse
-- Gestione della riconnessione a causa di errori di connessione del servizio temporanei
+- Correzione di una connessione di rete interrotta
+- Passaggio tra connessioni di rete diverse
+- Riconnessione a causa di errori di connessione del servizio temporanei
 
-I dettagli di implementazione possono variare in base al linguaggio usato. Per altre informazioni, vedere la documentazione dell'API o l'SDK specifico.
+I dettagli di implementazione possono variare in base alla lingua. Per altre informazioni, vedere la documentazione dell'API o l'SDK specifico:
 
 - [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 - [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
-- [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
+- [SDK per Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
-
 
 ## <a name="designing-for-resiliency"></a>Progettazione per la resilienza
 
-I dispositivi IoT si basano spesso su connessioni di rete discontinue e/o instabili, ad esempio GSM o satellitari. Inoltre, quando si interagisce con servizi basati sul cloud, possono verificarsi errori dovuti a condizioni temporanee, ad esempio disponibilità intermittente del servizio ed errori a livello di infrastruttura (comunemente definiti come errori temporanei). Un'applicazione in esecuzione su un dispositivo deve gestire i meccanismi di connessione e riconnessione, nonché la logica di ripetizione dei tentativi per l'invio e la ricezione dei messaggi. Inoltre, i requisiti della strategia di ripetizione dei tentativi dipendono principalmente dallo scenario IoT di cui fa parte il dispositivo, oltre che dal contesto e dalle funzionalità del dispositivo.
+I dispositivi IoT si basano spesso su connessioni di rete discontinue e/o instabili, ad esempio GSM o satellitari. Quando i dispositivi interagiscono con servizi basati sul cloud, possono verificarsi errori dovuti a una disponibilità intermittente del servizio ed errori a livello di infrastruttura o errori temporanei. Un'applicazione in esecuzione su un dispositivo deve gestire i meccanismi di connessione e riconnessione, nonché la logica di ripetizione dei tentativi per l'invio e la ricezione dei messaggi. I requisiti della strategia di ripetizione dei tentativi, inoltre, dipendono principalmente dallo scenario IoT, dal contesto e dalle funzionalità del dispositivo.
 
-Gli SDK per dispositivi dell'hub IoT di Azure hanno lo scopo di semplificare le connessioni e le comunicazioni da cloud a dispositivo e da dispositivo a cloud, offrendo una modalità affidabile e completa di connessione e invio/ricezione di messaggi da e verso l'hub IoT di Azure. Gli sviluppatori possono anche modificare l'implementazione esistente per sviluppare la corretta strategia di ripetizione dei tentativi per un determinato scenario.
+Gli Azure IoT Hub SDK per dispositivi hanno lo scopo di semplificare le connessioni e le comunicazioni da cloud a dispositivo e da dispositivo a cloud. Offrono infatti la possibilità di connettersi all'hub IoT di Azure in modo affidabile e una gamma completa di opzioni per l'invio e la ricezione di messaggi. Gli sviluppatori possono anche modificare l'implementazione esistente per personalizzare la strategia di ripetizione dei tentativi per un determinato scenario.
 
 Nelle sezioni seguenti sono illustrate le funzionalità SDK pertinenti che supportano la connettività e la messaggistica affidabile.
 
 ## <a name="connection-and-retry"></a>Connessione e ripetizione dei tentativi
 
-Questa sezione fornisce una panoramica dei modelli di riconnessione e ripetizione dei tentativi disponibili quando si gestiscono le connessioni, indicazioni di implementazione per l'uso dei vari criteri di ripetizione dei tentativi nell'applicazione per dispositivi e API pertinenti per gli SDK per dispositivi.
+Questa sezione fornisce una panoramica dei modelli di riconnessione e ripetizione dei tentativi disponibili quando si gestiscono le connessioni. Offre inoltre indicazioni di implementazione per l'uso dei vari criteri di ripetizione dei tentativi nell'applicazione per dispositivi ed elenca le API pertinenti per gli SDK per dispositivi.
 
 ### <a name="error-patterns"></a>Modelli di errore
 Gli errori di connessione possono verificarsi a vari livelli:
 
--  Errori di rete, ad esempio un socket disconnesso ed errori di risoluzione dei nomi
-- Errori a livello di protocollo per trasporto HTTP, AMQP e MQTT, ad esempio collegamenti rimossi o sessioni scadute
-- Errori a livello di applicazione che derivano da errori locali, ad esempio credenziali non valide o comportamento anomalo del servizio come il superamento delle quote o delle limitazioni del servizio
+- Errori di rete: socket disconnesso ed errori di risoluzione dei nomi
+- Errori a livello di protocollo per trasporto HTTP, AMQP e MQTT: collegamenti rimossi o sessioni scadute
+- Errori a livello di applicazione che derivano da errori locali: credenziali non valide o comportamento anomalo del servizio (ad esempio, superamento delle quote o delle limitazioni del servizio)
 
-Gli SDK per dispositivi sono in grado di rilevare errori in tutti e tre i livelli.  Gli errori del sistema operativo e dell'hardware non vengono rilevati e gestiti dagli SDK per dispositivi.  La progettazione si basa sulle [indicazioni relative alla gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults#general-guidelines) del Centro architetture Azure.
+Gli SDK per dispositivi sono in grado di rilevare errori in tutti e tre i livelli. Gli errori del sistema operativo e dell'hardware non vengono rilevati e gestiti dagli SDK per dispositivi. La progettazione degli SDK si basa sulle [indicazioni relative alla gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults#general-guidelines) del Centro architetture di Azure.
 
 ### <a name="retry-patterns"></a>Modelli di ripetizione dei tentativi
 
-Il processo generale di ripetizione dei tentativi quando vengono rilevati errori di connessione è il seguente: 
-1. L'SDK rileva l'errore e l'errore associato nella rete, nel protocollo o nell'applicazione.
-2. In base al tipo di errore, l'SDK usa il filtro degli errori per determinare se deve essere eseguita la ripetizione dei tentativi.  Se l'SDK identifica un **errore irreversibile**, le operazioni (connessione e invio/ricezione) vengono arrestate e l'SDK invia una notifica all'utente. Un errore irreversibile è un errore che l'SDK può identificare e di cui determina l'impossibilità di risoluzione, ad esempio un errore di autenticazione o di endpoint non valido.
-3. Se viene identificato un **errore irreversibile**, l'SDK inizia la ripetizione dei tentativi usando i criteri specificati fino alla scadenza del timeout definito.
-4. Quando scade il timeout definito, l'SDK interrompe i tentativi di connessione o invio e quindi invia una notifica all'utente.
-5.  L'SDK consente all'utente di associare un callback per ricevere le modifiche relative allo stato della connessione. 
+La procedura seguente descrive il processo di ripetizione dei tentativi quando vengono rilevati errori di connessione:
 
-Sono disponibili tre criteri di ripetizione dei tentativi:
-- **Interruzione temporanea esponenziale con instabilità**: il criterio applicato per impostazione predefinita.  Tende a essere aggressivo all'inizio, rallenta e quindi causa un ritardo massimo che non viene superato.  La progettazione si basa sulle [indicazioni relative alla ripetizione dei tentativi](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific) del Centro architetture Azure.
-- **Ripetizione dei tentativi personalizzata**: è possibile implementare criteri di ripetizione dei tentativi personalizzati e inserirli in RetryPolicy in base al linguaggio usato. È possibile progettare un criterio di ripetizione dei tentativi adatto al proprio scenario.  Questa opzione non è disponibile nell'SDK per il linguaggio C.
-- **Nessun tentativo**: è disponibile un'opzione per impostare "Nessun tentativo" come criterio di ripetizione, in modo da disabilitare la logica di ripetizione dei tentativi.  L'SDK prova a connettersi e a inviare un messaggio una sola volta, supponendo che la connessione sia stata stabilita. Questo criterio è in genere usato nei casi in cui sono presenti problemi relativi alla larghezza di banda o ai costi.   Se si sceglie questa opzione, i messaggi non inviati vengono persi e non possono essere recuperati. 
+1. L'SDK rileva l'errore e l'errore associato nella rete, nel protocollo o nell'applicazione.
+1. L'SDK usa il filtro degli errori per determinare il tipo di errore e determina se è necessaria una ripetizione dei tentativi.
+1. Se l'SDK identifica un **errore irreversibile**, operazioni come connessione, invio e ricezione vengono arrestate. L'SDK invia una notifica all'utente. Un errore irreversibile può essere, ad esempio, un errore di autenticazione o un errore di endpoint non valido.
+1. Se l'SDK identifica un **errore irreversibile**, esegue la ripetizione dei tentativi secondo i criteri specificati, fino alla scadenza del timeout definito.
+1. Quando scade il timeout definito, l'SDK interrompe i tentativi di connessione o invio e invia una notifica all'utente.
+1. L'SDK consente all'utente di associare un callback per ricevere le modifiche relative allo stato della connessione.
+
+Gli SDK prevedono tre criteri di ripetizione dei tentativi:
+
+- **Interruzione temporanea esponenziale con instabilità**: criteri di ripetizione dei tentativi predefiniti che tendono a essere aggressivi all'inizio e rallentano fino a raggiungere il ritardo massimo. La progettazione si basa sulle [indicazioni relative alla ripetizione dei tentativi](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific) del Centro architetture Azure.
+- **Ripetizione dei tentativi personalizzata**: per alcuni linguaggi SDK, è possibile progettare i criteri di ripetizione dei tentativi più adatti al proprio scenario e inserirli in RetryPolicy. La ripetizione dei tentativi personalizzata non è disponibile nell'SDK per il linguaggio C.
+- **Nessun tentativo**: è possibile impostare i criteri di ripetizione su "Nessun tentativo", in modo da disabilitare la logica di ripetizione dei tentativi. L'SDK prova a connettersi e a inviare un messaggio una sola volta, supponendo che la connessione sia stata stabilita. Questi criteri vengono solitamente usati nei casi in cui sono presenti problemi relativi alla larghezza di banda o ai costi. Se si sceglie questa opzione, i messaggi non inviati vengono persi e non possono essere recuperati.
 
 ### <a name="retry-policy-apis"></a>API dei criteri di ripetizione dei tentativi
 
@@ -78,13 +80,12 @@ Sono disponibili tre criteri di ripetizione dei tentativi:
    | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._device_client_config.setretrypolicy?view=azure-java-stable)        | **Predefinita**: [classe ExponentialBackoffWithJitter](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Personalizzata**: implementare l'[interfaccia RetryPolicy](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**Nessun tentativo**: [classe NoRetry](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Implementazione di Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |[.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
    | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_SetRetryPolicy_Microsoft_Azure_Devices_Client_IRetryPolicy) | **Predefinita**: [classe ExponentialBackoff](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**Personalizzata**: implementare l'[interfaccia IRetryPolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet)<BR>**Nessun tentativo**: [classe NoRetry](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [Implementazione di C#](https://github.com/Azure/azure-iot-sdk-csharp) |
    | Nodo| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest#azure_iot_device_Client_setRetryPolicy) | **Predefinita**: [classe ExponentialBackoffWithJitter](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Personalizzata**: implementare l'[interfaccia RetryPolicy](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest)<BR>**Nessun tentativo**: [classe NoRetry](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Implementazione di Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
-   
 
-Di seguito sono illustrati esempi di codice che descrivono questo flusso. 
+Gli esempi di codice seguenti descrivono questo flusso:
 
 #### <a name="net-implementation-guidance"></a>Indicazioni relative all'implementazione di .NET
 
-L'esempio di codice seguente illustra come definire e impostare i criteri di ripetizione dei tentativi predefiniti:
+Gli esempi di codice seguenti illustrano come definire e impostare i criteri di ripetizione dei tentativi predefiniti:
 
    ```csharp
    # define/set default retry policy
@@ -92,7 +93,7 @@ L'esempio di codice seguente illustra come definire e impostare i criteri di rip
    SetRetryPolicy(retryPolicy);
    ```
 
-Per evitare un utilizzo elevato della CPU, i tentativi di ripetizione sono limitati se il codice dà immediatamente esito negativo (ad esempio, quando non è presente una rete o una route verso la destinazione), in modo che il tempo minimo per eseguire il tentativo successivo sia di 1 secondo. 
+Per evitare un utilizzo elevato della CPU, i tentativi di ripetizione sono limitati se il codice dà immediatamente esito negativo, ad esempio quando non è presente una rete o una route verso la destinazione. Il tempo minimo per eseguire il tentativo successivo è di 1 secondo.
 
 Se il servizio risponde con un errore di limitazione delle richieste, i criteri di ripetizione dei tentativi sono diversi e non possono essere modificati tramite API pubblica:
 
@@ -102,16 +103,19 @@ Se il servizio risponde con un errore di limitazione delle richieste, i criteri 
    SetRetryPolicy(retryPolicy);
    ```
 
-Il meccanismo di ripetizione dei tentativi si interromperà dopo `DefaultOperationTimeoutInMilliseconds`, che è attualmente impostato su 4 minuti.
+Il meccanismo di ripetizione dei tentativi si interrompe dopo `DefaultOperationTimeoutInMilliseconds`, che è attualmente impostato su 4 minuti.
 
 #### <a name="other-languages-implementation-guidance"></a>Indicazioni relative all'implementazione di altri linguaggi
-Per altri linguaggi, vedere la documentazione relativa all'implementazione riportata di seguito.  Esempi che illustrano l'uso delle API dei criteri di ripetizione dei tentativi fornite nel repository.
+
+Per esempi di codice in altri linguaggi, vedere i documenti relativi all'implementazione riportati di seguito. Il repository contiene esempi che illustrano l'uso dell'API dei criteri di ripetizione dei tentativi.
+
 - [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 - [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
-- [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
+- [SDK per Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - [Usare gli SDK di servizi e dispositivi](.\iot-hub-devguide-sdks.md)
 - [Usare IoT SDK per dispositivi per C](.\iot-hub-device-sdk-c-intro.md)
 - [Sviluppare per dispositivi vincolati](.\iot-hub-devguide-develop-for-constrained-devices.md)

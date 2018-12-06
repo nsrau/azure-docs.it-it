@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: yashar
-ms.openlocfilehash: 9c3976a5fa98049de03f2a65b71f1fc927947142
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310891"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582191"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure
 
@@ -70,6 +70,6 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../../billing/billing-understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../../billing/billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

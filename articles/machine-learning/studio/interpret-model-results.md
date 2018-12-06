@@ -1,10 +1,11 @@
 ---
-title: Interpretare i risultati dei modelli in Machine Learning | Documentazione Microsoft
+title: Interpretare i risultati dei modelli in Machine Learning Studio - Azure | Microsoft Docs
 description: Come scegliere il set di parametri ottimale per un algoritmo usando e visualizzando gli output del modulo Score Model.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: e62f4716a95a6c1840afde27361eeb756abff335
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c06b05989270b4199e5d97ca399a1411b73a702b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837005"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310270"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning"></a>Interpretare i risultati dei modelli in Azure Machine Learning
+# <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretare i risultati dei modelli in Azure Machine Learning Studio
 Questo argomento illustra come visualizzare e interpretare risultati di stima in Azure Machine Learning Studio. Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
@@ -116,7 +117,7 @@ Per visualizzare i risultati del modulo [Score Model][score-model] come illustra
 
 ![Risultati del modulo Score Model](./media/interpret-model-results/7.png)
 
-Figura 7. Visualizzazione dei risultati del modulo Score Model nella classificazione multiclasse
+ Figura 7. Visualizzazione dei risultati del modulo Score Model nella classificazione multiclasse
 
 **Interpretazione dei risultati**
 

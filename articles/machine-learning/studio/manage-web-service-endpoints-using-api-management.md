@@ -1,11 +1,12 @@
 ---
-title: Informazioni su come gestire i servizi Web di AzureML con Gestione API | Documentazione Microsoft
+title: Gestire i servizi Web di Machine Learning Studio con Gestione API - Azure | Microsoft Docs
 description: Guida che mostra come gestire i servizi Web di AzureML con Gestione API.
 keywords: apprendimento automatico, gestione api
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
@@ -16,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 9543b1f3b10c246dadaf21b6960c7b6785fb66f4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566381"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308240"
 ---
-# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Informazioni su come gestire i servizi Web di AzureML con Gestione API
+# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gestire i servizi Web di Azure Machine Learning Studio con Gestione API
 ## <a name="overview"></a>Panoramica
-Questa guida illustra le procedure per iniziare subito a usare Gestione API per gestire i servizi Web di AzureML.
+Questa guida illustra le procedure per iniziare subito a usare Gestione API per gestire i servizi Web di Azure Machine Learning Studio.
 
 ## <a name="what-is-azure-api-management"></a>Cos'è Gestione API di Azure?
 Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per informazioni dettagliate su Gestione API di Azure, fare clic [qui](https://azure.microsoft.com/services/api-management/) . Per una guida introduttiva a Gestione API di Azure, fare clic [qui](../../api-management/api-management-get-started.md) . L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'uso.

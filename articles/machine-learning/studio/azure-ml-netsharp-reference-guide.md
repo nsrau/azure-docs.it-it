@@ -1,10 +1,11 @@
 ---
-title: Guida al linguaggio di specifica Net# delle reti neurali - Azure Machine Learning
-description: Sintassi del linguaggio per la specifica Net# delle reti neurali ed esempi per la creazione di un modello di rete neurale personalizzato tramite Net#
+title: Reti neurali Net# - Azure Machine Learning Studio | Microsoft Docs
+description: Sintassi del linguaggio per la specifica Net# delle reti neurali ed esempi per la creazione di un modello di rete neurale personalizzato usando Net# con Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 8a96cfdedcde9b4037627f3e61af862c0600ca20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258478"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315308"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning Studio
 
 Net# è un linguaggio sviluppato da Microsoft e usato per definire le architetture di reti neurali. L'uso di Net# per definire la struttura di una rete neurale rende possibile la definizione di strutture complesse quali reti neurali profonde o convoluzioni di dimensioni arbitrarie, che notoriamente migliorano l'apprendimento relativo a dati quali immagini, audio e video.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578498"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261072"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 L'opzione di pubblicazione scelta per l'offerta è correlata direttamente sia ai requisiti di idoneità che ai vantaggi GMT del marketplace. L'aspetto più importante è che la selezione dell'opzione di pubblicazione e del tipo di offerta nel portale Cloud Partner definisce il modo in cui gli utenti interagiranno con l'offerta nel marketplace.
@@ -64,26 +64,18 @@ La vetrina in cui viene presentata l'offerta, Azure Marketplace e/o AppSource, v
 
 Le opzioni di pubblicazione disponibili offrono un engagement differenziato dei clienti e consentono nel contempo di accedere alla condivisione dei clienti potenziali e ai [vantaggi del programma Go-To-Market](https://partner.microsoft.com/en-US/reach-customers/gtm). Prima di usare il portale Cloud Partner per creare un'offerta del marketplace, selezionare una delle tre opzioni di pubblicazione possibili. Si noti l'invito all'azione che corrisponde all'opzione di pubblicazione:
 
-**Elenco** - semplice elenco dell'applicazione o del servizio che consente a un utente del marketplace di chiedere la connessione con il cliente tramite l'invito all'azione **Contattami**.
+| **Opzione di pubblicazione**    | **Descrizione**  |
+| :------------------- | :-------------------|
+| **Elenco** | Semplice inserzione dell'applicazione o del servizio che consente a un utente del marketplace di chiedere la connessione con il cliente tramite l'invito all'azione **Contattami**. |
+| **Versione di valutazione** | Usare il marketplace per migliorare l'individuabilità e automatizzare il provisioning dell'esperienza di valutazione dell'applicazione, consentendo agli utenti potenziali di provare l'esperienza in-app SaaS, IaaS o Microsoft senza costi aggiuntivi per un periodo di tempo limitato prima dell'acquisto. L'invito all'azione usato per l'opzione di pubblicazione correlata alla versione di valutazione può essere di tipo **Versione di valutazione** o **Test drive**. |
+| **Transazione** | L'applicazione viene eseguita in Azure e può essere sottoposta a provisioning come risorsa direttamente nella sottoscrizione di Azure del cliente quando quest'ultimo seleziona l'invito all'azione per eseguire immediatamente il download. Le tariffe per la licenza software possono essere facoltativamente acquistate e fatturate in base al metodo e alle condizioni di pagamento scelti dal cliente ed è possibile scegliere di offrire l'accesso a tempo limitato alla **versione di valutazione software gratuita** (disponibile solo per Azure Marketplace). |
 
-**Versione di valutazione** - Usare il marketplace per migliorare l'individuabilità e automatizzare il provisioning dell'esperienza di valutazione dell'applicazione, consentendo agli utenti potenziali di provare l'esperienza in-app SaaS, IaaS o Microsoft senza costi aggiuntivi per un periodo di tempo limitato prima dell'acquisto. L'invito all'azione usato per l'opzione di pubblicazione correlata alla versione di valutazione può essere di tipo **Versione di valutazione** o **Test drive**.
-
-**Transazione** - L'applicazione viene eseguita in Azure e può essere sottoposta a provisioning come una risorsa direttamente nella sottoscrizione di Azure del cliente quando quest'ultimo seleziona l'invito all'azione per eseguire immediatamente il download. Le tariffe per la licenza software possono essere facoltativamente acquistate e fatturate in base al metodo e alle condizioni di pagamento scelti dal cliente ed è possibile scegliere di offrire l'accesso a tempo limitato alla **versione di valutazione software gratuita** (disponibile solo per Azure Marketplace). 
-
-## <a name="select-an-offer-type"></a>Selezionare un tipo di offerta
-
-Dopo aver deciso un'opzione di pubblicazione, è possibile selezionare il tipo di offerta da usare per presentare l'offerta stessa. 
-
-L'offerta è l'oggetto di pubblicazione che verrà creato, pubblicato e gestito nel portale Cloud Partner. La struttura dell'offerta, ad esempio metadati, elementi e altri contenuti usati per presentare l'offerta nel marketplace, è definita dal tipo di offerta.
-
-Prima di creare un'offerta, è necessario sceglierne il tipo. Il tipo di offerta corrisponde al tipo di soluzione, app o servizio da pubblicare, nonché all'allineamento a prodotti e servizi Microsoft. 
-
-Un unico tipo di offerta può essere configurato in modo diverso nel portale Cloud Partner per abilitare opzioni di pubblicazione, inviti all'azione, operazioni di provisioning o prezzi differenti. L'opzione di pubblicazione e la configurazione del tipo di offerta si allineano anche ai requisiti tecnici e di idoneità. 
-
-Prima di creare l'offerta, esaminare la vetrina e i requisiti di idoneità del tipo di offerta nella [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) e i requisiti tecnici di pubblicazione.
+>[!Note]
+>Quando si usa l'opzione di pubblicazione delle transazioni, è importante avere presenti le considerazioni relative a prezzi, fatturazione e proventi prima di selezionare un tipo di offerta e di creare l'offerta. Vedere l'[articolo sulle considerazioni commerciali e di fatturazione del Marketplace per altre informazioni](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+*   Dopo aver deciso un'opzione di pubblicazione, è possibile [selezionare il tipo di offerta](./publisher-guide-by-offer-type.md) da usare per presentare l'offerta stessa.
 *   Esaminare i requisiti di idoneità nelle opzioni di pubblicazione in base alla sezione del tipo di offerta per finalizzare la selezione e la configurazione dell'offerta.
 *   Esaminare i modelli di pubblicazione in base alla vetrina per trovare esempi sul modo in cui la soluzione esegue il mapping a un tipo e a una configurazione di offerta.
 *   Accedere al [portale Cloud Partner](https://cloudpartner.azure.com) per creare e configurare l'offerta.

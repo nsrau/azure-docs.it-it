@@ -1,5 +1,5 @@
 ---
-title: Gestione di Azure
+title: Panoramica della gestione di Azure
 description: Panoramica delle aree di gestione di applicazioni e risorse di Azure con collegamenti a contenuti sugli strumenti di gestione di Azure.
 author: DCtheGeek
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.openlocfilehash: 268526277dc935ccffc30120f2bb170ad3ff3ef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 180b0cb9f52858d9b0f079ea711fd5ccab738ecf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978225"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582307"
 ---
 # <a name="management-in-azure"></a>Gestione in Azure
 
@@ -43,7 +43,7 @@ La governance in Azure viene implementata principalmente tramite due servizi. [C
 
 ## <a name="secure"></a>Proteggere
 
-La gestione della sicurezza delle applicazioni, delle risorse e dei dati richiede una combinazione di valutazione delle minacce, di raccolta e analisi dei dati sulla sicurezza e la verifica che le applicazioni e le risorse siano progettate e configurate in modo sicuro. Il monitoraggio della sicurezza e l'analisi delle minacce vengono forniti dal [Centro sicurezza di Azure](../security-center/security-center-intro.md) che include la gestione unificata della sicurezza e la protezione avanzata dalle minacce in carichi di lavoro cloud ibridi. Per informazioni complete sulla sicurezza in Azure e indicazioni sulla configurazione sicura delle risorse di Azure, vedere anche [Introduzione alla sicurezza in Azure](../security/azure-security.md).
+La gestione della sicurezza delle applicazioni, delle risorse e dei dati richiede una combinazione di valutazione delle minacce, di raccolta e analisi dei dati sulla sicurezza e la verifica che le applicazioni e le risorse siano progettate e configurate in modo sicuro. Il monitoraggio della sicurezza e l'analisi delle minacce vengono forniti dal Centro sicurezza di Azure, che include la gestione unificata della sicurezza e la protezione avanzata dalle minacce in carichi di lavoro cloud ibridi. Per informazioni complete sulla sicurezza in Azure e indicazioni sulla configurazione sicura delle risorse di Azure, vedere anche [Introduzione alla sicurezza in Azure](../security/azure-security.md).
 
 ## <a name="protect"></a>Proteggere
 

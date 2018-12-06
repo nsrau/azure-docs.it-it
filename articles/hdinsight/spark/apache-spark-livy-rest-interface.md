@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 86a047fe291c7872fe275ba7246b9f3e59044723
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236824"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495308"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
 
-Informazioni su come usare Livy, l'API REST di Apache Spark per inviare processi remoti a un cluster Azure HDInsight Spark. Per informazioni dettagliate, vedere [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
+Informazioni su come usare [Apache Livy](https://livy.incubator.apache.org/), l'API REST di [Apache Spark](https://spark.apache.org/) per inviare processi remoti a un cluster Azure HDInsight Spark. Per informazioni dettagliate, vedere [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
 
 È possibile usare Livy per l'esecuzione interattiva di shell Spark o per inviare processi batch da eseguire su Spark. Questo articolo parla dell'uso di Livy per inviare processi batch. I frammenti di codice in questo articolo usano cURL per eseguire chiamate API REST all'endpoint Livy Spark.
 
@@ -28,8 +28,8 @@ Informazioni su come usare Livy, l'API REST di Apache Spark per inviare processi
 
 * [cURL](http://curl.haxx.se/). Questo articolo usa cURL per illustrare come effettuare chiamate API REST con un cluster HDInsight Spark.
 
-## <a name="submit-a-livy-spark-batch-job"></a>Inviare un processo batch Livy Spark
-Prima di inviare un processo batch, è necessario caricare il file con estensione jar dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo è possibile usare [**AzCopy**](../../storage/common/storage-use-azcopy.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Hadoop in HDInsight](../hdinsight-upload-data.md).
+## <a name="submit-an-apache-livy-spark-batch-job"></a>Inviare un processo batch Apache Livy Spark
+Prima di inviare un processo batch, è necessario caricare il file con estensione jar dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo è possibile usare [**AzCopy**](../../storage/common/storage-use-azcopy.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Apache Hadoop in HDInsight](../hdinsight-upload-data.md).
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 
@@ -164,7 +164,7 @@ I cluster HDInsight 3.5 e superiori, per impostazione predefinita, disabilitano 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Invio di processi Livy per un cluster all'interno di una rete virtuale di Azure
 
-Se ci si connette a un cluster HDInsight Spark all'interno di una rete virtuale di Azure, è possibile connettersi direttamente a Livy nel cluster. In tal caso, l'URL per l'endpoint di Livy è `http://<IP address of the headnode>:8998/batches`. In questo caso, **8998** è la porta su cui viene eseguito Livy sul nodo head del cluster. Per altre informazioni sull'accesso ai servizi sulle porte non pubbliche, vedere [Porte usate dai servizi Hadoop su HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
+Se ci si connette a un cluster HDInsight Spark all'interno di una rete virtuale di Azure, è possibile connettersi direttamente a Livy nel cluster. In tal caso, l'URL per l'endpoint di Livy è `http://<IP address of the headnode>:8998/batches`. In questo caso, **8998** è la porta su cui viene eseguito Livy sul nodo head del cluster. Per altre informazioni sull'accesso ai servizi sulle porte non pubbliche, vedere [Porte usate dai servizi Apache Hadoop su HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
@@ -182,7 +182,7 @@ Di seguito sono illustrati alcuni problemi riscontrabili durante l'uso di Livy p
 
 ## <a name="next-step"></a>Passaggio successivo
 
-* [Documentazione dell'API REST Livy](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Documentazione dell'API REST Apache Livy](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)
 

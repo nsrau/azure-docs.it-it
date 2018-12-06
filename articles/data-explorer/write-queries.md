@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 952d8801c189322161bbf8b795676af48b92c29f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394338"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854255"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Scrivere query per Esplora dati di Azure
 
@@ -28,7 +28,7 @@ In questo articolo viene descritto come usare il linguaggio di query in Esplora 
 
 - In un cluster personalizzato che include i dati di esempio StormEvents. Per altre informazioni, vedere [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) (Guida introduttiva: creare un cluster e un database di Esplora dati di Azure) e [Inserire i dati di esempio in Esplora dati di Azure](ingest-sample-data.md).
 
-Il set di dati di esempio StormEvents contiene dati relativi al meteo del [National Center for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
+[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>Panoramica del linguaggio di query
 
@@ -147,7 +147,7 @@ StormEvents
 
 ### <a name="top"></a>top
 
-[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator): restituisce i primi *N* record ordinati in base alle colonne specificate.
+[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator): restituisce i primi  *N*  record ordinati in base alle colonne specificate.
 
 La query seguente restituisce gli stessi risultati di quella precedente con un operatore in meno.
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): calcola **dcount** dai risultati di HyperLogLog (generati tramite [**hll** ](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) o [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): calcola  **dcount** dai risultati HyperLogLog (generati da [**hll** ](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction)  o [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
 
 La query seguente usa l'algoritmo HLL per generare il conteggio.
 
@@ -600,7 +600,7 @@ StormEvents
 
 ### <a name="makeset"></a>makeset()
 
-[**makeset()**](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction): restituisce una matrice (JSON) dinamica del set di valori distinct che un'espressione recupera nel gruppo.
+[**makeset()**](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction): restituisce una matrice (JSON) dinamica del set di valori distinct che un'espressione accetta nel gruppo.
 
 La query seguente restituisce tutte le segnalazioni di alluvioni per ogni stato e crea una matrice dal set di valori distinct.
 
@@ -632,7 +632,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): restituisce una stima per il [**percentile più vicino**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) specificato della popolazione definita da un'espressione. L'accuratezza dipende dalla densità della popolazione nell'area del percentile. Può essere usato solo nel contesto di un'aggregazione all'interno di [**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
+[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): restituisce una stima per il  [**percentile più vicino**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) specificato della popolazione definita da un'espressione. L'accuratezza dipende dalla densità della popolazione nell'area del percentile. Può essere usato solo nel contesto di un'aggregazione all'interno di [**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
 
 La query seguente calcola i percentili per la durata delle tempeste.
 
@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator): unisce le righe di due tabelle in modo da formare una nuova tabella, facendo corrispondere i valori delle colonne specificate da ogni tabella. Kusto supporta un'ampia gamma di tipi di join: **fullouter**, **inner**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter** e **rightsemi**.
+[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator): unisce le righe di due tabelle in modo da formare una nuova tabella, facendo corrispondere i valori delle colonne specificate da ogni tabella. Kusto supporta un'ampia gamma di tipi di join: **fullouter**, **inner**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**.
 
 Nell'esempio seguente vengono unite due tabelle con un inner join.
 
@@ -842,7 +842,7 @@ range _day from _start to _end step 1d
 
 ### <a name="newactivitymetrics-plugin"></a>Plug-in new_activity_metrics
 
-[**Plug-in new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): calcola utili metriche delle attività (conteggio totale dei valori, conteggio dei nuovi valori distinct, tasso di mantenimento e varianza) per la coorte dei nuovi utenti. Questo plug-in è simile al [**plug-in activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), ma è incentrato sui nuovi utenti.
+[**Plug-in new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): calcola utili metriche delle attività (conteggio totale dei valori, conteggio dei nuovi valori distinct, tasso di mantenimento e varianza) per la coorte dei nuovi utenti. Questo plug-in è concettualmente simile a [**plug-in activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), ma è incentrato sui nuovi utenti.
 
 La query seguente calcola il tasso di mantenimento e la varianza in una finestra di confronto tra una settimana e quella precedente per la coorte dei nuovi utenti (utenti arrivati nella prima settimana).
 
@@ -902,7 +902,7 @@ StormEvents
 
 [**Plug-in funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): calcola il grafico a imbuto dei passaggi della sequenza completati all'interno di diversi periodi di tempo.
 
-La query seguente controlla il grafico a imbuto del completamento della sequenza: `Hail -> Tornado -> Thunderstorm -> Wind` in periodi "complessivi" di un'ora, quattro ore e un giorno (`[1h, 4h, 1d]`).
+La query seguente controlla il grafico a imbuto del completamento della sequenza: `Hail -> Tornado -> Thunderstorm -> Wind` in periodi "complessivi" di un'ora, quattro ore e un giorno (`[1h, 4h, 1d]`).
 
 **\[**[**Fare clic per eseguire la query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -918,7 +918,7 @@ StormEvents
 
 ## <a name="functions"></a>Funzioni
 
-In questa sezione vengono descritte le [**funzioni**](https://docs.microsoft.com/azure/kusto/query/functions): query riutilizzabili archiviate nel server. Le funzioni possono essere richiamate da query e altre funzioni (le funzioni ricorsive non sono supportate).
+In questa sezione vengono descritte le [**funzioni**](https://docs.microsoft.com/azure/kusto/query/functions): query riutilizzabili archiviate nel server. Le funzioni possono essere richiamate da query e altre funzioni (le funzioni ricorsive non sono supportate).
 
 > [!NOTE]
 > Non è possibile creare funzioni nel cluster della guida, che è di sola lettura. Usare il proprio cluster di test per questa parte.

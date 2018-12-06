@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: cb8774395b7374677e8de3b80630a2d4abf490f9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372916"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852096"
 ---
 # <a name="review-text"></a>Verificare il testo
 
@@ -32,4 +32,4 @@ Lo strumento di revisione prima di tutto chiama l'API Moderazione testo, quindi 
 
 I risultati, visualizzati in dettaglio nelle finestre, includono i tag rilevati e i termini restituiti dall'API Moderazione testo. Per attivare o disattivare lo stato di selezione di un tag, selezionare il tag. È anche possibile usare qualsiasi tag personalizzato eventualmente creato.
 
-![Rivedere i risultati del testo](images/3-review-text-2.png)
+![Screenshot dello strumento di revisione che mostra il testo contrassegnato in una finestra del browser Chrome](../images/reviewresults_text.png)

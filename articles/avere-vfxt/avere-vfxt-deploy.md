@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578638"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164321"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuire il cluster vFXT
 
@@ -286,7 +286,7 @@ RESOURCE_GROUP=
 * Nome della subnet
 * Nome del ruolo di runtime Azure Active Directory: se è stato seguito l'esempio in [Creare il ruolo di accesso dei nodi del cluster](#create-the-cluster-node-access-role), usare ``avere-cluster``. 
 * Nome dell'account di archiviazione (se si crea un nuovo contenitore BLOB)
-* Nome del cluster: non è possibile avere due cluster vFXT con lo stesso nome nello stesso gruppo di risorse. 
+* Nome del cluster: non è possibile avere due cluster vFXT con lo stesso nome nello stesso gruppo di risorse. Assegnare a ogni cluster un nome univoco per la procedura consigliata.
 * Password amministrativa: scegliere una password sicura per il monitoraggio e l'amministrazione del cluster. Questa password è assegnata all'utente ``admin``. 
 * Tipo di istanza del nodo: vedere [Dimensioni dei nodi vFXT](avere-vfxt-deploy-plan.md#vfxt-node-sizes) per informazioni
 * Dimensione cache del nodo: vedere [Dimensioni dei nodi vFXT](avere-vfxt-deploy-plan.md#vfxt-node-sizes) per informazioni

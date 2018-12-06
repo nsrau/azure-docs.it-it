@@ -4,7 +4,7 @@ description: Descrive come aggiungere o modificare il co-amministratore di Azure
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: d6e99c2d57baa5fc62f3894abc9d04635f81f5aa
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 2380cd3712c47ca08e9b9b3597f09f4119238af3
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638053"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581614"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
@@ -107,7 +107,7 @@ Solo l'amministratore account può modificare l'amministratore del servizio per 
   | Metodo di accesso | Aggiungere l'utente con account Microsoft come amministratore del servizio? | Aggiungere un account aziendale o dell'istituto di istruzione nella stessa organizzazione come amministratore del servizio? | Aggiungere un account aziendale o dell'istituto di istruzione in un'organizzazione diversa come amministratore del servizio? |
   | --- | --- | --- | --- |
   |  Account Microsoft |Yes |No  |No  |
-  |  Account aziendale o dell'istituto di istruzione |Yes |Yes |No  |
+  |  Account aziendale o dell'istituto di istruzione |Yes |Sì |No  |
 
 ## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Modificare l'amministratore account per una sottoscrizione di Azure
 
@@ -127,6 +127,6 @@ L'amministratore account è l'utente che inizialmente ha effettuato la sottoscri
 * Per altre informazioni su tutti i ruoli in Azure, vedere [Informazioni sui diversi ruoli](../role-based-access-control/rbac-and-directory-admin-roles.md).
 * Per altre informazioni sul modo in cui Azure Active Directory, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) e [Assegnazione dei ruoli di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9aae08aa5906f341a890ac15e30d2863109d83a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b0fc10099f1388169146d90efcd7c20dcbe8df27
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140009"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164949"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilare le app Web di Azure attive con Application Insights
 
@@ -31,18 +31,18 @@ Per abilitare Profiler per un'app Web, seguire le istruzioni riportate di seguit
 * [Macchine virtuali](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-Application Insights Profiler viene installato con l'estensione del sito Application Insights. È necessario installare l'estensione del sito e configurarlo per ottenere i profili per le app Web di Azure. Una volta distribuita un'app Web, anche se è stato incluso l'SDK di App Insights nel codice sorgente, seguire i passaggi riportati di seguito per abilitare il profiler utilizzato.
+Application Insights Profiler è preinstallato come parte del runtime di Servizi app, ma è necessario attivarlo per ottenere i profili per le app Web di Azure. Una volta distribuita un'app Web, anche se è stato incluso l'SDK di App Insights nel codice sorgente, seguire i passaggi riportati di seguito per abilitare il profiler utilizzato.
 
 1. Passare al riquadro **Servizi app** nel portale di Azure.
 1. Passare al riquadro **Impostazioni > Monitoraggio**.
 
    ![Abilitare Application Insights nel portale dei servizi app](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-1. Seguire le istruzioni nel riquadro per creare una nuova risorsa o selezionare una risorsa di Application Insights esistente per monitorare l'app Web. Accettare tutte le opzioni predefinite. L'opzione **Diagnostica a livello di codice** è attivata per impostazione predefinita e consente di abilitare Profiler.
+1. Seguire le istruzioni nel riquadro per creare una nuova risorsa o selezionare una risorsa di Application Insights esistente per monitorare l'app Web. Assicurarsi inoltre che Profiler sia **attivo**.
 
    ![Aggiungere l'estensione del sito Application Insights][Enablement UI]
 
-1. Profiler è ora installato con l'estensione del sito Application Insights e viene abilitato tramite un'impostazione di app di Servizi app.
+1. Profiler viene ora abilitato tramite un'impostazione di app di Servizi app.
 
     ![Impostazione di app per Profiler][profiler-app-setting]
 

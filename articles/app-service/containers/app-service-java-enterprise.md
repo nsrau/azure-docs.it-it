@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 6613def8891109e3a0ddf818111898a893a8035d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a6d50e6f405294bf8e91018dd4d7b6008cd49ada
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628644"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161874"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guida di Java Enterprise per il Servizio app di Azure in Linux
 
@@ -27,13 +27,14 @@ Questa guida illustra i concetti chiave e le istruzioni per gli sviluppatori Jav
 
 ## <a name="scale-with-app-service"></a>Ridimensionare con il Servizio app di Azure 
 
-Il server applicazioni WildFly del Servizio app di Azure per Linux viene eseguito in modalità autonoma, non in una configurazione di dominio. 
+Il server applicazioni WildFly del Servizio app di Azure per Linux viene eseguito in modalità autonoma, non in una configurazione di dominio. Quando si amplia il piano di Servizio app, ogni istanza di WildFly viene configurata come server autonomo.
 
- Per scalare l'applicazione orizzontalmente o verticalmente, si usano le [regole di scalabilità](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) e si [aumenta il numero di istanze](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+ Per scalare l'applicazione orizzontalmente o verticalmente, si usano le [regole di scalabilità](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) e si [aumenta il numero di istanze](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). 
 
 ## <a name="customize-application-server-configuration"></a>Personalizzare la configurazione del server applicazioni
 
-Gli sviluppatori possono scrivere uno script Bash di avvio per eseguire una configurazione aggiuntiva necessaria alla propria applicazione, ad esempio per:
+Le istanze dell'app Web sono senza stato, quindi ogni nuova istanza avviata deve essere configurata all'avvio per supportare la configurazione Wildfly richiesta dall'applicazione.
+È possibile scrivere uno script Bash di avvio per chiamare l'interfaccia della riga di comando di WildFly per:
 
 - Configurare le origini dati
 - Configurare i provider di messaggistica
@@ -51,7 +52,7 @@ Caricare lo script di avvio in `/home/site/deployments/tools` nell'istanza del S
 
 Impostare il campo **Script di avvio** nel portale di Azure sul percorso dello script della shell di avvio, ad esempio `/home/site/deployments/tools/your-startup-script.sh`.
 
-Servirsi delle [impostazioni dell'applicazione](/azure/app-service/web-sites-configure#application-settings) per impostare le variabili di ambiente da usare nello script. Queste impostazioni vengono rese disponibili all'ambiente dello script di avvio e tengono le stringhe di connessione e altri segreti fuori dal controllo della versione.
+Specificare le [impostazioni dell'applicazione](/azure/app-service/web-sites-configure#application-settings) nella configurazione dell'applicazione per passare le variabili di ambiente da usare nello script. Le impostazioni dell'applicazione mantengono le stringhe di connessione e altri segreti necessari per configurare il controllo delle versioni dell'applicazione.
 
 ## <a name="modules-and-dependencies"></a>Moduli e dipendenze
 

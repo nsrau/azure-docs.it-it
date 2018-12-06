@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402761"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582497"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -63,7 +63,38 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>In quali aree è disponibile Analisi del traffico?
 
-È possibile usare Analisi del traffico per i gruppi di sicurezza di rete in tutte le seguenti aree supportate: Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti occidentali 2, Europa occidentale, Europa settentrionale, Regno Unito occidentale, Regno Unito meridionale, Australia orientale, Australia sud-orientale e Asia sud-orientale. L'area di lavoro di Log Analytics deve esistere nell'area Stati Uniti centro-occidentali, Stati Uniti orientali, Europa occidentale, Regno Unito meridionale, Australia sud-orientale o Asia sud-orientale.
+È possibile usare l'analisi del traffico per i gruppi di sicurezza di rete in una qualsiasi delle aree supportate seguenti:
+- Canada centrale
+- Stati Uniti centro-occidentali
+- Stati Uniti orientali
+- Stati Uniti orientali 2
+- Stati Uniti centro-settentrionali
+- Stati Uniti centro-meridionali
+- Stati Uniti centrali
+- Stati Uniti occidentali
+- Stati Uniti occidentali 2
+- Europa occidentale
+- Europa settentrionale
+- Brasile meridionale
+- Regno Unito occidentale
+- Regno Unito meridionale
+- Australia orientale
+- Australia sud-orientale 
+- Asia sud-orientale
+- India centrale
+- India meridionale
+- Giappone orientale
+
+L'area di lavoro di Log Analytics deve esistere nelle aree indicate di seguito:
+- Canada centrale
+- Stati Uniti centro-occidentali
+- Stati Uniti orientali
+- Europa occidentale
+- Regno Unito meridionale
+- Australia sud-orientale
+- Asia sud-orientale 
+- India centrale
+- Giappone orientale
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>I gruppi di sicurezza di rete per cui vengono abilitati i log dei flussi possono trovarsi in aree differenti dalla propria area di lavoro?
 
@@ -83,7 +114,7 @@ Sì, è possibile usare sottoscrizioni diverse per l'account di archiviazione di
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso archiviare i log non elaborati in un altro abbonamento?
 
-No. È possibile memorizzare i log non elaborati in qualsiasi account di archiviazione in cui è abilitato un NSG per i log dei flussi. Tuttavia, sia l'account di archiviazione che i log non elaborati devono trovarsi nella stessa area e nella stessa sottoscrizione.
+ No. È possibile memorizzare i log non elaborati in qualsiasi account di archiviazione in cui è abilitato un NSG per i log dei flussi. Tuttavia, sia l'account di archiviazione che i log non elaborati devono trovarsi nella stessa area e nella stessa sottoscrizione.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Cosa succede se non riesco a configurare un NSG per Analisi del traffico a causa di un errore "Non trovato"?
 
@@ -94,8 +125,8 @@ Selezionare un'area supportata. Se si seleziona un'area non supportata, viene vi
 Per il corretto funzionamento della registrazione dei flussi, è necessario registrare il provider Microsoft.Insights. Se non si è sicuri che il provider Microsoft.Insights sia registrato o meno per la sottoscrizione, sostituire *xxxxx-xxxxx-xxxxxx-xxxx* nel comando seguente ed eseguire questi comandi di PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Ho configurato la soluzione. Perché non viene visualizzato nessun elemento nel dashboard?

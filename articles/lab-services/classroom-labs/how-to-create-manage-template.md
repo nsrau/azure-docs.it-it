@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 3ecbef3b3063ceb413b852f8000b44a85d28d08e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8bd64aaa51faf968c0c7ae374daad3de4ca3a343
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142800"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706858"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creare e gestire un modello per le classi in Azure Lab Services
 Un modello in un lab è un'immagine della macchina virtuale di base da cui vengono create tutte le macchine virtuali di tutti gli utenti. Configurare la macchina virtuale modello con tutte le caratteristiche che si vuole fornire agli utenti del lab. È possibile specificare un nome e una descrizione del modello che verranno visualizzati dagli utenti del lab. Quindi, pubblicare il modello per rendere disponibili agli utenti del lab le istanze della macchina virtuale modello. Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo corrisponde al numero massimo di utenti consentiti nel lab, che è possibile impostare nei criteri di utilizzo del lab. Tutte le macchine virtuali hanno la stessa configurazione del modello.
@@ -88,16 +88,14 @@ In primo luogo, è possibile configurare e pubblicare un modello durante la crea
 ## <a name="set-up-a-template-after-creating-a-lab"></a>Configurare un modello dopo aver creato un lab 
 È anche possibile impostare un modello dopo aver creato il lab.   
 
-### <a name="set-template-title-and-description"></a>Impostare titolo e descrizione del modello
-1. Nella sezione **Modello** selezionare **Modifica** (icona a forma di matita) per il modello. 
-2. Nella finestra **User view** (Visualizzazione utente) immettere un **titolo** per il modello.
-3. Immettere una **descrizione** per il modello.
-4. Selezionare **Salva**.
+## <a name="set-or-update-template-title-and-description"></a>Impostare o aggiornare il titolo e la descrizione del modello
+Seguire questa procedura per impostare il titolo e la descrizione per la prima volta e aggiornarli in un secondo momento. 
 
-    ![Descrizione del lab per le classi](../media/how-to-manage-classroom-labs/lab-description.png)
+1. Nella sezione **Modello** spostare il puntatore del mouse sul **nome** o sulla **descrizione** del modello e selezionarlo. 
+2. Immettere il **nuovo nome** o la **nuova descrizione** del modello e premere **INVIO**.
 
-### <a name="set-up-the-template-vm"></a>Configurare la macchina virtuale modello
- Connettersi alla macchina virtuale modello e installarvi tutto il software necessario prima di renderla disponibile agli studenti. 
+## <a name="set-up-or-update-a-template-vm"></a>Configurare o aggiornare una macchina virtuale modello
+ Connettersi alla macchina virtuale modello e installarvi tutto il software necessario prima di renderla disponibile agli studenti. Usare questa procedura per configurare una macchina virtuale modello per la prima volta o aggiornare la macchina virtuale. 
 
 1. Attendere che la macchina virtuale modello sia pronta. Una volta pronta, viene abilitato il pulsante **Avvia**. Per avviare la macchina virtuale, selezionare **Avvia**.
 
@@ -112,7 +110,7 @@ In primo luogo, è possibile configurare e pubblicare un modello durante la crea
     ![Arrestare la macchina virtuale modello](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 
-## <a name="publish-the-template"></a>Pubblicare il modello 
+## <a name="publish-the-template-vm"></a>Pubblicare la macchina virtuale modello
 Se si non pubblica il modello durante la creazione del lab, è possibile pubblicarlo in un secondo momento. Prima della pubblicazione, è possibile connettersi al modello di macchina virtuale e aggiornarlo con qualsiasi software. Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo corrisponde al numero massimo di utenti consentiti nel lab, che è possibile impostare nei criteri di utilizzo del lab. Tutte le macchine virtuali hanno la stessa configurazione del modello. 
 
 1. Selezionare **Pubblica** nella sezione **Modello**. 
@@ -147,7 +145,9 @@ Dopo aver pubblicato un modello, è comunque possibile connettersi al modello di
     ![Ripubblicazione riuscita](../media/how-to-create-manage-template/republish-success.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Introduzione alla configurazione di un lab usando Azure Lab Services:
+Vedere gli articoli seguenti:
 
-- [Configurare un lab per le classi](how-to-manage-classroom-labs.md)
-- [Configurare un lab](../tutorial-create-custom-lab.md)
+- [Creare e gestire account lab come amministratore](how-to-manage-lab-accounts.md)
+- [Creare e gestire lab come proprietario](how-to-manage-classroom-labs.md)
+- [Configurare e controllare l'uso di un lab come proprietario](how-to-configure-student-usage.md)
+- [Come utente di lab, accedere ai lab per le classi](how-to-use-classroom-lab.md)

@@ -1,10 +1,11 @@
 ---
-title: Analisi della varianza dei clienti con Machine Learning | Microsoft Docs
-description: Casi di studio sullo sviluppo di un modello integrato per l'analisi e l'assegnazione dei punteggi di varianza del cliente
+title: Analisi della varianza dei clienti con Azure Machine Learning Studio | Microsoft Docs
+description: Casi di studio sullo sviluppo di un modello integrato per l'analisi e l'assegnazione dei punteggi di varianza del cliente con Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1beba951a6785aa90eef22a63a8064e9da1bb27f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835118"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314985"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Analisi della varianza dei clienti con Azure Machine Learning
+# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analisi della varianza dei clienti con Azure Machine Learning Studio
 ## <a name="overview"></a>Panoramica
 Questo argomento illustra un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata tramite Azure Machine Learning. L'articolo illustra i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene inoltre misurata l'accuratezza dei modelli compilati usando Machine Learning e vengono poi valutate direzioni di sviluppo ulteriore.  
 

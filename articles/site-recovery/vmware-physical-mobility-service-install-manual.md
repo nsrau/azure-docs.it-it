@@ -1,19 +1,21 @@
 ---
 title: Installare manualmente il servizio Mobility per il ripristino di emergenza di macchine virtuali VMware e server fisici con Azure Site Recovery | Microsoft Docs
 description: Informazioni su come installare l'agente del servizio Mobility per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando il servizio Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/04/2018
-ms.author: raynew
-ms.openlocfilehash: dfed0209131379843b97ff8050c2f2ba7294537d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.author: ramamill
+ms.openlocfilehash: b3b6d7a64873d77336b2fcf14e22f4d6ae33e3a2
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019923"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976792"
 ---
+ms.author: ramamill
+
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>Installare manualmente il servizio Mobility su macchine virtuali VMware e server fisici
 
 Quando si configura il ripristino di emergenza per macchine virtuali VMware e server fisici con [Azure Site Recovery](site-recovery-overview.md), si installa il [servizio Mobility di Site Recovery](vmware-physical-mobility-service-overview.md) in ogni macchina virtuale VMware locale e in ogni server fisico locale.  Il servizio Mobility acquisisce le scritture di dati nel computer e le inoltra al server di elaborazione di Site Recovery.

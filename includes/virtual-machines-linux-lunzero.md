@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 46fd31b54b7692700cce0bebe484c4f5de591942
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 87dd3680aae3e87f78ab2dbe70c44b2008706747
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227352"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279710"
 ---
 Quando si aggiungono dischi dati a una VM Linux, potrebbero verificarsi errori in caso di disco inesistente nel LUN 0. Se si aggiunge un disco manualmente usando il comando `azure vm disk attach-new` e si specifica un LUN (`--lun`) anziché consentire alla piattaforma Azure di determinare il LUN appropriato, fare attenzione che nel LUN 0 sia/sarà già presente un disco. 
 
@@ -20,7 +20,7 @@ L'esempio seguente mostra un frammento di codice dell'output di `lsscsi`:
 [5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd 
 ```
 
-I due dischi dati sono disponibili nel LUN 0 e nel LUN 1 (la prima colonna dell'output `lsscsi` indica `[host:channel:target:lun]`). Entrambi i dischi devono essere accessibili dalla VM. Se è stata specificata manualmente l'aggiunta del primo e del secondo disco al LUN 1 e al LUN 2 rispettivamente, è possibile che i dischi non siano visualizzati correttamente all'interno della VM.
+I due dischi dati sono disponibili nel LUN 0 e nel LUN 1 (la prima colonna dell'output `lsscsi` indica `[host:channel:target:lun]`). Entrambi i dischi devono essere accessibili dalla macchina virtuale. Se è stata specificata manualmente l'aggiunta del primo e del secondo disco al LUN 1 e al LUN 2 rispettivamente, è possibile che i dischi non siano visualizzati correttamente all'interno della VM.
 
 > [!NOTE]
 > In questi esempi il valore `host` di Azure è 5, ma può variare a seconda del tipo di archiviazione selezionato.

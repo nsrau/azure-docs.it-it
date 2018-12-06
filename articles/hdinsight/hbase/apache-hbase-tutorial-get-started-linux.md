@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e6c4097f4886213bde8adcaac51f36a3bfef702
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f9d786988cb547771b8fd999b911bd228cdc3e2
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010296"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311042"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Iniziare a usare un esempio di Apache HBase in HDInsight
 
-Informazioni su come creare un cluster HBase in HDInsight, creare tabelle HBase ed eseguire query sulle tabelle con Hive. Per informazioni generali su HBase, vedere [Panoramica di HDInsight HBase][hdinsight-hbase-overview].
+Informazioni su come creare un cluster [Apache HBase](http://hbase.apache.org/) in HDInsight, creare tabelle HBase ed eseguire query sulle tabelle con [Apache Hive](https://hive.apache.org/).  Per informazioni generali su HBase, vedere [Panoramica di HDInsight HBase][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -30,7 +30,7 @@ Prima di iniziare a provare questo esempio di HBase, sono necessari gli elementi
 * [Secure Shell (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
 
-## <a name="create-hbase-cluster"></a>Nome del cluster HBase
+## <a name="create-apache-hbase-cluster"></a>Creare un cluster Apache HBase
 La procedura seguente usa un modello di Azure Resource Manager per creare un cluster HBase e il valore predefinito dipendente dall'account di archiviazione di Azure. Per comprendere i parametri usati nella procedure e altri metodi di creazione del cluster, vedere [Creare cluster Hadoop basati su Linux in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Per altre informazioni sull'uso di Data Lake Storage Gen2, vedi [Guida introduttiva: impostazione dei cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure. Il modello è disponibile in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
@@ -56,13 +56,13 @@ La procedura seguente usa un modello di Azure Resource Manager per creare un clu
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Creare tabelle e inserire dati
-È possibile usare SSH per connettersi ai cluster HBase e usare la shell di HBase per creare tabelle HBase, inserire dati ed eseguire query sui dati. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+È possibile usare SSH per connettersi ai cluster HBase e usare la [shell di Apache HBase](http://hbase.apache.org/0.94/book/shell.html) per creare tabelle HBase, inserire dati ed eseguire query sui dati. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Per la maggior parte delle persone, i dati vengono visualizzati in formato tabulare:
 
 ![Tabella con dati HBase di HDInsight][img-hbase-sample-data-tabular]
 
-In HBase, che rappresenta un'implementazione di BigTable, gli stessi dati sono simili a:
+In HBase, che rappresenta un'implementazione di [Cloud BigTable](https://cloud.google.com/bigtable/), gli stessi dati sono simili a:
 
 ![Dati BigTable HBase di HDInsight][img-hbase-sample-data-bigtable]
 
@@ -100,7 +100,7 @@ In HBase, che rappresenta un'implementazione di BigTable, gli stessi dati sono s
    
     Verranno visualizzati gli stessi risultati usando il comando di analisi, perché esiste solo una riga.
    
-    Per altre informazioni sullo schema di tabella HBase, vedere [Introduzione alla progettazione dello schema HBase][hbase-schema]. Per altri comandi HBase, vedere la [guida di riferimento di Apache HBase][hbase-quick-start].
+    Per altre informazioni sullo schema di tabella HBase, vedere [Introduzione alla progettazione dello schema Apache HBase][hbase-schema]. Per altri comandi HBase, vedere la [guida di riferimento di Apache HBase][hbase-quick-start].
 5. Chiudere la shell
    
     ```hbaseshell
@@ -124,7 +124,7 @@ Un file di dati di esempio è disponibile in un contenitore BLOB pubblico, *wasb
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-È facoltativamente possibile creare un file di testo e caricare il file nel proprio account di archiviazione. Per le istruzioni, vedere [Caricare dati per processi Hadoop in HDInsight][hdinsight-upload-data].
+È facoltativamente possibile creare un file di testo e caricare il file nel proprio account di archiviazione. Per le istruzioni, vedere [Caricare dati per processi Apache Hadoop in HDInsight][hdinsight-upload-data].
 
 > [!NOTE]
 > In questa procedura viene utilizzata la tabella HBase dei contatti creata nella procedura precedente.
@@ -144,9 +144,9 @@ Un file di dati di esempio è disponibile in un contenitore BLOB pubblico, *wasb
 
 3. È possibile aprire la shell HBase e usare il comando di analisi per visualizzare il contenuto della tabella.
 
-## <a name="use-hive-to-query-hbase"></a>Usare Hive per eseguire query su HBase
+## <a name="use-apache-hive-to-query-apache-hbase"></a>Usare Hive per eseguire query su Apache HBase
 
-È possibile eseguire query sui dati nelle tabelle HBase tramite Hive. In questa sezione si crea una tabella Hive che esegue il mapping alla tabella HBase e la usa per la query dei dati nella tabella HBase.
+È possibile eseguire query sui dati nelle tabelle HBase tramite [Apache Hive](https://hive.apache.org/). In questa sezione si crea una tabella Hive che esegue il mapping alla tabella HBase e la usa per la query dei dati nella tabella HBase.
 
 1. Aprire **PuTTY**e connettersi al cluster.  Vedere le istruzioni nella procedura precedente.
 2. Nella sessione SSH usare il comando seguente per avviare Beeline:
@@ -157,7 +157,7 @@ Un file di dati di esempio è disponibile in un contenitore BLOB pubblico, *wasb
 
     Per altre informazioni su Beeline, vedere [Usare Hive con Hadoop in HDInsight con Beeline](../hadoop/apache-hadoop-use-hive-beeline.md).
        
-3. Eseguire il seguente script HiveQL per creare una tabella Hive mappata alla tabella HBase. Prima di eseguire questa istruzione, assicurarsi di aver creato la tabella di esempio usata precedentemente in questa esercitazione come riferimento con la shell HBase.
+3. Eseguire il seguente script [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) per creare una tabella Hive mappata alla tabella HBase. Prima di eseguire questa istruzione, assicurarsi di aver creato la tabella di esempio usata precedentemente in questa esercitazione come riferimento con la shell HBase.
 
     ```hiveql   
     CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -268,13 +268,14 @@ Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di 
 Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo si è appreso come creare tabelle e un cluster HBase e come visualizzare i dati delle tabelle dalla shell HBase. Si è inoltre appreso come usare una query Hive sui dati nelle tabelle HBase e come usare le API REST C# di HBase per creare una tabella HBase e recuperare i dati dalla tabella.
+In questo articolo si è appreso come creare tabelle e un cluster Apache HBase e come visualizzare i dati delle tabelle dalla shell HBase. Si è inoltre appreso come usare una query Hive sui dati nelle tabelle HBase e come usare le API REST C# di HBase per creare una tabella HBase e recuperare i dati dalla tabella.
 
 Per altre informazioni, vedere:
 
-* [Panoramica di HDInsight HBase][hdinsight-hbase-overview]: HBase è un database NoSQL open source Apache basato su Hadoop che fornisce un accesso casuale e coerenza assoluta a grandi quantità di dati non strutturati e semistrutturati.
+* [Panoramica di HDInsight HBase][hdinsight-hbase-overview]: Apache HBase è un database NoSQL open source Apache basato su Apache Hadoop che fornisce un accesso casuale e coerenza assoluta a grandi quantità di dati non strutturati e semistrutturati.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
+
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hbase-reference]: http://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf

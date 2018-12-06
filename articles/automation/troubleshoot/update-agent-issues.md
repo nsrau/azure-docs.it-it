@@ -1,5 +1,5 @@
 ---
-title: Comprendere i risultati del controllo dell'agente in Gestione aggiornamenti di Azure
+title: Comprendere i risultati del controllo dell'agente Windows in Gestione aggiornamenti di Azure
 description: Informazioni su come risolvere i problemi con l'agente Gestione aggiornamenti.
 services: automation
 author: georgewallace
@@ -9,60 +9,56 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 20323afe79ad3de1e3dfccd4752c4f7e28d22266
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 61ff50cda6ec523964ccf8f885f07c39020fbc88
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095372"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335147"
 ---
-# <a name="understand-the-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente in Gestione aggiornamenti
+# <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Windows in Gestione aggiornamenti
 
-Sono molti i motivi possibili per cui un computer non Azure non mostra **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti è possibile controllare l'integrità di un agente del ruolo di lavoro ibrido per determinare il problema sottostante. Questo articolo illustra come eseguire la risoluzione dei problemi dal portale di Azure e negli scenari offline.
+Esistono molte buone ragioni per cui un computer di Azure potrebbe non indicare lo stato **Pronto** in Gestione aggiornamenti di Azure. In Gestione aggiornamenti è possibile controllare l'integrità di un agente del ruolo di lavoro ibrido per determinare il problema sottostante. Questo articolo descrive come eseguire la risoluzione dei problemi di Gestione aggiornamenti dal portale di Azure e negli scenari offline.
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
-Facendo clic sul collegamento **Troubleshoot** (Risolvi i problemi) nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si avvia la pagina **Troubleshoot Update Agent** (Risolvere i problemi dell'agente di aggiornamento). Questa pagina illustra i problemi con l'agente e riporta un collegamento a questo articolo per facilitare la risoluzione dei problemi.
+Nel portale di Azure la pagina **Risoluzione dei problemi dell'agente di aggiornamento** visualizza i problemi relativi all'agente. Nella pagina è presente un collegamento a questo articolo per assistenza con la risoluzione dei problemi. Per passare alla pagina **Risoluzione dei problemi dell'agente di aggiornamento** selezionare il collegamento **Risoluzione dei problemi** nella colonna **Aggiorna idoneità agente**.
 
-![Pagina con l'elenco delle macchine virtuali](../media/update-agent-issues/vm-list.png)
+![Aggiornare l'elenco di gestione delle macchine virtuali](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> I controlli richiedono che la macchina virtuale sia in esecuzione. Se la macchina virtuale non è in esecuzione viene visualizzato il pulsante **Start the VM** (Avvia la macchina virtuale).
+> Per controllare l'integrità di un agente, la macchina virtuale deve essere in esecuzione. Se la macchina virtuale non è in esecuzione, viene visualizzato il pulsante **Avvia macchina virtuale**.
 
-Nella pagina **Troubleshoot Update Agent** (Risolvere i problemi dell'agente di aggiornamento) fare clic su **Run Checks** (Esegui controlli) per avviare la risoluzione dei problemi. La risoluzione dei problemi usa [Run command](../../virtual-machines/windows/run-command.md) (Esegui comando) per eseguire uno script nel computer al fine di verificare le dipendenze dell'agente. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
+Nella pagina **Risoluzione dei problemi dell'agente di aggiornamento** fare clic su **Esegui controlli** per avviare la risoluzione dei problemi. La risoluzione dei problemi usa [Esegui comando](../../virtual-machines/windows/run-command.md) per eseguire uno script nel computer al fine di verificare le dipendenze dell'agente. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
 
-![Pagina della risoluzione dei problemi](../media/update-agent-issues/troubleshoot-page.png)
+![Pagina Risoluzione dei problemi dell'agente di aggiornamento](../media/update-agent-issues/troubleshoot-page.png)
 
-Al termine i risultati sono mostrati nella finestra. Le [sezioni dei diversi controlli](#pre-requisistes-checks) forniscono informazioni su ciò che ogni controllo cerca.
+I risultati vengono visualizzati nella pagina quando sono pronti. Le [sezioni dei controlli](#prerequisiste-checks) mostrano il contenuto di ogni controllo.
 
-![Pagina dei controlli dell'agente di aggiornamento](../media/update-agent-issues/update-agent-checks.png)
+![Controlli di risoluzione dei problemi dell'agente di aggiornamento](../media/update-agent-issues/update-agent-checks.png)
 
 ## <a name="prerequisite-checks"></a>Controlli dei prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per runbook sta eseguendo uno dei sistemi operativi seguenti:
+Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per runbook esegue uno di questi sistemi operativi:
 
 |Sistema operativo  |Note  |
 |---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Supporta solo le valutazioni degli aggiornamenti.         |
-|Windows Server 2008 R2 SP1 e versioni successive     |È necessario .NET Framework 4.5.1 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> È necessario Windows PowerShell 4.0 o versioni successive. ([Scaricare WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 è consigliato per la sua maggiore affidabilità.  ([Scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
-|CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede "yum" per restituire i dati sulla sicurezza che non sono predefiniti in CentOS.         |
-|Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
-|Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
+|Windows Server 2008 R2 RTM, Windows Server 2008 | Supporta solo le valutazioni degli aggiornamenti.         |
+|Windows Server 2008 R2 SP1 e versioni successive |È necessario .NET Framework 4.5.1 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> È necessario Windows PowerShell 4.0 o versioni successive. ([Scaricare Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 è consigliato per la sua maggiore affidabilità.  ([Scaricare Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
 ### <a name="net-451"></a>.NET 4.5.1
 
-Il controllo di .NET Framework verifica se il sistema dispone almeno di [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653).
+Il controllo di .NET Framework verifica se nel sistema è installato almeno [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653).
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-Il controllo WMF verifica se il sistema dispone della versione richiesta di Windows Management Framework. [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) è la versione minima supportata. Si consiglia di installare [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) per una maggiore affidabilità dei ruoli di lavoro ibridi per runbook.
+Il controllo WMF verifica se nel sistema è disponibile la versione richiesta di Windows Management Framework (WMF). [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) è la versione minima supportata. Si consiglia di installare [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) per una maggiore affidabilità del ruolo di lavoro ibrido per runbook.
 
 ### <a name="tls-12"></a>TLS 1.2
 
-Questa verifica determina se si usa TLS 1.2 per crittografare le comunicazioni. TLS 1.0 non è più supportato dalla piattaforma ed è consigliabile che i client usino TLS 1.2 per comunicare con Gestione aggiornamenti.
+Questo controllo determina se si usa TLS 1.2 per crittografare le comunicazioni. TLS 1.0 non è più supportato dalla piattaforma. È consigliabile che i client usino TLS 1.2 per comunicare con Gestione aggiornamenti.
 
 ## <a name="connectivity-checks"></a>Controlli della connettività
 
@@ -70,27 +66,27 @@ Questa verifica determina se si usa TLS 1.2 per crittografare le comunicazioni. 
 
 Questo controllo determina se l'agente può comunicare correttamente con il servizio agente.
 
-Le configurazioni di proxy e firewall devono consentire all'agente del ruolo di lavoro ibrido per runbook di comunicare con l'endpoint di registrazione. Per un elenco di indirizzi e porte da aprire, vedere l'articolo sulla [pianificazione di rete per i ruoli di lavoro ibridi](../automation-hybrid-runbook-worker.md#network-planning)
+Le configurazioni di proxy e firewall devono consentire all'agente del ruolo di lavoro ibrido per runbook di comunicare con l'endpoint di registrazione. Per un elenco di indirizzi e porte da aprire, vedere le informazioni sulla [pianificazione di rete per i ruoli di lavoro ibridi](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="operations-endpoint"></a>Endpoint delle operazioni
 
 Questo controllo determina se l'agente può comunicare correttamente con il servizio dati del processo di runtime.
 
-Le configurazioni di proxy e firewall devono consentire all'agente del ruolo di lavoro ibrido per runbook di comunicare con il servizio dati del processo di runtime. Per un elenco di indirizzi e porte da aprire, vedere l'articolo sulla [pianificazione di rete per i ruoli di lavoro ibridi](../automation-hybrid-runbook-worker.md#network-planning)
+Le configurazioni di proxy e firewall devono consentire all'agente del ruolo di lavoro ibrido per runbook di comunicare con il servizio dati del processo di runtime. Per un elenco di indirizzi e porte da aprire, vedere le informazioni sulla [pianificazione di rete per i ruoli di lavoro ibridi](../automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="vm-service-health-checks"></a>Criteri di integrità del servizio della macchina virtuale
 
 ### <a name="monitoring-agent-service-status"></a>Monitoraggio dello stato del servizio agente
 
-Questo controllo determina se Microsoft Monitoring Agent `HealthService` è in esecuzione nel computer.
+Questo controllo determina se `HealthService`, ovvero Microsoft Monitoring Agent, è in esecuzione nel computer.
 
 Per altre informazioni sulla risoluzione dei problemi del servizio, vedere [Microsoft Monitoring Agent non è in esecuzione](hybrid-runbook-worker.md#mma-not-running).
 
-Per reinstallare Microsoft Monitoring Agent, vedere [Install and configure the Microsoft Monitoring Agent](/log-analytics/log-analytics-concept-hybrid.md#install-and-configure-agent) (Installare e configurare Microsoft Monitoring Agent)
+Per reinstallare Microsoft Monitoring Agent, vedere [Installare l'agente per Windows](../../log-analytics/log-analytics-quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Monitoraggio degli eventi del servizio agente
 
-Questo controllo determina se si sono verificati eventi `4502` nel log di Operations Manager del computer nelle ultime 24 ore.
+Questo controllo determina se nel log di Azure Operations Manager nel computer sono comparsi eventi `4502` nelle ultime 24 ore.
 
 Per altre informazioni su questo evento, vedere la [guida alla risoluzione dei problemi](hybrid-runbook-worker.md#event-4502) per questo evento.
 
@@ -98,11 +94,11 @@ Per altre informazioni su questo evento, vedere la [guida alla risoluzione dei p
 
 ### <a name="machinekeys-folder-access"></a>Accesso alla cartella MachineKeys
 
-Il controllo dell'accesso alla cartella di crittografia determina se l'account di sistema locale può accedere a `C:\ProgramData\Microsoft\Crypto\RSA`
+Il controllo dell'accesso alla cartella Crypto determina se l'account sistema locale ha accesso a C:\ProgramData\Microsoft\Crypto\RSA.
 
 ## <a name="troubleshoot-offline"></a>Risolvere i problemi offline
 
-È possibile usare la risoluzione dei problemi offline per i ruoli di lavoro ibridi per runbook eseguendo lo script in locale. Lo script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) è reperibile in PowerShell Gallery. Di seguito è riportato un esempio dell'output di questo script:
+È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Lo script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) è disponibile in PowerShell Gallery. L'output di questo script è simile al seguente:
 
 ```output
 RuleId                      : OperatingSystemCheck
@@ -198,4 +194,4 @@ CheckResultMessageArguments : {}
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come risolvere altri problemi dei ruoli di lavoro ibridi per runbook, vedere [Risolvere i problemi di ruoli di lavoro ibridi per runbook](hybrid-runbook-worker.md)
+Per informazioni su come risolvere altri problemi dei ruoli di lavoro ibridi per runbook, vedere [Risolvere i problemi di ruoli di lavoro ibridi per runbook](hybrid-runbook-worker.md).

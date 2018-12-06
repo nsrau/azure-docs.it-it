@@ -1,46 +1,51 @@
 ---
-title: Distribuzione continua di Jenkins con il servizio Kubernetes di Azure (AKS)
-description: Informazioni su come automatizzare un processo di distribuzione continua con Jenkins per distribuire e aggiornare un'app nei contenitori nel servizio Kubernetes di Azure (AKS)
+title: 'Esercitazione: Eseguire la distribuzione da GitHub nel servizio Azure Kubernetes (AKS) con Jenkins'
+description: Configurare Jenkins per l'integrazione continua (CI) da GitHub e la distribuzione continua (CD) nel servizio Azure Kubernetes (AKS)
 services: container-service
-author: iainfoulds
 ms.service: container-service
+author: iainfoulds
+ms.author: iainfou
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: iainfou
-ms.openlocfilehash: 5417e59f15ffcf48cc2af27044355d2bb5c9edaf
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087696"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853629"
 ---
-# <a name="create-a-continuous-deployment-pipeline-with-jenkins-and-azure-kubernetes-service-aks"></a>Creare una pipeline di distribuzione continua con Jenkins e il servizio Kubernetes di Azure (AKS)
+# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Esercitazione: Eseguire la distribuzione da GitHub nel servizio Azure Kubernetes (AKS) con integrazione continua e distribuzione continua di Jenkins
 
-Per distribuire rapidamente gli aggiornamenti nelle applicazioni nel servizio Kubernetes di Azure, è spesso necessario usare una piattaforma di recapito continuo e di integrazione continua (CI/CD). In una piattaforma CI/CD un commit di codice può attivare una nuova compilazione dei contenitori che viene quindi usata per distribuire un'istanza di applicazione aggiornata. In questo articolo viene usato Jenkins come piattaforma CI/CD per compilare immagini di contenitore ed eseguirne il push nel Registro contenitori di Azure e quindi eseguire tali applicazioni nel servizio Kubernetes di Azure. Si apprenderà come:
+Questa esercitazione distribuisce un'app di esempio da GitHub in un cluster del [servizio Azure Kubernetes (AKS)](/azure/aks/intro-kubernetes) configurando l'integrazione continua (CI) e la distribuzione continua (CD) in Jenkins. In questo modo, quando si aggiorna l'app eseguendo il push dei commit in GitHub, Jenkins esegue automaticamente una nuova compilazione dei contenitori, esegue il push delle immagini dei contenitori nel Registro Azure Container e quindi esegue l'app in AKS. 
+
+In questa esercitazione si completeranno le attività seguenti:
 
 > [!div class="checklist"]
-> * Distribuire un'applicazione di voto di Azure di esempio in un cluster AKS di Azure
-> * Creare un'istanza di Jenkins di base
-> * Configurare le credenziali per Jenkins per l'interazione con il Registro contenitori di Azure
-> * Creare un processo di compilazione Jenkins e un webhook GitHub per compilazioni automatizzate
-> * Testare la pipeline di integrazione CI/CD per aggiornare un'applicazione nel servizio Kubernetes di Azure in base ai commit del codice di GitHub
+> * Distribuire un'app Azure Vote di esempio in un cluster AKS.
+> * Creare un progetto di Jenkins di base.
+> * Configurare le credenziali per Jenkins per l'interazione con il Registro Azure Container.
+> * Creare un processo di compilazione Jenkins e un webhook GitHub per compilazioni automatizzate.
+> * Testare la pipeline CI/CD per aggiornare un'applicazione in AKS in base ai commit del codice di GitHub.
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
-Per completare la procedura descritta in questo articolo, è necessario soddisfare i requisiti seguenti.
+Per completare questa esercitazione, è necessario quanto segue:
 
 - Conoscenze di base di Kubernetes, Git, CI/CD e delle immagini di contenitore
 
-- Disponibilità di un [cluster AKS][aks-quickstart] e di `kubectl` configurati con le [credenziali del cluster AKS][aks-credentials].
-- Disponibilità di un [Registro contenitori di Azure][acr-quickstart], del nome del server di accesso del registro contenitori di Azure e il cluster AKS configurato per [eseguire l'autenticazione con il Registro contenitori di Azure][acr-authentication].
+- Disponibilità di un [cluster AKS][aks-quickstart] e di `kubectl` configurato con le [credenziali del cluster AKS][aks-credentials]
+
+- Disponibilità di un [Registro Azure Container][acr-quickstart], del nome del server di accesso del Registro Azure Container e del cluster AKS configurato per [eseguire l'autenticazione con il Registro Azure Container][acr-authentication]
 
 - Interfaccia della riga di comando di Azure versione 2.0.46 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
-- [Docker installato][docker-install] nel sistema di distribuzione in uso.
-- Account GitHub, [token di accesso personale GitHub][git-access-token] e client Git installato nel sistema di distribuzione in uso.
+
+- [Docker installato][docker-install] nel sistema di distribuzione in uso
+
+- Account GitHub, [token di accesso personale GitHub][git-access-token] e client Git installato nel sistema di distribuzione in uso
 
 - Se si fornisce la propria istanza di Jenkins piuttosto che questo esempio con script per distribuire Jenkins, l'istanza di Jenkins richiede [l'installazione e la configurazione di Docker][docker-install] e [kubectl][kubectl-install].
 
-## <a name="prepare-the-application"></a>Preparare l'applicazione
+## <a name="prepare-your-app"></a>Preparare l'app
 
 In questo articolo si usa un'applicazione di voto di Azure di esempio che contiene un'interfaccia Web ospitata in uno o più pod e un secondo pod che ospita Redis per l'archiviazione temporanea dei dati. Prima di integrare Jenkins e il servizio Kubernetes di Azure per le distribuzioni automatizzate, preparare e distribuire l'applicazione di voto di Azure nel cluster AKS. Questa distribuzione manuale può essere considerata come la prima versione dell'applicazione e consente di visualizzare l'applicazione in azione.
 

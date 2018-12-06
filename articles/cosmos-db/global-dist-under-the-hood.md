@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 463c74638b0e50348b8c9454334b7457e7b570e6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283887"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423348"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Distribuzione globale di Azure Cosmos DB - informazioni sul funzionamento
 
@@ -72,7 +72,7 @@ Per i database Cosmos configurati con più aree di scrittura, il sistema offre a
 
 Se si configura il database Cosmos con una o più aree di scrittura, è possibile scegliere tra cinque modelli di coerenza ben definiti. Con il supporto aggiunto per l'abilitazione di più aree di scrittura, ecco alcuni aspetti più interessanti riguardo ai livelli di coerenza:  
 
-Come prima, la coerenza a decadimento ristretto garantisce che tutte le letture siano all'interno di prefissi k o secondi t dalla scrittura più recente in una qualsiasi delle aree. Inoltre, con la coerenza a decadimento ristretto le letture sono garantite come monotone e con garanzie di prefisso costante. Il protocollo antientropia è soggetto a limitazioni di frequenza e assicura che i prefissi non vengono accumulati e che non venga applicata la congestione nelle operazioni di scrittura. Come prima, la coerenza delle sessioni garantisce una lettura monotona, una scrittura monotona, lettura della propria scrittura, scrittura-segue-lettura e garanzie di prefisso coerente in tutto il mondo. Per i database configurati con una consistenza assoluta, il sistema torna a una singola area di scrittura designando un leader all'interno di ciascun set di partizioni. 
+Come prima, la coerenza a decadimento ristretto garantisce che tutte le letture siano all'interno di prefissi k o secondi t dalla scrittura più recente in una qualsiasi delle aree. Inoltre, con la coerenza a decadimento ristretto le letture sono garantite come monotone e con garanzie di prefisso costante. Il protocollo antientropia è soggetto a limitazioni di frequenza e assicura che i prefissi non vengono accumulati e che non venga applicata la congestione nelle operazioni di scrittura. Come prima, la coerenza delle sessioni garantisce una lettura monotona, una scrittura monotona, lettura della propria scrittura, scrittura-segue-lettura e garanzie di prefisso coerente in tutto il mondo. Per i database configurati con coerenza assoluta, i vantaggi del multimaster (bassa latenza di scrittura, disponibilità elevata di scrittura) non sono applicabili a causa della replica sincrona tra le aree.
 
 La semantica dei cinque modelli di coerenza in Cosmos DB è descritta [qui](consistency-levels.md) e viene visualizzata matematicamente [qui](https://github.com/Azure/azure-cosmos-tla) usando un alto livello TLA + specifiche.
 
@@ -81,5 +81,5 @@ La semantica dei cinque modelli di coerenza in Cosmos DB è descritta [qui](cons
 Scoprire come configurare la distribuzione globale utilizzando i seguenti articoli:
 
 * [Come configurare i client per il multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Come aggiungere o rimuovere aree dal database](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Aggiungere o rimuovere aree dall'account di database](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Come creare criteri personalizzati per la risoluzione dei conflitti per gli account API SQL](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

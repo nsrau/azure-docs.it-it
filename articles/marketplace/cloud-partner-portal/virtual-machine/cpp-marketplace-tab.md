@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa43a6f1f7c757366e321e7da0fb1e47d4928cee
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: b68f7004366dcb502ffc8332cf8266a434c7ecfb
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639104"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977149"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Scheda Marketplace per una macchina virtuale
 
@@ -40,7 +40,8 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi.
 | **Descrizione**           | Descrizione della soluzione.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice. |
 | **Marketing Identifier** (Identificatore di marketing)  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Preview Subscription IDs** (ID sottoscrizione di anteprima) | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
-| **Collegamenti utili**          | Selezione multipla di categorie commerciali e tecniche a cui associare l'offerta in modo ottimale.  Il numero massimo consentito è cinque.  |
+| **Collegamenti utili**          | Aggiungere gli URL per la documentazione, le note sulla versione, le domande frequenti e così via. |
+| **Suggested Categories (Max 5)** (Categorie suggerite - Max 5) | Selezione multipla di categorie commerciali e tecniche a cui associare l'offerta in modo ottimale.  Il numero massimo consentito è cinque.  |
 |  |  |
 
 

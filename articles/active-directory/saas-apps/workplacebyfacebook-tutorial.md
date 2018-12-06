@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f83dd64c7f6773ddb8956e6ebbc37b8c55aacec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e072a27087f90bddd3f7c416904758e40c2f6b9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423872"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425175"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Esercitazione: Integrazione di Azure Active Directory con Workplace by Facebook
 
@@ -140,7 +140,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    > [!NOTE] 
    > Come parte del processo di autenticazione SAML, Workplace può usare stringhe di query di dimensioni massime di 2,5 kilobyte per passare i parametri ad Azure AD.
 
-1. In **Company Dashboard** (Company Dashboard) passare alla scheda **Authentication** (Autenticazione).
+1. In **Admin Panel** (Pannello di amministrazione) passare alla scheda **Security** (Sicurezza) e quindi ad **Authentication** (Autenticazione).
 
 1. In **SAML Authentication** (Autenticazione SAML) selezionare **SSO Only** (Solo SSO) dall'elenco a discesa.
 

@@ -12,28 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d86a8fcd1dc85ccacea91afe36cb39dabe10464
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117161"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706603"
 ---
-# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET 
+# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Un modo per rendere persistenti i dati consiste nell'usare la [libreria Azure Batch File Conventions per .NET][nuget_package]. La libreria File Conventions semplifica il processo di archiviazione dei dati di output delle attività in Archiviazione di Azure e il relativo recupero. È possibile usare la libreria File Conventions sia nel codice di attività che nel codice client: nel codice di attività per rendere persistenti i file e nel codice client per elencarli e recuperarli. È anche possibile usare la libreria nel codice di attività per recuperare l'output delle attività upstream, ad esempio in uno scenario di [dipendenze tra attività](batch-task-dependencies.md). 
+Un modo per rendere persistenti i dati consiste nell'usare la [libreria Azure Batch File Conventions per .NET][nuget_package]. La libreria File Conventions semplifica il processo di archiviazione dei dati di output delle attività in Archiviazione di Azure e il relativo recupero. È possibile usare la libreria File Conventions sia nel codice di attività che nel codice client: nel codice di attività per rendere persistenti i file e nel codice client per elencarli e recuperarli. È anche possibile usare la libreria nel codice di attività per recuperare l'output delle attività upstream, ad esempio in uno scenario di [dipendenze tra attività](batch-task-dependencies.md).
 
 Per recuperare i file di output con la libreria File Conventions, è possibile individuare i file per un determinato processo o un'attività elencandoli in base a ID e scopo. Non è necessario conoscere i nomi o i percorsi dei file. Ad esempio, è possibile usare la libreria File Conventions per elencare tutti i file intermedi per una determinata attività o per ottenere un file di anteprima per un determinato processo.
 
 > [!TIP]
 > A partire dalla versione 2017-05-01, l'API del servizio Batch supporta la persistenza dei dati di output in Archiviazione di Azure per le attività e le attività di gestione processo eseguite sui pool creati con la configurazione della macchina virtuale. L'API del servizio Batch mette a disposizione un modo semplice per rendere persistente l'output dall'interno del codice che crea un'attività e rappresenta un'alternativa alla libreria File Conventions. È possibile modificare le applicazioni client del servizio Batch in modo che rendano persistente l'output senza dover aggiornare l'applicazione eseguita dall'attività. Per altre informazioni, vedere [Rendere persistenti i dati di attività in Archiviazione di Azure con l'API del servizio Batch](batch-task-output-files.md).
-> 
-> 
 
 ## <a name="when-do-i-use-the-file-conventions-library-to-persist-task-output"></a>Quando è appropriato usare la libreria File Conventions per rendere persistente l'output delle attività?
 
@@ -42,27 +40,27 @@ Il servizio Azure Batch offre diversi modi per rendere persistente l'output dell
 - È possibile modificare facilmente il codice per l'applicazione eseguita dall'attività per rendere persistenti i file usando la libreria File Conventions.
 - Si vogliono inviare flussi di dati in Archiviazione di Azure mentre l'attività è ancora in esecuzione.
 - Si vogliono rendere persistenti i dati dai pool creati con la configurazione del servizio cloud o con la configurazione della macchina virtuale.
-- L'applicazione client o altre attività nel processo devono individuare e scaricare i file di output delle attività in base all'ID o allo scopo. 
+- L'applicazione client o altre attività nel processo devono individuare e scaricare i file di output delle attività in base all'ID o allo scopo.
 - Si vuole visualizzare l'output delle attività nel portale di Azure.
 
-Se lo scenario è diverso da quelli sopra elencati, potrebbe essere necessario prendere in considerazione un approccio diverso. Per altre informazioni sulle opzioni per rendere persistente l'output delle attività, vedere [Rendere persistente l'output di processi e attività](batch-task-output.md). 
+Se lo scenario è diverso da quelli sopra elencati, potrebbe essere necessario prendere in considerazione un approccio diverso. Per altre informazioni sulle opzioni per rendere persistente l'output delle attività, vedere [Rendere persistente l'output di processi e attività](batch-task-output.md).
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Che cos'è lo standard Batch File Conventions?
 
-Lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) fornisce uno schema di denominazione per i percorsi di contenitori e BLOB di destinazione in cui vengono scritti i file di output. I file resi persistenti in Archiviazione di Azure e conformi allo standard File Conventions sono automaticamente disponibili per la visualizzazione nel portale di Azure. Il portale riconosce la convenzione di denominazione e pertanto può visualizzare i file che rispettano tale convenzione.
+Lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) fornisce uno schema di denominazione per i percorsi di contenitori e BLOB di destinazione in cui vengono scritti i file di output. I file resi persistenti in Archiviazione di Azure e conformi allo standard File Conventions sono automaticamente disponibili per la visualizzazione nel portale di Azure. Il portale riconosce la convenzione di denominazione e pertanto può visualizzare i file che rispettano tale convenzione.
 
-La libreria File Conventions per .NET assegna automaticamente i nomi ai contenitori di archiviazione e ai file di output delle attività in base allo standard File Conventions. La libreria File Conventions fornisce anche metodi per eseguire query sui file di output in Archiviazione di Azure in base all'ID del processo, all'ID dell'attività o allo scopo.   
+La libreria File Conventions per .NET assegna automaticamente i nomi ai contenitori di archiviazione e ai file di output delle attività in base allo standard File Conventions. La libreria File Conventions fornisce anche metodi per eseguire query sui file di output in Archiviazione di Azure in base all'ID del processo, all'ID dell'attività o allo scopo.
 
-Se si sviluppa con un linguaggio diverso da .NET, è possibile implementare autonomamente lo standard File Conventions nell'applicazione. Per altre informazioni, vedere [Informazioni sullo standard Batch File Conventions](batch-task-output.md#about-the-batch-file-conventions-standard).
+Se si sviluppa con un linguaggio diverso da .NET, è possibile implementare autonomamente lo standard File Conventions nell'applicazione. Per altre informazioni, vedere [Implementare lo standard Batch File Conventions](batch-task-output.md#implement-the-batch-file-conventions-standard).
 
 ## <a name="link-an-azure-storage-account-to-your-batch-account"></a>Collegare un account di archiviazione di Azure all'account Batch
 
 Per rendere persistenti i dati di output in Archiviazione di Azure usando la libreria File Conventions, è prima necessario collegare un account di Archiviazione di Azure all'account Batch. Se non è già stato fatto, collegare un account di archiviazione all'account Batch tramite il [portale di Azure](https://portal.azure.com):
 
-1. Passare all'account Batch nel portale di Azure. 
-2. In **Impostazioni** selezionare **Account di archiviazione**.
-3. Se non è già disponibile un account di archiviazione associato all'account Batch, fare clic su **Account di archiviazione (nessuno)**.
-4. Selezionare un account di archiviazione nell'elenco per la sottoscrizione corrente. Per prestazioni ottimali, usare un account di Archiviazione di Azure nella stessa area dell'account Batch in cui si eseguono le attività.
+1. Passare all'account Batch nel portale di Azure.
+1. In **Impostazioni** selezionare **Account di archiviazione**.
+1. Se non è già disponibile un account di archiviazione associato all'account Batch, fare clic su **Account di archiviazione (nessuno)**.
+1. Selezionare un account di archiviazione nell'elenco per la sottoscrizione corrente. Per prestazioni ottimali, usare un account di Archiviazione di Azure nella stessa area dell'account Batch in cui si eseguono le attività.
 
 ## <a name="persist-output-data"></a>Rendere persistenti i dati di output
 
@@ -72,8 +70,6 @@ Per altre informazioni sull'uso di contenitori e BLOB in Archiviazione di Azure,
 
 > [!WARNING]
 > Tutti gli output di processi e attività resi persistenti con la libreria File Conventions vengono archiviati nello stesso contenitore. Se un numero elevato di attività tenta di rendere persistenti i file nello stesso momento, potrebbero essere applicate [limitazioni dell'archiviazione](../storage/common/storage-performance-checklist.md#blobs).
-> 
-> 
 
 ### <a name="create-storage-container"></a>Creare un contenitore di archiviazione
 
@@ -120,8 +116,6 @@ Questi tipi di output consentono di specificare il tipo di output da elencare, q
 
 > [!TIP]
 > Il tipo di output determina anche dove viene visualizzato un file specifico nel portale di Azure. *TaskOutput*: i file categorizzati vengono visualizzati in **File di output delle attività** e i file di *TaskLog* vengono visualizzati in **Task logs** (Log delle attività).
-> 
-> 
 
 ### <a name="store-job-outputs"></a>Archiviare gli output del processo
 
@@ -174,8 +168,6 @@ L'agente del nodo è un programma in esecuzione in ogni nodo del pool e fornisce
 
 > [!NOTE]
 > Quando si abilita il rilevamento file con **SaveTrackedAsync**, solo le *aggiunte* al file rilevato vengono rese persistenti in Archiviazione di Azure. Usare questo metodo solo per il rilevamento dei file di log non a rotazione o altri file in cui le scritture vengono eseguite con operazioni di aggiunta alla fine del file.
-> 
-> 
 
 ## <a name="retrieve-output-data"></a>Recuperare i dati di output
 
@@ -201,12 +193,12 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Visualizzare i file di output nel portale di Azure
 
-Il portale di Azure visualizza gli output e i log di un'attività resi persistenti in un account di archiviazione di Azure collegato usando lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). È possibile implementare queste convenzioni nel linguaggio preferito o usare la libreria File Conventions nelle applicazioni .NET.
+Il portale di Azure visualizza gli output e i log di un'attività resi persistenti in un account di archiviazione di Azure collegato usando lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). È possibile implementare queste convenzioni nel linguaggio preferito o usare la libreria File Conventions nelle applicazioni .NET.
 
 Per abilitare la visualizzazione dei file di output nel portale, è necessario soddisfare i requisiti seguenti:
 
 1. [Collegare un account di archiviazione di Azure](#requirement-linked-storage-account) all'account Batch.
-2. Rispettare le convenzioni di denominazione predefinite per i contenitori di archiviazione e i file durante il salvataggio in modo permanente degli output. È possibile trovare la definizione di queste convenzioni nel file [LEGGIMI][github_file_conventions_readme] della libreria File Conventions. Se si usa la libreria [Azure Batch File Conventions][nuget_package] per rendere persistente l'output, i file vengono resi persistenti in base allo standard File Conventions.
+1. Rispettare le convenzioni di denominazione predefinite per i contenitori di archiviazione e i file durante il salvataggio in modo permanente degli output. È possibile trovare la definizione di queste convenzioni nel file [LEGGIMI][github_file_conventions_readme] della libreria File Conventions. Se si usa la libreria [Azure Batch File Conventions][nuget_package] per rendere persistente l'output, i file vengono resi persistenti in base allo standard File Conventions.
 
 Per visualizzare i file di output delle attività e i log nel portale di Azure, passare all'attività di cui si vuole visualizzare l'output, quindi fare clic su **File di output salvati** o **Log salvati**. L'immagine illustra l'opzione **ile di output salvato** per l'attività con ID "007":
 

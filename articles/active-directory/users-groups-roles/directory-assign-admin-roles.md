@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 5c880ca15eea6ccf77f93f74c9e1ca41f7fc01ee
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686127"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276721"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -174,15 +174,11 @@ Sono disponibili i ruoli di amministratore seguenti:
   * Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
   * Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
 
+## <a name="role-permissions"></a>Autorizzazioni dei ruoli
 Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate a ogni ruolo in Azure Active Directory. Alcuni ruoli potrebbero avere altre autorizzazioni per i servizi Microsoft al di fuori di Azure Active Directory.
 
 ### <a name="application-administrator"></a>Amministratore di applicazioni
 Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app aziendali.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
 | **Actions** | **Descrizione** |
 | --- | --- |
@@ -223,11 +219,6 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 ### <a name="application-developer"></a>Sviluppatore di applicazioni
 Può creare registrazioni di applicazioni indipendentemente dall'impostazione 'Gli utenti possono registrare applicazioni'.
 
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | Creare applicazioni in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
@@ -237,11 +228,6 @@ Può creare registrazioni di applicazioni indipendentemente dall'impostazione 'G
 
 ### <a name="billing-administrator"></a>Amministratore fatturazione
 Può eseguire attività comuni relative alla fatturazione, ad esempio aggiornare le informazioni di pagamento.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -263,11 +249,6 @@ Può eseguire attività comuni relative alla fatturazione, ad esempio aggiornare
 Può accedere a servizi e strumenti di gestione desktop, ad esempio Intune, e gestirli.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
@@ -283,11 +264,6 @@ Può accedere a servizi e strumenti di gestione desktop, ad esempio Intune, e ge
 
 ### <a name="cloud-application-administrator"></a>Amministratore applicazione cloud
 Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app aziendali, ad eccezione del Proxy di applicazione.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
 | **Actions** | **Descrizione** |
 | --- | --- |
@@ -327,11 +303,6 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 ### <a name="cloud-device-administrator"></a>Amministratore dispositivo cloud
 Accesso completo per la gestione dei dispositivi in Azure AD.
 
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.aad.directory/devices/delete | Eliminare dispositivi in Azure Active Directory. |
@@ -344,11 +315,6 @@ Accesso completo per la gestione dei dispositivi in Azure AD.
 
 ### <a name="company-administrator"></a>Amministratore società
 Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano identità di Azure AD.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -411,11 +377,6 @@ Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano ide
 Può eseguire la lettura e gestire i report e la configurazione di conformità in Azure AD e Office 365.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
@@ -435,11 +396,6 @@ Può eseguire la lettura e gestire i report e la configurazione di conformità i
 ### <a name="conditional-access-administrator"></a>Amministratore di accesso condizionale
 Può gestire le funzionalità di accesso condizionale.
 
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.aad.directory/policies/conditionalAccess/basic/read | Eseguire la lettura della proprietà policies.conditionalAccess in Azure Active Directory. |
@@ -452,11 +408,6 @@ Può gestire le funzionalità di accesso condizionale.
 
 ### <a name="crm-service-administrator"></a>Amministratore del servizio CRM
 Può gestire tutti gli aspetti del prodotto Dynamics 365.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -476,11 +427,6 @@ Può gestire tutti gli aspetti del prodotto Dynamics 365.
 Può approvare le richieste di supporto Microsoft per l'accesso ai dati aziendali dei clienti.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
@@ -493,11 +439,6 @@ Può approvare le richieste di supporto Microsoft per l'accesso ai dati aziendal
 ### <a name="device-administrators"></a>Amministratori di dispositivi
 I membri di questo ruolo vengono aggiunti al gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD.
 
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.aad.directory/groupSettings/basic/read | Eseguire la lettura delle proprietà di base su groupSettings in Azure Active Directory. |
@@ -505,11 +446,6 @@ I membri di questo ruolo vengono aggiunti al gruppo di amministratori locale nei
 
 ### <a name="directory-readers"></a>Ruoli con autorizzazioni di lettura nella directory
 Può leggere le informazioni base della directory. Per concedere l'accesso alle applicazioni, non destinato agli utenti.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo.
-  >
-  >
 
 | **Actions** | **Descrizione** |
 | --- | --- |
@@ -570,11 +506,6 @@ Può leggere le informazioni base della directory. Per concedere l'accesso alle 
 ### <a name="directory-synchronization-accounts"></a>Account di sincronizzazione della directory
 Usata solo dal servizio di Azure AD Connect.
 
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo.
-  >
-  >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.aad.directory/organization/dirSync/update | Aggiornare la proprietà organization.dirSync in Azure Active Directory. |
@@ -604,11 +535,6 @@ Usata solo dal servizio di Azure AD Connect.
 ### <a name="directory-writers"></a>Writer di directory
 Può leggere e scrivere le informazioni base della directory. Per concedere l'accesso alle applicazioni, non destinato agli utenti.
 
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.aad.directory/groups/create | Creare gruppi in Azure Active Directory. |
@@ -630,11 +556,6 @@ Può leggere e scrivere le informazioni base della directory. Per concedere l'ac
 
 ### <a name="exchange-service-administrator"></a>Amministratore del servizio Exchange
 Può gestire tutti gli aspetti del prodotto Exchange.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -659,11 +580,6 @@ Può gestire tutti gli aspetti del prodotto Exchange.
 ### <a name="guest-inviter"></a>Mittente dell'invito guest
 Può invitare utenti guest indipendentemente dall'impostazione 'I membri possono invitare utenti guest'.
 
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo.
-  >
-  >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Eseguire la lettura della proprietà users.appRoleAssignments in Azure Active Directory. |
@@ -682,11 +598,6 @@ Può invitare utenti guest indipendentemente dall'impostazione 'I membri possono
 ### <a name="helpdesk-administrator"></a>Amministratore del supporto tecnico
 Può reimpostare le password per gli utenti non amministratori e gli amministratori supporto tecnico.
 
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidare tutti i token di aggiornamento utente in Azure Active Directory. |
@@ -699,11 +610,6 @@ Può reimpostare le password per gli utenti non amministratori e gli amministrat
 
 ### <a name="information-protection-administrator"></a>Amministratore di Information Protection
 Può gestire tutti gli aspetti del prodotto Azure Information Protection.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -720,11 +626,6 @@ Può gestire tutti gli aspetti del prodotto Azure Information Protection.
 
 ### <a name="intune-service-administrator"></a>Amministratore del servizio Intune
 Può gestire tutti gli aspetti del prodotto Intune.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -761,11 +662,6 @@ Può gestire tutti gli aspetti del prodotto Intune.
 ### <a name="license-administrator"></a>Amministratore licenze
 Possono gestire licenze dei prodotti per utenti e gruppi.
 
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Gestire le licenze per gli utenti in Azure Active Directory. |
@@ -776,11 +672,6 @@ Possono gestire licenze dei prodotti per utenti e gruppi.
 
 ### <a name="lync-service-administrator"></a>Amministratore del servizio Lync
 Può gestire tutti gli aspetti del prodotto Skype for Business.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -800,11 +691,6 @@ Può gestire tutti gli aspetti del prodotto Skype for Business.
 Può eseguire la lettura di messaggi e aggiornamenti per la propria organizzazione solo nel Centro messaggi di Office 365. 
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
@@ -816,11 +702,6 @@ Può eseguire la lettura di messaggi e aggiornamenti per la propria organizzazio
 
 ### <a name="partner-tier1-support"></a>Supporto partner - Livello 1
 Non usare: non destinato all'uso generale.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -853,11 +734,6 @@ Non usare: non destinato all'uso generale.
 
 ### <a name="partner-tier2-support"></a>Supporto partner - Livello 2
 Non usare: non destinato all'uso generale.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -895,11 +771,6 @@ Non usare: non destinato all'uso generale.
 Può gestire tutti gli aspetti del prodotto Power BI.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
@@ -917,11 +788,6 @@ Può gestire tutti gli aspetti del prodotto Power BI.
 Può gestire le assegnazioni di ruolo in Azure Active Directory e tutti gli aspetti di Privileged Identity Management.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
@@ -933,11 +799,6 @@ Può gestire le assegnazioni di ruolo in Azure Active Directory e tutti gli aspe
 
 ### <a name="reports-reader"></a>Lettore di report
 Può eseguire la lettura dei report di accesso e di controllo.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -954,11 +815,6 @@ Può eseguire la lettura dei report di accesso e di controllo.
 
 ### <a name="security-administrator"></a>Amministratore della sicurezza
 Può eseguire la lettura dei report e delle informazioni di sicurezza e gestire la configurazione in Azure Active Directory e Office 365.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -988,11 +844,6 @@ Può eseguire la lettura dei report e delle informazioni di sicurezza e gestire 
 Può eseguire la lettura dei report e delle informazioni di sicurezza in Azure AD e Office 365.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
@@ -1012,11 +863,6 @@ Può eseguire la lettura dei report e delle informazioni di sicurezza in Azure A
 Può eseguire la lettura delle informazioni di integrità dei servizi e gestire i ticket di supporto.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
@@ -1031,11 +877,6 @@ Può eseguire la lettura delle informazioni di integrità dei servizi e gestire 
 
 ### <a name="sharepoint-service-administrator"></a>Amministratore del servizio SharePoint
 Può gestire tutti gli aspetti del servizio SharePoint.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -1061,11 +902,6 @@ Può gestire tutti gli aspetti del servizio SharePoint.
 Può gestire le funzionalità per chiamate e riunioni all'interno del servizio Microsoft Teams.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
@@ -1084,11 +920,6 @@ Può gestire le funzionalità per chiamate e riunioni all'interno del servizio M
 Può risolvere i problemi di comunicazione all'interno di Teams tramite strumenti avanzati.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
@@ -1104,11 +935,6 @@ Può risolvere i problemi di comunicazione all'interno di Teams tramite strument
 Può risolvere i problemi di comunicazione all'interno di Teams tramite strumenti di base.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
@@ -1122,11 +948,6 @@ Può risolvere i problemi di comunicazione all'interno di Teams tramite strument
 
 ### <a name="teams-service-administrator"></a>Amministratore del servizio Teams
 Può gestire il servizio Microsoft Teams.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
   > [!NOTE]
   > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -1152,11 +973,6 @@ Può gestire il servizio Microsoft Teams.
 
 ### <a name="user-account-administrator"></a>Amministratore account utente
 Può gestire tutti gli aspetti di utenti e gruppi, inclusa la reimpostazione delle password per gli amministratori con limitazioni.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
 
 | **Actions** | **Descrizione** |
 | --- | --- |

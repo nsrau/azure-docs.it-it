@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: ea29d9052c2389b0c7d145223d3660364cbf2c74
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 33681c7c9e1a625757e3f9403820ed3f469bec64
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016319"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705787"
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiviare il log attività di Azure
 In questo articolo viene illustrato come è possibile usare il Portale di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma per archiviare il [**registro attività di Azure**](monitoring-overview-activity-logs.md) in un account di archiviazione. Questa opzione è utile per conservare il log attività per più di 90 giorni (con il controllo completo sui criteri di conservazione) per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi per non più di 90 giorni, non è necessario configurare l'archiviazione in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni senza abilitare l'archiviazione.
@@ -27,7 +27,7 @@ In questo articolo viene illustrato come è possibile usare il Portale di Azure,
 Prima di iniziare, è necessario [creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) in cui poter archiviare il log attività. È consigliabile non usare un account di archiviazione esistente in cui sono archiviati altri dati non di monitoraggio, per poter controllare meglio l'accesso ai dati di monitoraggio. Se tuttavia in un account di archiviazione si archiviano anche log di diagnostica e metriche, può avere senso non solo usare tale account di archiviazione per il log attività, ma anche tenere tutti i dati di monitoraggio in una posizione centrale. L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 > [!NOTE]
->  Non è al momento possibile archiviare i dati in un account di archiviazione che risiede dietro una rete virtuale protetta.
+>  Non è al momento possibile archiviare i dati in un account di archiviazione creato dietro una rete virtuale protetta.
 
 ## <a name="log-profile"></a>Profilo del log
 Per archiviare il log attività con uno dei metodi seguenti, impostare il **profilo del log** per una sottoscrizione. Il profilo del log definisce il tipo di eventi archiviati o trasmessi e gli output (account di archiviazione e/o hub eventi). Definisce anche i criteri di conservazione (numero di giorni di conservazione) per gli eventi archiviati in un account di archiviazione. Se il criterio di conservazione viene impostato su zero, gli eventi vengono archiviati a tempo indeterminato. In caso contrario, si può impostare un valore qualsiasi compreso tra 1 e 2147483647. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata, i log relativi a tale giornata non rientrano quindi più nei criteri di conservazione e verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione. [Fare clic qui per altre informazioni sui profili dei log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
@@ -62,7 +62,7 @@ Per archiviare il log attività con uno dei metodi seguenti, impostare il **prof
    Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
    ```
 
-| Proprietà | Obbligatoria | Descrizione |
+| Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
 | StorageAccountId |Yes |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
 | Località |Yes |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `(Get-AzureRmLocation).Location`. |
@@ -75,7 +75,7 @@ Per archiviare il log attività con uno dei metodi seguenti, impostare il **prof
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
    ```
 
-| Proprietà | Obbligatoria | Descrizione |
+| Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
 | name |Yes |Nome del profilo di log. |
 | storage-account-id |Yes |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
@@ -158,7 +158,7 @@ Nel file PT1H.json ogni evento viene archiviato nella matrice "records", con que
 ```
 
 
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | time |Timestamp del momento in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento. |
 | ResourceId |ID risorsa della risorsa interessata. |

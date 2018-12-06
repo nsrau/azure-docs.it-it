@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
-ms.openlocfilehash: 69990ab7852999dca2b586fd28ef74c44cc283fd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 549be57b52fa88efa8c3850d131563fea2a7c65e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116981"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706127"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Rendere persistenti i dati delle attività in Archiviazione di Azure con l'API del servizio Batch
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-A partire dalla versione 2017-05-01, l'API del servizio Batch supporta l'archiviazione permanente dei dati di output in Archiviazione di Azure per le attività e le attività di gestione processo eseguite sui pool con la configurazione della macchina virtuale. Quando si aggiunge un'attività, è possibile specificare un contenitore in Archiviazione di Azure come destinazione per l'output dell'attività. Il servizio Batch scrive quindi i dati di output in tale contenitore al completamento dell'attività.
+L'API del servizio Batch consente di rendere persistenti i dati di output in Archiviazione di Azure per le attività e le attività di gestione processo eseguite sui pool con la configurazione della macchina virtuale. Quando si aggiunge un'attività, è possibile specificare un contenitore in Archiviazione di Azure come destinazione per l'output dell'attività. Il servizio Batch scrive quindi i dati di output in tale contenitore al completamento dell'attività.
 
-Un vantaggio dell'uso dell'API del servizio Batch per rendere persistente l'output dell'attività è il fatto di non avere la necessità di l'applicazione eseguita dall'attività. Con poche semplici modifiche dell'applicazione client, è invece possibile rendere persistente l'output dell'attività dall'interno del codice che crea l'attività.   
+Un vantaggio dell'uso dell'API del servizio Batch per rendere persistente l'output dell'attività è il fatto di non avere la necessità di l'applicazione eseguita dall'attività. Con poche modifiche dell'applicazione client, è invece possibile rendere persistente l'output dell'attività dall'interno dello stesso codice che crea l'attività.
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Quando è appropriato usare l'API del servizio Batch per rendere persistente l'output delle attività?
 
@@ -34,9 +34,12 @@ Il servizio Azure Batch offre diversi modi per rendere persistente l'output dell
 - Si vuole scrivere codice per rendere persistente l'output dell'attività dall'interno dell'applicazione client, senza modificare l'applicazione eseguita dall'attività.
 - Si vuole rendere persistente l'output delle attività del servizio Batch e delle attività del gestore di processi create con la configurazione della macchina virtuale.
 - Si vuole rendere persistente l'output in un contenitore di Archiviazione di Azure con un nome arbitrario.
-- Si vuole rendere persistente l'output in un contenitore di Archiviazione di Azure denominato in base agli [standard di Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Si vuole rendere persistente l'output in un contenitore di Archiviazione di Azure denominato in base agli [standard di Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
-Se lo scenario è diverso da quelli sopra elencati, potrebbe essere necessario prendere in considerazione un approccio diverso. Ad esempio, l'API del servizio Batch attualmente non supporta flussi dell'output in Archiviazione di Azure durante l'esecuzione dell'attività. Per questa esigenza, prendere in considerazione l'uso della libreria Batch File Conventions, disponibile per .NET. Per altri linguaggi, sarà necessario implementare una soluzione personalizzata. Per altre informazioni sulle opzioni per rendere persistente l'output delle attività, vedere [Rendere persistente l'output di processi e attività](batch-task-output.md). 
+> [!NOTE]
+> L'API del servizio Batch non consente di rendere persistenti i dati dalle attività in esecuzione nei pool creati con la configurazione del servizio cloud. Per informazioni su come rendere persistente l'output delle attività dai pool che eseguono la configurazione dei servizi cloud, vedere [Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET](batch-task-output-file-conventions.md).
+
+Se lo scenario è diverso da quelli sopra elencati, potrebbe essere necessario prendere in considerazione un approccio diverso. Ad esempio, l'API del servizio Batch attualmente non supporta flussi dell'output in Archiviazione di Azure durante l'esecuzione dell'attività. Per questa esigenza, prendere in considerazione l'uso della libreria Batch File Conventions, disponibile per .NET. Per altri linguaggi, sarà necessario implementare una soluzione personalizzata. Per altre informazioni sulle opzioni per rendere persistente l'output delle attività, vedere [Rendere persistente l'output di processi e attività](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Creare un contenitore in Archiviazione di Azure
 
@@ -64,14 +67,14 @@ string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBl
     Permissions = SharedAccessBlobPermissions.Write
 });
 
-string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken; 
+string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 ```
 
 ## <a name="specify-output-files-for-task-output"></a>Specificare i file di output per l'output dell'attività
 
-Per specificare i file di output per un'attività, creare una raccolta di oggetti [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e assegnarla alla proprietà [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) quando si crea l'attività. 
+Per specificare i file di output per un'attività, creare una raccolta di oggetti [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e assegnarla alla proprietà [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) quando si crea l'attività.
 
-L'esempio di codice .NET seguente crea un'attività che scrive numeri casuali in un file denominato `output.txt`. Nell'esempio viene creato un file di output per `output.txt` da scrivere nel contenitore. L'esempio crea anche i file di output per gli eventuali file di log corrispondenti al modello di file `std*.txt` (_ad esempio_, `stdout.txt` e `stderr.txt`). L'URL del contenitore richiede la firma di accesso condiviso creata in precedenza per il contenitore. Il servizio Batch usa la firma di accesso condiviso per autenticare l'accesso al contenitore: 
+L'esempio di codice C# seguente crea un'attività che scrive numeri casuali in un file denominato `output.txt`. Nell'esempio viene creato un file di output per `output.txt` da scrivere nel contenitore. L'esempio crea anche i file di output per gli eventuali file di log corrispondenti al modello di file `std*.txt` (_ad esempio_, `stdout.txt` e `stderr.txt`). L'URL del contenitore richiede la firma di accesso condiviso creata in precedenza per il contenitore. Il servizio Batch usa la firma di accesso condiviso per autenticare l'accesso al contenitore:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -101,7 +104,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 Quando si specifica un file di output, è possibile usare la proprietà [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) per specificare un modello di file per la corrispondenza. Il modello di file potrebbe corrispondere a zero file, un singolo file o un set di file creati dall'attività.
 
-La proprietà **FilePattern** supporta i caratteri jolly standard del file system, ad esempio `*` (per corrispondenze non ricorsive) e `**` (per corrispondenze ricorsive). Ad esempio, l'esempio di codice precedente specifica il modello di file da usare per trovare corrispondenze per `std*.txt` in modo non ricorsivo: 
+La proprietà **FilePattern** supporta i caratteri jolly standard del file system, ad esempio `*` (per corrispondenze non ricorsive) e `**` (per corrispondenze ricorsive). Ad esempio, l'esempio di codice precedente specifica il modello di file da usare per trovare corrispondenze per `std*.txt` in modo non ricorsivo:
 
 `filePattern: @"..\std*.txt"`
 
@@ -113,7 +116,7 @@ Per caricare un singolo file, specificare un modello di file senza caratteri jol
 
 La proprietà [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) consente il caricamento condizionale dei file di output. Uno scenario comune consiste nel caricare un set di file se l'attività ha esito positivo e un set di file diverso, in caso di errore. Ad esempio, può essere necessario caricare i file di log dettagliati solo quando l'attività ha esito negativo e viene terminata con un codice di uscita diverso da zero. Analogamente, può essere utile caricare il file dei risultati solo se l'attività ha esito positivo, perché tali file potrebbero essere mancanti o incompleti se l'attività non riesce.
 
-L'esempio di codice precedente imposta la proprietà **UploadCondition** su **TaskCompletion**. Questa impostazione specifica che il file deve essere caricato dopo aver completato le attività, indipendentemente dal valore del codice di uscita. 
+L'esempio di codice precedente imposta la proprietà **UploadCondition** su **TaskCompletion**. Questa impostazione specifica che il file deve essere caricato dopo aver completato le attività, indipendentemente dal valore del codice di uscita.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
@@ -145,10 +148,9 @@ https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 
 Per altre informazioni sulle directory virtuali in Archiviazione di Azure, vedere [Elencare i BLOB in un contenitore](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
-
 ## <a name="diagnose-file-upload-errors"></a>Diagnosticare gli errori di caricamento file
 
-Se si verifica un errore di caricamento dei file di output in Archiviazione di Azure, l'attività passa allo stato **Completato** e viene impostata la proprietà [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation). Esaminare la proprietà **FailureInformation** per determinare l'errore che si è verificato. Quello che segue è un esempio di errore che si verifica al momento del caricamento di file se non è possibile trovare il contenitore: 
+Se si verifica un errore di caricamento dei file di output in Archiviazione di Azure, l'attività passa allo stato **Completato** e viene impostata la proprietà [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation). Esaminare la proprietà **FailureInformation** per determinare l'errore che si è verificato. Quello che segue è un esempio di errore che si verifica al momento del caricamento di file se non è possibile trovare il contenitore:
 
 ```
 Category: UserError
@@ -164,7 +166,7 @@ Lo stato di caricamento viene registrato nel file `fileuploadout.txt`. È possib
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Usare l'API del servizio Batch con lo standard Batch File Conventions
 
-Quando si rende persistente l'output con l'API del servizio Batch, è possibile assegnare il nome preferito al contenitore di destinazione e ai BLOB. Si può anche scegliere il nome in base allo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Lo standard File Conventions determina i nomi del contenitore e del BLOB di destinazione in Archiviazione di Azure per un file di output specificato in base ai nomi del processo e dell'attività. Se si usa lo standard File Conventions per la denominazione dei file di output, i file di output sono disponibili per la visualizzazione nel [portale di Azure](https://portal.azure.com).
+Quando si rende persistente l'output con l'API del servizio Batch, è possibile assegnare il nome preferito al contenitore di destinazione e ai BLOB. Si può anche scegliere il nome in base allo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Lo standard File Conventions determina i nomi del contenitore e del BLOB di destinazione in Archiviazione di Azure per un file di output specificato in base ai nomi del processo e dell'attività. Se si usa lo standard File Conventions per la denominazione dei file di output, i file di output sono disponibili per la visualizzazione nel [portale di Azure](https://portal.azure.com).
 
 Se si sviluppa in C#, è possibile usare i metodi inclusi nella [libreria Batch File Conventions per .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Questa libreria crea automaticamente i percorsi di BLOB e contenitori con nomi appropriati. Ad esempio, è possibile chiamare l'API per ottenere il nome corretto per il contenitore, in base al nome del processo:
 

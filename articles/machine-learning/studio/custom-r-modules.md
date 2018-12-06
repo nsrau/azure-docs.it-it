@@ -1,10 +1,11 @@
 ---
-title: Creare moduli R personalizzati in Azure Machine Learning | Documentazione Microsoft
-description: Guida introduttiva alla creazione di moduli R personalizzati in Azure Machine Learning.
+title: Definire moduli R personalizzati per Azure Machine Learning Studio | Microsoft Docs
+description: Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
@@ -15,15 +16,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 1a578e8cc05b42d05a8dfb31c0baeefb4822e3e5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b8ab22f1567102ed79ccf6e0bf49dbdbc3f42ea9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261111"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308432"
 ---
-# <a name="author-custom-r-modules-in-azure-machine-learning"></a>Creare moduli R personalizzati in Azure Machine Learning
-Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
+# <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definire moduli R personalizzati per Azure Machine Learning Studio
+
+Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning Studio. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

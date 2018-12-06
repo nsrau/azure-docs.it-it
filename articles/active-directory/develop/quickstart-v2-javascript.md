@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 69c77896f894201d1419aaef33470a02ac45ff91
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986289"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317348"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Guida introduttiva: Accesso utenti e acquisizione di un token di accesso da un'applicazione JavaScript
 
@@ -35,14 +35,14 @@ Questo avvio rapido illustra come usare un codice di esempio che dimostra come u
 >
 > #### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
 >
-> 1. Accedere al [Portale di Azure](https://portal.azure.com/) per registrare un'applicazione.
+> 1. Accedere al [portale di Azure](https://portal.azure.com/) per registrare un'applicazione.
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
 > 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima) > Nuova registrazione**.
 > 1. Nella pagina **Registra un'applicazione** visualizzata immettere il nome dell'applicazione.
 > 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
 > 1. Selezionare la piattaforma **Web** nella sezione **URI di reindirizzamento** e impostare il valore su `http://localhost:30662/`.
-> 1. Al termine, selezionare **Registra**.  Nella pagina **Panoramica**  dell'app, prendere nota del valore del campo **ID applicazione (client)**.
-> 1. Per questo avvio rapido è necessario abilitare il [flusso di concessione implicito](v2-oauth2-implicit-grant-flow.md). Nel riquadro di spostamento a sinistra dell'applicazione registrata selezionare **Autenticazione**.
+> 1. Al termine, selezionare **Registra**.  Nella pagina **Panoramica**  dell'app prendere nota del valore del campo **ID applicazione (client)**.
+> 1. Per questo avvio rapido è necessario abilitare il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md). Nel riquadro di spostamento a sinistra dell'applicazione registrata selezionare **Autenticazione**.
 > 1. Nelle **Impostazioni avanzate**, in **Concessione implicita**, selezionare entrambe le caselle di controllo **Token ID** e **Token di accesso**. I token ID e di accesso sono obbligatori perché l'app deve consentire l'accesso agli utenti e chiamare un'API.
 > 1. Selezionare **Salva**.
 
@@ -66,7 +66,7 @@ Estrarre il file con estensione zip in una cartella locale, ad esempio **C:\Azur
 #### <a name="step-3-configure-your-javascript-app"></a>Passaggio 3: Configurare l'app JavaScript
 
 > [!div renderon="docs"]
-> Modificare `index.html` e sostituire `Enter_the_Application_Id_here` in `applicationConfig` con l'ID dell'applicazione appena registrata.
+> Modificare `index.html` e impostare i valori `clientID` e `authority` in `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Modificare `index.html` e sostituire `applicationConfig` con:
@@ -74,13 +74,25 @@ Estrarre il file con estensione zip in una cartella locale, ad esempio **C:\Azur
 ```javascript
 var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
+> [!div renderon="docs"]
+>
+> Dove:
+> - `Enter_the_Application_Id_here` è l'**ID applicazione (client)** per l'applicazione registrata.
+> - `Enter_the_Tenant_Info_Here` è impostato su una delle opzioni seguenti:
+>   - Se l'applicazione supporta **Account solo in questa directory organizzativa**, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+>   - Se l'applicazione supporta **Account in qualsiasi directory organizzativa**, sostituire questo valore con `organizations`
+>   - Se l'applicazione supporta **Account in qualsiasi directory organizzativa e account Microsoft personali**, sostituire questo valore con `common`
+>
+> > [!TIP]
+> > Per trovare i valori di **ID applicazione (client)**, **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
+
 > [!NOTE]
->Se si usa [Node.js](https://nodejs.org/en/download/), il file *server.js* è configurato in modo che il server inizi ad ascoltare sulla porta 30662.
-> Se si usa [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), il file *.csproj* del codice di esempio è configurato in modo che il server inizi ad ascoltare sulla porta 30662.
+> Il server è configurato per restare in ascolto sulla porta 30662 nel file *server.js* nel progetto [Node.js](https://nodejs.org/en/download/) e nel file con estensione *csproj* nel progetto di [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 >
 
 #### <a name="step-4-run-the-project"></a>Passaggio 4: Eseguire il progetto
@@ -121,7 +133,7 @@ npm install msal
 Il codice della guida introduttiva illustra anche come inizializzare la libreria:
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Where  |  |

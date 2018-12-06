@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649313"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284371"
 ---
 # <a name="language-understanding-faq"></a>Domande frequenti su LUIS
 
@@ -60,6 +60,16 @@ Le app Cortana predefinite sono state deprecate nel 2017. Non sono più supporta
 
 ## <a name="luis-endpoint"></a>Endpoint LUIS
 
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>La query dell'endpoint ha restituito risultati imprevisti. Cosa devo fare?
+
+I risultati imprevisti della query dipendono dallo stato del modello pubblicato. Per correggere il modello, può essere necessario modificare il modello, eseguire il training e ripetere la pubblicazione. 
+
+La correzione del modello inizia con l'[apprendimento attivo](luis-how-to-review-endoint-utt.md).
+
+È possibile rimuovere il training non deterministico aggiornando l'[API delle impostazioni della versione dell'applicazione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) in modo da usare tutti i dati di training. 
+
+Per altri suggerimenti, rivedere le [procedure consigliate](luis-concept-best-practices.md). 
+
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Perché LUIS aggiunge spazi alla query attorno o in mezzo alle parole?
 LUIS [suddivide in token](luis-glossary.md#token) l'espressione in base alle [impostazioni cultura](luis-language-support.md#tokenization). Il valore originale e il valore in formato token sono entrambi disponibili per l'[estrazione dei dati](luis-concept-data-extraction.md#tokenized-entity-returned).
 
@@ -67,7 +77,7 @@ LUIS [suddivide in token](luis-glossary.md#token) l'espressione in base alle [im
 [Creare la chiave di endpoint](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure per il livello di [servizio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Assegnare la chiave](luis-how-to-manage-keys.md#assign-endpoint-key) nella pagina **[Keys and endpoints](luis-how-to-manage-keys.md)** (Chiavi ed endpoint). Non vi è alcuna API corrispondente per questa azione. È necessario quindi modificare la richiesta HTTP all'endpoint per fare in modo che [usi la nuova chiave dell'endpoint](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Come si interpretano i punteggi di LUIS?
-Il sistema deve usare la finalità di punteggio più elevata, indipendentemente dal relativo valore. Ad esempio, un punteggio al di sotto di 0,5 (inferiore al 50%) non significa necessariamente che LUIS disponga di una confidenza bassa. Fornendo più dati di training sarà possibile aumentare il punteggio della finalità più probabile.
+Il sistema deve usare la finalità di punteggio più elevata, indipendentemente dal relativo valore. Ad esempio, un punteggio al di sotto di 0,5 (inferiore al 50%) non significa necessariamente che LUIS disponga di una confidenza bassa. Fornendo più dati di training sarà possibile aumentare il [punteggio](luis-concept-prediction-score.md) della finalità più probabile.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Perché non vengono visualizzate le occorrenze degli endpoint nella dashboard dell'app?
 Le occorrenze totali dell'endpoint nel dashboard dell'app vengono aggiornate periodicamente, ma le metriche associate alla chiave endpoint a LUIS nel portale di Azure vengono aggiornate più di frequente.
@@ -187,14 +197,14 @@ Il [priming del riconoscimento vocale](https://docs.microsoft.com/bot-framework/
 ## <a name="luis-service"></a>Servizio LUIS
 
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS è disponibile in locale o in un cloud privato?
-No.
+ No.
 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>In occasione della conferenza Build 2018, è stata menzionata una funzionalità o una dimostrazione di LUIS. Di quale caratteristica si trattava?
 
 In occasione della conferenza Build 2018 sono state rilasciate le seguenti funzionalità:
 
-|Nome|Contenuto|
+|NOME|Content|
 |--|--|
 |Miglioramenti|Entità [Espressione regolare](luis-concept-data-extraction.md##regular-expression-entity-data) ed entità [Frase chiave](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
 |Modelli|Modelli [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>Concetto dell'entità [Patterns.Any](luis-concept-entity-types.md), incluso un [elenco esplicito](luis-concept-patterns.md#explicit-lists) per le eccezioni<br>Concetto [Ruoli](luis-concept-roles.md)|

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 92746b37d6c7577691b46bf34a00f607ad707ff9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 51c2154f4132340e00b8fddcfaeb6e999519c48f
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569040"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446705"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare ed eseguire il debug di moduli Node.js per Azure IoT Edge
 
@@ -65,7 +65,7 @@ La procedura seguente illustra come creare un modulo IoT Edge basato su Node.js 
 6. Specificare un nome per la soluzione. 
 7. Scegliere **Node.js Module** (Modulo Node.js) come modello per il primo modulo della soluzione.
 8. Specificare un nome per il modulo. Scegliere un nome univoco all'interno del registro contenitori. 
-9. Specificare il repository di immagini per il modulo. Poiché VS Code popola automaticamente il nome del modulo, è sufficiente sostituire **localhost:5000** con le informazioni del registro specifiche. Se per il test si usa un registro Docker locale, localhost è corretto. Se si usa Registro contenitori di Azure, specificare il server di accesso indicato nelle impostazioni del registro. Il server di accesso ha un nome simile a **\<nome registro\>.azurecr.io**. Sostituire solo la parte localhost della stringa, non eliminare il nome del modulo.
+9. Specificare il repository di immagini per il modulo. Poiché VS Code popola automaticamente il nome del modulo, è sufficiente sostituire **localhost:5000** con le informazioni del registro specifiche. Se per il test si usa un registro Docker locale, localhost è corretto. Se si usa Registro contenitori di Azure, specificare il server di accesso indicato nelle impostazioni del registro. Il server di accesso ha un nome simile a **\<nome registro\>.azurecr.io**. Sostituire solo la parte localhost della stringa, non eliminare il nome del modulo. La stringa finale è simile a \<nome registro\>.azurecr.io/\<nomemodulo\>.
 
    ![Specificare il repository di immagini Docker](./media/how-to-develop-node-module/repository.png)
 
@@ -80,6 +80,7 @@ All'interno della soluzione sono presenti tre elementi:
    >Il file dell'ambiente viene creato solo se si specifica un repository di immagini per il modulo. Se sono state accettate le impostazioni predefinite di localhost per testare ed eseguire il debug in locale, non è necessario dichiarare le variabili di ambiente. 
 
 * Un file **deployment.template.json** in cui sono elencati il nuovo modulo e un modulo **tempSensor** di esempio che simula i dati utilizzabili per il test. Per altre informazioni sul funzionamento dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli IoT Edge](module-composition.md).
+* Un file **deployment.debug.template.json** contenente la versione di debug delle immagini del modulo con le opzioni per il contenitore appropriato.
 
 ## <a name="develop-your-module"></a>Sviluppare il modulo
 
@@ -92,6 +93,14 @@ Visual Studio Code include il supporto per Node.js. Altre informazioni su [come 
 ## <a name="launch-and-debug-module-code-without-container"></a>Avviare il codice del modulo ed eseguirne il debug senza contenitore
 
 Il modulo Node.js per IoT Edge dipende da Azure IoT Node.js Device SDK. Nel codice del modulo predefinito si inizializza un **ModuleClient** con le impostazioni di ambiente e il nome di input. Questo significa che il modulo Node.js per IoT Edge richiede l'avvio e l'esecuzione delle impostazioni di ambiente ed è anche necessario inviare o indirizzare i messaggi ai canali di input. Il modulo Node.js predefinito contiene solo un canale di input, denominato **input1**.
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>Impostare il simulatore di IoT Edge per la soluzione IoT Edge
+
+Nel computer di sviluppo è possibile avviare il simulatore di IoT Edge invece di installare il daemon di sicurezza IoT Edge per eseguire la soluzione IoT Edge. 
+
+1. In Device Explorer sul lato sinistro fare clic con il pulsante destro del mouse sull'ID del dispositivo IoT Edge, selezionare **Setup IoT Edge Simulator** (Installa simulatore IoT Edge) per avviare il simulatore con la stringa di connessione del dispositivo.
+
+2. Nel terminale integrato è possibile vedere che il simulatore di IoT Edge è stato correttamente configurato.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Impostare il simulatore di IoT Edge per l'app a modulo singolo
 
@@ -152,12 +161,7 @@ Nel computer di sviluppo è possibile avviare il simulatore di IoT Edge invece d
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Creare ed eseguire il contenitore per il debug ed eseguire il debug in modalità connessione
 
-1. In VS Code passare al file `deployment.template.json`. Aggiornare l'URL dell'immagine del modulo aggiungendo **.debug** alla fine.
-
-2. Nel modulo Node.js sostituire createOptions in **deployment.template.json** con il contenuto seguente e salvare il file: 
-    ```json
-    "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
-    ```
+1. In VS Code passare al file `deployment.debug.template.json`. Nel menu di scelta rapida fare clic su **Build and Run IoT Edge solution in Simulator** (Compila ed esegui la soluzione IoT Edge nel simulatore). È possibile esaminare tutti i log del contenitore del modulo nella stessa finestra. È anche possibile passare a Docker Explorer per controllare lo stato del contenitore.
 
 3. Passare alla visualizzazione di debug di VS Code. Selezionare il file di configurazione del debug per il modulo. Il nome dell'opzione di debug deve essere simile a **Debug remoto NomeModulo (Node. js)** oppure **Debug remoto NomeModulo (Node. js nel contenitore Windows)**, che dipende dal tipo di contenitore nel computer di sviluppo.
 

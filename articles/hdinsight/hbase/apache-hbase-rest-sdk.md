@@ -3,22 +3,22 @@ title: Usare HBase .NET SDK - Azure HDInsight
 description: Usare HBase .NET SDK per creare ed eliminare tabelle e per leggere e scrivere dati.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 1a26b8623ab046d7076c67d37657f19cf8d9c261
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 89c74b0c2144776d3bbc8a87f660b546ad40987f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600201"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495405"
 ---
-# <a name="use-the-hbase-net-sdk"></a>Usare HBase .NET SDK
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Usare .NET SDK per Apache HBase
 
-[HBase](apache-hbase-overview.md) fornisce due opzioni principali per lavorare con i dati: [query Hive e chiamate all'API RESTful di HBase](apache-hbase-tutorial-get-started-linux.md). È possibile lavorare direttamente con l'API REST usando il comando `curl` o un'utilità analoga.
+[Apache HBase](apache-hbase-overview.md) fornisce due opzioni principali per lavorare con i dati: [query Apache Hive e chiamate all'API RESTful di HBase](apache-hbase-tutorial-get-started-linux.md). È possibile lavorare direttamente con l'API REST usando il comando `curl` o un'utilità analoga.
 
 Per le applicazioni C# e .NET, è disponibile la [libreria client Microsoft REST HBase per .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) basata sull'API REST HBase.
 
@@ -37,7 +37,7 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Sostituire CLUSTERNAME con il nome del cluster HBase HDInsight e USERNAME e PASSWORD con le credenziali di Hadoop specificate alla creazione del cluster. Il nome utente predefinito di Hadoop è **admin**.
+Sostituire CLUSTERNAME con il nome del cluster HBase HDInsight e USERNAME e PASSWORD con le credenziali di Apache Hadoop specificate durante la creazione del cluster. Il nome utente predefinito di Hadoop è **admin**.
 
 ## <a name="create-a-new-table"></a>Crea una nuova tabella
 
@@ -113,7 +113,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase implementa BigTable, quindi il formato dei dati è simile al seguente:
+HBase implementa [Cloud BigTable](https://cloud.google.com/bigtable/), quindi il formato dei dati è simile al seguente:
 
 ![Utente con ruolo di utente del cluster](./media/apache-hbase-rest-sdk/table.png)
 
@@ -189,4 +189,4 @@ finally
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Iniziare a usare un esempio di Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Creare un'applicazione end-to-end con [Analizzare i sentiment di Twitter in tempo reale con HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Creare un'applicazione end-to-end con [Analizzare i sentiment di Twitter in tempo reale con Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)

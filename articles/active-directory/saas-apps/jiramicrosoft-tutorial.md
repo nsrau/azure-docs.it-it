@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/22/2018
 ms.author: jeedes
-ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 608269a05ae1ed699954cd301aa03056e089fa8a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010729"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Esercitazione: integrazione di Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -154,11 +154,26 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon12.png)
 
-9. Dopo aver installato il plug-in, questo comparirà nella sezione dei componenti aggiuntivi **User Installed** (Installati dall'utente) della sezione **Manage Add-on** (Gestisci componente aggiuntivo). Fare clic su **Configure** (Configura) per configurare il nuovo plug-in.
+9. Per l'esecuzione dello scenario di proxy inverso JIRA o dello scenario di bilanciamento del carico, seguire questa procedura:
+
+    > [!NOTE]
+    > Configurare prima di tutto il server con le istruzioni seguenti e quindi installare il plug-in.
+
+    a. Aggiungere l'attributo seguente in **connector port** nel file **server.xml** dell'applicazione server JIRA.
+
+    `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
+
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+
+    b. Modificare il valore di **Base URL** (URL di base) in **System Settings** (Impostazioni di sistema) in base al proxy/bilanciamento del carico.
+
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+
+10. Dopo aver installato il plug-in, questo comparirà nella sezione dei componenti aggiuntivi **User Installed** (Installati dall'utente) della sezione **Manage Add-on** (Gestisci componente aggiuntivo). Fare clic su **Configure** (Configura) per configurare il nuovo plug-in.
 
     ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon13.png)
 
-10. Seguire questa procedura nella pagina di configurazione:
+11. Seguire questa procedura nella pagina di configurazione:
 
     ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon52.png)
 

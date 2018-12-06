@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3e792eb9ab2e2902bfc9c84db7c1c344fb0cf67f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 93929df86057b48e132048a0879bc7347402652a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622347"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497750"
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight
-Hive fornisce un metodo per l'esecuzione di processi MapReduce di Apache Hadoop mediante un linguaggio di scripting simile a SQL, denominato *[HiveQL][hadoop-hiveql]*, che può essere applicato per attività di riepilogo, query e analisi di volumi di dati molto elevati.
+# <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Analizzare i dati sui ritardi dei voli mediante Apache Hive in HDInsight
+[Apache Hive](https://hive.apache.org/) fornisce un metodo per l'esecuzione di processi [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) mediante un linguaggio di scripting simile a SQL, denominato *[HiveQL][hadoop-hiveql]*, che può essere applicato per attività di riepilogo, query e analisi di volumi di dati molto elevati.
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Per i passaggi relativi a un cluster basato su Linux, vedere [Analizzare i dati sui ritardi dei voli con Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
+> I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Per i passaggi relativi a un cluster basato su Linux, vedere [Analizzare i dati sui ritardi dei voli con Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 Uno dei principali vantaggi di Azure HDInsight è la separazione tra archiviazione e calcolo dei dati. HDInsight usa l'archiviazione BLOB di Azure per l'archiviazione dei dati. Un tipico processo è costituito da tre parti:
 
@@ -44,7 +44,7 @@ La parte principale dell'esercitazione mostra come usare uno script di Windows P
 Nelle appendici sono disponibili istruzioni per caricare i dati relativi ai ritardi dei voli, creare/caricare la stringa di query Hive e preparare il database SQL di Azure per il processo Sqoop.
 
 > [!NOTE]
-> I passaggi descritti in questo documento sono specifici per i cluster HDInsight basati su Windows. Per i passaggi relativi a un cluster basato su Linux, vedere [Analizzare i dati sui ritardi dei voli con Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> I passaggi descritti in questo documento sono specifici per i cluster HDInsight basati su Windows. Per i passaggi relativi a un cluster basato su Linux, vedere [Analizzare i dati sui ritardi dei voli con Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 ### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
@@ -76,7 +76,7 @@ Nella tabella seguente vengono elencati i file usati nell'esercitazione:
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Creare cluster ed eseguire processi Hive/Sqoop
 Per Hadoop MapReduce è prevista l'elaborazione batch. Il modo più economico di eseguire un processo Hive consiste nel creare un cluster per il processo ed eliminare il processo dopo il completamento. Lo script seguente descrive l'intero processo.
-Per altre informazioni sulla creazione di un cluster HDInsight e sull'esecuzione di processi Hive, vedere [Creare cluster Hadoop in HDInsight][hdinsight-provision] e [Usare Hive con HDInsight][hdinsight-use-hive].
+Per altre informazioni sulla creazione di un cluster HDInsight e sull'esecuzione di processi Hive, vedere [Creare cluster Apache Hadoop in HDInsight][hdinsight-provision] e [Usare Apache Hive con HDInsight][hdinsight-use-hive].
 
 **Per eseguire le query Hive con Azure PowerShell**
 
@@ -237,10 +237,10 @@ Per altre informazioni sulla creazione di un cluster HDInsight e sull'esecuzione
 - - -
 
 ## <a id="appendix-a"></a>Appendice A: caricare i dati relativi ai ritardi dei voli nell'archivio BLOB di Azure
-Prima di caricare il file di dati e i file script HiveQL, vedere l' [Appendice B](#appendix-b), è richiesta un'attività di pianificazione. L'idea è quella di archiviare i file di dati e il file HiveQL prima di creare un cluster HDInsight e di eseguire il processo Hive. Sono disponibili due opzioni:
+Prima di caricare il file di dati e i file script [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) (vedere l'[Appendice B](#appendix-b)), è richiesta un'attività di pianificazione. L'idea è quella di archiviare i file di dati e il file HiveQL prima di creare un cluster HDInsight e di eseguire il processo Hive. Sono disponibili due opzioni:
 
-* **Usare lo stesso account di archiviazione di Azure che sarà usato come file system predefinito per il cluster HDInsight:** poiché il cluster HDInsight avrà la chiave di accesso dell'account di archiviazione, non è necessario apportare altre modifiche.
-* **Usare un account di archiviazione di Azure diverso dal file system predefinito del cluster HDInsight:** In questo caso è necessario modificare la parte relativa alla creazione dello script di Windows PowerShell disponibile in [Creare un cluster HDInsight ed eseguire processi Hive/Sqoop](#runjob) per includere l'account di archiviazione come account di archiviazione aggiuntivo. Per istruzioni, vedere [Creare cluster Hadoop in HDInsight][hdinsight-provision]. Il cluster HDInsight conosce quindi la chiave di accesso per l'account di archiviazione.
+* **Usare lo stesso account di archiviazione di Azure che sarà usato come file system predefinito per il cluster HDInsight:**  poiché il cluster HDInsight avrà la chiave di accesso dell'account di archiviazione, non è necessario apportare altre modifiche.
+* **Usare un account di archiviazione di Azure diverso dal file system predefinito del cluster HDInsight:** In questo caso è necessario modificare la parte relativa alla creazione dello script di Windows PowerShell disponibile in [Creare un cluster HDInsight ed eseguire processi Apache Hive/Sqoop](#runjob) per includere l'account di archiviazione come account di archiviazione aggiuntivo. Per istruzioni, vedere [Creare cluster Apache Hadoop in HDInsight][hdinsight-provision]. Il cluster HDInsight conosce quindi la chiave di accesso per l'account di archiviazione.
 
 > [!NOTE]
 > Il percorso dell'archivio BLOB per il file di dati è hardcoded nel file di script HiveQL. È necessario aggiornarlo di conseguenza.
@@ -359,7 +359,7 @@ Il percorso tutorials/flightdelay/data è la cartella virtuale creata durante il
 - - -
 
 ## <a id="appendix-b"></a>Appendice B: creare e caricare uno script HiveQL
-Azure PowerShell consente di eseguire più istruzioni HiveQL contemporaneamente o di inserire l'istruzione HiveQL in un file di script. Questa sezione illustra come creare uno script HiveQL e caricarlo nell'archivio BLOB di Azure con PowerShell. Hive richiede che gli script HiveQL siano archiviati nell'archivio BLOB di Azure.
+Azure PowerShell consente di eseguire più istruzioni [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) contemporaneamente o di inserire l'istruzione HiveQL in un file di script. Questa sezione illustra come creare uno script HiveQL e caricarlo nell'archivio BLOB di Azure con PowerShell. Hive richiede che gli script HiveQL siano archiviati nell'archivio BLOB di Azure.
 
 Il file di script HiveQL eseguirà le operazioni seguenti:
 
@@ -367,9 +367,9 @@ Il file di script HiveQL eseguirà le operazioni seguenti:
 2. **Creazione della tabella Hive esterna delays_raw**, che fa riferimento al percorso dell'archivio BLOB che include i file relativi ai ritardi dei voli. La query consente di specificare che i campi sono delimitati da "," e che le righe vengono interrotte da "\n". Ciò costituisce un problema quando i valori dei campi contengono virgole, poiché Hive non è in grado di distinguere tra una virgola che delimita i campi e una virgola inclusa in un valore di campo, come ad esempio nel caso dei valori di campo per ORIGIN\_CITY\_NAME e DEST\_CITY\_NAME. Per risolvere questo problema, la query crea colonne TEMP in cui inserire i dati suddivisi erroneamente in colonne.
 3. **Eliminazione della tabella delays**, se la tabella esiste già.
 4. **Creazione della tabella delays**. È consigliabile ripulire i dati prima di procedere con l'elaborazione. La query crea una nuova tabella *delays* dalla tabella delays_raw. Si noti che le colonne TEMP, come indicato in precedenza, non vengono copiate e che la funzione **substring** viene usata per rimuovere le virgolette dai dati.
-5. **Calcolo della media dei ritardi dovuti alle condizioni climatiche e raggruppamento dei risultati in base al nome della città.** I risultati verranno anche inviati come output all'archivio BLOB. Si noti che la query rimuoverà gli apostrofi dai dati ed escluderà le righe in cui il valore per **weather_delay** è Null. Ciò è necessario perché Sqoop, usato più avanti nell'esercitazione, non è in grado di gestire correttamente tali valori per impostazione predefinita.
+5. **Calcolo della media dei ritardi dovuti alle condizioni climatiche e raggruppamento dei risultati in base al nome della città.**  I risultati verranno anche inviati come output all'archivio BLOB. Si noti che la query rimuoverà gli apostrofi dai dati ed escluderà le righe in cui il valore per **weather_delay** è Null. Ciò è necessario perché Sqoop, usato più avanti nell'esercitazione, non è in grado di gestire correttamente tali valori per impostazione predefinita.
 
-Per un elenco completo di comandi di HiveQL, vedere [Hive Data Definition Language][hadoop-hiveql] (Linguaggio di definizione dei dati Hive). Ogni comando HiveQL deve terminare con un punto e virgola.
+Per un elenco completo di comandi di HiveQL, vedere [Apache Hive Data Definition Language][hadoop-hiveql] (Linguaggio di definizione dei dati Apache Hive). Ogni comando [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) deve terminare con un punto e virgola.
 
 **Per creare un file di script HiveQL**
 
@@ -712,13 +712,13 @@ Per un elenco completo di comandi di HiveQL, vedere [Hive Data Definition Langua
 5. Convalidare l'output dello script. Assicurarsi che lo script sia stato eseguito correttamente.
 
 ## <a id="nextsteps"></a> Passaggi successivi
-È stato illustrato come caricare file nell'archivio BLOB di Azure, come popolare una tabella Hive con i dati disponibili nell'archivio BLOB di Azure, come eseguire query Hive e come usare Sqoop per esportare i dati da HDFS in un database SQL di Azure. Per altre informazioni, vedere gli articoli seguenti:
+È stato illustrato come caricare file nell'archiviazione BLOB di Azure, come popolare una tabella Apache Hive con i dati disponibili nell'archiviazione BLOB di Azure, come eseguire query Hive e come usare Sqoop per esportare i dati da [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) in un database SQL di Azure. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Introduzione a HDInsight][hdinsight-get-started]
-* [Usare Hive con HDInsight][hdinsight-use-hive]
-* [Usare Oozie con HDInsight][hdinsight-use-oozie]
-* [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop]
-* [Usare Pig con HDInsight][hdinsight-use-pig]
+* [Usare Apache Hive con HDInsight][hdinsight-use-hive]
+* [Usare Apache Oozie con HDInsight][hdinsight-use-oozie]
+* [Usare Apache Sqoop con HDInsight][hdinsight-use-sqoop]
+* [Usare Apache Pig con HDInsight][hdinsight-use-pig]
 * [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-mapreduce]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

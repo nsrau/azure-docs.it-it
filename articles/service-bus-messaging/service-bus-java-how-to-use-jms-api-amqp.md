@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a223c67e0c1f2e71d2953be63924a114e7420af
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018231"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308071"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0
 AMQP (Advanced Message Queuing Protocol) 1.0 è un protocollo di messaggistica wire-level efficiente e affidabile che può essere utilizzato per creare potenti applicazioni di messaggistica multipiattaforma.
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>Impostare il contesto JNDI e configurare ConnectionFactory
 
 La voce **ConnectionString** a cui si fa riferimento è quella disponibile nell'area **Stringa di connessione primaria** di Criteri di accesso condiviso nel [portale di Azure](https://portal.azure.com).
-```
+```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
 // connection string. 
@@ -89,7 +89,7 @@ Destination queue = (Destination) context.lookup("QUEUE");
 La voce usata per definire una destinazione nel provider JNDI basato sul file delle proprietà Qpid è nel formato seguente:
 
 Per creare la coda di destinazione per il producer: 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -103,7 +103,7 @@ MessageProducer producer = session.createProducer(queue);
 ```
 
 Per creare una coda di destinazione per il consumer: 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -364,7 +364,7 @@ Inoltre, il bus di servizio di Azure separa il piano di controllo dal piano dati
 | createQueue                 | Creare una coda tramite portale/strumenti/API di gestione                                           | 
 | createTemporaryQueue        | Creare una coda tramite portale/strumenti/API di gestione con *AutoDeleteOnIdle* impostato su un periodo di scadenza |
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Questa guida dettagliata ha illustrato come accedere alle funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) del bus di servizio da Java usando la diffusa API JMS e AMQP 1.0.
 
 È anche possibile utilizzare AMQP 1.0 per il bus di servizio da altri linguaggi, tra cui .NET, C, Python e PHP. I componenti creati con questi linguaggi possono scambiare messaggi in modo affidabile e con la massima fedeltà grazie al supporto per AMQP 1.0 nel bus di servizio.

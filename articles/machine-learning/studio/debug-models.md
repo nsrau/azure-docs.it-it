@@ -1,10 +1,11 @@
 ---
-title: Eseguire il debug del modello in Azure Machine Learning | Documentazione Microsoft
-description: Come eseguire il debug di errori generati dai moduli dal training e dalla classificazione del modello in Azure Machine Learning.
+title: Eseguire il debug del modello in Azure Machine Learning Studio | Microsoft Docs
+description: Come eseguire il debug di errori generati dai moduli dal training e dalla classificazione del modello in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.openlocfilehash: 144edca6d2e6fc8d0d8e59e6cff1d3f37eb233aa
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: bb1a3e778dcbcfacbc9e605ebf2d855786d71510
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834312"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312596"
 ---
-# <a name="debug-your-model-in-azure-machine-learning"></a>Debug del modello in Azure Machine Learning
+# <a name="debug-your-model-in-azure-machine-learning-studio"></a>Debug del modello in Azure Machine Learning Studio
 
 In questo articolo vengono spiegati i potenziali motivi per i quali possono verificarsi i due errori indicati di seguito durante l'esecuzione di un modello:
 

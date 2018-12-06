@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/3/2018
+ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: f865a0a609422ae4938a9cccf15d9cd176a9400a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227791"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311229"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo documento illustra come usare il Centro sicurezza di Azure per gestire e rispondere agli avvisi di sicurezza.
 
 > [!NOTE]
-> Per abilitare le funzionalità di rilevamento avanzato, eseguire l'aggiornamento al livello Standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita di 60 giorni. Per eseguire l'aggiornamento, selezionare il piano tariffario nei [criteri di sicurezza](security-center-policies.md). Per altre informazioni, vedere [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
+> Per abilitare le funzionalità di rilevamento avanzato, eseguire l'aggiornamento al livello Standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita di 60 giorni. Per eseguire l'aggiornamento, selezionare il piano tariffario nei [criteri di sicurezza](security-center-azure-policy.md). Per altre informazioni, vedere [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
 >
 >
 
@@ -63,6 +63,20 @@ Nella parte inferiore della pagina sono riportati i dettagli relativi a ogni avv
 > [!NOTE]
 > Gli avvisi di sicurezza generati dal Centro sicurezza verranno visualizzati anche in Log attività di Azure. Per altre informazioni su come accedere a Log attività di Azure, vedere [Visualizzare i log attività per controllare le azioni sulle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 >
+
+
+### <a name="alert-severity"></a>Gravità degli avvisi
+
+> [!NOTE]
+> La gravità degli avvisi viene visualizzata in modo diverso nel portale e nell'API REST. Le differenze sono indicate nell'elenco seguente.
+
+-   **Alta**: esiste una forte probabilità che la risorsa sia compromessa. È consigliabile controllarla immediatamente. Il Centro sicurezza ha una certezza elevata sia delle finalità dannose che delle conclusioni usate per inviare l'avviso, ad esempio un avviso che rileva l'esecuzione di uno strumento dannoso noto, come Mimikatz, uno strumento comune usato per il furto di credenziali. 
+-   **Media (Bassa nell'API REST)**: si tratta di una probabile attività sospetta che potrebbe indicare che una risorsa è compromessa.
+La fiducia del Centro sicurezza nell'analisi o nella conclusione è media e la certezza delle finalità dannose è da media a elevata. Si tratta in genere di rilevamenti basati su anomalie o sull'apprendimento automatico, ad esempio un tentativo di accesso da una posizione anomala.
+-   **Bassa (Informazioni nell'API REST)**: potrebbe trattarsi di un falso positivo o di un attacco bloccato. 
+    - Il Centro sicurezza non è del tutto certo che l'intento sia dannoso e che l'attività possa essere inoffensiva. La cancellazione di un log, ad esempio, è un'azione che può verificarsi quando un utente malintenzionato cerca di nascondere le proprie tracce, ma in molti casi è un'operazione di routine eseguita dagli amministratori.
+    - Il Centro sicurezza non segnala in genere quando sono stati bloccati attacchi, a meno che non si tratti di un caso interessante che si consiglia di esaminare. 
+-   **Informativo (invisibile nell'API REST)**: gli avvisi informativi verranno visualizzati solo quando si esegue il drill-down di un evento imprevisto relativo alla sicurezza oppure se si usa l'API REST con un ID avviso specifico. Un evento imprevisto è in genere costituito da più avvisi, alcuni dei quali sono di per sé semplicemente informativi, ma nel contesto degli altri avvisi potrebbero richiedere un'analisi più approfondita. 
 
 ### <a name="filtering-alerts"></a>Filtro degli avvisi
 È possibile filtrare gli avvisi in base a data, stato e gravità. Il filtro degli avvisi può risultare utile per scenari in cui è necessario limitare l'ambito degli avvisi di sicurezza da visualizzare. Ad esempio, potrebbe essere necessario gestire gli avvisi di sicurezza che si sono verificati nelle ultime 24 ore, perché si sta esaminando una potenziale violazione del sistema.

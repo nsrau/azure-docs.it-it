@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238523"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976860"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -41,7 +41,7 @@ Il servizio Batch consente di definire le risorse di calcolo di Azure per esegui
 * [Nozioni di base di Batch](../../batch/batch-technical-overview.md)
 * [Panoramica delle funzionalità Batch](../../batch/batch-api-basics.md)
 
-Per altre informazioni su Batch è possibile consultare il [Percorso di apprendimento di Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
+Facoltativamente, per altre informazioni su Batch, vedere [la documentazione di Batch](https://docs.microsoft.com/en-us/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Perché Azure Data Factory?
 Data factory è un servizio di integrazione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati. È possibile usare Data Factory per creare pipeline di dati gestiti che spostino i dati da archivi locali e su cloud a un archivio dati centralizzato. Un esempio è l'archivio BLOB di Azure. È possibile usare Data Factory per elaborare o trasformare dati tramite servizi come Azure HDInsight e Azure Machine Learning. È anche possibile pianificare le pipeline di dati per eseguire operazioni in modo pianificato (ad esempio con intervalli orari, giornalieri e settimanali). È possibile monitorare e gestire le pipeline in modo immediato per identificare i problemi e definire gli interventi necessari.
@@ -51,7 +51,7 @@ Data factory è un servizio di integrazione delle informazioni basato sul cloud 
 * [Introduzione al servizio Data factory](data-factory-introduction.md)
 * [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md)   
 
-Per altre informazioni su Data Factory, è possibile anche vedere il [Percorso di apprendimento per Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+Per altre informazioni su Data Factory, vedere facoltativamente la [documentazione di Data Factory](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory e Batch insieme
 Data Factory include attività predefinite. Ad esempio, è disponibile l'attività Copia per copiare e spostare dati da un archivio dati di origine a uno di destinazione. L'attività Hive viene usata per elaborare dati mediante i cluster Hadoop (HDInsight) in Azure. Per un elenco delle attività di trasformazione supportate, vedere le informazioni sulle [Attività di trasformazione dati](data-factory-data-transformation-activities.md).

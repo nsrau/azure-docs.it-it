@@ -14,17 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8ca04fef8a17c43c9d1f761e36d8da7f1e07d4d5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3684a1fa22982b62992db28cccd88d67738bc94
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283581"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161702"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: cronologia delle versioni
 Il team di Azure Active Directory aggiorna regolarmente Azure AD Connect Health con nuove funzionalità. Questo articolo elenca le versioni e le funzionalità che sono state rilasciate.
-Azure AD Connect Health per la sincronizzazione è integrato con l'installazione di Azure AD Connect. Altre informazioni sulla [cronologia versioni di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+Azure AD Connect Health per la sincronizzazione è integrato con l'installazione di Azure AD Connect. Per altre informazioni, vedere [Azure AD Connect: Cronologia delle versioni](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history). Per fornire un feedback sulle funzionalità, esprimere un voto nel sito [User Voice di Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## <a name="november-2018"></a>Novembre 2018
+**Nuove funzionalità con disponibilità generale:** 
+* Azure AD Connect Health: diagnosi e correzione degli errori di sincronizzazione che causano la duplicazione di attributi dal portale
+
+**Aggiornamento dell'agente:** 
+*  Agente di Azure AD Connect Health per Active Directory Domain Services (versione 3.1.24.0) 
+1. Conformità e applicazione del protocollo Transport Layer Security (TLS) versione 1.2
+2. Riduzione della frequenza degli avvisi per il catalogo globale
+3. Correzione di bug relativi alla registrazione dell'agente di integrità
+
+*   Agente di Azure AD Connect Health per Active Directory Federation Services (versione 3.1.24.0)
+1. Conformità e applicazione del protocollo Transport Layer Security (TLS) versione 1.2
+2. Supporto di Test-ADFSRequestToken per il sistema operativo localizzato
+3. Risoluzione del problema di blocco di EventHandler per l'agente di diagnostica
+4. Correzione di bug relativi alla registrazione dell'agente di integrità
 
 ## <a name="august-2018"></a>Agosto 2018 
 *  Agente di Azure AD Connect Health per la sincronizzazione (versione 3.1.7.0) rilasciato con Azure AD Connect versione 1.1.880.0    

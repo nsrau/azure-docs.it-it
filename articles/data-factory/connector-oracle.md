@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 11/21/2018
 ms.author: jingwang
-ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 1e561a59ebe503e0088362087dbda4d7d89fee4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42312164"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275687"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,11 +65,46 @@ Per il servizio collegato di Oracle sono supportate le proprietà seguenti.
 >[!TIP]
 >Se si trova l'errore che indica "ORA 01025:UPI parameter out of range" e la versione Oracle è la 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione e riprovare.
 
-Per abilitare la crittografia sulla connessione di Oracle, sono disponibili due opzioni:
+**Per abilitare la crittografia sulla connessione Oracle**, sono disponibili due opzioni:
 
-1.  Sul lato server Oracle, passare a Oracle Advanced Security (OAS) e configurare le impostazioni di crittografia, che supporta la crittografia Triple DES (3DES) e Advanced Encryption Standard (AES). Per informazioni dettagliate, vedere [qui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Connettore Azure Data factory Oracle negozia automaticamente il metodo di crittografia per usare uno dei due configurati in OAS per stabilire la connessione a Oracle.
+1.  Per usare To use **Triple-DES Encryption (3DES) e Advanced Encryption Standard (AES)** sul lato server Oracle, passare a Oracle Advanced Security (OAS) e configurare le impostazioni di crittografia. Per informazioni dettagliate, vedere [qui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Connettore Azure Data factory Oracle negozia automaticamente il metodo di crittografia per usare uno dei due configurati in OAS per stabilire la connessione a Oracle.
 
-2.  Sul lato client, è possibile aggiungere `EncryptionMethod=1` nella stringa di connessione. Questo userà SSL/TLS come metodo di crittografia. Per usarlo, è necessario disabilitare le impostazioni di crittografia non SSL in OAS sul lato server Oracle per evitare conflitti di crittografia.
+2.  Per usare **SSL**, seguire questa procedura:
+
+    1.  Ottenere informazioni sul certificato SSL. Ottenere le informazioni sul certificato con codifica DER del certificato SSL e salvare l'output (----- Begin Certificate … End Certificate -----) come file di testo.
+
+        ```
+        openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
+        ```
+
+        **Esempio:** estrarre le informazioni del certificato da DERcert.cer e quindi salvare l'output in cert.txt
+
+        ```
+        openssl x509 -inform DER -in DERcert.cer -text
+        Output:
+        -----BEGIN CERTIFICATE-----
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXX
+        -----END CERTIFICATE-----
+        ```
+    
+    2.  Creare il file KeyStore o TrustStore. Il comando seguente crea il file TrustStore con o senza una password in formato PKCS-12.
+
+        ```
+        openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
+        ```
+
+        **Esempio:** crea un file TrustStore PKCS12 denominato MyTrustStoreFile con una password
+
+        ```
+        openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
+        ```
+
+    3.  Posizionare il file TrustStore nel computer del runtime di integrazione self-hosted, ad esempio in C:\MyTrustStoreFile.
+    4.  In Azure Data Factory, configurare la stringa di connessione Oracle con `EncryptionMethod=1` e il valore `TrustStore`/`TrustStorePassword`corrispondente, ad esempio `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Esempio:**
 

@@ -1,11 +1,12 @@
 ---
-title: Importare dati in Machine Learning Studio da origini dati online | Microsoft Docs
-description: Come importare dati di training in Azure Machine Learning Studio da varie origini online.
+title: Importare dati in Machine Learning Studio da origini dati online - Azure | Microsoft Docs
+description: Questo articolo illustra il supporto per l'importazione di dati online da varie origini e le informazioni necessarie per spostare i dati da queste origini a un esperimento di Azure Machine Learning Studio.
 keywords: dati di importazione, formato dati, tipi di dati, origini dati, dati di training
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
@@ -16,15 +17,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 87a7e968073d8625375ea837f9377145b6dfb45a
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 89e2414b32dfb3cc6773d09dcdc3e711e56492ef
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344862"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315024"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importare i dati in Azure Machine Learning Studio da diverse origini dati online con il modulo Import Data
-Questo articolo illustra il supporto per l'importazione di dati online da varie origini e le informazioni necessarie per spostare i dati da queste origini a un esperimento di Azure Machine Learning.
+Questo articolo illustra il supporto per l'importazione di dati online da varie origini e le informazioni necessarie per spostare i dati da queste origini a un esperimento di Azure Machine Learning Studio.
 
 > [!NOTE]
 > Questo articolo fornisce informazioni generali sul modulo [Import Data][import-data]. Per altre informazioni sui tipi di dati a cui è possibile accedere, i formati, i parametri e le risposte alle domande comuni, vedere l'argomento di riferimento del modulo per il modulo [Import Data][import-data].

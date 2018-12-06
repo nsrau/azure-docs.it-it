@@ -2,22 +2,22 @@
 title: File di inclusione
 description: File di inclusione
 services: virtual-machines-windows, virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 10/23/2018
-ms.author: danlep;azcspmt;jonbeck
+ms.date: 11/14/2018
+ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 4fde34338d5606a1f431ff4b7f7074d9cd472e90
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: b6df4ada1aa13e20c7ad52d2b58cdf9c783f9e24
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035499"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51716208"
 ---
 Le dimensioni delle macchine virtuali ottimizzate per la GPU sono macchine virtuali specializzate disponibili con una o più GPU NVIDIA. Queste dimensioni sono progettate per carichi di lavoro di visualizzazione oppure a elevato utilizzo di calcolo o di grafica. Questo articolo fornisce informazioni relative a numero e tipo di GPU, vCPU, dischi dati e schede di rete. Anche velocità effettiva di archiviazione e larghezza di banda della rete sono incluse per ogni dimensione di questo raggruppamento. 
 
-* Le dimensioni **NC, NCv2, NCv3 e ND** sono ottimizzate per le applicazioni e gli algoritmi a elevato utilizzo di calcolo e di rete. Alcuni esempi sono applicazioni e simulazioni basate su CUDA e OpenCL, intelligenza artificiale e Deep Learning. La serie NCv3 è progettata per i carichi di lavoro HPC (High-Performance Computing) e dotata di GPU NVIDIA Tesla V100.  La serie ND è progettata per gli scenari di training e inferenza per l'apprendimento profondo. Questa serie usa GPU NVIDIA Tesla P40.
+* Le dimensioni **NC, NCv2, NCv3, ND e NDv2** sono ottimizzate per le applicazioni e gli algoritmi a elevato utilizzo di calcolo e di rete. Alcuni esempi sono applicazioni e simulazioni basate su CUDA e OpenCL, intelligenza artificiale e Deep Learning. La serie NCv3 è progettata per i carichi di lavoro HPC (High-Performance Computing) e dotata di GPU NVIDIA Tesla V100.  La serie ND è progettata per gli scenari di training e inferenza per l'apprendimento profondo. Questa serie usa GPU NVIDIA Tesla P40.
 * Le dimensioni **NV e NVv2** sono ottimizzate e progettate per scenari di visualizzazione remota, streaming, gioco, codifica e VDI che usano framework come OpenGL e DirectX.  Queste macchine virtuali hanno GPU NVIDIA Tesla M60.
 
 
@@ -34,8 +34,8 @@ Le macchine virtuali serie NC sono basate sulla scheda [NVIDIA Tesla K80](http:/
 | --- | --- | --- | --- | --- | --- | --- | ---- |
 | Standard_NC6 |6 |56 | 340 | 1 | 8 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 16 | 48 | 2 |
-| Standard_NC24 |24 |224 | 1440 | 4 | 32 | 64 | 4 |
-| Standard_NC24r* |24 |224 | 1440 | 4 | 32 | 64 | 4 |
+| Standard_NC24 |24 |224 | 1.440 | 4 | 32 | 64 | 4 |
+| Standard_NC24r* |24 |224 | 1.440 | 4 | 32 | 64 | 4 |
 
 1 GPU = Pari a metà scheda K80.
 
@@ -87,6 +87,26 @@ Le macchine virtuali serie NCv3 sono basate sulle GPU [NVIDIA Tesla V100](http:/
 
 *Con supporto di RDMA
 
+## <a name="ndv2-series-preview"></a>Serie NDv2 (anteprima)
+
+
+Archiviazione Premium: supportata
+
+Memorizzazione nella cache Archiviazione Premium: supportata
+
+Infiniband: non supportato
+
+
+Le macchine virtuali della serie NDv2 sono una novità della famiglia di GPU e sono state progettate per le esigenze di carichi di lavoro di tipo HPC, intelligenza artificiale e Machine Learning. Sono basate su 8 GPU interconnesse di tipo NVIDIA Tesla V100 NVLINK e su 40 core Intel Skylake e offrono 672 GiB di memoria del sistema. Un'istanza NDv2 offre prestazioni eccellenti di tipo FP32 e FP64 per carichi di lavoro per HPC e intelligenza artificiale mediante Cuda, TensorFlow, Pytorch, Caffe e altri framework.
+
+[Iscriviti e ottieni l'accesso a queste macchine virtuali durante l'anteprima](https://aka.ms/ndv2signup).
+<br>
+
+
+| Dimensione              | vCPU | GPU              | Memoria  | NIC (Max) | Max. Dimensioni disco           | Max. (1023 GB ciascuno) | Larghezza di banda di rete massima | 
+|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
+| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporanea 1344 / 2948XIO | 32    | 24.000 Mbps             | 
+
 ## <a name="nd-series"></a>Serie ND
 
 Archiviazione Premium: supportata
@@ -124,7 +144,7 @@ Ogni GPU di istanze NV viene fornita con una licenza GRID. Questa licenza consen
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 | Standard_NV6 |6 |56 |340 | 1 | 8 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 16 | 48 | 2 | 2 | 50 |
-| Standard_NV24 |24 |224 |1440 | 4 | 32 | 64 | 4 | 4 | 100 |
+| Standard_NV24 |24 |224 |1.440 | 4 | 32 | 64 | 4 | 4 | 100 |
 
 1 GPU = Pari a metà scheda M60.
 

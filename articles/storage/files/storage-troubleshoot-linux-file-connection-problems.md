@@ -9,16 +9,18 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 2ae116649de02c5602aa50d706f6a88ac5872960
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d5dd2e2943d78291fc9c4903c15fb4d3767edbea
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025855"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442013"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
-Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Linux. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. Oltre ai passaggi di risoluzione dei problemi in questo articolo, si può anche usare [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) per verificare che il client Linux abbia i prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi indicati in questo articolo e consente di configurare l'ambiente in modo da ottenere prestazioni ottimali. È anche possibile trovare queste informazioni nell'articolo che illustra come [risolvere i problemi delle condivisioni File di Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) e indica i passaggi per risolvere problemi di connessione, mapping e montaggio delle condivisioni file di Azure.
+Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Linux. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. 
+
+Oltre alle procedure di risoluzione dei problemi descritte in questo articolo, si può usare [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) per verificare che il client Linux abbia i prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi descritti in questo articolo. Aiuta a configurare l'ambiente per ottenere prestazioni ottimali. Queste informazioni sono disponibili anche in [Troubleshooter for Azure Files storage problems](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) (Strumento di risoluzione dei problemi di archiviazione di File di Azure). Lo strumento di risoluzione dei problemi fornisce le procedure da eseguire per risolvere i problemi di connessione, mapping e montaggio di condivisioni di File di Azure.
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>"[accesso negato] Quota disco superata" quando si tenta di aprire un file
@@ -39,7 +41,7 @@ Ridurre il numero di handle aperti simultaneamente chiudendone alcuni e quindi r
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Rallentamento della copia del file da e verso File di Azure in Linux
 
 - In assenza di un requisito minimo specifico per la dimensione di I/O, è consigliabile usare 1 MiB per assicurare prestazioni ottimali.
-- Se si conosce la dimensione finale del file che si vuole estendere con operazioni di scrittura e il software non presenta problemi di compatibilità se la parte finale del file non ancora scritta contiene zeri, impostare la dimensione del file in fase preliminare anziché lasciare che ogni operazione di scrittura venga considerata un'estensione.
+- Se si conoscono le dimensioni finali del file che si vuole estendere con operazioni di scrittura e il software non presenta problemi di compatibilità se la parte finale del file non ancora scritta contiene zeri, impostare le dimensioni del file in fase preliminare anziché lasciare che ogni operazione di scrittura venga considerata un'estensione.
 - Usare il metodo di copia corretto:
     - Usare [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
     - Usare [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) tra condivisioni file in un computer locale.
@@ -47,7 +49,7 @@ Ridurre il numero di handle aperti simultaneamente chiudendone alcuni e quindi r
 <a id="error112"></a>
 ## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>"Errore di montaggio (112): Host inattivo" perché la riconnessione è scaduta
 
-Un errore di montaggio "112" si verifica nel client Linux quando il client è stato inattivo per lungo tempo. Dopo un lungo tempo di inattività, il client si disconnette e la connessione scade.  
+Un errore di montaggio "112" si verifica nel client Linux quando il client è stato inattivo per lungo tempo. Dopo un lungo tempo di inattività, il client si disconnette e si verifica il timeout della connessione.  
 
 ### <a name="cause"></a>Causa
 
@@ -65,11 +67,11 @@ Questo problema di riconnessione nel kernel Linux è stato corretto nell'ambito 
 - [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: correggere un possibile danneggiamento della memoria dopo la riconnessione)
 - [CIFS: Fix a possible double locking of mutex during reconnect - for kernels v4.9 and later](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Correggere un possibile doppio blocco del mutex durante la riconnessione, per i kernel 4.9 e versioni successive)
 
-È tuttavia possibile che queste modifiche non siano state ancora trasferite a tutte le distribuzioni di Linux. Questa e altre correzioni di riconnessione sono state apportate nei kernel Linux di uso più comune seguenti: 4.4.40, 4.8.16 e 4.9.1. Per ottenere questa correzione, eseguire l'aggiornamento a una di queste versioni del kernel consigliate.
+È tuttavia possibile che queste modifiche non siano state ancora trasferite a tutte le distribuzioni di Linux. Questa e altre correzioni di riconnessione sono incluse nei kernel Linux di uso comune seguenti: 4.4.40, 4.8.16 e 4.9.1. Per ottenere questa correzione, eseguire l'aggiornamento a una di queste versioni del kernel consigliate.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-È possibile ovviare a questo problema specificando un hard mount. L'hard mount forza il client ad attendere fino a quando la connessione non viene stabilita o non viene interrotta in modo esplicito e può essere usato per evitare gli errori causati dai timeout di rete. Questa soluzione può tuttavia causare attese interminabili. Occorre quindi essere pronti a interrompere la connessione se necessario.
+È possibile ovviare a questo problema specificando un hard mount. Un hard mount forza il client ad attendere che una connessione venga stabilita oppure interrotta in modo esplicito. È possibile usarlo per prevenire errori causati da timeout di rete. Questa soluzione può tuttavia causare attese interminabili. Occorre quindi essere pronti a interrompere la connessione se necessario.
 
 Se non è possibile eseguire l'aggiornamento alle versioni del kernel più recenti, si può ovviare a questo problema conservando un file nella condivisione file di Azure in cui scrivere ogni 30 secondi o meno. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica del file. In caso contrario, i risultati verrebbero memorizzati nella cache e l'operazione potrebbe non attivare la riconnessione.
 
@@ -78,11 +80,13 @@ Se non è possibile eseguire l'aggiornamento alle versioni del kernel più recen
 
 ### <a name="cause"></a>Causa
 
-Alcune distribuzioni Linux non supportano ancora le funzionalità di crittografia in SMB 3.0 e gli utenti potrebbero ricevere un messaggio di errore "115" se tentano di montare File di Azure usando SMB 3.0 poiché manca una funzionalità. SMB 3.0 con crittografia completa è attualmente supportato solo quando si usa Ubuntu 16.04 o versioni successive.
+Alcune distribuzioni di Linux non supportano ancora le funzionalità di crittografia disponibili in SMB 3.0. Mancando questa funzionalità, potrebbe essere visualizzato un messaggio di errore 115 se l'utente tenta di montare File di Azure tramite SMB 3.0. SMB 3.0 con crittografia completa è supportato solo quando si usa Ubuntu 16.04 o versioni successive.
 
 ### <a name="solution"></a>Soluzione
 
-La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel kernel 4.11. Questa funzionalità consente di montare la condivisione file di Azure da un ambiente locale o un'area di Azure diversa. Al momento della pubblicazione, di questa funzionalità è stato eseguito il backport in Ubuntu 17.04 e Ubuntu 16.10. Se il client Linux SMB non supporta la crittografia, montare File di Azure usando SMB 2.1 da una macchina virtuale Linux di Azure presente nello stesso data center dell'archiviazione file e verificare che l'impostazione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione. 
+La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel kernel 4.11. Questa funzionalità consente di montare una condivisione file di Azure da un ambiente locale o da un'area di Azure diversa. Al momento della pubblicazione, di questa funzionalità è stato eseguito il backport in Ubuntu 17.04 e Ubuntu 16.10. 
+
+Se il client Linux SMB non supporta la crittografia, montare File di Azure usando SMB 2.1 da una macchina virtuale Linux di Azure presente nello stesso data center della condivisione file. Verificare che l'opzione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione. 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Rallentamento delle prestazioni in una condivisione file di Azure montata in una VM Linux
@@ -95,13 +99,13 @@ Una possibile causa del rallentamento delle prestazioni è la disattivazione del
 
 Per controllare se la memorizzazione nella cache è disattivata, cercare la voce **cache =**. 
 
-**cache=none** indica che la memorizzazione nella cache è disattivata.  Eseguire nuovamente il montaggio della condivisione usando il comando di montaggio predefinito o aggiungendo esplicitamente l'opzione **cache=strict** al comando di montaggio per assicurarsi che la modalità di memorizzazione nella cache predefinita o "strict" sia attivata.
+**cache=none** indica che la memorizzazione nella cache è disattivata. Eseguire nuovamente il montaggio della condivisione usando il comando di montaggio predefinito o aggiungendo esplicitamente l'opzione **cache=strict** al comando di montaggio per assicurarsi che la modalità di memorizzazione nella cache predefinita o "strict" sia attivata.
 
 In alcuni scenari, l'opzione di montaggio **serverino** può far sì che il comando **ls** esegua stat rispetto a ogni voce di directory. Questo comportamento determina un calo delle prestazioni quando si elenca una directory di grandi dimensioni. È possibile controllare le opzioni di montaggio nella voce **/etc/fstab**:
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-È inoltre possibile controllare se vengono usate le opzioni corrette eseguendo il comando **sudo mount | grep cifs** e controllandone l'output, ad esempio l'output dell'esempio seguente:
+È anche possibile controllare se vengono usate le opzioni corrette eseguendo il comando **sudo mount | grep cifs** e controllandone l'output. Di seguito è riportato un output di esempio:
 
 `//azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
@@ -110,7 +114,7 @@ Se l'opzione **cache=strict** o **serverino** non è presente, smontare e montar
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>I timestamp sono andati persi durante la copia dei file da Windows a Linux
 
-Nelle piattaforme Linux/Unix il comando **cp -p** ha esito negativo se file 1 e file 2 sono di proprietà di utenti diversi.
+Nelle piattaforme Linux/Unix il comando **cp -p** non riesce se file 1 e file 2 sono di proprietà di utenti diversi.
 
 ### <a name="cause"></a>Causa
 
@@ -125,17 +129,15 @@ Usare l'account utente di archiviazione per copiare i file:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## <a name="cannot-connect-or-mount-an-azure-file-share"></a>Non è possibile connettere o montare una condivisione file di Azure
+## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Non è possibile connettersi a o montare una condivisione file di Azure
 
 ### <a name="cause"></a>Causa
 
 Le cause comuni di questo problema sono le seguenti:
 
 
-- Si sta usando un client di distribuzione Linux incompatibile. Si consiglia di usare le distribuzioni Linux seguenti per connettersi alla condivisione file di Azure:
+- Si sta usando un client di distribuzione Linux incompatibile. Si consiglia di usare le distribuzioni Linux seguenti per connettersi a una condivisione file di Azure:
 
-* **Versioni minime consigliate con funzionalità di montaggio corrispondenti (SMB versione 2.1 e SMB versione 3.0)**    
-    
     |   | SMB 2.1 <br>(Montaggio in macchine virtuali nella stessa area di Azure) | SMB 3.0 <br>(Montaggio in locale e tra più aree) |
     | --- | :---: | :---: |
     | Ubuntu Server | 14.04+ | 16.04+ |
@@ -145,26 +147,31 @@ Le cause comuni di questo problema sono le seguenti:
     | openSUSE | 13.2+ | 42.3+ |
     | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-- Il pacchetto di strumenti CIFS-utils non è installato nel client.
-- La versione SMB/CIFS minima 2.1 non è installata nel client.
-- La crittografia SMB 3.0 non è supportata nel client. La crittografia SMB 3.0 è disponibile in Ubuntu 16.4 e versione successiva, SUSE 12.3 e versione successiva. Altre distribuzioni richiedono kernel 4.11 e versione successiva.
+- Le utilità CIFS (cfs-utils) non sono installate nel client.
+- La versione SMB/CIFS minima, ossia la 2.1, non è installata nel client.
+- La crittografia SMB 3.0 non è supportata nel client. La crittografia SMB 3.0 è disponibile in Ubuntu 16.4 e versioni successive, insieme a SUSE 12.3 e versioni successive. Altre distribuzioni richiedono il kernel 4.11 e versioni successive.
 - Si sta tentando di connettersi a un account di archiviazione tramite la porta TCP 445, che non è supportata.
-- Si sta tentando di connettersi alla condivisione file di Azure da una macchina virtuale di Azure e la macchina virtuale non si trova nella stessa area dell'account di archiviazione.
-- Se l'impostazione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) è abilitata in un account di archiviazione, File di Azure consentirà solo connessioni crittografate con SMB 3.0.
+- Si sta tentando di connettersi a una condivisione file di Azure da una macchina virtuale di Azure e la macchina virtuale non si trova nella stessa area dell'account di archiviazione.
+- Se l'impostazione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) è abilitata nell'account di archiviazione, File di Azure consentirà solo connessioni crittografate con SMB 3.0.
 
 ### <a name="solution"></a>Soluzione
 
-Per risolvere il problema, usare lo [strumento di risoluzione dei problemi per gli errori di montaggio di File di Azure in Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Questo strumento consente di convalidare l'ambiente che esegue il client, di rilevare la configurazione client incompatibile che provocherebbe un errore di accesso per File di Azure, fornisce indicazioni sulla correzione autonoma da parte dell'utente e raccoglie le tracce di diagnostica.
+Per risolvere il problema, usare lo [strumento di risoluzione dei problemi per gli errori di montaggio di File di Azure in Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Questo strumento:
+
+* Facilita la convalida dell'ambiente di esecuzione del client.
+* Rileva la configurazione client incompatibile che causerebbe errori di accesso per File di Azure.
+* Fornisce indicazioni specifiche per risolvere i problemi autonomamente.
+* Raccoglie le tracce di diagnostica.
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: non è possibile accedere a '&lt;percorso&gt;': errore di input/output
 
-Quando si prova a elencare i file in una condivisione file di Azure tramite il comando ls, questo si blocca durante la generazione dell'elenco e viene visualizzato l'errore seguente:
+Quando si prova a elencare i file in una condivisione file di Azure tramite il comando ls, questo si blocca durante la generazione dell'elenco. Viene visualizzato l'errore seguente:
 
 **ls: cannot access '&lt;percorso&gt;': Input/output error** (IS: non è possibile accedere a 'percorso': errore di input/output)
 
 
 ### <a name="solution"></a>Soluzione
-Aggiornare il kernel di Linux a una delle versioni seguenti che prevedono una correzione per questo problema:
+Aggiornare il kernel di Linux a una delle versioni seguenti che includono una correzione per questo problema:
 
 - 4.4.87+
 - 4.9.48+
@@ -174,27 +181,27 @@ Aggiornare il kernel di Linux a una delle versioni seguenti che prevedono una co
 ## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Cannot create symbolic links - ln: failed to create symbolic link 't': Operation not supported (Impossibile creare collegamenti simbolici - ln: impossibile creare il collegamento simbolico 't': operazione non supportata)
 
 ### <a name="cause"></a>Causa
-Per impostazione predefinita, il montaggio di condivisioni di File di Azure in Linux tramite CIFS non abilita il supporto per i collegamenti simbolici. Verrà visualizzato un errore simile al seguente:
+Per impostazione predefinita, il montaggio di condivisioni file di Azure in Linux tramite CIFS non abilita il supporto per i collegamenti simbolici. Viene visualizzato un errore simile al seguente:
 ```
 ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
 ### <a name="solution"></a>Soluzione
-Il client Linux CIFS non supporta la creazione di collegamenti simbolici in stile Windows tramite il protocollo SMB2/3. Il client Linux supporta attualmente un altro stile di collegamenti simbolici, i cosiddetti [collegamenti simbolici Mishall+French](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) per le operazioni create e follow. I clienti per i quali sono necessari collegamenti simbolici possono usare l'opzione di montaggio "mfsymlinks". L'opzione "mfsymlinks" è in genere consigliata perché è anche il formato usato dai computer Mac.
+Il client Linux CIFS non supporta la creazione di collegamenti simbolici in stile Windows tramite il protocollo SMB 2 o 3. Il client Linux supporta attualmente un altro stile di collegamenti simbolici, detto [Minshall+French](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks), per le operazioni create e follow. I clienti che necessitano di collegamenti simbolici possono usare l'opzione di montaggio "mfsymlinks". L'uso di "mfsymlinks" è consigliato perché è anche il formato usato dai Mac.
 
-Per poter usare collegamenti simbolici, aggiungere quanto segue alla fine del comando di montaggio CIFS:
+Per usare i collegamenti simbolici, aggiungere quanto segue alla fine del comando di montaggio CIFS:
 
 ```
 ,mfsymlinks
 ```
 
-Il comando sarà quindi simile a quanto segue:
+Il comando è quindi simile al seguente:
 
 ```
 sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsymlinks
 ```
 
-Dopo l'aggiunta, sarà possibile creare collegamenti simbolici come suggerito nella [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
+È quindi possibile creare i collegamenti simbolici come suggerito nel [wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 

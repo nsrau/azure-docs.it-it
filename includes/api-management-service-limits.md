@@ -9,26 +9,37 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: b40e2ba448236bcef72ffe501b4b14fa0dd64e1c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e01eebe41010135d0dc0a2cb4170e6b6687ff546
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755803"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52292691"
 ---
 | Risorsa | Limite |
 | --- | --- |
-| Unità di scala | 10 per area<sup>1</sup> |
-| Cache | 5 GB per unità<sup>1</sup> |
-| Connessioni back-end simultanee<sup>2</sup> per ogni autorità HTTP | 2048 per unità<sup>3</sup> |
-| Dimensione massima della risposta memorizzata nella cache | 10 MB |
-| Dimensioni massime del documento dei criteri | 256 KB |
-| Numero massimo di domini gateway personalizzati | 20 per ogni istanza di servizio<sup>4</sup> |
+| Numero massimo di unità di scala | 10 per area<sup>1</sup> |
+| Dimensioni cache | 5 GB per unità<sup>2</sup> |
+| Connessioni back-end simultanee<sup>3</sup> per ogni autorità HTTP | 2048 per unità<sup>4</sup> |
+| Dimensione massima della risposta memorizzata nella cache | 2 MB |
+| Dimensioni massime del documento dei criteri | 256 KB<sup>5</sup> | 
+| Numero massimo di domini gateway personalizzati per istanza del servizio<sup>6</sup> | 20 | 
+| Numero massimo di istanze del servizio per sottoscrizione<sup>7</sup> | 5 | 
+| Numero massimo di sottoscrizioni per ogni istanza del servizio<sup>7</sup> | 500 |
+| Numero massimo di certificati client per istanza del servizio<sup>7</sup> | 50 | 
+| Numero massimo di API per istanza del servizio<sup>7</sup> | 50 | 
+| Numero massimo di operazioni API per istanza del servizio<sup>7</sup> | 1000 | 
+| Durata totale massima delle richieste<sup>7</sup> | 30 secondi | 
+| Dimensione massima del payload memorizzato nel buffer<sup>7</sup> | 2 MB | 
 
 
-<sup>1</sup>I limiti di Gestione API sono diversi per ogni livello di prezzo. Per visualizzare i piani tariffari con i relativi limiti di ridimensionamento, vedere [Prezzi di Gestione API](https://azure.microsoft.com/pricing/details/api-management/).
-<sup>2</sup> Le connessioni vengono raggruppate in pool e riutilizzate, a meno che non siano chiuse esplicitamente dal back-end.
-<sup>3</sup> Per unità dei livelli Basic, Standard e Premium. Il livello Developer è limitato a 1024.
-<sup>4</sup> Disponibile solo nel livello Premium.
+<sup>1</sup> I limiti del ridimensionamento dipendono dal piano tariffario. Per visualizzare i piani tariffari con i relativi limiti di ridimensionamento, vedere [Prezzi di Gestione API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
+<sup>2</sup> La dimensione della cache per unità varia a seconda del piano tariffario. Per visualizzare i piani tariffari con i relativi limiti di ridimensionamento, vedere [Prezzi di Gestione API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
+<sup>3</sup> Le connessioni vengono raggruppate in pool e riutilizzate, a meno che non vengano chiuse esplicitamente dal back-end.<br/>
+<sup>4</sup> Per unità dei livelli Basic, Standard e Premium. Il livello Developer è limitato a 1024. Non si applica al livello A consumo.<br/> 
+<sup>5</sup> Nei livelli Basic, Standard e Premium. Nei criteri per il livello A consumo le dimensioni dei documenti sono limitate a 4 KB.<br/>
+<sup>6</sup> Disponibile solo nel livello Premium.<br/>
+<sup>7</sup> Si applica solo al livello A consumo.<br/>
+
 
 

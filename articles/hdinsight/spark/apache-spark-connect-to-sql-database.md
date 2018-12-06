@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: b8494150a060e02145eab3674bdd2dd62cdda225
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277291"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499269"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Usare un cluster HDInsight Spark per leggere e scrivere dati nel database SQL di Azure
 
-Informazioni su come connettere un cluster Apache Spark in HDInsight di Azure con un database SQL di Azure e quindi leggere, scrivere e trasmettere dati nel database SQL. Le istruzioni riportate in questo articolo usano un notebook Jupyter per eseguire i frammenti di codice Scala. È possibile tuttavia creare un'applicazione autonoma in Scala o Python ed eseguire le stesse attività. 
+Informazioni su come connettere un cluster Apache Spark in HDInsight di Azure con un database SQL di Azure e quindi leggere, scrivere e trasmettere dati nel database SQL. Le istruzioni riportate in questo articolo usano [Jupyter Notebook](https://jupyter.org/) per eseguire i frammenti di codice Scala. È possibile tuttavia creare un'applicazione autonoma in Scala o Python ed eseguire le stesse attività. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,19 +32,14 @@ Informazioni su come connettere un cluster Apache Spark in HDInsight di Azure co
 
 * **SQL Server Management Studio**. Seguire le istruzioni riportate in [Usare SQL Server Management Studio per connettersi ed eseguire query sui dati](../../sql-database/sql-database-connect-query-ssms.md).
 
-## <a name="create-a-jupyter-notebook"></a>Creare un notebook Jupyter
+## <a name="create-a-jupyter-notebook"></a>Creare un oggetto Jupyter Notebook 
 
-Iniziare creando un notebook Jupyter associato al cluster Spark. Usare quindi il notebook per eseguire i frammenti di codice illustrati in questo articolo. 
+Iniziare creando un oggetto [Jupyter Notebook](https://jupyter.org/) associato al cluster Spark. Usare quindi il notebook per eseguire i frammenti di codice illustrati in questo articolo. 
 
-1. Dal [Portale di Azure](https://portal.azure.com/), aprire il cluster. 
+1. Dal [Portale di Azure](https://portal.azure.com/), aprire il cluster.
+1. Selezionare **Jupyter Notebook** in **Dashboard del cluster** sul lato destro.  Se non viene visualizzato **Dashboard del cluster**, fare clic su **Panoramica** dal menu a sinistra del pannello. Se richiesto, immettere le credenziali per il cluster.
 
-1. Nella sezione **Collegamenti rapidi** fare clic su **Dashboard cluster** per aprire la vista **Dashboard cluster**.  Se non viene visualizzato **Collegamenti rapidi**, fare clic su **Panoramica** dal menu a sinistra del pannello.
-
-    ![Dashboard del cluster in Spark](./media/apache-spark-connect-to-sql-database/hdinsight-cluster-dashboard-on-spark.png "Dashboard del cluster in Spark") 
-
-1. Fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
-
-    ![Notebook di Jupyter in Spark](./media/apache-spark-connect-to-sql-database/hdinsight-jupyter-notebook-on-spark.png "Notebook di Jupyter in Spark")
+    ![Notebook di Jupyter in Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Notebook di Jupyter in Spark")
    
    > [!NOTE]
    > Per accedere al notebook di Jupyter nel cluster Spark è possibile anche aprire l'URL seguente nel browser. Sostituire **CLUSTERNAME** con il nome del cluster:
@@ -242,4 +237,4 @@ In questa sezione si trasmetteranno dati all'oggetto **hvactable** creato nel da
 
 * [Usare il cluster HDInsight Spark per analizzare i dati in Data Lake Store](apache-spark-use-with-data-lake-store.md)
 * [Elaborare eventi di flusso strutturati con EventHub](apache-spark-eventhub-structured-streaming.md)
-* [Usare lo streaming strutturato Spark con Kafka in HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
+* [Usare lo streaming strutturato di Apache Spark con Apache Kafka in HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)

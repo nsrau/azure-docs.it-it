@@ -1,11 +1,12 @@
 ---
-title: Creare esperimenti da esempi di Machine Learning - Azure | Microsoft Docs
-description: Informazioni su come usare gli esperimenti di esempio di Machine Learning per creare nuovi esperimenti con la raccolta di intelligenza artificiale di Azure e Azure Machine Learning.
+title: Creare esperimenti di Machine Learning Studio a partire da esempi - Azure | Microsoft Docs
+description: Informazioni su come usare gli esperimenti di esempio di Machine Learning per creare nuovi esperimenti con Azure AI Gallery e Azure Machine Learning Studio.
 keywords: esperimenti di esempio di Machine Learning, esperimento di esempio, esempio di Machine Learning, esempi di intelligenza artificiale
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: f93d0d4e12d97fadb23476afc3199599b3268580
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998050"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306681"
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Machine Learning da esempi funzionanti nella raccolta di intelligenza artificiale di Azure
 
@@ -47,7 +48,7 @@ Per esplorare tutti gli esperimenti:
 3. È possibile trovare esperimenti che soddisfano i requisiti in due modi diversi:
    * **Selezionare i filtri a sinistra.** Per esaminare ad esempio gli esperimenti che fanno uso di un algoritmo di rilevamento delle anomalie basato su PCA, in **Categories** (Categorie) fare clic su **Experiment** (Esperimento). In **Algorithms Used** (Algoritmi usati) fare clic su click **Show all** (Mostra tutto) e nella finestra di dialogo scegliere **PCA-Based Anomaly Detection** (Rilevamento anomalie basato su PCA). Potrebbe essere necessario scorrere per visualizzare l'opzione.<br></br>
      ![Selezione dei filtri](./media/sample-experiments/choose-an-algorithm.png)
-   * **Usare la casella di ricerca.** Ad esempio, per trovare esperimenti Microsoft sul riconoscimento di cifre che usano un algoritmo di macchine a vettori di supporto a due classi, immettere "digit recognition" nella casella di ricerca. Selezionare quindi i filtri **Experiment** (Esperimento), **Microsoft content only** (Solo contenuto Microsoft) e **Two-Class Support Vector Machine** (Macchina a vettori di supporto a due classi):<br></br>
+   * **Usare la casella di ricerca.**  Ad esempio, per trovare esperimenti Microsoft sul riconoscimento di cifre che usano un algoritmo di macchine a vettori di supporto a due classi, immettere "digit recognition" nella casella di ricerca. Selezionare quindi i filtri **Experiment** (Esperimento), **Microsoft content only** (Solo contenuto Microsoft) e **Two-Class Support Vector Machine** (Macchina a vettori di supporto a due classi):<br></br>
      ![Usare la casella di ricerca](./media/sample-experiments/search-for-experiments.png)
 4. Per altre informazioni su un esperimento, fare clic su di esso.
 5. Per eseguire e/o modificare l'esperimento, fare clic su **Open in Studio** (Apri in Studio) nella pagina dell'esperimento. <br></br>

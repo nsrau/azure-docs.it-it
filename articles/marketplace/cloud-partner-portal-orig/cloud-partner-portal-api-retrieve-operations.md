@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3f0f087c98f2b6594ab7e841f92ffac7ffe4003e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807818"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974468"
 ---
 <a name="retrieve-operations"></a>Recuperare le operazioni
 ===================
@@ -40,11 +40,11 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 
 |  **Nome**          |      **Descrizione**                                                                                           | **Tipo di dati** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  L'identificatore del server di pubblicazione, ad esempio `Contoso`                                                                   |  string       |
+|  publisherId       |  Identificatore dell'editore, per esempio `Contoso`                                                                   |  string       |
 |  offerId           |  Identificatore dell'offerta                                                                                              |  string       |
 |  operationId       |  GUID che identifica in modo univoco l'operazione sull'offerta. L'oprationId può essere recuperato tramite questa API e viene inoltre restituito nell'intestazione HTTP della risposta per tutte le operazioni a esecuzione prolungata, ad esempio l'API [Pubblica offerta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
 |  filteredStatus    | Parametro di query facoltativo usato per filtrare in base allo stato (ad esempio `running`) nella raccolta restituita da questa API.  |   string |
-|  api-version       | Ultima versione di API                                                                                           |    Data      |
+|  api-version       | Ultima versione dell'API                                                                                           |    Data      |
 |  |  |  |
 
 
@@ -189,7 +189,7 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 |  submissionType              | Identifica il tipo di operazione segnalata per l'offerta, ad esempio `Publish/GGoLive`      |
 |  createdDateTime             | Datetime UTC in cui è stata creata l'operazione                                                       |
 |  lastActionDateTime          | Datetime UTC in cui è stato eseguito l'ultimo aggiornamento dell'operazione                                       |
-|  status                      | Stato dell'operazione, o non avviata | in esecuzione | non riuscita | completata`. Only one operation can have status `in esecuzione a un orario. |
+|  status                      | Stato dell'operazione o `not started` \| `running` \| `failed` \| `completed`. Una sola operazione alla volta può avere lo stato `running`. |
 |  error                       | Messaggio di errore per le operazioni non riuscite                                                               |
 |  |  |
 
@@ -199,7 +199,7 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 | **Codice**  |   **Descrizione**                                                                                  |
 |  -------- |   -------------------------------------------------------------------------------------------------|
 |  200      | `OK`: la richiesta è stata elaborata correttamente e l'operazione o le operazioni richieste sono state restituite.        |
-|  400      | `Bad/Malformed request`: il corpo della risposta di errore può contenere altre informazioni.                    |
+|  400      | `Bad/Malformed request` - Il corpo della risposta di errore può contenere altre informazioni.                    |
 |  403      | `Forbidden`: il client non ha accesso allo spazio dei nomi specificato.                          |
 |  404      | `Not found`: l'entità specificata non esiste.                                                 |
 |  |  |

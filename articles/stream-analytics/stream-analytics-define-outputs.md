@@ -2,26 +2,25 @@
 title: Informazioni sugli output di Analisi di flusso di Azure
 description: Questo articolo descrive opzioni di output di dati disponibili in Analisi di flusso di Azure, tra cui Power BI per i risultati dell'analisi.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: 2ef599fe704b184e82de2d704753e3fb4a274a2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/21/2018
+ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257800"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310043"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 Questo articolo descrive i diversi tipi di output disponibili per un processo di Analisi di flusso di Azure. Gli output consentono di archiviare e salvare i risultati del processo di Analisi di flusso di Azure. Usando i dati di output, è possibile eseguire altre analisi di business e il data warehousing dei dati. 
 
 Quando si progetta la query di Analisi di flusso, fare riferimento al nome dell'output usando la [clausola INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). È possibile usare un singolo output per ogni processo o più output per ogni processo di streaming se occorre, specificando più clausole INTO nella query.
 
-Per creare, modificare e testare gli output dei processi di Analisi di flusso, è possibile usare il [portale di Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), l'[API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), l'[API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) e [Visual Studio](stream-analytics-quick-create-vs.md).
+Per creare, modificare e testare gli output dei processi di Analisi di flusso, è possibile usare il [portale di Azure](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), l'[API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), l'[API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) e [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Alcuni tipi di output supportano il [partizionamento](#partitioning) e le [dimensioni batch dell'output](#output-batch-size) variano per ottimizzare la velocità effettiva.
 
@@ -70,8 +69,8 @@ Per rinnovare l'autorizzazione, **arrestare** il processo, passare all'output di
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output delle query a questo database. |
 | Database | Nome del database a cui si sta inviando l'output. |
 | Nome server | Nome server del database SQL di Azure. |
-| Username | Nome utente che ha accesso in scrittura al database. |
-| Password | Password per connettersi al database |
+| Username | Nome utente che ha accesso in scrittura al database. Analisi di flusso supporta solo l'autenticazione SQL. |
+| Password | Password per la connessione al database. |
 | Tabella | Nome della tabella in cui viene scritto l'output. Il nome della tabella fa distinzione tra maiuscole e minuscole e lo schema della tabella deve corrispondere esattamente al numero di campi e ai relativi tipi generati dall'output del processo. |
 
 > [!NOTE]
@@ -297,7 +296,7 @@ Nella tabella seguente viene riepilogato il supporto della partizione e il numer
 | Tipo di output | Supporto del partizionamento | Chiave di partizione  | Numero di writer di output | 
 | --- | --- | --- | --- |
 | Archivio Azure Data Lake | Yes | Use i token {date} e {time} nello schema prefisso percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
-| database SQL di Azure | Yes | Basato sulla clausola PARTITION BY nella query | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). Per altre informazioni su come ottenere migliori prestazioni per la velocità effettiva di scrittura quando si caricano dati nel Database SQL di Azure, vedere [Output di Analisi di flusso di Azure in Database SQL di Azure](stream-analytics-sql-output-perf.md). | 
+| Database SQL di Azure | Yes | Basato sulla clausola PARTITION BY nella query | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). Per altre informazioni su come ottenere migliori prestazioni per la velocità effettiva di scrittura quando si caricano dati nel Database SQL di Azure, vedere [Output di Analisi di flusso di Azure in Database SQL di Azure](stream-analytics-sql-output-perf.md). | 
 | Archivio BLOB di Azure | Yes | Usare i token {date} e {time} dai campi dell'evento nel modello di percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. Nell'ambito dell'[anteprima](https://aka.ms/ASApreview1), l'output del BLOB può essere partizionato in base a un singolo attributo dell'evento personalizzato {fieldname} o {datetime:\<specifier>}. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
 | Hub eventi di Azure | Yes | Yes | Varia a seconda dell'allineamento della partizione.</br> Quando la chiave di partizione di output di Hub eventi è ugualmente allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni di Hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) di EventHub per inviare eventi alla partizione specifica. </br> Quando la chiave di partizione di output di Hub eventi non è allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni in tale passo precedente. Ogni writer usa la [classe SendBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) di EventHubClient per inviare eventi a tutte le partizioni di output. |
 | Power BI | No  | Nessuna | Non applicabile | 
@@ -317,7 +316,7 @@ La tabella seguente spiega alcune considerazioni per l'invio in batch dell'outpu
 | Tipo di output | Dimensioni massime messaggio | Ottimizzazione delle dimensioni batch |
 | :--- | :--- | :--- | 
 | Archivio Azure Data Lake | Vedere [Limiti di Data Lake Store](../azure-subscription-service-limits.md#data-lake-store-limits) | Fino a 4 MB per ogni operazione di scrittura |
-| database SQL di Azure | Numero massimo di 10.000 righe per ogni singolo inserimento bulk</br>Numero minimo di 100 righe per ogni singolo inserimento bulk </br>Vedere anche [Limiti di Azure SQL](../sql-database/sql-database-resource-limits.md) |  Per ogni batch viene inizialmente eseguito l'inserimento bulk con le dimensioni batch massime. Il batch può essere diviso a metà (fino alla dimensione batch minima) in base a errori SQL non irreversibili. |
+| Database SQL di Azure | Numero massimo di 10.000 righe per ogni singolo inserimento bulk</br>Numero minimo di 100 righe per ogni singolo inserimento bulk </br>Vedere anche [Limiti di Azure SQL](../sql-database/sql-database-resource-limits.md) |  Per ogni batch viene inizialmente eseguito l'inserimento bulk con le dimensioni batch massime. Il batch può essere diviso a metà (fino alla dimensione batch minima) in base a errori SQL non irreversibili. |
 | Archivio BLOB di Azure | Vedere [Limiti di Archiviazione di Azure](../azure-subscription-service-limits.md#storage-limits) | Le dimensioni massime dei blocchi di BLOB sono pari a 4 MB</br>Il numero massimo di blocchi di BLOB è 50000 |
 | Hub eventi di Azure   | 256 kB per ogni messaggio </br>Vedere anche [Limiti relativi all'hub eventi](../event-hubs/event-hubs-quotas.md) |    Quando il partizionamento di input/output non è allineato, ogni evento viene inserito individualmente in un elemento EventData e inviato in un batch che può raggiungere le dimensioni massime del messaggio (1 MB per SKU Premium). </br></br>  Quando il partizionamento di input/output è allineato, più eventi vengono inseriti in un singolo elemento EventData fino alle dimensioni massime del messaggio e inviati.    |
 | Power BI | Vedere [Limitazioni dell'API REST di Power BI](https://msdn.microsoft.com/library/dn950053.aspx) |

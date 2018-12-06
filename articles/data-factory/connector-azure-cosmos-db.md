@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 9a75ae8645503366a490dbc0ea65d2fdc73d7c61
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: c10a933f371bfc84b863413134f2fdf5ff9c0e34
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167291"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161838"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-by-using-azure-data-factory"></a>Copiare dati da o verso Azure Cosmos DB usando Azure Data Factory
 
@@ -182,8 +182,11 @@ Nella sezione **source** dell'attività di copia sono supportate le proprietà s
 |:--- |:--- |:--- |
 | type | La proprietà **type** del sink dell'attività di copia deve essere impostata su **DocumentDbCollectionSink**. |Yes |
 | writebehavior |Descrive come scrivere i dati in Azure Cosmos DB. Valori consentiti: **insert** e **upsert**.<br/><br/>Il comportamento di **upsert** consiste nella sostituzione del documento se esiste già un documento con lo stesso ID; in caso contrario, il documento viene inserito.<br /><br />**Nota**: Data Factory genera automaticamente un ID per un documento se non è specificato nel documento originale o tramite il mapping di colonna. Questo vuol dire che è necessario assicurarsi che il documento abbia un ID in modo che **upsert** funzioni come previsto. |No <br />(il valore predefinito è **insert**) |
-| writeBatchSize | Data Factory usa la [libreria dell'executor bulk di Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) per scrivere dati in Azure Cosmos DB. La proprietà **writeBatchSize** controlla le dimensioni dei documenti che vengono forniti nella libreria. È possibile provare ad aumentare il valore di **writeBatchSize** per migliorare le prestazioni. |No <br />(il valore predefinito è **10.000**) |
+| writeBatchSize | Data Factory usa la [libreria dell'executor bulk di Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) per scrivere dati in Azure Cosmos DB. La proprietà **writeBatchSize** controlla le dimensioni dei documenti che vengono forniti nella libreria. È possibile provare ad aumentare il valore per **writeBatchSize** per migliorare le prestazioni e a ridurre il valore se le dimensioni dei documenti diventano grandi. Vedere i suggerimenti di seguito. |No <br />(il valore predefinito è **10.000**) |
 | nestingSeparator |Carattere speciale nel nome della colonna **source** che indica che è necessario un documento nidificato. <br/><br/>Ad esempio, `Name.First` nella struttura del set di dati di output genera la struttura JSON seguente nel documento Azure Cosmos DB quando **nestedSeparator** è un **.** (punto): `"Name": {"First": "[value maps to this column from source]"}`  |No <br />(il valore predefinito è il **.** (punto)) |
+
+>[!TIP]
+>Cosmos DB limita le dimensioni per una singola richiesta a 2 MB. La formula è Dimensioni richiesta = Dimensioni singolo documento * Dimensioni batch di scrittura. Se viene generato l'errore **"Dimensioni della richiesta troppo grandi."**, **ridurre il valore `writeBatchSize`** nella configurazione del sink di copia.
 
 **Esempio**
 

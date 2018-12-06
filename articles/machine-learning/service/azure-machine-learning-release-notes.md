@@ -9,16 +9,52 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261583"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291341"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
 Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine Learning. 
+
+## <a name="2018-11-20"></a>20-11-2018
+
+### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine Learning SDK per Python v0.1.80
+
++ **Modifiche di rilievo** 
+  * Lo spazio dei nomi *azureml.train.widgets* è stato spostato in *azureml.widgets*.
+  * *azureml.core.compute.AmlCompute* imposta come deprecate le classi *azureml.core.compute.BatchAICompute* e *azureml.core.compute.DSVMCompute*. La seconda verrà rimossa in versioni successive. La classe AmlCompute ha ora una definizione più semplice, necessita solo dei parametri vm_size e max_nodes ed è in grado di ridimensionare automaticamente il cluster da 0 al valore di max_nodes quando viene inviato un processo. I [notebook di esempio] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) sono stati aggiornati con queste informazioni e dovrebbero fornire esempi di utilizzo. Ci auguriamo che gli utenti apprezzeranno questa semplificazione e le interessanti funzionalità che verranno aggiunte nelle prossime versioni.
+
+### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning Data Prep SDK v0.5.1 
+
+Per altre informazioni su Data Prep SDK vedere la [documentazione di riferimento](https://aka.ms/data-prep-sdk).
++ **Nuove funzionalità**
+   * È stata creata una nuova interfaccia della riga di comando DataPrep per eseguire i pacchetti DataPrep e visualizzare il profilo dati relativo a un set di dati o un flusso di dati
+   * L'API SetColumnType è stata riprogettata per migliorarne l'usabilità
+   * smart_read_file è stato rinominato in auto_read_file
+   * Il profilo dati include ora i valori di asimmetria e curtosi
+   * È supportato il campionamento stratificato
+   * È possibile leggere da file ZIP che contengono file CSV
+   * È possibile suddividere i set di dati riga per riga con la suddivisione casuale (ad esempio in set di test-training)
+   * È possibile ottenere tutti i tipi di dati delle colonne da un flusso di dati o un profilo dati chiamando .dtypes
+   * È possibile ottenere il conteggio delle righe da un flusso di dati o un profilo dati chiamando .row_count
+
++ **Correzioni di bug**
+   * È stata corretta la conversione da tipo di dati long a double 
+   * È stata corretta un'asserzione dopo qualsiasi aggiunta di colonna 
+   * È stato corretto un problema di Raggruppamento fuzzy che impediva il rilevamento dei gruppi in alcuni casi
+   * È stata corretta la funzione di ordinamento per rispettare l'ordinamento a più colonne
+   * Le espressioni and/or sono state corrette in modo che siano simili a come vengono gestite da Pandas
+   * È stata corretta la lettura dal percorso dbfs
+   * I messaggi di errore sono stati resi più comprensibili 
+   * Ora non si verificano più errori di lettura su una destinazione di calcolo remota tramite il token AML
+   * Non si verificano più errori in Data Science Virtual Machine Linux
+   * Non si verifica più un arresto anomalo quando predicati di stringa contengono valori non di tipo stringa
+   * Gli errori di asserzione in caso di errore del flusso di dati vengono ora gestiti correttamente
+   * Le posizioni di archiviazione montate in dbutils sono ora supportate in Azure Databricks
 
 ## <a name="2018-11-05"></a>05-11-2018
 

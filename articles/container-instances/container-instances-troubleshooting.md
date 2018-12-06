@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978179"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820359"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di contenitore di Azure
 
@@ -205,6 +205,9 @@ Questo errore indica che a causa di un carico elevato nell'area in cui si sta ce
 ## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Non è possibile connettersi all'API Docker sottostante o eseguire contenitori con privilegi
 
 Istanze di contenitore di Azure non espone l'accesso diretto all'infrastruttura sottostante che ospita i gruppi di contenitori. È incluso l'accesso all'API Docker in esecuzione nell'host del contenitore e che esegue contenitori con privilegi. Se è necessaria l'interazione con Docker, vedere la [documentazione di riferimento su REST](https://aka.ms/aci/rest) per vedere cosa è supportato dall'API di Istanze di contenitore di Azure. Se mancano informazioni, inviare una richiesta al [forum di commenti e suggerimenti per Istanze di contenitore di Azure](https://aka.ms/aci/feedback).
+
+## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>Gli indirizzi IP potrebbero non essere accessibili a causa di porte non corrispondenti
+Istanze di Azure Container non supporta attualmente il mapping delle porte, come con la configurazione docker normale, tuttavia questa correzione è prevista nella roadmap. Se gli indirizzi IP risultano non accessibili quando si ritiene che dovrebbero esserlo, assicurarsi di aver configurato l'immagine del contenitore per l'ascolto sulle stesse porte esposte nel gruppo di contenitori con la proprietà `ports`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [recuperare log ed eventi dei contenitori](container-instances-get-logs.md) per facilitare il debug dei contenitori.

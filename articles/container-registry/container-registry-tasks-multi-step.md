@@ -5,23 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632693"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854323"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Eseguire attività di creazione, test e applicazione di patch in più passaggi in Attività di Registro contenitori di Azure
 
-Le attività in più passaggi estendono la singola funzionalità di creazione ed esecuzione del push di Attività di Registro contenitori di Azure con flussi di lavoro basati su più contenitori e più passaggi. Usare le attività in più passaggi per compilare ed eseguire il push di varie immagini, in serie o in parallelo, ed eseguire tali immagini come comandi all'interno di un'esecuzione di attività singola. Ogni passaggio definisce l'operazione di compilazione o push di un'immagine contenitore e può anche definire l'esecuzione di un contenitore. Ogni passaggio in un'attività in più passaggi usa un contenitore come ambiente di esecuzione.
+Le attività in più passaggi estendono la singola funzionalità di creazione ed esecuzione del push di Attività di Registro contenitori di Azure con flussi di lavoro basati su più contenitori e più passaggi. Usare le attività in più passaggi per compilare ed eseguire il push di più immagini, in serie o in parallelo. Eseguire quindi queste immagini come comandi all'interno di una singola esecuzione di attività. Ogni passaggio definisce l'operazione di compilazione o push di un'immagine contenitore e può anche definire l'esecuzione di un contenitore. Ogni passaggio in un'attività in più passaggi usa un contenitore come ambiente di esecuzione.
 
 > [!IMPORTANT]
 > Se in precedenza sono state create attività durante l'anteprima con il comando `az acr build-task`, tali attività devono essere ricreate con il comando [az acr task][az-acr-task].
 
-È ad esempio possibile eseguire un'attività con passaggi che automatizzano le operazioni seguenti:
+È ad esempio possibile eseguire un'attività con passaggi che automatizzano la logica seguente:
 
 1. Compilare un'immagine dell'applicazione Web
 1. Eseguire il contenitore dell'applicazione Web
@@ -37,11 +37,11 @@ Tutti i passaggi vengono eseguiti all'interno di Azure, riducendo così il lavor
 
 ## <a name="common-task-scenarios"></a>Scenari comuni di attività
 
-Le attività in più passaggi consentono di ottenere scenari come i seguenti:
+Le attività in più passaggi rendono possibili scenari come la logica seguente:
 
 * Creazione, applicazione di tag ed esecuzione del push di una o più immagini di contenitore, in serie o in parallelo.
 * Esecuzione e acquisizione di risultati di unit test e code coverage.
-* Esecuzione e acquisizione di test funzionali. Attività di Registro contenitori di Azure supporta l'esecuzione di più contenitori, eseguendo una serie di richieste reciproche.
+* Esecuzione e acquisizione di test funzionali. Le attività di Registro Azure Container supportano l'esecuzione di più contenitori, eseguendo una serie di richieste reciproche.
 * Esecuzione basata su attività, inclusi passaggi precedenti e successivi della creazione di un'immagine del contenitore.
 * Distribuzione di uno o più contenitori con il motore di distribuzione preferito nell'ambiente di destinazione.
 
@@ -176,5 +176,5 @@ Sebbene la funzionalità dell'attività in più passaggi di Attività del Regist
 
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task]: /cli/azure/acr/task

@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 82995f2cc8facac9bef6f8c84c9667775ac81463
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038519"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498676"
 ---
-# <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Ambari per ottimizzare le configurazioni cluster HDInsight
+# <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Apache Ambari per ottimizzare le configurazioni cluster HDInsight
 
-HDInsight fornisce i cluster Apache Hadoop per le applicazioni di elaborazione dei dati su larga scala. La gestione, il monitoraggio e l'ottimizzazione di questi complessi cluster a più nodi possono essere difficili. [Apache Ambari](http://ambari.apache.org/) è un'interfaccia Web per la gestione e il monitoraggio dei cluster Linux in HDInsight.  Per i cluster Windows, usare l'[API REST](hdinsight-hadoop-manage-ambari-rest-api.md) di Ambari.
+HDInsight fornisce i cluster [Apache Hadoop](https://hadoop.apache.org/) per le applicazioni di elaborazione dei dati su larga scala. La gestione, il monitoraggio e l'ottimizzazione di questi complessi cluster a più nodi possono essere difficili. [Apache Ambari](http://ambari.apache.org/) è un'interfaccia Web per la gestione e il monitoraggio dei cluster Linux in HDInsight.  Per i cluster Windows, usare l'[API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-Per un'introduzione all'uso dell'interfaccia utente Web Ambari, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md)
+Per un'introduzione all'uso dell'interfaccia utente Web Ambari, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 Accedere ad Ambari all'indirizzo `https://CLUSTERNAME.azurehdidnsight.net` con le credenziali del cluster. La schermata iniziale visualizza un dashboard generale.
 
@@ -59,16 +59,16 @@ Per modificare le dimensioni dell'heap Java NameNode:
 
     ![Salvare le modifiche](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
-## <a name="hive-optimization"></a>Ottimizzazione di Hive
+## <a name="apache-hive-optimization"></a>Ottimizzazione di Apache Hive
 
-Le sezioni seguenti descrivono le opzioni di configurazione per ottimizzare le prestazioni generali di Hive.
+Le sezioni seguenti descrivono le opzioni di configurazione per ottimizzare le prestazioni generali di Apache Hive.
 
 1. Per modificare i parametri di configurazione di Hive, selezionare **Hive** dalla barra laterale Services (Servizi).
 1. Passare alla scheda **Configs** (Configurazioni).
 
 ### <a name="set-the-hive-execution-engine"></a>Impostare il motore di esecuzione di Hive
 
-Hive fornisce due motori di esecuzione: MapReduce e Tez. Tez è più veloce di MapReduce. I cluster Linux in HDInsight usano Tez come motore di esecuzione predefinito. Per cambiare il motore di esecuzione:
+Hive fornisce due motori di esecuzione: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) e [Apache TEZ](https://tez.apache.org/). Tez è più veloce di MapReduce. I cluster Linux in HDInsight usano Tez come motore di esecuzione predefinito. Per cambiare il motore di esecuzione:
 
 1. Nella scheda **Configs** (Configurazioni) di Hive digitare **execution engine** nella casella di filtro.
 
@@ -99,7 +99,7 @@ Queste modifiche interessano tutti i processi Tez nel server. Per ottenere un ri
 
 ### <a name="tune-reducers"></a>Ottimizzare i riduttori
 
-ORC e Snappy offrono entrambi prestazioni elevate. Hive potrebbe tuttavia avere un numero troppo basso di riduttori per impostazione predefinita e causare quindi colli di bottiglia.
+[Apache ORC](https://orc.apache.org/) e [Snappy](https://google.github.io/snappy/) offrono entrambi prestazioni elevate. Hive potrebbe tuttavia avere un numero troppo basso di riduttori per impostazione predefinita e causare quindi colli di bottiglia.
 
 Si supponga, ad esempio, di avere dati di input di dimensioni pari a 50 GB. Tali dati nel formato ORC con la compressione Snappy sono pari a 1 GB. Hive stima il numero di riduttori necessari nel modo seguente: (numero di byte di input per i mapper / `hive.exec.reducers.bytes.per.reducer`).
 
@@ -178,10 +178,10 @@ I tipi di compressione disponibili sono:
 
 | Format | Strumento | Algoritmo | Estensione file | Divisibile |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | gz | No |
+| Gzip | Gzip | DEFLATE | gz | No  |
 | Bzip2 | Bzip2 | Bzip2 |bz2 | Yes |
 | LZO | Lzop | LZO | lzo | Sì, se indicizzato |
-| Snappy | N/D | Snappy | Snappy | No |
+| Snappy | N/D | Snappy | Snappy | No  |
 
 Come regola generale, è importante che il metodo di compressione sia divisibile. In caso contrario, verranno creati pochissimi mapper. Se i dati di input sono costituiti da testo, `bzip2` è l'opzione migliore. Per il formato ORC, Snappy è l'opzione di compressione più rapida.
 
@@ -287,9 +287,9 @@ Raccomandazioni aggiuntive per ottimizzare il motore di esecuzione Hive:
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
 
-## <a name="pig-optimization"></a>Ottimizzazione di Pig
+## <a name="apache-pig-optimization"></a>Ottimizzazione di Apache Pig
 
-Le proprietà di Pig possono essere modificate dall'interfaccia utente Web Ambari per ottimizzare le query di Pig. Se le proprietà di Pig vengono modificate da Ambari, vengono direttamente modificate anche nel file `/etc/pig/2.4.2.0-258.0/pig.properties`.
+Le proprietà di [Apache Pig](https://pig.apache.org/) possono essere modificate dall'interfaccia utente Web Ambari per ottimizzare le query di Pig. Se le proprietà di Pig vengono modificate da Ambari, vengono direttamente modificate anche nel file `/etc/pig/2.4.2.0-258.0/pig.properties`.
 
 1. Per modificare le proprietà di Pig, passare alla scheda **Configs** (Configurazioni) di Pig e quindi espandere il riquadro **Advanced pig-properties** (Proprietà Pig avanzate).
 
@@ -344,7 +344,7 @@ Pig genera file temporanei durante l'esecuzione dei processi. La compressione de
 
 * `pig.tmpfilecompression`: se true, abilita la compressione dei file temporanei. Il valore predefinito è False.
 
-* `pig.tmpfilecompression.codec`: codec di compressione da usare per comprimere i file temporanei. I codec di compressione consigliati sono LZO e Snappy per un utilizzo della CPU più basso.
+* `pig.tmpfilecompression.codec`: codec di compressione da usare per comprimere i file temporanei. I codec di compressione consigliati sono [LZO](https://www.oberhumer.com/opensource/lzo/) e Snappy per un utilizzo della CPU più basso.
 
 ### <a name="enable-split-combining"></a>Abilitare la combinazione per la suddivisione
 
@@ -361,17 +361,17 @@ Il numero di mapper viene controllato modificando la proprietà `pig.maxCombined
 Il numero di riduttori viene calcolato in base al parametro `pig.exec.reducers.bytes.per.reducer`. Il parametro specifica il numero di byte elaborati per riduttore. L'impostazione predefinita è 1 GB. Per limitare il numero massimo di riduttori, impostare la proprietà `pig.exec.reducers.max`. L'impostazione predefinita è 999.
 
 
-## <a name="hbase-optimization-with-the-ambari-web-ui"></a>Ottimizzazione di HBase con l'Interfaccia utente Web Ambari
+## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Ottimizzazione di Apache HBase con l'interfaccia utente Web Ambari
 
-La configurazione di HBase viene modificata dalla scheda **HBase Configs** (Configurazioni HBase). Le sezioni seguenti descrivono alcune importanti impostazioni di configurazione che influiscono sulle prestazioni di HBase.
+La configurazione di [Apache HBase](https://hbase.apache.org/) viene modificata nella scheda **HBase Configs** (Configurazioni HBase). Le sezioni seguenti descrivono alcune importanti impostazioni di configurazione che influiscono sulle prestazioni di HBase.
 
 ### <a name="set-hbaseheapsize"></a>Impostare HBASE_HEAPSIZE
 
-Le dimensioni dell'heap HBase specificano, in megabyte, la quantità massima di heap che devono essere usati dai server di *area* e *master*. Il valore predefinito è 1000 MB. Questo valore deve essere ottimizzato per il carico di lavoro del cluster.
+Le dimensioni dell'heap HBase specificano, in megabyte, la quantità massima di heap che devono essere usati dai server di *area* e *master*. Il valore predefinito è 1.000 MB. Questo valore deve essere ottimizzato per il carico di lavoro del cluster.
 
 1. Per modificarlo, passare al riquadro **Advanced HBase-env** (Ambiente HBase avanzato) nella scheda **Configs** (Configurazioni) e quindi trovare l'impostazione `HBASE_HEAPSIZE`.
 
-1. Impostare il valore predefinito su 5000 MB.
+1. Impostare il valore predefinito su 5.000 MB.
 
     ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
 
@@ -453,5 +453,5 @@ L'utilizzo del buffer di allocazione locale del memstore è determinato dalla pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Gestire i cluster HDInsight con l'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md)
-* [API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Gestire i cluster HDInsight con l'interfaccia utente Web Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)

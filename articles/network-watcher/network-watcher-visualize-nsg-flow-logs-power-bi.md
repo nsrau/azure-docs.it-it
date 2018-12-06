@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 8f5bb54e12348fd915b2c4413bbacdc083a2a879
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146639"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822875"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI
 
 I log dei flussi dei gruppi di sicurezza di rete permettono di visualizzare le informazioni sul traffico IP in ingresso e in uscita nei gruppi di sicurezza di rete. Questi log mostrano i flussi in ingresso e in uscita in base a regole, la scheda di rete a cui si applica il flusso, informazioni a 5 tuple sul flusso, ad esempio l'indirizzo IP di origine/destinazione, la porta di origine/destinazione o il protocollo, e se il traffico è stato consentito o negato.
 
 Cercando manualmente nei file di log può essere difficile ottenere informazioni dettagliate sui dati di log dei flussi. Questo articolo offre una soluzione per visualizzare i log dei flussi più recenti e ottenere informazioni sul traffico di rete.
+
+> [!Warning]  
+> I passaggi seguenti usano i log dei flussi versione 1. Per informazioni dettagliate, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md). Le istruzioni seguenti non funzioneranno con la versione 2 dei file di log, senza modifica.
 
 ## <a name="scenario"></a>Scenario
 

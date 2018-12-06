@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: c51df7aeef136fee42b061cd422cc62d67f33e96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258919"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712144"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
@@ -75,7 +75,7 @@ Istanza gestita ha backup automatici e consente agli utenti di creare backup `CO
   - Le opzioni nastro `REWIND`, `NOREWIND`, `UNLOAD` e `NOUNLOAD` non sono supportate
   - Le opzioni specifiche dei log `NORECOVERY`, `STANDBY` e `NO_TRUNCATE` non sono supportate
 
-Limitazioni:  
+ Limitazioni:  
 
 - Istanza gestita può eseguire il backup di un database su un supporto di backup con un massimo di 32 set di stripe, sufficienti per database fino a 4 TB se si usa la compressione del backup.
 - La dimensione massima dei set di stripe di backup è 195 GB (dimensioni massime del BLOB). Aumentare il numero di set di stripe nel comando backup per ridurre le dimensioni dei singoli set di stripe e restare nel limite consentito.
@@ -317,7 +317,7 @@ Le opzioni di database seguenti sono impostate/sottoposte a override e non posso
 - Qualsiasi filegroup ottimizzato per la memoria esistente viene rinominato in XTP  
 - Le opzioni `SINGLE_USER` e `RESTRICTED_USER` vengono convertite in `MULTI_USER`
 
-Limitazioni:  
+ Limitazioni:  
 
 - I file `.BAK` che contengono più set di backup non possono essere ripristinati.
 - I file `.BAK` che contengono più file di log non possono essere ripristinati.
@@ -427,7 +427,7 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 
 Ogni istanza gestita dispone di una risorsa di archiviazione da 35 TB riservata allo spazio su disco Premium di Azure e ogni file di database si trova su un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato su disco non viene conteggiato, ma la somma delle dimensioni dei dischi Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni delle risorse di archiviazione, a causa della frammentazione interna.
 
-Ad esempio, un'istanza gestita può includere un unico file di 1,2 TB contenuto in un disco da 4 TB e 248 file di 1 GB ciascuno contenuti in dischi da 128 GB separati. Esempio:
+Ad esempio, un'istanza gestita può avere un unico file di 1,2 TB all'interno di un disco da 4 TB e 248 file di 1 GB ciascuno all'interno di dischi da 128 GB separati. Esempio:
 
 - le dimensioni di archiviazione totali dei dischi sono 1 x 4 TB + 248 x 128 GB = 35 TB.
 - lo spazio totale riservato per i database nell'istanza corrisponde a 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.

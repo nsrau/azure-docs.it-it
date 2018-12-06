@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3f93f96c6c9fc551b8b66167eab58861b0ac0b52
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005955"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496915"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
 
@@ -79,9 +79,9 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
     d. Tra le opzioni di menu presentate immettere **E** per tornare al menu principale e quindi immettere **8** per uscire dall'utilità di amministrazione.
 
-### <a name="long-delays-when-consuming-web-service-on-spark"></a>Ritardi considerevoli quando si utilizza il servizio Web in Spark
+### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Ritardi considerevoli quando si utilizza il servizio Web in Apache Spark
 
-Se si riscontrano ritardi considerevoli quando si prova a utilizzare un servizio Web creato con le funzioni mrsdeploy in un contesto di calcolo di Spark, potrebbe essere necessario aggiungere alcune cartelle mancanti. L'applicazione Spark appartiene a un utente chiamato "*rserve2*" quando viene richiamata da un servizio Web usando le funzioni mrsdeploy. Per risolvere questo problema:
+Se si riscontrano ritardi considerevoli quando si prova a utilizzare un servizio Web creato con le funzioni mrsdeploy in un contesto di calcolo di Apache Spark, potrebbe essere necessario aggiungere alcune cartelle mancanti. L'applicazione Spark appartiene a un utente chiamato "*rserve2*" quando viene richiamata da un servizio Web usando le funzioni mrsdeploy. Per risolvere questo problema:
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -139,7 +139,7 @@ Per ridimensionare i nodi di calcolo, prima si rimuovono le autorizzazioni dei n
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>Passaggio 1: Rimuovere le autorizzazioni dei nodi di lavoro
 
-Il cluster ML Services non viene gestito tramite YARN. Se è necessario rimuovere le autorizzazioni dei nodi di lavoro, YARN Resource Manager non funziona come previsto perché non riesce a riconoscere le risorse impiegate dal server. Per evitare questa situazione, è consigliabile rimuovere le autorizzazioni dei nodi del ruolo di lavoro prima di ridimensionare i nodi di calcolo.
+Il cluster ML Services non viene gestito tramite [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Se è necessario rimuovere le autorizzazioni dei nodi di lavoro, YARN Resource Manager non funziona come previsto perché non riesce a riconoscere le risorse impiegate dal server. Per evitare questa situazione, è consigliabile rimuovere le autorizzazioni dei nodi del ruolo di lavoro prima di ridimensionare i nodi di calcolo.
 
 Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 

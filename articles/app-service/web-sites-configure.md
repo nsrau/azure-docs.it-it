@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115523"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443509"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurazione delle app Web in Servizio app di Azure
 
@@ -78,6 +78,8 @@ Questa sezione riporta le coppie nome/valore caricate all'avvio dell'app.
 
 Le impostazioni dell'app vengono sempre crittografate quando sono archiviate (crittografia dei dati inattivi).
 
+Le impostazioni dell'app possono essere risolte da Key Vault usando [riferimenti a Key Vault](app-service-key-vault-references.md).
+
 ### <a name="connection-strings"></a>Stringhe di connessione
 Stringhe di connessione per le risorse collegate. 
 
@@ -93,6 +95,8 @@ Per le applicazioni PHP, Python, Java e Node queste impostazioni saranno disponi
 Ad esempio, se una stringa di connessione MySql venisse denominata `connectionstring1`, l'accesso avverrebbe attraverso la variabile di ambiente`MYSQLCONNSTR_connectionString1`.
 
 Le stringhe di connessione vengono sempre crittografate quando sono archiviate (crittografia dei dati inattivi).
+
+Le stringhe di connessione possono essere risolte da Key Vault usando [riferimenti a Key Vault](app-service-key-vault-references.md).
 
 ### <a name="default-documents"></a>Documenti predefiniti
 Il documento predefinito è rappresentato dalla pagina Web visualizzata nell'URL radice di un sito Web.  Viene utilizzato il primo file corrispondente dell'elenco. 

@@ -1,5 +1,5 @@
 ---
-title: Gestire efficacemente i costi per SQL Server nelle macchine virtuali di Azure | Documentazione Microsoft
+title: Gestire efficacemente i costi per SQL Server nelle macchine virtuali di Azure | Microsoft Docs
 description: Fornisce le procedure consigliate per la scelta del modello di prezzo giusto per la macchina virtuale di SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/02/2018
+ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: e9033724f62b383ce70488b98a3a8919e3cb198a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345278"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496470"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Guida ai prezzi per le VM di SQL Server in Azure
 
@@ -37,7 +37,7 @@ Questo articolo contiene indicazioni sui prezzi per le [macchine virtuali di SQL
 
 Se si vuole sviluppare, testare o compilare un modello di verifica, usare **SQL Server Developer Edition** con licenza gratuita. Questa edizione offre tutte le funzionalità di SQL Server Enterprise Edition, consentendo di compilare e testare qualsiasi tipo di applicazione. Tuttavia non è possibile eseguire SQL Server Developer Edition nell'ambiente di produzione. Per una macchina virtuale con SQL Server Developer Edition sarà applicato solo il costo della macchina virtuale e non quello per i costi delle licenze di SQL Server associati.
 
-Se si vuole eseguire un carico di lavoro leggero in fase di produzione (meno di 4 memorie centrali, meno di 1 GB di memoria, meno di 10 GB di database), usare **SQL Server Express Edition** con licenza gratuita. Una macchina virtuale con SQL Server Express Edition comporta addebiti solo per il costo della macchina virtuale.
+Se si vuole eseguire un carico di lavoro leggero in fase di produzione (<4 core, <1 GB di memoria, <10 GB di database), usare l'**edizione SQL Server Express** con licenza gratuita. Una macchina virtuale con SQL Server Express Edition comporta addebiti solo per il costo della macchina virtuale.
 
 Per questi carichi di lavoro di sviluppo/test e di produzione leggeri è possibile risparmiare anche scegliendo una VM più piccola ma comunque adeguata a tali carichi di lavoro. DS1v2 potrebbe essere una buona scelta in alcuni scenari.
 
@@ -68,7 +68,7 @@ Sono disponibili due possibilità per il pagamento delle licenze di SQL Server p
 
 Il costo è lo stesso per tutte le versioni di SQL Server, dalla 2012 SP3 alla 2017. Il costo della licenza al secondo dipende dal numero di CPU virtuali della macchina virtuale.
 
-Il pagamento della licenze di SQL Server in base all'utilizzo è consigliato per:
+Il pagamento delle licenze di SQL Server in base all'utilizzo è consigliato per:
 
 - **Carichi di lavoro temporanei o periodici**. Ad esempio un'app che deve supportare un evento per un paio di mesi all'anno o analisi di business il lunedì.
 
@@ -90,9 +90,15 @@ Per creare una macchina virtuale di Azure per SQL Server 2017 con una di queste 
 >
 >Non include i costi di licenza aggiuntivi di SQL Server per le versioni Enterprise, Standard e Web. Per ottenere una stima più accurata, selezionare il sistema operativo e la versione di SQL Server nella pagina dei prezzi per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="bring-your-own-license-byol"></a>Bring Your Own License (BYOL)
+> [!NOTE]
+> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere [Come cambiare il modello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md). 
+
+## <a id="byol"></a> Bring Your Own License (BYOL)
 
 **Bringing Your Own License per SQL Server attraverso Mobilità delle licenze**, o **BYOL**, indica l'utilizzo di un contratto multilicenza di SQL Server esistente con Software Assurance in una VM di Azure. Per una macchina virtuale di SQL Server che usa l'opzione BYOL sarà addebitato solo il costo di esecuzione della macchina virtuale e non la licenza di SQL Server, dato che le licenze e Software Assurance sono già stati acquisiti tramite un programma di contratto multilicenza.
+
+> [!IMPORTANT]
+> Le immagini BYOL richiedono un contratto Enterprise con Software Assurance. Non sono disponibili come parte di Azure Cloud Solution Partner (CSP) in questo momento.
 
 > [!NOTE]
 > Le immagini BYOL sono attualmente disponibili solo per le macchine virtuali Windows. È tuttavia possibile installare manualmente SQL Server in una macchina virtuale solo Linux. Vedere le linee guida nelle [domande frequenti sulla macchina virtuale SQL di Linux](../../linux/sql/sql-server-linux-faq.md).
@@ -120,7 +126,9 @@ Per creare una VM di Azure con SQL Server 2017 con una di queste immagini Bring 
 > Si prega di comunicare entro 10 giorni il numero di licenze di SQL Server in uso in Azure. Nei collegamenti alle immagini precedenti sono incluse le istruzioni su come eseguire questa operazione.
 
 > [!NOTE]
-> Non è possibile modificare il modello di licenza di una macchina virtuale di SQL Server con costo al secondo per usare la propria licenza. In questo caso, è necessario creare una nuova VM BYOL ed eseguire la migrazione dei database alla nuova VM.
+> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere [Come cambiare il modello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md). 
+
+
 
 ## <a name="reduce-costs"></a>Riduzione dei costi
 

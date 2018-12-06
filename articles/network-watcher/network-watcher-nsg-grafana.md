@@ -15,16 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146628"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819035"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete con Network Watcher e Grafana
 
 I [log di flusso dei gruppi di sicurezza di rete (NSG)](network-watcher-nsg-flow-logging-overview.md) contengono informazioni utili per comprendere il traffico IP in ingresso e in uscita nelle interfacce di rete. Questi log mostrano i flussi in ingresso e in uscita in base alle regole NSG, alla scheda di interfaccia di rete a cui si applica il flusso, a informazioni a 5 tuple sul flusso (IP di origine/destinazione, porta di origine/destinazione e protocollo) e al fatto che il traffico sia stato consentito o rifiutato.
+
+> [!Warning]  
+> I passaggi seguenti usano i log dei flussi versione 1. Per informazioni dettagliate, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md). Le istruzioni seguenti non funzioneranno con la versione 2 dei file di log, senza modifica.
 
 È possibile avere molti gruppi di sicurezza di rete in rete con i log di flusso abilitati. Questa quantità di dati di log rende più difficile l'analisi e il reperimento delle informazioni dettagliate nei log. Questo articolo offre una soluzione per gestire centralmente i log di flusso dei gruppi di sicurezza di rete usando Grafana, uno strumento grafico open source, ElasticSearch, un motore di analisi e di ricerca distribuita e Logstash, una pipeline di elaborazione di dati lato server open-source.  
 

@@ -6,36 +6,36 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 24b6beec8ecda993667464be5c74dab50fd93201
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278889"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263894"
 ---
-# <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database Cosmos DB
+# <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database di Azure Cosmos
 
-Un database Cosmos è un'unità di gestione per un set di contenitori. Un database è costituito da un set di contenitori indipendenti dallo schema. Un contenitore Cosmos è l'unità di scalabilità per velocità effettiva e archiviazione. Un contenitore è partizionato orizzontalmente tra un set di computer all'interno di un'area di Azure e viene distribuito in tutte le aree di Azure associate all'account Cosmos.
+Un database di Azure Cosmos è un'unità di gestione per un set di contenitori. Un database è costituito da un set di contenitori indipendenti dallo schema. Un contenitore di Azure Cosmos è l'unità di scalabilità per velocità effettiva e archiviazione. Un contenitore è partizionato orizzontalmente tra un set di computer all'interno di un'area di Azure e viene distribuito in tutte le aree di Azure associate all'account Azure Cosmos.
 
-Azure Cosmos DB consente di configurare la velocità effettiva a due livelli di granularità: **contenitori Cosmos** e **database Cosmos**.
+Azure Cosmos DB consente di configurare la velocità effettiva su due livelli di granularità: **contenitori di Azure Cosmos** e **database di Azure Cosmos**.
 
-# <a name="setting-throughput-on-a-cosmos-container"></a>Configurazione della velocità effettiva in un contenitore Cosmos  
+# <a name="setting-throughput-on-a-azure-cosmos-container"></a>Impostazione della velocità effettiva per un contenitore di Azure Cosmos  
 
-La velocità effettiva con provisioning in un contenitore Cosmos è riservata in esclusiva per il contenitore. Il contenitore riceve sempre la velocità effettiva con provisioning. La velocità effettiva con provisioning in un contenitore è supportata finanziariamente da contratti di servizio. Per configurare la velocità effettiva in un contenitore, vedere l'articolo su [come effettuare il provisioning della velocità effettiva in un contenitore Cosmos](how-to-provision-container-throughput.md).
+La velocità effettiva di cui è stato effettuato il provisioning in un contenitore di Azure Cosmos è riservata in esclusiva per il contenitore. Il contenitore riceve sempre la velocità effettiva con provisioning. La velocità effettiva con provisioning in un contenitore è supportata finanziariamente da contratti di servizio. Per configurare la velocità effettiva per un contenitore, vedere [Effettuare il provisioning della velocità effettiva per un contenitore di Azure Cosmos DB](how-to-provision-container-throughput.md).
 
 La configurazione della velocità effettiva con provisioning in un contenitore è l'opzione più diffusa. Mentre è possibile ridimensionare in modo elastico la velocità effettiva per un contenitore effettuando il provisioning di una quantità di velocità effettiva (UR), non è possibile specificare in modo selettivo la velocità effettiva per le partizioni logiche. Quando il carico di lavoro in esecuzione in una partizione logica usa una velocità effettiva superiore rispetto a quella allocata alla specifica partizione logica, le operazioni risulteranno limitate in termini di velocità. Quando si verifica una limitazione di velocità, è possibile aumentare la velocità effettiva per l'intero contenitore o ripetere l'operazione. Per altre informazioni sul partizionamento, vedere [Partizioni logiche](partition-data.md).
 
 È consigliabile configurare la velocità effettiva al livello di granularità del contenitore per ottenere prestazioni garantite per il contenitore.
 
-La velocità effettiva con provisioning in un contenitore Cosmos viene distribuita in modo uniforme tra tutte le partizioni logiche del contenitore. Poiché una o più partizioni logiche di un contenitore sono ospitate da una partizione di risorsa, le partizioni fisiche appartengono esclusivamente al contenitore e supportano la velocità effettiva con provisioning nel contenitore. L'immagine seguente mostra in che modo una partizione di risorsa ospita una o più partizioni logiche di un contenitore:
+La velocità effettiva di cui è stato effettuato il provisioning in un contenitore di Azure Cosmos viene distribuita in modo uniforme tra tutte le partizioni logiche del contenitore. Poiché una o più partizioni logiche di un contenitore sono ospitate da una partizione di risorsa, le partizioni fisiche appartengono esclusivamente al contenitore e supportano la velocità effettiva con provisioning nel contenitore. L'immagine seguente mostra in che modo una partizione di risorsa ospita una o più partizioni logiche di un contenitore:
 
 ![Partizione di risorsa](./media/set-throughput/resource-partition.png)
 
-# <a name="setting-throughput-on-a-cosmos-database"></a>Configurazione della velocità effettiva in un database Cosmos
+# <a name="setting-throughput-on-a-azure-cosmos-database"></a>Impostazione della velocità effettiva in un database di Azure Cosmos
 
-Quando si effettua il provisioning della velocità effettiva in un database Cosmos, la velocità effettiva viene condivisa tra tutti i contenitori nel database, a meno che non sia stata specificata una velocità effettiva con provisioning in specifici contenitori. La condivisione della velocità effettiva del database tra i contenitori è analoga all'hosting di un database in un cluster di computer. Poiché tutti i contenitori all'interno di un database condividono le risorse disponibili in un computer, naturalmente non si ottengono prestazioni prevedibili in un contenitore specifico. Per configurare la velocità effettiva in un database, vedere l'articolo su [come configurare la velocità effettiva con provisioning in un database Cosmos](how-to-provision-database-throughput.md).
+Quando si effettua il provisioning della velocità effettiva in un database di Azure Cosmos, la velocità effettiva viene condivisa tra tutti i contenitori nel database, a meno che non sia stata specificata una velocità effettiva di cui è stato effettuato il provisioning in specifici contenitori. La condivisione della velocità effettiva del database tra i contenitori è analoga all'hosting di un database in un cluster di computer. Poiché tutti i contenitori all'interno di un database condividono le risorse disponibili in un computer, naturalmente non si ottengono prestazioni prevedibili in un contenitore specifico. Per configurare la velocità effettiva per un database, vedere [Effettuare il provisioning della velocità effettiva per un database in Azure Cosmos DB](how-to-provision-database-throughput.md).
 
-La configurazione della velocità effettiva in un database Cosmos garantisce di ricevere sempre la velocità effettiva con provisioning. Poiché tutti i contenitori all'interno del database condividono la velocità effettiva con provisioning, Cosmos DB non garantisce alcuna velocità effettiva prevedibile per un determinato contenitore nel database. La porzione della velocità effettiva che può essere ricevuta da uno specifico contenitore dipende dai fattori seguenti:
+L'impostazione della velocità effettiva per un database di Azure Cosmos garantisce di ricevere sempre la velocità effettiva di cui è stato effettuato il provisioning. Dato che tutti i contenitori all'interno del database condividono la velocità effettiva di cui è stato effettuato il provisioning, Azure Cosmos DB non garantisce alcuna velocità effettiva prevedibile per un determinato contenitore nel database. La porzione della velocità effettiva che può essere ricevuta da uno specifico contenitore dipende dai fattori seguenti:
 
 * Numero di contenitori
 * Scelta delle chiavi di partizione per vari contenitori
@@ -43,9 +43,9 @@ La configurazione della velocità effettiva in un database Cosmos garantisce di 
 
 È consigliabile configurare la velocità effettiva in un database se si intende condividere la velocità effettiva tra più contenitori, ma non si vuole riservarla a uno specifico contenitore. Di seguito sono riportati alcuni esempi in cui è preferibile effettuare il provisioning della velocità effettiva a livello di database:
 
-* La condivisione della velocità effettiva con provisioning di un database in un set di contenitori è utile per un'applicazione multi-tenant. Ogni utente può essere rappresentato da un contenitore Cosmos distinto.
+* La condivisione della velocità effettiva con provisioning di un database in un set di contenitori è utile per un'applicazione multi-tenant. Ogni utente può essere rappresentato da un contenitore di Azure Cosmos distinto.
 
-* La condivisione della velocità effettiva con provisioning di un database in un set di contenitori è utile quando si esegue la migrazione di un database NoSQL (ad esempio MongoDB, Cassandra) ospitato da un cluster di macchine virtuali o da server fisici locali in Cosmos DB. È possibile considerare la velocità effettiva con provisioning configurata nel database Cosmos come un equivalente logico (ma più conveniente e flessibile) della capacità di calcolo del cluster MongoDB o Cassandra.  
+* La condivisione della velocità effettiva di cui è stato effettuato il provisioning di un database in un set di contenitori è utile quando si esegue la migrazione in Azure Cosmos DB di un database NoSQL (ad esempio MongoDB, Cassandra) ospitato da un cluster di macchine virtuali o da server fisici locali. È possibile paragonare la velocità effettiva di cui è stato effettuato il provisioning configurata per il database di Azure Cosmos a un equivalente logico (ma più conveniente e flessibile) della capacità di calcolo del cluster MongoDB o Cassandra.  
 
 In uno specifico momento, la velocità effettiva allocata a un contenitore all'interno di un database viene distribuita tra tutte le partizioni logiche di tale contenitore. In presenza di contenitori che condividono una velocità effettiva con provisioning in un database, non è possibile applicare in modo selettivo la velocità effettiva a un contenitore o una partizione logica specifica. Se il carico di lavoro in una partizione logica usa un livello di velocità effettiva superiore rispetto a quello allocato a una specifica partizione logica, le operazioni risulteranno limitate in termini di velocità. Quando si verifica una limitazione di velocità, è possibile aumentare la velocità effettiva per l'intero contenitore o ripetere l'operazione. Per altre informazioni sul partizionamento, vedere [Partizioni logiche](partition-data.md).
 
@@ -53,11 +53,11 @@ Più partizioni logiche che condividono la velocità effettiva con provisioning 
 
 ![Partizione di risorsa](./media/set-throughput/resource-partition2.png)
 
-## <a name="setting-throughput-on-a-cosmos-database-and-a-container"></a>Configurazione della velocità effettiva in un database Cosmos e un contenitore
+## <a name="setting-throughput-on-a-azure-cosmos-database-and-a-container"></a>Impostazione della velocità effettiva per un database e un contenitore di Azure Cosmos
 
-È possibile combinare i due modelli, effettuando il provisioning della velocità effettiva nel database e nel contenitore. L'esempio seguente mostra come effettuare il provisioning della velocità effettiva in un database Cosmos e un contenitore:
+È possibile combinare i due modelli, effettuando il provisioning della velocità effettiva nel database e nel contenitore. L'esempio seguente mostra come effettuare il provisioning della velocità effettiva per un database e un contenitore di Azure Cosmos:
 
-* È possibile creare un database Cosmos denominato "Z" con velocità effettiva con provisioning di UR "K". 
+* È possibile creare un database di Azure Cosmos denominato 'Z' con velocità effettiva di cui è stato effettuato il provisioning di UR 'K'. 
 * Creare quindi cinque contenitori chiamati A, B, C, D ed E all'interno del database.
 * È possibile configurare in modo esplicito le UR "P" di velocità effettiva con provisioning nel contenitore "B".
 * La velocità effettiva delle UR "K" viene condivisa tra i quattro contenitori A, C, D ed E. La quantità esatta di velocità effettiva disponibile per A, C, D o E varia e non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
@@ -67,7 +67,6 @@ Più partizioni logiche che condividono la velocità effettiva con provisioning 
 
 |**Quota**  |**Velocità effettiva con provisioning in un database**  |**Velocità effettiva con provisioning in un contenitore**|
 |---------|---------|---------|
-|Unità di scalabilità|Contenitore|Contenitore|
 |UR minime |400 |400|
 |UR minime per contenitore|100|400|
 |UR minime richieste per usare 1 GB di spazio di archiviazione|40|40|
@@ -80,6 +79,6 @@ Più partizioni logiche che condividono la velocità effettiva con provisioning 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sulle [partizioni logiche](partition-data.md)
-* Informazioni su [come effettuare il provisioning della velocità effettiva in un contenitore Cosmos](how-to-provision-container-throughput.md)
-* Informazioni su [come effettuare il provisioning della velocità effettiva in un database Cosmos](how-to-provision-database-throughput.md)
+* Informazioni su [come effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
+* Informazioni su [come effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md)
 

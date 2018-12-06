@@ -9,13 +9,13 @@ ms.reviewer: klam
 ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
-ms.date: 08/18/2016
-ms.openlocfilehash: f5a8b929cf5af6e4e43c6003e6b622d04a50b93e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/14/2018
+ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980941"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712059"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Compilare pianificazioni avanzate e ricorrenze per i processi in Utilità di pianificazione di Azure
 
@@ -32,7 +32,7 @@ All'interno di un processo in [Utilità di pianificazione Azure](../scheduler/sc
 
 * **Processare immagini**: creare un processo dei giorni feriali che viene eseguito nelle ore non di punta e usa il cloud computing per la compressione delle immagini caricate durante la giornata.
 
-Questo articolo descrive i processi di esempio che si possono creare tramite l'Utilità di pianificazione e l'[API REST dell'Utilità di pianificazione di Azure](https://docs.microsoft.com/rest/api/schedule),e include la definizione di JavaScript Object Notation (JSON) per ogni pianificazione. 
+Questo articolo descrive i processi di esempio che si possono creare usando l'Utilità di pianificazione e l'[API REST dell'Utilità di pianificazione di Azure](/rest/api/scheduler) e include la definizione JSON (JavaScript Object Notation) per ogni pianificazione. 
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
@@ -43,7 +43,7 @@ Questi esempi illustrano la gamma di scenari supportati dall'Utilità di pianifi
 * Esecuzione immediata e in seguito ricorrente.
 * Esecuzione ricorrente ogni *n* minuti, ore, giorni, settimane o mesi, a partire da un momento specifico.
 * Esecuzione ricorrente con frequenza settimanale o mensile, ma solo in giorni specifici della settimana o del mese.
-* Esecuzione ricorrente più volte per un periodo specifico. Ad esempio, l'ultimo venerdì e l'ultimo lunedì di ogni mese oppure tutti i giorni alle 05:15 e alle 17:15.
+* Esecuzione ricorrente più di una volta per un periodo specifico. Ad esempio, l'ultimo venerdì e l'ultimo lunedì di ogni mese oppure tutti i giorni alle 05:15 e alle 17:15.
 
 In seguito, questo articolo descrive gli scenari in modo più dettagliato.
 
@@ -51,7 +51,7 @@ In seguito, questo articolo descrive gli scenari in modo più dettagliato.
 
 ## <a name="create-schedule-with-rest-api"></a>Creare pianificazione con l'API REST
 
-Per creare una pianificazione di base con l'[API REST dell'Utilità di pianificazione di Azure](https://docs.microsoft.com/rest/api/schedule), seguire questa procedura:
+Per creare una pianificazione di base con l'[API REST dell'Utilità di pianificazione di Azure](/rest/api/scheduler), seguire questa procedura:
 
 1. Registrare la sottoscrizione di Azure con un provider di risorse usando il [Registro operazione - API REST di Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). Il nome del provider per l'Utilità di pianificazione di Azure è **Utilità di pianificazione.Microsoft**. 
 
@@ -68,7 +68,7 @@ Questa tabella fornisce una panoramica generale degli elementi JSON principali c
 | **startTime** | No  | Valore di stringa DateTime nel [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) che specifica quando il processo inizia per le prima volta in una pianificazione di base. <p>Per le pianificazioni complesse, il processo viene attivato non prima del valore di **startTime**. | 
 | **recurrence** | No  | Regole di ricorrenza per l'esecuzione del processo. L'oggetto **recurrence** supporta i seguenti elementi: **frequency**, **interval**, **schedule**, **count**, e **endTime**. <p>Se si usa l'elemento **recurrence**, è necessario usare anche l’elemento **frequency**, mentre altri elementi **recurrence** sono facoltativi. |
 | **frequency** | Sì, quando si usa **recurrence** | L'unità di tempo tra le occorrenze supporta questi valori: "Minute", "Hour", "Day", "Week", "Month" e "Year" | 
-| **interval** | No  | Un numero intero positivo che determina il numero di unità di tempo tra le occorrenze sulla base della **frequency**. <p>Se ad esempio **interval** è 10 e **frequency** è "Week", il processo si ripete ogni 10 settimane. <p>Di seguito il numero massimo di intervalli per ciascuna frequenza: <p>- 18 mesi <br>- 78 settimane <br>- 548 giorni <br>Per ore e minuti, l'intervallo è 1 <= <*interval*><= 1000. | 
+| **interval** | No  | Un numero intero positivo che determina il numero di unità di tempo tra le occorrenze sulla base della **frequency**. <p>Se ad esempio **interval** è 10 e **frequency** è "Week", il processo si ripete ogni 10 settimane. <p>Di seguito il numero massimo di intervalli per ogni frequenza: <p>- 18 mesi <br>- 78 settimane <br>- 548 giorni <br>Per ore e minuti, l'intervallo è 1 <= <*interval*><= 1000. | 
 | **schedule** | No  | Definisce le modifiche alla ricorrenza in base agli indicatori di minuti, ore, giorni della settimana e giorni del mese | 
 | **count** | No  | Numero intero positivo che specifica il numero di volte in cui viene eseguito il processo prima del completamento. <p>Ad esempio, quando il **count** di un processo giornaliero è impostato su 7, e la data di inizio è lunedì, il processo viene completato di domenica. Se la data di inizio è già passata, la prima esecuzione verrà calcolata dall'ora di creazione. <p>Senza **endTime** o un **count**, il processo viene eseguito all'infinito. Non è possibile usare sia **count** che **endTime** in uno stesso processo, ma viene applicata la regola che termina per prima. | 
 | **endTime** | No  | Valore di stringa Date o DateTime nel [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) che specifica quando avviene l'arresto del processo. Per **endTime** è possibile impostare un valore nel passato. <p>Senza **endTime** o un **count**, il processo viene eseguito all'infinito. Non è possibile usare sia **count** che **endTime** in uno stesso processo, ma viene applicata la regola che termina per prima. |
@@ -96,7 +96,7 @@ Ad esempio, questo schema JSON descrive una pianificazione di base e la ricorren
 
 * Le date nei processi dell'Utilità di pianificazione di Azure includono solo la data e seguono la [specifica ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-* Data e ora nei processi dell'Utilità di pianificazione includono sia data che ora, seguono la [specifica ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)e si presuppone che sia UTC quando non viene specificata alcuna differenza dall'ora UTC. 
+* Data e ora nei processi dell'Utilità di pianificazione includono sia data che ora, seguono la [specifica ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) e si presuppone che siano in formato UTC quando non viene specificata alcuna differenza dall'ora UTC. 
 
 Per altre informazioni, vedere [Concetti, terminologia ed entità](../scheduler/scheduler-concepts-terms.md).
 
@@ -125,16 +125,16 @@ Si supponga che l'esempio presenti le condizioni seguenti: un'ora di inizio nel 
 }
 ```
 
-* Data e ora correnti sono "08/04/2015 13:00".
+* Data e ora correnti sono 8 aprile 2015 alle 13:00.
 
-* La data di inizio e l'ora è "07/04/2015 14:00", cioè prima della data e ora correnti.
+* La data e l'ora di inizio sono 7 aprile 2015 alle 14:00, cioè prima della data e ora correnti.
 
 * La ricorrenza è ogni due giorni.
 
-1. In queste condizioni, la prima esecuzione avviene il 09/04/2015 alle 14:00. 
+1. In queste condizioni, la prima esecuzione avviene il 9 aprile 2015 alle 14:00. 
 
    L'Utilità di pianificazione calcola le occorrenze di esecuzione in base all'ora di inizio, rimuove tutte le istanze del passato e usa l'istanza successiva in futuro. 
-   In questo caso, il valore di **startTime** è 07/04/2015 alle 14:00 e quindi l'istanza successiva viene eseguita due giorni dopo, ovvero il giorno 09/04/2015 alle 14:00.
+   In questo caso, il valore di **startTime** corrisponde al 7 aprile 2015 alle 14:00 e quindi l'istanza successiva viene eseguita due giorni dopo, ovvero il giorno 9 aprile 2015 alle 14:00.
 
    Si noti che la prima esecuzione è la stessa sia che il valore di **startTime** sia 05/04/2017 14:00 o 01/04/2017 14:00. Dopo la prima esecuzione, le esecuzioni successive vengono calcolate in base alla pianificazione. 
    
@@ -155,7 +155,7 @@ Si supponga che l'esempio presenti le condizioni seguenti: un'ora di inizio nel 
 
 L'oggetto **schedule** può essere usato anche per *espandere* il numero di esecuzioni di un processo. Se ad esempio un processo con **frequency** "month" prevede l'esecuzione nei giorni 1 e 2 del mese, il processo viene eseguito il primo e il secondo giorno del mese invece che una sola volta al mese.
 
-Se si specificano più elementi di pianificazione, l'ordine di valutazione va dal più grande al più piccolo, ovvero numero della settimana, giorno del mese, giorno della settimana, ora e minuto.
+Se si specifica più di un elemento di pianificazione, l'ordine di valutazione va dal più grande al più piccolo, ovvero numero della settimana, giorno del mese, giorno della settimana, ora e minuto.
 
 La tabella seguente illustra in modo dettagliato gli elementi dell'oggetto schedule.
 
@@ -192,7 +192,7 @@ In queste pianificazioni si presuppone che **interval** sia impostato su 1\. Neg
 | `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |Viene eseguito ogni 15 minuti nei giorni feriali tra le 09:00 e le 16:45. |
 | `{"weekDays":["sunday"]}` |Viene eseguito ogni domenica all'ora di inizio. |
 | `{"weekDays":["tuesday", "thursday"]}` |Viene eseguito ogni martedì e giovedì all'ora di inizio. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Viene eseguito alle 06:00 del ventottesimo giorno di ogni mese, supponendo che il valore di **frequency** sia "month". |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Viene eseguito alle 6 il ventottesimo giorno di ogni mese (presumendo che **frequency** sia "month"). |
 | `{"minutes":[0], "hours":[6], "monthDays":[-1]}` |Viene eseguito alle 06:00 dell'ultimo giorno di ogni mese.<br /><br />Se si vuole eseguire un processo l'ultimo giorno del mese, usare -1 anziché il numero del giorno, ovvero 28, 29, 30 o 31. |
 | `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` |Viene eseguito alle 06:00 del primo e dell'ultimo giorno di ogni mese. |
 | `{monthDays":[1,-1]}` |Viene eseguito il primo e l'ultimo giorno di ogni mese all'ora di inizio. |
@@ -209,6 +209,6 @@ In queste pianificazioni si presuppone che **interval** sia impostato su 1\. Neg
 
 ## <a name="see-also"></a>Vedere anche 
 
-* [Informazioni su Utilità di pianificazione di Microsoft Azure](scheduler-intro.md)
+* [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 * [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)

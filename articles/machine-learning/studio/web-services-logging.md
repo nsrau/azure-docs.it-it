@@ -1,10 +1,11 @@
 ---
-title: Registrazione per i servizi Web di Machine Learning | Documentazione Microsoft
+title: Registrazione per i servizi Web di Machine Learning Studio | Microsoft Docs
 description: Informazioni su come abilitare la registrazione per i servizi Web di Machine Learning. La registrazione fornisce informazioni aggiuntive per risolvere i problemi relativi alle API.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
@@ -15,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 4e1545c8fd05795c683b24c029376a3d1e6d85b8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5ac8712b1f5dbea4ed3225e87b1a6f51312c3529
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835832"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310413"
 ---
-# <a name="enable-logging-for-machine-learning-web-services"></a>Abilitare la registrazione per i servizi Web di Machine Learning
+# <a name="enable-logging-for-machine-learning-studio-web-services"></a>Abilitare la registrazione per i servizi Web di Machine Learning Studio
 Questo documento include informazioni sulla capacità di registrazione dei servizi Web di Machine Learning. La registrazione offre informazioni aggiuntive per la risoluzione dei problemi delle API di Machine Learning, non soltanto un semplice codice di errore e un messaggio.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Come abilitare la registrazione per un servizio Web
@@ -84,7 +85,7 @@ Il nome di ogni BLOB riporta un prefisso nel formato seguente:
 
 Dove _Tipo di log_ corrisponde a uno dei valori seguenti:  
 
-* o batch  
+*  o batch  
 * punteggio/richieste  
 * punteggio/init  
 

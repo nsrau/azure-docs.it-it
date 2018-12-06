@@ -8,14 +8,14 @@ ms.author: nitinver
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 7/7/2017
-ms.openlocfilehash: e25a2dcaf9b7c820f5d7e0312fb2cb55fc558882
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593900"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317229"
 ---
-# <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Risolvere i problemi di HBase con Azure HDInsight
+# <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache HBase tramite Azure HDInsight
 
 Questo articolo illustra i problemi principali che possono verificarsi quando si usano payload di Apache HBase in Apache Ambari e le relative risoluzioni.
 
@@ -30,7 +30,7 @@ Dato che i difetti possono essere causati dalle aree offline, per prima cosa cor
 Per ripristinare uno stato normale delle aree non assegnate, seguire questa procedura:
 
 1. Accedere al cluster HBase di HDInsight con SSH.
-2. Per connettersi con la shell ZooKeeper, eseguire il comando `hbase zkcli`.
+2. Per connettersi con la shell Apache ZooKeeper, eseguire il comando `hbase zkcli`.
 3. Eseguire il comando `rmr /hbase/regions-in-transition` o `rmr /hbase-unsecure/regions-in-transition`.
 4. Per uscire dalla shell `hbase zkcli`, usare il comando `exit`.
 5. Aprire l'interfaccia utente di Apache Ambari e quindi riavviare il servizio HBase Master attivo.
@@ -46,7 +46,7 @@ Un possibile causa dei problemi di timeout quando si usa il comando `hbck` potre
 ### <a name="resolution-steps"></a>Procedura per la risoluzione
 
 1. Accedere al cluster HBase di HDInsight con SSH.
-2. Per connettersi con la shell ZooKeeper, eseguire il comando `hbase zkcli`.
+2. Per connettersi con la shell Apache ZooKeeper, eseguire il comando `hbase zkcli`.
 3. Eseguire il comando `rmr /hbase/regions-in-transition` o `rmr /hbase-unsecure/regions-in-transition`.
 4. Per uscire dalla shell `hbase zkcli`, usare il comando `exit`.
 5. Nell'interfaccia utente di Apache Ambari riavviare il servizio HBase Master attivo.
@@ -56,7 +56,7 @@ Un possibile causa dei problemi di timeout quando si usa il comando `hbck` potre
 
 ### <a name="issue"></a>Problema
 
-Il sistema HDFS (Hadoop Distributed File System) locale è bloccato in modalità sicura nel cluster HDInsight.
+Il sistema HDFS (Apache Hadoop Distributed File System) locale è bloccato in modalità sicura nel cluster HDInsight.
 
 ### <a name="detailed-description"></a>Descrizione dettagliata
 
@@ -211,7 +211,7 @@ Il cluster HDInsight è stato ridotto a pochissimi nodi. Il numero di nodi è in
 
 ### <a name="resolution-steps"></a>Procedura per la risoluzione
 
-Per connettersi con Phoenix, è necessario specificare l'indirizzo IP di un nodo ZooKeeper attivo. Verificare che il servizio ZooKeeper a cui sqlline.py prova a connettersi sia operativo.
+Per connettersi con Apache Phoenix, è necessario specificare l'indirizzo IP di un nodo Apache ZooKeeper attivo. Verificare che il servizio ZooKeeper a cui sqlline.py prova a connettersi sia operativo.
 1. Accedere al cluster HDInsight con SSH.
 2. Immettere il comando seguente:
                 
@@ -247,7 +247,7 @@ Per connettersi con Phoenix, è necessario specificare l'indirizzo IP di un nodo
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
    ```
-6. Nell'interfaccia utente di Ambari eseguire questi passaggi per riavviare il servizio HMaster in tutti i nodi ZooKeeper:
+6. Nell'interfaccia utente di Apache Ambari eseguire questi passaggi per riavviare il servizio HMaster in tutti i nodi ZooKeeper:
 
     1. Nella sezione **Summary** (Riepilogo) di HBase passare a **HBase** > **Active HBase Master** (HBase Master attivo). 
     2. Nella sezione **Components** (Componenti) riavviare il servizio HBase Master.
@@ -331,7 +331,7 @@ Si tratta di un problema noto relativo al servizio HMaster. Le attività di avvi
   
 ### <a name="resolution-steps"></a>Procedura per la risoluzione
 
-1. Nell'interfaccia utente di Ambari passare a **HBase** > **Configs** (Configurazioni). Nel file hbase-site.xml personalizzato aggiungere l'impostazione seguente: 
+1. Nell'interfaccia utente di Apache Ambari passare a **HBase** > **Configs** (Configurazioni). Nel file hbase-site.xml personalizzato aggiungere l'impostazione seguente: 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -344,9 +344,9 @@ Si tratta di un problema noto relativo al servizio HMaster. Le attività di avvi
 
 ### <a name="issue"></a>Problema
 
-È possibile prevenire un errore di avvio in un server di area seguendo le procedure consigliate. Quando si pianifica il riavvio di server di area di HBase, è consigliabile sospendere le attività con carichi di lavoro elevati. Se l'applicazione continua a connettersi ai server di area mentre è in corso l'arresto, l'operazione di riavvio dei server di area verrà rallentata di diversi minuti. È anche opportuno scaricare prima tutte le tabelle. Per informazioni su come scaricare le tabelle, vedere [HDInsight HBase: How to improve the HBase cluster restart time by flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) (HBase in HDInsight: come migliorare i tempi di riavvio del cluster HBase scaricando le tabelle).
+È possibile prevenire un errore di avvio in un server di area seguendo le procedure consigliate. Quando si pianifica il riavvio di server di area di HBase, è consigliabile sospendere le attività con carichi di lavoro elevati. Se l'applicazione continua a connettersi ai server di area mentre è in corso l'arresto, l'operazione di riavvio dei server di area verrà rallentata di diversi minuti. È anche opportuno scaricare prima tutte le tabelle. Per informazioni su come scaricare le tabelle, vedere [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) (HBase in HDInsight: come migliorare i tempi di riavvio del cluster Apache HBase scaricando le tabelle).
 
-Se l'operazione di riavvio sui server di area di HBase viene avviata dall'interfaccia utente di Ambari, viene visualizzato immediatamente che i server di area sono stati arrestati, ma non vengono riavviati subito. 
+Se l'operazione di riavvio sui server di area di HBase viene avviata dall'interfaccia utente di Apache Ambari, viene visualizzato immediatamente che i server di area sono stati arrestati, ma non vengono riavviati subito. 
 
 Di seguito è riportato che cosa avviene in background: 
 

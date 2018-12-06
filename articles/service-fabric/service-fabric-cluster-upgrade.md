@@ -1,6 +1,6 @@
 ---
 title: Aggiornare un cluster di Azure Service Fabric | Documentazione Microsoft
-description: Aggiornamento del codice di Service Fabric e/o della configurazione eseguita in un cluster di Service Fabric, con impostazione della modalità di aggiornamento del cluster, aggiornamento dei certificati, aggiunta di porte dell'applicazione, applicazione di patch del sistema operativo e così via. Possibili risultati degli aggiornamenti.
+description: Informazioni sull'aggiornamento della versione o della configurazione di un cluster di Service Fabric.  Questo articolo descrive l'impostazione della modalità di aggiornamento di un cluster, l'aggiornamento dei certificati, l'aggiunta di porte dell'applicazione e l'applicazione di patch del sistema operativo. Descrive anche cosa aspettarsi quando vengono eseguiti gli aggiornamenti
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -12,114 +12,28 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/10/2017
+ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 2fd62f8709bddfd981f4b1358c97d0acbaf7f12d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: a864d6423dc530857009e58a2fa90f0fa2cbc84f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269104"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853286"
 ---
-# <a name="upgrade-an-azure-service-fabric-cluster"></a>Aggiornare un cluster di Azure Service Fabric
-> [!div class="op_single_selector"]
-> * [Cluster di Azure](service-fabric-cluster-upgrade.md)
-> * [Cluster autonomo](service-fabric-cluster-upgrade-windows-server.md)
-> 
-> 
+# <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Aggiornamento di un cluster di Azure Service Fabric
 
 Per i sistemi attuali la progettazione a livello di aggiornamento è fondamentale per il successo a lungo termine di un prodotto. Un cluster di Azure Service Fabric è una risorsa di proprietà dell'utente parzialmente gestita da Microsoft. Questo articolo descrive ciò che viene gestito automaticamente e ciò che è possibile configurare manualmente.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controllo della versione di Fabric eseguita nel cluster
-È possibile impostare il cluster per ricevere gli aggiornamenti automatici di Fabric quando vengono rilasciati da Microsoft oppure è possibile selezionare una versione di Fabric supportata da eseguire nel cluster.
 
-A questo scopo, impostare l'opzione di configurazione "upgradeMode" del cluster nel portale oppure usare Resource Manager al momento della creazione o successivamente in un cluster attivo. 
-
-> [!NOTE]
-> Verificare che il cluster esegua sempre una versione di Fabric supportata. Quando viene annunciato il rilascio di una nuova versione di Service Fabric, viene segnalato il termine del periodo di supporto per la versione precedente dopo un minimo di 60 giorni da tale data. Le nuove versioni vengono annunciate nel [blog del team di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). A questo punto è possibile scegliere la nuova versione. 
-> 
-> 
+Verificare che il cluster esegua sempre una versione di Fabric supportata. Quando viene annunciato il rilascio di una nuova versione di Service Fabric, viene segnalato il termine del periodo di supporto per la versione precedente dopo un minimo di 60 giorni da tale data. Le nuove versioni vengono annunciate nel blog del team di Service Fabric. A questo punto è possibile scegliere la nuova versione.
 
 14 giorni prima della scadenza della versione in esecuzione nel cluster, viene generato un evento di integrità e il cluster passa a uno stato di avviso. Il cluster rimane in stato di avviso fino a quando non viene eseguito l'aggiornamento a una versione di Fabric supportata.
 
-### <a name="setting-the-upgrade-mode-via-portal"></a>Impostazione della modalità di aggiornamento tramite il portale
-È possibile impostare l'aggiornamento automatico o manuale durante la creazione del cluster.
+È possibile impostare il cluster per ricevere gli aggiornamenti automatici di Fabric quando vengono rilasciati da Microsoft oppure è possibile selezionare una versione di Fabric supportata da eseguire nel cluster.  Per altre informazioni, vedere [Aggiornare la versione di Service Fabric del cluster](service-fabric-cluster-upgrade-version-azure.md).
 
-![Creazione - Modalità manuale][Create_Manualmode]
-
-È possibile impostare l'aggiornamento automatico o manuale in un cluster attivo con l'esperienza di gestione. 
-
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Aggiornamento a una nuova versione in un cluster impostato sulla modalità manuale tramite il portale
-Per eseguire l'aggiornamento a una nuova versione, è sufficiente selezionare la versione disponibile nell'elenco a discesa e salvare. L'aggiornamento di Fabric viene avviato automaticamente. Durante l'aggiornamento vengono rispettati i criteri di integrità del cluster (una combinazione dell'integrità del nodo e dell'integrità di tutte le applicazioni in esecuzione nel cluster).
-
-Se i criteri di integrità del cluster non vengono soddisfatti, viene eseguito il rollback dell'aggiornamento. Per altre informazioni su come impostare questi criteri di integrità personalizzati, scorrere questo documento verso il basso. 
-
-Dopo aver risolto i problemi che hanno determinato il rollback, è necessario avviare di nuovo l'aggiornamento, seguendo la stessa procedura precedente.
-
-![Gestione - Modalità automatica][Manage_Automaticmode]
-
-### <a name="setting-the-upgrade-mode-via-a-resource-manager-template"></a>Impostazione della modalità di aggiornamento tramite un modello di Resource Manager
-Aggiungere l'opzione di configurazione "upgradeMode" alla definizione della risorsa Microsoft.ServiceFabric/clusters e impostare "clusterCodeVersion" su una delle versioni di Fabric supportate come illustrato di seguito, quindi distribuire il modello. I valori validi per "upgradeMode" sono "Manual" e "Automatic"
-
-![Modalità di aggiornamento tramite Azure Resource Manager][ARMUpgradeMode]
-
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Aggiornamento a una nuova versione in un cluster impostato sulla modalità manuale tramite un modello di Resource Manager
-Quando il cluster è in modalità manuale, per eseguire l'aggiornamento a una nuova versione modificare "clusterCodeVersion" impostando una versione supportata e quindi eseguire la distribuzione. Con la distribuzione del modello, l'aggiornamento di Fabric viene avviato automaticamente. Durante l'aggiornamento vengono rispettati i criteri di integrità del cluster (una combinazione dell'integrità del nodo e dell'integrità di tutte le applicazioni in esecuzione nel cluster).
-
-Se i criteri di integrità del cluster non vengono soddisfatti, viene eseguito il rollback dell'aggiornamento. Per altre informazioni su come impostare questi criteri di integrità personalizzati, scorrere questo documento verso il basso. 
-
-Dopo aver risolto i problemi che hanno determinato il rollback, è necessario avviare di nuovo l'aggiornamento, seguendo la stessa procedura precedente.
-
-### <a name="get-list-of-all-available-version-for-all-environments-for-a-given-subscription"></a>Ottenere l'elenco di tutte le versioni disponibili per tutti gli ambienti per una determinata sottoscrizione
-Eseguendo questo comando si otterrà un output simile al seguente.
-
-"supportExpiryUtc" indica la scadenza di una determinata versione. La versione più recente non ha una data valida, ma un valore "9999-12-31T23:59:59.9999999", che indica che la data di scadenza non è ancora stata impostata.
-
-```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
-
-Example: https://management.azure.com/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
-
-Output:
-{
-                  "value": [
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
-                      "name": "5.0.1427.9490",
-                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.0.1427.9490",
-                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
-                      "name": "5.1.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.1.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
-                      "name": "4.4.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "4.4.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Linux"
-                      }
-                    }
-                  ]
-                }
-
-
-```
-
-## <a name="fabric-upgrade-behavior-when-the-cluster-upgrade-mode-is-automatic"></a>Comportamento di aggiornamento di Fabric in caso di cluster con modalità automatica di aggiornamento
+## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>Comportamento dell'aggiornamento di Fabric durante gli aggiornamenti automatici
 Microsoft gestisce il codice dell'infrastruttura e la configurazione eseguita in un cluster di Azure e, in base alle esigenze, esegue aggiornamenti monitorati del software in modo automatico. Gli aggiornamenti possono interessare il codice, la configurazione o entrambi. Per assicurarsi che gli aggiornamenti abbiano un impatto minimo o nullo sull'applicazione, vengono eseguiti nelle fasi descritte di seguito.
 
 ### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Fase 1: Un aggiornamento viene eseguito usando tutti i criteri di integrità del cluster
@@ -149,7 +63,7 @@ Si tenta di eseguire più volte lo stesso aggiornamento nel caso in cui non sia 
 Se i criteri di integrità del cluster sono soddisfatti, l'aggiornamento si considera riuscito e viene contrassegnato come completato. Questa situazione può verificarsi durante l'aggiornamento iniziale o in una delle repliche previste in questa fase. Non viene inviato alcun messaggio di posta elettronica di conferma in caso di esecuzione riuscita.
 
 ### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Fase 3: Un aggiornamento viene eseguito usando criteri di integrità aggressivi
-Tali criteri di integrità in questa fase sono pensati per il completamento dell'aggiornamento piuttosto che per l'integrità delle applicazioni. In questa fase verranno completati pochi aggiornamenti del cluster. Se il cluster giunge a questa fase, è molto probabile che l'applicazione divenga non integra e/o perda disponibilità.
+Tali criteri di integrità in questa fase sono pensati per il completamento dell'aggiornamento piuttosto che per l'integrità delle applicazioni. In questa fase vengono eseguiti pochi aggiornamenti del cluster. Se il cluster giunge a questa fase, è molto probabile che l'applicazione divenga non integra e/o perda disponibilità.
 
 In modo analogo alle altre due fasi, gli aggiornamenti della fase 3 procedono in base a un dominio di aggiornamento alla volta.
 
@@ -159,42 +73,21 @@ Al proprietario della sottoscrizione viene inviato un messaggio di posta elettro
 
 Se i criteri di integrità del cluster sono soddisfatti, l'aggiornamento si considera riuscito e viene contrassegnato come completato. Questa situazione può verificarsi durante l'aggiornamento iniziale o in una delle repliche previste in questa fase. Non viene inviato alcun messaggio di posta elettronica di conferma in caso di esecuzione riuscita.
 
-## <a name="cluster-configurations-that-you-control"></a>Configurazioni del cluster controllate manualmente
-Oltre a poter impostare la modalità di aggiornamento del cluster, in un cluster attivo è possibile modificare le configurazioni riportate di seguito.
+## <a name="manage-certificates"></a>Gestire i certificati
+Service Fabric usa i [certificati server X.509](service-fabric-cluster-security.md) specificati quando si crea un cluster per proteggere le comunicazioni tra i nodi del cluster ed eseguire l'autenticazione client. È possibile aggiungere, aggiornare o eliminare certificati per il cluster e il client nel [portale di Azure](https://portal.azure.com) o tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.  Per altre informazioni, vedere [Aggiungere o rimuovere certificati](service-fabric-cluster-security-update-certs-azure.md)
 
-### <a name="certificates"></a>Certificati
-È facile aggiungere o eliminare i certificati di cluster e client tramite il portale. Fare riferimento a [questo documento per altre informazioni](service-fabric-cluster-security-update-certs-azure.md)
+## <a name="open-application-ports"></a>Aprire porte dell'applicazione
+È possibile modificare le porte dell'applicazione modificando le proprietà della risorsa del servizio di bilanciamento del carico associate al tipo di nodo. È possibile usare il portale di Azure oppure PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Aprire le porte dell'applicazione per un cluster](create-load-balancer-rule.md).
 
-![Schermata che illustra le identificazioni personali del certificato nel portale di Azure.][CertificateUpgrade]
+## <a name="define-node-properties"></a>Definire le proprietà dei nodi
+È talvolta necessario assicurarsi che carichi di lavoro specifici vengano eseguiti solo in tipi di nodo specifici nel cluster. Ad esempio, è possibile che alcuni carichi di lavoro richiedano GPU o SSD, mentre altri no. Per ogni tipo di nodo in un cluster è possibile aggiungere proprietà personalizzate ai nodi corrispondenti. I vincoli di posizionamento sono le istruzioni collegate ai singoli servizi che selezionano una o più proprietà del nodo. Definiscono la posizione in cui i servizi devono essere eseguiti.
 
-### <a name="application-ports"></a>Porte dell'applicazione
-È possibile modificare le porte dell'applicazione modificando le proprietà della risorsa del servizio di bilanciamento del carico associate al tipo di nodo. A questo scopo, è possibile usare il portale oppure direttamente PowerShell per Gestione risorse.
+Per informazioni dettagliate sull'uso e sulla definizione dei vincoli di posizionamento e delle proprietà dei nodi, vedere [Proprietà dei nodi e vincoli di posizionamento](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
-Per aprire una nuova porta in tutte le VM di un tipo di nodo, seguire questa procedura.
-
-1. Aggiungere un nuovo probe al servizio di bilanciamento del carico appropriato.
-   
-    Se il cluster è stato distribuito tramite il portale, il bilanciamento del carico verrà denominato "LB-nome del gruppo di risorse-NodeTypename", uno per ogni tipo di nodo. Poiché i nomi del servizio di bilanciamento del carico sono univoci solo nell'ambito di un gruppo di risorse, è consigliabile cercarli in uno specifico gruppo di risorse.
-   
-    ![Schermata che illustra l'aggiunta di un probe a un servizio di bilanciamento del carico nel portale.][AddingProbes]
-2. Aggiungere una nuova regola al servizio di bilanciamento del carico.
-   
-    Aggiungere una nuova regola allo stesso servizio di bilanciamento del carico usando il probe creato nel passaggio precedente.
-   
-    ![Aggiunta di una nuova regola a un servizio di bilanciamento del carico nel portale][AddingLBRules]
-
-### <a name="placement-properties"></a>Proprietà di posizionamento
-Per ogni tipo di nodo è possibile aggiungere proprietà di posizionamento personalizzate da usare nelle applicazioni. NodeType è una proprietà predefinita che è possibile usare senza aggiungerla in modo esplicito.
-
-> [!NOTE]
-> Per informazioni dettagliate sull'uso dei vincoli di posizionamento, le proprietà dei nodi e le relative definizioni, vedere la sezione relativa ai vincoli di posizionamento e proprietà dei nodi nell'articolo di Gestione risorse del cluster di Service Fabric relativo alla [descrizione del cluster](service-fabric-cluster-resource-manager-cluster-description.md).
-> 
-> 
-
-### <a name="capacity-metrics"></a>Metriche della capacità
+## <a name="add-capacity-metrics"></a>Aggiungere metriche di capacità
 Per ogni tipo di nodo è possibile aggiungere metriche di capacità personalizzate da usare nelle applicazioni per creare report sul carico. Per informazioni dettagliate sull'uso di metriche di capacità per la segnalazione del carico, vedere i documenti di Gestione risorse del cluster di Service Fabric relativi a [descrizione del cluster](service-fabric-cluster-resource-manager-cluster-description.md) e [metriche e carico](service-fabric-cluster-resource-manager-metrics.md).
 
-### <a name="fabric-upgrade-settings---health-polices"></a>Impostazioni di aggiornamento di Fabric: criteri di integrità
+## <a name="set-health-policies-for-automatic-upgrades"></a>Impostare criteri di integrità per gli aggiornamenti automatici
 È possibile specificare criteri di integrità personalizzati per l'aggiornamento di Fabric. Se nel cluster è stato impostato l'aggiornamento automatico di Fabric, questi criteri vengono applicati alla fase 1 degli aggiornamenti automatici di Fabric.
 Se nel cluster è stato impostato l'aggiornamento manuale di Fabric, questi criteri vengono applicati ogni volta che si seleziona una nuova versione attivando nel sistema l'avvio dell'aggiornamento di Fabric nel cluster. Se non si esegue l'override dei criteri, vengono usati quelli predefiniti.
 
@@ -202,13 +95,13 @@ Se nel cluster è stato impostato l'aggiornamento manuale di Fabric, questi crit
 
 ![Gestire criteri di integrità personalizzati][HealthPolices]
 
-### <a name="customize-fabric-settings-for-your-cluster"></a>Personalizzare le impostazioni di Fabric per il cluster
-Per informazioni sulle impostazioni personalizzabili e su come possono essere personalizzate, vedere l'articolo relativo alle [impostazioni dei cluster di Service Fabric](service-fabric-cluster-fabric-settings.md) .
+## <a name="customize-fabric-settings-for-your-cluster"></a>Personalizzare le impostazioni di Fabric per il cluster
+In un cluster è possibile personalizzare molte impostazioni di configurazione diverse, ad esempio il livello di affidabilità del cluster e le proprietà dei nodi. Per altre informazioni, vedere [Impostazioni di un cluster di Service Fabric](service-fabric-cluster-fabric-settings.md).
 
-### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>Patch del sistema operativo nelle VM che costituiscono il cluster
-Fare riferimento a [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) che può essere distribuito nel cluster per installare le patch di Windows Update in modo orchestrato, mantenendo i servizi sempre disponibili. 
+## <a name="patch-the-os-in-the-cluster-nodes"></a>Patch del sistema operativo nei nodi del cluster
+Patch Orchestration Application (POA) è un'applicazione Service Fabric che automatizza l'applicazione di patch nei sistemi operativi in un cluster di Service Fabric senza tempi di inattività. È possibile eseguire la distribuzione di [Patch Orchestration Application per Windows](service-fabric-patch-orchestration-application.md) o di [Patch Orchestration Application for Linux](service-fabric-patch-orchestration-application-linux.md) nel cluster per installare patch in modo orchestrato, mantenendo i servizi sempre disponibili. 
 
-### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Aggiornamenti del sistema operativo nelle VM che costituiscono il cluster
+## <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Aggiornamenti del sistema operativo nelle VM che costituiscono il cluster
 Se è necessario aggiornare l'immagine del sistema operativo nelle macchine virtuali del cluster, eseguire questa operazione su una VM per volta. L'esecuzione dell'aggiornamento è un'operazione manuale, non è attualmente disponibile alcun tipo di automazione.
 
 ## <a name="next-steps"></a>Passaggi successivi

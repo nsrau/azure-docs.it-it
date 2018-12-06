@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 821d9bf3c844da030d1d351e895704a81678fb4e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 049b6969b33290edf6ef8a2ea437808d914057a9
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699472"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285068"
 ---
 # <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
 
@@ -38,7 +38,7 @@ Per usare le code e gli argomenti partizionati con il bus di servizio di Azure, 
 
 ### <a name="standard"></a>Standard
 
-A livello di messaggistica Standard è possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 copie (16 partizioni) per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 \* 16). È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
+A livello di messaggistica Standard è possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Se il partizionamento è abilitato, il bus di servizio crea 4 copie (4 partizioni) dell'entità per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB con 4 partizioni, le dimensioni massime della coda sono (5 \* 4) = 20 GB. È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
 
 ### <a name="premium"></a>Premium
 
@@ -140,7 +140,7 @@ Il bus di servizio supporta l'inoltro automatico dei messaggi da, a o tra entit�
 
 Attualmente il bus di servizio impone alle code o agli argomenti partizionati i limiti seguenti:
 
-* Code e argomenti partizionati non sono supportati nella messaggistica Premium.
+* Code e argomenti partizionati non sono supportati nella messaggistica Premium. Le sessioni sono supportate nel livello Premium mediante SessionId. 
 * Le code e gli argomenti partizionati non supportano l'invio di messaggi che appartengono a sessioni diverse in una singola transazione.
 * Il bus di servizio attualmente consente fino a 100 code o argomenti partizionati per spazio dei nomi. Ogni coda o argomento partizionato viene conteggiato ai fini della quota di 10.000 entità per spazio dei nomi (non si applica al livello Premium).
 

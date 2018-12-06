@@ -1,11 +1,12 @@
 ---
-title: Soluzione predittiva per il rischio di credito con Machine Learning | Documentazione Microsoft
+title: Soluzione predittiva per il rischio di credito - Azure Machine Learning Studio | Microsoft Docs
 description: Una procedura dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio.
 keywords: rischio di credito, soluzione di analisi predittiva, valutazione del rischio
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.component: studio
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: a107907dd01b15015c644f835239f6f90b948296
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a5dd8432ca79cca8de37f5d64027e0b9c498f3b9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245835"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311943"
 ---
-# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning
+# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio
 
 In questa procedura dettagliata viene esaminato il processo di sviluppo di una soluzione di analisi predittiva in Machine Learning Studio. Viene sviluppato un modello semplice in Machine Learning Studio, che viene quindi distribuito come servizio Web di Azure Machine Learning, in cui il modello può creare previsioni usando nuovi dati. 
 

@@ -1,25 +1,18 @@
 ---
 title: Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager | Documentazione Microsoft
 description: Questo articolo offre una panoramica delle informazioni utili sul bridging dei modelli di distribuzione Resource Manager e classica.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
-editor: ''
-ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: ganesr
-ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b9ac7408f83677ed9898dc37fc234b9b9a6386f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710066"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977030"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager
 Questo articolo offre una panoramica di cosa si intende per spostamento di un circuito Azure ExpressRoute dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager.
@@ -64,7 +57,7 @@ Le operazioni classiche seguenti sono supportate in un circuito ExpressRoute qua
 * Creare, aggiornare, ottenere o eliminare collegamenti alle reti virtuali classiche.
 * Creare, aggiornare, ottenere o eliminare autorizzazioni dei collegamenti alle reti virtuali per la connettività tra sottoscrizioni.
 
-Non è possibile eseguire le operazioni classiche seguenti quando **allowClassicOperations** è impostato su TRUE:
+Tuttavia, non è possibile eseguire le operazioni classiche seguenti quando **allowClassicOperations** è impostato su TRUE:
 
 * Creare, aggiornare, ottenere o eliminare peering BGP (Border Gateway Protocol) per peering pubblici e privati di Azure e peering Microsoft.
 * Eliminare circuiti ExpressRoute.

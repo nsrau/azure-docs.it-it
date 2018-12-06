@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515353"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273800"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Come ottimizzare gli investimenti per il cloud con Gestione costi di Azure
 
@@ -46,7 +46,7 @@ Una pianificazione iniziale completa consente di adattare l'utilizzo del cloud a
 - Quale problema aziendale si deve risolvere?
 - Quali modelli di utilizzo sono previsti per le risorse?
 
-Le risposte consentiranno di selezionare l'offerta più adatta perché determinano l'infrastruttura da usare e come usarla per ottimizzare l'efficienza di Azure.
+Le risposte saranno utili per selezionare le offerte appropriate, perché determinano l'infrastruttura da usare e come usarla per ottimizzare l'efficienza di Azure.
 
 #### <a name="visibility"></a>Visibilità
 
@@ -62,7 +62,7 @@ Impegnarsi per ridurre le spese basandosi sulle conclusioni raggiunte grazie all
 
 #### <a name="iteration"></a>Iterazione
 
-Tutti quelli che fanno parte dell'organizzazione devono essere coinvolti nel ciclo di vita della gestione dei costi. Il loro coinvolgimento deve essere continuativo per poter ottimizzare i costi. Questo processo iterativo deve essere applicato in modo rigoroso e deve diventare un elemento fondamentale per una governance cloud responsabile all'interno dell'organizzazione.
+Tutti quelli che fanno parte dell'organizzazione devono essere coinvolti nel ciclo di vita della gestione dei costi. Il loro coinvolgimento deve essere continuativo per poter ottimizzare i costi. Questo processo iterativo deve essere applicato in modo rigoroso e deve diventare un elemento fondamentale per una governance del cloud responsabile all'interno dell'organizzazione.
 
 ![Principi chiave](./media/cost-mgt-best-practices/principles.png)
 

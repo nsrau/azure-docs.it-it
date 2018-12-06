@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d29f01c7f953ed211b429e41b844a01c67e41054
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282376"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160665"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Ridimensionare la velocità effettiva per i contenitori di Azure Cosmos DB
 
@@ -23,9 +23,9 @@ In Azure Cosmos DB, la velocità effettiva con provisioning viene rappresentata 
 
 È possibile effettuare il provisioning delle unità richiesta in un contenitore Cosmos o in un database Cosmos. Le unità richiesta con provisioning in un contenitore sono disponibili esclusivamente per le operazioni eseguite in tale contenitore. Le unità richiesta con provisioning in un database sono condivise tra tutti i contenitori all'interno del database (ad eccezione di eventuali contenitori esclusivamente assegnati a unità di richiesta).
 
-Per ridimensionare in modo elastico la velocità effettiva, aumentare o ridurre le UR/sec con provisioning in qualsiasi momento. Per altre informazioni, vedere [come effettuare il provisioning della velocità effettiva](set-throughput.md) e ridimensionare in modo elastico i database e i contenitori Cosmos. Per la scalabilità a livello globale della velocità effettiva, è possibile aggiungere o rimuovere aree nell'account Cosmos in qualsiasi momento. Per altre informazioni, vedere [come aggiungere o rimuovere aree dall'account Cosmos](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Associare più aree con un account Cosmos è importante in molti scenari per ottenere una latenza bassa e una [disponibilità elevata](high-availability.md) in tutto il mondo.
+Per ridimensionare in modo elastico la velocità effettiva, aumentare o ridurre le UR/sec con provisioning in qualsiasi momento. Per altre informazioni, vedere [come effettuare il provisioning della velocità effettiva](set-throughput.md) e ridimensionare in modo elastico i database e i contenitori Cosmos. Per la scalabilità a livello globale della velocità effettiva, è possibile aggiungere o rimuovere aree nell'account Cosmos in qualsiasi momento. Per altre informazioni, vedere [Aggiungere o rimuovere aree dall'account di database](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Associare più aree con un account Cosmos è importante in molti scenari per ottenere una latenza bassa e una [disponibilità elevata](high-availability.md) in tutto il mondo.
 
-## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>Come viene distribuita la velocità effettiva con provisioning tra le diverse aree
+## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>Come viene distribuita la velocità effettiva di cui è stato effettuato il provisioning tra le diverse aree
 
 Se si esegue il provisioning di UR di "R" in un contenitore Cosmos (o database), Cosmos DB garantisce che le UR di "R" siano disponibili in *ogni* area associata all'account Cosmos. Ogni volta che si aggiunge una nuova area nell'account, Cosmos DB esegue automaticamente il provisioning UR di "R" nell'area appena aggiunta. Le operazioni eseguite a fronte del contenitore Cosmos garantiscono di ottenere UR di "R" in ognuna delle aree. Non è possibile assegnare in modo selettivo le UR a un'area specifica. Le UR con provisioning per un contenitore (o database) Cosmos vengono sottoposte a provisioning per tutte le aree associate all'account Cosmos.
 

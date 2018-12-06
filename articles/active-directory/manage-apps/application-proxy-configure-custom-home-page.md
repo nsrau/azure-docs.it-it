@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e6f4e67d09eacadbbf9d74f417357a87ece0a951
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d098d38c39788dee7f4a3852d07a762b36fd9a4f
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238506"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333752"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Impostare una home page personalizzata per le app pubblicate tramite il proxy applicazione di Azure AD
 
@@ -120,7 +120,7 @@ Creare l'URL della home page e aggiornare l'applicazione con tale valore. Contin
     $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
-3. Impostare l'URL della home page sul valore desiderato. Il valore deve essere un percorso di sottodominio dell'app pubblicata. Se ad esempio si modifica l'URL della home page da *https://sharepoint-iddemo.msappproxy.net/* in *https://sharepoint-iddemo.msappproxy.net/hybrid/*, gli utenti dell'app passano direttamente alla home page personalizzata.
+3. Impostare l'URL della home page sul valore desiderato. Il valore deve essere un percorso di sottodominio dell'app pubblicata. Se, ad esempio, si modifica l'URL della home page da `https://sharepoint-iddemo.msappproxy.net/` a `https://sharepoint-iddemo.msappproxy.net/hybrid/`, gli utenti dell'app passano direttamente alla home page personalizzata.
 
     ```
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"

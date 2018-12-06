@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fe2b509b62884c1cea554bc8dc5df25489205264
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966958"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275582"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Chiamare un pacchetto SSIS usando l'attività stored procedure in Azure Data Factory
 Questo articolo descrive come chiamare un pacchetto SSIS da una pipeline di Azure Data Factory usando un'attività stored procedure. 
@@ -28,7 +28,7 @@ Questo articolo descrive come chiamare un pacchetto SSIS da una pipeline di Azur
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="azure-sql-database"></a>database SQL di Azure 
+### <a name="azure-sql-database"></a>Database SQL di Azure 
 La procedura dettagliata riportata in questo articolo usa un database SQL di Azure che ospita il catalogo SSIS. È anche possibile usare un'istanza gestita di database SQL di Azure.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Creare un runtime di integrazione SSIS di Azure
@@ -236,7 +236,7 @@ Creare un servizio collegato per collegare il database SQL di Azure che ospita i
 ### <a name="create-an-output-dataset"></a>Creare un set di dati di output
 Questo set di dati di output è un set di dati fittizio che determina la pianificazione della pipeline. Si noti che il parametro frequency è impostato su Hour e il parametro interval è impostato su 1. Pertanto, la pipeline viene eseguita una volta ogni ora tra le ore di inizio e fine della pipeline. 
 
-1. Creare un file OuputDataset.json con il contenuto seguente: 
+1. Creare un file OutputDataset.json con il contenuto seguente: 
     
     ```json
     {

@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/07/2018
+ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 428b9970471c9365812639e251810c571698a574
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425958"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713266"
 ---
 # <a name="change-a-maintenance-schedule"></a>Modificare una pianificazione della manutenzione 
 
 ## <a name="portal"></a>Portale
 Una pianificazione della manutenzione può essere aggiornata o modificata in qualsiasi momento. Se per l'istanza selezionata è in corso un ciclo di manutenzione attivo, le impostazioni verranno salvate. Diventeranno attive durante il successivo periodo di manutenzione identificato. [Altre informazioni](https://docs.microsoft.com/azure/service-health/resource-health-overview) sul monitoraggio del data warehouse durante un evento di manutenzione attiva. 
 
-Nonostante le pianificazioni di manutenzione di Azure siano disponibili in anteprima, è possibile selezionare due finestre di manutenzione durante un periodo di sette giorni. Ogni finestra di manutenzione può essere di tre-otto ore. La manutenzione può verificarsi in qualsiasi momento all'interno di una finestra di manutenzione, ma non viene eseguita all'esterno di intervalli di tempo senza preavviso. In più, si verificherà una breve perdita di connettività mentre il servizio distribuisce nuovo codice nel data warehouse. 
+Per usare le pianificazioni di manutenzione, è necessario selezionare due finestre di manutenzione durante un periodo di sette giorni. Ogni finestra di manutenzione può essere di tre-otto ore. La manutenzione può verificarsi in qualsiasi momento all'interno di una finestra di manutenzione, ma non viene eseguita all'esterno di intervalli di tempo senza preavviso. In più, si verificherà una breve perdita di connettività mentre il servizio distribuisce nuovo codice nel data warehouse. 
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identificazione delle finestre primarie e secondarie
 

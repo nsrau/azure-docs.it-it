@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 3a647d9f821007dc0f2b48864b937aee84924d8f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 023df222ee2e9ca6af1398dd70767938e61c90b7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353172"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824108"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -107,7 +107,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 
     - Caricare i file journal delle unità ottenuti durante il passaggio di preparazione delle unità. Se è stato usato `waimportexport.exe version1`, caricare un file per ogni unità preparata. Se le dimensioni del file journal superano 2 MB, è possibile usare il file `<Journal file name>_DriveInfo_<Drive serial ID>.xml` creato insieme al file journal. 
     - Selezionare l'account di archiviazione di destinazione in cui si troveranno i dati. 
-    - La località di consegna viene immessa automaticamente in base all'area dell'account di archiviazione selezionato.
+    - La località di consegna viene popolata automaticamente in base all'area dell'account di archiviazione selezionato.
    
    ![Creare il processo di importazione - Passaggio 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

@@ -8,21 +8,29 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 73ffcf5e2ced63fddaf0f5ef2ca7e72a7d94b966
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f9ff3f66f3a73fbaf1a4c2ca280c85f4bde65444
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786820"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442030"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Competenza cognitiva di Riconoscimento di entità denominate
 
-La competenza **Riconoscimento di entità denominate** estrae le entità denominate dal testo. Tra le entità disponibili vi sono i tipi `person`, `location` e `organization`.
+La competenza **Riconoscimento di entità denominate** estrae le entità denominate dal testo. Le entità disponibili includono i tipi `person`, `location` e `organization`.
+
+> [!NOTE]
+> <ul>
+> <li>La ricerca cognitiva è disponibile in anteprima pubblica. Le funzionalità di esecuzione di set di competenze e di estrazione e normalizzazione di immagini sono attualmente disponibili gratuitamente. Il prezzo per queste funzionalità verrà annunciato in un momento successivo. </li>
+> <li> La competenza Riconoscimento di entità denominate è considerata "deprecata" e non sarà più ufficialmente supportata a partire dal 15 febbraio 2019. Seguire le raccomandazioni elencate in <a href="cognitive-search-skill-deprecated.md">Competenze di ricerca cognitiva deprecate</a> per eseguire la migrazione a una competenza supportata</li>
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
+
+## <a name="data-limits"></a>Limiti dei dati
+Le dimensioni massime di un record devono essere di 50.000 caratteri in base alla misurazione di `String.Length`. Se è necessario suddividere i dati prima di inviarli all'estrattore di frasi chiave, è possibile usare la competenza [Divisione del testo](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametri della competenza
 
@@ -31,7 +39,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 | Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
 | Categorie    | Matrice di categorie che devono essere estratte.  Possibili tipologie di categorie: `"Person"`, `"Location"`, `"Organization"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
-|defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`|
+|defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `de, en, es, fr, it`|
 | minimumPrecision  | Un numero compreso tra 0 e 1. Se la precisione è inferiore a questo valore, non viene restituita l'entità. Il valore predefinito è 0.|
 
 ## <a name="skill-inputs"></a>Input competenze
@@ -55,7 +63,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ```json
   {
     "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
-    "categories": [ "Person"],
+    "categories": [ "Person", "Location", "Organization"],
     "defaultLanguageCode": "en",
     "inputs": [
       {
@@ -80,7 +88,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
         "recordId": "1",
         "data":
            {
-             "text": "This is a the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia… Ana Smith is provided as a reference.",
+             "text": "This is the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia… Ana Smith is provided as a reference.",
              "languageCode": "en"
            }
       }
@@ -98,32 +106,38 @@ I parametri fanno distinzione tra maiuscole e minuscole.
       "data" : 
       {
         "persons": [ "Joe Romero", "Ana Smith"],
-        "locations": ["Seattle"],
-        "organizations":["Microsoft Corporation"],
+        "locations": ["Chile", "Australia"],
+        "organizations":["Microsoft"],
         "entities":  
         [
           {
             "category":"person",
             "value": "Joe Romero",
-            "offset": 45,
+            "offset": 33,
             "confidence": 0.87
           },
           {
             "category":"person",
             "value": "Ana Smith",
-            "offset": 59,
+            "offset": 124,
             "confidence": 0.87
           },
           {
             "category":"location",
-            "value": "Seattle",
-            "offset": 5,
+            "value": "Chile",
+            "offset": 88,
+            "confidence": 0.99
+          },
+          {
+            "category":"location",
+            "value": "Australia",
+            "offset": 112,
             "confidence": 0.99
           },
           {
             "category":"organization",
-            "value": "Microsoft Corporation",
-            "offset": 120,
+            "value": "Microsoft",
+            "offset": 54,
             "confidence": 0.99
           }
         ]
@@ -135,9 +149,10 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 
 ## <a name="error-cases"></a>Casi di errore
-Se si specifica un codice lingua non supportato o se il contenuto non corrisponde alla lingua specificata, viene restituito un errore e non vengono estratte entità.
+Se il codice della lingua per il documento non è supportato, viene restituito un errore e non vengono estratte entità.
 
 ## <a name="see-also"></a>Vedere anche 
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
-+ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
++ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
++ [Competenza di riconoscimento entità](cognitive-search-skill-entity-recognition.md)

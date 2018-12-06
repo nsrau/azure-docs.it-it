@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1e9ca18d2075d40f6f55bc84723f79ae7e10850b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261214"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284541"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Asset di connessione in Automazione di Azure
 
@@ -102,11 +102,11 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 Per aggiungere un'attività **Get-AutomationConnection** a un Runbook grafico, fare clic con il pulsante destro del mouse sulla connessione nel riquadro della libreria dell'editor grafico e scegliere **Aggiungi a area di disegno**.
 
-![](media/automation-connections/connection-add-canvas.png)
+![Aggiunta all'area di disegno](media/automation-connections/connection-add-canvas.png)
 
 La figura seguente mostra un esempio dell'uso di una connessione in un Runbook grafico.  Si tratta dello stesso esempio mostrato in precedenza per l'autenticazione usando l'account RunAs con un Runbook testuale.  In questo esempio viene usato il set di dati **Valore costante** per l'attività **Get RunAs Connection** (Ottieni connessione RunAs) che usa un oggetto di connessione per l'autenticazione.  Viene usato un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow) , poiché il parametro ServicePrincipalCertificate impostato prevede un singolo oggetto.
 
-![](media/automation-connections/automation-get-connection-object.png)
+![Recupero delle connessioni](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Esempio di runbook Python2
 L'esempio seguente illustra come eseguire l'autenticazione tramite la connessione Run As in un runbook Python2.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e437e7b7d5298af325ae2a5e2ba689b417bad022
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002921"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426792"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 
@@ -56,9 +56,9 @@ Per l'attività Lookup attualmente sono supportate le origini dati seguenti. Il 
 ## <a name="type-properties"></a>Proprietà del tipo
 NOME | DESCRIZIONE | type | Obbligatorio?
 ---- | ----------- | ---- | --------
-dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione **Proprietà del set di dati** nell'articolo del connettore corrispondente. | Coppia chiave/valore | sì
-una sezione source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione **Proprietà dell'attività di copia** nell'articolo del connettore corrispondente. | Coppia chiave/valore | sì
-firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean | No. Il valore predefinito è `true`.
+dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione **Proprietà del set di dati** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Yes
+una sezione source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione **Proprietà dell'attività di copia** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Yes
+firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean |  No. Il valore predefinito è `true`.
 
 > [!NOTE]
 
@@ -297,6 +297,15 @@ L'istanza del database SQL di Azure contiene i dati da copiare in Archiviazione 
     }
 ]
 ```
+
+## <a name="limitations-and-workarounds"></a>Limitazioni e soluzioni alternative
+
+Di seguito vengono descritte alcune limitazioni dell'attività Lookup con le soluzioni alternative suggerite.
+
+| Limitazione | Soluzione alternativa |
+|---|---|
+| Per l'attività Lookup sono previsti un massimo di 5.000 righe e dimensioni massime di 2 MB. | Progettare una pipeline a due livelli in cui la pipeline esterna esegue l'iterazione su una pipeline interna, che recupera i dati che non superano il numero massimo di righe o le dimensioni massime. |
+| | |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere altre attività del flusso di controllo supportate da Data Factory: 

@@ -3,22 +3,22 @@ title: Installare un'applicazione pubblicata - Datameer - Azure HDInsight
 description: Installare e usare l'applicazione Hadoop di terze parti Datameer.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: a8961da0a62815ce60a6ee694d57f3172b81718b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ef61ee9f15253c6a270cd4089625776a458df2ee
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592177"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499329"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>Installare un'applicazione pubblicata - Cask Data Application Platform (CDAP)
 
-Questo articolo descrive come installare ed eseguire l'applicazione Hadoop pubblicata [CDAP](http://cask.co/products/cdap/) in HDInsight di Azure. Per una panoramica della piattaforma applicativa HDInsight e un elenco delle applicazioni pubblicate di fornitori di software indipendente, vedere [Installare applicazioni Hadoop di terze parti](hdinsight-apps-install-applications.md). Per istruzioni sull'installazione di un'applicazione personalizzata, vedere l'articolo su come [installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
+Questo articolo descrive come installare ed eseguire l'applicazione [Apache Hadoop](https://hadoop.apache.org/) pubblicata [CDAP](http://cask.co/products/cdap/) in HDInsight di Azure. Per una panoramica della piattaforma applicativa HDInsight e un elenco delle applicazioni pubblicate di fornitori di software indipendente, vedere [Installare applicazioni Apache Hadoop di terze parti](hdinsight-apps-install-applications.md). Per istruzioni sull'installazione di un'applicazione personalizzata, vedere l'articolo su come [installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-cdap"></a>Informazioni su CDAP
 

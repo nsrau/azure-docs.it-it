@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041510"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314372"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Bring Your Own Key per Apache Kafka in Azure HDInsight (anteprima)
 
@@ -83,7 +83,7 @@ Tutti i messaggi inviati al cluster Kafka (incluse le repliche gestite da Kafka)
 
    Durante la creazione del cluster, specificare l'URL della chiave completo, inclusa la versione della chiave. Ad esempio: `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
 
-## <a name="faq-for-byok-to-kafka"></a>Domande frequenti su BYOK per Kafka
+## <a name="faq-for-byok-to-apache-kafka"></a>Domande frequenti su BYOK per Apache Kafka
 
 **Come accede il cluster Kafka all'insieme di credenziali delle chiavi?**
 
@@ -107,7 +107,7 @@ Tutti i messaggi inviati al cluster Kafka (incluse le repliche gestite da Kafka)
 
 **Vengono crittografati anche i dischi del sistema operativo/dischi delle risorse?**
 
-   No. I dischi del sistema operativo e i dischi delle risorse non vengono crittografati.
+    No. I dischi del sistema operativo e i dischi delle risorse non vengono crittografati.
 
 **Se un cluster passa a un piano superiore, i nuovi broker supporteranno BYOK senza problemi?**
 

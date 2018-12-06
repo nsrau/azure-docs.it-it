@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a92e41ad9611981777012cd231845587a6f947b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 18260de82125c2e582e9c817ef733dd3757790b3
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626915"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975093"
 ---
 # <a name="what-is-a-dictionary"></a>Cos’è un dizionario?
 
@@ -23,7 +23,7 @@ Un dizionario è una coppia allineata di documenti che specifica un elenco di es
 I dizionari funzionano solo per i progetti in coppie di lingue per le quali è disponibile un sistema di traduzione automatica neurale (NMT) Microsoft completamente supportato. L’elenco completo delle lingue è disponibile in http://www.aka.ms/translatorlanguages.
 
 ## <a name="phrase-dictionary"></a>Dizionario di espressioni 
-Quando si include un dizionario di espressioni per il training sul modello, qualsiasi parola o epressione elencata viene tradotta nel modo specificato. Il resto della frase viene tradotto normalmente. È possibile utilizzare un dizionario di espressioni per specificare le espressioni che non devono essere tradotte, inserendo la stessa espressione non tradotta nel file con origine e destinazione del dizionario.
+Quando si include un dizionario di espressioni per il training sul modello, qualsiasi parola o espressione elencata viene tradotta nel modo specificato. Il resto della frase viene tradotto normalmente. È possibile utilizzare un dizionario di espressioni per specificare le espressioni che non devono essere tradotte, inserendo la stessa espressione non tradotta nel file con origine e destinazione del dizionario.
 
 ## <a name="sentence-dictionary"></a>Dizionario di frasi
 Il dizionario di frasi consente di specificare una traduzione di destinazione esatta di una frase di origine. La corrispondenza con una frase del dizionario si verifica se l'intera frase inviata corrisponde alla voce di origine del dizionario.  Se solo una parte della frase corrisponde, la corrispondenza con la voce non si verifica.  Quando viene rilevata una corrispondenza, verrà restituita la voce di destinazione del dizionario di frasi.
@@ -32,7 +32,7 @@ Il dizionario di frasi consente di specificare una traduzione di destinazione es
 È possibile eseguire il training su un modello utilizzando solo i dati del dizionario. Per farlo, selezionare solo il documento del dizionario (o più documenti di dizionario) da includere e toccare Crea modello. Poiché si tratta di un training con solo dizionario, non vi è alcun numero minimo di frasi di training necessarie. Il modello verrà completato in genere molto più velocemente rispetto a un training standard.  I modelli risultanti utilizzeranno i modelli di base Microsoft per la traduzione con l'aggiunta dei dizionari aggiunti.  Non si otterrà un report di test.
 
 >[!Note]
->Custom Translator non allinea le frasi del dizionario, pertanto è importante che sia presente un numero uguale di espressioni/frasi di origine e di destinazione nei documenti del dizionario e che siano esattamente allineate.
+>Custom Translator non allinea le frasi dei file di dizionario ed è quindi importante che sia presente un numero uguale di espressioni/frasi di origine e di destinazione nei documenti di dizionario e che queste siano esattamente allineate.
 
 ## <a name="recommendations"></a>Consigli
 

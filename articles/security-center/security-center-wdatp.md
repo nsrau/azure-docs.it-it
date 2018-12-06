@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068333"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316991"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -99,12 +99,12 @@ Per generare un avviso di prova di Windows Defender ATP non dannoso:
 
 3. Se il comando ha esito positivo, verrà visualizzato un nuovo avviso sul dashboard del Centro sicurezza di Azure e nel portale di Windows Defender ATP. Possono trascorrere alcuni minuti prima che l'avviso venga visualizzato.
 
-4. Per esaminare l'avviso nel Centro sicurezza, passare a **Avvisi di sicurezza** >  **Suspicious Powershell CommandLine** (Riga di comando PowerShell sospetta).
+4. Per esaminare l'avviso nel Centro sicurezza, passare ad **Avvisi di sicurezza** >  **Suspicious Powershell CommandLine** (Riga di comando PowerShell sospetta).
 
 5. Nella finestra per l'analisi selezionare il collegamento che consente di passare al portale di Windows Defender ATP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 - [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
 - [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.

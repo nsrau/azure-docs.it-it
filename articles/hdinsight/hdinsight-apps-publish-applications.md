@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4206301296c94bd0d24743854756ac6dd1d712dd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014330"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495375"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Pubblicare un'applicazione HDInsight in Azure Marketplace
 È possibile installare un'applicazione Azure HDInsight in un cluster HDInsight basato su Linux. Questo articolo fornisce informazioni su come pubblicare un'applicazione HDInsight in Azure Marketplace. Per informazioni generali sulla pubblicazione in Azure Marketplace, vedere [Pubblicare un'offerta in Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -102,6 +102,6 @@ Per pubblicare un'applicazione HDInsight:
 * Leggere le informazioni su come [installare applicazioni HDInsight](hdinsight-apps-install-applications.md) nei cluster.
 * Leggere le informazioni su come [installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md) e distribuire in HDInsight un'applicazione HDInsight non pubblicata.
 * Leggere le informazioni su come [usare l'azione script per personalizzare cluster HDInsight basati su Linux](hdinsight-hadoop-customize-cluster-linux.md) e aggiungere altre applicazioni. 
-* Leggere le informazioni su come [creare cluster Hadoop basati su Linux in HDInsight tramite modelli di Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* Leggere le informazioni su come [creare cluster Apache Hadoop basati su Linux in HDInsight tramite modelli di Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Leggere le informazioni su come [usare un nodo perimetrale vuoto in HDInsight](hdinsight-apps-use-edge-node.md) per accedere ai cluster HDInsight, testare le applicazioni HDInsight e ospitare le applicazioni HDInsight.
 

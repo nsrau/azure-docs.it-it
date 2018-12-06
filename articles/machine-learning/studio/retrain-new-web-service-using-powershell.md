@@ -1,10 +1,11 @@
 ---
-title: Ripetere il training di un nuovo servizio Web di Machine Learning Azure con PowerShell | Documentazione Microsoft
+title: Ripetere il training di un nuovo servizio Web di Machine Learning Studio con PowerShell - Azure | Microsoft Docs
 description: Informazioni su come ripetere il training di un modello in modo programmatico e aggiornare il servizio Web per l'uso del modello appena sottoposto a training in Azure Machine Learning con i cmdlet di gestione di PowerShell.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: abef73a477355d89236b1f62cffc1f3d05ba03d0
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 59d12ae91f8c75ab0fdd2058057cc8de158897e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687232"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314185"
 ---
-# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Ripetere il training di un nuovo servizio Web basato su Resource Manager usando i cmdlet di gestione di PowerShell per Machine Learning
+# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-studio-management-powershell-cmdlets"></a>Ripetere il training di un nuovo servizio Web basato su Resource Manager usando i cmdlet di gestione di PowerShell per Machine Learning Studio
 Quando si ripete il training di un nuovo servizio Web, si aggiorna la definizione del servizio Web predittivo perché faccia riferimento al nuovo modello sottoposto a training.
 
 ## <a name="prerequisites"></a>Prerequisiti

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ff9f3186602b9047e53fb78edbf52c2c0d9ee574
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 796ed1cb0fde6b29a931099336fd91e2e931fc29
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423590"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820496"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Esercitazione: Integrazione di Azure Active Directory con Sedgwick CMS
 
@@ -134,7 +134,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/sedgwickcms-tutorial/tutorial_general_400.png)
 
-1. Per configurare l'accesso Single Sign-On sul lato **Sedgwick CMS**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Sedgwick CMS](https://www.sedgwick.com/contact/Pages/contactform.aspx). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato **Sedgwick CMS**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Sedgwick CMS](https://www.sedgwick.com/help). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -173,7 +173,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
   
 ### <a name="create-a-sedgwick-cms-test-user"></a>Creare un utente di test di Sedgwick CMS
 
-In questa sezione viene creato un utente chiamato Britta Simon in Sedgwick CMS. Per aggiungere gli utenti nella piattaforma Sedgwick CMS, collaborare con il [team di supporto di Sedgwick CMS](https://www.sedgwick.com/contact/Pages/contactform.aspx). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.  
+In questa sezione viene creato un utente chiamato Britta Simon in Sedgwick CMS. Per aggiungere gli utenti nella piattaforma Sedgwick CMS, collaborare con il  [team di supporto di Sedgwick CMS](https://www.sedgwick.com/help) . Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -210,7 +210,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Sedgwick CMS nel pannello di accesso, si accederà automaticamente all'applicazione Sedgwick CMS.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

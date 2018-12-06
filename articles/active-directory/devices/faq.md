@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515642"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309345"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -93,6 +93,7 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 
 >[!Note] 
 >Per quanto riguarda i dispositivi registrati, è consigliabile cancellarli per assicurare che gli utenti non possano accedere alle relative risorse. Per altre informazioni, vedere [Registrare i dispositivi per la gestione in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+
 ---
 
 # <a name="azure-ad-join-faq"></a>Domande frequenti sull'aggiunta ad Azure AD
@@ -103,6 +104,20 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 - Per i dispositivi aggiunti all'identità ibrida di Azure AD, disattivare le registrazione automatica in modo che l'attività pianificata non registri nuovamente il dispositivo. A questo punto, aprire il prompt dei comandi come amministratore e digitare `dsregcmd.exe /debug /leave`. In alternativa, è possibile eseguire il comando come script tra più dispositivi per eseguire la separazione in blocco.
 
 - Per i dispositivi puri aggiunti ad Azure AD, assicurarsi di avere un account amministratore locale offline o crearne uno poiché non sarà possibile accedere con le credenziali di un utente Azure AD. A questo punto, passare a **Impostazioni** > **Account** > **Accedi all'azienda o all'istituto di istruzione**. Selezionare l'account e fare clic su **Disconnetti**. Seguire le istruzioni e, quando richiesto, fornire le credenziali di amministratore locale. Riavviare il dispositivo per completare il processo di separazione.
+
+---
+
+**D: Gli utenti possono accedere ai dispositivi aggiunti ad Azure AD che sono stati eliminati o disabilitati in Azure AD? **
+**R:** Sì. Windows memorizza gli accessi nella cache per consentire agli utenti che hanno eseguito l'accesso in precedenza di accedere rapidamente al desktop anche senza connettività di rete. Quando un dispositivo viene eliminato o disabilitato in Azure AD, ciò non è noto al dispositivo Windows. Pertanto, gli utenti che hanno eseguito l'accesso in precedenza possono continuare ad accedere al desktop grazie all'accesso memorizzato nella cache. Tuttavia, poiché il dispositivo è stato eliminato o disabilitato, gli utenti non possono accedere alle risorse protette dall'accesso condizionale basato sul dispositivo. 
+
+Gli utenti che non hanno già effettuato l'accesso non possono accedere al dispositivo perché non c'è alcun accesso memorizzato nella cache abilitato per tali utenti. 
+
+---
+
+**Q: Gli utenti disabilitati o eliminati possono accedere ai dispositivi aggiunti ad Azure AD?**
+**R:** Sì, ma solo per un tempo limitato. Quando un utente viene eliminato o disabilitato in Azure AD, ciò non è noto immediatamente al dispositivo Windows. Pertanto, gli utenti che hanno eseguito l'accesso in precedenza possono accedere al desktop grazie all'accesso memorizzato nella cache. Una volta che il dispositivo viene a conoscenza dello stato dell'utente (in genere entro meno di 4 ore), Windows impedisce a tali utenti di accedere al desktop. Quando l'utente viene eliminato o disabilitato in Azure AD, tutti i relativi token vengono revocati, in modo che tale utente non possa più accedere alle risorse. 
+
+Gli utenti eliminati o disabilitati che non hanno effettuato l'accesso in precedenza non possono accedere a un dispositivo perché non c'è alcun accesso memorizzato nella cache abilitato per tali utenti. 
 
 ---
 

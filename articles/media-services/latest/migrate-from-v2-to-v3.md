@@ -13,20 +13,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/07/2018
+ms.date: 11/21/2018
 ms.author: juliako
-ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 73d4ecec2665e238236de4a778d6cdd43642c87b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616011"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310396"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
 Questo articolo descrive le modifiche introdotte in Servizi multimediali di Azure v3, illustra le differenze tra le due versioni e offre materiale sussidiario sulla migrazione.
 
 In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi multimediali v2](../previous/media-services-overview.md), è necessario rivedere le linee guida e considerazioni seguenti prima della migrazione alle API v3. L'API v3 include numerosi vantaggi e nuove funzionalità che migliorano l'esperienza di sviluppo e le funzionalità di Servizi multimediali. Tuttavia, come definito nella sezione [Problemi noti](#known-issues) di questo articolo, sussistono anche alcune limitazioni a causa di modifiche tra le versioni delle API. Questa pagina viene aggiornata man mano che il team di Servizi multimediali apporta costanti miglioramenti alle API v3 e colma le lacune tra le versioni. 
+
+> [!NOTE]
+> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-sdk), l'interfaccia della riga di comando o uno degli SDK supportati.
 
 ## <a name="benefits-of-media-services-v3"></a>Vantaggi di Servizi multimediali v3
 
@@ -65,9 +68,7 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 * Le entità seguenti sono state rinominate
     * JobOutput sostituisce Task e fa ora parte di un processo.
     * StreamingLocator sostituisce Locator.
-    * LiveEvent sostituisce Channel.
-        
-        La fatturazione delle entità LiveEvent si basa sui contatori dei canali live. Per altre informazioni, vedere la [panoramica dello streaming live](live-streaming-overview.md#billing) e i [prezzi](https://azure.microsoft.com/pricing/details/media-services/).
+    * LiveEvent sostituisce Channel.<br/>La fatturazione delle entità LiveEvent si basa sui contatori dei canali live. Per altre informazioni, vedere la [panoramica dello streaming live](live-streaming-overview.md#billing) e i [prezzi](https://azure.microsoft.com/pricing/details/media-services/).
     * LiveOutput sostituisce Program.
 * Le entità LiveOutput non devono essere necessariamente avviate in modo esplicito, ma vengono avviate alla creazione e arrestate durante l'eliminazione. I programmi funzionano in modo diverso nelle API v2 e devono essere avviati dopo la creazione.
 
@@ -75,10 +76,7 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 
 L'API v3 include i gap di funzionalità seguenti rispetto all'API v2. È in corso la risoluzione di questi gap.
 
-* Il [codificatore Premium](../previous/media-services-premium-workflow-encoder-formats.md) e i [processori di Analisi Servizi multimediali](../previous/media-services-analytics-overview.md) legacy (Azure Media Services Indexer 2 Preview, lo strumento di offuscamento dei volti e così via) non sono accessibili tramite v3.
-
-    I clienti che intendo eseguire la migrazione da Media Indexer 1 o 2 Preview possono usare immediatamente il set di impostazioni di AudioAnalyzer nell'API v3.  Questo nuovo set di impostazioni contiene maggiori funzionalità rispetto a Media Indexer 1 o 2 (meno recente). 
-
+* Il [codificatore Premium](../previous/media-services-premium-workflow-encoder-formats.md) e i [processori di Analisi Servizi multimediali](../previous/media-services-analytics-overview.md) legacy (Azure Media Services Indexer 2 Preview, lo strumento di offuscamento dei volti e così via) non sono accessibili tramite v3.<br/>I clienti che intendo eseguire la migrazione da Media Indexer 1 o 2 Preview possono usare immediatamente il set di impostazioni di AudioAnalyzer nell'API v3.  Questo nuovo set di impostazioni contiene maggiori funzionalità rispetto a Media Indexer 1 o 2 (meno recente). 
 * Molte funzionalità avanzate di Media Encoder Standard nelle API v2 non sono attualmente disponibili in v3, ad esempio:
     * Ritaglio (per gli scenari live e on demand)
     * Unione degli asset
@@ -103,13 +101,12 @@ La tabella seguente illustra le differenze a livello di codice tra v2 e v3 per s
 ## <a name="known-issues"></a>Problemi noti
 
 * Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-sdk), l'interfaccia della riga di comando o uno degli SDK supportati.
-* È oggi possibile gestire Media Reserved Units (S1/S2/S3) solo mediante l'API di Servizi multimediali v2. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md).
+* È necessario effettuare il provisioning di unità riservate di codifica nell'account per controllare la concorrenza e le prestazioni dei processi, in particolare quelli che includono l'analisi audio o video. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md). È possibile gestire le unità riservate di codifica usando l'[interfaccia della riga di comando 2.0 per Servizi multimediali v3](media-reserved-units-cli-how-to.md), il [portale di Azure](../previous/media-services-portal-scale-media-processing.md) o le [API v2](../previous/media-services-dotnet-encoding-units.md). È necessario effettuare il provisioning delle unità riservate di codifica, indipendentemente dall'uso di Servizi multimediali v2 o delle API v3.
 * Le entità di Servizi multimediali create con l'API v3 non possono essere gestite dall'API v2.  
 * Non è consigliabile gestire con le API v3 le entità create con le API v2. Di seguito sono riportati esempi delle differenze che rendono incompatibili le entità nelle due versioni:   
     * I processi e le attività creati in v2 non vengono visualizzati in v3 in quanto non sono associati a una trasformazione. È consigliabile passare a trasformazioni e processi v3. Per un periodo di tempo relativamente breve è necessario monitorare i processi v2 in fase di elaborazione durante il passaggio.
-    * I canali e i programmi creati con v2 (sottoposti a mapping a entità LiveEvent e LiveOutput in v3) non possono continuare a essere gestiti con v3. È consigliabile passare alle entità LiveEvent e LiveOutput v3 in corrispondenza di un arresto canale pratico.
-    
-        Non è attualmente possibile eseguire la migrazione di canali in continua esecuzione.  
+    * I canali e i programmi creati con v2 (sottoposti a mapping a entità LiveEvent e LiveOutput in v3) non possono continuare a essere gestiti con v3. È consigliabile passare alle entità LiveEvent e LiveOutput v3 in corrispondenza di un arresto canale pratico.<br/>Non è attualmente possibile eseguire la migrazione di canali in continua esecuzione.  
+
 > [!NOTE]
 > Aggiungere questo articolo ai Preferiti e consultarlo periodicamente per eventuali aggiornamenti.
 

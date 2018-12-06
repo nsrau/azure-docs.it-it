@@ -12,19 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/25/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282408"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312970"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtri e manifesti dinamici
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versione 2](media-services-dynamic-manifest-overview.md)
+> * [Versione 3](../latest/filters-dynamic-manifest-overview.md)
+
 A partire dalla versione 2.17, Servizi multimediali consente di definire filtri per gli asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene eseguito attraverso **manifesti dinamici**creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
 
-Questo argomento illustra alcuni scenari comuni in cui l'uso dei filtri può essere particolarmente vantaggioso e contiene collegamenti ad altri argomenti che illustrano come creare filtri a livello di codice.
+Questo argomento illustra alcuni scenari comuni in cui l'uso dei filtri può essere vantaggioso e contiene collegamenti ad altri argomenti che illustrano come creare filtri a livello di codice.
 
 ## <a name="overview"></a>Panoramica
 Quando si distribuiscono contenuti ai clienti (eventi in live streaming o video on demand), l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete. Per raggiungere questo obiettivo, eseguire queste operazioni:

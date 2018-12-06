@@ -5,15 +5,15 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 25bec4bdbae5b206d23fa300f139f55f86b8167e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3a1cc0a28ef5a4861d86373ce39258936639baab
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434382"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333351"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Impostazioni di proxy e firewall di Sincronizzazione file di Azure
 Sincronizzazione file di Azure connette i server locali a File di Azure abilitando la sincronizzazione tra più siti e funzionalità di suddivisione in livelli cloud. È necessario quindi che un server locale sia connesso a Internet e che un amministratore IT scelga il percorso migliore per consentire al server di accedere ai servizi cloud di Azure.
@@ -46,7 +46,7 @@ Sincronizzazione file di Azure interagisce con qualsiasi mezzo disponibile che c
 ## <a name="proxy"></a>Proxy
 Sincronizzazione file di Azure supporta impostazioni proxy a livello di computer specifiche per l'app.
 
-**Le impostazioni proxy a livello di computer** consentono di configurare il proxy in modo specifico per il traffico di Sincronizzazione file di Azure. Sono supportate nella versione 3.0.12.0 o versioni successive dell'agente e possono essere configurate durante l'installazione dell'agente oppure usando il cmdlet Set-StorageSyncProxyConfiguration di PowerShell.
+**Le impostazioni proxy a livello di computer** consentono di configurare il proxy in modo specifico per il traffico di Sincronizzazione file di Azure. Le impostazioni proxy specifiche per le app sono supportate nella versione 4.0.1.0 o versioni successive dell'agente e possono essere configurate durante l'installazione dell'agente oppure usando il cmdlet Set-StorageSyncProxyConfiguration di PowerShell.
 
 Comandi di PowerShell per configurare le impostazioni proxy specifiche dell'app:
 ```PowerShell

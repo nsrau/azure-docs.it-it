@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: 23f00280a69212b9e623ae1da16a681ca30c9d51
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141747"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423729"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Attività ForEach in Azure Data Factory
 L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione di una raccolta e attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione in ciclo Foreach nei linguaggi di programmazione.
@@ -74,8 +74,8 @@ Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività ForEach. | string | Yes
 type | Deve essere impostato su **ForEach** | string | Yes
-isSequential | Specifica se il ciclo deve essere eseguito in sequenza o in parallelo.  È possibile eseguire un numero massimo di 20 iterazioni del ciclo simultanee in parallelo. Se si dispone ad esempio di un'iterazione di attività ForEach su un'attività di copia con 10 set di dati di origine e sink diversi con **isSequential** impostato su False, tutte le copie vengono eseguite simultaneamente. Il valore predefinito è False. <br/><br/> Se "isSequential" è impostato su False, assicurarsi che sia presente una configurazione corretta per usare più eseguibili. In caso contrario, questa proprietà deve essere usata con attenzione per evitare di incorrere in conflitti di scrittura. Per altre informazioni, vedere la sezione [Esecuzione parallela](#parallel-execution). | boolean | No. Il valore predefinito è False.
-batchCount | Numero di batch da usare per controllare il numero di esecuzione parallela (quando isSequential è impostato su Falso). | Valore intero (massimo 50) | No. Il valore predefinito è 20.
+isSequential | Specifica se il ciclo deve essere eseguito in sequenza o in parallelo.  È possibile eseguire un numero massimo di 20 iterazioni del ciclo simultanee in parallelo. Se si dispone ad esempio di un'iterazione di attività ForEach su un'attività di copia con 10 set di dati di origine e sink diversi con **isSequential** impostato su False, tutte le copie vengono eseguite simultaneamente. Il valore predefinito è False. <br/><br/> Se "isSequential" è impostato su False, assicurarsi che sia presente una configurazione corretta per usare più eseguibili. In caso contrario, questa proprietà deve essere usata con attenzione per evitare di incorrere in conflitti di scrittura. Per altre informazioni, vedere la sezione [Esecuzione parallela](#parallel-execution). | boolean |  No. Il valore predefinito è False.
+batchCount | Numero di batch da usare per controllare il numero di esecuzione parallela (quando isSequential è impostato su Falso). | Valore intero (massimo 50) |  No. Il valore predefinito è 20.
 Items | Un'espressione che restituisce una matrice JSON su cui eseguire un'iterazione. | Espressione (che restituisce una matrice JSON) | Yes
 attività | Le attività da eseguire. | Elenco di attività | Yes
 
@@ -572,6 +572,17 @@ L'espressione per la raccolta dell'output di tutte le iterazioni di un'attività
 ]
 
 ```
+
+## <a name="limitations-and-workarounds"></a>Limitazioni e soluzioni alternative
+
+Di seguito vengono descritte alcune limitazioni dell'attività ForEach con le soluzioni alternative suggerite.
+
+| Limitazione | Soluzione alternativa |
+|---|---|
+| Non è possibile annidare un ciclo ForEach all'interno di un altro ciclo ForEach (o un ciclo Until). | Progettare una pipeline a due livelli, in cui la pipeline esterna con il ciclo ForEach esterno esegue l'iterazione su una pipeline interna con il ciclo annidato. |
+| Per l'attività ForEach sono previsti un `batchCount` massimo di 50 per l'elaborazione parallela e un massimo di 100.000 elementi. | Progettare una pipeline a due livelli in cui la pipeline esterna con l'attività ForEach esegue l'iterazione su una pipeline interna. |
+| | |
+
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere altre attività del flusso di controllo supportate da Data Factory: 
 

@@ -1,18 +1,18 @@
 ---
 title: Gestire il server di configurazione per il ripristino di emergenza di VMware e di server fisici con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come gestire un server di configurazione esistente per il ripristino di emergenza di macchine virtuali VMware e di server fisici in Azure con Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/11/2018
-ms.author: raynew
-ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.author: ramamill
+ms.openlocfilehash: a58de808816bf80cf950d7b032ca042c7913a2e5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568455"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976384"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware
 
@@ -222,7 +222,14 @@ Per le distribuzioni del server di configurazione precedenti maggio 2016, la sca
 2. La data di scadenza viene visualizzata in **Integrità del server di configurazione**.
 3. Selezionare **Rinnova certificati**.
 
-## <a name="update-windows-licence"></a>Aggiornare la licenza di Windows
+## <a name="refresh-configuration-server"></a>Aggiornare il server di configurazione
+
+1. Nel portale di Azure passare a **Insieme di credenziali di Servizi di ripristino** > **Gestisci** > **Infrastruttura di Site Recovery**  >  **Per VMware e computer fisici** > **Server di configurazione**
+2. Fare clic sul server di configurazione che si vuole aggiornare.
+3. Nel pannello con i dettagli del server di configurazione scelto fare clic su **Altro** > **Aggiorna server**.
+4. Monitorare lo stato del processo in **Insieme di credenziali di Servizi di ripristino** > **Monitoraggio** > **Processi di Site Recovery**.
+
+## <a name="update-windows-license"></a>Aggiornare la licenza di Windows
 
 La licenza fornita con il modello OVF è una licenza di valutazione valida per 180 giorni. Per un utilizzo senza interruzioni, è necessario attivare Windows con una licenza acquistata.
 

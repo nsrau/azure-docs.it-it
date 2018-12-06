@@ -1,6 +1,6 @@
 ---
 title: Archiviazione non modificabile per i BLOB del servizio di archiviazione di Azure | Microsoft Docs
-description: Archiviazione di Azure offre il supporto WORM per l'archiviazione BLOB (oggetti), che consente agli utenti di archiviare i dati in uno stato non cancellabile e non modificabile per un intervallo specificato.
+description: Archiviazione di Azure offre il supporto WORM (Write Once, Read Many) per l'archiviazione di oggetti BLOB, che consente agli utenti di archiviare i dati in uno stato non cancellabile e non modificabile per un intervallo specificato.
 services: storage
 author: xyh1
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d3d83e240fec692d5aa655923637910006c7a62f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036998"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261471"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Archiviare dati critici in Archiviazione BLOB di Azure
 
-L'archiviazione non modificabile per i BLOB di Azure (oggetti) consente agli utenti di archiviare i dati business critical in uno stato WORM (Write Once, Read Many). Questo stato rende i dati non cancellabili e non modificabili per un intervallo di tempo specificato dall'utente. Per la durata dell'intervallo di conservazione, i BLOB possono essere creati e letti, ma non modificati o eliminati.
+L'archiviazione non modificabile per gli oggetti BLOB di Azure consente agli utenti di archiviare i dati critici nello stato WORM (Write Once, Read Many). Questo stato rende i dati non cancellabili e non modificabili per un intervallo di tempo specificato dall'utente. Per la durata dell'intervallo di conservazione, i BLOB possono essere creati e letti, ma non modificati o eliminati.
 
 ## <a name="overview"></a>Panoramica
 
@@ -47,7 +47,7 @@ L'archiviazione non modificabile è abilitata in tutte le aree pubbliche di Azur
 
 ## <a name="how-it-works"></a>Funzionamento
 
-L'archiviazione non modificabile per Archiviazione BLOB di Azure supporta due tipi di criteri non modificabili o WORM: conservazione basata sul tempo e blocchi a fini giudiziari. Per informazioni dettagliate su come creare questi criteri non modificabili, vedere la sezione [Introduzione](#Getting-started).
+L'archiviazione non modificabile per Archiviazione BLOB di Azure supporta due tipi di criteri non modificabili o WORM: conservazione basata sul tempo e blocchi a fini giudiziari. Per informazioni dettagliate su come creare questi criteri non modificabili, vedere la sezione [Introduzione](#getting-started).
 
 Quando in un contenitore vengono applicati criteri di conservazione basati sul tempo o un blocco a fini giudiziari, tutti i BLOB esistenti passano allo stato non modificabile (protetti da scrittura ed eliminazione). Anche tutti i nuovi BLOB caricati nel contenitore passeranno allo stato non modificabile.
 
@@ -69,7 +69,7 @@ Per i nuovi BLOB, il periodo di conservazione effettivo è uguale all'intervallo
 
 ### <a name="legal-holds"></a>Blocchi a fini giudiziari
 
-Quando si imposta un blocco a fini giudiziari, tutti i BLOB nuovi ed esistenti rimangono nello stato non modificabile finché il blocco a fini giudiziari non viene rimosso. Per altre informazioni su come impostare e rimuovere blocchi a fini giudiziari, vedere la sezione [Introduzione](#Getting-started).
+Quando si imposta un blocco a fini giudiziari, tutti i BLOB nuovi ed esistenti rimangono nello stato non modificabile finché il blocco a fini giudiziari non viene rimosso. Per altre informazioni su come impostare e rimuovere blocchi a fini giudiziari, vedere la sezione [Introduzione](#getting-started).
 
 A un contenitore possono essere applicati contemporaneamente sia criteri di conservazione basati sul tempo che un blocco a fini giudiziari. Tutti i BLOB nel contenitore rimangono nello stato non modificabile finché non vengono rimossi tutti i blocchi a fini giudiziari, anche se il relativo periodo di conservazione effettivo è scaduto. Viceversa, un BLOB rimane in uno stato non modificabile fino alla scadenza del periodo di conservazione effettivo anche se sono stati rimossi tutti i blocchi a fini giudiziari.
 

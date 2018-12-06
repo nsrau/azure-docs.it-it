@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8beb372c3fae567b23e51d2776dd9a79d837c657
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279882"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313834"
 ---
 # <a name="service-bus-faq"></a>Domande frequenti sul bus di servizio
 
@@ -86,7 +86,7 @@ I servizi di messaggistica del bus di servizio (code e argomenti/sottoscrizioni)
 Per un elenco delle possibili eccezioni del bus di servizio, vedere [Eccezioni di messaggistica del bus di servizio][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Cos'è una firma di accesso condiviso e quali linguaggi supportano la generazione di una firma?
-Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in Node, PHP, Java e C\#, vedere l'articolo relativo alle [firme di accesso condiviso][Shared Access Signatures].
+Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in Node.js, PHP, Java e C\#, vedere l'articolo [Firme di accesso condiviso][Shared Access Signatures].
 
 ## <a name="subscription-and-namespace-management"></a>Gestione di sottoscrizioni e spazi dei nomi
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Come si esegue la migrazione di uno spazio dei nomi a un'altra sottoscrizione di Azure?

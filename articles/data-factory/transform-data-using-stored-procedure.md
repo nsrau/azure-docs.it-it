@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 11/27/2018
 ms.author: douglasl
-ms.openlocfilehash: e8e0f8352404892ea8af6a0fa176c336dd2c1659
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 54d0ce39ea511958824acb753bcf7102d33a6c90
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054025"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444029"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività stored procedure di SQL Server in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ Le attività di trasformazione dei dati in una [pipeline](concepts-pipelines-act
 
 È possibile usare l'attività stored procedure per richiamare una stored procedure in uno dei seguenti archivi dati presenti in azienda o in una macchina virtuale di Azure: 
 
-- database SQL di Azure
+- Database SQL di Azure
 - Azure SQL Data Warehouse
 - Database di SQL Server.  Se si usa SQL Server, è necessario installare Runtime di integrazione (self-hosted) nello stesso computer che ospita il database o in un computer separato che ha accesso al database. Runtime di integrazione (self-hosted) è un componente che connette in modo sicuro e gestito origini dati presenti in locale o in macchine virtuali di Azure ai servizi cloud. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
 
@@ -69,12 +69,16 @@ La tabella seguente illustra queste proprietà JSON:
 
 | Proprietà                  | DESCRIZIONE                              | Obbligatoria |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nome dell'attività                     | Sì      |
+| name                      | Nome dell'attività                     | Yes      |
 | description               | Testo descrittivo per lo scopo dell'attività | No        |
-| type                      | Per l'attività stored procedure, il tipo di attività corrisponde a **SqlServerStoredProcedure** | Sì      |
-| linkedServiceName         | Riferimento al **database SQL di Azure**, ad **Azure SQL Data Warehouse** o a **SQL Server** registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
-| storedProcedureName       | Specificare il nome della stored procedure da richiamare. | Sì      |
+| type                      | Per l'attività stored procedure, il tipo di attività corrisponde a **SqlServerStoredProcedure** | Yes      |
+| linkedServiceName         | Riferimento al **database SQL di Azure**, ad **Azure SQL Data Warehouse** o a **SQL Server** registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Yes      |
+| storedProcedureName       | Specificare il nome della stored procedure da richiamare. | Yes      |
 | storedProcedureParameters | Specificare i valori dei parametri della stored procedure. Usare `"param1": { "value": "param1Value","type":"param1Type" }` per passare i valori dei parametri e i tipi nativi corrispondenti supportati dall'origine dati. Se per un parametro è necessario passare Null, usare `"param1": { "value": null }` (tutte lettere minuscole). | No        |
+
+## <a name="error-info"></a>Informazioni sull'errore
+
+Quando una stored procedure ha esito negativo e restituisce i dettagli dell'errore, non è possibile acquisire le informazioni sull'errore direttamente nell'output dell'attività. Tuttavia, Data Factory invia tutti gli eventi di esecuzione attività a Monitoraggio di Azure. Oltre a inviare gli eventi a Monitoraggio di Azure, Data Factory esegue il push dei dettagli degli errori. È possibile, ad esempio, configurare avvisi tramite posta elettronica da questi eventi. Per altre informazioni, vedere [Avvisi e monitoraggio delle data factory con Monitoraggio di Azure](monitor-using-azure-monitor.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati: 

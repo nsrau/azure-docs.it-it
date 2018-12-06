@@ -2,25 +2,21 @@
 title: Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory | Microsoft Docs
 description: Come selezionare un'app aziendale a cui assegnare un utente o gruppo in anteprima di Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b6b7408b4efe4c3271ea2ddeb63a499bee670976
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037975"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711311"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory
 Per assegnare un utente o un gruppo a un'app aziendale, è necessario avere le autorizzazioni appropriate per gestire l'app aziendale ed essere l'amministratore globale per la directory.
@@ -32,7 +28,7 @@ Per assegnare un utente o un gruppo a un'app aziendale, è necessario avere le a
 > Per le applicazioni Microsoft, come le app di Office 365, usare PowerShell per assegnare utenti a un'app aziendale.
 
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Come si assegna l'accesso utente a un'app aziendale nel portale di Azure?
+## <a name="assign-a-user-to-an-app---portal"></a>Assegnare un utente a un'app - Portale
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Tutti i servizi**, immettere Azure Active Directory nella casella di testo e quindi premere **INVIO**.
 3. Selezionare **Applicazioni aziendali**.
@@ -51,7 +47,25 @@ Per assegnare un utente o un gruppo a un'app aziendale, è necessario avere le a
 10. Nel pannello **Aggiungi assegnazione** selezionare **Ruolo**. Nel pannello **Selezionare un ruolo** scegliere il ruolo da applicare ai gruppi o utenti selezionati, quindi fare clic su **OK** nella parte inferiore del pannello.
 11. Nella parte inferiore del pannello **Aggiungi assegnazione** fare clic sul pulsante **Assegna**. Gli utenti o i gruppi assegnati avranno le autorizzazioni definite dal ruolo selezionato per questa app aziendale.
 
-## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>Come si assegna un utente a un'app aziendale con PowerShell?
+## <a name="allow-all-users-to-access-an-app---portal"></a>Consentire agli utenti di accedere a un'app - Portale
+Per consentire agli utenti di accedere a un'applicazione:
+
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
+2. Selezionare **Tutti i servizi**, immettere Azure Active Directory nella casella di testo e quindi premere **INVIO**.
+3. Selezionare **Applicazioni aziendali**.
+4. Nel pannello **Applicazioni aziendali** selezionare **Tutte le applicazioni**. Viene visualizzato un elenco delle app che è possibile gestire.
+5. Nel pannello **Applicazioni aziendali - All applications** (Tutte le applicazioni) selezionare un'app.
+6. Nel pannello ***nome app*** selezionare **Proprietà**.
+7. Nel pannello ***nome app* - Proprietà** impostare l'opzione **Assegnazione utenti obbligatoria** su **No**. 
+
+L'opzione **Assegnazione utenti obbligatoria**:
+
+- Non influisce sulla presenza di un'applicazione nel pannello di accesso alle applicazioni. Per visualizzare l'applicazione nel pannello di accesso, assegnare un utente o un gruppo appropriato all'applicazione.
+- Funziona solo con le applicazioni cloud configurate per l'accesso Single Sign-On SAML e le applicazioni locali configurate con il proxy di applicazione. Vedere [Accesso Single Sign-On alle applicazioni](what-is-single-sign-on.md).
+- Richiede il consenso degli utenti per un'applicazione. Un amministratore può concedere il consenso per tutti gli utenti.  Vedere [Configurare il consenso utente in un'applicazione](configure-user-consent.md).
+
+
+## <a name="assign-a-user-to-an-app---powershell"></a>Assegnare un utente a un'app - PowerShell
 
 1. Aprire un prompt dei comandi di Windows PowerShell con privilegi elevati.
 

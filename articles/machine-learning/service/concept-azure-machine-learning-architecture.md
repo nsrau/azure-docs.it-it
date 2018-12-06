@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210687"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706807"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Informazioni sul funzionamento del servizio Azure Machine Learning: architettura e concetti
 
@@ -156,9 +156,9 @@ Un esperimento è un raggruppamento di più esecuzioni da uno script specifico. 
 
 Per un esempio d'uso di un esperimento, vedere il documento [Guida introduttiva: introduzione al servizio di Azure Machine Learning](quickstart-get-started.md).
 
-## <a name="pipelines"></a>Pipeline
+## <a name="pipeline"></a>Pipeline
 
-Le pipeline consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi dell'apprendimento automatico. Ad esempio, una pipeline può includere le fasi di preparazione dei dati, training del modello, distribuzione del modello e inferenza. Ogni fase può includere più passaggi, ciascuno dei quali può essere eseguito in modo automatico in varie destinazioni di calcolo.
+Le pipeline di Machine Learning consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi dell'apprendimento automatico. Ad esempio, una pipeline può includere le fasi di preparazione dei dati, training del modello, distribuzione del modello e inferenza. Ogni fase può includere più passaggi, ciascuno dei quali può essere eseguito in modo automatico in varie destinazioni di calcolo.
 
 Per altre informazioni sulle pipeline di apprendimento automatico, vedere l'articolo [Pipeline e Azure Machine Learning](concept-ml-pipelines.md).
 

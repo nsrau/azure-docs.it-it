@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 334b4c912c40949cbecab2173425927d46350d07
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 21b5dae6fda857a3a69aa06e461fdf3b716b5eb8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670008"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163318"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Domande frequenti su Avere vFXT per Azure
 
@@ -19,13 +19,13 @@ Questo articolo risponde a una serie di domande che potranno essere utili per ca
 
 ## <a name="general"></a>Generale 
 
-### <a name="what-is-avere-vfxt-for-azure"></a>Che cos'è Avere vFXT per Azure?
+### <a name="what-is-avere-vfxt-for-azure"></a>Informazioni su Avere vFXT per Azure
 
 Avere vFXT per Azure è un file system a prestazioni elevate che memorizza nella cache i dati attivi in Calcolo di Azure per un'elaborazione efficiente dei carichi di lavoro critici.
 
 ### <a name="is-the-avere-vfxt-a-storage-solution"></a>Avere vFXT è una soluzione di archiviazione?
 
-No. Avere vFXT è una **cache** di file system collegata agli ambienti di archiviazione, come EMC, NAS NetApp o un contenitore BLOB. vFXT semplifica le richieste di dati dai client e memorizza nella cache i dati necessari per migliorare le prestazioni su larga scala e nel corso del tempo. VFXT non archivia dati e non contiene informazioni sulla quantità di dati archiviati.
+ No. Avere vFXT è una **cache** di file system collegata agli ambienti di archiviazione, come EMC, NAS NetApp o un contenitore BLOB. vFXT semplifica le richieste di dati dai client e memorizza nella cache i dati necessari per migliorare le prestazioni su larga scala e nel corso del tempo. VFXT non archivia dati e non contiene informazioni sulla quantità di dati archiviati.
 
 ### <a name="is-the-avere-vfxt-a-tiering-solution"></a>Avere vFXT è una soluzione di suddivisione in livelli?
 
@@ -104,7 +104,7 @@ Il cluster Avere vFXT può avere dimensioni che vanno da tre nodi fino a 24 nodi
 
 ### <a name="does-the-avere-vfxt-environment-autoscale"></a>L'ambiente Avere vFXT può essere ridimensionato automaticamente?
 
-No. È possibile aumentare o ridurre le dimensioni del cluster, ma l'aggiunta o la rimozione dei nodi del cluster è un'operazione manuale.
+ No. È possibile aumentare o ridurre le dimensioni del cluster, ma l'aggiunta o la rimozione dei nodi del cluster è un'operazione manuale.
 
 ### <a name="can-i-run-the-vfxt-cluster-as-a-virtual-machine-scale-set"></a>È possibile eseguire il cluster vFXT come un set di scalabilità di macchine virtuali?
 
@@ -124,7 +124,7 @@ Sì. Assicurarsi di disporre di una quota sufficiente nell'area per supportare i
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>È possibile eseguire le macchine del cluster Avere vFXT in zone di disponibilità diverse?
 
-No. Il modello a disponibilità elevata usato in Avere vFXT attualmente non supporta singoli membri del cluster vFXT situati in zone di disponibilità diverse.
+ No. Il modello a disponibilità elevata usato in Avere vFXT attualmente non supporta singoli membri del cluster vFXT situati in zone di disponibilità diverse.
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>È possibile clonare macchine virtuali di Avere vFXT?
 
@@ -240,7 +240,7 @@ L'account di archiviazione deve essere un account di utilizzo generico v2 (GPv2)
 
 ### <a name="can-i-use-archive-blob-storage"></a>È possibile usare Spazio di archiviazione BLOB?
 
-No. Il contratto di servizio per Spazio di archiviazione non è compatibile con la directory in tempo reale e i requisiti di accesso ai file del sistema vFXT. 
+ No. Il contratto di servizio per Spazio di archiviazione non è compatibile con la directory in tempo reale e i requisiti di accesso ai file del sistema vFXT. 
 
 ### <a name="can-i-use-cool-blob-storage"></a>È possibile usare l'archiviazione BLOB ad accesso sporadico?
 
@@ -277,4 +277,4 @@ Per iniziare a usare Avere vFXT per Azure, fare riferimento ai collegamenti segu
 * [Preparare la creazione di Avere vFXT](avere-vfxt-prereqs.md)
 * [Distribuire il cluster vFXT](avere-vfxt-deploy.md)
 
-Per altre informazioni sulle funzionalità e i casi d'uso di Avere vFXT, visitare il sito di [Avere vFXT per Azure (anteprima)](https://azure.microsoft.com/services/storage/avere-vfxt/).
+Per altre informazioni sulle funzionalità e i casi d'uso di Avere vFXT, visitare il sito di [Avere vFXT per Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

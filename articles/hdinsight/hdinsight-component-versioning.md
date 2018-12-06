@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: fca83090e6713e4360bd19d49c7fd6b9147fd6ea
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 2ae0450be420edeb4ef18d0c9e5ca6e1dacaf50d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219733"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497019"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Componenti e versioni di Apache Hadoop disponibili in HDInsight.
 
-Informazioni su componenti e versioni dell'ecosistema Apache Hadoop in Microsoft Azure HDInsight e sul Pacchetto di sicurezza aziendale. Informazioni su come controllare le versioni di componenti Hadoop in HDInsight. 
+Informazioni su componenti e versioni dell'ecosistema [Apache Hadoop](https://hadoop.apache.org/) in Microsoft Azure HDInsight e su Enterprise Security Package. Informazioni su come controllare le versioni di componenti Hadoop in HDInsight. 
 
 Ogni versione di HDInsight è una distribuzione cloud di una versione di Hortonworks Data Platform (HDP).
 
@@ -49,7 +49,7 @@ Le versioni del componente associate alle versioni del cluster HDInsight sono el
 | Apache Mahout |-|0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (solo Windows) |-|-|
-| Apache Livy |0.5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
+| Apache Livy |0,5 |0,4 |0,3 |0,3 |0,2 |-|-|-|
 | Apache Kafka | 1.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
@@ -58,7 +58,7 @@ Le versioni del componente associate alle versioni del cluster HDInsight sono el
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Controllare le informazioni sulle versioni correnti dei componenti Hadoop
 
-Le versioni dei componenti dell'ecosistema Hadoop associate alle versioni cluster HDInsight potrebbero subire modifiche con gli aggiornamenti a HDInsight. Per controllare i componenti Hadoop e verificare le versioni in uso per un cluster, usare l'API REST Ambari. Il comando **GetComponentInformation** recupera informazioni sui componenti del servizio. Per informazioni dettagliate, vedere la [documentazione di Ambari][ambari-docs].
+Le versioni dei componenti dell'ecosistema Hadoop associate alle versioni cluster HDInsight potrebbero subire modifiche con gli aggiornamenti a HDInsight. Per controllare i componenti Hadoop e verificare le versioni in uso per un cluster, usare l'API REST Ambari. Il comando **GetComponentInformation** recupera informazioni sui componenti del servizio. Per informazioni dettagliate, vedere la [documentazione di Apache Ambari][ambari-docs].
 
 Per i cluster Windows, un altro modo per controllare le versioni dei componenti è accedere a un cluster usando Desktop remoto ed esaminare i contenuti della directory C:\apps\dist\.
 
@@ -78,7 +78,7 @@ La tabella seguente elenca le versioni di HDInsight disponibili nel portale di A
 
 | Versione HDInsight | Versione HDP | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 <br> (Anteprima) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Yes |Yes |
+| HDInsight 4.0 <br>  (Anteprima) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Yes |Yes |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 aprile 2017 | | |Yes |Yes |
 | HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 settembre 2016 |13 marzo 2019 |13 marzo 2019 |Yes |Yes |
 
@@ -94,15 +94,15 @@ La tabella seguente elenca le versioni di HDInsight attualmente **non** disponib
 
 | Versione HDInsight | Versione HDP | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 <br> (Non Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 settembre 2016 |5 settembre 2017 |28 giugno 2018 |Yes |No |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 marzo 2016 |29 dicembre 2016 |9 gennaio 2018 |Yes |No |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 dicembre 2015 |27 giugno 2016 |31 luglio 2018 |Yes |No |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 dicembre 2015 |27 giugno 2016 |31 luglio 2017 |Yes |No |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS o Windows Server 2012 R2 |18 febbraio 2015 |1° marzo 2016 |1° aprile 2017 |Yes |No |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 giugno 2014 |18 maggio 2015 |30 giugno 2016 |Yes |No |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 febbraio 2014 |17 settembre 2014 |30 giugno 2015 |Yes |No |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 ottobre 2013 |12 maggio 2014 |31 maggio 2015 |Yes |No |
-| HDInsight 1.6 |HDP 1.1 | |28 ottobre 2013 |26 aprile 2014 |31 maggio 2015 |No |No |
+| HDInsight 3.5 <br> (Non Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 settembre 2016 |5 settembre 2017 |28 giugno 2018 |Yes |No  |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 marzo 2016 |29 dicembre 2016 |9 gennaio 2018 |Yes |No  |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 dicembre 2015 |27 giugno 2016 |31 luglio 2018 |Yes |No  |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 dicembre 2015 |27 giugno 2016 |31 luglio 2017 |Yes |No  |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS o Windows Server 2012 R2 |18 febbraio 2015 |1° marzo 2016 |1° aprile 2017 |Yes |No  |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 giugno 2014 |18 maggio 2015 |30 giugno 2016 |Yes |No  |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 febbraio 2014 |17 settembre 2014 |30 giugno 2015 |Yes |No  |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 ottobre 2013 |12 maggio 2014 |31 maggio 2015 |Yes |No  |
+| HDInsight 1.6 |HDP 1.1 | |28 ottobre 2013 |26 aprile 2014 |31 maggio 2015 |No  |No  |
 
 > [!NOTE]
 > I cluster ad alta disponibilità con due nodi head vengono distribuiti per impostazione predefinita per HDInsight versione 2.1 e successive. Non sono disponibili per i cluster HDInsight versione 1.6.
@@ -117,8 +117,8 @@ Si tratta di un pacchetto opzionale che è possibile aggiungere al cluster HDIns
 
     Per altre informazioni, vedere:
 
-    - [Introduzione alla sicurezza Hadoop con i cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-introduction.md)
-    - [Pianificare cluster Hadoop aggiunti a un dominio di Azure in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
+    - [Introduzione alla sicurezza Apache Hadoop con i cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-introduction.md)
+    - [Pianificare cluster Apache Hadoop aggiunti a un dominio di Azure in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
     - [Configurare l'ambiente sandbox aggiunto al dominio](./domain-joined/apache-domain-joined-configure.md)
     - [Configurare cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
@@ -129,7 +129,7 @@ Si tratta di un pacchetto opzionale che è possibile aggiungere al cluster HDIns
 
     Per altre informazioni, vedere:
 
-    - [Configurare criteri Hive in HDInsight aggiunto al dominio](./domain-joined/apache-domain-joined-run-hive.md)
+    - [Configurare criteri Apache Hive in HDInsight aggiunto al dominio](./domain-joined/apache-domain-joined-run-hive.md)
 
 - Visualizzare i log di controllo per monitorare gli accessi e i criteri configurati. 
 
@@ -151,7 +151,7 @@ Per informazioni su prezzi e contratto di servizio per il Pacchetto di sicurezza
 ## <a name="hdinsight-windows-retirement"></a>Ritiro di HDInsight in Windows
 Microsoft Azure HDInsight versione 3.3 è stata l'ultima versione di HDInsight per Windows. La data di ritiro di HDInsight per Windows è il 31 luglio 2018. Se si dispone di tutti i cluster HDInsight in Windows 3.3 o precedente, è necessario eseguire la migrazione ad HDInsight per Linux (HDInsight 3.5 o versione successiva) prima del 31 luglio 2018. La migrazione al sistema operativo Linux consente di mantenere la possibilità di creare o ridimensionare i cluster HDInsight. Il supporto per HDInsight versione 3.3 per Windows è scaduto il 27 giugno 2016.
 
-A partire da HDInsight versione 3.4, Microsoft ha rilasciato HDInsight solo per il sistema operativo Linux. Di conseguenza, alcuni dei componenti all'interno di HDInsight sono disponibili esclusivamente per Linux. Sono inclusi Apache Ranger, Kafka, Interactive Query, Spark, le applicazioni HDInsight e Azure Data Lake Store come file system primario. Le versioni future di HDInsight sono disponibili solo per il sistema operativo Linux. Per il sistema operativo Windows non saranno più rilasciate versioni di HDInsight. 
+A partire da HDInsight versione 3.4, Microsoft ha rilasciato HDInsight solo per il sistema operativo Linux. Di conseguenza, alcuni dei componenti all'interno di HDInsight sono disponibili esclusivamente per Linux. Sono inclusi [Apache Ranger](https://ranger.apache.org/), [Apache Kafka](https://kafka.apache.org/), Interactive Query, [Apache Spark](https://spark.apache.org/), le applicazioni HDInsight e Azure Data Lake Store come file system primario. Le versioni future di HDInsight sono disponibili solo per il sistema operativo Linux. Per il sistema operativo Windows non saranno più rilasciate versioni di HDInsight. 
 
 ## <a name="faqs"></a>Domande frequenti
 
@@ -264,8 +264,8 @@ La tabella seguente elenca le dimensioni di macchina virtuale (VM) predefinite p
 > - Il nodo Ruolo di lavoro è chiamato *Regione* per il tipo di cluster HBase.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Configurazione del cluster per Hadoop, Spark e altre informazioni su HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [Lavorare da un computer Windows in Hadoop su HDInsight](hdinsight-hadoop-windows-tools.md)
+- [Configurazione del cluster per Apache Hadoop, Spark e altre informazioni su HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Lavorare da un computer Windows in Apache Hadoop su HDInsight](hdinsight-hadoop-windows-tools.md)
 
 [Supported HDInsight versions]:(#supported-hdinsight-versions)
 

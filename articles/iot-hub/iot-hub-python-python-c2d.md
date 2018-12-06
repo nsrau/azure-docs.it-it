@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: kgremban
-ms.openlocfilehash: cab3e5ee64ced59e9eb861e468f7a3c1dc600e8e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8c8cf77107f87522f9ae121845f53d8993449651
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220739"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824796"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -289,9 +289,9 @@ A questo punto è possibile eseguire le applicazioni.
    
     ![Eseguire l'app per inviare il comando da cloud a dispositivo][img-send-command]
    
-1. Si noti il messaggio ricevuto dal dispositivo.
+1. Prendere nota del messaggio ricevuto dal dispositivo.
 
-    ![Messaggio ricevuto][img-message-recieved]
+    ![Messaggio ricevuto][img-message-received]
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -304,7 +304,7 @@ Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-python-python-c2d/simulated-device.png
 [img-send-command]:  media/iot-hub-python-python-c2d/send-command.png
-[img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
+[img-message-received]: media/iot-hub-python-python-c2d/message-received.png
 
 <!-- Links -->
 [lnk-python-download]: https://www.python.org/downloads/
@@ -317,5 +317,5 @@ Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [
 [Centro per sviluppatori di IoT di Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 [Acceleratore di soluzioni di monitoraggio remoto di Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/

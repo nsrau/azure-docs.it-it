@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013327"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821549"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -258,7 +258,7 @@ Le operazioni sono raggruppate per un identificatore `txn-id`.
 
 Per l'interazione transazionale, il client viene usato come `transaction controller` che controlla le operazioni da raggruppare. Il servizio del bus di servizio di Microsoft Azure viene utilizzato come un `transactional resource` ed esegue operazioni come richiesto dal `transaction controller`.
 
-Il client e il servizio comunicano tramite una `control link` che viene stabilita dal client. I messaggi `declare` e `discharge` vengono inviati dal controller al collegamento di controllo rispettivamente per allocare e completare le transazioni (e non rappresentano la delimitazione dell’attività transazionale). La trasmissione/ricezione effettiva non viene eseguita su questo collegamento. Ogni attività transazionale richiesta è esplicitamente identificata con l'oggetto desiderato `txn-id` e pertanto può verificarsi su un qualsiasi collegamento di connessione. Se il collegamento di controllo è chiuso mentre esistono transazioni non eseguite, viene immediatamente eseguito il rollback di tutte le transazioni e i tentativi di eseguire un'ulteriore attività transazionale su di esse falliranno. I messaggi sul collegamento di controllo non devono essere predefiniti.
+Il client e il servizio comunicano tramite una `control link` che viene stabilita dal client. I messaggi `declare` e `discharge` vengono inviati dal controller al collegamento di controllo rispettivamente per allocare e completare le transazioni (e non rappresentano la delimitazione dell’attività transazionale). La trasmissione/ricezione effettiva non viene eseguita in questo collegamento. Ogni attività transazionale richiesta è esplicitamente identificata con l'oggetto desiderato `txn-id` e pertanto può verificarsi su un qualsiasi collegamento di connessione. Se il collegamento di controllo è chiuso mentre esistono transazioni non eseguite, viene immediatamente eseguito il rollback di tutte le transazioni e i tentativi di eseguire un'ulteriore attività transazionale su di esse falliranno. I messaggi sul collegamento di controllo non devono essere predefiniti.
 
 Ogni connessione deve avviare il proprio collegamento di controllo per poter iniziare e terminare le transazioni. Il servizio definisce una destinazione speciale che funziona come un `coordinator`. Il client/controller stabilisce un collegamento di controllo a questa destinazione. Il collegamento di controllo è esterno ai limiti di un'entità, vale a dire che lo stesso collegamento di controllo può essere usato per avviare ed eseguire le transazioni per più entità.
 
@@ -364,7 +364,7 @@ Ecco le proprietà dell'applicazione per il messaggio di richiesta:
 | operation |No  |stringa |**put-token** |
 | type |No  |stringa |Tipo di token inserito. |
 | name |No  |stringa |"Destinatari" a cui è applicabile il token. |
-| expiration |Yes |timestamp |Ora di scadenza del token. |
+| expiration |Yes | timestamp |Ora di scadenza del token. |
 
 La proprietà *name* identifica l'entità a cui deve essere associato il token. Nel bus di servizio corrisponde al percorso della coda o dell'argomento/sottoscrizione. La proprietà *type* identifica il tipo di token:
 

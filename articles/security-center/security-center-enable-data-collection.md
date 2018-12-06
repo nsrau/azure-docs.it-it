@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d88a59d3b9a39a42120b302fd8e7989c968db952
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f6a818e0f628924342ddd50322bb54bf1d1d6079
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624778"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976660"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer che non hanno Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai registri eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i registri del sistema operativo (registri eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
@@ -48,7 +48,7 @@ Quando il provisioning automatico è attivato, il Centro sicurezza effettua il p
 
 Per abilitare il provisioning automatico di Microsoft Monitoring Agent:
 1. Selezionare **Criteri di sicurezza** nel menu principale Centro sicurezza.
-2. Selezionare la sottoscrizione.
+2. Fare clic su **Modifica impostazioni** nella colonna Impostazioni della sottoscrizione desiderata nell'elenco.
 
   ![Selezionare la sottoscrizione][7]
 
@@ -135,7 +135,7 @@ Per selezionare l'area di lavoro di Log Analytics esistente:
 
     a.  Nel menu principale del Centro sicurezza selezionare **Criteri di sicurezza**.
      
-    b.  Selezionare l'area di lavoro desiderata a cui si intende connettere l'agente.
+    b.  Selezionare l'area di lavoro desiderata in cui si vuole connettere l'agente facendo clic su **Modifica impostazioni** nella colonna Impostazioni della sottoscrizione desiderata nell'elenco.
         ![Selezionare un'area di lavoro][8] c. Impostare il piano tariffario.
         ![Selezionare un piano tariffario][9] 
    

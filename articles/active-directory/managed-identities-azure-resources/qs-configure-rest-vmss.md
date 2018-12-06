@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: e76375ac06824d03e519ba06da838a0707922280
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 42664c4f550d17ce8bb2840e88ae45a660608942
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017417"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425362"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite le chiamate API REST
 
@@ -78,10 +78,86 @@ Per creare un set di scalabilità di macchine virtuali con identità gestita ass
    ``` 
 
 4. Creare un set di scalabilità di macchine virtuali usando CURL per chiamare l'endpoint REST di Azure Resource Manager. L'esempio seguente crea un set di scalabilità di macchine virtuali denominato *myVMSS* in *myResourceGroup*, con un'identità gestita assegnata dal sistema, come indicato nel corpo della richiesta dal valore `"identity":{"type":"SystemAssigned"}`. Sostituire `<ACCESS TOKEN>` con il valore ricevuto nel passaggio precedente relativo alla richiesta di un token bearer di accesso e il valore `<SUBSCRIPTION ID>` appropriato per l'ambiente.
- 
-    ```bash   
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-    ```
+
+   ```bash   
+  curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+  ```
+
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
+   ```
+
+  **Intestazioni della richiesta**
+
+  |Intestazione della richiesta  |DESCRIZIONE  |
+  |---------|---------|
+  |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+  |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+  **Corpo della richiesta**
+
+  ```JSON
+    {
+       "sku":{
+          "tier":"Standard",
+          "capacity":3,
+          "name":"Standard_D1_v2"
+       },
+       "location":"eastus",
+       "identity":{
+          "type":"SystemAssigned"
+       },
+       "properties":{
+          "overprovision":true,
+          "virtualMachineProfile":{
+             "storageProfile":{
+                "imageReference":{
+                   "sku":"2016-Datacenter",
+                   "publisher":"MicrosoftWindowsServer",
+                   "version":"latest",
+                   "offer":"WindowsServer"
+                },
+                "osDisk":{
+                   "caching":"ReadWrite",
+                   "managedDisk":{
+                      "storageAccountType":"Standard_LRS"
+                   },
+                   "createOption":"FromImage"
+                }
+             },
+             "osProfile":{
+                "computerNamePrefix":"myVMSS",
+                "adminUsername":"azureuser",
+                "adminPassword":"myPassword12"
+             },
+             "networkProfile":{
+                "networkInterfaceConfigurations":[
+                   {
+                      "name":"myVMSS",
+                      "properties":{
+                         "primary":true,
+                         "enableIPForwarding":true,
+                         "ipConfigurations":[
+                            {
+                               "name":"myVMSS",
+                               "properties":{
+                                  "subnet":{
+                                     "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
+                                  }
+                               }
+                            }
+                         ]
+                      }
+                   }
+                ]
+             }
+          },
+          "upgradePolicy":{
+             "mode":"Manual"
+          }
+       }
+    }  
+  ```  
 
 ### <a name="enable-system-assigned-managed-identity-on-a-existing-virtual-machine-scale-set"></a>Abilitare l'identità gestita assegnata dal sistema in un set di scalabilità di macchine virtuali esistente
 
@@ -102,6 +178,27 @@ Per abilitare l'identità gestita assegnata dal sistema in un set di scalabilit�
     curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned"
+       }
+    }
+   ```
+
 3. Per abilitare l'identità gestita assegnata dal sistema su un set di scalabilità di macchine virtuali con le identità gestite assegnate dall'utente presenti, è necessario aggiungere `SystemAssigned` al valore`type`.  
    
    Se, ad esempio, il set di scalabilità di macchine virtuali presenta identità gestite assegnate dall'utente `ID1` e `ID2` assegnate al set stesso e si intende aggiungere un'identità gestita assegnata dal sistema al set di scalabilità di macchine virtuali, usare la chiamata di CURL seguente. Sostituire `<ACCESS TOKEN>` e `<SUBSCRIPTION ID>` con i valori appropriati all'ambiente.
@@ -111,13 +208,66 @@ Per abilitare l'identità gestita assegnata dal sistema in un set di scalabilit�
    **VERSIONE API 01/06/2018**
 
    ```bash
-   curl -v 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. |
+ 
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned,UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+             },
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{
+    
+             }
+          }
+       }
+    }
    ```
    
    **VERSIONE API 01-12-2017**
 
    ```bash
-   curl -v 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned,UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1",
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"
+          ]
+       }
+    }
    ```
 
 ### <a name="disable-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Disabilitare un'identità gestita assegnata dal sistema da un set di scalabilità di macchine virtuali
@@ -139,7 +289,28 @@ Per disabilitare l'identità assegnata dal sistema in un set di scalabilità di 
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-3. Per rimuovere l'identità gestita assegnata dal sistema da un set di scalabilità di macchine virtuali con identità gestite assegnate dall'utente, rimuovere `SystemAssigned` dal valore `{"identity":{"type:" "}}` mantenendo il valore `UserAssigned` e i valori di dizionario `userAssignedIdentities`, se si usa la **versione dell'API 01/06/2018**. Se invece si usa la **versione dell'API 01/12/2017** o precedenti, mantenere la matrice `identityIds`.
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"None"
+       }
+    }
+   ```
+
+   Per rimuovere l'identità gestita assegnata dal sistema da un set di scalabilità di macchine virtuali con identità gestite assegnate dall'utente, rimuovere `SystemAssigned` dal valore `{"identity":{"type:" "}}` mantenendo il valore `UserAssigned` e i valori di dizionario `userAssignedIdentities`, se si usa la **versione dell'API 01/06/2018**. Se invece si usa la **versione dell'API 01/12/2017** o precedenti, mantenere la matrice `identityIds`.
 
 ## <a name="user-assigned-managed-identity"></a>Identità gestita assegnata dall'utente
 
@@ -172,13 +343,173 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
    **VERSIONE API 01/06/2018**
 
    ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus",{"identity":{"type":"UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
+
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "sku":{
+          "tier":"Standard",
+          "capacity":3,
+          "name":"Standard_D1_v2"
+       },
+       "location":"eastus",
+       "identity":{
+          "type":"UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             }
+          }
+       },
+       "properties":{
+          "overprovision":true,
+          "virtualMachineProfile":{
+             "storageProfile":{
+                "imageReference":{
+                   "sku":"2016-Datacenter",
+                   "publisher":"MicrosoftWindowsServer",
+                   "version":"latest",
+                   "offer":"WindowsServer"
+                },
+                "osDisk":{
+                   "caching":"ReadWrite",
+                   "managedDisk":{
+                      "storageAccountType":"Standard_LRS"
+                   },
+                   "createOption":"FromImage"
+                }
+             },
+             "osProfile":{
+                "computerNamePrefix":"myVMSS",
+                "adminUsername":"azureuser",
+                "adminPassword":"myPassword12"
+             },
+             "networkProfile":{
+                "networkInterfaceConfigurations":[
+                   {
+                      "name":"myVMSS",
+                      "properties":{
+                         "primary":true,
+                         "enableIPForwarding":true,
+                         "ipConfigurations":[
+                            {
+                               "name":"myVMSS",
+                               "properties":{
+                                  "subnet":{
+                                     "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
+                                  }
+                               }
+                            }
+                         ]
+                      }
+                   }
+                ]
+             }
+          },
+          "upgradePolicy":{
+             "mode":"Manual"
+          }
+       }
+    }
+   ```   
 
    **VERSIONE API 01-12-2017**
 
    ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. |
+ 
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "sku":{
+          "tier":"Standard",
+          "capacity":3,
+          "name":"Standard_D1_v2"
+       },
+       "location":"eastus",
+       "identity":{
+          "type":"UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       },
+       "properties":{
+          "overprovision":true,
+          "virtualMachineProfile":{
+             "storageProfile":{
+                "imageReference":{
+                   "sku":"2016-Datacenter",
+                   "publisher":"MicrosoftWindowsServer",
+                   "version":"latest",
+                   "offer":"WindowsServer"
+                },
+                "osDisk":{
+                   "caching":"ReadWrite",
+                   "managedDisk":{
+                      "storageAccountType":"Standard_LRS"
+                   },
+                   "createOption":"FromImage"
+                }
+             },
+             "osProfile":{
+                "computerNamePrefix":"myVMSS",
+                "adminUsername":"azureuser",
+                "adminPassword":"myPassword12"
+             },
+             "networkProfile":{
+                "networkInterfaceConfigurations":[
+                   {
+                      "name":"myVMSS",
+                      "properties":{
+                         "primary":true,
+                         "enableIPForwarding":true,
+                         "ipConfigurations":[
+                            {
+                               "name":"myVMSS",
+                               "properties":{
+                                  "subnet":{
+                                     "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
+                                  }
+                               }
+                            }
+                         ]
+                      }
+                   }
+                ]
+             }
+          },
+          "upgradePolicy":{
+             "mode":"Manual"
+          }
+       }
+    }
    ```
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-virtual-machine-scale-set"></a>Assegnare un'identità gestita assegnata dall'utente a un set di scalabilità di macchine virtuali di Azure esistente
@@ -192,10 +523,21 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 2.  Creare un'identità gestita assegnata dall'utente usando le istruzioni disponibili qui: [Creare un'identità gestita assegnata dall'utente](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 3. Per verificare di non eliminare le identità esistenti assegnate dall'utente o dal sistema associate al set di scalabilità di macchine virtuali, è necessario elencare i tipi di identità assegnati al set di scalabilità di macchine virtuali tramite il comando CURL seguente. Se sono state gestite identità assegnate al set di scalabilità di macchine virtuali, queste vengono elencate di seguito nel valore `identity`.
- 
+
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
+
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. |   
+ 
 
 4. Se non si dispone di identità gestite assegnate dall'utente o dal sistema associate al set di scalabilità di macchine virtuali, usare il comando CURL seguente per chiamare l'endpoint REST di Azure Resource Manager e assegnare la prima identità gestita assegnata dall'utente al set di scalabilità di macchine virtuali.  Se sono presenti eventuali identità gestite assegnate dall'utente o dal sistema associate al set di scalabilità di macchine virtuali, passare al passaggio 5 dove viene illustrato come aggiungere le identità gestite assegnate dall'utente a un set di scalabilità di macchine virtuali, conservando allo stesso tempo l'identità gestita assegnata dal sistema.
 
@@ -203,15 +545,65 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 
    **VERSIONE API 01/06/2018**
 
-    ```bash
+   ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
-   ```   
+   ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"userAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             }
+          }
+       }
+    }
+   ``` 
     
    **VERSIONE API 01-12-2017**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"userAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       }
+    }
+   ```  
 
 5. Se si dispone di un'identità gestita assegnata dall'utente o dal sistema associata al set di scalabilità di macchine virtuali:
    
@@ -225,14 +617,68 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             },
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{
+    
+             }
+          }
+       }
+    }
+   ```
+
    **VERSIONE API 01-12-2017**
 
    Quando si aggiunge la nuova identità gestita assegnata dall'utente, mantenere le identità gestite assegnate dall'utente desiderate nel valore di matrice `identityIds`.
 
-   Se ad esempio il set di scalabilità di macchine virtuali dispone già di identità assegnate dal sistema e assegnate dall'utente `ID1` e si intende aggiungervi l'identità gestita assegnata dall'utente `ID2`: 
+   Se ad esempio il set di scalabilità di macchine virtuali dispone già di identità assegnate dal sistema e assegnate dall'utente `ID1` e si intende aggiungervi l'identità gestita assegnata dall'utente `ID2`:
 
-   ```bash
+    ```bash
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
+   ```
+
+    **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1",
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"
+          ]
+       }
+    }
    ```
 
 ### <a name="remove-a-user-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Rimuovere un'identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali
@@ -243,11 +689,21 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
    az account get-access-token
    ```
 
-2. Per verificare di non eliminare alcuna identità gestita assegnata dall'utente che si intende mantenere associata al set di scalabilità di macchine virtuali o di non rimuovere le identità gestite assegnate dal sistema, è necessario elencare i tipi di identità assegnati alla macchina virtuale tramite il comando CURL seguente: 
-   
+2. Per verificare di non eliminare alcuna identità gestita assegnata dall'utente che si intende mantenere associata al set di scalabilità di macchine virtuali o di non rimuovere le identità gestite assegnate dal sistema, è necessario elencare i tipi di identità assegnati alla macchina virtuale tramite il comando CURL seguente:
+
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
    ```
+
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. |
    
    Se sono state gestite identità assegnate alla macchina virtuale, sono elencate nella risposta nel valore `identity`. 
     
@@ -258,15 +714,63 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
    Aggiungere `null` all'identità gestita assegnata dall'utente che si intende rimuovere:
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null
+          }
+       }
+    }
    ```
 
    **VERSIONE API 01-12-2017**
 
-   Mantenere solo le identità gestite assegnate dall'utente desiderate nella matrice `identityIds`:   
+   Mantenere solo le identità gestite assegnate dall'utente desiderate nella matrice `identityIds`:
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```   
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **Intestazioni della richiesta**
+
+   |Intestazione della richiesta  |DESCRIZIONE  |
+   |---------|---------|
+   |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+   **Corpo della richiesta**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned,UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       }
+    }
    ```
 
 Se il set di scalabilità di macchine virtuali ha identità gestite sia assegnate dal sistema che assegnate dall'utente, è possibile rimuovere tutte le identità gestite assegnate dall'utente iniziando a usare solo identità assegnate dal sistema, usando il comando seguente:
@@ -274,11 +778,53 @@ Se il set di scalabilità di macchine virtuali ha identità gestite sia assegnat
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
 ```
+
+```HTTP
+PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
+```
+
+**Intestazioni della richiesta**
+
+|Intestazione della richiesta  |DESCRIZIONE  |
+|---------|---------|
+|*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+**Corpo della richiesta**
+
+```JSON
+{
+   "identity":{
+      "type":"SystemAssigned"
+   }
+}
+```
     
 Se il set di scalabilità di macchine virtuali presenta solo identità gestite assegnate dall'utente e si intende rimuoverle tutte, usare il comando seguente:
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+```
+
+```HTTP
+PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
+```
+
+**Intestazioni della richiesta**
+
+|Intestazione della richiesta  |DESCRIZIONE  |
+|---------|---------|
+|*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+
+**Corpo della richiesta**
+
+```JSON
+{
+   "identity":{
+      "type":"None"
+   }
+}
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

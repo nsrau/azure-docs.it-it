@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 70c19b394b5c5702a0ec0f18aa3bbd0c05e39dfd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249796"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582743"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory - Avvio rapido
 
@@ -29,7 +29,7 @@ ms.locfileid: "51249796"
 L'autenticazione pass-through di Azure Active Directory (Azure AD) consente agli utenti di accedere ad applicazioni locali e basate sul cloud usando le stesse password. Prevede infatti l'accesso degli utenti tramite la convalida delle password direttamente in Active Directory locale.
 
 >[!IMPORTANT]
->Se si esegue la migrazione da AD FS (o da altre tecnologia federative) per l'autenticazione pass-through, si consiglia vivamente di seguire la guida per la distribuzione dettagliata pubblicata [qui](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>Se si esegue la migrazione da AD FS (o da altre tecnologia federative) per l'autenticazione pass-through, si consiglia vivamente di seguire la guida per la distribuzione dettagliata pubblicata [qui](https://aka.ms/adfstoPTADPDownload).
 
 Per distribuire l'autenticazione pass-through nel tenant, seguire queste istruzioni:
 
@@ -44,13 +44,13 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti.
 
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
-1. Identificare un server che esegue Windows Server 2012 R2 o versione successiva per l'esecuzione di Azure AD Connect. Aggiungere il server alla stessa foresta Active Directory degli utenti di cui devono essere convalidate le password.
+1. Identificare un server che esegue Windows Server 2012 R2 o versione successiva per l'esecuzione di Azure AD Connect. Se non è già abilitato, [abilitare TLS 1.2 nel server](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Aggiungere il server alla stessa foresta Active Directory degli utenti di cui devono essere convalidate le password.
 2. Installare la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) nel server identificato nel passaggio precedente. Se Azure AD Connect è già in esecuzione, assicurarsi che la versione sia 1.1.750.0 o successiva.
 
     >[!NOTE]
     >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla sincronizzazione dell'hash delle password. Se _non_ si prevede di usare la sincronizzazione dell'hash delle password in combinazione con l'autenticazione pass-through, leggere le [note sulla versione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
-3. Identificare uno o più server aggiuntivi (con Windows Server 2012 R2 o versione successiva) in cui eseguire un agente di autenticazione autonomo. Questi server aggiuntivi sono necessari per garantire la disponibilità elevata delle richieste di accesso. Aggiungere i server alla stessa foresta Active Directory degli utenti di cui devono essere convalidate le password.
+3. Identificare uno o più server aggiuntivi (con Windows Server 2012 R2 o versione successiva e con TLS 1.2 abilitato) in cui è possibile eseguire agenti di autenticazione autonomi. Questi server aggiuntivi sono necessari per garantire la disponibilità elevata delle richieste di accesso. Aggiungere i server alla stessa foresta Active Directory degli utenti di cui devono essere convalidate le password.
 
     >[!IMPORTANT]
     >Negli ambienti di produzione è consigliabile disporre di almeno 3 agenti di autenticazione in esecuzione nel proprio tenant. Esiste un limite di sistema di 12 agenti di autenticazione per ogni tenant. E come procedura ottimale, considerare tutti i server che eseguono gli agenti di autenticazione come sistemi di livello 0 (vedere [riferimento](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
@@ -85,7 +85,7 @@ Se Azure AD Connect è già installato (usando il percorso di [installazione rap
 ![Azure AD Connect: Cambia l'accesso utente](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->L'autenticazione pass-through è una funzionalità a livello di tenant. La sua attivazione influisce sugli accessi degli utenti per _tutti_ i domini gestiti nel tenant. Se si passa da AD FS (Active Directory Federation Services) all'autenticazione pass-through, è consigliabile attendere almeno 12 ore prima di arrestare l'infrastruttura AD FS. Questo tempo di attesa è necessario per garantire che gli utenti possano continuare ad accedere a Exchange ActiveSync durante la transizione. Per altre informazioni sulla migrazione da AD FS all'autenticazione pass-through, consultare la guida per distribuzione dettagliata pubblicata [qui](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>L'autenticazione pass-through è una funzionalità a livello di tenant. La sua attivazione influisce sugli accessi degli utenti per _tutti_ i domini gestiti nel tenant. Se si passa da AD FS (Active Directory Federation Services) all'autenticazione pass-through, è consigliabile attendere almeno 12 ore prima di arrestare l'infrastruttura AD FS. Questo tempo di attesa è necessario per garantire che gli utenti possano continuare ad accedere a Exchange ActiveSync durante la transizione. Per altre informazioni sulla migrazione da Active Directory Federation Services all'autenticazione pass-through, vedere il piano di distribuzione dettagliato pubblicato [qui](https://aka.ms/adfstoptadpdownload).
 
 ## <a name="step-3-test-the-feature"></a>Passaggio 3: Testare la funzionalità
 

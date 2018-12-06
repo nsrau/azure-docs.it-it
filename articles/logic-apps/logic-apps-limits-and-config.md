@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 11/16/2018
+ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346701"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853830"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -323,9 +323,10 @@ Tutte le app per la logica in un'area usano gli stessi intervalli di indirizzi I
 
 ### <a name="managed-connectors"></a>Connettori gestiti
 
-Per supportare le chiamate effettuate dai [connettori gestiti da Microsoft](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano questi indirizzi IP in uscita, in base alle aree in cui sono presenti le app per la logica.
+Per supportare le chiamate effettuate dai [connettori gestiti da Microsoft](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano tutti gli indirizzi IP in uscita specificati per le aree in cui sono presenti le app per la logica. Per [Azure per enti pubblici](/azure-government/documentation-government-welcome) e [Azure Cina 21Vianet](/azure/china/china-welcome), gli indirizzi IP riservati per i connettori non sono attualmente disponibili.
 
 > [!IMPORTANT]
+> 
 > Se si dispone di configurazioni esistenti, aggiornarle **il possibile prima del 1 settembre 2018** in modo che includano e mettano in corrispondenza gli indirizzi IP in questo elenco per le aree in cui sono presenti le app per la logica. 
 > 
 > App per la logica non supporta la connessione diretta agli account di archiviazione di Azure attraverso firewall. Per accedere a questi account di archiviazione, usare una delle opzioni descritte qui: 

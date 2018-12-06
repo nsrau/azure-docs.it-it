@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 515aeac3531a45080824df126ad674353f70cdb8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279713"
+---
 | Risorsa | Gratuito | Condiviso | Basic | Standard | Premium (v2) | Isolato </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [App Web, per dispositivi mobili o per le API](https://azure.microsoft.com/services/app-service/) per [piano di servizio app](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |Illimitato<sup>2</sup>|
@@ -12,6 +25,8 @@
 | Architettura dell'applicazione |32 bit |32 bit |32 bit/64 bit |32 bit/64 bit |32 bit/64 bit |32 bit/64 bit |
 | Web Socket per ogni istanza<sup>7</sup> |5 |35 |350 |Illimitato |Illimitato |Illimitato |
 | [Connessioni di debugger](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) simultanee per applicazione |1 |1 |1 |5 |5 |5 |
+| Certificati del servizio app per sottoscrizione<sup>10</sup>| Non supportate | Non supportate |10 |10 |10 |10 |
+| Domini personalizzati per applicazione</a> |0 (solo sottodominio azurewebsites.net)|500 |500 |500 |500 |500 |
 | Supporto per il dominio personalizzato [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Non supportati. Certificato con caratteri jolly per *.azurewebsites.net disponibile per impostazione predefinita.|Non supportati. Certificato con caratteri jolly per *.azurewebsites.net disponibile per impostazione predefinita.|Connessioni SNI SSL senza limiti |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse | Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse|
 | Bilanciamento del carico integrato | |X |X |X |X |X<sup>9</sup> |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
@@ -21,15 +36,15 @@
 | [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |X |
 | [Monitoraggio endpoint](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Slot di staging](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |20 |
-| Domini personalizzati per applicazione</a> |0 (solo sottodominio azurewebsites.net)|500 |500 |500 |500 |500 |
-| Contratto di servizio | |  |99,9% |99,95%|99,95%|99,95%|
+| Contratto di servizio | |  |99,9% |99,95%|99,95%|99,95%|  
 
-<sup>1</sup>Le quote per applicazioni e di archiviazione sono per ogni piano di servizio app se non diversamente specificato.  
-<sup>2</sup>Il numero di app effettivo che è possibile ospitare in questi computer dipende dall'attività delle app, dalle dimensioni delle istanze del computer e dall'uso delle risorse corrispondente.  
-<sup>3</sup>Le istanze dedicate possono essere di dimensioni diverse. Vedere [prezzi servizio App](https://azure.microsoft.com/pricing/details/app-service/) per ulteriori dettagli.  
-<sup>4</sup>Possibilità di aggiungerne su richiesta.
-<sup>5</sup>Il limite di archiviazione è la dimensione totale del contenuto tra tutte le applicazioni nello stesso piano di servizio dell'applicazione. Altre opzioni di archiviazione sono disponibili nell'[ambiente del servizio app](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
-<sup>6</sup>Queste risorse sono vincolate dalle risorse fisiche nelle istanze dedicate (la dimensione dell'istanza e il numero di istanze).  
-<sup>7</sup>Se si scala un'applicazione di livello base per due istanze, sono presenti 350 connessioni simultanee per ognuna delle due istanze.  
-<sup>8</sup>Eseguire gli eseguibili e/o gli script personalizzati su richiesta, in base a una pianificazione, oppure continuamente come attività in background nell'istanza del servizio app. Always On è richiesto per l'esecuzione continua di Processi Web. L'utilità di pianificazione di Azure di livello Free o Standard è richiesta per la funzionalità Processi Web pianificata. Non esiste alcun limite predefinito al numero di processi Web che è possibile eseguire in un'istanza del servizio app, ma vi sono limiti pratici che dipendono dall'operazione che sta tentando di eseguire il codice dell'applicazione.   
-<sup>9</sup>Agli SKU del servizio app Isolato è possibile applicare il bilanciamento del carico interno con Azure Load Balancer, ovvero senza connettività pubblica da Internet. Di conseguenza, alcune funzionalità di un servizio app isolato con carico interno bilanciato devono essere usate da macchine virtuali con accesso diretto all'endpoint di rete con bilanciamento del carico interno.
+<sup>1</sup> Le quote per app e archiviazione sono per piano di servizio app, se non diversamente specificato.  
+<sup>2</sup> Il numero di app effettivo che è possibile ospitare in questi computer dipende dall'attività delle app, dalle dimensioni delle istanze del computer e dall'uso delle risorse corrispondente.  
+<sup>3</sup> Le istanze dedicate possono essere di dimensioni diverse. Vedere [prezzi servizio App](https://azure.microsoft.com/pricing/details/app-service/) per ulteriori dettagli.  
+<sup>4</sup> Possibilità di aggiungerne su richiesta.  
+<sup>5</sup> Il limite di archiviazione è la dimensione totale del contenuto di tutte le app nello stesso piano di servizio app.  
+<sup>6</sup> Queste risorse sono vincolate dalle risorse fisiche delle istanze dedicate (dimensione dell'istanza e numero di istanze).  
+<sup>7</sup> Se si ridimensiona a due istanze un'app nel livello Basic, sono presenti 350 connessioni simultanee per ognuna delle due istanze.  
+<sup>8</sup> Eseguire eseguibili e/o script personalizzati su richiesta, in base a una pianificazione, oppure continuamente come attività in background nell'istanza del servizio app. Always On è richiesto per l'esecuzione continua di Processi Web. L'utilità di pianificazione di Azure di livello Free o Standard è richiesta per la funzionalità Processi Web pianificata. Non esiste alcun limite predefinito al numero di processi Web che è possibile eseguire in un'istanza del servizio app, ma vi sono limiti pratici che dipendono dall'operazione che sta tentando di eseguire il codice dell'applicazione.  
+<sup>9</sup> Gli SKU del servizio app Isolato sono in grado di applicare il bilanciamento del carico interno con Azure Load Balancer, ovvero senza connettività pubblica da Internet. Di conseguenza, alcune funzionalità di un servizio app isolato con carico interno bilanciato devono essere usate da macchine virtuali con accesso diretto all'endpoint di rete con bilanciamento del carico interno.  
+<sup>10</sup> Il limite di quota del certificato del servizio app per ogni sottoscrizione può essere aumentato tramite una richiesta di supporto fino a un massimo di 200.  

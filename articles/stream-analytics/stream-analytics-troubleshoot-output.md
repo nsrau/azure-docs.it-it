@@ -7,13 +7,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 4209ce8d15bf53381825e8bb3e47f0a16366a436
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 5124e06296962f1b673c77bfe318ff48d7fb11aa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346604"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291324"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Risolvere i problemi degli output di Analisi di flusso di Azure
 
@@ -29,7 +29,7 @@ Questa pagina descrive i problemi comuni relativi alle connessioni di output e s
       - Se il processo usa un Hub eventi, verificare se il corpo del messaggio è *Null*.
       
     - Se Errori di conversione dati è maggiore di zero, significa che probabilmente:
-      - Il processo potrebbe non riuscire a deserializzare gli eventi.
+      - L'evento di output non è conforme allo schema del sink di destinazione. 
       - Lo schema degli eventi potrebbe non corrispondere allo schema definito o previsto degli eventi nella query.
       - I tipi di dati di alcuni dei campi nell'evento potrebbero non corrispondere alle aspettative.
       

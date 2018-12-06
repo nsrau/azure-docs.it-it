@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414778"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823045"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Graylog
 
 [I log di flusso dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md) contengono informazioni che è possibile usare per conoscere il traffico IP in ingresso e in uscita per le interfacce di rete di Azure. I log di flusso indicano i flussi in ingresso e in uscita in base a regole del gruppo di sicurezza, l'interfaccia di rete cui si applica il flusso, informazioni su 5 tuple relative al flusso (IP di origine/destinazione, porta di origine/destinazione, protocollo) e se il traffico è consentito o meno.
 
 Nella rete possono essere presenti molti gruppi di sicurezza per cui la registrazione del flusso è abilitata e di conseguenza l'analisi e l'acquisizione di informazioni approfondite dai log può risultare difficile. Questo articolo offre una soluzione per la gestione centralizzata dei log di flusso dei gruppi di sicurezza di rete grazie a Graylog, uno strumento open source di analisi e di gestione dei log, e a Logstash, una pipeline open source di elaborazione dei dati lato server.
+
+> [!Warning]
+> I passaggi seguenti usano i log dei flussi versione 1. Per informazioni dettagliate, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md). Le istruzioni seguenti non funzioneranno con la versione 2 dei file di log, senza modifica.
 
 ## <a name="scenario"></a>Scenario
 

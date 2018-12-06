@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7f653eca0c768cc35df039cbd51153484710d80a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347784"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422254"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Eseguire il debug dell'accesso Single Sign-On basato su SAML su applicazioni in Azure Active Directory
 
@@ -32,7 +32,7 @@ Informazioni su come individuare e correggere i problemi di [accesso Single Sign
 Per scaricare e installare l'estensione My Apps Secure Sign-in, usare uno dei collegamenti seguenti.
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 
@@ -75,7 +75,7 @@ Per risolvere l'errore senza installare l'estensione MyApps Secure Sign-in:
     - Una dichiarazione che identifica la causa radice del problema.
 2.  Tornare ad Azure AD e individuare il pannello **Test dell'accesso Single Sign-On**.
 3.  Nella casella di testo sopra **Ottieni procedure per la risoluzione** incollare il messaggio di errore.
-3.  Fare clic su **Ottieni procedure per la risoluzione** per visualizzare i passaggi per risolvere il problema. Le procedure fornite potrebbero richiedere informazioni dalla richiesta o dalla risposta SAML. Se non si usa l'estensione MyApps Secure Sign-in, potrebbe essere necessario usare uno strumento come [Fiddler](http://www.telerik.com/fiddler) per recuperare la richiesta e la risposta SAML.
+3.  Fare clic su **Ottieni procedure per la risoluzione** per visualizzare i passaggi per risolvere il problema. Le procedure fornite potrebbero richiedere informazioni dalla richiesta o dalla risposta SAML. Se non si usa l'estensione MyApps Secure Sign-in, potrebbe essere necessario usare uno strumento come [Fiddler](https://www.telerik.com/fiddler) per recuperare la richiesta e la risposta SAML.
 4.  Verificare che la destinazione nella richiesta SAML corrisponda all'URL del servizio Single Sign-On SAML ottenuto da Azure Active Directory
 5.  Verificare che l'emittente nella richiesta SAML sia lo stesso identificatore che è stato configurato per l'applicazione in Azure Active Directory. Azure AD usa l'emittente per trovare un'applicazione nella directory.
 6.  Verificare che AssertionConsumerServiceURL sia l'URL in cui l'applicazione prevede di ricevere il token SAML da Azure Active Directory. È possibile configurare questo valore in Azure Active Directory, ma non è obbligatorio se fa parte della richiesta SAML.
@@ -90,7 +90,7 @@ Per risolvere l'errore:
 1. Se l'applicazione si trova nella raccolta di Azure Active Directory, verificare di avere seguito tutti i passaggi per integrare l'applicazione con Azure AD. Per trovare le istruzioni di integrazione per l'applicazione, vedere l'[elenco di esercitazioni sull'integrazione di applicazioni SaaS](../saas-apps/tutorial-list.md).
 2. Recuperare la risposta SAML.
     - Se l'estensione My Apps Secure Sign-in è installata, nel pannello **Test dell'accesso Single Sign-On** fare clic su **Scaricare la richiesta SAML**.
-    - Se l'estensione non è installata, usare uno strumento quale [Fiddler](http://www.telerik.com/fiddler) per recuperare la risposta SAML. 
+    - Se l'estensione non è installata, usare uno strumento quale [Fiddler](https://www.telerik.com/fiddler) per recuperare la risposta SAML. 
 3. Nel token della risposta SAML sono presenti gli elementi seguenti:
     - Identificatore univoco di utente del valore NameID e formato
     - Attestazioni rilasciate nel token

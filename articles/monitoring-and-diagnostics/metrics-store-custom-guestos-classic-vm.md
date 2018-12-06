@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 9569a9da81848c279db6d6d45b7621f84060387b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0b1209c1d8d92b08d15cfbfd6e323b7bd748e2f5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958628"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316923"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Inviare le metriche del sistema operativo guest all'archivio dati di Monitoraggio di Azure per una macchina virtuale Windows (versione classica)
 
@@ -27,7 +27,7 @@ Il processo illustrato in questo articolo funziona solo sulle macchine virtuali 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario disporre del ruolo di [amministratore del servizio o coamministratore](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) nella sottoscrizione di Azure. 
+- È necessario disporre del ruolo di [amministratore del servizio o coamministratore](../billing/billing-add-change-azure-subscription-administrator.md) nella sottoscrizione di Azure. 
 
 - La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
@@ -36,7 +36,7 @@ Il processo illustrato in questo articolo funziona solo sulle macchine virtuali 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Creare una macchina virtuale classica e un account di archiviazione
 
 1. Creare una macchina virtuale classica usando il portale di Azure.
-   ![Creazione di una macchina virtuale classica](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
+   ![Creare una macchina virtuale classica](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
 
 1. Quando si crea questa macchina virtuale, scegliere l’opzione di creare un nuovo account di archiviazione classico. Questo account di archiviazione verrà usato nei passaggi successivi.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 48b4878eef7395b51d19c59443736bae5aeb7365
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 0c44e57f99ea8fea91fd8178400c648e8dcd982b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233583"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309811"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migrazione Contoso: ricompilazione di un'app in locale in Azure
 
@@ -495,7 +495,7 @@ A questo punto gli amministratori di Contoso configurano l'app Web per usare le 
 
     ![Impostazioni JSON](./media/contoso-migration-rebuild/configure-webapp2.png)
 
-5. Dopo aver aggiornato il file, lo rinominano in **smarthotelsettingsurl** e lo caricano nel BLOB di archiviazione creato in precedenza.
+5. Dopo aver aggiornato il file, lo rinominano in **smarthotelsettingsurl** e lo caricano nell'archivio BLOB creato in precedenza.
 
     ![Ridenominazione e caricamento](./media/contoso-migration-rebuild/configure-webapp3.png)
 

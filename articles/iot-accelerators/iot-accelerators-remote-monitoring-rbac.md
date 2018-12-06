@@ -1,5 +1,5 @@
 ---
-title: Controllo degli accessi di monitoraggio remoto - Azure | Microsoft Docs
+title: Controllo degli accessi di monitoraggio remoto - Azure | Microsoft Docs
 description: Questo articolo illustra come configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886311"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820223"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto
 
@@ -23,29 +23,33 @@ Questo articolo illustra come configurare il controllo degli accessi in base al 
 
 Quando si distribuisce la soluzione di monitoraggio remoto per la prima volta, sono disponibili due ruoli: **Admin** e **Sola lettura**.
 
-Gli utenti con il ruolo **Admin** hanno accesso completo alla soluzione. Gli utenti con il ruolo **Sola lettura** non possono svolgere le attività seguenti:
+Gli utenti con il ruolo **Admin** hanno accesso completo alla soluzione, incluse le autorizzazioni seguenti, mentre gli utenti con il ruolo **Sola lettura** possono accedere solo per visualizzare la soluzione.
 
-- Aggiornare avvisi
-- Eliminare avvisi
-- Creare dispositivi
-- Aggiornare dispositivi
-- Eliminare dispositivi
-- Creare gruppi di dispositivi
-- Aggiornare gruppi di dispositivi
-- Eliminare gruppi di dispositivi
-- Creazione di regole
-- Aggiornare regole
-- Eliminare regole
-- Creare processi
-- Aggiornare la gestione di SIM
+| Autorizzazione            | Admin | Sola lettura |
+|----------------       |-------|-----------|
+| Visualizza soluzione         | Yes   | Yes       |
+| Aggiornare avvisi         | Yes   | No         |
+| Eliminare avvisi         | Yes   | No         |
+| Creare dispositivi        | Yes   | No         |
+| Aggiornare dispositivi        | Yes   | No         |
+| Eliminare dispositivi        | Yes   | No         |
+| Creare gruppi di dispositivi  | Yes   | No         |
+| Aggiornare gruppi di dispositivi  | Yes   | No         |
+| Eliminare gruppi di dispositivi  | Yes   | No         |
+| Creazione di regole          | Yes   | No         |
+| Aggiornare regole          | Yes   | No         |
+| Eliminare regole          | Yes   | No         |
+| Creare processi           | Yes   | No         |
+| Aggiornare la gestione di SIM | Yes   | No         |
 
-L'utente che distribuisce la soluzione di monitoraggio remoto viene assegnato automaticamente al ruolo **Admin** ed è proprietario di un'applicazione di Azure Active Directory. Come proprietario dell'applicazione è possibile assegnare ruoli ad altri utenti nel portale di Azure.
+Per impostazione predefinita, l'utente che ha distribuito la soluzione viene assegnato automaticamente al ruolo **Admin** ed è proprietario di un'applicazione di Azure Active Directory. Come proprietario dell'applicazione, può anche assegnare ruoli ad altri utenti tramite il portale di Azure. Se si vuole consentire a un altro utente di assegnare ruoli nella soluzione, è necessario impostare anche tale utente come proprietario dell'applicazione nel portale di Azure.
 
-Se si vuole consentire a un altro utente di assegnare ruoli nella soluzione, è necessario impostare anche tale utente come proprietario dell'applicazione nel portale di Azure.
+> [!NOTE]
+> L'utente che ha distribuito la soluzione è l'**unica persona** che può visualizzarla immediatamente dopo essere stata creata. Per concedere anche ad altri utenti l'autorizzazione a visualizzare l'applicazione con il ruolo Sola lettura, Admin o Personalizzato, vedere le istruzioni seguenti su come aggiungere o rimuovere utenti.
 
 ## <a name="add-or-remove-users"></a>Aggiungere o rimuovere utenti
 
-Usare il portale di Azure per aggiungere o rimuovere un utente dalla soluzione di monitoraggio remoto. La procedura seguente usa l'[applicazione aziendale di Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) che è stata creata automaticamente al momento della distribuzione della soluzione di monitoraggio remoto.
+Gli utenti proprietari di un'applicazione di Azure Active Directory possono usare il portale di Azure per aggiungere (o rimuovere) un utente a un ruolo dalla soluzione di monitoraggio remoto. La procedura seguente usa l'[applicazione aziendale di Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) creata al momento della distribuzione della soluzione di monitoraggio remoto.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -134,11 +138,11 @@ I passaggi seguenti descrivono come aggiungere un ruolo a un'applicazione in Azu
 
 ### <a name="define-a-policy-for-the-new-role"></a>Definire i criteri per il nuovo ruolo
 
-Dopo aver aggiunto il ruolo all'app nel portale di Azure, è necessario definire in [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json) i criteri che assegnano le autorizzazioni necessarie per gestire i dispositivi.
+Dopo aver aggiunto il ruolo all'app nel portale di Azure, è necessario definire in [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) i criteri che assegnano le autorizzazioni necessarie per gestire i dispositivi.
 
-1. Clonare il repository del [microservizio di autenticazione e autorizzazione](https://github.com/Azure/pcs-auth-dotnet) da GitHub nel computer locale.
+1. Clonare il repository dei [microservizi di monitoraggio remoto](https://github.com/Azure/remote-monitoring-services-dotnet) di GitHub nel computer locale.
 
-1. Modificare il file **Services/data/policies/roles.json** per aggiungere i criteri per il ruolo **ManageDevices**, come illustrato nel frammento di codice seguente. I valori **ID** e **Role** devono corrispondere alla definizione di ruolo nel manifesto dell'app della sezione precedente. L'elenco di azioni consentite permette a un utente con il ruolo **ManageDevices** di creare, aggiornare ed eliminare i dispositivi connessi alla soluzione:
+1. Modificare il file **auth/Services/data/policies/roles.json** per aggiungere i criteri per il ruolo **ManageDevices**, come illustrato nel frammento di codice seguente. I valori **ID** e **Role** devono corrispondere alla definizione di ruolo nel manifesto dell'app della sezione precedente. L'elenco di azioni consentite permette a un utente con il ruolo **ManageDevices** di creare, aggiornare ed eliminare i dispositivi connessi alla soluzione:
 
     ```json
     {
@@ -184,7 +188,7 @@ Dopo aver aggiunto il ruolo all'app nel portale di Azure, è necessario definire
 
 ### <a name="how-the-web-ui-enforces-permissions"></a>Come vengono applicate le autorizzazioni dall'interfaccia utente Web
 
-L'interfaccia utente Web usa il [microservizio di autenticazione e autorizzazione](https://github.com/Azure/pcs-auth-dotnet) per determinare le azioni che un utente è autorizzato a eseguire e i controlli visibili nell'interfaccia utente. Se ad esempio la soluzione è denominata **contoso-rm4**, l'interfaccia utente Web recupera un elenco di azioni consentite per l'utente corrente inviando la richiesta seguente:
+L'interfaccia utente Web usa il [microservizio di autenticazione e autorizzazione](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) per determinare le azioni che un utente è autorizzato a eseguire e i controlli visibili nell'interfaccia utente. Se ad esempio la soluzione è denominata **contoso-rm4**, l'interfaccia utente Web recupera un elenco di azioni consentite per l'utente corrente inviando la richiesta seguente:
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -226,7 +230,7 @@ Per altre informazioni, vedere [Protected Components](https://github.com/Azure/p
 
 Anche i microservizi controllano le autorizzazioni per la protezione da richieste API non autorizzate. Quando riceve una richiesta API, un microservizio decodifica e convalida il token JWT per ottenere l'ID utente e le autorizzazioni associate al ruolo dell'utente.
 
-Il frammento di codice seguente del file [DevicesController.cs](https://github.com/Azure/iothub-manager-dotnet/blob/master/WebService/v1/Controllers/DevicesController.cs) nel [microservizio IoTHub Manager](https://github.com/Azure/iothub-manager-dotnet) mostra come vengono applicate le autorizzazioni:
+Il frammento di codice seguente del file [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) nel [microservizio IoTHub Manager](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager) mostra come vengono applicate le autorizzazioni:
 
 ```csharp
 [HttpDelete("{id}")]
@@ -240,6 +244,8 @@ public async Task DeleteAsync(string id)
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo si è appreso come viene implementato il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto.
+
+Vedere [Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-rbac-tsi.md) per ottenere informazioni su come gestire l'accesso a Time Series Insights Explorer nell'acceleratore di soluzioni per il monitoraggio remoto.
 
 Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere [Architettura della soluzione di monitoraggio remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 

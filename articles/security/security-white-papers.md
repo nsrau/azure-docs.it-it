@@ -9,22 +9,24 @@ editor: ''
 ms.assetid: ''
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/17/2018
+ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: cc922762f84b3a0658d503c4bfa6eb0079173e4e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 5feedcd750841be159a7cf4a31f408aec2fffd38
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841548"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712977"
 ---
 # <a name="azure-security-white-papers"></a>White paper sulla sicurezza di Azure
 | | |
 |-|-|
 |[Introduzione&nbsp;alla&nbsp;sicurezza&nbsp;in Azure](azure-security.md)|Illustra la raccolta di controlli di sicurezza implementata in Azure dal punto di vista sia dei clienti che delle operazioni Microsoft. Offre una panoramica completa dei controlli di sicurezza per i clienti disponibili con Azure.|
+|[Procedure consigliate per la sicurezza delle soluzioni di Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|Una raccolta di procedure consigliate per la sicurezza da usare nella progettazione, distribuzione e gestione di soluzioni cloud tramite Azure.|
+|[Sviluppo di applicazioni sicure in Azure](abstract-develop-secure-apps.md)|Guida generale alle domande di sicurezza e ai controlli che è consigliabile tenere in considerazione in ogni fase del ciclo di vita dello sviluppo software delle applicazioni per il cloud.|
 |[Rilevamento delle minacce avanzato](azure-threat-detection.md)|Guida l'utente attraverso l'approccio di Azure nella valutazione, nella diagnostica e nell'analisi delle vulnerabilità alle minacce. Illustra come Microsoft usa meccanismi avanzati di rilevamento delle minacce per proteggere la piattaforma. Illustra anche come Microsoft include questi meccanismi nelle funzionalità e nei servizi rivolti al pubblico.|
 |[Crittografia dei dati inattivi di Azure](azure-security-encryption-atrest.md)|Incentrato sulle modalità di protezione dei dati inattivi in Azure e sui diversi componenti attivi nell'implementazione della protezione dei dati. Prende in esame i pro e i contro dei diversi approcci principali alla gestione della protezione.|
 |[Registrazione e controllo di Azure](azure-log-audit.md)|Offre informazioni introduttive per la generazione, la raccolta e l'analisi dei log di protezione da servizi ospitati in Azure. Questi log consentono di acquisire informazioni sulla sicurezza delle distribuzioni di Azure. |
@@ -32,7 +34,7 @@ ms.locfileid: "43841548"
 |[Funzioni di Azure e sicurezza della piattaforma senza server](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Questo white paper scaricabile illustra i vantaggi dell'elaborazione senza server fornendo mitigazioni e considerazioni sulla sicurezza nel contesto di Azure. |
 |[Sicurezza del contenitore in Microsoft Azure](abstract-container-security-microsoft-azure.md)|Descrive i contenitori, la distribuzione e la gestione dei contenitori e i servizi di piattaforma nativa. Vengono inoltre descritti i problemi di sicurezza runtime che si verificano con l'uso dei contenitori nella piattaforma Azure. |
 |[Sicurezza operativa di Azure](abstract-azure-operational-security.md)|Offre una panoramica completa delle tecnologie e dei servizi operativi destinati ai clienti disponibili in Azure.|
-|[Funzionalità tecniche per la sicurezza di Azure](azure-security-technical-capabilities.md)|Incentrato sulle caratteristiche e sulle funzionalità che supportano Archiviazione di Azure, il database SQL di Azure e il modello di macchina virtuale di Azure, nonché gli strumenti e l'infrastruttura che ne consentono la gestione.|
+|[Funzionalità tecniche per la sicurezza di Azure](azure-security-technical-capabilities.md)|Informazioni incentrate sulle caratteristiche e sulle funzionalità che supportano Archiviazione di Azure, il database SQL di Azure e il modello di macchina virtuale di Azure, nonché gli strumenti e l'infrastruttura che ne consentono la gestione.|
 |[Guida alla sicurezza di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Offre una panoramica di ognuna delle funzionalità di sicurezza che possono essere usate con Archiviazione di Azure. Tratta la sicurezza del piano di gestione e dei dati del piano, la crittografia di dati inattivi e in esecuzione e l'analisi dell'archiviazione.|
 |[Classificazione dei dati in preparazione al cloud](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |Questo documento scaricabile presenta le nozioni di base della classificazione dei dati e del loro valore nel contesto del cloud computing. Questo documento può essere utile soprattutto alle organizzazioni che stanno valutando l'uso futuro del cloud computing o a quelle che già usano servizi cloud e sono alla ricerca di modi per ottimizzare la gestione dei dati.|
 |[Governance in Azure](governance-in-azure.md)|Illustra le funzionalità di sicurezza e governance incorporate in Azure. I problemi principali di governance trattati sono: criteri, processi e procedure di implementazione per gli obiettivi dell'organizzazione; sicurezza e conformità continua agli standard dell'organizzazione; avvisi e monitoraggio.

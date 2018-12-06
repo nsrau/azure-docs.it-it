@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb44d6b0a4ea69d92f91af7ce1d6b19deff4e753
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567027"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284643"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio (anteprima)
 
@@ -48,7 +48,7 @@ L'esempio seguente mostra il funzionamento di uno scenario IoT Edge in modalità
 
 Le funzionalità offline per periodi prolungati descritte in questo articolo sono disponibili in [IoT Edge versione 1.0.4 o versioni successive](https://github.com/Azure/azure-iotedge/releases). Nelle versioni precedenti è disponibile un subset di funzionalità offline. I dispositivi IoT Edge esistenti che non hanno le funzionalità offline per periodi prolungati non possono essere aggiornati modificando la versione del runtime, ma devono essere riconfigurati con una nuova identità del dispositivo IoT Edge per ottenere queste funzionalità. 
 
-Il supporto delle funzionalità offline per periodi prolungati è disponibile in tutte le aree in cui è disponibile l'hub IoT, ad eccezione di Stati Uniti orientali ed Europa occidentale. 
+Il supporto delle funzionalità offline per periodi prolungati è disponibile in tutte le aree in cui è disponibile l'hub IoT, **ad eccezione** di Stati Uniti orientali.
 
 Solo i dispositivi non IoT Edge possono essere aggiunti come dispositivi figlio. 
 
@@ -65,6 +65,19 @@ I dispositivi figlio possono essere qualsiasi dispositivo non Edge registrato ne
    ![Gestire i dispositivi figlio dalla pagina dei dettagli del dispositivo IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
 I dispositivi padre possono avere più dispositivi figlio, ma un dispositivo figlio può avere un solo padre.
+
+### <a name="specifying-dns-servers"></a>Specificare i server DNS 
+
+Per migliorare l'affidabilità, si consiglia di specificare gli indirizzi server DNS usati nell'ambiente. In Linux, ad esempio, aggiornare **/etc/docker/daemon.json** (è possibile che sia necessario creare il file) in modo da includere:
+
+```
+{
+    "dns": [“1.1.1.1”]
+}
+```
+
+Se si usa un server DNS locale, sostituire 1.1.1.1 con l'indirizzo IP del server DNS locale. Riavviare il servizio Docker per rendere effettive le modifiche.
+
 
 ## <a name="optional-offline-settings"></a>Impostazioni facoltative per la modalità offline
 

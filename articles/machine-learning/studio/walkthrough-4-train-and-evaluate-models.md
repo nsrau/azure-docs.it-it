@@ -1,10 +1,11 @@
 ---
-title: 'Passaggio 4: Eseguire il training e valutare i modelli analitici predittivi | Microsoft Docs'
+title: 'Passaggio 4: Eseguire il training di modelli analitici predittivi - Azure Machine Learning Studio | Microsoft Docs'
 description: 'Passaggio 4 della procedura dettagliata Sviluppare una soluzione predittiva: Eseguire il training, classificare e valutare più modelli in Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
@@ -15,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 95937ee74be3f6facbc482c3cfd80a8af9128ea3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4b4ffcf8e6c886a2f182c844f940e53c24d1efa0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836013"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313470"
 ---
-# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Passaggio 4 della procedura dettagliata: Eseguire il training e valutare i modelli analitici predittivi
+# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Passaggio 4 della procedura dettagliata: Eseguire il training e valutare i modelli analitici predittivi in Machine Learning Studio
 Questo argomento contiene il quarto passaggio della procedura dettagliata [Sviluppare una soluzione di analisi predittiva in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Creare un'area di lavoro di Machine Learning](walkthrough-1-create-ml-workspace.md)
+1. [Creare un'area di lavoro di Machine Learning Studio](walkthrough-1-create-ml-workspace.md)
 2. [Caricare i dati esistenti](walkthrough-2-upload-data.md)
 3. [Creare un nuovo esperimento](walkthrough-3-create-new-experiment.md)
 4. **Eseguire il training e valutare i modelli**
@@ -40,7 +41,7 @@ Nell'esperimento sviluppato in questa procedura guidata verranno creati due tipi
 Sono disponibili diversi modelli tra cui scegliere. Per visualizzare i modelli disponibili, espandere il nodo **Machine Learning** nella tavolozza dei moduli, espandere **Initialize Model** (Inizializza modello) e quindi i nodi al suo interno. Ai fini di questo esperimento, verranno selezionati i moduli [Two-Class Support Vector Machine (SVM)][two-class-support-vector-machine] (Macchina a vettori di supporto a due classi) e [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Albero delle decisioni con boosting a due classi).    
 
 > [!TIP]
-> Per ottenere informazioni circa quale algoritmo di Machine Learning sia più adatto per un problema specifico che si sta tentando di risolvere, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](algorithm-choice.md).
+> Per ottenere informazioni sul tipo di algoritmo di Machine Learning più adatto per risolvere un problema specifico, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 > 
 > 
 

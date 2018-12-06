@@ -11,16 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 53ade76b9dbdc27df90da1f7e197464816529d1d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4df6780fa61c1ed32279d882f383097dc0287716
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295762"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275916"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Monitoraggio di applicazioni Docker in Application Insights
+
 I contatori delle prestazioni e degli eventi del ciclo di vita da contenitori [Docker](https://www.docker.com/) possono essere disegnati in Application Insights. Installare l'immagine di [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) in un contenitore dell'host. Verranno visualizzati i contatori delle prestazioni per l'host e per le altre immagini.
 
 Con Docker si distribuiscono le app in contenitori leggeri completi di tutte le dipendenze. Verranno eseguite su tutti i computer host che eseguono un motore Docker.
@@ -31,33 +32,28 @@ Quando si esegue l'[immagine di Application Insights](https://hub.docker.com/r/m
 * I contatori delle prestazioni per tutti i contenitori. CPU, memoria, utilizzo della rete e altro ancora.
 * Se si [è installato Application Insights SDK per Java](app-insights-java-live.md) nelle app in esecuzione nei contenitori, tutti i dati di telemetria di tali app avranno proprietà aggiuntive che identificano il contenitore e il computer host. Ad esempio, se si dispone di istanze di un'app in esecuzione in più host, è possibile filtrare facilmente dall'host i dati di telemetria dell'app.
 
-![esempio](./media/app-insights-docker/00.png)
+> [!NOTE]
+> Questa soluzione è stata deprecata. Per altre informazioni sugli investimenti attuali di Microsoft per il monitoraggio dei contenitori, è consigliabile vedere [Monitoraggio di Azure per i contenitori](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## <a name="set-up-your-application-insights-resource"></a>Configurare la risorsa di Application Insights
+
 1. Accedere al [portale di Microsoft Azure](https://azure.com) e aprire la risorsa di Application Insights per l'app o [crearne una nuova](app-insights-create-new-resource.md). 
    
     *Quale risorsa si deve usare?* Se le app in esecuzione nell'host sono state sviluppate da un altro utente, è necessario [creare una nuova risorsa di Application Insights](app-insights-create-new-resource.md). Da questo punto vengono visualizzati e analizzati i dati di telemetria. Selezionare "Generale" per il tipo di app.
    
     Ma se si è lo sviluppatore delle App, l’augurio è quello di aver [aggiunto SDK di Application Insights](app-insights-java-live.md) a ciascuna di esse. Se sono tutti effettivamente componenti di una singola applicazione business, è possibile configurare tutti gli elementi per inviare i dati di telemetria a una risorsa e si utilizzerà la stessa risorsa per visualizzare i dati delle prestazioni e del ciclo di vita di Docker. 
    
-    Un terzo scenario è che l’utente abbia sviluppato la maggior parte delle app, ma utilizzi risorse separate per visualizzare i dati di telemetria. In tal caso, probabilmente si intende anche creare una risorsa separata per i dati di Docker. 
-2. Aggiungere il riquadro Docker: scegliere **Aggiungi riquadro**, trascinare il riquadro Docker dalla raccolta e quindi fare clic su **Fine**. 
-   
-    ![esempio](./media/app-insights-docker/03.png)
+    Un terzo scenario è che l’utente abbia sviluppato la maggior parte delle app, ma utilizzi risorse separate per visualizzare i dati di telemetria. In tal caso, probabilmente si intende anche creare una risorsa separata per i dati di Docker.
 
-> [!NOTE]
-> Il riquadro della panoramica in Application Insights ora è bloccato e non consente di aggiungere i riquadri dalla raccolta. Tuttavia, è possibile aggiungere il riquadro Docker come descritto in precedenza tramite l'interfaccia del dashboard di Azure.
-
-3. Fare clic sull'elenco a discesa **Informazioni di base** e copiare la chiave di strumentazione. Questa chiave serve per indicare all'SDK dove inviare i dati di telemetria.
-
-    ![esempio](./media/app-insights-docker/02-props.png)
+2. Fare clic sull'elenco a discesa **Informazioni di base** e copiare la chiave di strumentazione. Questa chiave serve per indicare all'SDK dove inviare i dati di telemetria.
 
 Lasciare aperta la finestra del browser, a cui si tornerà a breve per esaminare la telemetria.
 
 ## <a name="run-the-application-insights-monitor-on-your-host"></a>Eseguire il monitoraggio di Application Insights sull'host
+
 Ora che è disponibile una posizione in cui visualizzare la telemetria, è possibile configurare l'app dei contenitori che la raccoglierà e invierà.
 
-1. Connettersi all'host Docker. 
+1. Connettersi all'host Docker.
 2. Modificare la chiave di strumentazione in questo comando, e poi eseguirlo:
    
    ```
@@ -84,19 +80,6 @@ Fare clic nel riquadro Docker.
 
 In breve verranno visualizzati i dati in arrivo dall’app Docker, soprattutto se nel motore Docker sono in esecuzione altri contenitori.
 
-Di seguito sono elencate alcune delle visualizzazioni disponibili.
-
-### <a name="perf-counters-by-host-activity-by-image"></a>Contatori delle prestazioni per host, attività per immagine
-![esempio](./media/app-insights-docker/10.png)
-
-![esempio](./media/app-insights-docker/11.png)
-
-Fare clic su un nome dell’host o dell’immagine per altri dettagli.
-
-Per personalizzare la visualizzazione, fare clic su un grafico o sull'intestazione della griglia oppure usare Aggiungi grafico. 
-
-[Altre informazioni su Esplora metriche](app-insights-metrics-explorer.md)
-
 ### <a name="docker-container-events"></a>Eventi del contenitore Docker
 ![esempio](./media/app-insights-docker/13.png)
 
@@ -106,13 +89,7 @@ Per analizzare i singoli eventi, fare clic su [Cerca](app-insights-diagnostic-se
 ![esempio](./media/app-insights-docker/14.png)
 
 ### <a name="docker-context-added-to-app-telemetry"></a>Contesto Docker aggiunto ai dati di telemetria dell’app
-Richiesta di dati di telemetria inviata dall'applicazione instrumentata con SDK di Application Insights, arricchita con contesto Docker:
-
-![esempio](./media/app-insights-docker/16.png)
-
-Tempo di elaborazione e contatori delle prestazioni di memoria disponibile, arricchiti e raggruppati per nome del contenitore Docker:
-
-![esempio](./media/app-insights-docker/15.png)
+I dati di telemetria sulle richieste inviati dall'applicazione instrumentata con AI SDK sono arricchiti con informazioni di contesto Docker.
 
 ## <a name="q--a"></a>Domande e risposte
 *Quali sono i vantaggi di Application Insights rispetto a Docker?*

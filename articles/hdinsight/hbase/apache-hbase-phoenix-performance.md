@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: ff194ef7f5ae609eba5334eb5c66db02d660ab08
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049632"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308218"
 ---
-# <a name="phoenix-performance-best-practices"></a>Procedure consigliate per le prestazioni di Phoenix
+# <a name="apache-phoenix-performance-best-practices"></a>Procedure consigliate per le prestazioni di Apache Phoenix
 
-L'aspetto più importante delle prestazioni di Phoenix consiste nell'ottimizzazione dell'istanza di HBase sottostante. Phoenix crea un modello di dati relazionale basato su HBase che converte le query SQL in operazioni HBase, ad esempio analisi. La struttura dello schema di tabella, la selezione e l'ordine dei campi della chiave primaria e l'uso degli indici sono tutti aspetti che influenzano le prestazioni di Phoenix.
+L'aspetto più importante delle prestazioni di [Apache Phoenix](https://phoenix.apache.org/) consiste nell'ottimizzazione dell'istanza di [Apache HBase](http://hbase.apache.org/) sottostante. Phoenix crea un modello di dati relazionale basato su HBase che converte le query SQL in operazioni HBase, ad esempio analisi. La struttura dello schema di tabella, la selezione e l'ordine dei campi della chiave primaria e l'uso degli indici sono tutti aspetti che influenzano le prestazioni di Phoenix.
 
 ## <a name="table-schema-design"></a>Struttura dello schema di tabella
 
@@ -229,5 +229,5 @@ Per informazioni dettagliate su questa e altre opzioni, vedere la [grammatica Ph
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida all'ottimizzazione di Phoenix](https://phoenix.apache.org/tuning_guide.html)
+* [Guida all'ottimizzazione di Apache Phoenix](https://phoenix.apache.org/tuning_guide.html)
 * [Indici secondari](http://phoenix.apache.org/secondary_indexing.html)

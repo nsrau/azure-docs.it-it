@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 9/21/2018
 ms.author: tyfox
-ms.openlocfilehash: 8beb75748c2e9fe3f71ad321c4cd523e344fb90c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f018130ca94c7efb7a9c6c873c150dcc382dbc4c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901907"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498299"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Anteprima di HDInsight Go Management SDK
 
@@ -141,7 +141,7 @@ Un nuovo cluster può essere creato chiamando `client.Create()`.
 
 #### <a name="example"></a>Esempio
 
-Questo esempio illustra come creare un cluster Spark con 2 nodi head e 1 nodo del ruolo di lavoro.
+Questo esempio illustra come creare un cluster [Apache Spark](https://spark.apache.org/) con 2 nodi head e 1 nodo del ruolo di lavoro.
 
 > [!NOTE]
 > È prima necessario creare un gruppo di risorse e un account di archiviazione, come spiegato di seguito. Se sono già stati creati, è possibile ignorare questi passaggi.

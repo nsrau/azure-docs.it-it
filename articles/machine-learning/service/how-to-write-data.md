@@ -10,19 +10,20 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 81344d388fbba0db034b8adb06adab6797ec2ce1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4a2af832fda8a85ee8a4aba395a8f436172153ed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166745"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308563"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Scrivere dati usando l'SDK di preparazione dati Azure Machine Learning
-È possibile scrivere dati in qualsiasi punto di un flusso di dati. Queste operazioni di scrittura sono aggiunte come passaggi al flusso di dati risultante e vengono eseguite a ogni esecuzione del flusso di dati. I dati vengono scritti in più file di partizione per consentire operazioni di scrittura in parallelo.
 
-Poiché non esistono limitazioni per il numero di passaggi di scrittura presenti in una pipeline, è molto semplice aggiungere passaggi di scrittura aggiuntivi per ottenere risultati intermedi per la risoluzione dei problemi o per altre pipeline. 
+Questo articolo illustra i diversi metodi di scrittura dei dati con Azure Machine Learning Data Prep SDK. I dati di output possono essere scritti in qualsiasi punto di un flusso di dati e le operazioni di scrittura sono aggiunte come passaggi al flusso di dati risultante e vengono eseguite a ogni esecuzione del flusso di dati. I dati vengono scritti in più file di partizione per consentire operazioni di scrittura in parallelo.
 
-Ogni volta che si esegue un passaggio di scrittura, si verifica un pull completo dei dati nel flusso di dati. Ad esempio, un flusso di dati con tre operazioni di scrittura eseguirà tre volte la lettura e l'elaborazione di tutti i record nel set di dati.
+Poiché non esistono limitazioni per il numero di passaggi di scrittura presenti in una pipeline, è molto semplice aggiungere passaggi di scrittura aggiuntivi per ottenere risultati intermedi per la risoluzione dei problemi o per altre pipeline.
+
+Ogni volta che si esegue un passaggio di scrittura, si verifica un pull completo dei dati nel flusso di dati. Ad esempio, un flusso di dati con tre operazioni di scrittura eseguirà tre volte la lettura e l'elaborazione di ogni record nel set di dati.
 
 ## <a name="supported-data-types-and-location"></a>Tipi di dati supportati e percorso
 
@@ -36,21 +37,23 @@ Usando l'[SDK python di preparazione dati Azure Machine Learning](https://aka.ms
 + Archiviazione di Azure Data Lake
 
 ## <a name="spark-considerations"></a>Considerazioni su Spark
+
 Quando si esegue un flusso di dati in Spark, è necessario eseguire la scrittura in una cartella vuota. Tentativo di eseguire un'operazione di scrittura in una cartella esistente non riuscito. Verificare che la cartella di destinazione sia vuota o usare un percorso di destinazione diverso per ogni esecuzione. In caso contrario, l'operazione di scrittura avrà esito negativo.
 
 ## <a name="monitoring-write-operations"></a>Monitoraggio delle operazioni di scrittura
+
 Per comodità, una volta completata un'operazione di scrittura, viene generato un file sentinel denominato SUCCESS. In questo modo, è possibile determinare quando un'operazione di scrittura intermedia è stata completata senza dover attendere il completamento dell'intera pipeline.
 
 ## <a name="example-write-code"></a>Esempio codice di scrittura
 
-Per questo esempio, iniziare caricando i dati in un flusso di dati. Questi dati verranno riutilizzati con diversi formati.
+Per questo esempio, iniziare caricando i dati in un flusso di dati. Questi dati vengono riutilizzati con diversi formati.
 
 ```python
 import azureml.dataprep as dprep
 t = dprep.smart_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
-```   
+```
 
 Output di esempio:
 |   |  Colonna1 |    Colonna2 | Colonna3 | Colonna4  |Colonna5   | Colonna6 | Colonna7 | Colonna8 | Colonna9 |
@@ -68,7 +71,7 @@ Output di esempio:
 
 ### <a name="delimited-file-example"></a>Esempio di file delimitato
 
-In questa sezione, è possibile vedere un esempio di come usare la `write_to_csv` funzione per scrivere con un file delimitato.
+Il codice seguente usa la funzione `write_to_csv` per scrivere i dati in un file delimitato.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -95,9 +98,9 @@ Output di esempio:
 |8| 10020,0|    99999,0|    ERRORE |   NO| SV|     |80050,0|   16250,0|    80,0|
 |9| 10030,0|    99999,0|    ERRORE |   NO| SV|     |77000,0|   15500,0|    120,0|
 
-Nell'output precedente è possibile vedere che diversi errori vengono visualizzati nelle colonne numeriche a causa di numeri che non sono stati analizzati correttamente. Durante la scrittura in un file CSV, per impostazione predefinita questi valori null vengono sostituiti dalla stringa "ERRORE". 
+Nell'output precedente diversi errori vengono visualizzati nelle colonne numeriche a causa di numeri che non sono stati analizzati correttamente. Durante la scrittura in un file CSV, per impostazione predefinita i valori Null vengono sostituiti dalla stringa "ERRORE".
 
-È possibile aggiungere parametri durante la chiamata dell'operazione di scrittura e specificare una stringa da usare per rappresentare i valori null. Ad esempio: 
+Aggiungere parametri durante la chiamata dell'operazione di scrittura e specificare una stringa da usare per rappresentare i valori Null.
 
 ```python
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
@@ -122,7 +125,6 @@ Il codice precedente produce il seguente output:
 |8| 10020,0|    99999,0|    BadData |   NO| SV|     |80050,0|   16250,0|    80,0|
 |9| 10030,0|    99999,0|    BadData |   NO| SV|     |77000,0|   15500,0|    120,0|
 
-
 ### <a name="parquet-file-example"></a>Esempio di file parquet
 
 In modo simile a `write_to_csv`, la `write_to_parquet` funzione restituisce un nuovo flusso di dati con un passaggio Parquet di scrittura che viene eseguito durante l'esecuzione del flusso di dati.
@@ -132,9 +134,9 @@ write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./tes
 error='MiscreantData')
 ```
 
-Successivamente, è possibile eseguire il flusso di dati per avviare l'operazione di scrittura.
+Eseguire il flusso di dati per avviare l'operazione di scrittura.
 
-```
+```python
 write_parquet_t.run_local()
 
 written_parquet_files = dprep.read_parquet_file('./test_parquet_out/part-*')

@@ -1,0 +1,60 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 89aad876eb087817c8514b4268a18fa20925f810
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52166789"
+documentType: LandingData
+title: Database SQL di Azure - Piattaforma distribuita come servizio
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Database SQL di Azure - Piattaforma distribuita come servizio
+  meta.description: Learn about the PaaS capabilities of Azure SQL Database.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: overview
+  ms.date: 11/11/2018
+  ms.author: jovanpop-msft
+sections:
+- items:
+  - type: paragraph
+    text: Il database SQL di Azure è un motore di database PaaS (Platform as a Service, Piattaforma distribuita come servizio) completamente gestito che si occupa della maggior parte delle funzioni di gestione del database, ad esempio l'aggiornamento, l'applicazione di patch, il backup e il monitoraggio, senza alcun coinvolgimento dell'utente. Il database SQL di Azure è sempre in esecuzione nella versione stabile più recente del motore di database di SQL Server e del sistema operativo con patch con disponibilità del 99,99%. Le funzionalità PaaS incorporate nel database SQL di Azure consentono di concentrarsi sulle attività di amministrazione e ottimizzazione dei database specifiche del dominio, fondamentali per le attività aziendali.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - title: Continuità aziendale
+      href: /azure/sql-database/sql-database-business-continuity
+      html: <p>Il database SQL di Azure consente la continuazione delle attività aziendali anche in caso di interruzioni, in particolare per l'infrastruttura di elaborazione.</p>
+    - title: Disponibilità elevata
+      href: /azure/sql-database/sql-database-high-availability
+      html: <p>Il database SQL di Azure garantisce che i database siano attivi e in esecuzione il 99,99% del tempo, senza alcuna preoccupazione per la manutenzione e i tempi di inattività.</p>
+    - title: Backup automatizzati
+      href: /azure/sql-database/sql-database-automated-backups
+      html: <p>Il database SQL di Azure crea automaticamente i backup dei database e usa l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) di Azure per garantire la ridondanza geografica.</p>
+    - title: Conservazione backup a lungo termine
+      href: /azure/sql-database/sql-database-long-term-retention
+      html: <p>Il database SQL di Azure consente di archiviare i backup completi dei database SQL specificati fino a 10 anni.</p>
+    - title: Replica geografica
+      href: /azure/sql-database/sql-database-geo-replication-overview
+      html: <p>Il database SQL di Azure consente di creare repliche in lettura del database nello stesso data center (area) o in un altro.</p>
+    - title: Ridimensionare le risorse
+      href: /azure/sql-database/sql-database-scale-resources
+      html: <p>Il database SQL di Azure consente di aggiungere facilmente risorse (CPU, memoria, risorse di archiviazione) senza tempi lunghi di provisioning.</p>
+- title: Altre risorse
+  items:
+  - type: paragraph
+    text: Il database SQL di Azure mette a disposizione un set di funzionalità PaaS predefinite aggiuntive che è possibile usare per gestire più facilmente i database.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sql-database/sql-database-security-index">Sicurezza avanzata</a>, in grado di rilevare le minacce e le vulnerabilità dei database, consente di proteggere i dati.
+    - html: <a href="/azure/sql-database/sql-database-automatic-tuning">Ottimizzazione automatica</a>, che analizza il carico di lavoro e offre indicazioni per l'ottimizzazione delle prestazioni delle applicazioni tramite l'aggiunta di indici, la rimozione degli indici inutilizzati e la correzione automatica dei problemi dei piani di query.
+    - html: <a href="/azure/log-analytics/log-analytics-azure-sql">Funzionalità di monitoraggio predefinite</a>, che consentono di acquisire informazioni dettagliate sulle prestazioni dei database e del carico di lavoro e di risolvere i problemi di prestazioni.
+    - html: <a href="/azure/sql-database/sql-database-intelligent-insights">Intelligence predefinita</a>, che identifica automaticamente i problemi potenziali del carico di lavoro e offre indicazioni utili per la risoluzione dei problemi.

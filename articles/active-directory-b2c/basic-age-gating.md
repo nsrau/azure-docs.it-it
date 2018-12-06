@@ -1,5 +1,5 @@
 ---
-title: Uso del controllo dell'accesso in base all'età in Azure Active Directory B2C | Microsoft Docs
+title: Abilitare il controllo dell'accesso in base all'età in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come identificare i minori che utilizzano l'applicazione.
 services: active-directory-b2c
 author: davidmu1
@@ -7,52 +7,104 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2018
+ms.date: 11/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a1020dfcb6c8d312001fbdb1c170987e1216c5d5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a9220349249315d807a9dba675f6b074ddd385fa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318861"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291097"
 ---
-# <a name="using-age-gating-in-azure-ad-b2c"></a>Utilizzo del controllo dell’accesso in base all’età in Azure Active Directory B2C
+# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Abilitare il controllo dell'accesso in base all'età in Azure Active Directory B2C
 
 >[!IMPORTANT]
->Questa funzionalità è in anteprima privata.  Consultare il nostro [blog di assistenza](https://blogs.msdn.microsoft.com/azureadb2c/) per informazioni dettagliate sulla disponibilità di tale servizio, in alternativa contattare AADB2CPreview@microsoft.com.  NON utilizzarlo in directory di produzione, l’utilizzo di queste nuove funzionalità può comportare la perdita di dati e causare modifiche impreviste di comportamento fino al momento in cui il servizio non assumerà un carattere di disponibilità generale.  
+>Questa funzionalità è disponibile in anteprima pubblica. Non usarla per le applicazioni di produzione. 
 >
 
-## <a name="age-gating"></a>Controllo dell'accesso in base all'età
-Il controllo dell’accesso in base all’età consente di usare Azure Active Directory B2C per identificare i minori che utilizzano l'applicazione.  È possibile scegliere di impedire all'utente di accedere all'applicazione o consentirgli di tornare all'applicazione con attestazioni aggiuntive mirate a identificare la fascia di età dell'utente e il relativo stato di consenso dei genitori.  
+Il controllo dell'accesso in base all'età in Azure Active Directory (Azure AD) B2C consente di identificare i minori che vogliono usare l'applicazione. È possibile scegliere di impedire ai minori di accedere all'applicazione. In alternativa, gli utenti possono tornare all'applicazione e identificare la propria fascia di età e il relativo stato di consenso dei genitori. Con Azure AD B2C è possibile bloccare i minori privi del consenso dei genitori. Azure AD B2C può inoltre essere configurato in modo da consentire all'applicazione di decidere come gestire l'accesso dei minori.
 
->[!NOTE]
->Il consenso dei genitori viene monitorato in un attributo utente denominato `consentProvidedForMinor`.  È possibile aggiornare questa proprietà tramite l'API Graph, che utilizzerà questo campo durante l’aggiornamento di `legalAgeGroupClassification`.
->
+Dopo aver abilitato il controllo dell'accesso in base all'età nel [flusso utente](active-directory-b2c-reference-policies.md), agli utenti viene chiesto di specificare la data di nascita e il paese di residenza. Se un utente esegue l'accesso senza avere precedentemente immesso queste informazioni, dovrà farlo al successivo accesso. Le regole vengono applicate ogni volta che un utente esegue l'accesso.
 
-## <a name="setting-up-your-directory-for-age-gating"></a>Impostazione della directory per il controllo dell'accesso in base all'età
-Per poter utilizzare il controllo dell'accesso in base all'età nel flusso utente, è necessario configurare la directory in modo tale da supportare proprietà aggiuntive. Questa operazione può essere eseguita tramite `Properties` nel menu (che sarà disponibile solo se si è parte dell'anteprima privata).  
-1. Nell'estensione di Azure Active Directory B2C, fare clic nel menu a sinistra sulle **Proprietà** per il tenant.
-2. Nella sezione **Controllo dell'accesso in base all'età**, fare clic sul pulsante **Configura**.
-3. Attendere il completamento dell'operazione e la directory verrà configurata per il controllo dell'accesso in base all'età.
+Azure AD B2C usa le informazioni immesse dall'utente per stabilire se si tratta di un minore. Il campo **ageGroup** viene aggiornato di conseguenza nel rispettivo account. Il valore può essere `null`, `Undefined`, `Minor`, `Adult` e `NotAdult`.  I campi **ageGroup** e **consentProvidedForMinor** vengono quindi usati per calcolare il valore di **legalAgeGroupClassification**.
 
-## <a name="enabling-age-gating-in-your-user-flow"></a>Abilitazione del controllo dell'accesso in base all'età nel flusso utente
-Dopo che la directory è stata configurata per l’utilizzo del controllo dell'accesso in base all'età, è possibile utilizzare questa funzionalità nei flussi utente della versione di anteprima.  Questa funzionalità richiede modifiche che la rendono incompatibile con i tipi di flussi di utente esistenti.  Abilitare il controllo dell'accesso in base all'età tramite i passaggi seguenti:
-1. Creare un flusso utente di anteprima.
-2. Una volta creato, nel menu passare a **Proprietà**.
-3. Nella sezione **Controllo dell'accesso in base all'età**, selezionare l'elemento di attivazione/disattivazione per abilitare la funzionalità.
-4. È quindi possibile scegliere come si desidera gestire gli utenti che si identificano come minori.
+Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un utente non è più considerato un minore e l'età in cui un minore deve avere il consenso dei genitori. La tabella seguente elenca le regole per l'età che vengono usate per identificare un minore e un minore che necessita del consenso.
 
-## <a name="what-does-enabling-age-gating-do"></a>Cosa comporta l’abilitazione del controllo dell'accesso in base all'età?
-Dopo l'abilitazione del controllo dell'accesso in base all'età nel flusso utente, l'esperienza utente subisce alcune modifiche.  Al momento della registrazione, viene ora richiesta agli utenti la data di nascita e il Paese di residenza insieme agli attributi utente configurati per il flusso utente.  Al momento dell’accesso, verrà richiesto agli utenti di inserire la propria data di nascita e il Paese di residenza se non hanno già inserito tali dati.  Da questi due valori, Azure Active Directory B2C identifica se l'utente è un minore e aggiorna il campo `ageGroup`, il valore può essere `null`, `Undefined`, `Minor`, `Adult` e `NotAdult`.  I campi `ageGroup` e `consentProvidedForMinor` vengono quindi utilizzati per calcolare `legalAgeGroupClassification`. 
+| Paese | Nome del paese | Minore età per cui richiedere il consenso | Minore età |
+| ------- | ------------ | ----------------- | --------- |
+| Predefinito | Nessuna | Nessuna | 18 |
+| AE | Emirati Arabi Uniti | Nessuna | 21 |
+| AT | Austria | 14 | 18 |
+| BE | Belgio | 14 | 18 |
+| BG | Bulgaria | 16 | 18 |
+| BH | Bahrain | Nessuna | 21 |
+| CM | Camerun | Nessuna | 21 |
+| CY | Cipro | 16 | 18 |
+| CZ | Repubblica ceca | 16 | 18 |
+| DE | Germania | 16 | 18 |
+| DK | Danimarca | 16 | 18 |
+| EE | Estonia | 16 | 18 |
+| EG | Egitto | Nessuna | 21 |
+| ES | Spagna | 13 | 18 |
+| VF | Francia | 16 | 18 |
+| GB | Regno Unito | 13 | 18 |
+| GR | Grecia | 16 | 18 |
+| HR | Croazia | 16 | 18 |
+| HU | Ungheria | 16 | 18 |
+| IE | Irlanda | 13 | 18 |
+| IT | Italia | 16 | 18 |
+| KR | Repubblica di Corea | 14 | 18 |
+| LT | Lituania | 16 | 18 |
+| LU | Lussemburgo | 16 | 18 |
+| LV | Lettonia | 16 | 18 |
+| MT | Malta | 16 | 18 |
+| ND | Namibia | Nessuna | 21 |
+| NL | Paesi Bassi | 16 | 18 |
+| PL | Polonia | 13 | 18 |
+| PT | Portogallo | 16 | 18 |
+| RO | Romania | 16 | 18 |
+| SE | Svezia | 13 | 18 |
+| SG | Singapore | Nessuna | 21 |
+| SI | Slovenia | 16 | 18 |
+| SK | Slovacchia | 16 | 18 |
+| TD | Chad | Nessuna | 21 |
+| TH | Thailandia | Nessuna | 20 |
+| TW | Taiwan | Nessuna | 20 | 
+| Stati Uniti | Stati Uniti | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Opzioni di controllo dell'accesso in base all'età
-È possibile scegliere che sia Azure Active Directory B2C a bloccare i minori senza il consenso dei genitori oppure a fornire loro l’autorizzazione, lasciando all’applicazione la decisione su come procedere.  
-
+ 
 ### <a name="allowing-minors-without-parental-consent"></a>Consenso ai minori senza il consenso dei genitori
-Per i flussi utente che consentono la registrazione, l'accesso o entrambi, è possibile scegliere di consentire l’accesso all’applicazione ai minori senza consenso.  Ai minori senza il consenso dei genitori viene concesso di accedere o registrarsi come di consueto e Azure Active Directory B2C emette un token ID con l’attestazione `legalAgeGroupClassification`.  Tramite questa attestazione è possibile scegliere l'esperienza degli utenti, ad esempio attraverso un'esperienza per raccogliere il consenso dei genitori (e aggiornare il campo `consentProvidedForMinor`).
+
+Per i flussi utente che consentono la registrazione, l'accesso o entrambi, è possibile scegliere di consentire l'accesso all'applicazione ai minori senza consenso. Ai minori senza il consenso dei genitori viene concesso di accedere o registrarsi come di consueto e Azure AD B2C emette un token ID con l'attestazione **legalAgeGroupClassification**. Questa attestazione definisce l'esperienza degli utenti, ad esempio la raccolta del consenso dei genitori e l'aggiornamento del campo **consentProvidedForMinor**.
 
 ### <a name="blocking-minors-without-parental-consent"></a>Blocco dei minori senza il consenso dei genitori
-Per i flussi utente che consentono la registrazione, l'accesso o entrambi, è possibile scegliere di bloccare l’accesso all’applicazione ai minori senza consenso.  Sono disponibili due opzioni per la gestione degli utenti bloccati in Azure Active Directory B2C:
-* Restituisci un messaggio JSON all'applicazione, questa opzione invierà una risposta all'applicazione rispetto alla quale è stato bloccato un minore.
-* Mostra una pagina di errore, l'utente visualizzerà una pagina che lo informa dell’impossibilità di accedere all'applicazione
+
+Per i flussi utente che consentono la registrazione, l'accesso o entrambi, è possibile scegliere di bloccare l'accesso all'applicazione ai minori senza consenso. Per la gestione degli utenti bloccati in Azure AD B2C sono disponibili le opzioni seguenti:
+
+- Restituisci un messaggio JSON all'applicazione: questa opzione invia una risposta all'applicazione rispetto alla quale è stato bloccato un minore.
+- Mostra una pagina di errore: l'utente visualizza una pagina che lo informa dell'impossibilità di accedere all'applicazione.
+
+## <a name="set-up-your-tenant-for-age-gating"></a>Configurare il tenant per il controllo dell'accesso in base all'età
+
+Per usare il controllo dell'accesso in base all'età in un flusso utente, è necessario configurare il tenant in modo tale da supportare proprietà aggiuntive.
+
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto. Selezionare la directory contenente il tenant. 
+2. Selezionare **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
+3. Selezionare **Proprietà** per il tenant nel menu a sinistra.
+2. Nella sezione **Controllo dell'accesso in base all'età** fare clic su **Configura**.
+3. Attendere il completamento dell'operazione e il tenant verrà configurato per il controllo dell'accesso in base all'età.
+
+## <a name="enable-age-gating-in-your-user-flow"></a>Abilitare il controllo dell'accesso in base all'età nel flusso utente
+
+Dopo che il tenant è stato configurato per l'uso del controllo dell'accesso in base all'età, è possibile usare questa funzionalità nei [flussi utente](user-flow-versions.md) in cui è abilitata. Abilitare il controllo dell'accesso in base all'età tramite i passaggi seguenti:
+
+1. Creare un flusso utente con il controllo dell'accesso in base all'età abilitato.
+2. Dopo aver creato il flusso utente, selezionare **Proprietà** nel menu.
+3. Nella sezione **Controllo dell'accesso in base all'età** selezionare **Abilitato**.
+4. È quindi possibile decidere in che modo gestire gli utenti che si identificano come minori. Per la **registrazione o l'accesso** selezionare `Allow minors to access your application` o `Block minors from accessing your application`. Se è selezionato il blocco dei minori, selezionare `Send a JSON bcak to the application` o `Show an error message`. 
+
+
+
+

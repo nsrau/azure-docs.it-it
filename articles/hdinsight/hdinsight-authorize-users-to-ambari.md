@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 4e05d4ff9c090fac0242921e15ef16439d3ed27f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954450"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496888"
 ---
-# <a name="authorize-users-for-ambari-views"></a>Autorizzare gli utenti per le viste di Ambari
+# <a name="authorize-users-for-apache-ambari-views"></a>Autorizzare gli utenti per le visualizzazioni di Apache Ambari
 
-I [cluster HDInsight con Enterprise Security Package (ESP) abilitato](./domain-joined/apache-domain-joined-introduction.md) offrono funzionalità di livello aziendale, ad esempio l'autenticazione basata su Azure Active Directory. È possibile [sincronizzare i nuovi utenti](hdinsight-sync-aad-users-to-cluster.md) aggiunti a gruppi di Azure AD a cui è stato concesso l'accesso al cluster, consentendo loro di eseguire determinate azioni. L'utilizzo di utenti, gruppi e autorizzazioni in Ambari è supportato sia per cluster HDInsight con ESP sia per cluster HDInsight standard.
+I [cluster HDInsight con Enterprise Security Package (ESP) abilitato](./domain-joined/apache-domain-joined-introduction.md) offrono funzionalità di livello aziendale, ad esempio l'autenticazione basata su Azure Active Directory. È possibile [sincronizzare i nuovi utenti](hdinsight-sync-aad-users-to-cluster.md) aggiunti a gruppi di Azure AD a cui è stato concesso l'accesso al cluster, consentendo loro di eseguire determinate azioni. L'utilizzo di utenti, gruppi e autorizzazioni in [Apache Ambari](https://ambari.apache.org/) è supportato sia per cluster HDInsight con ESP sia per cluster HDInsight standard.
 
-Gli utenti di Active Directory possono accedere ai nodi del cluster tramite le proprie credenziali di dominio che consentono anche di autenticare le interazioni tra cluster con antri endpoint approvati, ad esempio Hue, viste di Ambari, ODBC, JDBC, PowerShell e API REST.
+Gli utenti di Active Directory possono accedere ai nodi del cluster tramite le proprie credenziali di dominio che consentono anche di autenticare le interazioni tra cluster con antri endpoint approvati, ad esempio [Hue](http://gethue.com/), viste di Ambari, ODBC, JDBC, PowerShell e API REST.
 
 > [!WARNING]
 > Non modificare la password del watchdog Ambari (hdinsightwatchdog) nel cluster HDInsight basato su Linux. Se si modifica la password, non sarà più possibile usare azioni script o eseguire operazioni di ridimensionamento con il cluster.
@@ -29,13 +29,13 @@ Se non è già stato fatto, seguire [queste istruzioni](./domain-joined/apache-d
 
 ## <a name="access-the-ambari-management-page"></a>Accedere alla pagina di gestione di Ambari
 
-Per accedere alla **pagina di gestione di Ambari**, nell'[interfaccia utente Web di Ambari](hdinsight-hadoop-manage-ambari.md) passare a **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Immettere il nome utente e la password di amministratore del cluster definiti durante la creazione del cluster. Nel dahsboard di Ambari selezionare **Manage Ambari** (Gestisci Ambari) nel menu **admin** (amministratore):
+Per accedere alla **pagina di gestione di Ambari**, nell'[interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambari.md) passare a **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Immettere il nome utente e la password di amministratore del cluster definiti durante la creazione del cluster. Nel dahsboard di Ambari selezionare **Manage Ambari** (Gestisci Ambari) nel menu **admin** (amministratore):
 
 ![Gestire Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
-## <a name="grant-permissions-to-hive-views"></a>Concedere le autorizzazioni per le viste Hive
+## <a name="grant-permissions-to-apache-hive-views"></a>Concedere le autorizzazioni per le viste Apache Hive
 
-Ambari è disponibile con le istanze di viste per Hive e Tez, tra gli altri. Per concedere l'accesso a una o più istanze di viste Hive, andare alla **pagina di gestione di Ambari**.
+Ambari è disponibile con le istanze di viste per [Apache Hive](https://hive.apache.org/) e [Apache TEZ](https://tez.apache.org/), tra gli altri. Per concedere l'accesso a una o più istanze di viste Hive, andare alla **pagina di gestione di Ambari**.
 
 1. Nella pagina di gestione selezionare il collegamento **Views** (Viste) nell'intestazione del menu **Views** (Viste) a sinistra.
 
@@ -72,9 +72,9 @@ Ambari è disponibile con le istanze di viste per Hive e Tez, tra gli altri. Per
 
 L'aggiunta di nuovi utenti direttamente a una vista è utile quando si desidera assegnare autorizzazioni a un utente a usare tale vista, ma non si desidera che l'utente sia un membro di un gruppo che dispone di autorizzazioni aggiuntive. Per ridurre la quantità di sovraccarico amministrativo, può risultare più semplice assegnare autorizzazioni ai gruppi.
 
-## <a name="grant-permissions-to-tez-views"></a>Concedere autorizzazioni per viste Tez
+## <a name="grant-permissions-to-apache-tez-views"></a>Concedere le autorizzazioni per le viste Apache TEZ
 
-Le istanze di viste Tez consentono agli utenti di monitorare ed eseguire il debug di tutti i processi Tez, inviati da query Hive e script Pig. È presente una sola istanza di viste Tez predefinita creata quando viene eseguito il provisioning del cluster.
+Le istanze di viste [Apache TEZ](https://tez.apache.org/) consentono agli utenti di monitorare ed eseguire il debug di tutti i processi Tez, inviati da query [Apache Hive](https://hive.apache.org/) e script [Apache Pig](https://pig.apache.org/). È presente una sola istanza di viste Tez predefinita creata quando viene eseguito il provisioning del cluster.
 
 Per assegnare utenti e gruppi a un'istanza di viste Tez, espandere la riga **TEZ** nella pagina Views (Viste), come descritto in precedenza.
 
@@ -136,7 +136,7 @@ All'utente di dominio Azure AD "hiveuser2" è stato assegnato il ruolo *Cluster 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare criteri Hive in HDInsight con ESP](./domain-joined/apache-domain-joined-run-hive.md)
+* [Configurare criteri Apache Hive in HDInsight con ESP](./domain-joined/apache-domain-joined-run-hive.md)
 * [Gestire i cluster HDInsight ESP](./domain-joined/apache-domain-joined-manage.md)
-* [Usare la vista Hive con Hadoop in HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
+* [Usare la vista Apache Hive con Apache Hadoop in HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Sincronizzare gli utenti di Azure AD con il cluster](hdinsight-sync-aad-users-to-cluster.md)

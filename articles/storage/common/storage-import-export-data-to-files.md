@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: adb3127e45166d4743c182cbd21944dd86810596
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584167"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820308"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usare il servizio Importazione/Esportazione di Azure per importare i dati in File di Azure
 
@@ -54,21 +54,21 @@ Per preparare le unità, eseguire le operazioni seguenti.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
     - **Per importare una cartella**: tutti i file e le cartelle all'interno di *MyFolder2* vengono copiati in modo ricorsivo nella condivisione file. La struttura di cartelle viene mantenuta.
 
         ```
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            
+            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
         ```
     Nello stesso file è possibile creare più voci, che corrispondono alle cartelle o ai file importati. 
 
         ```
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-                        
+                        
         ```
     Ulteriori informazioni su [come preparare un file CSV del set di dati](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     

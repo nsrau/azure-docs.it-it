@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1f74538deab38db536bfcdc6d0f703d455039d51
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b42dc0f86a70feb06b32a20c7cbdd513920f65d6
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235905"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263522"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -36,6 +36,17 @@ Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [esegu
 Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](reference-connect-accounts-permissions.md#upgrade).
 
 Download| [Scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+
+## <a name="12670"></a>1.2.67.0
+
+### <a name="release-status"></a>Stato della versione 
+
+19/11/2018: rilasciata per il download
+
+### <a name="fixed-issues"></a>Problemi risolti
+
+Questa versione di aggiornamento rapido risolve una regressione nella versione precedente a causa di cui il writeback delle password ha esito negativo quando si usa un controller di dominio Active Directory Domain Services in Windows Server 2008/R2.
 
 ## <a name="12650"></a>1.2.65.0 
 

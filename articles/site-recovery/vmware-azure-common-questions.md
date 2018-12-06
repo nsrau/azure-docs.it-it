@@ -4,15 +4,15 @@ description: Questo articolo presenta un riepilogo delle domande frequenti relat
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/29/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636816"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162484"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Domande frequenti - Replica da VMware ad Azure
 
@@ -47,14 +47,20 @@ L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie
 ## <a name="on-premises"></a>Locale
 
 ### <a name="what-do-i-need-on-premises"></a>Cosa è necessario avere in locale?
-In locale sono necessari i componenti di Site Recovery, installati in una singola macchina virtuale VMware. Occorre avere anche un'infrastruttura VMware con almeno un host ESXi, oltre a un server vCenter come scelta consigliata. Inoltre, sono necessarie una o più macchine virtuali VMware da replicare. [Altre informazioni](vmware-azure-architecture.md) sull'architettura della replica da VMware ad Azure.
 
-Il server di configurazione locale può essere distribuito in due modi:
+In locale sono necessari:
+- I componenti di Site Recovery, installati in un'unica macchina virtuale VMware.
+- Un'infrastruttura VMware con almeno un host ESXi, oltre a un server vCenter come scelta consigliata.
+- Una o più macchine virtuali VMware da replicare.
 
-1. Usando un modello di macchina virtuale con il server di configurazione preinstallato. [Altre informazioni](vmware-azure-tutorial.md#download-the-vm-template).
-2. Usando la configurazione in un computer a propria scelta con Windows Server 2016. [Altre informazioni](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+[Altre informazioni](vmware-azure-architecture.md) sull'architettura della replica da VMware ad Azure.
 
-Per apprendere la procedura iniziale di distribuzione del server di configurazione nei computer Windows Server, in Obiettivo di protezione di Abilita protezione scegliere **In Azure > Non virtualizzato/Altro**.
+Il server di configurazione locale può essere distribuito come segue:
+
+- È consigliabile distribuire il server di configurazione sotto forma di macchina virtuale VMware usando un modello OVA con il server di configurazione pre-installato.
+- Se per qualsiasi motivo non è possibile usare un modello, è possibile installare il server di configurazione manualmente. [Altre informazioni](physical-azure-disaster-recovery.md#set-up-the-source-environment)
+
+
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Dove viene eseguita la replica delle macchine virtuali locali?
 I dati vengono replicati in Archiviazione di Azure. Quando si esegue un failover, Site Recovery crea automaticamente le macchine virtuali di Azure dall'account di archiviazione.
@@ -144,7 +150,7 @@ Sì. Scaricare il programma di installazione di MySQL e inserirlo nella cartella
 No, la macchina virtuale deve essere usata solo per il server di configurazione. 
 
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>È possibile cambiare l'insieme di credenziali registrato nel server di configurazione?
-No. Una volta registrato con il server di configurazione, l'insieme di credenziali non può più essere cambiato.
+ No. Una volta registrato con il server di configurazione, l'insieme di credenziali non può più essere cambiato.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>È possibile usare lo stesso server di configurazione per le macchine virtuali VMware e per i server fisici?
 Sì, ma tenere presente che è possibile eseguire il failback del computer fisico solo in una macchina virtuale VMware.

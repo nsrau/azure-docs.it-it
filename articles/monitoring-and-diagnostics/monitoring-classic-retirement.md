@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 589aae8321d2c081f09ed46d9def2229d3973ffd
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 35869e0a345299f2b0724f01201154fc8d090e4f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613208"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975380"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Funzionalità unificata di avviso e monitoraggio in Monitoraggio di Azure in sostituzione delle funzionalità classiche di avviso e monitoraggio
 
@@ -53,7 +53,7 @@ La piattaforma precedente di monitoraggio e avviso verrà ritirata il 30 giugno 
 - Piattaforma e metriche personalizzate precedenti (versione classica) per Azure Application Insights, oltre agli avvisi attualmente disponibili tramite la [sezione Avvisi (versione classica)](monitoring-overview-alerts-classic.md) del portale di Azure e accessibili come risorsa [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)
 - Avviso Anomalie errori precedente (versione classica) attualmente disponibile come funzionalità [Rilevamento intelligente in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) nel portale di Azure, con avvisi configurati visualizzati nella [sezione Avvisi (versione classica)](monitoring-overview-alerts-classic.md) del portale di Azure
 
-Tutti i sistemi di monitoraggio e avviso in versione classica, inclusi [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [interfaccia della riga di comando](insights-alerts-command-line-interface.md), pagina del portale di Azure e [modello di risorsa](monitoring-enable-alerts-using-template.md) corrispondenti potranno essere usati fino a giugno 2019. Dopo questa data, il servizio classico di monitoraggio e avvisi verrà ritirato e non sarà più disponibile per l'uso. Le regole di avviso che continueranno a essere presenti nella sezione Avvisi (versione classica) dopo giugno 2019 potranno ancora essere eseguite, ma non saranno disponibili per la modifica.
+Tutti i sistemi di monitoraggio e avviso in versione classica, inclusi [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [interfaccia della riga di comando](insights-alerts-command-line-interface.md), [pagina del portale di Azure](alert-metric-classic.md) e [modello di risorsa](monitoring-enable-alerts-using-template.md) corrispondenti potranno essere usati fino a giugno 2019. Dopo questa data, il servizio classico di monitoraggio e avvisi verrà ritirato e non sarà più disponibile per l'uso. Le regole di avviso che continueranno a essere presenti nella sezione Avvisi (versione classica) dopo giugno 2019 potranno ancora essere eseguite, ma non saranno disponibili per la modifica.
 
 Per tutti gli avvisi rimanenti nella piattaforma classica di monitoraggio e avviso dopo giugno 2019 verrà eseguita automaticamente la migrazione da parte di Microsoft alla versione equivalente nella nuova piattaforma di Monitoraggio di Azure a luglio 2019. Il processo avverrà in modo fluido, senza tempo di inattività e senza alcuna perdita nella copertura del monitoraggio per i clienti.
 

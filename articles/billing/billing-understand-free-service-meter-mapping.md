@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 4a8b2c07754b1a1c9679f7b044f112bf03dfb433
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 89abf64e6b47700bb16aaf6d4d4c0efbbbd9f520
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392109"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581586"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Comprendere il mapping del misuratore di servizi gratuiti
 
@@ -53,10 +53,6 @@ Tutti i servizi di Azure generano i dati di utilizzo con i misuratori che vengon
 
 \** I misuratori condivisi possono essere usati con più servizi. Ad esempio, sia le macchine virtuali che l'archiviazione generano i dati di utilizzo con il misuratore Trasferimento dati in uscita (GB).
 
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-
-
-
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
-
-Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

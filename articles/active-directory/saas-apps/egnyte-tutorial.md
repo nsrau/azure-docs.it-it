@@ -4,7 +4,8 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 8c2101d4-1779-4b36-8464-5c1ff780da18
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -12,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2017
+ms.date: 11/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 4f6f6ef12f5a8dd8a9f210e9b1f1ca978ec5a1ac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 33989d04cba06c789089dfc0db62d177d258292a
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440457"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Esercitazione: Integrazione di Azure Active Directory con Egnyte
 
@@ -27,11 +28,11 @@ Questa esercitazione descrive come integrare Egnyte con Azure Active Directory (
 
 L'integrazione di Egnyte con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Egnyte
-- È possibile abilitare gli utenti per l'accesso automatico Single Sign-On a Egnyte con i propri account Azure AD
+- È possibile controllare in Azure AD chi può accedere a Egnyte.
+- È possibile abilitare gli utenti per l'accesso automatico a Egnyte (Single Sign-On) con gli account Azure AD personali.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,53 +47,50 @@ Per configurare l'integrazione di Azure AD con Egnyte sono necessari gli element
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
+
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Egnyte dalla raccolta
-1. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-egnyte-from-the-gallery"></a>Aggiunta di Egnyte dalla raccolta
+
 Per configurare l'integrazione di Egnyte in Azure AD è necessario aggiungere Egnyte dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Egnyte dalla raccolta seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
-    ![Active Directory][1]
+    ![Pulsante Azure Active Directory][1]
 
-1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
-    
-1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+    ![Pannello Applicazioni aziendali][2]
 
-    ![APPLICAZIONI][3]
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-1. Nella casella di ricerca digitare **Egnyte**.
+    ![Pulsante Nuova applicazione][3]
 
-    ![Creazione di un utente test di Azure AD](./media/egnyte-tutorial/tutorial_egnyte_search.png)
+4. Nella casella di ricerca digitare **Egnyte**, selezionare **Egnyte** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-1. Nel pannello dei risultati selezionare **Egnyte** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+    ![Egnyte nell'elenco risultati](./media/egnyte-tutorial/tutorial_egnyte_addfromgallery.png)
 
-    ![Creazione di un utente test di Azure AD](./media/egnyte-tutorial/tutorial_egnyte_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Egnyte mediante un utente test di nome "Britta Simon".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Egnyte usando un utente di test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve sapere quale utente di Egnyte corrisponde a un determinato utente di Azure AD. In altre parole è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Egnyte.
-
-Per stabilire la relazione di collegamento, in Egnyte assegnare il valore di **nome utente** di Azure AD come valore dell'attributo **Username**.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Egnyte è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente test di Egnyte](#creating-an-egnyte-test-user)**: per avere una controparte di Britta Simon in Egnyte collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente test di Egnyte](#creating-an-egnyte-test-user)**: per avere una controparte di Britta Simon in Egnyte collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -102,48 +100,54 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Egnyte** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configure Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On][4]
 
-1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Configure Single Sign-On](./media/egnyte-tutorial/tutorial_egnyte_samlbase.png)
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
-1. Nella sezione **URL e dominio Egnyte** seguire questa procedura:
+    ![Configure Single Sign-On](common/tutorial_general_301.png)
 
-    ![Configure Single Sign-On](./media/egnyte-tutorial/tutorial_egnyte_url.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+
+    ![Configure Single Sign-On](common/editconfigure.png)
+
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
+
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Egnyte](./media/egnyte-tutorial/tutorial_egnyte_url.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.egnyte.com`
 
     > [!NOTE] 
     > Poiché non è reale, Aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore contattare il [team di supporto clienti di Egnyte](https://www.egnyte.com/corp/contact_egnyte.html). 
- 
-1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Configure Single Sign-On](./media/egnyte-tutorial/tutorial_egnyte_certificate.png) 
+5. Nella pagina **Certificato di firma SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare **Certificato (Base64)** e salvare il file di certificato nel computer in uso.
 
-1. Fare clic sul pulsante **Salva** .
+    ![Collegamento di download del certificato](./media/egnyte-tutorial/tutorial_egnyte_certificate.png) 
 
-    ![Configure Single Sign-On](./media/egnyte-tutorial/tutorial_general_400.png)
+6. Nella sezione **Configura Egnyte** copiare l'URL appropriato in base alle proprie esigenze.
 
-1. Nella sezione **Configurazione di Egnyte** fare clic su **Configura Egnyte** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido.**
+    a. URL di accesso
 
-    ![Configure Single Sign-On](./media/egnyte-tutorial/tutorial_egnyte_configure.png) 
+    b. Identificatore di Azure AD
 
-1. In un'altra finestra del Web browser accedere al sito aziendale di Egnyte come amministratore.
+    c. URL di chiusura sessione
 
-1. Fare clic su **Impostazioni**.
+    ![Configurazione di Egnyte](common/configuresection.png)
+
+7. In un'altra finestra del Web browser accedere al sito aziendale di Egnyte come amministratore.
+
+8. Fare clic su **Impostazioni**.
    
-   ![Impostazioni](./media/egnyte-tutorial/ic787819.png "Impostazioni")
+    ![Impostazioni](./media/egnyte-tutorial/ic787819.png "Impostazioni")
 
-1. Scegliere **Settings**dal menu.
+9. Scegliere **Settings**dal menu.
 
-   ![Impostazioni](./media/egnyte-tutorial/ic787820.png "Impostazioni")
+    ![Impostazioni](./media/egnyte-tutorial/ic787820.png "Impostazioni")
 
-1. Fare clic sulla scheda **Configuration** (Configurazione) e quindi fare clic su **Security** (Sicurezza).
+10. Fare clic sulla scheda **Configuration** (Configurazione) e quindi fare clic su **Security** (Sicurezza).
 
     ![Sicurezza](./media/egnyte-tutorial/ic787821.png "Sicurezza")
 
-1. Nella sezione **Single Sign-On Authentication** seguire questa procedura:
+11. Nella sezione **Single Sign-On Authentication** seguire questa procedura:
 
     ![Single Sign On Authentication](./media/egnyte-tutorial/ic787822.png "Single Sign On Authentication")   
     
@@ -151,9 +155,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     b. In **Identity provider** (Provider di identità) selezionare **AzureAD**.
    
-    c. Incollare il valore **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) copiato dal portale di Azure nella casella di testo **URL di accesso provider di identità**.
+    c. Incollare il valore di **URL di accesso** copiato dal portale di Azure nella casella di testo **Identity provider login URL** (URL di accesso provider di identità).
    
-    d. Incollare il valore **SAML Entity ID** (ID entità SAML) copiato dal portale di Azure nella casella di testo **Identity provider entity ID** (ID entità provider di identità).
+    d. Incollare l'**identificatore di Azure AD** copiato dal portale di Azure nella casella di testo **Identity provider entity ID** (ID entità del provider di identità).
       
     e. Aprire nel Blocco note il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Identity provider certificate** (Certificato provider di identità).
    
@@ -163,41 +167,31 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     h. Fare clic su **Save**.
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-![Creare un utente di Azure AD][100]
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    ![Creare un utente di Azure AD][100]
 
-1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Creazione di un utente test di Azure AD](./media/egnyte-tutorial/create_aaduser_01.png) 
+    ![Creazione di un utente test di Azure AD](common/create_aaduser_01.png) 
 
-1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Creazione di un utente test di Azure AD](./media/egnyte-tutorial/create_aaduser_02.png) 
+3. In Proprietà utente seguire questa procedura.
 
-1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
- 
-    ![Creazione di un utente test di Azure AD](./media/egnyte-tutorial/create_aaduser_03.png) 
+    ![Creazione di un utente test di Azure AD](common/create_aaduser_02.png)
 
-1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
- 
-    ![Creazione di un utente test di Azure AD](./media/egnyte-tutorial/create_aaduser_04.png) 
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
+    c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+    d. Selezionare **Create**.
 
-    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
-
-    d. Fare clic su **Create**(Crea).
- 
 ### <a name="creating-an-egnyte-test-user"></a>Creazione di un utente test di Egnyte
 
 Per consentire agli utenti di Azure AD di accedere a Egnyte, è necessario eseguire il provisioning degli utenti in Egnyte. Nel caso di Egnyte, il provisioning è un'attività manuale.
@@ -206,19 +200,23 @@ Per consentire agli utenti di Azure AD di accedere a Egnyte, è necessario esegu
 
 1. Accedere al sito aziendale di **Egnyte** come amministratore.
 
-1. Passare a **Settings (Impostazioni) \> Users & Groups (Utenti e gruppi)**.
+2. Passare a **Settings (Impostazioni) \> Users & Groups (Utenti e gruppi)**.
 
-1. Fare clic su **Add New User**e quindi selezionare il tipo di utente da aggiungere.
+3. Fare clic su **Add New User**e quindi selezionare il tipo di utente da aggiungere.
    
-   ![Utenti](./media/egnyte-tutorial/ic787824.png "Utenti")
+    ![Utenti](./media/egnyte-tutorial/ic787824.png "Utenti")
 
-1. Nella sezione **New Standard User** seguire questa procedura:
-   
-   ![New Standard User](./media/egnyte-tutorial/ic787825.png "New Standard User")   
+4. Nella sezione **New Power User** (Nuovo utente esperto) seguire questa procedura:
+    
+    ![New Standard User](./media/egnyte-tutorial/ic787825.png "New Standard User")   
 
-   a. Immettere i valori **Email** (Posta elettronica), **Username** (Nome utente) e gli altri dettagli di un account Azure Active Directory valido di cui si vuole eseguire il provisioning.
+    a. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **Brittasimon@contoso.com**.
+
+    b. Nella casella di testo **Username** (Nome utente) digitare il nome dell'utente, ad esempio **Brittasimon**.
+
+    c. Selezionare **Single Sign-On** per **Authentication Type** (Tipo di autenticazione).
    
-   b. Fare clic su **Save**.
+    d. Fare clic su **Save**.
     
     >[!NOTE]
     >Il titolare dell'account Azure Active Directory riceverà un messaggio di posta elettronica di notifica.
@@ -232,57 +230,47 @@ Per consentire agli utenti di Azure AD di accedere a Egnyte, è necessario esegu
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Egnyte.
 
-![Assegna utente][200] 
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
-**Per assegnare Britta Simon a Egnyte, seguire questa procedura:**
+    ![Assegna utente][201]
 
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+2. Nell'elenco delle applicazioni selezionare **Egnyte**.
 
-    ![Assegna utente][201] 
+    ![Configure Single Sign-On](./media/egnyte-tutorial/tutorial_egnyte_app.png)
 
-1. Nell'elenco delle applicazioni selezionare **Egnyte**.
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Configure Single Sign-On](./media/egnyte-tutorial/tutorial_egnyte_app.png) 
+    ![Assegna utente][202]
 
-1. Scegliere **Utenti e gruppi** dal menu a sinistra.
-
-    ![Assegna utente][202] 
-
-1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+6. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
 
-1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Egnyte nel pannello di accesso si accede automaticamente all'applicazione Egnyte.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
-[1]: ./media/egnyte-tutorial/tutorial_general_01.png
-[2]: ./media/egnyte-tutorial/tutorial_general_02.png
-[3]: ./media/egnyte-tutorial/tutorial_general_03.png
-[4]: ./media/egnyte-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/egnyte-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/egnyte-tutorial/tutorial_general_200.png
-[201]: ./media/egnyte-tutorial/tutorial_general_201.png
-[202]: ./media/egnyte-tutorial/tutorial_general_202.png
-[203]: ./media/egnyte-tutorial/tutorial_general_203.png
-
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

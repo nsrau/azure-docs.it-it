@@ -1,5 +1,5 @@
 ---
-title: Copiare un database SQL di Azure | Microsoft Docs
+title: Copiare un database SQL di Azure | Documentazione Microsoft
 description: Creare una copia coerente a livello transazionale di un database SQL di Azure esistente nello stesso server o su un altro server.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 639795824bf75bb99d34f12d4dfc4e0695341986
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: f3da1a8cef5abc8fd30a0dc7760005ad5fff5446
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868413"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335370"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creare una copia coerente a livello transazionale di un database SQL di Azure
 
@@ -26,6 +26,9 @@ Il Database SQL di Azure fornisce diversi metodi per la creazione di una copia c
 ## <a name="overview"></a>Panoramica
 
 Una copia del database è uno snapshot del database di origine al momento della richiesta di copia. È possibile selezionare lo stesso server o un server diverso, il relativo livello di servizio e la relativa dimensione di calcolo o una diversa all'interno dello stesso livello di servizio (edizione). Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. A questo punto, è possibile aggiornare o effettuare il downgrade della copia a qualsiasi edizione. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.  
+
+> [!NOTE]
+> [I backup di database automatizzati](sql-database-automated-backups.md) vengono usati quando si crea una copia del database.
 
 ## <a name="logins-in-the-database-copy"></a>Account di accesso nella copia del database
 

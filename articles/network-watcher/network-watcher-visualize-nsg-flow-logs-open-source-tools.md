@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6debfaed28be2b5dee5e24a443b791f75f7bea8f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634193"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822909"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher con strumenti open source
 
 I log dei flussi dei gruppi di sicurezza di rete contengono informazioni utili per comprendere il traffico IP in ingresso e in uscita nei gruppi di sicurezza di rete. Questi log mostrano i flussi in ingresso e in uscita in base alle regole, alla scheda di interfaccia di rete a cui si applica il flusso, a informazioni a 5 tuple sul flusso (IP di origine/destinazione, porta di origine/destinazione e protocollo) e al fatto che il traffico sia stato consentito o rifiutato.
 
 Analizzare manualmente i log dei flussi e ottenerne informazioni significative può essere difficile. Esistono tuttavia diversi strumenti open source che possono semplificare la visualizzazione di questi dati. Questo articolo presenta una soluzione per visualizzare questi log con Elastic Stack, che consentirà di indicizzare e visualizzare rapidamente i log dei flussi in un dashboard Kibana.
+
+> [!Warning]  
+> I passaggi seguenti usano i log dei flussi versione 1. Per informazioni dettagliate, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md). Le istruzioni seguenti non funzioneranno con la versione 2 dei file di log, senza modifica.
 
 ## <a name="scenario"></a>Scenario
 

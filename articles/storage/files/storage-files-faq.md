@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1ed08562657eb0c50f05efb335c1790d35dcab01
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387504"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976826"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -248,7 +248,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="expressroute-not-required"></a>
 **È necessario usare Azure ExpressRoute per connettersi a File di Azure o per usare Sincronizzazione file di Azure in locale?**  
 
-    No. ExpressRoute non è richiesto per accedere a una condivisione file di Azure. Se si esegue il montaggio di una condivisione file di Azure direttamente in locale, è necessario solo che la porta 445 (TCP in uscita), ovvero la porta usata per le comunicazioni da SMB, sia aperta per l'accesso a Internet. Se si usa Sincronizzazione file di Azure, occorre solo la porta 443 (TCP in uscita) per l'accesso HTTPS (non è richiesto SMB). È comunque *possibile* usare ExpressRoute con queste opzioni di accesso.
+     No. ExpressRoute non è richiesto per accedere a una condivisione file di Azure. Se si esegue il montaggio di una condivisione file di Azure direttamente in locale, è necessario solo che la porta 445 (TCP in uscita), ovvero la porta usata per le comunicazioni da SMB, sia aperta per l'accesso a Internet. Se si usa Sincronizzazione file di Azure, occorre solo la porta 443 (TCP in uscita) per l'accesso HTTPS (non è richiesto SMB). È comunque *possibile* usare ExpressRoute con queste opzioni di accesso.
 
 * <a id="mount-locally"></a>
 **Come è possibile montare una condivisione file di Azure nel computer locale?**  
@@ -351,7 +351,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="need-larger-share"></a>
 **Se serve una condivisione file più grande di quella attualmente offerta da File di Azure è possibile aumentare le dimensioni della condivisione file di Azure?**  
-    No. La dimensione massima di una condivisione file di Azure è 5 TiB. Attualmente non è possibile modificare questo limite. Microsoft sta lavorando a una soluzione per aumentare la dimensione della condivisione a 100 TiB, ma non sono ancora disponibili indicazioni precise sui tempi di attuazione.
+     No. La dimensione massima di una condivisione file di Azure è 5 TiB. Attualmente non è possibile modificare questo limite. Microsoft sta lavorando a una soluzione per aumentare la dimensione della condivisione a 100 TiB, ma non sono ancora disponibili indicazioni precise sui tempi di attuazione.
 
 * <a id="open-handles-quota"></a>
 **Quanti client possono accedere allo stesso file contemporaneamente?**   
@@ -380,7 +380,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="nested-shares"></a>
 **È possibile configurare una condivisione annidata, ovvero una condivisione in una condivisione?**  
-    No. La condivisione file *è* il driver virtuale che è possibile montare, quindi le condivisioni annidate non sono supportate.
+     No. La condivisione file *è* il driver virtuale che è possibile montare, quindi le condivisioni annidate non sono supportate.
 
 * <a id="ibm-mq"></a>
 **Come si può usare File di Azure con IBM MQ?**  

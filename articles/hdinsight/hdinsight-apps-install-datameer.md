@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 97d99aa59c490cf2dcdd4a69f32411a051942d36
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9e9ccb1ba3d19e0240df869dfea1e27ac4124c34
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037805"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498773"
 ---
 # <a name="install-published-application---datameer"></a>Installare un'applicazione pubblicata - Datameer
 
-Questo articolo descrive come installare ed eseguire l'applicazione Apache Hadoop pubblicata [Datameer](https://www.datameer.com/) in Azure HDInsight. Per una panoramica della piattaforma applicativa HDInsight e un elenco delle applicazioni pubblicate di fornitori di software indipendente, vedere [Installare applicazioni Hadoop di terze parti](hdinsight-apps-install-applications.md). Per istruzioni sull'installazione di un'applicazione personalizzata, vedere l'articolo su come [installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
+Questo articolo descrive come installare ed eseguire l'applicazione [Apache Hadoop](https://hadoop.apache.org/) pubblicata [Datameer](https://www.datameer.com/) in Azure HDInsight. Per una panoramica della piattaforma applicativa HDInsight e un elenco delle applicazioni pubblicate di fornitori di software indipendente, vedere [Installare applicazioni Apache Hadoop di terze parti](hdinsight-apps-install-applications.md). Per istruzioni sull'installazione di un'applicazione personalizzata, vedere l'articolo su come [installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-datameer"></a>Informazioni su Datameer
 
@@ -34,7 +34,7 @@ Per installare questa app in un nuovo cluster HDInsight o in un cluster esistent
 
 ## <a name="install-the-datameer-published-application"></a>Installare l'applicazione pubblicata Datameer
 
-Per istruzioni dettagliate sull'installazione di questa e delle altre applicazioni di fornitori di software indipendenti disponibili, vedere [Installare applicazioni Hadoop di terze parti](hdinsight-apps-install-applications.md).
+Per istruzioni dettagliate sull'installazione di questa e delle altre applicazioni di fornitori di software indipendenti disponibili, vedere [Installare applicazioni Apache Hadoop di terze parti](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-datameer"></a>Avviare Datameer
 

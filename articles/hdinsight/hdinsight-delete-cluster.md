@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: dff9420eb0f91652cc134a37d1b248e2e5b2b681
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 707112f755e6846622d2fde9de466551276925b8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004530"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494359"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-classic-cli"></a>Eliminare un cluster HDInsight usando il browser, PowerShell o l'interfaccia della riga di comando classica di Azure
 
-La fatturazione del cluster HDInsight inizia dopo la creazione del cluster e si interrompe solo quando questo viene eliminato. La fatturazione avviene con tariffa oraria, perciò si deve sempre eliminare il cluster in uso quando non lo si usa più. In questo documento viene descritto come eliminare un cluster usando il portale di Azure, Azure PowerShell e l'interfaccia della riga di comando classica di Azure.
+La fatturazione del cluster HDInsight inizia dopo la creazione del cluster e si interrompe solo quando questo viene eliminato. La fatturazione avviene con tariffa oraria, perciò si deve sempre eliminare il cluster in uso quando non lo si usa più. In questo documento viene descritto come eliminare un cluster usando il [portale di Azure](https://portal.azure.com), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) e l'interfaccia della riga di comando classica di Azure.
 
 > [!IMPORTANT]
 > L'eliminazione di un cluster HDInsight non comporta l'eliminazione degli account di archiviazione di Azure o Data Lake Store associati al cluster. È possibile usare nuovamente in futuro i dati archiviati in questi servizi.

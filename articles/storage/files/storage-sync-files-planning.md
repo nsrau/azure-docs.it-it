@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a2864ca743adf4ced1418630940146fed21b7fd5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 89ab5ecb4e1a6a39e785a51c61e1344631b1f394
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625301"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335181"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -109,10 +109,11 @@ Per visualizzare i risultati in CSV:
 ```
 
 ### <a name="system-requirements"></a>Requisiti di sistema
-- Un server in cui è eseguito Windows Server 2012 R2 o Windows Server 2016:
+- Un server che esegue Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019:
 
     | Version | SKU supportati | Opzioni di distribuzione supportate |
     |---------|----------------|------------------------------|
+    | Windows Server 2019 | Datacenter e Standard | Completa (server con un'interfaccia utente) |
     | Windows Server 2016 | Datacenter e Standard | Completa (server con un'interfaccia utente) |
     | Windows Server 2012 R2 | Datacenter e Standard | Completa (server con un'interfaccia utente) |
 
@@ -198,10 +199,10 @@ Le soluzioni antivirus Microsoft, Windows Defender e System Center Endpoint Prot
 ### <a name="backup-solutions"></a>Soluzioni di backup
 Come le soluzioni antivirus, le soluzioni di backup possono causare il richiamo di file archiviati a livelli. È consigliabile usare una soluzione di backup nel cloud per eseguire il backup della condivisione file di Azure anziché usare un prodotto di backup locale.
 
-Se si usa una soluzione di backup locale, è necessario eseguire il backup in un server del gruppo di sincronizzazione con la suddivisione in livelli nel cloud disabilitata. Durante il ripristino di file all'interno di percorso dell'endpoint, server, usare l'opzione di ripristino a livello di file. I file ripristinati vengono sincronizzati con tutti gli endpoint del gruppo di sincronizzazione e i file esistenti vengono sostituiti dalla versione ripristinata dal backup.
+Se si usa una soluzione di backup locale, è necessario eseguire il backup in un server del gruppo di sincronizzazione con la suddivisione in livelli nel cloud disabilitata. Quando si esegue un ripristino, usare le opzioni di ripristino a livello di volume o a livello di file. I file ripristinati tramite l'opzione di ripristino a livello di file vengono sincronizzati con tutti gli endpoint del gruppo di sincronizzazione e i file esistenti vengono sostituiti dalla versione ripristinata dal backup.  Nel ripristino a livello di volume i file non vengono sostituiti dalla versione più recente nella condivisione file di Azure o in altri endpoint server.
 
 > [!Note]  
-> Le opzioni di ripristino con riconoscimento dell'applicazione, a livello di volume e bare metal non sono attualmente supportate e possono causare risultati imprevisti. Queste opzioni di ripristino verranno supportate in una versione futura.
+> Il ripristino bare metal può avere risultati imprevisti e non è attualmente supportato.
 
 ### <a name="encryption-solutions"></a>Soluzioni di crittografia
 Il supporto per le soluzioni di crittografia dipende dal modo in cui sono implementate. Sincronizzazione file di Azure funziona con:

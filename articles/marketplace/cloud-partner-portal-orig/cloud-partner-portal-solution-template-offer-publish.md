@@ -1,5 +1,5 @@
 ---
-title: Pubblicare un modello di soluzione | Microsoft Docs
+title: Pubblicare un modello di soluzione di Azure | Microsoft Docs
 description: Pubblicare un modello di soluzione in Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 333eebfa1bae919c43164572c63f2de4f7251fe0
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345590"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261618"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Pubblicare un modello di soluzione in Azure Marketplace
 
@@ -31,31 +31,22 @@ I prerequisiti tecnici e non tecnici di seguito si applicano all'elencazione di 
 
 ### <a name="technical"></a>Tecnici
 
-- [Comprendere modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-
+- [Comprendere modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 - Modelli di Guida introduttiva di Azure:
-
     - [Documentazione dei modelli di guida introduttiva di Azure](https://azure.microsoft.com/documentation/templates/)
-
     - [Documentazione di guida introduttiva di Azure su GitHub](https://github.com/azure/azure-quickstart-templates)
-
  - [Creare un file di interfaccia utente del portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+ - Abilitare l'[attribuzione dell'utilizzo dei clienti](./../azure-partner-customer-usage-attribution.md) per tenere traccia dell'utilizzo di Azure delle distribuzioni del software da parte dei clienti in Azure.
 
 ### <a name="non-technical-business-requirements"></a>Non tecnici (requisiti aziendali)
 
--   La società (o la filiale) deve avere sede in uno dei paesi di origine della vendita supportati da Azure Marketplace.
-
--   Il prodotto deve essere concesso in licenza in modo da essere compatibile con i modelli di fatturazione supportati da Azure Marketplace.
-
--   L'utente ha la responsabilità di mettere a disposizione dei clienti il team di supporto in modo ragionevole da un punto di vista commerciale, sia esso gratuito, a pagamento o attraverso il supporto della community.
-
--   Il partner ha la responsabilità di concedere in licenza il software e le dipendenze da software di terze parti.
-
--   Offrire contenuti che soddisfino i criteri affinché l'offerta sia inserita su Azure Marketplace e nel portale di gestione di Azure.
-
--   Accettare le condizioni delle Politiche di partecipazione a Microsoft Azure Marketplace e del Contratto per gli editori.
-
--   Accettare le Condizioni per l'utilizzo del sito Web di Microsoft Azure, l'Informativa sulla privacy di Microsoft e il Contratto del Programma Microsoft Azure Certified.
+- La società (o la filiale) deve avere sede in uno dei paesi di origine della vendita supportati da Azure Marketplace.
+- Il prodotto deve essere concesso in licenza in modo da essere compatibile con i modelli di fatturazione supportati da Azure Marketplace.
+- L'utente ha la responsabilità di mettere a disposizione dei clienti il team di supporto in modo ragionevole da un punto di vista commerciale, sia esso gratuito, a pagamento o attraverso il supporto della community.
+- Il partner ha la responsabilità di concedere in licenza il software e le dipendenze da software di terze parti.
+- Offrire contenuti che soddisfino i criteri perché l'offerta sia inserita in Azure Marketplace e nel portale di Azure.
+- Accettare le condizioni delle Politiche di partecipazione a Microsoft Azure Marketplace e del Contratto per gli editori.
+- Accettare le Condizioni per l'utilizzo del sito Web di Microsoft Azure, l'Informativa sulla privacy di Microsoft e il Contratto del Programma Microsoft Azure Certified.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -101,7 +92,7 @@ Ogni vista contiene un set di campi da compilare. I campi obbligatori sono contr
 
     **ID offerta**
 
-     Un identificatore univoco dell'offerta in un profilo di pubblicazione. Questo ID è visibile negli URL dei prodotti, nei modelli ARM e nei report di fatturazione. È possibile usare solo caratteri alfanumerici minuscoli o trattini (-). L'ID non può terminare con un trattino e può contenere al massimo 50 caratteri. 
+     Identificatore univoco dell'offerta in un profilo di pubblicazione. Questo ID è visibile negli URL dei prodotti, nei modelli di Azure Resource Manager e nei report di fatturazione. Può essere composto solo da caratteri alfanumerici minuscoli o trattini (-). L'ID non può terminare con un trattino e può contenere al massimo 50 caratteri. 
     >[!Note]
     >Questo campo viene bloccato dopo la pubblicazione dell'offerta.
 
@@ -113,7 +104,7 @@ Ogni vista contiene un set di campi da compilare. I campi obbligatori sono contr
 
     **Nome**
 
-    Il nome visualizzato dell'offerta. Questo nome viene visualizzato su Azure Marketplace e nel portale di Azure. Può contenere massimo 50 caratteri. Seguire le istruzioni seguenti al momento di scegliere il nome dell'offerta:
+    Il nome visualizzato dell'offerta. Questo nome viene visualizzato in Azure Marketplace e nel portale di Azure. Può contenere massimo 50 caratteri. Seguire le istruzioni seguenti al momento di scegliere il nome dell'offerta:
     -  Includere un nome di marchio riconoscibile per il prodotto. 
     - Non includere il nome della società, a meno che non corrisponda al nome con cui l'offerta viene commercializzata.
     - Se l'offerta viene commercializzata sul proprio sito Web, assicurarsi che il nome sia identico al nome del sito Web.
@@ -128,7 +119,7 @@ per l'offerta.
 
     ![Nuovo SKU](./media/cloud-partner-portal-publish-managed-app/newOffer_skus.png)
 
-    L'ID SKU è l'identificatore univoco dello SKU in un'offerta. Questo ID è visibile negli URL dei prodotti, nei modelli ARM e nei report di fatturazione. L'ID SKU:
+    L'ID SKU è l'identificatore univoco dello SKU in un'offerta. Questo ID è visibile negli URL dei prodotti, nei modelli di Resource Manager e nei report di fatturazione. L'ID SKU:
     - Può essere composto da massimo 50 caratteri.
     - Può essere composto solo da caratteri alfanumerici minuscoli o trattini (-).
     - L'ID non può terminare con un trattino
@@ -146,14 +137,10 @@ per l'offerta.
 Specificare le impostazioni SKU seguenti.
 
 - **Titolo**: il titolo dello SKU. Questo titolo viene visualizzato nella raccolta di questo elemento.
-
 - **Riepilogo**: una breve descrizione di riepilogo dello SKU. (La lunghezza massima consentita è di 100 caratteri.)
-
 - **Descrizione**: descrizione dettagliata dello SKU.
-
 - **Tipo di SKU**: un elenco a discesa con i valori seguenti: "Applicazione gestita (anteprima)" e "Modello di soluzione". Per questo scenario, selezionare **Modello di soluzione**.
-
-- **Disponibilità del Cloud**: la posizione dello SKU. Il valore predefinito è Azure pubblico.
+- **Disponibilità del Cloud**: la posizione dello SKU. Il valore predefinito è **Azure pubblico**.
 
 ### <a name="package-details"></a>Dettagli del pacchetto
 
@@ -162,11 +149,8 @@ Dopo aver completato le impostazioni dello SKU, fornire i dettagli del pacchetto
 ![Dettagli del pacchetto](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
 - **Versione corrente**: la versione del pacchetto che verrà caricato. I tag di versione devono essere nel formato X.Y.Z, dove X, Y e Z sono numeri interi.
-
 - **File pacchetto**: pacchetto che contiene i file seguenti, salvati in un file ZIP.
-
     -   applianceMainTemplate.json: file del modello di distribuzione usato per distribuire la soluzione/applicazione e creare le risorse definite per la soluzione. Per altre informazioni, consultare [come creare i file del modello di distribuzione](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-
     -   createUIDefinition.json: questo file viene usato dal portale di Azure per generare l'interfaccia utente per il provisioning di questa soluzione/applicazione. Per altre informazioni, consultare [Creare l'interfaccia utente del portale di Azure per l'applicazione gestita](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
 
     >[!IMPORTANT]
@@ -182,7 +166,7 @@ Elenco di ID di sottoscrizione di Azure che devono avere accesso all'offerta dop
 
 ### <a name="suggested-categories"></a>Suggested Categories (Categorie suggerite)
 
-Nell'elenco fornito selezionare fino a 5 categorie con cui l'offerta può essere associata in modo ottimale. Le categorie selezionate saranno usate per il mapping dell'offerta alle categorie di prodotti disponibili in [Azure Marketplace](https://azuremarketplace.microsoft.com) e nel [portale di Azure](https://portal.azure.com/).
+Nell'elenco fornito selezionare fino a cinque categorie con cui l'offerta può essere associata in modo ottimale. Le categorie selezionate saranno usate per il mapping dell'offerta alle categorie di prodotti disponibili in [Azure Marketplace](https://azuremarketplace.microsoft.com) e nel [portale di Azure](https://portal.azure.com/).
 
 Gli esempi seguenti mostrano informazioni sul marketplace in Azure Marketplace e nel portale di Azure.
 
@@ -219,7 +203,7 @@ Seguire queste linee guida per qualsiasi logo caricato nel portale Cloud Partner
 
 -   Non usare uno sfondo sfumato sul logo.
 
--   Evitare di inserire testo sul logo. Incluso il nome della società o del marchio. L'aspetto del logo deve essere *semplice* e senza sfumature.
+-   Evitare di inserire testo sul logo. Questa indicazione include il nome della società o del marchio. L'aspetto del logo deve essere *semplice* e senza sfumature.
 
 -   Il logo non deve essere allungato.
 

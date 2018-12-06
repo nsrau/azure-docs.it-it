@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8b12e3cdc53b926f660e12b7cf4b79a8cb6f40c2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960158"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821515"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Risolvere un errore generale RDP in una VM di Azure
 
@@ -65,7 +65,7 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
 
 ### <a name="serial-console"></a>Console seriale
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Passaggio 1: Attivare il desktop remoto
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Passaggio 1: Aprire un'istanza di CMD nella console seriale
 
 1. Accedere alla [console seriale](serial-console-windows.md) selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)**. Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
 
@@ -156,7 +156,7 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
       ```
 
-7. Riavviare la VM.
+7. Riavviare la macchina virtuale.
 
 8. Uscire dall'istanza CMD digitando `exit` e quindi premere **INVIO** due volte.
 

@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: sajagtap
-ms.openlocfilehash: 161c7cd8bac07d5ffc138297d98a40317a8d88fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6e1fc08af1062ae8962ba33c6df980182175264b
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372948"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852147"
 ---
 # <a name="team-and-subteams"></a>Team e sottoteam #
 
@@ -58,6 +58,6 @@ Per assegnare una singola immagine a un sottoteam, fare clic sui puntini di sosp
 
 ## <a name="switch-between-subteams-to-review-assigned-content"></a>Passare da un sottoteam a un altro per la revisione del contenuto assegnato ##
 
-Se si è membri di uno o più sottoteam, è possibile passare da uno all'altro dal dashboard degli strumenti di revisione. Per visualizzare tutte le revisioni correnti in sospeso appartenenti a un sottoteam, selezionare Choose Subteam (Scegli sottoteam) nella scheda Image (Immagine).
+Se si è membri di uno o più sottoteam, è possibile passare da uno all'altro dal dashboard dello strumento di revisione. Per visualizzare tutte le revisioni correnti in sospeso appartenenti a un sottoteam, selezionare Choose Subteam (Scegli sottoteam) nella scheda Image (Immagine).
 
 ![Passare da un sottoteam a un altro](images/3-review-image-subteam-2.png)

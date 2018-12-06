@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: aba023667094fb00647861fb2dd300eda64e4897
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669958"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163172"
 ---
 # <a name="configure-storage"></a>Configurare l'archivio
 
@@ -48,15 +48,20 @@ Seguire questa procedura per aggiungere un core filer NAS:
 
 1. Nel pannello di controllo di Avere fare clic sulla scheda **Settings** (Impostazioni) nella parte superiore.
 
-2. Fare clic su **Core Filer** > **Manage Core Filers** (Gestisci core filer) a sinistra.
+1. Fare clic su **Core Filer** > **Manage Core Filers** (Gestisci core filer) a sinistra.
 
-3. Fare clic su **Create**(Crea).
+1. Fare clic su **Create**(Crea).
 
-   ![Screenshot della pagina di aggiunta core filer con il nome e il nome di dominio completo corrispondenti](media/avere-vfxt-add-core-filer.png)
+   ![Screenshot della pagina per l'aggiunta di un nuovo core filer con il puntatore sul pulsante Create (Crea)](media/avere-vfxt-add-core-filer-start.png)
+
+1. Immettere le informazioni richieste nella procedura guidata: 
 
    * Assegnare un nome al core filer.
    * Fornire un nome di dominio completo (FQDN), se disponibile. In alternativa, specificare un indirizzo IP o un nome host che viene risolto nel core filer.
    * Scegliere la classe del filer dall'elenco. In caso di dubbi, scegliere **Other** (Altro).
+
+     ![Screenshot della pagina di aggiunta core filer con il nome e il nome di dominio completo corrispondenti](media/avere-vfxt-add-core-filer.png)
+  
    * Fare clic su **Next** (Avanti) e scegliere i criteri della cache. 
    * Fare clic su **Add Filer** (Aggiungi filer).
    * Per informazioni più dettagliate, vedere [Adding a new NAS core filer](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) (Aggiunta di un nuovo core filer NAS) nella guida alle impostazioni del cluster Avere.

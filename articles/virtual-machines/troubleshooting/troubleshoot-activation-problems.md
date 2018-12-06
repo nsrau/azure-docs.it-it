@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 80799eb716e77a4dec02a2daf028c35589c75da0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235276"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824303"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -29,7 +29,7 @@ Se si verificano problemi durante l'attivazione della macchina virtuale (VM) Win
 Azure usa endpoint diversi per l'attivazione del servizio di gestione delle chiavi, a seconda dell'area del cloud in cui risiede la macchina virtuale. Quando si usa questa guida alla risoluzione dei problemi, usare l'endpoint del servizio di gestione delle chiavi appropriato applicabile alla propria area.
 
 * Aree del cloud pubblico di Azure: kms.core.windows.net:1688
-* Aree del cloud nazionale cinese di Azure: kms.core.chinacloudapi.cn:1688
+* Aree del cloud nazionale cinese 21Vianet di Azure: kms.core.chinacloudapi.cn:1688
 * Aree del cloud nazionale tedesco di Azure: kms.core.cloudapi.de:1688
 * Aree del cloud nazionale US Gov di Azure: kms.core.usgovcloudapi.net:1688
 
@@ -84,8 +84,7 @@ Questo passaggio non si applica a Windows 2012 o Windows 2008 R2. Usa la funzion
 3. Verificare che la VM sia configurata per usare il server di gestione delle chiavi di Azure corretto. A tale scopo, usare il comando seguente:
   
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     Il comando restituirà: nome del computer del Servizio di gestione delle chiavi impostato su kms.core.windows.net:1688.
 
@@ -117,7 +116,7 @@ Un'attivazione corretta restituisce informazioni simili alle seguenti:
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Windows Server 2016 è stato creato da Azure Marketplace. È necessario configurare una chiave del servizio di gestione delle chiavi per attivare Windows Server 2016? 
  
-No. L'immagine in Azure Marketplace ha la chiave di configurazione del client del Servizio di gestione delle chiavi appropriata già configurata. 
+ No. L'immagine in Azure Marketplace ha la chiave di configurazione del client del Servizio di gestione delle chiavi appropriata già configurata. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>L'attivazione di Windows funziona allo stesso modo indipendentemente dal fatto che la VM usi il vantaggio Azure Hybrid Use o meno? 
  

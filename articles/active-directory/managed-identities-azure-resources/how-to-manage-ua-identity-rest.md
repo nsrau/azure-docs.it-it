@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 4bf77cd34ba985dfcfa568db0543150c0510c406
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 86d2f013567d768437e589df366c5c131e1bcf50
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300099"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421913"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante chiamate dell'API REST
 
@@ -44,8 +44,6 @@ Questo articolo spiega come creare, elencare ed eliminare un'identità gestita a
 
 Per creare un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Collaboratore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
-Per creare un'identità gestita assegnata dall'utente, usare la seguente richiesta CURL all'API di Azure Resource Manager. Sostituire i valori `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`, `<LOCATION>` e `<ACCESS TOKEN>` con valori personalizzati:
-
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```bash
@@ -54,31 +52,61 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
+s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+
+**Intestazioni della richiesta**
+
+|Intestazione della richiesta  |DESCRIZIONE  |
+|---------|---------|
+|*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
+
+**Corpo della richiesta**
+
+|NOME  |DESCRIZIONE  |
+|---------|---------|
+|location     | Richiesto. Percorso della risorsa.        |
+
 ## <a name="list-user-assigned-managed-identities"></a>Elencare le identità gestite assegnate dall'utente
 
 Per elencare/leggere un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Operatore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-operator) o [Collaboratore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
-Per elencare le identità gestite assegnate dall'utente, usare la seguente richiesta CURL all'API di Azure Resource Manager. Sostituire i valori `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<ACCESS TOKEN>` con valori personalizzati:
-
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
+
+```HTTP
+GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
+```
+
+|Intestazione della richiesta  |DESCRIZIONE  |
+|---------|---------|
+|*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
+
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminare un'identità gestita assegnata dall'utente
 
 Per eliminare un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Collaboratore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
-Per eliminare un'identità gestita assegnata dall'utente, usare la seguente richiesta CURL all'API di Azure Resource Manager. Sostituire i valori dei parametri `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<ACCESS TOKEN>` con valori personalizzati:
-
 > [!NOTE]
-> L'eliminazione di un'identità gestita assegnata dall'utente non eliminerà il riferimento proveniente da qualunque risorsa a cui è stato assegnato. Per eliminare un'identità gestita assegnata dall'utente da una macchina virtuale mediante CURL, vedere [Rimuovere un'identità assegnata dall'utente da una macchina virtuale di Azure](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
+> L'eliminazione di un'identità gestita assegnata dall'utente non eliminerà il riferimento proveniente da qualunque risorsa a cui è stato assegnato. Per rimuovere un'identità gestita assegnata dall'utente da una macchina virtuale mediante CURL, vedere [Rimuovere un'identità gestita assegnata dall'utente da una macchina virtuale](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview' -X DELETE -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+|Intestazione della richiesta  |DESCRIZIONE  |
+|---------|---------|
+|*Content-Type*     | Richiesto. Impostare su `application/json`.        |
+|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come assegnare un'identità gestita assegnata dall'utente a una VM/VMSS di Azure usando CURL, vedere [Configure managed identities for Azure resources on an Azure VM using REST API calls](qs-configure-rest-vm.md#user-assigned-managed-identity) (Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure mediante chiamate dell'API REST) e [Configure managed identities for Azure resources on a virtual machine scale set using REST API calls](qs-configure-rest-vmss.md#user-assigned-managed-identity) (Configurare le identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali mediante chiamate dell'API REST).
-
-

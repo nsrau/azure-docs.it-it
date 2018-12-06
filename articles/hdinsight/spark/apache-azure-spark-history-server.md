@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042364"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497263"
 ---
-# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usare il Server cronologia Spark esteso per il debug e la diagnosi di applicazioni Spark
+# <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il Server cronologia Apache Spark esteso per il debug e la diagnosi di applicazioni Apache Spark
 
-Questo articolo illustra come usare il Server cronologia Spark esteso per il debug e la diagnosi di applicazioni Spark completate e in esecuzione. L'estensione include una scheda dati, una scheda del grafo e una scheda diagnosi. Nella scheda **Dati** gli utenti possono controllare i dati di input e output del processo Spark. Nella scheda **Grafo** gli utenti possono controllare il flusso di dati e riprodurre il grafico del processo. Nella scheda **Diagnosi** l'utente può fare riferimento ad **Asimmetria dei dati**, **Sfasamento dell'ora** ed **Executor Usage Analysis** (Analisi utilizzo executor).
+Questo articolo illustra come usare il Server cronologia Apache Spark esteso per il debug e la diagnosi di applicazioni Spark completate e in esecuzione. L'estensione include una scheda dati, una scheda del grafo e una scheda diagnosi. Nella scheda **Dati** gli utenti possono controllare i dati di input e output del processo Spark. Nella scheda **Grafo** gli utenti possono controllare il flusso di dati e riprodurre il grafico del processo. Nella scheda **Diagnosi** l'utente può fare riferimento ad **Asimmetria dei dati**, **Sfasamento dell'ora** ed **Executor Usage Analysis** (Analisi utilizzo executor).
 
-## <a name="get-access-to-spark-history-server"></a>Ottenere l'accesso al Server cronologia Spark
+## <a name="get-access-to-apache-spark-history-server"></a>Ottenere l'accesso al Server cronologia Apache Spark
 
-Server cronologia Spark è l'interfaccia utente Web per le applicazioni Spark completate e in esecuzione. 
+Server cronologia Apache Spark è l'interfaccia utente Web per le applicazioni Spark completate e in esecuzione. 
 
-### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Aprire l'interfaccia utente Web di Server cronologia Spark dal portale di Azure
+### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Aprire l'interfaccia utente Web di Server cronologia Apache Spark dal portale di Azure
 
 1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. In **Collegamenti rapidi** fare clic su **Dashboard cluster** e quindi su **Server cronologia Spark**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark. 
@@ -87,7 +87,7 @@ Selezionare l'ID di processo, quindi fare clic su **Data** (Dati) nel menu degli
     ![Feedback nella scheda grafico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="graph-tab-in-spark-history-server"></a>Scheda del grafo nel Server cronologia Spark
+## <a name="graph-tab-in-apache-spark-history-server"></a>Scheda del grafo nel Server cronologia Apache Spark
 Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu degli strumenti per ottenere la visualizzazione del grafico del processo.
 
 + Controllare la panoramica del processo tramite il grafico del processo generato. 
@@ -158,7 +158,7 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
     ![Feedback nella scheda grafico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="diagnosis-tab-in-spark-history-server"></a>Scheda della diagnosi nel Server cronologia Spark
+## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Scheda della diagnosi nel Server cronologia Apache Spark
 Selezionare l'ID di processo, quindi fare clic su **Diagnosi** nel menu degli strumenti per ottenere la visualizzazione della diagnosi del processo. La scheda della diagnosi include **Asimmetria dei dati**, **Sfasamento dell'ora** ed **Executor Usage Analysis** (Analisi utilizzo executor).
     
 + Controllare **Asimmetria dei dati**, **Sfasamento dell'ora** ed **Executor Usage Analysis** (Analisi utilizzo executor) selezionando le rispettive schede.
@@ -326,8 +326,8 @@ Se si vuole eseguire l'aggiornamento tramite hotfix, usare lo script seguente pe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Gestire le risorse del cluster Spark in HDInsight](apache-spark-resource-manager.md)
-* [Configurare le impostazioni di Spark](apache-spark-settings.md)
+* [Gestire le risorse di un cluster Apache Spark in HDInsight](apache-spark-resource-manager.md)
+* [Configurare le impostazioni di Apache Spark](apache-spark-settings.md)
 
 
 ## <a name="contact-us"></a>Contatti

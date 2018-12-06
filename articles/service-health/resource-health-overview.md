@@ -3,7 +3,7 @@ title: Panoramica di Integrità risorse di Azure | Microsoft Docs
 description: Panoramica su Integrità risorse di Azure
 services: Resource health
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shawn.tabrizi
-ms.openlocfilehash: 99e996f182aac774f2e2565d87fd0debaba1b2d1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 11/16/2018
+ms.author: stbaron
+ms.openlocfilehash: f5e059c4ce375edb50321afb772cce400cb19b92
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263123"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309430"
 ---
 # <a name="azure-resource-health-overview"></a>Panoramica di Integrità risorse di Azure
  

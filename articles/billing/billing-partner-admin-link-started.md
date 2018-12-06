@@ -3,6 +3,7 @@ title: Collegare account Azure all'ID partner | Microsoft Docs
 description: Tenere traccia degli accordi con i clienti Azure tramite il collegamento dell'ID partner all'account utente usato per gestire le risorse del cliente.
 services: billing
 author: dhirajgandhi
+manager: dhgandhi
 ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
@@ -10,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686995"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274180"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Collegare l'ID partner agli account Azure
 
@@ -43,7 +44,7 @@ Quando si ha accesso alle risorse del cliente, usare il portale di Azure, PowerS
 
 2. Accedere al portale di Azure.
 
-3. Immettere l'ID partner Microsoft. L'ID partner è l'ID [Microsoft Partner Network (MPN)](https://partner.microsoft.com/) dell'organizzazione.
+3. Immettere l'ID partner Microsoft. L'ID partner è l'ID [MPN (Microsoft Partner Network)](https://partner.microsoft.com/) dell'organizzazione.
 
   ![Schermata che mostra l'ID partner del collegamento](./media/billing-link-partner-id/link-partner-ID.PNG)
 
@@ -124,7 +125,7 @@ Partecipare alla discussione [Community Partner Microsoft](https://aka.ms/PALdis
 
 **Chi può collegare l'ID partner?**
 
-Tutti gli utenti dell'organizzazione partner che gestiscono le risorse del cliente possono collegare l'ID partner all'account.
+Tutti gli utenti dell'organizzazione partner che gestiscono le risorse di Azure del cliente possono collegare l'ID partner all'account.
 
 **Dopo aver collegato un ID partner è possibile modificarlo?**
 

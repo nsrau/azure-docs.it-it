@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 70096c8f3a5c07fa757b68494c04519b63435dcd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166895"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977098"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Usare il log di diagnostica delle prestazioni del database SQL di Azure generato da Intelligent Insights
 
@@ -39,9 +39,7 @@ L'intestazione del log è comune ed è costituita dal timestamp (TimeGenerated) 
 
 ## <a name="issue-id-and-database-affected"></a>ID del problema e database interessato
 
-La proprietà relativa all'identificazione del problema (issueId_d) rappresenta un modo per tenere traccia in modo univoco dei problemi di prestazioni fino a quando non vengono risolti. Intelligent Insights osserva il ciclo di vita di ogni problema: "Attivo", "Verifica in corso" e "Completato". Grazie a ognuna di queste fasi di stato, Intelligent Insights è in grado di registrare più record di eventi nel log. Per ognuna di queste voci il numero ID del problema rimane univoco. Intelligent Insights tiene traccia del problema durante tutto il ciclo di vita e genera informazioni dettagliate nel log di diagnostica ogni 15 minuti.
-
-Quando viene rilevato un problema di prestazioni e fino a quando non viene risolto, il problema viene segnalato come "Attivo" nella proprietà relativa allo stato (status_s). Dopo che il problema è stato attenuato, viene verificato e segnalato come "Verifica in corso" nella proprietà relativa allo stato (status_s). Se il problema viene risolto, la proprietà relativa allo stato (status_s) segnala il problema come "Completato".
+La proprietà relativa all'identificazione del problema (issueId_d) rappresenta un modo per tenere traccia in modo univoco dei problemi di prestazioni fino a quando non vengono risolti. Più record di eventi nel log che segnalano lo stato dello stesso problema condividono lo stesso ID del problema.
 
 Insieme all'ID del problema, il log di diagnostica segnala i timestamp di inizio (intervalStartTime_t) e di fine (intervalEndTme_t) dell'evento specifico correlato a un problema segnalato nel log di diagnostica.
 

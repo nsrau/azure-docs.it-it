@@ -2,25 +2,21 @@
 title: Comprendere i connettori del proxy applicazione Azure AD | Microsoft Docs
 description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: dce9c26d9f836a2238642521be4d88ba089058d7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036038"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445959"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -32,7 +28,24 @@ I connettori sono agenti semplici che si trovano a livello locale e facilitano l
 
 ## <a name="requirements-and-deployment"></a>Requisiti e distribuzione
 
-Per distribuire correttamente il proxy di applicazione, è necessario almeno un connettore, ma sono consigliati due o più connettori per assicurare maggiore resilienza. Installare il connettore in computer con Windows Server 2012 R2 o 2016. Il connettore deve poter comunicare con il servizio proxy di applicazione e con le applicazioni locali che vengono pubblicate. Il proxy di applicazione richiede anche che TLS 1.2 sia in esecuzione nel sistema operativo sottostante. Per passare a TLS 1.2, seguire i passaggi descritti in [Abilitare TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Mentre il contenuto è per Azure AD Connect, questa procedura è la stessa per tutti i client .NET.
+Per distribuire correttamente il proxy di applicazione, è necessario almeno un connettore, ma sono consigliati due o più connettori per assicurare maggiore resilienza. Installare il connettore in computer con Windows Server 2012 R2 o 2016. Il connettore deve poter comunicare con il servizio proxy di applicazione e con le applicazioni locali che vengono pubblicate. 
+
+### <a name="windows-server"></a>Windows Server
+È necessario un server che esegue Windows Server 2012 R2 o versione successiva in cui poter installare il connettore del proxy applicazione. Questo server deve connettersi ai servizi proxy applicazione in Azure e alle applicazioni locali che vengono pubblicate.
+
+È necessario abilitare TLS 1.2 per Windows Server prima di installare il connettore del proxy applicazione. I connettori esistenti con versioni precedenti a 1.5.612.0 continueranno a funzionare nelle versioni precedenti di TLS fino a ulteriore comunicazione. Per abilitare TLS 1.2:
+
+1. Impostare le chiavi del Registro di sistema seguenti:
+    
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. Riavviare il server
+
 
 Per ulteriori informazioni sui requisiti di rete per il server del connettore, vedere [Introduzione al proxy dell'applicazione e installazione di un connettore](application-proxy-enable.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: df049a87763f3aae8da2db153f876b88ed39b988
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: cb3584101dea4dc8d8d888632175415480a6a1b3
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47390239"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581529"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Controllare l'uso dei servizi gratuiti inclusi con l'account gratuito di Azure 
 
@@ -68,7 +68,6 @@ Il file di dati di utilizzo contiene informazioni sui dati di utilizzo per i ser
 
 ![Screenshot che mostra l'uso dei servizi gratuiti](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
-
-Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

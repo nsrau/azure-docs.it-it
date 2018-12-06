@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: d037c4fc65bc32ff183ddc7a8925cd2f51411ea0
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 41b9d295837d377df98208d43c9cd4699f380b86
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034627"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494377"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analizzare i dati di Twitter mediante Apache Hive e Apache Hadoop in HDInsight
 
-Informazioni su come usare Apache Hive per elaborare i dati di Twitter. Il risultato è un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
+Informazioni su come usare [Apache Hive](https://hive.apache.org/) per elaborare i dati di Twitter. Il risultato è un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
 
 > [!IMPORTANT]
 > I passaggi descritti in questo documento sono stati testati in HDInsight 3.6.
@@ -39,8 +39,8 @@ Twitter consente di recuperare i dati relativi ad ogni tweet come documento JSON
 
    | Campo | Valore |
    |:--- |:--- |
-   | Name |MyHDInsightApp |
-   | Description |MyHDInsightApp |
+   | NOME |MyHDInsightApp |
+   | DESCRIZIONE |MyHDInsightApp |
    | Website |http://www.myhdinsightapp.com |
 
 4. Fare clic su **Yes, I agree** e su **Create your Twitter application**.
@@ -156,7 +156,7 @@ Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvar
     > [!TIP]
     > Modificare il filtro di argomenti nell'ultima riga per tenere traccia delle parole chiave comuni. L'uso delle parole chiave più diffuse al momento dell'esecuzione dello script consente di acquisire più velocemente i dati.
 
-6. Usare **CTRL + X**, quindi premere **Y** per salvare il file.
+6. Usare **Ctrl + X**, quindi premere **Y** per salvare il file.
 
 7. Usare il comando seguente per aprire il file e scaricare i tweet:
 
@@ -167,7 +167,7 @@ Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvar
     Viene visualizzato un indicatore di stato che mostra un valore fino al 100% mentre vengono scaricati i tweet.
 
    > [!NOTE]
-   > Se l'indicatore di stato impiega molto tempo per avanzare, è necessario modificare il filtro per monitorare gli argomenti di tendenza. Quando sono presenti molti tweet relativi all'argomento del filtro, è possibile ottenere rapidamente i 10.000 tweet necessari.
+   > Se l'indicatore di stato impiega molto tempo per avanzare, è necessario modificare il filtro per monitorare gli argomenti di tendenza. Quando sono presenti molti tweet relativi all'argomento del filtro, è possibile ottenere rapidamente i 10000 tweet necessari.
 
 ### <a name="upload-the-data"></a>Caricare i dati
 
@@ -182,7 +182,7 @@ Questi comandi archiviano i dati in un percorso accessibile a tutti i nodi del c
 
 ## <a name="run-the-hiveql-job"></a>Eseguire il processo di HiveQL
 
-1. Usare il comando seguente per creare un file contenente istruzioni HiveQL:
+1. Usare il comando seguente per creare un file contenente istruzioni [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual):
 
    ```bash
    nano twitter.hql
@@ -296,7 +296,7 @@ Questi comandi archiviano i dati in un percorso accessibile a tutti i nodi del c
    WHERE (length(json_response) > 500);
    ```
 
-2. Premere **CTRL + X**, quindi **Y** per salvare il file.
+2. Premere **Ctrl + X**, quindi **Y** per salvare il file.
 3. Usare il comando riportato di seguito per eseguire lo script HiveQL contenuto nel file:
 
    ```bash
@@ -322,7 +322,7 @@ Questi comandi archiviano i dati in un percorso accessibile a tutti i nodi del c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Si è appreso come trasformare un set di dati JSON non strutturato in una tabella Hive strutturata. Per altre informazioni su Hive in HDInsight, vedere i documenti seguenti:
+Si è appreso come trasformare un set di dati JSON non strutturato in una tabella [Apache Hive](https://hive.apache.org/) strutturata. Per altre informazioni su Hive in HDInsight, vedere i documenti seguenti:
 
 * [Introduzione all'uso di HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analizzare i dati sui ritardi dei voli con HDInsight](hdinsight-analyze-flight-delay-data-linux.md)

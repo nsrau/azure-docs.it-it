@@ -4,18 +4,18 @@ description: Questo articolo illustra in che modo un amministratore può aggiung
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
-ms.date: 07/10/2018
+ms.topic: conceptual
+ms.date: 11/26/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: f654aaa6d44011a089008558849d37bf6cdfa6f6
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.reviewer: mal
+ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037225"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335062"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure
 
@@ -40,6 +40,9 @@ Per aggiungere utenti di Collaborazione B2B alla directory, seguire questa proce
 5. In **Nome utente** immettere l'indirizzo di posta elettronica dell'utente esterno. Se si vuole, includere un messaggio di benvenuto. Ad esempio: 
 
    ![Mostra la posizione dell'opzione Nuovo utente guest nell'interfaccia utente](./media/add-users-administrator/InviteGuest.png) 
+
+    > [!NOTE]
+    > Alcuni provider di posta elettronica consentono agli utenti di aggiungere il simbolo più (+) e il testo aggiuntivo per i relativi indirizzi di posta elettronica per consentire operazioni, come il filtraggio della posta in arrivo. Tuttavia, Azure AD attualmente non supporta più simboli in indirizzi di posta elettronica. Per evitare problemi di recapito, omettere il simbolo di segno più e tutti i caratteri seguenti fino al simbolo @.
 
 6. Selezionare **Invita** per inviare automaticamente l'invito all'utente guest. 
  
@@ -80,11 +83,11 @@ Per aggiungere utenti di Collaborazione B2B a un'applicazione come amministrator
 7. In **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
 8. Eseguire una di queste operazioni:
    - Se l'utente guest esiste già nella directory, cercare l'utente B2B. Selezionare l'utente, fare clic su **Seleziona** e quindi fare clic su **Assegna** per aggiungere l'utente all'app.
-   - Se l'utente guest non esiste già nella directory, selezionare **Invita**.
+   - Se l'utente guest non è già presente nella directory, in **Selezionare un membro o invitare un utente esterno** digitare l'indirizzo di posta elettronica dell'utente. Nella finestra di messaggio digitare un messaggio personale facoltativo. Nella finestra di messaggio fare clic su **Invita**.
            
        ![Pulsante Invita per aggiungere membri guest](./media/add-users-administrator/AppInviteUsers.png)
    
-      In **Invitare un utente guest** immettere l'indirizzo di posta elettronica, digitare un messaggio personale facoltativo e quindi selezionare **Invita**. Fare clic su **Seleziona** e quindi fare clic su **Assegna** per aggiungere l'utente all'app. L'invito viene inviato automaticamente all'utente invitato.
+      Fare clic su **Seleziona** e quindi fare clic su **Assegna** per aggiungere l'utente all'app. L'invito viene inviato automaticamente all'utente invitato.
 
 9. L'utente guest viene visualizzato nell'elenco **Utenti e gruppi** dell'applicazione con il ruolo assegnato di **Accesso predefinito**. Per modificare il ruolo, eseguire le operazioni seguenti:
    - Selezionare l'utente guest e quindi selezionare **Modifica**. 

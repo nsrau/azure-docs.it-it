@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/26/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016047"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311807"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 ## <a name="overview"></a>Panoramica ##
@@ -76,6 +76,8 @@ Un gruppo di azioni può contenere fino a 1000 azioni di posta elettronica. Vede
 **ITSM**: un gruppo di azioni può contenere fino a 10 azioni di tipo ITSM. Per un'azione ITSM è necessaria una connessione ITSM. Informazioni su come creare una [connessione ITSM](../log-analytics/log-analytics-itsmc-overview.md).
 
 **App per la logica**: un gruppo di azioni può contenere fino a 10 azioni di tipo App per la logica.
+
+**App per le funzioni**: le chiavi delle funzioni per le app per le funzioni configurate come azioni vengono lette tramite l'API di Funzioni, che attualmente richiede che le app per le funzioni v2 configurino l'impostazione dell'app "AzureWebJobsSecretStorageType" su "files". Vedere [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets) (Modifiche alla gestione delle chiavi in Funzioni v2) per altre informazioni.
 
 **Runbook**: un gruppo di azioni può contenere fino a 10 azioni di tipo Runbook. Per informazioni sui limiti per i payload di Runbook, vedere i [limiti dei servizi di sottoscrizione di Azure](../azure-subscription-service-limits.md).
 

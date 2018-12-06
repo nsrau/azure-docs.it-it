@@ -1,10 +1,11 @@
 ---
-title: Creazione di endpoint del servizio Web in Machine Learning | Documentazione Microsoft
+title: Creazione di endpoint del servizio Web in Machine Learning - Azure Machine Learning Studio | Microsoft Docs
 description: Creazione di endpoint del servizio Web in Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
@@ -15,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 8cdf8c5ac3676d8abc9084fc842484aca5b6d1c7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833547"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314014"
 ---
-# <a name="creating-endpoints"></a>Creazione di endpoint
+# <a name="creating-endpoints"></a>Creazione di endpoint 
 > [!NOTE]
 >  Questo argomento descrive le tecniche applicabili a un servizio Web di Machine Learning **classico**.
 > 
@@ -30,7 +31,7 @@ ms.locfileid: "34833547"
 
 Quando si creano servizi Web da vendere ai propri clienti, è necessario fornire dei modelli con training per ogni cliente che sono ancora collegati all'esperimento da cui è stato creato il servizio Web. Inoltre, qualsiasi aggiornamento all'esperimento deve essere applicato in maniera selettiva a un endpoint, senza sovrascrivere le personalizzazioni.
 
-Per farlo, Azure Machine Learning consente di creare più endpoint per un servizio Web distribuito. Ciascun endpoint nel servizio Web viene indirizzato, limitato e gestito in maniera indipendente. Ciascun endpoint rappresnta un URL univoco e una chiave di autorizzazione che è possibile distribuire ai clienti.
+A questo scopo, Azure Machine Learning Studio consente di creare più endpoint per un servizio Web distribuito. Ciascun endpoint nel servizio Web viene indirizzato, limitato e gestito in maniera indipendente. Ciascun endpoint rappresnta un URL univoco e una chiave di autorizzazione che è possibile distribuire ai clienti.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6d1a0e66cff415d25e7019e163e5ae42be205888
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cd1d143151e61c7c767ffdc4acb172b06dd0e43
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197670"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585733"
 ---
-| **SKU** | **Connessioni P2S**| **Benchmark della velocità effettiva aggregata** | **Autenticazione RADIUS** | **VPN da punto a sito IKEv2** |
-|---|---|---|---| --- |
-| VpnGw1 | 128 | 650 Mbps  | Supportato     | Supportato |
-| VpnGw2 | 128 | 1 Gbps     | Supportato     | Supportato |
-| VpnGw3 | 128 | 1,25 Gbps | Supportato     | Supportato |
-| Basic  | 128 | 100 Mbps  | Non supportato | Non supportato |
+|**SKU**   | **Tunnel S2S/<br>rete virtuale-rete virtuale** | **P2S<br> Connessioni SSTP** | **P2S<br> Connessioni IKEv2** | **Benchmark<br>velocità effettiva aggregata** |
+|---       | ---        | ---       | ---            | ---       |
+|**VpnGw1**| Max 30   | Max 128  | Max 250       | 650 Mbps  |
+|**VpnGw2**| Max 30  | Max 128  | Max 500       | 1 Gbps    |
+|**VpnGw3**| Max 30   | Max 128  | Max 1000      | 1,25 Gbps |
+|**Basic** | Max 10    | Max 128  | Non supportato  | 100 Mbps  | 

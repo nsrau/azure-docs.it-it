@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/01/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e7204c223681b9a33c439b0d9fc653167422384a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011698"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291216"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurare gli avvisi di sicurezza per i ruoli della directory di Azure AD in PIM
 
@@ -34,43 +34,62 @@ Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli della directory,
 * **Media**: non richiede un'azione immediata ma segnala una potenziale violazione dei criteri.
 * **Bassa**: non richiede un'azione immediata ma suggerisce una modifica dei criteri.
 
-### <a name="roles-are-being-assigned-outside-of-pim"></a>È in corso l'assegnazione di ruoli all'esterno di PIM
+### <a name="administrators-arent-using-their-privileged-roles"></a>Gli amministratori non usano i ruoli con privilegi
 
 | | |
 | --- | --- |
-| **Gravità** | Elevata |
-| **Perché viene visualizzato questo avviso?** | Le assegnazioni di ruoli con privilegi eseguite all'esterno di PIM non vengono monitorate in modo corretto e possono essere indicative di un attacco in corso. |
-| **Come correggerlo?** | Esaminare gli utenti nell'elenco e rimuoverli dai ruoli con privilegi assegnati all'esterno di PIM. |
-| **Prevenzione** | Analizzare la posizione in cui vengono assegnati ruoli con privilegi all'esterno di PIM e impedire assegnazioni future da tale posizione. |
+| **Severity** | Basso |
+| **Perché viene visualizzato questo avviso?** | Se sono presenti utenti a cui sono stati assegnati ruoli con privilegi non necessari, le probabilità di un attacco aumentano. Inoltre, gli utenti malintenzionati possono passare più facilmente inosservati in account che non sono attivamente in uso. |
+| **Come correggerlo?** | Esaminare gli utenti nell'elenco e rimuoverli dai ruoli con privilegi di cui non hanno bisogno. |
+| **Prevenzione** | Assegnare ruoli con privilegi solo agli utenti che hanno una motivazione aziendale. </br>Pianificare [verifiche di accesso](pim-how-to-start-security-review.md) regolari per determinare se gli utenti hanno ancora bisogno dell'accesso. |
 | **Azione di mitigazione nel portale** | Rimuove l'account dal ruolo con privilegi. |
+| **Trigger** | L'avviso viene attivato se un utente fa trascorrere una certa quantità di tempo senza attivare un ruolo. |
+| **Numero di giorni** | Questa impostazione specifica il numero di giorni, da 0 a 100, che possono trascorrere senza che un utente attivi un ruolo.|
+
+### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>I ruoli non richiedono l'autenticazione a più fattori per l'attivazione
+
+| | |
+| --- | --- |
+| **Severity** | Basso |
+| **Perché viene visualizzato questo avviso?** | Senza l'autenticazione a più fattori, gli utenti compromessi possono attivare ruoli con privilegi. |
+| **Come correggerlo?** | Esaminare l'elenco dei ruoli e [richiedere l'autenticazione a più fattori](pim-how-to-change-default-settings.md) per ogni ruolo. |
+| **Prevenzione** | [Richiedere l'autenticazione a più fattori](pim-how-to-change-default-settings.md) per ogni ruolo.  |
+| **Azione di mitigazione nel portale** | Rende obbligatoria l'autenticazione a più fattori per l'attivazione del ruolo con privilegi. |
+
+### <a name="the-tenant-doesnt-have-azure-ad-premium-p2"></a>Il tenant non ha Azure AD Premium P2
+
+| | |
+| --- | --- |
+| **Severity** | Basso |
+| **Perché viene visualizzato questo avviso?** | Il tenant corrente non ha Azure AD Premium P2. |
+| **Come correggerlo?** | Esaminare le informazioni sulle [edizioni di Azure AD](../fundamentals/active-directory-whatis.md). Eseguire l'aggiornamento ad Azure AD Premium P2. |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>Possibili account non aggiornati in un ruolo con privilegi
 
 | | |
 | --- | --- |
-| **Gravità** | Media |
+| **Severity** | Media |
 | **Perché viene visualizzato questo avviso?** | Gli account per cui non è stata cambiata la password di recente possono essere account di servizio o condivisi che non sono gestiti. Questi account nei ruoli con privilegi sono vulnerabili ad attacchi. |
 | **Come correggerlo?** | Esaminare gli account nell'elenco. Se l'accesso non è più necessario, rimuovere gli account dai ruoli con privilegi. |
-| **Prevenzione** | Assicurarsi che per gli account condivisi venga eseguita la rotazione di password complesse quando cambiano gli utenti che conoscono la password. </br>Esaminare regolarmente gli account nei ruoli con privilegi usando le verifiche di accesso e rimuovere le assegnazioni di ruolo che non sono più necessarie. |
+| **Prevenzione** | Assicurarsi che per gli account condivisi venga eseguita la rotazione di password complesse quando cambiano gli utenti che conoscono la password. </br>Esaminare regolarmente gli account con ruoli con privilegi usando le [verifiche di accesso](pim-how-to-start-security-review.md) e rimuovere le assegnazioni di ruolo che non sono più necessarie. |
 | **Azione di mitigazione nel portale** | Rimuove l'account dal ruolo con privilegi. |
+| **Procedure consigliate** | Gli account condivisi, di servizio e di accesso di emergenza che eseguono l'autenticazione usando una password e sono assegnati a ruoli amministrativi con privilegi elevati, come amministratore globale o amministratore della sicurezza, richiedono la rotazione della password nei casi seguenti:<ul><li>Dopo un evento imprevisto per la sicurezza che comporta l'uso improprio o la violazione dei diritti di accesso amministrativo</li><li>Dopo la modifica dei privilegi di un utente in seguito alla quale l'utente non è più amministratore (ad esempio, dopo che un dipendente che era amministratore lascia il team IT o l'organizzazione)</li><li>A intervalli regolari (ad esempio, trimestralmente o annualmente), anche se non si è verificata alcuna violazione nota o modifica del personale IT</li></ul>Poiché più utenti hanno accesso alle credenziali di questi account, le credenziali devono essere ruotate per garantire che le persone che hanno lasciato i propri ruoli non possano più accedere all'account. [Altre informazioni](https://aka.ms/breakglass) |
 
-### <a name="users-arent-using-their-privileged-roles"></a>Gli utenti non usano i propri ruoli con privilegi
+### <a name="roles-are-being-assigned-outside-of-pim"></a>È in corso l'assegnazione di ruoli all'esterno di PIM
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
-| **Perché viene visualizzato questo avviso?** | Se sono presenti utenti a cui sono stati assegnati ruoli con privilegi non necessari, le probabilità di un attacco aumentano. Inoltre, gli utenti malintenzionati possono passare più facilmente inosservati in account che non sono attivamente in uso. |
-| **Come correggerlo?** | Esaminare gli utenti nell'elenco e rimuoverli dai ruoli con privilegi di cui non hanno bisogno. |
-| **Prevenzione** | Assegnare ruoli con privilegi solo agli utenti che hanno una motivazione aziendale. </br>Pianificare verifiche di accesso regolari per determinare se gli utenti hanno ancora bisogno dell'accesso. |
+| **Severity** | Alto |
+| **Perché viene visualizzato questo avviso?** | Le assegnazioni di ruoli con privilegi eseguite all'esterno di PIM non vengono monitorate in modo corretto e possono essere indicative di un attacco in corso. |
+| **Come correggerlo?** | Esaminare gli utenti nell'elenco e rimuoverli dai ruoli con privilegi assegnati all'esterno di PIM. |
+| **Prevenzione** | Analizzare la posizione in cui vengono assegnati ruoli con privilegi all'esterno di PIM e impedire assegnazioni future da tale posizione. |
 | **Azione di mitigazione nel portale** | Rimuove l'account dal ruolo con privilegi. |
-| **Trigger** | L'avviso viene attivato se un utente fa trascorrere una certa quantità di tempo senza attivare un ruolo. |
-| **Numero di giorni** | Questa impostazione specifica il numero di giorni, da 0 a 100, che possono trascorrere senza che un utente attivi un ruolo.|
 
 ### <a name="there-are-too-many-global-administrators"></a>Il numero di amministratori globali presenti è eccessivo
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | Amministratore globale è il ruolo con privilegi più elevato. Se un amministratore globale è compromesso, l'utente malintenzionato ottiene l'accesso a tutte le relative autorizzazioni, ponendo così a rischio l'intero sistema. |
 | **Come correggerlo?** | Esaminare gli utenti nell'elenco e rimuovere quelli per cui non è assolutamente necessario il ruolo di amministratore globale. </br>Assegnare ruoli con privilegi più bassi a tali utenti. |
 | **Prevenzione** | Assegnare agli utenti il ruolo con privilegi minimo di cui hanno bisogno. |
@@ -83,7 +102,7 @@ Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli della directory,
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'attivazione ripetuta dello stesso ruolo con privilegi da parte dello stesso utente è indicativa di un attacco. |
 | **Come correggerlo?** | Esaminare gli utenti nell'elenco e verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività. |
 | **Prevenzione** | Verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività.</br>[Richiedere l'autenticazione a più fattori](pim-how-to-change-default-settings.md) per i ruoli con privilegi che dispongono di account condivisi da più amministratori. |
@@ -91,16 +110,6 @@ Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli della directory,
 | **Trigger** | Questo avviso viene attivato se un utente attiva lo stesso ruolo con privilegi più volte entro l'intervallo di tempo specificato. È possibile configurare il periodo di tempo e il numero di attivazioni. |
 | **Intervallo di tempo per il rinnovo delle attivazioni** | Questa impostazione specifica in giorni, ore, minuti e secondi il periodo per cui si vogliono rilevare i rinnovi sospetti. |
 | **Numero di rinnovi di attivazioni** | Questa impostazione specifica il numero di attivazioni, da 2 a 100, considerati idonei per un avviso, entro l'intervallo di tempo specificato. È possibile modificare questa impostazione spostando il dispositivo di scorrimento o digitando un numero nella casella di testo. |
-
-### <a name="roles-dont-require-mfa-for-activation"></a>I ruoli non richiedono l'autenticazione a più fattori per l'attivazione
-
-| | |
-| --- | --- |
-| **Gravità** | Bassa |
-| **Perché viene visualizzato questo avviso?** | Senza l'autenticazione a più fattori, gli utenti compromessi possono attivare ruoli con privilegi. |
-| **Come correggerlo?** | Esaminare l'elenco dei ruoli e [richiedere l'autenticazione a più fattori](pim-how-to-change-default-settings.md) per ogni ruolo. |
-| **Prevenzione** | [Richiedere l'autenticazione a più fattori](pim-how-to-change-default-settings.md) per ogni ruolo.  |
-| **Azione di mitigazione nel portale** | Rende obbligatoria l'autenticazione a più fattori per l'attivazione del ruolo con privilegi. |
 
 ## <a name="configure-security-alert-settings"></a>Configurare le impostazioni degli avvisi di sicurezza
 

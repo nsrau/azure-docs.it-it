@@ -1,11 +1,12 @@
 ---
-title: Eseguire gli script di apprendimento automatico di Python | Documentazione Microsoft
-description: Descrive i principi di progettazione di base per gli script Python in Azure Machine Learning nonché gli scenari di utilizzo di base, le funzionalità e le limitazioni.
+title: Eseguire gli script di apprendimento automatico di Python - Azure Machine Learning Studio | Microsoft Docs
+description: Descrive i principi di progettazione di base per gli script Python in Azure Machine Learning Studio, nonché gli scenari di utilizzo di base, le funzionalità e le limitazioni.
 keywords: apprendimento automatico di python, pandas, pandas di python, script di python, eseguire gli script di python
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 7520780060f603a7e394b100549529a2c1b6fe4b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 958dd91277a81a9082a4149d2b0026fc11bf882a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228165"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317586"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Eseguire gli script di apprendimento automatico di Python in Azure Machine Learning Studio
 
@@ -150,7 +151,7 @@ L'output del modulo indica che il file ZIP è stato estratto dal pacchetto e che
  
 ![image10](./media/execute-python-scripts/figure7.png)
 
-Figura 7. Funzione definita dall'utente in uso all'interno del modulo [Execute Python Script][execute-python-script] (Esegui script Python).
+ Figura 7. Funzione definita dall'utente in uso all'interno del modulo [Execute Python Script][execute-python-script] (Esegui script Python).
 
 
 ## <a name="working-with-visualizations"></a>Utilizzo di visualizzazioni
@@ -201,9 +202,9 @@ Figura 11. Esperimento per classificare le funzioni nel set di dati Pima Indian 
 ## <a name="limitations"></a>Limitazioni
 Attualmente [Execute Python Script][execute-python-script] (Esegui script Python) presenta le limitazioni seguenti:
 
-1. *Esecuzione in modalità sandbox.* Il runtime Python è attualmente in modalità sandbox e di conseguenza non consente l'accesso alla rete o al file system locale in modo permanente. Tutti i file salvati localmente sono isolati ed eliminati al termine del modulo. Il codice Python non è in grado di accedere alla maggior parte delle directory nel computer in cui è in esecuzione, ad eccezione della directory corrente e delle relative sottodirectory.
-2. *Mancanza di supporto avanzato per sviluppo e debug.* Il modulo Python non supporta attualmente le funzionalità dell'IDE, ad esempio IntelliSense e debug. In caso di errore del modulo durante il runtime, è disponibile l'analisi completa dello stack Python. È tuttavia necessario visualizzarla nel log di output per il modulo. Al momento si consiglia di sviluppare ed eseguire il debug degli script Python in un ambiente come IPython e quindi importare il codice nel modulo.
-3. *Output di un singolo frame di dati.* Al punto di ingresso Python è consentito restituire un singolo frame di dati come output. Non è attualmente possibile restituire oggetti Python arbitrari, ad esempio modelli con training, direttamente al runtime di Azure Machine Learning. Come per [Execute R Script][execute-r-script] (Esegui script R), che presenta le stesse limitazioni, in molti casi è possibile inserire oggetti in una matrice di byte e quindi restituirla all'interno di un frame di dati.
+1. *Esecuzione in modalità sandbox.*  Il runtime Python è attualmente in modalità sandbox e di conseguenza non consente l'accesso alla rete o al file system locale in modo permanente. Tutti i file salvati localmente sono isolati ed eliminati al termine del modulo. Il codice Python non è in grado di accedere alla maggior parte delle directory nel computer in cui è in esecuzione, ad eccezione della directory corrente e delle relative sottodirectory.
+2. *Mancanza di supporto avanzato per sviluppo e debug.*  Il modulo Python non supporta attualmente le funzionalità dell'IDE, ad esempio IntelliSense e debug. In caso di errore del modulo durante il runtime, è disponibile l'analisi completa dello stack Python. È tuttavia necessario visualizzarla nel log di output per il modulo. Al momento si consiglia di sviluppare ed eseguire il debug degli script Python in un ambiente come IPython e quindi importare il codice nel modulo.
+3. *Output di un singolo frame di dati.*  Al punto di ingresso Python è consentito restituire un singolo frame di dati come output. Non è attualmente possibile restituire oggetti Python arbitrari, ad esempio modelli con training, direttamente al runtime di Azure Machine Learning. Come per [Execute R Script][execute-r-script] (Esegui script R), che presenta le stesse limitazioni, in molti casi è possibile inserire oggetti in una matrice di byte e quindi restituirla all'interno di un frame di dati.
 4. *Impossibilità di personalizzare un'installazione di Python*. Attualmente, è possibile aggiungere moduli Python personalizzati solo tramite il meccanismo con file ZIP descritto in precedenza. Anche se ciò è fattibile per i moduli piccoli, risulta complesso per quelli grandi, specialmente quelli con DLL native o un numero elevato di moduli. 
 
 ## <a name="conclusions"></a>Conclusioni

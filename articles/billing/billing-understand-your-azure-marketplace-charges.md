@@ -4,7 +4,7 @@ description: Informazioni sulla fatturazione di servizi esterni, noti in precede
 services: ''
 documentationcenter: ''
 author: adpick
-manager: tonguyen
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ee11b7b565e669f61f6ba77e02139f071c452f4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0e90c043976fc1798f675f8bf480b02e0ed93536
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392211"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581919"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Informazioni sulla fatturazione di Azure per gli addebiti dei servizi esterni
 I servizi esterni vengono pubblicati da fornitori di software di terze parti nel marketplace di Azure. Ad esempio, SendGrid è un servizio esterno che è possibile acquistare in Azure, ma che non viene pubblicato da Microsoft.
@@ -86,6 +86,7 @@ Se si desidera annullare l'ordine di servizio esterno, eliminare la risorsa nel 
 
 ![Eliminare una risorsa](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
-Per eventuali domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
+
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

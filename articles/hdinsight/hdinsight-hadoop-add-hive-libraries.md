@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 79ee129390c6b364ec65e8ae1e893e98f358751e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035306"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497104"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aggiungere librerie Apache Hive personalizzate durante la creazione del cluster HDInsight
 
-Informazioni su come precaricare le librerie Apache Hive in HDInsight. Questo documento contiene informazioni sull'uso di un'Azione Script per precaricare le librerie durante la creazione del cluster. Le librerie aggiunte usando i passaggi in questo documento sono disponibili in modo globale in Hive, non è necessario utilizzare [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) per caricarli.
+Informazioni su come precaricare le librerie [Apache Hive](https://hive.apache.org/) in HDInsight. Questo documento contiene informazioni sull'uso di un'Azione Script per precaricare le librerie durante la creazione del cluster. Le librerie aggiunte usando i passaggi in questo documento sono disponibili in modo globale in Hive, non è necessario utilizzare [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) per caricarli.
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -93,4 +93,4 @@ Al termine della creazione del cluster, sarà possibile usare i file con estensi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'uso di Hive, vedere l'articolo relativo all' [uso di Hive con HDInsight](hadoop/hdinsight-use-hive.md)
+Per altre informazioni sull'uso di Hive, vedere [Usare Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)

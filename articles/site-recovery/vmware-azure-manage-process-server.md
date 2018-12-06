@@ -2,16 +2,17 @@
 title: Gestire il server di elaborazione per il ripristino di emergenza da macchine virtuali VMware e server fisici ad Azure con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive la gestione di un server di elaborazione per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando Azure Site Recovery.
 author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 180d84f40f3d439419f9667b246b8c4b5c69814a
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568853"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974189"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
 
@@ -31,7 +32,41 @@ Aggiornare un server di elaborazione in esecuzione in locale o in Azure (per mot
 > [!NOTE]
   In genere, quando si usa l'immagine della raccolta di Azure per creare un server di elaborazione in Azure per il failback, viene eseguita la versione più recente disponibile di tale server. I team di Site Recovery rilasciano correzioni e miglioramenti a intervalli regolari. È consigliabile mantenere aggiornati i server di elaborazione.
 
+## <a name="balance-the-load-on-process-server"></a>Bilanciare il carico nel server di elaborazione
 
+Per bilanciare il carico tra due server di elaborazione:
+
+1. Passare a **Insieme di credenziali di Servizi di ripristino** > **Gestisci** > **Infrastruttura di Site Recovery**  >  **Per VMware e computer fisici** > **Server di configurazione**.
+2. Fare clic sul server di configurazione in cui sono registrati i server di elaborazione.
+3. Nella pagina è disponibile l'elenco dei server di elaborazione registrati nei server di configurazione.
+4. Fare clic sul server di elaborazione di cui si vuole modificare il carico di lavoro.
+
+    ![Bilanciamento del carico](media/vmware-azure-manage-process-server/LoadBalance.png)
+
+5. È possibile usare l'opzione **Bilanciamento del carico** o **Switch**, come spiegato di seguito, a seconda dei requisiti.
+
+### <a name="load-balance"></a>Bilanciamento del carico
+
+Tramite questa opzione è possibile selezionare una o più macchine virtuali e trasferirle a un altro server di elaborazione.
+
+1. Fare clic su **Bilanciamento del carico** e selezionare il server di elaborazione di destinazione dall'elenco a discesa. Fare clic su **OK**.
+
+    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+
+2. Fare clic su **Seleziona macchine virtuali** e scegliere le macchine virtuali da spostare dal server di elaborazione corrente a quello di destinazione. Per ogni macchina virtuale vengono visualizzate informazioni dettagliate sulla modifica dei dati media.
+3. Fare clic su **OK**. Monitorare lo stato del processo in **Insieme di credenziali di Servizi di ripristino** > **Monitoraggio** > **Processi di Site Recovery**.
+4. Dopo il completamento di questa operazione, sono necessari 15 minuti perché le modifiche siano visualizzate. In alternativa, per renderle immediatamente effettive, [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
+
+### <a name="switch"></a>Switch
+
+Tramite questa opzione, l'intero carico di lavoro protetto in un server di elaborazione viene spostato in un altro server di elaborazione.
+
+1. Fare clic su **Switch**, selezionare il server di elaborazione di destinazione e fare clic su **OK**.
+
+    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+
+2. Monitorare lo stato del processo in **Insieme di credenziali di Servizi di ripristino** > **Monitoraggio** > **Processi di Site Recovery**.
+3. Dopo il completamento di questa operazione, sono necessari 15 minuti perché le modifiche siano visualizzate. In alternativa, per renderle immediatamente effettive, [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
 ## <a name="reregister-a-process-server"></a>Registrare di nuovo un server di elaborazione
 

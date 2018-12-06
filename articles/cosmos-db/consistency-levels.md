@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 01a52941a452ae7e4fa283959b071d31d3ad80c7
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624828"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162334"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
 
@@ -49,7 +49,7 @@ I contratti di servizio completi offerti da Azure Cosmos DB garantiscono che il 
 
   Il decadimento ristretto offre un ordine globale totale tranne all'interno della "finestra di decadimento". La garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della "finestra di decadimento". La coerenza assoluta è basata sulla stessa semantica della coerenza con decadimento ristretto, fatta eccezione per la "finestra di decadimento", che è pari a zero. Il decadimento ristretto è anche definito **linearizzabilità posticipata**. Quando un client esegue operazioni di lettura all'interno di un'area che accetta operazioni di scrittura, le garanzie offerte dal livello di coerenza con decadimento ristretto sono identiche a quelle della coerenza assoluta.
 
-- **Livello di coerenza = "sessione"**: questo livello assicura che le operazioni di lettura rispettino le garanzie della coerenza del prefisso, delle letture monotoniche, delle scritture monotoniche, della lettura delle proprie scritture, delle letture che seguono la scrittura. L'ambito di una coerenza di sessione è una sessione client.
+- **Livello di coerenza = "sessione"**: questo livello assicura che le operazioni di lettura rispettino le garanzie della coerenza del prefisso (presupponendo una singola sessione di scrittura), delle letture monotoniche, delle scritture monotoniche, della lettura delle proprie scritture, delle letture che seguono la scrittura. L'ambito di una coerenza di sessione è una sessione client.
 
 - **Livello di coerenza = "coerenza del prefisso"**: gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza interruzioni. La coerenza del prefisso garantisce che le operazioni di lettura non vedano mai il fuori sequenza delle operazioni di scrittura.
 

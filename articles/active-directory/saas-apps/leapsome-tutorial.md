@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: e55d161b7c95118736f4443c3fed0312418feee7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441936"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Esercitazione: Integrazione di Azure Active Directory con Leapsome
 
@@ -134,7 +134,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | picture | URL dell'immagine del dipendente | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
     > [!Note]
-    > Il valore dell'attributo picture non è reale. Aggiornare questo valore con l'URL dell'immagine effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Leapsome](mailto:support@leapsome.com).
+    > Il valore dell'attributo picture non è reale. Aggiornare questo valore con l'URL dell'immagine effettivo. Per ottenere questo valore, contattare il  [team di supporto clienti di Leapsome](mailto:support@leapsome.com).
     
     a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
 
@@ -176,7 +176,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Copiare il valore di **URL di accesso (indirizzare gli utenti qui per accedere)** e incollarlo nella casella di testo **URL accesso** della sezione **Dominio e URL di Leapsome** del portale di Azure.
 
-    c. Copiare il valore di **URL di risposta (riceve la risposta dal provider di identità)** e incollarlo nella casella di testo **URL di risposta** della sezione **Dominio e URL di Leapsome** del portale di Azure.
+    c. Copiare il valore di **Reply URL (receives response from your identity provider)** (URL di risposta -riceve la risposta dal provider di identità) e incollarlo nella casella di testo **URL di risposta** della sezione **URL e dominio Leapsome** del portale di Azure.
 
     d. Nella casella di testo **URL di accesso (fornito dal provider di identità)** incollare il valore di **URL servizio Single Sign-On SAML** copiato dal portale di Azure.
 
@@ -218,7 +218,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-leapsome-test-user"></a>Creare un utente test di Leapsome
 
-In questa sezione viene creato un utente di nome Britta Simon in Leapsome. Rivolgersi al [team di supporto di Leapsome](mailto:support@leapsome.com) per aggiungere gli utenti o il dominio da includere nella piattaforma Leapsome. Se il dominio viene aggiunto dal team, verrà automaticamente eseguito il provisioning degli utenti nella piattaforma Leapsome. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente di nome Britta Simon in Leapsome. Rivolgersi al  [team di supporto clienti di Leapsome](mailto:support@leapsome.com)  per aggiungere gli utenti o il dominio da includere nell'elenco elementi consentiti nella piattaforma Leapsome. Se il dominio viene aggiunto dal team, verrà automaticamente eseguito il provisioning degli utenti nella piattaforma Leapsome. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -255,7 +255,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Leapsome nel pannello di accesso, si accede automaticamente tramite SSO all'applicazione Leapsome.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

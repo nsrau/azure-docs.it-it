@@ -9,17 +9,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tyfox
-ms.openlocfilehash: d5d4c951bb104159730814f9b1b5820cb17f9f1a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4de4674d8a4c2b573df12648739971e460531636
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234783"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495096"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Gestire cluster Apache Hadoop in HDInsight tramite l'interfaccia della riga di comando classica di Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Informazioni su come usare l'[interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md) per gestire i cluster Apache Hadoop in Azure HDInsight. L'interfaccia della riga di comando classica viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, incluse Windows, Mac e Linux.
+Informazioni su come usare l'[interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md) per gestire i cluster [Apache Hadoop](https://hadoop.apache.org/) in Azure HDInsight. L'interfaccia della riga di comando classica viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, incluse Windows, Mac e Linux.
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -74,7 +74,7 @@ azure group delete <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>Ridimensionare i cluster
-Per modificare le dimensioni del cluster Hadoop:
+Per modificare le dimensioni del cluster Apache Hadoop:
 
 ```cli
 azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>

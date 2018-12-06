@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d9328b293d38114d319d79e38b91b1b67e410d94
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346321"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581832"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Come distribuire modelli dal servizio Azure Machine Learning al servizio Kubernetes di Azure
 
@@ -25,7 +25,7 @@ La distribuzione nel servizio Kubernetes di Azure offre scalabilità automatica,
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+- Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
 
 - Un'area di lavoro del servizio Azure Machine Learning, una directory locale contenente gli script e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
 
@@ -127,7 +127,7 @@ print(aks_target.provisioning_errors)
 Se si dispone di un cluster AKS esistente nella sottoscrizione di Azure, è possibile usarlo per distribuire l'immagine. Il frammento di codice seguente illustra come collegare un cluster all'area di lavoro. 
 
 > [!IMPORTANT]
-> È supportato solo AKS versione 1.11.2.
+> È supportato solo AKS versione 1.11.3.
 
 ```python
 # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties
