@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 999017e24f6c4c24735b7e0cc818bf20aaabab62
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3caa45064c41b641aa913e210aa698d818d5355e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338574"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970270"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Risoluzione dei problemi di Microsoft Azure Stack Development Kit (ASDK)
 Questo documento fornisce informazioni sulla risoluzione dei problemi più comuni per la ASDK. Se si sta verificando un problema non documentato, assicurarsi di controllare la [forum di MSDN su Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) per ottenere assistenza e informazioni.  
@@ -64,7 +64,7 @@ Sì, questo è il comportamento previsto. È stato progettato in questo modo per
 
 Se viene visualizzato "orfani" i dischi rigidi virtuali, è importante sapere se fanno parte della cartella per un account di archiviazione che è stato eliminato. Se l'account di archiviazione non è stato eliminato, è normale che sono ancora presenti.
 
-Altre informazioni sulla configurazione di conservazione soglia e on demand vengono recuperati per primi nel [gestire gli account di archiviazione](.\.\azure-stack-manage-storage-accounts.md).
+Altre informazioni sulla configurazione di conservazione soglia e on demand vengono recuperati per primi nel [gestire gli account di archiviazione](../azure-stack-manage-storage-accounts.md).
 
 ## <a name="storage"></a>Archiviazione
 ### <a name="storage-reclamation"></a>Recupero di archiviazione
@@ -72,4 +72,3 @@ Potrebbero occorrere fino a 14 ore per la capacità recuperata da visualizzare n
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Visitare il forum di supporto di Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
-

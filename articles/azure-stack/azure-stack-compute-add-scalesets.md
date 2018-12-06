@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: accd36c9e0d09da0073570301600b362fff85f6e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647341"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971828"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendere il set di scalabilità di macchine virtuali disponibili in Azure Stack
 
@@ -97,7 +97,7 @@ Dopo aver creato un set di scalabilità di macchine virtuali, gli utenti possono
 
     Se si scarica un'immagine con una versione più recente (che cambia la versione disponibile), il set di scalabilità non è possibile aumentare le prestazioni. Si tratta da progettazione, come la versione dell'immagine specificata nel modello di set di scalabilità deve essere disponibile.  
 
-Per altre informazioni, vedere [dischi del sistema operativo e immagini](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+Per altre informazioni, vedere [dischi del sistema operativo e immagini](./user/azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
 ## <a name="scale-a-virtual-machine-scale-set"></a>Ridimensionare un set di scalabilità di macchine virtuali
 

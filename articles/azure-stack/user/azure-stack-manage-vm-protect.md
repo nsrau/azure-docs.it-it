@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341838"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963914"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteggere le macchine virtuali distribuite in Azure Stack
 
@@ -58,7 +58,7 @@ Pianificare la strategia di ripristino di backup e ripristino di emergenza per o
 | **Azure Stack sia distribuito nel Data Center CSP e gestito dal CSP** | Macchine virtuali degli utenti vengono distribuite allo Stack di Azure CSP gestito. Macchine virtuali degli utenti sono ripristinate dal backup o del failover direttamente in Azure. | CSP opera le istanze principale e secondarie di Azure Stack nei propri datacenter. Macchine virtuali degli utenti sono ripristinate o state eseguito il failover tra le due istanze di Azure Stack. | CSP opera Azure Stack in un sito primario. Data Center del cliente è la destinazione di ripristino o il failover. |
 | **Azure Stack sia distribuito nel Data Center dei clienti e gestito dal cliente** | Macchine virtuali degli utenti vengono distribuite al cliente gestito di Azure Stack. Macchine virtuali degli utenti sono ripristinate dal backup o del failover direttamente in Azure. | Cliente opera le istanze principale e secondarie di Azure Stack nei propri datacenter. Macchine virtuali degli utenti sono ripristinate o state eseguito il failover tra le due istanze di Azure Stack. | Cliente opera Azure Stack in un sito primario. Data Center di CSP è la destinazione di ripristino o il failover. |
 
-![Combinazioni di origine-destinazione](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Combinazioni di origine-destinazione](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## <a name="application-recovery-objectives"></a>Obiettivi del ripristino dell'applicazione
 
@@ -77,7 +77,7 @@ Gli obiettivi RTO e RPO sono requisiti aziendali. Condurre una valutazione dei r
 
 Lo schema di protezione più comune per le applicazioni basate su macchina virtuale consiste nell'usare software di backup. Backup di una macchina virtuale in genere include il sistema operativo, configurazione del sistema operativo, file binari dell'applicazione e i dati dell'applicazione. I backup vengono creati dall'esecuzione di uno snapshot dei volumi, dischi o dell'intera macchina virtuale. Con Azure Stack, si dispone della flessibilità di backup all'interno del contesto del sistema operativo guest o dalla risorsa di archiviazione di Azure Stack e le API di calcolo. Azure Stack non supporta effettuare backup a livello di hypervisor.
  
-![Backup-restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Backup-restor](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 Ripristino dopo l'applicazione richiede il ripristino di uno o più macchine virtuali nel cloud stesso o a un nuovo cloud. È possibile scegliere un cloud nel tuo Data Center o nel cloud pubblico. Il cloud che scelto è completamente all'interno del controllo e si basa sui requisiti di privacy e la sovranità dei dati.
  
@@ -107,7 +107,7 @@ Un approccio alternativo per supportare la disponibilità elevata è replicare l
 
 Con questo approccio, l'applicazione viene distribuita in un cloud e le VM vengono replicate in altri cloud. Se viene attivato un failover, il database secondario macchine virtuali dovranno essere acceso nel cloud secondo. In alcuni scenari, il failover consente di creare i dischi di macchine virtuali e collega ad essi. Questo processo può richiedere molto tempo per il completamento, in particolare con un'applicazione multilivello che richiede una sequenza di avvio specifico. È anche possibile passaggi che devono essere eseguiti prima che l'applicazione è pronta per iniziare a soddisfare le richieste.
 
-![Failover manuale di replica](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![Failover manuale di replica](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: Tempo di inattività espresso in minuti
  - RPO: Perdita di dati della variabile (a seconda della frequenza di replica)

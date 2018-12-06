@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614039"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971505"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
@@ -200,7 +200,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 2. Nella panoramica, sotto stato, verificare che il **lo stato** consente di visualizzare **tutti i ruoli sono pronti**.
 
     ![Gestione del servizio App](media/azure-stack-app-service-deploy/image12.png)
-    
+
 > [!NOTE]
 > Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione per il file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e file server SMB.  A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
 > * Origine: tutti
@@ -221,9 +221,9 @@ Dopo che si distribuisce e si registra il provider di risorse del servizio App, 
 > [!NOTE]
 > È necessario creare un'offerta con lo spazio dei nomi Microsoft. Web all'interno del piano. Quindi è necessario disporre di una sottoscrizione di tenant che sottoscrive questa offerta. Per altre informazioni, vedere [Crea offerta](azure-stack-create-offer.md) e [crea piano](azure-stack-create-plan.md).
 >
-Si *necessario* dispone di una sottoscrizione di tenant per creare applicazioni che utilizzano il servizio App in Azure Stack. Le uniche funzionalità che un amministratore del servizio è completata entro il portale di amministrazione sono correlate per l'amministrazione del provider di risorse del servizio App. Queste funzionalità includono l'aggiunta di capacità, la configurazione delle origini di distribuzione e l'aggiunta di piani di lavoro e gli SKU.
+> Si *necessario* dispone di una sottoscrizione di tenant per creare applicazioni che utilizzano il servizio App in Azure Stack. Le uniche funzionalità che un amministratore del servizio è completata entro il portale di amministrazione sono correlate per l'amministrazione del provider di risorse del servizio App. Queste funzionalità includono l'aggiunta di capacità, la configurazione delle origini di distribuzione e l'aggiunta di piani di lavoro e gli SKU.
 >
-A partire da technical preview terzo, per creare web, API e Azure funzioni delle App, è necessario usare il portale tenant e avere una sottoscrizione tenant.
+> A partire da technical preview terzo, per creare web, API e Azure funzioni delle App, è necessario usare il portale tenant e avere una sottoscrizione tenant.
 
 1. Nel portale tenant di Azure Stack, fare clic su **+ crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
 

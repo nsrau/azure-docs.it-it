@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: a5f3b206b83beb15ee3b29d5d5b9e389e85a91fb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 32d0e0f48a99b5c06b1efa61e6e1a53cf5b0e61b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466988"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971794"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Informazioni sull'utilizzo e fatturazione in Azure Stack
 
@@ -35,9 +35,9 @@ Ogni provider di risorse in Azure Stack invia i dati di utilizzo per ogni utiliz
 
 Se hai [registrata l'istanza di Azure Stack con Azure](azure-stack-register.md), Azure Stack è configurato per inviare i dati di utilizzo per e-Commerce di Azure. Dopo aver caricati i dati in Azure, è possibile accedervi tramite il portale di fatturazione o dell'utilizzo delle risorse Azure API. Per informazioni su più su quale tipo di utilizzo dei dati viene segnalati ad Azure, vedere [segnalazione errori dati di utilizzo](azure-stack-usage-reporting.md).  
 
-L'immagine seguente mostra i componenti chiave della pipeline di utilizzo: 
+L'immagine seguente mostra i componenti chiave della pipeline di utilizzo:
 
-![Pipeline di utilizzo](media\azure-stack-billing-and-chargeback\usagepipeline.png)
+![Pipeline di utilizzo](media/azure-stack-billing-and-chargeback/usagepipeline.png)
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>Le informazioni sull'utilizzo è possibile reperire e in che modo?
 

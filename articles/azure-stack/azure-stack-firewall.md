@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343654"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960652"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrazione di Azure Stack firewall
 È consigliabile utilizzare un dispositivo firewall per consentire sicuro Azure Stack. Anche se i firewall può essere utile con elementi quali gli attacchi di distributed denial of service (DDOS), il rilevamento delle intrusioni e l'ispezione del contenuto, possono anche diventare un collo di bottiglia della velocità effettiva per i servizi di archiviazione di Azure, ad esempio BLOB, tabelle e code.
@@ -49,7 +49,7 @@ In una distribuzione edge, Azure Stack viene distribuito direttamente dietro il 
 
 In genere, gli indirizzi IP instradabili pubblici vengono specificati per il pool di indirizzi VIP pubblico dalla rete esterna in fase di distribuzione. In uno scenario di edge, è consigliabile non usare indirizzi IP instradabili pubblici su qualsiasi altro tipo di rete per motivi di sicurezza. Questo scenario consente a un utente provare l'esperienza del cloud controllato in autonomia completo come in un cloud pubblico come Azure.  
 
-![Esempio di Azure Stack edge firewall](.\media\azure-stack-firewall\firewallScenarios.png)
+![Esempio di Azure Stack edge firewall](./media/azure-stack-firewall/firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Enterprise intranet o perimetrale scenario firewall di rete
 In una distribuzione di intranet o perimetrale aziendale, Azure Stack viene distribuito su un firewall multi-suddividere in zone o tra il firewall perimetrali e il firewall di rete aziendale interna. Il traffico viene quindi distribuito tra la rete perimetrale, protetta (o rete Perimetrale) e le zone non protette come descritto di seguito:
@@ -58,7 +58,7 @@ In una distribuzione di intranet o perimetrale aziendale, Azure Stack viene dist
 - **Area perimetrale**. Rete perimetrale è dove esterni o per le applicazioni, ad esempio server Web sono in genere distribuiti internet. In genere viene monitorato da un firewall per evitare gli attacchi DDoS e intrusioni (pirateria) consentendo comunque specificato il traffico in ingresso da internet. Solo il rete esterna pubblico pool VIP di Azure Stack deve trovarsi nell'area di rete Perimetrale.
 - **Zona non sicuro**. Si tratta della rete esterna, internet. Si **non è** consigliabile distribuire Azure Stack nella zona senza protezione.
 
-![Esempio di rete di Azure Stack perimetrale](.\media\azure-stack-firewall\perimeter-network-scenario.png)
+![Esempio di rete di Azure Stack perimetrale](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>Altre informazioni
 Altre informazioni sulle [porte e protocolli usati dagli endpoint di Azure Stack](azure-stack-integrate-endpoints.md).

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ef9fe0e05343f9c99656634a075b1bd464a13c7e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379588"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972030"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack per la distribuzione
 I file di certificato [ottenuto dalla CA di scelta](azure-stack-get-pki-certs.md) devono essere importati ed esportati con proprietà corrispondenti requisiti dei certificati di Azure Stack.
@@ -38,15 +38,15 @@ Usare questi passaggi per preparare e convalidare i certificati di infrastruttur
 
 1. Nel **importazione guidata certificati**, selezionare **computer locale** come percorso di importazione. Selezionare **Avanti**. Nella schermata seguente fare clic su Avanti nuovamente.
 
-    ![Percorso del computer locale importare](.\media\prepare-pki-certs\1.png)
+    ![Percorso del computer locale importare](./media/prepare-pki-certs/1.png)
 
 1.  Scegli **colloca tutti i certificati nel seguente archivio** e quindi selezionare **attendibilità per l'organizzazione** come posizione. Fare clic su **OK** per chiudere la finestra di dialogo Selezione archivio certificati e quindi **successivo**.
 
-    ![Configurare l'archivio certificati](.\media\prepare-pki-certs\3.png)
+    ![Configurare l'archivio certificati](./media/prepare-pki-certs/3.png)
 
     a. Se si sta importando un file PFX, verrà visualizzato con una finestra di dialogo aggiuntiva. Nel **protezione con chiave privata** pagina, immettere la password per i file di certificato e quindi abilitare il **contrassegna questa chiave come esportabile. In questo modo è possibile eseguire il backup o trasferire le chiavi in un secondo momento** opzione. Selezionare **Avanti**.
 
-    ![Contrassegna le chiavi come esportabili](.\media\prepare-pki-certs\2.png)
+    ![Contrassegna le chiavi come esportabili](./media/prepare-pki-certs/2.png)
 
 1. Fare clic su Fine per completare l'importazione.
 
@@ -58,11 +58,11 @@ Aprire la console di gestione certificati MMC e connettersi all'archivio certifi
 
 1. Fare clic sul File, Aggiungi/Rimuovi Snap-In, quindi selezionare i certificati, fare clic su Aggiungi.
 
-    ![Aggiungere lo Snap-in certificati](.\media\prepare-pki-certs\mmc-2.png)
+    ![Aggiungere lo Snap-in certificati](./media/prepare-pki-certs/mmc-2.png)
  
 1. Selezionare account Computer, fare clic su Avanti, quindi selezionare computer locale, quindi Fine. Fare clic su ok per chiudere la pagina Aggiungi/Rimuovi Snap-In.
 
-    ![Aggiungere lo Snap-in certificati](.\media\prepare-pki-certs\mmc-3.png)
+    ![Aggiungere lo Snap-in certificati](./media/prepare-pki-certs/mmc-3.png)
 
 1. Passare a certificati > attendibilità per l'organizzazione > percorso del certificato. Verificare che venga visualizzato il certificato sul lato destro.
 

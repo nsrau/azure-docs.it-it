@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: ee6e4397345b4cb169e7e22d951d4c4fdff5b7b7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078716"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971896"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Servizio App in Azure Stack update note sulla versione 1
 
@@ -145,7 +145,7 @@ Lo scambio di slot del sito viene suddiviso in questa versione. Per ripristinare
 
       # Commit the changes back to NSG
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
+    ```
 
 2. Selezionare il **CN0-VM** in macchine virtuali nel portale di amministrazione di Azure Stack e **fare clic su Connetti** per aprire una sessione desktop remoto con l'istanza del controller. Usare le credenziali specificate durante la distribuzione del servizio App.
 3. Avviare **PowerShell come amministratore** ed eseguire lo script seguente
@@ -197,18 +197,20 @@ Lo scambio di slot del sito viene suddiviso in questa versione. Per ripristinare
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- I ruoli di lavoro sono in grado di raggiungere il server di file quando il servizio App viene distribuito in una rete virtuale esistente e il file server è disponibile nella rete privata solo.
- 
+
+6. I ruoli di lavoro sono in grado di raggiungere il server di file quando il servizio App viene distribuito in una rete virtuale esistente e il file server è disponibile nella rete privata solo.
+
 Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione al file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e il file server SMB. A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
- * Origine: tutti
- * Intervallo di porte di origine: *
- * Destinazione: Gli indirizzi IP
- * Intervallo di indirizzi IP di destinazione: intervallo di indirizzi IP per il file server
- * Intervallo di porte di destinazione: 445
- * Protocollo: TCP
- * Azione: Consenti
- * Priorità: 700
- * Nome: Outbound_Allow_SMB445
+
+- Origine: tutti
+- Intervallo di porte di origine: *
+- Destinazione: Gli indirizzi IP
+- Intervallo di indirizzi IP di destinazione: intervallo di indirizzi IP per il file server
+- Intervallo di porte di destinazione: 445
+- Protocollo: TCP
+- Azione: Consenti
+- Priorità: 700
+- Nome: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemi noti per gli amministratori Cloud funziona nel servizio App di Azure in Azure Stack
 

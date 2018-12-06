@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277274"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969958"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Usare i profili delle versioni API con il comando di Azure in Azure Stack
 
@@ -36,7 +36,7 @@ Dovrebbe visualizzare la versione della CLI di Azure e altre librerie dipendenti
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Considerare attendibile il certificato di autorità di certificazione di Azure Stack radice
 
-1. Ottenere il certificato di radice della CA di Azure Stack [l'operatore di Azure Stack](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e attendibile. Per rendere attendibile il certificato radice CA Azure Stack, aggiungerlo al certificato Python esistente.
+1. Ottenere il certificato di radice della CA di Azure Stack [l'operatore di Azure Stack](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e attendibile. Per rendere attendibile il certificato radice CA Azure Stack, aggiungerlo al certificato Python esistente.
 
 1. Trovare il percorso di certificato nel computer. Il percorso può variare in base alla quale è stato installato Python. Dovrai disporre [pip](https://pip.pypa.io) e il [quella ottenibile](https://pypi.org/project/certifi/) modulo installato. È possibile usare il comando Python seguito dal prompt di bash:
 
@@ -76,7 +76,7 @@ sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -242,6 +242,6 @@ Esistono alcuni problemi noti che è necessario considerare quando si utilizza C
 
 [Distribuire modelli con l'interfaccia della riga di comando di Azure](azure-stack-deploy-template-command-line.md)
 
-[Abilitare la CLI di Azure per gli utenti di Azure Stack (operatore)](..\azure-stack-cli-admin.md)
+[Abilitare la CLI di Azure per gli utenti di Azure Stack (operatore)](../azure-stack-cli-admin.md)
 
 [Gestire le autorizzazioni utente](azure-stack-manage-permissions.md)

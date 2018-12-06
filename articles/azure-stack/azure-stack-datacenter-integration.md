@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720447"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962682"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerazioni relative all'integrazione di datacenter per i sistemi integrati di Azure Stack
 Se è interessati a un sistema integrato Azure Stack, è necessario comprendere alcune delle principali considerazioni di pianificazione alla distribuzione e come il sistema si inserisce nel tuo Data Center. Questo articolo fornisce una panoramica generale di queste considerazioni che consentono di prendere decisioni importanti dell'infrastruttura per il sistema a più nodi di Azure Stack. Consente di comprendere queste considerazioni quando si lavora con il fornitore dell'hardware OEM quando si distribuisce Azure Stack nel tuo Data Center.  
@@ -57,7 +57,7 @@ Quando un livello superiore di accesso è necessaria per la risoluzione dei prob
 
 La scelta di provider di identità non ha alcun effetto su macchine virtuali tenant, il sistema di identità e degli account che usano, se possano essere aggiunte a un dominio di Active Directory e così via. Ciò è separato.
 
-Altre informazioni sulla scelta di un provider di identità nel [articolo di modelli di Azure Stack i sistemi integrati connessione](.\azure-stack-connection-models.md).
+Altre informazioni sulla scelta di un provider di identità nel [articolo di modelli di Azure Stack i sistemi integrati connessione](./azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>Integrazione di AD FS e un grafo
 Se si sceglie di distribuire Azure Stack tramite AD FS come provider di identità, è necessario integrare l'istanza di AD FS in Azure Stack con un'istanza di AD FS esistente mediante una relazione di trust federativa. In questo modo le identità in una foresta di Active Directory esistente per l'autenticazione con le risorse in Azure Stack.

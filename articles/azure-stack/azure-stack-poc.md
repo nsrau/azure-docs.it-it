@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 041d679cfc428278737a5668887e73f13ac694b1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137054"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959541"
 ---
 # <a name="what-is-azure-stack"></a>Cos'è Azure Stack?
 
@@ -34,7 +34,7 @@ I sistemi integrati di Azure Stack vengono offerti grazie alla collaborazione tr
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Development Kit
 
-Microsoft [Azure Stack Development Kit (ASDK)](.\asdk\asdk-what-is.md) è una distribuzione a nodo singolo di Azure Stack che può essere usata per valutare e apprendere Azure Stack.  È anche possibile usare ASDK come un ambiente di sviluppo per compilare le app usando le API e strumenti che è coerente con Azure.
+Microsoft [Azure Stack Development Kit (ASDK)](./asdk/asdk-what-is.md) è una distribuzione a nodo singolo di Azure Stack che può essere usata per valutare e apprendere Azure Stack.  È anche possibile usare ASDK come un ambiente di sviluppo per compilare le app usando le API e strumenti che è coerente con Azure.
 
 >[!Note]
 >Il ASDK non dovrà essere utilizzato come ambiente di produzione.

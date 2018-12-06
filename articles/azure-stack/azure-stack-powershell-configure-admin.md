@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 530b2a1909ec198ddff5abfe4fd5bb7c645f7582
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b961fac00ba43eb1b44acc46c6f60fa0f3a10877
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261583"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957079"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Connettersi ad Azure Stack con PowerShell come un operatore
 
@@ -29,7 +29,7 @@ ms.locfileid: "52261583"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Eseguire i seguenti prerequisiti dal [kit di sviluppo](.\asdk\asdk-connect.md#connect-with-rdp) o da un client esterno con codifica basata su Windows se sei [connesso al ASDK tramite VPN](.\asdk\asdk-connect.md#connect-with-vpn). 
+Eseguire i seguenti prerequisiti dal [kit di sviluppo](./asdk/asdk-connect.md#connect-with-rdp) o da un client esterno con codifica basata su Windows se sei [connesso al ASDK tramite VPN](./asdk/asdk-connect.md#connect-with-vpn). 
 
  - Installare [moduli di Azure Stack-compatibili con Azure PowerShell](azure-stack-powershell-install.md).  
  - Scaricare il [gli strumenti necessari per lavorare con Azure Stack](azure-stack-powershell-download.md).  

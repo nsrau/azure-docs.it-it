@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d7d47b61c926c6704a06dacc55f00d77a1266988
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038366"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962563"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Abilitare il backup per Azure Stack dal portale di amministrazione
-Abilitare il servizio di infrastruttura di Backup tramite il portale di amministrazione in modo che Azure Stack può generare backup. È possibile usare questi backup per ripristinare l'ambiente cloud di ripristino in caso di utilizzo [un errore irreversibile](.\azure-stack-backup-recover-data.md). Lo scopo di ripristino di cloud è garantire che gli operatori e gli utenti possono accedere di nuovo il portale al termine del ripristino completo. Gli utenti avranno gli abbonamenti ripristinati incluse le autorizzazioni di accesso basato sui ruoli e i ruoli, originali piani, offerte e calcolo definito in precedenza, archiviazione e le quote di rete.
+Abilitare il servizio di infrastruttura di Backup tramite il portale di amministrazione in modo che Azure Stack può generare backup. È possibile usare questi backup per ripristinare l'ambiente cloud di ripristino in caso di utilizzo [un errore irreversibile](./azure-stack-backup-recover-data.md). Lo scopo di ripristino di cloud è garantire che gli operatori e gli utenti possono accedere di nuovo il portale al termine del ripristino completo. Gli utenti avranno gli abbonamenti ripristinati incluse le autorizzazioni di accesso basato sui ruoli e i ruoli, originali piani, offerte e calcolo definito in precedenza, archiviazione e le quote di rete.
 
 Tuttavia, il servizio Backup di infrastruttura non esegue il backup delle macchine virtuali IaaS, le configurazioni di rete e le risorse di archiviazione, ad esempio gli account di archiviazione, BLOB, tabelle e così via, in modo che gli utenti che accedono dopo il ripristino di cloud completa non verrà visualizzato uno dei relativi già esistente risorse. Piattaforma come servizio (PaaS), risorse e i dati anche senza il backup dal servizio. 
 
@@ -58,31 +58,31 @@ Gli amministratori e gli utenti sono tenuti a backup e ripristino delle risorse 
     ```
 10. Selezionare **OK** per salvare le impostazioni di backup controller.
 
-    ![Azure Stack - impostazioni Backup del controller](media\azure-stack-backup\backup-controller-settings.png)
+    ![Azure Stack - impostazioni Backup del controller](media/azure-stack-backup/backup-controller-settings.png)
 
 ## <a name="start-backup"></a>Avviare il backup
 Per avviare un backup, fare clic su **Esegui Backup ora** per avviare un backup su richiesta. Un backup su richiesta non modificherà il tempo per il successivo backup pianificato. Al termine dell'attività, è possibile confermare le impostazioni in **Essentials**:
 
-![Azure Stack - backup su richiesta](media\azure-stack-backup\scheduled-backup.png)
+![Azure Stack - backup su richiesta](media/azure-stack-backup/scheduled-backup.png)
 
 È anche possibile eseguire il cmdlet di PowerShell **Start-AzsBackup** nel computer di amministrazione di Azure Stack. Per altre informazioni, vedere [eseguire il backup di Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
 ## <a name="enable-or-disable-automatic-backups"></a>Abilitare o disabilitare i backup automatici
 I backup vengono pianificati automaticamente quando si abilita il backup. È possibile archiviare il successivo file di backup pianificato **Essentials**. 
 
-![Azure Stack - backup su richiesta](media\azure-stack-backup\on-demand-backup.png)
+![Azure Stack - backup su richiesta](media/azure-stack-backup/on-demand-backup.png)
 
 Se è necessario disabilitare i backup futuri pianificati, fare clic su **disabilitare backup automatico**. Disabilitare i backup automatici manterranno le impostazioni di backup configurate e manterranno la pianificazione del backup. Questa azione richiede semplicemente l'utilità di pianificazione per ignorare i backup futuri. 
 
-![Azure Stack - disable pianificati backup](media\azure-stack-backup\disable-auto-backup.png)
+![Azure Stack - disable pianificati backup](media/azure-stack-backup/disable-auto-backup.png)
 
 Verificare che i backup futuri pianificati sono stati disabilitati in **Essentials**:
 
-![Azure Stack - verificare che i backup sono stati disabilitati](media\azure-stack-backup\confirm-disable.png)
+![Azure Stack - verificare che i backup sono stati disabilitati](media/azure-stack-backup/confirm-disable.png)
 
 Fare clic su **abilitare i backup automatici** per informare l'utilità di pianificazione per avviare i backup successivi all'ora pianificata. 
 
-![Azure Stack - enable pianificati backup](media\azure-stack-backup\enable-auto-backup.png)
+![Azure Stack - enable pianificati backup](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  

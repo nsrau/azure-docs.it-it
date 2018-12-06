@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237906"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969533"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Esercitazione: Creare una soluzione analitica di dati di staging con Azure e Azure Stack 
 
@@ -87,7 +87,7 @@ Il contenitore blob e l'account di archiviazione conterrà tutti i dati original
 
     c.  Tipologia account: **archiviazione (per utilizzo generico V1)**
 
-    d.  Percorso: **Stati Uniti occidentali**
+    d.  Località: **Stati Uniti occidentali**
 
     e.  Replica: **archiviazione con ridondanza locale (LRS)**
 
@@ -103,7 +103,7 @@ Il contenitore blob e l'account di archiviazione conterrà tutti i dati original
 
 4.  Selezionare **per creare l'account di archiviazione, crearne**.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image1.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  Una volta creato, selezionare il nome dell'account di archiviazione.
 
@@ -111,7 +111,7 @@ Il contenitore blob e l'account di archiviazione conterrà tutti i dati original
 
 7.  Nella parte superiore del pannello, selezionare **+ contenitore.** e selezionare **contenitore**.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image2.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image2.png)
 
 8.  Nome: **preferito**
 
@@ -137,7 +137,7 @@ Creare una nuova funzione di Azure Stack per spostare pulire i dati da Azure Sta
     | Sottoscrizione | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova app per le funzioni. |
     | **Gruppo di risorse** |  |  |
     | myResourceGroup | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. |  |
-    | OS | Windows | L'hosting senza server attualmente è disponibile solo in un ambiente di esecuzione su Windows. |
+    | OS |  Windows | L'hosting senza server attualmente è disponibile solo in un ambiente di esecuzione su Windows. |
     | **Piano di hosting** |  |  |
     | Piano a consumo | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. Nel piano a consumo predefinito, le risorse vengono aggiunte in modo dinamico come richiesto dalle funzioni. In questo hosting senza server, si paga solo per l'esecuzione delle funzioni. |  |
     | Località | Area più vicina | Scegliere un'area nelle vicinanze o vicino ad altri servizi di accesso di funzioni. |
@@ -146,31 +146,31 @@ Creare una nuova funzione di Azure Stack per spostare pulire i dati da Azure Sta
 
     **Esempio:**
 
-    ![Definire nuove impostazioni dell'app per le funzioni](media\azure-stack-solution-staged-data-analytics\image6.png)
+    ![Definire nuove impostazioni dell'app per le funzioni](media/azure-stack-solution-staged-data-analytics/image6.png)
 
 5.  Selezionare **Crea** per effettuare il provisioning dell'app per le funzioni e distribuirla.
 
 6.  Selezionare l'icona di notifica nell'angolo superiore destro del portale e attendere la visualizzazione del messaggio **La distribuzione è riuscita**.
 
-    ![Definire nuove impostazioni dell'app per le funzioni](media\azure-stack-solution-staged-data-analytics\image7.png)
+    ![Definire nuove impostazioni dell'app per le funzioni](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  Selezionare **Vai alla risorsa** per visualizzare una nuova app per le funzioni.
 
-![App per le funzioni creata correttamente.](media\azure-stack-solution-staged-data-analytics\image8.png)
+![App per le funzioni creata correttamente.](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Aggiungere una funzione per l'app funzioni di Azure Stack
 
 1.  Creare una nuova funzione facendo clic su **funzioni**, il **+ nuova funzione** pulsante.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image3.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  Selezionare **Trigger Timer**.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image4.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image4.png)
 
 3.  Selezionare **C\#**  come linguaggio e il nome di funzione: `upload-to-azure` impostare la pianificazione su `0 0 * * * *`, che in CRON, in notazione è una volta ogni ora.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image5.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Creare una funzione attivata dall'archiviazione BLOB
 
@@ -178,7 +178,7 @@ Creare una nuova funzione di Azure Stack per spostare pulire i dati da Azure Sta
 
 2.  Nel campo di ricerca, digitare `blob` e quindi scegliere la lingua da usare per il **trigger di Blob** modello.
 
-  ![Scegliere il modello di attivazione dell'archiviazione BLOB.](media\azure-stack-solution-staged-data-analytics\image10.png)
+  ![Scegliere il modello di attivazione dell'archiviazione BLOB.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
 3.  Usare le impostazioni specificate nella tabella seguente:
 
@@ -190,7 +190,7 @@ Creare una nuova funzione di Azure Stack per spostare pulire i dati da Azure Sta
 
     **Esempio:**
 
-    ![Creare una funzione attivata dall'archiviazione BLOB.](media\azure-stack-solution-staged-data-analytics\image11.png)
+    ![Creare una funzione attivata dall'archiviazione BLOB.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
 4.  Selezionare **Crea** per creare la funzione.
 
@@ -202,7 +202,7 @@ Creare una nuova funzione di Azure Stack per spostare pulire i dati da Azure Sta
 
 3.  Espandere l'account di archiviazione **contenitori Blob**, e il blob creato in precedenza. Selezionare **caricare** e quindi **caricare file**.
 
-    ![Caricare un file nel contenitore BLOB.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Caricare un file nel contenitore BLOB.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  Nella finestra di dialogo Caricamento file, selezionare il campo di file. Passare a un file in un computer locale, ad esempio un file di immagine, selezionarlo e selezionare **aperto** e quindi **caricare**.
 
@@ -210,7 +210,7 @@ Creare una nuova funzione di Azure Stack per spostare pulire i dati da Azure Sta
 
     **Esempio:**
 
-    ![Visualizzare il messaggio nei log.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Visualizzare il messaggio nei log.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="create-an-azure-stack-storage-account"></a>Creare un account di archiviazione di Azure Stack
 
@@ -232,9 +232,9 @@ Usare i passaggi e le impostazioni indicate sopra per creare un altro contenitor
 
 4.  Selezionare **OK.**
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image14.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image15.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>Creare una funzione attivata da una coda
 
@@ -252,13 +252,13 @@ Usare i passaggi e le impostazioni indicate sopra per creare un altro contenitor
 
 ## <a name="test-the-queue-triggered-function"></a>Funzione attivata da un test della coda
 
-1.  Nel portale di Azure, passare alla funzione. Espandere la **registri** nella parte inferiore della pagina e assicurarsi che lo streaming dei log non viene sospesa.
+1.  Nel portale di Azure Stack, passare alla funzione. Espandere la **registri** nella parte inferiore della pagina e assicurarsi che lo streaming dei log non viene sospesa.
 
 2.  Aprire Storage Explorer e connettersi all'account di archiviazione creato all'inizio di questa sezione.
 
 3.  Espandere l'account di archiviazione **contenitori Blob**, e il blob creato in precedenza. Selezionare **caricare** e quindi **caricare i file.**
 
-    ![Caricare un file nel contenitore BLOB.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Caricare un file nel contenitore BLOB.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  Nella finestra di dialogo Caricamento file, selezionare il campo di file. Passare a un file in un computer locale, ad esempio un file di immagine, selezionarlo e selezionare **aperto** e quindi **caricare**.
 
@@ -266,7 +266,7 @@ Usare i passaggi e le impostazioni indicate sopra per creare un altro contenitor
 
   **Esempio:**
 
-    ![Visualizzare il messaggio nei log.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Visualizzare il messaggio nei log.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Dati conformi a cui si accede e archiviati in modo sicuro
 

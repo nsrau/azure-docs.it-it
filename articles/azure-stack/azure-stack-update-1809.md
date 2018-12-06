@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2018
+ms.date: 12/05/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: bcb135e19796bcab8a8e06e3c1896b247188a58c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314673"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970842"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -57,7 +57,7 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
 <!-- TBD - IS ASDK --> 
 - Risolto un problema in cui sono create macchine virtuali nel portale utenti Azure Stack e il portale è visualizzato un numero errato di dischi dati che è possibile collegare a una VM serie DS. Le VM serie DS può supportare tutti i dischi dati come la configurazione di Azure.
 
-- I seguenti problemi di disco gestito sono stati risolti in 1809 e sono stati inoltre corretti nel 1808 [Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
+- I seguenti problemi di disco gestito sono stati risolti in 1809 e sono stati inoltre corretti nel 1808 [Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Risolto il problema in cui collegamento SSD i dischi dati premium di dimensioni delle macchine virtuali disco gestito (DS, DSv2, Fs, Fs_V2) non è riuscite con errore: *non è stato possibile aggiornare i dischi della macchina virtuale 'vmname' errore: non è possibile eseguire l'operazione perché richiesta tipo di account di archiviazione "Premium_LRS" non è supportata per dimensioni della macchina virtuale ' Standard_DS/Ds_V2/ADFS/Fs_v2)*. 
@@ -78,14 +78,14 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
       1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
       2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
    2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura:
-      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992).
+      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4481066).
       2. Seguire i passaggi descritti in [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
 
 
 ### <a name="changes"></a>Modifiche
 
 <!-- 2635202 - IS, ASDK -->
-- Servizio di backup dell'infrastruttura viene spostato dal [rete infrastruttura pubblico](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) per il [rete indirizzi VIP pubblici](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). I clienti dovranno assicurarsi che il servizio ha accesso il percorso di archiviazione di backup dalla rete VIP pubblica.  
+- Servizio di backup dell'infrastruttura viene spostato dal [rete infrastruttura pubblico](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) per il [rete indirizzi VIP pubblici](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). I clienti dovranno assicurarsi che il servizio ha accesso il percorso di archiviazione di backup dalla rete VIP pubblica.  
 
 > [!IMPORTANT]  
 > Se è presente un firewall che non consente le connessioni dalla rete VIP pubblica al file server, questa modifica causa backup infrastructure con "Errore 53 il percorso di rete non trovato". Si tratta di una modifica sostanziale che non dispone di alcuna soluzione ragionevole. In base ai suggerimenti dei clienti, Microsoft sarà annullare questa modifica in un aggiornamento rapido. Vedere le [post sezione passaggi di aggiornamento](#post-update-steps) per altre informazioni sulle correzioni disponibili per 1809. Dopo l'aggiornamento rapido è disponibile, assicurarsi di applicarlo dopo l'aggiornamento a 1809 solo se i criteri di rete non consentono la rete VIP pubblica accedere alle risorse di infrastruttura. in 1811, questa modifica verrà applicata a tutti i sistemi. Se è applicato l'aggiornamento rapido in 1809, non è richiesta alcuna azione ulteriore.  
@@ -143,7 +143,7 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- Installare l'Hotfix di Stack più recente di Azure per 1808 prima di applicare 1809. Per altre informazioni, vedere [KB 4471992 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/).
+- Installare l'Hotfix di Stack più recente di Azure per 1808 prima di applicare 1809. Per altre informazioni, vedere [KB 4481066 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/).
 
   > [!TIP]  
   > Sottoscrivere seguenti *RRS* oppure *Atom* i feed di stare al passo con gli aggiornamenti rapidi di Azure Stack:
