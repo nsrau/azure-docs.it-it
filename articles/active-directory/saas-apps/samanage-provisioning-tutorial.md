@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: e5a69fa2ee9a8c4baaeb6586627c7a9a3c9ba4a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347954"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634507"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Esercitazione: Configurare Samanage per il provisioning utenti automatico
 
@@ -141,7 +141,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Provisioning di Samanage](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. Definire gli utenti e/o i gruppi di cui si vuole effettuare il provisioning in Samanage selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**.
+15. Definire gli utenti e/o i gruppi di cui si vuole effettuare il provisioning in Samanage selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**. Quando si sceglie l'opzione **Sincronizza tutti gli utenti e i gruppi**, prendere in considerazione le limitazioni descritte nella sezione **Limitazioni dei connettori** più avanti.
 
     ![Provisioning di Samanage](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
@@ -153,6 +153,10 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning di Azure AD in Samanage.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="connector-limitations"></a>Limitazioni dei connettori
+
+* Se viene selezionata l'opzione **Sincronizza tutti gli utenti e i gruppi** ed è configurato un valore predefinito per l'attributo **roles** di Samanage, assicurarsi che il valore desiderato nel campo **Valore predefinito se Null (facoltativo)** sia espresso nel formato seguente **{"displayName":"role"}**, dove role indica il valore predefinito desiderato.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

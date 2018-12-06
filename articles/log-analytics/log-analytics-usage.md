@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e702e1f5eb1816b007317765e4c9a9f88bb99bfd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006499"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635425"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizzare l'utilizzo dei dati in Log Analytics
 
@@ -29,37 +29,136 @@ ms.locfileid: "51006499"
 > - [Gestire i costi controllando i volumi dei dati e la conservazione in Log Analytics](log-analytics-manage-cost-storage.md) descrive come controllare i costi modificando il periodo di conservazione dei dati.
 > - [Monitorare l'utilizzo e costi stimati](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descrive come visualizzare l'utilizzo e costi stimati tra più funzionalità di monitoraggio di Azure per diversi modelli di determinazione prezzi. Illustra inoltre come modificare il modello di prezzi.
 
-Log Analytics include informazioni sulla quantità di dati raccolti, sui diversi tipi di dati inviati e sulle origini che li hanno inviati.  Usare il dashboard **Utilizzo di Analisi dei log** per esaminare l'utilizzo dei dati. Il dashboard mostra la quantità di dati raccolti da ogni soluzione e la quantità di dati inviata dai computer.
+## <a name="understand-usage"></a>Informazioni sull'utilizzo
 
-## <a name="understand-the-usage-dashboard"></a>Informazioni sul dashboard Utilizzo
-Il dashboard **Utilizzo di Log Analytics** visualizza le informazioni seguenti:
+Usare la pagina **Utilizzo e costi stimati** di Log Analytics per verificare e analizzare l'utilizzo dei dati. Questa pagina mostra quanti dati vengono raccolti da ogni soluzione, quanti dati vengono conservati e una stima dei costi in base alla quantità di dati inseriti e a eventuali altri dati conservati oltre la quantità inclusa.
 
-- Volume dati
-    - Volume dati nel tempo (in base all'ambito temporale corrente)
-    - Volume dati per soluzione
-    - Dati non associati a un computer
-- Computer
-    - Computer che inviano dati
-    - Computer senza dati nelle ultime 24 ore
-- Offerte
-    - Nodi di informazioni dettagliate e analisi
-    - Nodi di automazione e controllo
-    - Nodi di sicurezza  
-- Prestazioni
-    - Tempo impiegato per raccogliere e indicizzare i dati  
-- Elenco di query
+![Utilizzo e costi stimati](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 
-![Dashboard Utilizzo e costi stimati](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
+Per esplorare i dati in maggiore dettaglio, fare clic sull'icona nell'angolo superiore destro di uno dei grafici nella pagina **Utilizzo e costi stimati**. Ora è possibile usare questa query per esplorare i dettagli dell'utilizzo.  
+
+![Visualizzazione dei log](media/log-analytics-usage/logs.png)<br>
+
+## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Risoluzione dei problemi che determinano un utilizzo superiore al previsto
+Un utilizzo più elevato è dovuto a una o entrambe le cause seguenti:
+- Vengono inviati più dati del previsto a Log Analytics
+- Più nodi del previsto inviano dati a Log Analytics oppure alcuni nodi inviano più dati del solito
+
+Esaminiamo più nel dettaglio entrambe le cause. 
+
+> [!NOTE]
+> Benché siano ancora inclusi nello schema, alcuni campi del tipo di dati Utilizzo sono stati deprecati e i rispettivi valori non vengono più popolati. Si tratta del campo **Computer** e dei campi correlati all'inserimento, ossia **TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
+
+### <a name="data-volume"></a>Volume dati 
+Nella pagina **Utilizzo e costi stimati** il grafico *Inserimento dati per soluzione* mostra il volume totale dei dati inviati e la quantità inviata da ogni soluzione. In questo modo è possibile determinare tendenze specifiche, ad esempio se l'utilizzo dei dati complessivo (o da parte di una particolare soluzione) sta aumentando, è stabile o sta diminuendo. La query usata per generare questi dati è
+
+`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+Si noti che la clausola "where IsBillable = true" esclude i tipi di dati da determinate soluzioni per le quali non è addebitato alcun inserimento. 
+
+È possibile approfondire ulteriormente l'analisi per visualizzare le tendenze relative a tipi di dati specifici, ad esempio per studiare i dati risultanti dai log di IIS:
+
+`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### <a name="nodes-sending-data"></a>Nodi che inviano dati
+
+Per conoscere il numero di nodi che hanno segnalato dati nell'ultimo mese, usare
+
+`Heartbeat | where TimeGenerated > startofday(ago(31d))
+| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| render timechart`
+
+Per visualizzare il numero di eventi inseriti per computer, usare
+
+`union withsource = tt *
+| summarize count() by Computer | sort by count_ nulls last`
+
+Usare questa query con parsimonia in quanto la sua esecuzione è dispendiosa. Per visualizzare il numero di eventi fatturabili inseriti per computer, usare 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Per sapere quali tipi di dati fatturabili inviano dati a uno specifico computer, usare:
+
+`union withsource = tt *
+| where Computer == "*computer name*"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
+
+Ecco alcune query di esempio utili per analizzare in maggiore profondità l'origine dei dati di un particolare tipo di dati:
+
++ Soluzione **Sicurezza**
+  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
++ Soluzione **Gestione log**
+  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
++ Tipo di dati **Perf**
+  - `Perf | summarize AggregatedValue = count() by CounterPath`
+  - `Perf | summarize AggregatedValue = count() by CounterName`
++ Tipo di dati **Event**
+  - `Event | summarize AggregatedValue = count() by EventID`
+  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
++ Tipo di dati **Syslog**
+  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
+  - `Syslog | summarize AggregatedValue = count() by ProcessName`
++ Tipo di dati **AzureDiagnostics**
+  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
+
+### <a name="tips-for-reducing-data-volume"></a>Suggerimenti per ridurre il volume di dati
+
+Ecco alcuni suggerimenti utili per ridurre il volume dei log raccolti:
+
+| Origine del volume di dati elevato | Come ridurre il volume di dati |
+| -------------------------- | ------------------------- |
+| Eventi di sicurezza            | Selezionare gli [eventi di sicurezza comuni o minimi](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Modificare i criteri di controllo di sicurezza in modo che vengano raccolti solo gli eventi necessari. In particolare, esaminare la necessità di raccogliere eventi per: <br> - [controllo piattaforma filtro](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [controllo Registro di sistema](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [controllo file system](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [controllo oggetto kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [controllo manipolazione handle](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - controllo archivi rimovibili |
+| Contatori delle prestazioni       | Modificare la [configurazione del contatore delle prestazioni](log-analytics-data-sources-performance-counters.md) per: <br> - Ridurre la frequenza di raccolta <br> - Ridurre il numero di contatori delle prestazioni |
+| Log eventi                 | Modificare la [configurazione del log eventi](log-analytics-data-sources-windows-events.md) per: <br> - Ridurre il numero di log eventi raccolti <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* |
+| syslog                     | Modificare la [configurazione di Syslog](log-analytics-data-sources-syslog.md) per: <br> - Ridurre il numero di strutture raccolte <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* e *debug* |
+| AzureDiagnostics           | Modificare la raccolta dei log delle risorse per: <br> - Ridurre il numero di risorse che inviano log a Log Analytics <br> - Raccogliere solo i log necessari |
+| Dati della soluzione da computer che non richiedono la soluzione | Usare il [targeting della soluzione](../azure-monitor/insights/solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari |
+
+### <a name="getting-node-counts"></a>Ottenere il conteggio dei nodi 
+
+Se si usa un piano tariffario "Per nodo (OMS)", l'addebito viene effettuato in base al numero di nodi e soluzioni usati e il numero di nodi di Informazioni dettagliate e analisi fatturati sarà visualizzato in una tabella nella pagina **Utilizzo e costi stimati**.  
+
+Per visualizzare il numero di nodi di sicurezza distinti è possibile usare la query:
+
+`union
+(
+    Heartbeat
+    | where (Solutions has 'security' or Solutions has 'antimalware' or Solutions has 'securitycenter')
+    | project Computer
+),
+(
+    ProtectionStatus
+    | where Computer !in~
+    (
+        (
+            Heartbeat
+            | project Computer
+        )
+    )
+    | project Computer
 )
+| distinct Computer
+| project lowComputer = tolower(Computer)
+| distinct lowComputer
+| count`
 
-### <a name="to-work-with-usage-data"></a>Per gestire i dati di utilizzo
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br><br> ![Portale di Azure](media/log-analytics-usage/azure-portal-01.png)<br><br>  
-3. Nell'elenco di aree di lavoro di Log Analytics selezionare un'area di lavoro.
-4. Selezionare **Utilizzo e costi stimati** dall'elenco nel riquadro a sinistra.
-5. Nel dashboard **Utilizzo e costi stimati** è possibile modificare l'intervallo di tempo selezionando **Ora: Ultime 24 ore** e modificando l'intervallo stesso.<br><br> ![Intervallo di tempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. Visualizzare i pannelli delle categorie di utilizzo che mostrano le aree a cui si è interessati. Scegliere un pannello e quindi fare clic su un elemento per visualizzare altri dettagli in [Ricerca log](log-analytics-queries.md).<br><br> ![KPI di esempio di utilizzo dei dati](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
-7. Nel dashboard Ricerca log esaminare i risultati restituiti dalla ricerca.<br><br> ![Ricerca log sull'utilizzo dei dati di esempio](./media/log-analytics-usage/usage-log-search-01.png)
+Per visualizzare il numero di nodi di Automazione distinti usare la query:
+
+` ConfigurationData 
+ | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
+ | extend lowComputer = tolower(Computer) | summarize by lowComputer 
+ | join (
+     Heartbeat 
+       | where SCAgentChannel == "Direct"
+       | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
+ ) on lowComputer
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Creare un avviso quando la raccolta dati supera le dimensioni previste
 Questa sezione descrive come creare un avviso nei casi seguenti:
@@ -110,72 +209,10 @@ Specificare un [gruppo di azioni](../monitoring-and-diagnostics/monitoring-actio
 
 Quando si riceve un avviso, seguire la procedura descritta nella sezione seguente per risolvere i problemi che determinano un utilizzo superiore al previsto.
 
-## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Risoluzione dei problemi che determinano un utilizzo superiore al previsto
-Dashboard Utilizzo consente di identificare il motivo per cui l'utilizzo e, di conseguenza, i costi sono superiori al previsto.
-
-Un utilizzo più elevato è dovuto a una o entrambe le cause seguenti:
-- Vengono inviati più dati del previsto a Log Analytics
-- Più nodi del previsto inviano dati a Log Analytics
-
-### <a name="check-if-there-is-more-data-than-expected"></a>Verificare se sono presenti più dati del previsto 
-Sono due le sezioni principali della pagina di utilizzo che permettono di identificare il motivo per cui viene raccolta la maggior parte dei dati.
-
-Il grafico *Volume dati nel tempo* mostra il volume totale dei dati inviati e i computer che inviano più dati. Il grafico in alto mostra se l'utilizzo complessivo dei dati è in aumento, stabile o in diminuzione. L'elenco dei computer mostra i 10 computer che inviano la maggior parte dei dati.
-
-Il grafico *Volume dati per soluzione* mostra il volume di dati inviato da ogni soluzione e le soluzioni che inviano la maggior parte dei dati. Il grafico in alto mostra il volume totale dei dati inviati da ogni soluzione nel corso del tempo. Queste informazioni permettono di determinare se una soluzione sta inviando più o meno dati oppure se la quantità di dati inviata è pressoché invariata. L'elenco delle soluzioni mostra le 10 soluzioni che inviano la maggior parte dei dati. 
-
-Questi due grafici mostrano tutti i dati. Alcuni dati sono fatturabili, mentre altri sono gratuiti. Per concentrarsi solo sui dati fatturabili, modificare la query nella pagina di ricerca in modo che includa `IsBillable=true`.  
-
-![grafici del volume dei dati](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
-
-Si osservi il grafico *Volume dati nel tempo*. Per visualizzare le soluzioni e i tipi di dati che inviano la maggior parte dei dati per un computer specifico, fare clic sul nome del computer. Fare clic sul nome del primo computer nell'elenco.
-
-Nello screenshot seguente il tipo di dati *LogManagement / Perf* invia la maggior parte dei dati per il computer.<br><br> ![Volume dei dati per un computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
-
-Tornare quindi al dashboard *Utilizzo* e osservare il grafico *Volume dati per soluzione*. Per visualizzare i computer che inviano la maggior parte dei dati per una soluzione, fare clic sul nome della soluzione nell'elenco. Fare clic sul nome della prima soluzione nell'elenco. 
-
-Lo screenshot seguente conferma che il computer *mycon* è quello che invia la maggior parte dei dati per la soluzione Gestione log.<br><br> ![Volume dei dati per una soluzione](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
-
-Se necessario, eseguire ulteriori analisi per identificare volumi di grandi dimensioni all'interno di una soluzione o un tipo di dati. Le query di esempio includono:
-
-+ Soluzione **Sicurezza**
-  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
-+ Soluzione **Gestione log**
-  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
-+ Tipo di dati **Perf**
-  - `Perf | summarize AggregatedValue = count() by CounterPath`
-  - `Perf | summarize AggregatedValue = count() by CounterName`
-+ Tipo di dati **Event**
-  - `Event | summarize AggregatedValue = count() by EventID`
-  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
-+ Tipo di dati **Syslog**
-  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
-  - `Syslog | summarize AggregatedValue = count() by ProcessName`
-+ Tipo di dati **AzureDiagnostics**
-  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
-
-Per ridurre il volume dei log raccolti, seguire questa procedura:
-
-| Origine del volume di dati elevato | Come ridurre il volume di dati |
-| -------------------------- | ------------------------- |
-| Eventi di sicurezza            | Selezionare gli [eventi di sicurezza comuni o minimi](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Modificare i criteri di controllo di sicurezza in modo che vengano raccolti solo gli eventi necessari. In particolare, esaminare la necessità di raccogliere eventi per: <br> - [controllo piattaforma filtro](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [controllo Registro di sistema](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [controllo file system](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [controllo oggetto kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [controllo manipolazione handle](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - controllo archivi rimovibili |
-| Contatori delle prestazioni       | Modificare la [configurazione del contatore delle prestazioni](log-analytics-data-sources-performance-counters.md) per: <br> - Ridurre la frequenza di raccolta <br> - Ridurre il numero di contatori delle prestazioni |
-| Log eventi                 | Modificare la [configurazione del log eventi](log-analytics-data-sources-windows-events.md) per: <br> - Ridurre il numero di log eventi raccolti <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* |
-| syslog                     | Modificare la [configurazione di Syslog](log-analytics-data-sources-syslog.md) per: <br> - Ridurre il numero di strutture raccolte <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* e *debug* |
-| AzureDiagnostics           | Modificare la raccolta dei log delle risorse per: <br> - Ridurre il numero di risorse che inviano log a Log Analytics <br> - Raccogliere solo i log necessari |
-| Dati della soluzione da computer che non richiedono la soluzione | Usare il [targeting della soluzione](../monitoring/monitoring-solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari |
-
-### <a name="check-if-there-are-more-nodes-than-expected"></a>Verificare se sono presenti più nodi del previsto
-Con il piano tariffario *Per nodo (Log Analytics)*, l'importo addebitato dipende dal numero di nodi e soluzioni usati. È possibile visualizzare il numero di nodi in uso per ogni offerta nella sezione *offerte* del dashboard di uso.<br><br> ![Dashboard di utilizzo](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
-
-Fare clic su **Visualizza tutto...** per visualizzare l'elenco completo dei computer che inviano dati per l'offerta selezionata.
-
-Usare il [targeting della soluzione](../monitoring/monitoring-solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari
-
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni su come usare il linguaggio di ricerca, vedere [Ricerche nei log in Log Analytics](log-analytics-queries.md). È possibile usare le query di ricerca per eseguire ulteriori analisi sui dati di utilizzo.
 * Per ricevere una notifica quando vengono soddisfatti determinati criteri di ricerca, seguire la procedura descritta in [Creare un nuovo avviso del log](../monitoring-and-diagnostics/alert-metric.md).
-* Usare il [targeting della soluzione](../monitoring/monitoring-solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari
+* Usare il [targeting della soluzione](../azure-monitor/insights/solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari
 * Per configurare un criterio efficace per la raccolta degli eventi di sicurezza, vedere [Criteri per i filtri del Centro sicurezza di Azure](../security-center/security-center-enable-data-collection.md).
 * Modificare la [configurazione del contatore delle prestazioni](log-analytics-data-sources-performance-counters.md).
 * Per modificare le impostazioni di raccolta degli eventi, vedere la [configurazione del registro eventi](log-analytics-data-sources-windows-events.md).

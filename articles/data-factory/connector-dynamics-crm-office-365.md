@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d58e72c4487a3ab6d7b562fd328098d98761da5e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574675"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620337"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiare i dati da e in Dynamics 365 (Common Data Service) o Dynamics CRM usando Azure Data Factory
 
@@ -43,7 +43,10 @@ Per Dynamics 365 in particolare, sono supportati i tipi di applicazioni seguenti
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
 
-Altri tipi di applicazioni, come Finance and Operations, Talent e così via, non sono supportati.
+Altri tipi di applicazioni, ad esempio Finance and Operations, Talent e così via non sono supportati da questo connettore.
+
+>[!TIP]
+>Per copiare dati da **Dynamics 365 for Finance and Operations**, è possibile usare il [connettore di Dynamics AX](connector-dynamics-ax.md).
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -158,7 +161,8 @@ Per copiare dati da e in Dynamics, impostare la proprietà type del set di dati 
 | entityName | Il nome logico dell'entità da recuperare. | No per l'origine (se nell'origine dell'attività è specificato "query"), Sì per il sink |
 
 > [!IMPORTANT]
->- Quando si copiano dati da Dynamics, la sezione "structure" è obbligatoria nel set di dati di Dynamics. Definisce il nome di colonna e il tipo di dati per i dati di Dynamics da copiare. Per altre informazioni, vedere [Struttura del set di dati](concepts-datasets-linked-services.md#dataset-structure) e [Mapping dei tipi di dati per Dynamics](#data-type-mapping-for-dynamics).
+>- Quando si copiano dati da Dynamics, la sezione "structure" è facoltativa ma consigliata nel set di dati di Dynamics per garantire un risultato deterministico della copia. Definisce il nome di colonna e il tipo di dati per i dati di Dynamics da copiare. Per altre informazioni, vedere [Struttura del set di dati](concepts-datasets-linked-services.md#dataset-structure) e [Mapping dei tipi di dati per Dynamics](#data-type-mapping-for-dynamics).
+>- Durante l'importazione dello schema nell'interfaccia utente di creazione, Azure Data Factory deduce lo schema tramite il campionamento delle prime righe dal risultato della query Dynamics per inizializzare la costruzione della struttura, nel qual caso le colonne senza valori verranno omesse. È possibile rivedere e aggiungere altre colonne nello schema/nella struttura del set di dati Dynamics, come necessario, che verranno rispettate durante il runtime di copia.
 >- Quando si copiano dati in Dynamics, la sezione "structure" è facoltativa nel set di dati di Dynamics. Le colonne in cui eseguire la copia sono determinate dallo schema dei dati di origine. Se l'origine è un file CSV senza intestazione, nel set di dati di input specificare "structure" con il nome della colonna e il tipo di dati. Le colonne vengono mappate ai campi nel file CSV una alla volta in ordine.
 
 **Esempio:**

@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 11/29/2018
 ms.author: spelluru
-ms.openlocfilehash: e2efe2bfb26fa7a14a9e80c26fba1322f82cb0eb
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c5df5f43c4f01013cc44a2497203947f303f3e81
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856922"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634830"
 ---
 # <a name="message-expiration-time-to-live"></a>Scadenza dei messaggi (durata)
 
-Il payload all'interno di un messaggio, oppure un comando o una richiesta che un messaggio trasmette a un ricevitore, è quasi sempre soggetto a una forma di scadenza a livello di applicazione. Dopo tale scadenza, il contenuto non viene più recapitato oppure l'operazione richiesta non viene più eseguita.
+Il payload all'interno di un messaggio, oppure di un comando o di una richiesta che un messaggio trasmette a un ricevitore, è quasi sempre soggetto a un qualche tipo di scadenza a livello di applicazione. Dopo tale scadenza, il contenuto non viene più recapitato oppure l'operazione richiesta non viene più eseguita.
 
 Per gli ambienti di sviluppo e test in cui code e argomenti vengono spesso usati nel contesto di esecuzioni parziali di applicazioni o parti di applicazioni, è anche consigliabile che i messaggi di test abbandonati vengano automaticamente sottoposti a Garbage Collection, in modo che l'esecuzione dei test successiva possa iniziare in modo pulito.
 
-La scadenza dei singoli messaggi può essere controllata impostando la proprietà di sistema [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), che specifica una durata relativa. La scadenza diventa un istante assoluto quando il messaggio viene accodato nell'entità. In quel momento, la proprietà [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) assume il valore [**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+La scadenza dei singoli messaggi può essere controllata impostando la proprietà di sistema [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), che specifica una durata relativa. La scadenza diventa un istante assoluto quando il messaggio viene accodato nell'entità. In quel momento, la proprietà [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) assume il valore [**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). L'impostazione TTL (time-to-live) di un messaggio negoziato non viene applicata se non ci sono client attivamente in ascolto.
 
 Passato l'istante definito da **ExpiresAtUtc**, i messaggi non sono più idonei per il recupero. La scadenza non influisce sui messaggi attualmente bloccati per il recapito. Tali messaggi vengono comunque gestiti normalmente. Se il blocco scade o il messaggio viene abbandonato, la scadenza ha effetto immediato.
 
@@ -44,15 +44,37 @@ La combinazione di [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.t
 
 Si consideri, ad esempio, un sito Web che deve eseguire in modo affidabile i processi in un back-end con vincoli di scalabilità e che in alcuni casi è soggetto a picchi di traffico o richiede un isolamento rispetto a episodi di disponibilità di tale back-end. In una situazione normale, il gestore sul lato server per i dati utente inviati esegue il push delle informazioni in una coda e successivamente riceve una risposta che conferma la corretta gestione della transazione in una coda di risposta. Se c'è un picco di traffico e il gestore di back-end non è in grado di elaborare gli elementi del backlog in tempo, i processi scaduti vengono restituiti nella coda di messaggi non recapitabili. L'utente interattivo può ricevere una notifica che indica che l'operazione richiesta impiegherà un po' più tempo del solito e la richiesta può quindi essere inserita in un'altra coda per un percorso di elaborazione in cui il risultato dell'elaborazione finale viene inviato all'utente tramite posta elettronica. 
 
+
 ## <a name="temporary-entities"></a>Entità temporanee
 
 È possibile creare sottoscrizioni, argomenti e code del bus di servizio come entità temporanee, che vengono rimosse automaticamente se non vengono usate per un periodo di tempo specificato.
  
 La pulizia automatica è utile negli scenari di sviluppo e test in cui le entità vengono create in modo dinamico e non vengono eliminate dopo l'uso, a causa di un'interruzione dell'esecuzione dei test o del debug. È utile anche quando un'applicazione crea entità dinamiche, ad esempio una coda di risposta, per la ricezione di risposte in un processo del server Web o in un altro oggetto di durata relativamente breve, in cui è difficile eseguire la pulizia delle entità in modo affidabile quando l'istanza dell'oggetto non è più presente.
 
-La funzionalità viene abilitata usando la proprietà [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues), impostata sulla durata per cui un'entità deve rimanere inattiva (non usata) prima di essere eliminata automaticamente. La durata minima è 5 minuti.
+La funzionalità viene abilitata tramite la proprietà [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues). Questa proprietà deve essere impostata sulla durata per cui l'entità deve rimanere inattiva (non usata) prima di essere eliminata automaticamente. Il valore minimo per questa proprietà è 5.
  
-La proprietà **autoDeleteOnIdle** deve essere impostata tramite un'operazione di Azure Resource Manager o tramite le API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) del client .NET Framework. Non può essere impostata nel portale.
+La proprietà **autoDeleteOnIdle** deve essere impostata tramite un'operazione di Azure Resource Manager o tramite le API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) del client .NET Framework. Non è possibile impostarla nel portale.
+
+## <a name="idleness"></a>Inattività
+
+Ecco cosa identifica le entità (code, argomenti e sottoscrizioni) come inattive:
+
+- Queues
+    - Nessun invio  
+    - Nessuna ricezione  
+    - Nessun aggiornamento alla coda  
+    - Nessun messaggio pianificato  
+    - Nessuna esplorazione/visualizzazione 
+- Argomenti  
+    - Nessun invio  
+    - Nessun aggiornamento all'argomento  
+    - Nessun messaggio pianificato 
+- Sottoscrizioni
+    - Nessuna ricezione  
+    - Nessun aggiornamento alla sottoscrizione  
+    - Nessuna nuova regola aggiunta alla sottoscrizione  
+    - Nessuna esplorazione/visualizzazione  
+ 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 3109cad0e00b6ec5af47210f2c8d094659bd4553
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 999f7265cc62236fa085a0c2fb90a68707891dd4
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345777"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620391"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ In particolare, il connettore di Archiviazione BLOB supporta:
 
 - La copia di BLOB in e da account di archiviazione di Azure per utilizzo generico e servizi di Archiviazione BLOB ad accesso frequente o sporadico. 
 - La copia di BLOB tramite autenticazione con chiave dell'account, firma di accesso condiviso del servizio, entità servizio o identità gestite per le risorse di Azure.
-- La copia di BLOB da BLOB in blocchi, di aggiunta o di pagine e la copia di dati solo in BLOB in blocchi. Archiviazione Premium di Azure non è supportata come sink poiché si basa sui BLOB di pagine.
+- La copia di BLOB da BLOB in blocchi, di aggiunta o di pagine e la copia di dati solo in BLOB in blocchi.
 - La copia di BLOB così come sono o l'analisi o generazione di BLOB con i [formati di file e i codec di compressione supportati](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
@@ -207,7 +207,7 @@ Per usare l'autenticazione di identità gestite per le risorse di Azure, seguire
 
 1. [Recuperare l'identità del servizio Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando il valore di "SERVICE IDENTITY APPLICATION ID" generato con la factory.
 
-2. Concedere all'entità servizio un'autorizzazione appropriata in Archiviazione BLOB di Azure. Fare riferimento a [Gestire i diritti di accesso ai dati di Archiviazione di Azure con RBAC](../storage/common/storage-auth-aad-rbac.md) per altri dettagli sui ruoli.
+2. Concedere l'autorizzazione appropriata per l'identità gestita in Archiviazione BLOB di Azure. Fare riferimento a [Gestire i diritti di accesso ai dati di Archiviazione di Azure con RBAC](../storage/common/storage-auth-aad-rbac.md) per altri dettagli sui ruoli.
 
     - **Come origine**, in Controllo di accesso (IAM), concedere almeno il ruolo **Lettore dei dati dei BLOB di archiviazione**.
     - **Come sink**, in Controllo di accesso (IAM), concedere almeno il ruolo **Collaboratore dei dati dei BLOB di archiviazione**.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625795"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583450"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -100,7 +100,7 @@ Per creare un contenitore pubblico nell'archivio BLOB seguire questa procedura:
 Configurare l'archivio BLOB per la condivisione di risorse tra le origini (CORS) seguendo questa procedura:
 
 1. Nel menu selezionare **CORS**.
-2. Per **Origini consentite** immettere `your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `fabrikam.b2clogin.com`.
+2. Per **Origini consentite** immettere `your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
 3. Per **Metodi consentiti** selezionare sia `GET` che `OPTIONS`.
 4. Per **Intestazioni consentite** immettere un asterisco (*).
 5. Per **Intestazioni esposte** immettere un asterisco (*).

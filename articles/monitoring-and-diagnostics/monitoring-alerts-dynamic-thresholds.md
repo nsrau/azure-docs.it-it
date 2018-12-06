@@ -1,22 +1,22 @@
 ---
 title: Creazione di avvisi con soglie dinamiche in Monitoraggio di Azure
 description: Creare avvisi con apprendimento automatico in base a soglie dinamiche
-author: antonfrMSFT
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.author: mbullwin
-ms.reviewer: antonfr
+ms.date: 11/29/2018
+ms.author: Yaniv.Lavi
+ms.reviewer: mbullwin
 ms.component: alerts
-ms.openlocfilehash: 1b47e3804d8be36e3c6c8c570fec06f542e8dbf2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: af9f85014ea16dd266c56a71f13b4dce2adccc9a
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233967"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619708"
 ---
-# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Avvisi con soglie dinamiche in Monitoraggio di Azure (anteprima pubblica limitata)
+# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-private-preview"></a>Avvisi con soglie dinamiche in Monitoraggio di Azure (anteprima privata limitata)
 
 Gli avvisi con soglie dinamiche sono un miglioramento degli avvisi sulle metriche di Azure in Monitoraggio di Azure e sfruttano funzionalità avanzate di Machine Learning per apprendere il comportamento cronologico delle metriche in modo da calcolare automaticamente le linee di base e usarle come soglie degli avvisi.
 

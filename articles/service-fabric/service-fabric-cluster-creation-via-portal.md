@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: fbca9c746863b852a9ddd46d00a65d4133961718
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f0c2108ee75f843e8285c5e2c5c55834643dc7da
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984374"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620541"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creare un cluster di Service Fabric in Azure tramite il portale di Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [portale di Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Portale di Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -75,7 +75,7 @@ I certificati delle applicazioni non possono essere configurati durante la [crea
 
 ## <a name="create-cluster-in-the-azure-portal"></a>Creare un cluster nel portale di Azure
 
-La creazione di un cluster di produzione per soddisfare le esigenze dell'applicazione implica una pianificazione che aiuti in questo compito. Si consiglia di leggere e accettare il documento [Considerazioni sulla pianificazione del Cluster di Service Fabric][service-fabric-cluster-capacity]. 
+La creazione di un cluster di produzione per soddisfare le esigenze dell'applicazione implica una pianificazione che aiuti in questo compito. È consigliabile leggere e accettare il documento [Considerazioni sulla pianificazione del Cluster di Service Fabric][service-fabric-cluster-capacity]. 
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Cercare la risorsa cluster di Service Fabric
 
@@ -117,13 +117,13 @@ Configurare i nodi del cluster. poiché definiscono le dimensioni delle VM, il n
 1. Scegliere un nome per il tipo di nodo (da 1 a 12 caratteri, contenenti solo lettere e numeri).
 2. Le **dimensioni minime** delle macchine virtuali per il tipo di nodo primario sono determinate dal **livello di durabilità** scelto per il cluster. Il valore predefinito per il livello di durabilità è Bronze. Per altre informazioni sulla durabilità, vedere [come scegliere la durabilità di un cluster di Service Fabric][service-fabric-cluster-durability].
 3. Selezionare le **dimensioni delle macchine virtuali**. Le macchine virtuali della serie D dispongono di unità SSD e sono consigliate per applicazioni con stato. Non usare SKU di VM con core parziali o meno di 10 GB di capacità disco disponibile. Fare riferimento a [documento sulle considerazioni di pianificazione del cluster di service fabric][service-fabric-cluster-capacity] per informazioni su come selezionare le dimensioni della VM.
-4. Scegliere la **capacità iniziale del set di scalabilità di macchine virtuali** per il tipo di nodo. È possibile aumentare o ridurre il numero di macchine virtuali in un tipo di nodo in un secondo momento ma, per il tipo di nodo primario, il minimo è cinque per il carico di lavoro di produzione. Gli altri tipi di nodo possono avere al minimo una macchina virtuale. Il **numero** minimo di macchine virtuali per il tipo di nodo primario determina il livello di **affidabilità** del cluster.  
-5. I **cluster a un solo nodo e a tre nodi** vengono usati solo a scopo di test. Non sono supportati per l'esecuzione di nessun carico di lavoro di produzione.
+4.  I **cluster a un solo nodo e a tre nodi** vengono usati solo a scopo di test. Non sono supportati per l'esecuzione di nessun carico di lavoro di produzione.
+5. Scegliere la **capacità iniziale del set di scalabilità di macchine virtuali** per il tipo di nodo. È possibile aumentare o ridurre il numero di macchine virtuali in un tipo di nodo in un secondo momento ma, per il tipo di nodo primario, il minimo è cinque per il carico di lavoro di produzione. Gli altri tipi di nodo possono avere al minimo una macchina virtuale. Il **numero** minimo di macchine virtuali per il tipo di nodo primario determina il livello di **affidabilità** del cluster.  
 6. Configurare gli **endpoint personalizzati**. Questo campo consente di immettere un elenco di porte delimitato da virgole che si desidera esporre tramite Azure Load Balancer alla rete Internet pubblica per le applicazioni. Ad esempio, se si prevede di distribuire un'applicazione Web nel cluster, immettere "80" per consentire il traffico sulla porta 80 del cluster. Per altre informazioni sugli endpoint, vedere [Comunicazioni con le applicazioni][service-fabric-connect-and-communicate-with-services]
 7. **Abilitare il proxy inverso**.  Il [proxy inverso di Service Fabric](service-fabric-reverseproxy.md) consente ai microservizi in esecuzione in un cluster di Service Fabric di rilevare e comunicare con altri servizi che hanno endpoint HTTP.
-8. In **+ Mostra impostazioni facoltative** configurare la **diagnostica** del cluster. Per impostazione predefinita, la diagnostica è abilitata nel cluster come supporto per la risoluzione dei problemi. Per disabilitare la diagnostica, impostare lo **stato** su **No**. **Non** è consigliabile disattivare la diagnostica. Se si dispone già di un progetto di Application Insights creato, assegnare le rispettive chiavi in modo che le analisi dello stack dell'applicazione vengano indirizzate verso il progetto.
+8. Tornare al pannello **Configurazione cluster** e in **+ Mostra impostazioni facoltative** configurare la **diagnostica** del cluster. Per impostazione predefinita, la diagnostica è abilitata nel cluster come supporto per la risoluzione dei problemi. Per disabilitare la diagnostica, impostare lo **stato** su **No**. **Non** è consigliabile disattivare la diagnostica. Se si dispone già di un progetto di Application Insights creato, assegnare le rispettive chiavi in modo che le analisi dello stack dell'applicazione vengano indirizzate verso il progetto.
 9. **Includere il servizio DNS**.  Il [servizio DNS](service-fabric-dnsservice.md) è un servizio facoltativo che consente di trovare altri servizi che usano il protocollo DNS.
-10. Selezionare la **modalità di aggiornamento di Fabric** che si vuole impostare per il cluster. Selezionare **Automatic**(Automatici) se si vuole che il sistema acquisisca automaticamente la versione più recente disponibile e provi ad aggiornare il cluster. Impostare la modalità su **Manual**(Manuali) se si vuole scegliere una versione supportata. Per altri dettagli sulla modalità di aggiornamento di Fabric, vedere il documento sull'[aggiornamento di un cluster di Service Fabric][service-fabric-cluster-upgrade].
+10. Selezionare la **modalità di aggiornamento di Fabric** che si vuole impostare per il cluster. Selezionare **Automatic**(Automatici) se si vuole che il sistema acquisisca automaticamente la versione più recente disponibile e provi ad aggiornare il cluster. Impostare la modalità su **Manual**(Manuali) se si vuole scegliere una versione supportata. Per altri dettagli sulla modalità di aggiornamento di Fabric, vedere il documento [Aggiornare la versione di Service Fabric di un cluster][service-fabric-cluster-upgrade].
 
 > [!NOTE]
 > Microsoft supporta solo i cluster che eseguono versioni supportate di Service Fabric. Selezionando la modalità **Manual** (Manuali), l'utente si assume la responsabilità di aggiornare il cluster a una versione supportata.
@@ -158,10 +158,10 @@ Ignorare questa sezione, se è stato già eseguita la procedura nell'opzione **B
 
 ![SecurityCustomOption]
 
-Sono necessarie le informazioni del CertificateThumbprint, del SourceVault e del CertificateURL per completare la pagina di sicurezza. Se non è a disposizione, aprire un'altra finestra del browser ed eseguire le operazioni seguenti
+Per completare la pagina di sicurezza, sono necessarie le informazioni relative all'insieme di credenziali delle chiavi di origine e all'URL e all'identificazione personale del certificato. Se queste informazioni non sono a disposizione, aprire un'altra finestra del browser e nel portale di Azure eseguire le operazioni seguenti
 
-1. Passare all'insieme delle credenziali delle chiavi e selezionare il certificato. 
-2. Selezionare la scheda "proprietà" e copiare 'l'ID RISORSA' in "Insieme delle credenziali delle chiave di origine" nell'altra finestra del browser 
+1. Passare al servizio Key Vault.
+2. Selezionare la scheda "Proprietà" e copiare 'ID RISORSA' in "Insieme delle credenziali delle chiave di origine" nell'altra finestra del browser 
 
     ![CertInfo0]
 
@@ -171,22 +171,22 @@ Sono necessarie le informazioni del CertificateThumbprint, del SourceVault e del
 
     ![CertInfo1]
 
-6. Ora si dovrebbe visualizzare la schermata seguente. Copiare 'L'identificazione personale' in 'Identificazione personale del certificato' nell'altra finestra del browser
-7. Copiare le informazioni 'Identificatore del segreto' in 'URL del certificato' nell'altra finestra del browser.
+6. Ora si dovrebbe visualizzare la schermata seguente. Copiare l'identificazione personale SHA-1 esadecimale in "Identificazione personale certificato" nell'altra finestra del browser
+7. Copiare 'Identificatore del segreto' in 'URL del certificato' nell'altra finestra del browser.
 
     ![CertInfo2]
 
 Selezionare la casella **Configura impostazioni avanzate** per l'immissione dei certificati client per **amministratore client** e **client di sola lettura**. In questi campi, immettere l'identificazione personale del certificato client amministratore e l'identificazione personale del certificato client utente di sola lettura, se applicabile. Quando gli amministratori provano a connettersi al cluster, viene concesso l'accesso solo se hanno un certificato con identificazione personale corrispondente ai valori di identificazione personale immessi in questi campi.  
 
-### <a name="4-summary"></a>4. Riepilogo
+### <a name="4-summary"></a>4. Summary
 
 È ora possibile distribuire il cluster. Prima di procedere, scaricare il certificato, cercare all'interno della grande casella informativa blu il collegamento. Assicurarsi di mantenere il certificato in un luogo sicuro. è necessario per connettersi al cluster. Poiché il certificato che è stato scaricato non ha una password, è consigliabile aggiungere uno.
 
 Per completare la creazione del cluster fare clic su **Crea**. È possibile, facoltativamente, scaricare il modello.
 
-![Riepilogo]
+![Summary]
 
-È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: fare clic sull'icona a forma di campana accanto alla barra di stato nell'angolo superiore destro della schermata. Se durante la creazione del cluster si è fatto clic su **Aggiungi alla Schermata iniziale** durante la creazione del cluster, la voce **Distribuzione di Cluster di Service Fabric** viene aggiunta alla **schermata iniziale**.
+È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: fare clic sull'icona a forma di campana accanto alla barra di stato nell'angolo superiore destro della schermata. Se durante la creazione del cluster si è fatto clic su **Aggiungi alla Schermata iniziale** durante la creazione del cluster, la voce **Distribuzione di Cluster di Service Fabric** viene aggiunta alla **schermata iniziale**. Questo processo richiede tempo. 
 
 Per eseguire operazioni di gestione nel cluster tramite Powershell o Interfaccia della riga di comando, è necessario connettersi al cluster, per ottenere altre informazioni leggere [Connessione al cluster](service-fabric-connect-to-secure-cluster.md).
 

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0eb283eda04d4123e0c05d2c48663a5aca88ebc4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 027c8155c84959ca429eb9b093a155ac22aaf324
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249558"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582214"
 ---
-# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (C#)
+# <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Elaborare eventi di Hub eventi di Azure con Apache Storm in HDInsight (C#)
 
-Informazioni su come usare Hub eventi di Azure da Apache Storm in HDInsight. In questo documento viene usata una topologia Storm con C# per leggere e scrivere dati da Hub eventi
+Informazioni su come usare Hub eventi di Azure da [Apache Storm](http://storm.apache.org/) in HDInsight. In questo documento viene usata una topologia Storm con C# per leggere e scrivere dati da Hub eventi
 
 > [!NOTE]
-> Per la versione Java di questo progetto, vedere [Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+> Per la versione Java di questo progetto, vedere [Elaborare eventi di Hub eventi di Azure con Apache Storm in HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 ## <a name="scpnet"></a>SCP.NET
 
@@ -225,4 +225,4 @@ In questo documento si è appreso come usare lo spout e il bolt degli Hub eventi
 
 * [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 * [Guida alla programmazione SCP](apache-storm-scp-programming-guide.md)
-* [Topologie di esempio per Storm in HDInsight](apache-storm-example-topology.md)
+* [Topologie di esempio per Apache Storm in HDInsight](apache-storm-example-topology.md)

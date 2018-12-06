@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e7cc47bddf3663cbc1c8bb5c4470020a84073e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441652"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582888"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati
 
@@ -23,7 +23,7 @@ ms.locfileid: "37441652"
 
 I criteri personalizzati di Azure Active Directory B2C (Azure AD B2C) consentono di inviare un parametro in una stringa di query. Passando il parametro all'endpoint HTML, è possibile modificare dinamicamente il contenuto della pagina. È ad esempio possibile modificare l'immagine di sfondo della pagina di accesso o di iscrizione ad Azure AD B2C in base a un parametro passato dall'applicazione Web o per dispositivi mobili. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questo articolo descrive come personalizzare l'interfaccia utente di Azure AD B2C con *contenuto dinamico* usando criteri personalizzati. Per iniziare, vedere [Configurare la personalizzazione dell'interfaccia utente in un criterio personalizzato](active-directory-b2c-ui-customization-custom.md). 
 
 >[!NOTE]
@@ -178,7 +178,7 @@ Individuare l'elemento `<img>` contenente il valore `ID` *background_background_
 
 3. Nella finestra **CORS**, nella casella **Origini consentite**, eseguire una di queste operazioni:
 
-    * Immettere l'URL o gli URL da cui consentire le chiamate JavaScript.
+    * Immettere l'URL o gli URL da cui consentire le chiamate JavaScript. Assicurarsi di usare tutte lettere minuscole negli URL immessi.
     * Immettere un asterisco (*) per specificare che vengono accettati tutti i domini di origine.
 
 4. Selezionare **Salva**.

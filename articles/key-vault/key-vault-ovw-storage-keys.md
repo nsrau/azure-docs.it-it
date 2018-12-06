@@ -1,6 +1,6 @@
 ---
 ms.assetid: ''
-title: Chiavi dell'account di archiviazione Key Vault
+title: Account di archiviazione gestita di Azure Key Vault - Interfaccia della riga di comando
 description: Le chiavi dell'account di archiviazione forniscono un'integrazione diretta tra Azure Key Vault e l'accesso basato sulla chiave dell'account di Archiviazione di Azure.
 ms.topic: conceptual
 services: key-vault
@@ -9,14 +9,14 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: e62c599d82f488bf1fc30ce503c271084c5ae59d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e110a24af6a0d49ea949db6bc30ab344c81d0f48
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300224"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619283"
 ---
-# <a name="azure-key-vault-storage-account-keys"></a>Chiavi dell'account di archiviazione Key Vault
+# <a name="azure-key-vault-managed-storage-account---cli"></a>Account di archiviazione gestita di Azure Key Vault - Interfaccia della riga di comando
 
 > [!NOTE]
 > [Archiviazione di Azure ora supporta l'autorizzazione di AAD](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). È consigliabile usare Azure Active Directory per l'autenticazione e l'autorizzazione per l'archiviazione, perché in questo modo gli utenti non devono preoccuparsi di ruotare le chiavi dell'account di archiviazione.

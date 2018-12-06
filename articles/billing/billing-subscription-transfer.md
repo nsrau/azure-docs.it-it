@@ -5,7 +5,7 @@ keywords: trasferire la sottoscrizione di Azure, trasferimento della sottoscrizi
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: genli
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44e4bedd747c5a0010058efee595402448f6a30b
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a841ae168119546e8be32ce6f614656f775709ee
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507152"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583313"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
 
@@ -31,6 +31,9 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
 > [!IMPORTANT]
 > 
 > Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione.
+
+> [!div class="nextstepaction"]
+> [Contribuire al miglioramento della documentazione sulla fatturazione di Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Trasferimento della proprietà di una sottoscrizione di Azure
 
@@ -74,12 +77,11 @@ L'amministratore Enterprise può trasferire la proprietà delle sottoscrizioni n
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Passaggi successivi all'accettazione della proprietà di una sottoscrizione
 
-1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare il ruolo dell'amministratore del servizio, il ruolo dei coamministratori e gli altri ruoli RBAC. Per altre informazioni, vedere [Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi](billing-add-change-azure-subscription-administrator.md).
+1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare il ruolo dell'amministratore del servizio, il ruolo dei coamministratori e gli altri ruoli RBAC. Per altre informazioni, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](billing-add-change-azure-subscription-administrator.md) e [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 1. Aggiornare le credenziali associate ai servizi della sottoscrizione, tra cui:
    1. Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](../cloud-services/cloud-services-certs-create.md)
    1. Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
    1. Credenziali di accesso remoto per servizi quali macchine virtuali di Azure. 
-1. [Aggiornare gli avvisi di fatturazione per questa sottoscrizione](billing-set-up-alerts.md) tramite il [Centro account di Azure](https://account.windowsazure.com/Subscriptions). 
 1. Se si lavora con un partner, è consigliabile aggiornare l'ID partner nella sottoscrizione. È possibile aggiornare l'ID partner nel [portale di Azure](https://portal.azure.com).
 
 <a id="supported"></a>
@@ -173,6 +175,6 @@ Per accettare il trasferimento di una sottoscrizione, è necessario fornire una 
 
 Se non è possibile trasferire la proprietà di una sottoscrizione, eseguire la migrazione manuale delle risorse. Vedere [Spostare le risorse in un nuovo gruppo o sottoscrizione](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

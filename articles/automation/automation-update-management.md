@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d981d9dc7433d957819d0beb6aa6265882f1890
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037397"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635816"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -69,7 +69,7 @@ La tabella seguente elenca i sistemi operativi supportati:
 |Sistema operativo  |Note  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Supporta solo le valutazioni degli aggiornamenti.         |
-|Windows Server 2008 R2 SP1 e versioni successive     |È necessario .NET Framework 4.5.1 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> È necessario Windows PowerShell 4.0 o versioni successive. ([Scaricare WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 è consigliato per la sua maggiore affidabilità.  ([Scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 e versioni successive (inclusi Windows Server 2012 e 2016)    |È necessario .NET Framework 4.5.1 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> È necessario Windows PowerShell 4.0 o versioni successive. ([Scaricare WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 è consigliato per la sua maggiore affidabilità.  ([Scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede "yum" per restituire i dati sulla sicurezza che non sono predefiniti in CentOS.         |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
@@ -86,9 +86,9 @@ Nella tabella seguente sono elencati i sistemi operativi non supportati:
 
 ### <a name="client-requirements"></a>Requisiti per i client
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
-Gli agenti Windows devono essere configurati per comunicare con un server WSUS o devono avere accesso a Microsoft Update. Gestione aggiornamenti può essere usato con System Center Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [Integrare System Center Configuration Manager con Gestione aggiornamenti](oms-solution-updatemgmt-sccmintegration.md#configuration). L'[agente Windows](../log-analytics/log-analytics-agent-windows.md) è obbligatorio. L'agente viene installato automaticamente in caso di onboarding di una macchina virtuale di Azure.
+Gli agenti Windows devono essere configurati per comunicare con un server WSUS o devono avere accesso a Microsoft Update. Gestione aggiornamenti può essere usato con System Center Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [Integrare System Center Configuration Manager con Gestione aggiornamenti](oms-solution-updatemgmt-sccmintegration.md#configuration). L'[agente Windows](../azure-monitor/platform/agent-windows.md) è obbligatorio. L'agente viene installato automaticamente in caso di onboarding di una macchina virtuale di Azure.
 
 #### <a name="linux"></a>Linux
 
@@ -136,7 +136,7 @@ Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 ```
 Heartbeat
@@ -148,7 +148,7 @@ In un computer Windows la connettività degli agenti con Log Analytics può esse
 1. Aprire **Microsoft Monitoring Agent** nel Pannello di controllo. Nella scheda **Analisi dei log di Azure** l'agente visualizza un messaggio per indicare che **Microsoft Monitoring Agent ha eseguito la connessione a Log Analytics**.
 2. Aprire il registro eventi di Windows. Passare a **Registri applicazioni e servizi\Operations Manager** e cercare gli ID evento 3000 e 5002 del **connettore del servizio** di origine. Questi eventi indicano che il computer ha eseguito la registrazione all'area di lavoro di Log Analytics e sta ricevendo la configurazione.
 
-Se l'agente non è in grado di comunicare con Log Analytics ed è configurato in modo da comunicare con Internet attraverso un firewall o un server proxy, verificare che il firewall o il server proxy sia configurato correttamente. Per sapere come verificare se il firewall o il server proxy è configurato correttamente, vedere [Connettere computer Windows al servizio Log Analytics in Azure](../log-analytics/log-analytics-agent-windows.md) oppure [Raccogliere dati dal computer Linux ospitato nell'ambiente in uso](../log-analytics/log-analytics-agent-linux.md).
+Se l'agente non è in grado di comunicare con Log Analytics ed è configurato in modo da comunicare con Internet attraverso un firewall o un server proxy, verificare che il firewall o il server proxy sia configurato correttamente. Per sapere come verificare se il firewall o il server proxy è configurato correttamente, vedere [Connettere computer Windows al servizio Log Analytics in Azure](../azure-monitor/platform/agent-windows.md) oppure [Raccogliere dati dal computer Linux ospitato nell'ambiente in uso](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Se i sistemi Linux sono configurati per la comunicazione con un proxy o il gateway di Log Analytics e si sta eseguendo l'onboarding di questa soluzione, aggiornare le autorizzazioni *proxy.conf* per concedere al gruppo omiuser le necessarie autorizzazioni di lettura per il file usando i comandi seguenti:
@@ -236,7 +236,7 @@ Per visualizzare una distribuzione di aggiornamenti dall'API REST, vedere [Softw
 
 Nelle tabelle che seguono sono riportate le classificazioni degli aggiornamenti in Gestione aggiornamenti, con una definizione per ogni classificazione.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 |classificazione  |DESCRIZIONE  |
 |---------|---------|
@@ -323,7 +323,7 @@ Sostituire il valore VMUUID con il GUID VM della macchina virtuale per cui si es
 
 ##### <a name="missing-updates-summary"></a>Riepilogo degli aggiornamenti mancanti
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"b08d5afa-1471-4b52-bd95-a44fea6e4ca8"
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
@@ -334,7 +334,7 @@ Update
 
 ##### <a name="missing-updates-list"></a>Elenco degli aggiornamenti mancanti
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"8bf1ccc6-b6d3-4a0b-a643-23f346dfdf82"
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Title, KBID, PublishedDate, Approved) by Computer, SourceComputerId, UpdateID
@@ -353,7 +353,7 @@ Per alcune distribuzioni Linux esiste una mancata corrispondenza tra l'[ordine d
 
 ##### <a name="missing-updates-summary"></a>Riepilogo degli aggiornamenti mancanti
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification) by Computer, SourceComputerId, Product, ProductArch
@@ -364,7 +364,7 @@ Update
 
 ##### <a name="missing-updates-list"></a>Elenco degli aggiornamenti mancanti
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, BulletinUrl, BulletinID) by Computer, SourceComputerId, Product, ProductArch
@@ -381,7 +381,7 @@ Update
 
 ##### <a name="computers-summary"></a>Riepilogo dei computer
 
-```
+```loganalytics
 Heartbeat
 | where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
 | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
@@ -423,7 +423,7 @@ on SourceComputerId
 
 ##### <a name="missing-updates-summary"></a>Riepilogo degli aggiornamenti mancanti
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
@@ -447,7 +447,7 @@ Update
 
 ##### <a name="computers-list"></a>Elenco dei computer
 
-```
+```loganalytics
 Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
 | summarize arg_max(TimeGenerated, Solutions, Computer, ResourceId, ComputerEnvironment, VMUUID) by SourceComputerId
@@ -494,7 +494,7 @@ on SourceComputerId
 
 ##### <a name="missing-updates-list"></a>Elenco degli aggiornamenti mancanti
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
@@ -583,6 +583,6 @@ Continuare con l'esercitazione sulla gestione degli aggiornamenti per le macchin
 > [Gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure](automation-tutorial-update-management.md)
 
 * Usare le ricerche log in [Log Analytics](../log-analytics/log-analytics-log-searches.md) per visualizzare dati dettagliati sugli aggiornamenti.
-* [Creare avvisi](../log-analytics/log-analytics-alerts.md) quando aggiornamenti critici vengono rilevati come mancanti nei computer oppure se gli aggiornamenti automatici sono disabilitati per un computer.
+* [Creare avvisi](../monitoring-and-diagnostics/monitoring-overview-alerts.md) quando aggiornamenti critici vengono rilevati come mancanti nei computer oppure se gli aggiornamenti automatici sono disabilitati per un computer.
 
 * Per informazioni su come interagire con Gestione aggiornamenti tramite l'API REST, vedere [Configurazioni degli aggiornamenti software](/rest/api/automation/softwareupdateconfigurations)

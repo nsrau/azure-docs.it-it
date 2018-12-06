@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 1706364ca0281240b5b887bea219620c7b4add5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c1fd0f462a3eb960e27b002f4f7c940a6bf978c8
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246838"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620575"
 ---
 # <a name="api-management-caching-policies"></a>Criteri di memorizzazione nella cache in Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -46,7 +46,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 ### <a name="policy-statement"></a>Istruzione del criterio  
   
 ```xml  
-<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
+<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" cache-preference="prefer-external | external | internal" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
   <vary-by-header>Accept</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Accept-Charset</vary-by-header>  
@@ -68,7 +68,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 <policies>  
     <inbound>  
         <base />  
-        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true">  
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true" cache-preference="internal" >  
             <vary-by-query-parameter>version</vary-by-query-parameter>  
         </cache-lookup>           
     </inbound>  
@@ -112,14 +112,15 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
-|----------|-----------------|--------------|-------------|  
-|allow-private-response-caching|Se impostato su `true`, consente la memorizzazione nella cache delle richieste contenenti un'intestazione di autorizzazione.|No |false|  
-|downstream-caching-type|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   none - Non è consentita la memorizzazione nella cache downstream.<br />-   private - È consentita la memorizzazione nella cache downstream privata.<br />-   public - È consentita la memorizzazione nella cache downstream privata e condivisa.|No |Nessuno|  
-|must-revalidate|Quando è abilitata la memorizzazione nella cache downstream, questo attributo attiva o disattiva la direttiva di controllo di memorizzazione della cache `must-revalidate` nelle risposte del gateway.|No |true|  
-|vary-by-developer|Impostare su `true` per memorizzare le risposte nella cache per ogni chiave sviluppatore.|Yes||  
-|vary-by-developer-groups|Impostare su `true` per memorizzare le risposte nella cache per ogni ruolo utente.|Yes||  
-  
+| NOME                           | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| allow-private-response-caching | Se impostato su `true`, consente la memorizzazione nella cache delle richieste contenenti un'intestazione di autorizzazione.                                                                                                                                                                                                                                                                        | No        | false             |
+| cache-preference               | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md) (Usare una cache Redis esterna in Gestione API di Azure),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No        | `prefer-external` |
+| downstream-caching-type        | Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   none - Non è consentita la memorizzazione nella cache downstream.<br />-   private - È consentita la memorizzazione nella cache downstream privata.<br />-   public - È consentita la memorizzazione nella cache downstream privata e condivisa.                                                                                                          | No        | Nessuno              |
+| must-revalidate                | Quando è abilitata la memorizzazione nella cache downstream, questo attributo attiva o disattiva la direttiva di controllo di memorizzazione della cache `must-revalidate` nelle risposte del gateway.                                                                                                                                                                                                                      | No        | true              |
+| vary-by-developer              | Impostare su `true` per memorizzare le risposte nella cache per ogni chiave sviluppatore.                                                                                                                                                                                                                                                                                                         | Yes      |                   |
+| vary-by-developer-groups       | Impostare su `true` per memorizzare le risposte nella cache per ogni ruolo utente.                                                                                                                                                                                                                                                                                                             | Yes      |                   |  
+
 ### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
@@ -188,10 +189,10 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
-|----------|-----------------|--------------|-------------|  
-|duration|Durata (TTL, Time-To-Live) delle voci memorizzate nella cache, in secondi.|Yes|N/D|  
-  
+| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| duration         | Durata (TTL, Time-To-Live) delle voci memorizzate nella cache, in secondi.                                                                                                                                                                                                                                                                                                   | Yes      | N/D               |  
+
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere utilizzato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) di criteri seguenti.  
   
@@ -209,7 +210,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 ```xml  
 <cache-lookup-value key="cache key value"   
     default-value="value to use if cache lookup resulted in a miss"   
-    variable-name="name of a variable looked up value is assigned to" />  
+    variable-name="name of a variable looked up value is assigned to"  
+    cache-preference="prefer-external | external | internal" />  
 ```  
   
 ### <a name="example"></a>Esempio  
@@ -230,12 +232,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
-|----------|-----------------|--------------|-------------|  
-|default-value|Un valore che verrà assegnato alla variabile se la ricerca della chiave nella cache non produce risultati. Se questo attributo viene omesso, viene assegnato `null`.|No |`null`|  
-|key|Valore della chiave della cache da usare nella ricerca.|Yes|N/D|  
-|variable-name|Nome della [variabile di contesto](api-management-policy-expressions.md#ContextVariables) a cui verrà assegnato il valore cercato, se la ricerca ha esito positivo. Se la ricerca non produce risultati, alla variabile sarà assegnato il valore dell'attributo `default-value` o `null`, se l'attributo `default-value` è omesso.|Yes|N/D|  
-  
+| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| cache-preference | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md) (Usare una cache Redis esterna in Gestione API di Azure),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No        | `prefer-external` |
+| default-value    | Un valore che verrà assegnato alla variabile se la ricerca della chiave nella cache non produce risultati. Se questo attributo viene omesso, viene assegnato `null`.                                                                                                                                                                                                           | No        | `null`            |
+| key              | Valore della chiave della cache da usare nella ricerca.                                                                                                                                                                                                                                                                                                                       | Yes      | N/D               |
+| variable-name    | Nome della [variabile di contesto](api-management-policy-expressions.md#ContextVariables) a cui verrà assegnato il valore cercato, se la ricerca ha esito positivo. Se la ricerca non produce risultati, alla variabile sarà assegnato il valore dell'attributo `default-value` o `null`, se l'attributo `default-value` è omesso.                                       | Yes      | N/D               |  
+
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
@@ -251,7 +254,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 ### <a name="policy-statement"></a>Istruzione del criterio  
   
 ```xml  
-<cache-store-value key="cache key value" value="value to cache" duration="seconds" />  
+<cache-store-value key="cache key value" value="value to cache" duration="seconds" cache-preference="prefer-external | external | internal" />  
 ```  
   
 ### <a name="example"></a>Esempio  
@@ -272,11 +275,12 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
-|----------|-----------------|--------------|-------------|  
-|duration|Il valore verrà memorizzato nella cache per il valore di durata specificato, espresso in secondi.|Yes|N/D|  
-|key|La chiave della cache in cui verrà archiviato il valore.|Yes|N/D|  
-|value|Il valore da memorizzare nella cache.|Yes|N/D|  
+| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| cache-preference | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md) (Usare una cache Redis esterna in Gestione API di Azure),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No        | `prefer-external` |
+| duration         | Il valore verrà memorizzato nella cache per il valore di durata specificato, espresso in secondi.                                                                                                                                                                                                                                                                                 | Yes      | N/D               |
+| key              | La chiave della cache in cui verrà archiviato il valore.                                                                                                                                                                                                                                                                                                                   | Yes      | N/D               |
+| value            | Il valore da memorizzare nella cache.                                                                                                                                                                                                                                                                                                                                     | Yes      | N/D               |
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -291,7 +295,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ```xml  
   
-<cache-remove-value key="cache key value"/>  
+<cache-remove-value key="cache key value" cache-preference="prefer-external | external | internal"  />  
   
 ```  
   
@@ -311,9 +315,10 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 #### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
-|----------|-----------------|--------------|-------------|  
-|key|La chiave del valore memorizzato in precedenza nella cache da rimuovere dalla cache.|Yes|N/D|  
+| NOME             | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| cache-preference | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md) (Usare una cache Redis esterna in Gestione API di Azure),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No        | `prefer-external` |
+| key              | La chiave del valore memorizzato in precedenza nella cache da rimuovere dalla cache.                                                                                                                                                                                                                                                                                        | Yes      | N/D               |
   
 #### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  

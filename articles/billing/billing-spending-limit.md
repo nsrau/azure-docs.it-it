@@ -4,7 +4,7 @@ description: Descrive il funzionamento del limite di spesa di Azure e la relativ
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 ms.service: billing
@@ -13,19 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: genli
-ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.author: cwatson
+ms.openlocfilehash: a564e72cc695830edfa5092eddc1f4f9b80ba519
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43670002"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583534"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprendere il limite di spesa di Azure e la relativa rimozione
 
 Il limite di spesa in Azure serve per evitare spese superiori all'importo del credito. Per tutti i nuovi clienti che eseguono l'iscrizione per la versione di valutazione o per offerte che includono crediti per più mesi, il limite di spesa è attivato per impostazione predefinita. Il limite di spesa è $0, ma non può essere modificato. Il limite di spesa non è disponibile per i tipi di sottoscrizione come quelle con pagamento in base al consumo e i piani di impegno. Vedi l'[elenco completo delle offerte di Azure e la disponibilità del limite di spesa](https://azure.microsoft.com/support/legal/offer-details/).
-
-**Si vogliono ricevere avvisi di fatturazione?** Vedere [Impostare avvisi di fatturazione o di credito per le sottoscrizioni di Microsoft Azure](billing-set-up-alerts.md).
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>Cosa succede quando raggiungo il limite di spesa?
 
@@ -64,7 +62,7 @@ Per rimuovere il limite di spesa, seguire questi passaggi:
 
 Il limite di spesa può impedire all'utente di distribuire o usare determinati servizi Microsoft e di terze parti. Ecco gli scenari in cui è consigliabile rimuovere il limite di spesa per la sottoscrizione.
 
-* Se si prevede di distribuire immagini proprietarie come Oracle e servizi come Visual Studio Team Services. Questo scenario comporta il superamento quasi immediato del limite di spesa e la disabilitazione della sottoscrizione.
+* Se si prevede di distribuire immagini proprietarie come Oracle e servizi come Azure DevOps Services. Questo scenario comporta il superamento quasi immediato del limite di spesa e la disabilitazione della sottoscrizione.
 * Se si usano servizi che non possono essere interrotti.
 * Se si usano servizi e risorse con impostazioni come indirizzi IP virtuali che non si vuole perdere. Queste impostazioni vanno perse quando le risorse e i servizi vengono deallocati.
 
@@ -78,7 +76,7 @@ Questa funzionalità è disponibile solo quando il limite di spesa è stato rimo
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>Come si imposta un limite di spesa personalizzato?
 
-Al momento non è possibile impostare limiti di spesa personalizzati. È tuttavia possibile acconsentire esplicitamente a [usare gli avvisi di fatturazione per controllare la spesa](billing-set-up-alerts.md).
+Non sono disponili limiti di spesa personalizzati.
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Il limite di spesa impedisce qualsiasi addebito da parte di Azure?
 
@@ -86,6 +84,6 @@ Al momento non è possibile impostare limiti di spesa personalizzati. È tuttavi
 
 ![Avviso di acquisto di Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
