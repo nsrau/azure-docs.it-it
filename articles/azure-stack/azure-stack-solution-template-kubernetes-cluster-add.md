@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 61af2c13a7cf395b5a96dc7b7ba63ad4d70dcf36
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 0cac5658d5f6f32795b5988008b3b895024ecc06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333011"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960535"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Aggiungere Kubernetes per il Marketplace di Azure Stack
 
@@ -120,7 +120,7 @@ Aggiunta di Kubernetes da Marketplace:
     > [!note]  
     > Può richiedere cinque minuti per l'elemento del marketplace venga visualizzato nel Marketplace.
 
-    ![kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![kubernetes](user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
 ## <a name="update-or-remove-the-kubernetes"></a>Aggiornare o rimuovere di Kubernetes 
 

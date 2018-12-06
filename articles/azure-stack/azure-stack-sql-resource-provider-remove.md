@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b79d64cc063105cb8ecce537a09a7f39a78eef4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 8b6257519c3b1db2180335523047e8dc55558d57
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275028"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954593"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Rimuovere il provider di risorse SQL
 
 Prima di rimuovere il provider di risorse SQL, è necessario rimuovere tutte le dipendenze del provider. È necessario anche una copia del pacchetto di distribuzione che è stato usato per installare il provider di risorse.
 
 > [!NOTE]
-> È possibile trovare i collegamenti di download per la risorsa di programmi di installazione di provider [distribuisce i prerequisiti di provider di risorse](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+> È possibile trovare i collegamenti di download per la risorsa di programmi di installazione di provider [distribuisce i prerequisiti di provider di risorse](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 Il provider di risorse SQL di rimozione non elimina i database tenant dal server di hosting.
 

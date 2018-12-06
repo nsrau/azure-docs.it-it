@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 36d37adff6d45b7d154511c11888aad090c54638
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ee76d71f89fb94c8c05c6a733dac241a9e4fa13c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853677"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965139"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Aggiornare il provider di risorse MySQL 
 
@@ -28,7 +28,7 @@ ms.locfileid: "51853677"
 Una nuova scheda del provider di risorse SQL potrebbe essere rilasciata quando vengono aggiornate le compilazioni di Azure Stack. Mentre la scheda esistente continua a funzionare, è consigliabile aggiornare alla build più recente quanto prima. 
 
 > [!IMPORTANT]
-> È necessario installare aggiornamenti nell'ordine in che cui vengono rilasciate. Non è possibile ignorare le versioni. Vedere l'elenco di versioni nel [distribuisce i prerequisiti di provider di risorse](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+> È necessario installare aggiornamenti nell'ordine in che cui vengono rilasciate. Non è possibile ignorare le versioni. Vedere l'elenco di versioni nel [distribuisce i prerequisiti di provider di risorse](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Aggiornare l'adattatore di provider di risorse MySQL (solo sistemi integrati)
 

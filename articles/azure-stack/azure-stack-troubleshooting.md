@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: c463599190c5bfaac47a70dbca7b8a67dc830f3a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363484"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957641"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Risoluzione dei problemi di Microsoft Azure Stack
 
@@ -43,7 +43,7 @@ Questo comportamento è probabile che solo il risultato del comportamento predef
 Un elemento di raccolta e l'immagine di Windows Server deve essere aggiunto prima di distribuire le macchine virtuali in Azure Stack.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Dopo il riavvio dell'host di Azure Stack, alcune macchine virtuali non venga avviato automaticamente.
-Dopo il riavvio dell'host, è possibile riscontrare i servizi di Azure Stack non sono immediatamente disponibili.  In questo modo Azure Stack [VM dell'infrastruttura](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) e richiedono alcuni minuti per verificare la coerenza dei provider di risorse, ma alla fine verranno avviato automaticamente.
+Dopo il riavvio dell'host, è possibile riscontrare i servizi di Azure Stack non sono immediatamente disponibili.  In questo modo Azure Stack [VM dell'infrastruttura](../azure-stack/asdk/asdk-architecture.md#virtual-machine-roles) e richiedono alcuni minuti per verificare la coerenza dei provider di risorse, ma alla fine verranno avviato automaticamente.
 
 È anche possibile notare tenant che le macchine virtuali non vengono avviati automaticamente dopo un riavvio dell'host Azure Stack development kit. Questo è un problema noto e richiede solo pochi passaggi manuali per portarli online:
 

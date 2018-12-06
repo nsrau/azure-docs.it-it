@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 60e9a790a9b74bce7ccbdd58b320ad969c0932f3
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1dbfd668c2d233d299ee673da92ca203e72942fe
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079283"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957421"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Riferimento ai cmdlet Start-AzsReadinessChecker
 
@@ -29,6 +29,7 @@ Modulo: Microsoft.AzureStack.ReadinessChecker
 Questo modulo contiene solo un singolo cmdlet.  Questo cmdlet esegue uno o più funzioni di pre-distribuzione o pre-servizio per Azure Stack.
 
 ## <a name="syntax"></a>Sintassi
+
 ```PowerShell
 Start-AzsReadinessChecker
        [-CertificatePath <String>]
@@ -103,7 +104,6 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-
 ```PowerShell
 Start-AzsReadinessChecker
        -AADServiceAdministrator <PSCredential>
@@ -163,15 +163,13 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
+## <a name="description"></a>DESCRIZIONE
 
-
-
-
- ## <a name="description"></a>DESCRIZIONE
 Il **Start-AzsReadinessChecker** cmdlet convalida i certificati, gli account di Azure, le sottoscrizioni di Azure e Azure Active Directory. Eseguire la convalida prima di distribuire Azure Stack oppure prima della manutenzione di azioni come la rotazione di chiave privata di Azure Stack. Il cmdlet è anche utilizzabile per generare le richieste di certificati di firma di certificati di infrastruttura e, facoltativamente, i certificati di PaaS.  Infine, il cmdlet possibile riassemblare i certificati PFX per risolvere i problemi comuni di creazione dei pacchetti.
 
 ## <a name="examples"></a>Esempi
-**Esempio: Generare una richiesta di firma del certificato**
+
+### <a name="example-generate-certificate-signing-request"></a>Esempio: Generare una richiesta di firma del certificato
 
 ```PowerShell
 $regionName = 'east'
@@ -182,22 +180,26 @@ Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -s
 
 In questo esempio, Start-AzsReadinessChecker genera più certificati le richieste di firma dei certificati adatti per una distribuzione di ad FS Azure Stack con un nome di "east" regione e un nome di dominio completo esterna di "azurestack.contoso.com"
 
-**Esempio: La convalida dei certificati**
+### <a name="example-validate-certificates"></a>Esempio: La convalida dei certificati
+
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-In questo esempio, viene richiesta la password PFX in modo sicuro e avvio AzsReadinessChecker controlla la relativa cartella "Certificati" per i certificati validi per una distribuzione di AAD con un nome dell'area di "east" e un nome di dominio completo esterna di "azurestack.contoso.com" 
+In questo esempio, viene richiesta la password PFX in modo sicuro e avvio AzsReadinessChecker controlla la relativa cartella "Certificati" per i certificati validi per una distribuzione di AAD con un nome dell'area di "east" e un nome di dominio completo esterna di "azurestack.contoso.com"
 
-**Esempio: Convalidare i certificati con i dati di distribuzione (distribuzione e supporto)**
+### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Esempio: Convalidare i certificati con i dati di distribuzione (distribuzione e supporto)
+
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
+
 In questo esempio di distribuzione e supporto, la password PFX viene richiesto in modo sicuro e avvio AzsReadinessChecker controlla la cartella relativa "Certificati" per i certificati validi per una distribuzione in cui vengono letti identità, area e nome di dominio completo esterna dal file di distribuzione dei dati JSON generato per la distribuzione. 
 
-**Esempio: Convalidare i certificati di PaaS**
+### <a name="example-validate-paas-certificates"></a>Esempio: Convalidare i certificati di PaaS
+
 ```PowerShell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -211,7 +213,8 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates – RegionName eas
 
 In questo esempio, una tabella hash viene costruita con i percorsi e le password per ogni certificato PaaS. I certificati possono essere omessi. Start-AzsReadinessChecker controlla ogni percorso di PFX esiste e convalida tramite l'area 'east' e nome di dominio completo esterna 'azurestack.contoso.com'.
 
-**Esempio: Convalidare i certificati di PaaS con i dati della distribuzione**
+### <a name="example-validate-paas-certificates-with-deployment-data"></a>Esempio: Convalidare i certificati di PaaS con i dati della distribuzione
+
 ```PowerShell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -225,16 +228,18 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSO
 
 In questo esempio, una tabella hash viene costruita con i percorsi e le password per ogni certificato PaaS. I certificati possono essere omessi. Start-AzsReadinessChecker controlla ogni percorso di PFX esista e che la convalida usando l'area e nome di dominio completo esterna leggere dal file JSON di dati di distribuzione generato per la distribuzione. 
 
-**Esempio: Convalidare l'identità di Azure**
+### <a name="example-validate-azure-identity"></a>Esempio: Convalidare l'identità di Azure
+
 ```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
-Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AzureDirectoryTenantName azurestack.contoso.com
+# Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
 In questo esempio, vengono richieste le credenziali dell'account amministratore del servizio in modo sicuro e avvio AzsReadinessChecker controlla che l'account di Azure e Azure Active Directory sono validi per una distribuzione di AAD con un nome di directory del tenant di "azurestack.contoso.com"
 
+### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Esempio: Convalidare l'identità di Azure con i dati della distribuzione (supporto per la distribuzione)
 
-**Esempio: Convalidare l'identità di Azure con i dati della distribuzione (supporto per la distribuzione)**
 ```PowerSHell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-depploymentdata.json
@@ -242,27 +247,29 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Depl
 
 In questo esempio, vengono richieste le credenziali dell'account amministratore del servizio in modo sicuro e avvio AzsReadinessChecker controlla che l'account di Azure e Azure Active Directory sono validi per la distribuzione di AAD in cui vengono letti AzureCloud e Nometenant dai dati di distribuzione File JSON generato per la distribuzione.
 
+### <a name="example-validate-azure-registration"></a>Esempio: Convalidare la registrazione di Azure
 
-**Esempio: Convalidare la registrazione di Azure**
 ```PowerShell
-$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner"e.g. subscriptionowner@contoso.onmicrosoft.com"
-$subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
-Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment AzureCloud
+$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
+$subscriptionID = "<subscription ID"
+# Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
 In questo esempio, le credenziali del proprietario della sottoscrizione vengono chiesta in modo sicuro e avvio AzsReadinessChecker esegue quindi la convalida rispetto all'account specificato e sottoscrizione per assicurarsi che può essere utilizzata per la registrazione di Azure Stack. 
 
+### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Esempio: Convalidare la registrazione di Azure con i dati della distribuzione (team di distribuzione)
 
-**Esempio: Convalidare la registrazione di Azure con i dati della distribuzione (team di distribuzione)**
 ```PowerShell
-$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner"e.g. subscriptionowner@contoso.onmicrosoft.com"
-$subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
+$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
+$subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
 In questo esempio, vengono richieste le credenziali del proprietario della sottoscrizione in modo sicuro e Start-AzsReadinessChecker esegue quindi la convalida rispetto all'account specificato e sottoscrizione per assicurarsi che può essere utilizzata per la registrazione di Azure Stack in cui i dettagli aggiuntivi lettura dal file JSON di dati di distribuzione generato per la distribuzione.
 
-**Esempio: Pacchetto di importazione/esportazione di file PFX**
+### <a name="example-importexport-pfx-package"></a>Esempio: Pacchetto di importazione/esportazione di file PFX
+
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
@@ -270,24 +277,24 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 In questo esempio, la password PFX viene chiesta in modo sicuro. Il file ssl.pfx verrà importato nell'archivio certificati del computer locale e nuovamente esportato con la stessa password e salvato come ssl_new.pfx.  Questa procedura viene utilizzato quando la convalida dei certificati contrassegnato che una chiave privata è privo di set di attributi del computer locale, viene interrotta la catena di certificati, certificati irrilevanti sono presenti nel file PFX o la catena di certificati è nell'ordine errato.
 
+### <a name="example-view-validation-report-deployment-support"></a>Esempio: Visualizzare il report di convalida (supporto per la distribuzione)
 
-**Esempio: Visualizzare il report di convalida (supporto per la distribuzione)**
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 ```
 
 In questo esempio, il team di supporto o distribuzione riceve il report di conformità da parte del cliente (Contoso) e utilizza Start-AzsReadinessChecker per visualizzare lo stato delle esecuzioni convalida eseguita Contoso.
 
-**Esempio: Visualizzazione di report di convalida Riepilogo certificato convalida solo (distribuzione e supporto)**
+### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Esempio: Visualizzazione di report di convalida Riepilogo certificato convalida solo (distribuzione e supporto)
+
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary
 ```
 
 In questo esempio, il team di supporto o distribuzione riceve il report di conformità da parte del cliente di Contoso e utilizza Start-AzsReadinessChecker per visualizzare lo stato riassuntivo di esecuzioni di convalida il certificato che Contoso eseguita.
 
-
-
 ## <a name="required-parameters"></a>Parametri obbligatori
+
 > -RegionName
 
 Specifica il nome di area di distribuzione Azure Stack.
@@ -299,7 +306,7 @@ Specifica il nome di area di distribuzione Azure Stack.
 |Input pipeline accettato:      |False         |
 |Accettare caratteri jolly: |False         |
 
-> NOME DI DOMINIO-COMPLETO    
+> NOME DI DOMINIO-COMPLETO
 
 Specifica il FQDN esterno della distribuzione di Azure Stack, anche un alias come ExternalFQDN ed ExternalDomainName.
 |  |  |
@@ -310,9 +317,7 @@ Specifica il FQDN esterno della distribuzione di Azure Stack, anche un alias com
 |Input pipeline accettato:      |False         |
 |Accettare caratteri jolly: |False         |
 
- 
-
-> -IdentitySystem    
+> -IdentitySystem
 
 Specifica sistema di identità i valori validi della distribuzione di Azure Stack, AAD o ADFS, rispettivamente per Azure Active Directory e Active Directory Federated Services.
 |  |  |
@@ -324,7 +329,7 @@ Specifica sistema di identità i valori validi della distribuzione di Azure Stac
 |Input pipeline accettato:      |False         |
 |Accettare caratteri jolly: |False         |
 
-> -PfxPassword    
+> -PfxPassword
 
 Specifica la password associata ai file di certificato PFX.
 |  |  |
@@ -393,8 +398,9 @@ Specifica un dizionario ordinato del soggetto per la generazione di richiesta di
 > RequestType-
 
 Specifica il tipo di SAN della richiesta di certificato. Valori validi MultipleCSR, SingleCSR.
+
 - *MultipleCSR* genera più le richieste di certificati, uno per ogni servizio.
-- *SingleCSR* genera una richiesta di certificato per tutti i servizi.   
+- *SingleCSR* genera una richiesta di certificato per tutti i servizi.
 
 |  |  |
 |----------------------------|---------|
@@ -446,7 +452,7 @@ Specifica l'istanza di servizi di Azure che contiene l'account, le directory e l
 |Digitare:                        |string   |
 |Posizione:                   |denominata    |
 |Valore predefinito:              |Nessuna     |
-|Valori validi:                |'AzureCloud', 'AzureChinaCloud', 'AzureGermanCloud' |
+|Valori validi:                |'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment' |
 |Input pipeline accettato:      |False    |
 |Accettare caratteri jolly: |False    |
 
@@ -483,10 +489,9 @@ Specifica percorso di Report di conformità, per impostazione predefinita al nom
 |Input pipeline accettato:      |False    |
 |Accettare caratteri jolly: |False    |
 
-
-
 ## <a name="optional-parameters"></a>Parametri facoltativi
-> -CertificatePath     
+
+> -CertificatePath
 
 Specifica il percorso in cui solo il certificato necessario sono presenti cartelle di certificato.
 
@@ -498,7 +503,6 @@ Necessario cartella per Azure Stack sono di distribuzione con il sistema di iden
 
 ACSBlob, ACSQueue, ACSTable, ADFS, portale di amministrazione, amministrazione ARM, pubblico ARM, Graph, KeyVault, KeyVaultInternal, portale pubblico
 
-
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |string   |
@@ -507,11 +511,9 @@ ACSBlob, ACSQueue, ACSTable, ADFS, portale di amministrazione, amministrazione A
 |Input pipeline accettato:      |False    |
 |Accettare caratteri jolly: |False    |
 
-
 > -IncludePaaS  
 
 Specifica se i servizi PaaS o nomi host devono essere aggiunte per le richieste di certificato.
-
 
 |  |  |
 |----------------------------|------------------|
@@ -521,8 +523,7 @@ Specifica se i servizi PaaS o nomi host devono essere aggiunte per le richieste 
 |Input pipeline accettato:      |False             |
 |Accettare caratteri jolly: |False             |
 
-
-> -ReportSections        
+> -ReportSections
 
 Specifica se per mostrare solo informazioni di riepilogo del report vengono omessi dettaglio.
 |  |  |
@@ -534,8 +535,7 @@ Specifica se per mostrare solo informazioni di riepilogo del report vengono omes
 |Input pipeline accettato:      |False    |
 |Accettare caratteri jolly: |False    |
 
-
-> -Riepilogo 
+> -Riepilogo
 
 Specifica se per mostrare solo informazioni di riepilogo del report vengono omessi dettaglio.
 |  |  |
@@ -546,8 +546,7 @@ Specifica se per mostrare solo informazioni di riepilogo del report vengono omes
 |Input pipeline accettato:      |False             |
 |Accettare caratteri jolly: |False             |
 
-
-> -CleanReport  
+> -CleanReport
 
 Rimuove la cronologia precedente di esecuzione e convalida e scrive le convalide di un nuovo report.
 |  |  |
@@ -559,10 +558,10 @@ Rimuove la cronologia precedente di esecuzione e convalida e scrive le convalide
 |Input pipeline accettato:      |False             |
 |Accettare caratteri jolly: |False             |
 
-
-> -OutputPath    
+> -OutputPath
 
 Specifica un percorso personalizzato per salvare i report di conformità JSON e file di log dettagliato.  Se il percorso non esiste già, lo strumento tenterà di creare la directory.
+
 |  |  |
 |----------------------------|------------------|
 |Digitare:                        |string            |
@@ -571,8 +570,7 @@ Specifica un percorso personalizzato per salvare i report di conformità JSON e 
 |Input pipeline accettato:      |False             |
 |Accettare caratteri jolly: |False             |
 
-
-> -Confirm  
+> -Confirm
 
 Richiede la conferma dell'utente prima di eseguire il cmdlet.
 |  |  |
@@ -584,8 +582,7 @@ Richiede la conferma dell'utente prima di eseguire il cmdlet.
 |Input pipeline accettato:      |False             |
 |Accettare caratteri jolly: |False             |
 
-
-> -WhatIf  
+> -WhatIf
 
 Mostra l'esito in caso di esecuzione del cmdlet. Il cmdlet non viene eseguito.
 |  |  |
@@ -596,5 +593,3 @@ Mostra l'esito in caso di esecuzione del cmdlet. Il cmdlet non viene eseguito.
 |Valore predefinito:              |False             |
 |Input pipeline accettato:      |False             |
 |Accettare caratteri jolly: |False             |
-
- 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334891"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968204"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Esercitazione: Creare soluzioni di scalabilità tra cloud con Azure
 
@@ -60,7 +60,7 @@ In questa esercitazione si creerà un ambiente di esempio:
 
 -   Creare un'App Web all'interno della sottoscrizione tenant. Prendere nota del nuovo URL di App Web per usare in un secondo momento.
 
--   Distribuisci macchina virtuale di Visual Studio Team Services all'interno della sottoscrizione tenant.
+-   Distribuisci macchina virtuale di Azure le pipeline all'interno della sottoscrizione tenant.
 
 -   VM Windows Server 2016 con .NET 3.5 è necessario. Questa macchina virtuale verrà compilata nella sottoscrizione del tenant in Azure Stack come agente di compilazione privata.
 
@@ -99,140 +99,142 @@ Configurare l'integrazione continua ibride e la distribuzione continua (CI/CD) p
 > [!Note]  
 > Azure Stack con immagini appropriate sfruttati in esecuzione (Windows Server e SQL) e distribuzione del servizio App sono necessarie. Esaminare la documentazione del servizio App "[prima di iniziare con il servizio App in Azure Stack](../azure-stack-app-service-before-you-get-started.md)" sezione per l'operatore di Azure Stack.
 
-### <a name="add-code-to-visual-studio-team-services-project"></a>Aggiungere codice a Visual Studio Team Services progetto
+### <a name="add-code-to-azure-repos"></a>Aggiungere codice al repository di Azure
 
-1. Accedi a Visual Studio Team Services (VSTS) con un account dotato dei diritti di creazione progetto in Visual Studio Team Services.
+Azure Repos
+
+1. Accedere al repository di Azure con un account dotato dei diritti di creazione progetto nei repository relativi a Azure.
 
     Integrazione continua/distribuzione ibrida è possibile applicare al codice dell'applicazione e al codice dell'infrastruttura. Uso [modelli di Azure Resource Manager](https://azure.microsoft.com/resources/templates/) per lo sviluppo di entrambi i cloud privati e ospitati.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image1.JPG)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image1.JPG)
 
 2. **Clonare il repository** , creare e aprire l'app web predefinita.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image2.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image2.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Creare la distribuzione di app web autonoma per i servizi App in entrambi i cloud
 
 1.  Modificare il **WebApplication.csproj** file. Selezionare **Runtimeidentifier** e aggiungere **win10-x64**. (Vedere [Contained Deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentazione.) 
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image3.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image3.png)
 
-2.  Controllare il codice per Visual Studio Team Services con Team Explorer.
+2.  Archivia il codice nel repository di Azure con Team Explorer.
 
-3.  Verificare che il codice dell'applicazione è stato archiviato in Visual Studio Team Services.
+3.  Verificare che il codice dell'applicazione è stato archiviato in repository di Azure.
 
 ## <a name="create-the-build-definition"></a>Creare la definizione di compilazione
 
-1. Accedere a Visual Studio Team Services per confermare possibilità di creare definizioni di compilazione.
+1. Accedere alla pipeline di Azure per confermare possibilità di creare le definizioni di compilazione.
 
 2. Aggiungere **- r win10-x64** codice. Questa operazione è necessaria attivare una distribuzione autonoma con.NET Core.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image4.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image4.png)
 
 3. Eseguire la compilazione. Il [compilazione di distribuzione autonoma](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processo verrà pubblicati gli artefatti che è possono eseguire in Azure e Azure Stack.
 
 ## <a name="use-an-azure-hosted-agent"></a>Agente ospitato utilizzare un'istanza di Azure
 
-Usare un agente ospitato in Visual Studio Team Services è un'opzione utile per compilare e distribuire le app web. Gli aggiornamenti e manutenzione viene eseguiti automaticamente da Microsoft Azure, consentendo lo sviluppo continuo e ininterrotto, test e alla distribuzione.
+Usare un agente ospitato nelle pipeline di Azure è un'opzione utile per compilare e distribuire le app web. Gli aggiornamenti e manutenzione viene eseguiti automaticamente da Microsoft Azure, consentendo lo sviluppo continuo e ininterrotto, test e alla distribuzione.
 
 ### <a name="manage-and-configure-the-cd-process"></a>Gestire e configurare il processo di recapito Continuo
 
-Visual Studio Team Services e Team Foundation Server (TFS) forniscono una pipeline, altamente configurabile e gestibile per le versioni in più ambienti, ad esempio sviluppo, staging, controllo qualità e ambienti di produzione; inclusa la richiesta di approvazione in specifiche fasi.
+Le pipeline di Azure e il Server di DevOps di Azure forniscono una pipeline, altamente configurabile e gestibile per le versioni in più ambienti, ad esempio sviluppo, staging, controllo qualità e ambienti di produzione; inclusa la richiesta di approvazione in specifiche fasi.
 
 ## <a name="create-release-definition"></a>Creare una definizione della versione
 
-![Alt text](media\azure-stack-solution-cloud-burst\image5.png)
+![Alt text](media/azure-stack-solution-cloud-burst/image5.png)
 
 1.  Selezionare il **plus** per aggiungere una nuova versione nel **scheda rilasci** nella pagina compilazione e versione di Visual Studio online.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image6.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image6.png)
 
 2. Applicare il modello di distribuzione di servizio App di Azure.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image7.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image7.png)
 
 3. In Aggiungi artefatto, aggiungere l'elemento per le app di compilazione Cloud di Azure.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image8.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image8.png)
 
 4. Nella scheda della Pipeline, selezionare la **fase, l'attività** collegamento dell'ambiente e impostare i valori di ambiente cloud di Azure.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image9.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image9.png)
 
 5. Impostare il **nome dell'ambiente** e selezionare Azure **sottoscrizione** per l'endpoint Cloud di Azure.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image10.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image10.png)
 
 6. In nome dell'ambiente, impostare la necessaria **nome del servizio app di Azure**.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image11.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image11.png)
 
 7. Immettere **Hosted VS2017** nella coda dell'agente per l'ambiente cloud di Azure ospitati.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image12.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image12.png)
 
 8. Distribuzione servizio App di Azure selezionare menu validi **pacchetto o cartella** per l'ambiente. Selezionare **OK** al **percorso della cartella**.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image13.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image13.png)
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image14.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image14.png)
 
 9. Salvare tutte le modifiche e tornare alla **pipeline di rilascio**.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image15.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image15.png)
 
 10. Aggiungere un nuovo elemento selezionare la compilazione per l'app di Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image16.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image16.png)
 
 11. Aggiungere un ambiente più applicando la distribuzione di servizio App di Azure.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image17.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image17.png)
 
 12. Nome del nuovo ambiente Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image18.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image18.png)
 
 13. Trovare l'ambiente Azure Stack sotto **attività** scheda.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image19.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image19.png)
 
 14. Selezionare la sottoscrizione per l'endpoint di Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image20.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image20.png)
 
 15. Impostare il nome di app web di Azure Stack come nome del servizio App.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image21.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image21.png)
 
 16. Selezionare l'agente di Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image22.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image22.png)
 
 17. In servizio App di Azure di distribuire sezione selezionare validi **pacchetto o cartella** per l'ambiente. Selezionare **OK** percorso della cartella.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image23.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image23.png)
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image24.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image24.png)
 
 18. Nella scheda variabile aggiungere una variabile denominata `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, impostare il relativo valore come **true**e l'ambito per Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image25.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image25.png)
 
 19. Selezionare il **Continuous** icona di trigger di distribuzione in entrambi gli elementi e abilitare le **continua ad** trigger di distribuzione.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image26.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image26.png)
 
 20. Selezionare il **pre-distribuzione** icona condizioni nell'ambiente Azure Stack e impostare il trigger su **dopo il rilascio.**
 
 21. Salvare tutte le modifiche.
 
 > [!Note]  
-> Alcune impostazioni per le attività possono essere state automaticamente definite come [variabili di ambiente](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) durante la creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni di attività; Per modificare queste impostazioni, invece, è necessario selezionare l'elemento padre di ambiente
+> Alcune impostazioni per le attività possono essere state automaticamente definite come [variabili di ambiente](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) durante la creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni di attività; Per modificare queste impostazioni, invece, è necessario selezionare l'elemento padre di ambiente
 
 ## <a name="publish-to-azure-stack-via-visual-studio"></a>Pubblicare in Azure Stack tramite Visual Studio
 
-La creazione di endpoint di una compilazione di Visual Studio Online (VSTO) è possibile distribuire App del servizio di Azure ad Azure Stack. Visual Studio Team Services si connette all'agente di compilazione, che si connette ad Azure Stack.
+La creazione di endpoint di una compilazione di Visual Studio Online (VSTO) è possibile distribuire App del servizio di Azure ad Azure Stack. Le pipeline di Azure si connette all'agente di compilazione, che si connette ad Azure Stack.
 
 1.  Accedi a VSTO e passare alla pagina di impostazioni dell'app.
 
@@ -254,18 +256,18 @@ La creazione di endpoint di una compilazione di Visual Studio Online (VSTO) è p
 
 10. Selezionare **Save changes** (Salva modifiche).
 
-Ora che le informazioni sull'endpoint esistente, è pronto per l'uso di Visual Studio Team Services alla connessione di Azure Stack. L'agente di compilazione in Azure Stack Ottiene le istruzioni da Visual Studio Team Services e l'agente comunica quindi informazioni sull'endpoint per la comunicazione con Azure Stack.
+Ora che le informazioni sull'endpoint esistente, le pipeline di Azure alla connessione di Azure Stack è pronta per l'uso. L'agente di compilazione in Azure Stack Ottiene istruzioni dalle pipeline di Azure e l'agente comunica quindi informazioni sull'endpoint per la comunicazione con Azure Stack.
 
 ## <a name="develop-the-application-build"></a>Sviluppare la build dell'applicazione
 
 > [!Note]  
 > Azure Stack con immagini appropriate sfruttati in esecuzione (Windows Server e SQL) e distribuzione del servizio App sono necessarie. Esaminare la documentazione del servizio App "[prima di iniziare con il servizio App in Azure Stack](../azure-stack-app-service-before-you-get-started.md)" sezione per l'operatore di Azure Stack.
 
-Uso [modelli di Azure Resource Manager, ad esempio web](https://azure.microsoft.com/resources/templates/) codice dell'app da Visual Studio Team Services per distribuire in entrambi i cloud.
+Uso [modelli di Azure Resource Manager, ad esempio web](https://azure.microsoft.com/resources/templates/) codice dell'app da archivi di Azure per distribuire in entrambi i cloud.
 
-### <a name="add-code-to-a-vsts-project"></a>Aggiungere codice a un progetto di Visual Studio Team Services
+### <a name="add-code-to-a-azure-repos-project"></a>Aggiungere codice al progetto repository di Azure
 
-1.  Accedi a Visual Studio Team Services con un account dotato dei diritti di creazione progetto in Azure Stack. La schermata successiva mostra come connettersi al progetto HybridCICD.
+1.  Accedere al repository di Azure con un account dotato dei diritti di creazione progetto in Azure Stack. La schermata successiva mostra come connettersi al progetto HybridCICD.
 
 2.  **Clonare il repository** , creare e aprire l'app web predefinita.
 
@@ -273,13 +275,13 @@ Uso [modelli di Azure Resource Manager, ad esempio web](https://azure.microsoft.
 
 1.  Modificare il **WebApplication.csproj** file: selezionare **Runtimeidentifier** e quindi aggiungere win10-x64. Per altre informazioni, vedere [self-contained deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentazione.
 
-2.  Usare Team Explorer per controllare il codice in Visual Studio Team Services.
+2.  Usare Team Explorer per controllare il codice nel repository di Azure.
 
-3.  Verificare che il codice dell'applicazione è stato selezionato in Visual Studio Team Services.
+3.  Verificare che il codice dell'applicazione è stato archiviato nel repository di Azure.
 
 ### <a name="create-the-build-definition"></a>Creare la definizione di compilazione
 
-1.  Accedi a Visual Studio Team Services con un account che è possibile creare una definizione di compilazione.
+1.  Accedi alle pipeline di Azure con un account che è possibile creare una definizione di compilazione.
 
 2.  Passare il **compilazione dell'applicazione Web** pagina per il progetto.
 
@@ -289,23 +291,23 @@ Uso [modelli di Azure Resource Manager, ad esempio web](https://azure.microsoft.
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Uso di Azure ospitati agente di compilazione
 
-Utilizzo di un agente di compilazione ospitato in Visual Studio Team Services è un'opzione utile per la compilazione e distribuzione di App web. Gli aggiornamenti e manutenzione dell'agente viene eseguiti automaticamente da Microsoft Azure, che consente a un ciclo di sviluppo continuo e senza interruzioni.
+Utilizzo di un agente di compilazione ospitato nelle pipeline di Azure è un'opzione utile per la compilazione e distribuzione di App web. Gli aggiornamenti e manutenzione dell'agente viene eseguiti automaticamente da Microsoft Azure, che consente a un ciclo di sviluppo continuo e senza interruzioni.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Configurare il processo di distribuzione continua (CD)
 
-Visual Studio Team Services (VSTS) e Team Foundation Server (TFS) forniscono una pipeline, altamente configurabile e gestibile per le versioni in più ambienti, ad esempio sviluppo, staging, controllo di qualità (QA) e di produzione. Questo processo può includere che richiedono le approvazioni in specifiche fasi del ciclo di vita dell'applicazione.
+Le pipeline di Azure e il Server di DevOps di Azure forniscono una pipeline, altamente configurabile e gestibile per le versioni in più ambienti, ad esempio sviluppo, staging, controllo di qualità (QA) e produzione. Questo processo può includere che richiedono le approvazioni in specifiche fasi del ciclo di vita dell'applicazione.
 
 #### <a name="create-release-definition"></a>Creare una definizione della versione
 
 Creazione di una definizione di versione è il passaggio finale nell'applicazione di processo di compilazione. Questa definizione di versione viene utilizzata per creare una versione e distribuire una build.
 
-1.  Accedi a Visual Studio Team Services e passare a **compilazione e rilascio** per il progetto.
+1.  Accedi alle pipeline di Azure e passare a **compilazione e rilascio** per il progetto.
 
 2.  Nel **rilasci** scheda, seleziona **[+]** e quindi selezionare **Crea definizione di versione**.
 
 3.  Sul **selezionare un modello**, scegliere **distribuzione di Azure App Service**e quindi selezionare **Apply**.
 
-4.  Sul **Aggiungi artefatto**, dalla * * origine (definizione di compilazione) selezionare l'app di compilazione Cloud di Azure.
+4.  Sul **Aggiungi artefatto**, dalle **origine (definizione di compilazione)** selezionare l'app di compilazione Cloud di Azure.
 
 5.  Nel **Pipeline** scheda, seleziona il **1 fase**, **1 attività** collegare **consente di visualizzare le attività dell'ambiente**.
 
@@ -321,7 +323,7 @@ Creazione di una definizione di versione è il passaggio finale nell'applicazion
 
 11. Salvare tutte le modifiche e tornare alla **Pipeline**.
 
-12. Nel **Pipeline** scheda, seleziona **Aggiungi artefatto**e scegliere il **NorthwindCloud Traders-Vessel** dalla * * origine (definizione di compilazione) * * elenco.
+12. Nel **Pipeline** scheda, seleziona **Aggiungi artefatto**e scegliere il **NorthwindCloud Traders-Vessel** dal **origine (definizione di compilazione)** elenco.
 
 13. Sul **selezionare un modello**, aggiungere un altro ambiente. Prelievo **distribuzione di Azure App Service** e quindi selezionare **applica**.
 
@@ -346,7 +348,7 @@ Creazione di una definizione di versione è il passaggio finale nell'applicazion
 23. Salvare tutte le modifiche.
 
 > [!Note]  
-> Alcune impostazioni per le attività di rilascio vengono definite automaticamente come [variabili di ambiente](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) durante la creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni di attività, ma possono essere modificate negli elementi padre di ambiente.
+> Alcune impostazioni per le attività di rilascio vengono definite automaticamente come [variabili di ambiente](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) durante la creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni di attività, ma possono essere modificate negli elementi padre di ambiente.
 
 ## <a name="create-a-release"></a>Creare una versione
 

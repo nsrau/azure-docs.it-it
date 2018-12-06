@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
-ms.openlocfilehash: 1ef20dc35b069c5f12c2f31d0979949be27271e0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: be793fa5d346d05e6b7bd9f93f1108b7a3542fa6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324413"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959173"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Aggiornamento dello Stack della macchina virtuale e gestione di Azure
 È possibile utilizzare le seguenti funzionalità di soluzione di automazione di Azure per gestire le macchine virtuali Windows distribuite tramite Azure Stack:
@@ -41,7 +41,7 @@ Prima di usare queste funzionalità per aggiornare e gestire macchine virtuali W
 Per usare l'inventario, rilevamento modifiche e le funzionalità di automazione di Azure di gestione aggiornamenti per le macchine virtuali Windows di Azure Stack, è necessario innanzitutto abilitare queste soluzioni in Azure.
 
 > [!TIP]
-> Se hai già queste funzionalità abilitate per le macchine virtuali di Azure, è possibile usare le credenziali dell'area di lavoro di log Analytics già esistente. Se hai già un LogAnalytics WorkspaceID e chiave primaria a cui si desidera utilizzare, passare a [nella sezione successiva](.\vm-update-management.md#in-the-azure-stack-administration-portal). In caso contrario, continuare in questa sezione per creare un nuovo account di automazione e l'area di lavoro di log Analytics.
+> Se hai già queste funzionalità abilitate per le macchine virtuali di Azure, è possibile usare le credenziali dell'area di lavoro di log Analytics già esistente. Se hai già un LogAnalytics WorkspaceID e chiave primaria a cui si desidera utilizzare, passare a [nella sezione successiva](./vm-update-management.md#in-the-azure-stack-administration-portal). In caso contrario, continuare in questa sezione per creare un nuovo account di automazione e l'area di lavoro di log Analytics.
 
 Il primo passaggio dell'abilitazione di queste soluzioni consiste [creare un'area di lavoro di log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) nella sottoscrizione di Azure. Un'area di lavoro di Log Analitica è un ambiente di Log Analitica univoco con il proprio repository dei dati, origini dati e soluzioni. Dopo aver creato un'area di lavoro, tenere presente la chiave e l'ID area di lavoro. Per visualizzare queste informazioni, passare al pannello dell'area di lavoro, fare clic su **impostazioni avanzate**ed esaminare le **ID area di lavoro** e **Primary Key** valori. 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 0b65f37310b911184c05fd8fb8554eeb824814b8
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 185c4685de0c889c3b6e7b173445546ed5b7d921
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364813"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955413"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Attività di valutazione di Azure Stack Development Kit avanzate
 Dopo che acquisite familiarità con le caratteristiche di servizio di Azure Stack Development Kit (ASDK) basic, è possibile approfondire la comprensione di Azure Stack ulteriormente verificando gli scenari più avanzati. Queste attività di valutazione più avanzate sono documentate completamente nella documentazione di Azure Stack operatore.
@@ -31,17 +31,18 @@ Dopo che acquisite familiarità con le caratteristiche di servizio di Azure Stac
 ## <a name="delegate-offers-in-azure-stack"></a>Delegare offerte in Azure Stack
 L'operatore di Stack di Azure, è spesso necessario inserire altri utenti responsabile della creazione di offerte e iscrizione gli utenti. Ad esempio, se sei un provider di servizi, è possibile i rivenditori a effettuare l'iscrizione ai clienti e gestirli per tuo conto. In alternativa, se si fa parte di un gruppo IT centrale in un'organizzazione, è possibile affiliate per l'iscrizione agli utenti senza l'intervento dell'utente.
 
-[Delegare offerte in Azure Stack](.\.\azure-stack-delegated-provider.md) aiuta con queste attività grazie alla possibilità di raggiungere e gestire più utenti rispetto alla configurazione diretta. 
+[Delegare offerte in Azure Stack](../azure-stack-delegated-provider.md) aiuta con queste attività grazie alla possibilità di raggiungere e gestire più utenti rispetto alla configurazione diretta.
 
 ## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Rendere disponibili i database SQL per gli utenti di Azure Stack
-Un operatore di Stack di Azure, è possibile creare offerte di consentono agli utenti (tenant) creare i database SQL che possono essere utilizzati con le app native del cloud, siti Web e i carichi di lavoro. Fornendo questi database personalizzati, on demand, basato sul cloud per gli utenti, è possibile salvarli tempo e risorse. 
+Un operatore di Stack di Azure, è possibile creare offerte di consentono agli utenti (tenant) creare i database SQL che possono essere utilizzati con le app native del cloud, siti Web e i carichi di lavoro. Fornendo questi database personalizzati, on demand, basato sul cloud per gli utenti, è possibile salvarli tempo e risorse.
 
-Utilizzare l'adapter di provider di risorse SQL Server per [rendere disponibili i database SQL per gli utenti di Azure Stack](.\.\azure-stack-tutorial-sql-server.md) come un servizio di Azure Stack. Dopo aver installato il provider di risorse è connettersi a uno o più istanze di SQL Server.
+Utilizzare l'adapter di provider di risorse SQL Server per [rendere disponibili i database SQL per gli utenti di Azure Stack](../azure-stack-tutorial-sql-server.md) come un servizio di Azure Stack. Dopo aver installato il provider di risorse è connettersi a uno o più istanze di SQL Server.
 
 ## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Rendere disponibili agli utenti di Azure Stack web e App per le API
 Un operatore di Stack di Azure, è possibile creare offerte di consentono agli utenti (tenant) creare applicazioni web e funzioni di Azure e API. Fornendo l'accesso a queste App on demand, basato sul cloud per gli utenti, è possibile salvarli tempo e risorse.
 
-Distribuire il provider di risorse del servizio App di [rendere disponibili agli utenti di Azure Stack web e App per le API](.\.\azure-stack-tutorial-app-service.md)
+Distribuire il provider di risorse del servizio App di [rendere disponibili agli utenti di Azure Stack web e App per le API](../azure-stack-tutorial-app-service.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni sull'offerta di servizi con i sistemi integrati di Azure Stack](.\.\azure-stack-offer-services-overview.md)
+
+[Altre informazioni sull'offerta di servizi con i sistemi integrati di Azure Stack](../azure-stack-offer-services-overview.md)

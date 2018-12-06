@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: e5ce479940faaaae95467fe6d426e999b4c6569f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468671"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959197"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Modificare il proprietario per una sottoscrizione utente di Azure Stack
 
@@ -40,8 +40,8 @@ Esistono due tipi di *proprietari* che vengono assegnati a una sottoscrizione:
 
 Eseguire lo script seguente per modificare il proprietario di fatturazione di una sottoscrizione utente. Il computer in uso per eseguire lo script deve connettersi ad Azure Stack ed eseguire il modulo di PowerShell per Azure Stack 1.3.0 o versioni successive. Per altre informazioni, vedere [installare PowerShell per Azure Stack](azure-stack-powershell-install.md). 
 
-> [!Note]  
->  In multi-tenant Azure Stack, il nuovo proprietario deve essere nella stessa directory come proprietario esistente. Prima di poter fornire la proprietà della sottoscrizione a un utente che si trova in un'altra directory, è necessario innanzitutto [invitare l'utente come guest alla directory](../active-directory/b2b/add-users-administrator.md). 
+> [!Note]
+>  In multi-tenant Azure Stack, il nuovo proprietario deve essere nella stessa directory come proprietario esistente. Prima di poter fornire la proprietà della sottoscrizione a un utente che si trova in un'altra directory, è necessario innanzitutto [invitare l'utente come guest alla directory](../active-directory/b2b/add-users-administrator.md). 
 
 Sostituire i valori seguenti nello script prima dell'esecuzione: 
  
