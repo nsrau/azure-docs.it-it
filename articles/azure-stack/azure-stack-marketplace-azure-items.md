@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 68d5742f5da542d5146997390e470180cf8c5776
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e4f15da8464c2103b5f6540d342cb7c741a67c5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620694"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994851"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per Azure Stack
 
@@ -88,7 +88,6 @@ Microsoft Azure Stack supporta le seguenti macchine virtuali di Azure Marketplac
 | ![Contenitore Linux per CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Contenitore Linux per CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Contenitore Linux è una distribuzione Linux moderna e minima, che fornisce un modo semplice per eseguire i contenitori, gestire i cluster e aggiornare facilmente i server: tutti i componenti che consentono di livello warehouse calcolo. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server è il prodotto Linux più diffuso al mondo per ambienti cloud. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux è una delle distribuzioni Linux più popolari. | credativ |
-| ![Debian 9 "Stretch"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Stretch"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux è una delle distribuzioni Linux più popolari. | credativ |
 | ![Basata su centOS 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [Basata su centOS 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Questa distribuzione di Linux è basata su CentOS e viene fornita di Rogue Wave Software. | Rogue Wave Software (in precedenza OpenLogic)  |
 | ![6.10 basata su centOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [6.10 basata su centOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Questa distribuzione di Linux è basata su CentOS e viene fornita di Rogue Wave Software. | Rogue Wave Software (in precedenza OpenLogic)  |
 | ![CentOS-based 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [Basata su centOS 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | Questa distribuzione di Linux è basata su CentOS e viene fornita di Rogue Wave Software. | Rogue Wave Software (in precedenza OpenLogic) |
@@ -236,7 +235,6 @@ Microsoft Azure Stack supporta le seguenti macchine virtuali di Azure Marketplac
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controllare, monitorare e crittografare le macchine virtuali con facilità e affidabilità. **Scaricare tutti gli elementi di CloudLink SecureVM.** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM è una piattaforma di sicurezza completa che offre avanzati strumenti di sicurezza con funzionalità pronte controllo conformità. | EventTracker |
 | ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [Edizione di F5 Big-IP virtuale](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Avanzate di bilanciamento del carico, GSLB, Firewall di rete, DNS, WAF e accedere all'App. | F5 Networks |
-| ![Firewall di nuova generazione FortiGate](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [Firewall di nuova generazione FortiGate](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | Tecnologia firewall offre protezione completa di contenuti e rete con una suite completa di potenti funzionalità di sicurezza. Controllo delle applicazioni, antivirus, IPS, filtri web e VPN, insieme a funzionalità avanzate quali gestione delle vulnerabilità funzionano insieme per identificare e contrastare i più recenti minacce complesse alla sicurezza. | Fortinet |
 | ![Sandbox di Hortonworks Data Platform (HDP)](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Sandbox di Hortonworks Data Platform (HDP)](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Basata su HDP 2.5 piattaforma open source di 100% per Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Sicurezza di Cloud ibrido Kaspersky](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | La sicurezza di Cloud ibrido Kaspersky consente a un ecosistema di cybersecurity adattivo e orchestrato senza problemi. | Kaspersky Lab |
 | ![KEMP LoadMaster Load Balancer ADC contenuto commutatore](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC contenuto commutatore](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Load Balancer di livello 4-7 Application Delivery Controller (ADC), contenuto Switch e gestione traffico. | KEMP Technologies Inc. |

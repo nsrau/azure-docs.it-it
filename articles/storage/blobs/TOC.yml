@@ -127,7 +127,7 @@ items:
     - name: Livelli di accesso
       href: storage-blob-storage-tiers.md
     - name: Gestione del ciclo di vita di archiviazione BLOB di Azure
-      href: ../common/storage-lifecycle-managment-concepts.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: storage-lifecycle-management-concepts.md
     - name: Reazione agli eventi
       href: storage-blob-event-overview.md
     - name: Obiettivi di scalabilità e prestazioni
@@ -154,7 +154,7 @@ items:
             href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
           - name: Progettare per prestazioni elevate
             href: ../../virtual-machines/linux/premium-storage-performance.md
-        - name: " Windows"
+        - name: Windows
           items:
           - name: Archiviazione Premium con prestazioni elevate per dischi di macchine virtuali
             href: ../../virtual-machines/windows/premium-storage.md
@@ -168,7 +168,7 @@ items:
           items:
           - name: Archiviazione Standard per i dischi delle macchine virtuali
             href: ../../virtual-machines/linux/standard-storage.md
-        - name: " Windows"
+        - name: Windows
           items:
           - name: Archiviazione Standard per i dischi delle macchine virtuali
             href: ../../virtual-machines/windows/standard-storage.md
@@ -181,7 +181,7 @@ items:
             href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
           - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
             href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
-        - name: " Windows"
+        - name: Windows
           items:
           - name: Errori nell'eliminazione di risorse di archiviazione
             href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
@@ -390,7 +390,7 @@ items:
         href: storage-how-to-mount-container-linux.md
       - name: Domande frequenti sulla migrazione di Archiviazione
         href: ../common/storage-migration-faq.md
-  - name: Informazioni di riferimento
+  - name: riferimento
     items:
     - name: PowerShell
       href: /powershell/module/azure.storage
@@ -504,66 +504,6 @@ items:
           href: /rest/api/storagerp
         - name: Importazione/Esportazione
           href: /rest/api/storageimportexport
-    - name: Risorse
-      items:
-      - name: Roadmap per Azure
-        href: https://azure.microsoft.com/roadmap/?category=storage
-      - name: Strumenti client di Archiviazione di Azure
-        href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Forum
-        href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
-      - name: Prezzi
-        href: https://azure.microsoft.com/pricing/details/storage/blobs/
-      - name: Calcolatore prezzi
-        href: https://azure.microsoft.com/pricing/calculator/
-      - name: Aggiornamenti del servizio
-        href: https://azure.microsoft.com/updates/?product=storage
-      - name: Stack Overflow
-        href: http://stackoverflow.com/questions/tagged/windows-azure-storage
-      - name: Video
-        href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-      - name: Esplora archivi Azure
-        items:
-        - name: Storage Explorer
-          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Note sulla versione di Storage Explorer
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Risolvere i problemi di Storage Explorer
-          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Accessibilità di Storage Explorer
-          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Pacchetti NuGet
-        items:
-        - name: Libreria client di archiviazione di Azure per .NET
-          href: https://www.nuget.org/packages/WindowsAzure.Storage/
-        - name: Libreria di spostamento dei dati di Archiviazione di Azure
-          href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
-        - name: Gestione configurazione di Azure
-          href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
-      - name: Codice sorgente
-        items:
-        - name: .NET
-          items:
-          - name: BLOB, code, tabelle e file
-            href: https://github.com/Azure/azure-storage-net
-          - name: Spostamento dati
-            href: https://github.com/Azure/azure-storage-net-data-movement
-          - name: Provider di risorse
-            href: https://github.com/Azure/azure-sdk-for-net
-        - name: Node.js
-          href: http://azure.github.io/azure-storage-node/
-        - name: Java
-          href: https://github.com/Azure/azure-storage-java
-        - name: C++
-          href: https://github.com/Azure/azure-storage-cpp
-        - name: PHP
-          href: https://github.com/Azure/azure-storage-php
-        - name: Python
-          href: https://github.com/Azure/azure-storage-python
-        - name: Ruby
-          href: https://github.com/Azure/azure-storage-ruby
-        - name: iOS
-          href: https://github.com/Azure/azure-storage-ios
 - name: Data Lake Storage Gen2
   items:
   - name: Passare alla documentazione di Azure Data Lake Storage Gen1
@@ -650,7 +590,9 @@ items:
         href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Connettersi ad Azure Databricks
       href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
-  - name: Informazioni di riferimento
+    - name: Connettersi ad Azure SQL Data Warehouse
+      href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#azure-sql-data-warehouse-polybase
+  - name: riferimento
     items:
     - name: REST
       href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
@@ -674,9 +616,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Video
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: bda06ecb2adbcf4aeea5e2877f37b4ddf2761d80
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc45425a3e20d18bbe43e4a41ca40bd6c2fe6b9a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957522"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013646"
