@@ -6,12 +6,12 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 5860d828a4edffa130ecfd2f5cf37c236b3cf3fc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c7babd4a6f5a62bb3d284bc37086e908613eb429
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963794"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017801"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -458,9 +458,9 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Cache Redis</p>
+                                                <p>Cache Redis di Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3095,7 +3095,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/">
+                                <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3105,7 +3105,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cache Redis</h3>
+                                                    <h3>Cache Redis di Azure</h3>
                                                     <p>Integrare nelle applicazioni bassa latenza e velocità effettiva elevata</p>
                                                 </div>
                                             </div>

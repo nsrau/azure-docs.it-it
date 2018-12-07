@@ -92,7 +92,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 7.  Accedere al pannello di accesso e verificare se è possibile **avviare** le applicazioni con accesso SSO basato su password.
 
-È anche possibile scaricare l'estensione per Chrome ed Edge dai collegamenti diretti seguenti:
+È anche possibile scaricare l'estensione per Chrome ed Microsoft Edge dai collegamenti diretti seguenti:
 
 -   [Estensione Pannello di accesso per Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 

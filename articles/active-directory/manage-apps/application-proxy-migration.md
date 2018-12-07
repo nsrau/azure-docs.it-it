@@ -46,7 +46,7 @@ Usare questa tabella per comprendere come vengono confrontate tra loro Threat Ma
 | Autenticazione con intestazioni | - | Yes | - | Sì, con PingAccess | 
 | Sicurezza a livello di cloud | - | - | - | Yes | 
 | Accesso condizionale | - | Yes | - | Yes |
-| Nessun componente all'interno della zona demilitarizzata (DMZ) | - | - | - | Yes |
+| Nessun componente all'interno della rete perimetrale | - | - | - | Yes |
 | Nessuna connessione in ingresso | - | - | - | Yes |
 
 Per la maggior parte degli scenari, è consigliabile l'applicazione Azure AD come soluzione moderna. Il Proxy applicazione Web è preferito esclusivamente in scenari che richiedono un server proxy per il servizio federativo AD e non è possibile usare domini personalizzati in Azure Active Directory. 

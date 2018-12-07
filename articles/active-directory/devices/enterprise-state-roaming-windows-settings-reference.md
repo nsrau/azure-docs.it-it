@@ -48,7 +48,7 @@ I gruppi di impostazioni seguenti permettono agli utenti finali di abilitare o d
 * Preferenze lingua: dizionario per il controllo ortografico, impostazioni della lingua del sistema. 
 * Accessibilità: Assistente vocale, tastiera su schermo, lente di ingrandimento. 
 * Altre impostazioni di Windows: vedere la sezione Dettagli relativi alle impostazioni di Windows.
-* Impostazioni del browser Edge: preferiti Microsoft Edge, elenco di lettura e altre impostazioni
+* Impostazioni del browser Microsoft Edge: preferiti Microsoft Edge, elenco di lettura e altre impostazioni
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -93,21 +93,21 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Personalizzazione del desktop**: impostazioni della barra delle applicazioni (posizione, Nascondi automaticamente e così via) |sync |X |Tema |
 | **Personalizzazione del desktop**: layout della schermata Start |X |backup | |
 | **Dispositivi**: stampanti condivise a cui è stata eseguita la connessione |X |X |Altre |
-| **Browser Edge**: Elenco di lettura |sync |sync |Interne |
-| **Browser Edge**: Preferiti |sync |sync |Interne |
-| **Browser Edge**: siti principali <sup> [[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: URL digitati <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: impostazioni barra Preferiti <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: mostra pulsante Home <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: blocca popup <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: richiedi l'operazione da eseguire con ogni download <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: offri la possibilità di salvare le password <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: invia richieste Do Not Track <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: salva i dati immessi nei moduli <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: mostra suggerimenti per la ricerca e i siti durante la digitazione <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: preferenze cookie <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: consenti ai siti di archiviare le licenze per i contenuti multimediali protetti nel dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
-| **Browser Edge**: impostazione utilità per la lettura dello schermo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: Elenco di lettura |sync |sync |Interne |
+| **Browser Microsoft Edge**: Preferiti |sync |sync |Interne |
+| **Browser Microsoft Edge**: siti principali <sup> [[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: URL digitati <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: impostazioni barra Preferiti <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: mostra pulsante Home <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: blocca popup <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: richiedi l'operazione da eseguire con ogni download <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: offri la possibilità di salvare le password <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: invia richieste Do Not Track <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: salva i dati immessi nei moduli <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: mostra suggerimenti per la ricerca e i siti durante la digitazione <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: preferenze cookie <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: consenti ai siti di archiviare le licenze per i contenuti multimediali protetti nel dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Microsoft Edge**: impostazione utilità per la lettura dello schermo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Contrasto elevato**: abilitazione/disabilitazione |sync |X |Accessibilità |
 | **Contrasto elevato**: impostazioni del tema |sync |X |Accessibilità |
 | **Internet Explorer**: schede aperte (URL e titolo) |sync |sync |Internet Explorer |
