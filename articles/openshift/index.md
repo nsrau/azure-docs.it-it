@@ -11,12 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 0856b86ce3d5510dfaa395d17705a2c7d5675cde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f0d3eae8c005b7e26f425a4411042fdc050fdef
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23071161"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995466"
 ---
 <div class="content">
     <h1>OpenShift in Azure</h1>
@@ -26,7 +26,7 @@ OpenShift Origin è una piattaforma contenitore open source basata su Kubernetes
         </div>
     </div>
 <h2>Guide introduttive di 5 minuti</h2>
-<a href="https://azure.microsoft.com/resources/templates/openshift-origin-rhel/">Distribuire il modello della community di OpenShift Origin</a> 
+<a href="https://docs.microsoft.com/azure/virtual-machines/linux/openshift-okd">Distribuire il modello della community di OpenShift Origin</a> 
 <h2>Esercitazioni dettagliate</h2>
 <p>Informazioni su come distribuire OpenShift in Azure.</p>
 <ol>

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bee684409b2ef3fffeb9f175c2b469d3736b6484
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986454"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993847"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Esercitazione: Offrono database MySQL a disponibilità elevata
 
@@ -46,7 +46,7 @@ Prima di iniziare i passaggi descritti in questa esercitazione, assicurarsi che 
 > Tutti gli elementi seguenti sono necessari per creare il cluster MySQL.
 
 - [MySQL con replica](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Questo è il modello di soluzione Bitnami che verrà usato per la distribuzione di cluster MySQL.
-- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview). Debian 8 "Jessie" con il kernel backports per Microsoft Azure forniti da credativ. Debian GNU/Linux è una delle distribuzioni Linux più popolari.
+- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian). Debian 8 "Jessie" con il kernel backports per Microsoft Azure forniti da credativ. Debian GNU/Linux è una delle distribuzioni Linux più popolari.
 - [Script personalizzato per linux 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview). L'estensione Script personalizzato è uno strumento per eseguire attività personalizzazione il macchina virtuale post effettuare il provisioning della macchina virtuale. Quando questa estensione viene aggiunta a una macchina virtuale, è possibile scaricare gli script da archiviazione di Azure ed eseguirli nella macchina virtuale. Attività di estensione Script personalizzata può essere automatizzata tramite i cmdlet di Azure PowerShell e interfaccia della riga di comando multipiattaforma di Azure (xPlat CLI).
 - Accesso alla macchina virtuale per l'estensione Linux 1.4.7. L'estensione macchina virtuale l'accesso consente di reimpostare la password, chiave SSH o le configurazioni SSH, pertanto è possibile ottenere nuovamente l'accesso alla macchina virtuale. È anche possibile aggiungere un nuovo utente con password o chiave SSH o eliminare un utente tramite questa estensione. Questa estensione è destinato a macchine virtuali Linux.
 

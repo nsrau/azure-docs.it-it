@@ -10,12 +10,12 @@ ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: e6f7d255fbfbcd740d9f3a7c2743f57cecea1abf
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: MT
+ms.openlocfilehash: a2c08c541c3726579d57d99141a147d98bf45849
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298756"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996720"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter integration - pubblicano endpoint
 
@@ -79,10 +79,14 @@ Azure Stack supporta solo i server proxy trasparente. In una distribuzione in cu
 |NTP|(Server IP di NTP fornito per deployment)|UDP|123|
 |DNS|(Server DNS dell'indirizzo IP fornito per deployment)|TCP<br>UDP|53|
 |CRL|(URL sotto i punti di distribuzione CRL nel certificato)|HTTP|80|
+|Backup dell'infrastruttura|(Indirizzo IP o nome di dominio completo del file server di destinazione esterno)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > Gli URL in uscita sono con carico bilanciato usando Gestione traffico di Azure per fornire la migliore connettività possibili basate sulla posizione geografica. Con carico bilanciato URL, Microsoft è possibile aggiornare e modificare gli endpoint di back-end senza conseguenze per i clienti. Microsoft non condivide l'elenco di indirizzi IP per gli URL con bilanciamento del carico. È consigliabile usare un dispositivo che supporta i filtri dall'URL piuttosto che dall'IP.
+
+> [!Note]  
+> In 1809, il servizio backup di infrastruttura comunica al server di file esterno dalla rete VIP pubblica. Prima di 1809, il servizio comunica attraverso la rete pubblica dell'infrastruttura. Se gli ambienti di non consentire l'accesso alle risorse di infrastruttura dalla rete VIP pubblica, applicare l'hotfix 1809 più recente per Azure Stack. Questo hotfix passerà nuovamente il servizio backup di infrastruttura alla rete dell'infrastruttura pubblico. In 1811, se è stato applicato l'aggiornamento rapido 1809, il servizio backup di infrastruttura rimarrà nella rete pubblica di infrastruttura. Se non è stato applicato l'aggiornamento rapido, l'aggiornamento verrà riportare il servizio di rete dell'infrastruttura pubblico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

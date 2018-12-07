@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d65a593286ecd1ee394536033e85febb1dbc6f37
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: faf243df0c6b81ca75e912bff04893a1ff7fd945
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229265"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997713"
 documentType: LandingData
 title: Documentazione di Gestione dei costi di Azure
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/29/2018
+  ms.date: 12/05/2018
   ms.author: banders
 abstract:
   description: Gestione costi di Azure è una soluzione di gestione dei costi che consente di monitorare e controllare le spese per Azure e di ottimizzare l'uso delle risorse. Informazioni su come analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare le raccomandazioni con guide introduttive ed esercitazioni.
