@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e648d6d3bd8d8ac14fb3f9723f4667c1cc33ac6
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228896"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620184"
 ---
 <a name="saas-application-technical-publishing-guide"></a>Guida tecnica alla pubblicazione di applicazioni SaaS
 ===========================================
@@ -32,7 +32,7 @@ Per una panoramica di tutte le altre offerte in Marketplace, fare riferimento al
 <a name="what-are-pre-requisites-for-publishing-a-saas-app"></a>Quali sono i prerequisiti per la pubblicazione di un'app SaaS?
 -------------------------------------------------
 
-Il portale di pubblicazione offre l'accesso in base al ruolo al portale, per consentire a più agli utenti di collaborare alla pubblicazione di un'offerta. Per altre informazioni, vedere [Manage Users](./cloud-partner-portal-manage-users.md) (Gestire gli utenti). 
+Il [portale Cloud Partner](https://cloudpartner.azure.com) offre l'accesso in base al ruolo al portale, per consentire a più utenti di collaborare alla pubblicazione di un'offerta. Per altre informazioni, vedere [Manage Users](./cloud-partner-portal-manage-users.md) (Gestire gli utenti). 
 
 Prima di poter pubblicare un'offerta per conto dell'account di un editore, uno degli utenti con ruolo *Proprietario* deve accettare di essere conforme alle [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/), all'[Informativa sulla privacy di Microsoft](https://www.microsoft.com/privacystatement/default.aspx) e al [Contratto del programma Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
@@ -58,7 +58,7 @@ L'offerta di app SaaS è costituita da cinque sezioni, descritte nella tabella s
 
 ### <a name="creating-a-new-offer"></a>Creazione di una nuova offerta
 
-Dopo aver eseguito l'accesso al portale Cloud Partner, selezionare la voce **Nuova offerta** nella barra dei menu a sinistra che visualizza le offerte disponibili. La figura seguente mostra un esempio delle offerte:
+Dopo aver eseguito l'accesso al [portale Cloud Partner](https://cloudpartner.azure.com), selezionare la voce **Nuova offerta** nella barra dei menu a sinistra che visualizza le offerte disponibili. La figura seguente mostra un esempio delle offerte:
 
 ![Nuova offerta SaaS](media/cpp-creating-saas-offers/saas-new-offer.png)
 
@@ -154,7 +154,7 @@ La tabella seguente descrive i campi di marketing:
 
 | **Campi offerta** | **Descrizione**                                                                                                          |
 |------------------| ------------------------------------------------------------------------------------------------------------------------ |
-| Loghi            | Per un'app SaaS di tipo **Sell through Azure** (Vendi tramite Azure), immettere le immagini di tutti i logo. Per un elenco, sono necessari solo due logo. Usare le linee guida seguenti per ogni logo caricato nel portale Cloud Partner:     <br/> - Nel logo usare un numero ridotto di colori primari e secondari. La progettazione di Azure ha una tavolozza dei colori semplice.     <br/> - Evitare di usare i colori nero e bianco per lo sfondo del logo. I colori del tema del portale di Azure sono il bianco e il nero. Usare un colore che faccia risaltare il logo nel portale di Azure. Si consiglia di usare colori primari semplici. Se si usa lo sfondo trasparente, assicurarsi che i logo e il testo non siano bianchi, neri o blu.     <br/> - Non usare uno sfondo sfumato nel logo.     <br/> - Evitare di inserire testo, incluso il nome del marchio o della società, nel logo. L'aspetto del logo deve essere semplice e senza sfumature.    <br/> - L'immagine del logo non può essere estesa.                   |
+| Loghi            | Per un'app SaaS di tipo **Sell through Azure** (Vendi tramite Azure), immettere le immagini di tutti i logo. Per un elenco, sono necessari solo due logo. Usare le linee guida seguenti per ogni logo caricato nel [portale Cloud Partner](https://cloudpartner.azure.com):     <br/> - Nel logo usare un numero ridotto di colori primari e secondari. La progettazione di Azure ha una tavolozza dei colori semplice.     <br/> - Evitare di usare i colori nero e bianco per lo sfondo del logo. I colori del tema del portale di Azure sono il bianco e il nero. Usare un colore che faccia risaltare il logo nel portale di Azure. Si consiglia di usare colori primari semplici. Se si usa lo sfondo trasparente, assicurarsi che i logo e il testo non siano bianchi, neri o blu.     <br/> - Non usare uno sfondo sfumato nel logo.     <br/> - Evitare di inserire testo, incluso il nome del marchio o della società, nel logo. L'aspetto del logo deve essere semplice e senza sfumature.    <br/> - L'immagine del logo non può essere estesa.                   |
 | Video           | Consente di aggiungere collegamenti dei video dell'offerta. È possibile usare collegamenti a video di YouTube e/o Vimeo che vengono visualizzati insieme all'offerta ai clienti. È necessario anche immettere un'immagine di anteprima del video, con un'immagine png di 1280 x 720 pixel. È possibile avere un massimo di quattro video per ogni offerta. |
 | Documenti        | Consente di aggiungere documenti di marketing all'offerta. Tutti i documenti devono essere in formato PDF ed è possibile avere un massimo di tre documenti per ogni offerta.                                                                                                                                                      |
 | Screenshots (Schermate)      | Consente di aggiungere screenshot all'offerta. È possibile aggiungere all'offerta un massimo di cinque screenshot. La dimensione massima delle immagini è 1280 x 720 pixel.                                                                                                                                             |

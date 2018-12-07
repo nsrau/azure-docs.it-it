@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d3705267520087e098e3e2bcc55e677935dc6097
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623786"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275334"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -29,7 +29,7 @@ L'architettura di report in Azure Active Directory (Azure AD) include i componen
 
 - **Attività** 
     - **Accessi**: informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
-    - **Log di controllo**: i [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative a gestione di utenti e gruppi, applicazioni gestite e attività di directory.
+    - **Log di controllo** - [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative a gestione di utenti e gruppi, applicazioni gestite e attività di directory.
 - **Sicurezza** 
     - **Accessi a rischio**: un [accesso a rischio](concept-risky-sign-ins.md) indica un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente.
     - **Utenti contrassegnati per il rischio**: un [utente a rischio](concept-user-at-risk.md) indica un account utente che potrebbe essere stato compromesso.
@@ -57,6 +57,9 @@ Il report relativo agli accessi utente fornisce le risposte alle domande seguent
 Per accedere al report degli accessi, selezionare **Accessi** nella sezione **Attività** del pannello **Azure Active Directory** nel [portale di Azure](https://portal.azure.com).
 
 ![Attività di accesso](./media/concept-sign-ins/61.png "Attività di accesso")
+
+> [!IMPORTANT]
+> Il report degli accessi mostra solo gli accessi **interattivi**, ovvero gli accessi eseguiti manualmente da un utente usando nome utente e password. Gli accessi non interattivi, ad esempio l'autenticazione da servizio a servizio, non vengono visualizzati nel report degli accessi. 
 
 Un log di accesso ha una visualizzazione elenco predefinita che include:
 

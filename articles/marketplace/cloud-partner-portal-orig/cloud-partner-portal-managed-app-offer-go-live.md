@@ -1,5 +1,5 @@
 ---
-title: TITLE | Microsoft Docs
+title: Attivare l'offerta dell'applicazione Azure in Azure Marketplace | Microsoft Docs
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 643b7d674de3d51f98b69d6f0659478c9893e3b1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 18a8e6ae8ab3bd4299c6a014f938e73a2a021492
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807778"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263589"
 ---
 <a name="make-your-azure-application-offer-live-on-azure-marketplace"></a>Attivare l'offerta dell'applicazione Azure in Azure Marketplace 
 ===========================================================
@@ -33,19 +33,22 @@ Verrà ora analizzato questo processo in modo più dettagliato per comprendere m
 <a name="publishing-process"></a>Processo di pubblicazione 
 ------------------
 
-Per avviare il processo di pubblicazione, è necessario fare clic su \"Publish\" (Pubblica) sotto la scheda Editor.
+Per avviare il processo di pubblicazione, è necessario fare clic su \"Pubblica\" sotto la scheda **Editor**.
 
 ![Sequenza 1 di attivazione dell'offerta: pubblicazione](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_publish.png)
 
-Nella scheda Status (Stato) verranno visualizzati i passaggi di pubblicazione e il passaggio in cui si trova l'offerta.
+Nella scheda **Stato** verranno visualizzati i passaggi di pubblicazione e il passaggio in cui si trova l'offerta.
 
 ![Sequenza 2 di attivazione dell'offerta: workflow](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_workflow.png)
 
-In qualsiasi momento del processo di pubblicazione è anche possibile accedere e fare clic sulla scheda All Offers (Tutte le offerte) per visualizzare lo stato più recente di tutte le offerte pubblicate. È possibile fare clic direttamente sullo stato dell'offerta e visualizzare i dettagli relativi alla fase del processo di pubblicazione in cui si trova.
+In qualsiasi momento del processo di pubblicazione è anche possibile accedere e fare clic sulla scheda **Tutte le offerte** per visualizzare lo stato più recente di tutte le offerte pubblicate. È possibile fare clic direttamente sullo stato dell'offerta e visualizzare i dettagli relativi alla fase del processo di pubblicazione in cui si trova.
 
-Verranno ora esaminati i singoli passaggi di pubblicazione, illustrando cosa accade a ogni passaggio con una stima del tempo previsto per la sua esecuzione.
+> [!WARNING]
+> Se l'attribuzione dell'utilizzo dei clienti non è abilitata, verrà visualizzato un messaggio di errore simile al seguente durante il processo di pubblicazione: "Attribuzione dell'utilizzo dei clienti partner di Azure mancante in uno o più modelli di Azure Resource Manager. Per risolvere il problema, aggiungere un GUID di rilevamento al modello di Azure Resource Manager nei pacchetti mainTemplate.json per il piano seguente: servicenow. Per informazioni dettagliate, vedere: http://aka.ms/customerusageattribution". 
 
-### <a name="validate-pre-requisites-1-day"></a>Convalidare i prerequisiti (\<1 giorno) 
+Verranno ora esaminati i singoli passaggi di pubblicazione e verrà illustrato che cosa accade a ogni passaggio con una stima del tempo previsto per la sua esecuzione.
+
+### <a name="validate-prerequisites-1-day"></a>Convalida dei prerequisiti (\<1 giorno) 
 
 Quando si fa clic su \"Publish\" (Pubblica), viene eseguita una verifica automatica per garantire che siano stati compilati tutti i campi obbligatori dell'offerta. Se non sono stati compilati tutti i campi, viene visualizzato un avviso accanto al campo, che dovrà essere compilato in modo accurato prima di fare nuovamente clic su \'Publish\' (Pubblica).
 
