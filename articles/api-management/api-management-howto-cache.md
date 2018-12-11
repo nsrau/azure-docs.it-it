@@ -12,16 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 7458ad6e0a864d742f74ce743ce3179594113c00
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2c417a0e9a3f50032aa3c97ced57d3249bc7c93a
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26127778"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620669"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
+
 Le operazioni in Gestione API possono essere configurate per la memorizzazione nella cache della risposta. La memorizzazione nella cache della risposta può ridurre significativamente la latenza delle API, il consumo di larghezza di banda e il carico del servizio Web per i dati che non vengono modificati di frequente.
  
 Per informazioni più dettagliate sulla memorizzazione nella cache, vedere [Criteri di memorizzazione nella cache in Gestione API](api-management-caching-policies.md) e [Memorizzazione nella cache personalizzata in Gestione API di Azure](api-management-sample-cache-by-key.md).
@@ -34,7 +35,12 @@ Contenuto dell'esercitazione:
 > * Aggiungere la memorizzazione delle risposte nella cache per l'API
 > * Verificare il funzionamento della memorizzazione nella cache
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="availability"></a>Disponibilità
+
+> [!NOTE]
+> La cache interna non è disponibile nel livello **A consumo** di Gestione API di Azure. È invece possibile [usare una cache Redis esterna](api-management-howto-cache-external.md).
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -51,11 +57,11 @@ Con i criteri di memorizzazione nella cache illustrati in questo esempio, la pri
 4. Fare clic su **Demo Conference API** (API Demo Conference) nell'elenco di API.
 5. Selezionare **GetSpeakers**.
 6. Nella parte superiore della schermata selezionare la scheda **Progettazione**.
-7. Nella finestra **Elaborazione in ingresso** fare clic sul triangolo (accanto alla matita).
+7. Nella sezione **Elaborazione in ingresso** fare clic sull'icona **</>**.
 
-    ![Editor di codice](media/api-management-howto-cache/code-editor.png)
-8. Selezionare **Editor di codice**.
-9. Nell'elemento **inbound** aggiungere il criterio seguente:
+    ![Editor di codice](media/api-management-howto-cache/code-editor.png) 
+
+8. Nell'elemento **inbound** aggiungere il criterio seguente:
 
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
             <vary-by-header>Accept</vary-by-header>
@@ -63,11 +69,14 @@ Con i criteri di memorizzazione nella cache illustrati in questo esempio, la pri
             <vary-by-header>Authorization</vary-by-header>
         </cache-lookup>
 
-10. Nell'elemento **outbound** aggiungere il criterio seguente:
+9. Nell'elemento **outbound** aggiungere il criterio seguente:
 
         <cache-store caching-mode="cache-on" duration="20" />
 
     **durata** specifica l'intervallo di scadenza delle risposte memorizzate nella cache. In questo esempio l'intervallo è di **20** secondi.
+
+> [!TIP]
+> Se si usa una cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md), è possibile specificare l'attributo `cache-preference` dei criteri di memorizzazione nella cache. Vedere [Criteri di memorizzazione nella cache in Gestione API](api-management-caching-policies.md) per altri dettagli.
 
 ## <a name="test-operation"> </a>Chiamare un'operazione e testare la memorizzazione nella cache
 Per vedere il funzionamento della memorizzazione nella cache, chiamare l'operazione dal portale per sviluppatori.
@@ -79,9 +88,10 @@ Per vedere il funzionamento della memorizzazione nella cache, chiamare l'operazi
 5. Fare clic sulla scheda **Test** nel menu in alto a destra.
 6. Fare clic su **Invia**.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"> </a>Passaggi successivi
 * Per altre informazioni sui criteri di caching, vedere [Caching policies][Caching policies] (Criteri di caching) nell'argomento [API Management policy reference][API Management policy reference] (Riferimento ai criteri di Gestione API).
 * Per informazioni sul caching degli elementi in base alla chiave usando espressioni di criteri, vedere [Caching personalizzato in Gestione API di Azure](api-management-sample-cache-by-key.md).
+* Per altre informazioni sull'uso della cache Redis esterna, vedere [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

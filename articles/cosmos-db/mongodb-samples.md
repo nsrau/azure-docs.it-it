@@ -1,23 +1,21 @@
 ---
-title: Usare le API di MongoDB per creare un'app di Azure Cosmos DB | Microsoft Docs
+title: Usare le API di MongoDB per creare un'app di Azure Cosmos DB
 description: Un'esercitazione che crea un database online usando le API di Azure Cosmos DB per MongoDB.
 keywords: esempi di mongodb
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: 188b192cf9b86a2d28a578bbcec0d6b19a8cc5d0
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: e24c64f0042d65cc499e02dff7b53f3ca812f356
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084903"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864078"
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Creare un'app basata su Azure Cosmos DB: API per MongoDB usando Node.js
 > [!div class="op_single_selector"]
@@ -25,7 +23,7 @@ ms.locfileid: "37084903"
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Node.js per MongoDB](mongodb-samples.md)
-> * [Node.JS](sql-api-nodejs-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
 >
 
 In questo esempio viene mostrato come creare un'app console basata su Azure Cosmos DB: API per MongoDB usando Node.js.

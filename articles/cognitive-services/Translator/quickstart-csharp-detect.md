@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Identificare la lingua del testo, C# - API Traduzione testuale'
+title: 'Avvio rapido: Rilevare la lingua del testo, C# - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come rilevare la lingua del testo fornito con .NET Core e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 8f98c4cbca87fd77e3c09c1028bfcb3181907412
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: de5088a012a7f5fd210a5aa66805fe865cc09bbe
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335697"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889260"
 ---
-# <a name="quickstart-detect-text-language-with-the-translator-text-rest-api-c"></a>Guida introduttiva: Rilevare la lingua del testo con l'API REST Traduzione testuale (C#)
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con C#
 
 In questa guida introduttiva si apprenderà come rilevare la lingua del testo fornito con .NET Core e l'API REST Traduzione testuale.
 
@@ -28,7 +28,7 @@ Per questa guida introduttiva è necessario avere un [account di Servizi cogniti
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Pacchetto NuGet di Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
-* Una chiave di sottoscrizione di Azure per il servizio Voce
+* Una chiave di sottoscrizione di Azure per Traduzione testuale
 
 ## <a name="create-a-net-core-project"></a>Creare un progetto .NET Core
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando o nella sessione del terminale passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando (o nella sessione del terminale) passare alla directory del progetto ed eseguire:
 
 ```console
 dotnet run

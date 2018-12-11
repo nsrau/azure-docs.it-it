@@ -4,15 +4,15 @@ description: Questo articolo descrive come individuare e valutare le macchine vi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 18e1ecd4896277f0dd0dfc2ceac2185cbdd09b93
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: dddfbab1d40c03659ba346c9f0e898cfefc8d55e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241107"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847984"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -26,16 +26,13 @@ In questa esercitazione si apprenderà come:
 > * Configurare una macchina virtuale locale dell'agente di raccolta per individuare le macchine virtuali VMware locali per la valutazione.
 > * Raggruppare le macchine virtuali e creare una valutazione.
 
-
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - **VMware**: le macchine virtuali che si prevede di migrare devono essere gestite tramite il server vCenter versione 5.5, 6.0 o 6.5. Inoltre, è necessario che sia in esecuzione l'host ESXi versione 5.0 o versione successiva per distribuire la macchina virtuale dell'agente di raccolta.
 - **Account server vCenter**: è necessario un account di sola lettura per accedere al server vCenter. Azure Migrate usa questo account per individuare le macchine virtuali.Azure Migrate usa questo account per individuare le macchine virtuali locali.
 - **Autorizzazioni**: nel server vCenter è necessario avere le autorizzazioni per creare una macchina virtuale importando un file con estensione ova.
-- **Impostazioni delle statistiche**: questo prerequisito è applicabile solo al modello di individuazione una tantum. Perché l'individuazione una tantum funzioni, le impostazioni delle statistiche del server vCenter devono essere impostate sul livello 3. Con un livello inferiore a 3, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete. In questo caso le dimensioni consigliate verranno stabilite in base ai dati sulle prestazioni per i dati di CPU, memoria e configurazione per le schede disco e di rete.
 
 ## <a name="create-an-account-for-vm-discovery"></a>Creare un account per l'individuazione di macchine virtuali
 
@@ -67,20 +64,21 @@ Accedere al [portale di Azure](https://portal.azure.com).
 Azure Migrate crea una macchina virtuale locale definita appliance dell'agente di raccolta. Questa macchina virtuale individua le macchine virtuali VMware locali e invia i relativi metadati al servizio Azure Migrate. Per configurare l'appliance dell'agente di raccolta, si scarica un file con estensione ova e si importa il file nel server vCenter locale per creare la macchina virtuale.
 
 1. Nel progetto di Azure Migrate fare clic su **Attività iniziali** > **Individua e valuta** > **Individua macchine virtuali**.
-2. In **Individua macchine virtuali** sono disponibili due opzioni per l'appliance: fare clic su **Scarica** per scaricare l'appliance appropriata in base alle proprie preferenze.
+2. In **Individua macchine virtuali** fare clic su **Scarica** per scaricare l'appliance.
 
-    a. **Individuazione una tantum:** l'appliance per questo modello comunica con il server vCenter per raccogliere i metadati relativi alle macchine virtuali. Per la raccolta dati sulle prestazioni delle macchine virtuali, si basa sui dati cronologici relativi alle prestazioni archiviati nel server vCenter e raccoglie la cronologia delle prestazioni dell'ultimo mese. In questo modello, Azure Migrate raccoglie un contatore relativo al valore medio (anziché un contatore del valore di picco) per ogni metrica ([ulteriori informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected)). Poiché si tratta di un'individuazione una tantum, le modifiche nell'ambiente locale non sono riflesse dopo che l'individuazione è stata completata. Per ottenere che le modifiche siano riflesse è necessario eseguire una nuova individuazione dello stesso ambiente nello stesso progetto.
-
-    b. **Individuazione continua:** l'appliance per questo modello profila in modo continuo l'ambiente locale per raccogliere i dati di utilizzo in tempo reale per ogni macchina virtuale. In questo modello vengono raccolti i contatori di picco per ogni metrica (utilizzo della CPU, utilizzo della memoria e così via). Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per la raccolta dei dati sulle prestazioni. È possibile interrompere la profilatura continua in qualsiasi momento dall'appliance.
-
-    Si noti che l'appliance si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se si apporta una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
-
-    1. Aggiunta di elementi (macchine virtuali, dischi, core e così via): per riflettere tali modifiche nel portale di Azure, è possibile arrestare l'individuazione dall'appliance e quindi riavviarla. Ciò garantisce che le modifiche vengono aggiornate nel progetto Azure Migrate.
-
-    2. Eliminazione di macchine virtuali: a causa della modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
+    L'appliance di Azure Migrate comunica con il server vCenter e profila in modo continuo l'ambiente locale per raccogliere i dati sull'utilizzo in tempo reale per ogni macchina virtuale. L'appliance raccoglie i contatori di picco per ogni metrica (utilizzo della CPU, utilizzo della memoria e così via). Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per la raccolta dei dati sulle prestazioni. È possibile interrompere la profilatura continua in qualsiasi momento dall'appliance.
 
     > [!NOTE]
-    > La funzionalità di individuazione continua è disponibile in anteprima. Si consiglia di usare questo metodo, poiché raccoglie dati granulari sulle prestazioni e consente un dimensionamento preciso.
+    > L'appliance per l'individuazione una tantum è ora deprecata poiché questo metodo si basava sulle impostazioni delle statistiche del server vCenter relative alla disponibilità dei punti dati delle prestazioni e raccoglieva i contatori delle prestazioni medie, determinando così un sottodimensionamento delle macchine virtuali per la migrazione ad Azure.
+
+    **Risultati immediati:** con l'appliance per l'individuazione continua, è possibile creare le valutazioni subito dopo che l'individuazione è completata. Il processo di individuazione richiede circa due ore, a seconda del numero di macchine virtuali. Poiché la raccolta dei dati sulle prestazioni inizia quando viene avviata l'individuazione, se si vogliono ottenere risultati immediati è necessario selezionare *Come in locale* come criterio di dimensionamento per la valutazione. Per le valutazioni basate sulle prestazioni, è consigliabile attendere almeno un giorno dall'avvio del processo di individuazione per ottenere indicazioni affidabili relative alle dimensioni.
+
+    L'appliance si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale, ad esempio l'aggiunta e l'eliminazione di macchine virtuali, l'aggiunta di dischi e così via. Se si esegue una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
+
+    - Aggiunta di elementi (macchine virtuali, dischi, core e così via): per riflettere tali modifiche nel portale di Azure, è possibile arrestare l'individuazione dall'appliance e quindi riavviarla. Ciò garantisce che le modifiche vengono aggiornate nel progetto Azure Migrate.
+
+    - Eliminazione di macchine virtuali: a causa della modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
+
 
 3. In **Copiare le credenziali del progetto** copiare l'ID e la chiave del progetto. Queste informazioni sono necessarie per configurare l'agente di raccolta.
 
@@ -96,7 +94,20 @@ Verificare che il file con estensione ova sia sicuro prima di distribuirlo.
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Il valore hash generato deve corrispondere a queste impostazioni.
 
-#### <a name="one-time-discovery"></a>Individuazione una tantum
+#### <a name="continuous-discovery"></a>Individuazione continua
+
+  Per OVA versione 1.0.10.4
+
+  **Algoritmo** | **Valore hash**
+  --- | ---
+  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
+
+
+#### <a name="one-time-discovery-deprecated-now"></a>Individuazione una tantum (ora deprecata)
+
+Questo modello è ora deprecato. Verrà fornito il supporto per le appliance esistenti.
 
   Per OVA versione 1.0.9.15
 
@@ -121,33 +132,6 @@ Verificare che il file con estensione ova sia sicuro prima di distribuirlo.
   MD5 | d0363e5d1b377a8eb08843cf034ac28a
   SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
   SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
-
-  Per OVA versione 1.0.9.8
-
-  **Algoritmo** | **Valore hash**
-  --- | ---
-  MD5 | b5d9f0caf15ca357ac0563468c2e6251
-  SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-  SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
-
-
-  Per OVA versione 1.0.9.7
-
-  **Algoritmo** | **Valore hash**
-  --- | ---
-  MD5 | d5b6a03701203ff556fa78694d6d7c35
-  SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-  SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-
-#### <a name="continuous-discovery"></a>Individuazione continua
-
-  Per OVA versione 1.0.10.4
-
-  **Algoritmo** | **Valore hash**
-  --- | ---
-  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
-  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
-  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ## <a name="create-the-collector-vm"></a>Creare la macchina virtuale dell'agente di raccolta
 
@@ -195,12 +179,9 @@ Importare il file scaricato nel server vCenter.
 > Se si modificano le impostazioni in un computer a cui si vuole accedere, attivare di nuovo l'individuazione prima di eseguire la valutazione. A questo scopo, usare l'opzione **Avvia di nuovo la raccolta** nell'agente di raccolta. Al termine della raccolta, selezionare l'opzione **Ricalcola** per la valutazione nel portale in modo da ottenere i risultati della valutazione aggiornati.
 
 
-
 ### <a name="verify-vms-in-the-portal"></a>Verificare le macchine virtuali nel portale
 
-Per l'individuazione una tantum, il tempo di individuazione dipende dal numero di macchine virtuali da individuare. In genere, per 100 macchine virtuali, dopo che l'agente di raccolta termina l'esecuzione, è necessaria circa un'ora per completare la raccolta dei dati di configurazione e sulle prestazioni. È possibile creare le valutazioni (sia basate sulle prestazioni che come valutazioni locali) immediatamente dopo che l'individuazione è stata eseguita.
-
-Per l'individuazione continua, che è in fase di anteprima, l'agente di raccolta eseguirà la profilatura continua dell'ambiente locale e continuerà a inviare i dati sulle prestazioni ogni ora. È possibile esaminare le macchine virtuali nel portale dopo un'ora dall'avvio del processo di individuazione. Si consiglia vivamente di attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni per le macchine virtuali.
+L'appliance dell'agente di raccolta profilerà in modo continuo l'ambiente locale e continuerà a inviare i dati sulle prestazioni ogni ora. È possibile visualizzare le macchine virtuali nel portale dopo un'ora dall'avvio del processo di individuazione.
 
 1. Nel progetto di migrazione fare clic su **Gestisci** > **Macchine virtuali**.
 2. Verificare che le macchine virtuali da individuare siano visualizzate nel portale.
@@ -208,7 +189,7 @@ Per l'individuazione continua, che è in fase di anteprima, l'agente di raccolta
 
 ## <a name="create-and-view-an-assessment"></a>Creare e visualizzare una valutazione
 
-Dopo aver individuato le macchine virtuali, è possibile raggrupparle e creare una valutazione.
+Dopo aver individuato le macchine virtuali nel portale, è possibile raggrupparle e creare valutazioni. Le valutazioni basate su un criterio di dimensionamento come in locale possono essere create immediatamente, non appena vengono individuate le macchine virtuali nel portale. È invece consigliabile attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni per ottenere indicazioni affidabili relative alle dimensioni.
 
 1. Nella pagina **Panoramica** del progetto fare clic su **+Crea valutazione**.
 2. Fare clic su **Visualizza tutto** per rivedere le proprietà di valutazione.
@@ -219,7 +200,7 @@ Dopo aver individuato le macchine virtuali, è possibile raggrupparle e creare u
 7. Fare clic su **Esporta valutazione** per scaricarla come file di Excel.
 
 > [!NOTE]
-> Per l'individuazione continua è consigliabile attendere almeno un giorno, dopo l'avvio dell'individuazione, prima di creare una valutazione. Se si desidera aggiornare una valutazione esistente con dati sulle prestazioni più recenti, è possibile usare il comando **Ricalcola** sulla valutazione per aggiornarla.
+> Prima di creare una valutazione, è consigliabile attendere almeno un giorno dall'avvio del processo di individuazione. Se si desidera aggiornare una valutazione esistente con dati sulle prestazioni più recenti, è possibile usare il comando **Ricalcola** sulla valutazione per aggiornarla.
 
 ### <a name="assessment-details"></a>Dettagli valutazione
 
@@ -272,22 +253,14 @@ Per una determinazione delle dimensioni in base alle prestazioni, Azure Migrate 
 
 Una valutazione può non avere a disposizione tutti i punti dati a causa di uno dei motivi seguenti:
 
-**Individuazione una tantum**
-
-- L'impostazione delle statistiche nel server vCenter non è impostata al livello 3. Poiché il modello di impostazione una tantum dipende dalle impostazioni delle statistiche del server vCenter, se l'impostazione delle statistiche nel server vCenter è inferiore al livello 3, i dati sulle prestazioni per i dischi e la rete non vengono raccolti dal server vCenter. In questo caso, l'indicazione fornita da Azure Migrate per i dischi e la rete non è basata sull'uso. Senza tenere conto delle operazioni di I/O al secondo e della velocità effettiva del disco, Azure Migrate non è in grado di identificare se per il disco sia necessario un disco Premium in Azure. In questo caso Azure Migrate indica pertanto di usare dischi Standard per tutti i dischi.
-- L'impostazione delle statistiche nel server vCenter è stata configurata sul livello 3 per un periodo di tempo minore, prima di avviare il processo di individuazione. Si consideri ad esempio uno scenario in cui si cambia l'impostazione delle statistiche al livello 3 oggi e si avvia l'individuazione usando l'appliance dell'agente di raccolta domani (24 ore dopo). Se si crea una valutazione per un giorno, saranno disponibili tutti i punti dati e la classificazione di attendibilità della valutazione sarà 5 stelle. Se invece si modifica a un mese il periodo di tempo delle prestazioni nelle proprietà della valutazione, la classificazione di attendibilità diminuisce, perché i dati sulle prestazioni di dischi e rete per l'ultimo mese non sono disponibili. Per tenere conto dei dati sulle prestazioni dell'ultimo mese, è consigliabile mantenere l'impostazione delle statistiche del server vCenter sul livello 3 per un mese prima di avviare il processo di individuazione.
-
-**Individuazione continua**
-
 - L'ambiente non è stato analizzato per il perioro di tempo per cui si sta creando la valutazione. Ad esempio, se si sta creando la valutazione con il periodo di tempo delle prestazioni impostato su 1 giorno, è necessario attendere almeno un giorno dopo avere avviato l'individuazione perché siano raccolti tutti i punti dati.
 
-**Cause comuni**  
-
 - Durante il periodo per cui viene calcolata la valutazione sono state arrestate alcune VM. Se una o più VM sono state spente per un certo periodo di tempo, non sarà possibile raccogliere i dati sulle prestazioni per questo periodo.
+
 - All'interno del periodo per cui viene calcolata la valutazione sono state create alcune VM. Questa situazione si verifica, ad esempio, se si crea una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma solo una settimana prima sono state create alcune VM nell'ambiente. In questi casi, la cronologia delle prestazioni delle nuove VM non sarà disponibile per l'intero periodo.
 
 > [!NOTE]
-> Se la classificazione di attendibilità di una valutazione è inferiore a 4 stelle, per il modello di individuazione una tantum, è consigliabile modificare le impostazioni delle statistiche del server vCenter al livello 3, attendere per il periodo che deve essere considerato nella valutazione (1 giorno/1 settimana/1 mese) e quindi eseguire l'individuazione e la valutazione. Per il modello di individuazione continuo, attendere almeno un giorno perché l'appliance profili l'ambiente e quindi *ricalcolare* la valutazione. Se non è possibile applicare la soluzione indicata sopra, la determinazione della dimensione in base alle prestazioni potrebbe non essere affidabile ed è consigliabile passare a quella *come in locale* modificando le proprietà della valutazione.
+> Se la classificazione di attendibilità di una valutazione è inferiore a 5 stelle, attendere almeno un giorno per consentire all'appliance di profilare l'ambiente e quindi *ricalcolare* la valutazione. Se non è possibile applicare la soluzione indicata sopra, la determinazione della dimensione in base alle prestazioni potrebbe non essere affidabile ed è consigliabile passare a quella *come in locale* modificando le proprietà della valutazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

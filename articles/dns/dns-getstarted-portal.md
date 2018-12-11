@@ -1,107 +1,111 @@
 ---
-title: 'Guida introduttiva: Creare una zona e un record DNS con il portale di Azure'
-description: Usare questa guida introduttiva per ottenere informazioni su come creare una zona e un record DNS in DNS di Azure. Si tratta di una guida dettagliata per creare e gestire la prima zona e il primo record DNS usando il portale di Azure.
+title: 'Avvio rapido: Creare una zona e un record DNS con il portale di Azure'
+description: Usare questa guida di avvio rapido dettagliata per informazioni su come creare una zona e un record DNS di Azure usando il portale di Azure.
 services: dns
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: quickstart
-ms.date: 6/13/2018
+ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: 0acb5bf18c078d8b7eb6a5c14a61fcef622f9f2d
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: f54a9e40c4f75704e66c4a3a90ad4b293d1e6309
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831128"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889226"
 ---
-# <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Guida introduttiva: Configurare DNS di Azure per la risoluzione dei nomi con il portale di Azure
+# <a name="quickstart-configure-azure-dns-for-name-resolution-by-using-the-portal"></a>Avvio rapido: Configurare DNS di Azure per la risoluzione dei nomi con il portale di Azure
 
- È possibile configurare DNS di Azure per la risoluzione dei nomi host nel dominio pubblico. Ad esempio, se è stato acquistato il nome di dominio contoso.com da un registrar di nomi di dominio, è possibile configurare DNS di Azure in modo da ospitare il dominio contoso.com e risolvere www.contoso.com all'indirizzo IP del server Web o dell'app Web.
+È possibile configurare DNS di Azure per la risoluzione dei nomi host nel dominio pubblico. Ad esempio, se è stato acquistato il nome di dominio *contoso.com* da un registrar di nomi di dominio, è possibile configurare DNS di Azure in modo da ospitare il dominio *contoso.com* e risolvere *www.contoso.com* nell'indirizzo IP del server Web o dell'app Web.
 
-In questa guida introduttiva verrà creato un dominio di test e quindi un record di indirizzo denominato "www" per risolvere l'indirizzo IP 10.10.10.10.
+In questo avvio rapido verrà creato un dominio di test e quindi un record di indirizzo per risolvere *www* nell'indirizzo IP *10.10.10.10*.
 
-È importante tenere presente che tutti i nomi e gli indirizzi IP usati in questa guida introduttiva sono solo esempi e non intendono rappresentare uno scenario reale. Tuttavia, dove applicabile, sono anche descritti scenari reali.
+>[!IMPORTANT]
+>Tutti i nomi e gli indirizzi IP in questo avvio rapido sono esempi che non rappresentano scenari reali. Ove applicabile, l'avvio rapido illustra anche le implicazioni nel mondo reale.
 
 <!---
 You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
-Una zona DNS viene usata per contenere le voci DNS per un particolare dominio. Per iniziare a ospitare il dominio in DNS di Azure, è necessario creare una zona DNS per il nome di dominio. Ogni voce (o record) DNS per il dominio viene quindi creata all'interno di questa zona DNS. I passaggi che seguono spiegano come eseguire questa operazione.
-
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+Per tutti i passaggi del portale, accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="create-a-dns-zone"></a>Creare una zona DNS
 
-1. Accedere al portale di Azure.
-2. In alto a sinistra fare clic su **+ Crea una risorsa**, **Rete**, quindi **Zona DNS** per aprire la pagina **Crea zona DNS**.
+Una zona DNS contiene le voci DNS per un dominio. Per iniziare a ospitare il dominio in DNS di Azure, creare una zona DNS per il nome di dominio. 
 
-    ![Zona DNS](./media/dns-getstarted-portal/openzone650.png)
+**Per creare la zona DNS:**
 
-4. Nella pagina **Crea zona DNS** immettere i valori seguenti e fare clic su **Crea**:
+1. In alto a sinistra selezionare **Crea una risorsa**, quindi **Rete**e quindi **Zona DNS**.
+   
+1. Nella pagina **Crea zona DNS** digitare o selezionare i valori seguenti:
+   
+   - **Nome**: digitare *contoso.xyz* per questo esempio di avvio rapido. Il nome della zona DNS può essere qualsiasi valore che non sia già configurato nei server DNS di Azure. Un valore reale sarebbe un dominio acquistato da un registrar di nomi di dominio.
+   - **Gruppo di risorse**: selezionare **Crea nuovo**, immettere *dns-test*e selezionare **OK**. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione di Azure. 
+   
+1. Selezionare **Create**.
 
-
-   | **Impostazione** | **Valore** | **Dettagli** |
-   |---|---|---|
-   |**Nome**|contoso.xyz|Il nome della zona DNS per questo esempio può essere qualsiasi valore per questa guida introduttiva, a condizione che non sia già configurato nei server DNS di Azure. Un valore reale sarebbe un dominio acquistato da un registrar di nomi di dominio.|
-   |**Sottoscrizione**|[Sottoscrizione]|Selezionare una sottoscrizione in cui creare la zona DNS.|
-   |**Gruppo di risorse**|**Crea nuovo:** dns-test|Creare un gruppo di risorse. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione selezionata. |
-   |**Posizione**|Stati Uniti orientali||
-
+   ![Zona DNS](./media/dns-getstarted-portal/openzone650.png)
+   
 La creazione della zona può richiedere alcuni minuti.
 
 ## <a name="create-a-dns-record"></a>Creare un record DNS
 
-A questo punto creare un nuovo record di indirizzo (record "A"). I record "A" vengono usati per risolvere un nome host in un indirizzo IPv4.
+Creare voci o record DNS per il dominio all'interno della zona DNS. Creare un nuovo record di indirizzo o record "A" per risolvere un nome host in un indirizzo IPv4.
 
-1. Nel riquadro **Preferiti** del portale di Azure fare clic su **Tutte le risorse**. Fare clic sulla zona DNS **contoso.xyz** nella pagina Tutte le risorse. Se nella sottoscrizione selezionata sono già presenti delle risorse, è possibile immettere **contoso.xyz** nella casella **Filtra per nome** per accedere facilmente alla zona DNS.
+**Per creare un record "A":**
 
-1. Nella parte superiore della pagina **Zona DNS** selezionare **+ Set di record** per aprire la pagina **Aggiungi set di record**.
+1. Nel portale di Azure in **Tutte le risorse** aprire la zona DNS **contoso.xyz** nel gruppo di risorse **dns-test**. È possibile immettere *contoso.xyz* nella finestra **Filtra per nome** per trovarla più facilmente.
 
-1. Nella pagina **Aggiungi set di record** immettere i valori seguenti e fare clic su **OK**. In questo esempio viene creato un record "A".
+1. Nella parte superiore della pagina **Zona DNS** selezionare **+ Set di record**.
 
-   |**Impostazione** | **Valore** | **Dettagli** |
-   |---|---|---|
-   |**Nome**|www|Nome del record. Si tratta del nome da usare per l'host da risolvere in un indirizzo IP.|
-   |**Tipo**|Una | Tipo di record DNS da creare. I record "A" sono i più comuni, ma esistono altri tipi di record per server di posta elettronica (MX), indirizzi IPv6 (AAAA) e così via. |
-   |**TTL**|1|Durata (TTL) della richiesta DNS. Specifica per quanto tempo i client e i server DNS possono memorizzare nella cache una risposta.|
-   |**Unità TTL**|hours|Misura di tempo per il valore TTL.|
-   |**Indirizzo IP**|10.10.10.10| Questo valore indica l'indirizzo IP in cui il record "A" esegue la risoluzione. Si tratta solo di un valore di test per questa guida introduttiva. Per un esempio reale, sarebbe necessario immettere l'indirizzo IP pubblico per il server Web.|
+1. Nella pagina **Aggiungi set di record** digitare o selezionare i valori seguenti:
 
+   - **Nome**: digitare *www*. Il nome del record è il nome host che si vuole risolvere nell'indirizzo IP specificato.
+   - **Tipo**: selezionare **A**. I record "A" sono i più comuni, ma esistono altri tipi di record per server di posta elettronica ("MX"), indirizzi IPv6 ("AAAA") e così via. 
+   - **TTL**: digitare *1*. La *durata TTL*  della richiesta DNS specifica per quanto tempo i client e i server DNS possono memorizzare nella cache una risposta.
+   - **Unità TTL**: selezionare **Ore**. Questo è l'unità di tempo per il valore **TTL**. 
+   - **Indirizzo IP**: per questo esempio di avvio rapido, digitare *10.10.10.10*. Questo valore indica l'indirizzo IP in cui viene risolto il record "A". In uno scenario reale, sarebbe necessario immettere l'indirizzo IP pubblico per il server Web.
 
-Poiché nell'ambito di questa guida introduttiva non si acquista effettivamente un nome di dominio reale, non è necessario configurare DNS di Azure come server dei nomi con il registrar. Tuttavia, in uno scenario reale, sarebbe preferibile consentire a qualsiasi utente su Internet di risolvere il nome host per connettersi al server o all'app Web. Per altre informazioni su questo scenario reale, vedere [Delegare un dominio al servizio DNS di Azure](dns-delegate-domain-azure-dns.md).
-
+Poiché questo avvio rapido non usa un dominio reale, non è necessario configurare i server dei nomi DNS di Azure presso un registrar. Con un dominio reale, si vorrebbe consentire a qualsiasi utente su Internet di risolvere il nome host per connettersi al server o all'app Web. Si visiterebbe quindi il registrar per sostituire i record del server dei nomi con i server dei nomi DNS di Azure. Per altre informazioni, vedere [Esercitazione: Ospitare un dominio in DNS di Azure](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## <a name="test-the-name-resolution"></a>Testare la risoluzione dei nomi
 
-Dopo aver creato una zona di test, con un record "A" di test al suo interno, è possibile testare la risoluzione dei nomi con uno strumento denominato *nslookup*. 
+Dopo aver creato una zona DNS di test, con un record "A" di test, è possibile testare la risoluzione dei nomi con uno strumento denominato *nslookup*. 
 
-1. Innanzitutto, è necessario prendere nota dei server dei nomi di DNS di Azure da usare con nslookup. 
+**Per testare la risoluzione dei nomi DNS:**
 
-   I server dei nomi per la propria zona sono elencati nella pagina **Panoramica** delle zone DNS. Copiare il nome di uno dei server dei nomi:
+1. Nel portale di Azure in **Tutte le risorse** aprire la zona DNS **contoso.xyz** nel gruppo di risorse **dns-test**. È possibile immettere *contoso.xyz* nella finestra **Filtra per nome** per trovarla più facilmente.
 
-   ![zona](./media/dns-getstarted-portal/viewzonens500.png)
-
-2. Aprire un prompt dei comandi ed eseguire il comando seguente:
-
-   ```
-   nslookup <host name> <name server>
+1. Copiare uno dei nomi dall'elenco di server dei nomi nella pagina **Panoramica**. 
    
-   For example:
+   ![zona](./media/dns-getstarted-portal/viewzonens500.png)
+   
+   >[!NOTE]
+   >In uno scenario reale, si copiano tutti e quattro i nomi dei server dei nomi, inclusi i punti finali, e si usano per i nuovi nomi di server dei nomi DNS di Azure presso il registrar. Per altre informazioni, vedere [Delegare un dominio al servizio DNS di Azure](dns-delegate-domain-azure-dns.md).
+   
+1. Aprire un prompt dei comandi ed eseguire il comando seguente:
 
-   nslookup www.contoso.xyz ns1-08.azure-dns.com
    ```
+   nslookup <host name> <name server name>
+   ```
+   
+   Ad esempio: 
+   
+   ```
+   nslookup www.contoso.xyz ns1-08.azure-dns.com.
+   ```
+   
+   Verrà visualizzata una schermata simile alla seguente:
+   
+   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Verranno visualizzati dei risultati simili a quello nello screenshot seguente:
-
-![nslookup](media/dns-getstarted-portal/nslookup.PNG)
-
-Questo conferma il corretto funzionamento della risoluzione dei nomi. www.contoso.xyz viene risolto in 10.10.10.10, esattamente come è stato configurato.
+Il nome host **www.contoso.xyz** viene risolto in **10.10.10.10**, esattamente come è stato configurato. Questo risultato conferma il corretto funzionamento della risoluzione dei nomi. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non è più necessario, eliminare il gruppo di risorse **dns-test** per eliminare le risorse create in questa guida introduttiva. A tale scopo, fare clic sul gruppo di risorse **dns-test** e quindi su **Elimina gruppo di risorse**.
-
+Quando le risorse create in questo avvio rapido non sono più necessarie, rimuoverle eliminando il gruppo di risorse **dns-test**. Aprire il gruppo di risorse **dns-test** e quindi scegliere **Elimina gruppo di risorse**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

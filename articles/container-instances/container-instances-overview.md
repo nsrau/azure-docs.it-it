@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 10/02/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: b5f97dac202edd5405c51b75581275166042ac38
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802101"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841456"
 ---
 # <a name="azure-container-instances"></a>Istanze di contenitore di Azure
 
@@ -38,6 +38,8 @@ In passato i contenitori offrivano l'isolamento di dipendenze delle applicazioni
 
 I contenitori sono in genere ottimizzati per l'esecuzione di un'applicazione singola, ma le esigenze specifiche di tale applicazione possono variare notevolmente. Istanze di contenitore di Azure supporta un utilizzo ottimale consentendo di specificare esattamente memoria e core CPU. Si paga in base alle risorse necessarie con fatturazione al secondo ed è così possibile ottimizzare la spesa in base alle esigenze effettive.
 
+Per i processi a elevato utilizzo di calcolo, ad esempio l'apprendimento automatico, Istanze di contenitore di Azure può pianificare contenitori Linux per l'uso di [risorse GPU](container-instances-gpu.md) NVIDIA Tesla (anteprima).
+
 ## <a name="persistent-storage"></a>Archiviazione permanente
 
 Per recuperare e rendere persistente lo stato con Istanze di contenitore di Azure, è disponibile il [montaggio diretto di condivisioni file di Azure](container-instances-mounting-azure-files-volume.md).
@@ -59,7 +61,7 @@ Istanze di contenitore di Azure supporta la pianificazione di [gruppi multi-cont
 Questa funzionalità di Istanze di contenitore di Azure, attualmente in anteprima, consente [la distribuzione di istanze di contenitore in una rete virtuale di Azure](container-instances-vnet.md). Quando sono distribuite in una subnet all'interno della rete virtuale, le istanze di contenitore possono comunicare in modo sicuro con altre risorse nella rete virtuale, incluse le risorse in locale (tramite [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 > [!IMPORTANT]
-> La distribuzione di gruppi di contenitori in una rete virtuale è attualmente in anteprima e si applicano [alcune limitazioni](container-instances-vnet.md#preview-limitations). Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> Alcune funzionalità di Istanze di contenitore di Azure sono in anteprima e [si applicano alcune limitazioni](container-instances-vnet.md#preview-limitations). Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di queste funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

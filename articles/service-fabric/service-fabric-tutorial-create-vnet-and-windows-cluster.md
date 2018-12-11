@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 12880c3aada46b1656cf37b0cb539292cce930ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a720bb906192731b8b636939e22b13a8e52bbe76
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625709"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632892"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Esercitazione: distribuire un cluster Windows di Service Fabric in una rete virtuale di Azure
 
 Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un cluster di Service Fabric che esegue Windows in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) e in un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) usando PowerShell e un modello. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni.  Per creare un cluster Linux usando l'interfaccia della riga di comando di Azure, vedere come [creare un cluster Linux protetto in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
-Questa esercitazione descrive uno scenario di produzione.  Se si vuole creare rapidamente un cluster di piccole dimensioni a scopo di test, vedere l'articolo su come [creare un cluster di test a tre nodi](./scripts/service-fabric-powershell-create-test-cluster.md).
+Questa esercitazione descrive uno scenario di produzione.  Se si vuole creare rapidamente un cluster di piccole dimensioni a scopo di test, vedere [Creare un cluster di Service Fabric](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
 In questa esercitazione si apprenderà come:
 

@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
-ms.date: 09/24/2018
-ms.openlocfilehash: 7ed45b5e8a8c3cab26c0998260055ffd7a0f0c5d
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/04/2018
+ms.openlocfilehash: 59887c46e3ce06eae250e106a01239a1ba969e7f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710257"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875315"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Iniziare a usare Azure Machine Learning con il portale di Azure
 
@@ -35,7 +35,7 @@ Le risorse di Azure seguenti vengono aggiunte automaticamente all'area di lavoro
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Insieme di credenziali chiave Azure](https://azure.microsoft.com/services/key-vault/)
 
-Le risorse create possono essere usate come prerequisiti per altre esercitazioni e procedure dettagliate per il servizio Machine Learning. Come con altri servizi di Azure, sono previsti limiti per determinate risorse associate a Machine Learning. Un esempio è la dimensione dei cluster Azure Batch per intelligenza artificiale. Per informazioni su limiti predefiniti e su come aumentare la quota, vedere [questo articolo](how-to-manage-quotas.md).
+Le risorse create possono essere usate come prerequisiti per altre esercitazioni e procedure dettagliate per il servizio Machine Learning. Come con altri servizi di Azure, sono previsti limiti per determinate risorse associate a Machine Learning, ad esempio le dimensioni del cluster di elaborazione. Sono disponibili altre informazioni sui [limiti predefiniti e su come aumentare la quota](how-to-manage-quotas.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
 
