@@ -1,24 +1,22 @@
 ---
-title: "Esercitazione su ASP.NET MVC per Azure Cosmos DB: sviluppo di un'applicazione Web | Microsoft Docs"
+title: "Esercitazione su MVC ASP.NET per Azure Cosmos DB: sviluppo di un'applicazione Web"
 description: Esercitazione su MVC ASP.NET per creare un'applicazione Web MVC con Azure Cosmos DB. Si archivieranno documenti JSON e si accederà ai dati da un'app todo ospitata in siti Web di Azure - Esercitazione dettagliata su MVC ASP.NET.
 keywords: esercitazione su mvc asp.net, sviluppo di applicazioni web, applicazione web mvc, esercitazione dettagliata su mvc asp net
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 22856b6e9b543504db66bce074d32d9ad70f5238
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8230c2ba8c7fdb10d7e37a317d4eeb5abb120d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247671"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868719"
 ---
 # <a name="_Toc395809351"></a>Esercitazione su ASP.NET MVC: Sviluppo di applicazioni Web con Azure Cosmos DB
 
@@ -61,7 +59,7 @@ Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account SQL p
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
 <br/>
-Verrà ora illustrata in modo dettagliato la procedura per creare un'applicazione MVC ASP.NET completamente nuova. 
+ Verrà ora illustrata in modo dettagliato la procedura per creare un'applicazione MVC ASP.NET completamente nuova. 
 
 ## <a name="_Toc395637762"></a>Passaggio 2: Creare una nuova applicazione MVC ASP.NET
 
