@@ -8,17 +8,17 @@ services: mariadb
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/14/2018
-ms.openlocfilehash: ed4c05afdc5b061c7779a0b1ca34975f8b06ad7d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/03/2018
+ms.openlocfilehash: b1e458339c2befdb51439cd23ef5f22ba4379c78
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686025"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850262"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Cos'è Database di Azure per MariaDB?
 
-Database di Azure per MariaDB è un servizio di database relazionale nel cloud Microsoft. Database di Azure per MariaDB è basato sul motore di database dell'[edizione per la community di MariaDB](https://mariadb.org/download/), versione 10.2. Questo servizio è disponibile in anteprima pubblica. 
+Database di Azure per MariaDB è un servizio di database relazionale nel cloud Microsoft. Database di Azure per MariaDB è basato sul motore di database dell'[edizione per la community di MariaDB](https://mariadb.org/download/), versione 10.2.
 
 Database di Azure per le esigenze di MariaDB:
 
@@ -43,7 +43,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Regolare prestazioni e scalabilità in pochi secondi
 
-Nella versione di anteprima, il servizio Database di Azure per MariaDB offre diversi livelli di servizio: Basic, Utilizzo generico e Ottimizzata per la memoria. Ogni livello offre diverse prestazioni e capacità per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere  [Piani tariffari](concepts-pricing-tiers.md).
+Il servizio Database di Azure per MariaDB offre diversi piani tariffari: Basic, Utilizzo generico e Ottimizzata per la memoria. Ogni livello offre diverse prestazioni e capacità per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere  [Piani tariffari](concepts-pricing-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 
@@ -51,7 +51,7 @@ Come si decide quando aumentare o ridurre le prestazioni? È possibile usare le 
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenere l'applicazione e l’esecuzione dell’azienda
 
-Il contratto di servizio con disponibilità del 99,99% leader del settore di Azure (non disponibile durante l'anteprima pubblica) si basa su una rete globale di data center gestiti da Microsoft. La rete consente di mantenere l'app in esecuzione 24/7. Si può usufruire dei vantaggi offerti da sicurezza predefinita, tolleranza di errore e protezione dei dati in Database di Azure per MariaDB. Con il Database di Azure per MariaDB, è possibile usare un ripristino temporizzato per riportare un server a uno stato precedente, addirittura fino a 35 giorni prima.
+Il contratto di servizio di Azure con disponibilità del 99,99% leader del settore si basa su una rete globale di data center gestiti da Microsoft. La rete consente di mantenere l'app in esecuzione 24/7. Si può usufruire dei vantaggi offerti da sicurezza predefinita, tolleranza di errore e protezione dei dati in Database di Azure per MariaDB. Con il Database di Azure per MariaDB, è possibile usare un ripristino temporizzato per riportare un server a uno stato precedente, addirittura fino a 35 giorni prima.
 
 ## <a name="secure-your-data"></a>Protezione dei dati
 

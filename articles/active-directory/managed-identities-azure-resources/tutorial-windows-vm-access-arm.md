@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 19b4a1382b2a9b6034fd6ac9feed776dcca6a124
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 53f9850d794061f5aaebc556743291ae8f3305fb
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704359"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721290"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere a Resource Manager
 
@@ -41,7 +41,7 @@ Usando le identità gestite per le risorse di Azure, il codice può ottenere i t
 1.  Passare alla scheda **Gruppo di risorse**. 
 2.  Selezionare il **Gruppo di risorse** specifico creato per la **macchina virtuale Windows**. 
 3.  Passare a **Controllo di accesso (IAM)** nel pannello a sinistra. 
-4.  Fare quindi clic su **Aggiungi** per aggiungere una nuova assegnazione di ruolo alla **macchina virtuale Windows**.  Scegliere **Ruolo** come **Lettore**. 
+4.  Fare quindi clic su **Aggiungi assegnazione di ruolo** per aggiungere una nuova assegnazione di ruolo per la **macchina virtuale Windows**.  Scegliere **Ruolo** come **Lettore**. 
 5.  Dall'elenco a discesa successivo **Assegna accesso a** selezionare la risorsa **Macchina virtuale**. 
 6.  Verificare quindi che nell'elenco a discesa **Sottoscrizione** sia elencata la sottoscrizione corretta. In **Gruppo di risorse** selezionare **Tutti i gruppi di risorse**. 
 7.  Scegliere infine la macchina virtuale Windows nell'elenco a discesa **Seleziona** e fare clic su **Salva**.

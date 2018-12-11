@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426107"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724095"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
 
@@ -91,11 +91,11 @@ Quando si crea il primo account Batch in modalità Sottoscrizione utente, è nec
 
     ![Registrare il provider Microsoft.Batch][register_provider]
 
-1. Nella pagina **Sottoscrizione** selezionare **Controllo di accesso (IAM)** > **Aggiungi**.
+1. Nella pagina **Sottoscrizione** selezionare**Controllo di accesso (IAM)** > **Assegnazioni di ruolo** > **Aggiungi assegnazione di ruolo**.
 
     ![Controllo di accesso alla sottoscrizione][subscription_access]
 
-1. Nella pagina **Aggiungi autorizzazioni** selezionare il ruolo **Collaboratore** e cercare l'API Batch. Cercare ognuna di queste stringhe fino a trovare l'API:
+1. Nella pagina **Aggiungi assegnazione di ruolo** selezionare il ruolo **Collaboratore** e cercare l'API Batch. Cercare ognuna di queste stringhe fino a trovare l'API:
     1. **MicrosoftAzureBatch**.
     1. **Microsoft Azure Batch**. I tenant di Azure AD più recenti potrebbero usare questo nome.
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** è l'ID dell'API Batch. 

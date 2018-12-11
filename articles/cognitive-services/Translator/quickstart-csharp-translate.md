@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 06e294187247636c552dfd4a7d02167eb55be19a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9d9a893a1e62ae35ed3c2f1630c92d4f23cdb2dc
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334704"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887679"
 ---
-# <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>Guida introduttiva: Tradurre un testo con l'API REST Traduzione testuale (C#)
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per tradurre una stringa con C#
 
 In questa guida introduttiva si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con .NET Core e l'API REST Traduzione testuale.
 
@@ -28,7 +28,7 @@ Per questa guida introduttiva è necessario avere un [account di Servizi cogniti
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Pacchetto NuGet di Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
-* Una chiave di sottoscrizione di Azure per il servizio Voce
+* Una chiave di sottoscrizione di Azure per Traduzione testuale
 
 ## <a name="create-a-net-core-project"></a>Creare un progetto .NET Core
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando o nella sessione del terminale passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando (o nella sessione del terminale) passare alla directory del progetto ed eseguire:
 
 ```console
 dotnet run

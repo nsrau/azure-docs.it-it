@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 32fa417d5fcb5c8547dfc7c10b34b3c97ed70559
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16bcc56dd05c86b7c2adb324de480e7482f80fef
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626066"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724299"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Esercitazione: Usare un'identità assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso
 
@@ -68,9 +68,9 @@ Successivamente verrà caricato e scaricato un file per il nuovo account di arch
 
 Archiviazione di Azure non supporta l'autenticazione di Azure AD in modo nativo.  È tuttavia possibile usare l'identità gestita assegnata dal sistema della macchina virtuale per recuperare una firma di accesso condiviso di archiviazione da Resource Manager e quindi usarla per accedere alle risorse di archiviazione.  In questo passaggio si concede l'accesso alla firma di accesso condiviso dell'account di archiviazione all'identità gestita assegnata dal sistema della macchina virtuale.   
 
-1. Tornare all'account di archiviazione appena creato.   
+1. Tornare all'account di archiviazione appena creato.
 2. Fare clic sul collegamento **Controllo di accesso (IAM)** nel pannello di sinistra.  
-3. Fare clic su **+ Aggiungi** nella parte superiore della pagina per aggiungere una nuova assegnazione di ruolo alla macchina virtuale.
+3. Fare clic su **+ Aggiungi assegnazione di ruolo** nella parte superiore della pagina per aggiungere una nuova assegnazione di ruolo per la macchina virtuale.
 4. Impostare **Ruolo** su "Collaboratore Account di archiviazione" sul lato destro della pagina. 
 5. Nell'elenco a discesa successivo impostare **Assegna accesso a** sulla risorsa "Macchina virtuale".  
 6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa **Sottoscrizione** e quindi impostare **Gruppo di risorse** su "Tutti i gruppi di risorse".  

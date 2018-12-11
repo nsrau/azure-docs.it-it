@@ -1,30 +1,30 @@
 ---
-title: Eseguire la migrazione di macchine virtuali IaaS di Azure a un'altra area di Azure tramite il servizio Azure Site Recovery | Microsoft Docs
-description: Usare Site Recovery per la migrazione di macchine virtuali IaaS di Azure da un'area di Azure a un'altra.
+title: Spostare macchine virtuali IaaS di Azure in un'altra area di Azure usando il servizio Azure Site Recovery | Microsoft Docs
+description: Usare Site Recovery per lo spostamento di macchine virtuali IaaS di Azure da un'area di Azure a un'altra.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9ad994ad3dc1fc350a9a41c23574acfa2bae9629
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 656f58bb9864757635ab5752da6bf31320504415
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212285"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843258"
 ---
-# <a name="migrate-azure-vms-to-another-region"></a>Eseguire la migrazione di VM di Azure a un'altra area
+# <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
-Oltre a usare il servizio [Azure Site Recovery](site-recovery-overview.md) per gestire e orchestrare il ripristino di emergenza di computer locali e di macchine virtuali di Azure ai fini della continuità aziendale e del ripristino di emergenza (BCDR), è anche possibile usare Site Recovery per gestire la migrazione di macchine virtuali di Azure in un'area secondaria. Per eseguire la migrazione di macchine virtuali di Azure, è necessario abilitare la replica ed eseguirne il failover dall'area primaria all'area secondaria scelta.
+Oltre a usare il servizio [Azure Site Recovery](site-recovery-overview.md) per gestire e orchestrare il ripristino di emergenza di computer locali e di macchine virtuali di Azure ai fini della continuità aziendale e del ripristino di emergenza (BCDR), è anche possibile usare Site Recovery per gestire lo spostamento di macchine virtuali di Azure in un'area secondaria. Per spostare macchine virtuali di Azure, è necessario abilitare la replica ed eseguirne il failover dall'area primaria all'area secondaria scelta.
 
-Questa esercitazione illustra come eseguire la migrazione di macchine virtuali di Azure a un'altra area. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come spostare macchine virtuali di Azure a un'altra area. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un insieme di credenziali di Servizi di ripristino
 > * Abilitare la replica per una macchina virtuale
-> * Eseguire un failover per la migrazione della macchina virtuale
+> * Eseguire un failover per lo spostamento della macchina virtuale
 
 Per questa esercitazione si presuppone che sia già disponibile una sottoscrizione di Azure. In caso contrario, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
@@ -34,7 +34,7 @@ Per questa esercitazione si presuppone che sia già disponibile una sottoscrizio
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Assicurarsi di disporre di macchine virtuali di Azure nell'area di Azure da cui si vuole eseguire la migrazione.
+- Verificare di avere macchine virtuali di Azure nell'area di Azure da cui si vuole eseguire lo spostamento.
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](azure-to-azure-architecture.md).
 - Rivedere le [limitazioni e i requisiti del supporto](azure-to-azure-support-matrix.md).
 
@@ -66,12 +66,12 @@ Se è appena stato creato l'account gratuito di Azure, si è amministratori dell
 
 ### <a name="verify-vm-outbound-access"></a>Verificare l'accesso in uscita delle macchine virtuali
 
-1. Assicurarsi di non usare un proxy di autenticazione per controllare la connettività di rete per le macchine virtuali di cui eseguire la migrazione. 
-2. Ai fini di questa esercitazione si presuppone che le macchine virtuali di cui eseguire la migrazione possano accedere a Internet e che non venga usato un proxy firewall per controllare l'accesso in uscita. Se si usa il proxy firewall, verificare i requisiti [qui](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. Assicurarsi di non usare un proxy di autenticazione per controllare la connettività di rete per le macchine virtuali da spostare. 
+2. Ai fini di questa esercitazione si presuppone che le macchine virtuali da spostare possano accedere a Internet e che non venga usato un proxy firewall per controllare l'accesso in uscita. Se si usa il proxy firewall, verificare i requisiti [qui](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
 
 ### <a name="verify-vm-certificates"></a>Verificare i certificati delle macchine virtuali
 
-Controllare che nelle macchine virtuali di Azure di cui eseguire la migrazione siano presenti tutti i certificati radice più recenti. Se i certificati radice più recenti non sono disponibili, per motivi di sicurezza non è possibile registrare la macchina virtuale in Site Recovery.
+Controllare che nelle macchine virtuali di Azure da spostare siano presenti tutti i certificati radice più recenti. Se i certificati radice più recenti non sono disponibili, per motivi di sicurezza non è possibile registrare la macchina virtuale in Site Recovery.
 
 - Per le macchine virtuali di Windows, installare tutti gli aggiornamenti di Windows più recenti nella macchina virtuale in modo che tutti i certificati radice trusted siano presenti nel computer. In un ambiente non connesso, seguire i processi di aggiornamento di Windows e di aggiornamento dei certificati standard per l'organizzazione.
 - Per le macchine virtuali Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati nella macchina virtuale.
@@ -113,7 +113,7 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 
 
 1. Nel portale di Azure fare clic su **Macchine virtuali**.
-2. Selezionare la macchina virtuale di cui si vuole eseguire la migrazione. Fare quindi clic su **OK**.
+2. Selezionare la macchina virtuale che si vuole spostare. Fare quindi clic su **OK**.
 3. In **Impostazioni** fare clic su **Ripristino di emergenza**.
 4. In **Configure disaster recovery** (Configura ripristino di emergenza)  >  **Area di destinazione** selezionare l'area di destinazione in cui si vuole eseguire la replica.
 5. Per questa esercitazione accettare le altre impostazioni predefinite.
@@ -136,7 +136,7 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata eseguita la migrazione di una macchina virtuale di Azure in un'area diversa di Azure. Ora è possibile configurare il ripristino di emergenza per la macchina virtuale di cui è stata eseguita la migrazione.
+In questa esercitazione è stata spostata una macchina virtuale di Azure in un'area diversa di Azure. Ora è possibile configurare il ripristino di emergenza per le macchine virtuali spostate.
 
 > [!div class="nextstepaction"]
 > [Configurare il ripristino di emergenza dopo la migrazione](azure-to-azure-quickstart.md)

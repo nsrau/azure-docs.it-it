@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 841448f477accb8a73d543447cd317bb9b427408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497590"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864061"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Esercitazione n. 2: distribuire un modello di classificazione di immagini nell'istanza di contenitore di Azure (ACI)
 
@@ -22,7 +22,7 @@ Questa esercitazione è la **seconda di una serie in due parti**. Nell'[esercita
 
 A questo punto, si è pronti per distribuire il modello come servizio Web nelle [istanze di contenitore di Azure](https://docs.microsoft.com/azure/container-instances/) (ACI). Un servizio Web è un'immagine, in questo caso un'immagine Docker, che incapsula la logica di assegnazione dei punteggi e il modello stesso. 
 
-In questa parte dell'esercitazione i servizi di Azure Machine Learning (anteprima) vengono usati per:
+In questa parte dell'esercitazione si usa il servizio di Azure Machine Learning per:
 
 > [!div class="checklist"]
 > * Configurare l'ambiente di test
@@ -31,14 +31,16 @@ In questa parte dell'esercitazione i servizi di Azure Machine Learning (anteprim
 > * Distribuire il modello in ACI
 > * Testare il modello distribuito
 
-ACI non è ideale per le distribuzioni di produzione, ma è ideale per i test e per comprendere il flusso di lavoro. Per le distribuzioni di produzione scalabili, è consigliabile usare il [servizio Kubernetes di Azure](how-to-deploy-to-aks.md).
+ACI non è ideale per le distribuzioni di produzione, ma è ideale per i test e per comprendere il flusso di lavoro. Per le distribuzioni di produzione scalabili, è consigliabile usare il [servizio Azure Kubernetes](how-to-deploy-to-aks.md).
 
 ## <a name="get-the-notebook"></a>Ottenere il notebook
 
-Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyter](https://aka.ms/aml-notebook-tut-02). Eseguire il notebook `02.deploy-models.ipynb` in Azure Notebooks o nel server di Jupyter Notebook personale.
+Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Eseguire il notebook `tutorials/img-classification-part2-deploy.ipynb` in Azure Notebooks o nel server di Jupyter Notebook personale.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
+>[!NOTE]
+> Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.2
 
 ## <a name="prerequisites"></a>Prerequisiti
 

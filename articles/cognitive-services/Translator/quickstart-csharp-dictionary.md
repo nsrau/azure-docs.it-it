@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Trovare traduzioni alternative, C# - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere traduzioni alternative, C# - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando .NET Core e l'API Traduzione testuale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: d0921d67867e412ed1862c597297e27c2c56ae3b
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 034b6e102d008039ddd138798900dbee17faf51d
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334534"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887951"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-c"></a>Guida introduttiva: Trovare traduzioni alternative con l'API REST Traduzione testuale (C#)
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere traduzioni alternative con C#
 
 In questa guida introduttiva verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando .NET Core e l'API Traduzione testuale.
 
@@ -28,7 +28,7 @@ Per questa guida introduttiva è necessario avere un [account di Servizi cogniti
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Pacchetto NuGet di Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
-* Una chiave di sottoscrizione di Azure per il servizio Voce
+* Una chiave di sottoscrizione di Azure per Traduzione testuale
 
 ## <a name="create-a-net-core-project"></a>Creare un progetto .NET Core
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando o nella sessione del terminale passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando (o nella sessione del terminale) passare alla directory del progetto ed eseguire:
 
 ```console
 dotnet run

@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 4987a50f7a689b74062154b8427fd7bec8e2e8a6
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: d67fbdad32612f23b1de31f7d2a1d7b4dee3b68e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334311"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889141"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>Guida introduttiva: Traslitterare un testo con l'API REST Traduzione testuale (C#)
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con C#
 
 In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con .NET Core (C#) e l'API REST Traduzione testuale. Nell'esempio fornito il giapponese è traslitterato per usare l'alfabeto latino.
 
@@ -28,7 +28,7 @@ Per questa guida introduttiva è necessario avere un [account di Servizi cogniti
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Pacchetto NuGet di Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
-* Una chiave di sottoscrizione di Azure per il servizio Voce
+* Una chiave di sottoscrizione di Azure per Traduzione testuale
 
 ## <a name="create-a-net-core-project"></a>Creare un progetto .NET Core
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando o nella sessione del terminale passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando (o nella sessione del terminale) passare alla directory del progetto ed eseguire:
 
 ```console
 dotnet run

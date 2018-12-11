@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 95041ca77930d87bff6ea31e2eab89a6634cfcf5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442965"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833994"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati nei dispositivi perimetrali con database di SQL Server
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 
 Un dispositivo Azure IoT Edge:
 
-* È possibile usare il computer per lo sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md).
+* È possibile usare il computer per lo sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md). 
 
 Risorse cloud:
 
@@ -71,7 +71,7 @@ Se non è ancora disponibile alcun registro contenitori, seguire questa procedur
    | Utente amministratore | Impostare su **Abilita**. |
    | SKU | Selezionare **Basic**. | 
 
-5. Selezionare **Create**.
+5. Selezionare **Crea**.
 
 6. Dopo aver creato il registro contenitori, passare al registro e quindi selezionare **Chiavi di accesso**. 
 
@@ -97,9 +97,13 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
    | Provide a module name (Specificare un nome per il modulo) | Assegnare al modulo il nome **sqlFunction**. |
    | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso nel registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. La stringa finale è simile a \<nome registro\>.azurecr.io/sqlFunction. |
 
-   La finestra di Visual Studio Code carica l'area di lavoro della soluzione IoT Edge: una cartella \.vscode, una cartella dei moduli, un file del manifesto della distribuzione e un file con estensione \.env. 
+   La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. 
    
-4. Quando si crea una nuova soluzione IoT Edge, Visual Studio Code chiede di specificare le credenziali del registro nel file \.env. Questo file viene ignorato da Git e l'estensione IoT Edge lo usa in un secondo momento per fornire l'accesso al registro al dispositivo IoT Edge. Aprire il file \.env. 
+4. Nella soluzione IoT Edge aprire il file con estensione env. 
+
+   Quando si crea una nuova soluzione IoT Edge, Visual Studio Code chiede di specificare le credenziali del registro nel file \.env. Questo file viene ignorato da Git e l'estensione IoT Edge lo usa in un secondo momento per fornire l'accesso al registro al dispositivo IoT Edge. 
+
+   Se nel passaggio precedente non si è specificato il registro contenitori, ma si è accettata l'impostazione predefinita localhost:5000, il file con estensione env non sarà disponibile.
 
 5. Nel file con estensione env assegnare al runtime IoT Edge le credenziali del registro in modo che possa accedere alle immagini di modulo. Trovare le sezioni **CONTAINER_REGISTRY_USERNAME** e **CONTAINER_REGISTRY_PASSWORD** e inserire le credenziali dopo il segno di uguale: 
 
@@ -207,6 +211,16 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
 
 7. Salvare il file **sqlFunction.cs**. 
 
+8. Aprire il file **sqlFunction.csproj**.
+
+9. Trovare il gruppo di riferimenti ai pacchetti e aggiungerne uno nuovo per includere SqlClient. 
+
+   ```csproj
+   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
+   ```
+
+10. Salvare il file **sqlFunction.csproj**.
+
 ## <a name="add-a-sql-server-container"></a>Aggiungere un contenitore di SQL Server
 
 Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che il runtime IoT Edge installerà nel dispositivo IoT Edge. Nella sezione precedente è stato specificato il codice per creare un modulo di funzione personalizzato, ma il modulo di SQL Server è già compilato. È sufficiente indicare al runtime IoT Edge di includerlo, quindi configurarlo nel dispositivo. 
@@ -225,15 +239,15 @@ Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che 
 
    ```json
    "sql": {
-       "version": "1.0",
-       "type": "docker",
-       "status": "running",
-       "restartPolicy": "always",
-       "env":{},
-       "settings": {
-           "image": "",
-           "createOptions": ""
-       }
+     "version": "1.0",
+     "type": "docker",
+     "status": "running",
+     "restartPolicy": "always",
+     "env":{},
+     "settings": {
+       "image": "",
+       "createOptions": ""
+     }
    }
    ```
 
@@ -244,19 +258,19 @@ Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che 
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "microsoft/mssql-server-windows-developer",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "microsoft/mssql-server-windows-developer",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -264,19 +278,19 @@ Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che 
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "mcr.microsoft.com/mssql/server:latest",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "mcr.microsoft.com/mssql/server:latest",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -322,11 +336,11 @@ Quando si comunica a Visual Studio Code di compilare la soluzione, prima di tutt
 
    ![Create deployment for single device (Crea la distribuzione per un unico dispositivo)](./media/tutorial-store-data-sql-server/create-deployment.png)
 
-6. In Esplora file passare alla cartella **config** nella soluzione e scegliere **deployment.json**. Fare clic su **Select Edge deployment manifest** (Seleziona il manifesto della distribuzione di Edge). 
+6. In Esplora file passare alla cartella **config** nella soluzione e scegliere **deployment.amd64**. Fare clic su **Select Edge deployment manifest** (Seleziona il manifesto della distribuzione di Edge). 
 
-Se la distribuzione ha esito positivo, nell'output di VS Code viene visualizzato un messaggio di conferma. 
+Se la distribuzione ha esito positivo, nell'output di Visual Studio Code viene visualizzato un messaggio di conferma. 
 
-È anche possibile verificare che tutti i moduli siano operativi nel dispositivo. Nel dispositivo IoT Edge eseguire questo comando per visualizzare lo stato dei moduli. L'operazione potrebbe richiedere alcuni minuti.
+Aggiornare lo stato del dispositivo nella sezione Azure IoT Hub Devices (Dispositivi dell'hub IoT di Azure) di VS Code. I nuovi moduli sono inclusi nell'elenco e risulteranno in esecuzione entro pochi minuti, quando i contenitori saranno installati e avviati. È anche possibile verificare che tutti i moduli siano operativi nel dispositivo. Nel dispositivo IoT Edge eseguire questo comando per visualizzare lo stato dei moduli. 
 
    ```cmd/sh
    iotedge list
@@ -334,11 +348,11 @@ Se la distribuzione ha esito positivo, nell'output di VS Code viene visualizzato
 
 ## <a name="create-the-sql-database"></a>Creare il database SQL
 
-Quando si applica il manifesto della distribuzione al dispositivo, si ottengono tre moduli in esecuzione. Il modulo tempSensor genera i dati dell'ambiente simulato. Il modulo sqlFunction acquisisce i dati e li formatta per un database. 
+Quando si applica il manifesto della distribuzione al dispositivo, si ottengono tre moduli in esecuzione. Il modulo tempSensor genera i dati dell'ambiente simulato. Il modulo sqlFunction acquisisce i dati e li formatta per un database. Questa sezione descrive come configurare il database SQL per l'archiviazione dei dati di temperatura. 
 
-Questa sezione descrive come configurare il database SQL per l'archiviazione dei dati di temperatura. 
+Eseguire i comandi seguenti nel dispositivo IoT Edge. Questi comandi stabiliscono una connessione al modulo **sql** in esecuzione nel dispositivo e creano un database e una tabella per i dati di temperatura inviati al modulo. 
 
-1. In uno strumento da riga di comando connettersi al database. 
+1. In uno strumento da riga di comando nel dispositivo IoT Edge connettersi al database. 
    * Contenitore Windows:
    
       ```cmd

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 19285bf7a1323e9698fe408566304d0596d1c983
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311265"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867899"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Che cos'è il controllo degli accessi in base al ruolo?
 
@@ -50,13 +50,14 @@ Il modo in cui si controlla l'accesso alle risorse utilizzando il controllo degl
 
 ### <a name="security-principal"></a>Entità di sicurezza
 
-Un'*entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo o un'entità servizio che richiede l'accesso alle risorse di Azure.
+Un'*entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita che richiede l'accesso alle risorse di Azure.
 
 ![Entità di sicurezza per un'assegnazione di ruolo](./media/overview/rbac-security-principal.png)
 
 - Utente: un soggetto che dispone di un profilo in Azure Active Directory. È anche possibile assegnare ruoli agli utenti in altri tenant. Per informazioni sugli utenti in altre organizzazioni, vedere [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Gruppo: un set di utenti creato in Azure Active Directory. Quando si assegna un ruolo a un gruppo, tutti gli utenti all'interno di tale gruppo dispongono del ruolo appropriato. 
 - Entità servizio: un'identità di sicurezza utilizzata da applicazioni o servizi per accedere a specifiche risorse di Azure. È possibile pensare a questo elemento come a un'*identità utente* (nome utente e password o certificato) per un'applicazione.
+- Identità gestita: un'identità in Azure Active Directory che viene gestita automaticamente da Azure. Le [identità gestite](../active-directory/managed-identities-azure-resources/overview.md) vengono in genere usate durante lo sviluppo di applicazioni cloud per gestire le credenziali per l'autenticazione ai servizi di Azure.
 
 ### <a name="role-definition"></a>Definizione di ruolo
 
@@ -91,7 +92,7 @@ Quando si concede l'accesso in un ambito padre, tali autorizzazioni vengono ered
 
 ### <a name="role-assignments"></a>Assegnazioni di ruoli
 
-Un'*assegnazione di ruolo* è il processo di associazione della definizione di un ruolo a un utente, un gruppo o un fornitore di servizi in un particolare ambito ai fini della concessione dell'accesso. L'accesso viene concesso mediante la creazione di un'assegnazione di ruolo e viene revocato rimuovendo un'assegnazione di ruolo.
+Un'*assegnazione di ruolo* è il processo di associazione di una definizione di ruolo a un utente, un gruppo, un'entità servizio o un'identità gestita in un determinato ambito allo scopo di concedere l'accesso. L'accesso viene concesso mediante la creazione di un'assegnazione di ruolo e viene revocato rimuovendo un'assegnazione di ruolo.
 
 Lo schema seguente mostra un esempio di assegnazione di ruolo. In questo esempio, al gruppo marketing è stato assegnato il ruolo di [collaboratore](built-in-roles.md#contributor) per il gruppo di risorse pharma-sales. Ciò significa che gli utenti del gruppo marketing possono creare o gestire le risorse di Azure nel gruppo di risorse pharma-sales. Gli utenti marketing non hanno accesso alle risorse all'esterno del gruppo di risorse pharma-sales, a meno che non facciano parte di un'altra assegnazione di ruolo.
 
@@ -101,9 +102,7 @@ Lo schema seguente mostra un esempio di assegnazione di ruolo. In questo esempio
 
 ## <a name="deny-assignments"></a>Assegnazioni di rifiuto
 
-In precedenza, il controllo degli accessi in base al ruolo era un modello per il solo consenso, ma ora supporta in modo limitato le assegnazioni di rifiuto. Simile a un'assegnazione di ruolo, un'*assegnazione di rifiuto* associa un set di azioni di rifiuto a un utente, gruppo o entità servizio in un determinato ambito con lo scopo di rifiutare l'accesso. Un'assegnazione di ruolo definisce un set di azioni *consentite*, mentre un'assegnazione di rifiuto definisce un set di azioni *non consentite*. In altre parole, le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specificate, anche se un'assegnazione di ruolo concede loro l'accesso. Le assegnazioni di rifiuto hanno la precedenza sulle assegnazioni di ruolo.
-
-Attualmente le assegnazioni di rifiuto sono di **sola lettura** e possono essere impostate solo da Azure. Sebbene non sia possibile creare le proprie assegnazioni di rifiuto, queste possono essere elencate in quanto potrebbero avere un impatto sulle autorizzazioni valide. Per ottenere informazioni su un'assegnazione di rifiuto è necessario avere l'autorizzazione `Microsoft.Authorization/denyAssignments/read`, inclusa nella maggior parte dei [ruoli predefiniti](built-in-roles.md#owner). Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto](deny-assignments.md).
+In precedenza, il controllo degli accessi in base al ruolo era un modello per il solo consenso, ma ora supporta in modo limitato le assegnazioni di rifiuto. Analogamente a un'assegnazione di ruolo, un'*assegnazione di rifiuto* associa un set di azioni di rifiuto a un utente, un gruppo, un'entità servizio o un'identità gestita in un determinato ambito allo scopo di rifiutare l'accesso. Un'assegnazione di ruolo definisce un set di azioni *consentite*, mentre un'assegnazione di rifiuto definisce un set di azioni *non consentite*. In altre parole, le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specificate, anche se un'assegnazione di ruolo concede loro l'accesso. Le assegnazioni di rifiuto hanno la precedenza sulle assegnazioni di ruolo. Attualmente le assegnazioni di rifiuto sono di **sola lettura** e possono essere impostate solo da Azure. Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto](deny-assignments.md) e [Visualizzare le assegnazioni di rifiuto tramite il portale di Azure](deny-assignments-portal.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Come il controllo degli accessi in base al ruolo determina se un utente può accedere a una risorsa
 

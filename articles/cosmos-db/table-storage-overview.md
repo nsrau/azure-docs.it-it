@@ -1,21 +1,20 @@
 ---
-title: Panoramica di Archiviazione tabelle di Azure | Microsoft Docs
+title: Panoramica dell'archiviazione tabelle di Azure
 description: Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: overview
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 204d0032516886c2d954965c7c4561d967bae705
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5f07d041e7674cb1579247ca2b444017762c5be0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232189"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867410"
 ---
 # <a name="azure-table-storage-overview"></a>Panoramica di Archiviazione tabelle di Azure
 

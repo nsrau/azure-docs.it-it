@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c4fa3f9cbba558cd743f85119dd9e91bd73ce062
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: edfd17763a7d555e773e7d271ed5cc22a0307996
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250598"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726594"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'applicazione ASP.NET tramite Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
     Nella soluzione di esempio sono inclusi i due progetti seguenti.
 
-    - **TaskWebApp**: applicazione Web che crea e modifica un elenco attività. L'applicazione Web usa i criteri di **iscrizione o accesso** per l'iscrizione o l'accesso degli utenti.
+    - **TaskWebApp**: applicazione Web che crea e modifica un elenco attività. L'applicazione Web usa il flusso utente di **iscrizione o accesso** per l'iscrizione o l'accesso degli utenti.
     - **TaskService**: API Web che supporta le funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco attività. L'API Web è protetta da Azure AD B2C e viene chiamata dall'applicazione Web.
 
 ## <a name="run-the-application-in-visual-studio"></a>Eseguire l'applicazione in Visual Studio
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
 ## <a name="edit-your-profile"></a>Modificare il profilo
 
-Azure Active Directory B2C offre funzionalità che consentono agli utenti di aggiornare il profilo. L'app Web di esempio usa un criterio di modifica dei profili di Azure AD B2C per il flusso di lavoro. 
+Azure Active Directory B2C offre funzionalità che consentono agli utenti di aggiornare il profilo. L'app Web di esempio usa un flusso utente di modifica dei profili di Azure AD B2C per il flusso di lavoro. 
 
 1. Sulla barra dei menu dell'applicazione fare clic sul nome del profilo e selezionare **Edit profile** (Modifica profilo) per modificare il profilo creato.
 

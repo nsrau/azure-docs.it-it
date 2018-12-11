@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406501"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868549"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Come monitorare e aggiornare una macchina virtuale Linux in Azure
 
@@ -208,7 +208,7 @@ Per pianificare una nuova distribuzione di aggiornamenti per la macchina virtual
 * **Classificazioni aggiornamenti**: selezionare i tipi di software inclusi nella distribuzione di aggiornamenti. I tipi di classificazione sono:
   * Aggiornamenti critici e della sicurezza
   * Altri aggiornamenti
-* **Aggiornamenti da escludere**: è possibile fornire un elenco di nomi di pacchetti da ignorare durante la distribuzione degli aggiornamenti. I nomi dei pacchetti supportano i caratteri jolly (ad esempio, \*kernel\*).
+* **Aggiornamenti da escludere**: è possibile fornire un elenco di nomi di pacchetti da ignorare durante la distribuzione degli aggiornamenti. I nomi dei pacchetti supportano i caratteri jolly, ad esempio \*kernel\*.
 
   ![Schermata di impostazioni della pianificazione di aggiornamenti](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 

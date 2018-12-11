@@ -10,125 +10,157 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2018
+ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: bf9e296d7edf5ea8f668299830c64aaf3c5f74e9
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5520b78ce3899c39167663ac426fa6702369c944
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140486"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634779"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Guida introduttiva: Creare un profilo di Gestione traffico per un'applicazione Web a disponibilità elevata
 
-Questa guida introduttiva descrive come creare un profilo di Gestione traffico che fornisce disponibilità elevata per un'applicazione Web. 
+Questo argomento di avvio rapido descrive come creare un profilo di Gestione traffico che fornisce disponibilità elevata per l'applicazione Web.
 
-Lo scenario descritto in questa guida introduttiva include due istanze di un'applicazione Web in esecuzione in aree di Azure diverse. Viene creato un profilo di Gestione traffico basato su [priorità degli endpoint](traffic-manager-routing-methods.md#priority), che consente di indirizzare il traffico utente al sito primario che esegue l'applicazione. Gestione traffico monitora continuamente l'applicazione Web e fornisce il failover automatico nel sito di backup quando il sito primario non è disponibile.
+In questo argomento di avvio rapido verranno illustrate due istanze di un'applicazione Web. Ognuna di esse è in esecuzione in un'area di Azure diversa. Si creerà un profilo di Gestione traffico basato sulla [priorità degli endpoint](traffic-manager-routing-methods.md#priority). Il profilo indirizza il traffico utente al sito primario che esegue l'applicazione Web. Gestione traffico monitora continuamente l'applicazione Web. Se il sito primario non è disponibile, fornisce il failover automatico al sito di backup.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure 
-Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
+
+Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per questa guida introduttiva è necessario distribuire due istanze di un'applicazione Web in esecuzione in aree di Azure diverse (*Stati Uniti orientali* ed *Europa occidentale*). Le due istanze dell'applicazione Web fungono da endpoint primario e di backup per Gestione traffico.
 
-1. In alto a sinistra nello schermo selezionare **Crea una risorsa** > **Web** > **App Web** > **Crea**.
-2. In **App Web** immettere o selezionare le informazioni seguenti e immettere le impostazioni predefinite nei casi in cui non è specificato alcun valore:
+Per questo avvio rapido, saranno necessarie due istanze di un'applicazione Web distribuita in due aree di Azure diverse (*Stati Uniti orientali* ed *Europa occidentale*). Ognuna verrà usata come endpoint primario e di failover per Gestione traffico.
 
-     | Impostazione         | Valore     |
-     | ---              | ---  |
-     | NOME           | Immettere un nome univoco per l'app Web  |
-     | Gruppo di risorse          | Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1* |
-     | Piano di servizio app/Località         | Selezionare **Nuovo**.  Nel piano di servizio app immettere *myAppServicePlanEastUS* e quindi selezionare **OK**. 
-     |      Località  |   Stati Uniti orientali        |
-    |||
+1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Web** > **App Web**.
+2. In **App Web** immettere o selezionare queste impostazioni:
 
-3. Selezionare **Create**.
-4. Quando l'app Web viene distribuita correttamente, viene creato un sito Web predefinito.
-5. Ripetere i passaggi da 1 a 3 per creare un secondo sito Web in un'area di Azure diversa con le impostazioni seguenti:
+    | Impostazione | Valore |
+    | ------- | ----- |
+    | Nome app | Immettere un nome univoco per l'app Web.  |
+    | Sottoscrizione | Selezionare la sottoscrizione a cui si vuole applicare l'app Web. |
+    | Gruppo di risorse | Selezionare **Crea nuovo** e immettere *myResourceGroupTM1*. |
+    | OS | Selezionare **Windows** come sistema operativo. |
+    | Pubblica | Selezionare **Codice** come formato di pubblicazione. |
 
-     | Impostazione         | Valore     |
-     | ---              | ---  |
-     | NOME           | Immettere un nome univoco per l'app Web  |
-     | Gruppo di risorse          | Selezionare **Nuovo** e quindi digitare *myResourceGroupTM2* |
-     | Piano di servizio app/Località         | Selezionare **Nuovo**.  Nel piano di servizio app immettere *myAppServicePlanWestEurope* e quindi selezionare **OK**. 
-     |      Località  |   Europa occidentale      |
-    |||
+3. Selezionare **Piano di servizio app/Località**.
+4. In **Piano di servizio app** selezionare **Crea nuovo**.
+5. In **Nuovo piano di servizio app** immettere o selezionare queste impostazioni:
 
+    | Impostazione | Valore |
+    | ------- | ----- |
+    | Piano di servizio app | Immettere *myAppServicePlanEastUS*. |
+    | Località | Stati Uniti orientali |
+    | Piano tariffario | S1 Standard |
+
+6. Selezionare **OK**.
+
+7. In **App Web** selezionare **Crea**. Quando l'app Web viene distribuita correttamente, crea un sito Web predefinito.
+
+8. Per creare un secondo sito Web in un'area di Azure diversa, ripetere i passaggi da 1 a 7 con queste impostazioni:
+
+    | Impostazione | Valore |
+    | --------| ----- |
+    | NOME | Immettere un nome univoco per l'app Web. |
+    | Sottoscrizione | Selezionare la sottoscrizione a cui si vuole applicare l'app Web. |
+    | Gruppo di risorse | Selezionare **Crea nuovo** e quindi immettere *myResourceGroupTM2*. |
+    | OS | Selezionare **Windows** come sistema operativo. |
+    | Pubblica | Selezionare **Codice** come formato di pubblicazione. |
+    | Piano di servizio app/Località | Immettere *myAppServicePlanWestEurope*. |
+    | Località | Europa occidentale |
+    | Piano tariffario | S1 Standard |
 
 ## <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
+
 Creare un profilo di Gestione traffico che indirizza il traffico utente in base alla priorità degli endpoint.
 
-1. In alto a sinistra nello schermo selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
-2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti e quindi selezionare **Crea**:
-    
-    | Impostazione                 | Valore                                              |
-    | ---                     | ---                                                |
-    | NOME                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, **trafficmanager.net**, che viene usato per accedere al profilo di Gestione traffico.|
-    | Metodo di routing          | Selezionare il metodo di routing **Priorità**.|
-    | Sottoscrizione            | Selezionare la propria sottoscrizione.|
-    | Gruppo di risorse          | Selezionare **Esistente** e quindi *myResourceGroupTM1*.|
-    |Località |Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che sarà distribuito a livello globale.|
-    |||
-    
-    
-   ![Creare un profilo di Gestione traffico](./media/quickstart-create-traffic-manager-profile/traffic-manager-profile.png)
+1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico**.
+2. In **Crea profilo di Gestione traffico** immettere o selezionare queste impostazioni:
 
+    | Impostazione | Valore |
+    | --------| ----- |
+    | NOME | Immettere un nome univoco per il profilo di Gestione traffico.|
+    | Metodo di routing | Selezionare **Priorità**.|
+    | Sottoscrizione | Selezionare la sottoscrizione a cui si vuole applicare il profilo di Gestione traffico. |
+    | Gruppo di risorse | Selezionare *myResourceGroupTM1*.|
+    | Località |Questa impostazione si riferisce alla località del gruppo di risorse. Non ha alcun effetto sul profilo di Gestione traffico che verrà distribuito a livello globale.|
+
+3. Selezionare **Create**.
 
 ## <a name="add-traffic-manager-endpoints"></a>Aggiungere endpoint di Gestione traffico
 
-Aggiungere il sito Web nell'area *Stati Uniti orientali* come endpoint primario per instradare tutto il traffico utente. Aggiungere il sito Web nell'area *Europa occidentale* come endpoint di backup. Quando l'endpoint primario non è disponibile, il traffico viene instradato automaticamente all'endpoint secondario.
+Aggiungere il sito Web nell'area *Stati Uniti orientali* come endpoint primario per instradare tutto il traffico utente. Aggiungere il sito Web nell'area *Europa occidentale* come endpoint di failover. Quando l'endpoint primario non è disponibile, il traffico viene instradato automaticamente all'endpoint di failover.
 
-1. Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico creato nella sezione precedente e selezionarlo nei risultati visualizzati.
-2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
-3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
+1. Nella barra di ricerca del portale immettere il nome del profilo di Gestione traffico creato nella sezione precedente.
+2. Selezionare il profilo dai risultati della ricerca.
+3. In **Profilo di Gestione traffico** selezionare **Endpoint** e quindi **Aggiungi** nella sezione **Impostazioni**.
+4. Immettere o selezionare queste impostazioni:
 
-    | Impostazione                 | Valore                                              |
-    | ---                     | ---                                                |
-    | type                    | Endpoint di Azure                                   |
-    | NOME           | myPrimaryEndpoint                                        |
-    | Tipo di risorsa di destinazione           | Servizio app                          |
-    | Risorsa di destinazione          | **Scegliere un servizio app** per visualizzare l'elenco delle app Web nella stessa sottoscrizione. In **Risorsa** selezionare il servizio App che si vuole aggiungere come primo endpoint. |
-    | Priorità               | Selezionare **1**. In questo modo tutto il traffico viene instradato a questo endpoint se è integro.    |
-    
-4. Ripetere i passaggi 2 e 3 per l'endpoint di App Web successivo. Assicurarsi di aggiungerlo con il valore di **Priorità** impostato su **2**.
-5.  Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati in **Profilo di Gestione traffico** insieme al relativo stato di monitoraggio **Online**.
+    | Impostazione | Valore |
+    | ------- | ------|
+    | type | Selezionare **Endpoint Azure**. |
+    | NOME | Immettere *myPrimaryEndpoint*. |
+    | Tipo di risorsa di destinazione | Selezionare **Servizio app**. |
+    | Risorsa di destinazione | Selezionare **Scegliere un servizio app** > **Stati Uniti orientali**. |
+    | Priorità | Selezionare **1**. Tutto il traffico passa a questo endpoint quando è integro. |
 
-    ![Aggiungere un endpoint di Gestione traffico](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint2.png)
+    ![Screenshot che illustra dove si aggiunge un endpoint al profilo di Gestione traffico.](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
+
+5. Selezionare **OK**.
+6. Per creare un endpoint di failover per la seconda area di Azure, ripetere i passaggi 3 e 4 con queste impostazioni:
+
+    | Impostazione | Valore |
+    | ------- | ------|
+    | type | Selezionare **Endpoint Azure**. |
+    | NOME | Immettere *myFailoverEndpoint*. |
+    | Tipo di risorsa di destinazione | Selezionare **Servizio app**. |
+    | Risorsa di destinazione | Selezionare **Scegliere un servizio app** > **Europa occidentale**. |
+    | Priorità | Selezionare **2**. Tutto il traffico passa a questo endpoint di failover, se l'endpoint primario non è integro. |
+
+7. Selezionare **OK**.
+
+I due endpoint, dopo essere stati aggiunti, vengono visualizzati in **Profilo di Gestione traffico**. Si noti che ora lo stato del monitoraggio è **Online**.
 
 ## <a name="test-traffic-manager-profile"></a>Testare il profilo di Gestione traffico
-In questa sezione si determina, prima di tutto, il nome di dominio del profilo di Gestione traffico e quindi si visualizza la modalità di failover di Gestione traffico nell'endpoint secondario quando l'endpoint primario non è disponibile.
-### <a name="determine-the-dns-name"></a>Determinare il nome DNS
-1.  Nella barra di ricerca del portale cercare il nome del **Profilo di Gestione traffico** creato nella sezione precedente. Fare clic sul profilo di Gestione traffico nei risultati visualizzati.
-2. Fare clic su **Panoramica**.
+
+In questa sezione, si controllerà il nome di dominio del profilo di Gestione traffico. Si configurerà anche l'endpoint primario come non disponibile. Si osserverà infine che l'app Web è ancora disponibile. Gestione traffico infatti invia il traffico all'endpoint di failover.
+
+### <a name="check-the-dns-name"></a>Controllare il nome DNS
+
+1. Nella barra di ricerca del portale cercare il nome del **Profilo di Gestione traffico** creato nella sezione precedente.
+2. Selezionare il profilo di Gestione traffico. Viene visualizzata la **panoramica**.
 3. Il **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato.
   
-   ![Nome DNS di Gestione traffico](./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png)
+   ![Screenshot della posizione del nome DNS di Gestione traffico](./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png)
 
 ### <a name="view-traffic-manager-in-action"></a>Visualizzare Gestione traffico in azione
 
-1. In un Web browser digitare il nome DNS del profilo di Gestione traffico per visualizzare il sito Web predefinito dell'app Web. Nello scenario di questa guida introduttiva tutte le richieste vengono instradate all'endpoint primario, impostato con **Priorità 1**.
+1. In un Web browser immettere il nome DNS del profilo di Gestione traffico per visualizzare il sito Web predefinito dell'app Web.
 
-![Testare il profilo di Gestione traffico](./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png)
+    > [!NOTE]
+    > Nello scenario di questo avvio rapido tutte le richieste vengono instradate all'endpoint primario, che è impostato su **Priorità 1**.
 
-2. Per visualizzare il failover di Gestione traffico in azione, disabilitare il sito primario come indicato di seguito:
-    1. Nella pagina del profilo di Gestione traffico selezionare **Impostazioni**>**Endpoint**>*MyPrimaryEndpoint*.
-    2. In *MyPrimaryEndpoint* selezionare **Disabilitato**. 
-    3. Lo stato dell'endpoint primario *MyPrimaryEndpoint* viene ora indicato come **Disabilitato**.
-3. Copiare il nome DNS del profilo di Gestione traffico del passaggio precedente per visualizzare correttamente il sito Web in un Web browser. Quando l'endpoint primario è disabilitato, il traffico utente viene instradato all'endpoint secondario.
+    ![Screenshot della pagina Web di conferma della disponibilità del profilo di Gestione traffico](./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png)
+
+2. Per visualizzare il failover di Gestione traffico in azione, disabilitare il sito primario:
+    1. Nella pagina Profilo di Gestione traffico, nella sezione **Panoramica** selezionare **myPrimaryEndpoint**.
+    2. In *myPrimaryEndpoint* selezionare **Disabilitato** > **Salva**.
+    3. Chiudere **myPrimaryEndpoint**. Si noti che lo stato è ora **Disabilitato**.
+3. Copiare il nome DNS del profilo di Gestione traffico del passaggio precedente per visualizzare il sito Web in una nuova sessione del Web browser.
+4. Verificare che l'app Web sia ancora disponibile.
+
+L'endpoint primario non è disponibile, quindi si viene indirizzati all'endpoint di failover.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non sono più necessari, eliminare i gruppi di risorse, le applicazioni Web e tutte le risorse correlate. A tale scopo, selezionare i gruppi di risorse (*myResourceGroupTM1* e *myResourceGroupTM2*) e fare clic su **Elimina**.
+
+Al termine, eliminare i gruppi di risorse, le applicazioni Web e tutte le risorse correlate. A questo scopo, selezionare ogni singolo elemento dal dashboard e selezionare **Elimina** nella parte superiore di ogni pagina.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa guida introduttiva è stato creato un profilo di Gestione traffico che consente di instradare il traffico utente per l'applicazione Web a disponibilità elevata. Per altre informazioni su come instradare il traffico, passare alle esercitazioni di Gestione traffico.
+
+In questo argomento di avvio rapido è stato creato un profilo di Gestione traffico che consente di indirizzare il traffico utente per le applicazioni Web a disponibilità elevata. Per altre informazioni su come instradare il traffico, passare alle esercitazioni di Gestione traffico.
 
 > [!div class="nextstepaction"]
 > [Esercitazioni di Gestione traffico](tutorial-traffic-manager-improve-website-response.md)
-
-
-
-
-
-

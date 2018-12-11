@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 6b44e08fc1dce489e703bea1cbef2a7e94ae0f2a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 83785e532523c3e921b0772ddaa50502b2dc867d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961031"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633793"
 ---
 # <a name="manage-conflicts-between-regions"></a>Gestire i conflitti tra le aree
 
@@ -20,7 +20,7 @@ In caso di scrittura in più aree, quando si verifica un conflitto di dati, è p
 
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Creare un criterio di risoluzione dei conflitti personalizzato
 
-Questi esempi illustrano come configurare un contenitore con un criterio di risoluzione dei conflitti personalizzato. Questi conflitti verranno visualizzati nel feed dei conflitti.
+Questi esempi illustrano come configurare un contenitore con un criterio di risoluzione dei conflitti personalizzato. Questi conflitti vengono visualizzati nel feed dei conflitti.
 
 ### <a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK
 
@@ -83,9 +83,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-stored-procedure"></a>Creare un criterio di risoluzione dei conflitti personalizzato con una stored procedure
+## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>Creare un criterio di risoluzione dei conflitti personalizzato con una stored procedure
 
-Questi esempi illustrano come configurare un contenitore con un criterio di risoluzione dei conflitti personalizzato con una stored procedure per risolvere il conflitto. Questi conflitti **non** verranno visualizzati nel feed dei conflitti, a meno che non vi sia un errore nella stored procedure.
+Questi esempi illustrano come configurare un contenitore con un criterio di risoluzione dei conflitti personalizzato con una stored procedure per risolvere il conflitto. Questi conflitti non vengono visualizzati nel feed dei conflitti, a meno che non vi sia un errore nella stored procedure.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -102,7 +102,7 @@ DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-È necessario creare la stored procedure `resolver` dopo la creazione del contenitore.
+Dopo aver creato il contenitore, è necessario creare la stored procedure `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
 
@@ -114,7 +114,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-È necessario creare la stored procedure `resolver` dopo la creazione del contenitore.
+Dopo aver creato il contenitore, è necessario creare la stored procedure `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
 
@@ -127,7 +127,7 @@ udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
 
-È necessario creare la stored procedure `resolver` dopo la creazione del contenitore.
+Dopo aver creato il contenitore, è necessario creare la stored procedure `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -146,7 +146,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-È necessario creare la stored procedure `resolver` dopo la creazione del contenitore.
+Dopo aver creato il contenitore, è necessario creare la stored procedure `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
 
@@ -154,11 +154,11 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 
 ```
 
-È necessario creare la stored procedure `resolver` dopo la creazione del contenitore.
+Dopo aver creato il contenitore, è necessario creare la stored procedure `resolver`.
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Creare un criterio di risoluzione dei conflitti in cui prevale l'ultima scrittura
 
-Questi esempi illustrano come configurare un contenitore con un criterio di risoluzione dei conflitti in cui prevale l'ultima scrittura. Se il percorso non è impostato o non è valido, per impostazione predefinita verrà usata la proprietà `_ts` (il campo timestamp). Questi conflitti **non** verranno visualizzati nel feed dei conflitti.
+Questi esempi illustrano come configurare un contenitore con un criterio di risoluzione dei conflitti in cui prevale l'ultima scrittura. Se il percorso non è impostato o non è valido, per impostazione predefinita viene usata la proprietà `_ts`. Questa proprietà corrisponde al campo timestamp. Questi conflitti non vengono visualizzati nel feed dei conflitti.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -210,7 +210,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-Se si omette la proprietà `conflictResolutionPath`, per impostazione predefinita verrà usata la proprietà `_ts`.
+Se si omette la proprietà `conflictResolutionPath`, per impostazione predefinita viene usata la proprietà `_ts`.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
 
@@ -277,8 +277,8 @@ while conflict:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È ora possibile procedere allo studio dei concetti di Cosmos DB seguenti:
+Apprendere i concetti di Azure Cosmos DB seguenti:
 
 * [Partizionamento e distribuzione dei dati](partition-data.md)
-* [Indicizzazione in Cosmos DB](indexing-policies.md)
+* [Indicizzazione in Azure Cosmos DB](indexing-policies.md)
 

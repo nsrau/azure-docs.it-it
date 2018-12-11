@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Distribuire un'app ASP.NET Core nel servizio Kubernetes di Azure (AKS) usando Azure DevOps Projects"
+title: 'Esercitazione: Distribuire app ASP.NET Core nel servizio Azure Kubernetes usando Azure DevOps Projects'
 description: Azure DevOps Projects permette di iniziare a usare Azure velocemente. Con DevOps Projects è possibile distribuire un'app ASP.NET Core con il servizio Kubernetes di Azure (AKS) in pochi rapidi passaggi.
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6e2b53e51d7da117a7f690cb676d0ec096bcb1cd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7980ea439cfd3eaefcaa308795836a909f980043
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165551"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620643"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-kubernetes-service-aks-by-using-azure-devops-projects"></a>Esercitazione: Distribuire un'app ASP.NET Core nel servizio Kubernetes di Azure (AKS) usando Azure DevOps Projects
+# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Esercitazione: Distribuire app ASP.NET Core nel servizio Azure Kubernetes usando Azure DevOps Projects
 
 Azure DevOps Projects offre un'esperienza semplificata in cui è possibile usare il codice esistente e il repository Git oppure scegliere un'applicazione di esempio per creare una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) in Azure. 
 
@@ -24,6 +24,7 @@ DevOps Projects permette anche di:
 * Creare automaticamente risorse di Azure, ad esempio un servizio Kubernetes di Azure (AKS).
 * Creare e configurare una pipeline di versione in Azure DevOps per configurare una compilazione e pipeline di versione per CI/CD.
 * Creare una risorsa di Azure Application Insights per il monitoraggio.
+* Consente a [Monitoraggio di Azure per i contenitori](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) di monitorare le prestazioni per i carichi di lavoro dei contenitori nel cluster del servizio Azure Kubernetes
 
 In questa esercitazione si apprenderà come:
 

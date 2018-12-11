@@ -3,18 +3,18 @@ title: Ricerca interattiva nelle mappe con Mappe di Azure | Microsoft Docs
 description: Guida introduttiva di Azure - Avviare una demo di una ricerca interattiva sulla mappa con Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/26/2018
+ms.date: 12/02/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d2aa3385dd7556cfc169b42b36d94a3e1d9ee3dd
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 5f828bfd2ceee81daf86382846be0c5ee7f1fe8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209973"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836577"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Avviare una mappa per la ricerca interattiva con Mappe di Azure
 
@@ -35,7 +35,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
     - Il *nome* del nuovo account.
     - La *sottoscrizione* da usare per l'account.
     - Il *gruppo di risorse* per l'account. Per il gruppo di risorse è possibile selezionare l'opzione *Crea nuovo* o *Usa esistente*.
-    - Selezionare la *località del gruppo di risorse*.
+    - Selezionare il *piano tariffario* scelto.
     - Leggere la *Licenza* e l'*Informativa sulla Privacy* e selezionare la casella di controllo per accettare le condizioni.
     - Infine fare clic sul pulsante **Crea**.
 

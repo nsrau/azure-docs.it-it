@@ -8,19 +8,19 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: b8263c399f287be79590860cce7036207ef2e3f7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: db09203e86c32a7e03b4b2c4bcc670d16583ab20
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243744"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879435"
 ---
-# <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Che cosa è successo a Workbench in Azure Machine Learning (anteprima)?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning"></a>Che cosa è successo all'applicazione Workbench in Azure Machine Learning?
 
-L'applicazione Workbench e alcune altre funzionalità di anteprima sono state sostituite nella versione di settembre 2018 per lasciare il posto a un miglioramento dell'[architettura](concept-azure-machine-learning-architecture.md). Questa versione contiene molti aggiornamenti significativi derivanti dal feedback dei clienti per migliorare l'esperienza dell'utente. Le funzionalità di base, dalle esecuzioni sperimentali alla distribuzione del modello, non sono cambiate, ma ora è possibile usare le solide funzionalità <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> e [CLI](reference-azure-machine-learning-cli.md) per portare a termine attività di apprendimento automatico e pipeline.  
+L'applicazione Workbench e alcune altre funzionalità di anteprima sono state deprecate e sostituite nella versione di settembre 2018 per introdurre un miglioramento nell'[architettura](concept-azure-machine-learning-architecture.md). Questa versione contiene molti aggiornamenti significativi derivanti dal feedback dei clienti per migliorare l'esperienza dell'utente. Le funzionalità di base, dalle esecuzioni sperimentali alla distribuzione del modello, non sono cambiate, ma ora è possibile usare le solide funzionalità <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> e [CLI](reference-azure-machine-learning-cli.md) per portare a termine attività di apprendimento automatico e pipeline.  
 
-Questo articolo illustra cosa è cambiato e gli effetti sul lavoro preesistente con il servizio Azure Machine Learning.
+Questo articolo illustra cosa è cambiato e come questi cambiamenti possono influire sul lavoro già svolto con Azure Machine Learning Workbench.
 
 ## <a name="what-changed"></a>Cosa è cambiato?
 
@@ -44,12 +44,12 @@ La maggior parte degli artefatti creati nella versione precedente del servizio A
 
 È possibile continuare a usare gli account di gestione modelli e sperimentazione, nonché l'applicazione Workbench, ancora per qualche tempo dopo settembre 2018. Il supporto per le risorse seguenti verrà rimosso progressivamente nel corso dei 3-4 mesi successivi al rilascio della nuova versione. La documentazione delle funzionalità precedenti resta disponibile nella [sezione Risorse](../desktop-workbench/tutorial-classifying-iris-part-1.md) nella parte inferiore del sommario.
 
-|Fase|Dettagli relativi al supporto per le funzionalità precedenti|
+|Fase di&nbsp;ritiro|Dettagli relativi al supporto per le funzionalità precedenti|
 |:---:|----------------|
-|1|Non sarà più possibile creare un _account Sperimentazione di Azure Machine Learning_ e un _account Gestione modelli_ nel portale di Azure e dall'interfaccia della riga di comando, né creare ambienti di calcolo di Machine Learning dall'interfaccia della riga di comando. Se si ha già un account, in questa fase l'interfaccia della riga di comando e l'applicazione desktop Workbench continueranno a funzionare.|
-|2|In questa fase termina il supporto per tutto il resto, incluse le API rimanenti e l'applicazione desktop Workbench.|
+|4 dicembre 2018|Non è più possibile creare un _account Sperimentazione di Azure Machine Learning_ e un _account Gestione modelli_ nel portale di Azure e dall'interfaccia della riga di comando, né creare ambienti di calcolo di Machine Learning dall'interfaccia della riga di comando. Se si ha già un account, in questa fase l'interfaccia della riga di comando e l'applicazione desktop Workbench continueranno a funzionare.|
+|9 gennaio 2019|In questa data termina il supporto per tutto il resto, incluse le API rimanenti e l'applicazione desktop Workbench.|
 
-Consigliamo di [iniziare la migrazione](how-to-migrate.md) oggi stesso. Tutte le funzionalità più recenti sono disponibili tramite il nuovo <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, la nuova [interfaccia della riga di comando](reference-azure-machine-learning-cli.md) e il nuovo [portale](quickstart-get-started.md).
+È consigliabile [iniziare la migrazione](how-to-migrate.md) oggi stesso. Tutte le funzionalità più recenti sono disponibili tramite il nuovo <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, la nuova [interfaccia della riga di comando](reference-azure-machine-learning-cli.md) e il nuovo [portale](quickstart-get-started.md).
 
 ## <a name="what-about-run-histories"></a>Che ne sarà delle cronologie di esecuzione?
 
@@ -66,7 +66,7 @@ Il dashboard dell'area di lavoro del portale è supportato solo nei browser Edge
 
 I file di preparazione dei dati preesistenti non possono essere portati nella versione più recente perché Workbench non è più disponibile. È comunque sempre possibile preparare i dati per la modellazione.  
 
-Con set di dati limitati, è possibile usare l'<a href="https://aka.ms/aml-sdk" target="_blank">SDK di preparazione dati di Azure Machine Learning</a> per preparare rapidamente i dati prima della modellazione. 
+Con set di dati limitati, è possibile usare <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Data Prep SDK</a> per preparare rapidamente i dati prima della modellazione. 
 
 È possibile usare lo stesso <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> per set di dati più grandi o usare Azure Databricks per preparare set di Big Data. 
 
@@ -80,7 +80,7 @@ Informazioni su come iniziare a usare [Python con l'SDK principale](quickstart-g
 
 ## <a name="what-about-my-registers-models-and-images"></a>Che ne sarà delle immagini e dei modelli dei registri?
  
-Per i modelli registrati nel registro dei modelli precedente è necessario eseguire la migrazione alla nuova area di lavoro se si desidera continuare a usarli. È possibile farlo [scaricando i modelli e registrandoli nuovamente](how-to-migrate.md) nella nuova area di lavoro. 
+Se si vuole continuare a usare i modelli registrati nel registro dei modelli precedente, è necessario eseguirne la migrazione nella nuova area di lavoro. È possibile farlo [scaricando i modelli e registrandoli nuovamente](how-to-migrate.md) nella nuova area di lavoro. 
 
 Le immagini create nel registro delle immagini precedente devono essere ricreate nella nuova area di lavoro per continuare a usarle. È possibile farlo seguendo le indicazioni nella sezione sulla [creazione di un'immagine Docker](how-to-deploy-to-aci.md#configure-an-image). 
 
@@ -88,19 +88,19 @@ Le immagini create nel registro delle immagini precedente devono essere ricreate
 
 I modelli distribuiti come servizi Web mediante l'account di Gestione modelli continueranno a funzionare finché sarà supportato il servizio contenitore di Azure (ACS). Tali servizi Web funzioneranno anche dopo il termine del supporto per gli account di Gestione modelli. Tuttavia, quando terminerà il supporto per l'interfaccia della riga di comando precedente, non sarà più possibile gestire questi servizi Web.
 
-Nella versione più recente, i modelli sono distribuiti come servizi Web nelle [istanze di contenitore Azure](how-to-deploy-to-aci.md) (ACI) o nei cluster del [servizio Kubernetes di Azure](how-to-deploy-to-aks.md) (AKS). È anche possibile [distribuire in FPGA e in IoT Edge](how-to-deploy-and-where.md). Senza la necessità di modificare i file dei punteggi, le dipendenze e gli schemi, è possibile ridistribuire i modelli usando il nuovo SDK o la nuova interfaccia della riga di comando. 
+Nella versione più recente, i modelli sono distribuiti come servizi Web nelle [istanze di Azure Container](how-to-deploy-to-aci.md) (ACI) o nei cluster del [servizio Azure Kubernetes](how-to-deploy-to-aks.md) (AKS). È anche possibile [distribuire in FPGA e in IoT Edge](how-to-deploy-and-where.md). Senza la necessità di modificare i file dei punteggi, le dipendenze e gli schemi, è possibile ridistribuire i modelli usando il nuovo SDK o la nuova interfaccia della riga di comando. 
 
 ## <a name="what-about-the-old-sdk--cli"></a>Che ne sarà dell'SDK e dell'interfaccia della riga di comando precedenti?
 
-Continueranno a funzionare per un periodo di tempo (vedere la [sequenza temporale](#timeline) sopra). È consigliabile iniziare a creare i nuovi esperimenti e modelli con l'SDK e/o l'interfaccia della riga di comando più recenti.
+Continueranno a funzionare fino a gennaio. Vedere la [sequenza temporale](#timeline) riportata sopra. È consigliabile iniziare a creare i nuovi esperimenti e modelli con l'SDK e/o l'interfaccia della riga di comando più recenti.
 
 Nella versione più recente, il nuovo Python SDK consente di interagire con il servizio Azure Machine Learning in qualsiasi ambiente Python. Sono disponibili informazioni sull'installazione dell'<a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> più recente.  È anche possibile usare l'[estensione aggiornata di apprendimento automatico dell'interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md) con la vasta gamma di comandi `az ml` per interagire con il servizio in qualsiasi ambiente da riga di comando, tra cui Cloud Shell del portale di Azure.
 
-## <a name="what-about-vs-code-tools-for-ai"></a>Che ne è di Visual Studio Code Tools for AI?
+## <a name="what-about-azure-machine-learning-for-visual-studio-code"></a>Che ne è di Azure Machine Learning per Visual Studio Code?
 
-Con quest'ultima versione, l'estensione Visual Studio Code Tools for AI è stata ampliata e migliorata per supportare le nuove funzionalità descritte sopra.
+Con quest'ultima versione, Azure Machine Learning per Visual Studio (VS) Code è stato ampliato e migliorato per supportare le nuove funzionalità descritte sopra.
 
-[ ![Visual Studio Code Tools for AI](./media/overview-what-happened-to-workbench/vscode.png) ] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[ ![Azure Machine Learning per Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png) ] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>Che ne è dei pacchetti di domini?
 

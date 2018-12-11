@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 329bc41555f2def0e2b7001a7b445cd3de16d439
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826338"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843309"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Esercitazione: Rilevare le anomalie nei dispositivi perimetrali con l'acceleratore di soluzione di monitoraggio remoto
 
@@ -24,16 +24,26 @@ Per presentare l'elaborazione perimetrale con il monitoraggio remoto, in questa 
 
 Contoso vuole distribuire un modulo di rete perimetrale intelligente nel martinetto della pompa dell'olio per rilevare le anomalie nella temperatura. Un altro modulo perimetrale invia avvisi alla soluzione di monitoraggio remoto. Quando viene ricevuto un avviso, un operatore di Contoso può inviare un tecnico della manutenzione. Contoso può anche configurare un'azione automatica, ad esempio l'invio di un messaggio di posta elettronica, da eseguire quando la soluzione riceve un avviso.
 
-Questa esercitazione usa il computer di sviluppo Windows locale come dispositivo IoT Edge. Si installano i moduli perimetrali per simulare il dispositivo martinetto della pompa dell'olio e per rilevare le anomalie nella temperatura.
+Il diagramma seguente mostra i componenti chiave nello scenario dell'esercitazione:
 
-In questa esercitazione si apprenderà come:
+![Panoramica](media/iot-accelerators-remote-monitoring-edge/overview.png)
+
+In questa esercitazione:
 
 >[!div class="checklist"]
 > * Aggiungere un dispositivo IoT Edge alla soluzione
 > * Creare un manifesto Edge
-> * Importare un pacchetto che definisce i moduli da eseguire nel dispositivo
+> * Importare il manifesto come pacchetto che definisce i moduli da eseguire nel dispositivo
 > * Distribuire il pacchetto nel dispositivo IoT Edge
 > * Visualizzare gli avvisi dal dispositivo
+
+Nel dispositivo IoT Edge:
+
+* Il runtime riceve il pacchetto e installa i moduli.
+* Il modulo di analisi di flusso rileva le anomalie di temperatura nella pompa e invia i comandi per risolvere il problema.
+* Il modulo di analisi di flusso inoltra i dati filtrati all'acceleratore di soluzione.
+
+Questa esercitazione usa una macchina virtuale Linux come dispositivo IoT Edge. È anche possibile installare un modulo Edge per simulare il martinetto della pompa dell'olio.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -74,7 +84,7 @@ Per semplificare la gestione dei dispositivi IoT Edge nella soluzione, creare un
     | Nome processo | AddEdgeTag |
     | Chiave     | IsOilPump |
     | Valore   | S     |
-    | Tipo    | Text  |
+    | type    | Text  |
 
     [![Aggiungere il tag](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
 
@@ -90,7 +100,7 @@ Per semplificare la gestione dei dispositivi IoT Edge nella soluzione, creare un
     | Campo   | Tags.IsOilPump |
     | Operatore | = Uguale a |
     | Valore    | S |
-    | Tipo     | Text |
+    | type     | Text |
 
     [![Creare un gruppo di dispositivi](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
@@ -111,54 +121,23 @@ Un dispositivo perimetrale richiede l'installazione del runtime Edge. In questa 
     az vm create \
       --resource-group IoTEdgeDevices \
       --name EdgeVM \
-      --image Canonical:UbuntuServer:16.04-LTS:latest \
+      --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest \
       --admin-username azureuser \
       --generate-ssh-keys \
       --size Standard_B1ms
     ```
 
-    Prendere nota dell'indirizzo IP pubblico, che sarà necessario nel passaggio successivo per la connessione tramite SSH.
-
-1. Per connettersi alla macchina virtuale tramite SSH, eseguire il comando seguente in Cloud Shell:
+1. Per configurare il runtime Edge con la stringa di connessione del dispositivo, eseguire il comando seguente usando la stringa annotata in precedenza:
 
     ```azurecli-interactive
-    ssh azureuser@{vm IP address}
+    az vm run-command invoke \
+      --resource-group IoTEdgeDevices \
+      --name EdgeVM \
+      --command-id RunShellScript \
+      --scripts 'sudo /etc/iotedge/configedge.sh "YOUR_DEVICE_CONNECTION_STRING"'
     ```
 
-1. Una volta stabilita la connessione alla macchina virtuale, eseguire i comandi seguenti per configurare il repository nella macchina virtuale:
-
-    ```azurecli-interactive
-    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-    ```
-
-1. Per installare il contenitore e i runtime Edge nella macchina virtuale, eseguire i comandi seguenti:
-
-    ```azurecli-interactive
-    sudo apt-get update
-    sudo apt-get install moby-engine
-    sudo apt-get install moby-cli
-    sudo apt-get update
-    sudo apt-get install iotedge
-    ```
-
-1. Per configurare il runtime Edge con la stringa di connessione del dispositivo, modificare il file di configurazione:
-
-    ```azurecli-interactive
-    sudo nano /etc/iotedge/config.yaml
-    ```
-
-    Assegnare la stringa di connessione del dispositivo alla variabile **device_connection_string**, salvare le modifiche e chiudere l'editor.
-
-1. Riavviare il runtime Edge per usare la nuova configurazione:
-
-    ```azurecli-interactive
-    sudo systemctl restart iotedge
-    ```
-
-1. È ora possibile chiudere la sessione SSH e chiudere Cloud Shell.
+    Assicurarsi di includere la stringa di connessione tra virgolette doppie.
 
 Il runtime IoT Edge è stato installato e configurato in un dispositivo Linux. Più avanti in questa esercitazione si userà la soluzione di monitoraggio remoto per distribuire i moduli IoT Edge nel dispositivo.
 

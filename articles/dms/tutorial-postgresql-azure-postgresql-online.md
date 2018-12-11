@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: 004db061e721f0169491e98bd8e7cdd86e08bb01
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 12/04/2018
+ms.openlocfilehash: ba27ceb784cf139c288a89f3191282fb9b364ddc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963598"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864377"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di PostgreSQL a Database di Azure per PostgreSQL online con il Servizio Migrazione del database
 È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di PostgreSQL locale a [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con tempi di inattività minimi. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da un'istanza locale di PostgreSQL 9.6 a Database di Azure per PostgreSQL usando un'attività di migrazione online nel Servizio Migrazione del database di Azure.
@@ -28,6 +28,9 @@ In questa esercitazione si apprenderà come:
 > * Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
 > * Eseguire la migrazione.
 > * Monitorare la migrazione.
+
+> [!NOTE]
+> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium (anteprima).
 
 > [!IMPORTANT]
 > Per un'esperienza di migrazione ottimale, Microsoft consiglia di creare un'istanza del Servizio Migrazione del database di Azure nella stessa area di Azure del database di destinazione. Lo spostamento dei dati tra regioni o aree geografiche può rallentare il processo di migrazione e causare errori.
@@ -132,7 +135,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
     from information_schema.triggers;
     ```
 
-6.  Se sono presenti dati di tipo ENUM nelle tabelle, è consigliabile aggiornarli temporaneamente al tipo di dati "character varying" nella tabella di destinazione. Dopo che la replica dei dati è stata completata ripristinare il tipo di dati ENUM.
+6.  Se sono presenti dati di tipo ENUM nelle tabelle, è consigliabile aggiornarli temporaneamente al tipo di dati "character varying" nella tabella di destinazione. Dopo che la replica dei dati è stata completata, ripristinare il tipo di dati ENUM.
 
 ## <a name="provisioning-an-instance-of-dms-using-the-cli"></a>Provisioning di un'istanza del Servizio Migrazione del database mediante l'interfaccia della riga di comando
 
@@ -266,7 +269,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
                 }
         ```
 
-    - C'è anche un file json di opzioni di database che elencata gli oggetti json. Il formato dell'oggetto JSON delle opzioni di database per PostgreSQL è illustrato di seguito:
+    - C'è anche un file json di opzioni di database che elenca gli oggetti json. Il formato dell'oggetto JSON delle opzioni di database per PostgreSQL è illustrato di seguito:
 
         ```
         [
@@ -448,7 +451,7 @@ Per assicurarsi che tutti i dati siano aggiornati, verificare i conteggi delle r
     ```
 
 ## <a name="service-project-task-cleanup"></a>Pulizia di servizi, progetti e attività
-Se è necessario annullare o eliminare qualsiasi attività, progetto o servizio del Servizio Migrazione del database di Azure, eseguire l'annullamento nella sequenza seguente:
+Se è necessario annullare o eliminare qualsiasi attività, progetto o servizio del Servizio Migrazione del database, eseguire l'annullamento nella sequenza seguente:
 - Annullare qualsiasi attività in esecuzione
 - Eliminare l'attività
 - Eliminare il progetto 

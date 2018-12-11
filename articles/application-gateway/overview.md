@@ -3,25 +3,25 @@ title: Cos'è il gateway applicazione di Azure
 description: Informazioni su come usare un gateway applicazione di Azure per gestire il traffico Web verso l'applicazione.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068096"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679172"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
-Il gateway applicazione di Azure è un servizio di bilanciamento del carico del traffico Web che consente di gestire il traffico verso le applicazioni Web. 
+Il gateway applicazione di Azure è un servizio di bilanciamento del carico del traffico Web che consente di gestire il traffico verso le applicazioni Web. I servizi di bilanciamento del carico tradizionali operano a livello di trasporto (OSI livello 4 - TCP e UDP) ed eseguono il routing del traffico da un indirizzo IP e una porta di origine verso un indirizzo IP e una porta di destinazione.
 
-I servizi di bilanciamento del carico tradizionali operano a livello di trasporto (OSI livello 4 - TCP e UDP) ed eseguono il routing del traffico da un indirizzo IP e una porta di origine verso un indirizzo IP e una porta di destinazione. Con il gateway applicazione si può essere ancora più specifici. Ad esempio, è possibile eseguire il rounting del traffico in base all'URL in ingresso. Pertanto, se `/images` è nell'URL in ingresso, è possibile eseguire il rounting del traffico verso un set specifico di server, detto pool, configurato per le immagini. Se `/video` è nell'URL, viene eseguito il rounting di quel traffico verso un altro pool ottimizzato per i video.
+![Concetti relativi al gateway applicazione](media/overview/figure1-720.png)
+
+Con il gateway applicazione si può essere ancora più specifici. Ad esempio, è possibile eseguire il rounting del traffico in base all'URL in ingresso. Pertanto, se `/images` è nell'URL in ingresso, è possibile eseguire il rounting del traffico verso un set specifico di server, detto pool, configurato per le immagini. Se `/video` è nell'URL, viene eseguito il rounting di quel traffico verso un altro pool ottimizzato per i video.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
@@ -31,7 +31,7 @@ Il gateway applicazione di Azure offre le funzionalità seguenti:
 
 ## <a name="autoscaling-public-preview"></a>Anteprima pubblica della scalabilità automatica
 
-Oltre alle funzionalità descritte in questo articolo, il gateway applicazione offre anche un'anteprima pubblica di un nuovo SKU [Standard_V2] che offre la scalabilità automatica e altri miglioramenti critici delle prestazioni.
+Oltre alle funzionalità descritte in questo articolo, nel gateway applicazione è inclusa un'anteprima pubblica di un nuovo SKU [Standard_V2] che offre scalabilità automatica e altri miglioramenti critici delle prestazioni.
 
 - **Scalabilità automatica**: le distribuzioni del gateway applicazione o WAF nello SKU con scalabilità automatica possono passare a un piano superiore o inferiore in base alle modifiche dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. 
 
@@ -45,7 +45,11 @@ Oltre alle funzionalità descritte in questo articolo, il gateway applicazione o
 
 Per altre informazioni sulle funzionalità dell'anteprima pubblica del gateway applicazione, vedere [Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md).
 
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Anteprima del controller di ingresso del servizio Kubernetes di Azure (AKS) 
+## <a name="secure-sockets-layer-ssl-termination"></a>Terminazione di Secure Sockets Layer (SSL)
+
+Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia e decrittografia. In alcuni casi, tuttavia, le comunicazioni non crittografate verso i server non rappresentano un'opzione accettabile. Questo può dipendere dai requisiti di sicurezza e conformità o dal fatto che l'applicazione può accettare solo connessioni protette. Per queste applicazioni, il gateway applicazione supporta la crittografia SSL end-to-end.
+
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Anteprima del controller di ingresso del servizio Azure Kubernetes (AKS) 
 
 Il controller di ingresso del gateway applicazione viene eseguito come pod all'interno del cluster AKS e consente al gateway applicazione di fungere da ingresso per un cluster AKS. 
 
@@ -59,10 +63,6 @@ Lo svuotamento delle connessioni aiuta a rimuovere in modo controllato i membri 
 Il gateway applicazione consente di creare pagine di errore personalizzate da visualizzare al posto delle pagine di errore predefinite. Se si usa una pagina di errore personalizzata, è possibile usare il proprio layout e marchio aziendali.
 
 Per altre informazioni, vedere [Create Application Gateway custom error pages](custom-error.md) (Creare pagine di errore personalizzate del gateway applicazione).
-
-## <a name="secure-sockets-layer-ssl-termination"></a>Terminazione di Secure Sockets Layer (SSL)
-
-Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia e decrittografia. Tuttavia in alcuni casi le comunicazioni non crittografate verso i server non rappresentano un'opzione accettabile. Questo potrebbe dipendere da requisiti di sicurezza e conformità o da un'applicazione in grado di accettare solo connessioni protette. Per tali applicazioni, il gateway applicazione supporta ora la crittografia SSL end-to-end.
 
 ## <a name="web-application-firewall"></a>Web application firewall
 
@@ -96,22 +96,15 @@ Il supporto del reindirizzamento nel gateway applicazione offre le funzionalità
 - Reindirizzamento basato sul percorso. Questo tipo di reindirizzamento consente il reindirizzamento da HTTP a HTTPS solo in un'area specifica del sito, ad esempio l'area del carrello acquisti indicata da `/cart/*`.
 - Reindirizzamento a un sito esterno.
 
-
-
 ## <a name="session-affinity"></a>Affinità di sessione
 
 L'affinità di sessione basata su cookie è utile quando si vuole mantenere una sessione utente nello stesso server. Usando cookie gestiti dal gateway, il gateway applicazione può indirizzare il traffico successivo proveniente da una sessione utente allo stesso server per l'elaborazione. Questo è importante nei casi in cui lo stato della sessione viene salvato in locale sul server per una sessione utente.
 
-
-
-
 ## <a name="websocket-and-http2-traffic"></a>Traffico Websocket e HTTP/2
 
 Il gateway applicazione offre il supporto nativo per i protocolli WebSocket e HTTP/2. Non esistono impostazioni configurabili dall'utente per abilitare o disabilitare in modo selettivo il supporto di WebSocket. Il supporto di HTTP/2 può essere abilitato con Azure PowerShell.
- 
+
 I protocolli WebSocket HTTP/2 consentono una comunicazione full duplex tra un server e un client su una connessione TCP con esecuzione prolungata. Questo consente una comunicazione più interattiva tra il server Web e il client che può essere bidirezionale senza necessità di polling che invece è richiesto nelle implementazioni basate su HTTP. A differenza del protocollo HTTP, questi protocolli presentano un sovraccarico ridotto e possono riutilizzare la stessa connessione TCP per più richieste/risposte garantendo così un uso più efficiente delle risorse. Questi protocolli sono progettati per usare le porte HTTP 80 e 443 tradizionali.
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

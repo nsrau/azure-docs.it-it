@@ -4,18 +4,16 @@ description: Esercitazione su come configurare il flusso di lavoro di compilazio
 services: cosmos-db
 keywords: Emulatore di Azure Cosmos DB
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 782975cfa548d214515761e45b8f79a2219831e2
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8b64142a7d693e8e48e1739a61978abbab740e3d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036972"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875213"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurare una pipeline CI/CD con l'attività di compilazione dell'emulatore di Azure Cosmos DB in Azure DevOps
 
@@ -23,7 +21,7 @@ L'emulatore di Azure Cosmos DB fornisce un ambiente locale che emula il servizio
 
 L'attività di compilazione dell'emulatore di Azure Cosmos DB per Azure DevOps consente di eseguire la stessa operazione in un ambiente di integrazione continua. Con l'attività di compilazione, è possibile eseguire i test nell'emulatore come parte della compilazione e rilasciare dei flussi di lavoro. L'attività avvia un contenitore Docker con l'emulatore già in esecuzione e fornisce un endpoint che può essere usato dalla definizione di compilazione restante. È possibile creare e avviare le istanze dell'emulatore necessarie, ognuna in esecuzione in un contenitore separato. 
 
-Questo articolo illustra come configurare una pipeline di integrazione continua in Azure DevOps per un'applicazione ASP.NET che usa l'attività di compilazione dell'emulatore di Cosmos DB per eseguire i test. 
+Questo articolo illustra come configurare una pipeline di integrazione continua in Azure DevOps per un'applicazione ASP.NET che usa l'attività di compilazione dell'emulatore di Cosmos DB per eseguire i test. È possibile usare un approccio simile per configurare una pipeline di integrazione continua per un'applicazione Node.js o Python. 
 
 ## <a name="install-the-emulator-build-task"></a>Installare l'attività di compilazione dell'emulatore
 
@@ -42,7 +40,7 @@ Successivamente, scegliere l'organizzazione in cui installare l'estensione.
 
 Ora che l' estensione è installata, accedere al proprio account Azure DevOps e trovare il progetto nel dashboard dei progetti. È possibile aggiungere una [pipeline di compilazione](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) al progetto o modificarne una esistente. Se si ha già una pipeline di compilazione, è possibile passare direttamente alla sezione [Aggiungere l'attività di compilazione dell'emulatore a una definizione di compilazione](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Per creare una nuova definizione di compilazione, passare alla scheda **Compilazioni** in Azure DevOps. Selezionare **+ Nuovo** > **Nuova pipeline di compilazione**
+1. Per creare una nuova definizione di compilazione, passare alla scheda **Compilazioni** in Azure DevOps. Selezionare **+ Nuovo**. > **Nuova pipeline di compilazione**
 
    ![Creazione di una nuova pipeline di compilazione](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
@@ -82,6 +80,8 @@ Di seguito è riportato un esempio di un file con estensione **runsettings** che
   </TestRunParameters>
 </RunSettings>
 ```
+
+Se si configura una pipeline di integrazione continua/distribuzione continua per un'applicazione che usa l'API MongoDB di Azure Cosmos DB, la stringa di connessione di MongoDB include il numero di porta 10255 per impostazione predefinita. Questa porta, tuttavia, non è attualmente aperta. Per stabilire la connessione, è necessario usare in alternativa la porta 10250. La stringa di connessione dell'API MongoDB rimane la stessa, tranne per il fatto che il numero di porta supportato è 10250 anziché 10255.
 
 Ai parametri `TestRunParameters` viene fatto riferimento tramite una proprietà `TestContext` nel progetto di test dell'applicazione. Di seguito è riportato un esempio di un test in esecuzione in Cosmos DB.
 

@@ -1,24 +1,24 @@
 ---
-title: Eseguire la migrazione dei dati nell'account dell'API Cassandra di Azure Cosmos DB
-description: Informazioni su come usare il comando Copy di CQL e Spark per copiare dati da Apache Cassandra nell'API Cassandra di Azure Cosmos DB.
-services: cosmos-db
+title: "Esercitazione: Eseguire la migrazione dei dati in un account dell'API Cassandra in Azure Cosmos DB"
+description: Questa esercitazione illustra come usare il comando Copy di CQL e Spark per copiare dati da Apache Cassandra a un account dell'API Cassandra in Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.author: govindk
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/03/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 56fc07c6d775ee8015ce244acb7782607bda802a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
+ms.openlocfilehash: 604cab3bed73366ce28c8bb35b63df6379985cfb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739788"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867465"
 ---
-# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Esercitazione: Eseguire la migrazione dei dati nell'account dell'API Cassandra di Azure Cosmos DB
+# <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Esercitazione: Eseguire la migrazione dei dati in un account dell'API Cassandra in Azure Cosmos DB
 
-Questa esercitazione fornisce istruzioni su come eseguire la migrazione dei dati Apache Cassandra nell'API Cassandra di Azure Cosmos DB. 
+Gli sviluppatori potrebbero avere carichi di lavoro Cassandra esistenti in esecuzione in locale o nel cloud e volerne eseguire la migrazione in Azure. È possibile eseguire la migrazione di questi carichi di lavoro in un account dell'API Cassandra in Azure Cosmos DB. Questa esercitazione fornisce istruzioni sulle diverse opzioni disponibili per eseguire la migrazione dei dati Apache Cassandra nell'account dell'API Cassandra di Azure Cosmos DB.
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -26,45 +26,45 @@ Questa esercitazione illustra le attività seguenti:
 > * Pianificare la migrazione
 > * Prerequisiti per la migrazione
 > * Eseguire la migrazione dei dati usando il comando cqlsh COPY
-> * Eseguire la migrazione dei dati usando Spark 
+> * Eseguire la migrazione dei dati usando Spark
 
-## <a name="plan-for-migration"></a>Pianificare la migrazione
-
-Prima di eseguire la migrazione dei dati nell'API Cassandra di Azure Cosmos DB, è necessario stimare le esigenze di velocità effettiva del carico di lavoro. In generale, è consigliabile iniziare con la velocità effettiva media necessaria per le operazioni CRUD, quindi includere la velocità effettiva aggiuntiva necessaria per le operazioni picco o di estrazione, trasformazione e caricamento (ETL). Per pianificare la migrazione, sono necessari i dettagli seguenti: 
-
-* **Dimensioni dei dati esistenti o dimensioni dei dati stimate:** definisce i requisiti minimi di dimensione e velocità effettiva del database. Se si sta stimando la dimensione dei dati per una nuova applicazione, è possibile presumere che i dati vengano distribuiti uniformemente tra le righe e stimare il valore moltiplicando la dimensione dei dati. 
-
-* **Velocità effettiva necessaria:** la velocità effettiva approssimativa in lettura (query/get) e in scrittura (aggiornamento/eliminazione/inserimento). Questo valore è obbligatorio per calcolare le unità richiesta necessarie insieme alle dimensioni dei dati con stato stabile.  
-
-* **Ottenere lo schema:** connettersi al cluster Cassandra esistente tramite cqlsh ed esportare lo schema da Cassandra: 
-
-  ```bash
-  cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
-  ```
-
-Dopo avere identificato i requisiti del carico di lavoro esistente, è necessario creare un account, un database e i contenitori Azure Cosmos DB in base ai requisiti di velocità effettiva raccolti.  
-
-* **Determinare l'addebito di unità di richieste per un'operazione:** è possibile determinare le unità di richieste usando l'SDK dell'API Cassandra di Azure Cosmos DB preferito. Questo esempio illustra la versione .NET per ottenere gli addebiti delle unità richiesta.
-
-  ```csharp
-  var tableInsertStatement = table.Insert(sampleEntity);
-  var insertResult = await tableInsertStatement.ExecuteAsync();
-
-  foreach (string key in insertResult.Info.IncomingPayload)
-    {
-       byte[] valueInBytes = customPayload[key];
-       string value = Encoding.UTF8.GetString(valueInBytes);
-       Console.WriteLine($"CustomPayload:  {key}: {value}");
-    }
-  ```
-
-* **Allocare la velocità effettiva necessaria:** Azure Cosmos DB può eseguire automaticamente la scalabilità della risorsa di archiviazione e della velocità effettiva man mano che aumentano i requisiti. È possibile stimare le esigenze di velocità effettiva usando il [calcolatore di unità di richieste di Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites-for-migration"></a>Prerequisiti per la migrazione
 
-* **Creare le tabelle nell'account dell'API Cassandra di Azure Cosmos DB:** prima di iniziare la migrazione dei dati, creare in anticipo tutte le tabelle dal portale di Azure o da cqlsh. Se si esegue la migrazione a un account Azure Cosmos DB con velocità effettiva a livello di database, assicurarsi di fornire una chiave di partizione quando si creano i contenitori di Azure Cosmos DB.
+* **Stimare le esigenze di velocità effettiva:** prima di eseguire la migrazione dei dati nell'account dell'API Cassandra in Azure Cosmos DB, è necessario stimare le esigenze di velocità effettiva del carico di lavoro. In generale, è consigliabile iniziare con la velocità effettiva media necessaria per le operazioni CRUD, quindi includere la velocità effettiva aggiuntiva necessaria per le operazioni picco o di estrazione, trasformazione e caricamento (ETL). Per pianificare la migrazione, sono necessari i dettagli seguenti: 
 
-* **Aumentare la velocità effettiva:** la durata della migrazione dei dati dipende dalla velocità effettiva di cui è stato eseguito il provisioning per le tabelle in Azure Cosmos DB. Aumentare la velocità effettiva per la durata della migrazione. Con una velocità effettiva più elevata, è possibile evitare la limitazione di velocità e completare più rapidamente la migrazione. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva, vedere [impostare la velocità effettiva](set-throughput.md) per i contenitori di Azure Cosmos DB. È consigliabile anche disporre di account Azure Cosmos DB nella stessa area del database di origine. 
+   * **Dimensioni dei dati esistenti o dimensioni dei dati stimate:** definisce i requisiti minimi di dimensione e velocità effettiva del database. Se si sta stimando la dimensione dei dati per una nuova applicazione, è possibile presumere che i dati vengano distribuiti uniformemente tra le righe e stimare il valore moltiplicando la dimensione dei dati. 
+
+   * **Velocità effettiva necessaria:** la velocità effettiva approssimativa in lettura (query/get) e in scrittura (aggiornamento/eliminazione/inserimento). Questo valore è obbligatorio per calcolare le unità richiesta necessarie insieme alle dimensioni dei dati con stato stabile.  
+
+   * **Schema:** connettersi al cluster Cassandra esistente tramite cqlsh ed esportare lo schema da Cassandra: 
+
+     ```bash
+     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+     ```
+
+   Dopo avere identificato i requisiti del carico di lavoro esistente, è necessario creare un account, un database e i contenitori Azure Cosmos in base ai requisiti di velocità effettiva raccolti.  
+
+   * **Determinare l'addebito di unità richiesta per un'operazione:** è possibile determinare le unità richiesta usando uno degli SDK supportati dall'API Cassandra. Questo esempio illustra la versione .NET per ottenere gli addebiti delle unità richiesta.
+
+     ```csharp
+     var tableInsertStatement = table.Insert(sampleEntity);
+     var insertResult = await tableInsertStatement.ExecuteAsync();
+
+     foreach (string key in insertResult.Info.IncomingPayload)
+       {
+          byte[] valueInBytes = customPayload[key];
+          string value = Encoding.UTF8.GetString(valueInBytes);
+          Console.WriteLine($"CustomPayload:  {key}: {value}");
+       }
+     ```
+
+* **Allocare la velocità effettiva necessaria:** Azure Cosmos DB può eseguire automaticamente la scalabilità della risorsa di archiviazione e della velocità effettiva man mano che aumentano i requisiti. È possibile stimare le esigenze di velocità effettiva usando il [calcolatore di unità di richieste di Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
+
+* **Creare le tabelle nell'account dell'API Cassandra:** prima di iniziare la migrazione dei dati, creare in anticipo tutte le tabelle dal portale di Azure o da cqlsh. Se si esegue la migrazione a un account Azure Cosmos con velocità effettiva a livello di database, assicurarsi di fornire una chiave di partizione quando si creano i contenitori di Azure Cosmos.
+
+* **Aumentare la velocità effettiva:** la durata della migrazione dei dati dipende dalla velocità effettiva di cui è stato eseguito il provisioning per le tabelle in Azure Cosmos DB. Aumentare la velocità effettiva per la durata della migrazione. Con una velocità effettiva più elevata, è possibile evitare la limitazione di velocità e completare più rapidamente la migrazione. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. È consigliabile anche disporre di account Azure Cosmos nella stessa area del database di origine. 
 
 * **Abilitare SSL:** Azure Cosmos DB ha standard e requisiti di sicurezza restrittivi. Assicurarsi di abilitare SSL quando si interagisce con l'account. Quando si usa CQL con SSH, è possibile fornire le informazioni SSL.
 
@@ -77,11 +77,11 @@ Dopo avere identificato i requisiti del carico di lavoro esistente, è necessari
 
 ## <a name="migrate-data-using-cqlsh-copy-command"></a>Eseguire la migrazione dei dati usando il comando cqlsh COPY
 
-Il [comando COPY di CQL](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) viene usato per copiare i dati locali nell'account dell'API Cassandra di Azure Cosmos DB. Per copiare i dati, usare la procedura seguente:
+Il [comando COPY di CQL](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) viene usato per copiare i dati locali nell'account dell'API Cassandra in Azure Cosmos DB. Per copiare i dati, usare la procedura seguente:
 
 1. Ottenere informazioni sulla stringa di connessione dell'account dell'API Cassandra:
 
-   * Accedere al [portale di Azure](https://portal.azure.com) e passare all'account Azure Cosmos DB.
+   * Accedere al [portale di Azure](https://portal.azure.com) e passare all'account Azure Cosmos.
 
    * Aprire il riquadro **Stringa di connessione** che contiene tutte le informazioni necessarie per connettersi all'account dell'API Cassandra da cqlsh.
 
@@ -95,17 +95,21 @@ Il [comando COPY di CQL](http://cassandra.apache.org/doc/latest/tools/cqlsh.html
 
 ## <a name="migrate-data-using-spark"></a>Eseguire la migrazione dei dati usando Spark 
 
-Usare la procedura seguente per eseguire la migrazione dei dati nell'API Cassandra di Azure Cosmos DB con Spark:
+Usare questa procedura per eseguire la migrazione dei dati nell'account dell'API Cassandra con Spark:
 
-- Effettuare il provisioning di [Azure Databricks](cassandra-spark-databricks.md) o un [cluster HDInsight](cassandra-spark-hdinsight.md) 
+- Effettuare il provisioning di un [cluster di Azure Databricks](cassandra-spark-databricks.md) o un [cluster HDInsight](cassandra-spark-hdinsight.md) 
 
 - Spostare i dati nell'endpoint API Cassandra di destinazione usando l'[operazione di copia di tabella](cassandra-spark-table-copy-ops.md) 
 
-La migrazione dei dati usando i processi spark è un'opzione consigliata se i dati risiedono in un cluster esistente nelle macchine virtuali di Azure o in qualsiasi altro cloud. Per questa opzione è necessario impostare spark come intermediario per l'inserimento una sola volta o su base regolare. È possibile accelerare la migrazione usando la connettività ExpressRoute tra locale e Azure. 
+La migrazione dei dati usando i processi Spark è un'opzione consigliata se i dati risiedono in un cluster esistente nelle macchine virtuali di Azure o in qualsiasi altro cloud. Per questa opzione è necessario impostare Spark come intermediario per l'inserimento una sola volta o su base regolare. È possibile accelerare la migrazione usando la connettività Azure ExpressRoute tra locale e Azure. 
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non servono più è possibile eliminare il gruppo di risorse, l'account Azure Cosmos e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per la macchina virtuale, selezionare **Elimina** e quindi confermare il nome del gruppo di risorse da eliminare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come migrare i dati utente in un account dell'API Cassandra di Azure Cosmos DB. È ora possibile passare alla sezione dei concetti per altre informazioni su Azure Cosmos DB. 
+In questa esercitazione si è appreso come migrare i dati utente in un account dell'API Cassandra in Azure Cosmos DB. È ora possibile passare all'articolo seguente per apprendere altri concetti di Azure Cosmos DB:
 
 > [!div class="nextstepaction"]
 > [Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB](../cosmos-db/consistency-levels.md)

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: fedb41f6538e0c65114c4a28c8aa43ffc7ef6d7f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c2edb821eb8bd9a5da7a6cce81269e7d3f611722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957601"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869892"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Che cos'è la rete WAN virtuale di Azure?
 
@@ -29,7 +29,7 @@ Questo articolo offre una panoramica rapida della connettività di rete per i ca
 
 ## <a name="s2s"></a>Connessioni da sito a sito
 
-Per creare una connessione da sito a sito tramite la rete WAN virtuale, è possibile richiedere la collaborazione di un [partner di rete WAN virtuale](https://go.microsoft.com/fwlink/p/?linkid=2019615) oppure creare manualmente la connessione.
+Per creare una connessione da sito a sito tramite la rete WAN virtuale, è possibile richiedere la collaborazione di un [partner di rete WAN virtuale](virtual-wan-locations-partners.md) oppure creare manualmente la connessione.
 
 ### <a name="s2spartner"></a>Collaborazione con un partner di rete WAN virtuale
 
@@ -46,11 +46,11 @@ Se non si desidera usare un partner preferito, è possibile configurare manualme
 
 Una connessione da punto a sito (P2S) consente di creare una connessione sicura all'hub virtuale da un singolo computer client. Una connessione da punto a sito viene stabilita avviandola dal computer client. Questa soluzione è utile per i telelavoratori che vogliono connettersi da una posizione remota, ad esempio da casa o durante una riunione. Una VPN da punto a sito è anche una soluzione utile da usare al posto di una VPN da sito a sito quando devono connettersi solo pochi client.
 
-Per creare manualmente la connessione, vedere [Creare una connessione da sito a sito tramite la rete WAN virtuale](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid).
+Per creare manualmente la connessione, vedere [Creare una connessione da sito a sito tramite la rete WAN virtuale](virtual-wan-point-to-site-portal.md).
 
 ## <a name="er"></a>Connessioni ExpressRoute (anteprima)
 
-Per creare manualmente la connessione, vedere [Create an ExpressRoute connection using Virtual WAN](https://go.microsoft.com/fwlink/p/?linkid=2020148&clcid) (Creare una connessione ExpressRoute tramite la rete WAN virtuale).
+Per creare manualmente la connessione, vedere [Create an ExpressRoute connection using Virtual WAN](virtual-wan-expressroute-portal.md) (Creare una connessione ExpressRoute tramite la rete WAN virtuale).
 
 
 ## <a name="resources"></a>Risorse della rete WAN virtuale
@@ -76,4 +76,4 @@ Per configurare una rete WAN virtuale completa, si creano le risorse seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visualizzare le [posizioni e i partner della rete WAN virtuale di Azure](https://aka.ms/virtualwan)
+Visualizzare la pagina relativa a [partner e località della rete WAN virtuale](virtual-wan-locations-partners.md).

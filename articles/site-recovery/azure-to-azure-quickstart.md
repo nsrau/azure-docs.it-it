@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e5f6cbec75a9f652cf05c9608c412e00489288b9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c0d5b556cfeaf26e58104c1cbb7d394e5594f3e5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212931"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850500"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurare il ripristino di emergenza in un'area di Azure secondaria per una macchina virtuale di Azure 
 
@@ -54,10 +54,10 @@ Al termine del processo di replica, è possibile controllare lo stato di replica
 
 La replica della macchina virtuale nell'area primaria viene arrestata nel momento in cui si disabilita la replica corrispondente:
 
-- Le impostazioni della replica di origine vengono automaticamente pulite.
+- Le impostazioni della replica di origine vengono automaticamente pulite. Si noti che l'estensione Site Recovery installata come parte della replica non viene rimossa e deve essere rimossa manualmente. 
 - Viene arrestata anche la fatturazione di Site Recovery per la macchina virtuale.
 
-Per arrestare la replica, seguire questa procedura:
+Per arrestare la replica, seguire questa procedura
 
 1. Selezionare la macchina virtuale.
 2. In **Ripristino di emergenza** fare clic su **Disabilita replica**.

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 9f0a6a910ab9b9589e09b6c8e1e7b16f7e63c5c8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4605ef3876d7a21f99e775b49d7da30ff947fa8e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258970"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877921"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Guida introduttiva: Creare un hub eventi usando Azure PowerShell
 
@@ -56,10 +56,11 @@ New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName n
 
 ## <a name="create-an-event-hub"></a>Creare un hub eventi
 
-Una volta creato uno spazio dei nomi di Hub eventi, crearvi all'interno un hub eventi:
+Una volta creato uno spazio dei nomi di Hub eventi, crearvi all'interno un hub eventi:  
+Il periodo consentito per `MessageRetentionInDays` è compreso tra 1 e 7 giorni.
 
 ```azurepowershell-interactive
-New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name
+New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
 ```
 
 Congratulazioni! È stato usato Azure PowerShell per creare uno spazio dei nomi di Hub eventi e un hub eventi nello spazio dei nomi. 

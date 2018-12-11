@@ -11,12 +11,12 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/20/2018
-ms.openlocfilehash: afa975a593fd962050c9f894ec091d7f64579138
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 5c12bd54c0ea96ac915fedab94f03cf044330dcf
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52332613"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723296"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Java per eseguire query su un database SQL di Azure
 
@@ -44,13 +44,13 @@ Per completare questo esempio, accertarsi di avere i prerequisiti seguenti:
 
 ## <a name="create-the-project"></a>Creare il progetto
 
-1. Dal terminale creare un nuovo progetto Maven denominato *sqltest*.
+1. Dal prompt dei comandi creare un nuovo progetto Maven denominato *sqltest*.
 
     ```bash
     mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
     ```
 
-1. Passare alla directory *sqltest* e aprire *pom.xml* con l'editor di testo preferito. Aggiungere **Microsoft JDBC Driver per SQL Server** alle dipendenze del progetto usando il codice seguente.
+1. Passare alla cartella *sqltest* e aprire *pom.xml* con l'editor di testo preferito. Aggiungere **Microsoft JDBC Driver per SQL Server** alle dipendenze del progetto usando il codice seguente.
 
     ```xml
     <dependency>
@@ -93,10 +93,10 @@ Per completare questo esempio, accertarsi di avere i prerequisiti seguenti:
         public static void main(String[] args) {
 
             // Connect to database
-            String hostName = "your_server.database.windows.net";
-            String dbName = "your_database";
-            String user = "your_username";
-            String password = "your_password";
+            String hostName = "your_server.database.windows.net"; // update me
+            String dbName = "your_database"; // update me
+            String user = "your_username"; // update me
+            String password = "your_password"; // update me
             String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
                 + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
             Connection connection = null;
@@ -139,14 +139,14 @@ Per completare questo esempio, accertarsi di avere i prerequisiti seguenti:
 
 ## <a name="run-the-code"></a>Eseguire il codice
 
-1. Al prompt dei comandi eseguire il programma.
+1. Al prompt dei comandi eseguire l'app.
 
     ```bash
     mvn package -DskipTests
     mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
     ```
 
-1. Verificare che vengano restituite le prime 20 righe e chiudere la finestra dell'applicazione.
+1. Verificare che vengano restituite le prime 20 righe e chiudere la finestra dell'app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

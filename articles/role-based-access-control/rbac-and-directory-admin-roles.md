@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 5e32968ae83ef826fbc8e81f1b04eca687642343
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 9fce35f811a4d2440ba73e4f305ede6891928069
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637669"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633283"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Ruoli di amministratore sottoscrizione classico, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD
 
@@ -77,13 +77,13 @@ Gli altri ruoli predefiniti consentono la gestione di risorse di Azure specifich
 
 Solo il portale di Azure e le API di Azure Resource Manager supportano il Controllo degli accessi in base al ruolo. Gli utenti, i gruppi e le applicazioni a cui vengono assegnati ruoli Controllo degli accessi in base al ruolo non possono usare le [API del modello di distribuzione classica di Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Nel portale di Azure le assegnazioni di ruolo tramite il controllo degli accessi in base al ruolo sono visualizzate nel pannello **Controllo di accesso (IAM)**. Il pannello è disponibile in tutto il portale, ad esempio nelle sottoscrizioni, nei gruppi di risorse e in diverse risorse.
+Nel portale di Azure le assegnazioni di ruolo tramite il controllo degli accessi in base al ruolo sono visualizzate nel pannello **Controllo di accesso (IAM)**. Il pannello è disponibile in tutto il portale, ad esempio nei gruppi di gestione, nelle sottoscrizioni, nei gruppi di risorse e in varie risorse.
 
-![Pannello Controllo di accesso (IAM) nel portale di Azure](./media/rbac-and-directory-admin-roles/access-control.png)
+![Pannello Controllo di accesso (IAM) nel portale di Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
 Quando si fa clic sull'opzione **Ruoli** viene visualizzato l'elenco dei ruoli predefiniti e personalizzati.
 
-![Ruoli predefiniti nel portale di Azure](./media/rbac-and-directory-admin-roles/built-in-roles.png)
+![Ruoli predefiniti nel portale di Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
 ## <a name="azure-ad-administrator-roles"></a>Ruoli di amministratore di Azure AD
 

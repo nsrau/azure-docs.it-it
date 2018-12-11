@@ -4,15 +4,15 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85873dc023e63b7cc9f5ba3ff87214c49ac16e34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246736"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839735"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -36,8 +36,8 @@ Azure Migrate consente di eseguire le operazioni seguenti.
 - Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
 -  È possibile creare un progetto Azure Migrate solo nell'area geografica Stati Uniti. È tuttavia possibile pianificare una migrazione in qualsiasi località di Azure di destinazione.
     - Nell'area del progetto di migrazione vengono archiviati solo i metadati individuati dall'ambiente locale.
-    - I metadati vengono archiviati in una delle aree dell'area geografica di Azure, ovvero Stati Uniti centro-occidentali o Stati Uniti orientali.
-    - Se si usa la visualizzazione delle dipendenze con un'area di Azure di Log Analytics, questa verrà creata nella stessa area del progetto.
+    - I metadati vengono archiviati in una delle aree all'interno dell'area geografica selezionata, ovvero Stati Uniti centro-occidentali o Stati Uniti orientali.
+    - Se si usa la visualizzazione delle dipendenze creando una nuova area di lavoro di Log Analytics, questa viene creata nella stessa area del progetto.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Costo del servizio
@@ -51,18 +51,18 @@ Le impostazioni di valutazione possono essere personalizzate in base alle esigen
 
 **Proprietà** | **Dettagli**
 --- | ---
-**Posizione di destinazione** | Area di Azure in cui si vuole eseguire la migrazione.<br/><br/>Azure Migrate supporta attualmente 30 aree. [Verificare le aree](https://azure.microsoft.com/global-infrastructure/services/). Per impostazione predefinita, l'area di destinazione è impostata su Stati Uniti occidentali 2.
-**Tipo di archiviazione** | Tipo di dischi che si vuole allocare in Azure. È applicabile quando il criterio di dimensionamento è **Come in locale**. Specificare il tipo di disco di destinazione come disco gestito Premium (impostazione predefinita) o Standard. Per il dimensionamento in base alle prestazioni, le indicazioni relative alle dimensioni dei dischi vengono create automaticamente in base ai dati sulle prestazioni delle VM.
-**Criterio di dimensionamento** | Il dimensionamento può essere basato sulla **cronologia delle prestazioni** delle VM locali oppure essere definito **come in locale** (impostazione predefinita) senza considerare la cronologia delle prestazioni.
+**Posizione di destinazione** | Area di Azure in cui si vuole eseguire la migrazione.<br/><br/>Azure Migrate supporta attualmente 33 aree come destinazioni della migrazione. [Verificare le aree](https://azure.microsoft.com/global-infrastructure/services/). Per impostazione predefinita, l'area di destinazione è impostata su Stati Uniti occidentali 2.
+**Tipo di archiviazione** | Il tipo di dischi gestiti da allocare per tutte le macchine virtuali che fanno parte della valutazione. Se come criterio di dimensionamento è impostato il *dimensionamento come in locale*, è possibile specificare il tipo di disco di destinazione come Premium (predefinito), SSD Standard o HDD Standard. Per il *dimensionamento basato sulle prestazioni*, insieme alle opzioni precedenti è possibile selezionare anche Automatico per assicurarsi che vengano selezionate automaticamente le dimensioni consigliate dei dischi in base ai dati delle prestazioni delle macchine virtuali. Se ad esempio si vuole ottenere un [contratto di servizio per singole istanze di macchina virtuale con tempo di attività pari al 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), può essere opportuno specificare il tipo di archiviazione Managed Disks Premium che garantisce che tutti i dischi nella valutazione vengano raccomandati come Managed Disks Premium. Si noti che Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
+**Istanze riservate** |  Eventuale disponibilità di [istanze riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure. Azure Migrate stima il costo di conseguenza.
+**Criterio di dimensionamento** | Il dimensionamento può essere basato sulla **cronologia delle prestazioni** delle macchine virtuali locali (impostazione predefinita) oppure può essere configurato **come in locale**, senza considerare la cronologia delle prestazioni.
+**Cronologia delle prestazioni** | Per impostazione predefinita, Azure Migrate valuta le prestazioni dei computer locali usando la cronologia delle prestazioni per l'ultimo giorno, con un valore percentile del 95%.
+**Fattore di comfort** | Durante la valutazione, Azure Migrate considera un buffer (fattore di comfort), che viene applicato ai dati sull'utilizzo delle VM (CPU, memoria, disco e rete). Il fattore di comfort tiene conto di aspetti come utilizzo stagionale, breve cronologia delle prestazioni e probabile aumento dell'utilizzo futuro.<br/><br/> Da una VM con 10 core e un utilizzo del 20%, ad esempio, si ottiene normalmente una VM con 2 core. Con un fattore di comfort pari a 2.0x, invece, il risultato è una VM con 4 core. L'impostazione predefinita del fattore di comfort è 1.3x.
+**Serie VM** | Serie di VM usata per le stime delle dimensioni. Se si ha un ambiente di produzione di cui non si intende eseguire la migrazione a VM serie A in Azure, ad esempio, si può escludere la serie A dall'elenco o dalle serie. Il dimensionamento sarà basato solo sulla serie selezionata.   
+**Valuta** | Valuta di fatturazione. La valuta predefinita è il dollaro statunitense.
+**Sconto (%)** | Qualsiasi sconto specifico della sottoscrizione ricevuto oltre all'offerta Azure. L'impostazione predefinita è 0%.
+**Tempo di attività macchina virtuale** | Se non si prevede di eseguire ininterrottamente le macchine virtuali in Azure, è possibile specificare la durata (numero di giorni al mese e numero di ore al giorno) dell'esecuzione. Il costo verrà stimato di conseguenza. Il valore predefinito è di 31 giorni al mese e di 24 ore al giorno.
 **Offerta Azure** | [Offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta. Azure Migrate stima il costo di conseguenza.
 **Vantaggio Azure Hybrid** | Eventuale iscrizione a Software Assurance e idoneità per il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/) con prezzi scontati.
-**Istanze riservate** |  Eventuale disponibilità di [istanze riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure. Azure Migrate stima il costo di conseguenza.
-**Tempo di attività macchina virtuale** | Durata di esecuzione delle VM. Le stime dei costi verranno definite di conseguenza.
-**Piano tariffario** | [Piano tariffario (Basic o Standard)](../virtual-machines/windows/sizes-general.md) per le VM di Azure di destinazione. Se si pianifica la migrazione di un ambiente di produzione, ad esempio, si può prendere in considerazione il livello Standard, che offre VM con bassa latenza ma ha un costo superiore. D'altra parte, in un ambiente di testing si potrebbe usare il livello Basic, caratterizzato da latenza più elevata e costi inferiori. Per impostazione predefinita viene usato il piano [Standard](../virtual-machines/windows/sizes-general.md).
-**Cronologia delle prestazioni** | Per impostazione predefinita, Azure Migrate valuta le prestazioni dei computer locali usando la cronologia delle prestazioni per l'ultimo giorno, con un valore percentile del 95%.
-**Serie VM** | Serie di VM usata per le stime delle dimensioni. Se si ha un ambiente di produzione di cui non si intende eseguire la migrazione a VM serie A in Azure, ad esempio, si può escludere la serie A dall'elenco o dalle serie. Il dimensionamento sarà basato solo sulla serie selezionata.   
-**Fattore di comfort** | Durante la valutazione, Azure Migrate considera un buffer (fattore di comfort), che viene applicato ai dati sull'utilizzo delle VM (CPU, memoria, disco e rete). Il fattore di comfort tiene conto di aspetti come utilizzo stagionale, breve cronologia delle prestazioni e probabile aumento dell'utilizzo futuro.<br/><br/> Da una VM con 10 core e un utilizzo del 20%, ad esempio, si ottiene normalmente una VM con 2 core. Con un fattore di comfort pari a 2.0x, invece, il risultato è una VM con 4 core. L'impostazione predefinita del fattore di comfort è 1.3x.
-
 
 ## <a name="how-does-azure-migrate-work"></a>Funzionamento di Azure Migrate
 

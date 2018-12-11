@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954107"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724027"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Informazioni su Azure Active Directory B2C
 
@@ -60,9 +60,9 @@ Azure AD B2C interagisce in sequenza con i provider di identità, i clienti, alt
 
 Azure AD B2C protegge le applicazioni da attacchi Denial of Service e alle password. Azure AD B2C usa tecniche di rilevamento e mitigazione, ad esempio cookie SYN e limiti di velocità e connessione, per proteggere le risorse dagli attacchi Denial of Service. Questa mitigazione è disponibile anche per gli attacchi di forza bruta e per gli attacchi alle password con dizionario.
 
-#### <a name="built-in-policies"></a>Criteri predefiniti
+#### <a name="user-flows"></a>Flussi degli utenti
 
-Ogni richiesta inviata ad Azure AD B2C specifica un criterio. Un criterio controlla il comportamento dell'applicazione durante l'interazione con Azure AD B2C. Sono disponibili criteri predefiniti per le attività di identità più comuni, ad esempio iscrizione, accesso e modifica del profilo.  Ad esempio, i criteri di iscrizione consentono di controllare i comportamenti configurando le impostazioni seguenti:
+Ogni richiesta inviata ad Azure AD B2C specifica un flusso utente, che è un criterio che controlla il comportamento dell'interazione dell'applicazione con Azure AD B2C. Nel portale di Azure AD B2C sono disponibili flussi utente predefiniti per le attività di identità più comuni, ad esempio iscrizione, accesso e modifica del profilo.  Ad esempio, i flussi utente di iscrizione consentono di controllare i comportamenti configurando le impostazioni seguenti:
 
 - Account di social networking usati dal cliente per l'iscrizione all'applicazione
 - Dati raccolti dal cliente, ad esempio il nome o il codice postale

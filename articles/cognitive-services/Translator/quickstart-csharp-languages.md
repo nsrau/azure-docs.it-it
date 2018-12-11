@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere le lingue supportate, C# - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere un elenco delle lingue supportate, C# - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: cc5d9efd017ec2045cc94bbad98e26e8b95e071d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 54896e96658286297d90f488bd02f11da505ec50
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334687"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889090"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-c"></a>Guida introduttiva: Ottenere le lingue supportate con l'API REST Traduzione testuale (C#)
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate con C#
 
 In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
 
@@ -28,7 +28,7 @@ Per questa guida introduttiva è necessario avere un [account di Servizi cogniti
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Pacchetto NuGet di Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
-* Una chiave di sottoscrizione di Azure per il servizio Voce
+* Una chiave di sottoscrizione di Azure per Traduzione testuale
 
 ## <a name="create-a-net-core-project"></a>Creare un progetto .NET Core
 
@@ -136,7 +136,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando o nella sessione del terminale passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando (o nella sessione del terminale) passare alla directory del progetto ed eseguire:
 
 ```console
 dotnet run

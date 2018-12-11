@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277767"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844839"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione della password self-service di Azure AD dalla schermata di accesso
 
@@ -101,23 +101,29 @@ Quando gli utenti provano ad accedere, viene ora visualizzato un collegamento pe
 
 Gli utenti troveranno indicazioni per l'uso di questa funzionalità in [Reimpostare la password per un account aziendale o dell'istituto di istruzione](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
-## <a name="common-issues"></a>Problemi comuni
+Il log di controllo di Azure AD includerà informazioni sull'indirizzo IP e sul tipo di client in cui si è verificata la reimpostazione della password.
+
+![Reimpostazione della password nella schermata di accesso di esempio nel log di controllo di Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## <a name="limitations"></a>Limitazioni
 
 Durante il test di questa funzionalità con Hyper-V, il collegamento "Reimposta password" non viene visualizzato.
 
 * Passare alla macchina virtuale usata per il test e fare clic su **Visualizza**, quindi deselezionare **Sessione avanzata**.
 
-Durante il test di questa funzionalità con Desktop remoto, il collegamento "Reimposta password" non viene visualizzato.
+Quando si esegue il test di questa funzionalità con Desktop remoto o una sessione avanzata di macchina virtuale, il collegamento "Reimposta password" non viene visualizzato.
 
 * La reimpostazione della password non è attualmente supportata da Desktop remoto.
 
-Se la schermata di blocco di Windows è stata disabilitata tramite una chiave del Registro di sistema o Criteri di gruppo, l'opzione **Reimposta password** non è disponibile.
-
 Se i criteri richiedono la combinazione Ctrl + Alt + Canc o se le notifiche della schermata di blocco sono disattivate **Reimposta password** non funziona.
 
-Il log di controllo di Azure AD includerà informazioni sull'indirizzo IP e sul tipo di client in cui si è verificata la reimpostazione della password.
+È noto che le impostazioni di criteri seguenti interferiscono con la capacità di reimpostare le password
 
-![Reimpostazione della password nella schermata di accesso di esempio nel log di controllo di Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+   * HideFastUserSwitching è impostato su 1, ovvero è abilitato
+   * DontDisplayLastUserName è impostato su 1, ovvero è abilitato
+   * NoLockScreen è impostato su 1, ovvero è abilitato
+   * EnableLostMode è impostato sul dispositivo
+   * Explorer.exe è sostituito con una shell personalizzata
 
 Se i computer Windows 10 sono protetti da un server proxy o da un firewall, deve essere consentito il traffico HTTPS (443) verso passwordreset.microsoftonline.com e ajax.aspnetcdn.com.
 

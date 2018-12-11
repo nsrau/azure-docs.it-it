@@ -7,20 +7,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 68c8c3767ff3a3d2873c1ff50928ab8d2cada4b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 9d8c1296fc811d97dc9e7e66ad9bd9fdc79d66f9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263745"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634337"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gestire i livelli di coerenza in Azure Cosmos DB
 
-Questo articolo illustra i diversi modi per impostare la coerenza predefinita, impostare una coerenza diversa nel client, gestire manualmente i token di sessione e monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS).
+Questo articolo illustra come gestire i livelli di coerenza in Azure Cosmos DB. Si apprenderà come configurare la coerenza predefinita, sostituire la coerenza predefinita, gestire manualmente i token di sessione e monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS).
 
 ## <a name="configure-the-default-consistency-level"></a>Configurare il livello di coerenza predefinito
 
-Il livello di coerenza predefinito è il livello di coerenza che i client useranno per impostazione predefinita. È possibile specificare un livello diverso nei singoli client.
+Il livello di coerenza predefinito è il livello di coerenza che i client usano per impostazione predefinita. I client possono eseguirne l'override.
 
 ### <a name="cli"></a>CLI
 
@@ -34,7 +34,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-In questo esempio viene creato un nuovo account Cosmos DB con multimaster abilitato nelle aree Stati Uniti orientali e Stati Uniti occidentali, che imposta il criterio di coerenza predefinito come Sessione.
+Questo esempio crea un nuovo account Azure Cosmos DB con il supporto multimaster abilitato nelle aree Stati Uniti orientali e Stati Uniti occidentali. Il criterio di coerenza predefinito è impostato come Sessione.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -60,13 +60,13 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a name="portal"></a>Portale
 
-Per visualizzare o modificare il livello di coerenza predefinito, accedere al portale di Azure. Individuare l'account Cosmos DB e aprire il riquadro **Coerenza predefinita**. In questo riquadro scegliere il livello di coerenza desiderato come nuovo valore predefinito e fare clic su salva.
+Per visualizzare o modificare il livello di coerenza predefinito, accedere al portale di Azure. Individuare l'account Azure Cosmos DB e aprire il riquadro **Coerenza predefinita**. Selezionare il livello di coerenza desiderato come il nuovo valore predefinito e quindi selezionare **Salva**.
 
-![Immagine del menu relativo alla coerenza nel portale di Azure](./media/how-to-manage-consistency/consistency-settings.png)
+![Menu relativo alla coerenza nel portale di Azure](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>Sostituire il livello di coerenza predefinito
 
-Nei client è possibile impostare un livello di coerenza diverso dall'impostazione predefinita del servizio. L'impostazione può applicarsi all'intero client o alle singole richieste.
+Nei client è possibile impostare un livello di coerenza diverso dall'impostazione predefinita del servizio. L'impostazione può essere applicata all'intero client o alle singole richieste.
 
 ### <a id="override-default-consistency-dotnet"></a>.NET SDK
 
@@ -131,7 +131,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="utilize-session-tokens"></a>Utilizzare i token di sessione
 
-Se si desidera gestire manualmente i token di sessione, è possibile ottenerli dalle risposte e impostarli per ogni richiesta. Se non si ha necessità di gestire manualmente i token di sessione, non è necessario usare gli esempi seguenti. Se non si imposta il token di sessione manualmente, l'SDK terrà automaticamente traccia dei token di sessione e userà il token più recente.
+Per gestire i token di sessione manualmente, ottenere il token di sessione dalla risposta e impostarli per ogni richiesta. Se non si ha necessità di gestire manualmente i token di sessione, non è necessario usare questi esempi. L'SDK tiene traccia dei token di sessione automaticamente. Se non si imposta il token di sessione manualmente, per impostazione predefinita l'SDK usa il token di sessione più recente.
 
 ### <a id="utilize-session-tokens-dotnet"></a>.NET SDK
 
@@ -208,15 +208,15 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS)
 
-Per visualizzare la metrica PBS, passare all'account Cosmos DB nel portale di Azure e quindi aprire il riquadro **Metriche**. In questo riquadro scegliere la scheda **Coerenza** ed esaminare il grafico denominato "**Probabilità di letture con coerenza assoluta in base al carico di lavoro (vedere PBS)**".
+Per visualizzare la metrica PBS, passare all'account Azure Cosmos DB nel portale di Azure. Aprire il riquadro **Metriche** e selezionare la scheda **Coerenza**. Esaminare il grafico denominato **Probabilità di letture con coerenza assoluta in base al carico di lavoro (vedere PBS)**.
 
-![Immagine del grafico PBS nel portale di Azure](./media/how-to-manage-consistency/pbs-metric.png)
+![Grafico PBS nel portale di Azure](./media/how-to-manage-consistency/pbs-metric.png)
 
-Per visualizzare questa metrica, usare il menu delle metriche di Cosmos DB. Non viene visualizzata nell'esperienza delle metriche di Monitoraggio di Azure.
+Per visualizzare questa metrica, usare il menu delle metriche di Azure Cosmos DB. Non viene visualizzata nell'esperienza delle metriche di Monitoraggio di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla gestione dei conflitti di dati o per passare al concetto chiave successivo di Cosmos DB, vedere la documentazione seguente:
+Scoprire di più su come gestire i conflitti di dati o passare al concetto chiave successivo di Azure Cosmos DB. Vedere gli articoli seguenti:
 
 * [Gestire i conflitti tra le aree](how-to-manage-conflicts.md)
 * [Partizionamento e distribuzione dei dati](partition-data.md)

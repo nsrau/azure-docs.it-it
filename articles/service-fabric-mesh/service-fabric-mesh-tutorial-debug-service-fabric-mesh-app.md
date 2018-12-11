@@ -12,21 +12,21 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997013"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887509"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Esercitazione: eseguire il debug di un'applicazione Azure Service Fabric Mesh in esecuzione nel cluster di sviluppo locale
 
 Questa esercitazione è la seconda parte di una serie e illustra come compilare ed eseguire il debug di un'applicazione Azure Service Fabric Mesh nel cluster di sviluppo locale.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione si apprenderà:
 
 > [!div class="checklist"]
 > * Cosa accade quando si crea un'applicazione Azure Service Fabric Mesh
@@ -74,9 +74,11 @@ Premere **F5** per compilare ed eseguire il servizio in locale. Durante l'esecuz
 
 Quando la distribuzione locale è completata e l'app è in esecuzione in Visual Studio, viene aperta una finestra del browser con una pagina Web di esempio predefinita.
 
-**Suggerimenti per il debug**
+## <a name="debugging-tips"></a>Suggerimenti per il debug
 
-Attualmente si verifica un problema per cui la chiamata a `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` provoca un errore di connessione al servizio. Questa situazione può verificarsi ogni volta che l'indirizzo IP dell'host cambia. Per risolvere il problema:
+Per rendere molto più rapida la prima esecuzione del debug (F5), seguire le istruzioni in [Ottimizzare le prestazioni di Visual Studio](service-fabric-mesh-howto-optimize-vs.md).
+
+Attualmente si verifica un problema a causa del quale la chiamata a `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` provoca un errore di connessione al servizio. Questa situazione può verificarsi ogni volta che l'indirizzo IP dell'host cambia. Per risolvere il problema:
 
 1. Rimuovere l'app dal cluster locale (in Visual Studio **Compila** > **Pulisci soluzione**).
 2. Da Local Cluster Manager (Gestione cluster locale) di Service Fabric selezionare **Stop Local Cluster** (Arresta cluster locale) e quindi **Start Local Cluster** (Avvia cluster locale).
@@ -96,7 +98,7 @@ Per il debug di un'applicazione Service Fabric Mesh in Visual Studio viene usato
 3. Tornare al browser e aggiornare la pagina. È stato raggiunto il punto di interruzione nel metodo `OnGet()` del front-end Web. È possibile esaminare la variabile `backendUrl` per conoscere la combinazione delle variabili di ambiente definite nel file **service.yaml** nell'URL usato per contattare il servizio back-end.
 4. Eseguire l'istruzione/routine (F10) della chiamata `client.GetAsync(backendUrl).GetAwaiter().GetResult())` per raggiungere il punto di interruzione `Get()` del controller. In questo metodo è possibile scoprire in che modo l'elenco degli elementi attività viene recuperato dall'elenco in memoria.
 5. Al termine, premere **MAIUSC+F5** per arrestare il debug del progetto in Visual Studio.
- 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa parte dell'esercitazione si è appreso:

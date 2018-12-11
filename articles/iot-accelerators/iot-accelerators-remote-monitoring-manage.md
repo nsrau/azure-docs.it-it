@@ -1,35 +1,32 @@
 ---
-title: 'Esercitazione: Gestire i dispositivi in una soluzione di monitoraggio remoto basata su Azure | Microsoft Docs'
-description: Questa esercitazione mostra come gestire i dispositivi connessi all'acceleratore della soluzione di monitoraggio remoto.
+title: 'Esercitazione: Configurare i dispositivi in una soluzione di monitoraggio remoto basata su Azure | Microsoft Docs'
+description: Questa esercitazione mostra come configurare i dispositivi connessi all'acceleratore di soluzione Monitoraggio remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b8352b062efdb49df01834bd3c2a5e1393e11a44
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821064"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679155"
 ---
-# <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Esercitazione: configurare e gestire i dispositivi connessi alla soluzione di monitoraggio
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Esercitazione: Configurare i dispositivi connessi alla soluzione di monitoraggio
 
-In questa esercitazione si usa l'acceleratore della soluzione di monitoraggio remoto per configurare e gestire i dispositivi IoT connessi. Aggiungere un nuovo dispositivo all'acceleratore della soluzione, configurare il dispositivo e aggiornare il firmware del dispositivo.
+In questa esercitazione si usa l'acceleratore della soluzione di monitoraggio remoto per configurare e gestire i dispositivi IoT connessi. Aggiungere un nuovo dispositivo all'acceleratore di soluzione e configurare il dispositivo.
 
-Contoso ha ordinato nuovi macchinari per espandere una delle sue strutture. Mentre si attende la consegna dei nuovi macchinari, si vuole eseguire una simulazione per verificare il comportamento della soluzione. Per eseguire la simulazione, si aggiunge un nuovo dispositivo motore simulato all'acceleratore della soluzione di monitoraggio remoto e si verifica che questo dispositivo simulato risponda correttamente alle azioni e agli aggiornamenti della configurazione.
-
-Per offrire una modalità estendibile di configurazione e gestione dei dispositivi, l'acceleratore della soluzione di monitoraggio remoto usa le funzionalità dell'hub IoT come i [processi](../iot-hub/iot-hub-devguide-jobs.md) e i [metodi diretti](../iot-hub/iot-hub-devguide-direct-methods.md). Mentre questa esercitazione usa dispositivi simulati, uno sviluppatore di dispositivi può implementare metodi diretti su un [dispositivo fisico collegato all'acceleratore della soluzione di monitoraggio remoto](iot-accelerators-connecting-devices.md).
+Contoso ha ordinato nuovi macchinari per espandere una delle sue strutture. Mentre si attende la consegna dei nuovi macchinari, si vuole eseguire una simulazione per verificare il comportamento della soluzione. Per eseguire la simulazione, si aggiunge un nuovo dispositivo motore simulato all'acceleratore di soluzione Monitoraggio remoto e si verifica che questo dispositivo simulato risponda correttamente agli aggiornamenti della configurazione. Mentre questa esercitazione usa dispositivi simulati, uno sviluppatore di dispositivi può implementare metodi diretti su un [dispositivo fisico collegato all'acceleratore della soluzione di monitoraggio remoto](iot-accelerators-connecting-devices.md).
 
 In questa esercitazione:
 
 >[!div class="checklist"]
 > * Effettuare il provisioning di un dispositivo simulato.
 > * Sottoporre a test un dispositivo simulato.
-> * Aggiornare il firmware di un dispositivo.
 > * Riconfigurare un dispositivo.
 > * Organizzare i propri dispositivi.
 
@@ -60,24 +57,6 @@ In **Dettagli dispositivo** verificare che il nuovo dispositivo invii dati di te
 Il pannello **Dettagli dispositivo** mostra altre informazioni sul dispositivo, ad esempio valori dei tag, metodi supportati e proprietà segnalate dal dispositivo.
 
 Per visualizzare i dati di diagnostica dettagliati, scorrere verso il basso nel pannello **Dettagli dispositivo** per visualizzare la sezione **Diagnostica**.
-
-## <a name="act-on-a-device"></a>Eseguire operazioni su un dispositivo
-
-Per verificare che il dispositivo motore simulato risponda correttamente alle azioni avviate dal dashboard, eseguire il metodo **FirmwareUpdate**. Per agire su un dispositivo eseguendo un metodo, selezionare il dispositivo nell'elenco dei dispositivi, quindi fare clic su **Processi**. È possibile selezionare più di un dispositivo se si desidera agire su più dispositivi. Nel pannello **Processi** selezionare **Metodi**. Il modello di dispositivo **Motore** specifica tre metodi: **FirmwareUpdate**, **FillTank** ed **EmptyTank**:
-
-[![Metodi per il motore](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
-
-Scegliere **FirmwareUpdate**, impostare il nome del processo su **UpdateEngineFirmware**, impostare la versione del firmware su **2.0.0**, impostare l'URI del firmware su **http://contoso.com/engine.bin**, quindi fare clic su **Applica**:
-
-[![Pianificare il metodo di aggiornamento del firmware](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-expanded.png#lightbox)
-
-Per tenere traccia dello stato del processo, fare clic su **View job status** (Visualizza stato del processo):
-
-[![Monitorare il processo di aggiornamento del firmware programmato](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-expanded.png#lightbox)
-
-Dopo il completamento del processo, passare alla pagina **Dispositivi**. Viene visualizzata la nuova versione del firmware per il dispositivo motore.
-
-Se si selezionano più dispositivi di tipi diversi nella pagina **Dispositivi**, è comunque possibile creare un processo per eseguire un metodo su tali dispositivi multipli. Il pannello **Processi** mostra solo i metodi comuni a tutti i dispositivi selezionati.
 
 ## <a name="reconfigure-a-device"></a>Riconfigurare un dispositivo
 

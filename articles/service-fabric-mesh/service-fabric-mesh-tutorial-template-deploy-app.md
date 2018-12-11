@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cca18b2aa5cb6f27df45e4b63e55251bea058625
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a9ae18c7fbf3b0f663396099f065c76969206f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968850"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890382"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Esercitazione: Distribuire un'applicazione in Service Fabric Mesh usando un modello
 
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione:
 
 * [Installare Docker](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-docker)
 
-* [Installare l'interfaccia della riga di comando di Azure e l'interfaccia della riga di comando di Service Fabric Mesh in locale](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Installare l'interfaccia della riga di comando di Azure e l'interfaccia della riga di comando di Service Fabric Mesh in locale](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
 
@@ -205,7 +205,7 @@ Un'applicazione Service Fabric Mesh è una risorsa di Azure che è possibile dis
 Questa esercitazione usa l'applicazione di esempio To Do List come esempio.  Invece di creare nuovi file per il modello e i parametri, scaricare il file del [modello di distribuzione mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e il file dei [parametri mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>Parametri
-Quando sono presenti valori nel modello che si prevede di dover modificare dopo la distribuzione dell'applicazione oppure si vuole avere la possibilità di modificare valori per ogni distribuzione (se si prevede di riutilizzare questo modello per altre distribuzioni), la procedura consigliata consiste nel parametrizzare i valori. Il modo migliore per eseguire questa operazione consiste nel creare una sezione "parameters" all'inizio del modello di distribuzione, in cui è possibile specificare i nomi dei parametri e le proprietà, a cui si farà poi riferimento in seguito nel modello di distribuzione. Ogni definizione di parametro include *type*, *defaultValue* e una sezione *metadata* facoltativa con un valore *description*.
+Quando sono presenti valori nel modello che si prevede di dover cambiare una volta che l'applicazione viene distribuita, oppure si vuole avere la possibilità di cambiare in base alla distribuzione (se si prevede di riusare questo modello per altre distribuzioni), la procedura consigliata consiste nel parametrizzare i valori. Il modo migliore per eseguire questa operazione consiste nel creare una sezione "parameters" all'inizio del modello di distribuzione, in cui è possibile specificare i nomi dei parametri e le proprietà, a cui si farà poi riferimento in seguito nel modello di distribuzione. Ogni definizione di parametro include *type*, *defaultValue* e una sezione *metadata* facoltativa con un valore *description*.
 
 La sezione dei parametri è definita all'inizio del modello di distribuzione, subito prima della sezione *resources*:
 
@@ -359,9 +359,27 @@ Per distribuire l'applicazione, eseguire il comando seguente:
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-In pochi minuti dovrebbero essere visualizzati i risultati seguenti:
+Questo comando genera un frammento di codice JSON, visualizzato di seguito. Nella sezione ```outputs``` dell'output JSON copiare la proprietà ```publicIPAddress```.
 
-`todolistappNetwork has been deployed successfully on todolistappNetwork with public ip address <IP Address>`
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+Queste informazioni provengono dalla sezione ```outputs``` del modello ARM. Come mostrato di seguito, questa sezione fa riferimento alla risorsa Gateway per recuperare l'indirizzo IP pubblico. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## <a name="open-the-application"></a>Aprire l'applicazione
 

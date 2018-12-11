@@ -1,9 +1,8 @@
 ---
-title: Creare un'applicazione Node.js Azure Cosmos DB tramite l'API Gremlin | Microsoft Docs
+title: Creare un'applicazione Node.js Azure Cosmos DB tramite l'API Gremlin
 description: Presenta un esempio di codice Node.js che permette di connettersi ad Azure Cosmos DB ed eseguire query sul servizio
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 5f7e2a30ee4ea069e8c08187312f09e33a5a921a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 0f2bcc34a1f82c33c8f640dce8eecccf312651fb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700033"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844211"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB: Creare un'applicazione Node.js tramite l'API Gremlin
 
@@ -24,7 +23,7 @@ ms.locfileid: "43700033"
 > * [Console Gremlin](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Node.JS](create-graph-nodejs.md)
+> * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  

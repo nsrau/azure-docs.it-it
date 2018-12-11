@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 3/02/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 0f2fa2bb8e20ce4cc187fe6f061d2d8c251c4673
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: cce76a0e97e039ec6e6c3a976d1fc7caca7fde73
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945213"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834435"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Esercitazione: abilitare l'autenticazione a un'app a pagina singola con account che usano Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Registrare un'applicazione a singola pagina di esempio nella directory di Azure AD B2C.
-> * Creare criteri per iscrizione, accesso, modifica del profilo e reimpostazione delle password.
+> * Creare flussi utente per iscrizione, accesso, modifica del profilo e reimpostazione delle password.
 > * Configurare l'applicazione di esempio per l'uso della directory di Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -69,72 +69,95 @@ Le app registrate vengono visualizzate nell'elenco di applicazioni per la direct
 
 Annotare l'**ID client applicazione**. L'ID identifica l'app in modo univoco ed è necessario per configurare l'app più avanti nell'esercitazione.
 
-## <a name="create-policies"></a>Creare criteri
+## <a name="create-user-flows"></a>Creare i flussi utente
 
-Un criterio di Azure AD B2C definisce i flussi di lavoro degli utenti. Ad esempio accesso, iscrizione, modifica delle password e modifica dei profili sono flussi di lavoro comuni.
+Un flusso utente di Azure AD B2C definisce l'esperienza utente per un'attività di identità. Ad esempio accesso, iscrizione, modifica delle password e modifica dei profili sono flussi utente comuni.
 
-### <a name="create-a-sign-up-or-sign-in-policy"></a>Creare un criterio di iscrizione o accesso
+### <a name="create-a-sign-up-or-sign-in-user-flow"></a>Creare un flusso utente di iscrizione o accesso
 
-Per configurare gli utenti per l'iscrizione e l'accesso all'app Web, creare **criteri di iscrizione o accesso**.
+Per configurare gli utenti per l'iscrizione e l'accesso all'app Web, creare un **flusso utente di iscrizione o accesso**.
 
-1. Dalla pagina del portale di Azure AD B2C selezionare **Criteri di iscrizione o di accesso** e fare clic su **Aggiungi**.
+1. Dalla pagina del portale di Azure AD B2C selezionare **Flussi utente** e fare clic su **Nuovo flusso utente**.
+2. Nella scheda **Consigliati** fare clic su **Iscrizione e accesso**.
 
-    Per configurare i criteri, usare le impostazioni seguenti:
+    Per configurare il flusso utente, usare le impostazioni seguenti:
 
-    ![Aggiungere criteri di iscrizione o di accesso](media/active-directory-b2c-tutorials-web-app/add-susi-policy.png)
+    ![Aggiungere un flusso utente di iscrizione o accesso](media/active-directory-b2c-tutorials-spa/add-susi-user-flow.png)
 
     | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Nome** | SiUpIn | Immettere un **nome** per il criterio. Il nome del criterio ha il prefisso **B2C_1_**. Usare il nome completo **B2C_1_SiUpIn** del criterio nel codice di esempio. | 
+    | **Nome** | SiUpIn | Immettere un **nome** per il flusso utente. Il nome del flusso utente ha il prefisso **B2C_1_**. Usare il nome completo **B2C_1_SiUpIn** del flusso utente nel codice di esempio. | 
     | **Provider di identità** | Iscrizione tramite posta elettronica | Provider di identità usato per identificare l'utente in modo univoco. |
-    | **Attributi di iscrizione** | Nome visualizzato e Codice postale | Selezionare gli attributi che devono essere raccolti dall'utente durante l'iscrizione. |
-    | **Attestazioni dell'applicazione** | Nome visualizzato, Codice postale, Nuovo utente, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token). |
 
-2. Fare clic su **Crea** per creare i criteri. 
+3. In **Attributi e attestazioni utente** fare clic su **Mostra più** e selezionare le impostazioni seguenti:
 
-### <a name="create-a-profile-editing-policy"></a>Creare i criteri di modifica del profilo
+    ![Aggiungere un flusso utente di iscrizione o accesso](media/active-directory-b2c-tutorials-spa/add-attributes-and-claims.png)
 
-Per consentire agli utenti di reimpostare autonomamente le informazioni del profilo, creare **criteri di modifica del profilo**.
+    | Colonna      | Valore consigliato  | DESCRIZIONE                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Raccogli l'attributo** | Nome visualizzato e Codice postale | Selezionare gli attributi che devono essere raccolti dall'utente durante l'iscrizione. |
+    | **Restituisci l'attestazione** | Nome visualizzato, Codice postale, Nuovo utente, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token). |
 
-1. Dalla pagina del portale di Azure AD B2C selezionare **Criteri di modifica del profilo** e fare clic su **Aggiungi**.
+4. Fare clic su **OK**.
+5. Fare clic su **Crea** per creare il flusso utente. 
 
-    Per configurare i criteri, usare le impostazioni seguenti:
+### <a name="create-a-profile-editing-user-flow"></a>Creare un flusso utente di modifica del profilo
+
+Per consentire agli utenti di reimpostare autonomamente le informazioni del profilo, creare un **flusso utente di modifica del profilo**.
+
+1. Dalla pagina del portale di Azure AD B2C selezionare **Flussi utente** e fare clic su **Nuovo flusso utente**.
+2. Nella scheda **Consigliati** fare clic su **Modifica del profilo**.
+
+    Per configurare il flusso utente, usare le impostazioni seguenti:
 
     | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Nome** | SiPe | Immettere un **nome** per il criterio. Il nome del criterio ha il prefisso **B2C_1_**. Usare il nome completo **B2C_1_SiPe** del criterio nel codice di esempio. | 
+    | **Nome** | SiPe | Immettere un **nome** per il flusso utente. Il nome del flusso utente ha il prefisso **B2C_1_**. Usare il nome completo **B2C_1_SiPe** del flusso utente nel codice di esempio. | 
     | **Provider di identità** | Accesso all'account locale | Provider di identità usato per identificare l'utente in modo univoco. |
-    | **Attributi del profilo** | Nome visualizzato e Codice postale | Selezionare gli attributi che un utente può modificare durante la modifica del profilo. |
-    | **Attestazioni dell'applicazione** | Nome visualizzato, Codice postale, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token) dopo aver completato la modifica del profilo. |
 
-2. Fare clic su **Crea** per creare i criteri. 
+3.  In **Attributi utente** fare clic su **Mostra più** e selezionare le impostazioni seguenti:
 
-### <a name="create-a-password-reset-policy"></a>Creare i criteri di reimpostazione delle password
+    | Colonna      | Valore consigliato  | DESCRIZIONE                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Raccogli l'attributo** | Nome visualizzato e Codice postale | Selezionare gli attributi che un utente può modificare durante la modifica del profilo. |
+    | **Restituisci l'attestazione** | Nome visualizzato, Codice postale, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token) dopo aver completato la modifica del profilo. |
 
-Per abilitare la reimpostazione delle password nell'applicazione, è necessario creare **criteri di reimpostazione delle password**. Questi criteri descrivono l'esperienza utente durante la procedura di reimpostazione delle password e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
+4. Fare clic su **OK**.
+5. Fare clic su **Crea** per creare il flusso utente. 
 
-1. Dalla pagina del portale di Azure AD B2C selezionare **Criteri di reimpostazione password** e fare clic su **Aggiungi**.
+### <a name="create-a-password-reset-user-flow"></a>Creare un flusso utente di reimpostazione delle password
 
-    Per configurare i criteri, usare le impostazioni seguenti.
+Per abilitare la reimpostazione delle password nell'applicazione, è necessario creare un **flusso utente di reimpostazione delle password**. Questo flusso utente descrive l'esperienza utente durante la procedura di reimpostazione delle password e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
+
+1. Dalla pagina del portale di Azure AD B2C selezionare **Flussi utente** e fare clic su **Nuovo flusso utente**.
+2. Nella scheda **Consigliati** fare clic su **Reimpostazione password**.
+
+    Per configurare il flusso utente, usare le impostazioni seguenti.
 
     | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Nome** | SSPR | Immettere un **nome** per il criterio. Il nome del criterio ha il prefisso **B2C_1_**. Usare il nome completo **B2C_1_SSPR** del criterio nel codice di esempio. | 
+    | **Nome** | SSPR | Immettere un **nome** per il flusso utente. Il nome del flusso utente ha il prefisso **B2C_1_**. Usare il nome completo **B2C_1_SSPR** del flusso utente nel codice di esempio. | 
     | **Provider di identità** | Reimpostare la password usando l'indirizzo e-mail | Provider di identità usato per identificare l'utente in modo univoco. |
-    | **Attestazioni dell'applicazione** | ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token) dopo aver completato la reimpostazione delle password. |
 
-2. Fare clic su **Crea** per creare i criteri. 
+3. In **Attestazioni dell'applicazione** fare clic su **Mostra più** e selezionare l'impostazione seguente:
+
+    | Colonna      | Valore consigliato  | DESCRIZIONE                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Restituisci l'attestazione** | ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token) dopo aver completato la reimpostazione delle password. |
+
+4. Fare clic su **OK**.
+5. Fare clic su **Crea** per creare il flusso utente. 
 
 ## <a name="update-single-page-app-code"></a>Aggiornare il codice dell'app a pagina singola
 
-Ora che l'app è registrata e sono stati creati i criteri, è necessario configurare l'app per l'uso della directory di Azure AD B2C. In questa esercitazione si configura un'app JavaScript a pagina singola di esempio che è possibile scaricare da GitHub. 
+Ora che l'app è registrata e sono stati creati i flussi utente, è necessario configurare l'app per l'uso della directory di Azure AD B2C. In questa esercitazione si configura un'app JavaScript a pagina singola di esempio che è possibile scaricare da GitHub. 
 
 [Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clonare l'app Web di esempio da GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-L'app di esempio dimostra come un'app a pagina singola può usare Azure Active Directory B2C per l'iscrizione e l'accesso degli utenti e per chiamare un'API Web protetta. È necessario modificare l'app per l'uso della registrazione dell'app nella directory e la configurazione dei criteri creati. 
+L'app di esempio dimostra come un'app a pagina singola può usare Azure Active Directory B2C per l'iscrizione e l'accesso degli utenti e per chiamare un'API Web protetta. È necessario modificare l'app per l'uso della registrazione dell'app nella directory e la configurazione dei flussi utente creati. 
 
 Per modificare le impostazioni dell'app:
 
@@ -151,7 +174,7 @@ Per modificare le impostazioni dell'app:
     };
     ```
 
-    Il nome di criterio usato in questa esercitazione è **B2C_1_SiUpIn**. Se si usa un nome di criterio diverso, inserire il nome usato nel valore `authority`.
+    Il nome di flusso utente usato in questa esercitazione è **B2C_1_SiUpIn**. Se si usa un nome di flusso utente diverso, inserire il nome usato nel valore `authority`.
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 
@@ -175,11 +198,11 @@ L'app di esempio supporta criteri di iscrizione, accesso, modifica del profilo e
 
 ### <a name="sign-up-using-an-email-address"></a>Iscriversi usando un indirizzo di posta elettronica
 
-1. Fare clic su **Accedi** per iscriversi come utente dell'app a pagina singola. Verrà usato il criterio **B2C_1_SiUpIn** definito in precedenza.
+1. Fare clic su **Accedi** per iscriversi come utente dell'app a pagina singola. Verrà usato il flusso utente **B2C_1_SiUpIn** definito in precedenza.
 
 2. Azure AD B2C presenta una pagina di accesso con un collegamento di iscrizione. Non avendo ancora un account, fare clic sul collegamento **Iscriversi adesso**. 
 
-3. Il flusso di lavoro per l'iscrizione presenta una pagina per raccogliere e verificare l'identità dell'utente usando un indirizzo e-mail. Il flusso di lavoro per l'iscrizione raccoglie anche la password dell'utente e gli attributi richiesti definiti nei criteri.
+3. Il flusso di lavoro per l'iscrizione presenta una pagina per raccogliere e verificare l'identità dell'utente usando un indirizzo e-mail. Il flusso di lavoro per l'iscrizione raccoglie anche la password dell'utente e gli attributi richiesti definiti nel flusso utente.
 
     Usare un indirizzo e-mail valido ed eseguire la convalida usando un codice di verifica. Impostare una password. Immettere i valori per gli attributi richiesti. 
 
@@ -198,7 +221,7 @@ Ora l'utente può usare il proprio indirizzo e-mail per accedere e usare l'app a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come creare una directory di Azure AD B2C, creare criteri e aggiornare l'app a singola pagina di esempio per l'uso della directory di Azure AD B2C. Proseguire con l'esercitazione successiva per informazioni su come registrare, configurare e chiamare un'API Web protetta da un'app desktop.
+In questa esercitazione si è appreso come creare una directory di Azure AD B2C, creare flussi utente e aggiornare l'app a singola pagina di esempio per l'uso della directory di Azure AD B2C. Proseguire con l'esercitazione successiva per informazioni su come registrare, configurare e chiamare un'API Web protetta da un'app desktop.
 
 > [!div class="nextstepaction"]
 > [Esempi di codice per Azure AD B2C](https://azure.microsoft.com/resources/samples/?service=active-directory-b2c&sort=0)

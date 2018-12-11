@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 0683516d16bf1501eee83901c5171811b8c0e44d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9fe8142c4fce45adaa3697023eab3ac9dbb55f37
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621548"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635663"
 ---
 # <a name="manage-database-accounts-in-azure-cosmos-db"></a>Gestire gli account di database in Azure Cosmos DB
 
-Questo articolo descrive come gestire l'account Azure Cosmos DB per configurare il multihoming, aggiungere/rimuovere un'area, configurare più aree di scrittura e configurare le priorità di failover. 
+Questo articolo descrive come gestire gli account Azure Cosmos DB. Si apprenderà come configurare il multihoming, aggiungere o rimuovere un'area, configurare più aree di scrittura e configurare le priorità di failover. 
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -36,21 +36,21 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 ### <a id="configure-clients-multi-homing-dotnet"></a>.NET SDK
 
 ```csharp
-// Create a new Connection Policy
+// Create a new connection policy.
 ConnectionPolicy policy = new ConnectionPolicy
     {
         // Note: These aren't required settings for multi-homing,
-        // just suggested defaults
+        // just suggested defaults.
         ConnectionMode = ConnectionMode.Direct,
         ConnectionProtocol = Protocol.Tcp,
         UseMultipleWriteLocations = true,
     };
-// Add regions to Preferred locations
-// The name of the location will match what you see in the portal/etc.
+// Add regions to preferred locations.
+// The name of the location will match what you see in the portal, etc.
 policy.PreferredLocations.Add("East US");
 policy.PreferredLocations.Add("North Europe");
 
-// Pass the Connection policy with the preferred locations on it to the client.
+// Pass the connection policy with the preferred locations on it to the client.
 DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.accountKey, policy);
 ```
 
@@ -79,11 +79,11 @@ DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connecti
 ### <a id="configure-clients-multi-homing-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
 ```javascript
-// Set up the connection policy with your preferred regions
+// Set up the connection policy with your preferred regions.
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
 connectionPolicy.PreferredLocations = ["West US", "Australia East"];
 
-// Pass that connection policy to the client
+// Pass that connection policy to the client.
 const client = new CosmosClient({
   endpoint: config.endpoint,
   auth: { masterKey: config.key },
@@ -106,15 +106,15 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 1. Passare all'account Azure Cosmos DB e aprire il menu **Replica i dati a livello globale**.
 
-2. Per aggiungere aree, selezionare una o più aree nella mappa facendo clic sugli esagoni vuoti con l'etichetta **"+"** corrispondenti all'area desiderata. È possibile aggiungere un'area anche selezionando l'opzione **+ Aggiungi area** e scegliendo un'area dal menu a discesa.
+2. Per aggiungere aree, selezionare gli esagoni sulla mappa con etichetta **+** corrispondenti all'area geografica desiderata. Per aggiungere un'area, selezionare l'opzione **+ Aggiungi area** e scegliere un'area dal menu a discesa.
 
-3. Per rimuovere aree, deselezionare una o più aree nella mappa facendo clic sugli esagoni blu con un segno di spunta oppure selezionare l'icona del cestino (🗑) accanto all'area sul lato destro.
+3. Per rimuovere aree, deselezionare una o più aree nella mappa selezionando gli esagoni blu con segni di spunta. In alternativa, selezionare l'icona del cestino (🗑) accanto all'area sul lato destro.
 
-4. Fare clic su Salva per salvare le modifiche.
+4. Selezionare **OK** per salvare le modifiche.
 
-   ![Menu Aggiungi/Rimuovi aree](./media/how-to-manage-database-account/add-region.png)
+   ![Aggiungere o rimuovere aree](./media/how-to-manage-database-account/add-region.png)
 
-In modalità di scrittura in una singola area non è possibile rimuovere l'area di scrittura. È necessario eseguire il failover in un'area diversa prima di eliminare l'area di scrittura corrente.
+In modalità di scrittura in una singola area non è possibile rimuovere l'area di scrittura. È necessario eseguire il failover in un'area diversa prima di poter eliminare l'area di scrittura corrente.
 
 In modalità di scrittura in più aree è possibile aggiungere o rimuovere qualsiasi area, purché resti almeno un'area.
 
@@ -147,7 +147,7 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 
 ### <a id="configure-multiple-write-regions-arm"></a>modello di Resource Manager
 
-Il codice JSON seguente rappresenta un modello di esempio di Resource Manager. Può essere usato per distribuire un account Azure Cosmos con un criterio di coerenza con decadimento ristretto, un intervallo di decadimento massimo di 5 secondi e un numero massimo di richieste non aggiornate tollerate uguale a 100. Per informazioni sul formato e sulla sintassi dei modelli di Resource Manager, vedere la documentazione di [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Il codice JSON seguente rappresenta un esempio di modello di Azure Resource Manager. È possibile usarlo per distribuire un account Azure Cosmos DB con un criterio di coerenza con decadimento ristretto. L'intervallo di decadimento massimo è impostato su 5 secondi. Il numero massimo di richieste non aggiornate tollerate è impostato su 100. Per informazioni sul formato e sulla sintassi dei modelli di Resource Manager, vedere [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ```json
 {
@@ -202,19 +202,19 @@ Il codice JSON seguente rappresenta un modello di esempio di Resource Manager. P
 ```
 
 
-## <a id="manual-failover"></a>Abilitare il failover manuale per l'account Azure Cosmos
+## <a id="manual-failover"></a>Abilitare il failover manuale per l'account Azure Cosmos DB
 
 ### <a id="enable-manual-failover-via-portal"></a>Portale di Azure
 
-1. Passare all'account Azure Cosmos e aprire il menu **"Replica i dati a livello globale"**.
+1. Passare all'account Azure Cosmos DB e aprire il menu **Replica i dati a livello globale**.
 
-2. Fare clic sul pulsante **Failover manuale** nella parte superiore del menu.
+2. Nella parte superiore del menu selezionare **Failover manuale**.
 
    ![Menu Replica i dati a livello globale](./media/how-to-manage-database-account/replicate-data-globally.png)
 
-3. Nel menu **Failover manuale** selezionare la nuova area di scrittura e selezionare la casella per confermare di aver compreso che questa opzione comporterà la modifica dell'area di scrittura.
+3. Nel menu **Failover manuale** selezionare la nuova area di scrittura. Selezionare la casella di controllo per indicare di aver compreso che questa opzione modifica l'area di scrittura.
 
-4. Fare clic su "OK" per attivare il failover.
+4. Per attivare il failover, selezionare **OK**.
 
    ![Menu del portale Failover manuale](./media/how-to-manage-database-account/manual-failover.png)
 
@@ -226,19 +226,19 @@ Il codice JSON seguente rappresenta un modello di esempio di Resource Manager. P
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
 ```
 
-## <a id="automatic-failover"></a>Abilitare il failover automatico per l'account Azure Cosmos
+## <a id="automatic-failover"></a>Abilitare il failover automatico per l'account Azure Cosmos DB
 
 ### <a id="enable-automatic-failover-via-portal"></a>Portale di Azure
 
-1. Dall'account Azure Cosmos aprire il riquadro "**Replica i dati a livello globale"**. 
+1. Dall'account Azure Cosmos DB aprire il riquadro **Replica i dati a livello globale**. 
 
-2. Fare clic sul pulsante **Failover automatico** nella parte superiore del riquadro.
+2. Nella parte superiore del riquadro fare clic sul pulsante **Failover automatico**.
 
    ![Menu Replica i dati a livello globale](./media/how-to-manage-database-account/replicate-data-globally.png)
 
-3. Nel riquadro **Failover automatico** assicurarsi che il **Abilita failover automatico** sia impostato su **SÌ**. 
+3. Nel riquadro **Failover automatico** assicurarsi che **Abilita failover automatico** sia impostato su **SÌ**. 
 
-4. Fare clic su salva nella parte inferiore del menu.
+4. Selezionare **Salva**.
 
    ![Menu del portale Failover automatico](./media/how-to-manage-database-account/automatic-failover.png)
 
@@ -257,21 +257,21 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
 ```
 
-## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Impostare le priorità di failover per l'account Azure Cosmos
+## <a name="set-failover-priorities-for-your-azure-cosmos-db-account"></a>Impostare le priorità di failover per l'account Azure Cosmos DB
 
 ### <a id="set-failover-priorities-via-portal"></a>Portale di Azure
 
-1. Dall'account Azure Cosmos aprire il riquadro "**Replica i dati a livello globale"**. 
+1. Dall'account Azure Cosmos DB aprire il riquadro **Replica i dati a livello globale**. 
 
-2. Fare clic sul pulsante **Failover automatico** nella parte superiore del riquadro.
+2. Nella parte superiore del riquadro fare clic sul pulsante **Failover automatico**.
 
    ![Menu Replica i dati a livello globale](./media/how-to-manage-database-account/replicate-data-globally.png)
 
-3. Nel riquadro **Failover automatico** assicurarsi che il **Abilita failover automatico** sia impostato su **SÌ**. 
+3. Nel riquadro **Failover automatico** assicurarsi che **Abilita failover automatico** sia impostato su **SÌ**. 
 
-4. È possibile modificare la priorità di failover facendo clic e trascinando le aree di lettura tramite i tre puntini a sinistra nella riga, visualizzati al passaggio del mouse. 
+4. Per modificare la priorità di failover, trascinare le aree di lettura tramite i tre puntini a sinistra nella riga, visualizzati al passaggio del mouse. 
 
-5. Fare clic su salva nella parte inferiore del menu.
+5. Selezionare **Salva**.
 
    ![Menu del portale Failover automatico](./media/how-to-manage-database-account/automatic-failover.png)
 
@@ -285,7 +285,7 @@ az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resour
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sulla gestione dei conflitti di dati e dei livelli di coerenza in Azure Cosmos DB, vedere la documentazione seguente:
+Informazioni su come gestire i conflitti di dati e i livelli di coerenza in Azure Cosmos DB. Vedere gli articoli seguenti:
 
 * [Gestire la coerenza](how-to-manage-consistency.md)
 * [Gestire i conflitti tra le aree](how-to-manage-conflicts.md)

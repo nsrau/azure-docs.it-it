@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963932"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887798"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta ad Azure Active Directory ibrido per domini gestiti
 
@@ -140,6 +140,8 @@ Se alcuni dei dispositivi aggiunti a un dominio sono dispositivi di livello infe
  
 - Configurare le impostazioni intranet locali per la registrazione dei dispositivi
 
+- Configurare l'accesso Single Sign-On facile (Seamless SSO)
+
 - Controllare i dispositivi Windows di livello inferiore 
 
 
@@ -166,6 +168,11 @@ Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello 
 - `https://autologon.microsoftazuread-sso.com`.
 
 È inoltre necessario abilitare **Consenti aggiornamenti barra di stato tramite script** nell'area Intranet locale dell'utente.
+
+
+### <a name="configure-seamless-sso"></a>Configurare l'accesso Seamless SSO
+
+Per completare correttamente l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore in un dominio gestito che usa Autenticazione pass-through o Sincronizzazione hash password come metodo di autenticazione cloud di Azure Active Directory, è anche necessario [configurare l'accesso Seamless SSO](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Controllare i dispositivi Windows di livello inferiore 

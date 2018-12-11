@@ -1,22 +1,19 @@
 ---
-title: Eseguire lo sviluppo in locale con l'emulatore di Azure Cosmos DB | Microsoft Docs
+title: Sviluppare in locale con l'emulatore di Azure Cosmos DB
 description: Usare l'emulatore di Azure Cosmos DB, è possibile sviluppare e testare gratuitamente l'applicazione in locale, senza creare una sottoscrizione di Azure.
 services: cosmos-db
 keywords: Emulatore di Azure Cosmos DB
 author: David-Noble-at-work
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: ce42d30b816599f7eaf90ce5a92164c6b85cfa36
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 7fca4adf8130a6a60e4a89edf129a73562289c5e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094174"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837495"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali
 
@@ -485,4 +482,4 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 In questa esercitazione si è appreso come usare l'emulatore locale per lo sviluppo locale gratuito. È ora possibile passare all'esercitazione successiva e apprendere come esportare i certificati SSL dell'emulatore. 
 
 > [!div class="nextstepaction"]
-> [Esportare i certificati dell'emulatore Azure Cosmos DB](local-emulator-export-ssl-certificates.md)
+> [Esportare i certificati dell'emulatore di Azure Cosmos DB](local-emulator-export-ssl-certificates.md)

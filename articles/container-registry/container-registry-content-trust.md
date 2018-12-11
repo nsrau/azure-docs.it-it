@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: 1f1e7ce41c00078c0181fc5f32c43b7e5885eef8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857670"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727342"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Attendibilità dei contenuti in Registro contenitori di Azure
 
@@ -77,7 +77,7 @@ I dettagli per la concessione del ruolo `AcrImageSigner` nel portale di Azure e 
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Passare al registro nel portale di Azure e quindi selezionare **Controllo di accesso (IAM)** > **Aggiungi**. In **Aggiungi autorizzazioni** selezionare `AcrImageSigner` in **Ruolo**, quindi in **Seleziona** selezionare uno o più utenti o entità servizio e quindi fare clic su **Salva**.
+Passare al registro nel portale di Azure e quindi selezionare **Controllo di accesso (IAM)** > **Aggiungi assegnazione di ruolo**. In **Aggiungi assegnazione di ruolo** selezionare `AcrImageSigner` in **Ruolo**, quindi in **Seleziona** selezionare uno o più utenti o entità servizio e quindi fare clic su **Salva**.
 
 In questo esempio sono state assegnate due entità al ruolo `AcrImageSigner`: un'entità servizio denominata "service-principal" e un utente denominato "Azure User".
 

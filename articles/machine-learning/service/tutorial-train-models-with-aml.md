@@ -8,19 +8,19 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 11/21/2018
-ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496218"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879486"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Esercitazione n. 1: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning
 
-In questa esercitazione si eseguirà il training di un modello di Machine Learning sia in locale che su risorse di calcolo remote. Si userà il flusso di lavoro di training e distribuzione per il servizio Azure Machine Learning (anteprima) in un notebook Jupyter per Python.  È quindi possibile usare il notebook come modello per eseguire il training di un modello di Machine Learning con i propri dati di training. Questa esercitazione è la **prima di una serie in due parti**.  
+In questa esercitazione si eseguirà il training di un modello di Machine Learning sia in locale che su risorse di calcolo remote. Si userà il flusso di lavoro per il training e la distribuzione per il servizio Azure Machine Learning in un notebook di Jupyter di Python.  È quindi possibile usare il notebook come modello per eseguire il training di un modello di Machine Learning con i propri dati di training. Questa esercitazione è la **prima di una serie in due parti**.  
 
-Questa esercitazione esegue il training di una semplice regressione logistica usando il set di dati [MNIST](http://yann.lecun.com/exdb/mnist/) e [scikit-learn](http://scikit-learn.org) con il servizio Azure Machine Learning.  MNIST è un set di dati noto costituito da 70.000 immagini in scala di grigi. Ogni immagine è una cifra scritta a mano di 28x28 pixel, che rappresenta un numero compreso tra 0 e 9. L'obiettivo è creare un classificatore multiclasse per identificare la cifra rappresentata da una determinata immagine. 
+Questa esercitazione esegue il training di una semplice regressione logistica usando il set di dati [MNIST](https://yann.lecun.com/exdb/mnist/) e [scikit-learn](https://scikit-learn.org) con il servizio Azure Machine Learning.  MNIST è un set di dati noto costituito da 70.000 immagini in scala di grigi. Ogni immagine è una cifra scritta a mano di 28x28 pixel, che rappresenta un numero compreso tra 0 e 9. L'obiettivo è creare un classificatore multiclasse per identificare la cifra rappresentata da una determinata immagine. 
 
 È possibile passare agli argomenti seguenti:
 
@@ -36,16 +36,14 @@ Si vedrà come selezionare un modello e distribuirlo nella [seconda parte di que
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
 
 >[!NOTE]
-> Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 0.1.79
+> Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.2
 
 ## <a name="get-the-notebook"></a>Ottenere il notebook
 
-Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyter](https://aka.ms/aml-notebook-tut-01). Eseguire il notebook `01.train-models.ipynb` in Azure Notebooks o nel server di Jupyter Notebook personale.
+Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Eseguire il notebook `tutorials/img-classification-part1-training.ipynb` in Azure Notebooks o nel server di Jupyter Notebook personale.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
->[!NOTE]
-> Questa esercitazione è stata testata con Azure Machine Learning SDK versione 0.1.74 
 
 ## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
 
@@ -94,11 +92,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-remote-compute-target"></a>Creare la destinazione di calcolo remota
+### <a name="create-or-attach-existing-amlcompute"></a>Creare un ambiente AmlCompute o collegarne uno esistente
 
-Azure ML Managed Compute è un servizio gestito che consente ai data scientist di eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure, incluse le macchine virtuali senza supporto GPU.  In questa esercitazione verrà creato un cluster di Azure Managed Compute per intelligenza artificiale come ambiente di training. Questo codice crea un cluster se non esiste già nell'area di lavoro. 
+L'ambiente di calcolo gestito di Azure Machine Learning (AmlCompute) è un servizio gestito che consente ai data scientist di eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure, incluse quelle senza supporto per GPU.  In questa esercitazione si crea un ambiente AmlCompute a scopo di training. Questo codice crea automaticamente i cluster di calcolo se non esistono già nell'area di lavoro.
 
- **La creazione di un cluster richiede circa 5 minuti.** Se l'area di lavoro include già un cluster, questo codice lo usa e ignora il processo di creazione.
+ **Per la creazione dell'ambiente di calcolo sono necessari circa cinque minuti.** Se l'ambiente di calcolo è già presente nell'area di lavoro, il codice usa tale ambiente e ignora il processo di creazione.
 
 
 ```python
@@ -107,12 +105,17 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
-compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
-compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
 # This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
-vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
 
 
 if compute_name in ws.compute_targets:
@@ -132,13 +135,13 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
+     # For a more detailed view of current AmlCompute status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
 Sono ora disponibili i pacchetti e le risorse di calcolo necessari per eseguire il training di un modello nel cloud. 
 
-## <a name="explore-data"></a>Esplorazione dei dati
+## <a name="explore-data"></a>Esplorare i dati
 
 Prima di eseguire il training di un modello, è necessario conoscere i dati usati per il training.  È anche necessario copiare i dati nel cloud in modo che siano accessibili dall'ambiente di training nel cloud.  In questa sezione si apprenderà come:
 
@@ -320,11 +323,10 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 Si noti come lo script ottiene i dati e salva i modelli:
 
 + Lo script di training legge un argomento per trovare la directory contenente i dati.  Quando si invia il processo in un secondo momento, si fa riferimento all'archivio dati per questo argomento: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
-    
+
 + Lo script di training salva il modello in una directory denominata outputs. <br/>
 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 Qualsiasi elemento scritto in questa directory viene caricato automaticamente nell'area di lavoro. Si accederà al modello da questa directory più avanti nell'esercitazione.
-
 Lo script di training fa riferimento al file `utils.py` per caricare il set di dati in modo corretto.  Copiare questo script nella cartella dello script in modo che sia accessibile insieme allo script di training nella risorsa remota.
 
 
@@ -340,12 +342,12 @@ Un oggetto di stima viene usato per inviare l'esecuzione.  Creare l'oggetto di s
 
 * Il nome dell'oggetto di stima, `est`
 * La directory contenente gli script. Tutti i file in questa directory vengono caricati nei nodi del cluster per l'esecuzione. 
-* La destinazione di calcolo.  In questo caso si userà il cluster Batch per intelligenza artificiale creato
+* La destinazione di calcolo.  In questo caso si userà il cluster di calcolo di Azure Machine Learning che è stato creato.
 * Il nome dello script di training, train.py
 * Parametri richiesti dallo script di training 
 * Pacchetti Python necessari per il training
 
-In questa esercitazione, questa destinazione è il cluster Batch per intelligenza artificiale. Tutti i file nella cartella dello script vengono caricati nei nodi del cluster per l'esecuzione. Viene impostato data_folder per usare l'archivio dati (`ds.as_mount()`).
+In questa esercitazione la destinazione è AmlCompute. Tutti i file nella cartella dello script vengono caricati nei nodi del cluster per l'esecuzione. Viene impostato data_folder per usare l'archivio dati (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6ae014597a89c75e4426715227bbb19f1e98a438
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7c6f5e199041af7d0ecd829ace2b56f5789f4955
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189290"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890450"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Esercitazione: Backup e ripristino di file per macchine virtuali Windows in Azure
 
@@ -47,7 +47,7 @@ Creare un semplice backup giornaliero pianificato per un insieme di credenziali 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra selezionare **Macchine virtuali**. 
 3. Dall'elenco selezionare la macchina virtuale di cui eseguire il backup.
-4. Nel pannello della macchina virtuale, nella sezione **Impostazioni** fare clic su **Backup**. Verrà aperto il pannello **Abilita backup**.
+4. Nel pannello della macchina virtuale, nella sezione **Operazioni**, fare clic su **Backup**. Verrà aperto il pannello **Abilita backup**.
 5. In **Insieme di credenziali dei servizi di ripristino** fare clic su **Crea nuovo** e inserire un nome per il nuovo insieme di credenziali. Viene creato un nuovo insieme di credenziali nello stesso gruppo di risorse e nello stesso percorso della macchina virtuale.
 6. Fare clic su **Criterio di Backup**. Per questo esempio, mantenere le impostazioni predefinite e fare clic su **OK**.
 7. Nel pannello **Abilita backup** fare clic su **Abilita backup**. Verrà creato un backup giornaliero in base alla pianificazione predefinita.

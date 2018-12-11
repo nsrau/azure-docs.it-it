@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 01/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604342"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726407"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Esercitazione: concedere l'accesso a un'API Web ASP.NET da un'app Web usando Azure Active Directory B2C
 
@@ -120,7 +120,7 @@ L'API Web di esempio è inclusa nel progetto scaricato nell'esercitazione prelim
 
 La soluzione di esempio contiene due progetti:
 
-**App Web di esempio (TaskWebApp):** app Web per la creazione e modifica di un elenco di attività. L'app Web usa il **criterio di iscrizione o accesso** per l'iscrizione o l'accesso degli utenti tramite un indirizzo e-mail.
+**App Web di esempio (TaskWebApp):** app Web per la creazione e modifica di un elenco di attività. L'app Web usa il flusso utente di **iscrizione o accesso** per l'iscrizione o l'accesso degli utenti con un indirizzo e-mail.
 
 **App di esempio dell'API Web (TaskService):** API Web che supporta la funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco di attività. L'API Web è protetta da Azure AD B2C e chiamata dall'app Web.
 
@@ -162,10 +162,10 @@ Aprire la soluzione **B2C-WebAPI-DotNet** in Visual Studio.
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
     ```
 
-4. Aggiornare l'impostazione dei criteri con il nome generato al momento della creazione dei criteri di iscrizione e di accesso.
+4. Aggiornare l'impostazione del flusso utente con il nome generato al momento della creazione del flusso utente di iscrizione e di accesso.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
+    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_SiUpIn" />
     ```
 
 5. Configurare l'impostazione degli ambiti in modo che corrisponda a quella creata nel portale.
