@@ -52,7 +52,7 @@ Altre informazioni sulle [modifiche apportate in questa versione](overview-what-
 
 Non è possibile eseguire la migrazione del servizio Azure Machine Learning alla versione più recente per risorse come gli account per la sperimentazione, gli account per la gestione dei modelli e gli ambienti di calcolo di apprendimento automatico. Vedere la [sequenza temporale](overview-what-happened-to-workbench.md#timeline) per sapere per quanto tempo le risorse continueranno a funzionare.
 
-È possibile iniziare dall'ultima versione, creando un'area di lavoro del servizio Azure Machine Learning nel [portale di Azure](quickstart-get-started.md). Il dashboard dell'area di lavoro del portale è supportato solo nei browser Edge, Chrome e Firefox.
+È possibile iniziare dall'ultima versione, creando un'area di lavoro del servizio Azure Machine Learning nel [portale di Azure](quickstart-get-started.md). Il dashboard dell'area di lavoro del portale è supportato solo nei browser Microsoft Edge, Chrome e Firefox.
 
 Questa nuova area di lavoro è la risorsa di servizio di massimo livello e consente di usare tutte le funzioni più recenti del servizio Azure Machine Learning. Altre informazioni su questa [area di lavoro e architettura](concept-azure-machine-learning-architecture.md).
 

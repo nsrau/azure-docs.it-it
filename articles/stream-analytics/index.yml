@@ -1,22 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 439ac4e49941e425601124f2209eb67faa74cd43
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: f004aa82b7fb5cd85ca0054622010f956d056baf
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687165"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084227"
 documentType: LandingData
 title: Documentazione dell'analisi di flusso
 metadata:
   title: Documentazione di Analisi di flusso di Azure - Esercitazioni e informazioni di riferimento sulle API
   meta.description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
   services: stream-analytics
-  author: jasonwhowell
+  author: mamccrea
   ms.author: mamccrea
-  manager: kfile
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 04/25/2018
+  ms.date: 12/06/2018
+  ms.custom: seodec18
 abstract:
   description: Informazioni su come eseguire analisi Internet delle cose (IoT) nel cloud con analisi di flusso, un motore di elaborazione degli eventi completamente gestito. Esercitazioni e altri documenti in cui viene illustrato come analizzare dati in tempo reale da applicazioni, sensori, dispositivi, social media e altro ancora.
   aside:
@@ -25,7 +25,7 @@ abstract:
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: Abilitare l'analisi in tempo reale e i modelli di Machine Learning nel cloud e in IoT Edge con Analisi di flusso di Azure. (1:15:05)
+    title: Analisi in tempo reale e Machine Learning con Analisi di flusso di Azure. (1:15:05)
     href: https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor
     width: 250
 sections:

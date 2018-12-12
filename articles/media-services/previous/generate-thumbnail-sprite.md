@@ -70,7 +70,7 @@ Di seguito è fornito un esempio:
 
 1.  Non è possibile generare un'immagine sprite con un'unica riga di immagini (SpriteColumn = 1 restituisce un'immagine con una singola colonna).
 2.  Non è ancora supportata la suddivisione delle immagini sprite in immagini JPEG di dimensioni limitate. È quindi necessario prestare attenzione a limitare il numero di anteprime e le relative dimensioni, in modo che lo sprite di anteprima risultante non sia superiore a 8M pixel.
-3.  Azure Media Player supporta immagini sprite nei browser Edge, Chrome e Firefox. L'analisi del file VTT non è supportata in Internet Explorer 11.
+3.  Azure Media Player supporta immagini sprite nei browser Microsoft Edge, Chrome e Firefox. L'analisi del file VTT non è supportata in Internet Explorer 11.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

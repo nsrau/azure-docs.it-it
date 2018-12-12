@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238627"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864979"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Distribuzione di Azure Stack considerazioni sulla pianificazione
 Prima di distribuire Azure Stack Development Kit (ASDK), assicurarsi che il computer host kit di sviluppo soddisfi i requisiti descritti in questo articolo.
@@ -121,7 +121,7 @@ Queste subnet sono riservate per le reti interne all'interno dell'ambiente kit d
 Assicurarsi che sia disponibile un server DHCP nella rete a cui si connette la scheda NIC. Se non è disponibile un server DHCP, è necessario preparare un'altra rete IPv4 statica oltre a quella usata dall'host. È necessario specificare l'indirizzo IP e il gateway come parametro di distribuzione.
 
 ### <a name="internet-access"></a>Accesso a Internet
-Azure Stack richiede l'accesso a Internet, direttamente o tramite un proxy trasparente. Azure Stack non supporta la configurazione di un proxy web per abilitare l'accesso a Internet. Sia l'IP dell'host e il nuovo indirizzo IP assegnato a MAS-BGPNAT01, tramite DHCP o indirizzo IP statico, deve essere in grado di accedere a Internet. Le porte 80 e 443 vengono usate nei domini graph.windows.net e login.microsoftonline.com.
+Azure Stack richiede l'accesso a Internet, direttamente o tramite un proxy trasparente. Azure Stack non supporta la configurazione di un proxy web per abilitare l'accesso a Internet. Sia l'IP dell'host e il nuovo indirizzo IP assegnato al AzS-BGPNAT01, tramite DHCP o indirizzo IP statico, deve essere in grado di accedere a Internet. Le porte 80 e 443 vengono usate nei domini graph.windows.net e login.microsoftonline.com.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -244,7 +244,7 @@ Sono inclusi i seguenti cinque tipi di offerte:
 
 **Disponibilità per paese/area geografica**
 
-Selezionare il paese e la regione in cui sarà disponibile questo servizio di consulenza. Impossibile pubblicare una singola offerta in più paesi o regioni. Per ogni paese o regione, è necessario creare una nuova offerta.
+Selezionare il paese e l'area geografica in cui sarà disponibile questo servizio di consulenza. Impossibile pubblicare una singola offerta in più paesi o aree geografiche. Per ogni paese o area, è necessario creare una nuova offerta.
 
 **Settori**
 

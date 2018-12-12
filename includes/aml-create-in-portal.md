@@ -18,7 +18,7 @@ ms.locfileid: "49476284"
 ---
 Accedere al [portale di Azure](https://portal.azure.com/) usando le credenziali della propria sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Il dashboard dell'area di lavoro del portale è supportato solo nei browser Edge, Chrome e Firefox.
+Il dashboard dell'area di lavoro del portale è supportato solo nei browser Microsoft Edge, Chrome e Firefox.
 
    ![Portale di Azure](./media/aml-create-in-portal/portal-dashboard.png)
 

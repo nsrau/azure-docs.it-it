@@ -83,13 +83,12 @@ items:
       href: how-to-set-up-training-targets.md
     - name: Accedere ai dati durante il training
       href: how-to-access-data.md
-    - name: Creare oggetti estimator
+    - name: Creare oggetti estimator durante il training
       href: how-to-train-ml-models.md
-      items:
-      - name: PyTorch
-        href: how-to-train-pytorch.md
-      - name: TensorFlow
-        href: how-to-train-tensorflow.md
+    - name: Usare PyTorch
+      href: how-to-train-pytorch.md
+    - name: Usare TensorFlow
+      href: how-to-train-tensorflow.md
     - name: Ottimizzare gli iperparametri
       displayName: parameter
       href: how-to-tune-hyperparameters.md
@@ -110,18 +109,10 @@ items:
   - name: Distribuire i modelli
     items:
     - name: Dove eseguire la distribuzione dei modelli
-      displayName: publish
+      displayName: publish, azure kubernetes, azure container instances
       href: how-to-deploy-and-where.md
-    - name: Distribuire in ACI
-      displayName: Azure Container Instances
-      href: how-to-deploy-to-aci.md
-    - name: Distribuire in AKS
-      displayName: Azure Kubernetes
-      href: how-to-deploy-to-aks.md
     - name: Distribuire in FPGA
       href: how-to-deploy-fpga-web-service.md
-    - name: Distribuire in IoT Edge
-      href: how-to-deploy-to-iot.md
     - name: Risolvere problemi
       href: how-to-troubleshoot-deployment.md
     - name: Proteggere con SSL
@@ -175,7 +166,7 @@ items:
     href: how-to-export-delete-data.md
   - name: Documenti deprecati
     items:
-    - name: Come eseguire la migrazione
+    - name: Eseguire la migrazione da Workbench
       displayName: Workbench, upgrade, update, transfer
       href: how-to-migrate.md
     - name: Esportare o eliminare i dati dell'account (deprecato)
@@ -374,9 +365,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemi precedenti
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 087d101a655d87bdb4c8f7de2b39a5358c21e00e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a5c26bd2ef020ca737907c8a66776a3769bfeefd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962546"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101246"

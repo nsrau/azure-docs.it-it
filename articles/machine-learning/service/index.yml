@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1add464c85d30622bf0940bf20a483ae22d07ea6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 30a415fb0df910333b81f36cfb925faafd1c8c1b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865319"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080164"
 documentType: LandingData
-title: Documentazione del servizio Azure Machine Learning
+title: Documentazione - Servizio Azure Machine Learning
 metadata:
-  title: Documentazione di Azure Machine Learning - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
-  meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
+  title: Documentazione del servizio Azure Machine Learning - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
+  description: Informazioni su come integrare algoritmi intelligenti in app e siti Web. Usare Scikit-learn, Tensorflow, Pytorch o qualsiasi altro framework basato su Python per creare un modello di Machine Learning ed eseguirne il training in locale o nel cloud. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.
   services: machine-learning
   author: j-martens
   manager: jhubbard
@@ -18,8 +18,9 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 12/04/2018
   ms.author: jmartens
+  ms.custom: seodec18
 abstract:
   description: Informazioni su come integrare algoritmi intelligenti in app e siti Web. Usare Scikit-learn, Tensorflow, Pytorch o qualsiasi altro framework basato su Python per creare un modello di Machine Learning ed eseguirne il training in locale o nel cloud. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.
 sections:
@@ -55,7 +56,7 @@ sections:
     - html: Regressione (parte 2)&#58; <a href="tutorial-auto-train-models">Generare un modello usando l'apprendimento automatico automatizzato</a>
   - type: paragraph
     text: '<b>Notebook di esempio</b>: è possibile esplorare Azure Machine Learning con <a href="https://aka.ms/aml-notebooks">questi esempi di Jupyter Notebooks</a>, disponibili in GitHub.'
-- title: Informazioni di riferimento
+- title: riferimento
   items:
   - type: list
     style: unordered

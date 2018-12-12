@@ -109,7 +109,7 @@ L'utilità *AzureOfflineBackupDiskPrep* prepara le unità SATA da inviare al dat
     * Il percorso di gestione temporanea specificato per il flusso di lavoro del seeding offline è accessibile dal computer di copia usando lo stesso percorso di rete specificato durante il flusso di lavoro di **avvio del backup offline** .
     * Nel computer di copia è abilitato BitLocker.
     * Azure PowerShell 3.7.0 è installato.
-    * Siano installate le versioni più recenti di browser compatibili, ovvero Edge o Internet Explorer 11, e che JavaScript è abilitato. 
+    * Siano installate le versioni più recenti di browser compatibili, ovvero Microsoft Edge o Internet Explorer 11, e che JavaScript è abilitato. 
     * Il computer di copia può accedere al portale di Azure. Se necessario, il computer di copia può coincidere con il computer di origine.
     
     > [!IMPORTANT] 

@@ -47,7 +47,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Comore                          |   | Ø |
 | Congo                            | ✓ | ✓ |
 | Congo, Repubblica democratica | ✓ | ✓ |
-| Costa d'Avorio                    |   | Ø |
+| Côte d’Ivoire (Costa d'Avorio)                    |   | Ø |
 | Gibuti                         |   | Ø |
 | Egitto                            | ✓ | ✓ |
 | Guinea equatoriale                |   | Ø |
@@ -117,7 +117,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Dominica                  | ✓ | ✓ |
 | Repubblica dominicana        | ✓ | ✓ |
 | Ecuador                   |   | ✓ |
-| Isole Falkland (Isole Malvine) |   | ✓ |
+| Isole Falkland |   | ✓ |
 | Guayana francese             | ✓ | ✓ |
 | Groenlandia                 |   | Ø |
 | Grenada                   | ✓ | ✓ |

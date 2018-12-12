@@ -119,7 +119,7 @@ booksRDD.take(2).foreach(println)
 
 ### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Salvare i dati nell'API Cassandra di Azure Cosmos DB
 
-Durante il salvataggio dei dati nll'API Cassandra, è anche possibile specificare le impostazioni di durata e dei criteri di coerenza come illustrato nell'esempio seguente:
+Durante il salvataggio dei dati nell'API Cassandra, è anche possibile specificare le impostazioni di durata e dei criteri di coerenza come illustrato nell'esempio seguente:
 
 ```scala
 import com.datastax.spark.connector.writer._

@@ -46,7 +46,7 @@ ms.locfileid: "52276377"
 | Tedesco | Curdo sorani | Polacco        | Turco
 | Greco | Cherokee | Portoghese
 | Haitiano | Cinese (semplificato) | Rumeno
-| Ebraico | Cinese (tradizionale) - Hong Kong RAS | Russo
+| Ebraico | Cinese (tradizionale) - Hong Kong | Russo
 | Hindi | Cinese (tradizionale) - Taiwan | Serbo (alfabeto cirillico)
 | Hmong | Croato | Serbo (alfabeto latino)
 | Ungherese | Ceco | Slovacco

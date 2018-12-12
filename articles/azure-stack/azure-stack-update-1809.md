@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bcb135e19796bcab8a8e06e3c1896b247188a58c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970842"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088052"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -70,17 +70,6 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
 - <!-- 2702741 -  IS, ASDK --> Risolto un problema in cui gli indirizzi IP pubblici che sono stati distribuiti usando l'allocazione dinamica (metodo) non sono garantiti deve rimanere invariato dopo l'esecuzione di un arresto-deallocazione. Vengono ora mantenuti.
 
 - <!-- 3078022 - IS, ASDK --> Se una macchina virtuale è stato di arresto-deallocazione prima 1808 causa potrebbe non essere riallocata dopo l'aggiornamento 1808.  Questo problema viene risolto in 1809. Le istanze che erano in questo stato e non è stato possibile avviare possono essere avviate in 1809 con questa correzione. La correzione impedisce inoltre il problema ricorrente.
-
-<!-- 3090289 – IS, ASDK --> 
-- Risolto il problema in cui dopo aver applicato l'aggiornamento 1808, si possono verificarsi i seguenti problemi quando si distribuiscono le macchine virtuali con Managed Disks:
-
-   1. Se la sottoscrizione è stata creata prima dell'aggiornamento 1808, distribuzione di VM con Managed Disks potrei avere esito negativo con un messaggio di errore interno. Per risolvere l'errore, seguire questi passaggi per ogni sottoscrizione:
-      1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
-      2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
-   2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura:
-      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4481066).
-      2. Seguire i passaggi descritti in [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
-
 
 ### <a name="changes"></a>Modifiche
 
@@ -173,7 +162,7 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 > Preparare la distribuzione di Azure Stack per l'host dell'estensione abilitata per il pacchetto di aggiornamento successivo. Preparare il sistema le seguenti linee guida [prepararsi host dell'estensione per Azure Stack](azure-stack-extension-host-prepare.md).
 
 Dopo l'installazione di questo aggiornamento, installare eventuali hotfix applicabili. Per altre informazioni, visualizzare i seguenti articoli della knowledge base, nonché nostri [criteri per la manutenzione](azure-stack-servicing-policy.md).  
-- [KB 4477849 – Azure Stack hotfix per Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
+- [KB 4481548 – Azure Stack hotfix per Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)  
 
 ## <a name="known-issues-post-installation"></a>Problemi noti (post-installazione)
 
@@ -226,7 +215,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
    
   Eseguire la [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet per verificare l'integrità delle istanze del ruolo di infrastruttura e ridimensionare i nodi di unità. Se viene rilevato alcun problema dal [Test-AzureStack](azure-stack-diagnostic-test.md), è possibile ignorare questi avvisi. Se viene rilevato un problema, è possibile provare ad avviare l'istanza del ruolo di infrastruttura o un nodo tramite il portale di amministrazione o PowerShell.
 
-  Questo problema viene risolto nella versione più recente [versione dell'hotfix 1809](https://support.microsoft.com/help/4477849/), pertanto assicurarsi di installare questo hotfix, se si è verificato il problema. 
+  Questo problema viene risolto nella versione più recente [versione dell'hotfix 1809](https://support.microsoft.com/help/4481548/), pertanto assicurarsi di installare questo hotfix, se si è verificato il problema. 
 
 <!-- 1264761 - IS ASDK -->  
 - Si potrebbero visualizzare avvisi per i **controller integrità** componente con i dettagli seguenti:  
@@ -292,7 +281,18 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
    Per trovare i dati delle metriche, ad esempio il grafico della percentuale di CPU per la macchina virtuale, passare alla finestra di metriche e visualizzare tutte le metriche guest macchina virtuale di Windows supportate.
 
+<!-- 3507629 - IS, ASDK --> 
+- Managed Disks vengono creati due nuovi [tipi di quota di calcolo](azure-stack-quota-types.md#compute-quota-types) per limitare la capacità massima di dischi gestiti che è possibile eseguire il provisioning. Per impostazione predefinita, 2048 GiB viene allocata per ogni tipo di quota di dischi gestiti. Tuttavia, è possibile riscontrare i problemi seguenti:
 
+   - Per le quote create prima dell'aggiornamento 1808, la quota di Managed Disks visualizzerà i valori 0 nel portale di amministrazione, anche se viene allocata 2048 GiB. È possibile aumentare o diminuire il valore in base a esigenze effettive e appena impostato il valore della quota sostituisce il valore predefinito GiB di 2048.
+   - Se si aggiorna il valore di quota a 0, è equivalente al valore predefinito di 2048 GiB. In alternativa, impostare il valore di quota a 1.
+
+<!-- TBD - IS ASDK --> Dopo aver applicato la 1809 aggiornare, possono verificarsi i problemi seguenti durante la distribuzione di macchine virtuali con Managed Disks:
+
+   - Se la sottoscrizione è stata creata prima dell'aggiornamento 1808, distribuzione di una VM con Managed Disks potrei avere esito negativo con un messaggio di errore interno. Per risolvere l'errore, seguire questi passaggi per ogni sottoscrizione:
+      1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
+      2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
+   2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura nel [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
 
 ### <a name="networking"></a>Rete  
 
