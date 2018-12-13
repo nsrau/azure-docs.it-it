@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 097cfa366746a6f79f95024e82108f1b64058010
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: bb890d8fa1c9a2fce0b2af1dae815f7ffde6af7d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962181"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183744"
 documentType: LandingData
 title: Documentazione sull'insieme di credenziali delle chiavi
 metadata:
@@ -62,15 +62,16 @@ sections:
       href: /azure/key-vault/quick-create-node
 - title: Esercitazioni dettagliate
   items:
+  - type: paragraph
+    text: Informazioni su come usare Key Vault in diversi scenari
   - type: list
-    style: cards
-    className: cardsFTitle
+    style: unordered
     items:
-    - title: Introduzione all'insieme di credenziali delle chiavi da un'applicazione Web
-      href: /azure/key-vault/tutorial-net-create-vault-azure-web-app
-      image:
-        src: media/index/get-started.svg
-        href: /azure/key-vault/key-vault-use-from-web-application
+    - html: <a href="/azure/key-vault/tutorial-net-create-vault-azure-web-app">Iniziare a usare Key Vault da un'applicazione Web</a>
+    - html: <a href="/azure/key-vault/tutorial-net-linux-virtual-machine">Come usare Azure Key Vault con una macchina virtuale Linux di Azure</a></li>
+    - html: <a href="/azure/key-vault/tutorial-net-windows-virtual-machine">Come usare Azure Key Vault con una macchina virtuale Windows di Azure</a>
+    - html: <a href="/azure/key-vault/tutorial-python-linux-virtual-machine">Come usare Azure Key Vault con una macchina virtuale Linux di Azure</a>
+    - html: <a href="/azure/key-vault/tutorial-python-windows-virtual-machine">Come usare Azure Key Vault con una macchina virtuale Windows di Azure</a>
 - title: Sviluppare le proprie competenze con Microsoft Learn
   items:
   - type: list

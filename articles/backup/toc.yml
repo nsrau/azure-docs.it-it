@@ -66,7 +66,7 @@ items:
         href: backup-azure-microsoft-azure-backup.md
       - name: Aggiungere le risorse di archiviazione
         href: backup-mabs-add-storage.md
-      - name: Novità di Server di Backup di Microsoft Azure
+      - name: Novità di MABS
         href: backup-mabs-whats-new-mabs.md
       - name: Note sulla versione di Server di Backup di Microsoft Azure versione 3
         href: backup-mabs-release-notes-v3.md
@@ -170,6 +170,8 @@ items:
       href: backup-dpm-automation.md
     - name: Windows Server nel portale di Azure
       href: backup-client-automation.md
+    - name: Condivisioni di File di Azure nel portale di Azure
+      href: backup-azure-afs-automation.md
   - name: Usare l'API REST di Backup di Azure
     items:
     - name: Creare un insieme di credenziali di Servizi di ripristino
@@ -224,7 +226,7 @@ items:
       href: troubleshoot-azure-files.md
     - name: SQL Server
       href: backup-sql-server-azure-troubleshoot.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
@@ -250,9 +252,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: a10a5db8c8d364d5ea1a09180e14826e67eb2c01
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f7da3f333fa2757a6c040a7dcda7d18170ca1de5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317603"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312239"

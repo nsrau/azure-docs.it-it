@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 5f5e4ae85f18870ab6ed22ca010977efc28be058
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1d82809a4ed88ee5f84b812955e6979df2ae6070
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633887"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322074"
 ---
 <h1>Documentazione di Servizi cognitivi di Azure</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Informazioni su come creare algoritmi intelligenti nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare e comprendere le esigenze degli utenti tramite i metodi di comunicazione naturali. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.</p>
@@ -58,6 +58,26 @@ ms.locfileid: "51633887"
                 </div>
             </a>
         </li>
+        <li>
+            <a href="/azure/cognitive-services/authentication/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Autenticare una richiesta</h3>
+                                <p>Informazioni su come autenticare richieste nei Servizi cognitivi di Azure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+
         <li>
             <a href="/azure/cognitive-services/language-support/">
                 <div class="cardSize">
@@ -129,7 +149,7 @@ ms.locfileid: "51633887"
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Riconoscimento vocale con il servizio Voce</h3>
+                        <h3>Riconoscimento vocale tramite il Servizio di riconoscimento vocale</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">Uso di C#</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Uso di Java</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Uso di Objective-C</a></p>

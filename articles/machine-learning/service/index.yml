@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 30a415fb0df910333b81f36cfb925faafd1c8c1b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: da46b78d764465d8b9e5ce438b0843e0b79e16a9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080164"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271148"
 documentType: LandingData
-title: Documentazione - Servizio Azure Machine Learning
+title: Documentazione del servizio Azure Machine Learning
 metadata:
-  title: Documentazione del servizio Azure Machine Learning - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
+  title: Documentazione - Servizio Azure Machine Learning – Esercitazioni, API informazioni di riferimento | Microsoft Docs
   description: Informazioni su come integrare algoritmi intelligenti in app e siti Web. Usare Scikit-learn, Tensorflow, Pytorch o qualsiasi altro framework basato su Python per creare un modello di Machine Learning ed eseguirne il training in locale o nel cloud. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.
   services: machine-learning
   author: j-martens
@@ -27,13 +27,13 @@ sections:
 - items:
   - type: list
     style: cards
-    className: cardsB
-    columns: 1
+    className: cardsFTitle
     items:
-    - html: <p>Eseguire il training e la distribuzione di modelli di Machine Learning in un servizio cloud di Azure. <a href="overview-what-is-azure-ml.md">Altre informazioni sul servizio</a></p>
+    - title: Informazioni sul servizio Azure Machine Learning
+      href: /azure/machine-learning/service/overview-what-is-azure-ml
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Servizio Azure Machine Learning
+        href: /azure/machine-learning/service/overview-what-is-azure-ml
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
@@ -46,16 +46,23 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: '<b>Esercitazioni</b>: informazioni su come configurare un esperimento e rendere operativi i modelli.'
+    text: Informazioni su come configurare un esperimento e rendere operativi i modelli.
+  - type: paragraph
+    text: <b>Esercitazione sulla classificazione di immagini con i dati MNIST:</b>
   - type: list
     style: unordered
     items:
-    - html: Classificazione delle immagini (parte 1)&#58; <a href="tutorial-train-models-with-aml">Eseguire il training di un modello di Machine Learning</a>
-    - html: Classificazione delle immagini (parte 2)&#58; <a href="tutorial-deploy-models-with-aml">Distribuire il modello</a></br>&nbsp;
-    - html: Regressione (parte 1)&#58; <a href="tutorial-data-prep">Preparare i dati di NYC Taxi per la modellazione</a>
-    - html: Regressione (parte 2)&#58; <a href="tutorial-auto-train-models">Generare un modello usando l'apprendimento automatico automatizzato</a>
+    - html: Parte 1&#58; <a href="tutorial-train-models-with-aml">Eseguire il training di un modello di Machine Learning</a>
+    - html: Parte 2&#58; <a href="tutorial-deploy-models-with-aml">Distribuire il modello</a>
   - type: paragraph
-    text: '<b>Notebook di esempio</b>: è possibile esplorare Azure Machine Learning con <a href="https://aka.ms/aml-notebooks">questi esempi di Jupyter Notebooks</a>, disponibili in GitHub.'
+    text: <b>Esercitazione sulla modellazione basata sulla regressione con il set di dati NYC Taxi:</b>
+  - type: list
+    style: unordered
+    items:
+    - html: Parte 1&#58; <a href="tutorial-data-prep">Preparare i dati di NYC Taxi per la modellazione</a>
+    - html: Parte 2&#58; <a href="tutorial-auto-train-models">Usare il servizio Machine Learning automatizzato per creare modelli</a>
+  - type: paragraph
+    text: '<b>Notebook di esempio</b>: Esplorare il servizio con questi <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://aka.ms/aml-notebooks">notebook Jupyter</a> in GitHub.'
 - title: riferimento
   items:
   - type: list

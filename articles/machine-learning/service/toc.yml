@@ -4,30 +4,32 @@ items:
 - name: Panoramica
   items:
   - name: Informazioni sul servizio Azure Machine Learning
-    displayName: AML, services, overview
+    displayName: AML services overview
     href: overview-what-is-azure-ml.md
   - name: Funzionamento del servizio
-    displayName: architecture
+    displayName: architecture concepts definitions
     href: concept-azure-machine-learning-architecture.md
   - name: Informazioni sullo stato di Workbench
-    displayName: desktop
+    displayName: desktop ui
     href: overview-what-happened-to-workbench.md
   - name: Note sulla versione
-    displayName: what's new
+    displayName: what's new issues bugs
     href: azure-machine-learning-release-notes.md
   expanded: true
 - name: Guide introduttive
   items:
   - name: Introduzione - Portale
+    displayName: install sdk workspace
     href: quickstart-get-started.md
   - name: Introduzione - Python
-    displayName: create workspace
+    displayName: create workspace install sdk
     href: quickstart-create-workspace-with-python.md
 - name: Esercitazioni
   items:
   - name: Classificazione delle immagini (dati di MNIST)
     items:
     - name: 1. Eseguire il training di un modello
+      displayName: build modeling
       href: tutorial-train-models-with-aml.md
     - name: 2. Distribuire un modello
       href: tutorial-deploy-models-with-aml.md
@@ -43,6 +45,9 @@ items:
   href: samples-notebooks.md
 - name: Concetti
   items:
+  - name: Funzionalità automatizzate di Machine Learning
+    displayName: automl, auto ml
+    href: concept-automated-ml.md
   - name: Gestione di modelli
     displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
@@ -68,7 +73,6 @@ items:
         href: how-to-vscode-train-deploy.md
   - name: Preparazione dei dati
     displayName: data prep, etl, elt, data preparation
-    href: how-to-data-prep.md
     items:
     - name: Caricare i dati
       href: how-to-load-data.md
@@ -79,7 +83,7 @@ items:
   - name: Eseguire il training dei modelli
     items:
     - name: Configurare ambienti di training
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Accedere ai dati durante il training
       href: how-to-access-data.md
@@ -96,11 +100,11 @@ items:
       href: how-to-track-experiments.md
   - name: Automatizzare l'apprendimento automatico
     displayName: automl, auto ml
-    href: how-to-automated-ml.md
     items:
     - name: Configurare il training automatico
       href: how-to-configure-auto-train.md
     - name: Usare destinazioni di calcolo remote
+      displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: Modelli ONNX
     items:
@@ -109,9 +113,9 @@ items:
   - name: Distribuire i modelli
     items:
     - name: Dove eseguire la distribuzione dei modelli
-      displayName: publish, azure kubernetes, azure container instances
+      displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
-    - name: Distribuire in FPGA
+    - name: FPGA
       href: how-to-deploy-fpga-web-service.md
     - name: Risolvere problemi
       href: how-to-troubleshoot-deployment.md
@@ -120,7 +124,7 @@ items:
   - name: Utilizzare i servizi Web
     items:
     - name: Utilizzo in tempo reale
-      displayName: create client, client, consume
+      displayName: create client consume
       href: how-to-consume-web-service.md
     - name: Eseguire previsioni in batch
       href: how-to-run-batch-predictions.md
@@ -136,18 +140,18 @@ items:
     displayName: limits
     href: how-to-manage-quotas.md
   - name: Usare l'interfaccia della riga di comando di Machine Learning
-    displayName: cli, command line, command-line, az,
+    displayName: cli command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
 - name: riferimento
   items:
   - name: Machine Learning SDK
-    displayName: api, core, package
+    displayName: api core package python
     href: https://aka.ms/aml-sdk
   - name: SDK di preparazione dei dati
-    displayName: api, preparation, package
+    displayName: api preparation package python
     href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
-    displayName: api, package
+    displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
 - name: Risorse
   items:
@@ -158,6 +162,7 @@ items:
   - name: Disponibilità internazionale
     href: https://azure.microsoft.com/regions/services/
   - name: Problemi noti
+    displayName: bugs errors troubleshoot
     href: resource-known-issues.md
   - name: Supporto
     href: support-for-aml-services.md
@@ -167,19 +172,19 @@ items:
   - name: Documenti deprecati
     items:
     - name: Eseguire la migrazione da Workbench
-      displayName: Workbench, upgrade, update, transfer
+      displayName: Workbench upgrade update transfer
       href: how-to-migrate.md
     - name: Esportare o eliminare i dati dell'account (deprecato)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
     - name: Guida introduttiva a Workbench (deprecato)
       href: ../desktop-workbench/quickstart-installation.md
-    - name: 'Esercitazione 1: Preparare i dati'
+    - name: 'Esercitazione 1: Preparazione dei dati'
       href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
     - name: 'Esercitazione 2: Creare modelli'
       href: ../desktop-workbench/tutorial-classifying-iris-part-2.md
-    - name: 'Esercitazione 3: Distribuire modelli'
+    - name: 'Esercitazione 3: Distribuire i modelli'
       href: ../desktop-workbench/tutorial-classifying-iris-part-3.md
-    - name: 'Esercitazione 4: Preparazione avanzata dei dati'
+    - name: 'Esercitazione: 4: Preparazione avanzata dei dati'
       href: ../desktop-workbench/tutorial-bikeshare-dataprep.md
     - name: Panoramica della gestione dei modelli
       href: ../desktop-workbench/model-management-overview.md
@@ -365,9 +370,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemi precedenti
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: a5c26bd2ef020ca737907c8a66776a3769bfeefd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf7216271dea4bcdda7bea91c1b386a4ba612f8f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101246"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310512"

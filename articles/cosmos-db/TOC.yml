@@ -80,7 +80,7 @@ items:
       href: consistency-levels.md
     - name: Scelta del livello di coerenza ottimale
       href: consistency-levels-choosing.md
-    - name: Livelli di coerenza e API di Cosmos DB
+    - name: Livelli di coerenza e API di Azure Cosmos DB
       href: consistency-levels-across-apis.md
     - name: Compromessi tra coerenza, disponibilità e prestazioni
       href: consistency-levels-tradeoffs.md
@@ -115,7 +115,7 @@ items:
     - name: Usare database, contenitori ed elementi
       href: databases-containers-items.md
     - name: Informazioni di riferimento sul linguaggio SQL
-      href: sql-api-sql-query-reference.md
+      href: sql-api-query-reference.md
     - name: Esempi di query SQL
       href: how-to-sql-query.md
     - name: Indicizzazione
@@ -144,6 +144,28 @@ items:
       href: unique-keys.md
     - name: Transazioni e concorrenza ottimistica
       href: database-transactions-optimistic-concurrency.md
+  - name: Ottimizzare i costi di Azure Cosmos DB
+    items:
+    - name: Modello di prezzi
+      href: how-pricing-works.md
+    - name: Costo totale di proprietà
+      href: total-cost-ownership.md
+    - name: Informazioni sulla fattura
+      href: understand-your-bill.md
+    - name: Ottimizzare i costi delle unità elaborate sottoposte a provisioning
+      href: optimize-cost-throughput.md
+    - name: Ottimizzare il costo delle query
+      href: optimize-cost-queries.md
+    - name: Ottimizzare il costo delle risorse di archiviazione
+      href: optimize-cost-storage.md
+    - name: Ottimizzare il costo delle operazioni di lettura e di scrittura
+      href: optimize-cost-reads-writes.md
+    - name: Ottimizzare il costo per più aree geografiche
+      href: optimize-cost-regions.md
+    - name: Ottimizzare i carichi di lavoro di sviluppo/test
+      href: optimize-dev-test.md
+    - name: Pagare in anticipo la capacità riservata
+      href: cosmos-db-reserved-capacity.md
   - name: Sicurezza
     items:
     - name: Panoramica
@@ -164,8 +186,6 @@ items:
       href: online-backup-and-restore.md
     - name: Conformità
       href: compliance.md
-  - name: Pagare in anticipo la capacità riservata
-    href: cosmos-db-reserved-capacity.md
 - name: API a più modelli
   items:
   - name: Documentazione sull'API SQL
@@ -229,7 +249,7 @@ items:
     - name: Guide alle procedure
       items:
       - name: Ottimizzare le prestazioni delle query
-        href: sql-api-sql-query-metrics.md
+        href: sql-api-query-metrics.md
       - name: Stored procedure, trigger e UDF
         href: programming.md
       - name: Tipi di dati
@@ -242,7 +262,7 @@ items:
           href: bulk-executor-dot-net.md
         - name: BulkExecutor - Libreria Java
           href: bulk-executor-java.md
-    - name: Informazioni di riferimento
+    - name: riferimento
       items:
       - name: .NET
         href: sql-api-sdk-dotnet.md
@@ -280,15 +300,15 @@ items:
           href: mongodb-samples.md
         - name: App Node.js e Angular
           items:
-          - name: Parte 1 - Introduzione
+          - name: 'Parte 1: Introduzione'
             href: tutorial-develop-mongodb-nodejs.md
-          - name: Parte 2 - Creare l'app Node
+          - name: "Parte 2: Creare l'app Node"
             href: tutorial-develop-mongodb-nodejs-part2.md
           - name: Parte 3 - Aggiungere l'interfaccia utente con Angular
             href: tutorial-develop-mongodb-nodejs-part3.md
           - name: Parte 4 - Creare un account
             href: tutorial-develop-mongodb-nodejs-part4.md
-          - name: Parte 5 - Connettersi a Cosmos DB
+          - name: Parte 5 - Connettersi ad Azure Cosmos DB
             href: tutorial-develop-mongodb-nodejs-part5.md
           - name: Parte 6 - Eseguire operazioni CRUD
             href: tutorial-develop-mongodb-nodejs-part6.md
@@ -408,7 +428,7 @@ items:
         href: table-storage-how-to-use-ruby.md
       - name: F#
         href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-    - name: Informazioni di riferimento
+    - name: riferimento
       items:
       - name: .NET
         href: table-sdk-dotnet.md
@@ -509,7 +529,7 @@ items:
         href: performance-testing.md
     - name: Operazioni di lettura e scrittura convenienti
       href: key-value-store-cost.md
-  - name: Visualizzare i dati di Cosmos DB
+  - name: Visualizzare i dati di Azure Cosmos DB
     items:
     - name: Usare Power BI
       href: powerbi-visualize.md
@@ -583,9 +603,9 @@ items:
       href: use-cases.md
     - name: App di social media
       href: social-media-apps.md
-ms.openlocfilehash: 413ec7cc09f748948cab92dd10495b667be06f40
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b172650cc0a69169bcbebf58e0a11d0bb9cd6450
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961230"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254701"

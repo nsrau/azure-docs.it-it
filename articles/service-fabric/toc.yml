@@ -56,7 +56,7 @@ items:
       href: service-fabric-tutorial-monitoring-wincontainers.md
   - name: Creare un'app contenitore Linux
     items:
-    - name: 1 - Creare immagini del contenitore
+    - name: '1: Creare immagini del contenitore'
       href: service-fabric-tutorial-create-container-images.md
     - name: 2 - Pacchetto e contenitori di distribuzione
       href: service-fabric-tutorial-package-containers.md
@@ -66,9 +66,9 @@ items:
     items:
     - name: 1- Creare un cluster in Azure
       items:
-      - name: 1a - Creare un cluster Windows
+      - name: 1a- Creare un cluster Windows
         href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
-      - name: 1b - Creare un cluster Linux
+      - name: 1b- Creare un cluster Linux
         href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
     - name: 2- Ridimensionare il cluster
       href: service-fabric-tutorial-scale-cluster.md
@@ -124,9 +124,11 @@ items:
         href: service-fabric-reliable-services-introduction.md
       - name: Partizionamento del servizio
         href: service-fabric-concepts-partitioning.md
-      - name: Ciclo di vita di Reliable Services - C#
+      - name: Riconfigurazione dei servizi con stato
+        href: service-fabric-concepts-reconfiguration.md
+      - name: 'Ciclo di vita di Reliable Services: C#'
         href: service-fabric-reliable-services-lifecycle.md
-      - name: Ciclo di vita di Reliable Services - Java
+      - name: 'Ciclo di vita di Reliable Services: Java'
         href: service-fabric-reliable-services-lifecycle-java.md
       - name: Ciclo di vita dell'istanza e della replica
         href: service-fabric-concepts-replica-lifecycle.md
@@ -393,9 +395,9 @@ items:
         items:
         - name: Comunicare con Reliable Services
           href: service-fabric-reliable-services-communication.md
-        - name: Servizio remoto - C#
+        - name: 'Servizio remoto: C#'
           href: service-fabric-reliable-services-communication-remoting.md
-        - name: Servizio remoto - Java
+        - name: 'Servizio remoto: Java'
           href: service-fabric-reliable-services-communication-remoting-java.md
         - name: WCF
           href: service-fabric-reliable-services-communication-wcf.md
@@ -463,8 +465,6 @@ items:
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configurare i backup periodici (cluster autonomi)
       href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
-    - name: Backup su richiesta della partizione
-      href: service-fabric-backuprestoreservice-ondemand-backup.md
     - name: Eseguire la migrazione di applicazioni Java precedenti per il supporto di Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: Lavorare in un IDE
@@ -699,7 +699,7 @@ items:
     items:
     - name: Elenco di controllo per l'idoneità per la produzione
       href: service-fabric-production-readiness-checklist.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.servicefabric/
@@ -725,6 +725,29 @@ items:
       href: service-fabric-sfctl-container.md
     - name: sfctl is
       href: service-fabric-sfctl-is.md
+    - name: sfctl mesh
+      href: service-fabric-sfctl-mesh.md
+      items:
+      - name: sfctl mesh app
+        href: service-fabric-sfctl-mesh-app.md
+      - name: sfctl mesh code-package-log
+        href: service-fabric-sfctl-mesh-code-package-log.md
+      - name: sfctl mesh deployment
+        href: service-fabric-sfctl-mesh-deployment.md
+      - name: sfctl mesh gateway
+        href: service-fabric-sfctl-mesh-gateway.md
+      - name: sfctl mesh network
+        href: service-fabric-sfctl-mesh-network.md
+      - name: sfctl mesh secret
+        href: service-fabric-sfctl-mesh-secret.md
+      - name: sfctl mesh secretvalue
+        href: service-fabric-sfctl-mesh-secretvalue.md
+      - name: sfctl mesh service
+        href: service-fabric-sfctl-mesh-service.md
+      - name: sfctl mesh service-replica
+        href: service-fabric-sfctl-mesh-service-replica.md
+      - name: sfctl mesh volume
+        href: service-fabric-sfctl-mesh-volume.md
     - name: sfctl node
       href: service-fabric-sfctl-node.md
     - name: sfctl partition
@@ -739,6 +762,11 @@ items:
       href: service-fabric-sfctl-sa-cluster.md
     - name: sfctl service
       href: service-fabric-sfctl-service.md
+    - name: sfctl settings
+      href: service-fabric-sfctl-settings.md
+      items:
+      - name: sfctl settings telemetry
+        href: service-fabric-sfctl-settings-telemetry.md
     - name: sfctl store
       href: service-fabric-sfctl-store.md
   - name: API Java
@@ -792,9 +820,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 1b610207303b7a1b7ec283217830fe89f07f43e9
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5a4a98066e4a7d222b00b0d319f7eb49b84438df
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721749"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323491"

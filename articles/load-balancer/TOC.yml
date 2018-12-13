@@ -29,7 +29,7 @@ items:
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Bilanciare il carico delle VM in una zona di disponibilità specifica
     href: tutorial-load-balancer-standard-public-zonal-portal.md
-  - name: Configurare l'inoltro porte in Load Balancer
+  - name: Configurare il port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
 - name: Esempi
   items:
@@ -192,9 +192,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=load-balancer
-ms.openlocfilehash: fa5d643a7a623926cd8b1ba464db251511c53bf8
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 5f4eb7c783e4e4260935dcd065743788b12e97bf
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284306"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269210"
