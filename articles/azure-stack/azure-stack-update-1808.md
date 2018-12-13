@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 88041cf185aeb6ae5cb27f2405b62401cae069d9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964254"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098101"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
@@ -275,6 +275,12 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 <!-- 3179561 - IS --> 
 - Utilizzo di dischi gestito viene segnalato nelle ore, come descritto nel [domande frequenti sull'utilizzo di Azure Stack](azure-stack-usage-related-faq.md#managed-disks). Tuttavia, la fatturazione di Azure Stack Usa invece il prezzo mensile in modo che possono ottenere in modo non corretto addebitate spese di utilizzo di Managed Disks o prima il 27 settembre. Abbiamo temporaneamente sospeso gli addebiti per i dischi gestiti dopo il 27 settembre fino a quando non viene risolto il problema di fatturazione. Se siano state addebitate in modo non corretto per l'uso di Managed Disks, contattare il supporto di fatturazione di Microsoft.
 Report sull'utilizzo generate in seguito l'utilizzo di Azure Stack API indicano la quantità corretta e può essere utilizzato.
+
+<!-- 3507629 - IS, ASDK --> 
+- Managed Disks vengono creati due nuovi [tipi di quota di calcolo](azure-stack-quota-types.md#compute-quota-types) per limitare la capacità massima di dischi gestiti che è possibile eseguire il provisioning. Per impostazione predefinita, 2048 GiB viene allocata per ogni tipo di quota di dischi gestiti. Tuttavia, è possibile riscontrare i problemi seguenti:
+
+   - Per le quote create prima dell'aggiornamento 1808, la quota di Managed Disks visualizzerà i valori 0 nel portale di amministrazione, anche se viene allocata 2048 GiB. È possibile aumentare o diminuire il valore in base a esigenze effettive e appena impostato il valore della quota sostituisce il valore predefinito GiB di 2048.
+   - Se si aggiorna il valore di quota a 0, è equivalente al valore predefinito di 2048 GiB. In alternativa, impostare il valore di quota a 1.
 
 <!-- 2869209 – IS, ASDK --> 
 - Quando si usa la [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), è necessario usare il **- OsUri** parametro come URI in cui è stato caricato il disco dell'account di archiviazione. Se si usa il percorso locale del disco, il cmdlet non riesce con l'errore seguente: *operazione a esecuzione prolungata non è riuscita con stato 'Non riuscita'*. 

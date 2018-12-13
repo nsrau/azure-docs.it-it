@@ -1,24 +1,20 @@
 ---
-title: Procedura per l'esecuzione di query sui dati tabella in Azure Cosmos DB | Microsoft Docs
+title: Procedura per l'esecuzione di query sui dati tabella in Azure Cosmos DB
 description: Informazioni per l'esecuzione di query sui dati tabella in Azure Cosmos DB
 services: cosmos-db
 author: kanshiG
-manager: kfile
-editor: ''
-tags: ''
+ms.author: govindk
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/15/2017
-ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 9d47928984330f2366da066c221e2bb502aa7193
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.date: 11/15/2017
+ms.openlocfilehash: 3d50e51a0d4ccbbd9b21cda87dc457ea1cbe02fd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442948"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879197"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Esercitazione: Eseguire query in Azure Cosmos DB con l'API di tabella
 

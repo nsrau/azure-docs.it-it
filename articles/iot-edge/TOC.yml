@@ -56,8 +56,6 @@ items:
       href: module-composition.md
     - name: Distribuzioni automatiche
       href: module-deployment-monitoring.md
-  - name: Certificati di IoT Edge
-    href: iot-edge-certs.md
   - name: Funzionalità offline
     href: offline-capabilities.md
   - name: Dispositivo IoT Edge come gateway
@@ -68,6 +66,8 @@ items:
       href: security.md
     - name: IoT Edge Security Manager
       href: iot-edge-security-manager.md
+    - name: Certificati di IoT Edge
+      href: iot-edge-certs.md
   - name: Supporto delle piattaforme
     href: support.md
   - name: Elenco di controllo della distribuzione di produzione
@@ -102,7 +102,7 @@ items:
     items:
     - name: Linux
       href: how-to-auto-provision-simulated-device-linux.md
-    - name: " Windows"
+    - name: Windows
       href: how-to-auto-provision-simulated-device-windows.md
   - name: Sviluppare ed eseguire il debug dei moduli in VS 2017
     href: how-to-visual-studio-develop-csharp-module.md
@@ -226,9 +226,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 507f50a3d7df4e1bc08b52668543b8fe2e3b0dd1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 36f90f4ff43b16a7f9127d5efbabd02f15e14b2c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867274"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101705"

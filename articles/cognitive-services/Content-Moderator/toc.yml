@@ -6,14 +6,20 @@ items:
     href: overview.md
 - name: Guide introduttive
   items:
-  - name: Introduzione a Content Moderator
+  - name: Introduzione
     href: quick-start.md
-  - name: Uso di .NET SDK
+  - name: Uso dell'SDK client
     items:
-    - name: Analizzare il contenuto delle immagini per individuare materiale inappropriato
-      href: image-moderation-quickstart-dotnet.md
-    - name: Analizzare il contenuto del testo per individuare materiale inappropriato
-      href: text-moderation-quickstart-dotnet.md
+    - name: C#
+      items:
+      - name: Analizzare il contenuto delle immagini
+        href: image-moderation-quickstart-dotnet.md
+      - name: Analizzare il contenuto di testo
+        href: text-moderation-quickstart-dotnet.md
+    - name: Python
+      items:
+      - name: Analizzare il contenuto di testo
+        href: text-moderation-quickstart-python.md
 - name: Concetti
   items:
   - name: Moderazione immagini
@@ -144,9 +150,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Roadmap per Azure
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: f7072fef1d0dea42d20f5cdd5a98dd5c7c20713f
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 825aafe7980713fbb07499475cb4c8456873f1fe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276415"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106176"
