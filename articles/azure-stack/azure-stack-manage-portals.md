@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 58856875fa7d7bb3ba63c489fb17790e68f99aec
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085820"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872187"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Tramite il portale dell'amministratore in Azure Stack
 
@@ -86,6 +86,10 @@ Se si seleziona l'icona della Guida e supporto (punto interrogativo) nell'angolo
 
 - Se si usa un sistema integrato, questa azione apre un sito in cui è possibile aprire direttamente un ticket di supporto con Microsoft dei clienti supporto tecnico clienti Microsoft. Fare riferimento a [come ottenere supporto](azure-stack-manage-basics.md#where-to-get-support) comprendere quando deve passare attraverso il supporto tecnico Microsoft o attraverso il supporto dei fornitori di hardware (OEM) original equipment manufacturer.
 - Se si utilizza il kit di sviluppo, questa azione apre direttamente sul sito dei forum Azure Stack. Questi forum vengono regolarmente monitorati. Poiché il kit di sviluppo è un ambiente di valutazione, non è previsto alcun supporto ufficiale offerto tramite Microsoft CSS.
+
+### <a name="quick-access-to-the-azure-roadmap"></a>Accesso rapido per la roadmap per Azure
+
+Se si seleziona **Guida in linea e supporto** (il punto interrogativo) nell'angolo superiore destro dell'amministratore del portale e quindi seleziona **roadmap per Azure**, una nuova scheda del browser si apre e consente di visualizzare la roadmap per Azure. Digitando **Azure Stack** nel **prodotti** casella di ricerca, è possibile visualizzare tutti gli aggiornamenti della roadmap per Azure Stack.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

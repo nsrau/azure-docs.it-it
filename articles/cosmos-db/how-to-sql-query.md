@@ -1,17 +1,17 @@
 ---
-title: Query SQL per Azure Cosmos DB | Microsoft Docs
+title: Query SQL per Azure Cosmos DB
 description: Informazioni sulla sintassi SQL, sui concetti relativi ai database e sulle query SQL per Cosmos DB. SQL può essere usato come linguaggio di query JSON in Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9496f88a24c92387418d5d9ae23bb7f2eaff2088
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: f7b3826e1e77933b49f0a742ebf8dfb994bf7ea9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444436"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848732"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Eseguire query sui dati di Azure Cosmos DB con query SQL
 
@@ -21,7 +21,7 @@ Azure Cosmos DB supporta l'esecuzione di query sugli elementi mediante SQL (Stru
 
 * Azure Cosmos DB usa il modello di programmazione di JavaScript come base per il linguaggio di query. L'API SQL è radicata nel sistema di tipi, nella valutazione delle espressioni e nella chiamata di funzioni di JavaScript. Questo rappresenta a sua volta un modello di programmazione naturale per le proiezioni relazionali, la navigazione gerarchica attraverso gli elementi JSON, i self join, le query spaziali e la chiamata di funzioni definite dall'utente (UDF) scritte interamente in JavaScript, tra le altre funzionalità.
 
-Questo articolo illustra alcuni esempi di query SQL usando semplici elementi JSON. Per altre informazioni sulla sintassi del linguaggio SQL di Azure Cosmos DB, vedere l'articolo [Riferimento alla sintassi SQL](sql-api-sql-query-reference.md).
+Questo articolo illustra alcuni esempi di query SQL usando semplici elementi JSON. Per altre informazioni sulla sintassi del linguaggio SQL di Azure Cosmos DB, vedere l’articolo [Riferimento alla sintassi SQL](sql-api-sql-query-reference.md).
 
 ## <a id="GettingStarted"></a> Introduzione ai comandi di SQL
 
@@ -233,7 +233,7 @@ La proiezione supporta anche le espressioni JSON, come illustrato nell'esempio s
     }]
 ```
 
-Verrà ora esaminato il ruolo di `$1`. La clausola `SELECT` deve creare un oggetto JSON e, poiché non è stata fornita alcuna chiave, verranno usati i nomi di variabile di argomento implicita che iniziano per `$1`. Ad esempio, questa query restituisce due variabili di argomento implicite, etichettate `$1` and `$2`.
+Verrà ora esaminato il ruolo di `$1` . La clausola `SELECT` deve creare un oggetto JSON e, poiché non è stata fornita alcuna chiave, verranno usati i nomi di variabile di argomento implicita che iniziano per `$1`. Ad esempio, questa query restituisce due variabili di argomento implicite, etichettate `$1` and `$2`.
 
 **Query**
 
@@ -820,7 +820,7 @@ La parola chiave TOP può essere usata per limitare il numero di valori restitui
 
 La tabella seguente mostra l'elenco delle funzioni di aggregazione supportate nell'API SQL. `SUM`e `AVG` vengono eseguite su valori numerici, mentre `COUNT`, `MIN` e `MAX` possono essere eseguite su numeri, stringhe, valori booleani e valori null.
 
-| Uso | Descrizione |
+| Uso | DESCRIZIONE |
 |-------|-------------|
 | COUNT | Restituisce il numero di elementi nell'espressione. |
 | SUM   | Restituisce la somma dei valori nell'espressione. |
@@ -1363,7 +1363,7 @@ Se attualmente si usa una funzione definita dall'utente (UDF) per cui è ora dis
 
 Le funzioni matematiche eseguono un calcolo basato su valori di input passati come argomenti e restituiscono un valore numerico. Di seguito è riportata una tabella delle funzioni matematiche predefinite supportate.
 
-| Uso | Descrizione |
+| Uso | DESCRIZIONE |
 |----------|--------|
 | [[ABS (num_expr)](#bk_abs) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | [CEILING (num_expr)](#bk_ceiling) | Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata. |
@@ -1438,7 +1438,7 @@ Usando queste funzioni è ora possibile eseguire query come illustrato nell'esem
 
 Le funzioni scalari seguenti eseguono un'operazione su un valore di stringa di input e restituiscono una stringa, il valore numerico o booleano. Ecco una tabella di funzioni per stringhe:
 
-| Uso | Descrizione |
+| Uso | DESCRIZIONE |
 | --- | --- |
 | [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) | Restituisce il numero di caratteri dell'espressione stringa specificata |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) | Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa. |
@@ -1520,7 +1520,7 @@ Le funzioni stringa possono essere usate anche nella clausola WHERE per filtrare
 
 Le funzioni scalari seguenti eseguono un'operazione su un valore di input di matrice e restituiscono un valore numerico, booleano o matrice. La tabella seguente include funzioni di matrice predefinite:
 
-| Uso | Descrizione |
+| Uso | DESCRIZIONE |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Restituisce il numero di elementi dell'espressione di matrice specificato. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Restituisce una matrice che rappresenta il risultato della concatenazione di due o più valori della matrice. |
@@ -1589,7 +1589,7 @@ L'esempio seguente usa ARRAY_LENGTH per ottenere il numero di figli per ogni fam
 
 Cosmos DB supporta le seguenti funzioni predefinite di Open Geospatial Consortium (OGC) per l'esecuzione di query geospaziali. 
 
-| Uso | Descrizione |
+| Uso | DESCRIZIONE |
 | --- | --- |
 | ST_DISTANCE (point_expr, point_expr) | Restituisce la distanza tra le due espressioni GeoJSON punto, poligono o LineString. |
 | T_WITHIN (point_expr, polygon_expr) | Restituisce un'espressione booleana che indica se il primo oggetto GeoJSON (punto, poligono o LineString) è all'interno del secondo oggetto GeoJSON (punto, poligono o LineString). |
@@ -2111,7 +2111,7 @@ Il secondo esempio mostra una query più complessa che restituisce più risultat
     }
 ```
 
-Se il numero di risultati di una query supera le dimensioni di una singola pagina, l'API REST restituisce un token di continuazione attraverso l'intestazione di risposta `x-ms-continuation-token`. I client possono impaginare i risultati includendo l'intestazione nei risultati successivi. È possibile controllare il numero di risultati per pagina anche attraverso l'intestazione di numero `x-ms-max-item-count`. Se la query specificata include una funzione di aggregazione come `COUNT`, la pagina di query può restituire un valore parzialmente aggregato nella pagina dei risultati. I client devono eseguire un'aggregazione di secondo livello su questi risultati per ottenere i risultati finali, ad esempio sommare i conteggi restituiti nelle singole pagine per ottenere il conteggio totale.
+Se il numero di risultati di una query supera le dimensioni di una singola pagina, l'API REST restituisce un token di continuazione attraverso l'intestazione di risposta `x-ms-continuation-token` . I client possono impaginare i risultati includendo l'intestazione nei risultati successivi. È possibile controllare il numero di risultati per pagina anche attraverso l'intestazione di numero `x-ms-max-item-count` . Se la query specificata include una funzione di aggregazione come `COUNT`, la pagina di query può restituire un valore parzialmente aggregato nella pagina dei risultati. I client devono eseguire un'aggregazione di secondo livello su questi risultati per ottenere i risultati finali, ad esempio sommare i conteggi restituiti nelle singole pagine per ottenere il conteggio totale.
 
 Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x-ms-consistency-level` come tutte le richieste dell'API REST. Ai fini della coerenza della sessione, è necessario anche ripetere l'ultima intestazione cookie `x-ms-session-token` nella richiesta di query. I criteri di indicizzazione del contenitore sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione, per i contenitori l'indice è sempre aggiornato con il contenuto dell'elemento e i risultati della query corrispondono alla coerenza scelta per i dati. Se i criteri di indicizzazione vengono ridotti alla modalità differita, le query possono restituire risultati obsoleti. Per altre informazioni, vedere [Livelli di coerenza di Azure Cosmos DB][consistency-levels].
 
@@ -2206,7 +2206,7 @@ Nell'esempio successivo vengono illustrati i join, espressi tramite la clausola 
     }
 ```
 
-Il client .NET esegue automaticamente l'iterazione attraverso tutte le pagine dei risultati della query nei blocchi foreach, come sopra illustrato. Le opzioni di query presentate nella sezione dell'API REST sono disponibili anche in .NET SDK usando le classi `FeedOptions` and `FeedResponse` nel metodo CreateDocumentQuery. È possibile controllare il numero di pagine usando l'impostazione `MaxItemCount`.
+Il client .NET esegue automaticamente l'iterazione attraverso tutte le pagine dei risultati della query nei blocchi foreach, come sopra illustrato. Le opzioni di query presentate nella sezione dell'API REST sono disponibili anche in .NET SDK usando le classi `FeedOptions` and `FeedResponse` nel metodo CreateDocumentQuery. È possibile controllare il numero di pagine usando l'impostazione `MaxItemCount` .
 
 È anche possibile controllare esplicitamente il paging creando `IDocumentQueryable` tramite l'oggetto `IQueryable`, quindi leggendo i valori ` ResponseContinuationToken` e ritrasferendoli come `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` per abilitare le analisi quando la query non può essere supportata dai criteri di indicizzazione configurati. Per i contenitori partizionati, è possibile usare `PartitionKey` per eseguire la query in una partizione singola, anche se Azure Cosmos DB può eseguire l'estrazione automatica dal testo della query, e `EnableCrossPartitionQuery` per eseguire query che potrebbe essere necessario ripetere in più partizioni.
 

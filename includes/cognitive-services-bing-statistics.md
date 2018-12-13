@@ -89,7 +89,7 @@ Di seguito sono riportate le scelte possibili. Ogni metrica mostra le restrizion
   
 - **Distribuzione dei codici di risposta**: i codici di stato HTTP di tutte le chiamate durante il periodo di reporting.  
   
-- **Distribuzione dell'origine delle chiamate**: i tipi di browser usati dagli utenti. Ad esempio, Edge, Chrome, Safari e FireFox. Le chiamate effettuate dall'esterno di un browser, ad esempio da bot, Postman o usando curl da un'app console, vengono raggruppate in raccolte. L'origine viene determinata tramite il valore dell'intestazione agente utente della richiesta. Se la richiesta non include l'intestazione agente utente, Bing tenta di derivare l'origine da altri segnali.  
+- **Distribuzione dell'origine delle chiamate**: i tipi di browser usati dagli utenti. Ad esempio, Microsoft Edge, Chrome, Safari e FireFox. Le chiamate effettuate dall'esterno di un browser, ad esempio da bot, Postman o usando curl da un'app console, vengono raggruppate in raccolte. L'origine viene determinata tramite il valore dell'intestazione agente utente della richiesta. Se la richiesta non include l'intestazione agente utente, Bing tenta di derivare l'origine da altri segnali.  
   
 - **Distribuzione della ricerca sicura**: la distribuzione dei valori di ricerca sicura. Ad esempio, off, moderate o strict. Il parametro di query `safeSearch` contiene il valore, se specificato. In caso contrario, Bing definisce per impostazione predefinita il valore da moderare.  
   

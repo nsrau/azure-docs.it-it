@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: dc301f218855139cfb3a5faa30109dd5a301eb07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139703"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871201"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Scaricare ed estrarre Azure Stack Development Kit (ASDK)
 Dopo aver verificato che il computer host kit di sviluppo soddisfi i requisiti di base per l'installazione di ASDK, il passaggio successivo è per scaricare ed estrarre il pacchetto di distribuzione ASDK per ottenere il Cloudbuilder.vhdx.
@@ -29,7 +29,7 @@ Dopo aver verificato che il computer host kit di sviluppo soddisfi i requisiti d
 1. Prima di avviare il download, assicurarsi che il computer soddisfi i prerequisiti seguenti:
 
   - Il computer deve avere almeno 60 GB di spazio su disco disponibile in quattro separata, identica unità disco rigido inoltre per il disco del sistema operativo.
-  - [.NET framework 4.6 (o versione successiva)](https://aka.ms/r6mkiy) deve essere installato.
+  - [.NET framework 4.6 (o versione successiva)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) deve essere installato.
 
 2. [Andare alla pagina di iniziare](https://azure.microsoft.com/overview/azure-stack/try/?v=try) in cui è possibile Scarica Azure Stack Development Kit, fornire i dettagli e quindi fare clic su **Submit**.
 3. Scaricare ed eseguire la [controllo di distribuzione per Azure Stack Development Kit](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) script di controllo dei prerequisiti. Questo script autonomo sono illustrati i controlli di pre-requisiti eseguiti dal programma di installazione per Azure Stack Development Kit. Fornisce un modo per verificare che vengano soddisfatti i requisiti hardware e software, prima di scaricare il pacchetto di dimensioni maggiori per Azure Stack Development Kit.

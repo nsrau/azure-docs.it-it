@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: ef9c096989eeb37159d0deb705e7870afe2eff8b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 70641084d2213b50803800a64000611d139facec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975397"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075775"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gestire l'accesso alle risorse con controllo degli accessi Azure Stack Role-Based
 
@@ -91,9 +91,9 @@ I passaggi seguenti descrivono come configurare le autorizzazioni per un utente.
 1. Accedere con un account con autorizzazioni di proprietario per la risorsa da gestire.
 2. Nel riquadro di spostamento a sinistra scegliere **Gruppi di risorse**.
 3. Scegliere il nome del gruppo di risorse che si desidera impostare le autorizzazioni su.
-4. Nel riquadro di spostamento del gruppo di risorse, scegliere **controllo di accesso (IAM)**. Il **controllo di accesso** visualizzazione Elenca gli elementi che dispongono dell'accesso al gruppo di risorse. È possibile filtrare questi risultati e usare una barra dei menu per aggiungere o rimuovere le autorizzazioni.
-5. Nel **controllo di accesso** menu barra, scegliere **+ Aggiungi**.
-6. Sul **aggiungere autorizzazioni**:
+4. Nel riquadro di spostamento del gruppo di risorse, scegliere **controllo di accesso (IAM)**. Il **assegnazioni di ruolo** visualizzazione Elenca gli elementi che dispongono dell'accesso al gruppo di risorse. È possibile filtrare e raggruppare i risultati.
+5. Nel **controllo di accesso** menu barra, scegliere **aggiungere un'assegnazione di ruolo**.
+6. Sul **aggiungere un'assegnazione di ruolo** riquadro:
 
    * Scegliere il ruolo da assegnare il **ruolo** elenco a discesa.
    * Scegliere la risorsa che si desidera assegnare dal **assegna accesso a** elenco a discesa.

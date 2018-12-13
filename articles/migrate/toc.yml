@@ -21,6 +21,14 @@ items:
     href: concepts-dependency-visualization.md
 - name: Guide alle procedure
   items:
+  - name: Procedure consigliate per la migrazione
+    items:
+    - name: Procedure consigliate per la sicurezza e la gestione dopo la migrazione
+      href: migrate-best-practices-security-management.md
+    - name: Procedure consigliate per le risorse di rete dopo la migrazione
+      href: migrate-best-practices-networking.md
+    - name: Procedure consigliate per i costi e il ridimensionamento dopo la migrazione
+      href: migrate-best-practices-costs.md
   - name: Serie di migrazione Contoso
     items:
     - name: 1. Panoramica della migrazione Contoso
@@ -83,9 +91,9 @@ items:
     href: https://azure.microsoft.com/migrate
   - name: Roadmap per Azure
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: c841391db203f8fb6f1ad5eaf9dc9cfc46329fda
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fb184cad3dc639912260d760ed9d2e44a076822a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873518"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074826"

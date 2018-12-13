@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 01/22/2018
+ms.topic: quickstart
+ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 525a11d0cbb10d4170930fb4df362e0a9ea024e2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2baadd0bcb5aba401e2dd6cec9a82ca401b3c9bd
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38623507"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620490"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Esercitazione: Creare una data factory di Azure usando un modello di Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -133,9 +133,8 @@ Creare un file JSON denominato **ADFTutorialARM.json** nella cartella **C:\ADFTu
         "apiVersion": "2017-09-01-preview",
         "type": "Microsoft.DataFactory/factories",
         "location": "[parameters('dataFactoryLocation')]",
-        "properties": {
-            "loggingStorageAccountName": "[parameters('storageAccountName')]",
-            "loggingStorageAccountKey": "[parameters('storageAccountKey')]"
+        "identity": {
+            "type": "SystemAssigned"
         },
         "resources": [{
                 "type": "linkedservices",

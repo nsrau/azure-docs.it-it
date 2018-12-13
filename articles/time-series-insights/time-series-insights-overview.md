@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 85436fedacc765dcdf6a8005cf96f3d63312504c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365573"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868804"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Informazioni su Azure Time Series Insights
 
@@ -34,7 +34,7 @@ Se si intende compilare un'applicazione per uso interno o destinata a clienti es
 
 Per verificare se i dati fanno riferimento a una serie temporale, considerare le informazioni riportate di seguito.  I dati delle serie temporali rappresentano il modo in cui un asset o un processo varia nel corso del tempo.  Tali dati sono univoci nel senso che sono associati a un timestamp e il tempo è il fattore di riferimento più significativo.  I dati delle serie temporali in genere vengono acquisiti in ordine cronologico e vengono considerati un inserimento nel database e non un suo aggiornamento.  Poiché Time Series Insights acquisisce e archivia ogni nuovo evento sotto forma di riga, le variazioni vengono misurate nel corso del tempo e ciò consente di analizzare i dati a ritroso e prevedere variazioni future.  In presenza di ingenti quantità di dati, l'archiviazione, l'indicizzazione, l'esecuzione di query, l'analisi e la visualizzazione dei dati delle serie temporali possono trasformarsi in operazioni molto complesse.  
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
 ### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>Questo video fornisce una panoramica di Time Series Insights, una piattaforma di analisi IoT basata sul cloud.</br>
 

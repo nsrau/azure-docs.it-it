@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c931ebd2d415b3423f1de16462e2c780f59b8d8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8beabfb8c77d4d62b9b15dca8ae3146c34c3b20a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406958"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634813"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Guida introduttiva: Inviare e ricevere messaggi usando l'interfaccia della riga di comando di Azure e Java
 
@@ -57,7 +57,7 @@ az servicebus queue create --resource-group myResourceGroup \
 # Get the connection string for the namespace
 connectionString=$(az servicebus namespace authorization-rule keys list \
    --resource-group myResourceGroup \
-   --namespace-name  $namespaceName \
+   --namespace-name $namespaceName \
    --name RootManageSharedAccessKey \
    --query primaryConnectionString --output tsv)
 ```
