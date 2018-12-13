@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 5714257fce53fafa148b8ae4d5a3addf3b872c6f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035476"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276251"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>I sistemi integrati di Azure distribuzione disconnessa pianificazione decisioni per Azure Stack
 Dopo aver deciso [modo in cui si integrerà Azure Stack nell'ambiente cloud ibrido](azure-stack-connection-models.md), è quindi possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
 
-È possibile distribuire e usare Azure Stack senza una connessione a internet. Tuttavia, con una distribuzione disconnessa, si è limitati a un archivio identità di AD FS e il modello di fatturazione basato sulla capacità. 
+È possibile distribuire e usare Azure Stack senza una connessione a internet. Tuttavia, con una distribuzione disconnessa, si è limitati a un archivio identità di AD FS e il modello di fatturazione basato sulla capacità. Poiché la multi-tenancy richiede l'uso di Azure Active Directory, multi-tenancy non è supportato per le distribuzioni disconnesse. 
 
 Scegliere questa opzione se si:
 - Disporre di sicurezza o altre restrizioni che richiedono di distribuire Azure Stack in un ambiente non connesso a Internet.
@@ -58,7 +58,7 @@ Telemetria|Non disponibile a causa dei dati di telemetria per Azure Stack come p
 
 ## <a name="learn-more"></a>Altre informazioni
 - Per informazioni sui casi d'uso, acquisto, partner e fornitori di hardware OEM, vedere la [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) pagina del prodotto.
-- Per informazioni sulla Guida di orientamento e la disponibilità geografica per Azure Stack i sistemi integrati, vedere il white paper: [Azure Stack: un'estensione di Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Per informazioni sulla Guida di orientamento e la disponibilità geografica per Azure Stack i sistemi integrati, vedere il white paper: [Azure Stack: Un'estensione di Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Per altre informazioni sulla creazione di pacchetti e prezzi di Microsoft Azure Stack [Scarica il PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Passaggi successivi

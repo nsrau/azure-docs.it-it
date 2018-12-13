@@ -12,38 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 21a6eeb4b0a83574be4c5c996e43d9867c3249d0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959027"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185733"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Funzionalità e concetti principali in Azure Stack
 Le descrizioni delle funzionalità e i termini riportati di seguito possono risultare utili a chi non si ha familiarità con Microsoft Azure Stack.
 
 ## <a name="personas"></a>Utenti tipo
-Esistono due tipi di utenti per Microsoft Azure Stack, l'operatore cloud (provider) e il tenant (consumer).
+Esistono due tipi di utenti per Microsoft Azure Stack, l'operatore e l'utente.
 
-* Oggetto **operatore cloud** possono configurare Azure Stack e gestire le offerte, piani, servizi, quote e prezzi per fornire le risorse per i tenant.  Gli operatori cloud anche la capacità di gestire e rispondono agli avvisi.  
-* Oggetto **tenant** (detta anche un utente) utilizza i servizi che offre l'amministratore del cloud. Il tenant può effettuare il provisioning, monitorare e gestire i servizi che ha sottoscritto, ad esempio App Web, Archiviazione e Macchine virtuali.
+* Azure Stack **operatore** possono configurare Azure Stack per la gestione di offerte, piani, servizi, quote e prezzi per fornire le risorse per il tenant, gli utenti. Gli operatori anche gestire la capacità e rispondono agli avvisi.  
+* Azure Stack **utente** (detta anche un tenant) utilizza i servizi che offre l'operatore. Utenti possono effettuare il provisioning, monitorare e gestire i servizi che hanno sottoscritto, ad esempio App web, archiviazione e macchine virtuali.
 
 ## <a name="portal"></a>Portale
-I metodi principali per l'interazione con Microsoft Azure Stack sono il portale per gli amministratori, portale per gli utenti e PowerShell.
+I metodi principali per l'interazione con Microsoft Azure Stack sono il portale di amministrazione, portale per gli utenti e PowerShell.
 
-I portali di Azure Stack sono ognuno supportati da istanze separate di Azure Resource Manager.  Un operatore cloud Usa il portale dell'amministratore per la gestione di Azure Stack e, ad esempio, creare offerte di tenant.  Il portale utenti (detto anche il portale tenant) offre un'esperienza self-service per l'utilizzo delle risorse cloud, come le macchine virtuali, gli account di archiviazione e le app Web. Per altre informazioni, vedere [tramite i portali di amministratore e utente di Azure Stack](azure-stack-manage-portals.md).
+I portali di Azure Stack sono ognuno supportati da istanze separate di Azure Resource Manager. Un operatore Usa il portale di amministrazione per gestire Azure Stack e, ad esempio, creare offerte di tenant. Il portale utenti (detto anche il portale tenant) offre un'esperienza self-service per l'utilizzo delle risorse cloud, come le macchine virtuali, gli account di archiviazione e le app web. Per altre informazioni, vedere [tramite i portali di amministratore e utente di Azure Stack](azure-stack-manage-portals.md).
 
 ## <a name="identity"></a>Identità 
-Stack di Azure Usa Azure Active Directory (AAD) o Active Directory Federation Services (ADFS) come provider di identità.  
+Stack di Azure Usa Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità.  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory è il provider di identità basato sul cloud e multi-tenant di Microsoft.  La maggior parte degli scenari ibridi usano Azure Active Directory come archivio identità.
+Azure AD è il provider di identità basato sul cloud e multi-tenant di Microsoft. La maggior parte degli scenari ibridi usano Azure AD come archivio identità.
 
 ### <a name="active-directory-federation-services"></a>Active Directory Federation Services
-È possibile scegliere di utilizzare Active Directory Federation Services (ADFS) per le distribuzioni non connessione di Azure Stack.  Azure Stack, i provider di risorse e altre applicazioni funzionano molto simile a quello con AD FS come avviene con Azure Active Directory. Lo Stack di Azure include una propria istanza di AD FS e Active Directory e un'API Graph di Active Directory. Azure Stack Development Kit supporta i seguenti scenari di AD FS:
+È possibile scegliere di utilizzare Active Directory Federation Services (ADFS) per le distribuzioni non connessione di Azure Stack. I provider di risorse di Azure Stack e altre applicazioni, lavorare molto simile a quello con AD FS come avviene con Azure AD. Lo Stack di Azure include una propria istanza di Active Directory e un'API Graph di Active Directory. Azure Stack Development Kit supporta i seguenti scenari di AD FS:
 
 - Accedi per la distribuzione tramite ADFS.
 - Creare una macchina virtuale con i segreti in Key Vault
@@ -93,9 +93,9 @@ Per l'amministratore, viene creata una sottoscrizione di Provider predefinito du
 Usando Azure Resource Manager, per lavorare con le risorse di infrastruttura in un modello dichiarativo, basato su modello.   Fornisce un'unica interfaccia che è possibile usare per distribuire e gestire i componenti della soluzione. Per altre informazioni e istruzioni, vedere [Panoramica di Gestione risorse di Microsoft Azure](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Gruppi di risorse
-Gruppi di risorse sono raccolte di risorse, servizi e applicazioni, e ogni risorsa dispone di un tipo, ad esempio le macchine virtuali, reti virtuali, gli indirizzi IP pubblici, gli account di archiviazione e siti Web. Ogni risorsa deve essere in un gruppo di risorse e gruppi di risorse di ricevere assistenza in modo logico organizzare le risorse, ad esempio dal carico di lavoro o il percorso.  In Microsoft Azure Stack le risorse come i piani e le offerte vengono gestite anche nei gruppi di risorse.
+Gruppi di risorse sono raccolte di risorse, servizi e applicazioni, e ogni risorsa dispone di un tipo, ad esempio le macchine virtuali, reti virtuali, gli indirizzi IP pubblici, gli account di archiviazione e siti Web. Ogni risorsa deve essere in un gruppo di risorse e gruppi di risorse di ricevere assistenza in modo logico organizzare le risorse, ad esempio dal carico di lavoro o il percorso. In Azure Stack, risorse, ad esempio piani e le offerte vengono gestite anche nei gruppi di risorse.
 
-A differenza [Azure](../azure-resource-manager/resource-group-move-resources.md), è possibile spostare le risorse tra gruppi di risorse. Quando si visualizzano le proprietà di una risorsa o gruppo di risorse nel portale di amministrazione di Azure Stack, il *spostare* pulsante è inattivo e non è disponibile. 
+A differenza [Azure](../azure-resource-manager/resource-group-move-resources.md), è possibile spostare le risorse di Azure Stack tra gruppi di risorse. Quando si visualizzano le proprietà di una risorsa o gruppo di risorse nel portale di amministrazione di Azure Stack, il *spostare* pulsante è inattivo e non è disponibile. Inoltre, l'uso del **cambia il gruppo di risorse** oppure **cambiare sottoscrizione** azioni dal gruppo di risorse o proprietà elemento gruppo di risorse non è supportato neanche. Tutti i tentativi spostare operazioni avranno esito negativo.
  
 ### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 Con Azure Resource Manager, è possibile creare un modello (in formato JSON) che definisce la distribuzione e configurazione dell'applicazione. Questo modello è noto come modello di Gestione risorse di Azure e permette di definire la distribuzione in modo dichiarativo. Utilizzando un modello, è possibile distribuire l'applicazione in tutto il ciclo di vita dell'app ripetutamente e avere la certezza che le risorse vengano distribuite in uno stato coerente.
@@ -103,7 +103,7 @@ Con Azure Resource Manager, è possibile creare un modello (in formato JSON) che
 ## <a name="resource-providers-rps"></a>Provider di risorse (RPs)
 I provider di risorse sono servizi Web su cui si basano tutti i servizi PaaS e IaaS basati su Azure. Azure Resource Manager si basa su diversi provider di risorse per fornire l'accesso ai servizi.
 
-Esistono quattro RPs fondamentali: rete, calcolo e archiviazione Key Vault. Ognuno di questi provider di risorse consente di configurare e controllare le rispettive risorse. Gli amministratori del servizio è anche possono aggiungere nuovi provider di risorse personalizzati.
+Esistono quattro RPs fondamentali: Rete, calcolo e archiviazione Key Vault. Ognuno di questi provider di risorse consente di configurare e controllare le rispettive risorse. Gli amministratori del servizio è anche possono aggiungere nuovi provider di risorse personalizzati.
 
 ### <a name="compute-rp"></a>Provider di risorse di calcolo
 Il provider di risorse di calcolo consente ai tenant di Azure Stack di creare le proprie macchine virtuali. Il provider di risorse di calcolo include la possibilità di creare macchine virtuali ed estensioni della macchina virtuale. Il servizio di estensione della macchina virtuale consente di fornire funzionalità IaaS per macchine virtuali Linux e Windows.  Ad esempio, è possibile usare CRP per effettuare il provisioning di una macchina virtuale Linux ed eseguire gli script di Bash durante la distribuzione per configurare la macchina virtuale.
@@ -150,7 +150,7 @@ Per set di scalabilità di macchine virtuali, un set di disponibilità è stato 
 ## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
 Il controllo degli accessi in base al ruolo può essere usato per concedere l'accesso al sistema a utenti autorizzati, gruppi e servizi tramite l'assegnazione di ruoli a livello di sottoscrizione, gruppo di risorse o singola risorsa. Ogni ruolo definisce il livello di accesso di un utente, un gruppo o un servizio rispetto alle risorse di Microsoft Azure Stack.
 
-Azure RBAC dispone di tre ruoli di base che si applicano a tutti i tipi di risorse: proprietario, collaboratore e lettore. Proprietario dispone dell'accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti. Collaboratore può creare e gestire tutti i tipi di risorse di Azure, ma non può concedere l'accesso ad altri utenti. Lettore può solo visualizzare le risorse di Azure esistenti. Il resto dei ruoli RBAC in Azure consente la gestione di risorse di Azure specifiche. Ad esempio, il ruolo Collaboratore di macchina virtuale consente la creazione e la gestione delle macchine virtuali, ma non consente la gestione della rete virtuale o della subnet a cui la macchina virtuale si connette.
+Il Controllo degli accessi in base al ruolo di Azure include di tre ruoli di base che si applicano a tutti i tipi di risorsa: Proprietario, collaboratore e lettore. Proprietario dispone dell'accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti. Collaboratore può creare e gestire tutti i tipi di risorse di Azure, ma non può concedere l'accesso ad altri utenti. Lettore può solo visualizzare le risorse di Azure esistenti. Il resto dei ruoli RBAC in Azure consente la gestione di risorse di Azure specifiche. Ad esempio, il ruolo Collaboratore di macchina virtuale consente la creazione e la gestione delle macchine virtuali, ma non consente la gestione della rete virtuale o della subnet a cui la macchina virtuale si connette.
 
 ## <a name="usage-data"></a>Dati di utilizzo
 Microsoft Azure Stack raccoglie e aggrega i dati di utilizzo in tutti i provider di risorse e lo trasmette in Azure per l'elaborazione dal commerce di Azure. I dati di utilizzo raccolti in Azure Stack possono essere visualizzati tramite un'API REST. Sono disponibili un'API del tenant coerente con Azure e API del provider e del provider delegato che permettono di ottenere dati di utilizzo di tutte le sottoscrizioni del tenant. Questi dati possono essere integrati con un servizio o uno strumento esterno di fatturazione o chargeback. Una volta che utilizzo è stato elaborato dal commercio Azure, possono essere visualizzato nel portale di fatturazione di Azure.

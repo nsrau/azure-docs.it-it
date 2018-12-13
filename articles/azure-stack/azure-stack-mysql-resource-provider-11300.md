@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 6354212eb95fbefb217dd5339613d050da55f4ba
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 2f300e496873c0b048ccc1acc078bf1650e6bd9c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688201"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166286"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>Note sulla versione di MySQL resource provider 1.1.30.0
 
@@ -56,13 +56,26 @@ Questa versione del provider di risorse MySQL di Azure Stack include le correzio
 
 - **SKU MySQL può richiedere fino a un'ora siano visibili nel portale di**. Operazione può richiedere un'ora per i nuovi SKU creata sia visibile per l'uso durante la creazione di nuovi database MySQL. 
 
-    **Soluzione alternativa**: Nessuno.
+    **Soluzione alternativa**: No.
 
 - **Riutilizzare gli account di accesso MySQL**. Tentativo di creare un nuovo MySQL account di accesso con lo stesso nome utente come un account di accesso esistente nella stessa sottoscrizione comporterà riutilizzo all'account di accesso e la password esistente. 
 
-    **Soluzione alternativa**: utilizzare nomi utente diversi durante la creazione di nuovi account di accesso nella stessa sottoscrizione o creare gli account di accesso con lo stesso nome utente in diverse sottoscrizioni.
+    **Soluzione alternativa**: Usare nomi utente diversi durante la creazione di nuovi account di accesso nella stessa sottoscrizione o creare gli account di accesso con lo stesso nome utente in diverse sottoscrizioni.
 
+- **Requisito di supporto di TLS 1.2**. Se si prova a distribuire o aggiornare il provider di risorse MySQL da un computer in cui non è abilitato TLS 1.2, l'operazione potrebbe non riuscire. Eseguire il comando PowerShell seguente nel computer usato per distribuire o aggiornare il provider di risorse per verificare che TLS 1.2 venga restituito come supportate:
 
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  Se **Tls12** non è incluso nell'output del comando, TLS 1.2 non è abilitato nel computer.
+
+    **Soluzione alternativa**: Eseguire il comando PowerShell seguente per abilitare TLS 1.2 e quindi avviare la distribuzione di provider di risorse o aggiornare lo script dalla stessa sessione di PowerShell:
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
+ 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Problemi noti per gli amministratori Cloud Azure Stack operativo
 Vedere la documentazione nel [note sulla versione di Azure Stack](azure-stack-servicing-policy.md).
 
