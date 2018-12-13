@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2f5cffa0b31d46d76564565001aaed678eb1a649
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 7e0b3fff0ed60d5eb77194e7f9081d35f2e38571
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613585"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869638"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Esercitazione: Distribuire estensioni di macchina virtuale con modelli di Azure Resource Manager
 
@@ -116,7 +116,7 @@ Per altre informazioni sulla definizione di questa risorsa, vedere le [informazi
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Vedere la sezione [Distribuire il modello](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) per la procedura di distribuzione. È consigliabile usare una password generata per l'account amministratore della macchina virtuale. Vedere [Prerequisiti](#prerequisites).
+Vedere la sezione [Distribuire il modello](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) per la procedura di distribuzione. È consigliabile usare una password generata per l'account amministratore della macchina virtuale. Vedere [Prerequisiti](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Verificare la distribuzione
 

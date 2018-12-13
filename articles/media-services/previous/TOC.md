@@ -126,13 +126,13 @@
 ### [Gestire operazioni a esecuzione prolungata](media-services-dotnet-long-operations.md)
 ### [Specifica per l'inserimento live di un flusso MP4 frammentato](media-services-fmp4-live-ingest-overview.md)
 
-## [Ritagliare contenuti](media-services-azure-media-clipper-overview.md)
-### [Introduzione](media-services-azure-media-clipper-getting-started.md)
-### [Caricare video](media-services-azure-media-clipper-load-assets.md)
-### [Configurare le scelte rapide da tastiera](media-services-azure-media-clipper-keyboard-shortcuts.md)
-### [Configurare la localizzazione](media-services-azure-media-clipper-localization.md)
-### [Inviare processi di ritaglio](media-services-azure-media-clipper-submit-job.md)
-### [Portale di Azure](media-services-azure-media-clipper-portal.md)
+<!-- ## [Clip content](media-services-azure-media-clipper-overview.md)
+### [Getting started](media-services-azure-media-clipper-getting-started.md)
+### [Load videos](media-services-azure-media-clipper-load-assets.md)
+### [Configure keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Configure localization](media-services-azure-media-clipper-localization.md)
+### [Submit clipping jobs](media-services-azure-media-clipper-submit-job.md)
+### [Azure portal](media-services-azure-media-clipper-portal.md) -->
 
 ## [Proteggere i contenuti](media-services-content-protection-overview.md)
 ### [Crittografia di archiviazione](media-services-rest-storage-encryption.md)

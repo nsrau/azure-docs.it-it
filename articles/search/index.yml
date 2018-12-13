@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6297e92b9e20d42a914795e8ebcb77bb19d1eb4b
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b995f5f29c1377105e174faed43fb8ba82d90383
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829886"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313242"
 documentType: LandingData
 title: Documentazione di Ricerca di Azure
 metadata:
   document_id: 
   title: 'Documentazione di Ricerca di Azure: esercitazioni, guide introduttive e informazioni di riferimento sulle API'
-  meta.description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios.
+  description: Informazioni su come creare una soluzione di ricerca aziendale per contenuto privato eterogeneo con Ricerca di Azure. Le esercitazioni, le informazioni di riferimento sulle API e gli altri documenti illustrano come consolidare il contenuto ricercabile in un singolo indice veloce in cui possono essere eseguite query con una sintassi da semplice ad avanzata per una vasta gamma di scenari.
   services: search
   author: HeidiSteen
   manager: cgronlun

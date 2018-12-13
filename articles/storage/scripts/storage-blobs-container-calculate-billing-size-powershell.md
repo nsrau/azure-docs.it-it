@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: c37b416578a76e9b12e29d68e413d851796ccc6f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7e28b8938c8c0eb258fbb599dd5765258a4d52e4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26368545"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867376"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcolare le dimensioni di fatturazione totali di un contenitore BLOB
 
@@ -37,7 +37,7 @@ Questo script calcola le dimensioni di un contenitore nell'archivio BLOB di Azur
 
 La dimensione totale del contenitore BLOB include la dimensione del contenitore stesso e di tutti i BLOB in esso contenuti.
 
-Nelle sezioni seguenti viene illustrata la modalità di calcolo della capacità di archiviazione per i contenitori BLOB e i BLOB. Nella sezione seguente Len(X) indica il numero di caratteri nella stringa.
+Nelle sezioni seguenti viene illustrata la modalità di calcolo della capacità di archiviazione per i contenitori BLOB e i BLOB. Nella sezione seguente Len(X) indica il numero di caratteri nella stringa.
 
 ### <a name="blob-containers"></a>Contenitori BLOB
 
@@ -103,16 +103,16 @@ I dettagli sono indicati di seguito:
 * Per i BLOB in blocchi:
     * 8 byte per l'elenco di blocchi.
     * Il numero di blocchi moltiplicato per le dimensioni dell'ID blocco in byte.
-    * Le dimensioni dei dati in tutti blocchi con commit e senza commit. 
-    
+    * Le dimensioni dei dati in tutti blocchi con commit e senza commit.
+
     >[!NOTE]
     >Quando vengono usati gli snapshot, questa dimensione include solo i dati univoci per il BLOB di base o il BLOB snapshot. Se i blocchi senza commit non vengono usati dopo una settimana, sono sottoposto a Garbage Collection. In seguito non vengono considerati per la fatturazione.
 
 * Per i BLOB di pagine:
     * Numero di intervalli di pagine non consecutivi con i dati per 12 byte. Questo è il numero di intervalli di pagine univoche visualizzato quando si chiama l'API **GetPageRanges**.
 
-    * Le dimensioni dei dati in byte di tutte le pagine archiviate. 
-    
+    * Le dimensioni dei dati in byte di tutte le pagine archiviate.
+
     >[!NOTE]
     >Quando vengono usati gli snapshot, questa dimensione include solo le pagine univoche per il BLOB di base o snapshot in fase di conteggio.
 

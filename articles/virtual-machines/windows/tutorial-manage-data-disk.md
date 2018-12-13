@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c69a91ce360b5476541de29dc52ea89057aa726c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 334fd01568b05cd16ff6f85725a799234fefda48
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037635"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871830"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Esercitazione: gestire i dischi di Azure con Azure PowerShell
 
@@ -144,10 +144,10 @@ Dopo aver collegato un disco alla macchina virtuale, il sistema operativo deve e
 Creare una connessione RDP alla macchina virtuale. Aprire PowerShell ed eseguire questo script.
 
 ```azurepowershell
-Get-Disk | Where partitionstyle -eq 'raw' | `
-Initialize-Disk -PartitionStyle MBR -PassThru | `
-New-Partition -AssignDriveLetter -UseMaximumSize | `
-Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
+Get-Disk | Where partitionstyle -eq 'raw' |
+    Initialize-Disk -PartitionStyle MBR -PassThru |
+    New-Partition -AssignDriveLetter -UseMaximumSize |
+    Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
 
 ## <a name="verify-the-data-disk"></a>Verificare il disco dati

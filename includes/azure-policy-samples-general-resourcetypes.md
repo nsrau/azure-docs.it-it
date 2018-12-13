@@ -5,19 +5,19 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: 2aed55fc5ee748d0c8f3593036d1608054d264b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8892b89fdb66a878e4a787ede9393a5d38d3fda7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664551"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53318279"
 ---
 ### <a name="resource-types"></a>Tipi di risorsa
 
 |  |  |
 |---------|---------|
-| [Tipi di risorse consentiti](../articles/azure-policy/scripts/allowed-res-types.md) | Garantisce che solo i tipi di risorse approvati vengano distribuiti. Si specifica una matrice di tipi di risorse consentiti.  |
-| [Tipi di risorse non consentiti](../articles/azure-policy/scripts/not-allowed-res-type.md) | Impedisce la distribuzione dei tipi di risorse specificati. Si specifica una matrice dei tipi di risorse da bloccare.  |
+| [Tipi di risorse consentiti](../articles/governance/policy/samples/allowed-resource-types.md) | Garantisce che solo i tipi di risorse approvati vengano distribuiti. Si specifica una matrice di tipi di risorse consentiti.  |
+| [Tipi di risorse non consentiti](../articles/governance/policy/samples/not-allowed-resource-types.md) | Impedisce la distribuzione dei tipi di risorse specificati. Si specifica una matrice dei tipi di risorse da bloccare.  |

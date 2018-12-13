@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: d65c8653bc039b591f1c0fb711dfe68e3fbacd88
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353562"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888512"
 ---
 # <a name="configure-deployment-sources"></a>Configurare le origini di distribuzione
 
@@ -38,7 +38,8 @@ Oltre al Git locale, sono supportati i seguenti provider controllo codice sorgen
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Visualizzazione di origini di distribuzione nell'amministrazione del servizio App
 
 1. Accedere al portale di amministrazione di Azure Stack (https://adminportal.local.azurestack.external) come amministratore del servizio.
-2. Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).  ![App Service Resource Provider Admin (Amministrazione provider risorse servizio app)][1]
+2. Passare a **tutti i servizi** e selezionare il **servizio App**.
+    ![App Service Resource Provider Admin (Amministrazione provider risorse servizio app)][1]
 3. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente). È possibile visualizzare l'elenco di tutte le origini di distribuzione configurato.
     ![Configurazione controllo codice sorgente amministrazione dei provider di risorse servizio app][2]
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fb1ef9c2bb448d74d447e647f6dc8122cda6e1f7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 0b4e334ea9a423ed4eb9a0830d68ad7f4b843a88
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445756"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833650"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guida introduttiva: distribuire un cluster di Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio contenitore di Azure
 

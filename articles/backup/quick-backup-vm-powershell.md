@@ -2,21 +2,21 @@
 title: Guida introduttiva di Azure - Eseguire il backup di una macchina virtuale con PowerShell
 description: Informazioni su come eseguire il backup delle macchine virtuali con Azure PowerShell
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 2/14/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4161b11e88d2b3201e18e095e13db864e25d7bfc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7971c1399cc905353e271e8774c0e7ad36ca79a9
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607537"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869262"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Eseguire il backup di una macchina virtuale in Azure con PowerShell
 Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando o in script. È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di ripristino che possono essere archiviati in insiemi di credenziali di ripristino con ridondanza geografica. Questo articolo illustra in modo dettagliato come eseguire il backup di una macchina virtuale (VM) con il modulo Azure PowerShell. È anche possibile eseguire questa procedura con [l'interfaccia della riga di comando di Azure](quick-backup-vm-cli.md) o il [portale di Azure](quick-backup-vm-portal.md).

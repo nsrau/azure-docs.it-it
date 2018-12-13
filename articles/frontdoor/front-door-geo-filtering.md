@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/09/2018
 ms.author: sharadag
-ms.openlocfilehash: e36253600dd8039940209cb5912cb2e4c2e0fbcf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a2ba0fb34dd34129a134aa2639d06816f3523408
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988618"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865506"
 ---
 # <a name="geo-filtering-geographic-based-access-control-to-azure-front-door-service-frontends"></a>Filtro geografico: controllo di accesso in base a criteri geografici ai front-end del servizio Frontdoor di Azure
 
@@ -31,7 +31,7 @@ I criteri di sicurezza delle applicazioni includono in genere un set di regole p
 
 |Prefisso internazionale | Nome paese |
 | ----- | ----- |
-| AD | Federazione russa |
+| AD | Andorra |
 | AE | Emirati Arabi Uniti|
 | AF | Afghanistan|
 | AG | Antigua e Barbuda|
@@ -65,7 +65,7 @@ I criteri di sicurezza delle applicazioni includono in genere un set di regole p
 | CD | Congo, Repubblica democratica del|
 | CF | Repubblica centrafricana|
 | CH | Svizzera|
-| CI | Costa d'Avorio|
+| CI | Côte d'Ivoire (Costa d'Avorio)|
 | CL | Cile|
 | CM | Camerun|
 | CN | Cina|
