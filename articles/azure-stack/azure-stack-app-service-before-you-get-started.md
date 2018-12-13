@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615875"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275670"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Prima di iniziare con il servizio App in Azure Stack
 
@@ -152,6 +152,12 @@ Il certificato per l'identità deve contenere un oggetto che corrisponde al form
 | Format | Esempio |
 | --- | --- |
 | SSO.appservice. \<regione\>.\< DomainName\>.\< estensione\> | sso.appservice.redmond.azurestack.external |
+
+
+### <a name="validate-certificates"></a>La convalida dei certificati
+Prima di distribuire il provider di risorse del servizio app, dovrebbe [convalidare i certificati da utilizzare](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) utilizzando lo strumento di controllo di conformità di Azure Stack disponibile il [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Lo strumento di controllo dello stato di preparazione dello Stack di Azure verifica che i certificati PKI generati siano idonei per la distribuzione di servizi app. 
+
+Come procedura consigliata, quando si lavora con uno qualsiasi dei necessari [i certificati di infrastruttura a chiave pubblica di Azure Stack](azure-stack-pki-certs.md), è consigliabile pianificare il tempo necessario per testare ed eseguire nuovamente i certificati se necessario. 
 
 ## <a name="virtual-network"></a>Rete virtuale
 
@@ -347,7 +353,7 @@ A tale scopo, seguire questa procedura:
 | AzureStackAdminCredential | Obbligatorio | Null | Credenziali di amministratore del servizio Azure AD. |
 | CertificateFilePath | Obbligatorio | Null | **Percorso completo** nel file di certificato dell'applicazione di identità generato in precedenza. |
 | CertificatePassword | Obbligatorio | Null | Password che consente di proteggere la chiave privata del certificato. |
-| Environment | Facoltativo | AzureCloud | Il nome dell'ambiente Cloud supportati in cui è disponibile il servizio di Azure Active Directory Graph di destinazione.  I valori consentiti: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
+| Environment | Facoltativo | AzureCloud | Il nome dell'ambiente Cloud supportati in cui è disponibile il servizio di Azure Active Directory Graph di destinazione.  Valori consentiti: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Creare un'applicazione di Active Directory Federation Services
 

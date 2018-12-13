@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e503a394eed7d5c4bdd4c93037dc86442097f72e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 057df4260da267254cb764e58fdac749bee3b842
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002163"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106754"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Esercitazione: Creare una bordo soluzione di machine learning con Azure e Azure Stack
 
@@ -357,7 +357,7 @@ Azure Machine Learning Workbench è disponibile per Windows o macOS. Visualizzar
     | Project name (Nome progetto) | myIris | Immettere un nome univoco che identifica l'account. Usare il reparto o progetto nome che identifica meglio l'esperimento. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). |
     | Directory del progetto | c:\Temp\ | Specificare la directory in cui viene creato il progetto. |
     | Descrizione del progetto | lasciare vuoto | Campo facoltativo utile per descrivere i progetti. |
-    | URL repository GIT Visualstudio.com | lasciare vuoto | Campo facoltativo. Associare un progetto a un repository Git in Visual Studio Team Services per la collaborazione e controllo del codice sorgente. |
+    | URL repository GIT Visualstudio.com | lasciare vuoto | Campo facoltativo. Associare un progetto a un repository Git nel repository di Azure per il codice sorgente e la collaborazione. |
     | Area di lavoro selezionata | IrisGarden (se esistente) | Scegliere un'area di lavoro creato per l'account di sperimentazione nel portale di Azure. <br>Utilizzo dell'avvio rapido, viene elencato l'area di lavoro dal nome del IrisGarden. In caso contrario, usare l'area di lavoro con il nome dell'account di sperimentazione, o un nome di account preferito. |
     | Modello di progetto | Classificazione del set di dati Iris | I modelli contengono script e i dati usati per esplorare il prodotto. Questo modello contiene gli script e i dati necessari per questa Guida introduttiva e le altre esercitazioni in questo sito della documentazione. |
 
@@ -1420,7 +1420,7 @@ Kubectl get deployments
 
 La distribuzione può richiedere tempo.
 
-### <a name="configure-visual-studio-team-services-to-deploy-automatically"></a>Configurare Visual Studio Team Services per la distribuzione automatica
+### <a name="configure-azure-devops-to-deploy-automatically"></a>Configurare Azure DevOps per la distribuzione automatica
 
 #### <a name="create-a-team-project"></a>Creare un progetto team
 
@@ -1760,7 +1760,7 @@ Ora che le connessioni vengono stabilite, verrà manualmente mapping dell'endpoi
 
     ![Alt text](media/azure-stack-solution-machine-learning/image110.png)
 
-1.  Denominare l'artefatto **iris_deployment** e selezionare la località di pubblicazione sia **Visual Studio Team Services/TFS**.
+1.  Denominare l'artefatto **iris_deployment** e selezionare la località di pubblicazione sia **pipeline Azure**.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image111.png)
 

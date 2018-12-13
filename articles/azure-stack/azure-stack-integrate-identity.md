@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300711"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257377"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -27,7 +27,7 @@ Nella tabella seguente illustra le differenze tra le scelte di due identità:
 |Fatturazione|Deve essere la capacità<br> Enterprise Agreement (EA)|Come è a pagamento o la capacità<br>Contratto Enterprise o Cloud Solution Provider (CSP)|
 |Identità|Deve essere ADFS|Azure AD o AD FS|
 |Marketplace |Supportato<br>Gestione delle licenze BYOL|Supportato<br>Gestione delle licenze BYOL|
-|Registrazione|Consigliato, richiede un supporto rimovibile<br> e un dispositivo connesso separato.|Automatizzato|
+|Registrazione|Consigliato, richiede un supporto rimovibile<br> e un dispositivo connesso separato.|Automatizzata|
 |Aggiornamenti e patch|Obbligatorio, è necessario un supporto rimovibile<br> e un dispositivo connesso separato.|Pacchetto di aggiornamento può essere scaricato direttamente<br> da Internet ad Azure Stack.|
 
 > [!IMPORTANT]
@@ -131,7 +131,7 @@ Le informazioni seguenti sono necessarie come input per i parametri di automazio
 
 |Parametro|DESCRIZIONE|Esempio|
 |---------|---------|---------|
-|CustomAdfsName|Nome del provider di attestazioni. <cr>Viene visualizzato in questo modo nella pagina di destinazione AD FS.|Contoso|
+|CustomAdfsName|Nome del provider di attestazioni.<br>Viene visualizzato in questo modo nella pagina di destinazione AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Collegamento di metadati di federazione|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -215,7 +215,7 @@ Per questa procedura, usare un computer in cui può comunicare con l'endpoint co
 
 Microsoft fornisce uno script che configura il trust della relying party, comprese le regole di trasformazione di attestazioni. Usando lo script è facoltativo in quanto è possibile eseguire i comandi manualmente.
 
-È possibile scaricare lo script helper [strumenti di Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) su Github.
+È possibile scaricare lo script helper [strumenti di Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) su GitHub.
 
 Se si decide di eseguire manualmente i comandi, seguire questa procedura:
 

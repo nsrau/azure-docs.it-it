@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963914"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191530"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteggere le macchine virtuali distribuite in Azure Stack
 
@@ -55,8 +55,8 @@ Pianificare la strategia di ripristino di backup e ripristino di emergenza per o
 
 |  | Azure globale | Azure Stack sia distribuito nel Data Center CSP e gestito dal CSP | Azure Stack sia distribuito nel Data Center dei clienti e gestito dal cliente |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack sia distribuito nel Data Center CSP e gestito dal CSP** | Macchine virtuali degli utenti vengono distribuite allo Stack di Azure CSP gestito. Macchine virtuali degli utenti sono ripristinate dal backup o del failover direttamente in Azure. | CSP opera le istanze principale e secondarie di Azure Stack nei propri datacenter. Macchine virtuali degli utenti sono ripristinate o state eseguito il failover tra le due istanze di Azure Stack. | CSP opera Azure Stack in un sito primario. Data Center del cliente è la destinazione di ripristino o il failover. |
-| **Azure Stack sia distribuito nel Data Center dei clienti e gestito dal cliente** | Macchine virtuali degli utenti vengono distribuite al cliente gestito di Azure Stack. Macchine virtuali degli utenti sono ripristinate dal backup o del failover direttamente in Azure. | Cliente opera le istanze principale e secondarie di Azure Stack nei propri datacenter. Macchine virtuali degli utenti sono ripristinate o state eseguito il failover tra le due istanze di Azure Stack. | Cliente opera Azure Stack in un sito primario. Data Center di CSP è la destinazione di ripristino o il failover. |
+| **Azure Stack sia distribuito nel Data Center CSP e gestito dal CSP** | Macchine virtuali degli utenti vengono distribuite allo Stack di Azure CSP gestito.<br><br>Macchine virtuali degli utenti sono ripristinate dal backup o del failover direttamente in Azure. | CSP opera le istanze principale e secondarie di Azure Stack nei propri datacenter.<br><br>Macchine virtuali degli utenti sono ripristinate o state eseguito il failover tra le due istanze di Azure Stack. | CSP opera Azure Stack in un sito primario.<br><br>Data Center del cliente è la destinazione di ripristino o il failover. |
+| **Azure Stack sia distribuito nel Data Center dei clienti e gestito dal cliente** | Macchine virtuali degli utenti vengono distribuite al cliente gestito di Azure Stack.<br><br>Macchine virtuali degli utenti sono ripristinate dal backup o del failover direttamente in Azure. | Cliente opera Azure Stack in un sito primario.<br><br>Data Center di CSP è la destinazione di ripristino o il failover. | Cliente opera le istanze principale e secondarie di Azure Stack nei propri datacenter.<br><br>Macchine virtuali degli utenti sono ripristinate o state eseguito il failover tra le due istanze di Azure Stack. |
 
 ![Combinazioni di origine-destinazione](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
@@ -82,8 +82,8 @@ Lo schema di protezione più comune per le applicazioni basate su macchina virtu
 Ripristino dopo l'applicazione richiede il ripristino di uno o più macchine virtuali nel cloud stesso o a un nuovo cloud. È possibile scegliere un cloud nel tuo Data Center o nel cloud pubblico. Il cloud che scelto è completamente all'interno del controllo e si basa sui requisiti di privacy e la sovranità dei dati.
  
  - RTO: Tempo di inattività misurato in ore
- - RPO: Perdita di dati della variabile (a seconda della frequenza di backup)
- - Topologia di distribuzione: attiva/passiva
+ - RPO: Perdita di dati della variabile (in base alla frequenza di backup)
+ - Topologia di distribuzione: Attiva/passiva
 
 #### <a name="planning-your-backup-strategy"></a>Pianificazione della strategia di backup
 
@@ -110,8 +110,8 @@ Con questo approccio, l'applicazione viene distribuita in un cloud e le VM vengo
 ![Failover manuale di replica](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: Tempo di inattività espresso in minuti
- - RPO: Perdita di dati della variabile (a seconda della frequenza di replica)
- - Topologia di distribuzione: attiva/passiva in stand-by
+ - RPO: Perdita di dati della variabile (in base alla frequenza di replica)
+ - Topologia di distribuzione: Attiva/passiva in stand-by
  
 ### <a name="high-availabilityautomatic-failover"></a>Failover a disponibilità elevata/automatico
 
@@ -123,7 +123,7 @@ Con questo approccio, l'applicazione è attiva solo in un cloud, ma il software 
 
  - RTO: Tempo di inattività espresso in secondi
  - RPO: Perdita di dati minima
- - Topologia di distribuzione: attiva/attiva in stand-by
+ - Topologia di distribuzione: Attiva/attiva in stand-by
 
 ### <a name="fault-tolerance"></a>Tolleranza di errore
 
@@ -134,15 +134,15 @@ In primo luogo, è necessario assicurarsi che l'applicazione che vengono distrib
 Tenere presente che ogni cloud Azure Stack è indipendenti tra loro, in modo che i cloud vengono sempre considerati attivi da un punto di vista dell'infrastruttura. In questo caso, vengono distribuite più istanze attive dell'applicazione per uno o più cloud attivo.
 
  - RTO: Senza tempi di inattività
- - RPO: Senza perdita di dati
- - Topologia di distribuzione: attiva/attiva
+ - RPO: Nessuna perdita di dati
+ - Topologia di distribuzione: Attiva/attiva
 
 ### <a name="no-recovery"></a>Nessun recupero
 
 Alcune applicazioni nell'ambiente in uso potrebbero non essere necessario protezione contro la perdita di dati o tempi di inattività non pianificato. Ad esempio, le macchine virtuali usate per lo sviluppo e test in genere non è necessario essere ripristinati. È la decisione di eseguire senza protezione per un'applicazione o di una macchina virtuale specifica. Stack di Azure non offre il backup o la replica di macchine virtuali dall'infrastruttura sottostante. Simile ad Azure, è necessario acconsentire esplicitamente alla protezione per ogni macchina virtuale in ogni sottoscrizione.
 
- - RTO: errore irreversibile
- - RPO: Perdita di dati completo
+ - RTO: Errore irreversibile
+ - RPO: Perdita dei dati completa
 
 ## <a name="recommended-topologies"></a>Topologie consigliate
 
