@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ab498a108eba39088aa610188918934dd4ec1d3e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078954"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386775"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connettere storage explorer per una sottoscrizione di Azure Stack o un account di archiviazione
 
@@ -45,9 +45,16 @@ Per Azure Stack Development Kit, è necessario esportare il certificato radice d
 
 2. Nel **File**, selezionare **Aggiungi/Rimuovi Snap-in**, quindi aggiungere **certificati** gestire **account dell'utente**.
 
-3. Sotto **Root\Certificated Console (Computer locale) \Trusted Root Certification Authorities\Certificates** trovare **AzureStackSelfSignedRootCert**.
+3.  Sotto **Console \Trusted Root\Certificated (Computer locale) di certificazione radice attendibili\Certificati**.
 
-    ![Caricare il certificato radice di Azure Stack tramite mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+    - Per il ASDK, individuare **AzureStackSelfSignedRootCert**.
+
+        ![Caricare il certificato radice di Azure Stack tramite mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+
+    - Per un sistema integrato, trovare il certificato radice dei certificati esterni. 
+    
+        ![Caricare il certificato radice di Azure Stack tramite mmc.exe](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
+        
 
 4. Fare clic su certificato, selezionare **tutte le attività** > **Esporta**, quindi seguire le istruzioni per esportare il certificato con **con codifica Base 64 X.509 (. Area a esecuzione vincolata)**.
 

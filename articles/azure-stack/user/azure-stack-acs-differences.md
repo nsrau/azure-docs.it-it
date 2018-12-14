@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 14e32bdfcde6969b820c0950d59bd5cf946a51e6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802322"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341899"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Archiviazione di Azure Stack: differenze e considerazioni
+# <a name="azure-stack-storage-differences-and-considerations"></a>Archiviazione di Azure Stack: Differenze e considerazioni
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
@@ -29,7 +29,7 @@ Archiviazione di Azure Stack è il set di servizi di archiviazione cloud in Micr
 
 Questo articolo riepiloga le differenze note di archiviazione di Azure Stack dai servizi di archiviazione di Azure. Elenca anche tenere in considerazione quando si distribuisce Azure Stack. Per altre informazioni sulle differenze generali tra globale di Azure e Azure Stack, vedere la [considerazioni chiave](azure-stack-considerations.md) articolo.
 
-## <a name="cheat-sheet-storage-differences"></a>Foglio informativo: differenze di archiviazione
+## <a name="cheat-sheet-storage-differences"></a>Foglio informativo: Differenze di archiviazione
 
 | Funzionalità | Azure (globale) | Azure Stack |
 | --- | --- | --- |
@@ -41,6 +41,7 @@ Questo articolo riepiloga le differenze note di archiviazione di Azure Stack dai
 |Dischi gestiti|Premium e standard supportati|È supportato quando si usa 1808 o versione successiva.
 |Nome del BLOB|1024 caratteri (2.048 byte)|880 caratteri (1,760 byte)
 |Dimensioni massime blob di blocco|4,75 TB (100 MB X 50.000 blocchi)|4,75 TB (100 MB x 50.000 blocchi) per l'aggiornamento 1802 o una versione più recente. 50.000 x 4 MB (circa 195 GB) per le versioni precedenti.
+|Copia di snapshot blob di pagine|Backup non gestito della macchina virtuale nei dischi Azure collegati a una macchina virtuale in esecuzione supportata|Non è ancora supportata.
 |Copia di snapshot incrementale blob di pagine|Premium e standard BLOB di Azure supportate|Non è ancora supportata.
 |Livelli di archiviazione per l'archiviazione blob|Accesso frequente, sporadico e archivio i livelli di archiviazione.|Non è ancora supportata.
 Eliminazione temporanea per l'archiviazione blob|Preview|Non è ancora supportata.
@@ -62,21 +63,21 @@ API per i servizi archiviazione di Azure:
 
 aggiornamento 1802 o successiva:
 
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Versioni precedenti:
 
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Le API di gestione dei servizi di archiviazione di Azure:
 
- - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 ## <a name="sdk-versions"></a>Versioni del SDK
 
@@ -86,7 +87,7 @@ Archiviazione di Azure Stack supporta le librerie client seguenti:
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET           | Da 6.2.0 a 8.7.0.          | Pacchetto NuGet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | file app. config              |
 | Java           | Da 4.1.0 a 6.1.0           | Pacchetto Maven:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Configurazione della stringa di connessione      |
-| Node.js        | Da 1.1.0 per 2.7.0           | Collegamento NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Ad esempio: eseguire "npm installare azure-storage@2.7.0")<br> <br>Versione di Github:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Dichiarazione dell'istanza del servizio |
+| Node.js        | Da 1.1.0 per 2.7.0           | Collegamento NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Ad esempio: eseguire "npm installare azure-storage@2.7.0")<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Dichiarazione dell'istanza del servizio |
 | C++            | Dalla versione 2.4.0 alla 3.1.0           | Pacchetto NuGet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>Versione di GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Configurazione della stringa di connessione      |
 | PHP            | Da 0.15.0 su 1.0.0          | Versione di GitHub:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installazione tramite Composer (vedere i dettagli sotto)                                                                                                                                                                                                                  | Configurazione della stringa di connessione      |
 | Python         | Da 0.30.0 su 1.0.0          | Versione di GitHub:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Dichiarazione dell'istanza del servizio |
