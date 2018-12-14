@@ -157,14 +157,8 @@ items:
       href: sql-database-managed-instance-create-manage.md
     - name: Limiti delle risorse
       href: sql-database-managed-instance-resource-limits.md
-    - name: Configurazione della rete virtuale
-      items:
-      - name: Configurazione della rete virtuale
-        href: sql-database-managed-instance-vnet-configuration.md
-      - name: Architettura della connettività
-        href: sql-database-managed-instance-connectivity-architecture.md
-      - name: Endpoint di gestione
-        href: sql-database-managed-instance-management-endpoint.md
+    - name: Architettura della connettività
+      href: sql-database-managed-instance-connectivity-architecture.md
     - name: Differenze con T-SQL
       href: sql-database-managed-instance-transact-sql-information.md
   - name: Piattaforma distribuita come servizio
@@ -287,34 +281,28 @@ items:
       href: elastic-jobs-overview.md
   - name: Confronto delle funzionalità SQL
     href: sql-database-features.md
-  - name: Monitoraggio e ottimizzazione delle prestazioni
+  - name: Monitoraggio e ottimizzazione
     items:
-    - name: Panoramica di monitoraggio e ottimizzazione
+    - name: Monitoraggio e ottimizzazione delle prestazioni
       href: sql-database-monitor-tune-overview.md
-    - name: Prestazioni intelligenti
+    - name: Monitoraggio delle prestazioni
       items:
-      - name: Azioni e consigli per l'ottimizzazione
-        href: sql-database-performance.md
       - name: Informazioni dettagliate prestazioni query
         href: sql-database-query-performance.md
-      - name: Consigli sulle prestazioni di Database Advisor
-        href: sql-database-advisor.md
-    - name: Monitoraggio avanzato
-      items:
       - name: Monitoraggio di Analisi SQL di Azure
         href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
       - name: Registrazione dei dati di telemetria di diagnostica
         href: sql-database-metrics-diag-logging.md
-    - name: Intelligent Insights nelle prestazioni
-      href: sql-database-intelligent-insights.md
-    - name: Ottimizzazione automatica
-      href: sql-database-automatic-tuning.md
-    - name: Elaborazione di query intelligenti
+    - name: Prestazioni intelligenti
       items:
-      - name: Elaborazione di query intelligenti
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Elaborazione di query adattiva
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Ottimizzazione automatica
+        href: sql-database-automatic-tuning.md
+      - name: Intelligent Insights nelle prestazioni
+        href: sql-database-intelligent-insights.md
+      - name: Azioni e consigli per l'ottimizzazione
+        href: sql-database-performance.md
+      - name: Consigli sulle prestazioni di Database Advisor
+        href: sql-database-advisor.md
   - name: Funzionalità dei database
     items:
     - name: Funzionalità dei database
@@ -409,10 +397,20 @@ items:
       href: sql-database-managed-instance-migrate.md
     - name: Eseguire la migrazione del certificato TDE a Istanza gestita
       href: sql-database-managed-instance-migrate-tde-certificate.md
+    - name: Determinare le dimensioni della subnet di Istanza gestita
+      href: sql-database-managed-instance-determine-size-vnet-subnet.md
+    - name: Creare una nuova rete virtuale e una nuova subnet per Istanza gestita
+      href: sql-database-managed-instance-create-vnet-subnet.md
+    - name: Configurare la rete virtuale e la subnet esistenti per Istanza gestita
+      href: sql-database-managed-instance-configure-vnet-subnet.md
     - name: Configurare un valore DNS personalizzato
       href: sql-database-managed-instance-custom-dns.md
     - name: Sincronizzare la configurazione di rete
       href: sql-database-managed-instance-sync-network-configuration.md
+    - name: Trovare l'indirizzo IP dell'endpoint di gestione
+      href: sql-database-managed-instance-find-management-endpoint-ip-address.md
+    - name: Verificare la protezione del firewall predefinito
+      href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
     - name: Replica transazionale
       href: replication-with-sql-database-managed-instance.md
     - name: Configurare il rilevamento delle minacce
@@ -668,9 +666,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: bb051db62acda98e40be09c174216208578afccc
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d94f4fb39ccdee60fae434204369fd844aedeb20
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320966"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384276"
