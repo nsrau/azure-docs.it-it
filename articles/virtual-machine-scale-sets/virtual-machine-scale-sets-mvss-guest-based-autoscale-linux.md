@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: manayar
-ms.openlocfilehash: 0718ad7112c759dd3fdd363f38b863186ec9a978
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: deddcc8623803f9d003f3fafcef5252ebd34b813
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740163"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438337"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Eseguire la scalabilità automatica usando metriche guest in un modello di set di scalabilità Linux
 
 In Azure esistono due tipi di metriche raccolte da macchine virtuali e set di scalabilità: alcune provengono dalla macchina virtuale host e altre dalla macchina virtuale guest. In generale, se si usano CPU, disco e metriche di rete standard, le metriche host sono probabilmente ottimali. Se tuttavia è necessaria una scelta di metriche più ampia, le metriche guest rappresentano probabilmente una soluzione migliore. Ecco le differenze tra i due tipi di metriche:
 
-Le metriche host sono più semplici e più affidabili. Non richiedono passaggi di configurazione aggiuntivi perché vengono raccolte dalla macchina virtuale host, mentre le metriche guest richiedono l'installazione dell'[estensione Diagnostica Windows Azure](../virtual-machines/windows/extensions-diagnostics-template.md) o dell'[estensione Diagnostica Linux Azure](../virtual-machines/linux/diagnostic-extension.md) nella macchina virtuale guest. È preferibile usare metriche guest anziché metriche host perché le metriche guest offrono una selezione più ampia di metriche. Le metriche relative al consumo di memoria, disponibili solo tramite metriche guest, ne sono un esempio. Le metriche host supportate sono elencate [qui](../monitoring-and-diagnostics/monitoring-supported-metrics.md), mentre le metriche guest usate comunemente sono elencate [qui](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Questo articolo illustra come modificare il [modello di set di scalabilità a validità minima](./virtual-machine-scale-sets-mvss-start.md) per usare le regole di scalabilità automatica in base alle metriche guest per i set di scalabilità Linux.
+Le metriche host sono più semplici e più affidabili. Non richiedono passaggi di configurazione aggiuntivi perché vengono raccolte dalla macchina virtuale host, mentre le metriche guest richiedono l'installazione dell'[estensione Diagnostica Windows Azure](../virtual-machines/windows/extensions-diagnostics-template.md) o dell'[estensione Diagnostica Linux Azure](../virtual-machines/linux/diagnostic-extension.md) nella macchina virtuale guest. È preferibile usare metriche guest anziché metriche host perché le metriche guest offrono una selezione più ampia di metriche. Le metriche relative al consumo di memoria, disponibili solo tramite metriche guest, ne sono un esempio. Le metriche host supportate sono elencate [qui](../azure-monitor/platform/metrics-supported.md), mentre le metriche guest usate comunemente sono elencate [qui](../azure-monitor/platform/autoscale-common-metrics.md). Questo articolo illustra come modificare il [modello di set di scalabilità a validità minima](./virtual-machine-scale-sets-mvss-start.md) per usare le regole di scalabilità automatica in base alle metriche guest per i set di scalabilità Linux.
 
 ## <a name="change-the-template-definition"></a>Modificare la definizione del modello
 
@@ -111,7 +111,7 @@ Successivamente, modificare il set di scalabilità `extensionProfile` in modo da
        }
 ```
 
-Aggiungere infine una risorsa `autoscaleSettings` per configurare la scalabilità automatica in base a queste metriche. Questa risorsa include una clausola `dependsOn` che fa riferimento al set di scalabilità per verificarne l'esistenza prima di tentare l'applicazione della scalabilità automatica. Se si sceglie una metrica diversa su cui basare la scalabilità automatica, si dovrebbe usare `counterSpecifier` della configurazione per l'estensione di diagnostica come `metricName` nella configurazione di scalabilità automatica. Per altre informazioni sulla configurazione della scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) e la [documentazione di riferimento sulle API REST di monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931928.aspx).
+Aggiungere infine una risorsa `autoscaleSettings` per configurare la scalabilità automatica in base a queste metriche. Questa risorsa include una clausola `dependsOn` che fa riferimento al set di scalabilità per verificarne l'esistenza prima di tentare l'applicazione della scalabilità automatica. Se si sceglie una metrica diversa su cui basare la scalabilità automatica, si dovrebbe usare `counterSpecifier` della configurazione per l'estensione di diagnostica come `metricName` nella configurazione di scalabilità automatica. Per altre informazioni sulla configurazione della scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica](..//azure-monitor/platform/autoscale-best-practices.md) e la [documentazione di riferimento sulle API REST di monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931928.aspx).
 
 ```diff
 +    },

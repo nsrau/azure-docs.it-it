@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad58257313c60b4757c83793886ce32a2997332b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233558"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996525"
 ---
 # <a name="track-b2b-messages-with-azure-log-analytics"></a>Tenere traccia dei messaggi B2B con Azure Log Analytics
 
@@ -27,7 +27,7 @@ Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account 
 * Funzionalità di ricerca
 
 > [!NOTE]
-> Questa pagina offriva in precedenza una descrizione dei passaggi per eseguire queste attività con Microsoft Operations Management Suite (OMS), che verrà [ritirato nel gennaio 2019](../log-analytics/log-analytics-oms-portal-transition.md), mentre ora riguarda gli stessi passaggi in Log Analytics di Azure. 
+> Questa pagina offriva in precedenza una descrizione dei passaggi per eseguire queste attività con Microsoft Operations Management Suite (OMS), che verrà [ritirato nel gennaio 2019](../azure-monitor/platform/oms-portal-transition.md), mentre ora riguarda gli stessi passaggi in Azure Log Analytics. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,11 +37,11 @@ Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account 
 
 * Se non è già stato fatto, [pubblicare i dati di diagnostica in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-* Una volta soddisfatti i requisiti precedenti, è necessaria anche un'area di lavoro di Log Analytics, che verrà usato per il rilevamento della comunicazione B2B tramite Log Analytics. Se non si dispone di un'area di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+* Una volta soddisfatti i requisiti precedenti, è necessaria anche un'area di lavoro di Log Analytics, che verrà usato per il rilevamento della comunicazione B2B tramite Log Analytics. Se non si dispone di un'area di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="install-logic-apps-b2b-solution"></a>Installare la soluzione di App per la logica B2B
 
-Per fare in modo che Log Analytics tenga traccia dei messaggi B2B per l'app per la logica, aggiungere la soluzione **App per la logica B2B** a Log Analytics. Informazioni sull'[aggiunta di soluzioni a Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Per fare in modo che Log Analytics tenga traccia dei messaggi B2B per l'app per la logica, aggiungere la soluzione **App per la logica B2B** a Log Analytics. Informazioni sull'[aggiunta di soluzioni a Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutti i servizi**. Nella casella di ricerca cercare "log analytics" e selezionare **Log Analytics**.
 
@@ -51,7 +51,7 @@ Per fare in modo che Log Analytics tenga traccia dei messaggi B2B per l'app per 
 
    ![Selezionare un'area di lavoro di Log Analytics](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
-1. In **Introduzione a Log Analytics** > **Configura soluzioni di monitoraggio**, scegliere **Visualizza soluzioni**.
+1. In **Introduzione a Log Analytics** > **Configura soluzioni di monitoraggio** scegliere **Visualizza soluzioni**.
 
    ![Scegliere "Visualizza soluzioni"](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
 
@@ -61,7 +61,7 @@ Per fare in modo che Log Analytics tenga traccia dei messaggi B2B per l'app per 
 
    Se non si riesce a trovare la soluzione, nella parte inferiore dell'elenco scegliere **Carica altro** finché non viene visualizzata la soluzione.
 
-1. Scegliere **Crea**, confermare l'area di lavoro di Log Analytics in cui si desidera installare la soluzione e quindi scegliere di nuovo **Crea**.   
+1. Scegliere **Crea**, confermare l'area di lavoro di Log Analytics in cui si vuole installare la soluzione e quindi scegliere di nuovo **Crea**.   
 
    ![Scegliere "Crea" per App per la logica B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 

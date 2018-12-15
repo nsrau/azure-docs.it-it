@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3f1e34b4d527d076a0bac2e0cb6ef3a901296c57
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cc09998a982f319cfc1d60924d2175a3c17c8465
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612476"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836680"
 ---
 # <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 nei criteri personalizzati di Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C fornisce assistenza per il provider di identità di protocollo OAuth2. Questo è il protocollo principale per l'autorizzazione e l'autenticazione delegata. Per altre informazioni, vedere la [RFC 6749 The OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749). Con il profilo tecnico OAuth2 è possibile attuare la federazione con un provider di identità basato su OAuth2, ad esempio Facebook e Live.com, consentendo agli utenti di effettuare l'accesso con i propri social network o con le identità aziendali.
+Azure Active Directory (Azure AD) B2C fornisce assistenza per il provider di identità di protocollo OAuth2. Questo è il protocollo principale per l'autorizzazione e l'autenticazione delegata. Per altre informazioni, vedere la [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Con il profilo tecnico OAuth2 è possibile attuare la federazione con un provider di identità basato su OAuth2, ad esempio Facebook e Live.com, consentendo agli utenti di effettuare l'accesso con i propri social network o con le identità aziendali.
 
 ## <a name="protocol"></a>Protocollo
 

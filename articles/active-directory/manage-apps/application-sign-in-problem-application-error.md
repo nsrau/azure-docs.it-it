@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4cce49509a452153815c845d9ab72a1b4a8a5b7f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13a628d37ef67d0a1dc3ad8231229493191c4e7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355420"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849565"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Errore nella pagina di un'applicazione dopo l'accesso
 
@@ -30,7 +30,7 @@ Ci sono diversi motivi per cui l'applicazione non ha accettato la risposta di Az
 
 -   Se l'applicazione è la raccolta di Azure AD, verificare di aver seguito tutti i passaggi nell'articolo [Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Usare uno strumento come [Fiddler](http://www.telerik.com/fiddler) per acquisire la richiesta SAML, la risposta SAML e il token SAML.
+-   Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler) per acquisire la richiesta SAML, la risposta SAML e il token SAML.
 
 -   Condividere la risposta SAML con il fornitore dell'applicazione per capire cosa manca.
 

@@ -9,17 +9,16 @@ ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e9a8c6345ca45234ffcec1588a98bf1b8d634e06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303745"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000695"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Note sulla versione per Strumenti di analisi per sviluppatori
 
@@ -181,7 +180,7 @@ La procedura è terminata. Sono bastati pochi clic per caricare una build per la
 
 ![Portale di HockeyApp](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-Per altri dettagli sulla gestione dell'app, vedere [HockeyApp Knowledge Base](http://support.hockeyapp.net/kb/app-management-2) (Knowledge Base di HockeyApp).
+Per altri dettagli sulla gestione dell'app, vedere [HockeyApp Knowledge Base](https://support.hockeyapp.net/kb/app-management-2) (Knowledge Base di HockeyApp).
 
 ### <a name="windows-forms-apps"></a>App Windows Form
 Il menu contestuale per il nodo di un progetto per Windows Form ora include un'opzione per caricare la build in HockeyApp.

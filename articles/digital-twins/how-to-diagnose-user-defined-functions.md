@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636272"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413014"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Come eseguire il debug dei problemi relativi alle funzioni definite dall'utente in Gemelli digitali di Azure
 
@@ -25,7 +25,7 @@ Imparare a eseguire la diagnosi degli eventuali problemi che si verificano all'i
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Abilitare Log Analytics per l'istanza in uso
 
-I log e le metriche per l'istanza di Gemelli digitali di Azure in uso sono esposti tramite Monitoraggio di Azure. Nella documentazione seguente si presuppone che sia stata creata un'area di lavoro di [Azure Log Analytics](../log-analytics/log-analytics-queries.md) tramite il [portale di Azure](../log-analytics/log-analytics-quick-create-workspace.md), l'[interfaccia della riga di comando di Azure](../log-analytics/log-analytics-quick-create-workspace-cli.md) o [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
+I log e le metriche per l'istanza di Gemelli digitali di Azure in uso sono esposti tramite Monitoraggio di Azure. Nella documentazione seguente si presuppone che sia stata creata un'area di lavoro di [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) tramite il [portale di Azure](../azure-monitor/learn/quick-create-workspace.md), l'[interfaccia della riga di comando di Azure](../azure-monitor/learn/quick-create-workspace-cli.md) o [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
 > Quando si inviano eventi a **Log Analytics** per la prima volta, può verificarsi un ritardo di 5 minuti.
@@ -42,7 +42,7 @@ Dopo l'invio dei dati di telemetria, aprire Azure Log Analytics per eseguire una
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
+| where CorrelationId == 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
 | Valore della query | Sostituire con |
@@ -53,7 +53,7 @@ Se la funzione definita dall'utente viene registrata, questi log verranno visual
 
 ```Kusto
 AzureDiagnostics
-| where Category = 'UserDefinedFunction'
+| where Category == 'UserDefinedFunction'
 ```
 
 Per altre informazioni sulle operazioni avanzate relative alle query, vedere [Introduzione alle query](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).

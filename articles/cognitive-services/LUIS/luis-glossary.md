@@ -1,6 +1,6 @@
 ---
-title: Glossario per il servizio API Language Understanding Intelligent Service (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Glossario
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Il glossario contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b24b21ee5fc929d3e7bd026191ce8791d79f9abc
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a7a2c921d2bb0f77579c48d0608eb0d195e83ca1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870775"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078923"
 ---
 # <a name="glossary"></a>Glossario
 Il glossario Language Understanding (LUIS) contiene termini che è probabile trovare durante l'uso del servizio API LUIS.

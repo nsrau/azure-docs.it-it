@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 38c54995c5db90df11e57181e21347bee43a439a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b7208943a27bcd184100ae426721a2fe8f6e1c72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445823"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970485"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Usare l'identità del servizio gestito di Azure in Gestione API di Azure
 
@@ -52,7 +52,7 @@ Ad esempio, un modello completo di Azure Resource Manager può essere simile al 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "0.9.0.0"
     },
     "resources": [
@@ -116,7 +116,7 @@ L'esempio seguente mostra un modello di Azure Resource Manager che contiene i pa
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "publisherEmail": {

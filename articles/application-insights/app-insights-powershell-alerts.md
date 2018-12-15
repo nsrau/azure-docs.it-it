@@ -9,21 +9,20 @@ ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 2a5717f95e5e40fe04f4fa22eaedf168539e20f3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dda4e26de74dbd5579f2dd45ea47f42c904f028f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309230"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271726"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usare PowerShell per impostare gli avvisi in Application Insights
 È possibile automatizzare la configurazione degli [avvisi](app-insights-alerts.md) in [Application Insights](app-insights-overview.md).
 
-È inoltre possibile [impostare webhook per automatizzare la risposta a un avviso](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+È inoltre possibile [impostare webhook per automatizzare la risposta a un avviso](../azure-monitor/platform/alerts-webhooks.md).
 
 > [!NOTE]
 > Se si vuole creare risorse e avvisi allo stesso tempo, considerare l'[uso di un modello di Azure Resource Manager](app-insights-powershell.md).
@@ -133,10 +132,10 @@ Le metriche vengono inviate da moduli di telemetria diversi:
 | request,<br/>requestFailed |[Richiesta server](app-insights-configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Webhook
-È possibile [automatizzare la risposta a un avviso](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure richiamerà l'indirizzo Web specificato quando viene generato un avviso.
+È possibile [automatizzare la risposta a un avviso](../azure-monitor/platform/alerts-webhooks.md). Azure richiamerà l'indirizzo Web specificato quando viene generato un avviso.
 
 ## <a name="see-also"></a>Vedere anche 
 * [Script per configurare Application Insights](app-insights-powershell-script-create-resource.md)
 * [Creare risorse Application Insights e test web da modelli](app-insights-powershell.md)
 * [Automatizzare l'accoppiamento tra Diagnostica di Microsoft Azure e Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Automatizzare la risposta a un avviso](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Automatizzare la risposta a un avviso](../azure-monitor/platform/alerts-webhooks.md)

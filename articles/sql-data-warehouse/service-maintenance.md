@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/19/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 8b5b94c959ae9820cab338f3ee3317fb3ee166d6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c1e8f94a0131ace6354d070e932e414a1897260e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286602"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166303"
 ---
 # <a name="planning-for-maintenance-on-your-azure-sql-data-warehouse"></a>Pianificazione per la manutenzione in Azure SQL Data Warehouse
 
@@ -32,9 +32,9 @@ Si riceverà una notifica prima di ogni evento di manutenzione pianificata. L'ev
 
 ## <a name="setting-up-alerts"></a>Configurazione degli avvisi
 
-Si consiglia di usare [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) per configurare gli avvisi del log di manutenzione pianificata. Gli avvisi consentono di pianificare la manutenzione necessaria per ridurre al minimo l'impatto sull'azienda. 
+Si consiglia di usare [Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md) per configurare gli avvisi del log di manutenzione pianificata. Gli avvisi consentono di pianificare la manutenzione necessaria per ridurre al minimo l'impatto sull'azienda. 
 
-Per impostare le notifiche, usare queste [istruzioni per gli avvisi del log](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+Per impostare le notifiche, usare queste [istruzioni per gli avvisi del log](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul monitoraggio, vedere [Monitoraggio del carico di lavoro](sql-data-warehouse-manage-monitor.md).

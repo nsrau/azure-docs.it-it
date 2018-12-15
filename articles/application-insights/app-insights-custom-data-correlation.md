@@ -9,17 +9,16 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 31e37efc1aad3d355bdd8391535f317ec137f5d7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: fbeece7bf9e460453bc3c1c6a9df1f19f767ce48
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161700"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725030"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlazione dei dati di Application Insights con origini dati personalizzate
 
@@ -51,7 +50,7 @@ Iniziare a inviare dati in Log Analytics. Sono disponibili diverse opzioni:
 
 ## <a name="correlating-data"></a>Correlazione dei dati
 
-Application Insights si basa sulla piattaforma dati di Log Analytics. Di conseguenza verranno usati [join tra risorse](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search) per correlare i dati inseriti in Log Analytics con i dati di Application Insights.
+Application Insights si basa sulla piattaforma dati di Log Analytics. Di conseguenza verranno usati [join tra risorse](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) per correlare i dati inseriti in Log Analytics con i dati di Application Insights.
 
 Ad esempio, è possibile inserire l'inventario e i percorsi lab in una tabella denominata "LabLocations_CL" in un'area di lavoro di Log Analytics denominata "myLA". Quindi, per esaminare le richieste registrate nell'app di Application Insights denominata "myAI" e correlare i nomi di computer che hanno servito le richieste ai percorsi di tali computer archiviati nella tabella personalizzata menzionata in precedenza, è possibile eseguire la query seguente dal contesto di Application Insights o di Log Analytics:
 
@@ -66,4 +65,4 @@ app('myAI').requests
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Consultare il riferimento all'[API di raccolta dati](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api).
-- Altre informazioni sul [join tra risorse](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search).
+- Altre informazioni sul [join tra risorse](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).

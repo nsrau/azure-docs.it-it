@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: 0d809f9a1b3abbb284c3f7e0c27eb9c236692a3f
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 91516e3284ebf3588c2dba31b67cc583e4d395db
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386466"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309421"
 ---
 # <a name="read-before-you-scale"></a>Leggere prima di eseguire il ridimensionamento
 Il ridimensionamento di risorse di calcolo per originare il carico di lavoro dell'applicazione richiede una pianificazione intenzionale, che quasi sempre richiede più di un'ora in un ambiente di produzione e richiede la comprensione del carico di lavoro e del contesto di business. Se non hai mai eseguito questa attività in precedenza, è consigliabile iniziare leggendo e comprendendo le [considerazioni sulla pianificazione della capacità del cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity), prima di continuare con il resto di questo documento. Questo suggerimento intende evitare problemi LiveSite non intenzionali. Inoltre, si consiglia di testare correttamente le operazioni che si decide di eseguire su un ambiente non di produzione. È possibile [segnalare, in qualsiasi momento, problemi di produzione o richiedere supporto a pagamento per Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). Per i tecnici assegnati all’esecuzione di queste operazioni che conoscono il contesto di esecuzione appropriato, questo articolo descrive le operazioni di scalabilità, ma è necessario stabilire e comprendere quali operazioni siano appropriate per il caso d'uso in questione; ad esempio le risorse da ridimensionare (CPU, archiviazione, memoria), la direzione di ridimensionamento (orizzontale o verticale) e le operazioni da eseguire (distribuzione modelli delle risorse, portale, PowerShell/CLI).
 
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Aumentare o ridurre le istanze del cluster di Service Fabric con le regole di ridimensionamento automatico o manualmente
+## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Aumentare o ridurre le istanze del cluster di Service Fabric con le regole di ridimensionamento automatico o manualmente
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Service Fabric viene configurato come set di scalabilità di macchine virtuali distinto. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse. Per altre informazioni, vedere il documento sui [tipi di nodo di Service Fabric](service-fabric-cluster-nodetypes.md) . Poiché i tipi di nodi di Service Fabric nel cluster sono costituiti da set di scalabilità di macchine virtuali nel back-end, è necessario configurare regole di ridimensionamento automatico per ogni tipo di nodo o set di scalabilità di macchine virtuali.
 
 > [!NOTE]
@@ -103,10 +103,10 @@ I nodi elencati in Service Fabric Explorer riflettono le informazioni a disposiz
 
 Per assicurarsi che un nodo venga rimosso quando si rimuove una VM, sono disponibili due opzioni:
 
-1) Scegliere un livello di durabilità Gold o Silver per i tipi di nodo del cluster, che offre l'integrazione dell'infrastruttura. In questo caso i nodi saranno rimossi automaticamente dallo stato dei servizi di sistema (FM) quando si riducono le istanze.
+1. Scegliere un livello di durabilità Gold o Silver per i tipi di nodo del cluster, che offre l'integrazione dell'infrastruttura. In questo caso i nodi saranno rimossi automaticamente dallo stato dei servizi di sistema (FM) quando si riducono le istanze.
 Fare riferimento ai [i dettagli sui livelli di durabilità qui](service-fabric-cluster-capacity.md)
 
-2) Dopo aver ridotto le istanze della VM, chiamare il [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
+2. Dopo aver ridotto le istanze della VM, chiamare il [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
 
 > [!NOTE]
 > I cluster di Service Fabric richiedono che un certo numero di nodi sia attivo in ogni momento allo scopo di mantenere la disponibilità e lo stato, ossia per "mantenere il quorum". Di conseguenza, non è in genere sicuro arrestare tutte le macchine virtuali del cluster senza avere prima eseguito un [backup completo dello stato](service-fabric-reliable-services-backup-restore.md).

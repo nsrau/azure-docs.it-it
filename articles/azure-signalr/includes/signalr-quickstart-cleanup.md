@@ -1,19 +1,18 @@
 ---
 title: File di inclusione
 description: File di inclusione
-services: signalr
 author: anthonychu
 ms.service: signalr
 ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: c74a0726bbbe635793b48b6fe6ebd6f0c72f95f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e01db73f58c77ff62f7abe707884fc2649fd042
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006231"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262774"
 ---
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -24,4 +23,3 @@ Se non si intende continuare a usare l'app, eliminare tutte le risorse create tr
 1. Nella finestra che si apre selezionare il gruppo di risorse e quindi fare clic su **Elimina gruppo di risorse**.
 
 1. Nella nuova finestra digitare il nome del gruppo di risorse da eliminare e quindi fare clic su **Elimina**.
-

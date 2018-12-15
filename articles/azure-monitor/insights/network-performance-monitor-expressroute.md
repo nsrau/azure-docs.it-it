@@ -10,17 +10,15 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 69088f7d07312d4110eafea369ea999f0597868b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441996"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188776"
 ---
 # <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
 
@@ -160,4 +158,4 @@ Monitoraggio prestazioni rete consente di diagnosticare diversi tipi di problemi
  
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Effettuare una ricerca nei log](../../log-analytics/log-analytics-queries.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
+[Effettuare una ricerca nei log](../../azure-monitor/log-query/log-query-overview.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.

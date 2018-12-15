@@ -7,17 +7,16 @@ manager: carmonm
 ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986424"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961808"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorare i gruppi di risorse con Monitoraggio di Azure (anteprima)
 
@@ -29,19 +28,19 @@ Le applicazioni moderne sono spesso complesse e altamente distribuite, con molti
 2. Selezionare uno dei gruppi di risorse da esplorare. Se il numero di gruppi di risorse è elevato, talvolta può essere utile applicare un filtro in base alla sottoscrizione.
 3. Per accedere alle informazioni dettagliate per un gruppo di risorse, fare clic su **Informazioni dettagliate** nel menu a sinistra del gruppo.
 
-![Screenshot della pagina di panoramica delle informazioni dettagliate per i gruppi di risorse](.\media\resource-group-insights\0001-overview.png)
+![Screenshot della pagina di panoramica delle informazioni dettagliate per i gruppi di risorse](./media/resource-group-insights/0001-overview.png)
 
 ## <a name="resources-with-active-alerts-and-health-issues"></a>Risorse con avvisi attivi e problemi di integrità
 
 La pagina di panoramica mostra il numero di avvisi attivati e ancora attivi, con le lo stato attuale di Integrità risorse di Azure per ogni risorsa. Tutte queste informazioni consentono di individuare rapidamente le risorse per cui si stanno verificando problemi. Gli avvisi consentono di rilevare i problemi nel codice e come è stata configurata l'infrastruttura. Integrità risorse di Azure rileva problemi con la piattaforma di Azure, che non sono specifici per le singole applicazioni.
 
-![Screenshot del riquadro Integrità risorse di Azure](.\media\resource-group-insights\0002-overview.png)
+![Screenshot del riquadro Integrità risorse di Azure](./media/resource-group-insights/0002-overview.png)
 
 ### <a name="azure-resource-health"></a>Integrità risorse di Azure
 
 Per visualizzare Integrità risorse di Azure, selezionare la casella **Mostra integrità delle risorse di Azure** sopra la tabella. Questa colonna è nascosta per impostazione predefinita per consentire un rapido caricamento della pagina.
 
-![Screenshot con grafico dell'integrità delle risorse aggiunto](.\media\resource-group-insights\0003-overview.png)
+![Screenshot con grafico dell'integrità delle risorse aggiunto](./media/resource-group-insights/0003-overview.png)
 
 Per impostazione predefinita, le risorse sono raggruppate per livello di app e tipo di risorsa. **Livello di app** è una categorizzazione semplice dei tipi di risorse, che esiste solo nel contesto della pagina di panoramica delle informazioni dettagliate sulle risorse. Sono disponibili tipi di risorse per codice dell'applicazione, infrastruttura di calcolo, reti, archiviazione e database. Gli strumenti di gestione ricevono livelli di app personalizzati e ogni altra risorsa viene categorizzata come appartenente al livello app **Altro**. Questo raggruppamento è utile per esaminare in modo immediato i sottosistemi integri e non integri dell'applicazione.
 
@@ -70,33 +69,33 @@ Per provare la scheda Errori, selezionare **Errori** in **Esamina** nel menu a s
 
 Dopo avere effettuato la selezione, la barra dei menu a sinistra cambia, rendendo disponibili nuove opzioni.
 
-![Screenshot del riquadro di panoramica degli errori](.\media\resource-group-insights\00004-failures.png)
+![Screenshot del riquadro di panoramica degli errori](./media/resource-group-insights/00004-failures.png)
 
 Quando si sceglie il servizio app, verrà visualizzata una raccolta di modelli di cartelle di lavoro di Monitoraggio di Azure.
 
-![Screenshot della raccolta di cartella di lavoro dell'applicazione](.\media\resource-group-insights\0005-failure-insights-workbook.png)
+![Screenshot della raccolta di cartella di lavoro dell'applicazione](./media/resource-group-insights/0005-failure-insights-workbook.png)
 
 Scegliendo il modello per le informazioni dettagliate sugli errori verrà visualizzata la cartella di lavoro.
 
-![Screenshot del report degli errori](.\media\resource-group-insights\0006-failure-visual.png)
+![Screenshot del report degli errori](./media/resource-group-insights/0006-failure-visual.png)
 
 È possibile selezionare una delle righe. La selezione viene quindi rappresentata in una vista dei dettagli in formato grafico.
 
-![Screenshot dei dettagli degli errori](.\media\resource-group-insights\0007-failure-details.png)
+![Screenshot dei dettagli degli errori](./media/resource-group-insights/0007-failure-details.png)
 
 Con le cartelle di lavoro non è più necessario eseguire attività difficili come creare visualizzazioni e report personalizzati in un formato facilmente utilizzabile. Alcuni utenti possono voler regolare solo i parametri predefiniti, ma è possibile personalizzare completamente le cartelle di lavoro.
 
 Per avere un'idea del funzionamento interno della cartella di lavoro, selezionare **Modifica** nella barra superiore.
 
-![Screenshot dell'opzione di modifica aggiuntiva](.\media\resource-group-insights\0008-failure-edit.png)
+![Screenshot dell'opzione di modifica aggiuntiva](./media/resource-group-insights/0008-failure-edit.png)
 
 Vengono visualizzate numerose caselle **Modifica** accanto ai vari elementi della cartella di lavoro. Selezionare la casella **Modifica** sotto la tabella delle operazioni.
 
-![Screenshot delle caselle di modifica](.\media\resource-group-insights\0009-failure-edit-graph.png)
+![Screenshot delle caselle di modifica](./media/resource-group-insights/0009-failure-edit-graph.png)
 
 Viene mostrata la query sottostante di Log Analytics alla base della visualizzazione della tabella.
 
- ![Screenshot della finestra della query di Log Analytics](.\media\resource-group-insights\0010-failure-edit-query.png)
+ ![Screenshot della finestra della query di Log Analytics](./media/resource-group-insights/0010-failure-edit-query.png)
 
 È possibile modificare direttamente la query. In alternativa è possibile usarla come riferimento e prenderla in prestito da qui quando si progetta una cartella di lavoro con parametri personalizzati.
 
@@ -104,11 +103,11 @@ Viene mostrata la query sottostante di Log Analytics alla base della visualizzaz
 
 Viene visualizzata automaticamente una raccolta di cartelle di lavoro. Per il servizio app la cartella di lavoro predefinita delle prestazioni applicative offre la vista seguente:
 
- ![Screenshot della vista delle prestazioni](.\media\resource-group-insights\0011-performance.png)
+ ![Screenshot della vista delle prestazioni](./media/resource-group-insights/0011-performance.png)
 
 In questo caso, se si seleziona l'opzione di modifica si noterà che questo set di visualizzazioni si basa sulle metriche di Monitoraggio di Azure.
 
- ![Screenshot della vista delle prestazioni con Metriche di Azure](.\media\resource-group-insights\0012-performance-metrics.png)
+ ![Screenshot della vista delle prestazioni con Metriche di Azure](./media/resource-group-insights/0012-performance-metrics.png)
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 

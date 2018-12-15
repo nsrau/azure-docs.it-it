@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea9f55d7c6002aaba2fd4fdc2a76b93f98e1d6b0
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 754d2a246a86585e9f05f8a070c51e158f73affd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807807"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342596"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorare un'istanza distribuita di un'applicazione gestita
 
@@ -48,7 +48,7 @@ Dopo aver distribuito un'applicazione gestita alla sottoscrizione di Azure, è p
 
    ![Creare un avviso](./media/monitor-managed-application-portal/create-new-alert.png)
 
-È possibile creare avvisi per l'istanza di applicazione gestita o risorse nell'applicazione gestita. Per informazioni sulla creazione di avvisi, vedere [Panoramica degli avvisi in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+È possibile creare avvisi per l'istanza di applicazione gestita o risorse nell'applicazione gestita. Per informazioni sulla creazione di avvisi, vedere [Panoramica degli avvisi in Microsoft Azure](../azure-monitor/platform/alerts-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

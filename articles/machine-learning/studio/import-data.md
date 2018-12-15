@@ -5,9 +5,8 @@ keywords: dati di importazione,formato dati,tipi di dati,origini dati,dati di tr
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 8f6bc6e1e13de879f81e6fc6f1f447d0c2856ced
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2f8c1eb43fddb21a59d4f00fd86b08d3fb3608f4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315257"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269958"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importare dati di training in Azure Machine Learning Studio da varie origini dati
 
@@ -39,10 +38,6 @@ Per usare i propri dati in Machine Learning Studio allo scopo di sviluppare ed e
 > 
 
 Questo articolo introduttivo illustra anche come ottenere dati pronti per l'uso in Machine Learning Studio e descrive i tipi e i formati di dati supportati.
-
-> [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-> 
-> 
 
 ## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Preparare i dati da usare in Azure Machine Learning Studio
 Machine Learning Studio è progettato per lavorare con dati tabulari o rettangolari, ad esempio dati di testo che rappresentano dati delimitati o strutturati di un database, anche se in alcuni casi potrebbero essere usati dati non rettangolari.

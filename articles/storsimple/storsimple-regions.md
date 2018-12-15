@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: d47109d541a3df93d9234e27e53d1538f6bc4c6e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
-ms.locfileid: "24879059"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969669"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Aree disponibili per StorSimple
 
@@ -85,7 +85,7 @@ Se si utilizza un dispositivo fisico StorSimple 8100 o 8600, il dispositivo è d
 | 14 | Germania        | 29 | Messico      | 44 | Slovacchia     | 59 | Vietnam              |
 | 15 | Grecia         | 30 | Paesi Bassi | 45 | Slovenia     | 60 | Croazia              |
 
-Questo elenco viene modificato quando si aggiungono nuovi paesi. Per un elenco più aggiornato dei luoghi geografici, vedere l'appendice dei termini della matrice di archiviazione nelle [condizioni del prodotto](https://www.microsoft.com/en-us/Licensing/product-licensing).
+Questo elenco viene modificato quando si aggiungono nuovi paesi. Per un elenco più aggiornato dei luoghi geografici, vedere l'appendice dei termini della matrice di archiviazione nelle [condizioni del prodotto](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 Microsoft può fornire l'hardware fisico e la sostituzione dei pezzi di ricambio dell'hardware per StorSimple per le aree geografiche nell'elenco precedente.
 

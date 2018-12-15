@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226817"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399905"
 ---
-È possibile [ridimensionare automaticamente](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) le [macchine virtuali (VM)](../articles/virtual-machines/windows/overview.md) con facilità usando [set di scalabilità di macchine virtuali](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e la [funzionalità di ridimensionamento automatico di Monitoraggio di Azure](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Per poter essere ridimensionate automaticamente, le VM devono essere membri di un set di scalabilità. Questo articolo contiene informazioni che consentono di comprendere meglio come ridimensionare sia orizzontalmente che verticalmente le VM usando metodi automatici e manuali.
+È possibile [ridimensionare automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) le [macchine virtuali (VM)](../articles/virtual-machines/windows/overview.md) con facilità usando [set di scalabilità di macchine virtuali](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e la [funzionalità di ridimensionamento automatico di Monitoraggio di Azure](../articles/azure-monitor/platform/autoscale-overview.md). Per poter essere ridimensionate automaticamente, le VM devono essere membri di un set di scalabilità. Questo articolo contiene informazioni che consentono di comprendere meglio come ridimensionare sia orizzontalmente che verticalmente le VM usando metodi automatici e manuali.
 
 ## <a name="horizontal-or-vertical-scaling"></a>Ridimensionamento orizzontale o verticale
 
@@ -35,7 +35,7 @@ Il ridimensionamento automatico può essere abilitato quando si crea il set di s
  
 ### <a name="metrics"></a>Metriche
 
-La funzionalità di ridimensionamento automatico di Monitoraggio di Azure consente di aumentare o ridurre le prestazioni delle VM in esecuzione in base a [metriche](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Per impostazione predefinita, le VM offrono metriche a livello di host di base per l'utilizzo di CPU, rete e dischi. Quando si configura la raccolta di dati di diagnostica usando l'estensione di diagnostica, diventano disponibili altri contatori delle prestazioni del sistema operativo guest relativi a disco, CPU e memoria.
+La funzionalità di ridimensionamento automatico di Monitoraggio di Azure consente di aumentare o ridurre le prestazioni delle VM in esecuzione in base a [metriche](../articles/azure-monitor/platform/autoscale-common-metrics.md). Per impostazione predefinita, le VM offrono metriche a livello di host di base per l'utilizzo di CPU, rete e dischi. Quando si configura la raccolta di dati di diagnostica usando l'estensione di diagnostica, diventano disponibili altri contatori delle prestazioni del sistema operativo guest relativi a disco, CPU e memoria.
 
 ![Criteri delle metriche](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -49,7 +49,7 @@ Le [regole](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by
  
 ### <a name="notifications"></a>Notifiche
 
-È possibile [configurare trigger](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) per chiamare URL Web specifici o inviare messaggi di posta elettronica in base alle regole di ridimensionamento automatico create. I webhook consentono di instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le notifiche personalizzate.
+È possibile [configurare trigger](../articles/azure-monitor/platform/autoscale-webhook-email.md) per chiamare URL Web specifici o inviare messaggi di posta elettronica in base alle regole di ridimensionamento automatico create. I webhook consentono di instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le notifiche personalizzate.
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>Ridimensionare manualmente le VM di un set di scalabilità
 

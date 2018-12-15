@@ -8,12 +8,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 8ad7369bc940f682bb7c11c3ed4e3444f1bb056a
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b8d5526b258e70238bf8d5e4dc91ab02f403368e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035085"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843683"
 ---
 # <a name="monitor-and-tune"></a>Monitorare e ottimizzare
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per PostgreSQL offre varie opzioni di monitoraggio per ottenere informazioni dettagliate sul comportamento del server.
@@ -24,7 +24,7 @@ Database di Azure per PostgreSQL offre varie metriche che consentono di ottenere
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 
-|Metrica|Nome visualizzato per la metrica|Unità|Descrizione|
+|Metrica|Nome visualizzato per la metrica|Unità|DESCRIZIONE|
 |---|---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
@@ -39,10 +39,10 @@ Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 |connections_failed|Connessioni non riuscite|Conteggio|Numero di connessioni al server non riuscite.|
 |network_bytes_egress|Rete in uscita|Byte|Rete in uscita tra connessioni attive.|
 |network_bytes_ingress|Rete in ingresso|Byte|Rete in ingresso tra connessioni attive.|
-|backup_storage_used|Archivio di backup in uso|Byte|Quantità di risorse dell'archivio di backup usate.|
+|backup_storage_used|Risorse di backup in uso|Byte|Quantità di risorse dell'archivio di backup usate.|
 
 ## <a name="server-logs"></a>Log del server
-È possibile abilitare l'accesso al server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in [Log Analytics](../log-analytics/log-analytics-queries.md), Hub eventi e nell'account di archiviazione. Per altre informazioni sull'accesso, visitare la pagina dei [log del server](concepts-server-logs.md).
+È possibile abilitare l'accesso al server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Hub eventi e nell'account di archiviazione. Per altre informazioni sull'accesso, visitare la pagina dei [log del server](concepts-server-logs.md).
 
 ## <a name="query-store"></a>Archivio query
 [Query Store](concepts-query-store.md) è una funzionalità di anteprima pubblica che tiene traccia delle prestazioni di query nel tempo, incluse informazioni su statistiche dei runtime di query ed eventi di attesa. La funzionalità salva in modo permanente le informazioni sulle prestazioni dei runtime di query in un database di sistema denominato **azure_sys** nello schema query_store. È possibile controllare la raccolta e l'archiviazione dei dati tramite vari controlli di configurazione.
@@ -51,7 +51,7 @@ Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 [Informazioni dettagliate prestazioni query](concepts-query-performance-insight.md) funziona in combinazione con Query Store per fornire visualizzazioni accessibili dal portale di Azure. Questi grafici consentono di identificare le principali query che influiscono sulle prestazioni. Informazioni dettagliate prestazioni query è ora disponibile in versione di anteprima pubblica ed è accessibile nella sezione **Supporto e risoluzione dei problemi** della pagina del portale del server Database di Azure per PostgreSQL.
 
 ## <a name="performance-recommendations"></a>Raccomandazioni per le prestazioni
-La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recommendations.md) identifica le opportunità per migliorare le prestazioni dei carichi di lavoro. La versione di anteprima pubblica di Raccomandazioni per le prestazioni fornisce consigli per la creazione di nuovi indici che possono migliorare le prestazioni dei carichi di lavoro. Per generare le raccomandazioni sugli indici, la funzionalità prende in considerazione diverse caratteristiche del database, tra cui lo schema e il carico di lavoro segnalati da Query Store. Dopo aver implementato le raccomandazioni per le prestazioni, i clienti devono testare le prestazioni per valutare l'impatto di tali modifiche. 
+La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recommendations.md) identifica le opportunità per migliorare le prestazioni dei carichi di lavoro. La versione di anteprima pubblica di Raccomandazioni per le prestazioni fornisce consigli per la creazione di nuovi indici che possono migliorare le prestazioni dei carichi di lavoro. Per generare le raccomandazioni sugli indici, la funzionalità prende in considerazione diverse caratteristiche del database, tra cui lo schema e il carico di lavoro segnalati da Query Store. Dopo avere implementato le raccomandazioni per le prestazioni, i clienti devono testare le prestazioni per valutare l'impatto di tali modifiche. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per informazioni sulla creazione di un avviso per una metrica, vedere [Come configurare gli avvisi](howto-alert-on-metric.md).

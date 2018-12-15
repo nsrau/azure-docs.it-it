@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: d22103a049d62f48e8b9b9d3f71138842fbfaa89
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5558409c3a3b0aef3757ebb73b2046a7018e4150
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262489"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088188"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>Creare un contenitore in Azure Cosmos DB
 
@@ -30,7 +30,6 @@ Questo articolo illustra i diversi modi per creare un contenitore (raccolta, tab
 
    * Creare un nuovo database o usarne uno esistente.
    * Immettere un ID raccolta.
-   * Selezionare una capacità di archiviazione **Illimitata**.
    * Immettere una chiave di partizione.
    * Immettere una velocità effettiva, ad esempio 1000 UR/sec.
    * Selezionare **OK**.
