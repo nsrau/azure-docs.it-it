@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 7c67cac7a5579386921b2b949e9312cb4e5da172
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2aa59bcf0d56358601b81730abe330a56ca35d02
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984673"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966909"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Eseguire la migrazione del database PostgreSQL usando dump e ripristino
 È possibile usare [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) per estrarre un database PostgreSQL in un file di dump e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) per ripristinare il database PostgreSQL da un file di archivio creato da pg_dump.
@@ -71,7 +71,7 @@ Un modo per eseguire la migrazione di un database PostgreSQL esistente al serviz
     ```
 
 ### <a name="for-the-restore"></a>Per il ripristino
-- Si consiglia di spostare il file di backup in una macchina virtuale di Azure nella stessa area del server del Database di Azure per PostgreSQL in cui si sta eseguendo la migrazione e di eseguire il pg_restore da tale VM per ridurre la latenza di rete. Si consiglia inoltre di creare la macchina virtuale con [la funzionalità rete accelerata](..\virtual-network\create-vm-accelerated-networking-powershell.md) abilitata.
+- Si consiglia di spostare il file di backup in una macchina virtuale di Azure nella stessa area del server del Database di Azure per PostgreSQL in cui si sta eseguendo la migrazione e di eseguire il pg_restore da tale VM per ridurre la latenza di rete. Si consiglia inoltre di creare la macchina virtuale con [la funzionalità rete accelerata](../virtual-network/create-vm-accelerated-networking-powershell.md) abilitata.
 - Deve essere già eseguito per impostazione predefinita, ma aprire il file di dump per verificare che le istruzioni CREATE INDEX siano effettuate dopo l'inserimento dei dati. In caso contrario, spostare le istruzioni CREATE INDEX dopo aver inserito i dati.
 - Ripristinare con gli switch -Fc e -j *#* per parallelizzare il ripristino. *#* è il numero di core nel server di destinazione. È anche possibile provare con *#* impostato su due volte il numero di core del server di destinazione per verificare l'impatto. Ad esempio: 
 

@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 6597e0058176eaa819170a494e4908ab44456360
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b6df653f89f05a9b253ecea102ed8310ff2a53b7
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850534"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438283"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Creare la prima funzione ospitata in Linux usando Core Tools e l'interfaccia della riga di comando di Azure (anteprima)
 
-Funzioni di Azure consente di eseguire il codice in un ambiente Linux [senza server](https://azure.microsoft.com/overview/serverless-computing/), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web. L'hosting Linux è attualmente disponibile in versione di anteprima e richiede il [runtime di Funzioni 2.0](functions-versions.md). Per altre considerazioni sull'anteprima per l'esecuzione delle app per le funzioni in Linux, vedere [questo articolo su Funzioni in Linux](https://aka.ms/funclinux).
+Funzioni di Azure consente di eseguire il codice in un ambiente Linux [senza server](https://azure.com/serverless), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web. L'hosting Linux è attualmente disponibile in versione di anteprima e richiede il [runtime di Funzioni 2.0](functions-versions.md). Per altre considerazioni sull'anteprima per l'esecuzione delle app per le funzioni in Linux, vedere [questo articolo su Funzioni in Linux](https://aka.ms/funclinux).
 
 Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per creare la prima app per le funzioni in esecuzione in Linux. Il codice della funzione viene creato in locale e quindi distribuito in Azure usando [Azure Functions Core Tools](functions-run-local.md).
 

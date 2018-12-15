@@ -10,32 +10,33 @@ ms.service: mariadb
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 11/10/2018
-ms.openlocfilehash: 9e8edb2aaeaa116ac71889f7007e435a1a869b7f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 1f17ab167c6487d59ce31106f1bbcffd86a29fd8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516560"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955194"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure
 
 ## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
+
 Il backup dei server Database di Azure per MariaDB viene eseguito periodicamente per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per completare questa guida, è necessario:
+
 - Un [Database di Azure per server MariaDB e database](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
- 
 
 > [!IMPORTANT]
 > Questa guida dettagliata richiede l'uso dell'interfaccia della riga di comando di Azure 2.0 o versioni successive. Per verificare la versione, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere `az --version`. Per installare o eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="set-backup-configuration"></a>Impostare la configurazione del backup
 
-La decisione riguardo alla configurazione del server per il backup con ridondanza locale o il backup con ridondanza geografica viene presa al momento della creazione del server. 
+La decisione riguardo alla configurazione del server per il backup con ridondanza locale o il backup con ridondanza geografica viene presa al momento della creazione del server.
 
 > [!NOTE]
 > Dopo aver creato il server, il tipo di ridondanza (locale o geografica) non può essere modificato.
@@ -58,7 +59,8 @@ L'esempio precedente modifica il periodo di conservazione dei backup di mydemose
 Il periodo di conservazione dei backup determina quanto è possibile tornare indietro nel tempo con un ripristino temporizzato, essendo il ripristino basato sui backup disponibili. Il ripristino temporizzato è descritto in modo più dettagliato nella sezione seguente.
 
 ## <a name="server-point-in-time-restore"></a>Ripristino temporizzato del server
-È possibile ripristinare il server in base a una temporizzazione precedente. I dati ripristinati vengono copiati in un nuovo server e il server esistente viene lasciato invariato. Se, ad esempio, una tabella è stata involontariamente eliminata a mezzogiorno di oggi, è possibile eseguire il ripristino a un qualsiasi momento prima di mezzogiorno. È possibile quindi recuperare la tabella e i dati mancanti dalla copia ripristinata del server. 
+
+È possibile ripristinare il server in base a una temporizzazione precedente. I dati ripristinati vengono copiati in un nuovo server e il server esistente viene lasciato invariato. Se, ad esempio, una tabella è stata involontariamente eliminata a mezzogiorno di oggi, è possibile eseguire il ripristino a un qualsiasi momento prima di mezzogiorno. È possibile quindi recuperare la tabella e i dati mancanti dalla copia ripristinata del server.
 
 Per ripristinare il server, usare il comando [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) dell'interfaccia della riga di comando di Azure.
 
@@ -85,6 +87,7 @@ I valori relativi al percorso e al piano tariffario per il server ripristinato s
 Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto.
 
 ## <a name="geo-restore"></a>Ripristino geografico
+
 Se il server è stato configurato per backup con ridondanza geografica, è possibile creare un nuovo server dal backup di quel server esistente. Questo nuovo server può essere creato in qualsiasi area in cui è disponibile Database di Azure per MariaDB.  
 
 Per creare un server tramite un backup con ridondanza geografica, usare il comando `az mariadb server georestore` dell'interfaccia della riga di comando di Azure.
@@ -96,8 +99,9 @@ Per creare un server tramite un backup con ridondanza geografica, usare il coman
 Per eseguire un ripristino geografico del server, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere il comando seguente:
 
 ```azurecli-interactive
-az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
+az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8
 ```
+
 Questo comando crea un nuovo server denominato *mydemoserver-georestored* negli Stati Uniti orientali che apparterrà a *myresourcegroup*. Si tratta di un server per utilizzo generico di quinta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di *mydemoserver*, che si trova anch'esso nel gruppo di risorse *myresourcegroup*.
 
 Se si vuole creare il nuovo server in un gruppo di risorse diverso dal server esistente, nel parametro `--source-server` è necessario specificare il nome del server come nell'esempio seguente:
@@ -116,12 +120,12 @@ Il comando `az mariadb server georestore` richiede i parametri seguenti:
 |location | eastus | Posizione del nuovo server. |
 |sku-name| GP_Gen5_8 | Questo parametro imposta il piano tariffario, la generazione delle risorse di calcolo e il numero di vCore del nuovo server. GP_Gen5_8 indica un server per utilizzo generico di quinta generazione con otto vCore.|
 
-
 >[!Important]
 >Quando si crea un nuovo server tramite un ripristino geografico, il server eredita le stesse dimensioni di archiviazione e lo stesso piano tariffario del server di origine. Questi valori non possono essere modificati durante la creazione. Dopo aver creato il nuovo server, le dimensioni di archiviazione possono essere aumentate.
 
 Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Altre informazioni sui [backup](concepts-backup.md) del servizio.
 - Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md).

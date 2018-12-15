@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 9cd8e21ede794fcb46683ea7cedd2bf9ed833204
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: a90a6811b1c59538db98b85d950906dba2969d57
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638046"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338244"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controllo delle versioni in Funzioni permanenti (Funzioni di Azure)
 
@@ -121,25 +121,17 @@ Il modo migliore per garantire che le modifiche di rilievo vengano distribuite i
 
 L'hub attività può essere configurato nel file *host.json* come indicato di seguito:
 
+#### <a name="functions-1x"></a>Funzioni 1.x
+
 ```json
 {
-    "extensions": {
-        "durableTask": {
-            "HubName": "MyTaskHubV2"
-        }
+    "durableTask": {
+        "HubName": "MyTaskHubV2"
     }
 }
 ```
 
-> [!NOTE]
-> Per le funzioni V1, *host.json* deve essere invece configurato come segue:
->```json
->{
->    "durableTask": {
->        "HubName": "MyTaskHubV2"
->    }
->}
->```
+#### <a name="functions-2x"></a>Funzioni 2.x
 
 Il valore predefinito è `DurableFunctionsHub`.
 

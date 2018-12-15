@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: operations-management-suite
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e5011dbaad5e5935f3aa792bd3a3ed2b271f23bc
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d6d2414935bb5d1f095ad2b200acafa97b3b9b32
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632434"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192695"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Procedure consigliate per la creazione di soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
@@ -28,7 +27,7 @@ ms.locfileid: "52632434"
 Questo articolo riporta le procedure consigliate per la [creazione di una soluzione di gestione](solutions-solution-file.md) in Azure.  Queste informazioni verranno aggiornate quando saranno identificate procedure consigliate aggiuntive.
 
 ## <a name="data-sources"></a>Origini dati
-- È possibile [configurare le origini dati con un modello di Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md), ma non devono essere incluse nel file della soluzione.  Il motivo è che la configurazione delle origini dati non è attualmente idempotente, vale a dire che la soluzione potrebbe sovrascrivere la configurazione esistente nell'area di lavoro dell'utente.<br><br>Ad esempio la soluzione potrebbe richiedere eventi di avviso e di errore dal registro eventi dell'applicazione.  Se si specifica questo come origine dati nella soluzione, si rischia di rimuovere eventi informativi, se l'utente ha configurato questa impostazione nella sua area di lavoro.  Se sono stati inclusi tutti gli eventi, potrebbero essere raccolti troppi eventi informativi nell'area di lavoro dell'utente.
+- È possibile [configurare le origini dati con un modello di Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), ma non devono essere incluse nel file della soluzione.  Il motivo è che la configurazione delle origini dati non è attualmente idempotente, vale a dire che la soluzione potrebbe sovrascrivere la configurazione esistente nell'area di lavoro dell'utente.<br><br>Ad esempio la soluzione potrebbe richiedere eventi di avviso e di errore dal registro eventi dell'applicazione.  Se si specifica questo come origine dati nella soluzione, si rischia di rimuovere eventi informativi, se l'utente ha configurato questa impostazione nella sua area di lavoro.  Se sono stati inclusi tutti gli eventi, potrebbero essere raccolti troppi eventi informativi nell'area di lavoro dell'utente.
 
 - Se la soluzione richiede dati da una delle origini dati standard, è necessario definire questo come prerequisito.  Dichiarare nella documentazione che il cliente deve configurare l'origine dati da solo.  
 - Aggiungere un messaggio di [verifica del flusso di dati](../../azure-monitor/platform/view-designer-tiles.md) alle viste della soluzione per indicare all'utente le origini dati che devono essere configurate per la raccolta dei dati richiesti.  Questo messaggio viene mostrato nel riquadro della vista quando i dati necessari non vengono trovati.

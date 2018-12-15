@@ -7,19 +7,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c496bd6f7ccec4cc08ca5eead02cb06ff3efde09
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 6f16325183f0a13382dd4533fd867a518f1750c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714376"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344296"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione (anteprima)
 
@@ -27,7 +26,7 @@ ms.locfileid: "51714376"
 > Questo è un documento preliminare che illustra come creare soluzioni di gestione attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.   
 
 
-Le [soluzioni di gestione](solutions.md) includeranno in genere [ricerche salvate](../../log-analytics/log-analytics-queries.md) di Log Analytics per l'analisi dei dati raccolti dalla soluzione.  Potranno anche definire [avvisi](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico.  Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un [modello di Resource Manager](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) in modo da consentirne l'inclusione nelle [soluzioni di gestione](solutions-creating.md).
+Le [soluzioni di gestione](solutions.md) includeranno in genere [ricerche salvate](../../azure-monitor/log-query/log-query-overview.md) di Log Analytics per l'analisi dei dati raccolti dalla soluzione.  Potranno anche definire [avvisi](../../azure-monitor/platform/alerts-overview.md) per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico.  Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un [modello di Resource Manager](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) in modo da consentirne l'inclusione nelle [soluzioni di gestione](solutions-creating.md).
 
 > [!NOTE]
 > Gli esempi in questo articolo usano parametri e variabili che sono richiesti o comuni nelle soluzioni di gestione e che sono descritti in [Progettare e creare una soluzione di gestione in Azure](solutions-creating.md)  
@@ -37,7 +36,7 @@ Questo articolo presuppone che si abbia già familiarità con la [creazione di u
 
 
 ## <a name="log-analytics-workspace"></a>Area di lavoro di Log Analytics
-Tutte le risorse in Log Analytics sono contenute in un'[area di lavoro](../../log-analytics/log-analytics-manage-access.md).  Come descritto in [Area di lavoro di Log Analytics e account di Automazione](solutions.md#log-analytics-workspace-and-automation-account), l'area di lavoro non è inclusa nella soluzione di gestione, ma deve essere presente prima che la soluzione venga installata.  Se non è disponibile, l'installazione della soluzione non riesce.
+Tutte le risorse in Log Analytics sono contenute in un'[area di lavoro](../../azure-monitor/platform/manage-access.md).  Come descritto in [Area di lavoro di Log Analytics e account di Automazione](solutions.md#log-analytics-workspace-and-automation-account), l'area di lavoro non è inclusa nella soluzione di gestione, ma deve essere presente prima che la soluzione venga installata.  Se non è disponibile, l'installazione della soluzione non riesce.
 
 Il nome dell'area di lavoro è il nome di ogni risorsa di Log Analytics.  A questo scopo, nella soluzione viene usato il parametro **workspace** come nell'esempio seguente di una risorsa SavedSearch.
 
@@ -54,9 +53,9 @@ La tabella seguente elenca la versione dell'API per la risorsa usata in questo e
 
 
 ## <a name="saved-searches"></a>Ricerche salvate
-Includere [ricerche salvate](../../log-analytics/log-analytics-queries.md) in una soluzione per consentire agli utenti di eseguire query sui dati raccolti dalla soluzione.  Le ricerche salvate vengono visualizzate in **Ricerche salvate** nel portale di Azure.  È necessaria una ricerca salvata anche per ogni avviso.   
+Includere [ricerche salvate](../../azure-monitor/log-query/log-query-overview.md) in una soluzione per consentire agli utenti di eseguire query sui dati raccolti dalla soluzione.  Le ricerche salvate vengono visualizzate in **Ricerche salvate** nel portale di Azure.  È necessaria una ricerca salvata anche per ogni avviso.   
 
-Le risorse [ricerca salvata di Log Analytics](../../log-analytics/log-analytics-queries.md) sono di tipo `Microsoft.OperationalInsights/workspaces/savedSearches` e hanno la struttura seguente.  Nella struttura sono inclusi parametri e variabili comuni ed è quindi possibile copiare e incollare questo frammento di codice nel file della soluzione e, se necessario, modificare i nomi dei parametri. 
+Le risorse [ricerca salvata di Log Analytics](../../azure-monitor/log-query/log-query-overview.md) sono di tipo `Microsoft.OperationalInsights/workspaces/savedSearches` e hanno la struttura seguente.  Nella struttura sono inclusi parametri e variabili comuni ed è quindi possibile copiare e incollare questo frammento di codice nel file della soluzione e, se necessario, modificare i nomi dei parametri. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
@@ -87,16 +86,16 @@ Le singole proprietà di una ricerca salvata sono descritte nella tabella seguen
 > Potrebbe essere necessario usare caratteri di escape, se la query include caratteri che potrebbero essere interpretati come JSON.  La query **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, ad esempio, dovrà essere scritta nel file di soluzione nel modo seguente: **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Avvisi
-Gli [avvisi del log di Azure](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md) vengono creati dalle regole di avviso di Azure che eseguono le query di log specificate a intervalli regolari.  Se i risultati della query corrispondono ai criteri specificati, viene creato un record di avviso e vengono eseguite una o più azioni usando i [gruppi di azioni](../../monitoring-and-diagnostics/monitoring-action-groups.md).  
+Gli [avvisi del log di Azure](../../azure-monitor/platform/alerts-unified-log.md) vengono creati dalle regole di avviso di Azure che eseguono le query di log specificate a intervalli regolari.  Se i risultati della query corrispondono ai criteri specificati, viene creato un record di avviso e vengono eseguite una o più azioni usando i [gruppi di azioni](../../azure-monitor/platform/action-groups.md).  
 
 > [!NOTE]
-> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics verranno estesi ad Azure. Per altre informazioni, vedere [Estendere avvisi da Log Analytics ad Avvisi di Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics verranno estesi ad Azure. Per altre informazioni, vedere [Estendere avvisi da Log Analytics ad Avvisi di Azure](../../azure-monitor/platform/alerts-extend.md). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 Le regole di avviso in una soluzione di gestione sono costituite dalle tre diverse risorse riportate di seguito.
 
 - **Ricerca salvata.**  Definisce la ricerca log che viene eseguita.  Una singola ricerca salvata può essere condivisa da più regole di avviso.
 - **Pianificazione.**  Definisce la frequenza di esecuzione della ricerca log.  Ogni regola di avviso ha una sola pianificazione.
-- **Azione di avviso.**  Ogni regola di avviso dispone di una risorsa gruppo di azioni o risorsa azione (legacy) di tipo **Alert** che definisce i dettagli dell'avviso, come i criteri per la creazione di un record di avviso e la gravità dell'avviso. La risorsa [Gruppo di azioni](../../monitoring-and-diagnostics/monitoring-action-groups.md) può disporre di un elenco di azioni configurate da intraprendere quando viene generato l'avviso, come ad esempio chiamata vocale, SMS, messaggio di posta elettronica, webhook, strumento ITSM, runbook di automazione, app per la logica e così via.
+- **Azione di avviso.**  Ogni regola di avviso dispone di una risorsa gruppo di azioni o risorsa azione (legacy) di tipo **Alert** che definisce i dettagli dell'avviso, come i criteri per la creazione di un record di avviso e la gravità dell'avviso. La risorsa [Gruppo di azioni](../../azure-monitor/platform/action-groups.md) può disporre di un elenco di azioni configurate da intraprendere quando viene generato l'avviso, come ad esempio chiamata vocale, SMS, messaggio di posta elettronica, webhook, strumento ITSM, runbook di automazione, app per la logica e così via.
  
 La risorsa azione (legacy) definirà facoltativamente una risposta tramite posta elettronica e runbook.
 - **Azione webhook (legacy)**  Se la regola di avviso chiama un webhook, è necessaria una risorsa azione aggiuntiva di tipo **Webhook**.    
@@ -146,7 +145,7 @@ Una pianificazione può avere più azioni. Un'azione può definire uno o più pr
 Le azioni possono essere definite usando la risorsa [gruppo di azioni] o la risorsa azione.
 
 > [!NOTE]
-> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics verranno automaticamente estesi ad Azure. Per altre informazioni, vedere [Estendere avvisi da Log Analytics ad Avvisi di Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics verranno automaticamente estesi ad Azure. Per altre informazioni, vedere [Estendere avvisi da Log Analytics ad Avvisi di Azure](../../azure-monitor/platform/alerts-extend.md). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 
 La proprietà **Type** specifica due tipi di risorsa azione.  Una pianificazione richiede un'azione **Alert** che definisce i dettagli della regola di avviso e le azioni da eseguire quando viene creato un avviso. Le risorse azione sono di tipo `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -228,7 +227,7 @@ Questa sezione è facoltativa.  Includere la sezione se si vogliono eliminare gl
 #### <a name="azure-action-group"></a>Gruppo di azioni di Azure
 Tutti gli avvisi in Azure usano un gruppo di azioni come meccanismo predefinito per la gestione delle azioni. Con un gruppo di azioni, è possibile specificare le azioni una volta e quindi associare il gruppo di azioni a più avvisi in Azure. Tutto questo senza la necessità di dichiarare ripetutamente le stesse azioni più volte. I gruppi di azioni supportano più azioni, tra cui posta elettronica, SMS, chiamate vocali, connessioni di Gestione dei servizi IT, runbook di Automazione, URI di webhook e altro ancora. 
 
-Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devono ora essere passati i dettagli del gruppo di azioni insieme alla soglia per poter creare un avviso. I dettagli di posta elettronica, gli URL di webhook, i dettagli relativi all'automazione runbook e altre azioni devono essere definiti all'interno di un gruppo di azioni prima di creare un avviso. È possibile creare un [gruppo di azioni da Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-action-groups.md) nel portale o usare il [modello Gruppo di azioni - Risorsa](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devono ora essere passati i dettagli del gruppo di azioni insieme alla soglia per poter creare un avviso. I dettagli di posta elettronica, gli URL di webhook, i dettagli relativi all'automazione runbook e altre azioni devono essere definiti all'interno di un gruppo di azioni prima di creare un avviso. È possibile creare un [gruppo di azioni da Monitoraggio di Azure](../../azure-monitor/platform/action-groups.md) nel portale o usare il [modello Gruppo di azioni - Risorsa](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
@@ -242,7 +241,7 @@ Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devo
 Ogni pianificazione ha un'azione **Alert**.  che definisce i dettagli dell'avviso e, facoltativamente, le azioni di notifica e correzione.  Una notifica invia un messaggio di posta elettronica a uno o più indirizzi.  Una correzione avvia un runbook in Automazione di Azure per provare a risolvere il problema rilevato.
 
 > [!NOTE]
-> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics verranno automaticamente estesi ad Azure. Per altre informazioni, vedere [Estendere avvisi da Log Analytics ad Avvisi di Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics verranno automaticamente estesi ad Azure. Per altre informazioni, vedere [Estendere avvisi da Log Analytics ad Avvisi di Azure](../../azure-monitor/platform/alerts-extend.md). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Questa sezione è facoltativa. Includere la sezione se si vuole inviare un messaggio di posta elettronica a uno o più destinatari.

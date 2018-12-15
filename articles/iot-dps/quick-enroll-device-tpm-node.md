@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: de08538750f704ddc85ba69bd64742b3e68c8a3c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b396c0e485d4eb6c4ee541074f86357634c264c1
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156749"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184441"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Node.js Service SDK
 
@@ -74,7 +74,7 @@ Questi passaggi illustrano come creare una registrazione singola a livello di co
     1. Accedere al portale di Azure, fare clic sul pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning. 
     2. Fare clic su **Criteri di accesso condivisi** e quindi sui criteri di accesso da usare per aprirne le proprietà. Nella finestra **Criteri di accesso** copiare e annotare la stringa di connessione della chiave primaria. 
 
-    ![Ottenere la stringa di connessione del servizio di provisioning dal portale](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
+       ![Ottenere la stringa di connessione del servizio di provisioning dal portale](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
 
 
 2. È anche necessaria la chiave di verifica dell'autenticità per il dispositivo. Se è stata seguita la procedura descritta nella guida introduttiva [Creare ed effettuare il provisioning di un dispositivo simulato](quick-create-simulated-device.md) per creare un dispositivo TPM simulato, usare la chiave creata per il dispositivo. In caso contrario, per creare una registrazione singola di esempio è possibile usare la chiave di verifica dell'autenticità seguente fornita con l'SDK:

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dccbd2d87b5a5616c25caed070a337eff9fa753e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255728"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956653"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central
 
@@ -49,12 +49,12 @@ Nell'applicazione Azure IoT Central aggiungere un dispositivo reale dal modello 
     * Immettere l'ID dispositivo **<span style="color:Red">(in lettere minuscole)</span>** o usare l'ID dispositivo suggerito.
     * Immettere il nome del dispositivo o usare il nome suggerito
     
-    ![Aggiungere un dispositivo](media\concepts-connectivity\add-device.png)
+    ![Aggiungere un dispositivo](media/concepts-connectivity/add-device.png)
 
 
 1. Per ottenere i dettagli della connessione, ad esempio **ID ambito, ID dispositivo e chiave primaria** per il dispositivo aggiunto, fare clic su **Connetti** nella pagina del dispositivo.
  
-    ![Dettagli della connessione](media\concepts-connectivity\device-connect.PNG)
+    ![Dettagli della connessione](media/concepts-connectivity/device-connect.PNG)
 
 3. Assicurarsi di salvare questi dettagli, poiché verrà eseguita una disconnessione temporanea da Internet durante la preparazione del dispositivo DevKit. 
 

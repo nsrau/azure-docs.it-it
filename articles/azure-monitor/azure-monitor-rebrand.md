@@ -7,18 +7,17 @@ editor: tysonn
 services: azure-monitor
 documentationcenter: azure-monitor
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: bwren
-ms.openlocfilehash: f85f0785f180bf333477bd45508f8c670349669e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 68986b3d60566ee190a92c6ccf8cda767824350f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980475"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000143"
 ---
 # <a name="azure-monitor-branding-changes"></a>Modifiche dei marchi di Monitoraggio di Azure
 Questo articolo descrive le recenti modifiche di marchi e nomi apportate ai servizi di gestione di Azure. 
@@ -47,4 +46,4 @@ Operations Management Suite (OMS) era un bundle dei servizi di gestione di Azure
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere l'articolo [Panoramica di Monitoraggio di Azure](overview.md), che riporta la descrizione dei vari componenti e delle relative funzionalità.
-- Informazioni sulla [migrazione del portale di OMS](../log-analytics/log-analytics-oms-portal-transition.md).
+- Informazioni sulla [migrazione del portale di OMS](../azure-monitor/platform/oms-portal-transition.md).

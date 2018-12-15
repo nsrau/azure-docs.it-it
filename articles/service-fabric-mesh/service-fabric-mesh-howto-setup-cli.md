@@ -9,19 +9,19 @@ ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: dc37ff85deccdd5a1f8703033d300d878f9a7e4c
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: daeec38863ee7e9dd4e56f2470e5f9459dcc8bc1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887985"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958594"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurare l'interfaccia della riga di comando di mesh Service Fabric
 L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per distribuire e gestire risorse in locale e in Azure Service Fabric Mesh. 
 
 È possibile usare tre tipi di interfaccia della riga di comando, riepilogati nella tabella seguente. 
 
-| Modulo interfaccia della riga di comando | Ambiente di destinazione |  Descrizione | 
+| Modulo interfaccia della riga di comando | Ambiente di destinazione |  DESCRIZIONE | 
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | Interfaccia della riga di comando principale, che consente di distribuire le applicazioni e gestire le risorse nell'ambiente di Azure Service Fabric Mesh. 
 | sfctl | Cluster locali | Interfaccia della riga di comando di Service Fabric, che consente di distribuire e testare le risorse di Service Fabric sui cluster locali.  
@@ -73,7 +73,7 @@ Per usare il plug-in Maven nell'app Java Maven, aggiungere il frammento di codic
       ...
       <plugin>
         <groupId>com.microsoft.azure</groupId>
-          <artifactId>azure-sf-maven-plugin</artifactId>
+          <artifactId>azure-sfmesh-maven-plugin</artifactId>
           <version>0.1.0</version>
           <configuration>
             ...

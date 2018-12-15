@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5a67cdcef7f39830b747dec5f2c980483e1ab91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978336"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967896"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo
 
@@ -117,15 +117,15 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 Ecco i passaggi di base per iniziare:
 
-1. [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configurare la soluzione Analisi log attività](../log-analytics/log-analytics-activity.md#configuration) per la propria area di lavoro.
+1. [Configurare la soluzione Analisi log attività](../azure-monitor/platform/collect-activity-logs.md#configuration) per la propria area di lavoro.
 
-1. [Visualizzare i log attività](../log-analytics/log-analytics-activity.md#using-the-solution). Per passare rapidamente alla pagina di panoramica di Analisi log attività fare clic sull'opzione **Log Analytics**.
+1. [Visualizzare i log attività](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Per passare rapidamente alla pagina di panoramica di Analisi log attività fare clic sull'opzione **Log Analytics**.
 
    ![Opzione Log Analytics nel portale](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Facoltativamente è possibile usare la pagina [Ricerca log](../log-analytics/log-analytics-log-search.md) o il [portale Advanced Analytics](../log-analytics/query-language/get-started-analytics-portal.md) per eseguire query e visualizzare i log. Per altre informazioni su queste due opzioni, vedere la sezione [sulla pagina di ricerca log o sul portale Advanced Analytics](../log-analytics/log-analytics-log-search-portals.md).
+1. Facoltativamente è possibile usare la pagina [Ricerca log](../log-analytics/log-analytics-log-search.md) o il [portale Advanced Analytics](../azure-monitor/log-query/get-started-portal.md) per eseguire query e visualizzare i log. Per altre informazioni su queste due opzioni, vedere la sezione [sulla pagina di ricerca log o sul portale Advanced Analytics](../azure-monitor/log-query/portals.md).
 
 Ecco una query che restituisce le nuove assegnazioni di ruolo organizzate in base al provider di risorse di destinazione:
 

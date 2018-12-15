@@ -10,16 +10,15 @@ ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
-ms.author: adigan;
-ms.openlocfilehash: 73a5e8126ebe6223d790a5b58db7bd5d04b5350f
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.author: adigan
+ms.openlocfilehash: 65ab497b2467846a324d10f8487ab384a01441ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267308"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968886"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Aggiornare il pacchetto di contenuto per reporting centrale di Backup di Azure 
 
@@ -42,30 +41,30 @@ I report preconfigurati offerti con il pacchetto di contenuto Backup di Azure so
 
 ### <a name="summary"></a>Summary
    
-![Summary](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Summary.png)
+![Summary](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
 
 ### <a name="billing"></a>Fatturazione
 
-![Fatturazione](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Billing.png)
+![Fatturazione](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
 
 ### <a name="compliance"></a>Conformità
 
-![Conformità](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Compliance.png)
+![Conformità](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
 ### <a name="storage"></a>Archiviazione
 
-![Archiviazione](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
+![Archiviazione](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>Elementi di backup
-![Elementi di backup](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+![Elementi di backup](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
 
 ### <a name="alerts"></a>Avvisi
 
-![Avvisi](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Alerts.png)
+![Avvisi](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
 
 ### <a name="jobs"></a>Processi
 
-![Processi](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
+![Processi](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
     
 
 ## <a name="next-steps"></a>Passaggi successivi

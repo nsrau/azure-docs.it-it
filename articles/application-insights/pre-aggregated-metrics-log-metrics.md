@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 136279a94d64b846247c436eb7a5fb487e05b41a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d095be8c5d921001ab4a492d2385938020fa8ce0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946902"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967215"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metriche basate su log e metriche preaggregate in Azure Application Insights
 
@@ -55,7 +55,7 @@ Esistono diversi [modi per l'invio di metriche personalizzate da Application Ins
 
 Tutte le metriche inviate tramite chiamate API [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) o [GetMetric e TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) vengono automaticamente archiviate sia in archivi di log sia in archivi di metriche. Tuttavia, mentre la versione basata su log della metrica personalizzata mantiene sempre tutte le dimensioni, la versione preaggregata della metrica viene archiviata senza dimensioni per impostazione predefinita. È possibile attivare la raccolta di dimensioni di metriche personalizzate nella scheda [Utilizzo e costi stimati](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) selezionando "Enable alerting on custom metric dimensions" (Abilita avvisi per dimensioni delle metriche personalizzate): 
 
-![Utilizzo e costi stimati](.\media\pre-aggregated-metrics-log-metrics\001-cost.png)
+![Utilizzo e costi stimati](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
 ## <a name="why-is-collection-of-custom-metrics-dimensions-turned-off-by-default"></a>Perché la raccolta di dimensioni di metriche personalizzate è disattivata per impostazione predefinita?
 
@@ -65,7 +65,7 @@ La raccolta di dimensioni di metriche personalizzate è disattivata per impostaz
 
 È possibile usare Esplora metriche in Monitoraggio di Azure per tracciare grafici da metriche preaggregate e basate su log, nonché creare dashboard con grafici. Dopo aver selezionato la risorsa di Application Insights desiderata, usare il selettore dello spazio dei nomi per passare tra metriche standard (anteprima) e metriche basate su log oppure selezionare uno spazio dei nomi delle metriche personalizzate:
 
-![Spazio dei nomi delle metriche](.\media\pre-aggregated-metrics-log-metrics\002-metric-namespace.png)
+![Spazio dei nomi delle metriche](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

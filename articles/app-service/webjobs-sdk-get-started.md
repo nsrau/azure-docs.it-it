@@ -1,5 +1,5 @@
 ---
-title: Introduzione ad Azure WebJobs SDK
+title: Introduzione a WebJobs SDK - Azure
 description: Introduzione a WebJobs SDK per l'elaborazione in background guidata dagli eventi. Informazioni su come accedere ai dati nei servizi di Azure e di terze parti.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140350"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339808"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -63,9 +63,9 @@ Questo articolo presuppone che l'utente abbia un [account Azure](https://azure.m
 
 1. In Visual Studio selezionare **File -> Nuovo progetto**.
 
-1. Selezionare **Desktop classico di Windows > App console (.NET Framework)**.
+2. Selezionare **Desktop classico di Windows > App console (.NET Framework)**.
 
-1. Assegnare al progetto il nome *WebJobsSDKSample* e quindi selezionare **OK**.
+3. Assegnare al progetto il nome *WebJobsSDKSample* e quindi selezionare **OK**.
 
    ![Finestra di dialogo Nuovo progetto](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -396,7 +396,7 @@ In questa sezione si configura la registrazione in Application Insights prima de
 
 In questa sezione si ripete l'esecuzione in locale per verificare che i dati di registrazione vengano ora inviati sia ad Application Insights che alla console.
 
-1. Usare **Esplora server** in Visual Studio per creare un messaggio nella coda così come è stato fatto [in precedenza](#trigger-the-function), immettendo però *Hello App Insights!* come testo del messaggio.
+1. Usare **Esplora server** in Visual Studio per creare un messaggio nella coda così come è stato fatto [in precedenza](#trigger-the-function-in-azure), immettendo però *Hello App Insights!* come testo del messaggio.
 
 1. Eseguire il progetto.
 

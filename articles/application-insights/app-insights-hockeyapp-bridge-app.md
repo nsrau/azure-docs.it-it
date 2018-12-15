@@ -9,16 +9,15 @@ ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1951f001de1b9d0667e5d4430454b32b5a3c890e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2f9b61a212251332cd94379b40f93eb52d49c729
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957489"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870072"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Esplorazione dei dati HockeyApp in Application Insights
 
@@ -61,7 +60,7 @@ Analisi è uno strumento avanzato per query ad hoc che consente di diagnosticare
 
 ![Analytics](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [Altre informazioni su Analisi](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Altre informazioni su Analisi](../azure-monitor/log-query/get-started-portal.md)
 
 ## <a name="continuous-export"></a>Esportazione continua
 Esportazione continua consente di esportare i dati in un contenitore dell'archivio BLOB di Azure. Ciò è molto utile se è necessario mantenere i dati per un tempo maggiore rispetto al periodo di conservazione attualmente offerto da Application Insights. È possibile conservare i dati nell'archivio BLOB ed elaborarli in un database SQL o nella soluzione di data warehousing scelta.
@@ -69,5 +68,5 @@ Esportazione continua consente di esportare i dati in un contenitore dell'archiv
 [Altre informazioni su Esportazione continua](app-insights-export-telemetry.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Applicare Analisi ai dati](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Applicare Analisi ai dati](../azure-monitor/log-query/get-started-portal.md)
 

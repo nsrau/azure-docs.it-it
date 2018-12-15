@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005734"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964816"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creare una regola di telemetria e impostare notifiche nell'applicazione Azure IoT Central
 
@@ -36,19 +36,19 @@ Per creare una regola di telemetria, il modello di dispositivo deve disporre di 
 
 1. Se non è ancora stata creata nessuna regola verrà visualizzata la schermata seguente:
 
-    ![Nessuna regola](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
+    ![Nessuna regola](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
 1. Nella scheda **Regole** fare clic **Modifica modello** e quindi su **+ Nuova regola** per visualizzare i tipi di regole che è possibile creare.
 
 1. Fare clic su **Telemetria** per creare una regola per il monitoraggio della telemetria del dispositivo.
 
-    ![Tipi di regola](media\howto-create-telemetry-rules\Rule_Types.png)
+    ![Tipi di regola](media/howto-create-telemetry-rules/Rule_Types.png)
 
 1. Immettere un nome che consente di identificare la regola in questo modello di dispositivo.
 
 1. Per attivare immediatamente la regola per tutti i dispositivi creati per questo modello, attivare o disattivare **Abilita regola** per tutti i dispositivi di questo modello.
 
-   ![Dettagli regola](media\howto-create-telemetry-rules\Rule_Detail.png)
+   ![Dettagli regola](media/howto-create-telemetry-rules/Rule_Detail.png)
     
     La regola viene applicata automaticamente a tutti i dispositivi sotto il modello del dispositivo.
     
@@ -61,7 +61,7 @@ Condizione definisce i criteri che vengono monitorato dalla regola.
 
 1. Selezionare la telemetria da monitorare nell'elenco a discesa **Misura**.
 
-   ![Condizione](media\howto-create-telemetry-rules\Aggregate_Condition_Filled_Out.png)
+   ![Condizione](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
 1. Scegliere quindi **Aggregazione**, **Operatore** e specificare un valore **Soglia**.
     - L'aggregazione è facoltativa. Senza aggregazione, la regola viene attivata per ogni punto dati di telemetria che soddisfa la condizione. Ad esempio, se la regola è configurata per essere attivata quando la temperatura è superiore a 80, si attiverà quasi immediatamente quando il dispositivo segnala una temperatura > 80.
@@ -78,14 +78,14 @@ Questa sezione illustra come configurare le azioni da intraprendere quando la re
 
 1. Scegliere **+** accanto ad **Actions** (Azioni). Viene visualizzato l'elenco delle azioni disponibili.  
 
-    ![Aggiungere un'azione](media\howto-create-telemetry-rules\Add_Action.png)
+    ![Aggiungere un'azione](media/howto-create-telemetry-rules/Add_Action.png)
 
 1. Scegliere l'azione **Email** (E-mail), immettere un indirizzo di posta elettronica valido nel campo **To** (A) e specificare una nota che viene visualizzata nel corpo del messaggio di posta elettronica quando la regola si attiva.
 
     > [!NOTE]
     > I messaggi di posta elettronica vengono inviati solo agli utenti che sono stati aggiunti all'applicazione e hanno eseguito l'accesso almeno una volta. Altre informazioni sulla [gestione degli utenti](howto-administer.md) in Azure IoT Central.
 
-   ![Configurare l'azione](media\howto-create-telemetry-rules\Configure_Action.png)
+   ![Configurare l'azione](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. Per salvare la regola, scegliere **Save** (Salva). La regola diventa attiva entro pochi minuti e avvia il monitoraggio dei dati di telemetria inviati all'applicazione. Quando si verifica la condizione specificata nella regola, quest'ultima attiva l'azione di posta elettronica configurata.
 

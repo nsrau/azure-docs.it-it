@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 708fddf6150e83d520617f59ea3018953f7fe77f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 15a7cc1940a01486c6b660ec65b47f072dc7996e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963305"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970680"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Creare una funzione di Azure che si connette a un database Azure Cosmos DB | Documentazione Microsoft
 
-Questo script di esempio di Funzioni di Azure crea un'app per le funzioni e connette la funzione a un database di Azure Cosmos DB. L'impostazione dell'app creata che contiene la connessione può essere usata con un [trigger o un binding di Azure Cosmos DB](..\functions-bindings-cosmosdb.md).
+Questo script di esempio di Funzioni di Azure crea un'app per le funzioni e connette la funzione a un database di Azure Cosmos DB. L'impostazione dell'app creata che contiene la connessione può essere usata con un [trigger o un binding di Azure Cosmos DB](../functions-bindings-cosmosdb.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ In questo esempio si crea un'app per le funzioni di Azure e si aggiunge un endpo
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Lo script usa i seguenti comandi: ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti: Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: a1a593dc037901f6661bc8c7268d835bc5a48c94
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 1b7efd4f36d5587667010d25f30a3e7945faee4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900617"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997805"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creare la prima funzione nel portale di Azure
 
@@ -32,7 +32,7 @@ Funzioni di Azure consente di eseguire il codice in un ambiente [senza server](h
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo <http://portal.azure.com> con il proprio account Azure.
+Accedere al portale di Azure all'indirizzo <https://portal.azure.com> con il proprio account Azure.
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
@@ -50,7 +50,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 1. Scegliere **WebHook e API** e quindi selezionare **Crea**.
 
-    ![Avvio rapido di Funzioni nel portale di Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![Guida di avvio rapido di Funzioni nel portale di Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
 Viene creata una funzione usando il modello specifico del linguaggio per una funzione attivata tramite HTTP.
 

@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/05/2018
-ms.openlocfilehash: 77c761ce72449f91cf91c66219ebc815d1620e94
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/04/2018
+ms.openlocfilehash: 637afab45e04c68777f8d1b42817c912cdc09941
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343675"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133747"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funzionalità in anteprima di Analisi di flusso di Azure
 
@@ -22,10 +22,6 @@ Questo articolo riepiloga tutte le funzionalità attualmente in anteprima per An
 ## <a name="public-previews"></a>Anteprime pubbliche
 
 Nell'anteprima pubblica sono disponibili le funzionalità seguenti. È possibile sfruttare queste funzionalità adesso, ma non usarle nell'ambiente di produzione.
-
-### <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in IoT Edge
-
-Analisi di flusso di Azure in IoT Edge consente agli sviluppatori di distribuire analisi in tempo quasi reale nei dispositivi IoT Edge. Per altre informazioni, vedere la documentazione di [Analisi di flusso di Azure in IoT Edge](stream-analytics-edge.md).
 
 ### <a name="integration-with-azure-machine-learning"></a>Integrazione con Azure Machine Learning
 

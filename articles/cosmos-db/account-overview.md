@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9f237d9eed5b8500f0f80b8b73d638f374bf5ca9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165289"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999521"
 ---
 # <a name="working-with-azure-cosmos-account"></a>Uso dell'account Azure Cosmos
 
@@ -38,7 +38,7 @@ Attualmente è possibile creare un massimo di 100 account Azure Cosmos in una so
 * [Distribuzione globale](distribute-data-globally.md)
 * [Livelli di coerenza](consistency-levels.md)
 * [Working with Azure Cosmos containers and items](databases-containers-items.md) (Uso di contenitori ed elementi di Azure Cosmos)
-* [Endpoint di servizio di rete virtuale per l'account Azure Cosmos](firewall-support.md)
-* [Firewall per gli indirizzi IP per l'account Azure Cosmos](vnet-service-endpoint.md)
+* [Endpoint di servizio di rete virtuale per l'account Azure Cosmos](vnet-service-endpoint.md)
+* [Firewall per gli indirizzi IP per l'account Azure Cosmos](firewall-support.md)
 * [Come aggiungere e rimuovere aree di Azure per l'account Azure Cosmos](how-to-manage-database-account.md)
 * [Contratti di servizio per Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

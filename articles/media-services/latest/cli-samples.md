@@ -4,24 +4,26 @@ description: Esempi di interfaccia della riga di comando di Azure per Servizi mu
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: ''
-ms.date: 04/15/2018
+ms.custom: seodec18
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: acc92662aa5b727656a8eda368ba6d78a87d9ecd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9df9279a3922fa639385657660d6d0f4a55b5a4d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640890"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132773"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Esempi di interfaccia della riga di comando di Azure per Servizi multimediali di Azure
 
 La tabella seguente include collegamenti a esempi dell'interfaccia della riga di comando di Azure per Servizi multimediali di Azure.
+
+## <a name="examples"></a>Esempi
 
 |  |  |
 |---|---|
@@ -39,4 +41,4 @@ La tabella seguente include collegamenti a esempi dell'interfaccia della riga di
 
 ## <a name="see-also"></a>Vedere anche 
 
-[Interfaccia della riga di comando 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

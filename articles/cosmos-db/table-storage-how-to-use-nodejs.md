@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: e6ebf6c3fc46929666dce8d7722af9dd75d2edd3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b00c7168891c848f4b153acb1bf09728b7a78908
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879094"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106482"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -162,7 +162,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 });
 ```
 
-Se l'operazione ha esito positivo, `result` contiene l'[ETag](http://en.wikipedia.org/wiki/HTTP_ETag) del record inserito e `response` contiene le informazioni sull'operazione.
+Se l'operazione ha esito positivo, `result` contiene l'[ETag](https://en.wikipedia.org/wiki/HTTP_ETag) del record inserito e `response` contiene le informazioni sull'operazione.
 
 Esempio di risposta:
 

@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: 9df51626a1bd36b0ea171c89c67a5c1ca79d60e6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0d593e52c8dc3bc961df706ccef2da9da2f3f778
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873701"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087134"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Gestire gruppi di database con i processi di database elastico
 
@@ -127,7 +127,7 @@ L'**esempio 4** mostra un gruppo di destinazione contenente un pool elastico com
 
 ![Esempi di gruppi di destinazione](media/elastic-jobs-overview/targetgroup-examples2.png)
 
-L'**esempio 5** e l'*esempio 6* mostrano scenari avanzati in cui server di Azure SQL, pool elastici e database possono essere combinati usando regole di inclusione e di esclusione.<br>
+L'**esempio 5** e l'**esempio 6** mostrano scenari avanzati in cui server di Azure SQL, pool elastici e database possono essere combinati usando regole di inclusione e di esclusione.<br>
 L'**esempio 7** mostra che in fase di esecuzione del processo possono essere valutate anche le partizioni in una mappa delle partizioni.
 
 ### <a name="job"></a>Processo

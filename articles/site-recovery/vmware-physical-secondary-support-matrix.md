@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 8406cf2b31b87cdb4f6c9b6ba3d06559cf1d4d41
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7e86757f42a90de971155137b44d1a8ad9cc9ac1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209803"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847916"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario
 
@@ -59,10 +59,10 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> CentOs 6.5, 
 Host - Gruppo NIC | Yes 
 Host - VLAN | Yes 
 Host - IPv4 | Yes 
-Host - IPv6 | No 
-VM guest - Gruppo NIC | No
+Host - IPv6 | No  
+VM guest - Gruppo NIC | No 
 VM guest - IPv4 | Yes
-VM guest - IPv6 | No
+VM guest - IPv6 | No 
 VM guest - Windows/Linux - Indirizzo IP statico | Yes
 VM guest - Più NIC | Yes
 
@@ -86,14 +86,14 @@ VMDK | Yes
 VHD/VHDX | N/D 
 VM di seconda generazione | N/D 
 Disco cluster condiviso | Yes 
-Disco crittografato | No 
+Disco crittografato | No  
 UEFI| Yes 
-NFS | No 
-SMB 3.0 | No 
+NFS | No  
+SMB 3.0 | No  
 RDM | Yes 
 Disco superiore a 1 TB | Yes 
 Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Yes 
-Spazi di archiviazione | No 
+Spazi di archiviazione | No  
 Aggiunta/rimozione a caldo disco | Yes 
 Esclusione disco | Yes 
 Percorsi multipli (MPIO) | N/D 
@@ -102,8 +102,8 @@ Percorsi multipli (MPIO) | N/D
 
 **Azione** | **Supportato** 
 --- | --- 
-Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No 
-Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No 
+Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No  
+Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No  
 
 ## <a name="mobility-service-and-updates"></a>Servizio Mobility e aggiornamenti
 

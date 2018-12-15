@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291046"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322790"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analisi e visualizzazione degli eventi con Application Insights
 
@@ -54,7 +54,7 @@ Per esplorare ulteriormente le funzionalità del portale di Application Insights
 >[!NOTE]
 >Al momento, si applica solo ai cluster Windows.
 
-Per inviare i dati da WAD ad Azure Application Insights esistono due modalità, realizzabili aggiungendo un sink di Application Insights alla configurazione di WAD, come descritto in [questo articolo](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Per inviare i dati da WAD ad Azure Application Insights esistono due modalità, realizzabili aggiungendo un sink di Application Insights alla configurazione di WAD, come descritto in [questo articolo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Aggiungere una chiave di strumentazione di Application Insights durante la creazione di un cluster nel portale di Azure
 
@@ -88,7 +88,7 @@ Nel modello di Resource Manager, in "WadCfg" aggiungere un "Sink" apportando le 
 
 In entrambi i frammenti di codice precedenti il nome "applicationInsights" è stato usato per descrivere il sink. Questo non è un requisito e fino a quando il nome del sink è incluso in "sink", è possibile impostare il nome per qualsiasi stringa.
 
-Attualmente, i log del cluster vengono mostrati come **tracce** nel visualizzatore di log di Application Insights. Dato che la maggior parte delle tracce provenienti dalla piattaforma è di tipo "Informazioni", è anche possibile modificare la configurazione del sink per inviare solo i log di tipo "Critico" o "Errore". Questa operazione può essere eseguita aggiungendo i "Canali" al sink, come illustrato in [questo articolo](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Attualmente, i log del cluster vengono mostrati come **tracce** nel visualizzatore di log di Application Insights. Dato che la maggior parte delle tracce provenienti dalla piattaforma è di tipo "Informazioni", è anche possibile modificare la configurazione del sink per inviare solo i log di tipo "Critico" o "Errore". Questa operazione può essere eseguita aggiungendo i "Canali" al sink, come illustrato in [questo articolo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Se si usa una chiave di Application Insights errata nel portale o nel modello di Resource Manager è necessario modificare la chiave e aggiornare il cluster o ridistribuirlo manualmente.

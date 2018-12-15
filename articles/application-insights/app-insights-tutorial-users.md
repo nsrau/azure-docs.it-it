@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 6d4f96a2c1d288648543a92614cab0f8cf5ee2ea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d5e97d82a011bc4aba29aa597a7fc6473d17a3b2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256001"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970791"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Usare Azure Application Insights per comprendere in che modo i clienti usano l'applicazione
 
@@ -53,20 +53,20 @@ Il pannello **Utenti** consente di ottenere informazioni importanti relative agl
 2. Scegliere **Utenti** dal menu.
 3. La visualizzazione predefinita mostra il numero di utenti univoci connessi all'applicazione nelle ultime 24 ore.  È possibile modificare l'intervallo di tempo e impostare diversi altri criteri per filtrare queste informazioni.
 
-    ![Generatore di query](media\app-insights-tutorial-users\QueryBuilder.png)
+    ![Generatore di query](media/app-insights-tutorial-users/QueryBuilder.png)
 
 6. Fare clic sull'elenco a discesa **Durante** e modificare l'intervallo di tempo impostandolo su 7 giorni.  In questo modo si aumentano i dati inclusi nei diversi grafici del pannello.
 
-    ![Modificare l'intervallo di tempo](media\app-insights-tutorial-users\TimeRange.png)
+    ![Modificare l'intervallo di tempo](media/app-insights-tutorial-users/TimeRange.png)
 
 4. Fare clic sull'elenco a discesa **Split by** (Dividi per) per aggiungere al grafico una scomposizione in base a una proprietà utente.  Selezionare **Paese o area geografica**.  Il grafico include gli stessi dati, ma consente di visualizzare una scomposizione del numero di utenti in base ai diversi paesi.
 
-    ![Grafico Paese o area geografica](media\app-insights-tutorial-users\CountryorRegion.png)
+    ![Grafico Paese o area geografica](media/app-insights-tutorial-users/CountryorRegion.png)
 
 5. Posizionando il cursore sulle diverse barre del grafico, si nota che il conteggio per ogni paese riflette solo l'intervallo di tempo rappresentato da quella barra.
 6. La colonna **Informazioni dettagliate** a destra riporta le analisi effettuate sui dati utente.  Sono disponibili informazioni quali il numero di sessioni univoche per il periodo di tempo considerato e i record con proprietà comuni estrapolati dai dati utente più significativi. 
 
-    ![Colonna Informazioni dettagliate](media\app-insights-tutorial-users\insights.png)
+    ![Colonna Informazioni dettagliate](media/app-insights-tutorial-users/insights.png)
 
 
 ## <a name="analyze-user-sessions"></a>Analizzare le sessioni utente
@@ -75,15 +75,15 @@ Il pannello **Sessioni** è simile al pannello **Utenti**.  Se da una parte il p
 1. Scegliere **Sessioni** dal menu.
 2. Osservare il grafico: sono disponibili le stesse opzioni del pannello **Utenti** per filtrare e suddividere i dati.
 
-    ![Sessioni - Generatore di query](media\app-insights-tutorial-users\SessionsBuilder.png)
+    ![Sessioni - Generatore di query](media/app-insights-tutorial-users/SessionsBuilder.png)
 
 3. Il riquadro **Esempio di queste sessioni** sulla destra elenca le sessioni che includono un numero elevato di eventi.  Si tratta di sessioni interessanti da analizzare.
 
-    ![Esempio di queste sessioni](media\app-insights-tutorial-users\SessionsSample.png)
+    ![Esempio di queste sessioni](media/app-insights-tutorial-users/SessionsSample.png)
 
 4. Fare clic su una delle sessioni per visualizzare la relativa **Sequenza temporale sessione**, che mostra tutte le operazioni nelle sessioni.  Ciò consente di identificare informazioni quali le sessioni con un numero elevato di eccezioni.
 
-    ![Sequenza temporale sessione](media\app-insights-tutorial-users\SessionsTimeline.png)
+    ![Sequenza temporale sessione](media/app-insights-tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Raggruppare gli utenti con caratteristiche simili
 Una **coorte** è un set di utenti raggruppati in base a caratteristiche simili.  È possibile usare le coorti per filtrare i dati in altri pannelli in modo da analizzare specifici gruppi di utenti,  ad esempio per analizzare solo gli utenti che hanno completato un acquisto.
@@ -92,12 +92,12 @@ Una **coorte** è un set di utenti raggruppati in base a caratteristiche simili.
 2.  Fare clic su **Nuova** per creare una nuova coorte.
 3.  Selezionare l'elenco a discesa **Who used** (Usato da) e selezionare un'azione.  Verranno inclusi solo gli utenti che hanno eseguito questa azione nell'intervallo di tempo del report.
 
-    ![Coorte degli utenti che hanno eseguito le azioni specificate](media\app-insights-tutorial-users\CohortsDropdown.png)
+    ![Coorte degli utenti che hanno eseguito le azioni specificate](media/app-insights-tutorial-users/CohortsDropdown.png)
 
 4.  Scegliere **Utenti** dal menu.
 5.  Nell'elenco a discesa **Mostra** selezionare la coorte appena creata.  I dati per il grafico sono limitati a tali utenti.
 
-    ![Coorte nello strumento Utenti](media\app-insights-tutorial-users\UsersCohort.png)
+    ![Coorte nello strumento Utenti](media/app-insights-tutorial-users/UsersCohort.png)
 
 
 ## <a name="compare-desired-activity-to-reality"></a>Confrontare l'attività desiderata con quella effettiva
@@ -105,16 +105,16 @@ Mentre i pannelli precedenti sono incentrati sulle attività eseguite dagli uten
 
 1. Scegliere **Imbuti** dal menu e quindi fare clic su **Nuovo**. 
 
-    ![](media\app-insights-tutorial-users\funnelsnew.png)
+    ![](media/app-insights-tutorial-users/funnelsnew.png)
 
 2. Specificare un nome in **Nome imbuto**.
 3. Creare un grafico a imbuto con almeno due passaggi selezionando un'azione per ogni passaggio.  L'elenco di azioni viene creato da dati sull'utilizzo raccolti da Application Insights.
 
-    ![](media\app-insights-tutorial-users\funnelsedit.png)
+    ![](media/app-insights-tutorial-users/funnelsedit.png)
 
 4. Fare clic su **Salva** per salvare il grafico a imbuto e quindi visualizzare i risultati.  La finestra a destra del grafico a imbuto mostra gli eventi più comuni prima della prima attività e dopo l'ultima attività per comprendere le tendenze degli utenti per la specifica sequenza.
 
-    ![](media\app-insights-tutorial-users\funnelsright.png)
+    ![](media/app-insights-tutorial-users/funnelsright.png)
 
 
 ## <a name="learn-which-customers-return"></a>Comprendere quali clienti tornano a usare l'applicazione
@@ -123,11 +123,11 @@ Il pannello **Conservazione** aiuta a identificare quali utenti tornano a usare 
 1. Scegliere **Conservazione** dal menu.
 2. Per impostazione predefinita, le informazioni analizzate includono gli utenti che hanno eseguito un'azione e quindi sono tornati a usare l'applicazione per eseguirne altre.  È possibile modificare questo filtro in modo da includere qualsiasi categoria, ad esempio solo gli utenti che sono tornati a usare l'applicazione dopo aver completato un acquisto.
 
-    ![](media\app-insights-tutorial-users\retentionquery.png)
+    ![](media/app-insights-tutorial-users/retentionquery.png)
 
 3. Gli utenti che tornano a usare l'applicazione e che soddisfano i criteri specificati vengono visualizzati sotto forma di grafico e tabella per intervalli di tempo diversi.  Il modello tipico prevede un calo graduale nel corso del tempo degli utenti che tornano a usare l'applicazione.  Un calo improvviso da un momento all'altro potrebbe essere motivo di preoccupazione. 
 
-    ![](media\app-insights-tutorial-users\retentiongraph.png)
+    ![](media/app-insights-tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>Analizzare la navigazione degli utenti
 Un **flusso utente** permette di visualizzare il modo in cui gli utenti si spostano tra le pagine e le funzionalità dell'applicazione.  Ciò consente di identificare, ad esempio, dove si spostano in genere gli utenti che accedono a una determinata pagina, come escono di norma dall'applicazione e se ci sono azioni che vengono ripetute regolarmente.
@@ -136,15 +136,15 @@ Un **flusso utente** permette di visualizzare il modo in cui gli utenti si spost
 2.  Fare clic su **Nuovo** per creare un nuovo flusso utente e quindi fare clic su **Modifica** per modificarne i dettagli.
 3.  Aumentare l'**Intervallo di tempo** impostandolo su 7 giorni e quindi selezionare un evento iniziale.  Il flusso terrà traccia delle sessioni utente che iniziano con tale evento.
 
-    ![](media\app-insights-tutorial-users\flowsedit.png)
+    ![](media/app-insights-tutorial-users/flowsedit.png)
 
 4.  Viene visualizzato il flusso utente ed è possibile visualizzare i diversi percorsi degli utenti e i relativi conteggi delle sessioni.  Le linee blu indicano un'azione che l'utente ha eseguito dopo l'azione corrente.  Una linea rossa indica la fine della sessione utente.
 
-    ![](media\app-insights-tutorial-users\flows.png)
+    ![](media/app-insights-tutorial-users/flows.png)
 
 5.  Per rimuovere un evento dal flusso, fare clic sulla **x** nell'angolo dell'azione e quindi fare clic su **Crea grafico**.  Il grafico viene ridisegnato con tutte le istanze di tale evento rimosse.  Fare clic su **Modifica** per verificare che l'evento venga aggiunto in **Eventi esclusi**.
 
-    ![](media\app-insights-tutorial-users\flowsexclude.png)
+    ![](media/app-insights-tutorial-users/flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>Consolidare i dati sull'utilizzo
 Le **cartelle di lavoro** combinano le visualizzazioni dei dati, le query di Analytics e il testo in documenti interattivi.  È possibile usare le cartelle di lavoro per raggruppare le informazioni sull'utilizzo comuni, consolidare le informazioni di uno specifico evento imprevisto o creare report per il team sull'uso dell'applicazione.
@@ -153,12 +153,12 @@ Le **cartelle di lavoro** combinano le visualizzazioni dei dati, le query di Ana
 2.  Fare clic su **Nuova** per creare una nuova cartella di lavoro.
 3.  È già disponibile una query che include tutti i dati sull'utilizzo nell'ultimo giorno, visualizzati sotto forma di grafico a barre.  È possibile usare questa query, modificarla manualmente o fare clic su **Query di esempio** per sceglierne una da altre query utili.
 
-    ![](media\app-insights-tutorial-users\samplequeries.png)
+    ![](media/app-insights-tutorial-users/samplequeries.png)
 
 4.  Fare clic su **Modifica completata**.
 5.  Fare clic su **Modifica** nel riquadro superiore per modificare il testo nella parte superiore della cartella di lavoro,  che viene formattato tramite markdown.
 
-    ![](media\app-insights-tutorial-users\markdown.png)
+    ![](media/app-insights-tutorial-users/markdown.png)
 
 6.  Fare clic su **Aggiungi utenti** per aggiungere un grafico con le informazioni utente.  Modificare i dettagli del grafico, se necessario, e quindi fare clic su **Modifica completata** per salvarlo.
 

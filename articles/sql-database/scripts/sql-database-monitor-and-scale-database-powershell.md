@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 8586a4eb5c4325f258ad8f461b05e7368750d17a
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 07cf57ab7095c51567caf33905fca78dd51be0fc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056122"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966620"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Usare PowerShell per monitorare e ridimensionare un singolo database SQL
 
-Questo esempio di script di PowerShell consente di monitorare le metriche delle prestazioni di un database, aumentare la dimensione di calcolo del database stesso e creare una regola di avviso per una delle metriche delle prestazioni. 
+Questo esempio di script di PowerShell consente di monitorare le metriche delle prestazioni di un database, aumentare la dimensione di calcolo del database stesso e creare una regola di avviso per una delle metriche delle prestazioni.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

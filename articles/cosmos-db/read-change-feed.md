@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: 3168593e30a7f5acf49960c8479da75529860a65
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8e25d90b0c86ad7d65510873416d13d93623607b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684546"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865030"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lettura del feed di modifiche in Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Con l'SDK, si ottiene un controllo di basso livello del feed delle modifiche. È
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È ora possibile procedere per altre informazioni sul feed di modifiche negli articoli seguenti:
+È possibile ottenere altre informazioni sul feed di modifiche negli articoli seguenti:
 
 * [Panoramica del feed di modifiche](change-feed.md)
 * [Feed di modifiche con Funzioni di Azure](change-feed-functions.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: 8535caf482b10912e6f7bc6df445756094d7603f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5d32c3539446482f2dcdaeb954bb704dc9b78c58
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30261413"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274924"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurare le notifiche di integrità per i sistemi di gestione dei problemi esistenti usando un webhook
 
@@ -37,7 +37,7 @@ Se si desidera usare una funzionalità di integrazione preconfigurata, vedere la
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Configurazione di una notifica personalizzata usando il payload di webhook di integrità del servizio
 Se si desidera configurare una propria integrazione di webhook personalizzata, è necessario analizzare il payload JSON che viene inviato durante le notifiche di integrità del servizio.
 
-Consultare [questo articolo per vedere un esempio](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) di come si presenta il payload webhook `ServiceHealth`.
+Consultare [questo articolo per vedere un esempio](../azure-monitor/platform/activity-log-alerts-webhook.md) di come si presenta il payload webhook `ServiceHealth`.
 
 È possibile rilevare che si tratta di un avviso di integrità del servizio osservando `context.eventSource == "ServiceHealth"`. Da qui, le proprietà più importanti da inserire sono:
  * `data.context.activityLog.status`
@@ -102,7 +102,7 @@ Ciò indica che ci sono problemi con "avvisi e metriche" sia nell'area Australia
 
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Test dell'integrazione del webhook tramite una richiesta HTTP POST
-1. Creare il payload di integrità del servizio che si vuole inviare. È possibile trovare un payload di esempio del webhook di integrità del servizio in [Webhook per gli avvisi del log attività di Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Creare il payload di integrità del servizio che si vuole inviare. È possibile trovare un payload di esempio del webhook di integrità del servizio in [Webhook per gli avvisi del log attività di Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 2. Creare una richiesta HTTP POST nel modo seguente:
 
@@ -118,6 +118,6 @@ Ciò indica che ci sono problemi con "avvisi e metriche" sia nell'area Australia
 4. Passare a [PagerDuty](https://www.pagerduty.com/) per confermare che l'integrazione è stata configurata correttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Esaminare lo [schema webhook degli avvisi del log attività](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Informazioni sulle [notifiche per l'integrità del servizio](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Altre informazioni sui [gruppi di azione](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).
