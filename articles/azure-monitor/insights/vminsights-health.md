@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: aac6ca2db815aa3ca427b281e146874dc142107a
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a2f654043146536ecf543ae2a0aa49537c2223e1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714627"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344041"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Comprendere l'integrità delle macchine virtuali di Azure con Monitoraggio di Azure per le macchine virtuali (anteprima)
 Azure include più servizi che singolarmente eseguono un'attività o un ruolo specifico nello spazio di monitoraggio, ma la possibilità di avere una prospettiva approfondita sull'integrità del sistema operativo ospitato nelle macchine virtuali di Azure non era disponibile.  Anche se è possibile monitorare diverse condizioni utilizzando Log Analytics o Monitoraggio di Azure, queste applicazioni non sono progettate per modellare e rappresentare l'integrità dei componenti di base o quella globale della macchina virtuale.  Con la funzionalità dell'integrità di Monitoraggio di Azure per macchine virtuali, è possibile monitorare in modo proattivo la disponibilità e le prestazioni dei sistemi operativi guest Windows o Linux con un modello che rappresenta i componenti principali e le relative relazioni, criteri che specificano come misurare l'integrità di tali componenti e avvisi che segnalano quando viene rilevata una condizione di non integrità.  
@@ -119,7 +118,7 @@ Dalla scheda **Integrità** si apprende quanto segue:
 * Quante macchine virtuali sono nello stato non integro a causa di un problema relativo a processore, disco, memoria o scheda di rete, classificate in base allo stato di integrità?  
 * Quante macchine virtuali sono nello stato non integro a causa di un problema relativo a un servizio di base del sistema operativo, classificate in base allo stato di integrità?
 
-Qui è possibile identificare rapidamente i principali problemi critici rilevati dai criteri di integrità in modo proattivo monitorando la macchina virtuale ed esaminare i dettagli degli avvisi di integrità della macchina virtuale e l'articolo associato della Knowledge Base che offre assistenza nella diagnosi e nella correzione del problema.  Selezionare uno dei valori di gravità per aprire la pagina [Tutti gli avvisi](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) filtrata in base al livello di gravità specificato.
+Qui è possibile identificare rapidamente i principali problemi critici rilevati dai criteri di integrità in modo proattivo monitorando la macchina virtuale ed esaminare i dettagli degli avvisi di integrità della macchina virtuale e l'articolo associato della Knowledge Base che offre assistenza nella diagnosi e nella correzione del problema.  Selezionare uno dei valori di gravità per aprire la pagina [Tutti gli avvisi](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) filtrata in base al livello di gravità specificato.
 
 L'elenco **Distribuzione delle macchine virtuali - Sistema operativo** mostra le macchine virtuali elencate in base alla versione di Windows o alla distribuzione di Linux, insieme alla relativa versione. In ogni categoria di sistema operativo, le macchine virtuali sono suddivise ulteriormente in base alla relativa integrità. 
 
@@ -247,7 +246,7 @@ Nell'esempio precedente, quando si seleziona uno **/mnt (disco logico)**, l'albe
 Per visualizzare lo stato di integrità aggiornato, è possibile aggiornare la pagina Diagnostica integrità facendo clic sul collegamento **Aggiorna**.  Se lo stato di integrità del criterio di integrità viene aggiornato in base all'intervallo di polling predefinito, questa attività consente di evitare l'attesa e riflette lo stato di integrità più recente.  Il filtro **Stato criteri di integrità** consente di esaminare i risultati in base allo stato di integrità selezionato: Integro, Avviso, Critico, Sconosciuti e tutti.  L'ora dell'**Ultimo aggiornamento** nell'angolo in alto a destra rappresenta l'ultima volta in cui la pagina Diagnostica integrità è stata aggiornata.  
 
 ## <a name="alerting-and-alert-management"></a>Avvisi e gestione degli avvisi 
-La funzionalità dell'integrità di Monitoraggio di Azure per le macchine virtuali è integrata ad [Avvisi di Azure](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) e genera un avviso quando i criteri di integrità predefiniti passano da uno stato integro a uno non integro quando viene rilevata la condizione. Gli avvisi sono classificati in base alla gravità, da 0 a 4 dove la gravità 0 rappresenta il livello più alto.  
+La funzionalità dell'integrità di Monitoraggio di Azure per le macchine virtuali è integrata ad [Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md) e genera un avviso quando i criteri di integrità predefiniti passano da uno stato integro a uno non integro quando viene rilevata la condizione. Gli avvisi sono classificati in base alla gravità, da 0 a 4 dove la gravità 0 rappresenta il livello più alto.  
 
 Il numero totale di avvisi di integrità delle macchine virtuali classificati in base alla gravità è disponibile nel dashboard **Integrità** nella sezione **Avvisi**. Quando si seleziona il numero totale di avvisi o il numero corrispondente a un livello di gravità, si apre la pagina **Avvisi** in cui sono elencati tutti gli avvisi corrispondenti alla selezione.  Ad esempio, se si seleziona la riga corrispondente al **livello di gravità 1**, viene visualizzato quanto segue:
 
@@ -255,7 +254,7 @@ Il numero totale di avvisi di integrità delle macchine virtuali classificati in
 
 Nella pagina **Avvisi** non vengono solo visualizzati gli avvisi corrispondenti alla sezione, ma viene anche applicato il filtro **Tipo di risorsa**, che consente di visualizzare solo gli avvisi di integrità generati dalla risorsa macchina virtuale.  Nell'elenco degli avvisi presente nella colonna **Risorsa di destinazione** viene infatti visualizzata la macchina virtuale di Azure per la quale è stato generato l'avviso quando è stata rilevata una condizione di non integrità in base a determinati criteri di integrità.  
 
-In questa visualizzazione non sono inclusi gli avvisi provenienti da altri tipi di risorse o servizi, come gli avvisi di log basati su query di Log Analytics o gli avvisi di metriche normalmente visualizzati nella pagina [Tutti gli avvisi](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) predefinita di Monitoraggio di Azure. 
+In questa visualizzazione non sono inclusi gli avvisi provenienti da altri tipi di risorse o servizi, come gli avvisi di log basati su query di Log Analytics o gli avvisi di metriche normalmente visualizzati nella pagina [Tutti gli avvisi](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) predefinita di Monitoraggio di Azure. 
 
 È possibile filtrare questa visualizzazione selezionando i valori nei menu a discesa nella parte superiore della pagina.
 
@@ -271,7 +270,7 @@ In questa visualizzazione non sono inclusi gli avvisi provenienti da altri tipi 
 |Servizio di monitoraggio |Selezionare un servizio oppure *Tutti* per includere tutti i servizi. Per questa funzionalità sono supportati solo gli avvisi generati da *Informazioni dettagliate macchina virtuale*.| 
 |Intervallo di tempo| Nella visualizzazione vengono inclusi solo gli avvisi attivati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. | 
 
-La pagina **Dettagli avviso** viene visualizzata quando si seleziona un avviso, fornendo i dettagli dell'avviso e consentendo di modificarne lo stato. Per altre informazioni sulla gestione degli avvisi, vedere [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../../monitoring-and-diagnostics/alert-metric.md).  
+La pagina **Dettagli avviso** viene visualizzata quando si seleziona un avviso, fornendo i dettagli dell'avviso e consentendo di modificarne lo stato. Per altre informazioni sulla gestione degli avvisi, vedere [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).  
 
 >[!NOTE]
 >Attualmente non è supportata la creazione di nuovi avvisi in base ai criteri di integrità o la modifica di regole di avvisi di integrità esistenti in Monitoraggio di Azure direttamente dal portale.  

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467719"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867581"
 ---
 # <a name="creating-custom-voice-fonts"></a>Creazione di caratteri voce personalizzati
 
@@ -87,7 +87,7 @@ Ad esempio:
 Il sistema per la voce personalizzata normalizza le trascrizioni convertendo il testo in lettere minuscole e eliminando la punteggiatura estranea. È importante che le trascrizioni riflettano in modo accurato al 100% le registrazioni audio corrispondenti.
 
 > [!TIP]
-> Durante la creazione di voci per la sintesi vocale da usare in produzione, selezionare le espressioni (o scrivere gli script) considerando sia la copertura fonetica che l'efficienza. Problemi nell'ottenere i risultati desiderati? [Contattare il team di voce personalizzata](mailto:tts@microsoft.com) per altre informazioni su come ottenere assistenza.
+> Durante la creazione di voci per la sintesi vocale da usare in produzione, selezionare le espressioni (o scrivere gli script) considerando sia la copertura fonetica che l'efficienza. Problemi nell'ottenere i risultati desiderati? [Contattare il team di voce personalizzata](mailto:speechsupport@microsoft.com) per altre informazioni su come ottenere assistenza.
 
 ## <a name="upload-your-datasets"></a>Caricare i set di dati
 
@@ -230,5 +230,5 @@ La personalizzazione della voce è disponibile per l'inglese (Stati Uniti) (en-U
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di valutazione gratuita del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 - [Registra esempi vocali](record-custom-voice-samples.md)

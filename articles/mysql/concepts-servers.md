@@ -6,16 +6,18 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0cf35efa7b8b4c6f78a8821c6d10e606813b7848
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0ddab6a982f54f0309e87d3b74a7f21c0bb67ced
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955514"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Concetti relativi ai server nel database di Azure per MySQL
+
 Questo articolo presenta considerazioni e linee guida per l'utilizzo di Database di Azure per i server MySQL.
 
 ## <a name="what-is-an-azure-database-for-mysql-server"></a>Che cos'è un database di Azure per il server MySQL?
@@ -38,7 +40,7 @@ In un database di Azure per il server MySQL è possibile creare uno o più datab
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Come connettersi ed eseguire l'autenticazione a un database di Azure per il server MySQL?
 
 I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
-|||
+|     |     |
 | :-- | :-- |
 | **Autenticazione e autorizzazione** | Il database di Azure per il server MySQL supporta l'autenticazione nativa a MySQL. È possibile connettersi ed eseguire l'autenticazione a un server con l'account amministratore del server. |
 | **Protocollo** | Il servizio supporta un protocollo basato su messaggi usato da MySQL. |
@@ -47,9 +49,11 @@ I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
 | **SSL** | Il servizio supporta l'attivazione di connessioni SSL tra le applicazioni e il server del database.  Vedere [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (Configurare la connettività SSL nell'applicazione per connettersi in modo sicuro al database di Azure per MySQL). |
 
 ## <a name="how-do-i-manage-a-server"></a>Gestione di un server
+
 È possibile gestire il database di Azure per i server MySQL mediante il portale o l'interfaccia della riga di comando di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Per una panoramica del servizio, vedere [Azure Database for MySQL Overview](./overview.md) (Database di Azure per una panoramica di MySQL)
 - Per informazioni sulle quote specifiche di risorse e sulle limitazioni in base al **livello di servizio**, vedere [Livelli di servizio](./concepts-service-tiers.md)
 - Per informazioni sulla connessione al servizio, vedere [Raccolte connessioni per il database di Azure per MySQL](./concepts-connection-libraries.md).

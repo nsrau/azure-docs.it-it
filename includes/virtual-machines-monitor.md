@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 109f4621af3e3ca617dfe521575d9352f22c5917
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227156"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399900"
 ---
-È possibile sfruttare molte opportunità per il monitoraggio delle macchine virtuali tramite la raccolta, la visualizzazione e l'analisi dei dati di diagnostica e di log. Per eseguire semplici attività di [monitoraggio](../articles/azure-monitor/overview.md) della macchina virtuale, è possibile usare la schermata Panoramica per la macchina virtuale nel portale di Azure. È possibile usare [estensioni](../articles/virtual-machines/windows/extensions-features.md) per configurare la diagnostica nelle macchine virtuali e raccogliere metriche aggiuntive. È anche possibile usare opzioni di monitoraggio più avanzate, come [Application Insights](../articles/application-insights/app-insights-overview.md) e [Log Analytics](../articles/log-analytics/log-analytics-queries.md).
+È possibile sfruttare molte opportunità per il monitoraggio delle macchine virtuali tramite la raccolta, la visualizzazione e l'analisi dei dati di diagnostica e di log. Per eseguire semplici attività di [monitoraggio](../articles/azure-monitor/overview.md) della macchina virtuale, è possibile usare la schermata Panoramica per la macchina virtuale nel portale di Azure. È possibile usare [estensioni](../articles/virtual-machines/windows/extensions-features.md) per configurare la diagnostica nelle macchine virtuali e raccogliere metriche aggiuntive. È anche possibile usare opzioni di monitoraggio più avanzate, come [Application Insights](../articles/application-insights/app-insights-overview.md) e [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="diagnostics-and-metrics"></a>Diagnostica e metriche 
 
@@ -31,7 +31,7 @@ ms.locfileid: "50227156"
 
 ## <a name="alerts"></a>Avvisi
 
-È possibile creare [avvisi](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) in base a metriche di prestazioni specifiche. I problemi che possono essere segnalati tramite avvisi, ad esempio, sono il superamento di una determinata soglia di utilizzo medio della CPU o la presenza di spazio su disco inferiore rispetto a una quantità specifica. Gli avvisi possono essere configurati nel [portale di Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), tramite [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) o nell'[interfaccia della riga di comando di Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+È possibile creare [avvisi](../articles/azure-monitor/platform/alerts-overview.md) in base a metriche di prestazioni specifiche. I problemi che possono essere segnalati tramite avvisi, ad esempio, sono il superamento di una determinata soglia di utilizzo medio della CPU o la presenza di spazio su disco inferiore rispetto a una quantità specifica. Gli avvisi possono essere configurati nel [portale di Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), tramite [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) o nell'[interfaccia della riga di comando di Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
 
 ## <a name="azure-service-health"></a>Integrità dei servizi di Azure
 
@@ -50,7 +50,7 @@ Ecco alcune delle attività che è possibile eseguire con il log attività:
 - Creare un [avviso per un evento del log attività](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 - [Trasmetterlo a un hub eventi](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
 - Analizzarlo in Power BI usando il [pacchetto di contenuto di Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Salvarlo in un account di archiviazione](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md) per l'archiviazione o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite il profilo di log.
+- [Salvarlo in un account di archiviazione](../articles/azure-monitor/platform/archive-activity-log.md) per l'archiviazione o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite il profilo di log.
 
 È anche possibile accedere a dati del log attività usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor) o le [API REST di monitoraggio](https://docs.microsoft.com/rest/api/monitor/).
 
@@ -58,7 +58,7 @@ I [log di diagnostica di Azure](../articles/monitoring-and-diagnostics/monitorin
 
 Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
 
-- [Salvarli in un account di archiviazione](../articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite le impostazioni di diagnostica delle risorse.
+- [Salvarli in un account di archiviazione](../articles/azure-monitor/platform/archive-diagnostic-logs.md) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite le impostazioni di diagnostica delle risorse.
 - [Trasmettere i log a Hub eventi](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) per l'inserimento tramite un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
 - Analizzarli con [Log Analytics di Operations Management Suite](../articles/log-analytics/log-analytics-azure-storage.md).
 

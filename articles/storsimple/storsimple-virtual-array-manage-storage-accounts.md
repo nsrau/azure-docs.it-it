@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: a4ce2d329d0e1399cffaf886adf2b95e34b9cd7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a992851deda0659509c0ee4ea5de76b19734f017
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111709"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867607"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire le credenziali dell'account di archiviazione per l'array virtuale StorSimple
 
@@ -110,7 +110,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 4. Nel pannello **Proprietà** delle credenziali dell'account di archiviazione eseguire le operazioni seguenti:
    
    1. Se necessario, è possibile modificare la selezione **Abilita SSL**.
-   2. È possibile rigenerare le chiavi di accesso delle credenziali dell'account di archiviazione. Per altre informazioni, vedere l'articolo [Rigenerazione delle chiavi di accesso alle risorse di archiviazione](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys). Indicare la nuova chiave della credenziale dell'account di archiviazione. Per un account di archiviazione di Azure si tratta della chiave di accesso primaria.
+   2. È possibile rigenerare le chiavi di accesso delle credenziali dell'account di archiviazione. Per altre informazioni, vedere l'articolo [Rigenerazione delle chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys). Indicare la nuova chiave della credenziale dell'account di archiviazione. Per un account di archiviazione di Azure si tratta della chiave di accesso primaria.
    3. Fare clic su **Salva** nella parte superiore del pannello **Proprietà** per salvare le impostazioni. Le impostazioni vengono aggiornate nel pannello **Credenziali dell'account di archiviazione**.
       
       ![Modificare una credenziale dell'account di archiviazione](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)
@@ -148,7 +148,7 @@ Per comunicare la modifica al servizio Gestione dispositivi StorSimple, è neces
     
 4. Nel servizio Gestione dispositivi StorSimple è necessario aggiornare la chiave precedentemente modificata nel servizio Archiviazione di Microsoft Azure. Nel pannello **Sincronizza la chiave dell'account di archiviazione**, se la chiave di accesso primaria è stata modificata (rigenerata), fare clic su Primaria e quindi su **Sincronizza chiave**. Se è stata modificata la chiave secondaria, fare clic su **Secondaria**, quindi fare clic su **Sincronizza chiave**.
    
-    ![Sincronizzare la chiave di accesso](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-acess-key.png)
+    ![Sincronizzare la chiave di accesso](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-access-key.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).

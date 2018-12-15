@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e4e0ff288b9d5539a0110fb157e32b4f23d06bb6
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714256"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192754"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Targeting delle soluzioni di gestione in Azure (anteprima)
 Quando viene aggiunta una soluzione di gestione alla sottoscrizione, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro di Log Analytics.  Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti.  Questo articolo descrive come usare il **targeting della soluzione**, una funzionalità che consente di applicare un ambito alle soluzioni.
@@ -29,7 +28,7 @@ Definire l'ambito di una soluzione è una procedura di tre passaggi, come descri
 
 
 ### <a name="1-create-a-computer-group"></a>1. Creare un gruppo di computer
-Specificare i computer che si desidera includere in un ambito creando un [gruppo di computer](../../log-analytics/log-analytics-computer-groups.md) in Log Analytics.  Il gruppo di computer può essere basato su una ricerca log o importato da altre origini, ad esempio gruppi di Active Directory o WSUS. Come [descritto di seguito](#solutions-and-agents-that-cant-be-targeted), solo i computer direttamente collegati a Log Analytics verranno inclusi nell'ambito.
+Specificare i computer che si desidera includere in un ambito creando un [gruppo di computer](../../azure-monitor/platform/computer-groups.md) in Log Analytics.  Il gruppo di computer può essere basato su una ricerca log o importato da altre origini, ad esempio gruppi di Active Directory o WSUS. Come [descritto di seguito](#solutions-and-agents-that-cant-be-targeted), solo i computer direttamente collegati a Log Analytics verranno inclusi nell'ambito.
 
 Dopo avere creato il gruppo di computer nell'area di lavoro è necessario includerlo in una configurazione di ambito che può essere applicata a una o più soluzioni.
  
@@ -75,4 +74,4 @@ Il targeting della soluzione non può essere usato con le soluzioni seguenti anc
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle soluzioni di gestione, tra cui le soluzioni disponibili per l'installazione nell'ambiente, sono riportate in [Aggiungere soluzioni di gestione di Log Analytics di Azure all'area di lavoro](solutions.md).
-- Altre informazioni sulla creazione di gruppi di computer sono riportate in [Gruppi di computer nelle ricerche log in Log Analytics](../../log-analytics/log-analytics-computer-groups.md).
+- Altre informazioni sulla creazione di gruppi di computer sono riportate in [Gruppi di computer nelle ricerche log in Log Analytics](../../azure-monitor/platform/computer-groups.md).

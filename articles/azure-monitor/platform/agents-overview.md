@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 4255b70746eb1d307617a66714301fa7f8609a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634269"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438201"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Panoramica degli agenti di monitoraggio di Azure 
 In Microsoft Azure sono disponibili più modi per raccogliere tipi diversi di dati dalle macchine virtuali che eseguono Microsoft Windows e Linux ospitate in Azure, nel data center o in altri provider cloud. I tipi di agenti disponibili per monitorare una macchina virtuale sono tre:
@@ -31,7 +30,7 @@ In Microsoft Azure sono disponibili più modi per raccogliere tipi diversi di da
 Questo articolo illustra le differenze tra gli agenti e le relative funzionalità per consentire di determinare quale agente supporterà la gestione del servizio IT o i requisiti generali di monitoraggio.  
 
 ## <a name="azure-diagnostic-extension"></a>Estensione Diagnostica di Azure
-L'[estensione Diagnostica di Azure](../../monitoring-and-diagnostics/azure-diagnostics.md), definita comunemente Diagnostica di Microsoft Azure (WAD) or Linux Azure Diagnostic (LAD) e introdotta per Servizi cloud di Azure dopo essere divenuta disponibile a livello generale nel 2010, è un agente che raccoglie semplicemente i dati di diagnostica da una risorsa di calcolo di Azure, ad esempio una macchina virtuale, e li salva in modo permanente nell'archiviazione di Azure. Dopo averli archiviati, i dati possono essere visualizzati usando uno dei numerosi strumenti disponibili, ad esempio [Esplora Server in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) e [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+L'[estensione Diagnostica di Azure](../../azure-monitor/platform/diagnostics-extension-overview.md), definita comunemente Diagnostica di Microsoft Azure (WAD) or Linux Azure Diagnostic (LAD) e introdotta per Servizi cloud di Azure dopo essere divenuta disponibile a livello generale nel 2010, è un agente che raccoglie semplicemente i dati di diagnostica da una risorsa di calcolo di Azure, ad esempio una macchina virtuale, e li salva in modo permanente nell'archiviazione di Azure. Dopo averli archiviati, i dati possono essere visualizzati usando uno dei numerosi strumenti disponibili, ad esempio [Esplora Server in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) e [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 È possibile scegliere di raccogliere gli elementi seguenti:
 
@@ -45,8 +44,8 @@ L'[estensione Diagnostica di Azure](../../monitoring-and-diagnostics/azure-diagn
 L'agente di Diagnostica di Azure deve essere usato quando si vuole:
 
 * Archiviare log e metriche in archiviazione di Azure.
-* Integrare i dati di monitoraggio con strumenti di terze parti. Questi strumenti usano un'ampia gamma di metodi, tra cui l'esecuzione di query sull'account di archiviazione con l'inoltro ad [Hub eventi](../../event-hubs/event-hubs-about.md) o l'esecuzione di query con l'[API REST Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
-* Caricare i dati in Monitoraggio di Azure per creare grafici delle metriche nel portale di Azure o [avvisi delle metriche](../../monitoring-and-diagnostics/alert-metric-overview.md) near real-time. 
+* Integrare i dati di monitoraggio con strumenti di terze parti. Questi strumenti usano un'ampia gamma di metodi, tra cui l'esecuzione di query sull'account di archiviazione con l'inoltro ad [Hub eventi](../../event-hubs/event-hubs-about.md) o l'esecuzione di query con l'[API REST Monitoraggio di Azure](../../azure-monitor/platform/rest-api-walkthrough.md).
+* Caricare i dati in Monitoraggio di Azure per creare grafici delle metriche nel portale di Azure o [avvisi delle metriche](../../azure-monitor/platform/alerts-metric-overview.md) near real-time. 
 * Ridimensionare automaticamente i set di scalabilità di macchine virtuali e la versione classica di Servizi cloud in base alle metriche del sistema operativo guest.
 * Esaminare i problemi di avvio delle macchine virtuali con [Diagnostica di avvio](../../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Comprendere quali sono le prestazioni fornite dalle applicazioni e identificare in modo proattivo i problemi di tali applicazioni con [Application Insights](../../azure-monitor/overview.md).

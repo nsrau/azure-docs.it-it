@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 61294d8b6b84b03b1e0c8d79b4d2855452c7f0e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9af8ce84805e48dd3c91dd7fb4fcf0b136fbfc60
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056821"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410092"
 ---
 # <a name="work-with-batch-ai-clusters"></a>Usare i cluster di Batch per intelligenza artificiale 
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Questo articolo illustra come usare i cluster in Azure Batch per intelligenza artificiale. Introduce il concetto di cluster e i tipi di configurazioni possibili e riporta alcuni esempi. La maggior parte degli esempi per creare e gestire un cluster in questo articolo usa l’interfaccia della riga di comando di Azure. Tuttavia, per usare i cluster è possibile impiegare altri strumenti, tra cui il portale di Azure e gli SDK di Azure Batch per intelligenza artificiale.
 

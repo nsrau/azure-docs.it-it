@@ -9,16 +9,15 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: cd8bcc9345ec73f95e8e742446522ec41c1f0f65
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344631"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956951"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
 
@@ -28,17 +27,17 @@ Application Insights ha sempre fornito un riquadro riepilogativo per consentire 
 
 Il nuovo dashboard panoramica ora avvia per impostazione predefinita:
 
-![Riquadro della Panoramica (anteprima)](.\media\app-insights-overview-dashboard\overview.png)
+![Riquadro della Panoramica (anteprima)](./media/app-insights-overview-dashboard/overview.png)
 
 ## <a name="better-performance"></a>Migliori prestazioni
 
 La selezione dell'intervallo di tempo è stata semplificata in una semplice interfaccia con un solo clic.
 
-![Intervallo di tempo](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
+![Intervallo di tempo](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-03.png)
 
 Le prestazioni complessive sono state notevolmente migliorate. È disponibile l'accesso con un clic a funzionalità comuni, ad esempio **Ricerca** e **Analitica**. Ciascun riquadro KPI con aggiornamento dinamico predefinito fornisce informazioni dettagliate sulle funzionalità Application Insights corrispondenti. Per altre informazioni sulle richieste non riuscite, selezionare **Errori** sotto l'intestazione **Analisi**:
 
-![Errori](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
+![Errori](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Dashboard dell'applicazione
 
@@ -46,11 +45,11 @@ Il dashboard delle applicazioni sfrutta la tecnologia del dashboard esistente in
 
 Per accedere al dashboard predefinito selezionare _Dashboard dell'applicazione_ nell'angolo superiore sinistro.
 
-![Visualizzazione dashboard](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
+![Visualizzazione dashboard](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Se è la prima volta che si accede al dashboard, verrà avviata una visualizzazione predefinita:
 
-![Visualizzazione dashboard](.\media\app-insights-overview-dashboard\0001-dashboard.png)
+![Visualizzazione dashboard](./media/app-insights-overview-dashboard/0001-dashboard.png)
 
 Se si desidera, è possibile mantenere la visualizzazione predefinita. Oppure è anche possibile aggiungerla ed eliminare dal dashboard per soddisfare al meglio le esigenze del team.
 
@@ -59,7 +58,7 @@ Se si desidera, è possibile mantenere la visualizzazione predefinita. Oppure è
 
 Per tornare all'esperienza panoramica, selezionare:
 
-![Pulsante Panoramica](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+![Pulsante Panoramica](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-07.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

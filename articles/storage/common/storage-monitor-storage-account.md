@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc03a5f43ef65ec8feaccb82fc3d31debbc6e7b9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f7b73fa4d1f596e0221c2cec3c6c7417ceb767a4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523377"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275690"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
@@ -98,7 +98,7 @@ Le metriche selezionate in **Diagnostica** determinano la risoluzione delle metr
 3. Immettere un **Nome** e una **Descrizione** per la nuova regola di avviso.
 4. Selezionare la **metrica** per cui si vuole aggiungere un avviso, una **condizione** di avviso e una **soglia**. Il tipo di unità della soglia varia a seconda della metrica scelta. Ad esempio, il tipo di unità per *ContainerCount* è "conteggio", mentre l'unità per la metrica *PercentNetworkError* è una percentuale.
 5. Selezionare il **periodo**. Le metriche che raggiungono o superano la soglia nel periodo specificato attivano un avviso.
-6. (Facoltativo) Configurare le notifiche per **posta elettronica** e **webhook**. Per altre informazioni sui webhook, vedere [Configurare un webhook in un avviso relativo alle metriche di Azure](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Se non si configurano notifiche per posta elettronica o webhook, gli avvisi verranno visualizzati solo nel portale di Azure.
+6. (Facoltativo) Configurare le notifiche per **posta elettronica** e **webhook**. Per altre informazioni sui webhook, vedere [Configurare un webhook in un avviso relativo alle metriche di Azure](../../azure-monitor/platform/alerts-webhooks.md). Se non si configurano notifiche per posta elettronica o webhook, gli avvisi verranno visualizzati solo nel portale di Azure.
 
 ![Pannello Aggiungi una regola di avviso nel portale di Azure](./media/storage-monitor-storage-account/add-alert-rule.png)
 

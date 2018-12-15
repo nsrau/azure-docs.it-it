@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 854f457e6731f69c64bf2036840d9e1c18a1cbf2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093902"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075091"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Collegare un disco dati gestito a una macchina virtuale Windows usando il portale di Azure
 
@@ -52,30 +52,6 @@ Questo articolo illustra come collegare un nuovo disco dati gestito a una macchi
 8. Nella finestra **Formatta il nuovo disco** controllare le impostazioni e quindi selezionare **Avvia**.
 9. Viene visualizzato un avviso per informare l'utente che la formattazione dei dischi cancella tutti i dati. Selezionare **OK**.
 10. Al termine della formattazione, selezionare **OK**.
-
-## <a name="use-trim-with-standard-storage"></a>Usare TRIM con l'archiviazione Standard
-
-Se si usa l'archiviazione Standard (HDD), è consigliabile abilitare il comando **TRIM**, **TRIM**che ignora i blocchi inutilizzati nel disco facendo in modo che venga addebitato solo lo spazio di archiviazione effettivamente usato. Il comando **TRIM** consente quindi un considerevole risparmio economico quando si creano file di grandi dimensioni per poi eliminarli. 
-
-Per controllare l'impostazione **TRIM**, aprire un prompt dei comandi nella macchina virtuale Windows e immettere il comando seguente:
-
-```
-fsutil behavior query DisableDeleteNotify
-```
-
-Se il comando restituisce 0, l'impostazione **TRIM** è abilitata correttamente. Se invece restituisce 1, eseguire questo comando per abilitare **TRIM**:
-
-```
-fsutil behavior set DisableDeleteNotify 0
-```
-
-Dopo aver eliminato i dati dal disco, è possibile verificare che le operazioni **TRIM** avvengano correttamente eseguendo la deframmentazione con **TRIM**:
-
-```
-defrag.exe <volume:> -l
-```
-
-È possibile anche formattare il volume per garantire che venga interamente tagliato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

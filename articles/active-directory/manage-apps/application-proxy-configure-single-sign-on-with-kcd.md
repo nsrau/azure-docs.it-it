@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: dbb7fca08e8d5c59842f7ddfb02b463a42efadb7
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 565e7379ad12222e459bd61ed50fa38f9f9b12fc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422284"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136247"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione
 
@@ -75,7 +75,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 Sharepointserviceaccount può essere l'account del computer SPS o un account del servizio tramite cui è in esecuzione il pool di app SPS.
 
 ## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On 
-1. Pubblicare l'applicazione seguendo le istruzioni contenute in [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-publish-azure-portal.md). Assicurarsi di selezionare **Azure Active Directory** come **Metodo di autenticazione preliminare**.
+1. Pubblicare l'applicazione seguendo le istruzioni contenute in [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-add-on-premises-application.md). Assicurarsi di selezionare **Azure Active Directory** come **Metodo di autenticazione preliminare**.
 2. Quando l'applicazione viene visualizzata nell'elenco delle applicazioni aziendali, selezionarla e fare clic su **Single Sign-On**.
 3. Impostare la modalità Single Sign-On su **Autenticazione integrata di Windows**.  
 4. Immettere l’ **SPN dell'applicazione interna** del server dell'applicazione. In questo esempio l'SPN per l'applicazione pubblicata è http/www.contoso.com. Questo nome SPN deve essere nell'elenco dei servizi a cui il connettore può presentare credenziali delegate. 

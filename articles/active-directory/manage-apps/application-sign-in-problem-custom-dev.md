@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8ae8fa823b919ec4a67832e7c42088c994bd2d97
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2dade35b05a07b649282ae00bb6fee354adcd195
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355349"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845485"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>Problemi di accesso a un'applicazione personalizzata
 
@@ -32,7 +32,7 @@ Ci sono diversi errori che potrebbero impedire l'accesso a un'app. Il motivo pi√
 
 * Confrontare la risorsa a cui si richiede l'accesso nel codice con le autorizzazioni configurate nella scheda **Risorse necessarie** per assicurarsi di richiedere solo le risorse configurate.
 
-* Vedere [Azure AD in StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory) per errori o problemi simili.
+* Vedere [Azure AD in StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory) per errori o problemi simili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -42,4 +42,4 @@ Ci sono diversi errori che potrebbero impedire l'accesso a un'app. Il motivo pi√
 
 [Consenso e concessione delle autorizzazioni per le app con convergenza di Azure Active Directory v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[Azure AD in Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory>)
+[Azure AD in Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

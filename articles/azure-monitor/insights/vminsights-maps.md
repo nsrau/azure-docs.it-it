@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3e8230ea7b2d6d0e44468bd90289ee82d5a82367
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714272"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337071"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso della mappa di Monitoraggio di Azure per le macchine virtuali (anteprima) per comprendere i componenti dell'applicazione
 I componenti di applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure nell'ambiente dell'utente possono essere visualizzati in due modi con Monitoraggio di Azure per le macchine virtuali, ovvero direttamente da una macchina virtuale o tra gruppi di macchine virtuali in Monitoraggio di Azure. 
@@ -52,7 +51,7 @@ Per abilitare la funzionalità Mappe per visualizzare gli avvisi relativi, crear
 - Includere una clausola che consenta di raggruppare per computer, ad esempio **per intervallo computer 1 minuto**.
 - Scegliere di impostare un avviso in base alle metriche misurate.
 
-Per altre informazioni su Avvisi si Azure e sulla creazione di regole di avviso, vedere [Avvisi unificati in Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Per altre informazioni su Avvisi si Azure e sulla creazione di regole di avviso, vedere [Avvisi unificati in Monitoraggio di Azure](../../azure-monitor/platform/alerts-overview.md).
 
 L'opzione **Legenda** nell'angolo superiore destro descrive i simboli e i ruoli su una mappa.  Per ingrandire la mappa per esaminarla meglio, i controlli di zoom nella parte inferiore destra della pagina impostano il livello di zoom e adattano la pagina alle dimensioni di quella corrente.  
 
@@ -107,7 +106,7 @@ In Monitoraggio di Azure la funzionalità Mappa offre una visualizzazione global
 
 ![Panoramica delle mappe di più macchine virtuali in Monitoraggio di Azure](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Nel selettore **Area di lavoro** nella parte superiore della pagina, se sono disponibili più aree di lavoro di Log Analytics scegliere l'area abilitata con la soluzione e con macchine virtuali collegate. Il selettore **Gruppo** restituisce le sottoscrizioni, i gruppi di risorse, i [gruppi di computer](../../log-analytics/log-analytics-computer-groups.md) e i set di scalabilità delle macchine virtuali dei computer correlati all'area di lavoro selezionata. La selezione è valida solo per la funzionalità Mappa e non si applica alla funzionalità Prestazioni.
+Nel selettore **Area di lavoro** nella parte superiore della pagina, se sono disponibili più aree di lavoro di Log Analytics scegliere l'area abilitata con la soluzione e con macchine virtuali collegate. Il selettore **Gruppo** restituisce le sottoscrizioni, i gruppi di risorse, i [gruppi di computer](../../azure-monitor/platform/computer-groups.md) e i set di scalabilità delle macchine virtuali dei computer correlati all'area di lavoro selezionata. La selezione è valida solo per la funzionalità Mappa e non si applica alla funzionalità Prestazioni.
 
 Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti. Grazie al selettore **TimeRange**, è possibile cercare intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica.   
 

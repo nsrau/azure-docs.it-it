@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636884"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436926"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale
 
@@ -48,11 +48,11 @@ Altre categorie di oggetti:
 - I **ruoli** sono set di autorizzazioni assegnate a utenti e dispositivi nel grafico spaziale, ad esempio `Space Administrator`, `User Administrator` e `Device Administrator`.
 - Le **assegnazioni di ruolo** sono l'associazione tra un ruolo e un oggetto nel grafico spaziale. Ad esempio, a un utente o a un'entità servizio può essere concessa l'autorizzazione per gestire uno spazio del grafico spaziale.
 - Gli **archivi chiavi di sicurezza** forniscono le chiavi di sicurezza per tutti i dispositivi nella gerarchia al di sotto di un oggetto dello spazio specifico per permettere al dispositivo di comunicare in tutta sicurezza con Gemelli digitali.
-- Le **funzioni definite dall'utente** (UDF) permettono l'elaborazione all'interno del grafico spaziale di dati di telemetria dei sensori personalizzabili. Ad esempio, una funzione definita dall'utente può: 
-    - Impostare un valore del sensore. 
-    - Eseguire la logica personalizzata basata su letture di sensori e impostare l'output su uno spazio. 
-    - Collegare i metadati a uno spazio. 
-    - Inviare notifiche quando vengono soddisfatte le condizioni predefinite. Attualmente le funzioni definite dall'utente possono essere scritte in JavaScript.
+- Le **funzioni definite dall'utente** (UDF) permettono l'elaborazione all'interno del grafico spaziale di dati di telemetria dei sensori personalizzabili. Ad esempio, una funzione definita dall'utente può:
+  - Impostare un valore del sensore.
+  - Eseguire la logica personalizzata basata su letture di sensori e impostare l'output su uno spazio.
+  - Collegare i metadati a uno spazio.
+  - Inviare notifiche quando vengono soddisfatte le condizioni predefinite. Attualmente le funzioni definite dall'utente possono essere scritte in JavaScript.
 - I **matcher** sono oggetti che determinano quali funzioni definite dall'utente vengono eseguite per un messaggio di telemetria specificato.
 - Gli **endpoint** sono le posizioni in cui possono essere instradati i messaggi di telemetria e gli eventi di Gemelli digitali, ad esempio `Event Hub`, `Service Bus` e `Event Grid`.
 
@@ -84,7 +84,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 | NOME | Sostituire con |
 | --- | --- |
-| NOME_ISTANZA_UTENTE | Nome dell'istanza di Gemelli digitali dell’utente |
+| NOME_ISTANZA_UTENTE | Nome dell'istanza di Gemelli digitali dell'utente |
 | POSIZIONE_UTENTE | Area del server in cui è ospitata l'istanza |
 
  Il formato dell'URL completo viene visualizzato in questa immagine.
@@ -103,9 +103,9 @@ Tutte le chiamate API devono essere autenticate tramite [OAuth](https://docs.mic
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulla connettività dei dispositivi e su come inviare messaggi di telemetria a Gemelli digitali, vedere [Connettività dei dispositivi e ingresso della telemetria in Gemelli digitali di Azure](concepts-device-ingress.md).
+- Per informazioni sulla connettività dei dispositivi e su come inviare messaggi di telemetria a Gemelli digitali, vedere [Connettività dei dispositivi e ingresso della telemetria in Gemelli digitali di Azure](concepts-device-ingress.md).
 
-* Per informazioni sulle limitazioni per le API di gestione, vedere [Gestione e limiti delle API di Gemelli digitali di Azure](concepts-service-limits.md).
+- Per informazioni sulle limitazioni per le API di gestione, vedere [Gestione e limiti delle API di Gemelli digitali di Azure](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 110f487d486ccd2f1a26065aa225838a3a83c197
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6fc3fc0b7717242b6949d93f0668d7c56525ac49
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167223"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342822"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 
@@ -157,10 +157,10 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
 1. Creare un set di disponibilità  
    Impostare il numero massimo di domini di aggiornamento
 1. Creare la macchina virtuale 1  
-   Usare almeno RHEL 7, in questo esempio l'immagine di Red Hat Enterprise Linux 7.4 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Usare almeno RHEL 7, in questo esempio l'immagine di Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selezionare il set di disponibilità creato in precedenza  
 1. Creare la macchina virtuale 2  
-   Usare almeno RHEL 7, in questo esempio l'immagine di Red Hat Enterprise Linux 7.4 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Usare almeno RHEL 7, in questo esempio l'immagine di Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selezionare il set di disponibilità creato in precedenza  
 1. Aggiungere almeno un disco dati a entrambe le macchine virtuali  
    I dischi dati vengono usati per la directory /usr/sap/`<SAPSID`>

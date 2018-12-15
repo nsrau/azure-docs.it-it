@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 8f43edfe468958bbc4a6fde14e8e03e5b4d4e0f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88aeaf1246583345d1d28218e8e91b3ecbcd166b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264249"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53429984"
 ---
 Le organizzazioni hanno esigenze di elaborazione su vasta scala. Questi carichi di lavoro di Big Compute includono progettazione tecnica e analisi, calcoli di valutazione dei rischi finanziari, rendering delle immagini, modellazione complessa, simulazioni Monte Carlo e altri ancora. 
 
@@ -86,7 +86,6 @@ Eseguire applicazioni HPC personalizzate o commerciali in Azure. Per alcuni esem
 
 ### <a name="ai-and-deep-learning"></a>AI e apprendimento avanzato
 
-* Evento di formazione [Intelligenza artificiale per Batch](../articles/batch-ai/overview.md) per i modelli di apprendimento avanzato
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [Macchina virtuale per l'apprendimento avanzato](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Soluzioni di Batch Shipyard per l'apprendimento avanzato](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
@@ -168,7 +167,6 @@ Le macchine virtuali di Azure, i set di scalabilità di macchine virtuali, Batch
 
 ### <a name="ai-and-machine-learning"></a>Intelligenza artificiale e Machine Learning
 * [Machine Learning Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Intelligenza artificiale per Batch](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Rete
@@ -177,7 +175,7 @@ Le macchine virtuali di Azure, i set di scalabilità di macchine virtuali, Batch
 
 ### <a name="containers"></a>Contenitori
 * [Servizio contenitore](../articles/container-service/dcos-swarm/container-service-intro.md)
-* [Azure Kubernetes Service (AKS)](../articles/aks/intro-kubernetes.md)
+* [servizio Kubernetes di Azure](../articles/aks/intro-kubernetes.md)
 * [Registro contenitori](../articles/container-registry/container-registry-intro.md)
 
 

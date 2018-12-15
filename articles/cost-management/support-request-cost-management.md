@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/24/2018
+ms.date: 12/06/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 8add92c5a65e4ddbd83dbe0836820fae1e88f557
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 4118e0bb0e42a1eec707b2fdb6682333400e2e1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274688"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099835"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Creare una richiesta di supporto per Cloudyn
 
@@ -43,7 +43,7 @@ Se si desidera creare un ticket di supporto per la fatturazione per Gestione cos
 
 Per verificare lo stato di una richiesta, vedere [Tutte le richieste di supporto](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests).
 
-Se si è un utente di Cloudyn legacy senza un account Azure, è possibile aprire una richiesta di supporto all'indirizzo http://support.microsoft.com/oas/default.aspx?prid=16451.
+Se si è un utente di Cloudyn legacy senza un account Azure, è possibile aprire una richiesta di supporto all'indirizzo https://support.microsoft.com/oas/default.aspx?prid=16451.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

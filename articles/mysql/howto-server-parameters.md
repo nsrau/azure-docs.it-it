@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 07/18/2018
-ms.openlocfilehash: 686db4dc15eb42abead3eef6798ed2b83e248811
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.date: 12/06/2018
+ms.openlocfilehash: 451316b32bcda43d62bbabf0c4f73d239698c85b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136452"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078723"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Come configurare i parametri di server in Database di Azure per MySQL usando il portale di Azure
 
@@ -42,9 +42,9 @@ Pool di buffer InnoDB e Numero max. connessioni non sono configurabili e collega
 
 |**Piano tariffario**| **Generazione di calcolo**|**vCore**|**Pool di buffer InnoDB (MB)**| **Numero massimo di connessioni**|
 |---|---|---|---|--|
-|Basic| Generazione 4| 1| 1024| 50|
+|Basic| Generazione 4| 1| 960| 50|
 |Basic| Generazione 4| 2| 2560| 100|
-|Basic| Generazione 5| 1| 1024| 50|
+|Basic| Generazione 5| 1| 960| 50|
 |Basic| Generazione 5| 2| 2560| 100|
 |Utilizzo generico| Generazione 4| 2| 3584| 300|
 |Utilizzo generico| Generazione 4| 4| 7680| 625|
@@ -56,10 +56,12 @@ Pool di buffer InnoDB e Numero max. connessioni non sono configurabili e collega
 |Utilizzo generico| Generazione 5| 8| 15360| 1250|
 |Utilizzo generico| Generazione 5| 16| 31232| 2500|
 |Utilizzo generico| Generazione 5| 32| 62976| 5000|
+|Utilizzo generico| Generazione 5| 64| 125952| 10000|
 |Con ottimizzazione per la memoria| Generazione 5| 2| 7168| 600|
 |Con ottimizzazione per la memoria| Generazione 5| 4| 15360| 1250|
 |Con ottimizzazione per la memoria| Generazione 5| 8| 30720| 2500|
 |Con ottimizzazione per la memoria| Generazione 5| 16| 62464| 5000|
+|Con ottimizzazione per la memoria| Generazione 5| 32| 125952| 10000|
 
 Questi parametri del server aggiuntivi non sono configurabili nel sistema:
 

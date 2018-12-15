@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3c06a0b0af306aaf46f4aa542e26c3fcf885e754
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: fc762a4cf500713a09ba325e8b4e41c4cc2b8f15
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168238"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848944"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Amazon usando criteri personalizzati in Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Questo articolo illustra come consentire agli utenti di accedere da un account A
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Completare la procedura descritta in [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).
-- Se non si ha già un account Amazon, crearne uno all'indirizzo [http://www.amazon.com/](https://www.amazon.com/).
+- Se non si ha già un account Amazon, crearne uno all'indirizzo [https://www.amazon.com/](https://www.amazon.com/).
 
 ## <a name="register-the-application"></a>Registrare l'applicazione
 
@@ -128,7 +128,7 @@ Il provider di identità è a questo punto configurato, ma non è disponibile in
 
 ### <a name="display-the-button"></a>Visualizzare il pulsante
 
-L'elemento **ClaimsProviderSelection** è analogo a un pulsante per il provider di identità in una schermata di iscrizione o di accesso. Se si aggiunge un elemento **ClaimsProviderSelection** per un account Amazon quando un utente apre la pagina viene visualizzato un nuovo pulsante.
+L'elemento **ClaimsProviderSelection** è analogo a un pulsante per il provider di identità in una schermata di iscrizione/accesso. Se si aggiunge un elemento **ClaimsProviderSelection** per un account Amazon quando un utente apre la pagina viene visualizzato un nuovo pulsante.
 
 1. Trovare l'elemento **OrchestrationStep** che include `Order="1"` nel percorso utente creato.
 2. In **ClaimsProviderSelects** aggiungere l'elemento riportato di seguito. Impostare **TargetClaimsExchangeId** su un valore appropriato, ad esempio `AmazonExchange`:

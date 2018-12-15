@@ -1,19 +1,18 @@
 ---
-title: Usare Azure Cosmos DB Explorer per gestire i dati | Microsoft Docs
+title: Usare Azure Cosmos DB Explorer per gestire i dati
 description: Azure Cosmos DB Explorer è un'interfaccia autonoma basata sul Web che consente di visualizzare e gestire i dati archiviati in Azure Cosmos DB.
 services: cosmos-db
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: 8d1bd0d4331937e37307140e17e5aed1a6e3b0ff
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 6e1317084ce60fb8dce64ccd7d1d93fe1ae1d9e9
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142532"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140762"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Usare Azure Cosmos DB Explorer per gestire i dati 
 
@@ -52,4 +51,4 @@ L'opzione **Apri a schermo intero** che consente di condividere l'accesso tempor
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che si è appreso come iniziare a usare Azure Cosmos DB Explorer per gestire i dati, è possibile eseguire questa operazione:
 
-* Iniziare a definire [query](sql-api-sql-query-reference.md) usando la sintassi SQL ed eseguire la [programmazione sul lato server](programming.md) tramite stored procedure, funzioni definite dall'utente e trigger. 
+* Iniziare a definire [query](sql-api-query-reference.md) usando la sintassi SQL ed eseguire la [programmazione sul lato server](programming.md) tramite stored procedure, funzioni definite dall'utente e trigger. 

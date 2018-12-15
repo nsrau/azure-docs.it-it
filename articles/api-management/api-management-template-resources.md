@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444768"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970332"
 ---
 # <a name="azure-api-management-template-resources"></a>Risorse del modello Gestione API di Azure
 Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli del portale per sviluppatori.  
@@ -176,7 +176,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |WebDocumentationTemplatesDeveloperKey|Specify your subscription key (Specificare la chiave della sottoscrizione)|  
 |WebDocumentationTemplatesJavaApache|In questo esempio si usa il client HTTP Apache dai componenti HTTP (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|Specify values for optional parameters, as needed (Specificare i valori per i parametri facoltativi in base alle esigenze)|  
-|WebDocumentationTemplatesPhpPackage|This sample uses the HTTP_Request2 package. (Questo esempio usa il pacchetto HTTP_Request2.) (per altre informazioni: http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|This sample uses the HTTP_Request2 package. (Questo esempio usa il pacchetto HTTP_Request2.) (per altre informazioni: https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Specify values for path parameters (shown as {...}) and request body if needed (Specificare i valori dei parametri del percorso (mostrati come {…}) e il corpo della richiesta se necessario)|  
 |WebDocumentationTemplatesRequestBody|Specify request body (Specificare il corpo della richiesta)|  
 |WebDocumentationTemplatesRequiredParams|Specify values for the following required parameters (Specificare i valori per i parametri obbligatori seguenti)|  
@@ -571,13 +571,13 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |ApiManagementUserLimitReached|This service has reached the maximum number of allowed users. (È stato raggiunto il numero massimo di utenti consentiti dal servizio.) Please upgrade to a higher pricing tier. (Eseguire l'aggiornamento a un piano tariffario superiore.)|  
   
 ##  <a name="glyphs"></a> Risorse di tipo glifo  
- Nei modelli del portale per sviluppatori di Gestione API è possibile usare i glifi presenti in [Glyphicons da Bootstrap](http://getbootstrap.com/components/#glyphicons). Si tratta di un set di oltre 250 glifi in formato carattere dal set Halflings di [Glyphicon](http://glyphicons.com/). Per usare uno dei glifi del set, applicare la sintassi seguente.  
+ Nei modelli del portale per sviluppatori di Gestione API è possibile usare i glifi presenti in [Glyphicons da Bootstrap](https://getbootstrap.com/components/#glyphicons). Si tratta di un set di oltre 250 glifi in formato carattere dal set Halflings di [Glyphicon](https://glyphicons.com/). Per usare uno dei glifi del set, applicare la sintassi seguente.  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- Per l'elenco completo dei glifi, vedere [Glyphicons da Bootstrap](http://getbootstrap.com/components/#glyphicons).
+ Per l'elenco completo dei glifi, vedere [Glyphicons da Bootstrap](https://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).
