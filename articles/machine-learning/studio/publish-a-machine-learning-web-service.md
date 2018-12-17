@@ -4,9 +4,8 @@ description: Come convertire un esperimento di training in un esperimento predit
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: d96755f00aa5023d57c9c4c2b2457902c337e29d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 71315b6c36a9e41e5805d5a15bde5b1d1d84f2b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314269"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269924"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio
 Azure Machine Learning consente di compilare, testare e distribuire soluzioni di analisi predittiva.
@@ -32,7 +31,7 @@ In generale, questo avviene in tre passaggi:
 * **[Eseguire la conversione in un esperimento predittivo]** - Dopo avere eseguito il training del modello con i dati esistenti, preparare e ottimizzare l'esperimento per la stima quando si è pronti a usarlo per l'assegnazione dei punteggi ai nuovi dati.
 * **[Distribuire l'esperimento predittivo come servizio Web]** - È possibile distribuire l'esperimento predittivo come servizio Web di Azure [New] o [classico]. Gli utenti possono inviare dati al modello e ricevere le relative stime.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="create-a-training-experiment"></a>Creare un esperimento di training
 Per il training di un modello di analisi predittiva, usare Azure Machine Learning Studio per creare un esperimento di training, in cui vengono inclusi diversi moduli per caricare i dati di training, prepararli, applicare gli algoritmi di apprendimento e valutare i risultati. È possibile eseguire l'iterazione dell'esperimento e provare diversi algoritmi di apprendimento automatico per confrontare e valutare i risultati.

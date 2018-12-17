@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 07ebf23270addc63793278d4e0510c187289b82c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 71be338aeb6d0234d22d412d6838e36a26797b20
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154546"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002121"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Aggiornare il servizio mobile Node.js di Azure esistente al servizio app
 Le app per dispositivi mobili del servizio app offrono un nuovo modo per creare applicazioni per dispositivi mobili usando Microsoft Azure. Per altre informazioni, vedere [Informazioni sulle app per dispositivi mobili].
@@ -39,7 +39,7 @@ Quando si esegue l'aggiornamento di un back-end per dispositivi mobili a Servizi
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>Miglioramenti apportati all'SDK del server Node.js di App per dispositivi mobili
 L'aggiornamento alla nuova versione di [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) fornisce numerosi miglioramenti, tra cui:
 
-* Nuova versione di Node SDK leggera e progettata per adattarsi alle nuove versioni di Node man mano che vengono rilasciate, perché basata sul [framework di Express](http://expressjs.com/en/index.html). È possibile personalizzare il comportamento dell'applicazione con il middleware di Express.
+* Nuova versione di Node SDK leggera e progettata per adattarsi alle nuove versioni di Node man mano che vengono rilasciate, perché basata sul [framework di Express](https://expressjs.com/en/index.html). È possibile personalizzare il comportamento dell'applicazione con il middleware di Express.
 * Miglioramenti significativi delle prestazioni rispetto a Mobile Services SDK.
 * Possibilità di ospitare un sito Web con il back-end per dispositivi mobili e di aggiungere facilmente Azure Mobile SDK a qualsiasi applicazione express.v4 esistente.
 * Creato per lo sviluppo multipiattaforma e locale, Mobile Apps SDK può essere sviluppato ed eseguito in locale su piattaforme Windows, Linux e OSX. L'uso di tecniche di sviluppo comuni di Node, ad esempio l'esecuzione di test [Mocha](https://mochajs.org/) prima della distribuzione, è ora più semplice.
@@ -122,7 +122,7 @@ Collegare il database esistente al servizio app:
 Per trovare il nome utente e la password, visualizzare la stringa di connessione per il database di destinazione nel servizio mobile migrato.
 
 ### <a name="set-up-authentication"></a>Configurare l'autenticazione
-Le app per dispositivi mobili di Azure consentono di configurare l'autenticazione di Azure Active Directory, Facebook, Google, Microsoft e Twitter all'interno del servizio.  L'autenticazione personalizzata dovrà essere sviluppata separatamente.  Per altre informazioni, vedere la documentazione relativa ai [concetti dell'autenticazione] e la [guida introduttiva all'autenticazione].  
+Le app per dispositivi mobili di Azure consentono di configurare l'autenticazione di Azure Active Directory, Facebook, Google, Microsoft e Twitter all'interno del servizio.  L'autenticazione personalizzata dovrà essere sviluppata separatamente.  Per altre informazioni, vedere la documentazione relativa ai [Concetti relativi all'autenticazione] e la [guida introduttiva all'autenticazione].  
 
 ## <a name="updating-clients"></a>Aggiornare i client per dispositivi mobili
 Dopo aver reso operativo un back-end dell'app per dispositivi mobili, è possibile lavorare su una nuova versione dell'applicazione client che ne faccia uso. App per dispositivi mobili include anche una nuova versione degli SDK del client e, come nel caso dell'aggiornamento del server descritto in precedenza, sarà necessario rimuovere tutti i riferimenti agli SDK di Servizi mobili prima di installare le versioni di App per dispositivi mobili.
@@ -160,13 +160,13 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[prezzi del servizio app]: https://azure.microsoft.com/pricing/details/app-service/
+[Prezzi del servizio app]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[concetti dell'autenticazione]: ../app-service/app-service-authentication-overview.md
+[Concetti relativi all'autenticazione]: ../app-service/app-service-authentication-overview.md
 [guida introduttiva all'autenticazione]: app-service-mobile-auth.md
 
-[portale di Azure]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[Portale di Azure]: https://portal.azure.com/
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -175,6 +175,6 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js package]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS Middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

@@ -4,24 +4,20 @@ description: Informazioni su come creare un modello di Azure Resource Manager pe
 services: Functions
 documtationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: funzioni di azure, funzioni, architettura senza server, infrastruttura come codice, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 484cf0976ce10e80ca7eaf9b215329b81ed4bb13
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937062"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994652"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -30,8 +26,8 @@ ms.locfileid: "33937062"
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Per i modelli di esempio, vedere:
-- [App per le funzioni nel piano a consumo]
-- [App per le funzioni nel piano di servizio app di Azure]
+- [App per le funzioni in un piano a consumo]
+- [App per le funzioni in un piano di servizio app di Azure]
 
 ## <a name="required-resources"></a>Risorse necessarie
 
@@ -102,7 +98,7 @@ L'app per le funzioni viene definita usando una risorsa **Microsoft.Web/Site** d
 
 È possibile eseguire un'app per le funzioni in due modalità diverse, ovvero con piano a consumo e piano di servizio app di Azure. Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice, aumenta il numero di istanze in base alla necessità per gestire il carico e quindi riduce le prestazioni quando il codice non è in esecuzione. Non è quindi necessario pagare per le macchine virtuali inattive e riservare in anticipo la capacità. Per altre informazioni sui piani di hosting, vedere [Piani a consumo e piani di servizio app di Funzioni di Azure](functions-scale.md).
 
-Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni nel piano a consumo].
+Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni in un piano a consumo].
 
 ### <a name="create-a-consumption-plan"></a>Creare un piano a consumo
 
@@ -173,7 +169,7 @@ Un piano a consumo richiede anche due impostazioni aggiuntive nella configurazio
 
 Nel piano di servizio app, le app per le funzioni vengono eseguite in macchine virtuali dedicate in SKU Basic, Standard e Premium, analogamente alle app Web. Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni nel piano di servizio app di Azure].
+Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni in un piano di servizio app di Azure].
 
 ### <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
@@ -273,13 +269,13 @@ Sostituire ```<url-encoded-path-to-azuredeploy-json>``` con una versione [con co
 Di seguito è riportato un esempio che usa la sintassi markdown:
 
 ```markdown
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
 ```
 
 Di seguito è riportato un esempio che usa HTML:
 
 ```html
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -292,5 +288,5 @@ Altre informazioni su come sviluppare e configurare le Funzioni di Azure.
 
 <!-- LINKS -->
 
-[App per le funzioni nel piano a consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[App per le funzioni nel piano di servizio app di Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[App per le funzioni in un piano a consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[App per le funzioni in un piano di servizio app di Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
