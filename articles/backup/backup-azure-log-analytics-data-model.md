@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635153"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877582"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 Usare il modello di dati di Log Analytics per creare report. Con il modello di dati, è possibile creare dashboard e query personalizzate o personalizzare i dati di Backup di Azure, come si preferisce.
@@ -30,7 +30,7 @@ Questa tabella offre dettagli sui campi relativi agli avvisi.
 | AlertUniqueId_s |Text |Identificatore univoco dell'avviso generato |
 | AlertType_s |Text |Tipo di avviso, ad esempio Backup |
 | AlertStatus_s |Text |Stato dell'avviso, ad esempio Active |
-| AlertOccurenceDateTime_s |Data/ora |Data e ora in cui è stato creato l'avviso |
+| AlertOccurrenceDateTime_s |Data/ora |Data e ora in cui è stato creato l'avviso |
 | AlertSeverity_s |Text |Gravità dell'avviso, ad esempio Critical |
 | EventName_s |Text |Nome dell'evento. Sempre AzureBackupCentralReport |
 | BackupItemUniqueId_s |Text |Identificatore univoco dell'elemento di backup associato all'avviso |
