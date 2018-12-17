@@ -3,7 +3,7 @@ title: Serializzazione di un oggetto Reliable Collections in Azure Service Fabri
 description: Serializzazione di un oggetto Reliable Collections di Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
-ms.author: mcoskun
-ms.openlocfilehash: 8fb6f1767741e950b300fd297250a6b64656191c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: twhitney
+ms.openlocfilehash: 52e4b22a0c4acebe99ab5b9d94eeb66e917a231a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952427"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192023"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serializzazione di un oggetto Reliable Collections in Azure Service Fabric
 Le raccolte Reliable Collections replicano e mantengono i propri elementi per garantirne la persistenza anche in caso di errori del computer o interruzioni dell'alimentazione.

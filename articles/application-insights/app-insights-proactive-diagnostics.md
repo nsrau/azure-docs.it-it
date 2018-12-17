@@ -9,16 +9,15 @@ ms.assetid: 2eeb4a35-c7a1-49f7-9b68-4f4b860938b2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 0083c157eab489943f94ed1453c66a5c8d2f291a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b884fc15770e91268d1033dc4bab9bf96766de94
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960303"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868941"
 ---
 # <a name="smart-detection-in-application-insights"></a>Rilevamento intelligente in Application Insights
  Il rilevamento intelligente segnala automaticamente i potenziali problemi di prestazioni nell'applicazione Web. Esegue l'analisi proattiva dei dati di telemetria che l'app invia ad [Application Insights](app-insights-overview.md). Se si verifica un improvviso aumento della percentuale di errori o in caso di modelli anomali delle prestazioni di client o server, viene generato un avviso. Questa funzionalità non richiede alcuna configurazione. Funziona se l'applicazione invia dati di telemetria sufficienti.
@@ -57,7 +56,7 @@ Gli strumenti di diagnostica seguenti consentono di controllare la telemetria da
 
 * [Esplora metriche](app-insights-metrics-explorer.md)
 * [Esplora ricerche](app-insights-diagnostic-search.md)
-* [Linguaggio avanzato di query di Analisi](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Linguaggio avanzato di query di Analisi](../azure-monitor/log-query/get-started-portal.md)
 
 Il rilevamento intelligente è completamente automatico, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 

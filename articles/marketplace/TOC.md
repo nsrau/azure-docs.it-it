@@ -91,7 +91,7 @@
 #### [Scheda Test Drive](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
 #### [Scheda Marketplace](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
 #### [Scheda Supporto](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
-<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Creare asset tecnici](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 ### [Pubblicare un'offerta per un'applicazione di Azure](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [Aggiornare un'offerta esistente](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 3df6951129f7beda7970e394ffdd32c7e02304dd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 69ee9e7101a2b7337e1e42ff5ae09954fbfd50b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060308"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994936"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Abilitare la sincronizzazione offline per l'app di Windows
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -42,7 +42,7 @@ Per questa esercitazione sono necessari i prerequisiti seguenti:
 ## <a name="update-the-client-app-to-support-offline-features"></a>Aggiornare l'app client per supportare le funzionalità offline
 Le funzionalità offline delle app per dispositivi mobili di Azure consentono di interagire con un database locale in uno scenario offline. Per usare queste funzionalità nell'app, inizializzare [SyncContext][synccontext] in un archivio locale. Quindi, fare riferimento alla tabella tramite l'interfaccia di [IMobileServiceSyncTable][IMobileServiceSyncTable] . SQLite viene usato come archivio locale nel dispositivo.
 
-1. Installare il [runtime di SQLite per la piattaforma UWP (Universal Windows Platform)](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
+1. Installare il [runtime di SQLite per la piattaforma UWP (Universal Windows Platform)](https://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 2. In Visual Studio aprire Gestione pacchetti NuGet per il progetto di app UWP completato nell'esercitazione [Creare un'app Windows].
     Cercare e installare il pacchetto NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
 3. In Esplora soluzioni fare doppio clic su **Riferimenti** > **Aggiungi riferimento...** >**Universal Windows**>**Estensioni** e quindi abilitare sia **SQLite for Universal Windows Platform** che **Visual C++ 2015 Runtime for Universal Windows Platform apps**.
@@ -107,9 +107,9 @@ Gli argomenti seguenti forniscono altre informazioni in background sulla funzion
 <!-- URLs. -->
 [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
 [Creare un'app Windows]: app-service-mobile-windows-store-dotnet-get-started.md
-[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
-[SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
-[SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
+[SQLite for Windows 8.1]: https://go.microsoft.com/fwlink/?LinkID=716919
+[SQLite for Windows Phone 8.1]: https://go.microsoft.com/fwlink/?LinkID=716920
+[SQLite for Windows 10]: https://go.microsoft.com/fwlink/?LinkID=716921
 [synccontext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [IMobileServiceSyncTable]: https://msdn.microsoft.com/library/azure/mt691742(v=azure.10).aspx

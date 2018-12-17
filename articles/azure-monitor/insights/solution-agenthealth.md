@@ -10,22 +10,21 @@ ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 5823e6e3bf2614bf834a9ab64c3403829d58a779
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 203a37071637a7e0e44b65240be4c4cae974d95f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714440"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335959"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Soluzione Integrità agente in Azure
 La soluzione Integrità agente in Azure consente di individuare gli agenti che non rispondono e quelli che inviano dati operativi tra tutti gli agenti che inviano report direttamente all'area di lavoro di Log Analytics o a un gruppo di gestione di System Center Operations Manager connesso a Log Analytics.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di distribuire questa soluzione, assicurarsi che sia attualmente supportato l'invio di report da parte degli [agenti di Windows](../../log-analytics/log-analytics-windows-agent.md) all'area di lavoro di Log Analytics o a un [gruppo di gestione di Operations Manager](../../log-analytics/log-analytics-om-agents.md) integrato con l'area di lavoro.    
+Prima di distribuire questa soluzione, assicurarsi che sia attualmente supportato l'invio di report da parte degli [agenti di Windows](../../log-analytics/log-analytics-windows-agent.md) all'area di lavoro di Log Analytics o a un [gruppo di gestione di Operations Manager](../../azure-monitor/platform/om-agents.md) integrato con l'area di lavoro.    
 
 ## <a name="solution-components"></a>Componenti della soluzione
 Questa soluzione è costituita dalle risorse seguenti che vengono aggiunte all'area di lavoro e agli agenti direttamente connessi o al gruppo di gestione connesso di Operations Manager.
@@ -36,7 +35,7 @@ Se il gruppo di gestione di System Center Operations Manager è connesso all'are
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="configuration"></a>Configurazione
 Aggiungere la soluzione Integrità agente all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](solutions.md). Non è richiesta alcuna ulteriore configurazione.
@@ -118,4 +117,4 @@ La tabella seguente contiene esempi di ricerche nei log per i record raccolti da
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Leggere l'articolo [Avvisi in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) per informazioni dettagliate sulla generazione di avvisi di Log Analytics. 
+* Leggere l'articolo [Avvisi in Log Analytics](../../azure-monitor/platform/alerts-overview.md) per informazioni dettagliate sulla generazione di avvisi di Log Analytics. 

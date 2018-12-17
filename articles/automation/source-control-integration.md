@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023748"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342239"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
@@ -50,7 +50,7 @@ Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorge
 |Proprietà  |DESCRIZIONE  |
 |---------|---------|
 |Nome del controllo del codice sorgente     | Nome descrittivo per il controllo del codice sorgente        |
-|Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
+|Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Repository     | Nome del repository o del progetto. Questo valore viene sottoposto a pull dal repository del controllo del codice sorgente. Esempio: $/ContosoFinanceTFVCExample         |
 |Ramo     | Ramo da cui eseguire il pull dei file di origine. La selezione della destinazione del ramo non è disponibile per il controllo del codice sorgente di tipo Controllo della versione di Team Foundation.          |
 |Percorso della cartella     | Cartella che contiene i runbook da sincronizzare. Esempio: /Runbooks         |
@@ -62,7 +62,7 @@ Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorge
 
 ## <a name="syncing"></a>Sincronizzazione
 
-Configurando la sincronizzazione automatica durante la configurazione dell'integrazione del controllo del codice sorgente, la sincronizzazione iniziale viene avviata automaticamente. Se la sincronizzazione automatica non è stata impostata, selezionare il controllo del codice sorgente nella tabella nella pagina **Controllo del codice sorgente (anteprima)**. Fare clic su **Avvia sincronizzazione** per avviare il processo di sincronizzazione.  
+Configurando la sincronizzazione automatica durante la configurazione dell'integrazione del controllo del codice sorgente, la sincronizzazione iniziale viene avviata automaticamente. Se la sincronizzazione automatica non è stata impostata, selezionare il controllo del codice sorgente nella tabella nella pagina **Controllo del codice sorgente (anteprima)**. Fare clic su **Avvia sincronizzazione** per avviare il processo di sincronizzazione.
 
 È possibile visualizzare lo stato del processo di sincronizzazione corrente o di quelli precedenti facendo clic sulla scheda **Processi di sincronizzazione**. Nell'elenco a discesa **Controllo del codice sorgente** selezionare un controllo del codice sorgente.
 

@@ -2,19 +2,19 @@
 title: Abilitare il backup di una macchina virtuale di Azure durante la creazione
 description: Vedere la procedura per abilitare il backup di una macchina virtuale di Azure durante il processo di creazione.
 services: backup, virtual-machines
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup, virtual-machines
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 928481f07875286a21f68dae6556f04eb2b6ae5c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 518d171c96b9c4f9bf3e195a7130f4c022b7ad07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606121"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879877"
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Abilitare il backup durante la creazione di una macchina virtuale di Azure 
 
@@ -67,7 +67,7 @@ Per l'abilitazione del backup durante la creazione della macchina virtuale, sono
 
 - **Windows**: Windows Server 2016 Datacenter, Windows Server 2016 Datacenter core, Windows Server 2012 Datacenter, Windows Server 2012 R2 Datacenter, Windows Server 2008 R2 SP1 
 - **Ubuntu**: Ubuntu Server 1710, Ubuntu Server 1704, Ubuntu Server 1604 (LTS), Ubuntu Server 1404 (LTS) 
-- **Redhat**: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4 
+- **Red Hat**: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4 
 - **SUSE**: SUSE Linux Enterprise Server 11 SP4, 12 SP2, 12 SP3 
 - **Debian**: Debian 8, Debian 9 
 - **CentOS**: CentOS 6.9, CentOS 7.3 

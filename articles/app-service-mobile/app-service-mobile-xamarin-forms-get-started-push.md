@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 2658dcb0d206086aad1443e2dc720b6f1f55906f
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818159"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000202"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Aggiungere notifiche push all'app Xamarin.Forms
 
@@ -409,12 +409,12 @@ Altre informazioni sulle notifiche push:
 * [Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
 * [Remote Notifications with Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/) (Notifiche remote con Firebase Cloud Messaging)
 * [Diagnose push notification issues](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-  (Diagnosticare i problemi relativi alle notifiche push) Esistono varie ragioni per cui le notifiche possono essere eliminate o non giungere ai dispositivi. Questo argomento illustra come analizzare e capire la causa radice degli errori relativi alle notifiche push.
+   (Diagnosticare i problemi relativi alle notifiche push) Esistono varie ragioni per cui le notifiche possono essere eliminate o non giungere ai dispositivi. Questo argomento illustra come analizzare e capire la causa radice degli errori relativi alle notifiche push.
 
 È possibile anche proseguire con una delle esercitazioni seguenti:
 
-* [Aggiungere l'autenticazione all'app Xamarin.Forms](app-service-mobile-xamarin-forms-get-started-users.md)  
-  Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-forms-get-started-users.md)  
+   Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 * [Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.Forms](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. Con la sincronizzazione offline è possibile interagire con un'app per dispositivi mobili &mdash;visualizzando, aggiungendo e modificando i dati&mdash; anche se non è disponibile una connessione di rete.
 
@@ -423,4 +423,4 @@ Altre informazioni sulle notifiche push:
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[apns object]: https://go.microsoft.com/fwlink/p/?LinkId=272333

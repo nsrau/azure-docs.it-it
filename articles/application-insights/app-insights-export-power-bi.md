@@ -9,19 +9,18 @@ ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e19735f604fdcd6d6642814e776fd9987d11fde
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 83dfd77c311e1b3324540d352432ec7a6b706d78
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499495"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993370"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
-[Power BI](http://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](app-insights-overview.md).
 
 Esistono tre metodi per esportare i dati di Application Insights in Power BI:
 
@@ -41,7 +40,7 @@ Per importare la query di Application Insights, usare la versione desktop di Pow
 Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Esportare una query di Analisi
-1. [Aprire Analisi e scrivere la query](../log-analytics/query-language/get-started-analytics-portal.md).
+1. [Aprire Analisi e scrivere la query](../azure-monitor/log-query/get-started-portal.md).
 2. Testare e affinare la query fino a quando non si è soddisfatti dei risultati. Verificare che la query venga eseguita correttamente in Analisi prima di esportarla.
 3. Nel menu **Esporta** scegliere **Power BI (M)**. Salvare il file di testo.
    
@@ -52,18 +51,18 @@ Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
     ![Screenshot di Power BI Desktop, con l'Editor avanzato evidenziato](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. Per consentire a Power BI di accedere ad Azure può essere necessario specificare le credenziali. Scegliere **Account aziendale** per accedere con l'account Microsoft personale.
+5. Per consentire a Power BI di accedere ad Azure può essere necessario specificare le credenziali. Scegliere **Account aziendale** per accedere con l'account Microsoft personale.
    
     ![Screenshot della finestra di dialogo Impostazioni query di Power BI](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
     Se è necessario verificare le credenziali, usare il comando di menu **Impostazioni origine dati** nell'editor di query. Assicurarsi di specificare le credenziali usate per Azure, che potrebbero essere diverse da quelle di Power BI.
-2. Scegliere una visualizzazione per la query e selezionare i campi per le assi X e Y e per le dimensioni di segmentazione.
+6. Scegliere una visualizzazione per la query e selezionare i campi per le assi X e Y e per le dimensioni di segmentazione.
    
     ![Screenshot delle opzioni di visualizzazione di Power BI Desktop](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
-3. Pubblicare il report nell'area di lavoro cloud di Power BI. Da qui è possibile incorporare una versione sincronizzata in altre pagine Web.
+7. Pubblicare il report nell'area di lavoro cloud di Power BI. Da qui è possibile incorporare una versione sincronizzata in altre pagine Web.
    
     ![Screenshot di Power BI Desktop, con il pulsante Pubblica evidenziato](./media/app-insights-export-power-bi/publish-power-bi.png)
-4. Aggiornare manualmente il report a intervalli oppure impostare un aggiornamento pianificato nella pagina Opzioni.
+8. Aggiornare manualmente il report a intervalli oppure impostare un aggiornamento pianificato nella pagina Opzioni.
 
 ### <a name="export-a-funnel"></a>Esportare una visualizzazione Imbuto
 1. [Creare una visualizzazione Imbuto](usage-funnels.md).
@@ -153,6 +152,6 @@ Con questo metodo si crea un dashboard di dati di telemetria completo per l'uten
 Dopo l'importazione iniziale, il dashboard e i report continuano a essere aggiornati ogni giorno. È possibile controllare la pianificazione dell'aggiornamento nel set di dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Power BI - Informazioni](http://www.powerbi.com/learning/)
-* [Esercitazione su Analisi](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Power BI - Informazioni](https://www.powerbi.com/learning/)
+* [Esercitazione su Analisi](../azure-monitor/log-query/get-started-portal.md)
 

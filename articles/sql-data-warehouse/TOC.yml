@@ -20,6 +20,8 @@ items:
 - name: Note sulla versione
   href: release-notes.md
   items:
+  - name: Dicembre 2018
+    href: release-notes-december-2018.md
   - name: Ottobre 2018
     href: release-notes-october-2018.md
   - name: Settembre 2018
@@ -78,7 +80,7 @@ items:
     - name: Autenticazione a più fattori
       href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Controllo
-      href: sql-data-warehouse-auditing-overview.md
+      href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Sicurezza a livello di colonna
       href: column-level-security.md
     - name: Sicurezza a livello di riga
@@ -305,9 +307,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Gestione dei dati
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: f971671b20921a2e92e85054fe770acea040360a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c619d60db23b710ce5696504ca1a6bf3ce1bd4c1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964493"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435668"

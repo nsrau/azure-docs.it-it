@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: db4208c8fef27d2e2085e63ba3a986456d0544bf
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: fe24307f7ed01c64217bcb1f9f7645a30bce7f44
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429117"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322824"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Estensione Diagnostica di Azure per macchine virtuali Windows
 
@@ -37,7 +37,7 @@ L'estensione Diagnostica di Azure richiede che la macchina virtuale di destinazi
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-[Lo schema e i valori delle proprietà dell'estensione Diagnostica di Azure sono illustrati in questo documento.](../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
+[Lo schema e i valori delle proprietà dell'estensione Diagnostica di Azure sono illustrati in questo documento.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
@@ -80,12 +80,12 @@ I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-[Vedere questo articolo](../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md) per una guida più completa alla risoluzione dei problemi per l'estensione Diagnostica di Azure.
+[Vedere questo articolo](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md) per una guida più completa alla risoluzione dei problemi per l'estensione Diagnostica di Azure.
 
 ### <a name="support"></a>Supporto
 
 Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni sull'estensione Diagnostica di Azure](../../monitoring-and-diagnostics/azure-diagnostics.md)
-* [Schema e versioni dell'estensione](../../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+* [Altre informazioni sull'estensione Diagnostica di Azure](../../azure-monitor/platform/diagnostics-extension-overview.md)
+* [Schema e versioni dell'estensione](../../azure-monitor/platform/diagnostics-extension-schema.md)

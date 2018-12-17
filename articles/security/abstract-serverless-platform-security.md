@@ -6,12 +6,12 @@ ms.author: TomSh
 ms.date: 06/21/2018
 ms.topic: article
 ms.service: security
-ms.openlocfilehash: 8f5f600b0680b85d760e72b8e177ae247e41ac6b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 87010b3256fb8eef6871d76f80db2999760386b4
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133366"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320745"
 ---
 # <a name="azure-functions-and-serverless-platform-security"></a>Funzioni di Azure e sicurezza della piattaforma senza server
 ## <a name="abstract"></a>Sunto
@@ -27,5 +27,5 @@ Nonostante i vantaggi, la sicurezza senza server ha propri fattori di rischio da
 * Problemi di sicurezza critici e mitigazioni nel contesto di Azure
 * Protezione della piattaforma senza server Microsoft
 
-[Scarica il white paper](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)
+[Scarica il white paper](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-functions-serverless-platform-security/Microsoft%20Serverless%20Platform.pdf)
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dd8976bc9c78045830ab499f48775bcb051f6c71
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: bf2b326b6e0003b9a690e560d5a312f16659dad9
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49455743"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406744"
 documentType: LandingData
 title: Documentazione di Azure HDInsight
 metadata:
@@ -70,12 +70,12 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Eseguire operazioni ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Creare cluster su richiesta</a>
-    - html: Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Eseguire query interattive</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualizzare i dati</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Machine learning</a>
-    - html: Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Streaming strutturato con Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Usare con Storm in HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Usare API Kafka per producer e consumer</a>
-    - html: HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Creare cluster HBase in una rete virtuale</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Usare Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Connettersi a Spark</a>
+    - html: Apache Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Eseguire operazioni ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Creare cluster su richiesta</a>
+    - html: Apache Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Eseguire query interattive</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualizzare i dati</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Machine learning</a>
+    - html: Apache Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Streaming strutturato con Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Usare con Storm in HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Usare API Kafka per producer e consumer</a>
+    - html: Apache HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Creare cluster HBase in una rete virtuale</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Usare Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Connettersi a Spark</a>
     - html: Query interattiva &#58; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">Connettersi con Power BI tramite Direct Query</a>
-    - html: Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Creare una topologia Storm in Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Distribuire topologie Storm in HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Scrivere da Storm a Data Lake Store</a>
+    - html: Apache Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Creare una topologia Storm in Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Distribuire topologie Storm in HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Scrivere da Storm a Data Lake Store</a>
     - html: ML Services &#58; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Usare R Tools per Visual Studio</a>
 - title: riferimento
   items:

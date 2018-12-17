@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 05041637aa5cbb044e6731208825f75edec83352
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157045"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278612"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Aggiornare il servizio mobile .NET di Azure esistente al servizio app
-I dispositivi mobili del servizio app offrono un nuovo modo per creare applicazioni mobili usando Microsoft Azure. Per altre informazioni, vedere [Che cosa sono le app per dispositivi mobili?].
+I dispositivi mobili del servizio app offrono un nuovo modo per creare applicazioni mobili usando Microsoft Azure. Per altre informazioni, vedere [Informazioni sulle app per dispositivi mobili].
 
 Questo argomento descrive come eseguire la migrazione di un'applicazione back-end .NET esistente da Servizi mobili di Azure a una nuova app per dispositivi mobili del servizio app. Durante una migrazione, l'applicazione Servizi mobili esistente può continuare a funzionare.   Se si deve aggiornare un'applicazione back-end Node.js, vedere [Aggiornamento dei servizi mobili Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md).
 
@@ -68,7 +68,7 @@ Il primo passaggio per l'aggiornamento prevede la creazione della risorsa di app
 
 Creare quindi la seconda istanza dell'applicazione seguendo le [istruzioni per la creazione di back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Quando viene richiesto di selezionare il piano di servizio app o "piano di hosting", scegliere il piano dell'applicazione migrata.
 
-Potrebbe essere utile usare lo stesso database e hub di notifica usati in Servizi mobili. È possibile copiare questi valori aprendo il [portale di Azure] e passando all'applicazione originale, quindi facendo clic su **Impostazioni** > **Impostazioni dell'applicazione**. In **Stringhe di connessione** copiare `MS_NotificationHubConnectionString` e `MS_TableConnectionString`. Passare al nuovo sito di aggiornamento e incollare i valori, sovrascrivendo gli eventuali valori esistenti. Ripetere questo processo per tutte le altre impostazioni dell'applicazione necessarie per l'app. Se non si usa un servizio migrato, è possibile leggere le stringhe di connessione e le impostazioni dell'app dalla scheda **Configura** della sezione Servizi mobili del [portale di Azure classico].
+Potrebbe essere utile usare lo stesso database e hub di notifica usati in Servizi mobili. È possibile copiare questi valori aprendo il [portale di Azure] e passando all'applicazione originale, quindi facendo clic su **Impostazioni** > **Impostazioni dell'applicazione**. In **Stringhe di connessione** copiare `MS_NotificationHubConnectionString` e `MS_TableConnectionString`. Passare al nuovo sito di aggiornamento e incollare i valori, sovrascrivendo gli eventuali valori esistenti. Ripetere questo processo per tutte le altre impostazioni dell'applicazione necessarie per l'app.
 
 Creare una copia del progetto ASP.NET per l'applicazione e pubblicarla nel nuovo sito. Usando una copia dell'applicazione client aggiornata con il nuovo URL, verificare che tutto funzioni come previsto.
 
@@ -84,18 +84,23 @@ Vi saranno alcuni errori del compilatore derivanti dalle differenze tra gli SDK,
 ### <a name="base-configuration"></a>Configurazione di base
 In WebApiConfig.cs è quindi possibile sostituire:
 
-        // Use this class to set configuration options for your mobile service
-        ConfigOptions options = new ConfigOptions();
+```csharp
+// Use this class to set configuration options for your mobile service
+ConfigOptions options = new ConfigOptions();
 
-        // Use this class to set WebAPI configuration options
-        HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+// Use this class to set WebAPI configuration options
+HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+```
 
 con
 
-        HttpConfiguration config = new HttpConfiguration();
-        new MobileAppConfiguration()
-            .UseDefaultConfiguration()
-        .ApplyTo(config);
+```csharp
+HttpConfiguration config = new HttpConfiguration();
+new MobileAppConfiguration()
+    .UseDefaultConfiguration()
+.ApplyTo(config);
+
+```
 
 > [!NOTE]
 > Per altre informazioni sul nuovo SDK del server .NET e su come aggiungere/rimuovere funzionalità dall'app, vedere l'argomento [Come usare l'SDK del server .NET] .
@@ -110,8 +115,10 @@ Se l'app fa uso delle funzionalità di autenticazione, sarà inoltre necessario 
 
 Assicurarsi che il metodo `Configuration()` termini con:
 
-        app.UseWebApi(config)
-        app.UseAppServiceAuthentication(config);
+```csharp
+app.UseWebApi(config)
+app.UseAppServiceAuthentication(config);
+```
 
 Vi sono ulteriori modifiche relative all'autenticazione, che sono illustrate di seguito nella sezione relativa all'autenticazione completa.
 
@@ -120,7 +127,9 @@ In Servizi mobili, il nome dell'app per dispositivi mobili veniva usato come nom
 
 Per assicurarsi di fare riferimento allo stesso schema, usare il codice seguente per impostare lo schema in DbContext per l'applicazione:
 
-        string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```csharp
+string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```
 
 Assicurarsi di avere impostato MS_MobileServiceName se si esegue l'operazione precedente. È anche possibile fornire un altro nome di schema se l'applicazione lo ha personalizzato in precedenza.
 
@@ -167,33 +176,35 @@ Il modo più semplice per risolvere il problema consiste nel modificare gli ogge
 
 Ad esempio, il codice seguente definisce `TodoItem` senza proprietà di sistema:
 
-    using System.ComponentModel.DataAnnotations.Schema;
+```csharp
+using System.ComponentModel.DataAnnotations.Schema;
 
-    public class TodoItem : ITableData
-    {
-        public string Text { get; set; }
+public class TodoItem : ITableData
+{
+    public string Text { get; set; }
 
-        public bool Complete { get; set; }
+    public bool Complete { get; set; }
 
-        public string Id { get; set; }
+    public string Id { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? CreatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? CreatedAt { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? UpdatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? UpdatedAt { get; set; }
 
-        [NotMapped]
-        public bool Deleted { get; set; }
+    [NotMapped]
+    public bool Deleted { get; set; }
 
-        [NotMapped]
-        public byte[] Version { get; set; }
-    }
+    [NotMapped]
+    public byte[] Version { get; set; }
+}
+```
 
 Nota: se si verificano errori in `NotMapped`, aggiungere un riferimento all'assembly `System.ComponentModel.DataAnnotations`.
 
 ### <a name="cors"></a>CORS
-Servizi mobili includeva un certo supporto per CORS eseguendo il wrapping della soluzione CORS di ASP.NET. Questo livello di wrapping è stato rimosso per offrire allo sviluppatore un maggiore controllo, pertanto è possibile sfruttare direttamente il [supporto per CORS di ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
+Servizi mobili includeva un certo supporto per CORS eseguendo il wrapping della soluzione CORS di ASP.NET. Questo livello di wrapping è stato rimosso per offrire allo sviluppatore un maggiore controllo, pertanto è possibile sfruttare direttamente il [supporto per CORS di ASP.NET](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 Le principali aree problematiche per l'uso di CORS sono rappresentate dal fatto che le intestazioni `eTag` e `Location` devono essere consentite per il corretto funzionamento degli SDK del client.
 
@@ -208,12 +219,16 @@ Tutti gli ApiController che verranno usati da un client mobile ora devono dispor
 
 L'oggetto `ApiServices` non è più incluso nell'SDK. Per accedere alle impostazioni dell'app per dispositivi mobili, è possibile usare il codice seguente:
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```csharp
+MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```
 
 Analogamente, la registrazione viene ora effettuata mediante la scrittura di tracce ASP.NET standard:
 
-    ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
-    traceWriter.Info("Hello, World");  
+```csharp
+ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
+traceWriter.Info("Hello, World");  
+```
 
 ## <a name="authentication"></a>Considerazioni sull'autenticazione
 I componenti di autenticazione di Servizi mobili sono ora stati spostati nella funzionalità di autenticazione/autorizzazione del servizio app. Per informazioni sull'abilitazione di questa funzionalità per il sito, vedere l'argomento [Aggiungere l'autenticazione all'app per dispositivi mobili](app-service-mobile-ios-get-started-users.md) .
@@ -227,11 +242,15 @@ Se si usava una delle altre opzioni AuthorizeLevel, ad esempio Admin o Applicati
 ### <a name="getting-additional-user-information"></a>Recupero di informazioni aggiuntive sull'utente
 È possibile ottenere informazioni aggiuntive sull'utente, inclusi i token di accesso tramite il metodo `GetAppServiceIdentityAsync()` :
 
-        FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```csharp
+FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```
 
 Inoltre, se l'applicazione stabilisce dipendenze su ID utente, ad esempio memorizzandole in un database, è importante notare che gli ID utente tra Servizi mobili e App per dispositivi mobili del servizio app sono diversi. È tuttavia ancora possibile ottenere l'ID utente di Servizi mobili. Tutte le sottoclassi ProviderCredentials hanno una proprietà UserId. Pertanto, continuando dall'esempio precedente:
 
-        string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```csharp
+string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```
 
 Se l'app stabilisce dipendenze sugli ID utente, è importante sfruttare la stessa registrazione con un provider di identità, se possibile. Gli ID utente sono in genere destinati alla registrazione dell'applicazione che è stata usata, pertanto l'introduzione di una nuova registrazione potrebbe creare problemi di associazione degli utenti ai relativi dati.
 
@@ -243,9 +262,11 @@ Dopo aver reso operativo un back-end dell'app per dispositivi mobili, è possibi
 
 Una delle principali modifiche tra le versioni è rappresentata dai costruttori che non richiedono più una chiave applicazione. Ora è sufficiente passare l'URL dell'app per dispositivi mobili. Ad esempio, nei client .NET, il costruttore `MobileServiceClient` ora è:
 
-        public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net", // URL of the Mobile App
-        );
+```csharp
+public static MobileServiceClient MobileService = new MobileServiceClient(
+    "https://contoso.azurewebsites.net", // URL of the Mobile App
+);
+```
 
 Per altre informazioni sull'installazione dei nuovi SDK e sull'uso della nuova struttura, visitare i collegamenti seguenti:
 
@@ -258,18 +279,12 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 
 <!-- URLs. -->
 
-[portale di Azure]: https://portal.azure.com/
-[portale di Azure classico]: https://manage.windowsazure.com/
-[Che cosa sono le app per dispositivi mobili?]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Portale di Azure]: https://portal.azure.com/
+[Informazioni sulle app per dispositivi mobili]: app-service-mobile-value-prop.md
+[Mobile App Server SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Utilità di pianificazione di Azure]: /en-us/documentation/services/scheduler/
+[Utilità di pianificazione di Azure]: /azure/scheduler/
 [processo Web]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [Come usare l'SDK del server .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [prezzi del servizio app]: https://azure.microsoft.com/pricing/details/app-service/
 [panoramica di .NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c16d85479399d7988be18f9b852563617bb824b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e1b4681bc8e42294be6b47a04a24e28f81703e6f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632653"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436858"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Sviluppare programmi Java MapReduce per Apache Hadoop in HDInsight
 
@@ -25,12 +25,12 @@ Informazioni sull'uso di Apache Maven per creare un'applicazione MapReduce basat
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 o versione successiva oppure prodotto equivalente, ad esempio OpenJDK.
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 o versione successiva oppure prodotto equivalente, ad esempio OpenJDK.
     
     > [!NOTE]
     > HDInsight versione 3.4 e precedenti usano Java 7. HDInsight 3.5 e versioni successive usano Java 8.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 ## <a name="configure-development-environment"></a>Configurare l'ambiente di sviluppo
 
@@ -63,7 +63,7 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
 
     Questo comando crea una directory con il nome specificato dal parametro `artifactID` (in questo esempio **wordcountjava**). La directory contiene gli elementi seguenti:
 
-   * `pom.xml`: il modello a oggetti dei progetti ([POM o Project Object Model](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) che contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
+   * `pom.xml`: il modello a oggetti dei progetti ([POM o Project Object Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) che contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
 
    * `src`: la directory che contiene l'applicazione.
 
@@ -94,7 +94,7 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
     </dependency>
    ```
 
-    Questa operazione definisce le librerie richieste (elencate in &lt;artifactId\>) con una versione specifica (elencata in &lt;version\>). In fase di compilazione, queste dipendenze vengono scaricata dal repository Maven predefinito. È possibile usare la [ricerca nel repository Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) per visualizzare più informazioni.
+    Questa operazione definisce le librerie richieste (elencate in &lt;artifactId\>) con una versione specifica (elencata in &lt;version\>). In fase di compilazione, queste dipendenze vengono scaricata dal repository Maven predefinito. È possibile usare la [ricerca nel repository Maven](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) per visualizzare più informazioni.
    
     `<scope>provided</scope>` indica a Maven che queste dipendenze non devono essere fornite con l'applicazione, perché vengono fornite dal cluster HDInsight in fase di esecuzione.
 
@@ -138,7 +138,7 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
     </build>
    ```
 
-    Il primo plug-in configura il [plug-in Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/)che viene usato per compilare un file uberjar (detto a volte fatjar), che contiene le dipendenze richieste dall'applicazione. Impedisce anche la duplicazione di licenze all'interno del pacchetto jar, cosa che potrebbe causare problemi in alcuni sistemi.
+    Il primo plug-in configura il [plug-in Maven Shade](https://maven.apache.org/plugins/maven-shade-plugin/)che viene usato per compilare un file uberjar (detto a volte fatjar), che contiene le dipendenze richieste dall'applicazione. Impedisce anche la duplicazione di licenze all'interno del pacchetto jar, cosa che potrebbe causare problemi in alcuni sistemi.
 
     Il secondo plug-in consente di configurare la versione Java di destinazione.
 
@@ -285,15 +285,15 @@ Questo comando copia i file dal sistema locale nel nodo head. Per altre informaz
 
 In questo documento si è appreso come sviluppare un processo Java MapReduce. Vedere i documenti seguenti per altre modalità di utilizzo di HDInsight.
 
-* [Usare Hive con HDInsight](hdinsight-use-hive.md)
-* [Usare Pig con HDInsight](hdinsight-use-pig.md)
+* [Usare Apache Hive con HDInsight](hdinsight-use-hive.md)
+* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
 Per altre informazioni, vedere anche il [Centro per sviluppatori Java](https://azure.microsoft.com/develop/java/).
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-use-sqoop]:hdinsight-use-sqoop.md
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -303,5 +303,5 @@ Per altre informazioni, vedere anche il [Centro per sviluppatori Java](https://a
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-power-query]:apache-hadoop-connect-excel-power-query.md
 
-[powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+[powershell-PSCredential]: https://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 

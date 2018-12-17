@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: ccfe108b895450e97df1639f6c47eb01823ce5f4
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 8afa6a29d7d97b1d961f8a8ea44a2b62896ec4da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636765"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323064"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST
 
@@ -94,7 +94,7 @@ Se si riceve un messaggio di errore con una parte del processo, prendere in cons
 1. Non è possibile generare metriche rispetto a una sottoscrizione o a un gruppo di risorse come risorsa di Azure. 
 1. Non è possibile inserire nell'archivio una metrica più vecchia di 20 minuti. L'archivio delle metriche è ottimizzato per la creazione di avvisi e di grafici in tempo reale. 
 2. Il numero di nomi delle dimensioni deve corrispondere ai valori e viceversa. Controllare i valori. 
-2. È possibile che vengano generate metriche per un'area geografica che non supporta le metriche personalizzate. Vedere [aree supportate](metrics-custom-overview.md#supported-regions). 
+2. È possibile che vengano generate metriche per un'area geografica che non supporta le metriche personalizzate. Vedere [aree supportate](../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -118,4 +118,4 @@ Se si riceve un messaggio di errore con una parte del processo, prendere in cons
 
  
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sulle [metriche personalizzate](metrics-custom-overview.md).
+- Altre informazioni sulle [metriche personalizzate](../azure-monitor/platform/metrics-custom-overview.md).

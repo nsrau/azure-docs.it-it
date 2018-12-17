@@ -2,16 +2,17 @@
 title: Uso del supporto del feed delle modifiche in Azure Cosmos DB
 description: Usare il supporto del feed delle modifiche di Azure Cosmos DB per tenere traccia delle modifiche nei documenti, eseguire elaborazioni basate su eventi come i trigger e mantenere aggiornati i sistemi di cache e analisi.
 author: rafats
+ms.author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: rafats
-ms.openlocfilehash: 4edf637d97070416c0dc2970f4bed483e5f4f34d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621310"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133758"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Feed di modifiche in Azure Cosmos DB
 
@@ -82,7 +83,7 @@ Ad esempio, con un feed di modifiche è possibile eseguire in modo efficiente le
 
 Di seguito sono indicati alcuni degli scenari che è possibile implementare facilmente con il feed di modifiche:
 
-* Nelle app Web e per dispositivi mobili [senza server](http://azure.com/serverless) è possibile tenere traccia di eventi come tutte le modifiche al profilo, alle preferenze o alle località dei clienti, e attivare determinate azioni come l'invio di notifiche push ai dispositivi tramite [Funzioni di Azure](#azure-functions). 
+* Nelle app Web e per dispositivi mobili [senza server](https://azure.microsoft.com/en-us/solutions/serverless/) è possibile tenere traccia di eventi come tutte le modifiche al profilo, alle preferenze o alle località dei clienti, e attivare determinate azioni come l'invio di notifiche push ai dispositivi tramite [Funzioni di Azure](change-feed-functions.md).
 
 * Se si usa Azure Cosmos DB per creare un gioco, è ad esempio possibile usare il feed delle modifiche per implementare classifiche in tempo reale in base ai punteggi delle partite completate.
 
@@ -120,7 +121,7 @@ Il feed di modifiche è disponibile per ogni chiave di partizione logica nel con
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È ora possibile procedere per altre informazioni sul feed di modifiche negli articoli seguenti:
+È possibile ottenere altre informazioni sul feed di modifiche negli articoli seguenti:
 
 * [Opzioni per la lettura di feed di modifiche](read-change-feed.md)
 * [Feed di modifiche con Funzioni di Azure](change-feed-functions.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: b842a80762989c34ae278a397cc49c088ff77fb2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525519"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316591"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato dei file di log del servizio Importazione/Esportazione di Azure
 Quando il servizio Importazione/Esportazione di Microsoft Azure esegue un'azione in un'unità come parte di un processo di importazione o di esportazione, i log vengono scritti in BLOB in blocchi nell'account di archiviazione associato a tale processo.  
@@ -74,7 +74,7 @@ page-range-list ::=
 <PageRangeList>  
       [<PageRange Offset="page-range-offset" Length="page-range-length"   
        [Hash="md5-hash"] Status="page-range-status"/>]  
-      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
        [Hash="md5-hash"] Status="page-range-status"/>]  
 </PageRangeList>  
   
@@ -82,7 +82,7 @@ block-list ::=
 <BlockList>  
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
        [Hash="md5-hash"] Status="block-status"/>]  
-      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        [Hash="md5-hash"] Status="block-status"/>]  
 </BlockList>  
   
@@ -142,7 +142,7 @@ Nella tabella seguente vengono illustrati gli elementi del file di log.
 |`Properties/Path/@Hash`|Attributo, stringa|L'hash MD5 codificato in base 16 del file di proprietà.|  
 |`Blob/Status`|string|Lo stato di elaborazione del BLOB.|  
   
-# <a name="drive-status-codes"></a>Codici di stato per un'unità  
+## <a name="drive-status-codes"></a>Codici di stato per un'unità  
 Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un'unità.  
   
 |Codice di stato|DESCRIZIONE|  

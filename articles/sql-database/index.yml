@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7591e1303e69df522a02b08a079ac00bdac5f6bc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0049468330a9fcb26f023de2a8adb5dfd1544321
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870300"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436807"
 documentType: LandingData
 title: Documentazione sul database SQL di Azure
 metadata:
@@ -48,7 +48,7 @@ sections:
       image:
         src: media/index/i_perftier.svg
       title: Piani tariffari/livelli di servizio
-    - href: /azure/sql-database/sql-database-scale-resources
+    - href: /azure/sql-database/sql-database-scalability-index
       html: <p>È possibile aumentare le prestazioni, aumentare le istanze o partizionare facilmente i database a seconda delle esigenze per migliorare le prestazioni dell'applicazione.</p>
       image:
         src: media/index/i_scale.svg
@@ -78,11 +78,11 @@ sections:
       image:
         src: media/index/i_security.svg
       title: Sicurezza avanzata
-    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
-      html: <p>Le funzionalità di intelligenza incorporate consentono di ridurre drasticamente i costi di esecuzione e gestione dei database, oltre a ottimizzare sia le prestazioni che la sicurezza delle applicazioni.</p>
+    - href: /azure/sql-database/sql-database-monitoring-tuning-index
+      html: <p>Il monitoraggio e l'ottimizzazione intelligenti predefiniti consentono di ridurre drasticamente i costi di esecuzione e gestione dei database e di ottimizzare le prestazioni dell'applicazione.</p>
       image:
         src: media/index/i_intelligence.svg
-      title: Intelligenza incorporata
+      title: Monitoraggio e ottimizzazione
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph

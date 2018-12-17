@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: ddfcb90090d82d8fe947292737163a81c715b32d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972828"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970587"
 ---
 # <a name="local-forwarder"></a>Server d'inoltro locale
 
@@ -28,7 +27,7 @@ Il servizio d'inoltro locale è un agente che raccoglie dati di telemetria di Ap
 
 Il servizio d'inoltro locale è un [progetto open source su GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Esistono diversi modi per eseguire il servizio d'inoltro locale su più piattaforme.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 #### <a name="windows-service"></a>Servizio Windows
 
@@ -40,7 +39,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 1. Scaricare il file LF.WindowsServiceHost.zip dalla [pagina della versione del servizio d'inoltro locale](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) in GitHub.
 
-    ![Screenshot della pagina di download della versione del server d'inoltro locale](.\media\opencensus-local-forwarder\001-local-forwarder-windows-service-host-zip.png)
+    ![Screenshot della pagina di download della versione del server d'inoltro locale](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
 2. Per una maggiore semplicità di dimostrazione, in questo esempio il file ZIP verrà estratto nel percorso `C:\LF-WindowsServiceHost`.
 
@@ -56,7 +55,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     Per esaminare il nuovo servizio tramite il tipo di interfaccia utente grafica dei servizi ``services.msc``
         
-     ![Screenshot del servizio di inoltro locale](.\media\opencensus-local-forwarder\002-services.png)
+     ![Screenshot del servizio di inoltro locale](./media/opencensus-local-forwarder/002-services.png)
 
 3. **Fare clic con il pulsante destro del mouse** sul nuovo servizio d'inoltro locale e selezionare **Avvia**. Il servizio entrerà in stato di esecuzione.
 
@@ -74,7 +73,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
 6. Per verificare che siano state applicate le impostazioni desiderate e che il servizio d'inoltro locale sia in ascolto dei dati di traccia come previsto, consultare il file ``LocalForwarder.log``. Nella parte inferiore del file verranno visualizzati risultati simili all'immagine seguente:
 
-    ![Schermata del file LocalForwarder.log](.\media\opencensus-local-forwarder\003-log-file.png)
+    ![Schermata del file LocalForwarder.log](./media/opencensus-local-forwarder/003-log-file.png)
 
 #### <a name="console-application"></a>Applicazione console
 

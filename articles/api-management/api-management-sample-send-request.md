@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29714672"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970179"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso di servizi esterni dal servizio Gestione API di Azure
 I criteri disponibili nel servizio Gestione API di Azure possono essere usati per una vasta gamma di attività basate esclusivamente su richieste in ingresso, risposte in uscita e informazioni di configurazione di base. Tuttavia, la possibilità di interagire con i servizi esterni dai criteri di Gestione API offre molte altre opportunità.
@@ -68,13 +68,13 @@ Quando si usa uno stile di richiesta fire-and-forget è necessario tenere presen
 I criteri `send-request` consentono l'utilizzo di un servizio esterno per eseguire funzioni di elaborazione complesse e restituire dati al servizio Gestione API, che può essere usato per un'elaborazione successiva dei criteri.
 
 ### <a name="authorizing-reference-tokens"></a>Autorizzazione di token di riferimento
-Una funzione fondamentale di Gestione API è la protezione delle risorse back-end. Se il server di autorizzazione usato dall'API crea [token JWT](http://jwt.io/) come parte del flusso OAuth2, in modo analogo ad [Azure Active Directory](../active-directory/active-directory-aadconnect.md), è possibile usare i criteri `validate-jwt` per verificare la validità del token. Alcuni server di autorizzazione creano i cosiddetti [token di riferimento](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/), che non possono essere verificati senza eseguire il callback al server di autorizzazione.
+Una funzione fondamentale di Gestione API è la protezione delle risorse back-end. Se il server di autorizzazione usato dall'API crea [token JWT](https://jwt.io/) come parte del flusso OAuth2, in modo analogo ad [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), è possibile usare i criteri `validate-jwt` per verificare la validità del token. Alcuni server di autorizzazione creano i cosiddetti [token di riferimento](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/), che non possono essere verificati senza eseguire il callback al server di autorizzazione.
 
 ### <a name="standardized-introspection"></a>Introspezione standardizzata
 In passato non era disponibile alcuna modalità standardizzata per verificare un token di riferimento con un server di autorizzazione. L'IETF, tuttavia, ha recentemente proposto e pubblicato lo standard [RFC 7662](https://tools.ietf.org/html/rfc7662) , che definisce le modalità con cui un server di risorse può verificare la validità di un token.
 
 ### <a name="extracting-the-token"></a>Estrazione del token
-Il primo passaggio consiste nell'estrarre il token dall'intestazione di autorizzazione. Il valore dell'intestazione deve essere costituito dallo schema di autorizzazione `Bearer`, uno spazio singolo e il token di autorizzazione, in base allo standard [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Purtroppo esistono casi in cui lo schema di autorizzazione viene omesso. Per questo motivo, durante l'analisi Gestione API suddivide il valore dell'intestazione su uno spazio e seleziona l'ultima stringa dalla matrice di stringhe restituita. Questa rappresenta una soluzione alternativa per le intestazioni di autorizzazione con formato non corretto.
+Il primo passaggio consiste nell'estrarre il token dall'intestazione di autorizzazione. Il valore dell'intestazione deve essere costituito dallo schema di autorizzazione `Bearer`, uno spazio singolo e il token di autorizzazione, in base allo standard [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1). Purtroppo esistono casi in cui lo schema di autorizzazione viene omesso. Per questo motivo, durante l'analisi Gestione API suddivide il valore dell'intestazione su uno spazio e seleziona l'ultima stringa dalla matrice di stringhe restituita. Questa rappresenta una soluzione alternativa per le intestazioni di autorizzazione con formato non corretto.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
@@ -118,7 +118,7 @@ Per individuare un token non valido e, in tal caso restituire una risposta 401, 
 </choose>
 ```
 
-In base allo standard [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3), in cui viene descritto come usare i token `bearer`, Gestione API restituisce anche un'intestazione `WWW-Authenticate` con la risposta 401. L'intestazione WWW-Authenticate è progettata per indicare a un client come realizzare una richiesta correttamente autorizzata. A causa dell'ampia gamma di approcci possibili con il framework di OAuth2, è difficile comunicare tutte le informazioni necessarie. Fortunatamente, sono disponibili soluzioni che consentono ai [client di definire le modalità per autorizzare correttamente le richieste a un server di risorse](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+In base allo standard [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3), in cui viene descritto come usare i token `bearer`, Gestione API restituisce anche un'intestazione `WWW-Authenticate` con la risposta 401. L'intestazione WWW-Authenticate è progettata per indicare a un client come realizzare una richiesta correttamente autorizzata. A causa dell'ampia gamma di approcci possibili con il framework di OAuth2, è difficile comunicare tutte le informazioni necessarie. Fortunatamente, sono disponibili soluzioni che consentono ai [client di definire le modalità per autorizzare correttamente le richieste a un server di risorse](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Soluzione finale
 Al termine, si ottengono i criteri seguenti:

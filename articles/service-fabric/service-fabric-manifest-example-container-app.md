@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6f538fa821e546d12c5a2bdb9585cc85871241fa
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 010fd442419f57f8b53705be8d3f49fdb84e28fd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094153"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262453"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Esempi di manifesti dell'applicazione e del servizio per applicazioni multicontenitore
 Di seguito sono riportati alcuni esempi di manifesto dell'applicazione e del servizio per un'applicazione di Service Fabric con più contenitori. Lo scopo di questi esempi è mostrare le impostazioni disponibili e come usarle. Questi manifesti dell'applicazione e del servizio sono basati sui manifesti descritti nell'[esempio di contenitore di Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows).
@@ -295,7 +295,7 @@ Specifica i criteri per l'attivazione degli host dei contenitori. Per altre info
 Credenziali per il repository di immagini contenitore da cui eseguire il pull di immagini. Per altre informazioni, vedere [Elemento RepositoryCredentials](service-fabric-service-model-schema-elements.md#RepositoryCredentialsElementRepositoryCredentialsTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="portbinding-element"></a>Elemento PortBinding
-Specifica la risorsa endpoint da associare alla porta del contenitore esposta. Per altre informazioni, vedere [Elemento PortBinding](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+Specifica la risorsa endpoint da associare alla porta del contenitore esposta. Per altre informazioni, vedere [Elemento PortBinding](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInServicePackageContainerPolicyTypecomplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="volume-element"></a>Elemento Volume
 Specifica il volume da associare al contenitore. Per altre informazioni, vedere [Elemento Volume](service-fabric-service-model-schema-elements.md#VolumeElementContainerVolumeTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
@@ -306,14 +306,14 @@ Opzioni del driver da passare al driver. Per altre informazioni, vedere [Element
 ### <a name="imageoverrides-element"></a>Elemento ImageOverrides
 I contenitori di Windows Server potrebbero non essere compatibili nelle diverse versioni del sistema operativo.  È possibile specificare più immagini del sistema operativo per ogni contenitore e contrassegnarle con le versioni della build del sistema operativo. Ottenere la versione della build del sistema operativo eseguendo "winver" al prompt dei comandi di Windows. Se la versione della build del sistema operativo sottostante è 16299 (Windows Server versione 1709), Service Fabric seleziona l'immagine del contenitore contrassegnata da Os="16299". Si presuppone che se un'immagine contenitore non è contrassegnata possa funzionare in tutte le versioni del sistema operativo e possa eseguire l'override dell'immagine specificata nel manifesto del servizio. Per altre informazioni, vedere [Elemento ImageOverrides](service-fabric-service-model-schema-elements.md#ImageOverridesElementImageOverridesTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
-### <a name="image-element"></a>Elemento Image
+### <a name="image-element"></a>Elemento immagine
 Immagine del contenitore corrispondente al numero di versione della build del sistema operativo da avviare. Se l'attributo del sistema operativo non è specificato, si presuppone che l'immagine del contenitore possa funzionare in tutte le versioni del sistema operativo ed eseguire l'override dell'immagine specificata nel manifesto del servizio. Per altre informazioni, vedere [Elemento Image](service-fabric-service-model-schema-elements.md#ImageElementImageTypeComplexTypeDefinedInImageOverridesTypecomplexType)
 
 ### <a name="environmentoverrides-element"></a>Elemento EnvironmentOverrides
  Per altre informazioni, vedere [Elemento EnvironmentOverrides](service-fabric-service-model-schema-elements.md#EnvironmentOverridesElementEnvironmentOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="environmentvariable-element"></a>Elemento EnvironmentVariable
-Variabile di ambiente. Per altre informazioni, vedere [Elemento EnvironmentVariable](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+Variabile di ambiente. Per altre informazioni, vedere [Elemento EnvironmentVariable](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="certificateref-element"></a>Elemento CertificateRef
 Specifica le informazioni su un certificato X509 che deve essere esposto all'ambiente del contenitore. Questo certificato deve essere installato nell'archivio LocalMachine di tutti i nodi del cluster.
@@ -356,7 +356,7 @@ Repository e immagine in https://hub.docker.com o nel Registro contenitori di Az
 Passa le variabili di ambiente al contenitore o all'eseguibile.  Per altre informazioni, vedere [Elemento EnvironmentVariables](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="environmentvariable-element"></a>Elemento EnvironmentVariable
-Variabile di ambiente. Per altre informazioni, vedere [Elemento EnvironmentVariable](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+Variabile di ambiente. Per altre informazioni, vedere [Elemento EnvironmentVariable](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>Elemento ConfigPackage
 Dichiara una cartella, denominata dall'attributo Name, che contiene un file Settings.xml. Questo file contiene sezioni di impostazioni di coppie chiave-valore che possono essere lette dal processo in fase di esecuzione. Se durante un aggiornamento viene modificata solo la versione del pacchetto di configurazione, il processo in esecuzione non viene riavviato. Un callback piuttosto notifica al processo che le impostazioni di configurazione sono cambiate affinché vengano ricaricate in modo dinamico. Per altre informazioni, vedere [Elemento ConfigPackage](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
@@ -403,7 +403,7 @@ Passa un elenco di comandi delimitato da virgole al contenitore. Per altre infor
 Passa le variabili di ambiente al contenitore o all'eseguibile.  Per altre informazioni, vedere [Elemento EnvironmentVariables](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="environmentvariable-element"></a>Elemento EnvironmentVariable
-Variabile di ambiente. Per altre informazioni, vedere [Elemento EnvironmentVariable](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+Variabile di ambiente. Per altre informazioni, vedere [Elemento EnvironmentVariable](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>Elemento ConfigPackage
 Dichiara una cartella, denominata dall'attributo Name, che contiene un file Settings.xml. Questo file contiene sezioni di impostazioni di coppie chiave-valore che possono essere lette dal processo in fase di esecuzione. Se durante un aggiornamento viene modificata solo la versione del pacchetto di configurazione, il processo in esecuzione non viene riavviato. Un callback piuttosto notifica al processo che le impostazioni di configurazione sono cambiate affinché vengano ricaricate in modo dinamico. Per altre informazioni, vedere [Elemento ConfigPackage](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)

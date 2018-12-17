@@ -3,7 +3,7 @@ title: Centro sicurezza di Azure e macchine virtuali di Azure con Linux | Docume
 description: Questo documento illustra in che modo il Centro sicurezza di Azure può proteggere le macchine virtuali di Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 060d10133ec4b8488410140faf32053acb59cf0d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5ec77d7bcc3715946c4574bca17f280a9f483b45
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307024"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340949"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Centro sicurezza di Azure e macchine virtuali di Azure con Linux
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -57,7 +57,7 @@ I criteri di sicurezza definiscono il set di controlli consigliato per le risors
 ![Criteri di sicurezza](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig1.png)
 
 > [!NOTE]
-> Per altre informazioni su ciascun **criterio di prevenzione** disponibile, vedere l'articolo [Impostare i criteri di sicurezza](security-center-azure-policy.md).
+> Per altre informazioni su ciascun **criterio di prevenzione** disponibile, vedere l'articolo [Impostare i criteri di sicurezza](tutorial-security-policy.md).
 > 
 
 ## <a name="manage-security-recommendations"></a>Gestire le raccomandazioni per la sicurezza
@@ -80,7 +80,7 @@ Una volta impostato un criterio di sicurezza, il Centro sicurezza analizza lo st
 > 
 
 ## <a name="monitor-security-health"></a>Monitorare l'integrità della sicurezza
-Una volta abilitati i [criteri di sicurezza](security-center-azure-policy.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità.  Nel pannello **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse ed eventuali problemi rilevati. Quando si fa clic su **Macchine virtuali** nel riquadro **Integrità sicurezza delle risorse**, viene visualizzato il pannello **Macchine virtuali** con raccomandazioni per le macchine virtuali. 
+Una volta abilitati i [criteri di sicurezza](tutorial-security-policy.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità.  Nel pannello **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse ed eventuali problemi rilevati. Quando si fa clic su **Macchine virtuali** nel riquadro **Integrità sicurezza delle risorse**, viene visualizzato il pannello **Macchine virtuali** con raccomandazioni per le macchine virtuali. 
 
 ![Integrità della sicurezza](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
@@ -92,7 +92,7 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 Selezionare un avviso di sicurezza per altre informazioni sugli eventi che hanno attivato l'avviso e, se presenti, i passaggi da eseguire per correggere un attacco. Gli avvisi di sicurezza vengono raggruppati per [tipo](security-center-alerts-type.md) e data.
 
 ## <a name="monitor-security-health"></a>Monitorare l'integrità della sicurezza
-Una volta abilitati i [criteri di sicurezza](security-center-azure-policy.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità.  Nel pannello **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse ed eventuali problemi rilevati. Quando si fa clic su **Macchine virtuali** nel riquadro **Integrità sicurezza delle risorse**, viene visualizzato il pannello **Macchine virtuali** con raccomandazioni per le macchine virtuali. 
+Una volta abilitati i [criteri di sicurezza](tutorial-security-policy.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità.  Nel pannello **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse ed eventuali problemi rilevati. Quando si fa clic su **Macchine virtuali** nel riquadro **Integrità sicurezza delle risorse**, viene visualizzato il pannello **Macchine virtuali** con raccomandazioni per le macchine virtuali. 
 
 ![Integrità della sicurezza](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig4.png)
 
@@ -104,7 +104,7 @@ Se si fa clic su questa raccomandazione, verranno visualizzati altri dettagli su
 ## <a name="see-also"></a>Vedere anche 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 

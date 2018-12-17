@@ -1,26 +1,24 @@
 ---
-title: Esempi di Azure PowerShell | Microsoft Docs
+title: Esempi di Azure PowerShell
+titlesuffix: Azure Load Balancer
 description: Esempi di Azure PowerShell
 services: virtual-network
 documentationcenter: load-balancer
 author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags: ''
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/17/2018
+ms.date: 12/10/2018
 ms.author: kumud
-ms.openlocfilehash: 7208c29a1f3fa6459599639e478ea24a2fd9e7ac
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cf4e0346a93961df14afe48ec767e383f92eab3b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182121"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253715"
 ---
 # <a name="azure-powershell-samples-for-load-balancer"></a>Esempi di Azure PowerShell per Load Balancer
 
