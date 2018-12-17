@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: iainfou
-ms.openlocfilehash: 266e2c1f986ba78c9aac40887bc9a7dee1cbff82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 62c58e44fa62c7c244da556a89682fe697d0ba24
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420354"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000135"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Disponibilità di quote e aree per Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,9 @@ Azure Kubernetes Service (AKS) è disponibile nelle aree seguenti:
 - Giappone orientale
 - Europa settentrionale
 - Asia sud-orientale
+- India meridionale
 - Regno Unito meridionale
+- Regno Unito occidentale
 - Europa occidentale
 - Stati Uniti occidentali
 - Stati Uniti occidentali 2

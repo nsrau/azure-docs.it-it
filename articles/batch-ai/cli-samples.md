@@ -16,14 +16,17 @@ ms.workload: ''
 ms.date: 07/27/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 704952b9c1330e372047be06f61bce9a15a90b92
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 740c2ea894fd3493d0e47480784a90e9021ecbeb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058181"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410500"
 ---
 # <a name="azure-cli-examples-for-azure-batch-ai"></a>Esempi di interfaccia della riga di comando di Azure per Batch per intelligenza artificiale
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 La tabella seguente include collegamenti a esempi dell'interfaccia della riga di comando di Azure Batch per intelligenza artificiale.
 
