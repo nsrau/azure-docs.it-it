@@ -55,7 +55,7 @@
 ### [App senza server](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Cluster di microservizi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Distribuire
-### [App per dispositivi mobili e Web dal controllo del codice sorgente](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
+### [App per dispositivi mobili e Web dal controllo del codice sorgente](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)
 ### [Microservizi in locale](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [VM Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)

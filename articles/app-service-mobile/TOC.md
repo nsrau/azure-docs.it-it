@@ -79,11 +79,11 @@
 #### [Creare un ambiente del servizio app usando un modello](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Distribuire
-### [Distribuzione della sincronizzazione cloud](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Distribuzione continua](../app-service/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Distribuzione della sincronizzazione cloud](../app-service/deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Distribuzione continua](../app-service/deploy-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Ambienti di gestione temporanea](../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Distribuzione Git locale](../app-service/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Distribuzione Azure Resource Manager](../app-service/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Distribuzione Git locale](../app-service/deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Distribuzione Azure Resource Manager](../app-service/deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Scalabilità
 ### [Aumentare le prestazioni di un'app](../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
