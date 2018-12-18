@@ -311,8 +311,8 @@ items:
     items:
     - name: Funzionalità dei database
       href: sql-database-develop-overview.md
-    - name: Dati JSON
-      href: sql-database-json-features.md
+    - name: Funzionalità multimodello
+      href: sql-database-multi-model-features.md
     - name: In memoria
       href: sql-database-in-memory.md
     - name: Tabelle temporali
@@ -501,6 +501,8 @@ items:
     items:
     - name: Connettività
       href: sql-database-libraries.md
+    - name: Uso dei dati JSON
+      href: sql-database-json-features.md
     - name: Usare il connettore Spark
       href: sql-database-spark-connector.md
     - name: Autenticare l'app
@@ -676,9 +678,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: d276b202da8055965a43f5313b6a8c4b335f74b2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3a4a06a79b0931c95bf1ef35e250711f1cd90de8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436025"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541796"

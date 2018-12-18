@@ -3,26 +3,30 @@ items:
   href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni su Ricerca personalizzata Bing
+  - name: Informazioni sull'API Ricerca personalizzata Bing
     href: overview.md
   expanded: true
-- name: Guide introduttive per l'API REST
+- name: Guide introduttive
   items:
-  - name: Creare la prima istanza
+  - name: Creare un'istanza di Ricerca personalizzata
     href: quick-start.md
-  - name: C#
-    href: call-endpoint-csharp.md
-  - name: Java
-    href: call-endpoint-java.md
-  - name: Node.js
-    href: call-endpoint-nodejs.md
-  - name: Python
-    href: call-endpoint-python.md
+  - name: Ottenere i risultati della ricerca dall'istanza
+    items:
+    - name: API REST
+      items:
+      - name: Uso di C#
+        href: call-endpoint-csharp.md
+      - name: Uso di Java
+        href: call-endpoint-java.md
+      - name: Uso di Node.js
+        href: call-endpoint-nodejs.md
+      - name: Uso di Python
+        href: call-endpoint-python.md
+    - name: SDK
+      items:
+      - name: Uso di C#
+        href: sdk-csharp-quick-start.md
   expanded: true
-- name: Guide introduttive per SDK
-  items:
-  - name: Guida introduttiva per C# SDK
-    href: sdk-csharp-quick-start.md
 - name: Esercitazioni
   items:
   - name: Compilare una pagina Web di Ricerca personalizzata
@@ -33,19 +37,19 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
 - name: Guide alle procedure
   items:
-  - name: Configurare un'esperienza di Ricerca personalizzata
+  - name: Configurare un'esperienza di ricerca personalizzata
     href: define-your-custom-view.md
-  - name: Chiamare Ricerca personalizzata
+  - name: Chiamare un'istanza di ricerca personalizzata
     href: search-your-custom-view.md
-  - name: Configurare l'esperienza dell'interfaccia utente ospitata
+  - name: Configurare e integrare un'interfaccia utente ospitata
     href: hosted-ui.md
-  - name: Condividere la ricerca personalizzata
+  - name: Condividere un'istanza di ricerca personalizzata
     href: share-your-custom-search.md
-  - name: Ottenere immagini dall'istanza
+  - name: Ottenere immagini dall'istanza di ricerca
     href: get-images-from-instance.md
-  - name: Ottenere video dall'istanza
+  - name: Ottenere video dall'istanza di ricerca
     href: get-videos-from-instance.md
-  - name: Configurare l'esperienza di suggerimenti automatici personalizzati
+  - name: Configurare un'esperienza di suggerimenti automatici personalizzati
     href: define-custom-suggestions.md
   - name: Gestire l'evidenziazione dei risultati
     href: hit-highlighting.md
@@ -85,9 +89,9 @@ items:
     href: endpoint-custom.md
   - name: Supporto di lingua e area geografica
     href: language-support.md
-ms.openlocfilehash: 62392b7ff226072108c61f10b3f0519677aaba6b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 81d0d94efc519fa241ab36979506b2baddf50d91
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431994"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555866"
