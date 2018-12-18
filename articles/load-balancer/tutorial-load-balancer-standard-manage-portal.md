@@ -1,14 +1,11 @@
 ---
-title: 'Esercitazione: Bilanciare il carico del traffico Internet verso le macchine virtuali - Portale di Azure | Microsoft Docs'
+title: 'Esercitazione: Bilanciare il carico del traffico Internet verso le macchine virtuali - Portale di Azure'
+titlesuffix: Azure Load Balancer
 description: Questa esercitazione mostra come creare e gestire un'istanza di Load Balancer Standard con il portale di Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create and Standard Load balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 76d7f0b959037808c3358c2b78b837a783117457
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687312"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260005"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico Internet verso le macchine virtuali con il portale di Azure
 
