@@ -66,7 +66,7 @@ In questo caso verranno definiti i tag personalizzati **celebrità**, **bandiera
 > [!NOTE]
 > L'esercitazione è progettata per usare chiavi di sottoscrizione nelle aree visibili negli endpoint seguenti. Assicurarsi che le chiavi API corrispondano agli URI delle aree o potrebbero non funzionare con gli endpoint seguenti:
 
-         // Your API keys
+        // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string ComputerVisionKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string CustomVisionKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -128,11 +128,11 @@ In questo caso verranno definiti i tag personalizzati **celebrità**, **bandiera
 4. Per accedere, scegliere dall'elenco di account Internet disponibili.
 5. Prendere nota delle chiavi API visualizzate nella pagina del servizio.
     
-   ![Chiavi dell'API Visione artificiale](images/tutorial-computer-vision-keys.PNG)
+    ![Chiavi dell'API Visione artificiale](images/tutorial-computer-vision-keys.PNG)
     
 6. Fare riferimento al codice sorgente del progetto per la funzione che esegue l'analisi dell'immagine con l'API Visione artificiale.
 
-         public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
+        public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
         {
             var File = ImageUrl;
             string Body = $"{{\"URL\":\"{File}\"}}";
@@ -149,7 +149,7 @@ In questo caso verranno definiti i tag personalizzati **celebrità**, **bandiera
                 ComputerVisionPrediction CVObject = JsonConvert.DeserializeObject<ComputerVisionPrediction>(Response.Content.ReadAsStringAsync().Result);
 
                 if ((CVObject.categories[0].detail != null) && (CVObject.categories[0].detail.celebrities.Count() > 0))
-                {                 
+                {
                     ReviewTags[2].Value = "true";
                 }
             }
@@ -179,12 +179,13 @@ In questo caso verranno definiti i tag personalizzati **celebrità**, **bandiera
                 SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
             }
             return response.IsSuccessStatusCode;
-        }       
+        }
  
 ## <a name="reviews-for-human-in-the-loop"></a>Revisioni human-in-the-loop
 
 1. Nelle sezioni precedenti si sono analizzate le immagini in ingresso per rilevare la presenza di contenuti per adulti e spinti (Content Moderator), celebrità (Visione artificiale) e bandiere (Visione personalizzata).
 2. In base alle soglie di corrispondenza di ogni analisi, rendere disponibili i casi meno netti per la revisione umana nello strumento di revisione.
+
         public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
 
             ReviewCreationRequest Review = new ReviewCreationRequest();
@@ -207,7 +208,10 @@ In questo caso verranno definiti i tag personalizzati **celebrità**, **bandiera
 
 1. Questa esercitazione presuppone la presenza di una directory "C:Test" con un file di testo che include un elenco di URL di immagini.
 2. Il codice seguente controlla l'esistenza del file e legge tutti gli URL in memoria.
-            // Verificare la presenza di una directory di test con un file di testo con l'elenco di URL di immagini var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
+
+            // Verificare la presenza di una directory di test con un file di testo con l'elenco di URL di immagini
+            var topdir = @"C:\test\";
+            var Urlsfile = topdir + "Urls.txt";
 
             if (!Directory.Exists(topdir))
                 return;
@@ -224,7 +228,11 @@ In questo caso verranno definiti i tag personalizzati **celebrità**, **bandiera
 
 1. Questa funzione di primo livello esegue un ciclo su tutti gli URL delle immagini nel file di testo menzionati in precedenza.
 2. Li analizza con ogni API e se il punteggio di attendibilità della corrispondenza rientra nei criteri stabiliti, crea una revisione per moderatori umani.
-             // per ogni URL di immagine nel file... foreach (var Url in Urls) { // Inizializza una nuova matrice di tag di revisione ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
+
+            // per ogni URL di immagine nel file...
+            foreach (var Url in Urls) {
+                // Inizializza una nuova matrice di tag di revisione
+                ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
 
                 // Evaluate for potential adult and racy content with Content Moderator API
                 EvaluateAdultRacy(Url, ref ReviewTags);
@@ -249,4 +257,4 @@ Gli sviluppatori che usano Servizi cognitivi, compresi questo esempio e questa l
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Compilare ed estendere l'esercitazione usando i [file di origine del progetto](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) su Github.
+Compilare ed estendere l'esercitazione usando i [file di origine del progetto](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) su GitHub.
