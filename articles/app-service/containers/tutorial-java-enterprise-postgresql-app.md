@@ -10,16 +10,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 0772dbb1aaa6b00994bd653c19b006114377dc5f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165459"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344228"
 ---
-# <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Esercitazione: Creare un'app Web Java EE e Postgres in Azure
+# <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Esercitazione: Compilare un'app Web Java EE e Postgres in Azure
 
-Questa esercitazione illustra come creare un'app Web Java Enterprise Edition (EE) nel servizio app di Azure e connetterla a un database Postgres. Al termine, si avrà un'applicazione [WildFly](http://www.wildfly.org/about/) che archivia i dati in [Database di Azure per PostgreSQL](https://azure.microsoft.com/services/postgresql/) in esecuzione nel [servizio app di Azure per Linux](app-service-linux-intro.md).
+Questa esercitazione illustra come creare un'app Web Java Enterprise Edition (EE) nel servizio app di Azure e connetterla a un database Postgres. Al termine, si avrà un'applicazione [WildFly](https://www.wildfly.org/about/) che archivia i dati in [Database di Azure per PostgreSQL](https://azure.microsoft.com/services/postgresql/) in esecuzione nel [servizio app di Azure per Linux](app-service-linux-intro.md).
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -32,8 +33,8 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 1. [Scaricare e installare Git](https://git-scm.com/)
-1. [Scaricare e installare Maven 3](https://maven.apache.org/install.html)
-1. [Scaricare e installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+2. [Scaricare e installare Maven 3](https://maven.apache.org/install.html)
+3. [Scaricare e installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="clone-and-edit-the-sample-app"></a>Clonare e modificare l'app di esempio
 

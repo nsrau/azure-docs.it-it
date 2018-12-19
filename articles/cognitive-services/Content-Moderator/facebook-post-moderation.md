@@ -10,14 +10,14 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: ead8c1d445bf32ecaaf236b4e73c2a583c755049
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223939"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255432"
 ---
-# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Esercitazione: moderazione del contenuto di Facebook con Content Moderator di Azure
+# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Esercitazione: Moderazione del contenuto di Facebook con Content Moderator
 
 Questa esercitazione illustra come usare Content Moderator basato su Machine Learning per moderare post e commenti di Facebook.
 
@@ -61,7 +61,7 @@ Accedere al [portale di gestione di Azure](https://portal.azure.com/) per creare
 4. Definire le [impostazioni dell'applicazione](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings) seguenti:
 
 > [!NOTE]
-> **cm: Region** deve essere il nome dell'area (senza spazi).
+> Il **cm: Region** deve essere il nome dell'area (senza spazi).
 > Ad esempio **westeurope** e non Europa occidentale, **westcentralus** e non Stati Uniti centro-occidentali e così via.
 >
 
@@ -160,7 +160,7 @@ Gli sviluppatori che usano Servizi cognitivi, compresi questo esempio e questa l
 ## <a name="next-steps"></a>Passaggi successivi
 
 1. [Guardare una demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) di questa soluzione da Microsoft Build 2017.
-1. [Esempio di Facebook su Github](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+1. [Esempio di Facebook su GitHub](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

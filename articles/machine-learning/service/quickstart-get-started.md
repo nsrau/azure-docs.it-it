@@ -1,24 +1,26 @@
 ---
-title: "Guida introduttiva: Creare un'area di lavoro del servizio Machine Learning nel portale di Azure - Azure Machine Learning"
-description: Usare il portale di Azure per creare un'area di lavoro di Azure Machine Learning. Questa area di lavoro rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning con il servizio Azure Machine Learning.
+title: Avvio rapido tramite il portale di Azure
+titleSuffix: Azure Machine Learning service
+description: Introduzione al servizio Azure Machine Learning. Usare il portale di Azure per creare un'area di lavoro che rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: rastala
-ms.author: roastala
+author: hning86
+ms.author: haining
 ms.date: 12/04/2018
-ms.openlocfilehash: 59887c46e3ce06eae250e106a01239a1ba969e7f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: c215a3947069e572f73692ea54010c77d78ae4fd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875315"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273562"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Iniziare a usare Azure Machine Learning con il portale di Azure
 
-In questa guida introduttiva si usa il portale di Azure per creare un'area di lavoro di Azure Machine Learning. Questa area di lavoro rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning con il servizio Machine Learning. Questa guida introduttiva usa le risorse cloud e non richiede installazione. In alternativa, per configurare un server notebook Jupyter, vedere [Guida introduttiva: Iniziare a usare Azure Machine Learning con Python](quickstart-create-workspace-with-python.md).
+In questa guida introduttiva si usa il portale di Azure per creare un'area di lavoro di Azure Machine Learning. Questa area di lavoro rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning con il servizio Machine Learning. Questa guida introduttiva usa le risorse cloud e non richiede installazione. Per configurare il server notebook di Jupyter in alternativa, vedere la [Guida introduttiva: Iniziare a usare Azure Machine Learning con Python](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -37,7 +39,7 @@ Le risorse di Azure seguenti vengono aggiunte automaticamente all'area di lavoro
 
 Le risorse create possono essere usate come prerequisiti per altre esercitazioni e procedure dettagliate per il servizio Machine Learning. Come con altri servizi di Azure, sono previsti limiti per determinate risorse associate a Machine Learning, ad esempio le dimensioni del cluster di elaborazione. Sono disponibili altre informazioni sui [limiti predefiniti e su come aumentare la quota](how-to-manage-quotas.md).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
+Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Accedere alla [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
 
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro 

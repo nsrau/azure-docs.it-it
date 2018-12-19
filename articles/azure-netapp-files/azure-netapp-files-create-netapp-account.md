@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: ad8cc550ce69e4dc4c19a569718fa873a65b3620
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010345"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413184"
 ---
 # <a name="create-a-netapp-account"></a>Creare un account di NetApp
 La creazione di un account di NetApp consente di configurare un pool di capacità e successivamente di creare un volume. Usare il pannello di Azure NetApp Files per creare un nuovo account di NetApp.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-È necessario essere inclusi nell'elenco elementi consentiti per accedere al provider di risorse di Azure Microsoft.NetApp ed essere configurati per l'uso del servizio Azure NetApp Files.  
+È necessario aver registrato la sottoscrizione per l'uso del provider di risorse NetApp e della funzionalità di anteprima pubblica.
 
-[Pagina di iscrizione all'anteprima pubblica di Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+[Effettuare la registrazione ad Azure NetApp Files](azure-netapp-files-register.md)
 
 ## <a name="steps"></a>Passaggi 
 
-1. Individuare l'URL del portale di Azure dell'anteprima dall'invito a partecipare all'anteprima ed eseguire l'accesso al portale. 
+1. Individuare l'URL del portale di Azure dell'anteprima dall'invito a partecipare all'anteprima e accedere al portale. 
 2.  Accedere al pannello di Azure NetApp Files tramite uno dei metodi seguenti:  
   * Cercare **Azure NetApp Files** nella casella di ricerca del portale di Azure.  
   * Fare clic su **Tutti i servizi** nel riquadro di spostamento e quindi filtrare per Azure NetApp Files.  
@@ -55,11 +55,10 @@ La creazione di un account di NetApp consente di configurare un pool di capacit�
     ![Nuovo account di NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 
 
-5. Fare clic su **Crea**.     
+5. Fare clic su **Create**(Crea).     
   L'account di NetApp creato verrà ora visualizzato nel pannello di Azure NetApp Files. 
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-1. [Configurare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md)
-2. [Creare un volume per Azure NetApp Files](azure-netapp-files-create-volumes.md)
-3. [Configurare i criteri di esportazione per un volume (facoltativo)](azure-netapp-files-configure-export-policy.md)
+[Configurare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md)
+

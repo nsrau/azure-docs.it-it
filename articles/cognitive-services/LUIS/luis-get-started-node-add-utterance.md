@@ -1,21 +1,22 @@
 ---
-title: Guida introduttiva Node.js - modificare il modello ed eseguire il training di app LUIS
+title: Modificare, eseguire il training dell'app, Node.js
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva per Node.js si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
+description: In questa guida introduttiva per Node.js si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a487f44e164830928367d9f6ea737e793e38c0a8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8f1ff88dc917c665d04f7500c8022e6baf4c94bf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036151"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164467"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>Guida introduttiva: Modificare il modello con Node.js
 
@@ -28,7 +29,7 @@ ms.locfileid: "47036151"
 * Dipendenze NPM per questo articolo: [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
 * [Visual Studio Code](https://code.visualstudio.com/).
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>File JSON delle espressioni di esempio
 
@@ -78,7 +79,7 @@ Eseguire l'applicazione da una riga di comando con Node.js.
 
 Con la chiamata a `npm start` vengono aggiunte le espressioni, viene eseguito il training e viene ottenuto lo stato del training.
 
-```CMD
+```console
 > npm start 
 ```
 

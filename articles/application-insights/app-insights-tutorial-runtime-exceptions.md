@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 48e338a08330e0674cc4410adf135ec546a5e1c3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230598"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084013"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rilevare e diagnosticare le eccezioni di runtime con Azure Application Insights
 
@@ -75,20 +75,20 @@ Application Insights raccoglie gli eventuali errori nell'applicazione e consente
     ![Dettagli eccezione](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identificare il codice responsabile dell'errore
-Il debugger di snapshot raccoglie gli snapshot delle eccezioni più frequenti nell'applicazione per agevolare la diagnosi della causa radice nell'ambiente di produzione.  È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. È quindi possibile eseguire il debug del codice sorgente scaricando lo snapshot e aprendolo in Visual Studio 2017.
+Il debugger di snapshot raccoglie gli snapshot delle eccezioni più frequenti nell'applicazione per agevolare la diagnosi della causa radice nell'ambiente di produzione.  È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. In un secondo momento è possibile eseguire il debug del codice sorgente scaricando lo snapshot e aprendolo in Visual Studio 2017 Enterprise.
 
 1. Nelle proprietà dell'eccezione fare clic su **Apri snapshot di debug**.
 2. Verrà aperto il pannello **Snapshot di debug** con lo stack di chiamate per la richiesta.  Fare clic su uno dei metodi per visualizzare i valori di tutte le variabili locali al momento della richiesta.  A partire dal primo metodo in questo esempio, è possibile vedere le variabili locali che non hanno alcun valore.
 
     ![Snapshot di debug](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-4. La prima chiamata con valori validi è **ValidZipCode** e si può notare che è stato fornito un codice postale contenente lettere che non può essere convertito in un numero intero.  Si tratta dell'errore nel codice che deve essere corretto.
+3. La prima chiamata con valori validi è **ValidZipCode** e si può notare che è stato fornito un codice postale contenente lettere che non può essere convertito in un numero intero.  Si tratta dell'errore nel codice che deve essere corretto.
 
     ![Snapshot di debug](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-5. Per scaricare questo snapshot in Visual Studio dove è possibile individuare il codice effettivo che deve essere corretto, fare clic su **Download Snapshot** (Scarica snapshot).
-6. Lo snapshot viene caricato in Visual Studio.
-7. È ora possibile eseguire una sessione di debug in Visual Studio per identificare rapidamente la riga di codice che ha causato l'eccezione.
+4. È quindi possibile scaricare questo snapshot in Visual Studio dove è possibile individuare il codice effettivo che deve essere corretto. A tale scopo, fare clic su **Scarica Snapshot**.
+5. Lo snapshot viene caricato in Visual Studio.
+6. È ora possibile eseguire una sessione di debug in Visual Studio Enterprise per identificare rapidamente la riga di codice che ha causato l'eccezione.
 
     ![Eccezione nel codice](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Creare un'app Web ASP.NET Core in C# in Azure | Microsoft Docs
-description: Informazioni su come eseguire app Web nel servizio app di Azure distribuendo l'app Web ASP.NET in C# predefinita.
+title: Creare un'app Web ASP.NET Core C# - servizio app di Azure | Microsoft Docs
+description: Informazioni su come eseguire app Web nel servizio app di Azure distribuendo l'app Web ASP.NET Core C# predefinita.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: ad17488c4e1fd5eb3965049b26d3f00270dce50f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.custom: seodec18
+ms.openlocfilehash: 70c24b8aef1672696c0e7d7289e23b98b6b49dfe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301034"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341440"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Creare un'app Web ASP.NET Core in Azure
 

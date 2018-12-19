@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 48b2cdb26994d01dfced8216bb70493802f672a7
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265263"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413677"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Esercitazione: Estrarre, trasformare e caricare dati tramite Azure Databricks
 
@@ -44,9 +44,9 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 ## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare l'esercitazione, verificare che siano soddisfatti i requisiti seguenti:
-- Creare un'istanza di Azure SQL Data Warehouse, creare una regola del firewall a livello di server e connettersi al server come amministratore del server. Seguire le istruzioni disponibili in [Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md)
+- Creare un'istanza di Azure SQL Data Warehouse, creare una regola del firewall a livello di server e connettersi al server come amministratore del server. Seguire le istruzioni in [Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Creare una chiave master del database per Azure SQL Data Warehouse. Seguire le istruzioni riportate in [Creare una chiave master di un database](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Creare un account di archiviazione BLOB di Azure e un contenitore all'interno di tale account. Recuperare anche la chiave di accesso per accedere all'account di archiviazione. Seguire le istruzioni disponibili in [Guida introduttiva: Creare un account di archiviazione BLOB di Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Creare un account di archiviazione BLOB di Azure e un contenitore all'interno di tale account. Recuperare anche la chiave di accesso per accedere all'account di archiviazione. Seguire le istruzioni in [Avvio rapido: Creare un account di archiviazione BLOB di Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
@@ -54,7 +54,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creare un'area di lavoro di Azure Databricks
 
-In questa sezione viene creata un'area di lavoro di Azure Databricks usando il portale di Azure. 
+In questa sezione viene creata un'area di lavoro di Azure Databricks usando il portale di Azure.
 
 1. Nel portale di Azure selezionare **Crea una risorsa** > **Dati e analisi** > **Azure Databricks**.
 
@@ -65,7 +65,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
     ![Creare un'area di lavoro di Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Creare un'area di lavoro di Azure Databricks")
 
     Specificare i valori seguenti:
-     
+    
     |Proprietà  |Descrizione  |
     |---------|---------|
     |**Nome area di lavoro**     | Specificare un nome per l'area di lavoro di Databricks        |
@@ -96,7 +96,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
     * Immettere un nome per il cluster.
     * Per questo articolo creare un cluster con il runtime **4.0**.
-    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
+    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo ___ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
     
     Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
 
@@ -106,11 +106,11 @@ In questa sezione è possibile creare un account Azure Data Lake Store e associa
 
 1. Dal [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Archiviazione** > **Data Lake Store**.
 3. Nel pannello **Nuovo Data Lake Store** inserire i valori come illustrato nello screenshot seguente:
-   
+
     ![Creare un nuovo account Azure Data Lake Store](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "Creare un nuovo account Azure Data Lake")
 
-    Specificare i valori seguenti: 
-     
+    Specificare i valori seguenti:
+    
     |Proprietà  |DESCRIZIONE  |
     |---------|---------|
     |**Nome**     | Immettere un nome univoco per l'account Data Lake Store.        |
@@ -125,7 +125,7 @@ In questa sezione è possibile creare un account Azure Data Lake Store e associa
 È ora possibile creare un'entità servizio di Azure Active Directory e associarla all'account Data Lake Store creato.
 
 ### <a name="create-an-azure-active-directory-service-principal"></a>Creare un'entità servizio di Azure Active Directory
-   
+
 1. Dal [portale di Azure](https://portal.azure.com) selezionare **Tutti i servizi** e quindi cercare **Azure Active Directory**.
 
 2. Selezionare **Registrazioni per l'app**.
@@ -193,7 +193,7 @@ Quando si esegue l'accesso a livello di codice è necessario specificare l'ID te
 
 ## <a name="upload-data-to-data-lake-store"></a>Caricare dati nell’Archivio Data Lake
 
-In questa sezione viene caricato un file di dati di esempio in Data Lake Store. Questo file viene usato in seguito in Azure Databricks per eseguire alcune trasformazioni. I dati di esempio (**small_radio_json.json**) usati in questa esercitazione sono disponibili in questo [repository di Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+In questa sezione viene caricato un file di dati di esempio in Data Lake Store. Questo file viene usato in seguito in Azure Databricks per eseguire alcune trasformazioni. I dati di esempio (**small_radio_json.json**) usati in questa esercitazione sono disponibili in questo [repository di GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
 1. Dal [portale di Azure](https://portal.azure.com) selezionare l'account Data Lake Store creato.
 
@@ -378,7 +378,7 @@ In questa sezione i dati trasformati vengono caricati in Azure SQL Data Warehous
 
 Come indicato in precedenza, il connettore di SQL Data Warehouse usa l'Archiviazione BLOB di Azure come posizione di archiviazione temporanea per caricare i dati tra Azure Databricks e Azure SQL Data Warehouse. Specificare quindi prima di tutto la configurazione per la connessione all'account di archiviazione. È necessario che l'account sia già stato creato come parte dei prerequisiti per questo articolo.
 
-1. Specificare la configurazione per l'accesso all'account di archiviazione di Azure da Azure Databricks. Se si copia l'URL per l'archivio BLOB dal portale, assicurarsi di rimuovere *https://* dalla parte iniziale. 
+1. Specificare la configurazione per l'accesso all'account di archiviazione di Azure da Azure Databricks. Se si copia l'URL per l'archivio BLOB dal portale, assicurarsi di rimuovere *https://* dalla parte iniziale.
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
@@ -410,7 +410,7 @@ Come indicato in precedenza, il connettore di SQL Data Warehouse usa l'Archiviaz
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
-        
+    
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall)
@@ -434,7 +434,7 @@ Dopo aver concluso l'esecuzione per l'esercitazione è possibile terminare il cl
 
 ![Arrestare un cluster Databricks](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Arrestare un cluster Databricks")
 
-Se non viene terminato manualmente, il cluster si arresterà automaticamente se è stata selezionata la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività) durante la creazione del cluster. In tal caso, il cluster viene automaticamente arrestato se è rimasto inattivo per il tempo specificato.
+Se non viene terminato manualmente, il cluster si arresterà automaticamente se è stata selezionata la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo ___ minuti di attività) durante la creazione del cluster. In tal caso, il cluster viene automaticamente arrestato se è rimasto inattivo per il tempo specificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione ha illustrato come:
