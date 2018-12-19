@@ -1,21 +1,21 @@
 ---
-title: 'Esercitazione: Automatizzare la compilazione di immagini dei contenitori con ACR Tasks'
-description: Questa esercitazione illustra come configurare un'attività per attivare automaticamente compilazioni delle immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente in un repository Git.
+title: Esercitazione - Automatizzare la compilazione di immagini dei contenitori - Attività del Registro Azure Container
+description: Questa esercitazione illustra come configurare un'attività del registro Azure Container per attivare automaticamente compilazioni delle immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente in un repository Git.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 27dbee3b292a9139ce53ef7b09a4cceba56082e4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 3dc602589dc3a909ea2a2cf2925d37df0a97605b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857228"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436246"
 ---
-# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-tasks"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori con ACR Tasks
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente
 
 Oltre a un'[attività rapida](container-registry-tutorial-quick-task.md), ACR Tasks supporta la compilazione automatica di immagini dei contenitori Docker con l'*attività di compilazione*. In questa esercitazione si usa l'interfaccia della riga di comando di Azure per creare un'attività che attiva automaticamente compilazioni delle immagini nel cloud quando si esegue il commit di codice sorgente in un repository Git.
 
@@ -41,7 +41,7 @@ Questa esercitazione presuppone che siano già state completate le procedure del
 
 ### <a name="container-registry"></a>Registro contenitori
 
-Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un registro contenitori di Azure. Se è necessario un registro, vedere l'[esercitazione precedente](container-registry-tutorial-quick-task.md) oppure [Guida introduttiva: Creare un registro contenitori con l'interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
+Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un registro contenitori di Azure. Se occorre un registro, vedere l'[esercitazione precedente](container-registry-tutorial-quick-task.md), o la [Guida introduttiva: Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure).
 
 ## <a name="overview-of-acr-tasks"></a>Panoramica di ACR Tasks
 
@@ -155,7 +155,7 @@ $ az acr task create \
           "branch": "master",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "Github"
+          "sourceControlType": "GitHub"
         },
         "sourceTriggerEvents": [
           "commit"

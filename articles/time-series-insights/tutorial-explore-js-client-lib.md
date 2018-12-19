@@ -1,5 +1,5 @@
 ---
-title: Esplorare la libreria client JavaScript per Azure Time Series Insights
+title: Esplorare la libreria client JavaScript per Azure Time Series Insights | Microsoft Docs
 description: Informazioni sulla libreria client JavaScript per Azure Time Series Insights e sul modello di programmazione correlato.
 author: ashannon7
 manager: cshankar
@@ -8,12 +8,13 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 33dcf6f69d1287b4e040b3cccf4164667db2b75f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706994"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269975"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Esercitazione: Esplorare la libreria client JavaScript per Azure Time Series Insights
 
@@ -82,7 +83,7 @@ Visualizzare prima di tutto il codice sorgente HTML e JavaScript alla base della
 
 3. Espandere l'elemento `<div class="chartsWrapper">` per visualizzare altri elementi figlio `<div>`. Questi elementi vengono usati per posizionare ogni esempio di controllo grafico. Notare la presenza di diverse coppie di elementi `<div>`, una per ogni esempio di grafico:
 
-   - Il primo elemento (`class="rowOfCardsTitle"`) contiene un titolo descrittivo per riepilogare i dati rappresentati dai grafici. Ad esempio, "Static Line Charts With Full-Size Legends" (Grafico a linee statiche con legende a dimensione intera).
+   - Il primo elemento (`class="rowOfCardsTitle"`) contiene un titolo descrittivo per riepilogare i dati rappresentati dai grafici. Ad esempio:  "Grafico a linee statiche con legende a dimensione intera"
    - Il secondo elemento figlio(`class="rowOfCards"`) è un elemento padre, che contiene altri elementi `<div>` figlio che posizionano gli effettivi controlli grafico all'interno di una riga.
 
    ![Elementi div del corpo](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
@@ -96,7 +97,7 @@ Visualizzare prima di tutto il codice sorgente HTML e JavaScript alla base della
 Anche se questi argomenti non verranno esaminati in dettaglio, fondamentalmente la libreria per l'app client Time Series Insights **tsclient.js** fornisce un'astrazione per due importanti categorie:
 
 - **Metodi wrapper per chiamare le API di query di Time Series Insights**: API REST che permettono di eseguire query per dati di Time Series Insights usando espressioni di aggregazione. I metodi sono organizzati all'interno dello spazio dei nomi `TsiClient.Server` della libreria.
-- **Metodi per la creazione e il popolamento di diversi tipi di controlli di grafici**: usati per il rendering dei dati aggregati di Time Series Insights in una pagina Web. I metodi sono organizzati all'interno dello spazio dei nomi `TsiClient.UX` della libreria.
+- **Metodi per la creazione e il popolamento di diversi tipi di controllo dei grafici**: I metodi utilizzati per il rendering di Time Series Insights aggregano i dati in una pagina Web. I metodi sono organizzati all'interno dello spazio dei nomi `TsiClient.UX` della libreria.
 
 I concetti seguenti sono universali e applicabili alle API della libreria per l'app client Time Series Insights in generale.
 
@@ -235,15 +236,15 @@ Osservare il codice sottostante alla sezione del codice HTML sotto il commento `
 
 1. Prima di tutto, viene definita una serie di azioni personalizzate. Ogni azione contiene una matrice con uno o più elementi. Ogni elemento definisce una singola voce di menu di scelta rapida:
 
-   - `barChartActions`: questa azione definisce il menu di scelta rapida per il grafico a torta, che contiene un elemento per definire una singola voce:
-     - `name`: testo usato per la voce di menu, ad esempio "Stampa parametri nella console".
-     - `action`: azione associata alla voce di menu. È sempre una funzione anonima che accetta tre argomenti in base all'espressione di aggregazione usata per creare il grafico. In questo caso, gli argomenti vengono scritti nella finestra della console del browser:
-       - `ae`: matrice di espressioni di aggregazione.
-       - `splitBy`: valore di divisione.
-       - `timestamp`: timestamp.
+   - `barChartActions`: Questa azione definisce il menu di scelta rapida per il grafico a torta, che contiene un elemento per definire una singola voce:
+     - `name`: Il testo che viene usato per la voce di menu: "Stampa parametri nella console".
+     - `action`: L'azione associata alla voce di menu. È sempre una funzione anonima che accetta tre argomenti in base all'espressione di aggregazione usata per creare il grafico. In questo caso, gli argomenti vengono scritti nella finestra della console del browser:
+       - `ae`: La matrice di espressioni di aggregazione.
+       - `splitBy`: Il valore di divisione.
+       - `timestamp`: Il timestamp.
 
-   - `pieChartActions`: questa azione definisce il menu di scelta rapida per il grafico a barre, che contiene un elemento per definire una singola voce. La forma e lo schema sono gli stessi di quelli dell'elemento `barChartActions` precedente, ma si noti che la funzione `action` è notevolmente diversa, in quanto crea un'istanza del grafico a barre e ne esegue il rendering. Si noti inoltre che l'argomento `ae` viene usato per specificare la matrice di espressioni di aggregazione passata in fase di esecuzione all'apertura della voce di menu. La funzione imposta anche la proprietà `ae.contextMenu` con il menu di scelta rapida `barChartActions`.
-   - `contextMenuActions`: questa azione definisce il menu di scelta rapida per il grafico a linee, che contiene tre elementi per definire tre voci di menu. La forma e lo schema per ogni elemento sono gli stessi di quelli precedenti descritti. Proprio come per l'elemento `barChartActions`, la prima voce scrive i tre argomenti della funzione nella finestra della console del browser. Analogamente all'elemento `pieChartActions`, le seconde due voci creano un'istanza rispettivamente dei grafici a torta e a barre e ne eseguono il rendering. Le seconde due voci impostano anche le relative proprietà `ae.contextMenu` rispettivamente con i menu di scelta rapida `pieChartActions` e `barChartActions`.
+   - `pieChartActions`: Questa azione definisce il menu di scelta rapida per il grafico a barre, che contiene un elemento per definire una singola voce. La forma e lo schema sono gli stessi di quelli dell'elemento `barChartActions` precedente, ma si noti che la funzione `action` è notevolmente diversa, in quanto crea un'istanza del grafico a barre e ne esegue il rendering. Si noti inoltre che l'argomento `ae` viene usato per specificare la matrice di espressioni di aggregazione passata in fase di esecuzione all'apertura della voce di menu. La funzione imposta anche la proprietà `ae.contextMenu` con il menu di scelta rapida `barChartActions`.
+   - `contextMenuActions`: Questa azione definisce il menu di scelta rapida per il grafico a linee, che contiene tre elementi per definire tre voci di menu. La forma e lo schema per ogni elemento sono gli stessi di quelli precedenti descritti. Proprio come per l'elemento `barChartActions`, la prima voce scrive i tre argomenti della funzione nella finestra della console del browser. Analogamente all'elemento `pieChartActions`, le seconde due voci creano un'istanza rispettivamente dei grafici a torta e a barre e ne eseguono il rendering. Le seconde due voci impostano anche le relative proprietà `ae.contextMenu` rispettivamente con i menu di scelta rapida `pieChartActions` e `barChartActions`.
 
 2. Viene quindi eseguito il push di due espressioni di aggregazione nella matrice di espressioni di aggregazione `aes`, specificando la matrice `contextMenuActions` per ogni voce. Queste espressioni vengono usate con il controllo grafico a linee.
 
@@ -262,10 +263,10 @@ I pennelli vengono usati per definire l'ambito di un intervallo di tempo, in mod
 Il codice usato per illustrare i pennelli viene mostrato nell'esempio "Line Chart with Context Menu to Create Pie/Bar Chart" (Grafico a linee con menu di scelta rapida per creare il grafico a torta/a barre) precedente, che descrive i [menu di scelta rapida popup](#popup-context-menus-section).
 
 1. Le azioni dei pennelli sono simili a quelle dei menu di scelta rapida, per il fatto che definiscono una serie di azioni personalizzate per il pennello. Ogni azione contiene una matrice con uno o più elementi. Ogni elemento definisce una singola voce di menu di scelta rapida:
-   - `name`: testo usato per la voce di menu, ad esempio "Stampa parametri nella console".
-   - `action`: azione associata alla voce di menu, che è sempre una funzione anonima che accetta due argomenti. In questo caso, gli argomenti vengono scritti nella finestra della console del browser:
-      - `fromTime`: timestamp per l'origine della selezione del pennello.
-      - `toTime`: timestamp per la destinazione della selezione del pennello.
+   - `name`: Il testo che viene usato per la voce di menu: "Stampa parametri nella console".
+   - `action`: Azione associata alla voce di menu, che è sempre una funzione anonima che accetta due argomenti. In questo caso, gli argomenti vengono scritti nella finestra della console del browser:
+      - `fromTime`: Timestamp per l'origine della selezione del pennello.
+      - `toTime`: Timestamp per la destinazione della selezione del pennello.
 
 2. Le azioni dei pennelli vengono aggiunte come un'altra proprietà delle opzioni del grafico. Notare la proprietà `brushContextMenuActions: brushActions` passata alla chiamata `linechart.Render`.
 

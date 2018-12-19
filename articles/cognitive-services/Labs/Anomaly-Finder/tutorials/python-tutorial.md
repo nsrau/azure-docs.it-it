@@ -10,12 +10,12 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d1e9afc32625cdbf97f576ee091d7dc03271e2fc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887752"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164807"
 ---
 # <a name="tutorial-anomaly-detection-with-python-application"></a>Esercitazione: Rilevamento anomalie con un'applicazione Python
 
@@ -31,7 +31,7 @@ Questa esercitazione illustra come usare l'API Rilevamento anomalie in Python e 
 
 ## <a name="download-the-example-code"></a>Scaricare il codice di esempio
 
-1. Passare al [notebook dell'esercitazione in GitHub](https://github.com/MicrosoftAnomalyDetection/python-sample).
+1. Passare al [tutorial notebook in GitHub](https://github.com/MicrosoftAnomalyDetection/python-sample).
 2. Fare clic sul pulsante verde per clonare o scaricare l'esercitazione. 
 
 ## <a name="opening-the-tutorial-notebook-in-jupyter"></a>Apertura del notebook dell'esercitazione in Jupyter
