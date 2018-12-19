@@ -1,17 +1,17 @@
 ---
-title: Script dell'interfaccia della riga di comando di Azure - Ottenere le chiavi di account per Azure Cosmos DB | Documentazione Microsoft
+title: Script dell'interfaccia della riga di comando di Azure - Ottenere le chiavi di account per Azure Cosmos DB
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Ottenere le chiavi di account per Azure Cosmos DB
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 342c874fc3ada6f9a2480db2632a74cd51031305
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 354184313e541dfa0cbe32c36abbd097c9a97b3c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005177"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965889"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-the-azure-cli"></a>Ottenere le chiavi di account per Azure Cosmos DB mediante l'interfaccia della riga di comando di Azure
 

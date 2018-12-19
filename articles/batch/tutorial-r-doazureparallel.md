@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: fb616dc95cc7dd7dbb25f2deb832b517d0747ae4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 305ea27e787196f648fcb4c536f33b12c924c015
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315451"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164696"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Esercitazione: Eseguire una simulazione in parallelo in R con Azure Batch 
 
@@ -30,7 +30,7 @@ Questa esercitazione mostra come distribuire un pool di Batch ed eseguire un pro
 > * Creare un pool di Batch come back-end parallelo per la sessione R
 > * Eseguire una simulazione di esempio in parallelo nel pool
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una distribuzione [R](https://www.r-project.org/) installata, ad esempio [Microsoft R Open](https://mran.microsoft.com/open). Usare R versione 3.3.1 o successive.
 
@@ -45,7 +45,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>Installare doAzureParallel
 
-Nella console di RStudio installare il [pacchetto doAzureParallel di Github](http://www.github.com/Azure/doAzureParallel). I comandi seguenti scaricano e installano il pacchetto e le relative dipendenze nella sessione R corrente: 
+Nella console di RStudio installare il [pacchetto doAzureParallel di GitHub](http://www.github.com/Azure/doAzureParallel). I comandi seguenti scaricano e installano il pacchetto e le relative dipendenze nella sessione R corrente: 
 
 ```R
 # Install the devtools package  

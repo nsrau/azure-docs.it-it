@@ -3,18 +3,18 @@ title: Panoramica di Gemelli digitali di Azure | Microsoft Docs
 description: Altre informazioni su Gemelli digitali di Azure, una soluzione Azure IoT per l'intelligenza spaziale.
 author: julieseto
 ms.author: jseto
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 84f329c0a97d0f79a5f612fb3054b82a182e4da9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287371"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437113"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Panoramica di Gemelli digitali di Azure
 
@@ -27,12 +27,12 @@ Con Gemelli digitali di Azure è possibile eseguire query sui dati da uno spazio
 - Ottimizzare l'uso dello spazio disponibile per un ufficio.
 
 Gemelli digitali di Azure si applica a tutti i tipi di ambienti, ad esempio magazzini, uffici, scuole, ospedali e banche, ma può essere usato anche per stadi, fabbriche, parcheggi, parchi, reti intelligenti e città. È possibile usare Gemelli digitali di Azure negli scenari di esempio seguenti per:
- 
-- Tenere traccia della temperatura giornaliera in diversi stati o province. 
+
+- Tenere traccia della temperatura giornaliera in diversi stati o province.
 - Monitorare i percorsi dei droni in volo.
-- Identificare veicoli autonomi. 
-- Analizzare i livelli di occupazione di un edificio. 
-- Individuare la cassa più attiva del punto vendita. 
+- Identificare veicoli autonomi.
+- Analizzare i livelli di occupazione di un edificio.
+- Individuare la cassa più attiva del punto vendita.
 
 Qualsiasi sia lo scenario del mondo reale, è possibile eseguire il provisioning di un'istanza digitale corrispondente con Gemelli digitali di Azure.
 
@@ -94,7 +94,7 @@ Gemelli digitali di Azure è utile per rappresentare il mondo fisico e le tante 
 
 Gemelli digitali di Azure usa l'hub IoT di Azure per connettere i dispositivi e i sensori IoT che consentono di mantenere tutto aggiornato con il mondo fisico. Il diagramma seguente mostra le relazioni tra Gemelli digitali di Azure e altri servizi Azure IoT.
 
-![Gemelli digitali di Azure è un servizio basato sull'hub IoT di Azure](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
+![Gemelli digitali di Azure è un servizio basato sull'hub IoT di Azure][1]
 
 Per altre informazioni su IoT, vedere l'articolo su [tecnologie e soluzioni di Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
 
@@ -102,15 +102,18 @@ Per altre informazioni su IoT, vedere l'articolo su [tecnologie e soluzioni di A
 
 Passare a una breve demo delle funzionalità di Gemelli digitali di Azure:
 
-> [!div class="nextstepaction"]
-> [Guida introduttiva: Trovare le stanze disponibili usando Gemelli digitali di Azure](./quickstart-view-occupancy-dotnet.md)
+>[!div class="nextstepaction"]
+>[Guida introduttiva: Trovare le stanze disponibili usando Gemelli digitali di Azure](./quickstart-view-occupancy-dotnet.md)
 
 Analizzare in dettaglio un'applicazione di gestione di strutture con Gemelli digitali di Azure:
 
-> [!div class="nextstepaction"]
-> [Esercitazione: Distribuire Gemelli digitali di Azure e configurare un grafico spaziale](./tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[Esercitazione: Distribuire Gemelli digitali di Azure e configurare un grafico spaziale](./tutorial-facilities-setup.md)
 
 Informazioni su concetti di base relativi a Gemelli digitali di Azure:
 
-> [!div class="nextstepaction"]
-> [Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale](./concepts-objectmodel-spatialgraph.md)
+>[!div class="nextstepaction"]
+>[Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale](./concepts-objectmodel-spatialgraph.md)
+
+<!-- Images -->
+[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

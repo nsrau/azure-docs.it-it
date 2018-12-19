@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957928"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106074"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Monitorare le modifiche a una macchina virtuale con Griglia di eventi di Azure e app per la logica
+# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Esercitazione: Monitorare le modifiche a una macchina virtuale con Griglia di eventi di Azure e app per la logica
 
 È possibile avviare un [flusso di lavoro di app per la logica](../logic-apps/logic-apps-overview.md) automatizzato quando si verificano determinati eventi in risorse di Azure o in risorse di terze parti. Le risorse possono pubblicare questi eventi nel servizio [Griglia di eventi di Azure](../event-grid/overview.md), che a sua volta esegue il push degli eventi ai sottoscrittori che hanno code, webhook o [hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md) come endpoint. Le app per la logica dei sottoscrittori possono quindi attendere gli eventi da Griglia di eventi prima di eseguire i flussi di lavoro automatizzati per l'esecuzione di determinate attività, senza bisogno di scrivere codice.
 
@@ -83,7 +83,7 @@ Per prima cosa, creare un'app per la logica e aggiungere un trigger di Griglia d
 
 6. Nella casella di ricerca digitare "event grid" (griglia di eventi) come filtro. Selezionare questo trigger: **Azure Event Grid - On a resource event** (Griglia di eventi di Azure - Per un evento della risorsa)
 
-   ![Selezionare questo trigger: Azure Event Grid - On a resource event (Griglia di eventi di Azure - Per un evento della risorsa)](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Selezionare questo trigger: "Azure Event Grid - On a resource event" (Griglia di eventi di Azure - Per un evento della risorsa)](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 7. Quando richiesto, accedere a Griglia di eventi di Azure con le credenziali di Azure.
 
@@ -101,7 +101,7 @@ Per prima cosa, creare un'app per la logica e aggiungere un trigger di Griglia d
    | **Sottoscrizione** | *{sottoscrizione-Azure-macchina-virtuale}* | Selezionare la sottoscrizione di Azure dell'editore di eventi. Per questa esercitazione, selezionare la sottoscrizione di Azure per la macchina virtuale. | 
    | **Tipo di risorsa** | Microsoft.Resources.resourceGroups | Selezionare il tipo di risorsa dell'editore di eventi. Per questa esercitazione selezionare il valore specificato in modo che l'app per la logica monitori solo i gruppi di risorse. | 
    | **Nome risorsa** | *{nome-gruppo-risorse-macchina-virtuale}* | Selezionare il nome della risorsa dell'editore. Per questa esercitazione, selezionare il nome del gruppo di risorse per la macchina virtuale. | 
-   | Per visualizzare le impostazioni facoltative, scegliere **Mostra opzioni avanzate**. | *{Vedere descrizioni}* | * **Prefix Filter** (Filtro prefisso): per questa esercitazione, lasciare vuota questa impostazione. Il comportamento predefinito corrisponde a tutti i valori. È possibile tuttavia specificare una stringa di prefisso come filtro, ad esempio un percorso o un parametro relativo a una determinata risorsa. <p>* **Suffix Filter** (Filtro suffisso): per questa esercitazione, lasciare vuota questa impostazione. Il comportamento predefinito corrisponde a tutti i valori. È possibile tuttavia specificare una stringa di suffisso come filtro, ad esempio un'estensione se si vuole usare solo specifici tipi di file.<p>* **Nome sottoscrizione**: specificare un nome univoco per la sottoscrizione eventi. |
+   | Per visualizzare le impostazioni facoltative, scegliere **Mostra opzioni avanzate**. | *{Vedere descrizioni}* | * **Filtro per prefisso**: Per questa esercitazione, lasciare vuota questa impostazione. Il comportamento predefinito corrisponde a tutti i valori. È possibile tuttavia specificare una stringa di prefisso come filtro, ad esempio un percorso o un parametro relativo a una determinata risorsa. <p>* **Filtro per suffisso**: Per questa esercitazione, lasciare vuota questa impostazione. Il comportamento predefinito corrisponde a tutti i valori. È possibile tuttavia specificare una stringa di suffisso come filtro, ad esempio un'estensione se si vuole usare solo specifici tipi di file.<p>* **Nome della sottoscrizione**: Specificare un nome univoco per la sottoscrizione di eventi. |
    | | | 
 
    Al termine di questa operazione, il trigger di Griglia di eventi dovrebbe avere un aspetto simile all'esempio seguente:
@@ -183,7 +183,7 @@ Aggiungere ora un'[*azione* ](../logic-apps/logic-apps-overview.md#logic-app-con
    | ------- | --------------- | ----------- | 
    | **To** | *{indirizzo-postaelettronica-destinatario}* |Immettere l'indirizzo di posta elettronica del destinatario. AI fini del test delle app è possibile indicare il proprio indirizzo di posta elettronica. | 
    | **Oggetto** | Risorse aggiornate: **Oggetto**| Immettere il contenuto per l'oggetto del messaggio di posta elettronica. Per questa esercitazione, immettere il testo suggerito e selezionare il campo **Oggetto** dell'evento. In questo caso, l'oggetto del messaggio di posta elettronica include il nome per la risorsa aggiornata (macchina virtuale). | 
-   | **Corpo** | Gruppo di risorse: **Argomento** <p>Tipo di evento: **Tipo di evento**<p>ID evento: **ID**<p>Ora: **Ora evento** | Immettere il contenuto per il corpo del messaggio di posta elettronica. Per questa esercitazione immettere il testo suggerito e selezionare **Argomento**, Tipo di evento**Argomento**, **ID** e **Ora evento** per l'evento in modo che nel messaggio di posta elettronica siano riportati il nome del gruppo di risorse, il tipo di evento, il timestamp dell'evento e l'ID dell'evento relativo all'aggiornamento. <p>Per aggiungere righe vuote nel contenuto, premere MAIUSC + INVIO. | 
+   | **Corpo** | Gruppo di risorse: **Argomento** <p>Tipo di evento: **Tipo di evento**<p>ID evento: **ID**<p>Ora: **Ora dell'evento** | Immettere il contenuto per il corpo del messaggio di posta elettronica. Per questa esercitazione immettere il testo suggerito e selezionare **Argomento**, Tipo di evento**Argomento**, **ID** e **Ora evento** per l'evento in modo che nel messaggio di posta elettronica siano riportati il nome del gruppo di risorse, il tipo di evento, il timestamp dell'evento e l'ID dell'evento relativo all'aggiornamento. <p>Per aggiungere righe vuote nel contenuto, premere MAIUSC + INVIO. | 
    | | | 
 
    > [!NOTE] 

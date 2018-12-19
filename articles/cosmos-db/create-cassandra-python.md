@@ -10,12 +10,12 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 5ffd134bd4e47f92264f8b299f8fd4bdb76f6c9f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: c9a0d6ce868fd7fcf14f4b4c1690c99b7f964f8a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870317"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253511"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app Cassandra con Python e Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 È anche necessario:
 * [Python](https://www.python.org/downloads/) versione 2.7.14
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Driver Python per Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Creare un account di database
@@ -138,7 +138,7 @@ Questo passaggio è facoltativo. Per comprendere in che modo il codice crea le r
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app. La stringa di connessione consente all'app di comunicare con il database ospitato.
 
-1. Nel [portale di Azure](http://portal.azure.com/) selezionare **Stringa di connessione**. 
+1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Stringa di connessione**. 
 
     Usare il ![Pulsante Copia](./media/create-cassandra-python/copy.png) pulsante sul lato destro della schermata per copiare il primo valore, PUNTO DI CONTATTO.
 

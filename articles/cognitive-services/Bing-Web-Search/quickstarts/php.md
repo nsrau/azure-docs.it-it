@@ -1,7 +1,7 @@
 ---
 title: 'Guida introduttiva: Eseguire una ricerca con PHP - API Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si apprenderà come eseguire la prima chiamata all'API Ricerca Web Bing usando PHP e ricevere una risposta JSON.
+description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando PHP e ricevere una risposta JSON
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: f4fb66997b6deb6d5e02da2e9976190f00958752
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 4338d0703bbe8e55d3bf7c79d9bb30a5089ba6d2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314593"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261586"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare PHP per chiamare l'API Ricerca Web Bing  
 

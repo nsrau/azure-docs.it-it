@@ -12,19 +12,19 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 925a1af53438e21282e65418edc9ea365ad6a653
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432440"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162223"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Esercitazione: Configurare un ambiente Jenkins per abilitare CI/CD per un'applicazione Java in Service Fabric
 
-Questa è la quinta di una serie di esercitazioni. Illustra come usare Jenkins per distribuire gli aggiornamenti nell'applicazione. In questa esercitazione, il plug-in Jenkins per Service Fabric viene usato insieme a un repository Github che ospita l'applicazione Voting per distribuire l'applicazione in un cluster.
+Questa è la quinta di una serie di esercitazioni. Illustra come usare Jenkins per distribuire gli aggiornamenti nell'applicazione. In questa esercitazione, il plug-in Jenkins per Service Fabric viene usato insieme a un repository GitHub che ospita l'applicazione Voting per distribuire l'applicazione in un cluster.
 
 Nella quinta parte della serie si apprenderà come:
 > [!div class="checklist"]
@@ -53,10 +53,10 @@ In questa serie di esercitazioni si apprenderà come:
 
 1. Eseguire il pull dell'immagine del contenitore di Jenkins per Service Fabric: ``docker pull rapatchi/jenkins:v10``. Questa immagine viene fornita con il plug-in di Jenkins per Service Fabric preinstallato.
 
-1. Eseguire l'immagine del contenitore con il percorso in cui si trovano i certificati nel computer locale
+1. Eseguire l'immagine del contenitore con il percorso in cui sono archiviati i certificati di Azure nel computer locale montato.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
 1. Ottenere l'ID istanza dell'immagine del contenitore. È possibile elencare tutti i contenitori Docker con il comando ``docker ps –a``
@@ -84,9 +84,9 @@ In questa serie di esercitazioni si apprenderà come:
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Creare e configurare un processo Jenkins
 
-1. Se non è disponibile un repository che può essere usato per ospitare il progetto Voting in Github, crearne uno. Il repository verrà chiamato **dev_test** nella parte restante di questa esercitazione.
+1. Se non è disponibile un repository che può essere usato per ospitare il progetto Voting in GitHub, crearne uno. Il repository verrà chiamato **dev_test** nella parte restante di questa esercitazione.
 
-1. Creare un **nuovo elemento** dal dashboard Jenkins.
+1. Creare un **nuovo elemento** nel dashboard Jenkins all'indirizzo ``http://<HOST-IP>:8080``.
 
 1. Immettere un nome per l'elemento, ad esempio **MyJob**. Selezionare **free-style project** (progetto libero) e fare clic su **OK**.
 
@@ -123,6 +123,8 @@ In questa serie di esercitazioni si apprenderà come:
     > [!NOTE]
     > In questo caso il cluster potrebbe essere lo stesso che ospita l'applicazione contenitore Jenkins, nel caso si usi Service Fabric per distribuire l'immagine del contenitore Jenkins.
     >
+
+1. Fare clic su **Save**.
 
 ## <a name="update-your-existing-application"></a>Aggiornare l'applicazione esistente
 
@@ -179,7 +181,7 @@ In questa serie di esercitazioni si apprenderà come:
     </CodePackage>
     ```
 
-1. Per inizializzare un processo Jenkins che esegue un aggiornamento dell'applicazione, effettuare il push delle nuove modifiche nel repository Github.
+1. Per inizializzare un processo Jenkins che esegue un aggiornamento dell'applicazione, effettuare il push delle nuove modifiche nel repository GitHub.
 
 1. In Service Fabric Explorer fare clic sull'elenco a discesa **Applications** (Applicazioni). Per visualizzare lo stato dell'aggiornamento, fare clic sulla scheda **Upgrades in Progress** (Aggiornamenti in corso).
 

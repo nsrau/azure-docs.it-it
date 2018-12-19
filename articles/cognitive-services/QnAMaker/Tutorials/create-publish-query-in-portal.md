@@ -1,21 +1,22 @@
 ---
-title: 'Esercitazione: Creare, pubblicare, rispondere da una knowledge base nel portale di QnA Maker'
+title: Creare, pubblicare, rispondere in QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Questa esercitazione basata sul portale illustra la procedura di creazione e pubblicazione di una knowledge base a livello di codice e quindi descrive come rispondere a una domanda dalla knowledge base stessa.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 08f708f740b90f27af5443b46c5d03bef688bd45
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221604"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164433"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Esercitazione: Creare una knowledge base e quindi rispondere a una domanda tramite il portale di QnA Maker
 
@@ -96,7 +97,7 @@ Selezionare il pulsante **Publish** (Pubblica) nel menu in alto. Nella pagina di
 
 Dopo la pubblicazione della knowledge base viene visualizzato l'endpoint
 
-![Pubblica](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![Impostazioni di endpoint della pagina di pubblicazione](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>Usare curl per eseguire una query per ottenere una risposta alle domande frequenti
 
