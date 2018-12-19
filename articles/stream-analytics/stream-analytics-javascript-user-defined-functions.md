@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Funzioni JavaScript definite dall'utente di Analisi di flusso di Azure | Microsoft Docs "
+title: "Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure | Microsoft Docs "
 description: In questa esercitazione si eseguono meccanismi di query avanzate con funzioni JavaScript definite dall'utente
 keywords: javascript, funzioni definite dall'utente, udf
 services: stream-analytics
@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: rodrigoa
-ms.openlocfilehash: 56ac08593d29a9003f5509f2be52f50fa250bd75
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431596"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088878"
 ---
-# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Esercitazione: Funzioni JavaScript definite dall'utente di Analisi di flusso di Azure
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
 L'Analisi di flusso di Azure supporta le funzioni definite dall'utente nel linguaggio JavaScript. Con il vasto set di metodi **String**, **RegExp**, **Math**, **Array** e **Date** offerti da JavaScript, risulta più facile creare trasformazioni di dati complessi con processi di Analisi di flusso.
 
@@ -58,7 +58,7 @@ I passaggi seguenti illustrano come creare una semplice funzione JavaScript defi
 4.  Sul pannello **Nuova funzione** selezionare **JavaScript** per **Tipo funzione**. Nell'editor viene visualizzato un modello di funzione predefinita.
 5.  Per l'**alias della funzione definita dall'utente**, inserire **hex2Int** e modificare l'implementazione della funzione come indicato di seguito:
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
     function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
@@ -73,7 +73,7 @@ I passaggi seguenti illustrano come creare una semplice funzione JavaScript defi
 1. Nell'editor di query, in **TOPOLOGIA PROCESSO**, selezionare **Query**.
 2.  Modificare la query e quindi chiamare la funzione definita dall'utente, simile alla seguente:
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -129,14 +129,14 @@ In caso di passaggi di elaborazione successivi che utilizzano un output di un pr
 
 **Definizione della funzione JavaScript definita dall'utente:**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **Query di esempio:**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

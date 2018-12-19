@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 6f5ed4e7ede9a098d69b7a40f44dd60f9b400472
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fa498c39123e09c212466c900e6000c0138db467
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010991"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413099"
 ---
 # <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Informazioni sulla gerarchia di archiviazione di Azure NetApp Files
 
@@ -35,17 +35,19 @@ Prima di creare un volume in Azure NetApp Files, è necessario acquistare e conf
 ## <a name="capacity_pools"></a>Pool di capacità
 
 - Un pool di capacità viene misurato in base alla rispettiva capacità di cui è stato effettuato il provisioning.  
-- Il provisioning della capacità viene effettuato in base agli SKU fissi acquistati, ad esempio, una capacità di 4 TB.
+- Il provisioning della capacità viene effettuato in base agli SKU fissi acquistati, ad esempio, una capacità di 4 TiB.
+- La dimensione minima di un singolo pool di capacità è 4 TiB e la dimensione massima è di 500 TiB. 
 - Un pool di capacità può avere un solo livello di servizio.  
   Attualmente è disponibile solo il livello di servizio Premium.
-- Ogni pool di capacità appartiene a un solo account di NetApp.  
+- Ogni pool di capacità può appartenere a un solo account di NetApp. Tuttavia, è possibile avere più pool di capacità all'interno di un account di NetApp.  
 - Un pool di capacità non può essere spostato tra account di NetApp.   
   Ad esempio, nel [diagramma concettuale della gerarchia di archiviazione](#conceptual_diagram_of_storage_hierarchy) di seguito, il pool di capacità 1 non può essere spostato dall'account di NetApp di Stati Uniti orientali all'account di NetApp di Stati Uniti occidentali 2.  
 
 ## <a name="volumes"></a>Volumi
 
-- Un volume viene misurato in base all'utilizzo della capacità logica ed è scalabile fino a 100 TB per volume.
+- Un volume viene misurato in base all'utilizzo della capacità logica ed è scalabile. La dimensione minima di un singolo volume è 100 GiB e la dimensione massima è di 92 TiB.
 - L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool.
+-   È possibile avere un massimo di 100 volumi per ogni sottoscrizione di Azure in ogni area. 
 - Ogni volume appartiene a un solo pool, ma un pool può contenere più volumi. 
 - Nello stesso account di NetApp è possibile spostare un volume tra i pool.    
   Ad esempio, nel [diagramma concettuale della gerarchia di archiviazione](#conceptual_diagram_of_storage_hierarchy) di seguito, è possibile spostare i volumi dal pool di capacità 1 al pool di capacità 2.
@@ -57,7 +59,4 @@ L'esempio seguente mostra le relazioni tra sottoscrizione di Azure, account di N
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-1. [Creare un account di NetApp](azure-netapp-files-create-netapp-account.md)
-2. [Configurare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md)
-3. [Creare un volume per Azure NetApp Files](azure-netapp-files-create-volumes.md)
-4. [Configurare i criteri di esportazione per un volume (facoltativo)](azure-netapp-files-configure-export-policy.md)
+[Effettuare la registrazione ad Azure NetApp Files](azure-netapp-files-register.md)

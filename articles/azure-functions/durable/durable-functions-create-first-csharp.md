@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a0aed1fd65444397b3ca084cc0100aa5af49c918
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839509"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341049"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Creare la prima funzione durevole in C\#
 
@@ -76,7 +76,7 @@ Visual Studio crea un progetto di app per le funzioni vuota.  Il progetto includ
 
 All'app verrà aggiunta una nuova funzione durevole.  Aprire il nuovo file per visualizzarne il contenuto.  Questa funzione durevole è un esempio di concatenamento di funzioni semplici.  
 
-* Alla funzione dell'agente di orchestrazione è associato il metodo `RunOrchestrator`.  Questa funzione verrà avviata, creerà un elenco e aggiungerà il risultato di tre chiamate di funzione all'elenco.  Quando le tre chiamate saranno completate, la funzione restituirà l'elenco.  La funzione che viene chiamata è il metodo `SayHello`. Per impostazione predefinita, verrà chiamata "<NameOfFile>_Hello".
+* Alla funzione dell'agente di orchestrazione è associato il metodo `RunOrchestrator`.  Questa funzione verrà avviata, creerà un elenco e aggiungerà il risultato di tre chiamate di funzione all'elenco.  Quando le tre chiamate saranno completate, la funzione restituirà l'elenco.  La funzione che viene chiamata è il metodo `SayHello`. (Per impostazione predefinita, verrà chiamata `<NameOfFile>_Hello`).
 * La funzione `SayHello` restituirà un hello.
 * Il metodo `HttpStart` descrive la funzione che avvierà le istanze dell'orchestrazione.  È associato a un [trigger HTTP](../functions-bindings-http-webhook.md) che avvierà una nuova istanza dell'agente di orchestrazione e restituirà una risposta di controllo dello stato.
 
@@ -92,7 +92,7 @@ Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure ne
 
     ![Runtime locale di Azure](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
 
-3. Incollare l'URL per la richiesta HTTP nella barra degli indirizzi del browser ed eseguire la richiesta. Di seguito è illustrata la risposta nel browser alla richiesta GET locale restituita dalla funzione: 
+3. Incollare l'URL per la richiesta HTTP nella barra degli indirizzi del browser ed eseguire la richiesta. Di seguito è illustrata la risposta nel browser alla richiesta GET locale restituita dalla funzione:
 
     ![Risposta localhost della funzione nel browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 

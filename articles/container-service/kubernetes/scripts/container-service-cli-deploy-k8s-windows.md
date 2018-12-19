@@ -3,7 +3,7 @@ title: Esempio di script dell'interfaccia della riga di comando di Azure - Crear
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un cluster Kubernetes Windows del servizio contenitore di Azure
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: 7078b79685cbb8c593de4832377e841914082abe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: iainfou
+ms.openlocfilehash: 1f24f036858f9c77ed6b07af27617d3e3706bba2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447259"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001578"
 ---
-# <a name="create-an-azure-container-service-kubernetes-windows-cluster"></a>Creare un cluster Kubernetes Windows del servizio contenitore di Azure
+# <a name="deprecated-create-an-azure-container-service-kubernetes-windows-cluster"></a>(DEPRECATO) Creare un cluster Kubernetes Windows del servizio contenitore di Azure
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 Questo esempio consente di creare un cluster del servizio contenitore di Azure che esegue Kubernetes per Windows.
 

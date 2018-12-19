@@ -1,23 +1,24 @@
 ---
-title: 'Guida introduttiva: Creare una knowledge base in REST, C# - QnA Maker'
-titlesuffix: Azure Cognitive Services
+title: 'Creare la knowledge base: REST, C#'
+titlesuffix: QnA Maker- Azure Cognitive Services
 description: Questa guida introduttiva basata su C# REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: 190a937a4239c08d844d271d2e1d8e858215a5c2
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 36f056003ec35f49120a36b15c0809b06daaecbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334960"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254810"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con C#
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Avvio rapido: Creare una knowledge base in QnA Maker con C#
 
 Questa guida introduttiva illustra come creare e pubblicare a livello di codice una knowledge base QnA Maker di esempio. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/data-sources-supported.md). Il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API. 
 
@@ -32,7 +33,7 @@ In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
 * È necessario disporre di un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave, selezionare **Chiavi** in **GESTIONE RISORSE** nel dashboard. 
 
 > [!NOTE] 
-> I file di soluzione completi sono disponibili nella [**repository di gitHub**  Azure-Samples/cognitive-services-qnamaker-csharo](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
+> I file di soluzione completi sono disponibili nel [**repository GitHub** Azure-Samples/cognitive-services-qnamaker-csharp](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
 
 ## <a name="create-a-knowledge-base-project"></a>Creare un progetto per la knowledge base
 

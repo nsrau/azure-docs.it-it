@@ -8,20 +8,19 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/09/2018
+ms.date: 12/06/2018
 ms.author: barbkess
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b0180f162996c5fc4647071feaf02d42320b7c9a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: aceacdea8b3c86a5c4f26a5f082f4c6cf0b3805d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036381"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011978"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Esercitazione: Configurare l'accesso Single Sign-On basato su SAML per un'applicazione con Azure Active Directory
 
-Questa esercitazione usa il [portale di Azure](https://portal.azure.com) per configurare l'accesso Single Sign-On basato su SAML per un'applicazione con Azure Active Directory (Azure AD). Usare questa esercitazione per configurare le applicazioni per cui non è disponibile un'[esercitazione specifica dell'applicazione](../saas-apps/tutorial-list.md). 
-
+Questa esercitazione usa il [portale di Azure](https://portal.azure.com) per configurare l'accesso Single Sign-On basato su SAML per un'applicazione con Azure Active Directory (Azure AD). Usare questa esercitazione se non è disponibile un’[esercitazione specifica per l’applicazione](../saas-apps/tutorial-list.md). 
 
 Questa esercitazione usa il portale di Azure per eseguire queste operazioni:
 
@@ -36,17 +35,17 @@ Questa esercitazione usa il portale di Azure per eseguire queste operazioni:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-1. Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [Guida introduttiva: Aggiungere un'applicazione al tenant di Azure Active Directory](add-application-portal.md).
+1. Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [Avvio rapido: Aggiungere un'applicazione al tenant di Azure AD](add-application-portal.md).
 
 2. Richiedere le informazioni descritte in [Configurare il dominio e gli URL](#configure-domain-and-urls) al fornitore dell'applicazione.
 
 3. Per testare i passaggi di questa esercitazione è consigliabile usare un ambiente non di produzione. Se non è disponibile un ambiente non di produzione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
-4. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale per il tenant di Azure AD, amministratore applicazione cloud o amministratore applicazione.
+4. Accedere al [portale di Azure](https://portal.azure.com) come amministratore dell’applicazione cloud o amministratore dell’applicazione per il proprio tenant di Azure AD.
 
 ## <a name="select-a-single-sign-on-mode"></a>Selezionare una modalità Single Sign-On
 
-Dopo che un'applicazione è stata aggiunta al tenant di Azure AD, è possibile configurare l'accesso Single Sign-On per l'applicazione.
+Dopo che un'applicazione è stata aggiunta al tenant di Azure AD, è possibile configurare l'accesso Single Sign-On all'applicazione.
 
 Per aprire le impostazioni dell'accesso Single Sign-On:
 
@@ -56,7 +55,7 @@ Per aprire le impostazioni dell'accesso Single Sign-On:
 
 3. Nel menu **Tipo di applicazione** selezionare **Tutte le applicazioni** e fare clic su **Applica**.
 
-4. Immettere il nome dell'applicazione per cui si vuole configurare l'accesso Single Sign-On. Scegliere l'applicazione oppure usare l'applicazione GitHub-test che è stata aggiunta nella guida introduttiva su come [aggiungere un'applicazione](add-application-portal.md).
+4. Immettere il nome dell'applicazione per cui si vuole configurare l'accesso Single Sign-On. Scegliere la propria applicazione, oppure accedere a **GitHub-test** per configurare l'applicazione aggiunta durante l’avvio rapido [aggiungere un'applicazione](add-application-portal.md).
 
 5. Fare clic su **Single Sign-On**. L'opzione predefinita visualizzata in **Modalità Single Sign-On** è **Accesso basato su SAML**. 
 
@@ -72,8 +71,8 @@ Per configurare il dominio e gli URL:
 
     | Impostazione di configurazione | SSO avviato da provider di servizi | SSO avviato da IdP | DESCRIZIONE |
     |:--|:--|:--|:--|
-    | URL di accesso | Obbligatoria | Non specificare | Quando un utente apre questo URL, il provider di servizi esegue il reindirizzamento ad Azure AD per l'autenticazione e l'accesso dell'utente. Azure AD usa l'URL per avviare l'applicazione da Office 365 e dal pannello di accesso di Azure AD. Se questo campo viene lasciato vuoto e un utente avvia l'applicazione da Office 365, dal pannello di accesso di Azure AD o dall'URL Single Sign-On di Azure AD, Azure AD esegue l'accesso Single Sign-On avviato da IdP.|
-    | Identificatore (ID entità) | Obbligatoria per alcune app | Obbligatoria per alcune app | Identifica in modo univoco l'applicazione per cui viene configurato l'accesso Single Sign-On. Azure AD restituisce l'identificatore all'applicazione come parametro Audience del token SAML in modo che l'applicazione lo convalidi. Questo valore viene inoltre visualizzato come ID entità in tutti i metadati SAML forniti dall'applicazione.|
+    | URL di accesso | Obbligatoria | Non specificare | Quando un utente apre questo URL, il provider di servizi esegue il reindirizzamento ad Azure AD per l'autenticazione e l'accesso dell'utente. Azure AD usa l'URL per avviare l'applicazione da Office 365 o dal pannello di accesso di Azure AD. Se si omette, Azure AD si basa sul provider di identità per avviare l’accesso Single Sign-On quando un utente avvia l'applicazione.|
+    | Identificatore (ID entità) | Obbligatoria per alcune app | Obbligatoria per alcune app | Identifica in modo univoco l'applicazione per cui viene configurato l'accesso Single Sign-On. Azure AD restituisce l'identificatore all'applicazione come parametro Audience del token SAML. L'applicazione dovrebbe convalidarlo. Questo valore viene inoltre visualizzato come ID entità in tutti i metadati SAML forniti dall'applicazione.|
     | URL di risposta | Facoltativo | Obbligatoria | Specifica dove l'applicazione prevede di ricevere il token SAML. L'URL di risposta è denominato anche URL del servizio consumer di asserzione. |
     | Stato dell'inoltro | Facoltativo | Facoltativo | Comunica all'applicazione dove reindirizzare l'utente al termine dell'autenticazione. Questo valore è in genere un URL valido per l'applicazione, ma alcune applicazioni usano questo campo in modo diverso. Per altre informazioni, rivolgersi al fornitore dell'applicazione.
 
@@ -83,11 +82,11 @@ Per configurare il dominio e gli URL:
 
 3. Nella parte superiore del pannello fare clic su **Salva**.
 
-4. In questa sezione è presente un pulsante **Test impostazioni SAML**. Eseguire questo test più avanti nell'esercitazione, nella sezione [Testare l'accesso Single Sign-On](#test-single-sign-on).
+4. In questa sezione è presente il pulsante **Test impostazioni SAML**. Eseguire questo test più avanti nell'esercitazione, nella sezione [Testare l'accesso Single Sign-On](#test-single-sign-on).
 
 ## <a name="configure-user-attributes"></a>Configurare gli attributi utente
 
-Gli attributi utente consentono di controllare le informazioni inviate da Azure AD all'applicazione. Azure AD potrebbe inviare all'applicazione, ad esempio, il nome, l'indirizzo di posta elettronica e l'ID dipendente dell'utente. Azure AD invia gli attributi utente all'applicazione nel token SAML a ogni accesso dell'utente. 
+Gli attributi utente consentono di controllare le informazioni inviate da Azure AD all'applicazione nel token SAML ogni volta che un utente effettua l’accesso. Azure AD potrebbe inviare all'applicazione, ad esempio, il nome, l'indirizzo di posta elettronica e l'ID dipendente dell'utente. 
 
 Per il funzionamento corretto dell'accesso Single Sign-On, questi attributi possono essere obbligatori o facoltativi. Per altre informazioni, vedere l'[esercitazione specifica dell'applicazione](../saas-apps/tutorial-list.md) oppure rivolgersi al fornitore dell'applicazione.
 
@@ -115,7 +114,7 @@ Azure AD usa un certificato per firmare i token SAML che invia all'applicazione.
 
 2. Per configurare un certificato, fare clic su **Crea nuovo certificato**.
 
-3. Nel pannello **Crea nuovo certificato** impostare la data di scadenza e fare clic su **Salva**.
+3. Nel pannello **Crea nuovo certificato**, impostare la **data di scadenza** e fare clic su **Salva**.
 
 4. Fare clic su **Imposta il nuovo certificato come attivo**.
 
@@ -146,7 +145,7 @@ La procedura è quasi terminata.  Come passaggio finale, è necessario configura
     ![Configurare l'applicazione](media/configure-single-sign-on-portal/configure-app.png)
 
 2. Fare clic su **Configura applicazione** nel portale e seguire le istruzioni.
-3. Creare manualmente account utente nell'applicazione allo scopo di testare l'accesso Single Sign-On. Creare gli account utente assegnati all'applicazione nella [sezione precedente](#assign-users-to-the-application).   Quando si è pronti a implementare l'applicazione nell'organizzazione, è consigliabile usare il provisioning utenti automatico per creare automaticamente gli account utente nell'applicazione.
+3. Creare manualmente account utente nell'applicazione allo scopo di testare l'accesso Single Sign-On. Creare gli account utente assegnati all'applicazione nella [sezione precedente](#assign-users-to-the-application). 
 
 ## <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
@@ -158,7 +157,7 @@ La procedura è quasi terminata.  Come passaggio finale, è necessario configura
 
     ![Opzioni di test per l'accesso Single Sign-On](media/configure-single-sign-on-portal/test-single-sign-on.png) 
 
-3. Fare clic su **Accedi con l'account utente corrente**. È così possibile verificare prima di tutto il funzionamento dell'accesso Single Sign-On per l'amministratore.
+3. Fare clic su **Accedi con l'account utente corrente**. Questo test consente di verificare prima di tutto il funzionamento dell'accesso Single Sign-On per l'amministratore.
 4. In caso di errore, verrà visualizzato un messaggio di errore. Copiare e incollare le specifiche nella casella **Qual è l'errore riscontrato?**.
 
     ![Ottieni procedure per la risoluzione](media/configure-single-sign-on-portal/error-guidance.png)
@@ -174,7 +173,7 @@ La procedura è quasi terminata.  Come passaggio finale, è necessario configura
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stato usato il portale di Azure per configurare un'applicazione per l'accesso Single Sign-On con Azure AD. È stata trovata la pagina di configurazione dell'accesso Single Sign-On e sono state configurate le relative impostazioni. Al termine della configurazione, si è assegnato un utente all'applicazione e si è configurata l'applicazione per l'uso dell'accesso Single Sign-On basato su SAML. Dopo aver completato tutti questi passaggi, è stato verificato il funzionamento corretto dell'accesso SAML.
+In questa esercitazione è stato configurato l’accesso Single Sign-On per un'applicazione. Al termine della configurazione, si è assegnato un utente all'applicazione e si è configurata l'applicazione per l'uso dell'accesso Single Sign-On basato su SAML. Dopo aver completato tutti questi passaggi, è stato verificato il funzionamento corretto dell'accesso SAML.
 
 Sono state eseguite queste operazioni:
 > [!div class="checklist"]
@@ -183,7 +182,7 @@ Sono state eseguite queste operazioni:
 > * Configurazione degli attributi utente
 > * Creazione di un certificato di firma SAML
 > * Assegnazione manuale di utenti o gruppi all'applicazione
-> * Configurazione dell'applicazione per l'accesso Single Sign-On
+> * Configurazione dell'applicazione per l'uso di Azure AD come provider di identità SAML
 > * Test dell'accesso Single Sign-On basato su SAML
 
 Per implementare l'applicazione per altri utenti dell'organizzazione, è consigliabile usare il provisioning automatico.

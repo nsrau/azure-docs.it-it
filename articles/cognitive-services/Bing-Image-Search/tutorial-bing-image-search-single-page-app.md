@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: e37cb9b9412d257ab238f23b90e4a1077070b2b6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e2013b28e8c829d49efe662a9b0eba245c6d5fab
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297452"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253953"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Esercitazione: Creare un'app di una pagina con l'API Ricerca immagini Bing
 
@@ -316,7 +316,7 @@ function renderImageResults(items) {
 
 L'API Ricerca immagini Bing può restituire quattro tipi di suggerimenti per la ricerca per facilitare le esperienze di ricerca degli utenti, ognuna nel proprio oggetto di primo livello:
 
-| Suggerimento         | Descrizione                                                                                                                                                                                                         |
+| Suggerimento         | DESCRIZIONE                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pivotSuggestions` | Query che sostituiscono una parola pivot nella ricerca originale con una parola diversa. Ad esempio, se si cerca "fiori rossi", una parola pivot potrebbe essere "rossi" e un suggerimento pivot potrebbe essere "fiori gialli". |
 | `queryExpansions`  | Query che restringono la ricerca originale con l'aggiunta di nuovi termini. Ad esempio, se si cerca "Microsoft Surface", un'espansione della query potrebbe essere "Microsoft Surface Pro".                                   |
@@ -338,7 +338,7 @@ searchItemRenderers = {
 
 Queste funzioni renderer accettano i parametri seguenti:
 
-| Parametro         | Descrizione                                                                                              |
+| Parametro         | DESCRIZIONE                                                                                              |
 |---------|----------------------------------------------------------------------------------------------|
 | `item`  | L'oggetto JavaScript che contiene le proprietà dell'elemento, ad esempio l'URL e la relativa descrizione. |
 | `index` | L'indice dell'elemento di risultato all'interno della raccolta.                                          |

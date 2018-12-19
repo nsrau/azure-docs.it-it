@@ -1,14 +1,11 @@
 ---
-title: "Esercitazione: Bilanciamento del carico delle macchine virtuali all'interno di una zona - Portale di Azure | Microsoft Docs"
+title: "Esercitazione: Bilanciamento del carico delle macchine virtuali all'interno di una zona - Portale di Azure"
+titlesuffix: Azure Load Balancer
 description: Questa esercitazione dimostra come creare un servizio Load Balancer Standard con front-end di zona per bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità tramite il portale di Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 580015b7f8b1f894c69ddec0f26daeb524932e4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.custom: seodec18
+ms.openlocfilehash: dd4600d77373894cdc9d6225ae008a8bd677fb59
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637294"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262096"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -53,7 +50,7 @@ Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando s
 2. Nella pagina **Crea servizio di bilanciamento del carico** immettere questi valori per il bilanciamento del carico:
     - **myLoadBalancer** come nome del servizio di bilanciamento del carico.
     - **Pubblico** come tipo di bilanciamento del carico.
-     - **myPublicIPZonal** come nuovo indirizzo IP pubblico da creare. Fare clic su **Scegli indirizzo IP pubblico**. Selezionare quindi **Crea nuovo**. Per nome, immettere **myPublicIP**. Lo SKU è Standard per impostazione predefinita. Per **Zona di disponibilità** selezionare **Zona 1**.
+      - **myPublicIPZonal** come nuovo indirizzo IP pubblico da creare. Fare clic su **Scegli indirizzo IP pubblico**. Selezionare quindi **Crea nuovo**. Per nome, immettere **myPublicIP**. Lo SKU è Standard per impostazione predefinita. Per **Zona di disponibilità** selezionare **Zona 1**.
     - **myResourceGroupZLB** come nome del nuovo gruppo di risorse creato.
     - **westeurope** come posizione.
 3. Fare clic su **Crea** per creare il servizio di bilanciamento del carico.
@@ -81,7 +78,7 @@ In questa sezione si crea una rete virtuale. Si creano inoltre due macchine virt
     - **myNetworkSecurityGroup** come nome del gruppo di sicurezza di rete.
     - **myResourceGroupLBAZ** come nome del gruppo di risorse esistente.
    
-    ![Creare un gruppo di sicurezza di rete](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
+     ![Creare un gruppo di sicurezza di rete](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 
 ### <a name="create-nsg-rules"></a>Creare le regole NSG
 
@@ -100,7 +97,7 @@ In questa sezione vengono create regole NSG per consentire le connessioni in ing
     - **Consenti HTTP** come **Descrizione**.
 4. Selezionare **OK**.
  
- ![Creare le regole NSG](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Creare le regole NSG](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. Ripetere i passaggi da 2 a 4 per creare un'altra regola denominata **myRDPRule**. Questa regola consente una connessione RDP in entrata che usa la porta 3389, con i valori seguenti:
     - **Tag del servizio** come **Origine**.
@@ -112,7 +109,7 @@ In questa sezione vengono create regole NSG per consentire le connessioni in ing
     - **myRDPRule** come **Nome**.
     - **Consenti RDP** come **Descrizione**.
 
-    ![Creare una regola RDP](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
+      ![Creare una regola RDP](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 

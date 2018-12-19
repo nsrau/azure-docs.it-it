@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8b2d49d9df2cc8db98004ad9c186511d8d5e2b87
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f6ae69c04d83e1ce1540267fb7932b80cca1013c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156647"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087210"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM usando Node.js Device SDK per il servizio Device Provisioning in hub IoT
 
@@ -25,8 +25,8 @@ Questi passaggi illustrano come creare un dispositivo simulato nel computer di s
 Se non si ha familiarità con il processo di provisioning automatico, è necessario vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
 
 Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
-- [Gruppi di registrazioni](concepts-service.md#enrollment-group): usato per registrare più dispositivi correlati.
-- [Registrazioni singole](concepts-service.md#individual-enrollment): usato per registrare un singolo dispositivo.
+- [Gruppi di registrazioni](concepts-service.md#enrollment-group): Usato per registrare più dispositivi correlati.
+- [Registrazioni singole](concepts-service.md#individual-enrollment): Usato per registrare un singolo dispositivo.
 
 Questo articolo descrive le registrazioni singole.
 
@@ -44,7 +44,7 @@ Questo articolo descrive le registrazioni singole.
 1. Aprire un prompt dei comandi o Git Bash. Clonare il repository GitHub `azure-utpm-c`:
     
     ```cmd/sh
-    git clone https://github.com/Azure/azure-utpm-c.git
+    git clone https://github.com/Azure/azure-utpm-c.git --recursive
     ```
 
 1. Passare alla cartella radice GitHub ed eseguire il simulatore [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview), che è in ascolto di un socket sulle porte 2321 e 2322. Non chiudere questa finestra di comando. Il simulatore dovrà restare in esecuzione fino alla fine di questa guida introduttiva: 

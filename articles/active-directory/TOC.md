@@ -275,6 +275,7 @@
 ##### [Problema di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti nell'app della raccolta](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [Utenti senza provisioning - App della raccolta](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
 ##### [Provisioning di utenti errati - App della raccolta](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [Problemi di compatibilità con SCIM - App non della raccolta](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### Single sign-on
 ##### [Scegliere un metodo](manage-apps/single-sign-on-modes.md)
@@ -321,10 +322,10 @@
 ## [Risolvere i problemi](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Distribuire il modello di verifica (PoC) di Azure AD
-### [Studio del modello di verifica: introduzione](active-directory-playbook-intro.md)
-### [Studio del modello di verifica: ingredienti](active-directory-playbook-ingredients.md)
-### [Studio del modello di verifica: implementazione](active-directory-playbook-implementation.md)
-### [Studio del modello di verifica: blocchi predefiniti](active-directory-playbook-building-blocks.md)
+### [Playbook sul modello di verifica: Introduzione](active-directory-playbook-intro.md)
+### [Playbook sul modello di verifica: Ingredienti](active-directory-playbook-ingredients.md)
+### [Playbook sul modello di verifica: Implementazione](active-directory-playbook-implementation.md)
+### [Playbook sul modello di verifica: Blocchi predefiniti](active-directory-playbook-building-blocks.md)
 
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)

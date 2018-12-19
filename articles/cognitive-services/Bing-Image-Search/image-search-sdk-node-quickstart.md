@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Cercare immagini con Bing Image Search SDK per Node.js'
-description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite Bing Image Search SDK, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Node.js invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
+title: 'Avvio rapido: Cercare immagini - SDK di Ricerca immagini Bing per Node.js'
+description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Node.js invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -10,16 +10,17 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: a1fda703c74549c351d8eb609819198d7e2856cf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: cb01b45e26975d44e30669e066b195f4e3abc90a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311280"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251998"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-nodejs"></a>Guida introduttiva: Cercare immagini con Bing Image Search SDK e Node.js
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>Avvio rapido: Cercare immagini con l’SDK di Ricerca immagini Bing per Node.js
 
-Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite Bing Image Search SDK, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione JavaScript invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
+Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione JavaScript invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js) con altre annotazioni e informazioni sulla gestione degli errori.
 

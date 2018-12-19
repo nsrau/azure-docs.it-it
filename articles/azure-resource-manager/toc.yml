@@ -94,7 +94,7 @@ items:
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Distribuire modelli
     items:
-    - name: Eseguire la distribuzione tramite il portale
+    - name: Eseguire la distribuzione tramite il portale di Azure
       href: resource-group-template-deploy-portal.md
     - name: Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
       href: resource-group-template-deploy-cli.md
@@ -123,27 +123,27 @@ items:
       maintainContext: true
   - name: Gestire i modelli
     items:
-    - name: Azure PowerShell
-      href: powershell-azure-resource-manager.md
-    - name: Interfaccia della riga di comando di Azure
-      href: cli-azure-resource-manager.md
-    - name: Portale di Azure
+    - name: Gestire con il portale di Azure
       href: resource-group-portal.md
-    - name: Usare tag per organizzare le risorse
-      href: resource-group-using-tags.md
-    - name: Spostare le risorse in un nuovo gruppo o sottoscrizione
+    - name: Gestire con Azure PowerShell
+      href: powershell-azure-resource-manager.md
+    - name: Gestire con l'interfaccia della riga di comando di Azure
+      href: cli-azure-resource-manager.md
+    - name: Spostare le risorse
       href: resource-group-move-resources.md
       items:
       - name: Supporto di spostamento per tipo di risorsa
         href: move-support-resources.md
+    - name: Organizzare le risorse con i tag
+      href: resource-group-using-tags.md
+    - name: Bloccare le risorse
+      href: resource-group-lock-resources.md
+    - name: API di autenticazione per accedere alle sottoscrizioni
+      href: resource-manager-api-authentication.md
     - name: Creare sottoscrizioni EA
       href: programmatically-create-subscription.md
     - name: Concedere l'accesso per la creazione di sottoscrizioni EA
       href: grant-access-to-create-subscription.md
-    - name: API di autenticazione per accedere alle sottoscrizioni
-      href: resource-manager-api-authentication.md
-    - name: Bloccare le risorse
-      href: resource-group-lock-resources.md
   - name: Controllare le distribuzioni
     items:
     - name: Visualizzare log di attività
@@ -211,7 +211,7 @@ items:
     href: /rest/api/resources/
   - name: REST - Deployment Manager
     href: /rest/api/deploymentmanager/
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/module/azurerm.resources
   - name: Interfaccia della riga di comando di Azure
     href: /cli/azure/resource
@@ -235,9 +235,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 166a23d480db7dfda7a78a5a63e7717b5e721bb9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 47766ce1bd0250c1eeaa269c4bc2436a2e117f02
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436790"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600965"

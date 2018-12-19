@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Web di database SQL e .NET Core in Servizio app di Azure in Linux | Microsoft Docs
+title: Creare un’app .NET Core con il database SQL in Linux - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come ottenere un'app .NET Core da usare in Servizio app di Azure in Linux, con connessione a un database SQL.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: ddea4621277303dd6c153205b683b4eea0151db0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: cb81699671bd2a0e86838d043ad0a4442eb79a6c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432263"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254242"
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web di database SQL e .NET Core in Servizio app di Azure in Linux
 
@@ -330,7 +330,7 @@ Trovare l'elemento `<td>` che contiene i gli helper per i tag `asp-action`. Imme
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 
