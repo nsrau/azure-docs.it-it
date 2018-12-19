@@ -233,7 +233,7 @@ Per verificare la connessione VPN, creare due macchine virtuali: uno in Azure e 
 6. Fornire una **sottoscrizione**, **gruppo di risorse**, e **posizione**, quindi selezionare **OK**.
 7. Nel **dimensioni** della sezione, per questa istanza, seleziona una dimensione di macchina virtuale e quindi selezionare **seleziona**.
 8. Nel **impostazioni** sezione, accettare le impostazioni predefinite. Assicurarsi che il **Azs-VNet** sia selezionata la rete virtuale. Verificare che la subnet sia impostata su **10.1.0.0/24**. Selezionare **OK**.
-9. Nel **riepilogo** sezione, rivedere le impostazioni e quindi selezionare * OK * *.
+9. Nel **riepilogo** sezione, rivedere le impostazioni e quindi selezionare *OK*\*.
 
 ## <a name="test-the-connection"></a>Testare la connessione
 

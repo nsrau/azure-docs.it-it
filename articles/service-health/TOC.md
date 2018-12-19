@@ -6,7 +6,7 @@
 ## [Informazioni su Integrità risorse](resource-health-overview.md)
 # Procedure
 ## [Configurare gli avvisi per gli eventi di Integrità dei servizi](../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
-### [Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure](../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
+### [Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure](../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [Configurare le notifiche sull'integrità del servizio con un webhook](service-health-alert-webhook-guide.md)
 ### [Configurare con ServiceNow](service-health-alert-webhook-servicenow.md)
 ### [Configurare con PagerDuty](service-health-alert-webhook-pagerduty.md)

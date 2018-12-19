@@ -26,18 +26,18 @@
 
 # Esempi
 ## Interfaccia della riga di comando di Azure
-### [App Web](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [App Web](https://docs.microsoft.com/azure/app-service/samples-cli)
 ### [VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [VM Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## Azure PowerShell
-### [App Web](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+### [App Web](https://docs.microsoft.com/azure/app-service/samples-powershell)
 ### [VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [VM Windows](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Concetti
 ## [Fatturazione e sottoscrizioni](https://docs.microsoft.com/azure/billing/billing-getting-started)
 ## [Confronti di hosting](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
-## [Informazioni sul servizio app](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+## [Informazioni sul servizio app](https://docs.microsoft.com/azure/app-service/overview)
 ## Macchine virtuali
 ### [Macchine virtuali di Linux](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Macchine virtuali di Windows](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
