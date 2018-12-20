@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: d3340131c1f174201cc9fd1dcb31bd4a4b8cd07a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: a4a6dac4ca42f98bd03da022aaed79db094a9ed6
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854085"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413286"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Guida introduttiva: generare un'anteprima usando Visione artificiale con SDK e C#
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Guida introduttiva: generare un'anteprima tramite l'SDK di Visione artificiale e C#
 
 In questa guida introduttiva si genera un'anteprima da un'immagine usando la libreria client Windows di Visione artificiale.
 
@@ -32,7 +32,7 @@ In questa guida introduttiva si genera un'anteprima da un'immagine usando la lib
 > [!TIP]
 > Ottenere la versione più recente del codice come soluzione di Visual Studio da [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
-I metodi `GenerateThumbnailAsync` e `GenerateThumbnailInStreamAsync` eseguono il wrapping dell'[API Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) rispettivamente per le immagini locali e remote.  È possibile usare questi metodi per generare un'anteprima di un'immagine. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale usa il ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
+I metodi `GenerateThumbnailAsync` e `GenerateThumbnailInStreamAsync` eseguono il wrapping dell'[API Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) rispettivamente per le immagini locali e remote.  È possibile usare questi metodi per generare un'anteprima di un'immagine. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale ricorre al ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
 
 Per eseguire l'esempio, seguire questa procedura:
 

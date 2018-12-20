@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare una pipeline di ricerca cognitiva in Ricerca di Azure tramite il portale | Microsoft Docs'
+title: 'Guida introduttiva: pipeline della ricerca cognitiva nel portale di Azure - Ricerca di Azure'
 description: Estrazione dei dati, linguaggio naturale ed esempio di capacità di elaborazione delle immagine nel portale di Azure usando dati di esempio.
 manager: cgronlun
 author: HeidiSteen
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec2018
+ms.openlocfilehash: 7d579bfdaf38b6c06b26cfa7b36f8e4d2ac5a1f2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264127"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386265"
 ---
-# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guida introduttiva: Creare una pipeline di ricerca cognitiva con competenze e dati di esempio
+# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guida introduttiva: creare una pipeline di ricerca cognitiva con competenze e dati di esempio
 
 La ricerca cognitiva (anteprima) aggiunge competenza di estrazione dei dati, di elaborazione del linguaggio naturale (NLP) e di elaborazione delle immagini a una pipeline di indicizzazione di Ricerca di Azure, rendendo più ricercabile il contenuto non ricercabile o non strutturato. Le informazioni create da una competenza, ad esempio il riconoscimento dell'entità o l'analisi delle immagini, vengono aggiunte a un indice in Ricerca di Azure.
 
@@ -47,7 +48,9 @@ In questa Guida introduttiva è possibile provare la pipeline di arricchimento n
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!NOTE]
-> La ricerca cognitiva è disponibile in anteprima pubblica. Le funzionalità di esecuzione di set di competenze e di estrazione e normalizzazione di immagini sono attualmente disponibili gratuitamente. Il prezzo per queste funzionalità verrà annunciato in un momento successivo. 
+> A partire dal 21 dicembre 2018 è possibile associare una risorsa dei Servizi cognitivi a un set di competenze della Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare per l'esecuzione del set di competenze. In questa data avrà inizio anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione del testo dai documenti continuerà a essere offerta gratuitamente.
+>
+> L'esecuzione delle competenze predefinite verrà addebitata in base ai[prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione delle immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -66,7 +69,7 @@ Prima di tutto, iscriversi al servizio Ricerca di Azure.
 
 1. Fare clic su **Crea una risorsa**, cercare Ricerca di Azure e fare clic su **Crea**. Vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md) se è la prima volta che si configura un servizio di ricerca ed è necessaria ulteriore assistenza.
 
-  ![Portale del dashboard](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Creare un servizio di Ricerca di Azure nel portale")
+  ![Portale del dashboard](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Creare un servizio di Ricerca di Azure nel portale")
 
 1. Per Gruppo di risorse creare un gruppo di risorse per contenere tutte le risorse che verranno create in questa guida introduttiva. In questo modo è più semplice pulire le risorse dopo aver completato la Guida introduttiva.
 
@@ -76,16 +79,18 @@ Prima di tutto, iscriversi al servizio Ricerca di Azure.
 
   Un servizio Gratuito è limitato a 3 indici, dimensioni BLOB massime di 16 MB e 2 minuti di indicizzazione, capacità insufficienti per mettere alla prova tutte le funzionalità della ricerca cognitiva. Per esaminare i limiti per i diversi livelli, vedere [Limiti del servizio](search-limits-quotas-capacity.md).
 
+  ![Pagina di definizione del servizio nel portale](./media/cognitive-search-tutorial-blob/create-search-service1.png "Pagina di definizione del servizio nel portale")
+  ![Pagina di definizione del servizio nel portale](./media/cognitive-search-tutorial-blob/create-search-service2.png "Pagina di definizione del servizio nel portale")
   > [!NOTE]
-  > La ricerca cognitiva è disponibile in anteprima pubblica. L'esecuzione di set di competenze è attualmente disponibile in tutti i livelli, incluso quello gratuito. Il prezzo per questa funzionalità verrà annunciato in un momento successivo.
+  > La ricerca cognitiva è disponibile in anteprima pubblica. L'esecuzione di set di competenze è attualmente disponibile in tutti i livelli, incluso quello gratuito. Sarà possibile eseguire un numero limitato di miglioramenti senza associare una risorsa di Servizi cognitivi a pagamento. [Altre informazioni](cognitive-search-attach-cognitive-services.md).
 
 1. Aggiungere il servizio al dashboard per un rapido accesso alle informazioni sul servizio.
 
-  ![Pagina di definizione del servizio nel portale](./media/cognitive-search-tutorial-blob/create-search-service.png "Pagina di definizione del servizio nel portale")
+  ![Pagina di definizione del servizio nel portale](./media/cognitive-search-tutorial-blob/create-search-service3.png "Pagina di definizione del servizio nel portale")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurare il servizio BLOB di Azure e caricare i dati di esempio
 
-La pipeline di arricchimento effettua il pull da origini dati di Azure supportate dagli [indicizzatori di Ricerca di Azure](search-indexer-overview.md). Per questo esercizio viene usato l'archivio BLOB per presentare più tipi di contenuto.
+La pipeline di arricchimento effettua il pull da origini dati di Azure supportate dagli [indicizzatori di Ricerca di Azure](search-indexer-overview.md). Nota bene: il servizio tabelle di Azure non è supportato per la ricerca cognitiva. Per questo esercizio viene usato l'archivio BLOB per presentare più tipi di contenuto.
 
 1. [Scaricare i dati di esempio](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) costituiti da un piccolo set di file di tipi diversi. 
 
@@ -103,7 +108,7 @@ Tornare alla pagina dashboard del servizio Ricerca di Azure e fare clic su **Imp
 
 In **Definisci la connessione ai dati** > **Archiviazione BLOB di Azure**, selezionare l'account e il contenitore creati. Assegnare un nome origine dati e utilizzare i valori predefiniti per il resto. 
 
-   ![Configurazione del BLOB di Azure](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   ![Configurazione del BLOB di Azure](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
 
 
 Fare clic su **OK** per creare l'origine dati.
@@ -210,4 +215,4 @@ Supponendo che entrambi i servizi siano stati inseriti nello stesso gruppo, elim
 In alternativa, riutilizzare i dati di esempio e i servizi creati per apprendere come eseguire stesse attività a livello di codice nella prossima esercitazione. 
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Informazioni sull'API REST di ricerca cognitiva](cognitive-search-tutorial-blob.md)
+> [Esercitazione: Informazioni sulle API REST della ricerca cognitiva](cognitive-search-tutorial-blob.md)

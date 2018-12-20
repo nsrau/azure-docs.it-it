@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4f4aedd1d85a83e6f55d5729b82b88e2e9e8c00d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ec67cb6b4bc1dd29dbbac4056d3365a74b31a24c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415934"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013705"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate di archiviazione
 
 Questo articolo contiene indicazioni per l'archiviazione dei dati nei sistemi Azure HDInsight. L'articolo fa parte di una serie di documenti che descrivono le procedure consigliate per facilitare la migrazione di sistemi Apache Hadoop locali ad Azure HDInsight.
 
-## <a name="choose-the-right-storage-system-for-hdinsight-clusters"></a>Scegliere il sistema di archiviazione corretto per i cluster HDInsight
+## <a name="choose-right-storage-system-for-hdinsight-clusters"></a>Scegliere il sistema di archiviazione corretto per i cluster di HDInsight
 
 La struttura di directory HDFS (Apache Hadoop File System) locale può essere ricreata in Archiviazione di Azure oppure in Azure Data Lake Storage. È quindi possibile eliminare in modo sicuro i cluster HDInsight usati per i calcoli senza perdere i dati degli utenti. Entrambi i servizi possono essere usati sia come file system predefinito che come file system per un cluster HDInsight. Il cluster HDInsight e l'account di archiviazione devono trovarsi nella stessa area del cluster.
 
@@ -34,9 +34,12 @@ Archiviazione di Azure può eseguire la replica geografica. Sebbene la replica g
 
 Per accedere ai dati memorizzati in Archiviazione di Azure, è possibile usare i formati seguenti.
 
-- `wasb:///`: per accedere allo spazio di archiviazione predefinito usando la comunicazione non crittografata.
-- `wasbs:///`: per accedere allo spazio di archiviazione predefinito usando la comunicazione crittografata.
-- `wasb://<container-name>@<account-name>.blob.core.windows.net/`: usato durante la comunicazione con un account di archiviazione non predefinito. 
+|Formato di accesso ai dati |DESCRIZIONE |
+|---|---|
+|`wasb:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione non crittografata.|
+|`wasbs:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione crittografata.|
+|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Usato durante la comunicazione con un account di archiviazione non predefinito. |
+
 
 In [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../storage/common/storage-scalability-targets.md) vengono elencati i limiti correnti per gli account di Archiviazione di Azure. Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, l'applicazione può essere creata per usare più account di archiviazione e quindi partizionare gli oggetti dati tra tali account.
 
@@ -96,26 +99,26 @@ Una funzionalità fondamentale di Data Lake Storage Gen2 consiste nell'aggiunta 
 
 In passato, le analisi basate sul cloud imponevano il raggiungimento di un compromesso tra prestazioni, gestione e sicurezza. Le funzionalità principale di Azure Data Lake Storage (ADLS) Gen2 sono le seguenti:
 
-- **Accesso compatibile con Hadoop**: Azure Data Lake Storage Gen2 consente di gestire i dati e di accedervi esattamente come si farebbe con un  [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Il nuovo  [driver ABFS](../../storage/data-lake-storage/abfs-driver.md) è disponibile in tutti gli ambienti di Apache Hadoop inclusi in [Azure HDInsight](../index.yml). Tale driver consente di accedere ai dati archiviati in Data Lake Storage Gen2.
+- **Accesso compatibile con Hadoop**: Azure Data Lake Storage Gen2 consente di gestire i dati e accedervi esattamente come si farebbe con  [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Il nuovo  [driver ABFS](../../storage/data-lake-storage/abfs-driver.md) è disponibile in tutti gli ambienti di Apache Hadoop inclusi in [Azure HDInsight](../index.yml). Tale driver consente di accedere ai dati archiviati in Data Lake Storage Gen2.
 
-- **Un superset di autorizzazioni POSIX**: il modello di protezione per Data Lake Gen2 supporta completamente l'elenco di controllo di accesso e le autorizzazioni POSIX oltre ad una granularità aggiuntiva specifica di Data Lake Storage Gen2. È possibile configurare le impostazioni tramite gli strumenti di amministrazione o i framework come Hive e Spark.
+- **Un superset di autorizzazioni POSIX**: Il modello di protezione per Data Lake Gen2 supporta completamente l'elenco di controllo di accesso e le autorizzazioni POSIX oltre ad una granularità aggiuntiva specifica di Data Lake Storage Gen2. È possibile configurare le impostazioni tramite gli strumenti di amministrazione o i framework come Hive e Spark.
 
-- **Economicamente conveniente**: Data Lake Storage Gen2 offre capacità di archiviazione e transazioni a basso costo. Durante il ciclo di vita completo dei dati, le tariffe di fatturazione vengono modificate per ridurre i costi tramite le funzionalità predefinite, ad esempio il  [ciclo di vita di Archiviazione BLOB di Azure](../../storage/common/storage-lifecycle-managment-concepts.md).
+- **Conveniente**: Data Lake Storage Gen2 offre capacità di archiviazione e transazioni a basso costo. Durante il ciclo di vita completo dei dati, le tariffe di fatturazione vengono modificate per ridurre i costi tramite le funzionalità predefinite, ad esempio il  [ciclo di vita di Archiviazione BLOB di Azure](../../storage/common/storage-lifecycle-management-concepts.md).
 
-- **Funziona con strumenti di archiviazione BLOB, framework e app**: Data Lake Storage Gen2 continua a funzionare con l'ampia gamma di strumenti, framework e app attualmente esistenti per l'archiviazione BLOB di Azure.
+- **Funziona con gli strumenti di archiviazione, i framework e le app Blob**: Data Lake Storage Gen2 continua a funzionare con un ampio array di strumenti, framework e applicazioni già presenti in Archiviazione Blob.
 
-- **Driver ottimizzato**: il driver ABFS (Azure BLOB Filesystem) è  [ottimizzato in modo specifico](../../storage/data-lake-storage/abfs-driver.md) per l'analisi dei Big Data. Le API REST corrispondenti vengono rilevate tramite l'endpoint dfs, ovvero dfs.core.windows.net.
+- **Driver ottimizzato**: Il driver ABFS (Azure BLOB Filesystem) è  [ottimizzato in modo specifico](../../storage/data-lake-storage/abfs-driver.md) per l'analisi dei Big Data. Le API REST corrispondenti vengono rilevate tramite l'endpoint dfs, ovvero dfs.core.windows.net.
 
 Per accedere ai dati memorizzati in ADLS Gen2, è possibile usare i formati seguenti.
-- `abfs:///`: consente di accedere all'istanza di Data Lake Storage per il cluster.
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`: usato durante la comunicazione con un'istanza di Data Lake Storage non predefinito.
+- `abfs:///`: Consente di accedere all'istanza predefinita di Data Lake Storage per il cluster.
+- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Usato durante la comunicazione con un'istanza di Data Lake Storage non predefinita.
 
 Per altre informazioni, vedere gli articoli seguenti:
 
 - [Anteprima di Azure Data Lake Storage Gen2 - Introduzione](../../storage/data-lake-storage/introduction.md)
 - [Driver ABFS (Azure Blob File System): un driver di Archiviazione di Azure dedicato per Hadoop](../../storage/data-lake-storage/abfs-driver.md)
 
-## <a name="protect-azure-storage-key-visibility-within-the-on-premises-hadoop-cluster-configuration"></a>Proteggere la visibilità delle chiavi di Archiviazione di Azure nella configurazione di cluster Hadoop locali
+## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Proteggere le chiavi di Archiviazione di Azure nella configurazione di cluster Hadoop locali
 
 Le chiavi di Archiviazione di Azure aggiunte ai file di configurazione Hadoop stabiliscono la connettività tra il file system HDFS locale e Archiviazione BLOB di Azure. Tali chiavi possono essere protette tramite la crittografia con il framework di provider di credenziali di Hadoop. Dopo essere state crittografate, le chiavi possono essere archiviate ed è possibile accedervi in modo sicuro.
 
@@ -144,18 +147,21 @@ hadoop credential create fs.azure.account.key.account.blob.core.windows.net -val
 hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
 ```
 
-## <a name="restrict-access-to-azure-storage-data-using-sas-signatures"></a>Limitare l'accesso ai dati di Archiviazione di Azure usando le firme di accesso condiviso
+## <a name="restrict-azure-storage-data-access-using-sas"></a>Limitare l'accesso ai dati di Archiviazione di Azure con la firma di accesso condiviso
 
 Per impostazione predefinito, HDInsight ha accesso completo ai dati negli account di Archiviazione di Azure associati al cluster. Le firme di accesso condiviso per il contenitore BLOB possono essere usate per limitare l'accesso ai dati, ad esempio per concedere agli utenti l'accesso in sola lettura.
 
 ### <a name="using-the-sas-token-created-with-python"></a>Uso del token di firma di accesso condiviso creato con Python
 
 1. Aprire il file [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) e modificare i valori seguenti:
-    - policy_name: nome da usare per i criteri archiviati da creare.
-    - storage_account_name: nome dell'account di archiviazione.
-    - storage_account_key: chiave per l'account di archiviazione.
-    - storage_container_name: contenitore nell'account di archiviazione a cui si vuole limitare l'accesso.
-    - example_file_path: percorso di un file caricato nel contenitore.
+
+    |Proprietà token|DESCRIZIONE|
+    |---|---|
+    |policy_name|Nome da usare per i criteri archiviati da creare.|
+    |storage_account_name|Nome dell'account di archiviazione.|
+    |storage_account_key|Chiave per l'account di archiviazione.|
+    |storage_container_name|Contenitore nell'account di archiviazione a cui si vuole limitare l'accesso.|
+    |example_file_path|Percorso di un file caricato nel contenitore.|
 
 2. Al file SASToken.py sono associate le autorizzazioni `ContainerPermissions.READ + ContainerPermissions.LIST` e possono essere modificate in base al caso d'uso.
 
@@ -167,7 +173,7 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 6. Per i campi  **Key**  (Chiave) e  **Value**  (Valore), usare i valori seguenti:
 
-    **Key**(Chiave): `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Value**(Valore): chiave di firma di accesso condiviso restituita dall'applicazione Python nel passaggio 4 precedente.
+    **Chiave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valore**: Chiave di firma di accesso condiviso restituita dall'applicazione Python nel passaggio 4 precedente.
 
 7. Fare clic sul pulsante  **Add**  (Aggiungi) per salvare la chiave e il valore e quindi fare clic su  **Save**  (Salva) per salvare le modifiche della configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su  **Save** (Salva).
 
@@ -183,7 +189,7 @@ Esistono tre aspetti importanti da ricordare in relazione all'uso dei token di f
 
 3. Sfortunatamente, il provider di credenziali Hadoop e delle chiavi di crittografia (ShellDecryptionKeyProvider) attualmente non funzionano con i token di firma di accesso condiviso e pertanto non può essere protetto dalla visibilità.
 
-Per altre informazioni, vedere [Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati in HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md)
+Per altre informazioni, vedere [Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati in HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md).
 
 ## <a name="use-data-encryption-and-replication"></a>Usare la crittografia e la replica dei dati
 
@@ -201,7 +207,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Replica di Archiviazione di Azure](../../storage/common/storage-redundancy.md)
 - [Materiale sussidiario per il ripristino di emergenza dei dati in Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
-## <a name="attach-additional-azure-storage-accounts-to-the-cluster"></a>Collegare account di Archiviazione di Azure aggiuntivi al cluster
+## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Collegare account di Archiviazione di Azure aggiuntivi al cluster
 
 Durante il processo di creazione di HDInsight, un account di Archiviazione di Azure o un account di Archiviazione di Azure Data Lake viene scelto come file system predefinito. Oltre all'account di archiviazione predefinito, durante il processo di creazione o dopo la creazione di un cluster è possibile aggiungere altri account di archiviazione della stessa sottoscrizione di Azure o di sottoscrizioni di Azure diverse.
 

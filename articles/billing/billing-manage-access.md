@@ -1,6 +1,6 @@
 ---
 title: Gestire l'accesso alla fatturazione di Azure | Microsoft Docs
-description: ''
+description: Informazioni su come fornire l’accesso alle informazioni di fatturazione Azure ai membri del team.
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 7a4e19ae5bf770949623f4cee7fa0d3033ccfa29
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: a15d055505ca0f28ad28b477e90e6fe859cc9ac7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582616"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094288"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gestire l'accesso alle informazioni di fatturazione per Azure
 
@@ -72,9 +73,10 @@ La funzionalità Fatturazione per lettore è disponibile in anteprima e non supp
 
 1. Selezionare **Controllo di accesso (IAM)**.
 1. Selezionare **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questa sottoscrizione.
-1. Selezionare **Aggiungi** > **Aggiungi assegnazione di ruolo**.
+1. Selezionare **Aggiungi assegnazione di ruolo**.
 1. Nell'elenco a discesa **Ruolo** scegliere **Lettore per la fatturazione**.
 1. Nella casella di testo **Seleziona** digitare il nome o l'indirizzo di posta elettronica dell'utente da aggiungere.
+1. Selezionare l'utente.
 1. Selezionare **Salva**.
 1. Dopo qualche istante, all'utente viene assegnato il ruolo di Lettore per la fatturazione per l'ambito della sottoscrizione.
 1. Il Lettore per la fatturazione riceve un messaggio di posta elettronica con un collegamento per l'accesso.
@@ -102,6 +104,6 @@ L'amministratore dell'account è il proprietario legale della sottoscrizione. Pe
 - Gli utenti in altri ruoli, ad esempio proprietario o collaboratore, possono accedere non solo alle informazioni di fatturazione, ma anche ai servizi di Azure. Per gestire questi ruoli, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 - Per altre informazioni sui ruoli, vedere [Ruoli predefiniti per le risorse di Azure](../role-based-access-control/built-in-roles.md).
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza e contatti
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-In caso di domande, creare una [Richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) per assistenza.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

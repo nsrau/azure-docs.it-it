@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva per accedere ad Azure Active Directory e creare un nuovo tenant | Microsoft Docs
-description: Guida introduttiva con procedura per trovare Azure Active Directory e creare un nuovo tenant per l'organizzazione.
+title: Guida introduttiva per accedere e creare un nuovo tenant - Azure Active Directory | Microsoft Docs
+description: Istruzioni per trovare Azure Active Directory e creare un nuovo tenant per l'organizzazione.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
-custom: it-pro
-ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: cd179d371ec75a2e6ca258a1efbc2361e50a5438
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023550"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083273"
 ---
-# <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Guida introduttiva: Accedere ad Azure Active Directory per creare un nuovo tenant
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Guida introduttiva: Creare un nuovo tenant in Azure Active Directory
 Nel portale di Azure Active Directory (Azure AD) è possibile eseguire tutte le attività amministrative, inclusa la creazione di un nuovo tenant per l'organizzazione. 
 
 In questa guida introduttiva si apprenderà come accedere al portale di Azure e ad Azure Active Directory e come creare un tenant di base per l'organizzazione.

@@ -1,6 +1,6 @@
 ---
 title: Esercitazione per la preparazione dei dati per la classificazione con il set di dati Iris nei servizi di Azure Machine Learning (anteprima) | Microsoft Docs
-description: Questa esaustiva esercitazione illustra come usare i servizi di Azure Machine Learning (anteprima) end-to-end. Questa prima parte illustra la preparazione dei dati.
+description: Questa esaustiva esercitazione illustra come usare il servizio di Azure Machine Learning (anteprima) end-to-end. Questa prima parte illustra la preparazione dei dati.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,14 +11,14 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
+ms.date: 03/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd10581888da64114debec40cba8564023033864
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990162"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278509"
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>Esercitazione 1: Classificare i dati Iris - Preparazione dei dati
 
@@ -45,11 +45,11 @@ Per completare l'esercitazione, sono necessari:
 - Un account Sperimentazione di Azure Machine Learning
 - Azure Machine Learning Workbench installato
 
-Se questi prerequisiti non sono già disponibili, seguire la procedura illustrata nell'articolo [Guida introduttiva: Installazione e avvio](quickstart-installation.md) per configurare l'account e installare l'applicazione Azure Machine Learning Workbench. 
+Se non si hanno già questi prerequisiti, seguire i passaggi nell’articolo [Guida introduttiva: Installazione e avvio](quickstart-installation.md) per configurare gli account e installare l'applicazione di Azure Machine Learning Workbench. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Creare un nuovo progetto in Workbench
 
-Se è stata seguita la procedura illustrata nell'articolo [Guida introduttiva: Installazione e avvio](quickstart-installation.md), il progetto dovrebbe essere già disponibile ed è possibile passare alla sezione successiva.
+Se è stata seguita la procedura descritta nell’articolo [Guida introduttiva: Installazione e avvio](quickstart-installation.md), il progetto dovrebbe essere già disponibile ed è possibile passare alla sezione successiva.
 
 1. Aprire l'app Azure Machine Learning Workbench ed eseguire l'accesso, se necessario. 
    
@@ -152,7 +152,7 @@ Il pacchetto di preparazione dei dati può essere inviato in un secondo momento 
    1. Fare clic con il pulsante destro del mouse per selezionare un'opzione. 
    1. Scegliere **Value Counts** (Conteggi dei valori) dal menu a discesa. 
 
-   Il riquadro **Inspectors** (Controlli) viene visualizzato sotto i dati. Viene visualizzato un istogramma con quattro barre. La colonna di destinazione include i quattro valori distinti **Iris-virginica**, **Iris-versicolor**, **Iris-setosa** e un valore **(Null)**.
+   Il riquadro **Inspectors** (Controlli) viene visualizzato sotto i dati. Viene visualizzato un istogramma con quattro barre. La colonna di destinazione ha quattro valori distinti: **Iris-virginica**, **Iris-versicolor**, **Iris-setosa**e un valore **(null)**.
 
    ![Selezionare Value Counts (Conteggi dei valori)](media/tutorial-classifying-iris/value_count.png)
 

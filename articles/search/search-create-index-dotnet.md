@@ -1,6 +1,6 @@
 ---
-title: 'Creare un indice: API .NET e Ricerca di Azure | Microsoft Docs'
-description: Creare un indice nel codice tramite Azure Search .NET SDK.
+title: Creare un indice nel codice tramite l'API .NET - Ricerca di Azure
+description: Informazioni su come creare un indice di ricerca full-text tramite l'SDK .NET della Ricerca di Azure e il codice di esempio C#.
 author: brjohnstmsft
 manager: jlembicz
 tags: azure-portal
@@ -10,12 +10,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: a1c9340acdc2521b9b74f47b0e17d0e4d37aea77
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 6d111b1be310a345e23c440f1af9da4183efff43
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236568"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312596"
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>Creare un indice di Ricerca di Azure con .NET SDK
 > [!div class="op_single_selector"]

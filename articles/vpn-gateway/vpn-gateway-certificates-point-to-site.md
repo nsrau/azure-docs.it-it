@@ -1,19 +1,19 @@
 ---
-title: 'Generare ed esportare certificati autofirmati per connessioni da punto a sito: PowerShell: Azure | Microsoft Docs'
+title: 'Generare ed esportare i certificati per le connessioni da punto a sito: PowerShell: Azure | Microsoft Docs'
 description: Creare un certificato radice autofirmato, esportare la chiave pubblica e generare certificati client con PowerShell in Windows 10 o Windows Server 2016.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/05/2018
+ms.topic: conceptual
+ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18d705f68ff06621e30c051dac9fb9607fd043ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300937"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850959"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Generare ed esportare i certificati per le connessioni da punto a sito usando PowerShell
 
@@ -27,7 +27,7 @@ Se non si ha accesso a un computer con Windows 10 o Windows Server 2016, è poss
 
 Usare il cmdlet New-SelfSignedCertificate per creare un certificato radice autofirmato. Per altre informazioni sui parametri, vedere [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Da un computer che esegue Windows 10 o Windows Server 2016 aprire una console di Windows PowerShell con privilegi elevati.
+1. Da un computer che esegue Windows 10 o Windows Server 2016 aprire una console di Windows PowerShell con privilegi elevati. Questi esempi non sono validi per Azure Cloud Shell "Prova". È necessario seguire questi esempi in locale.
 2. Usare l'esempio seguente per creare il certificato radice autofirmato. L'esempio seguente crea un certificato radice autofirmato denominato "P2SRootCert" che viene installato automaticamente in "Certificati-Utente corrente\Personale\Certificati". È possibile visualizzare il certificato aprendo *certmgr.msc* o *Gestire i certificati utente*.
 
   ```powershell

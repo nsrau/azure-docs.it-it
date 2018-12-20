@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/05/2018
 ms.author: wesmc
-ms.openlocfilehash: 66c1380070c9f9732369cb0d209e428525d53ce8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d90595d3d557293bfbc6b06aca638eb1b7c08d30
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427649"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164314"
 ---
-# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Guida introduttiva: Inviare dati di telemetria IoT da un dispositivo Android
+# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Guida introduttiva: inviare dati di telemetria IoT da un dispositivo Android
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -35,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * L'esempio in questo articolo usa Android SDK 27. 
 
-* L'[applicazione Android di esempio](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) eseguita in questa guida introduttiva è parte del repository azure-iot-samples-java su Github. Scaricare o clonare il repository [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
+* L'[applicazione Android di esempio](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) eseguita in questa guida introduttiva è parte del repository azure-iot-samples-java su GitHub. Scaricare o clonare il repository [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
 
 
@@ -49,9 +49,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo. 
 
-   **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+   **YourIoTHubName**: Sostituire il segnaposto in basso con ilnome scelto per l'hub IoT.
 
-   **MyAndroidDevice**: nome specificato per il dispositivo registrato. Usare MyAndroidDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyAndroidDevice**: MyAndroidDevice è il nome specificato per il dispositivo registrato. Usare MyAndroidDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -60,7 +60,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 2. Eseguire il comando seguente in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato.
 
-    **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+    **YourIoTHubName**: Sostituire il segnaposto in basso con ilnome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidDevice --output table
@@ -74,7 +74,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="send-telemetry"></a>Inviare dati di telemetria
 
-1. Aprire il progetto Android di esempio GitHub in Android Studio. Il progetto si trova nella seguente directory della copia clonata o scaricata del repository [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
+1. Aprire il progetto Android di esempio di GitHub in Android Studio. Il progetto si trova nella seguente directory della copia clonata o scaricata del repository [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
@@ -99,7 +99,7 @@ In questa sezione si eseguirà il monitoraggio dei messaggi inviati dal disposit
 
 1. Tramite Azure Cloud Shell, eseguire il comando seguente per connettersi e leggere i messaggi dall'hub IoT:
 
-   **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+   **YourIoTHubName**: Sostituire il segnaposto in basso con ilnome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
@@ -120,5 +120,5 @@ In questa guida introduttiva è stato configurato un hub IoT, è stato registrat
 Per informazioni su come controllare il dispositivo simulato da un'applicazione back-end, continuare nella Guida introduttiva successiva.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Controllare un dispositivo connesso a un hub IoT](quickstart-control-device-android.md)
+> [Guida introduttiva: controllare un dispositivo connesso a un hub IoT](quickstart-control-device-android.md)
 

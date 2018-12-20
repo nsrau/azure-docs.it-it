@@ -1,5 +1,5 @@
 ---
-title: Hosting di contenitore Docker nel cloud di Azure
+title: (DEPRECATO) Hosting di contenitore Docker nel cloud di Azure
 description: Il servizio contenitore di Azure fornisce un modo per semplificare la creazione, la configurazione e la gestione di un cluster di macchine virtuali che sono preconfigurate per eseguire le applicazioni nei contenitori.
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d89e9b4dcfe44648f1e3ddd95fb01b62a36295df
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 348bde94bc01e00777603af8ac078d5e319d732c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166338"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001991"
 ---
-# <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Introduzione alle soluzioni di hosting di contenitori Docker con il servizio contenitore di Azure 
+# <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(DEPRECATO) Introduzione alle soluzioni di hosting di contenitori Docker con il servizio contenitore di Azure 
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Il servizio contenitore di Azure fornisce un modo per semplificare la creazione, la configurazione e la gestione di un cluster di macchine virtuali preconfigurate per eseguire le applicazioni nei contenitori. Usa una configurazione ottimizzata di strumenti di pianificazione e orchestrazione open source comuni. Ciò consente di usare le competenze già acquisite o di attingere da un consistente e crescente bagaglio di competenze a livello di community per distribuire e gestire applicazioni basate sul contenitore in Microsoft Azure.
 
@@ -30,7 +32,7 @@ Il servizio contenitore di Azure consente di sfruttare i vantaggi delle funzioni
 L'obiettivo del servizio contenitore di Azure è fornire un ambiente host contenitore tramite tecnologie e strumenti open source, che sono attualmente diffusi fra i nostri clienti. A tal fine vengono esposti gli endpoint API standard per l'agente di orchestrazione scelto: DC/OS, Docker Swarm o Kubernetes. Tramite questi endpoint è possibile usare qualsiasi software in grado di comunicare con essi. Ad esempio, nel caso dell'endpoint Docker Swarm, è possibile scegliere di usare l'interfaccia della riga di comando (CLI) Docker. Per DC/OS è possibile scegliere l'interfaccia della riga di comando DCOS. Per Kubernetes, è possibile scegliere `kubectl`.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Creazione di un cluster Docker con il servizio contenitore di Azure
-Per iniziare a usare il servizio contenitore di Azure, distribuire un cluster del servizio tramite il portale (cercare **Servizio contenitore di Azure** nel Marketplace), usando un modello di Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) o [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) oppure l'[interfaccia della riga di comando di Azure 2.0](container-service-create-acs-cluster-cli.md). I modelli di avvio rapido forniti possono essere modificati per includere una configurazione di Azure aggiuntiva o avanzata. Per altre informazioni, vedere [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md).
+Per iniziare a usare il servizio contenitore di Azure, distribuire un cluster del servizio tramite il portale (cercare **Servizio contenitore di Azure** nel Marketplace), usando un modello di Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [Controller di dominio/sistema operativo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) o [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) oppure l'[interfaccia della riga di comando di Azure](container-service-create-acs-cluster-cli.md). I modelli di avvio rapido forniti possono essere modificati per includere una configurazione di Azure aggiuntiva o avanzata. Per altre informazioni, vedere [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md).
 
 ## <a name="deploying-an-application"></a>Distribuzione di un'applicazione
 Il servizio contenitore di Azure consente di scegliere tra Docker Swarm, DC/OS o Kubernetes per l'orchestrazione. La modalità di distribuzione dell'applicazione dipende dall'agente di orchestrazione scelto.
@@ -55,7 +57,8 @@ Per impostazione predefinita, DC/OS in esecuzione nel servizio contenitore di Az
 ![Universe DC/OS nel servizio contenitore di Azure](media/dcos/universe.png)
 
 #### <a name="using-marathon"></a>Uso di Marathon
-Marathon è un sistema di init e controllo di tutto il cluster per i servizi in cgroups o, nel caso del servizio contenitore di Azure, in contenitori formattati Docker. Marathon offre un'interfaccia utente Web da cui è possibile distribuire le applicazioni. L'accesso avviene tramite un URL simile a `http://DNS_PREFIX.REGION.cloudapp.azure.com`, dove DNS\_PREFIX e REGION vengono definiti in fase di distribuzione. Naturalmente, è anche possibile fornire il proprio nome DNS. Per altre informazioni sull'esecuzione di un contenitore tramite l'interfaccia utente Web di Marathon, vedere [Gestione di contenitori DC/OS tramite l'interfaccia utente Web di Marathon](container-service-mesos-marathon-ui.md).
+Marathon è un sistema di init e controllo di tutto il cluster per i servizi in cgroups o, nel caso del servizio contenitore di Azure, in contenitori formattati Docker. Marathon offre un'interfaccia utente Web da cui è possibile distribuire le applicazioni. È possibile accedervi tramite un URL simile a `http://DNS_PREFIX.REGION.cloudapp.azure.com`
+dove DNS\_PREFIX e REGION vengono definiti in fase di distribuzione. Naturalmente, è anche possibile fornire il proprio nome DNS. Per altre informazioni sull'esecuzione di un contenitore tramite l'interfaccia utente Web di Marathon, vedere [Gestione di contenitori DC/OS tramite l'interfaccia utente Web di Marathon](container-service-mesos-marathon-ui.md).
 
 ![Elenco di applicazioni Marathon](media/dcos/marathon-applications-list.png)
 
@@ -102,4 +105,4 @@ Compilazione di applicazioni tramite il servizio contenitore di Azure (build 201
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Distribuire un cluster del servizio contenitore usando il [portale](container-service-deployment.md) o l'[interfaccia della riga di comando di Azure 2.0](container-service-create-acs-cluster-cli.md).
+Distribuire un cluster del servizio contenitore usando il [portale](container-service-deployment.md) o l'[interfaccia della riga di comando di Azure](container-service-create-acs-cluster-cli.md).

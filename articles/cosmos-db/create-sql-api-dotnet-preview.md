@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'app Web ASP.NET con Azure Cosmos DB usando l'API SQL e il portale di Azure"
+title: "Guida introduttiva: Creare un'app Web ASP.NET con Azure Cosmos DB usando l'API SQL e il portale di Azure"
 description: In questo avvio rapido si useranno l'API SQL di Azure Cosmos DB e il portale di Azure per creare un'app Web ASP.NET
 author: deborahc
 ms.service: cosmos-db
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
 clicktale: true
-ms.openlocfilehash: 7686baf2476942748a67ae7c73b02596b6588607
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4422e656759418d715fb0bd26643581a0ca99a4f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853404"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089123"
 ---
-# <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Avvio rapido: Creare un'app Web ASP.NET con Azure Cosmos DB usando l'API SQL e il portale di Azure
+# <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Guida introduttiva: Creare un'app Web ASP.NET con Azure Cosmos DB usando l'API SQL e il portale di Azure
 
 > [!div class="op_single_selector"]
 > * [.NET (Preview)](create-sql-api-dotnet-preview.md)
@@ -117,7 +117,7 @@ Tutti i frammenti di codice seguenti sono tratti dal file ToDoItemService.cs.
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Nell'account Azure Cosmos DB nel [portale di Azure](http://portal.azure.com/) selezionare **Chiavi** nel riquadro di spostamento a sinistra e quindi selezionare **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file web.config nel passaggio seguente.
+1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Chiavi** nel riquadro di spostamento a sinistra e quindi selezionare **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file web.config nel passaggio seguente.
 
     ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-sql-api-dotnet/keys.png)
 
