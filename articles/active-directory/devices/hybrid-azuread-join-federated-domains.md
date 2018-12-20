@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277971"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434954"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Esercitazione: configurare un'aggiunta ad Azure Active Directory ibrido per domini federati
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Esercitazione: configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini federati
 
 Analogamente agli utenti, i dispositivi stanno diventando un'altra identità da proteggere e da usare per proteggere le risorse in qualsiasi momento e ovunque. Questo obiettivo si raggiunge trasferendo le identità dei dispositivi in Azure AD usando uno dei metodi seguenti:
 
@@ -53,9 +53,12 @@ Questa esercitazione presuppone che l'utente abbia familiarità con:
 -  [Come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD](hybrid-azuread-join-control.md)
 
 
+
 Per configurare lo scenario in questa esercitazione, sono necessari gli elementi seguenti:
 
 - Windows Server 2012 R2 con AD FS
+
+- Una Active Directory locale (AD) con un livello di schema 85 o versione successiva. Per altre informazioni, vedere [Aggiornare lo schema Active Directory](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) versione 1.1.819.0 o successiva. 
  
@@ -167,7 +170,7 @@ Per registrare i dispositivi Windows di livello inferiore, è necessario assicur
 
 
     
-Il criterio **Gli utenti possono registrare i propri dispositivi in Azure AD** deve essere impostato su **Tutti**.
+Il criterio seguente deve essere impostato su **Tutti**: **Gli utenti possono registrare i dispositivi con Azure AD**
 
 ![Registrare i dispositivi](./media/hybrid-azuread-join-federated-domains/23.png)
 

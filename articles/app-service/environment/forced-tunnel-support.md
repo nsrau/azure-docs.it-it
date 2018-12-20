@@ -1,5 +1,5 @@
 ---
-title: Configurare l'ambiente del servizio app di Azure per il tunneling forzato
+title: Configurare l'ambiente del servizio app per il tunneling forzato - Azure
 description: Abilitare l'ambiente del servizio app per i casi in cui il traffico in uscita è sottoposto a tunneling forzato
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: ba93aab14c8eaccf9e3ed9ae9db0d169f41dddea
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.custom: seodec18
+ms.openlocfilehash: 89827cdc7d29a817c83fd16ec2a4340f06c8343c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024046"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272736"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare Ambiente del servizio app con il tunneling forzato
 
@@ -111,7 +111,7 @@ Per il tunneling di tutto il traffico in uscita dall'ambiente del servizio app, 
 
    Selezionare **PUT** nella parte superiore. Questa opzione attiva un'operazione di ridimensionamento in Ambiente del servizio app e modifica il firewall.
 
-_Per creare l'ambiente del servizio app con gli indirizzi di uscita_: seguire le indicazioni sulla [creazione di un ambiente del servizio app con un modello][template] e scaricare il modello appropriato.  Modificare la sezione "resources" nel file azuredeploy.json, ma non nel blocco "properties", e includere una riga per **userWhitelistedIpRanges** con i propri valori.
+_Per creare l'ambiente del servizio app con gli indirizzi in uscita_: seguire le indicazioni in [Creare un ambiente del servizio app con un modello][template] e scaricare il modello appropriato.  Modificare la sezione "resources" nel file azuredeploy.json, ma non nel blocco "properties", e includere una riga per **userWhitelistedIpRanges** con i propri valori.
 
     "resources": [
       {

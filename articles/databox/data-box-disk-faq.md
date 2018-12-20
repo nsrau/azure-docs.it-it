@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 12/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 5e4461a910f13c5047c4a2aadd7326c4e12c533f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f437f1fd61cfdaa4d2ff908f6e294fa0c679b9a5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238132"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273059"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>Che cos'è Azure Data Box Disk? (Anteprima)
+# <a name="what-is-azure-data-box-disk-preview"></a>Che cos'è Azure Data Box Disk?  (Anteprima)
 
 La soluzione cloud Microsoft Azure Data Box Disk consente di inviare terabyte di dati ad Azure in modo veloce, conveniente e affidabile. Queste domande frequenti includono domande che possono sorgere durante l'uso dei dischi di Data Box nel portale di Azure e relative risposte. 
 
@@ -59,12 +59,12 @@ R.  I dischi di Data Box sono disponibili negli Stati Uniti, in Canada, in Austr
 R. I dischi di Data Box sono supportati per tutte le aree degli Stati Uniti, del Canada, dell'Australia e dell'Europa occidentale e settentrionale per l'anteprima. Sono supportate solo le aree del cloud pubblico di Azure. Non sono supportati i cloud Azure per enti pubblici o altri cloud sovrani.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>D: A chi ci si può rivolgere in caso di problemi con i dischi di Data Box?
-R. Se si riscontrano problemi con i dischi di Data Box, contattare il [supporto tecnico per i dischi di Data Box](mailto:expresspodsupport@microsoft.com).
+R. Se si verificano problemi con i dischi di Data Box, [contattare il supporto tecnico Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
 
 ## <a name="configure-and-connect"></a>Configurazione e connessione
  
 ### <a name="q-can-i-specify-the-number-of-data-box-disks-in-the-order"></a>D: È possibile specificare il numero di dischi di Data Box nell'ordine?
-R.  No. Si ottengono dischi da 8 TB (per un massimo di 5 dischi) a seconda delle dimensioni dei dati e della disponibilità dei dischi.  
+R.   No. Si ottengono dischi da 8 TB (per un massimo di 5 dischi) a seconda delle dimensioni dei dati e della disponibilità dei dischi.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>D: Come si sbloccano i dischi di Data Box? 
 R.  Nel portale di Azure accedere all'ordine di dischi di Data Box e passare a **Dettagli dispositivo**. Copiare la passkey. Scaricare ed estrarre lo strumento di sblocco di Data Box Disk dal portale di Azure per il sistema operativo in uso. Eseguire lo strumento nel computer che contiene i dati che si vuole copiare nei dischi. Fornire la passkey per sbloccare i dischi. La stessa passkey sblocca tutti i dischi. 
@@ -108,7 +108,7 @@ R.  Usare uno strumento di copia SMB, ad esempio Robocopy, Diskboss o anche Espl
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>D: Ci sono suggerimenti per velocizzare la copia dei dati?
 R.  Per velocizzare il processo di copia:
 
-- Usare più flussi di copia dei dati. Con Robocopy, ad esempio, usare l'opzione a thread multipli. Per altre informazioni sul comando esatto da usare, vedere [Esercitazione: Copiare i dati nei dischi di Azure Data Box ed eseguire la verifica](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
+- Usare più flussi di copia dei dati. Con Robocopy, ad esempio, usare l'opzione a thread multipli. Per altre informazioni sul comando esatto da usare, vedere [Esercitazione: copiare i dati in Azure Data Box Disk ed eseguire la verifica](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Usare più sessioni.
 - Invece di eseguire la copia tramite una condivisione di rete (operazione che potrebbe essere limitata dalle velocità di rete) assicurarsi di avere a disposizione i dati in locale nel computer a cui sono collegati i dischi.
 - Assicurarsi di usare USB 3.0 o versione successiva nel corso del processo di copia. Scaricare e usare lo [strumento USBView](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) per identificare i controller USB e i dispositivi USB connessi al computer.
@@ -123,7 +123,7 @@ R.  Per velocizzare il processo di copia:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>D: È possibile usare più account di archiviazione con i dischi di Data Box?
-R.  No. Con i dischi di Data Box è attualmente supportato un solo account di archiviazione, generale o classico. Sono supportati BLOB sia ad accesso frequente che sporadico. Durante l'anteprima, sono supportati solo gli account di archiviazione in Stati Uniti, Europa occidentale ed Europa settentrionale nel cloud pubblico di Azure.
+R.   No. Con i dischi di Data Box è attualmente supportato un solo account di archiviazione, generale o classico. Sono supportati BLOB sia ad accesso frequente che sporadico. Durante l'anteprima, sono supportati solo gli account di archiviazione in Stati Uniti, Europa occidentale ed Europa settentrionale nel cloud pubblico di Azure.
 
 ## <a name="verify-and-upload"></a>Verifica e caricamento
 

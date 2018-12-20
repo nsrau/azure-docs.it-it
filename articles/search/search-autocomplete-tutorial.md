@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per l'aggiunta del completamento automatico alla casella di ricerca tramite Ricerca di Azure | Microsoft Docs
+title: Esercitazione per l'aggiunta del completamento automatico alla casella di ricerca - Ricerca di Azure
 description: Esempi di come migliorare l'esperienza dell'utente finale in riferimento alle applicazioni basate sui dati tramite il completamento automatico e i suggerimenti API di Ricerca di Azure.
 manager: pablocas
 author: mrcarter8
@@ -9,16 +9,17 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989685"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316183"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Esercitazione: aggiunta del completamento automatico alla casella di ricerca tramite Ricerca di Azure
 
-In questa esercitazione apprenderai come usare i [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions), il [completamento automatico](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) e i [facet](search-faceted-navigation.md) nell'[API REST](https://docs.microsoft.com/rest/api/searchservice/) e in [.NET SDK di Ricerca di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) per creare una casella di ricerca avanzata. I *suggerimenti* forniscono consigli sui risultati effettivi in base a ciò che l'utente ha digitato. *Completamento automatico*, [una nuova funzionalità di anteprima](search-api-preview.md) in Ricerca di Azure, fornisce i termini provenienti dall'indice per il completamento di ciò che l'utente sta attualmente digitando. Verranno confrontate diverse tecniche per migliorare la produttività degli utenti e per trovare rapidamente e facilmente ciò che cercano arricchendo la dell'utente ricerca direttamente durante la digitazione.
+In questa esercitazione apprenderai come usare i [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions), il [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) e i [facet](search-faceted-navigation.md) nell'[API REST](https://docs.microsoft.com/rest/api/searchservice/) e in [.NET SDK di Ricerca di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) per creare una casella di ricerca avanzata. I *suggerimenti* forniscono consigli sui risultati effettivi in base a ciò che l'utente ha digitato. *Completamento automatico*, [una nuova funzionalità di anteprima](search-api-preview.md) in Ricerca di Azure, fornisce i termini provenienti dall'indice per il completamento di ciò che l'utente sta attualmente digitando. Verranno confrontate diverse tecniche per migliorare la produttività degli utenti e per trovare rapidamente e facilmente ciò che cercano arricchendo la dell'utente ricerca direttamente durante la digitazione.
 
 Questa esercitazione esplora le caratteristiche di un'applicazione basata su ASP.NET MVC che usa C# per chiamare le [librerie client .NET di Ricerca di Azure](https://aka.ms/search-sdk)e JavaScript per chiamare direttamente l'API REST di Ricerca di Azure. L'applicazione di questa esercitazione ha come riferimento un indice popolato da dati campione di [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). È possibile usare l'indice già configurato nella demo di NYC Jobs o popolare il proprio indice utilizzando un caricatore dati nella soluzione di esempio NYCJobs. L'esempio usa l'[interfaccia utente di jQuery](https://jqueryui.com/autocomplete/) e le librerie JavaScript [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) per creare una casella di ricerca che supporti il completamento automatico. Usando questi componenti unitamente a Ricerca di Azure, noterai diversi esempi relativi alle modalità di supporto al completamento automatico con digitazione nella casella di ricerca.
 
@@ -126,7 +127,7 @@ Dopo aver esaminato il codice JavaScript come esempio, esaminiamo quello del con
 
 1. Apri il file HomeController.cs nella directory dei controller. 
 
-1. La prima cosa che puoi notare è un metodo nella parte superiore della classe chiamata InitSearch.  Questo genererà un client di indice HTTP autenticato nel servizio Ricerca di Azure.  Se vuoi altre informazioni sul funzionamento, guarda l'esercitazione seguente: [Come usare Ricerca di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+1. La prima cosa che puoi notare è un metodo nella parte superiore della classe chiamata InitSearch.  Questo genererà un client di indice HTTP autenticato nel servizio Ricerca di Azure.  Per altre informazioni sul funzionamento, guardare l'esercitazione seguente: [Come usare Ricerca di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Passa alla funzione Suggest.
 
@@ -214,7 +215,7 @@ Questa esercitazione illustra i passaggi di base per la creazione di una casella
 Integra i consigli e il completamento automatico nella tua esperienza di ricerca.  Prendi in considerazione come l’uso di .Net SDK o l'API REST consenta automaticamente di trasferire la potenza di Ricerca di Azure agli utenti mentre digitano in modo da renderli più produttivi.
 
 > [!div class="nextstepaction"]
-> [L'API REST Completamento automatico](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete)
-> [API REST per i consigli](https://docs.microsoft.com/en-us/rest/api/searchservice/suggestions)
-> [Attributo dell'indice dei facet in un'API REST di creazione dell'indice](https://docs.microsoft.com/en-us/rest/api/searchservice/create-index)
+> [L'API REST Completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [API REST per i consigli](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Attributo dell'indice dei facet in un'API REST di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

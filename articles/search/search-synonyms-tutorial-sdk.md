@@ -1,6 +1,6 @@
 ---
-title: Esercitazione in C# sui sinonimi in Ricerca di Azure | Microsoft Docs
-description: In questa esercitazione verrà aggiunta la funzionalità dei sinonimi a un indice in Ricerca di Azure.
+title: Esercitazione sui sinonimi in C# - Ricerca di Azure
+description: In questa esercitazione C# viene illustrato come aggiungere la funzionalità dei sinonimi a un indice in Ricerca di Azure. Un mapping dei sinonimi è un elenco di termini equivalenti. I campi con supporto dei sinonimi espandono le query in modo da includere il termine fornito dall'utente e tutti i relativi sinonimi.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990562"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309230"
 ---
 # <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Esercitazione: Aggiungere sinonimi per Ricerca di Azure in C#
 
@@ -37,7 +38,7 @@ I requisiti per l'esercitazione includono i seguenti:
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Servizio Ricerca di Azure](search-create-service-portal.md)
 * [Libreria Microsoft.Azure.Search .NET](https://aka.ms/search-sdk)
-* [Come utilizzare Ricerca di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Come usare Ricerca di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Panoramica
 
