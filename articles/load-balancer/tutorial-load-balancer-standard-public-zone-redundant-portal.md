@@ -1,14 +1,11 @@
 ---
-title: Esercitazione - Servizio Load Balancer per il bilanciamento del carico delle macchine virtuali tra zone di disponibilità - Portale di Azure | Microsoft Docs
+title: 'Esercitazione: Macchine virtuali Load Balancer tra zone di disponibilità: portale di Azure'
+titlesuffix: Azure Load Balancer
 description: Questa esercitazione illustra come creare un'istanza di Load Balancer Standard con front-end con ridondanza della zona per bilanciare il carico delle macchine virtuali tra zone di disponibilità tramite il portale di Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.custom: seodec18
+ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304461"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255337"
 ---
-# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Esercitazione - Bilanciare il carico delle macchine virtuali tra zone di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali tra zone di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
 Il bilanciamento del carico offre un livello più elevato di disponibilità distribuendo le richieste in ingresso tra più macchine virtuali. Questa esercitazione illustra i passaggi necessari per creare un'istanza pubblica di Load Balancer Standard per il bilanciamento del carico delle macchine virtuali tra zone di disponibilità. Ciò facilita la protezione di app e dati da un poco probabile errore o perdita di un intero data center. Con la ridondanza della zona, in caso di errore di una o più zone di disponibilità, il percorso dati continua a funzionare, a condizione che una zona dell'area rimanga integra. Si apprenderà come:
 
@@ -51,8 +48,8 @@ Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://port
 
 Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando si crea un nuovo indirizzo IP pubblico durante la creazione del servizio di bilanciamento del carico, l'indirizzo viene automaticamente configurato come versione SKU Standard e con ridondanza della zona.
 
-1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Load Balancer**.
-2. Nella pagina **Creare un servizio di bilanciamento del carico** immettere questi valori per il bilanciamento del carico:
+1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
+2. Nella pagina **Crea servizio di bilanciamento del carico** immettere questi valori per il bilanciamento del carico:
     - *myLoadBalancer* come nome del servizio di bilanciamento del carico.
     - **Pubblico** come tipo di bilanciamento del carico.
      - *myPublicIP* come nuovo indirizzo IP pubblico da creare. A tale scopo, fare clic su **Scegliere un indirizzo IP pubblico** e quindi su **Crea nuovo**. Per il tipo di nome *myPublicIP*, il valore di SKU è Standard per impostazione predefinita e selezionare **Con ridondanza della zona** per **Zona di disponibilità**.
@@ -171,7 +168,7 @@ Per distribuire il traffico alle macchine virtuali, è necessario che un pool di
 
 1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi fare clic su **myLoadBalancer** nell'elenco di risorse.
 2. In **Impostazioni** fare clic su **Pool back-end** e quindi su **Aggiungi**.
-3. Nella pagina **Add a backend pool** (Aggiungi pool back-end) seguire questa procedura:
+3. Nella pagina **Aggiungi pool back-end** seguire questa procedura:
     - Digitare *myBackEndPool* come nome del pool back-end.
     - Per **Rete virtuale** nel menu a discesa fare clic su **myVNet**.
     - Per **Macchina virtuale** nel menu a discesa fare clic su **myVM1**.

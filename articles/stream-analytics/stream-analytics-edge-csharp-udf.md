@@ -4,21 +4,21 @@ description: Informazioni su come scrivere funzioni C# definite dall'utente per 
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389069"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086905"
 ---
-# <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>Esercitazione: Scrivere una funzione C# definita dall'utente per un processo Edge di Analisi di flusso di Azure in Visual Studio (anteprima)
+# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Esercitazione: scrivere una funzione C# definita dall'utente per un processo Edge di Analisi di flusso di Azure (anteprima)
 
-Le funzioni C# definite dall'utente create in Visual Studio consentono di estendere il linguaggio di query di Analisi di flusso di Azure con le proprie funzioni. È possibile riutilizzare il codice esistente (incluse le DLL) e usare logica matematica o complessa con C#. Esistono tre modi per implementare funzioni definite dall'utente: file CodeBehind in un progetto di Analisi di flusso, funzioni definite dall'utente da un progetto C# locale o funzioni definite dall'utente da un pacchetto esistente da un account di archiviazione. Questa esercitazione usa il metodo CodeBehind per implementare una funzione C# di base. La funzionalità per le funzioni definite dall'utente per i processi Edge di Analisi di flusso di Azure è attualmente in anteprima e non deve essere usata nei carichi di lavoro di produzione.
+Le funzioni C# definite dall'utente create in Visual Studio consentono di estendere il linguaggio di query di Analisi di flusso di Azure con le proprie funzioni. È possibile riutilizzare il codice esistente (incluse le DLL) e usare logica matematica o complessa con C#. Vi sono tre modi per implementare le funzioni definite dall'utente: file CodeBehind in un progetto di Analisi di flusso, funzioni definite dall'utente da un progetto C# locale o funzioni definite dall'utente da un pacchetto esistente da un account di archiviazione. Questa esercitazione usa il metodo CodeBehind per implementare una funzione C# di base. La funzionalità per le funzioni definite dall'utente per i processi Edge di Analisi di flusso di Azure è attualmente in anteprima e non deve essere usata nei carichi di lavoro di produzione.
 
 In questa esercitazione si apprenderà come:
 
@@ -115,11 +115,11 @@ Un file CodeBehind è un file C# associato a un singolo script di query Edge di 
 
 2. In **Esplora soluzioni** espandere **Input**, fare clic con il pulsante destro del mouse su **Input.json** e quindi scegliere **Aggiungi input locale**.
 
-   ![Aggiungere input locale al processo di Analisi di flusso di Azure in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
+   ![Aggiungere un input locale al processo di Analisi di flusso in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
 3. Specificare il percorso del file di input locale per i dati di esempio scaricati e fare clic su **Salva**.
 
-    ![Configurazione dell'input locale per il processo di Analisi di flusso di Azure in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
+    ![Configurazione dell'input locale per il processo di Analisi di flusso in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
 
 4. Fare clic su **Esegui localmente** nell'editor di script. Dopo che l'esecuzione locale ha salvato correttamente i risultati di output, premere un tasto qualsiasi per visualizzare i risultati in formato tabella. 
 
@@ -134,11 +134,11 @@ Un file CodeBehind è un file C# associato a un singolo script di query Edge di 
 
 1. Aggiungere punti di interruzione nella funzione C#.
 
-    ![Aggiungere punti di interruzione nella funzione definita dall'utente di Analisi di flusso di Azure per un processo Edge in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
+    ![Aggiungere punti di interruzione nella funzione di Analisi di flusso definita dall'utente in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
 
 2. Premere **F5** per avviare il debug. Il programma verrà interrotto in corrispondenza dei punti di interruzione nel modo previsto.
 
-    ![Visualizzare i risultati di debug per la funzione definita dall'utente di Analisi di flusso di Azure per un processo Edge in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
+    ![Visualizzare i risultati di debug della funzione di Analisi di flusso definita dall'utente](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
 ## <a name="publish-your-job-to-azure"></a>Pubblicare il processo in Azure
 Dopo aver testato la query in locale, selezionare **Invia ad Azure** nell'editor di script per pubblicare il processo in Azure.

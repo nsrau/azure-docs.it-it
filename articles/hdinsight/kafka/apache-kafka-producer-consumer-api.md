@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd4c077e23170a295a29a75df08cf8f29f8ba3e4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313822"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413354"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Esercitazione: Usare le API Apache Kafka Producer e Consumer
 
@@ -49,7 +49,7 @@ Le variabili di ambiente seguenti possono essere impostate quando si installa Ja
 
 * `JAVA_HOME` - deve puntare alla directory dove è installato JDK.
 * `PATH`: deve contenere i percorsi seguenti:
-  
+
     * `JAVA_HOME` o il percorso equivalente.
     * `JAVA_HOME\bin` o il percorso equivalente.
     * Directory in cui è installato Maven.
@@ -62,8 +62,8 @@ Questa esercitazione richiede Apache Kafka in HDInsight 3.6. Per informazioni su
 
 L'applicazione di esempio si trova in [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) nella sottodirectory `Producer-Consumer`. L'applicazione è costituita principalmente da quattro file:
 
-* `pom.xml`: definisce le dipendenze di progetto, la versione di Java e i metodi di creazione dei pacchetti.
-* `Producer.java`: questo file invia frasi casuali a Kafka usando l'API Producer.
+* `pom.xml`: Questo file definisce le dipendenze progetto, la versione Java e i metodi di creazione pacchetti.
+* `Producer.java`: Questo file invia frasi casuali a Kafka usando l'API Producer.
 * `Consumer.java`: Questo file usa l'API Consumer per leggere i dati da Kafka ed esportarli in STDOUT.
 * `Run.java`: L'interfaccia della riga di comando usata per eseguire il codice producer e consumer.
 
@@ -71,7 +71,7 @@ L'applicazione di esempio si trova in [https://github.com/Azure-Samples/hdinsigh
 
 Gli aspetti importanti da comprendere nel file `pom.xml` sono:
 
-* Le dipendenze: questo progetto si basa sulle API Producer e Consumer Kafka, che sono fornite dal pacchetto `kafka-clients`. Il codice XML seguente definisce questa dipendenza:
+* Dipendenze: Questo progetto si basa sulle API Producer e Consumer Kafka, che sono fornite dal pacchetto `kafka-clients`. Il codice XML seguente definisce questa dipendenza:
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
@@ -85,14 +85,14 @@ Gli aspetti importanti da comprendere nel file `pom.xml` sono:
     > [!NOTE]
     > La voce `${kafka.version}` viene dichiarata nella sezione `<properties>..</properties>` di `pom.xml` ed è configurata per la versione Kafka del cluster HDInsight.
 
-* Plug-in: i plug-in Maven offrono varie funzionalità. In questo progetto vengono usati i plug-in seguenti:
+* Plug-in: I plug-in Maven offrono varie funzionalità. In questo progetto vengono usati i plug-in seguenti:
 
-    * `maven-compiler-plugin`: usato per impostare su 8 la versione di Java usata dal progetto. Si tratta della versione di Java usata da HDInsight 3.6.
-    * `maven-shade-plugin`: usato per generare un file uberjar che contiene questa applicazione, nonché eventuali dipendenze. Viene inoltre usato per impostare il punto di ingresso dell'applicazione, in modo che sia possibile eseguire il file con estensione jar direttamente senza dover specificare la classe principale.
+    * `maven-compiler-plugin`: Usato per impostare su 8 la versione Java usata dal progetto. Si tratta della versione di Java usata da HDInsight 3.6.
+    * `maven-shade-plugin`: Usato per generare un file uberjar che contiene questa applicazione, nonché eventuali dipendenze. Viene inoltre usato per impostare il punto di ingresso dell'applicazione, in modo che sia possibile eseguire il file con estensione jar direttamente senza dover specificare la classe principale.
 
 ### <a name="producerjava"></a>Producer.java
 
-Il producer comunica con gli host broker di Kafka (nodi di lavoro) e invia i dati a un argomento Kafka. Il frammento di codice seguente è tratto dal file [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) del [repository github](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) e mostra come impostare le proprietà del producer:
+Il producer comunica con gli host broker di Kafka (nodi di lavoro) e invia i dati a un argomento Kafka. Il frammento di codice seguente è tratto dal file [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) del [repository GitHub](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) e mostra come impostare le proprietà del producer:
 
 ```java
 Properties properties = new Properties();
@@ -145,11 +145,11 @@ Il file [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-sta
     Questo comando crea una directory denominata `target`, che contiene un file denominato `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
 3. Usare i comandi seguenti per copiare il file `kafka-producer-consumer-1.0-SNAPSHOT.jar` nel cluster HDInsight:
-   
+
     ```bash
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
-   
+
     Sostituire **SSHUSER** con l'utente SSH del cluster e **CLUSTERNAME** con il nome del cluster. Quando richiesto, immettere la password per l'utente SSH.
 
 ## <a id="run"></a> Eseguire l'esempio
@@ -190,11 +190,11 @@ Il file [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-sta
     ```
 
 4. Quando l'esecuzione del producer è terminata, usare il comando seguente per leggere dall'argomento:
-   
+
     ```bash
     java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
     ```
-   
+
     Verranno visualizzati i record letti e il numero di record.
 
 5. Usare __Ctrl + C__ per uscire dal consumer.
@@ -204,7 +204,7 @@ Il file [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-sta
 I consumer Kafka usano un gruppo di consumer durante la lettura dei record. L'uso dello stesso gruppo con più consumer consente di ottenere operazioni di lettura con bilanciamento del carico da un argomento. Ogni consumer nel gruppo riceve una parte dei record.
 
 L'applicazione Consumer accetta un parametro che viene usato come ID del gruppo. Ad esempio, il comando seguente avvia un consumer usando un ID gruppo denominato `mygroup`:
-   
+
 ```bash
 java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
 ```

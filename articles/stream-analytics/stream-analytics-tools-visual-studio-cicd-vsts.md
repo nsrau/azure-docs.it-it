@@ -1,20 +1,20 @@
 ---
-title: Esercitazione su come distribuire un processo di Analisi di flusso di Azure con CI/CD tramite Azure DevOps Services
+title: Distribuire un processo di Analisi di flusso di Azure con CI/CD tramite Azure DevOps
 description: Questo articolo descrive come distribuire un processo di Analisi di flusso di Azure usando Azure DevOps Services.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 07/10/2018
-ms.openlocfilehash: 0f729725a04b19a513ca92953e997b51e4558884
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7e9ce598dbd8987ab32747f5fa9d14646ed4ee71
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986266"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164076"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Esercitazione: Distribuire un processo di Analisi di flusso di Azure con CI/CD usando Azure Pipelines
 Questa esercitazione illustra come configurare l'integrazione continua e la distribuzione continua per un processo di Analisi di flusso di Azure usando Azure Pipelines. 
@@ -55,11 +55,11 @@ Condividere i file di origine dell'applicazione in un progetto in Azure DevOps, 
 
 2. Nella visualizzazione **Sincronizzazione** in **Team Explorer** selezionare il pulsante **Pubblica repository GIT** in **Esegui push in Azure DevOps Services**.
 
-   ![Pubblicare il repository GIT](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
+   ![Pulsante Pubblica repository GIT in esegui il push in Azure DevOps Services](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
 
 3. Controllare la posta elettronica e selezionare l'organizzazione nell'elenco a discesa **Azure DevOps Services Domain** (Dominio Azure DevOps Services). Immettere il nome del repository e selezionare **Pubblica repository**.
 
-   ![Pubblicare il repository GIT](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
+   ![Pulsante Pubblica Repository GIT in Pubblica repository](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
     Con la pubblicazione del repository viene creato un nuovo progetto nell'organizzazione con lo stesso nome del repository locale. Per creare il repository in un progetto esistente, fare clic su **Avanzate** accanto al nome del **repository** e selezionare un progetto. È possibile visualizzare il codice nel browser selezionando **Visualizza nel Web**.
  
@@ -73,33 +73,33 @@ Aprire un Web browser e passare al progetto appena creato in [Azure DevOps](http
 
 1. Nella scheda **Compilazione e versione** selezionare **Compilazioni** e quindi **+Nuovo**.  Selezionare **Azure DevOps Services Git** (GIT per Azure DevOps Services) e **Continua**.
     
-    ![Selezionare l'origine](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
+    ![Selezionare l'origine DevOps GIT in Azure DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
 
 2. In **Seleziona un modello** fare clic su **Processo vuoto** per iniziare con una pipeline vuota.
     
-    ![Scegliere il modello di compilazione](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
+    ![Selezionare il processo vuoto dalle opzioni del modello in DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
 3. In **Trigger** abilitare l'integrazione continua selezionando lo stato del trigger **Abilita l'integrazione continua**.  Selezionare **Salva e accoda** per avviare manualmente una compilazione. 
     
-    ![Stato del trigger](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
+    ![Abilitare lo stato del trigger dell'integrazione continua](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
 4. Le compilazioni vengono attivate anche al momento del push o dell'archiviazione. Per controllare lo stato di avanzamento della compilazione, passare alla scheda **Compilazioni**.  Dopo aver verificato la corretta esecuzione della compilazione, è necessario definire una pipeline di versione per la distribuzione dell'applicazione in un cluster. Fare clic con il pulsante destro del mouse sui puntini di sospensione accanto alla pipeline di compilazione e scegliere **Modifica**.
 
 5.  In **Attività** immettere "Hosted" come **Coda agente**.
     
-    ![Seleziona una coda agente](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue.png) 
+    ![Selezionare la coda agente nel menu attività](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
 6. In **Fase 1** fare clic su **+** e aggiungere un'attività **NuGet**.
     
-    ![Aggiungere un'attività NuGet](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget.png)
+    ![Aggiungere un'attività NuGet nella coda agente](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-nuget-task.png)
 
 7. Espandere **Avanzate** e aggiungere `$(Build.SourcesDirectory)\packages` alla **Directory di destinazione**. Mantenere invariati gli atri valori predefiniti della configurazione NuGet.
 
-   ![Configurare l'attività NuGet](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-config.png)
+   ![Configurare le attività di ripristino di NuGet](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-restore-config.png)
 
 8. In **Fase 1** fare clic su **+** e aggiungere un'attività **MSBuild**.
 
-   ![Aggiungere un'attività MSBuild](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-msbuild-task.png)
+   ![Aggiungere un'attività MSBuild nella coda agente](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-msbuild-task.png)
 
 9. Modificare gli **Argomenti MSBuild** con i valori seguenti:
 
@@ -107,11 +107,11 @@ Aprire un Web browser e passare al progetto appena creato in [Azure DevOps](http
    /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="$(Build.SourcesDirectory)\packages\Microsoft.Azure.StreamAnalytics.CICD.1.0.0\build\StreamAnalytics.targets"
    ```
 
-   ![Configurare l'attività MSBuild](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-msbuild.png)
+   ![Configurare l'attività MSBuild in DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-config-msbuild-task.png)
 
 10. In **Fase 1** fare clic su **+** e aggiungere un'attività **Distribuzione gruppo di risorse di Azure**. 
     
-    ![Aggiungere un'attività Distribuzione gruppo di risorse di Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy.png)
+    ![Aggiungere un'attività Distribuzione gruppo di risorse di Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-resource-group-deployment.png)
 
 11. Espandere **Dettagli su Azure** e immettere i valori di configurazione seguenti:
     
@@ -124,16 +124,16 @@ Aprire un Web browser e passare al progetto appena creato in [Azure DevOps](http
     |Parametri del modello  | [Percorso della soluzione]\bin\Debug\Deploy\\[Nome progetto].JobTemplate.parameters.json   |
     |Eseguire l'override dei parametri del modello  | Digitare nella casella di testo i parametri del modello di cui eseguire l'override. Esempio: –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Questa proprietà è facoltativa, ma si verificheranno errori nella compilazione se non viene eseguito l'override dei parametri chiave.    |
     
-    ![Impostare le proprietà](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
+    ![Impostare le proprietà per Distribuzione gruppo di risorse di Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
 12. Fare clic su **Salva e accoda** per testare la pipeline di compilazione.
     
-    ![Impostare l'override dei parametri](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
+    ![Salvare e accodare compilazione in DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-and-queue-build.png)
 
 ### <a name="failed-build-process"></a>Processo di compilazione non riuscito
 È possibile che vengano visualizzati errori per i parametri di distribuzione Null se non è stato eseguito l'override dei parametri del modello nell'attività **Distribuzione gruppo di risorse di Azure** della pipeline di compilazione. Tornare alla pipeline di compilazione ed eseguire l'override dei parametri Null per risolvere l'errore.
 
-   ![Processo di compilazione non riuscito](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
+   ![Processo di compilazione di analisi di flusso DevOps non riuscito](./media/stream-analytics-tools-visual-studio-cicd-vsts/devops-build-process-failed.png)
 
 ### <a name="commit-and-push-changes-to-trigger-a-release"></a>Eseguire il commit e il push delle modifiche per attivare una versione
 Per verificare che la pipeline di integrazione continua funzioni correttamente, è possibile archiviare alcune modifiche al codice in Azure DevOps.    
@@ -142,11 +142,11 @@ Durante la scrittura del codice, le modifiche vengono rilevate automaticamente d
 
 1. Nella visualizzazione **Modifiche** in Team Explorer aggiungere un messaggio che descrive l'aggiornamento ed eseguire il commit delle modifiche.
 
-    ![Commit e push delle modifiche](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes.png)
+    ![Eseguire il commit delle modifiche di repository da Visual Studio](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-commit-changes-visual-studio.png)
 
 2. Selezionare l'icona della barra di stato delle modifiche non pubblicate o la visualizzazione Sincronizzazione in Team Explorer. Selezionare **Esegui push** per aggiornare il codice in Azure DevOps.
 
-    ![Commit e push delle modifiche](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
+    ![Eseguire il push delle modifiche di repository da Visual Studio](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-visual-studio.png)
 
 Il push delle modifiche in Azure DevOps Services attiva automaticamente una compilazione.  Al completamento della pipeline di compilazione viene creata automaticamente una versione e viene avviato l'aggiornamento del processo nel cluster.
 

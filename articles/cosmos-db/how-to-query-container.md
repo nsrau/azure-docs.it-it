@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5d64aa8b50cdde23d1bb8980510cfac202204f9a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11c68b61802f6c7b3755da71c176ea777f171e4c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262455"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409837"
 ---
 # <a name="query-containers-in-azure-cosmos-db"></a>Eseguire query sui contenitori in Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Questo articolo illustra come eseguire una query su un contenitore (raccolta, gr
 
 ## <a name="in-partition-query"></a>Query in partizioni
 
-Quando si eseguono query sui dati dei contenitori, Azure Cosmos DB instrada automaticamente la query alle partizioni corrispondenti ai valori della chiave di partizione specificati nel filtro (se presenti). Ad esempio, questa query viene instradata solo alla partizione contenente la chiave di partizione "XMS-0001".
+Quando si eseguono query sui dati dai contenitori, se è stato specificato un filtro della chiave di partizione, Azure Cosmos DB instrada automaticamente la query alle partizioni corrispondenti ai valori della chiave di partizione specificati nel filtro. Ad esempio, la query seguente viene instradata alla partizione DeviceId che contiene tutti i documenti corrispondenti al valore chiave di partizione "XMS-0001".
 
 ```csharp
 // Query using partition key into a class called, DeviceReading

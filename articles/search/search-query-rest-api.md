@@ -1,6 +1,6 @@
 ---
-title: 'Eseguire query su un indice: API REST e Ricerca di Azure | Microsoft Docs'
-description: Compilare una query di ricerca in Ricerca di Azure e usare i parametri di ricerca per filtrare e ordinare i risultati della ricerca.
+title: Eseguire query su un indice nel codice con l'API REST - Ricerca di Azure
+description: Comandi HTTP e codice dell'API REST per compilare una query di ricerca in Ricerca di Azure. Aggiungere i parametri di ricerca per filtrare e ordinare i risultati.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,17 +8,18 @@ services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 035dc4ac349513867253e5593e01fab4fec62f6b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: ccdb872646dded34cb50cd64f56733445132c4b7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186512"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316935"
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Eseguire query su un indice di Ricerca di Azure con l'API REST
 > [!div class="op_single_selector"]
 >
-> * [Panoramica](search-query-overview.md)
+> * [Overview](search-query-overview.md)
 > * [Portale](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)

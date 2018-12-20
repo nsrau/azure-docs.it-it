@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale in Java (Windows o Linux)'
+title: 'Avvio rapido: Riconoscimento vocale, Java: servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in Java (Windows o Linux)
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 2b39084443690b99391268acb6352763657e2a3c
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 7d1f26a43866025c3b542fc10a3f316ad0d1dc37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218577"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103119"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Guida introduttiva: Riconoscimento vocale in Java su Windows o Linux con l'SDK del servizio Voce
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Avvio rapido: Riconoscimento vocale in Java su Windows o Linux usando l'SDK del servizio Voce
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

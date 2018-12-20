@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Apache Kafka con Apache Storm in HDInsight - Azure '
+title: 'Esercitazione: usare Apache Storm per leggere e scrivere dati con Apache Kafka - Azure HDInsight'
 description: Informazioni su come creare una pipeline di flusso usando Apache Storm e Apache Kafka in HDInsight. In questa esercitazione si usano i componenti KafkaBolt e KafkaSpout per trasmettere dati da Kafka.
 services: hdinsight
 author: hrasheed-msft
@@ -8,15 +8,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 05/21/2018
-ms.openlocfilehash: 74cdaed91624e9d0602ce6a85ccc5cd341b9519e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/06/2018
+ms.openlocfilehash: 1c2a61ba936fa86bb3acb560909b29cda762693c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496634"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166575"
 ---
-# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: Usare Apache Storm con Apache Kafka in HDInsight
+# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare Apache Storm con Apache Kafka in HDInsight
 
 Questa esercitazione illustra come usare una topologia di [Apache Storm](https://storm.apache.org/) per leggere e scrivere dati con [Apache Kafka](https://kafka.apache.org/) in HDInsight. Questa esercitazione illustra inoltre come rendere persistenti i dati nella risorsa di archiviazione compatibile con [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) nel cluster Storm.
 
@@ -135,7 +135,7 @@ Le topologie vengono definite tramite [Flux](https://storm.apache.org/releases/1
 
 I parametri seguenti vengono impostati in fase di esecuzione per queste topologie:
 
-* `${kafka.topic}`: nome dell'argomento Kafka usato dalla topologie per la lettura/scrittura.
+* `${kafka.topic}`: nome dell'argomento Kafka usato dalle topologie per la lettura/scrittura.
 
 * `${kafka.broker.hosts}`: host in cui vengono eseguiti i broker di Kafka. Le informazioni sui broker vengono usate da KafkaBolt durante la scrittura in Kafka.
 
@@ -367,7 +367,7 @@ streams:
 
 Il progetto contiene un file denominato `dev.properties` che viene usato per passare i parametri usati dalle topologie. Questo file definisce le proprietà seguenti:
 
-| File dev.properties | Descrizione |
+| File dev.properties | DESCRIZIONE |
 | --- | --- |
 | `kafka.zookeeper.hosts` | Host [Apache ZooKeeper](https://zookeeper.apache.org/) per il cluster Kafka. |
 | `kafka.broker.hosts` | Host broker Kafka (nodi ruolo di lavoro). |

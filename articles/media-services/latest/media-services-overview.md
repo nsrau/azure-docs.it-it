@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/16/2018
+ms.date: 12/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 66c9b8297254b41156131d795376857029424e97
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f959ce8d29975fc7c667185ef5bc2547825bccc0
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377913"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406914"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Che cos'è Servizi multimediali di Azure v3?
 
@@ -31,7 +31,7 @@ Servizi multimediali di Azure è una piattaforma basata su cloud che consente di
 
 Servizi multimediali consente di creare vari flussi di lavoro multimediali nel cloud e di seguito sono riportati alcuni esempi di ciò che è possibile realizzare con Servizi multimediali.  
 
-* Distribuire video in vari formati in modo da poterli riprodurre su una vasta gamma di browser e dispositivi. Per la distribuzione in streaming live e on demand su vari client (dispositivi mobili, TV, PC e così via), è necessario codificare e creare pacchetti di contenuti audio e video in modo appropriato. Per informazioni su come distribuire ed eseguire lo streaming di questo tipo di contenuti, vedere [Guida introduttiva: Eseguire lo streaming di file video](stream-files-dotnet-quickstart.md).
+* Distribuire video in vari formati in modo da poterli riprodurre su una vasta gamma di browser e dispositivi. Per la distribuzione in streaming live e on demand su vari client (dispositivi mobili, TV, PC e così via), è necessario codificare e creare pacchetti di contenuti audio e video in modo appropriato. Per informazioni su come distribuire e trasmettere questo tipo di contenuto, vedere [Avvio rapido: Codificare e trasmettere i file](stream-files-dotnet-quickstart.md).
 * Eseguire lo streaming live di eventi sportivi per un vasto pubblico online, ad esempio calcio, baseball, eventi sportivi universitari e liceali e altro ancora. 
 * Trasmettere riunioni pubbliche ed eventi, quali riunioni comunali o municipali e di enti legislativi.
 * Analizzare contenuti audio o video registrati. Per migliorare la soddisfazione dei clienti, le organizzazioni possono ad esempio eseguire la conversione della voce in testo scritto e creare indici di ricerca e dashboard. Possono quindi estrarre informazioni su reclami comuni, origini dei reclami e altri dati rilevanti. 
@@ -60,7 +60,7 @@ I nomi delle risorse di Servizi multimediali di Azure v3 (ad esempio, asset, pro
 
 I nomi delle risorse di Servizi multimediali non possono includere "<", ">", "%", "&", ":", "&#92;", "?", "/", "*", "+", ".", virgolette singole o caratteri di controllo. Sono consentiti tutti gli altri caratteri. La lunghezza massima di un nome di risorsa è di 260 caratteri. 
 
-Per altre informazioni sulla denominazione di Azure Resource Manager, vedere [Requisiti di denominazione](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenzioni di denominazione](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+Per altre informazioni sulla denominazione di Azure Resource Manager, vedere: [Requisiti di denominazione](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenzioni di denominazione](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
 ## <a name="media-services-v3-api-design-principles"></a>Principi di progettazione delle API Servizi multimediali v3
 
