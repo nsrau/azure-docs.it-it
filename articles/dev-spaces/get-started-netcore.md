@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
-ms.openlocfilehash: bb3ddb0ffe16746a44318ea8d0bf0f1e3b3c3de1
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: b5de5ccdf98d6d0a2952a694a253feaac9d6e07d
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705583"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413626"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Guida introduttiva ad Azure Dev Spaces con .NET Core
 
@@ -72,7 +72,7 @@ az group create --name MyResourceGroup --location <region>
 Usare il comando seguente per creare un cluster Kubernetes:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
 ```
 
 La creazione del cluster richiede alcuni minuti.

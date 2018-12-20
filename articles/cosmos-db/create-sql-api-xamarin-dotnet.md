@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB: Creare un'app ToDo con Xamarin"
+title: "Azure Cosmos DB: creare un'app ToDo con Xamarin"
 description: Presenta un esempio di codice Xamarin che permette di connettersi ad Azure Cosmos DB ed eseguire query sul servizio
 services: cosmos-db
 author: codemillmatt
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 0099bacb98d921a852ece8787bcb7152c5eae3f2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f955e0386cd601212eb992870f02607538b537e2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838574"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252627"
 ---
-# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: Creare un'app ToDo con Xamarin
+# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: creare un'app ToDo con Xamarin
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -90,7 +90,7 @@ Se si usa un computer Mac, è possibile scaricare la versione **gratuita** di [V
 
 Tornare al portale di Azure per recuperare le informazioni sulla chiave API e copiarla nell'app.
 
-1. Nel [portale di Azure](http://portal.azure.com/) selezionare l'account dell'API SQL di Azure Cosmos DB e nel riquadro di spostamento a sinistra fare clic su **Chiavi** e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file APIKeys.cs nel passaggio seguente.
+1. Nel [portale di Azure](https://portal.azure.com/) selezionare l'account dell'API SQL di Azure Cosmos DB e nel riquadro di spostamento a sinistra fare clic su **Chiavi** e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file APIKeys.cs nel passaggio seguente.
 
     ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-sql-api-xamarin-dotnet/keys.png)
 

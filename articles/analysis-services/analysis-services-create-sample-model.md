@@ -1,21 +1,21 @@
 ---
-title: Esercitazione - Aggiungere un modello di esempio di base al server di Azure Analysis Services usando il portale | Microsoft Docs
+title: Esercitazione - Aggiungere un modello di esempio a un server Azure Analysis Services | Microsoft Docs
 description: In questa lezione di esercitazione viene illustrato come aggiungere un modello di esempio in Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: def7ee54390a716027fcacb433b99826d3650f6f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6a492085984eba165bc7cfc5839fa4e1705e823c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428693"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001650"
 ---
-# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Esercitazione: Aggiungere un modello di esempio dal portale
+# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Esercitazione: aggiungere un modello di esempio dal portale
 
 In questa esercitazione si aggiunge un database modello tabulare Adventure Works di esempio al server. Il modello di esempio è una versione completa del modello di dati di esempio Adventure Works Internet Sales (1200). Un modello di esempio è utile per il test della gestione del modello, la connessione a strumenti e applicazioni client e l'esecuzione di query sui dati del modello. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) per: 
 
@@ -74,6 +74,6 @@ Questi passaggi descrivono come eliminare un modello da un server usando SQL Ser
 In questa esercitazione è stato illustrato come aggiungere un modello di esempio di base al server. Dopo aver creato un database modello, è possibile connettersi a esso da SQL Server Management Studio e aggiungere i ruoli utente. Per altre informazioni, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Configurare i ruoli utente e di amministratore del server](analysis-services-database-users.md)
+> [Esercitazione: configurare l'amministratore del server e i ruoli dell'utente](analysis-services-database-users.md)
 
 

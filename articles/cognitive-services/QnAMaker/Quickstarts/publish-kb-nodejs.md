@@ -1,23 +1,24 @@
 ---
-title: 'Guida introduttiva: Pubblicare una knowledge base in REST, Node.js - QnA Maker'
-titleSuffix: Azure Cognitive Services
-description: Questa guida introduttiva illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
+title: Pubblicare la knowledge base, REST, Node.js
+titleSuffix: QnA Maker - Azure Cognitive Services
+description: Questa guida introduttiva di Node.js illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3d96beee881df560fc616cd975502f062275e9eb
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 5970cb0b4f5e38862d41fc0db84847b1bb92c173
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162025"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164178"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Guida introduttiva: Pubblicare una knowledge base in QnA Maker con Node.js
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Guida introduttiva: pubblicare una knowledge base in QnA Maker usando Node.js
 
 Questa guida introduttiva basata su REST illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 

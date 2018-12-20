@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 4a1fcd27603b0323fffe7b59ef2fdfdcabaf8f58
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 94a3282451a0efcc9209c4aac3d316e40560495f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874992"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972130"
 ---
 # <a name="back-up-azure-file-shares"></a>Eseguire il backup di condivisioni file di Azure
 Questo articolo illustra come usare il portale di Azure per eseguire il backup e il ripristino delle [condivisioni file di Azure](../storage/files/storage-files-introduction.md).
@@ -52,7 +52,7 @@ Tutti i dati di backup vengono archiviati negli insiemi di credenziali di Serviz
 
     ![Scegliere Condivisione file di Azure come obiettivo di backup](./media/backup-file-shares/overview-backup-page.png)
 
-2. Nel menu Obiettivo di backup scegliere Condivisione file di Azure da **Elementi di cui eseguire il backup**.
+2. Nel menu **Obiettivo di backup** scegliere Condivisione file di Azure da **Elementi di cui eseguire il backup**.
 
     ![Scegliere Condivisione file di Azure come obiettivo di backup](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
@@ -70,14 +70,14 @@ Tutti i dati di backup vengono archiviati negli insiemi di credenziali di Serviz
 
 5. Dall'elenco **Condivisioni file** selezionare una o più condivisioni file delle quali eseguire il backup e fare clic su **OK**.
 
-6. Dopo aver scelto le condivisioni file, il menu Backup passa a **Criteri di backup**. In questo menu selezionare un criterio di backup esistente oppure crearne uno nuovo, quindi fare clic su **Abilita backup**. 
+6. Dopo aver scelto le condivisioni file, il menu Backup passa a **Criteri di backup**. In questo menu selezionare un criterio di backup esistente oppure crearne uno nuovo, quindi fare clic su **Abilita backup**.
 
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/apply-backup-policy.png)
 
     Dopo aver stabilito un criterio di backup verrà creato uno snapshot delle condivisioni file all'orario pianificato e il punto di ripristino verrà conservato per il periodo scelto.
 
 ## <a name="create-an-on-demand-backup"></a>Creare un backup su richiesta
-A volte si vuole generare uno snapshot di backup, o punto di ripristino, fuori dall'orario pianificato nel criterio di backup. Un momento comune per la generazione di un backup su richiesta è subito dopo aver configurato il criterio di backup. A seconda della pianificazione indicata nel criterio di backup, possono volerci ore o giorni prima che venga creato uno snapshot. Per proteggere i dati fino a quando non si attiva il criterio di backup, avviare un backup su richiesta. La creazione di un backup su richiesta è spesso necessaria prima di apportare modifiche pianificate alle condivisioni file. 
+A volte si vuole generare uno snapshot di backup, o punto di ripristino, fuori dall'orario pianificato nel criterio di backup. Un momento comune per la generazione di un backup su richiesta è subito dopo aver configurato il criterio di backup. A seconda della pianificazione indicata nel criterio di backup, possono volerci ore o giorni prima che venga creato uno snapshot. Per proteggere i dati fino a quando non si attiva il criterio di backup, avviare un backup su richiesta. La creazione di un backup su richiesta è spesso necessaria prima di apportare modifiche pianificate alle condivisioni file.
 
 ### <a name="to-create-an-on-demand-backup"></a>Per creare un backup su richiesta
 
@@ -93,8 +93,8 @@ A volte si vuole generare uno snapshot di backup, o punto di ripristino, fuori d
 
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/backup-item-menu.png)
 
-4. Dal menu Elemento di backup fare clic su **Esegui backup ora**. Trattandosi di un processo di backup su richiesta, non sono presenti criteri di conservazione associati al punto di ripristino. Verrà visualizzata la finestra di dialogo **Esegui backup ora**. Specificare l'ultimo giorno di conservazione del punto di ripristino. 
-  
+4. Dal menu Elemento di backup fare clic su **Esegui backup ora**. Trattandosi di un processo di backup su richiesta, non sono presenti criteri di conservazione associati al punto di ripristino. Verrà visualizzata la finestra di dialogo **Esegui backup ora**. Specificare l'ultimo giorno di conservazione del punto di ripristino.
+
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/backup-now-menu.png)
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Eseguire il ripristino da un backup di condivisioni file di Azure
@@ -162,15 +162,15 @@ Per interrompere la protezione di una condivisione file di Azure:
 
 1. Aprire l'insieme di credenziali di Servizi di ripristino che contiene i punti di ripristino della condivisione file, quindi fare clic su **Elementi di backup**. Verrà visualizzato l'elenco degli elementi di backup.
 
-   ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/list-of-backup-items.png) 
+   ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/list-of-backup-items.png)
 
 2. Nell'elenco **Tipo di gestione di backup** selezionare **Archiviazione di Azure (File di Azure)**. Verrà visualizzato l'elenco Elementi di backup (Archiviazione di Azure (File di Azure)).
 
-   ![Fare clic su un elemento per aprire un altro menu](./media/backup-file-shares/azure-file-share-backup-items.png) 
+   ![Fare clic su un elemento per aprire un altro menu](./media/backup-file-shares/azure-file-share-backup-items.png)
 
 3. Nell'elenco Elementi di backup (Archiviazione di Azure (File di Azure)) selezionare l'elemento di backup da interrompere.
 
-4. Negli elementi della condivisione file di Azure fare clic sul menu **Altro** e selezionare **Interrompi backup**. 
+4. Negli elementi della condivisione file di Azure fare clic sul menu **Altro** e selezionare **Interrompi backup**.
 
    ![Fare clic su un elemento per aprire un altro menu](./media/backup-file-shares/stop-backup.png)
 
@@ -186,7 +186,7 @@ Per riprendere la protezione della condivisione file, passare all'elemento di ba
 
    ![Selezionare il processo da monitorare](./media/backup-file-shares/resume-backup-job.png)
 
-### <a name="delete-backup-data"></a>Eliminare i dati di backup 
+### <a name="delete-backup-data"></a>Eliminare i dati di backup
 
 È possibile eliminare il backup di una condivisione file durante il processo di interruzione del backup oppure in qualsiasi momento dopo aver interrotto la protezione. Attendere settimane o mesi prima di eliminare i punti di ripristino potrebbe anche essere utile. A differenza del recupero dei punti di ripristino, quando si eliminano i dati di backup non è possibile scegliere di eliminare punti di ripristino specifici. Se si sceglie di eliminare i dati di backup, vengono eliminati tutti i punti di ripristino associati all'elemento.
 
@@ -196,5 +196,3 @@ Nella procedura seguente si presuppone che il processo di backup per la condivis
 Per altre informazioni sulle condivisioni file di Azure, vedere:
 - [Domande frequenti sul backup di condivisioni file di Azure](backup-azure-files-faq.md)
 - [Risolvere i problemi del backup delle condivisioni file di Azure](troubleshoot-azure-files.md)
- 
-

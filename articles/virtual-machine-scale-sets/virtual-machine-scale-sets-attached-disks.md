@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: manayar
-ms.openlocfilehash: 551d90661f845aa98a41ed7de0b75c657c234f52
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2a1f79656fa70b4fa895235aff177ca47dc29664
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741403"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413643"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Set di scalabilità di macchine virtuali di Azure e dischi di dati collegati
 Per espandere lo spazio di archiviazione disponibile, i [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure supportano le istanze di macchina virtuale con dischi dati collegati. È possibile collegare i dischi dati quando il set di scalabilità viene creato, ma anche a un set di scalabilità esistente.
 
 > [!NOTE]
->  Quando si crea un set di scalabilità con dischi dati collegati definiti, per usare i dischi è necessario montarli e formattarli in una macchina virtuale, come per le macchine virtuali di Azure autonome. Un modo pratico per completare questo processo consiste nell'usare un'estensione di script personalizzato che chiama uno script per creare partizioni e formattare tutti i dischi dati in una macchina virtuale. Per alcuni esempi, vedere [Interfaccia della riga di comando di Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
+> Quando si crea un set di scalabilità con dischi dati collegati definiti, per usare i dischi è necessario montarli e formattarli in una macchina virtuale, come per le macchine virtuali di Azure autonome. Un modo pratico per completare questo processo consiste nell'usare un'estensione di script personalizzato che chiama uno script per creare partizioni e formattare tutti i dischi dati in una macchina virtuale. Per alcuni esempi, vedere [Interfaccia della riga di comando di Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
 
 
 ## <a name="create-and-manage-disks-in-a-scale-set"></a>Creare e gestire i dischi un set di scalabilità
@@ -39,7 +39,7 @@ La parte rimanente di questo articolo illustra casi d'uso specifici, ad esempio 
 
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Creare un cluster di Service Fabric con dischi dati collegati
-Ogni [tipo di nodo](../service-fabric/service-fabric-cluster-nodetypes.md) in un cluster di [Service Fabric](/azure/service-fabric) in esecuzione in Azure è supportato da un set di scalabilità di macchine virtuali.  Usando un modello di Azure Resource Manager, è possibile collegare dischi dati ai set di scalabilità che costituiscono il cluster di Service Fabric. Come punto di partenza, è possibile usare un [modello esistente](https://github.com/Azure-Samples/service-fabric-cluster-templates). Nel modello includere una sezione _dataDisks_ nell'elemento _storageProfile_ delle risorse _Microsoft.Compute/virtualMachineScaleSets_ e distribuire il modello. L'esempio seguente consente di collegare un disco dati da 128 GB:
+Ogni [tipo di nodo](../service-fabric/service-fabric-cluster-nodetypes.md) in un cluster di [Service Fabric](/azure/service-fabric) in esecuzione in Azure è supportato da un set di scalabilità di macchine virtuali. Usando un modello di Azure Resource Manager, è possibile collegare dischi dati ai set di scalabilità che costituiscono il cluster di Service Fabric. Come punto di partenza, è possibile usare un [modello esistente](https://github.com/Azure-Samples/service-fabric-cluster-templates). Nel modello includere una sezione _dataDisks_ nell'elemento _storageProfile_ delle risorse _Microsoft.Compute/virtualMachineScaleSets_ e distribuire il modello. L'esempio seguente consente di collegare un disco dati da 128 GB:
 
 ```json
 "dataDisks": [
@@ -51,19 +51,19 @@ Ogni [tipo di nodo](../service-fabric/service-fabric-cluster-nodetypes.md) in un
 ]
 ```
 
-È possibile partizionare, formattare e montare i dischi dati automaticamente al momento della distribuzione del cluster.  Aggiungere un'estensione di script personalizzata in _extensionProfile_ per l'elemento _virtualMachineProfile_ dei set di scalabilità.
+È possibile partizionare, formattare e montare i dischi dati automaticamente al momento della distribuzione del cluster. Aggiungere un'estensione di script personalizzata in _extensionProfile_ per l'elemento _virtualMachineProfile_ dei set di scalabilità.
 
 Per preparare automaticamente i dischi dati in un cluster Windows, aggiungere quanto segue:
 
 ```json
 {
-    "name": "customScript",    
-    "properties": {    
-        "publisher": "Microsoft.Compute",    
-        "type": "CustomScriptExtension",    
-        "typeHandlerVersion": "1.8",    
-        "autoUpgradeMinorVersion": true,    
-        "settings": {    
+    "name": "customScript",
+    "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.8",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
         "fileUris": [
             "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1"
         ],
@@ -93,7 +93,7 @@ Per preparare automaticamente i dischi dati in un cluster Linux, aggiungere quan
 
 
 ## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>Aggiunta di dischi dati pre-popolati a un set di scalabilità esistente
-I dischi dati specificati nel modello del set di scalabilità sono sempre vuoti. Tuttavia è possibile collegare un disco dati esistente a una macchina virtuale specifica in un set di scalabilità. Questa funzionalità è disponibile in anteprima, con gli esempi in [GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). Se si desidera propagare i dati in tutte le macchine virtuali del set di scalabilità, è possibile duplicare il disco dati e collegarlo a ogni macchina virtuale nel set di scalabilità, è possibile creare un'immagine personalizzata che contiene i dati ed eseguire il provisioning del set di scalabilità da questa immagine personalizzata, oppure è possibile usare File di Azure o un'offerta di archiviazione dati simile.
+I dischi dati specificati nel modello del set di scalabilità sono sempre vuoti. Tuttavia è possibile collegare un disco dati esistente a una macchina virtuale specifica in un set di scalabilità. Questa funzionalità è disponibile in anteprima, con esempi in [GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). Se si desidera propagare i dati in tutte le macchine virtuali del set di scalabilità, è possibile duplicare il disco dati e collegarlo a ogni macchina virtuale nel set di scalabilità, è possibile creare un'immagine personalizzata che contiene i dati ed eseguire il provisioning del set di scalabilità da questa immagine personalizzata, oppure è possibile usare File di Azure o un'offerta di archiviazione dati simile.
 
 
 ## <a name="additional-notes"></a>Note aggiuntive
