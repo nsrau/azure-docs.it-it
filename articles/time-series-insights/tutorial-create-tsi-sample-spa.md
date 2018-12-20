@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Web a singola pagina Azure Time Series Insights
+title: Creare un'app Web a singola pagina Azure Time Series Insights| Microsoft Docs
 description: Informazioni su come creare un'applicazione Web a singola pagina che esegue query e il rendering di dati da un ambiente TSI.
 author: ashannon7
 ms.service: time-series-insights
@@ -7,12 +7,13 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: fccd509d4f16cee86d30feb0e838f1493cae4e0b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626756"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275840"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Esercitazione: Creare un'app Web a singola pagina Azure Time Series Insights
 
@@ -34,7 +35,7 @@ Sarà inoltre necessario installare Visual Studio, se non è già installato. Pe
 Come accennato, l'applicazione di esempio TSI costituisce la base per la progettazione e il codice usati in questa esercitazione. Il codice include l'utilizzo della libreria JavaScript per il client Time Series Insights. La libreria per il client Time Series Insights rende disponibile un'astrazione per due categorie principali di API:
 
 - **Metodi wrapper per chiamare le API di query di Time Series Insights**: API REST che permettono di eseguire query per dati di Time Series Insights usando espressioni basate su JSON. I metodi sono organizzati all'interno dello spazio dei nomi `TsiClient.server` della libreria.
-- **Metodi per la creazione e il popolamento di diversi tipi di controlli di grafici**: usati per la visualizzazione dei dati di Time Series Insights in una pagina Web. I metodi sono organizzati all'interno dello spazio dei nomi `TsiClient.ux` della libreria.
+- **Metodi per la creazione e il popolamento di diversi tipi di controllo dei grafici**: Metodi utilizzati per visualizzare i dati di Time Series Insights in una pagina Web. I metodi sono organizzati all'interno dello spazio dei nomi `TsiClient.ux` della libreria.
 
 In questa esercitazione si useranno anche i dati dell'ambiente di Time Series Insights dell'applicazione di esempio. Per informazioni dettagliate sulla struttura dell'applicazione di esempio TSI e su come usa la libreria per il client Time Series Insights, vedere l'esercitazione [Esplorare la libreria client JavaScript per Azure Time Series Insights](tutorial-explore-js-client-lib.md).
 
@@ -91,7 +92,7 @@ Prima di compilare l'applicazione, è necessario registrarla con Azure AD. La re
    > A seconda del browser, può essere necessario correggere l'estensione del file (in HTML o CSS) prima di salvare il file.
 
    - **index.html** HTML e JavaScript per la pagina https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
-   - **sampleStyles.css:** foglio di stile CSS: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
+   - **sampleStyles.css:** Foglio di stile CSS: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
 1. Avviare e accedere a Visual Studio per creare un progetto per l'applicazione Web. Dal menu **File** scegliere **Apri** e quindi **Sito Web**. Nella finestra di dialogo **Apri sito Web** selezionare la directory di lavoro dove sono stati salvati i file HTML e CSS, quindi fare clic su **Apri**:
 
@@ -177,8 +178,8 @@ Prima di compilare l'applicazione, è necessario registrarla con Azure AD. La re
 
 Codice di errore/condizione | DESCRIZIONE
 ---------------------| -----------
-*AADSTS50011: No reply address is registered for the application (Nessun indirizzo di risposta registrato per l'applicazione).* | Nella registrazione in Azure AD manca la proprietà "URL di risposta". Passare alla pagina **Impostazioni** / **URL di risposta** della registrazione dell'applicazione in Azure AD. Verificare che sia presente l'**URL di accesso** specificato nel passaggio 3 della sezione [Registrare l'applicazione con Azure AD](#register-the-application-with-azure-ad). 
-*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application (L'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione): '<Application ID GUID>'.* | Il valore di `postLogoutRedirectUri` specificato nel passaggio 4.b della sezione [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application) deve corrispondere al valore specificato nella proprietà **Impostazioni** / **URL di risposta** della registrazione dell'applicazione in Azure AD. Assicurarsi di cambiare anche l'**URL di destinazione** usando `https`, come indicato nel passaggio 5.e della sezione [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application).
+*AADSTS50011: Nessun indirizzo di risposta registrato per l'applicazione.* | Nella registrazione in Azure AD manca la proprietà "URL di risposta". Passare alla pagina **Impostazioni** / **URL di risposta** della registrazione dell'applicazione in Azure AD. Verificare che sia presente l'**URL di accesso** specificato nel passaggio 3 della sezione [Registrare l'applicazione con Azure AD](#register-the-application-with-azure-ad). 
+*AADSTS50011: L'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione: '<Application ID GUID>'.* | Il valore di `postLogoutRedirectUri` specificato nel passaggio 4.b della sezione [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application) deve corrispondere al valore specificato nella proprietà **Impostazioni** / **URL di risposta** della registrazione dell'applicazione in Azure AD. Assicurarsi di cambiare anche l'**URL di destinazione** usando `https`, come indicato nel passaggio 5.e della sezione [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application).
 L'applicazione Web viene caricata, ma la pagina di accesso contiene solo testo senza alcuno stile applicato, con uno sfondo bianco. | Verificare che i percorsi descritti nel passaggio 4.a della sezione [Compilare e pubblicare l'applicazione Web](#build-and-publish-the-web-application) siano corretti. Se l'applicazione Web non trova i file CSS, non potrà applicare lo stile corretto alla pagina.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 274de7ac63df0afc1a59e197deebeb7929cf1ef8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855012"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438473"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Esercitazione: Eseguire la distribuzione da GitHub in Servizio app di Azure con integrazione continua e distribuzione continua di Jenkins
 
@@ -43,7 +43,7 @@ Per completare questa esercitazione, è necessario quanto segue:
 
 * Un server [Jenkins](https://jenkins.io/) con Java Development Kit (JDK) e gli strumenti Maven installati in una macchina virtuale Linux di Azure
 
-  Se non si ha un server Jenkins, completare questa procedura nel portale di Azure: [Creare un server Jenkins in una VM Linux di Azure](/azure/jenkins/install-jenkins-solution-template)
+  Se non si ha un server Jenkins, completare questa procedura nel portale di Azure: [Creare un server Jenkins in una macchina virtuale Linux di Azure](/azure/jenkins/install-jenkins-solution-template)
 
 * Un account [GitHub](https://github.com) per ottenere una copia di lavoro ([fork](#fork)) per l'app Web Java di esempio. 
 
@@ -92,7 +92,7 @@ Per fare in modo che Jenkins monitori GitHub e risponda quando viene eseguito il
 > 
 > Questi passaggi creano credenziali di token di accesso personale per consentire a Jenkins di usare GitHub tramite nome utente e password di GitHub dell'utente. 
 > Se tuttavia l'account GitHub usa l'autenticazione a due fattori, è necessario creare il token in GitHub e configurare Jenkins per usare tale token. 
-> Pe altre informazioni, vedere la documentazione del [plug-in di GitHub per Jenkins](https://wiki.jenkins.io/display/JENKINS/Github+Plugin).
+> Pe altre informazioni, vedere la documentazione del [plug-in di GitHub per Jenkins](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin).
 
 1. Nella pagina **Manage Jenkins** (Gestisci Jenkins) selezionare **Configure System** (Configura sistema). 
 

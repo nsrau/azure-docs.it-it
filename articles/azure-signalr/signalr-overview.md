@@ -1,23 +1,17 @@
 ---
-title: Informazioni su Azure SignalR | Microsoft Docs
+title: Informazioni su Azure SignalR
 description: Una panoramica del servizio Azure SignalR.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: a159833936ec4762213f063e235fa4f9237af95b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e66326c6c4d93a92c579255cb00b6614ecc03b8c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951101"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255177"
 ---
 # <a name="what-is-azure-signalr-service"></a>Informazioni sul servizio Azure SignalR
 
@@ -25,7 +19,7 @@ Il servizio Azure SignalR semplifica il processo di aggiunta di funzionalità We
 
 Questo articolo offre una panoramica del servizio Azure SignalR.
 
-## <a name="what-is-azure-signalr-service-used-for"></a>Tipi di utilizzo del servizio Azure SignalR 
+## <a name="what-is-azure-signalr-service-used-for"></a>Tipi di utilizzo del servizio Azure SignalR
 
 Esistono molti tipi di applicazioni che richiedono aggiornamenti dei contenuti in tempo reale. Gli esempi elencati di seguito sono buoni candidati per l'uso del servizio Azure SignalR:
 
@@ -45,4 +39,3 @@ Attualmente esistono tre modi per usare il servizio Azure SignalR:
 - **[Ridimensionare un'app ASP.NET Core SignalR](signalr-overview-scale-aspnet-core.md)**: integrare il servizio Azure SignalR in un'applicazione ASP.NET Core SignalR per la scalabilità orizzontale fino a centinaia di migliaia di connessioni.
 - **[Creare app in tempo reale senza server ](signalr-overview-azure-functions.md)**: usare l'integrazione delle Funzioni di Azure con il servizio Azure SignalR per creare applicazioni in tempo reale senza server in linguaggi come JavaScript, C# e Java.
 - **[Inviare messaggi dal server ai client tramite l'API REST](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)**: il servizio Azure SignalR offre l'API REST per consentire alle applicazioni di inviare messaggi ai client connessi con il servizio SignalR, in qualsiasi linguaggio di programmazione che supporta REST.
-

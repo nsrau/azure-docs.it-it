@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per la ricerca di dati semistrutturati dall'archiviazione cloud di Azure in Ricerca di Azure | Microsoft Docs
+title: Esercitazione per la ricerca di dati semistrutturati nell'archiviazione cloud di Azure - Ricerca di Azure
 description: Questa esercitazione descrive come cercare dati BLOB di Azure semistrutturati tramite Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
-ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: 5608495ff2975cabefdb83e5794a7d92b318b5a5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005078"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313824"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Esercitazione: Cercare dati semistrutturati nell'archiviazione cloud di Azure
 

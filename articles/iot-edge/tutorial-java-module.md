@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per Java in Azure IoT Edge | Microsoft Docs
+title: 'Esercitazione: creare un modulo Java personalizzato - Azure IoT Edge | Microsoft Docs'
 description: Questa esercitazione illustra come creare un modulo per IoT Edge con codice Java e distribuirlo in un dispositivo perimetrale.
 services: iot-edge
 author: kgremban
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: e64acff180d0faf3dfcfe02abb2d659db62ed788
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 53be0f36e79d5691d8531c46bf7f554c53f641ee
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312317"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342834"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Esercitazione: Sviluppare un modulo Java per IoT Edge e distribuirlo in un dispositivo simulato
 
@@ -90,7 +90,7 @@ Creare un modello di soluzione Java da poter personalizzare con il proprio codic
 
 1. In Visual Studio Code selezionare **Visualizza** > **Riquadro comandi** per aprire il riquadro comandi di VS Code. 
 
-2. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Seguire i prompt nel riquadro comandi per creare la soluzione.
+2. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: Nuova soluzione IoT Edge**. Seguire i prompt nel riquadro comandi per creare la soluzione.
 
    | Campo | Valore |
    | ----- | ----- |
@@ -257,11 +257,11 @@ Quando si comunica a Visual Studio Code di compilare la soluzione, prima di tutt
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuire ed eseguire la soluzione
 
-Nell'articolo della guida introduttiva usato per configurare il dispositivo IoT Edge è stato distribuito un modulo usando il portale di Azure. È possibile distribuire i moduli anche usando l'estensione Azure IoT Toolkit per Visual Studio Code. Il manifesto della distribuzione, il file **deployment.json**, è già disponibile per questo scenario. Ora è sufficiente selezionare un dispositivo che riceverà la distribuzione.
+Nell'articolo della guida introduttiva usato per configurare il dispositivo IoT Edge è stato distribuito un modulo usando il portale di Azure. È possibile distribuire i moduli anche usando l'estensione Azure hub IoT Toolkit (in precedenza estensione Azure IoT Toolkit) per Visual Studio Code. Il manifesto della distribuzione, il file **deployment.json**, è già disponibile per questo scenario. Ora è sufficiente selezionare un dispositivo che riceverà la distribuzione.
 
-1. Nel riquadro comandi di VS Code eseguire il comando **Azure: Sign in** (Azure: Accedi) e seguire le istruzioni per accedere all'account di Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
+1. Nel riquadro comandi di VS Code eseguire il comando **Azure: Accedi** e seguire le istruzioni per accedere all'account Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
 
-2. Nel riquadro comandi di VS Code eseguire **Azure IoT Hub: Select IoT Hub** (Hub IoT di Azure: Seleziona l'hub IoT). 
+2. Nel riquadro comandi di VS Code eseguire **Hub IoT di Azure: Selezionare l'hub IoT**. 
 
 3. Scegliere la sottoscrizione e l'hub IoT che contiene il dispositivo IoT Edge che si vuole configurare. 
 
@@ -289,7 +289,7 @@ Per visualizzare i messaggi generati da un qualsiasi modulo, usare il comando `i
 
 1. Per monitorare i dati che arrivano all'hub IoT, selezionare i puntini di sospensione (**...**) e quindi selezionare **Start Monitoring D2C Messages** (Avvia il monitoraggio dei messaggi D2C).
 2. Per monitorare il messaggio D2C per un dispositivo specifico, fare clic con il pulsante destro del mouse sul dispositivo nell'elenco e scegliere **Start Monitoring D2C Messages** (Avvia il monitoraggio dei messaggi D2C).
-3. Per arrestare il monitoraggio dei dati, eseguire il comando **Azure IoT Hub: Stop monitoring D2C message** (Hub IoT di Azure: Interrompi il monitoraggio del messaggio D2C) nel riquadro comandi. 
+3. Per arrestare il monitoraggio dei dati, eseguire il comando **hub IoT di Azure: Arrestare il monitoraggio di messaggi D2C** nel riquadro comandi. 
 4. Per visualizzare o aggiornare il modulo gemello, fare clic con il pulsante destro del mouse sul modulo nell'elenco e scegliere **Edit module twin** (Modifica il modulo gemello). Per aggiornare il modulo gemello, salvare il file JSON gemello, fare clic con il pulsante destro del mouse sull'area degli editor e scegliere **Update Module Twin** (Aggiorna il modulo gemello).
 5. Per visualizzare i log di Docker, installare [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) per Visual Studio Code. È possibile trovare i moduli in esecuzione in locale nello strumento di esplorazione di Docker. Dal menu di scelta rapida selezionare **Mostra log** per visualizzarli nel terminale integrato.
  

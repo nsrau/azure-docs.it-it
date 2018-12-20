@@ -4,15 +4,15 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839735"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250584"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -23,7 +23,7 @@ Il servizio Azure Migrate valuta i carichi di lavoro locali per la migrazione ad
 Azure Migrate consente di eseguire le operazioni seguenti.
 
 - **Valutare l'idoneità per Azure**: valutare se i computer locali sono idonei per l'esecuzione in Azure.
-- **Ottenere informazioni sulle dimensioni consigliate**: ottenere informazioni sulle dimensioni consigliate per le macchine virtuali di Azure in base alla cronologia delle prestazioni delle macchine virtuali locali.
+- **Informazioni sulle dimensioni consigliate**: ottenere informazioni sulle dimensioni consigliate per le macchine virtuali di Azure in base alla cronologia delle prestazioni delle macchine virtuali locali.
 - **Stimare i costi mensili**: ottenere una stima dei costi per l'esecuzione dei computer locali in Azure.  
 - **Eseguire la migrazione in tutta tranquillità**: visualizzare le dipendenze dei computer locali per creare gruppi di computer di cui eseguire la valutazione e la migrazione insieme.
 
@@ -34,10 +34,14 @@ Azure Migrate consente di eseguire le operazioni seguenti.
 - È possibile individuare fino a 1500 VM in una singola individuazione e fino a 1500 VM in un singolo progetto. È inoltre possibile valutare fino a 1500 VM in una singola valutazione.
 - Se si vuole eseguire l'individuazione di un ambiente di maggiori dimensioni, è possibile suddividere l'individuazione e creare più progetti. [Altre informazioni](how-to-scale-assessment.md) Azure Migrate supporta fino a 20 progetti per ogni sottoscrizione.
 - Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
--  È possibile creare un progetto Azure Migrate solo nell'area geografica Stati Uniti. È tuttavia possibile pianificare una migrazione in qualsiasi località di Azure di destinazione.
-    - Nell'area del progetto di migrazione vengono archiviati solo i metadati individuati dall'ambiente locale.
-    - I metadati vengono archiviati in una delle aree all'interno dell'area geografica selezionata, ovvero Stati Uniti centro-occidentali o Stati Uniti orientali.
-    - Se si usa la visualizzazione delle dipendenze creando una nuova area di lavoro di Log Analytics, questa viene creata nella stessa area del progetto.
+-  È possibile creare un progetto Azure Migrate nelle seguenti aree geografiche. Tuttavia, ciò non limita la possibilità di creare le valutazioni per gli altri percorsi di destinazione di Azure.
+    **Area geografica** | **Posizione di archiviazione**
+    --- | ---
+    Stati Uniti | Stati Uniti centro-occidentali, Stati Uniti orientali
+    Azure Government | US Gov Virginia
+
+    L'area geografica associata al progetto di migrazione viene usata per l'archiviazione dei metadati individuati nell'ambiente locale. I metadati vengono archiviati in una delle aree in base all'area geografica specificata per il progetto di migrazione. Se si usa la visualizzazione delle dipendenze creando una nuova area di lavoro di Log Analytics, questa viene creata nella stessa area del progetto.
+- La funzionalità di visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Costo del servizio

@@ -1,6 +1,7 @@
 ---
-title: "Esercitazione: Distribuire un modello di classificazione di immagini nell'istanza di contenitore di Azure con il servizio Azure Machine Learning"
-description: Questa esercitazione mostra come usare il servizio Azure Machine Learning per distribuire un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python.  Questa esercitazione è la seconda di una serie in due parti.
+title: 'Esercitazione sulla classificazione di immagini: Distribuire i modelli'
+titleSuffix: Azure Machine Learning service
+description: Questa esercitazione mostra come usare il servizio Azure Machine Learning per distribuire un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python. Questa esercitazione è la seconda di una serie in due parti.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,29 +10,30 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: ea446c89fc74fca444793a5e0f803a54fa251ed1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864061"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312171"
 ---
-# <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Esercitazione n. 2: distribuire un modello di classificazione di immagini nell'istanza di contenitore di Azure (ACI)
+# <a name="tutorial--deploy-an-image-classification-model-in-azure-container-instance"></a>Esercitazione:  distribuire un modello di classificazione di immagini nell'istanza di contenitore di Azure
 
 Questa esercitazione è la **seconda di una serie in due parti**. Nell'[esercitazione precedente](tutorial-train-models-with-aml.md), è stato eseguito il training di modelli di machine learning e quindi registrato un modello nell'area di lavoro sul cloud.  
 
-A questo punto, si è pronti per distribuire il modello come servizio Web nelle [istanze di contenitore di Azure](https://docs.microsoft.com/azure/container-instances/) (ACI). Un servizio Web è un'immagine, in questo caso un'immagine Docker, che incapsula la logica di assegnazione dei punteggi e il modello stesso. 
+A questo punto, si è pronti per distribuire il modello come servizio Web nelle [istanze di contenitore di Azure](https://docs.microsoft.com/azure/container-instances/). Un servizio Web è un'immagine, in questo caso un'immagine Docker, che incapsula la logica di assegnazione dei punteggi e il modello stesso. 
 
-In questa parte dell'esercitazione si usa il servizio di Azure Machine Learning per:
+In questa parte dell'esercitazione si usa il servizio Azure Machine Learning per:
 
 > [!div class="checklist"]
 > * Configurare l'ambiente di test
 > * Recuperare il modello dall'area di lavoro
 > * Testare il modello in locale
-> * Distribuire il modello in ACI
+> * Distribuire il modello in istanze di contenitore
 > * Testare il modello distribuito
 
-ACI non è ideale per le distribuzioni di produzione, ma è ideale per i test e per comprendere il flusso di lavoro. Per le distribuzioni di produzione scalabili, è consigliabile usare il [servizio Azure Kubernetes](how-to-deploy-to-aks.md).
+Le istanze di contenitore non sono ideali per le distribuzioni di produzione, ma lo sono per i test e per comprendere il flusso di lavoro. Per le distribuzioni di produzione scalabili, è consigliabile usare il servizio Azure Kubernetes. Per altre informazioni, vedere [Come distribuire e dove](how-to-deploy-and-where.md).
 
 ## <a name="get-the-notebook"></a>Ottenere il notebook
 
@@ -40,11 +42,11 @@ Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyt
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.2
+> Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.2.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare il modello di training nel notebook [Esercitazione n. 1: Eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning](tutorial-train-models-with-aml.md).  
+Eseguire il training del modello nel notebook seguente: [Esercitazione n. 1: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning](tutorial-train-models-with-aml.md).  
 
 
 ## <a name="set-up-the-environment"></a>Configurare l'ambiente
@@ -148,7 +150,7 @@ L'output mostra la matrice di confusione:
 Usare `matplotlib` per visualizzare la matrice di confusione sotto forma di grafico. In questo grafico, l'asse X rappresenta i valori effettivi e l'asse Y rappresenta i valori stimati. Il colore in ogni griglia rappresenta la percentuale di errore. Più chiaro è il colore, maggiore sarà la frequenza degli errori. Ad esempio, molti 5 sono erroneamente classificati come 3. Di conseguenza, viene visualizzata una griglia luminosa a (5,3).
 
 ```python
-# normalize the diagnal cells so that they don't overpower the rest of the cells when visualized
+# normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
 row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
@@ -168,23 +170,23 @@ plt.savefig('conf.png')
 plt.show()
 ```
 
-![matrice di confusione](./media/tutorial-deploy-models-with-aml/confusion.png)
+![Grafico che mostra la matrice di confusione](./media/tutorial-deploy-models-with-aml/confusion.png)
 
 ## <a name="deploy-as-web-service"></a>Distribuire come servizio Web
 
-Dopo aver testato il modello e aver ottenuto risultati soddisfacenti, è possibile distribuire il modello come servizio Web ospitato in ACI. 
+Dopo aver testato il modello e aver ottenuto risultati soddisfacenti, è possibile distribuire il modello come servizio Web ospitato nelle istanza di contenitore. 
 
-Per compilare l'ambiente corretto per l'ACI, fornire i seguenti elementi:
+Per compilare l'ambiente corretto per le istanze di contenitore, fornire i seguenti elementi:
 * Uno script di assegnazione dei punteggi per mostrare come usare il modello
 * Un file di ambiente per mostrare quali pacchetti è necessario installare
-* Un file di configurazione per compilare l'ACI
+* Un file di configurazione per compilare l'istanza di contenitore
 * Il modello su cui è stato eseguito il training precedentemente
 
 <a name="make-script"></a>
 
 ### <a name="create-scoring-script"></a>Creare lo script di assegnazione dei punteggi
 
-Creare lo script di assegnazione dei punteggi, chiamato score.py, usato per la chiamata dal servizio Web per mostrare come usare il modello.
+Creare lo script di assegnazione dei punteggi, chiamato score.py. La chiamata al servizio Web lo utilizza per illustrare come usare il modello.
 
 È necessario includere due funzioni necessarie nello script di assegnazione dei punteggi:
 * La funzione `init()` che carica in genere il modello in un oggetto globale. Questa funzione viene eseguita una sola volta all'avvio del contenitore Docker. 
@@ -239,7 +241,7 @@ with open("myenv.yml","r") as f:
 
 ### <a name="create-configuration-file"></a>Creare il file di configurazione
 
-Configurare il file di configurazione della distribuzione e specificare il numero di CPU e gigabyte di RAM necessari per il contenitore ACI. Anche se dipende dal modello, l'impostazione predefinita è di 1 core e 1 GB di RAM ed è in genere sufficiente per molti modelli. Se si ritiene di averne bisogno di aggiuntivi in seguito, sarà necessario ricreare l'immagine e ridistribuire il servizio.
+Configurare il file di configurazione della distribuzione e specificare il numero di CPU e gigabyte di RAM necessari per l'istanza di contenitore. Anche se dipende dal modello, l'impostazione predefinita è di 1 core e 1 GB di RAM ed è in genere sufficiente per molti modelli. Se si ritiene di averne bisogno di aggiuntivi in seguito, sarà necessario ricreare l'immagine e ridistribuire il servizio.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -250,18 +252,18 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                description='Predict MNIST with sklearn')
 ```
 
-### <a name="deploy-in-aci"></a>Distribuire in ACI
+### <a name="deploy-in-container-instances"></a>Distribuire istanze di contenitore
 Tempo previsto per il completamento: **circa 7-8 minuti**
 
 Configurare l'immagine e distribuire. Il codice seguente esegue questi passaggi:
 
-1. Creare un'immagine usando:
-   * Il file di assegnazione dei punteggi (`score.py`)
-   * Il file di ambiente (`myenv.yml`)
-   * Il file di modello
+1. Compilare un'immagine usando:
+   * Il file di assegnazione dei punteggi (`score.py`).
+   * Il file di ambiente (`myenv.yml`).
+   * Il file di modello.
 1. Registrare tale immagine nell'area di lavoro. 
-1. Inviare l'immagine al contenitore ACI.
-1. Avviare un contenitore in ACI usando l'immagine.
+1. Inviare l'immagine nel contenitore di istanze di Azure Container.
+1. Avviare un contenitore in Azure Container usando l'immagine.
 1. Ottenere l'endpoint HTTP del servizio Web.
 
 
@@ -284,7 +286,7 @@ service = Webservice.deploy_from_model(workspace=ws,
 service.wait_for_deployment(show_output=True)
 ```
 
-Ottenere l'endpoint HTTP del servizio Web di assegnazione dei punteggi, che accetta le chiamate del client REST. Questo endpoint può essere condiviso con tutti coloro che desiderano testare il servizio Web oppure integrarlo in un'applicazione. 
+Ottenere l'endpoint HTTP del servizio Web di assegnazione dei punteggi, che accetta le chiamate del client REST. È possibile condividere questo endpoint con tutti coloro che desiderano testare il servizio Web oppure integrarlo in un'applicazione. 
 
 ```python
 print(service.scoring_uri)
@@ -296,7 +298,7 @@ print(service.scoring_uri)
 In precedenza è stato assegnato un punteggio a tutti i dati di test con la versione locale del modello. A questo punto, è possibile testare il modello distribuito con un campione casuale di 30 immagini prese dai dati di test.  
 
 Il codice seguente esegue questi passaggi:
-1. Inviare i dati come matrice JSON per il servizio Web ospitato in ACI. 
+1. Inviare i dati come matrice JSON per il servizio Web ospitato nelle istanza di contenitore. 
 
 1. Usare l'API `run` di SDK per chiamare il servizio. È anche possibile effettuare chiamate non elaborate usando qualsiasi strumento HTTP, ad esempio curl.
 
@@ -337,7 +339,7 @@ for s in sample_indices:
 plt.show()
 ```
 
-Ecco il risultato di un campione casuale delle immagini di test: ![risultati](./media/tutorial-deploy-models-with-aml/results.png)
+Ecco il risultato di un campione casuale delle immagini di test: ![Grafico che visualizzazione i risultati](./media/tutorial-deploy-models-with-aml/results.png)
 
 È anche possibile inviare una richiesta HTTP non elaborata per testare il servizio Web.
 
@@ -365,7 +367,7 @@ print("prediction:", resp.text)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per mantenere il gruppo di risorse e l'area di lavoro per altre esercitazioni ed esplorazioni, è possibile eliminare solo la distribuzione dell'ACI tramite questa chiamata API:
+Per mantenere il gruppo di risorse e l'area di lavoro per altre esercitazioni ed esplorazioni, è possibile eliminare solo la distribuzione delle istanza di contenitore tramite questa chiamata API:
 
 ```python
 service.delete()
@@ -376,13 +378,6 @@ service.delete()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sul servizio Azure Machine Learning è stato usato Python per:
++ Informazioni su tutte le [opzioni di distribuzione per il servizio Azure Machine Learning](how-to-deploy-and-where.md), tra cui ACI, servizio Azure Kubernetes, FPGA e IoT Edge.
 
-> [!div class="checklist"]
-> * Configurare l'ambiente di test
-> * Recuperare il modello dall'area di lavoro
-> * Testare il modello in locale
-> * Distribuire il modello in ACI
-> * Testare il modello distribuito
- 
-È anche possibile provare l'esercitazione [Selezione algoritmo automatica](tutorial-auto-train-models.md) per informazioni su come il servizio Azure Machine Learning può selezionare automaticamente e ottimizzare l'algoritmo migliore per il modello e compilare tale modello per l'utente.
++ Vedere in che modo il servizio Azure Machine Learning può selezionare automaticamente e ottimizzare l'algoritmo migliore per il modello e compilare tale modello per l'utente. Provare l'esercitazione [selezione automatica degli algoritmi](tutorial-auto-train-models.md). 

@@ -1,21 +1,21 @@
 ---
-title: Esercitazione - Automatizzare la compilazione di immagini dei contenitori in caso di aggiornamento dell'immagine di base con ACR Tasks
-description: Questa esercitazione illustra come configurare un'attività per attivare automaticamente le compilazioni delle immagini dei contenitori nel cloud quando viene aggiornata un'immagine di base.
+title: Esercitazione - Automatizzare la compilazione di immagini dei contenitori in caso di aggiornamento dell'immagine - Attività del Registro Azure Container
+description: Questa esercitazione illustra come configurare un'attività del registro Azure Container per attivare automaticamente le compilazioni delle immagini dei contenitori nel cloud quando viene aggiornata un'immagine di base.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 54e8892787fa2b7b093609ee5d09f3a87e103411
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b3d8c3aea4955d6f95ead69d5bed147cc486e7c8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856582"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254038"
 ---
-# <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-tasks"></a>Esercitazione: Automatizzare la compilazione di immagini in caso di aggiornamento dell'immagine di base con ACR Tasks
+# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori quando viene aggiornata un'immagine nel registro Azure Container 
 
 ACR Tasks supporta l'esecuzione automatica della compilazione quando viene aggiornata l'immagine di base di un contenitore, ad esempio per applicare patch al sistema operativo o al framework applicazioni in una delle immagini di base. Questa esercitazione illustra come creare un'attività in ACR Tasks che attiva una compilazione nel cloud in seguito al push nel registro dell'immagine di base di un contenitore.
 
