@@ -1,5 +1,5 @@
 ---
-title: Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app di Azure
+title: Creare un servizio di bilanciamento del carico interno con un ambiente del servizio app - Azure
 description: Informazioni dettagliate sulla creazione e sull'uso di un ambiente del servizio app di Azure isolato da Internet
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.custom: seodec18
+ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378279"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344279"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -56,19 +56,19 @@ Quando si usa un ambiente del servizio app con bilanciamento del carico interno,
 
 Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
-1. Nel portale di Azure selezionare **Crea una risorsa** > **Web**  > **Ambiente del servizio app**.
+1. Nel portale di Azure selezionare  **Crea una risorsa** > **Web** > **Ambiente del servizio app**.
 
-1. Selezionare la propria sottoscrizione.
+2. Selezionare la propria sottoscrizione.
 
-1. Selezionare o creare un gruppo di risorse.
+3. Selezionare o creare un gruppo di risorse.
 
-1. Selezionare o creare una rete virtuale.
+4. Selezionare o creare una rete virtuale.
 
-1. Se si seleziona una rete virtuale esistente, è necessario creare una subnet per contenere l'ambiente del servizio app. Assicurarsi di impostare una subnet con dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app. La dimensione consigliata è `/24`, che include 256 indirizzi ed è in grado di gestire un ambiente del servizio app di dimensioni massime e qualsiasi esigenza di ridimensionamento. 
+5. Se si seleziona una rete virtuale esistente, è necessario creare una subnet per contenere l'ambiente del servizio app. Assicurarsi di impostare una subnet con dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app. La dimensione consigliata è `/24`, che include 256 indirizzi ed è in grado di gestire un ambiente del servizio app di dimensioni massime e qualsiasi esigenza di ridimensionamento. 
 
-1. Selezionare **Rete virtuale/Località** > **Configurazione rete virtuale**. Impostare **Tipo di indirizzo VIP** su **Interno**.
+6. Selezionare  **Rete virtuale/Località** > **Configurazione rete virtuale**. Impostare **Tipo di indirizzo VIP** su **Interno**.
 
-1. Immettere un nome di dominio che sarà il dominio usato per le app create in questo ambiente del servizio app. Si applicano alcune restrizioni. Non usare:
+7. Immettere un nome di dominio che sarà il dominio usato per le app create in questo ambiente del servizio app. Si applicano alcune restrizioni. Non usare:
 
     * net   
 
@@ -96,14 +96,14 @@ Nel pannello **Rete virtuale** è disponibile un'opzione **Configurazione della 
 
 Dopo avere selezionato **Interno**, non è più possibile aggiungere altri indirizzi IP all'ambiente del servizio app. È invece necessario fornire il dominio dell'ambiente del servizio app. In un ambiente del servizio app con un indirizzo VIP esterno viene usato il nome dell'ambiente nel dominio delle app create in questo ambiente.
 
-Se si imposta il **Tipo di indirizzo VIP** su **Interno**, il nome dell'ambiente del servizio app non viene usato nel dominio per l'ambiente. Specificare il dominio in modo esplicito. Se il dominio è *contoso.corp.net* ed è stata creata un'app in un ambiente del servizio app denominata *timereporting*, l'URL per questa app sarà timereporting.contoso.corp.net.
+Se si imposta il **Tipo di indirizzo VIP** su **Interno**, il nome dell'ambiente del servizio app non viene usato nel dominio per l'ambiente. Specificare il dominio in modo esplicito. Se il dominio è *contoso.corp.net*  ed è stata creata un'app in un ambiente del servizio app denominata  *timereporting*, l'URL per questa app sarà timereporting.contoso.corp.net.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Creare un'app in un ambiente del servizio app con bilanciamento del carico interno ##
 
 La creazione di un'app in un ambiente del servizio app con bilanciamento del carico interno è la stessa eseguita in un ambiente del servizio app regolare.
 
-1. Nel portale di Azure selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
+1. Nel portale di Azure selezionare  **Crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
 
 1. Immettere il nome dell'app.
 
@@ -117,7 +117,7 @@ La creazione di un'app in un ambiente del servizio app con bilanciamento del car
 
 1. Selezionare o creare un piano di servizio app. Se si vuole creare un nuovo piano di servizio app, selezionare l'ambiente del servizio app in uso come località. Selezionare il pool di lavoro in cui si vuole creare il piano di servizio app. Quando si crea il piano di servizio app, selezionare l'ambiente del servizio app come località e il pool di lavoro. Quando si specifica il nome dell'app, il dominio sotto il nome dell'app verrà sostituito con il dominio dell'ambiente del servizio app.
 
-1. Selezionare **Create**. Se si vuole che l'app venga visualizzata nel dashboard, selezionare la casella di controllo **Aggiungi al dashboard**.
+1. Selezionare **Create**. Se si vuole che l'app venga visualizzata nel dashboard, selezionare la casella di controllo  **Aggiungi al dashboard** .
 
     ![Creazione del piano di servizio app][2]
 
@@ -127,14 +127,14 @@ La creazione di un'app in un ambiente del servizio app con bilanciamento del car
 
 Un ambiente del servizio app con bilanciamento del carico interno è leggermente diverso rispetto all'ambiente del servizio app senza bilanciamento del carico interno. Come già osservato, è necessario gestire il proprio servizio DNS e fornire il proprio certificato per le connessioni HTTPS.
 
-Dopo la creazione dell'ambiente del servizio app, il nome di dominio indica il dominio specificato. Viene visualizzato un nuovo elemento nel menu **Impostazione** denominato **Certificato ILB**. L'ambiente del servizio app viene creato con un certificato che non specifica il dominio dell'ambiente del servizio app ILB. Se si usa l'ambiente del servizio app con tale certificato, il browser indicherà che non è valido. Questo certificato rende più semplice testare HTTPS, ma è necessario caricare il proprio certificato associato al dominio dell'ambiente del servizio app ILB. Questo passaggio è necessario indipendentemente dal fatto che sia autofirmato o acquisito da un'autorità di certificazione (CA).
+Dopo la creazione dell'ambiente del servizio app, il nome di dominio indica il dominio specificato. Viene visualizzato un nuovo elemento nel menu  **Impostazione**  denominato  **Certificato ILB**. L'ambiente del servizio app viene creato con un certificato che non specifica il dominio dell'ambiente del servizio app ILB. Se si usa l'ambiente del servizio app con tale certificato, il browser indicherà che non è valido. Questo certificato rende più semplice testare HTTPS, ma è necessario caricare il proprio certificato associato al dominio dell'ambiente del servizio app ILB. Questo passaggio è necessario indipendentemente dal fatto che sia autofirmato o acquisito da un'autorità di certificazione (CA).
 
 ![Nome di dominio dell'ambiente del servizio app ILB][3]
 
 L'ambiente del servizio app ILB richiede un certificato SSL valido. Usare autorità di certificazione interne, acquistare un certificato da un'autorità di certificazione esterna o usare un certificato autofirmato. Indipendentemente dall'origine del certificato SSL è necessario configurare correttamente gli attributi del certificato seguenti:
 
 * **Soggetto**: questo attributo deve essere impostato su *.your-root-domain-here.
-* **Nome alternativo soggetto**: questo attributo deve includere sia *.your-root-domain-here* che **.scm.your-root-domain-here*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *your-app-name.scm.your-root-domain-here*.
+* **Nome alternativo del soggetto**: questo attributo deve includere sia *.your-root-domain-here* che *.scm.your-root-domain-here*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *your-app-name.scm.your-root-domain-here*.
 
 Convertire/salvare il certificato SSL come file con estensione pfx. Il file con estensione pfx deve includere tutti i certificati intermedi e quelli radice. Proteggerlo con una password.
 
@@ -154,7 +154,7 @@ Il certificato generato da questi comandi di PowerShell viene contrassegnato dai
 
 Per caricare i propri certificati e testare l'accesso:
 
-1. Dopo la creazione dell'ambiente del servizio app, passare alla relativa interfaccia utente. Selezionare **Ambiente del servizio app** > **Impostazioni** > **Certificato ILB**.
+1. Dopo la creazione dell'ambiente del servizio app, passare alla relativa interfaccia utente. Selezionare **Ambiente del servizio app** > **Impostazioni** > **Certificato ILB**.
 
 1. Per impostare il certificato ILB, selezionare il file con estensione pfx del certificato e immettere la password. L'elaborazione di questo passaggio richiede tempo. Viene visualizzato un messaggio che informa che è in corso un'operazione di caricamento.
 
@@ -174,9 +174,9 @@ Per caricare i propri certificati e testare l'accesso:
 
     b. Per testare la pubblicazione della distribuzione Web o l'accesso alla console avanzata, creare un record per _mytestapp.scm.ilbase.com_.
 
-1. Usando un browser nella macchina virtuale, passare a http://mytestapp.ilbase.com. In alternativa, passare a qualunque sia il nome dell'app Web con il dominio.
+1. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. In alternativa, passare a qualunque sia il nome dell'app Web con il dominio.
 
-1. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. Se si usa un certificato autofirmato, accettare la mancanza di sicurezza.
+1. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. Se si usa un certificato autofirmato, accettare la mancanza di sicurezza.
 
     L'indirizzo IP per il bilanciamento del carico interno è riportato in **Indirizzi IP**. Questo elenco include anche gli indirizzi IP usati dall'indirizzo VIP esterno e per il traffico di gestione in ingresso.
 
@@ -222,13 +222,9 @@ Per altre informazioni sulla configurazione dell'ambiente del servizio app ILB c
 ## <a name="get-started"></a>Attività iniziali ##
 
 * Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione ad Ambiente del servizio app][Intro].
- 
+ 
 <!--Image references-->
-[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
-[2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png
-[3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png
-[4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png
-[5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
+[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png [2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png [3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png [4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png [5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -244,10 +240,10 @@ Per altre informazioni sulla configurazione dell'ambiente del servizio app ILB c
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md

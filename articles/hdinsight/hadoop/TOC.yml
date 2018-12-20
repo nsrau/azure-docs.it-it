@@ -48,7 +48,7 @@ items:
     - name: Uso di Archiviazione di Azure
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Uso di Azure Data Lake Store
+    - name: Uso di Azure Data Lake Storage
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: Usare Apache Hadoop per l'invio di query in batch
@@ -63,7 +63,7 @@ items:
         href: apache-hadoop-use-hive-visual-studio.md
       - name: Usare la visualizzazione Apache Hive
         href: apache-hadoop-use-hive-ambari-view.md
-      - name: Usare Beeline
+      - name: Usare Apache Hive Beeline
         href: apache-hadoop-use-hive-beeline.md
       - name: Usare l'API REST
         href: apache-hadoop-use-hive-curl.md
@@ -105,7 +105,7 @@ items:
         href: apache-hadoop-use-pig-curl.md
       - name: Usare Desktop remoto
         href: apache-hadoop-use-pig-remote-desktop.md
-    - name: Usare DataFu con Apache Pig
+    - name: Usare Apache DataFu con Apache Pig
       href: apache-hadoop-use-pig-datafu-udf.md
     - name: Inviare processi Apache Hadoop
       href: submit-apache-hadoop-jobs-programmatically.md
@@ -201,7 +201,7 @@ items:
     - name: Installare o aggiornare Mono
       href: ../hdinsight-hadoop-install-mono.md
       maintainContext: true
-    - name: Aggiungere le librerie Hive
+    - name: Aggiungere librerie Apache Hive
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
     - name: Usare Apache Giraph
@@ -337,7 +337,7 @@ items:
     - name: Caricare dati per processi Apache Hadoop
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: Cluster HDInsight multipli con Data Lake Store
+    - name: Cluster HDInsight multipli con Data Lake Storage
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: Importare ed esportare dati con Apache Sqoop
@@ -559,9 +559,9 @@ items:
   - name: Strumenti Windows per HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 43ebb63bdda8c484ce1c2d2828293032ea90013c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: f1d3fbab35ddedf3a1dc9360ecc4dbe38591e58c
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321153"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653697"

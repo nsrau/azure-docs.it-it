@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: c5200e7e4d5550f26343fab1561c214ee19d6741
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b385c3e3e5f39e812545143df4a3adcc08ebfce5
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572324"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002200"
 ---
-# <a name="container-service-frequently-asked-questions"></a>Domande frequenti sul servizio contenitore
+# <a name="deprecated-container-service-frequently-asked-questions"></a>(DEPRECATO) Servizio contenitore: domande frequenti
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 ## <a name="orchestrators"></a>Agenti di orchestrazione
 
@@ -77,9 +79,9 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 ### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Come si può stabilire la versione dell'agente di orchestrazione in esecuzione nel cluster?
 
-* DC/OS: vedere la [documentazione di Mesosphere](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
-* Docker Swarm: eseguire `docker version`
-* Kubernetes: eseguire `kubectl version`
+* Controller di dominio/sistema operativo: Consultare la [documentazione di Mesosphere](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
+* Docker Swarm: Eseguire `docker version`
+* Kubernetes: Eseguire `kubectl version`
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Qual è la procedura per aggiornare l'agente di orchestrazione dopo la distribuzione?
 

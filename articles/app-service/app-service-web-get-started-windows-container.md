@@ -1,5 +1,5 @@
 ---
-title: Eseguire un contenitore Windows personalizzato in Azure (anteprima) | Microsoft Docs
+title: 'Eseguire il contenitore di Windows personalizzato (anteprima): servizio app di Azure | Microsoft Docs'
 description: Informazioni su come distribuire un contenitore Windows personalizzato nel servizio app di Azure.
 services: app-service\web
 documentationcenter: ''
@@ -11,21 +11,80 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/07/2018
+ms.date: 09/17/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: e8f357347e39c2e8ff071e8f4af8e69dcce3940e
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 0883784d5c7f833556a07f2bc6431470febdc4c7
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39640233"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384157"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Eseguire un contenitore Windows personalizzato in Azure (anteprima)
 
-Il [servizio app di Azure](app-service-web-overview.md) offre stack di applicazioni predefiniti in Windows, ad esempio ASP.NET o Node.js, eseguiti in IIS. L'ambiente Windows preconfigurato blocca il sistema operativo impedendo l'accesso amministrativo, le installazioni di software, le modifiche alla Global Assembly Cache e così via (vedere [Funzionalità del sistema operativo in Servizio app di Azure](web-sites-available-operating-system-functionality.md)). Se l'applicazione richiede un accesso superiore a quello consentito dall'ambiente preconfigurato, è possibile distribuire un contenitore Windows personalizzato. Questa guida introduttiva illustra come distribuire un'immagine IIS personalizzata nel servizio app di Azure dall'[hub Docker](https://hub.docker.com/).
+Il [servizio app di Azure](app-service-web-overview.md) offre stack di applicazioni predefiniti in Windows, ad esempio ASP.NET o Node.js, eseguiti in IIS. L'ambiente Windows preconfigurato blocca il sistema operativo impedendo l'accesso amministrativo, le installazioni di software, le modifiche alla Global Assembly Cache e così via (vedere [Funzionalità del sistema operativo in Servizio app di Azure](operating-system-functionality.md)). Se l'applicazione richiede un accesso superiore a quello consentito dall'ambiente preconfigurato, è possibile distribuire un contenitore Windows personalizzato. Questa guida introduttiva illustra come distribuire un'app ASP.NET in un'immagine Windows in [Hub Docker](https://hub.docker.com/) da Visual Studio ed eseguirla in un contenitore personalizzato in Servizio app di Azure.
 
-![](media/app-service-web-get-started-windows-container/app-running.png)
+![](media/app-service-web-get-started-windows-container/app-running-vs.png)
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per completare questa esercitazione:
+
+- <a href="https://hub.docker.com/" target="_blank">Iscriversi per ottenere un account Docker Hub</a>
+- <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installare Docker per Windows</a>.
+- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers" target="_blank">Impostare Docker per eseguire contenitori Windows</a>.
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installare Visual Studio 2017</a> con i carichi di lavoro **Sviluppo ASP.NET e Web** e **Sviluppo di Azure**. Se Visual Studio 2017 è già installato:
+    - Installare gli aggiornamenti più recenti in Visual Studio facendo clic su **?** > **Controlla aggiornamenti**.
+    - Aggiungere i carichi di lavoro in Visual Studio facendo clic su **Strumenti** > **Ottieni strumenti e funzionalità**.
+
+## <a name="create-an-aspnet-web-app"></a>Creare un'app Web ASP.NET
+
+In Visual Studio creare un progetto selezionando **File > Nuovo > Progetto**. 
+
+Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Web > Applicazione Web ASP.NET (.NET Framework)**.
+
+Assegnare all'applicazione il nome _myFirstAzureWebApp_ e fare clic su **OK**.
+   
+![Finestra di dialogo Nuovo progetto](./media/app-service-web-get-started-windows-container/new-project.png)
+
+È possibile distribuire qualsiasi tipo di app Web ASP.NET in Azure. Per questa guida introduttiva, selezionare il modello **MVC** e verificare che l'autenticazione sia impostata su **Nessuna autenticazione**.
+
+Selezionare **Abilita supporto Docker Compose**.
+
+Selezionare **OK**.
+
+![Finestra di dialogo Nuovo progetto ASP.NET](./media/app-service-web-get-started-windows-container/select-mvc-template.png)
+
+Se il file _Dockerfile_ non viene aperto automaticamente, aprirlo da **Esplora soluzioni**.
+
+È necessario usare un'[immagine padre supportata](#use-a-different-parent-image). Modificare l'immagine padre sostituendo la riga `FROM` con il codice seguente e salvare il file:
+
+```Dockerfile
+FROM microsoft/aspnet:4.7.1
+```
+
+Nel menu selezionare **Debug > Avvia senza eseguire debug** per eseguire l'app Web in locale.
+
+![Eseguire l'app in locale](./media/app-service-web-get-started-windows-container/local-web-app.png)
+
+## <a name="publish-to-docker-hub"></a>Eseguire la pubblicazione in Hub Docker
+
+In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **myFirstAzureWebApp** e scegliere **Pubblica**.
+
+![Pubblicare da Esplora soluzioni](./media/app-service-web-get-started-windows-container/solution-explorer-publish.png)
+
+La procedura guidata di pubblicazione viene avviata automaticamente. Selezionare **Registro contenitori** > **Hub Docker** > **Pubblica**.
+
+![Pubblicare dalla pagina di panoramica progetto](./media/app-service-web-get-started-windows-container/publish-to-docker.png)
+
+Fornire le credenziali dell'account di Hub Docker e fare clic su **Salva**. 
+
+Attendere il completamento della distribuzione. Nella pagina **Pubblica** verrà visualizzato il nome del repository che si userà successivamente nel servizio app.
+
+![Pubblicare dalla pagina di panoramica progetto](./media/app-service-web-get-started-windows-container/published-docker-repository.png)
+
+Copiare il nome del repository da usare successivamente.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -37,7 +96,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 2. Nella casella di ricerca sopra l'elenco delle risorse di Azure Marketplace cercare e selezionare **App Web per contenitori**.
 
-3. Specificare un nome di app, ad esempio *mywebapp*, accettare le impostazioni predefinite per creare un nuovo gruppo di risorse e fare clic su **Windows (anteprima)** nella casella **Sistema operativo**.
+3. Specificare un nome di app, ad esempio *win-container-demo*, accettare le impostazioni predefinite per creare un nuovo gruppo di risorse e fare clic su **Windows (anteprima)** nella casella **Sistema operativo**.
 
     ![](media/app-service-web-get-started-windows-container/portal-create-page.png)
 
@@ -45,11 +104,11 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![](media/app-service-web-get-started-windows-container/portal-create-plan.png)
 
-5. Fare clic su **Configura contenitore**, digitare _microsoft/iis:latest_ in **Immagine e tag facoltativo** e fare clic su **OK**.
+5. Fare clic su **Configura contenitore**. In **Immagine e tag facoltativo** usare il nome del repository copiato in [Eseguire la pubblicazione in Hub Docker](#publish-to-docker-hub) e quindi fare clic su **OK**.
 
-    ![](media/app-service-web-get-started-windows-container/portal-configure-container.png)
+    ![](media/app-service-web-get-started-windows-container/portal-configure-container-vs.png)
 
-    In questo articolo si usa l'immagine pubblica [microsoft/iis:latest](https://hub.docker.com/r/microsoft/iis/) dell'hub Docker. Se si ha un'immagine personalizzata per l'applicazione Web in un'altra posizione, ad esempio in [Registro contenitori di Azure](/azure/container-registry/) o in qualsiasi altro repository privato, si può configurare tale immagine.
+    Se si ha un'immagine personalizzata per l'applicazione Web in un'altra posizione, ad esempio in [Registro contenitori di Azure](/azure/container-registry/) o in qualsiasi altro repository privato, si può configurare tale immagine.
 
 6. Fare clic su **Crea** e attendere che Azure crei le risorse necessarie.
 
@@ -67,9 +126,9 @@ Verrà aperta la nuova pagina del browser illustrata di seguito:
 
 ![](media/app-service-web-get-started-windows-container/app-starting.png)
 
-Attendere alcuni minuti e riprovare finché non verrà visualizzata la pagina iniziale di IIS:
+Attendere alcuni minuti e riprovare, finché non viene visualizzata la pagina iniziale di ASP.NET predefinita:
 
-![](media/app-service-web-get-started-windows-container/app-running.png)
+![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
 **Congratulazioni** È ora in esecuzione il primo contenitore Windows personalizzato nel servizio app di Azure.
 
@@ -90,7 +149,32 @@ I log trasmessi sono simili al seguente:
 27/07/2018 12:05:05.020 INFO - Site: win-container-demo - Container started successfully
 ```
 
-## <a name="use-a-different-docker-image"></a>Usare un'altra immagine Docker
+## <a name="update-locally-and-redeploy"></a>Eseguire l'aggiornamento e la ridistribuzione in locale
+
+Da **Esplora soluzioni** aprire _Views\Home\Index.cshtml_.
+
+Trovare il tag HTML `<div class="jumbotron">` in alto e sostituire l'intero elemento con il codice seguente:
+
+```HTML
+<div class="jumbotron">
+    <h1>ASP.NET in Azure!</h1>
+    <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+</div>
+```
+
+Per la ridistribuzione in Azure, fare clic con il pulsante destro del mouse sul progetto **myFirstAzureWebApp** in **Esplora soluzioni** e selezionare **Pubblica**.
+
+Nella pagina di pubblicazione selezionare **Pubblica** e attendere il completamento della pubblicazione.
+
+Per indicare al servizio a di eseguire il pull della nuova immagine da Hub Docker, riavviare l'app. Di nuovo nella pagina dell'app nel portale fare clic su **Riavvia** > **Sì**.
+
+![Riavviare l'app Web in Azure](./media/app-service-web-get-started-windows-container/portal-restart-app.png)
+
+[Passare all'app contenitore](#browse-to-the-container-app) di nuovo. Quando si aggiorna la pagina Web, l'app dovrebbe prima tornare alla pagina "Avvio" e quindi visualizzare la pagina Web aggiornata di nuovo dopo alcuni minuti.
+
+![App Web aggiornata in Azure](./media/app-service-web-get-started-windows-container/azure-web-app-updated.png)
+
+## <a name="use-a-different-parent-image"></a>Usare un'immagine padre diversa
 
 È possibile eseguire l'app usando un'altra immagine Docker personalizzata. È tuttavia necessario scegliere l'[immagine padre](https://docs.docker.com/develop/develop-images/baseimages/) corretta per il framework desiderato: 
 
@@ -104,3 +188,8 @@ Il download di un'immagine padre durante l'avvio dell'app richiede tempo. È tut
 - [microsoft/aspnet](https://hub.docker.com/r/microsoft/aspnet/): 4.7.2-windowsservercore-ltsc2016, 4.7.2 (più recente)
 - [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/): 2.1-aspnetcore-runtime
 - [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/): 2.1-sdk
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Eseguire la migrazione al contenitore Windows in Azure](app-service-web-tutorial-windows-containers-custom-fonts.md)

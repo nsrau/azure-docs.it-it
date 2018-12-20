@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva per visualizzare i gruppi e i membri dell'organizzazione in Azure Active Directory | Microsoft Docs
-description: Guida introduttiva con procedura per cercare e visualizzare i gruppi dell'organizzazione e i membri assegnati usando il portale di Azure.
+title: Avvio rapido per visualizzare i gruppi e i membri dell'organizzazione - Azure Active Directory | Microsoft Docs
+description: Istruzioni su come cercare e visualizzare i gruppi dell'organizzazione e i membri a essi assegnati.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,18 +10,18 @@ ms.component: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 9da9f055163f5df4ea064bd46caa811e39fba20c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 002b4bb4ab20e531132b461f90857cfab6aecfd3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056404"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087475"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Guida introduttiva: Visualizzare i gruppi e i membri dell'organizzazione in Azure Active Directory
+# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Avvio rapido: Visualizzare i gruppi e i membri dell'organizzazione in Azure Active Directory
 È possibile visualizzare i gruppi esistenti dell'organizzazione e i membri dei gruppi usando il portale di Azure. I gruppi vengono usati per gestire gli utenti (membri) che necessitano tutti dello stesso accesso e delle stesse autorizzazioni per le app e i servizi con potenziali restrizioni.
 
 In questa guida introduttiva si visualizzeranno tutti i gruppi esistenti dell'organizzazione e i membri assegnati.
@@ -43,11 +43,11 @@ Creare un nuovo gruppo denominato _MDM policy - West_. Per altre informazioni su
 
 2. Completare la pagina **Gruppo**:
     
-    - **Tipo di gruppo:** selezionare **Sicurezza**
+    - **Tipo gruppo:** Scegliere **Sicurezza**
     
-    - **Nome gruppo:** digitare _MDM policy - West_
+    - **Nome gruppo:** Digitare _criteri MDM - occidentale_
     
-    - **Tipo di appartenenza:** selezionare **Assegnato**.
+    - **Tipo di appartenenza:** Selezionare **Assegnato**.
 
 3. Selezionare **Create**.
 
@@ -58,9 +58,9 @@ Creare un nuovo utente denominato _Alain Charon_. Un utente deve esistere prima 
 
 2. Completare la pagina **Utente**:
 
-    - **Nome:** digitare _Alain Charon_.
+    - **Nome:** Digitare _Alain Charon_.
 
-    - **Nome utente:** digitare *alain@contoso.com*.
+    - **Nome utente:** Digitare *alain@contoso.com*.
 
 3. Copiare la password generata automaticamente nella casella **Password** e quindi selezionare **Crea**.
 

@@ -1,27 +1,20 @@
 ---
-title: 'Guida introduttiva: API REST del servizio Azure SignalR| Microsoft Docs'
+title: 'Avvio rapido: API REST Servizio Azure SignalR'
 description: Una guida introduttiva per l'uso dell'API REST del servizio Azure SignalR.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 36fb87d3255149c041c4288d13c54eaff8425e06
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fdbdbe77c6541d62acef0d23d599d9687f5301b1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024351"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251862"
 ---
-# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Guida introduttiva: Trasmettere messaggi in tempo reale dall'app console
+# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Avvio rapido: Trasmettere messaggi in tempo reale dall'app console
 
 Il servizio Azure SignalR fornisce l'[API REST](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) per supportare scenari di comunicazione da server a client, ad esempio la trasmissione. È possibile scegliere qualsiasi linguaggio di programmazione che possa effettuare chiamate all'API REST. È possibile inviare messaggi a tutti i client connessi, a un client specifico in base al nome o a un gruppo di client.
 
@@ -30,17 +23,15 @@ In questa guida introduttiva si apprenderà come inviare messaggi da un'app da r
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva può essere eseguita su macOS, Windows o Linux.
+
 * [ASP.NET Core SDK](https://www.microsoft.com/net/download/core)
 * Un editor di testo o editor di codice di propria scelta.
 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il proprio account Azure.
-
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
@@ -68,6 +59,7 @@ Questo esempio è un'app console che illustra l'uso del servizio Azure SignalR. 
 ### <a name="build-the-executable-file"></a>Creare il file eseguibile
 
 Viene usato macOS osx.10.13-x64 come esempio. È possibile trovare i [riferimenti](https://docs.microsoft.com/dotnet/core/rid-catalog) sulla compilazione in altre piattaforme.
+
 ```bash
 cd AzureSignalR-samples/samples/Serverless/
 
@@ -108,7 +100,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 ## <a name="usage"></a>Uso
 
-Dopo l'avvio del server, usare il comando per inviare messaggi
+Dopo l'avvio del server, usare il comando per inviare il messaggio:
 
 ```
 send user <User Id>
@@ -121,11 +113,14 @@ broadcast
 È possibile avviare più client con nomi diversi.
 
 ## <a name="usage"> </a> Integrazione con IDE di terze parti
+
 Il servizio Azure SignalR consente l'integrazione di servizi di terze parti con il sistema.
-### <a name="usage"> </a> Definizione di specifiche tecniche
+
+### <a name="definition-of-technical-specifications"></a>Definizione delle specifiche tecniche
+
 La tabella seguente illustra tutte le versioni delle API REST supportate fino al presente. È anche possibile trovare il file di definizione per ogni versione specifica
 
-Versione | Stato API | Porta | Specifica
+Version | Stato API | Porta | Specifica
 --- | --- | --- | ---
 `1.0-preview` | Disponibile | 5002 | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
 `1.0` | Disponibile | Standard | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
@@ -136,42 +131,47 @@ API | `1.0-preview` | `1.0`
 --- | --- | ---
 [Trasmettere a tutti](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
 [Trasmettere a un gruppo](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
-Trasmettere ad alcuni gruppi | :heavy_check_mark: (deprecata) | `N / A`
+Trasmettere ad alcuni gruppi | :heavy_check_mark: (Deprecato) | `N / A`
 [Inviare a utenti specifici](#send-user) | :heavy_check_mark: | :heavy_check_mark:
-Inviare ad alcuni utenti | :heavy_check_mark: (deprecata) | `N / A`
+Inviare ad alcuni utenti | :heavy_check_mark: (Deprecato) | `N / A`
 [Aggiunta di un utente a un gruppo](#add-user-to-group) | `N / A` | :heavy_check_mark:
 [Rimozione di un utente da un gruppo](#remove-user-from-group) | `N / A` | :heavy_check_mark:
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Trasmettere a tutti
-Versione | Metodo HTTP API | URL richiesta | Corpo della richiesta
+
+Version | Metodo HTTP API | URL richiesta | Corpo della richiesta
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>` | Vedere sopra.
 
 <a name="broadcast-group"> </a>
 ### <a name="broadcast-to-a-group"></a>Trasmettere a un gruppo
-Versione | Metodo HTTP API | URL richiesta | Corpo della richiesta
+
+Version | Metodo HTTP API | URL richiesta | Corpo della richiesta
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | Vedere sopra.
 
 <a name="send-user"> </a>
 ### <a name="sending-to-specific-users"></a>Invio a utenti specifici
-Versione | Metodo HTTP API | URL richiesta | Corpo della richiesta
+
+Version | Metodo HTTP API | URL richiesta | Corpo della richiesta
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>` | Vedere sopra.
 
 <a name="add-user-to-group"> </a>
 ### <a name="adding-a-user-to-a-group"></a>Aggiunta di un utente a un gruppo
-Versione | Metodo HTTP API | URL richiesta
+
+Version | Metodo HTTP API | URL richiesta
 --- | --- | ---
 `1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>Rimozione di un utente da un gruppo
-Versione | Metodo HTTP API | URL richiesta
+
+Version | Metodo HTTP API | URL richiesta
 --- | --- | ---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esempi di Criteri di Azure: applicare i criteri di corrispondenza tag'
+title: 'Esempio: applicare i criteri di corrispondenza tag'
 description: Questo criterio di esempio richiede che tutte le risorse soddisfino il modello di corrispondenza per il valore dei tag.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 4de75212567c03b4fd5395818dbeae7644ee4926
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 237a5e9a54394f1227e270c0a42a160f9259710a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963237"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313888"
 ---
 # <a name="enforce-tag-match-pattern-for-tag-values"></a>Applicare i criteri di corrispondenza tag per i valori dei tag
 

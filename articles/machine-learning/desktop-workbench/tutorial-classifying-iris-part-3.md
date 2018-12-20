@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/13/2018
+ms.date: 03/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52757098436349d38538f4c2168a70e53ad58421
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946613"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270162"
 ---
-# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Esercitazione 3: Classificare i dati Iris - Distribuire un modello
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Esercitazione 3: classificare i dati Iris: Distribuire un modello
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -251,7 +251,7 @@ A questo punto è possibile creare il servizio Web in tempo reale.
    >[!IMPORTANT]
    >Il nome del servizio, che è anche il nome della nuova immagine Docker, deve contenere solo lettere minuscole. In caso contrario, viene visualizzato un errore. 
 
-1. Quando si esegue il comando, il modello e il file di assegnazione dei punteggi vengono caricati nell'account di archiviazione creato nell'ambito della configurazione dell'ambiente. Il processo di distribuzione crea un'immagine Docker contenente il modello, lo schema e il file di assegnazione dei punteggi e ne esegue il push nel registro contenitori di Azure: **\<nome_registro_contenitori_Azure\>.azurecr.io/\<nomeimmagine\>:\<versione\>**. 
+1. Quando si esegue il comando, il modello e il file di assegnazione dei punteggi vengono caricati nell'account di archiviazione creato nell'ambito della configurazione dell'ambiente. Il processo di distribuzione crea un'immagine Docker contenente il modello, lo schema e il file di assegnazione dei punteggi e ne esegue il push nel registro contenitori di Azure: **\<ACR_name\>.azurecr.io/\<imagename\>:\<version\>**. 
 
    Il comando scarica quindi l'immagine nel computer locale e avvia un contenitore Docker basato su tale immagine. Se l'ambiente viene configurato in modalità cluster, il contenitore Docker viene invece distribuito nel cluster Kubernetes di Servizi cloud di Azure.
 
@@ -351,7 +351,7 @@ Per testare il servizio Web **irisapp** in esecuzione, usare un record con codif
 
 1. È possibile utilizzare questi dati dall'archivio BLOB di Azure. Sono disponibili diversi strumenti che usano sia software Microsoft che strumenti open source, ad esempio:
 
-   * Machine Learning: aprire il file CSV aggiungendolo come origine dati.
+   * Azure Machine Learning: aprire il file CSV aggiungendolo come origine dati.
 
    * Excel: aprire i file CSV giornalieri come foglio di calcolo.
 

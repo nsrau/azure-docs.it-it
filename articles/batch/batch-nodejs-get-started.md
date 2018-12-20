@@ -11,12 +11,12 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 807fd49a54c82b0930134beb8413e14c1c28b278
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115562"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164620"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introduzione all'SDK di Batch per Node.js
 
@@ -52,7 +52,7 @@ Il client Node.js distribuisce un processo batch con un'attività di preparazion
 
 Verrà ora illustrato in modo dettagliato il processo per la compilazione del client Node.js.
 
-### <a name="step-1-install-azure-batch-sdk"></a>Passaggio 1: Installare l'SDK di Azure Batch
+### <a name="step-1-install-azure-batch-sdk"></a>Passaggio 1: installare l'SDK di Azure Batch
 
 È possibile installare l'SDK di Azure Batch per Node.js usando il comando npm install.
 
@@ -85,7 +85,7 @@ Ogni account Batch ha chiavi di accesso corrispondenti, necessarie per creare al
 
 Copiare e archiviare la chiave da usare nei passaggi successivi.
 
-### <a name="step-3-create-an-azure-batch-service-client"></a>Passaggio 3: Creare un client del servizio Azure Batch
+### <a name="step-3-create-an-azure-batch-service-client"></a>Passaggio 3: creare un client del servizio Azure Batch
 Il frammento di codice seguente importa il modulo Node.js azure-batch e quindi crea un client del servizio Batch. È necessario prima di tutto creare un oggetto SharedKeyCredentials con la chiave dell'account Batch copiata nel passaggio precedente.
 
 ```nodejs
@@ -254,7 +254,7 @@ Di seguito è riportato un oggetto risultato di esempio restituito dalla funzion
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>Passaggio 5: Inviare un processo di Azure Batch
+### <a name="step-4-submit-an-azure-batch-job"></a>Passaggio 4: inviare un processo di Azure Batch
 Un processo di Azure Batch è un gruppo logico di attività simili. In questo scenario, esegue l'elaborazione da CSV a JSON. Ogni attività potrà elaborare i file CSV presenti in ogni contenitore di archiviazione di Azure.
 
 Queste attività verranno eseguite in parallelo e distribuite in più nodi, orchestrati dal servizio Azure Batch.
@@ -279,13 +279,13 @@ Lo [script della shell](https://github.com/shwetams/azure-batchclient-sample-nod
 
 Un'attività di preparazione viene specificata durante l'invio del processo di Azure Batch. Di seguito sono riportati i parametri di configurazione dell'attività di preparazione.
 
-* **ID**: identificatore univoco dell'attività di preparazione.
-* **commandLine**: riga di comando per eseguire l'eseguibile dell'attività.
+* **ID**: identificatore univoco dell'attività di preparazione
+* **commandLine**: riga di comando per eseguire l'eseguibile dell'attività
 * **resourceFiles**: matrice di oggetti che specifica i dettagli dei file da scaricare per l'esecuzione dell'attività.  Di seguito sono riportate le opzioni.
     - blobSource: URI di firma di accesso condiviso del file
     - filePath: percorso locale per il download e il salvataggio del file
-    - fileMode: applicabile solo per nodi Linux, in formato ottale con valore predefinito 0770
-* **waitForSuccess**: se è impostato su true, l'attività non viene eseguita in caso di errori dell'attività di preparazione.
+    - fileMode: applicabile solo per nodi Linux, fileMode è in formato ottale con valore predefinito 0770
+* **waitForSuccess**: se è impostato su true, l'attività non viene eseguita in caso di errori dell'attività di preparazione
 * **runElevated**: impostare su true se sono necessari privilegi elevati per eseguire l'attività.
 
 Il frammento di codice seguente illustra un esempio di configurazione dello script dell'attività di preparazione:
@@ -311,14 +311,14 @@ Se per l'esecuzione delle attività non è necessario installare prerequisiti, �
 ```
 
 
-### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Passaggio 6: Inviare le attività di Azure Batch per un processo
+### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Passaggio 5: inviare le attività di Azure Batch per un processo
 
 Dopo aver creato il processo per l'elaborazione dei file CSV, si creeranno le attività per tale processo. Supponendo di avere quattro contenitori, è necessario creare quattro attività, una per ogni contenitore.
 
 Lo [script Python](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py) accetta due parametri.
 
-* container_name: contenitore di archiviazione da cui scaricare i file
-* pattern: parametro facoltativo del modello di nome file
+* container name: contenitore di archiviazione da cui scaricare i file
+* pattern: parametro facoltativo del criterio nome file
 
 Supponendo di avere i quattro contenitori "con1", "con2", "con3" e "con4", il codice seguente illustra l'invio delle attività al processo "process csv" di Azure Batch creato in precedenza.
 

@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 0d4ba7edfb22a6710222c854ceb2bf86284d2d77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1ea12c9a544704ea91b85ae944e611e6769b5592
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057799"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407134"
 ---
-# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Avvio rapido: Creare un cluster per i processi di training di Batch per intelligenza artificiale usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Guida introduttiva: creare un cluster per i processi di training di Batch per intelligenza artificiale usando l'interfaccia della riga di comando di Azure
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Questo avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per creare un cluster Batch per intelligenza artificiale da usare per il training di modelli di apprendimento automatico e di intelligenza artificiale. Batch per intelligenza artificiale è un servizio gestito che consente ai data scientist e ai ricercatori in ambito di intelligenza artificiale di eseguire il training di modelli di intelligenza artificiale e di apprendimento automatico su larga scala in cluster di macchine virtuali di Azure.
 

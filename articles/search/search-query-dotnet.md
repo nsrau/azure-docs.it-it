@@ -1,6 +1,6 @@
 ---
-title: 'Eseguire query su un indice: API .NET e Ricerca di Azure | Microsoft Docs'
-description: Compilare una query di ricerca in Ricerca di Azure e usare i parametri di ricerca per filtrare e ordinare i risultati della ricerca.
+title: Eseguire query su un indice nel codice tramite l’SDK .NET - Azure Search
+description: Esempio di codice C# per compilare una query di ricerca in Azure Search. Aggiungere i parametri di ricerca per filtrare e ordinare i risultati.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/19/2017
-ms.openlocfilehash: 5b7f454fed6206ac57799d6f1e86152cd52dc9e9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 5c89902da5e773c60c8e2694159ddeed874ecab2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254418"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316999"
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Eseguire query su un indice di Ricerca di Azure con .NET SDK
 > [!div class="op_single_selector"]

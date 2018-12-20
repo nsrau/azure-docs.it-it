@@ -1,14 +1,11 @@
 ---
-title: 'Esercitazione: Creare un servizio di bilanciamento del carico interno Basic tramite il portale di Azure | Microsoft Docs'
+title: 'Esercitazione: Creare un servizio di bilanciamento del carico interno: portale di Azure'
+titlesuffix: Azure Load Balancer
 description: Questa esercitazione illustra come creare un servizio di bilanciamento del carico interno Basic tramite il portale di Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 9ccbbb107dfd8fde237cdfdd4b0c3fcc080fd70e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839246"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262351"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico interno con un servizio di bilanciamento del carico Basic nel portale di Azure
 
@@ -38,42 +35,39 @@ Per eseguire i passaggi in questa esercitazione, accedere al portale di Azure al
 
 Prima di tutto, creare una rete virtuale. Nella rete virtuale creare due macchine virtuali da usare per il pool back-end del servizio di bilanciamento del carico Basic e una terza macchina virtuale da usare per testare il servizio di bilanciamento del carico. 
 
-### <a name="create-a-virtual-network"></a>Creare una rete virtuale
+### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 1. In alto a sinistra nel portale selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
    
 1. Nel riquadro **Crea rete virtuale** digitare o selezionare questi valori:
    
-   - **Nome**: digitare *MyVNet*.
-   - **Gruppo di risorse**: selezionare **Crea nuovo**, immettere *MyResourceGroupLB* e quindi selezionare **OK**. 
-   - **Subnet** > **Nome**: digitare *MyBackendSubnet*.
+   - **Nome**: Digitare *MyVNet*.
+   - **Gruppo di risorse**: Selezionare **Crea nuovo**, immettere *MyResourceGroupLB*, quindi selezionare **OK**. 
+   - **Subnet** > **Nome**: Digitare *MyBackendSubnet*.
    
-1. Selezionare **Crea**.
+1. Selezionare **Create**.
 
-   ![Creare una rete virtuale](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
+   ![Crea rete virtuale](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
 1. In altro a sinistra nel portale selezionare **Crea una risorsa** > **Calcolo** > **Windows Server 2016 Datacenter**. 
    
 1. In **Crea macchina virtuale** digitare o selezionare i valori seguenti nella scheda **Nozioni di base**:
-   - **Sottoscrizione** > **Gruppo di risorse**: selezionare **MyResourceGroupLB** dall'elenco a discesa.
-   - **Dettagli dell'istanza** > **Nome macchina virtuale**: digitare *MyVM1*.
+   - **Sottoscrizione** > **Gruppo di risorse**: Nell'elenco a discesa selezionare **MyResourceGroupLB**.
+   - **Dettagli istanza** > **Nome macchina virtuale**: Digitare *MyVM1*.
    - **Dettagli dell'istanza** > **Opzioni di disponibilità**: 
      1. Selezionare **Set di disponibilità** dall'elenco a discesa. 
      2. Selezionare **Crea nuovo**, digitare *MyAvailabilitySet* e quindi selezionare **OK**.
-   - **Account amministratore** > **Nome utente**: digitare *azureuser*.
-   - **Account amministratore** > **Password**: digitare *Azure1234567*. 
-     Nel campo **Conferma password** digitare nuovamente la password.
    
-1. Selezionare la scheda **Rete** oppure selezionare **Avanti: Dischi** e quindi **Avanti: Rete**. 
+1. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**. 
    
    Verificare che siano selezionate le opzioni seguenti:
    - **Rete virtuale**: **MyVNet**
    - **Subnet**: **MyBackendSubnet**
    
    In **Gruppo di sicurezza di rete**:
-   1. Selezionare **Avanzate**. 
+   1. Selezionare **Advanced** (Avanzate). 
    1. Selezionare l'elenco a discesa **Configura gruppo di sicurezza di rete** e quindi **Nessuno**. 
    
 1. Selezionare la scheda **Gestione** oppure **Avanti** > **Gestione**. In **Monitoraggio** impostare **Diagnostica di avvio** su **Off**.
@@ -90,20 +84,20 @@ Prima di tutto, creare una rete virtuale. Nella rete virtuale creare due macchin
 
 Creare un servizio di bilanciamento del carico interno Basic usando il portale. Il nome e l'indirizzo IP specificati vengono configurati automaticamente come front-end del servizio di bilanciamento del carico.
 
-1. In alto a sinistra nel portale selezionare **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
+1. In alto a sinistra nel portale selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
    
 1. Nel riquadro **Crea servizio di bilanciamento del carico** digitare o selezionare i valori seguenti:
    
-   - **Nome**: digitare *MyLoadBalancer*.
-   - **Tipo**: selezionare **Interno**. 
-   - **SKU**: selezionare **Basic**.
-   - **Rete virtuale**: selezionare **Scegli una rete virtuale** e quindi **MyVNet**.
-   - **Subnet**: selezionare **Scegli una subnet** e quindi **MyBackendSubnet**.
-   - **Assegnazione indirizzo IP**: selezionare l'opzione **Statico** se non è selezionata.
-   - **Indirizzo IP privato**: digitare un indirizzo nello spazio degli indirizzi della rete virtuale e della subnet, ad esempio *10.3.0.7*.
-   - **Gruppo di risorse**: selezionare l'elenco a discesa **Seleziona esistente** e quindi **MyResourceGroupLB**. 
+   - **Nome**: Digitare *MyLoadBalancer*.
+   - **Tipo**: Selezionare **Interno**. 
+   - **SKU**: Selezionare **Basic**.
+   - **Rete virtuale**: Selezionare **Scegli una rete virtuale**, quindi **MyVNet**.
+   - **Subnet**: Selezionare **Scegli una subnet**, quindi **MyBackendSubnet**.
+   - **Assegnazione indirizzo IP**: Selezionare **Statico** se non selezionato.
+   - **Indirizzo IP privato**: Digitare un indirizzo nello spazio degli indirizzi della rete virtuale e della subnet, per esempio *10.3.0.7*.
+   - **Gruppo di risorse**: Nell'elenco a discesa **Seleziona esistente** e selezionare **MyResourceGroupLB**. 
    
-1. Selezionare **Crea**.
+1. Selezionare **Create**.
    
 ![Creare un servizio di bilanciamento del carico](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
 
@@ -119,13 +113,13 @@ Per distribuire il traffico alle macchine virtuali, il servizio di bilanciamento
 
 1. Selezionare **Tutte le risorse** dal menu a sinistra e quindi selezionare **MyLoadBalancer** dall'elenco delle risorse.
    
-1. In **Impostazioni** selezionare **Pool back-end** e quindi selezionare **Aggiungi**.
+1. In **Impostazioni** selezionare **Pool di back-end**, quindi selezionare **Aggiungi**.
    
 1. Nella pagina **Aggiungi un pool back-end** digitare o selezionare i valori seguenti:
    
-   - **Nome**: digitare *MyBackendPool*.
-   - **Associato a**: selezionare **Set di disponibilità** dall'elenco a discesa.
-   - **Set di disponibilità**: selezionare **MyAvailabilitySet**.
+   - **Nome**: Digitare *MyBackEndPool*.
+   - **Associato a**: Selezionare **Set di disponibilità** dall'elenco a discesa.
+   - **Set di disponibilità**: Selezionare **MyAvailabilitySet**.
    
 1. Selezionare **Aggiungi una configurazione IP della rete di destinazione**. 
    1. Aggiungere **MyVM1** e **MyVM2** al pool back-end.
@@ -142,7 +136,7 @@ Per distribuire il traffico alle macchine virtuali, il servizio di bilanciamento
 
 ### <a name="create-a-health-probe"></a>Creare un probe di integrità
 
-Per consentire al servizio di bilanciamento del carico di monitorare lo stato delle macchine virtuali, si usa un probe di integrità. Il probe di integrità aggiunge o rimuove in modo dinamico le macchine virtuali nella rotazione del servizio di bilanciamento del carico in base alla rispettiva risposta ai controlli di integrità. 
+Per consentire al servizio di bilanciamento del carico di monitorare lo stato delle macchine virtuali, si usa un probe di integrità. Il probe di integrità aggiunge o rimuove in modo dinamico le VM nella rotazione del servizio di bilanciamento del carico in base alla rispettiva risposta ai controlli di integrità. 
 
 **Per creare un probe di integrità per monitorare l'integrità delle macchine virtuali:**
 
@@ -152,12 +146,12 @@ Per consentire al servizio di bilanciamento del carico di monitorare lo stato de
    
 1. Nella pagina **Aggiungi probe integrità** digitare o selezionare i valori seguenti:
    
-   - **Nome**: digitare *MyHealthProbe*.
-   - **Protocollo**: selezionare **HTTP** dall'elenco a discesa. 
-   - **Porta**: digitare *80*. 
-   - **Percorso**: accettare */* come URI predefinito. È possibile sostituire questo valore con qualsiasi altro URI. 
-   - **Intervallo**: digitare *15*. L'intervallo specifica il numero di secondi tra i tentativi del probe.
-   - **Soglia di non integrità**: digitare *2*. Questa impostazione specifica il numero di errori di probe consecutivi che si verificano prima che una macchina virtuale venga considerata non integra.
+   - **Nome**: Digitare *MyHealthProbe*.
+   - **Protocollo**: Nell'elenco a discesa selezionare **HTTP**. 
+   - **Porta**: Digitare *80*. 
+   - **Percorso**: Accettare */* come URI predefinito. È possibile sostituire questo valore con qualsiasi altro URI. 
+   - **Intervallo**: Digitare *15*. L'intervallo specifica il numero di secondi tra i tentativi del probe.
+   - **Soglia non integra**: Digitare *2*. Questa impostazione specifica il numero di errori di probe consecutivi che si verificano prima che una macchina virtuale venga considerata non integra.
    
 1. Selezionare **OK**.
    
@@ -177,13 +171,13 @@ La regola di bilanciamento del carico denominata **MyLoadBalancerRule** rimane i
    
 1. Nella pagina **Aggiungi regola di bilanciamento del carico** digitare o selezionare i valori seguenti, se non sono già presenti:
    
-   - **Nome**: digitare *MyLoadBalancerRule*.
-   - **Indirizzo IP front-end**: digitare *LoadBalancerFrontEnd* se non è presente.
-   - **Protocollo**: selezionare **TCP**.
-   - **Porta**: digitare *80*.
-   - **Porta back-end**: digitare *80*.
-   - **Pool back-end**: selezionare **MyBackendPool**.
-   - **Probe integrità**: selezionare **MyHealthProbe**. 
+   - **Nome**: Digitare *MyLoadBalancerRule*.
+   - **Indirizzo IP front-end:** Digitare *LoadBalancerFrontEnd* se non presente.
+   - **Protocollo**: Selezionare **TCP**.
+   - **Porta**: Digitare *80*.
+   - **Porta back-end**: Digitare *80*.
+   - **Pool back-end**: Selezionare **MyBackendPool**.
+   - **Probe di integrità**: Selezionare **MyHealthProbe**. 
    
 1. Selezionare **OK**.
    
@@ -212,7 +206,7 @@ Prima di tutto, connettersi a tutte e tre le macchine virtuali con Desktop remot
    
 1. Nella schermata Sicurezza di Windows selezionare **Altre opzioni** e quindi **Usa un altro account**. 
    
-   Immettere il nome utente *azureuser* e la password *Azure1234567* e quindi selezionare **OK**.
+   Immettere nome utente e password e selezionare **OK**.
    
 1. Rispondere **Sì** all'eventuale messaggio di richiesta di certificato. 
    

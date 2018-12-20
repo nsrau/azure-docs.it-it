@@ -4,17 +4,17 @@ description: Usare Criteri di Azure per applicare gli standard, soddisfare i req
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6ee7a4190248c8c18f747ee579aadc04a136696b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7cfcb71567931b1581618cf8f2239fb004befff8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583081"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087032"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
 
@@ -52,27 +52,27 @@ Il primo passaggio per applicare la conformità a Criteri di Azure consiste nell
 
 1. Selezionare i puntini di sospensione per **Definizione criteri** per aprire l'elenco delle definizioni disponibili. È possibile filtrare il **Tipo** della definizione del criterio su *Built-in* per visualizzarli tutti e leggere le rispettive descrizioni.
 
-1. Selezionare **Richiedere SQL Server versione 12.0**. Se non si riesce a trovarlo subito, digitare **richiedere SQL Server** nella casella di ricerca e quindi premere INVIO o fare clic al di fuori della casella di ricerca. Fare clic su **Seleziona** nella parte inferiore della pagina **Definizioni disponibili** dopo aver individuato e selezionato la definizione criteri.
+1. Selezionare **Richiedere SQL Server versione 12.0**. Se non è possibile trovarlo subito, digitare **richiedere sql server** nella casella di ricerca poi premere INVIO o fare clic al di fuori della casella di ricerca. Fare clic su **Seleziona** nella parte inferiore della pagina **Definizioni disponibili** dopo aver individuato e selezionato la definizione criteri.
 
    ![Individuare un criterio](../media/create-and-manage/select-available-definition.png)
 
-1. Il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome dei criteri selezionato, che è possibile modificare. In questo esempio lasciare *Richiedere SQL Server versione 12.0*. È anche possibile aggiungere una **descrizione** facoltativa. La descrizione fornisce informazioni dettagliate su questa assegnazione dei criteri.  Il campo **Assegnato da** verrà compilato automaticamente in base all'utente che ha eseguito l'accesso. Questo campo è facoltativo, quindi è possibile inserire valori personalizzati.
+1. Il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome dei criteri selezionato, che è possibile modificare. In questo esempio lasciare *Richiedere SQL Server versione 12.0*. È anche possibile aggiungere una **descrizione** facoltativa. La descrizione fornisce informazioni dettagliate su questa assegnazione dei criteri.  **Assegnato da** viene riempito automaticamente in base a chi ha eseguito l'accesso. Questo campo è facoltativo, quindi è possibile inserire valori personalizzati.
 
-1. Lasciare l'opzione **Crea un'identità gestita** deselezionata. Questa opzione _deve_ essere selezionata quando il criterio o l'iniziativa assegnati includono un criterio con l'effetto [deployIfNotExists](../concepts/effects.md#deployifnotexists). Dato che il criterio usato per questa esercitazione non lo include, lasciare il campo vuoto. Per altre informazioni, vedere le [identità gestite](../../../active-directory/managed-identities-azure-resources/overview.md) e il [funzionamento della sicurezza di monitoraggio e aggiornamento](../how-to/remediate-resources.md#how-remediation-security-works).
+1. Lasciare l'opzione **Crea un'identità gestita** deselezionata. Questa casella _deve_ essere selezionata quando il criterio o l'iniziativa assegnati includono un criterio con l'effetto [deployIfNotExists](../concepts/effects.md#deployifnotexists). Poiché il criterio usato per questa esercitazione non lo include, lasciare vuoto. Per altre informazioni, vedere le [identità gestite](../../../active-directory/managed-identities-azure-resources/overview.md) e il [funzionamento della sicurezza di monitoraggio e aggiornamento](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Fare clic su **Assegna**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implementare un nuovo criterio personalizzato
 
-Dopo avere assegnato una definizione predefinita del criterio, è possibile eseguire altre operazioni con Criteri di Azure. Creare quindi un nuovo criterio personalizzato per ridurre i costi assicurando che le macchine virtuali create nell'ambiente non siano della serie G. In questo modo, ogni volta che un utente dell'organizzazione prova a creare una macchina virtuale della serie G, la richiesta viene negata.
+Dopo avere assegnato una definizione predefinita del criterio, è possibile eseguire altre operazioni con Criteri di Azure. Creare quindi un nuovo criterio personalizzato per ridurre i costi convalidando che le macchine virtuali create nell'ambiente non siano della serie G. In questo modo, ogni volta che un utente dell'organizzazione prova a creare una macchina virtuale della serie G, la richiesta viene negata.
 
 1. Selezionare **Definizioni** in **Creazione** sul lato sinistro della pagina Criteri di Azure.
 
    ![Definizione in Creazione](../media/create-and-manage/definition-under-authoring.png)
 
-1. Selezionare **+ Definizione criteri** nella parte superiore della pagina. Verrà aperta la pagina **Definizione criteri**.
+1. Selezionare **+ Definizione criteri** nella parte superiore della pagina. Questo pulsante apre la pagina **Definizione criteri**.
 
-1. Immettere le informazioni seguenti:
+1. Immettere le seguenti informazioni:
 
    - Il gruppo di gestione o la sottoscrizione in cui viene salvata la definizione criteri. Selezionare con i puntini di sospensione del **Percorso definizione**.
 
@@ -110,7 +110,7 @@ Dopo avere assegnato una definizione predefinita del criterio, è possibile eseg
     }
     ```
 
-    Il valore della *proprietà field* nella regola del criterio deve essere uno dei seguenti: Name, Type, Location, Tags o un alias. Un esempio di un alias potrebbe essere `"Microsoft.Compute/VirtualMachines/Size"`.
+    La proprietà *campo* nella regola dei criteri deve essere uno dei valori seguenti: Nome, tipo, posizione, tag o un alias. Un esempio di un alias potrebbe essere `"Microsoft.Compute/VirtualMachines/Size"`.
 
     Per visualizzare altri esempi di criteri di Azure, vedere [Esempi di Criteri di Azure](../samples/index.md).
 
@@ -322,7 +322,7 @@ Restituisce tutte le definizioni dei criteri disponibili, inclusi i criteri pred
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Creare e assegnare una definizione di iniziativa
 
-Una definizione di iniziativa consente di raggruppare più definizioni di criteri per raggiungere un obiettivo globale. Una definizione di iniziativa viene creata per garantire che le risorse incluse nell'ambito siano conformi alle definizioni dei criteri che costituiscono la definizione dell'iniziativa. Per altre informazioni sulle definizioni delle iniziative, vedere l'articolo [Azure Policy overview](../overview.md) (Cenni preliminari su Criteri di Azure).
+Una definizione di iniziativa consente di raggruppare più definizioni di criteri per raggiungere un obiettivo globale. Viene creata una definizione dell'iniziativa per convalidare che le risorse incluse nell'ambito della definizione siano conformi alle definizioni dei criteri che costituiscono la definizione dell'iniziativa. Per altre informazioni sulle definizioni delle iniziative, vedere l'articolo [Azure Policy overview](../overview.md) (Cenni preliminari su Criteri di Azure).
 
 ### <a name="create-an-initiative-definition"></a>Creare una definizione di iniziativa
 
@@ -338,7 +338,7 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
 1. Inserire il **Nome** e la **Descrizione** dell'iniziativa.
 
-   In questo esempio si vuole garantire che le risorse siano conformi alle definizioni dei criteri relativi alla protezione. Assegnare un nome all'iniziativa **Get Secure** e impostare la descrizione come di seguito: **Questa iniziativa è stata creata per gestire tutte le definizioni dei criteri associati alla protezione delle risorse**.
+   Questo esempio convalida che le risorse siano conformi alle definizioni dei criteri relativi alla protezione. Assegnare un nome all'iniziativa **Proteggi** e impostare la descrizione come di seguito: **Questa iniziativa è stata creata per gestire tutte le definizioni dei criteri associati alla protezione delle risorse**.
 
 1. Per **Categoria** scegliere una delle opzioni esistenti o creare una nuova categoria.
 
@@ -350,11 +350,11 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
    - [Preview]: Monitor possible app Whitelisting in Security Center.
    - [Preview]: Monitor unencrypted VM Disks in Security Center.
 
-   Dopo aver selezionato la definizione di criteri nell'elenco, questa verrà aggiunta in **Criteri e parametri**.
+   Dopo aver selezionato la definizione di criteri nell'elenco, questa viene aggiunta in **Criteri e parametri**.
 
    ![Definizioni di iniziativa](../media/create-and-manage/initiative-definition-2.png)
 
-1. Se una definizione di criteri da aggiungere all'iniziativa contiene parametri, questi compaiono sotto il nome dei criteri nell'area **Criteri e parametri**. Il _valore_ può essere impostato su 'Imposta valore' (hardcoded per tutte le assegnazioni di questa iniziativa) o 'Usa parametro dell'iniziativa' (impostato durante ogni assegnazione dell'iniziativa). Se si seleziona 'Imposta valore', l'elenco a discesa a destra di _Valori_ consente di immettere o selezionare i valori desiderati. Se si seleziona 'Usa parametro dell'iniziativa', viene visualizzata una nuova sezione **Parametri dell'iniziativa** che consente di definire il parametro impostato durante l'assegnazione dell'iniziativa. I valori consentiti per questo parametro dell'iniziativa possono limitare ulteriormente ciò che può essere impostato durante l'assegnazione dell'iniziativa.
+1. Se una definizione di criteri aggiunta all'iniziativa contiene parametri, questi compaiono sotto il nome dei criteri nell'area **Criteri e parametri**. Il _valore_ può essere impostato su 'Imposta valore' (hardcoded per tutte le assegnazioni di questa iniziativa) o 'Usa parametro dell'iniziativa' (impostato durante ogni assegnazione dell'iniziativa). Se si seleziona 'Imposta valore', l'elenco a discesa a destra di _Valori_ consente di immettere o selezionare il/i valore/i. Se si seleziona 'Usa parametro dell'iniziativa', viene visualizzata una nuova sezione **Parametri dell'iniziativa** che consente di definire il parametro impostato durante l'assegnazione dell'iniziativa. I valori consentiti per questo parametro dell'iniziativa possono limitare ulteriormente ciò che può essere impostato durante l'assegnazione dell'iniziativa.
 
    ![Parametri della definizione dell'iniziativa](../media/create-and-manage/initiative-definition-3.png)
 
@@ -367,23 +367,23 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
 1. Selezionare **Definizioni** in **Creazione** sul lato sinistro della pagina Criteri di Azure.
 
-1. Individuare la definizione dell'iniziativa **Get Secure** creata in precedenza e selezionarla. Selezionare **Assegna** nella parte superiore della pagina per aprire la pagina **Get Secure: Assign Initiative**.
+1. Individuare la definizione dell'iniziativa **Get Secure** creata in precedenza e selezionarla. Selezionare **Assegna** nella parte superiore della pagina per aprire la pagina **Proteggi: Assegna iniziativa**.
 
    ![Assegnare una definizione](../media/create-and-manage/assign-definition.png)
 
-   In alternativa, è possibile fare clic sulla riga selezionata o fare clic sui puntini di sospensione alla fine della riga per un menu di scelta rapida.  Quindi selezionare **Assegna**.
+   È anche possibile fare clic con il tasto destro sulla riga selezionata o fare clic con il tasto sinistro sui puntini di sospensione alla fine della riga per un menu di scelta rapida.  Quindi selezionare **Assegna**.
 
    ![Fare clic con il pulsante destro del mouse su una riga](../media/create-and-manage/select-right-click.png)
 
-1. Compilare la pagina **Get Secure: Assign Initiative** immettendo le informazioni di esempio seguenti. È possibile usare informazioni personalizzate.
+1. Compilare la pagina **Proteggi: Assegna iniziativa** immettendo le informazioni di esempio seguenti. È possibile usare informazioni personalizzate.
 
-   - Ambito:iIl gruppo di gestione o la sottoscrizione in cui è stata salvata l'iniziativa, diventa il valore predefinito.  È possibile modificare l'ambito per assegnare l'iniziativa a una sottoscrizione o gruppo di risorse all'interno del percorso di salvataggio.
+   - Ambito: Il gruppo di gestione o la sottoscrizione in cui è stata salvata l'iniziativa, diventa l'impostazione predefinita.  È possibile modificare l'ambito per assegnare l'iniziativa a una sottoscrizione o gruppo di risorse all'interno del percorso di salvataggio.
    - Esclusioni: Configurare le risorse all'interno dell'ambito per impedire che l'assegnazione dell'iniziativa venga applicata a esse.
-   - Definizione dell'iniziativa e nome dell'assegnazione: ottenere Get Secure (pre-popolato come nome dell'iniziativa assegnato).
-   - Descrizione: questa assegnazione di iniziativa è ottimizzata in modo da applicare questo gruppo di definizioni dei criteri.
-   - Assegnato da: verrà compilato automaticamente in base all'utente che ha eseguito l'accesso. Questo campo è facoltativo, quindi è possibile inserire valori personalizzati.
+   - Definizione dell'iniziativa e nome dell'assegnazione: Proteggi (prepopolato come nome dell'iniziativa assegnata).
+   - Descrizione: Questa assegnazione dell'iniziativa è ottimizzata in modo da applicare questo gruppo di definizioni dei criteri.
+   - Assegnato da: Compilato automaticamente in base a chi ha eseguito l'accesso. Questo campo è facoltativo, quindi è possibile inserire valori personalizzati.
 
-1. Lasciare l'opzione **Crea un'identità gestita** deselezionata. Questa opzione _deve_ essere selezionata quando il criterio o l'iniziativa assegnati includono un criterio con l'effetto [deployIfNotExists](../concepts/effects.md#deployifnotexists). Dato che il criterio usato per questa esercitazione non lo include, lasciare il campo vuoto. Per altre informazioni, vedere le [identità gestite](../../../active-directory/managed-identities-azure-resources/overview.md) e il [funzionamento della sicurezza di monitoraggio e aggiornamento](../how-to/remediate-resources.md#how-remediation-security-works).
+1. Lasciare l'opzione **Crea un'identità gestita** deselezionata. Questa casella _deve_ essere selezionata quando il criterio o l'iniziativa assegnati includono un criterio con l'effetto [deployIfNotExists](../concepts/effects.md#deployifnotexists). Poiché il criterio usato per questa esercitazione non lo include, lasciare vuoto. Per altre informazioni, vedere le [identità gestite](../../../active-directory/managed-identities-azure-resources/overview.md) e il [funzionamento della sicurezza di monitoraggio e aggiornamento](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Fare clic su **Assegna**.
 
@@ -391,7 +391,7 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
 1. Selezionare **Assegnazioni** a sinistra nella pagina Criteri di Azure.
 
-1. Individuare l'iniziativa **Get Source**. È probabile che sia ancora nello _Stato di conformità_ **Non avviato**. Fare clic sull'iniziativa per ottenere i dettagli completi sullo stato di avanzamento dell'assegnazione.
+1. Individuare l'iniziativa **Get Source**. È probabile che sia ancora nello _Stato di conformità_ o **Non avviato**. Fare clic sull'iniziativa per ottenere i dettagli completi sullo stato di avanzamento dell'assegnazione.
 
    ![Conformità - non avviata](../media/create-and-manage/compliance-status-not-started.png)
 
@@ -403,20 +403,20 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Esentare una risorsa non conforme o non consentita tramite l'esclusione
 
-Seguendo l'esempio precedente, dopo l'assegnazione della definizione dei criteri per richiedere SQL Server versione 12.0, la creazione di un'istanza di SQL Server con una versione diversa da 12.0 verrà rifiutata. In questa sezione viene illustrato come risolvere il rifiuto di un tentativo di creare un'istanza di SQL Server creando un'esclusione in un singolo gruppo di risorse. L'esclusione impedisce l'imposizione del criterio (o iniziative) sulla risorsa.
+Seguendo l'esempio precedente, dopo l'assegnazione della definizione dei criteri per richiedere SQL Server versione 12.0, la creazione di un'istanza di SQL Server con una versione diversa da 12.0 verrà rifiutata. In questa sezione viene illustrato come risolvere una richiesta negata di creazione di un server SQL creando un'esclusione in un singolo gruppo di risorse. L'esclusione impedisce l'imposizione del criterio (o iniziative) sulla risorsa.
 Nell'esempio seguente una versione di SQL Server è consentita in un singolo gruppo di risorse. Un'esclusione può essere applicata a una sottoscrizione, a un gruppo di risorse oppure è possibile limitare l'esclusione a singole risorse.
 
-Una distribuzione impedita a causa di un criterio assegnato o iniziativa può essere visualizzata in due percorsi:
+Una distribuzione impedita da un criterio assegnato o da un'iniziativa può essere visualizzata in due percorsi:
 
-- Nel gruppo di risorse di destinazione della distribuzione: selezionare **Distribuzioni** sul lato sinistro della pagina e fare clic su **Nome distribuzione** della distribuzione non riuscita. La risorsa che è stata negata verrà elencata con lo stato _Non consentito_. Per determinare il criterio o l'iniziativa e l'assegnazione che ha negato la risorsa, fare clic su **Operazione non riuscita. Fare clic qui per altri dettagli ->** nella pagina Panoramica della distribuzione. Sul lato destro della pagina si aprirà una finestra con le informazioni sull'errore. Nei **Dettagli errore** saranno indicati gli identificatori univoci globali degli oggetti criteri correlati.
+- Nel gruppo di risorse di destinazione della distribuzione: Selezionare **Distribuzioni** sul lato sinistro della pagina e fare clic sul **Nome distribuzione** della distribuzione non riuscita. La risorsa che è stata negata verrà elencata con lo stato _Non consentito_. Per determinare il criterio o l'iniziativa e l'assegnazione che ha negato la risorsa, fare clic su **Operazione non riuscita. Fare clic qui per altri dettagli ->** nella pagina Panoramica della distribuzione. Sul lato destro della pagina si aprirà una finestra con le informazioni sull'errore. Nei **Dettagli errore** sono indicati gli identificatori univoci globali degli oggetti di criterio correlati.
 
   ![Distribuzione negata dall'assegnazione criteri](../media/create-and-manage/rg-deployment-denied.png)
 
-- Nella pagina Criteri di Azure: selezionare **Conformità** sul lato sinistro della pagina e fare clic sul criterio **Richiedere SQL Server versione 12.0**. Nella pagina che si apre verrà visualizzato un aumento del conteggio di **Nega**. Nella scheda **Eventi** verrà inoltre visualizzato l'utente che ha tentato la distribuzione negata dal criterio.
+- Nella pagina Criteri di Azure: Selezionare **Conformità** sul lato sinistro della pagina e fare clic sul criterio **Richiedere SQL Server versione 12.0**. Nella pagina che si apre verrà visualizzato un aumento del conteggio di **Nega**. Nella scheda **Eventi** viene inoltre visualizzato l'utente che ha tentato la distribuzione negata dal criterio.
 
   ![Panoramica della conformità di un criterio assegnato](../media/create-and-manage/compliance-overview.png)
 
-In questo esempio Trent bianchi, uno degli specialisti di virtualizzazione Senior di Contoso, ha eseguito i lavori necessari. È necessario concedergli l'eccezione, ma non si vuole un SQL Server diverso dalla versione 12.0 in nessun gruppo di risorse. È stato creato un nuovo gruppo di risorse **SQLServers_Excluded** e verrà ora concessa un'eccezione a questa assegnazione di criteri.
+In questo esempio, Trent Baker, uno degli specialisti della virtualizzazione Senior di Contoso, stava eseguendo il lavoro richiesto. Bisogna concedergli un'eccezione, ma non si vogliono SQL server diversi dalla versione 12.0 in nessun gruppo di risorse. È stato creato un nuovo gruppo di risorse **SQLServers_Excluded** e verrà ora concessa un'eccezione a questa assegnazione di criteri.
 
 ### <a name="update-assignment-with-exclusion"></a>Aggiornare l'assegnazione con esclusione
 
@@ -433,7 +433,7 @@ In questo esempio Trent bianchi, uno degli specialisti di virtualizzazione Senio
 
 1. Fare clic su **Seleziona** e quindi su **Salva**.
 
-In questa sezione è stata risolta la negazione del tentativo di creare una versione di SQL server non consentita creando un'esclusione in un singolo gruppo di risorse.
+In questa sezione, è stata risolta la negazione della richiesta creando un'esclusione in un unico gruppo di risorse.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -447,7 +447,7 @@ Se le risorse di questa esercitazione non sono più necessarie, usare i passaggi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è eseguito quanto segue:
+In questa esercitazione sono state eseguite le attività seguenti:
 
 > [!div class="checklist"]
 > - Assegnazione di un criterio per applicare una condizione alle risorse che verranno create in futuro.

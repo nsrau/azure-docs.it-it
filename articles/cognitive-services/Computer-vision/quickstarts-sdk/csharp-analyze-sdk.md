@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Analizzare un'immagine - SDK, C# - Visione artificiale"
+title: "Avvio rapido: Analizzare un'immagine - SDK, C# - Visione artificiale"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizza un'immagine usando la libreria client Windows C# di Visione artificiale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: 7de7a87c73c2dabddf2268a6a0bc2992d6017e4d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0983978221e9872e92ca366edd3bd3f2bfd9c3f4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853932"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413320"
 ---
-# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Guida introduttiva: analizzare un'immagine usando SDK e C# di Visione artificiale
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Avvio rapido: Analizzare un'immagine usando SDK e C# di Visione artificiale
 
 In questa guida introduttiva si analizzano un'immagine locale e una remota per estrarre le caratteristiche visive usando la libreria client Windows di Visione artificiale.
 
@@ -162,7 +162,7 @@ namespace ImageAnalyze
 
 Una risposta con esito positivo visualizza la didascalia più pertinente per ogni immagine.
 
-Per un esempio di output JSON non elaborato, vedere [Guide introduttive all'API: Analizzare un'immagine locale con C#](../QuickStarts/CSharp-analyze.md#examine-the-response).
+Vedere [Guide introduttive per API: Analizzare un'immagine locale con C#](../QuickStarts/CSharp-analyze.md#examine-the-response) per un esempio di output JSON non elaborato.
 
 ```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg

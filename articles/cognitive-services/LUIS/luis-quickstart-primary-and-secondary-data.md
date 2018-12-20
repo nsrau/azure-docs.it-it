@@ -1,21 +1,22 @@
 ---
-title: 'Esercitazione 7: entità semplice con elenco di frasi in LUIS'
+title: Entità semplice, elenco di frasi
 titleSuffix: Azure Cognitive Services
-description: Estrarre dati di Machine Learning da un'espressione
+description: Questa esercitazione illustra come estrarre dati di Machine Learning relativi a un nome di processo da un'espressione usando l'entità semplice. Per aumentare l'accuratezza di estrazione, aggiungere un elenco di frasi contenente termini specifici all'entità semplice.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: f3e931344d2d2294c03756d630c688df1e5da9a8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425247"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166269"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Esercitazione 7: estrarre nomi con entità semplice ed elenco di frasi
 
@@ -92,7 +93,7 @@ Dopo che le entità sono contrassegnate nelle espressioni di esempio, è importa
 
 3. Nell'espressione `I want to apply for the new accounting job` selezionare `accounting` immettere `Job` nel campo in alto nel menu a comparsa e quindi scegliere **Create new entity** (Crea nuova entità) dal menu a comparsa. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot di LUIS con la finalità \"ApplyForJob\" con i passaggi di creazione dell'entità evidenziati")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Screenshot di LUIS con finalità 'ApplyForJob' con evidenziati i passaggi di creazione dell'entità](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot di LUIS con finalità 'ApplyForJob' con evidenziati i passaggi di creazione dell'entità")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 4. Nella finestra popup verificare il nome dell'entità e selezionare **Done** (Fine).
 
@@ -100,7 +101,7 @@ Dopo che le entità sono contrassegnate nelle espressioni di esempio, è importa
 
 5. Nell'espressione `Submit resume for engineering position` etichettare la parola `engineering` come entità Job. Selezionare la parola `engineering` e quindi scegliere **Job** dal menu a comparsa. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot di LUIS con l'etichetta dell'entità Job evidenziata ")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![Screenshot dell'assegnazione di etichette da parte di LUIS a entità processo](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot dell'assegnazione di etichette da parte di LUIS a entità processo")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
     Tutte le espressioni sono etichettate, ma cinque espressioni non sono sufficienti per fornire informazioni a LUIS sulle parole e sulle frasi correlate alle mansioni. Per le mansioni che usano un valore numerico non sono necessari altri esempi perché viene usata un'entità espressione regolare. Le mansioni indicate da parole o frasi necessitano di almeno altri 15 esempi. 
 
@@ -157,7 +158,7 @@ Etichettando, o _contrassegnando_, l'entità permette di indicare a LUIS dove si
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `Here is my c.v. for the programmer job`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire le espressioni `ApplyForJob`.
 
-    ```JSON
+    ```json
     {
       "query": "Here is my c.v. for the programmer job",
       "topScoringIntent": {
@@ -226,7 +227,7 @@ L'app LUIS ha trovato la finalità corretta con un elevato livello di attendibil
 
 Nel file JSON seguente LUIS risponde con la finalità corretta, `ApplyForJob`, ma non estrae il nome della mansione `lead welder`. 
 
-```JSON
+```json
 {
   "query": "This is the lead welder paperwork.",
   "topScoringIntent": {
@@ -291,13 +292,13 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/
 
 3. Assegnare al nuovo elenco di frasi il nome `Job` e copiare l'elenco dal file jobs-phrase-list.csv nella casella di testo **Values** (Valori). Premere INVIO. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![Screenshot della finestra popup di creazione di un nuovo elenco di frasi](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     Se si vuole aggiungere più parole all'elenco di frasi, esaminare **Related Values** (Valori correlati) e aggiungere quelle pertinenti. 
 
 4. Fare clic su **Save** (Salva) per attivare l'elenco di frasi.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi con le parole nella casella dei valori dell'elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![Screenshot della finestra popup di creazione di un nuovo elenco di frasi con parole nella casella dei valori dell'elenco di frasi](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi con parole nella casella dei valori dell'elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 5. [Eseguire il training](#train) dell'app e [pubblicarla](#publish) di nuovo per usare l'elenco di frasi.
 
@@ -305,7 +306,7 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/
 
     La risposta JSON include l'entità estratta:
 
-    ```JSON
+    ```json
     {
         "query": "This is the lead welder paperwork.",
         "topScoringIntent": {
