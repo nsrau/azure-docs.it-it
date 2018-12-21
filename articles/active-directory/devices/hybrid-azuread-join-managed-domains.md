@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b8d45e72e15ff86b53f7355634e8f197b94260bd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887798"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435430"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta ad Azure Active Directory ibrido per domini gestiti
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini gestiti
 
-Analogamente agli utenti, i dispositivi stanno diventando un'altra identità da proteggere e anche da usare per proteggere le risorse in qualsiasi momento e ovunque. Questo obiettivo si raggiunge trasferendo le identità dei dispositivi in Azure AD usando uno dei metodi seguenti:
+Analogamente agli utenti, i dispositivi stanno diventando un'altra identità da proteggere e da usare per proteggere le risorse in qualsiasi momento e ovunque. Questo obiettivo si raggiunge trasferendo le identità dei dispositivi in Azure AD usando uno dei metodi seguenti:
 
 - Aggiunta ad Azure AD
 - Aggiunta ad Azure AD ibrido
@@ -53,7 +53,11 @@ Questa esercitazione presuppone che l'utente abbia familiarità con:
 -  [Come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD](hybrid-azuread-join-control.md)
   
 
-Per configurare lo scenario di questo articolo, è necessario avere installato la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 o versioni successive). 
+Per configurare lo scenario in questo articolo, sono necessari gli elementi seguenti:
+
+- Una Active Directory locale (AD) con un livello di schema 85 o versione successiva. Per altre informazioni, vedere [Aggiornare lo schema Active Directory](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
+
+- La [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 o versioni successive) da installare. 
 
 Verificare che Azure AD Connect abbia sincronizzato gli oggetti computer dei dispositivi che devono essere aggiunti ad Azure AD ibrido. Se gli oggetti computer appartengono a unità organizzative specifiche, queste unità organizzative devono essere configurate per la sincronizzazione anche in Azure AD Connect.
 
@@ -153,7 +157,7 @@ Per registrare i dispositivi Windows di livello inferiore, è necessario assicur
 
 
     
-Il criterio **Gli utenti possono registrare i propri dispositivi in Azure AD** deve essere impostato su **Tutti**.
+Il criterio seguente deve essere impostato su **Tutti**: **Gli utenti possono registrare i propri dispositivi in Azure AD**
 
 ![Registrare i dispositivi](media/hybrid-azuread-join-managed-domains/23.png)
 
@@ -172,7 +176,7 @@ Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello 
 
 ### <a name="configure-seamless-sso"></a>Configurare l'accesso Seamless SSO
 
-Per completare correttamente l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore in un dominio gestito che usa Autenticazione pass-through o Sincronizzazione hash password come metodo di autenticazione cloud di Azure Active Directory, è anche necessario [configurare l'accesso Seamless SSO](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+Per completare correttamente l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore in un dominio gestito che usa Autenticazione pass-through o Sincronizzazione hash password come metodo di autenticazione cloud di Azure Active Directory, è anche necessario [configurare l'accesso Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Controllare i dispositivi Windows di livello inferiore 

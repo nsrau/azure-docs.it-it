@@ -1,6 +1,7 @@
 ---
-title: "Guida introduttiva: Usare Python SDK per creare un'area di lavoro del servizio Machine Learning - Azure Machine Learning"
-description: Introduzione ad Azure Machine Learning. Installare Python SDK e usarlo per creare un'area di lavoro. Questa area di lavoro rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning con il servizio Azure Machine Learning.
+title: 'Guida introduttiva:  Per iniziare in Python'
+titleSuffix: Azure Machine Learning service
+description: Introduzione al servizio Azure Machine Learning in Python. Usare l’SDK Python per creare un'area di lavoro che rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +10,17 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 12/04/2018
-ms.openlocfilehash: f16d39238b46a811f34fdfe291d6c09bee662b9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 3ab55cec4b8483cf254ec3d9fe68521baca9cdf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870071"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268512"
 ---
-# <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Iniziare a usare Azure Machine Learning con Python
+# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Utilizzare l’SDK Python per iniziare a usare Azure Machine Learning
 
-In questa guida introduttiva si usa Azure Machine Learning SDK per Python per creare e quindi usare un'[area di lavoro](concept-azure-machine-learning-architecture.md) del servizio Machine Learning. Questa area di lavoro rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning con il servizio Machine Learning. In questa guida introduttiva si inizia configurando l'ambiente Python e il server notebook Jupyter. Per l'esecuzione senza installazione, vedere [Guida introduttiva: Iniziare a usare Azure Machine Learning con il portale di Azure](quickstart-get-started.md).
+In questa guida introduttiva si usa Azure Machine Learning SDK per Python per creare e quindi usare un'[area di lavoro](concept-azure-machine-learning-architecture.md) del servizio Machine Learning. Questa area di lavoro rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning con il servizio Machine Learning. In questa guida introduttiva si inizia configurando l'ambiente Python e il server notebook Jupyter. Per l'esecuzione senza installazione, vedere [Avvio rapido: Iniziare a usare Azure Machine Learning con il portale di Azure](quickstart-get-started.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -38,14 +40,12 @@ Le risorse di Azure seguenti vengono aggiunte automaticamente all'area di lavoro
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Insieme di credenziali chiave Azure](https://azure.microsoft.com/services/key-vault/)
 
->[!NOTE]
-> Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.2 
-
-
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
-
+Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Accedere alla [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
 
 ## <a name="install-the-sdk"></a>Installare l'SDK
+
+>[!NOTE]
+> Il codice in questo articolo richiede l’SDK Azure Machine Learning versione 1.0.2 o successiva. 
 
 *Ignorare questa sezione se si usa una Data Science Virtual Machine creata dopo il 27 settembre 2018.* In queste DSVM Python SDK è preinstallato.
 

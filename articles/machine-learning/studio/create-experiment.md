@@ -1,13 +1,12 @@
 ---
-title: Esperimento semplice in Machine Learning Studio | Documentazione di Microsoft
+title: Esperimento semplice - Azure Machine Learning Studio | Microsoft Docs
 description: Questa esercitazione di Machine Learning illustra un esperimento semplice di analisi scientifica dei dati. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
 keywords: esperimento,regressione lineare,algoritmi di machine learning,esercitazione su machine learning,tecniche di modellazione predittiva,esperimento di analisi scientifica dei dati
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425711"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262419"
 ---
-# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Esercitazione di Machine Learning: Creare il primo esperimento di analisi scientifica dei dati in Azure Machine Learning Studio
+# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Esercitazione: Creare il primo esperimento data science in Azure Machine Learning Studio
 
 Questa esercitazione è destinata agli utenti che non hanno mai usato **Azure Machine Learning Studio**.
 
@@ -41,7 +40,7 @@ In questa esercitazione verrà illustrato come usare per la prima volta Studio p
 - [Nozioni fondamentali di Machine Learning con esempi di algoritmi](basics-infographic-with-algorithm-examples.md): questa infografica è molto utile se si vuole acquisire una maggiore conoscenza sui diversi tipi di algoritmi di Machine Learning inclusi in Machine Learning Studio.
 - [Machine Learning Guide](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) (Guida di Machine Learning): questa guida offre informazioni simili all'infografica, ma in formato interattivo.
 - [Foglio informativo sugli algoritmi di Machine Learning](algorithm-cheat-sheet.md) e [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](algorithm-choice.md): questo poster scaricabile e l'articolo relativo illustrano in modo più approfondito gli algoritmi di Studio.
-- [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) (Machine Learning Studio: Guida agli algoritmi e ai moduli): questa è una guida di riferimento completa sui moduli di Studio e include gli algoritmi di Machine Learning.
+- [Machine Learning Studio: Guida agli algoritmi e ai moduli](https://msdn.microsoft.com/library/azure/dn905974.aspx): questa è una guida di riferimento completa sui moduli di Studio e include gli algoritmi di Machine Learning.
 
 
 
@@ -67,7 +66,7 @@ Per iniziare a usare Studio, passare a [https://studio.azureml.net](https://stud
 In questa esercitazione di Machine Learning, si seguiranno cinque passaggi di base per compilare un esperimento in Machine Learning Studio per creare un modello, eseguire il training e assegnare un punteggio:
 
 - **Creare un modello**
-    - [Passaggio 1: Ottenere i dati]
+    - [Passaggio 1: Scaricare i dati]
     - [Passaggio 2: Preparare i dati]
     - [Passaggio 3: Definire le caratteristiche]
 - **Eseguire il training del modello**
@@ -75,7 +74,7 @@ In questa esercitazione di Machine Learning, si seguiranno cinque passaggi di ba
 - **Assegnare un punteggio e testare il modello**
     - [Passaggio 5: Stimare i prezzi delle nuove automobili]
 
-[Passaggio 1: Ottenere i dati]: #step-1-get-data
+[Passaggio 1: Scaricare i dati]: #step-1-get-data
 [Passaggio 2: Preparare i dati]: #step-2-prepare-the-data
 [Passaggio 3: Definire le caratteristiche]: #step-3-define-features
 [Passaggio 4: Scegliere e applicare un algoritmo di apprendimento]: #step-4-choose-and-apply-a-learning-algorithm
@@ -304,11 +303,11 @@ Per visualizzare l'output del modulo [Evaluate Model][evaluate-model], fare clic
 
 Per il modello vengono visualizzate le seguenti statistiche:
 
-- **Mean Absolute Error** (MAE, errore assoluto medio): media degli errori assoluti (un *errore* è la differenza tra il valore stimato e quello effettivo).
-- **Root Mean Squared Error** (RMSE, radice errore quadratico medio): radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
-- **Relative Absolute Error**(errore assoluto relativo): media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
-- **Relative Squared Error**(errore quadratico relativo): media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
-- **Coefficient of Determination** (coefficiente di determinazione): noto anche come **valore quadratico R**, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
+- **Errore assoluto medio** (MAE): media degli errori assoluti (un *errore* è la differenza tra il valore stimato e quello effettivo).
+- **Radice dell'errore quadratico medio** (RMSE): radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
+- **Errore assoluto relativo**: media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
+- **Errore quadratico relativo**: media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
+- **Coefficiente di determinazione**: noto anche come **valore quadratico R**, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
 
 Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore più piccolo indica che le stime sono più vicine ai valori effettivi. Per **Coefficient of Determination**più il valore si avvicina a uno (1,0) più le stime sono migliori.
 

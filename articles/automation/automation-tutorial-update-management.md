@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8a99a784292c4294456296c1f105e5f485689368
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 83647dfb0965b8aac8ede5f2e9669ae3d7722c41
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679903"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184985"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gestire gli aggiornamenti di Windows con Automazione di Azure
 
@@ -82,48 +82,24 @@ Facendo clic in altro punto dell'area dell'aggiornamento, viene aperto il riquad
 
 ## <a name="configure-alerts"></a>Configurare gli avvisi
 
-In questo passaggio viene illustrato come configurare un avviso per segnalare il completamento della distribuzione di aggiornamenti tramite una query di Log Analytics o tramite la verifica del runbook master per Gestione aggiornamenti per le distribuzioni non riuscite.
+In questo passaggio si apprenderà come configurare un avviso per conoscere lo stato della distribuzione di un aggiornamento.
 
 ### <a name="alert-conditions"></a>Condizioni di avviso
 
-Per ogni tipo di avviso è necessario definire diverse condizioni di avviso.
+Nell'account di Automazione, sotto **Monitoraggio**, passare ad **Avvisi** e fare clic su **+ Nuova regola di avviso**.
 
-#### <a name="log-analytics-query-alert"></a>Avviso basato su query di Log Analytics
+L'account di Automazione è già selezionato come risorsa. Se si desidera modificarlo, fare clic su **Seleziona** e scegliere dalla pagina **Seleziona una risorsa** gli **account di Automazione** nell'elenco a discesa **Filtra per tipo di risorsa**. Selezionare l'account di automazione e quindi selezionare **Fine**.
 
-Per le distribuzioni riuscite è possibile creare un avviso basato su una query di Log Analytics. Per le distribuzioni non riuscite è possibile usare i passaggi della sezione [Avviso del runbook](#runbook-alert) per segnalare gli errori del runbook master che orchestra le distribuzioni degli aggiornamenti. È possibile scrivere una query personalizzata per altri avvisi, per soddisfare le esigenze di numerosi scenari diversi.
+Fare clic su **Aggiungi condizione** e selezionare il segnale appropriato per la distribuzione degli aggiornamenti. Nella tabella di seguito vengono illustrati i dettagli dei due segnali disponibili per le distribuzioni degli aggiornamenti:
 
-Nel portale di Azure passare a **Monitoraggio** e quindi selezionare **Crea avviso**.
+|Nome segnale|Dimensioni|DESCRIZIONE|
+|---|---|---|
+|**Esecuzioni totali della distribuzione di aggiornamenti**|- Nome della distribuzione degli aggiornamenti</br>- Stato|Questo segnale viene usato per inviare avvisi sullo stato generale della distribuzione di un aggiornamento.|
+|**Esecuzioni totali della distribuzione di aggiornamenti del computer**|- Nome della distribuzione di aggiornamenti</br>- Stato</br>- Computer di destinazione</br>- ID di esecuzione della distribuzione di aggiornamenti|Questo segnale viene usato per inviare avvisi sullo stato di una distribuzione di aggiornamenti destinata a computer specifici|
 
-In **1. Definire la condizione dell'avviso**, fare clic su **Selezionare la destinazione**. In **Filtra per tipo di risorsa** selezionare **Log Analytics**. Selezionare l'area di lavoro di Log Analytics e quindi selezionare **Fine**.
-
-![Creare un avviso](./media/automation-tutorial-update-management/create-alert.png)
-
-Selezionare **Aggiungi criteri**.
-
-In **Configurare la logica dei segnali** selezionare **Custom log search** (Ricerca log personalizzata) nella tabella. Immettere la query seguente nella casella di testo **Query di ricerca**:
-
-```loganalytics
-UpdateRunProgress
-| where InstallationStatus == 'Succeeded'
-| where TimeGenerated > now(-10m)
-| summarize by UpdateRunName, Computer
-```
-Questa query restituisce i computer e il nome dell'operazione di aggiornamento completata nell'intervallo di tempo specificato.
-
-In **Logica avvisi**, per **Soglia**, immettere **1**. Al termine, fare clic su **Fine**.
+Per i valori di dimensione, selezionare un valore valido dall'elenco. Se il valore desiderato non è presente nell'elenco, fare clic sul segno **\+** accanto alla dimensione e digitare il nome personalizzato. È quindi possibile selezionare il valore desiderato. Se si desidera selezionare tutti i valori da una dimensione, fare clic sul pulsante **Seleziona\*** . Se non si sceglie un valore per la dimensione, durante la valutazione questa verrà ignorata.
 
 ![Configurare la logica dei segnali](./media/automation-tutorial-update-management/signal-logic.png)
-
-#### <a name="runbook-alert"></a>Avviso del runbook
-
-Per distribuzioni non riuscite, è necessario segnalare l'errore del runbook master.
-Nel portale di Azure passare a **Monitoraggio** e quindi selezionare **Crea avviso**.
-
-In **1. Definire la condizione dell'avviso**, fare clic su **Selezionare la destinazione**. In **Filtra per tipo di risorsa** selezionare **Account di automazione**. Selezionare l'account di automazione e quindi selezionare **Fine**.
-
-Per **Nome runbook** fare clic sul segno **\+** e immettere **Patch-MicrosoftOMSComputers** come nome personalizzato. Per **Stato** scegliere **Non riuscito** o fare clic sul segno **\+** per immettere **Non riuscito**.
-
-![Configurare la logica del segnale per i runbook](./media/automation-tutorial-update-management/signal-logic-runbook.png)
 
 In **Logica avvisi**, per **Soglia**, immettere **1**. Al termine, fare clic su **Fine**.
 
@@ -133,7 +109,7 @@ In **2. Definire i dettagli dell'avviso** assegnare un nome e una descrizione pe
 
 ![Configurare la logica dei segnali](./media/automation-tutorial-update-management/define-alert-details.png)
 
-In **3. Definire il gruppo di azioni** selezionare **Nuovo gruppo di azioni**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Da **Gruppi di azioni**, selezionare **Crea nuovo**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
 
 Nella casella **Nome gruppo di azioni** immettere un nome per l'avviso e un nome breve. Il nome breve viene usato al posto del nome completo di un gruppo di azioni quando le notifiche vengono inviate usando questo gruppo.
 
@@ -155,15 +131,15 @@ Per pianificare una nuova distribuzione di aggiornamenti per la macchina virtual
 
 In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti:
 
-* **Nome**: immettere un nome univoco per la distribuzione di aggiornamenti.
+* **Nome**: immettere un nome univoco per la distribuzione degli aggiornamenti.
 
 * **Sistema operativo**: selezionare il sistema operativo di destinazione per la distribuzione degli aggiornamenti.
 
-* **Gruppi da aggiornare (anteprima)**: definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Gruppi dinamici](automation-update-management.md#using-dynamic-groups)
+* **Gruppi da aggiornare (anteprima)**: Definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Gruppi dinamici](automation-update-management.md#using-dynamic-groups)
 
-* **Computer da aggiornare**: selezionare una ricerca salvata o un gruppo importato, oppure scegliere un computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. Per altre informazioni sui diversi metodi di creazione di gruppi di computer in Log Analytics, vedere [gruppi di Computer in Log Analytics](../azure-monitor/platform/computer-groups.md)
+* **Computer da aggiornare**: Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. Per altre informazioni sui diversi metodi di creazione di gruppi di computer in Log Analytics, vedere [gruppi di Computer in Log Analytics](../azure-monitor/platform/computer-groups.md)
 
-* **Classificazioni aggiornamenti**: selezionare i tipi di software inclusi nella distribuzione di aggiornamenti. Per questa esercitazione, lasciare tutti i tipi selezionati.
+* **Classificazione aggiornamenti**: selezionare i tipi di software inclusi nella distribuzione degli aggiornamenti. Per questa esercitazione, lasciare tutti i tipi selezionati.
 
   I tipi di classificazione sono:
 
@@ -176,14 +152,14 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 
 * **Includi/Escludi aggiornamenti**: apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per altre informazioni sulla modalità di gestione dell'inclusione, vedere il [comportamento dell'inclusione](automation-update-management.md#inclusion-behavior)
 
-* **Impostazioni di pianificazione**: consente di aprire la pagina **Impostazioni di pianificazione**. L'ora di inizio predefinita è 30 minuti dopo il momento corrente. È possibile impostare l'ora di inizio su qualsiasi orario a partire da 10 minuti dal momento corrente.
+* **Impostazioni di pianificazione**: apre il riquadro **Impostazioni di pianificazione**. L'ora di inizio predefinita è 30 minuti dopo il momento corrente. È possibile impostare l'ora di inizio su qualsiasi orario a partire da 10 minuti dal momento corrente.
 
    È anche possibile specificare se eseguire la distribuzione una sola volta o impostare una pianificazione ricorrente. In **Ricorrenza** selezionare **Una sola volta**. Mantenere l'impostazione predefinita di 1 giorno e selezionare **OK**. Viene configurata una pianificazione ricorrente.
 
 * **Pre-script e post-script**: selezionare gli script da eseguire prima e dopo la distribuzione. Per altre informazioni, vedere [Gestire i pre-script e i post-script](pre-post-scripts.md).
-* **Finestra di manutenzione (minuti)**: lasciare il valore predefinito. È possibile impostare il periodo di tempo nel quale eseguire la distribuzione di aggiornamenti. Questa impostazione consente di garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
+* **Finestra di manutenzione (minuti)**: Lasciare il valore predefinito. È possibile impostare il periodo di tempo nel quale eseguire la distribuzione di aggiornamenti. Questa impostazione consente di garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
 
-* **Opzioni di riavvio**: questa impostazione determina come vengono gestiti i riavvii. Le opzioni disponibili sono:
+* **Opzioni di riavvio**: questa impostazione determina le modalità di gestione dei riavvii. Le opzioni disponibili sono:
   * Riavvia se necessario (opzione predefinita)
   * Riavvia sempre
   * Non riavviare mai
@@ -210,9 +186,9 @@ In **Risultati aggiornamento** è disponibile un riepilogo che fornisce il numer
 
 L'elenco seguente mostra i valori disponibili:
 
-* **Tentativo non eseguito**: l'aggiornamento non è stato installato a causa di tempo disponibile non sufficiente basato sulla durata della finestra di manutenzione specificata.
-* **Completato**: l'aggiornamento è stato completato.
-* **Non riuscito**: l'aggiornamento non è riuscito.
+* **Tentativo non eseguito**: l'aggiornamento non è stato installato poiché, in base alla durata definita per la finestra di manutenzione, il tempo disponibile non era sufficiente.
+* **Completato**: aggiornamento completato.
+* **Operazione non riuscita**: aggiornamento non riuscito.
 
 Selezionare **Tutti i log** per visualizzare tutte le voci di log create dalla distribuzione.
 
