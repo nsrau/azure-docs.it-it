@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e2075f8a8e54a091dbb82f9ed6d1c8ddaa9da4d0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7df94a465cac03a65bd1df15bf5c1cabda315551
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869842"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336472"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-an-azure-sql-database-managed-instance"></a>Usare PowerShell con un modello di Azure Resource Manager per creare un'istanza gestita di database SQL di Azure
 
@@ -36,6 +36,15 @@ Con i comandi di Azure PowerShell è possibile avviare la distribuzione usando i
 - Regole di confronto a livello di server dell'istanza (anteprima).
 
 Il nome dell'istanza, il nome utente dell'amministratore SQL, la rete virtuale/subnet e le regole di confronto non possono essere modificati in seguito. Altre proprietà dell'istanza possono invece essere modificate.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+In questo esempio si presuppone di disporre di aver [creato un ambiente di rete valido](../sql-database-managed-instance-create-vnet-subnet.md) oppure di aver [modificato una rete virtuale esistente](../sql-database-managed-instance-configure-vnet-subnet.md) per l'istanza gestita. Nell'esempio vengono utilizzati i commandlet [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) e [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) pertanto assicurarsi di aver installato i moduli di PowerShell seguenti:
+
+```
+Install-Module AzureRM.Network
+Install-Module AzureRM.Resources
+```
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 

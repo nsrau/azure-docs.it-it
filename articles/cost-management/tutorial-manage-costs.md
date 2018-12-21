@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7d319c82da09ec5c960e1f40bc26edce8ee372b9
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274424"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083564"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Esercitazione: Gestire i costi usando Cloudyn
 
@@ -53,13 +53,11 @@ Quando si inizia il processo di allocazione dei costi, è innanzitutto necessari
 
 Per creare un modello personalizzato di allocazione dei costi, selezionare **Costi** &gt; **Gestione costi** &gt; **Allocazione costi a 360** dal menu del report.
 
-![Selezione di Cost Allocation 360° (Allocazione costi a 360°)](./media/tutorial-manage-costs/cost-allocation-360.png)
+![L’esempio mostra un dashboard in cui si seleziona Allocazione dei costi a 360](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 Nella pagina **Cost Allocation 360°** (Allocazione costi a 360°) scegliere **Add** (Aggiungi) e quindi immettere un nome e una descrizione per il modello dei costi. Selezionare tutti gli account oppure singoli account. Se si vogliono usare singoli account, è possibile selezionare più account da diversi provider di servizi cloud. Fare quindi clic su **Categorization** (Categorizzazione) per scegliere i tag individuati per suddividere in categorie i dati dei costi. Scegliere i tag (o categorie) da includere nel modello. Nell'esempio seguente è selezionato il tag **Unit**.
 
-![Esempio di categorizzazione del modello dei costi](./media/tutorial-manage-costs/cost-model01.png)
-
-
+![L’esempio mostra la categorizzazione del modello dei costi](./media/tutorial-manage-costs/cost-model01.png)
 
 L'esempio mostra che un importo pari a $ 19.680 è senza categoria, ovvero senza tag.
 
@@ -97,7 +95,7 @@ Per definire una nuova regola, usare l'area **Rules** (Rules). Immettere ad esem
 
 La figura seguente mostra un esempio di regole create per una nuova categoria denominata **Work-Load**:
 
-![Categoria di esempio](./media/tutorial-manage-costs/category01.png)
+![L’esempio mostra la nuova categoria di carico di lavoro](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>Origini di tag e report
 
@@ -124,7 +122,7 @@ Il metodo usato dalle organizzazioni per eseguire lo showback e il chargeback va
 
 Per visualizzare i risultati dell'allocazione dei costi, aprire il report di analisi dei costi e selezionare il modello dei costi creato. Aggiungere quindi un raggruppamento in base a uno o più tag selezionati nel modello dei costi.
 
-![Report di analisi dei costi](./media/tutorial-manage-costs/cost-analysis.png)
+![Report di analisi dei costi che mostra un esempio dei dati del costo nuovo](./media/tutorial-manage-costs/cost-analysis.png)
 
 È possibile creare e salvare facilmente report relativi a servizi specifici utilizzati da determinati gruppi. Se ad esempio è presente un reparto che fa ampio uso di macchine virtuali di Azure, si può creare un report che viene filtrato in base alle macchine virtuali di Azure per visualizzarne l'utilizzo e i costi.
 
