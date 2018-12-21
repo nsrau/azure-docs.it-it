@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Web Node.js in Azure | Microsoft Docs
+title: Creare un'app Web Node.js - Servizio app di Azure | Microsoft Docs
 description: Distribuire la prima app Node.js Hello World in un'app Web del servizio app di Azure in pochi minuti.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2018
 ms.author: cephalin;msangapu
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 6d3f367ce21e9574282805737f2eff6c83ea6157
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.custom: seodec18
+ms.openlocfilehash: 4646456acb44f3054ef948a17d3db330e4e1e727
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248191"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257974"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creare un'app Web Node.js in Azure
 
@@ -119,10 +119,10 @@ Impostare runtime Node su 8.11.1. Per visualizzare tutti i runtime supportati, e
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
-Passare all'app Web appena creata. Sostituire _&lt;nome app>_ con un nome di app univoco.
+Passare all'app Web appena creata. Sostituire `<app_name>` con un nome di app univoco.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 Ecco l'aspetto che avrà la nuova app Web:

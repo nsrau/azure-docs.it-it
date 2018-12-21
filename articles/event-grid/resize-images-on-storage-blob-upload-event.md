@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f08de2398174363604576874627026dcc6199ac5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282508"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104663"
 ---
-# <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
 [Griglia di eventi di Azure](overview.md) è un servizio di gestione degli eventi per il cloud. Griglia di eventi consente di creare sottoscrizioni a eventi generati dai servizi di Azure o da risorse di terze parti.  
 
-Questa esercitazione è la seconda parte di una serie di esercitazioni sull'archiviazione. Approfondisce l'[esercitazione precedente sull'archiviazione][previous-tutorial] e aggiunge la generazione automatica di anteprima senza server usando Funzioni di Azure e Griglia di eventi di Azure. Griglia di eventi consente a [Funzioni di Azure](..\azure-functions\functions-overview.md) di rispondere agli eventi di [Archiviazione BLOB di Azure](..\storage\blobs\storage-blobs-introduction.md) e generare anteprime delle immagini caricate. Viene creata una sottoscrizione di eventi per l'evento di creazione dell'archivio BLOB. Quando si aggiunge un BLOB a un contenitore di archiviazione BLOB specifico, viene richiamato un endpoint della funzione. I dati passati all'associazione della funzione da Griglia di eventi vengono usati per accedere al BLOB e generare l'immagine di anteprima.
+Questa esercitazione è la seconda parte di una serie di esercitazioni sull'archiviazione. Approfondisce l'[esercitazione precedente sull'archiviazione][previous-tutorial] e aggiunge la generazione automatica di anteprima senza server usando Funzioni di Azure e Griglia di eventi di Azure. Griglia di eventi consente a [Funzioni di Azure](../azure-functions/functions-overview.md) di rispondere agli eventi di [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md) e generare anteprime delle immagini caricate. Viene creata una sottoscrizione di eventi per l'evento di creazione dell'archivio BLOB. Quando si aggiunge un BLOB a un contenitore di archiviazione BLOB specifico, viene richiamato un endpoint della funzione. I dati passati all'associazione della funzione da Griglia di eventi vengono usati per accedere al BLOB e generare l'immagine di anteprima.
 
 Usare l'interfaccia della riga di comando di Azure e il portale di Azure per aggiungere le funzionalità di ridimensionamento a un'app esistente di caricamento di immagini.
 
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione:
 
-È necessario aver completato l'esercitazione precedente sull'archiviazione BLOB: [Upload image data in the cloud with Azure Storage][previous-tutorial] (Caricare dati dell'immagine nel cloud con Archiviazione di Azure).
+È necessario aver completato l'esercitazione precedente sull'archiviazione BLOB: [Caricare i dati immagine nel cloud con Archiviazione di Azure][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -160,7 +160,7 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
     
     ![Creare una sottoscrizione di eventi dalla funzione nel portale di Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | Impostazione      | Valore consigliato  | DESCRIZIONE                                        |
+    | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Tipo di argomento** |  Account di archiviazione | Scegliere il provider di eventi Account di archiviazione. | 
     | **Sottoscrizione** | Sottoscrizione di Azure | Per impostazione predefinita viene selezionata la sottoscrizione di Azure corrente.   |
@@ -200,6 +200,6 @@ Passare alla terza parte della serie di esercitazioni su Archiviazione per appre
 > [Secure access to an applications data in the cloud](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Proteggere l'accesso ai dati di applicazioni nel cloud)
 
 + Per altre informazioni su Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](overview.md). 
-+ Per seguire un'altra esercitazione su Funzioni di Azure, vedere [Creare una funzione che si integra con le app per la logica di Azure](..\azure-functions\functions-twitter-email.md). 
++ Per seguire un'altra esercitazione su Funzioni di Azure, vedere [Creare una funzione che si integra con le app per la logica di Azure](../azure-functions/functions-twitter-email.md). 
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md

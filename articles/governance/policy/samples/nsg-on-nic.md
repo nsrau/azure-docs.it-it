@@ -1,5 +1,5 @@
 ---
-title: 'Esempio di Criteri di Azure: NSG X in ogni scheda di interfaccia di rete'
+title: Esempio - Un gruppo di sicurezza di rete per ogni scheda di interfaccia di rete
 description: Questo criterio di esempio richiede che con ogni interfaccia di rete virtuale venga usato un gruppo di sicurezza di rete specifico.
 services: azure-policy
 author: DCtheGeek
@@ -8,15 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 9e853e293611d58ac936228fd02fcd0c0a6d8dda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e24697620b61e942699f2748590c94f1063d3216
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948299"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313480"
 ---
-# <a name="nsg-x-on-every-nic"></a>NSG X in ogni scheda di interfaccia di rete
+# <a name="nsg-x-on-every-nic"></a>Un gruppo di sicurezza di rete per ogni scheda di interfaccia di rete
 
 Questo criterio richiede che con ogni interfaccia di rete virtuale venga usato uno specifico gruppo di sicurezza di rete. Si specifica l'ID del gruppo di sicurezza di rete da usare.
 

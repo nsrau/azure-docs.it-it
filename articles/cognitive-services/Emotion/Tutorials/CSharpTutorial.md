@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 01/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3a84a68718fba29e2a4b2fae057e68976119c95
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: da605ec4013fb11606f99f3d9a2dcfcfcab00d3b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237025"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163328"
 ---
-# <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Esercitazione: Riconoscere le emozioni espresse da un viso in un'immagine.
+# <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Esercitazione: Riconoscere le emozioni su un viso in un'immagine.
 
 > [!IMPORTANT]
 > L'API Emozioni verrà deprecata il 15 febbraio 2019. La funzionalità di riconoscimento delle emozioni è ora generalmente disponibile nell'ambito dell'[API Viso](https://docs.microsoft.com/azure/cognitive-services/face/). 
@@ -64,7 +64,7 @@ Con l'applicazione in esecuzione, è ora possibile esaminare in che modo l'app d
 
 Questa app di esempio usa la libreria client dell'API Emozioni, un wrapper thin client C# per l'API Emozioni di Microsoft. Quando è stata creata l'app di esempio nella procedura precedente, la libreria client è stata ottenuta da un pacchetto NuGet. È possibile esaminare il codice sorgente della libreria client nella cartella denominata "[Client Library](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary)" in **Emozioni**, **Windows**, **Client Library**, che fa parte del repository di file scaricati indicato nei [Prerequisiti](#Prerequisites).
 
-Si può anche scoprire come usare il codice della libreria client in **Esplora soluzioni**: in **EmotionAPI-WPF_Samples** espandere **DetectEmotionUsingStreamPage.xaml** per individuare **DetectEmotionUsingStreamPage.xaml.cs**, che viene usato per passare a un file archiviato in locale, oppure espandere **DetectEmotionUsingURLPage.xaml** per trovare **DetectEmotionUsingURLPage.xaml.cs**, che viene usato quando si carica l'URL di un'immagine. Fare doppio clic sui file con estensione xaml.cs per aprirli in nuove finestre di Visual Studio.
+È anche possibile scoprire come usare il codice della libreria client in **Esplora soluzioni**: In **EmotionAPI-WPF_Samples** espandere **DetectEmotionUsingStreamPage.xaml** per individuare **DetectEmotionUsingStreamPage.xaml.cs**, da usare per passare a un file archiviato in locale oppure espandere **DetectEmotionUsingURLPage.xaml** per individuare **DetectEmotionUsingURLPage.xaml.cs**, da usare quando si carica un URL di un'immagine. Fare doppio clic sui file con estensione xaml.cs per aprirli in nuove finestre di Visual Studio.
 
 Per vedere in che modo la libreria client di Emozioni viene usata nell'app di esempio, verranno ora esaminati due frammenti di codice da **DetectEmotionUsingStreamPage.xaml.cs** e **DetectEmotionUsingURLPage.xaml.cs**. Ogni file contiene commenti di codice che indicano "KEY SAMPLE CODE STARTS HERE" e "KEY SAMPLE CODE ENDS HERE", che aiutano a individuare i frammenti di codice riportati di seguito.
 

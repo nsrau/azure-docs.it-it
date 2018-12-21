@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Trovare traduzioni alternative, Go - API Traduzione testuale'
+title: 'Avvio rapido: Trovare traduzioni alternative, Go - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Go.
 services: cognitive-services
@@ -8,273 +8,218 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/29/2018
+ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 0c4872aaf222110a0044095040db08d0180e37c4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bcda716d143bd675f9510b1ecf5974ab9c28a394
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649636"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000581"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-go"></a>Guida introduttiva: Trovare traduzioni alternative con l'API REST Traduzione testuale (Go)
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere traduzioni alternative con Go
 
-In questa guida introduttiva si trovano i dettagli relativi a possibili traduzioni alternative per un termine ed esempi d'uso di tali traduzioni usando l'API Traduzione testuale.
+In questo argomento di avvio rapido viene illustrato come trovare traduzioni alternative ed esempi d'uso per un testo specifico usando Go e l'API REST Traduzione testuale.
+
+Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire il codice è necessario installare la [distribuzione Go](https://golang.org/doc/install). Il codice di esempio usa solo le librerie **principali**. Non sono quindi presenti dipendenze esterne.
+Questa guida introduttiva richiede:
 
-Per usare l'API Traduzione testuale, è necessario avere anche una chiave di sottoscrizione. Per informazioni, vedere [Come registrarsi all'API Traduzione testuale](translator-text-how-to-signup.md).
+* [Go](https://golang.org/doc/install)
+* Una chiave di sottoscrizione di Azure per Traduzione testuale
 
-## <a name="dictionary-lookup-request"></a>Richiesta di ricerca nel dizionario
+## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
-Il codice seguente ottiene le traduzioni alternative per un termine tramite il metodo [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md).
+Creare un nuovo progetto Go tramite l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `alt-translations.go`.
 
-1. Creare un nuovo progetto Go nell'editor di codice preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
-4. Salvare il file con estensione "go".
-5. Aprire un prompt dei comandi in un computer in cui è installato Go.
-6. Compilare il file, ad esempio: go build quickstart-lookup.go
-7. Eseguire il file, ad esempio: quickstart-lookup
-
-```golang
+```go
 package main
 
 import (
+    "bytes"
     "encoding/json"
     "fmt"
-    "io/ioutil"
+    "log"
     "net/http"
-    "strconv"
-    "strings"
-    "time"
+    "net/url"
+    "os"
 )
+```
 
+## <a name="create-the-main-function"></a>Creare la funzione main
+
+Questo esempio proverà a leggere la chiave di sottoscrizione di Traduzione testuale dalla variabile di ambiente `TRANSLATOR_TEXT_KEY`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `subscriptionKey` come stringa e l'istruzione condizionale come commento.
+
+Copiare questo codice nel progetto:
+
+```go
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    const uriBase = "https://api.cognitive.microsofttranslator.com"
-    const uriPath = "/dictionary/lookup?api-version=3.0"
-
-    // From English to French
-    const params = "&from=en&to=fr"
-
-    const uri = uriBase + uriPath + params
-
-    const text = "great"
-
-    r := strings.NewReader("[{\"Text\" : \"" + text + "\"}]")
-
-    client := &http.Client{
-        Timeout: time.Second * 2,
+    /*
+     * Read your subscription key from an env variable.
+     * Please note: You can replace this code block with
+     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+     * want to use env variables.
+     */
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
+    if subscriptionKey == "" {
+       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
     }
-
-    req, err := http.NewRequest("POST", uri, r)
-    if err != nil {
-        fmt.Printf("Error creating request: %v\n", err)
-        return
-    }
-
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Content-Length", strconv.FormatInt(req.ContentLength, 10))
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-
-    resp, err := client.Do(req)
-    if err != nil {
-        fmt.Printf("Error on request: %v\n", err)
-        return
-    }
-    defer resp.Body.Close()
-
-    body, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        fmt.Printf("Error reading response body: %v\n", err)
-        return
-    }
-
-    var f interface{}
-    json.Unmarshal(body, &f)
-
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
-    if err != nil {
-        fmt.Printf("Error producing JSON: %v\n", err)
-        return
-    }
-    fmt.Println(string(jsonFormatted))
+    /*
+     * This calls our altTranslations function, which we'll
+     * create in the next section. It takes a single argument,
+     * the subscription key.
+     */
+    altTranslations(subscriptionKey)
 }
 ```
 
-## <a name="dictionary-lookup-response"></a>Risposta alla richiesta di ricerca nel dizionario
+## <a name="create-a-function-to-get-alternate-translations"></a>Creare una funzione per ottenere traduzioni alternative
 
-Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
+Creare una funzione per ottenere traduzioni alternative. Questa funzione accetta un singolo argomento, la chiave di sottoscrizione del servizio Traduzione testuale.
+
+```go
+func altTranslations(subscriptionKey string) {
+    /*  
+     * In the next few sections, we'll add code to this
+     * function to make a request and handle the response.
+     */
+}
+```
+
+Creare quindi l'URL. Per creare l'URL vengono usati i metodi `Parse()` e `Query()`. È possibile notare che vengono aggiunti parametri con il metodo `Add()`. In questo esempio viene eseguita la traduzione dall'inglese allo spagnolo.
+
+Copiare questo codice nella funzione `altTranslations`.
+
+```go
+// Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0")
+q := u.Query()
+q.Add("from", "en")
+q.Add("to", "es")
+u.RawQuery = q.Encode()
+```
+
+>[!NOTE]
+> Per altre informazioni su endpoint, route e parametri della richiesta, vedere [API Traduzione testuale 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+
+## <a name="create-a-struct-for-your-request-body"></a>Creare uno struct per il corpo della richiesta
+
+Creare quindi una struttura anonima per il corpo della richiesta e codificarla in formato JSON con `json.Marshal()`. Aggiungere questo codice alla funzione `altTranslations`.
+
+```go
+// Create an anonymous struct for your request body and encode it to JSON
+body := []struct {
+    Text string
+}{
+    {Text: "Pineapples"},
+}
+b, _ := json.Marshal(body)
+```
+
+## <a name="build-the-request"></a>Compilare la richiesta
+
+Ora che il corpo della richiesta è stato codificato in formato JSON, è possibile creare la richiesta POST e chiamare l'API Traduzione testuale.
+
+```go
+// Build the HTTP POST request
+req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+if err != nil {
+    log.Fatal(err)
+}
+// Add required headers to the request
+req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Content-Type", "application/json")
+
+// Call the Translator Text API
+res, err := http.DefaultClient.Do(req)
+if err != nil {
+    log.Fatal(err)
+}
+```
+
+## <a name="handle-and-print-the-response"></a>Gestire e stampare la risposta
+
+Aggiungere questo codice alla funzione `altTranslations` per decodificare la risposta JSON e quindi formattare e stampare il risultato.
+
+```go
+// Decode the JSON response
+var result interface{}
+if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+    log.Fatal(err)
+}
+// Format and print the response to terminal
+prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+fmt.Printf("%s\n", prettyJSON)
+```
+
+## <a name="put-it-all-together"></a>Combinare tutti gli elementi
+
+La procedura è completata. È stato realizzato un semplice programma che chiamerà l'API Traduzione testuale e restituirà una risposta JSON. A questo punto, è possibile eseguire il programma:
+
+```console
+go run alt-translations.go
+```
+
+Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio completo è pubblicato su [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
+
+## <a name="sample-response"></a>Risposta di esempio
 
 ```json
 [
   {
-    "normalizedSource": "great",
-    "displaySource": "great",
+    "displaySource": "pineapples",
+    "normalizedSource": "pineapples",
     "translations": [
       {
-        "normalizedTarget": "grand",
-        "displayTarget": "grand",
-        "posTag": "ADJ",
-        "confidence": 0.2783,
-        "prefixWord": "",
         "backTranslations": [
           {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 34358
+            "displayText": "pineapples",
+            "frequencyCount": 158,
+            "normalizedText": "pineapples",
+            "numExamples": 5
           },
           {
-            "normalizedText": "big",
-            "displayText": "big",
-            "numExamples": 15,
-            "frequencyCount": 21770
+            "displayText": "cones",
+            "frequencyCount": 13,
+            "normalizedText": "cones",
+            "numExamples": 5
           },
-...
-        ]
+          {
+            "displayText": "piña",
+            "frequencyCount": 5,
+            "normalizedText": "piña",
+            "numExamples": 3
+          },
+          {
+            "displayText": "ganks",
+            "frequencyCount": 3,
+            "normalizedText": "ganks",
+            "numExamples": 2
+          }
+        ],
+        "confidence": 0.7016,
+        "displayTarget": "piñas",
+        "normalizedTarget": "piñas",
+        "posTag": "NOUN",
+        "prefixWord": ""
       },
       {
-        "normalizedTarget": "super",
-        "displayTarget": "super",
-        "posTag": "ADJ",
-        "confidence": 0.1514,
-        "prefixWord": "",
         "backTranslations": [
           {
-            "normalizedText": "super",
-            "displayText": "super",
-            "numExamples": 15,
-            "frequencyCount": 12023
-          },
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 10931
-          },
-...
-        ]
-      },
-...
-    ]
-  }
-]
-```
-
-## <a name="dictionary-examples-request"></a>Richiesta di esempi nel dizionario
-
-Il codice seguente ottiene esempi contestuali dell'uso di un termine presente nel dizionario tramite il metodo [Dictionary Examples](./reference/v3-0-dictionary-examples.md).
-
-1. Creare un nuovo progetto Go nell'editor di codice preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
-4. Salvare il file con estensione "go".
-5. Aprire un prompt dei comandi in un computer in cui è installato Go.
-6. Compilare il file, ad esempio: go build quickstart-examples.go
-7. Eseguire il file, ad esempio: quickstart-examples
-
-```golang
-package main
-
-import (
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strconv"
-    "strings"
-    "time"
-)
-
-func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    const uriBase = "https://api.cognitive.microsofttranslator.com"
-    const uriPath = "/dictionary/examples?api-version=3.0"
-
-    // From English to French
-    const params = "&from=en&to=fr"
-
-    const uri = uriBase + uriPath + params
-
-    const text = "great"
-    const translation = "formidable"
-
-    r := strings.NewReader("[{\"Text\" : \"" + text + "\", \"Translation\" : \"" + translation + "\"}]")
-
-    client := &http.Client{
-        Timeout: time.Second * 2,
-    }
-
-    req, err := http.NewRequest("POST", uri, r)
-    if err != nil {
-        fmt.Printf("Error creating request: %v\n", err)
-        return
-    }
-
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Content-Length", strconv.FormatInt(req.ContentLength, 10))
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-
-    resp, err := client.Do(req)
-    if err != nil {
-        fmt.Printf("Error on request: %v\n", err)
-        return
-    }
-    defer resp.Body.Close()
-
-    body, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        fmt.Printf("Error reading response body: %v\n", err)
-        return
-    }
-
-    var f interface{}
-    json.Unmarshal(body, &f)
-
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
-    if err != nil {
-        fmt.Printf("Error producing JSON: %v\n", err)
-        return
-    }
-    fmt.Println(string(jsonFormatted))
-}
-```
-
-## <a name="dictionary-examples-response"></a>Risposta alla richiesta di esempi nel dizionario
-
-Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
-
-```json
-[
-  {
-    "normalizedSource": "great",
-    "normalizedTarget": "formidable",
-    "examples": [
-      {
-        "sourcePrefix": "You have a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " expression there.",
-        "targetPrefix": "Vous avez une expression ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-      {
-        "sourcePrefix": "You played a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " game today.",
-        "targetPrefix": "Vous avez été ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-...
+            "displayText": "pineapples",
+            "frequencyCount": 16,
+            "normalizedText": "pineapples",
+            "numExamples": 2
+          }
+        ],
+        "confidence": 0.2984,
+        "displayTarget": "ananás",
+        "normalizedTarget": "ananás",
+        "posTag": "NOUN",
+        "prefixWord": ""
+      }
     ]
   }
 ]
@@ -286,3 +231,13 @@ Esaminare i pacchetti Go per le API Servizi cognitivi da [Azure SDK per Go](http
 
 > [!div class="nextstepaction"]
 > [Esaminare i pacchetti Go su GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+
+## <a name="see-also"></a>Vedere anche 
+
+Informazioni su come usare l'API Traduzione testuale per:
+
+* [Tradurre un testo](quickstart-go-translate.md)
+* [Traslitterare testo](quickstart-go-transliterate.md)
+* [Identificare la lingua da un input](quickstart-go-detect.md)
+* [Ottenere un elenco di lingue supportate](quickstart-go-languages.md)
+* [Determinare la lunghezza delle frasi da un input](quickstart-go-sentences.md)

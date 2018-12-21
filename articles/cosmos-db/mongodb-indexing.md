@@ -1,24 +1,22 @@
 ---
-title: Indicizzazione nell'API MongoDB di Azure Cosmos DB | Microsoft Docs
+title: Indicizzazione nell'API MongoDB di Azure Cosmos DB
 description: Presenta una panoramica delle funzionalità di indicizzazione nell'API MongoDB di Azure Cosmos DB.
 services: cosmos-db
 author: orestis-ms
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: bdb2ceb45950b99b1a5a351c6301599a791ef8cc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312698"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875298"
 ---
-# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indicizzazione in Azure Cosmos DB: API MongoDB
+# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indicizzazione in Azure Cosmos DB: API di MongoDB
 
 L'API MongoDB di Azure Cosmos DB sfrutta le funzionalità di gestione automatica degli indici di Azure Cosmos DB. Di conseguenza, gli utenti hanno accesso ai criteri di indicizzazione predefiniti di Azure Cosmos DB. Se l'utente non ha definito indici o non sono stati eliminati indici, tutti i campi verranno automaticamente indicizzati per impostazione predefinita quando vengono inseriti nella raccolta. Per la maggior parte degli scenari è consigliabile usare i criteri di indicizzazione predefiniti impostati per l'account.
 

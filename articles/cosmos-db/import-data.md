@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: e3968155c2619b5d6b09b68a59ff01607c45fa2b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 57c70716ac0e3156440d4a602704cb0ac2e30130
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843547"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091162"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Usare l'utilità di migrazione dati per la migrazione dei dati in Azure Cosmos DB
 
@@ -24,7 +24,7 @@ API da usare con Azure Cosmos DB
 
 * **[API SQL](documentdb-introduction.md)**: è possibile usare una delle opzioni di origine disponibili nell'utilità di migrazione dati per importare i dati.
 * **[API Tabelle](table-introduction.md)**: è possibile usare l'Utilità di migrazione dati o AzCopy per importare i dati. Per altre informazioni, vedere [Importare dati da usare con l'API Tabelle di Azure Cosmos DB](table-import.md).
-* **[API MongoDB](mongodb-introduction.md)**: l'utilità di migrazione dati attualmente non supporta l'API MongoDB di Azure Cosmos DB né come origine né come destinazione. Per eseguire la migrazione dei dati in o da raccolte di API MongoDB in Azure Cosmos DB, vedere [Azure Cosmos DB: Eseguire la migrazione dei dati per l'API MongoDB](mongodb-migrate.md) per istruzioni. È comunque possibile usare l'utilità di migrazione dati per esportare i dati da MongoDB alle raccolte di API SQL di Azure Cosmos DB per l'uso con l'API SQL.
+* **[API MongoDB](mongodb-introduction.md)**: l'utilità di migrazione dati attualmente non supporta l'API MongoDB di Azure Cosmos DB né come origine né come destinazione. Per eseguire la migrazione dei dati in o da raccolte di API MongoDB in Azure Cosmos DB, vedere [Azure Cosmos DB: come eseguire la migrazione dei dati per l'API MongoDB](mongodb-migrate.md) per istruzioni. È comunque possibile usare l'utilità di migrazione dati per esportare i dati da MongoDB alle raccolte di API SQL di Azure Cosmos DB per l'uso con l'API SQL.
 * **[API Gremlin](graph-introduction.md)**: l'utilità di migrazione dati non è uno strumento di importazione attualmente supportato per gli account dell'API Gremlin.
 
 Questa esercitazione illustra le attività seguenti:
@@ -42,7 +42,7 @@ Prima di seguire le istruzioni di questo articolo, assicurarsi di eseguire i pas
 
 * **Aumentare la velocità effettiva:** la durata della migrazione dei dati dipende dalla velocità effettiva configurata per una singola raccolta o un set di raccolte. Assicurarsi di aumentare la velocità effettiva per le migrazioni dei dati di dimensioni più grandi. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva nel portale di Azure, vedere [livelli di prestazioni](performance-levels.md) e [piani tariffari](https://azure.microsoft.com/pricing/details/cosmos-db/) in Azure Cosmos DB.
 
-* **Creare le risorse di Azure Cosmos DB:** prima di iniziare la migrazione dei dati, creare in anticipo tutte le raccolte dal portale di Azure. Per eseguire la migrazione a un account Azure Cosmos DB con velocità effettiva a livello di database, fornire una chiave di partizione quando si creano le raccolte di Azure Cosmos DB.
+* **Creare risorse di Azure Cosmos DB:** prima di iniziare la migrazione dei dati, creare tutte le raccolte dal portale di Azure. Per eseguire la migrazione a un account Azure Cosmos DB con velocità effettiva a livello di database, fornire una chiave di partizione quando si creano le raccolte di Azure Cosmos DB.
 
 ## <a id="Overviewl"></a>Panoramica
 
@@ -198,7 +198,7 @@ Come per l'origine SQL, la proprietà del separatore di annidamento può essere 
 
 Si notino gli alias come DomainInfo.Domain_Name e RedirectInfo.Redirecting. Specificando un separatore di annidamento '.', lo strumento di importazione creerà i documenti secondari DomainInfo e RedirectInfo durante l'importazione. Ecco un esempio di documento risultante in Azure Cosmos DB:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 Lo strumento di importazione prova a dedurre le informazioni sul tipo per i valori non racchiusi tra virgolette nei file CSV. I valori tra virgolette vengono sempre considerati come stringhe.  I tipi vengono identificati nell'ordine seguente: tipo numerico, datetime, booleano.  
 
@@ -304,7 +304,7 @@ L'opzione dell'utilità di importazione per un'origine Azure Cosmos DB offre le 
 
 1. Include Internal Fields (Includi campi interni): specifica se includere o meno le proprietà di sistema dei documenti di Azure Cosmos DB, ad esempio, _rid, _ts, nell'esportazione.
 2. Number of Retries on Failure (Numero di tentativi in caso di errore): specifica il numero di tentativi di connessione ad Azure Cosmos DB da effettuare in caso di errori temporanei, ad esempio un'interruzione della connettività di rete.
-3. Intervallo tentativi: specifica l'intervallo di attesa tra i tentativi di connessione ad Azure Cosmos DB in caso di errori temporanei, ad esempio un'interruzione della connettività di rete.
+3. Retry Interval (Intervallo tentativi): specifica l'intervallo di attesa tra i tentativi di connessione ad Azure Cosmos DB in caso di errori temporanei, ad esempio un'interruzione della connettività di rete.
 4. Connection Mode (Modalità connessione): specifica la modalità di connessione da usare con Azure Cosmos DB. Le scelte disponibili sono DirectTcp, DirectHttps e Gateway. Le modalità di connessione diretta sono più veloci, mentre la modalità gateway si integra più facilmente con il firewall perché usa solo la porta 443.
 
 ![Screenshot delle opzioni avanzate per origini Azure Cosmos DB](./media/import-data/documentdbsourceoptions.png)
@@ -395,12 +395,12 @@ Inoltre, quando si importano i tipi di data, ad esempio da SQL Server o MongoDB,
 
 L'utilità di importazione in blocco di Azure Cosmos DB offre le opzioni avanzate aggiuntive seguenti.
 
-1. Batch Size: per impostazione predefinita, le dimensioni batch dello strumento sono pari a 50.  Se i documenti da importare sono di grandi dimensioni, provare a ridurre le dimensioni batch. Se invece i documenti da importare sono di piccole dimensioni, provare ad aumentare le dimensioni batch.
-2. Max Script Size (bytes) (Dimensioni massime script - Byte): Per impostazione predefinita lo strumento usa dimensioni massime dello script pari a 512 KB.
-3. Disable Automatic Id Generation (Disabilita generazione ID automatica): se ogni documento da importare contiene un campo ID, selezionando questa opzione, le prestazioni possono migliorare. I documenti privi di un campo ID univoco non vengono importati.
+1. Batch Size (Dimensioni batch): per impostazione predefinita, le dimensioni batch dello strumento sono pari a 50.  Se i documenti da importare sono di grandi dimensioni, provare a ridurre le dimensioni batch. Se invece i documenti da importare sono di piccole dimensioni, provare ad aumentare le dimensioni batch.
+2. Max Script Size (bytes) (Dimensioni massime script - Byte): per impostazione predefinita lo strumento usa dimensioni massime dello script pari a 512 KB.
+3. Disable Automatic Id Generation (Disabilita generazione ID automatica): se ogni documento da importare contiene un campo ID, selezionando questa opzione le prestazioni possono migliorare. I documenti privi di un campo ID univoco non vengono importati.
 4. Update Existing Documents (Aggiorna documenti esistenti): per impostazione predefinita, lo strumento non sostituisce i documenti esistenti con conflitti tra ID. Questa opzione consente di sovrascrivere i documenti esistenti con ID corrispondenti. Questa funzionalità è utile per le migrazioni dei dati pianificate che aggiornano i documenti esistenti.
 5. Number of Retries on Failure (Numero di tentativi in caso di errore): specifica il numero di tentativi di connessione ad Azure Cosmos DB da effettuare in caso di errori temporanei, ad esempio un'interruzione della connettività di rete.
-6. Intervallo tentativi: specifica l'intervallo di attesa tra i tentativi di connessione ad Azure Cosmos DB in caso di errori temporanei, ad esempio un'interruzione della connettività di rete.
+6. Retry Interval (Intervallo tentativi): specifica l'intervallo di attesa tra i tentativi di connessione ad Azure Cosmos DB in caso di errori temporanei, ad esempio un'interruzione della connettività di rete.
 7. Connection Mode (Modalità connessione): specifica la modalità di connessione da usare con Azure Cosmos DB. Le scelte disponibili sono DirectTcp, DirectHttps e Gateway. Le modalità di connessione diretta sono più veloci, mentre la modalità gateway si integra più facilmente con il firewall perché usa solo la porta 443.
 
 ![Screenshot delle opzioni avanzate di importazione in blocco di Azure Cosmos DB](./media/import-data/docdbbulkoptions.png)
@@ -451,7 +451,7 @@ Durante l'importazione sono disponibili numerose opzioni avanzate. Quando si imp
 L'utilità di importazione di record sequenziali di Azure Cosmos DB offre le opzioni avanzate aggiuntive seguenti.
 
 1. Number of Parallel Requests (Numero di richieste parallele): per impostazione predefinita, lo strumento include due richieste parallele. Se i documenti da importare sono di piccole dimensioni, provare ad aumentare il numero di richieste parallele. Se questo numero è troppo elevato, durante l'importazione potrebbe venire applicata la limitazione della velocità.
-2. Disable Automatic Id Generation (Disabilita generazione ID automatica): se ogni documento da importare contiene un campo ID, selezionando questa opzione, le prestazioni possono migliorare. I documenti privi di un campo ID univoco non vengono importati.
+2. Disable Automatic Id Generation (Disabilita generazione ID automatica): se ogni documento da importare contiene un campo ID, selezionando questa opzione le prestazioni possono migliorare. I documenti privi di un campo ID univoco non vengono importati.
 3. Update Existing Documents (Aggiorna documenti esistenti): per impostazione predefinita, lo strumento non sostituisce i documenti esistenti con conflitti tra ID. Questa opzione consente di sovrascrivere i documenti esistenti con ID corrispondenti. Questa funzionalità è utile per le migrazioni dei dati pianificate che aggiornano i documenti esistenti.
 4. Number of Retries on Failure (Numero di tentativi in caso di errore): specifica il numero di tentativi di connessione ad Azure Cosmos DB da effettuare in caso di errori temporanei, ad esempio un'interruzione della connettività di rete.
 5. Retry Interval (Intervallo tentativi): specifica l'intervallo di attesa tra i tentativi di connessione ad Azure Cosmos DB in caso di errori temporanei, ad esempio un'interruzione della connettività di rete.

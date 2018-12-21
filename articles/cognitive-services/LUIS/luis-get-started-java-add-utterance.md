@@ -1,23 +1,24 @@
 ---
-title: Guida introduttiva per Java - modificare il modello ed eseguire il training di app LUIS
-titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva per Java si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
+title: Modificare l'app ed eseguirne il training - Java
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: In questa guida introduttiva per Java si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bfe4aae25a34799370e52c8677871a62935ab5c2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 206b345fedb033a6b98e350fec8c66a3496f5236
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419742"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080827"
 ---
-# <a name="quickstart-change-model-using-java"></a>Guida introduttiva: Modificare il modello con Java 
+# <a name="quickstart-change-model-using-java"></a>Avvio rapido: Modificare il modello tramite Java 
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -71,14 +72,14 @@ ms.locfileid: "50419742"
 
 Compilare AddUtterance con le dipendenze
 
-```CMD
+```console
 > javac -classpath gson-2.8.2.jar AddUtterances.java
 ```
 
 ## <a name="run-code"></a>Eseguire il codice
 Chiamando `AddUtterance` senza argomenti verranno aggiunte le espressioni di Language Understanding all'app senza eseguirne il training.
 
-```CMD
+```console
 > java -classpath .;gson-2.8.2.jar AddUtterances
 ```
 

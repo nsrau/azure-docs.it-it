@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Web PHP in Azure | Microsoft Docs
+title: Creare un'app Web PHP - Servizio app di Azure | Microsoft Docs
 description: Distribuire la prima app PHP Hello World in un'app Web del servizio app di Azure in pochi minuti.
 services: app-service\web
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/13/2017
+ms.date: 08/24/2018
 ms.author: cephalin;cfowler
-ms.custom: mvc
-ms.openlocfilehash: 1d2be80ad922e7a2ceb0b25f86cae6fbb9fa9c2c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 02c80f3b3883af4b32b5bc0fb837680dad1e0ecf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444035"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261552"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creare un'app Web PHP in Azure
 
@@ -41,11 +41,11 @@ Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hos
 Per completare questa guida introduttiva:
 
 * <a href="https://git-scm.com/" target="_blank">Installare Git</a>
-* <a href="http://php.net/manual/install.php" target="_blank">Installare PHP</a>
+* <a href="https://php.net/manual/install.php" target="_blank">Installare PHP</a>
 
 ## <a name="download-the-sample-locally"></a>Scaricare l'esempio in locale
 
-Eseguire i comandi seguenti in una finestra del terminale. L'applicazione di esempio verrà clonata nel computer locale e verrà visualizzata la directory contenente il codice di esempio.
+Eseguire i comandi seguenti in una finestra del terminale. L'applicazione di esempio verrà clonata nel computer locale e verrà visualizzata la directory contenente il codice di esempio. 
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -54,7 +54,7 @@ cd php-docs-hello-world
 
 ## <a name="run-the-app-locally"></a>Eseguire l'app in locale
 
-Per eseguire l'applicazione in locale, aprire una finestra del terminale e usare il comando `php` per avviare il server Web PHP predefinito.
+Eseguire l'applicazione in locale, in modo da verificare l'aspetto che assumerà dopo la distribuzione in Azure. Aprire una finestra del terminale e usare il comando `php` per avviare il server Web PHP predefinito.
 
 ```bash
 php -S localhost:8080

@@ -1,5 +1,5 @@
 ---
-title: Uso del registro contenitori di Azure con un cluster DC/OS
+title: (DEPRECATO) Uso di Registro Azure Container con un cluster DC/OS
 description: Usare Registro contenitori di Azure con un cluster DC/OS nel servizio contenitore di Azure
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 81b5bd18ea367b68adfc41ee97768b3b28967a42
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a27f6c017d9d648414637f900e0cf7c4be147bfe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986632"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996339"
 ---
-# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Usare Registro contenitori di Azure (ACR) con un cluster DC/OS per distribuire l'applicazione
+# <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(DEPRECATO) Usare Registro Azure Container con un cluster DC/OS per distribuire l'applicazione
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In questo articolo viene illustrato l'uso del Registro contenitori di Azure con un cluster del controller di dominio/sistema operativo. L'uso del record di controllo di accesso consente di archiviare privatamente e di gestire le immagini del contenitore. Questa esercitazione illustra le attività seguenti:
 

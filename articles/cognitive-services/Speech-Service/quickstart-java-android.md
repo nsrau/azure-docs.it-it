@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Riconoscimento vocale in Java su Android con l'SDK del servizio Voce"
+title: 'Avvio rapido: Riconoscere i contenuti vocali, Java (Android) - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in Java su Android con l'SDK del servizio Voce
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 0785383d8b5a8ab282d8097d5229fa5a8aade06f
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219427"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090109"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Java su Android con Speech SDK
+# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in Java su Android con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -42,7 +42,7 @@ Speech SDK è attualmente compatibile con i dispositivi Android con processori A
 
    ![Screenshot della procedura guidata Crea nuovo progetto](media/sdk/qs-java-android-02-create-android-project.png)
 
-1. Nella schermata **Target Android Devices** (Dispositivi Android di destinazione), selezionare solo **Telefoni e Tablet**. Nell'elenco a discesa sotto, scegliere **API 23: Android 6.0 (Marshmallow)** e selezionare **Avanti**.
+1. Nella schermata **Target Android Devices** (Dispositivi Android di destinazione), selezionare solo **Telefoni e Tablet**. Nell'elenco a discesa sottostante scegliere **API 23: Android 6.0 (Marshmallow)** e selezionare **Avanti**.
 
    ![Screenshot della procedura guidata Crea nuovo progetto](media/sdk/qs-java-android-03-target-android-devices.png)
 
@@ -63,7 +63,7 @@ La versione corrente di Speech SDK di Servizi cognitivi è `1.1.0`.
 Speech SDK per Android viene inserito in un pacchetto come una [AAR (libreria Android)](https://developer.android.com/studio/projects/android-library), che include le librerie necessarie, nonché le autorizzazioni Android richieste per usarlo.
 È ospitato in un repository Maven in https://csspeechstorage.blob.core.windows.net/maven/.
 
-Di seguito viene descritto come configurare il progetto per usare Speech SDK. Aprire la finestra Struttura del progetto, scegliendo **File** > **Struttura del progetto** dalla barra del menu Android Studio. Nella finestra Struttura del progetto, apportare le modifiche seguenti: 
+Di seguito viene descritto come configurare il progetto per usare Speech SDK. Aprire la finestra Struttura del progetto, scegliendo **File** > **Struttura del progetto** dalla barra del menu Android Studio. Nella finestra Struttura del progetto, apportare le modifiche seguenti:
 
 1. Nell'elenco sul lato sinistro della finestra, selezionare **Progetto**. Modificare le impostazioni del **Repository predefinito della libreria** aggiungendo una virgola e l'URL del repository Maven racchiuso tra virgolette singole. 'https://csspeechstorage.blob.core.windows.net/maven/'
 
@@ -118,7 +118,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
    * Il metodo `onCreate` include codice che richiede autorizzazioni Internet e microfono e che inizializza l'associazione di piattaforma nativa. Configurare le associazioni di piattaforma nativa è obbligatorio una sola volta. È consigliabile eseguirla all'inizio dell'inizializzazione dell'applicazione.
-   
+
    * Il metodo `onSpeechButtonClicked` è, come indicato in precedenza, il gestore di clic del pulsante. La pressione di un pulsante attiva la trascrizione del riconoscimento vocale.
 
 1. Nello stesso file, sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione.

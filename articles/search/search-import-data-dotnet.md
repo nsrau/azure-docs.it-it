@@ -1,6 +1,6 @@
 ---
-title: 'Caricare dati: .NET e Ricerca di Azure | Microsoft Docs'
-description: Informazioni su come caricare dati in un indice di Ricerca di Azure tramite .NET SDK.
+title: Caricare dati nel codice con .NET SDK - Ricerca di Azure
+description: Informazioni su come caricare i dati in un indice di ricerca full-text in Ricerca di Azure usando il codice di esempio di C# e .NET SDK.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/13/2017
-ms.openlocfilehash: dc59531b282f6c99dd399ac384a8c6264ee260ea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: ae723e07f92a05f128ca78a7c5974cd0ebc55ac6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258766"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313293"
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Caricare dati in Ricerca di Azure tramite .NET SDK
 > [!div class="op_single_selector"]
@@ -54,7 +55,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ## <a name="decide-which-indexing-action-to-use"></a>Decidere quale azione di indicizzazione usare
 Per importare i dati usando .NET SDK, è necessario inserirli in un pacchetto in un oggetto `IndexBatch` . Un oggetto `IndexBatch` incapsula una raccolta di oggetti `IndexAction`, ognuno dei quali contiene un documento e una proprietà che indica a Ricerca di Azure quale azione eseguire sul documento (caricamento, unione, eliminazione e così via). A seconda delle azioni scelte tra le seguenti, per ogni documento devono essere inclusi solo campi specifici:
 
-| Azione | DESCRIZIONE | Campi necessari per ogni documento | Note |
+| Azione | Descrizione | Campi necessari per ogni documento | Note |
 | --- | --- | --- | --- |
 | `Upload` |L'azione `Upload` è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se esiste già. |chiave, oltre a tutti gli altri campi da definire |Quando si aggiorna o si sostituisce un documento esistente, qualsiasi campo non specificato nella richiesta avrà il campo impostato su `null`. Ciò si verifica anche quando il campo è stato precedentemente impostato su un valore diverso da null. |
 | `Merge` |Aggiorna un documento esistente con i campi specificati. Se il documento non esiste nell'indice, l'unione non riuscirà. |chiave, oltre a tutti gli altri campi da definire |I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. Sono inclusi anche i campi di tipo `DataType.Collection(DataType.String)`. Ad esempio, se il documento contiene un campo `tags` con valore `["budget"]` e si esegue un'unione con valore `["economy", "pool"]` per `tags`, il valore finale del campo `tags` sarà `["economy", "pool"]` e non `["budget", "economy", "pool"]`. |
@@ -148,7 +149,7 @@ Console.WriteLine("Waiting for documents to be indexed...\n");
 Thread.Sleep(2000);
 ```
 
-Si noti la presenza di `try`/`Index` attorno alla chiamata al metodo `catch`. Il blocco catch gestisce un caso di errore importante per l'indicizzazione. Se il servizio Ricerca di Azure non riesce a indicizzare alcuni dei documenti nel batch, viene generato un `IndexBatchException` da `Documents.Index`. Questa situazione può verificarsi se l'indicizzazione dei documenti avviene mentre il servizio è sovraccarico. **Si consiglia di gestire in modo esplicito questo caso nel codice.** È possibile ritardare e quindi ritentare l'indicizzazione di documenti, accedere e continuare come nell'esempio,  oppure eseguire altre attività a seconda dei requisiti di coerenza di dati dell'applicazione.
+Si noti la presenza di `try`/`Index` attorno alla chiamata al metodo `catch`. Il blocco catch gestisce un caso di errore importante per l'indicizzazione. Se il servizio Ricerca di Azure non riesce a indicizzare alcuni dei documenti nel batch, viene generato un `IndexBatchException` da `Documents.Index`. Questa situazione può verificarsi se l'indicizzazione dei documenti avviene mentre il servizio è sovraccarico. **Si consiglia di gestire in modo esplicito questo caso nel codice.**  È possibile ritardare e quindi ritentare l'indicizzazione di documenti, accedere e continuare come nell'esempio,  oppure eseguire altre attività a seconda dei requisiti di coerenza di dati dell'applicazione.
 
 Infine, il codice nell'esempio precedente prevede un ritardo di due secondi. L'indicizzazione avviene in modo asincrono nel servizio Ricerca di Azure, pertanto l'applicazione di esempio deve attendere un breve periodo per garantire che i documenti siano disponibili per la ricerca. Ritardi come questi in genere sono necessari solo in applicazioni di esempio, test e demo.
 
@@ -204,7 +205,7 @@ public partial class Hotel
 }
 ```
 
-La prima cosa da notare è che ogni proprietà pubblica di `Hotel` corrisponde a un campo nella definizione dell'indice, ma con una differenza fondamentale: il nome di ogni campo inizia con una lettera minuscola ("convenzione camel"), mentre il nome di ogni proprietà pubblica di `Hotel` inizia con una lettera maiuscola ("convenzione Pascal"). Si tratta di uno scenario comune in applicazioni .NET che consentono di eseguire l'associazione dati in cui lo schema di destinazione è fuori dal controllo dello sviluppatore dell'applicazione. Anziché dover violare linee guida sulla denominazione di .NET seguendo la convenzione camel per i nomi delle proprietà, è possibile indicare a SDK di eseguire automaticamente il mapping dei nomi delle proprietà alla convenzione camel con l’attributo `[SerializePropertyNamesAsCamelCase]` .
+Il primo aspetto da notare è che ogni proprietà pubblica di `Hotel` corrisponde a un campo nella definizione dell'indice, ma con una differenza fondamentale: il nome di ogni campo inizia con una lettera minuscola ("convenzione camel"), mentre il nome di ogni proprietà pubblica di `Hotel` inizia con una lettera maiuscola ("convenzione Pascal"). Si tratta di uno scenario comune in applicazioni .NET che consentono di eseguire l'associazione dati in cui lo schema di destinazione è fuori dal controllo dello sviluppatore dell'applicazione. Anziché dover violare linee guida sulla denominazione di .NET seguendo la convenzione camel per i nomi delle proprietà, è possibile indicare a SDK di eseguire automaticamente il mapping dei nomi delle proprietà alla convenzione camel con l’attributo `[SerializePropertyNamesAsCamelCase]` .
 
 > [!NOTE]
 > Azure Search .NET SDK usa la libreria [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) per serializzare e deserializzare gli oggetti modello personalizzati in e da JSON. Se necessario, è possibile personalizzare questa serializzazione. Per altri dettagli, vedere [Serializzazione personalizzata con JSON.NET](search-howto-dotnet-sdk.md#JsonDotNet). Un esempio è rappresentato dall'uso dell'attributo `[JsonProperty]` sulla proprietà `DescriptionFr` nell'esempio di codice riportato sopra.

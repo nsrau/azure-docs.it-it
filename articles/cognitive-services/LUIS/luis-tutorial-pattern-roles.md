@@ -1,7 +1,8 @@
 ---
-title: 'Esercitazione 4: ruoli dei criteri per dati correlati in base al contesto'
+title: Ruoli dei criteri
 titleSuffix: Azure Cognitive Services
 description: Usare un criterio per estrarre dati da un'espressione modello formattata in modo corretto. L'espressione modello usa un'entità semplice e i ruoli per estrarre i dati correlati, ad esempio il percorso di origine e destinazione.
+ms.custom: seodec18
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427489"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094407"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Esercitazione 4: estrarre criteri correlati in base al contesto
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Esercitazione: 4: Estrarre criteri correlati in base al contesto
 
 Questa esercitazione illustra come usare un criterio per estrarre dati da un'espressione modello formattata in modo corretto. L'espressione modello usa un'entità semplice e i ruoli per estrarre i dati correlati, ad esempio il percorso di origine e destinazione.  Quando si usano i criteri, per la finalità sono necessarie meno espressioni di esempio.
 
@@ -28,7 +29,7 @@ Il nome del nuovo dipendente, Billy Patterson, non fa ancora parte dell'elenco d
 
 Il nuovo dipendente e la famiglia devono essere spostati dalla città corrente a una città in cui si trova la società fittizia. Poiché un nuovo dipendente può provenire da qualsiasi città,è necessario individuare i luoghi. Un elenco impostato, ad esempio un'entità elenco, non funzionerebbe perché verrebbero estratte solo le città presenti nell'elenco.
 
-I nomi dei ruoli associati alle città di origine e destinazione devono essere univoci per tutte le entità. Un modo semplice per verificare che i ruoli siano univoci è quello di collegarli all'entità che li contiene tramite una strategia di denominazione. L'entità **NewEmployeeRelocation** è un'entità semplice con due ruoli: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**. Relo è l'abbraviazione di "relocation" (trasferimento).
+I nomi dei ruoli associati alle città di origine e destinazione devono essere univoci per tutte le entità. Un modo semplice per verificare che i ruoli siano univoci è quello di collegarli all'entità che li contiene tramite una strategia di denominazione. L'entità **NewEmployeeRelocation** è una semplice entità con due ruoli: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**. Relo è l'abbraviazione di "relocation" (trasferimento).
 
 Poiché l'espressione di esempio `Move new employee Robert Williams from Sacramento and San Francisco` dispone solo di entità apprese in modo automatico, è importante indicare alla finalità espressioni di esempio sufficienti in modo che le entità vengano rilevate.  
 
@@ -128,7 +129,7 @@ L'assegnazione di etichette alle entità in questa procedura può risultare più
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `Move Wayne Berry from Miami to Mount Vernon`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
@@ -258,7 +259,7 @@ In modo analogo ai nomi di persone, i nomi di città sono complessi perché poss
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `Move wayne berry from miami to mount vernon`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {

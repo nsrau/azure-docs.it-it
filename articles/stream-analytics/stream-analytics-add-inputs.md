@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: b3b7b7374b02210f44fde408f28fd0378bf9bd12
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0475318ce983b98951fb9cd5d24a5bc4452b1f1e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310855"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970111"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Informazioni sugli input per Analisi di flusso di Azure
 
@@ -42,8 +42,6 @@ Analisi di flusso supporta anche l'input noto come *dati di riferimento*. I dati
 
 Per altre informazioni sugli input di dati di riferimento, vedere [Uso dei dati di riferimento per le ricerche in Analisi di flusso](stream-analytics-use-reference-data.md)
 
-Questo articolo è un passaggio nel [percorso di apprendimento di analisi di flusso](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/).
-
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Avvio rapido: creare un processo di Analisi di flusso di Azure tramite il portale di Azure](stream-analytics-quick-create-portal.md)
+> [Guida introduttiva: creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md)

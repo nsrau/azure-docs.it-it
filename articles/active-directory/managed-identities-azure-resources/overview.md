@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6b1eb36ae661d758f78f98de37f33c4b56741f89
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987261"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320779"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 
@@ -34,7 +34,15 @@ La funzionalità delle identità gestite per le risorse di Azure è gratuita con
 > [!NOTE]
 > Identità gestite per le risorse di Azure è il nuovo nome per il servizio precedentemente noto come identità del servizio gestita.
 
-## Funzionamento della funzionalità<a name="how-does-it-work"></a>
+## <a name="terminology"></a>Terminologia
+
+I termini seguenti vengono usati in tutta la documentazione relativa alle identità gestite per le risorse di Azure:
+
+- **ID client**: identificatore univoco generato da Azure AD che viene associato a un'entità servizio e a un'applicazione durante il provisioning iniziale.
+- **ID entità servizio**: ID dell'oggetto entità servizio per l'identità gestita che viene usato per concedere l'accesso basato sul ruolo a una risorsa di Azure.
+- **Servizio metadati dell'istanza di Azure**: endpoint REST accessibile a tutte le macchine virtuali IaaS create tramite Azure Resource Manager. L'endpoint è disponibile a un indirizzo IP non instradabile noto (169.254.169.254) a cui è possibile accedere solo dalla macchina virtuale.
+
+## Funzionamento delle identità gestite per le risorse di Azure<a name="how-does-it-work"></a>
 
 Sono disponibili due tipi di identità gestite:
 

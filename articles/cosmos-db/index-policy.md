@@ -1,27 +1,27 @@
 ---
-title: Criteri di indicizzazione di Azure Cosmos DB | Microsoft Docs
+title: Criteri di indicizzazione di Azure Cosmos DB
 description: Informazioni sull'indicizzazione in Azure Cosmos DB. Informazioni su come configurare e modificare i criteri di indicizzazione per l'indicizzazione automatica e per ottenere prestazioni migliori.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: ffb70ce8c26b7774e90801271c55cd8a80906c90
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2153f0a16df9e79b3f5324ce19880e2708855196
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628651"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848001"
 ---
 # <a name="indexing-policy-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
 È possibile eseguire l'override dei criteri di indicizzazione predefiniti in un contenitore di Azure Cosmos configurando i parametri seguenti:
 
-* **Includere o escludere elementi e percorsi dall'indice**: è possibile escludere o includere elementi specifici nell'indice quando si inseriscono o sostituiscono gli elementi all'interno di un contenitore. È anche possibile includere o escludere proprietà/percorsi specifici nell'indicizzazione tra contenitori. I percorsi possono includere caratteri jolly, ad esempio *.
+* **Includere o escludere elementi e percorsi dall’indicizzazione**: è possibile escludere o includere elementi specifici dall’indicizzazione quando si inseriscono o sostituiscono gli elementi all'interno di un contenitore. È anche possibile includere o escludere proprietà/percorsi specifici nell'indicizzazione tra contenitori. I percorsi possono includere caratteri jolly, ad esempio *.
 
-* **Configurare i tipi di indice**: oltre a ordinare percorsi indicizzati, è possibile aggiungere altri tipi di indici, ad esempio spaziali.
+* **Configurare i tipi di indicizzazione**: oltre a ordinare percorsi indicizzati, è possibile aggiungere altri tipi di indicizzazione, ad esempio spaziale.
 
-* **Configurare le modalità di indice**: tramite i criteri di indicizzazione in un contenitore, è possibile configurare diverse modalità di indicizzazione, ad esempio *Coerente* oppure *Nessuna*.
+* **Configurare le modalità di indicizzazione**: tramite i criteri di indicizzazione in un contenitore, è possibile configurare diverse modalità di indicizzazione, ad esempio *Coerente* oppure *Nessuna*.
 
 ## <a name="indexing-modes"></a>Modalità di indicizzazione 
 
@@ -31,7 +31,7 @@ Azure Cosmos DB supporta due modalità di indicizzazione che è possibile config
 
   L'indice viene aggiornato in modo sincrono man mano che si aggiornano gli elementi. Ad esempio, le operazioni di inserimento, sostituzione, aggiornamento ed eliminazione su un elemento comporteranno l'aggiornamento dell'indice. L'indicizzazione coerente supporta query coerenti con effetti sulla velocità effettiva di scrittura. La riduzione della velocità effettiva di scrittura dipende dai "percorsi inclusi nell'indicizzazione" e dal "livello di coerenza". La modalità di indicizzazione coerente è progettata per carichi di lavoro in cui si richiede la scrittura rapida e l'esecuzione immediata delle query.
 
-* **Nessuna indicizzazione**: un contenitore in modalità Nessuna indicizzazione non è associato ad alcun indice. Questa modalità viene usata in genere se il database di Azure Cosmos funge da archivio di coppie chiave/valore e l'accesso agli elementi avviene solo tramite il rispettivo ID proprietà.
+* **Nessuna**: un contenitore in modalità Nessuna non è associato ad alcun indicizzazione. Questa modalità viene usata in genere se il database di Azure Cosmos funge da archivio di coppie chiave/valore e l'accesso agli elementi avviene solo tramite il rispettivo ID proprietà.
 
   > [!NOTE]
   > La configurazione della modalità Nessuna indicizzazione ha l'effetto collaterale di eliminare eventuali indici esistenti. Usare questa opzione se i criteri di accesso richiedono solo un ID o un collegamento automatico.

@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/21/2018
-ms.openlocfilehash: de692b29902145e44a055680d662c16ed90c56c2
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.date: 08/23/2018
+ms.openlocfilehash: f17998957db6fca5b109b5a05aa624e238af8dca
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617176"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257540"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Creare e configurare i cluster di servizio Kubernetes di Azure con Ansible
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per gestire servizio Kubernetes di Azure (AKS). Questo articolo illustra come usare Ansible per creare e configurare un cluster di servizio Kubernetes di Azure.
@@ -22,19 +22,7 @@ Ansible consente di automatizzare la distribuzione e la configurazione delle ris
 - **Sottoscrizione di Azure** - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 - **Entità servizio di Azure**: quando si [crea l'entità servizio](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), prendere nota dei valori seguenti: **appId**, **displayName**, **password**  e **tenant**.
 
-- **Configurare Azure Cloud Shell** o **installare e configurare Ansible in una macchina virtuale Linux**
-
-  **Configurare Azure Cloud Shell**
-
-  1. **Configurare Azure Cloud Shell**: se non si ha familiarità con Azure Cloud Shell, l'articolo [Guida introduttiva a Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart) descrive come avviare e configurare Cloud Shell. 
-
-  **-- OPPURE --**
-
-  **Installare e configurare Ansible in una macchina virtuale Linux**
-
-  1. **Installare Ansible**: installare Ansible in una [piattaforma Linux supportata](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
-
-  1. **Configurare Ansible** - [Creare le credenziali di Azure e configurare Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
 > In questa esercitazione, per eseguire i playbook di esempio seguenti è necessario Ansible 2.6. 
@@ -91,7 +79,7 @@ Per creare il cluster AKS con Ansible, salvare il playbook di esempio precedente
 
 L'output del comando **ansible-playbook* ha un aspetto simile a quello mostrato di seguito, che mostra che il cluster AKS è stato creato correttamente:
 
-  ```bash
+  ```Output
   PLAY [Create AKS] ****************************************************************************************
 
   TASK [Gathering Facts] ********************************************************************************************
@@ -152,7 +140,7 @@ Per ridimensionare il cluster di servizio Kubernetes di Azure con Ansible, salva
 
 L'output riportato di seguito mostra che il cluster AKS è stato creato correttamente:
 
-  ```bash
+  ```Output
   PLAY [Scale AKS cluster] ***************************************************************
 
   TASK [Gathering Facts] ******************************************************************
@@ -190,7 +178,7 @@ Per eliminare il cluster di servizio Kubernetes di Azure con Ansible, salvare il
   ```
 
 L'output riportato di seguito mostra che il cluster AKS è stato eliminato correttamente:
-  ```bash
+  ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
 
 TASK [Gathering Facts] ********************************************************************
@@ -204,4 +192,4 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
   
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"] 
-> [Esercitazione: ridimensionare un'applicazione in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)
+> [Esercitazione: Ridimensionare un'applicazione nel servizio Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

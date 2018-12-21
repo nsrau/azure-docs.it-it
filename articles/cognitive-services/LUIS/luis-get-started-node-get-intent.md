@@ -1,23 +1,26 @@
 ---
-title: Guida introduttiva per Node.js - stima finalità - LUIS
-titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo. Con Node.js inviare l'intenzione dell'utente come testo all'endpoint di previsione HTTP dell'app pubblica. Nell'endpoint, LUIS applica il modello dell'app pubblica per analizzare il testo in linguaggio naturale allo scopo di identificare il significato, stabilire la finalità generale ed estrarre i dati pertinenti per il dominio dell'app.
+title: Ottenere la finalità - Node.js
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: In questa guida introduttiva si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo. Con Node.js inviare l'intenzione dell'utente come testo all'endpoint di previsione HTTP dell'app pubblica.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 37a94b217e2b9c0d417ad0bdd7678b13e333305d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92e10b1f4ec8be1dc67ff449df32ef76e365b5f2
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038919"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162665"
 ---
-# <a name="quickstart-get-intent-using-nodejs"></a>Guida introduttiva: ottenere la finalità usando Node.js
+# <a name="quickstart-get-intent-using-nodejs"></a>Avvio rapido: Ottenere la finalità tramite Node.js
+
+In questa guida introduttiva si passano le espressioni a un endpoint LUIS per ottenere la restituzione di finalità ed entità.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -31,7 +34,7 @@ ms.locfileid: "47038919"
 
 
 > [!NOTE] 
-> La soluzione Node.js completa è disponibile nel [**repository Github degli esempi LUIS**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
+> La soluzione Node.js completa è disponibile nel repository GitHub [**LUIS-Samples**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
 
 ## <a name="get-luis-key"></a>Ottenere la chiave di LUIS
 

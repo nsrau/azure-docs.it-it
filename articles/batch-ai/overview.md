@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: danlep
-ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37f1bf5dc20d097f7f5f560e3bf1fdd25dc38045
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052700"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408052"
 ---
 # <a name="what-is-azure-batch-ai"></a>Informazioni su Azure Batch per intelligenza artificiale
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Azure Batch per intelligenza artificiale è un servizio gestito che consente ai data scientist e ai ricercatori in ambito di intelligenza artificiale di eseguire il training e il test di modelli di Machine Learning e intelligenza artificiale su larga scala, senza dover gestire infrastrutture complesse. È sufficiente descrivere le risorse di calcolo, i requisiti del processo, i processi da eseguire, dove archiviare gli input e gli output del modello. Tutto il resto viene gestito da Batch per intelligenza artificiale.
 
@@ -49,7 +52,7 @@ Dopo aver eseguito il training di un modello, usare Batch per intelligenza artif
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Usare gli SDK di Batch per intelligenza artificiale, gli script della riga di comando o il portale di Azure per gestire le risorse di calcolo e pianificare i processi per il training e il test dell'intelligenza artificiale: 
+Usare gli SDK di Batch per intelligenza artificiale, gli script della riga di comando o il portale di Azure per gestire le risorse di calcolo e pianificare i processi per il training e il test dell'intelligenza artificiale: 
 
 * **Effettuare il provisioning e ridimensionare i cluster di VM** - Scegliere il numero di nodi (VM) e selezionare una VM con supporto per GPU o altre dimensioni di VM che soddisfino le esigenze di training. Aumentare o diminuire il numero di nodi in modo automatico o manuale, così da usare le risorse solo quando necessario. 
 

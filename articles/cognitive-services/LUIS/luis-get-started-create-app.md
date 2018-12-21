@@ -1,23 +1,24 @@
 ---
-title: 10 minuti per creare la prima app LUIS
-titleSuffix: Azure Cognitive Services
+title: "Avvio rapido: Creare un'app"
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Creare un'app LUIS che usa il dominio predefinito `HomeAutomation` per accendere e spegnere luci ed elettrodomestici. Questo dominio predefinito fornisce all'utente finalità, entità ed espressioni di esempio. Al termine, sarà disponibile un endpoint LUIS in esecuzione nel cloud.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 657f5b6879f7782cbd94588657dc0082eff1f9c5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71f3084be697dd84f3f262d2a79cd04a0ba76d8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423331"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086811"
 ---
-# <a name="quickstart-use-prebuilt-home-automation-app"></a>Guida introduttiva: Usare l'app Home Automation predefinita
+# <a name="quickstart-use-prebuilt-home-automation-app"></a>Avvio rapido: Usare l'app di domotica predefinita
 
 In questa guida introduttiva si crea un'app LUIS che usa il dominio predefinito `HomeAutomation` per accendere e spegnere luci ed elettrodomestici. Questo dominio predefinito fornisce all'utente finalità, entità ed espressioni di esempio. Al termine, sarà disponibile un endpoint LUIS in esecuzione nel cloud.
 
@@ -32,11 +33,11 @@ Per questo articolo è necessario un account LUIS gratuito, creato nel portale L
 
 2. Selezionare **Create new app** (Crea nuova app).
 
-    [![](media/luis-quickstart-new-app/app-list.png "Screenshot dell'elenco di app")](media/luis-quickstart-new-app/app-list.png)
+    [![Screenshot dell'elenco di app](media/luis-quickstart-new-app/app-list.png "Screenshot dell'elenco di app")](media/luis-quickstart-new-app/app-list.png)
 
 3. Nella finestra di dialogo assegnare all'applicazione il nome "Home Automation".
 
-    [![](media/luis-quickstart-new-app/create-new-app-dialog.png "Schermata della finestra di dialogo popup Create new app (Crea nuova app)")](media/luis-quickstart-new-app/create-new-app-dialog.png)
+    [![Screenshot della finestra di dialogo popup Crea nuova app](media/luis-quickstart-new-app/create-new-app-dialog.png "Screenshot della finestra di dialogo popup Crea nuova app")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
 4. Scegliere le impostazioni cultura dell'applicazione. Per questa app Home Automation scegliere English (Inglese). Al termine selezionare **Done** (Fine). Viene creata l'app Home Automation. 
 
@@ -47,11 +48,11 @@ Per questo articolo è necessario un account LUIS gratuito, creato nel portale L
 
 Selezionare **Prebuilt domains** (Domini predefiniti) nel riquadro di spostamento a sinistra e quindi cercare "Home". Selezionare **Add domain** (Aggiungi dominio).
 
-[![](media/luis-quickstart-new-app/home-automation.png "Screenshot del dominio Home Automation richiamato nel menu dei domini predefiniti")](media/luis-quickstart-new-app/home-automation.png)
+[![Screenshot del dominio di domotica chiamato nel menu Prebuilt domains (Domini predefiniti)](media/luis-quickstart-new-app/home-automation.png "Screenshot del dominio di domotica chiamato nel menu Prebuilt domains (Domini predefiniti)")](media/luis-quickstart-new-app/home-automation.png)
 
 Dopo che il dominio è stato aggiunto, nella casella del dominio predefinito viene visualizzato un pulsante **Remove domain** (Rimuovi dominio).
 
-[![](media/luis-quickstart-new-app/remove-domain.png "Screenshot del dominio Home Automation con il pulsante di rimozione")](media/luis-quickstart-new-app/remove-domain.png)
+[![Screenshot del dominio di domotica con il pulsante di rimozione](media/luis-quickstart-new-app/remove-domain.png "Screenshot del dominio di domotica con il pulsante di rimozione")](media/luis-quickstart-new-app/remove-domain.png)
 
 ## <a name="intents-and-entities"></a>Finalità ed entità
 
@@ -62,7 +63,7 @@ Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra per e
 
 Selezionare la finalità **HomeAutomation.TurnOff**. È possibile vedere che la finalità contiene un elenco di espressioni con etichette di entità.
 
-[![](media/luis-quickstart-new-app/home-automation-turnon.png "Screenshot della finalità HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
+[![Screenshot della finalità HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnon.png "Screenshot della finalità HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
 
@@ -79,7 +80,7 @@ Verificare che la finalità con il punteggio più elevato corrisponda a quella p
 
 In questo esempio, "Turn off the lights" viene correttamente identificata come la finalità con il punteggio più elevato per "HomeAutomation.TurnOff".
 
-[![](media/luis-quickstart-new-app/test.png "Screenshot del pannello Test con l'espressione evidenziata")](media/luis-quickstart-new-app/test.png)
+[![Screenshot del pannello Test con le espressioni evidenziate](media/luis-quickstart-new-app/test.png "Screenshot del pannello Test con le espressioni evidenziate")](media/luis-quickstart-new-app/test.png)
 
 
 Selezionare nuovamente **Test** per comprimere il riquadro di test. 
@@ -96,7 +97,7 @@ Selezionare nuovamente **Test** per comprimere il riquadro di test.
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `turn off the living room light`, quindi premere Invio. Il browser mostra la risposta JSON dell'endpoint HTTP.
 
-    [![](media/luis-quickstart-new-app/turn-off-living-room.png "Screenshot del browser con il risultato JSON che rileva la finalità TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    [![Screenshot del browser con il risultato JSON che rileva la finalità TurnOff](media/luis-quickstart-new-app/turn-off-living-room.png "Screenshot del browser con il risultato JSON che rileva la finalità TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
     
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -9,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 984a027a1fe2f9c894701058452490bdf12b66c4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633565"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338737"
 ---
 # <a name="example-how-to-detect-language-in-text-analytics"></a>Esempio: Come rilevare la lingua in Analisi del testo
 
@@ -52,7 +52,7 @@ Le dimensioni dei singoli documenti devono essere inferiori a 5000 caratteri e s
             },                
             {
                 "id": "5",
-                "text": "Этот документ находится на английском языке."
+                "text": "Этот документ на английском языке."
             }
         ]
     }
@@ -62,7 +62,7 @@ Le dimensioni dei singoli documenti devono essere inferiori a 5000 caratteri e s
 
 I dettagli sulla definizione della richiesta sono reperibili in [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Come chiamare l'API Analisi del testo). Per comodità si ridefiniscono i punti seguenti:
 
-+ Creare una richiesta **POST**. Esaminare la documentazione dell'API per questa richiesta: [API Rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [API Rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
 + Impostare l'endpoint HTTP per il rilevamento della lingua usando una risorsa di Analisi del testo in Azure oppure un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) di cui è stata creata un'istanza. È necessario includere la risorsa `/languages`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
@@ -202,7 +202,7 @@ L'output risultante è costituito dalla lingua prevalente, con un punteggio infe
 }
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il rilevamento della lingua tramite Analisi del testo in Servizi cognitivi. Di seguito è riportata una rapida sintesi dei punti principali illustrati in precedenza:
 
@@ -211,7 +211,7 @@ In questo articolo si sono appresi i concetti e il flusso di lavoro per il rilev
 + La richiesta POST viene indirizzata a un endpoint `/languages` usando una [chiave di accesso personalizzata e un endpoint](text-analytics-how-to-access-key.md) valido per la sottoscrizione.
 + L'output di risposta, costituito da identificatori di lingua per ogni ID documento, può essere trasmesso a qualsiasi app che accetta JSON, tra cui Excel e Power BI, per citarne alcune.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche  
 
  [Panoramica di Analisi del testo](../overview.md)  
  [Domande frequenti (FAQ)](../text-analytics-resource-faq.md)</br>

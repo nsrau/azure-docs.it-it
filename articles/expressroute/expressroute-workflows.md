@@ -1,23 +1,24 @@
 ---
-title: Flussi di lavoro per la configurazione di un circuito Azure ExpressRoute | Microsoft Docs
+title: 'Flusso di lavoro di configurazione del circuito - ExpressRoute: Azure | Microsoft Docs'
 description: Questa pagina illustra i flussi di lavoro per la configurazione di un circuito ExpressRoute e dei peering
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.custom: seodec18
+ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301039"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101688"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
 Questa pagina illustra i flussi di lavoro di provisioning del servizio e configurazione del routing a livello generale.
 
-![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
+![flusso di lavoro del circuito](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 La figura e i passaggi corrispondenti riportati di seguito descrivono le attività per il provisioning end-to-end di un circuito ExpressRoute. 
 
@@ -35,7 +36,7 @@ La figura e i passaggi corrispondenti riportati di seguito descrivono le attivit
      > 
      > 
      
-     ![](./media/expressroute-workflows/routing-workflow.png)
+     ![routing del flusso di lavoro](./media/expressroute-workflows/routing-workflow.png)
 5. Collegamento di reti virtuali a circuiti ExpressRoute: è possibile collegare reti virtuali al circuito ExpressRoute. Seguire le istruzioni [per collegare reti virtuali](expressroute-howto-linkvnet-arm.md) a un circuito. Queste reti virtuali possono trovarsi nella stessa sottoscrizione di Azure del circuito ExpressRoute oppure in una sottoscrizione diversa.
 
 ## <a name="expressroute-circuit-provisioning-states"></a>Stati di provisioning del circuito ExpressRoute

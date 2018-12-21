@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 4fc1c0b87aa5312be0ccac50681e952dc7f1c4ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f0173940656581c8bf6b66b0d2a4744e1c751f82
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251730"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968289"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
-Informazioni su come creare una funzione attivata quando i dati vengono aggiunti o modificati in Azure Cosmos DB. Per altre informazioni su Azure Cosmos DB, vedere [Azure Cosmos DB: elaborazione di database senza server con Funzioni di Azure](..\cosmos-db\serverless-computing-database.md).
+Informazioni su come creare una funzione attivata quando i dati vengono aggiunti o modificati in Azure Cosmos DB. Per altre informazioni su Azure Cosmos DB, vedere [Azure Cosmos DB: elaborazione di database senza server con Funzioni di Azure](../cosmos-db/serverless-computing-database.md).
 
 ![Visualizzare il messaggio nei log.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
@@ -102,7 +102,7 @@ Successivamente, connettersi al proprio account di Azure Cosmos DB e creare la r
 
     ![Definire taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
 
-    | Impostazione|Valore consigliato|DESCRIZIONE |
+    | Impostazione|Valore consigliato|Descrizione |
     | ---|---|--- |
     | **ID database** | Attività |Nome del nuovo database. Deve corrispondere al nome definito nell'associazione della funzione. |
     | **ID raccolta** | Items | Nome della nuova raccolta. Deve corrispondere al nome definito nell'associazione della funzione.  |

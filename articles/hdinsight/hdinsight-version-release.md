@@ -7,22 +7,22 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: overview
 ms.date: 10/04/2018
-ms.openlocfilehash: ade162d0261b765336cbff9ea8a6429f9bd2d871
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 34582e66dec3b2f97efba7856ccfbf678f8f1f63
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801828"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408086"
 ---
 # <a name="hdinsight-40-overview-preview"></a>Panoramica di HDInsight 4.0 (anteprima)
 
-Azure HDInsight è uno dei servizi più diffusi fra i clienti enterprise per analisi Hadoop e Spark open source in Azure. HDInsight 4.0 è una distribuzione cloud dei componenti Hadoop di [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). Questo articolo include informazioni sulla versione più recente di Azure HDInsight e su come eseguire l'aggiornamento.
+Azure HDInsight è uno dei servizi più diffusi fra i clienti enterprise per analisi Apache Hadoop e Apache Spark open source in Azure. HDInsight 4.0 è una distribuzione cloud dei componenti Apache Hadoop di [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). Questo articolo include informazioni sulla versione più recente di Azure HDInsight e su come eseguire l'aggiornamento.
 
 ## <a name="whats-new-in-hdi-40"></a>Novità di HDInsight 4.0
 
-### <a name="hive-30-and-llap"></a>Hive 3.0 e LLAP
+### <a name="apache-hive-30-and-llap"></a>Apache Hive 3.0 e LLAP
 
-LLAP (Low-Latency Analytical Processing) di Hive usa server di query persistenti e memorizzazione nella cache in memoria per distribuire rapidamente risultati di query SQL sui dati in risorse di archiviazione cloud remote. LLAP di Hive sfrutta un set di daemon persistenti che eseguono frammenti di query Hive. L'esecuzione di query in LLAP è simile ad Hive senza LLAP, con attività di lavoro in esecuzione all'interno di daemon LLAP anziché di contenitori.
+LLAP (Low-Latency Analytical Processing) di Apache Hive usa server di query persistenti e memorizzazione nella cache in memoria per distribuire rapidamente risultati di query SQL sui dati in risorse di archiviazione cloud remote. LLAP di Hive sfrutta un set di daemon persistenti che eseguono frammenti di query Hive. L'esecuzione di query in LLAP è simile ad Hive senza LLAP, con attività di lavoro in esecuzione all'interno di daemon LLAP anziché di contenitori.
 
 Tra i vantaggi di LLAP di Hive sono inclusi i seguenti:
 
@@ -72,7 +72,7 @@ Non è più necessario preoccuparsi di accedere accidentalmente a tabelle transa
 Per altre informazioni, vedere [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
 
-### <a name="oozie"></a>Oozie
+### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie 4.3.1 è incluso in HDInsight 4.0 con le modifiche seguenti:
 
@@ -90,7 +90,7 @@ Non è disponibile alcun percorso di aggiornamento supportato dalle versioni di 
 
 ## <a name="limitations"></a>Limitazioni
 
-* HDInsight 4.0 non supporta MapReduce. Usare invece Tez. Per altre informazioni, vedere [Apache Tez](https://tez.apache.org/).
+* HDInsight 4.0 non supporta MapReduce. Usare invece Apache Tez. Per altre informazioni, vedere [Apache Tez](https://tez.apache.org/).
 
 * La vista Hive non è più disponibile in HDInsight 4.0. 
 

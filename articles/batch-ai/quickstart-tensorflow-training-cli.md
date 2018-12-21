@@ -1,6 +1,6 @@
 ---
-title: Avvio rapido di Azure - Training di apprendimento avanzato - Interfaccia della riga di comando di Azure | Microsoft Docs
-description: Avvio rapido - Imparare rapidamente a eseguire il training di una rete neurale di apprendimento avanzato TensorFlow su una singola GPU con Batch per intelligenza artificiale usando l'interfaccia della riga di comando di Azure
+title: Guida introduttiva di Azure - Training di apprendimento avanzato - Interfaccia della riga di comando di Azure | Microsoft Docs
+description: Guida introduttiva - Imparare rapidamente a eseguire il training di una rete neurale di apprendimento avanzato TensorFlow su una singola GPU con Batch per intelligenza artificiale usando l'interfaccia della riga di comando di Azure
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -15,16 +15,19 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 99d864a5d519ce56a559bea4db7fe89a113e47b9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ROBOTS: NOINDEX
+ms.openlocfilehash: 979253021f5503295e0572759b510e074ceb1a6b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157923"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408069"
 ---
-# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>Avvio rapido: Eseguire il training di un modello di apprendimento avanzato con Batch per intelligenza artificiale
+# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>Guida introduttiva: Eseguire il training di un modello di apprendimento avanzato con Batch per intelligenza artificiale
 
-Questo avvio rapido illustra come eseguire il training di un modello di apprendimento avanzato di esempio su una macchina virtuale abilitata per GPU, gestita da Batch per intelligenza artificiale. Batch per intelligenza artificiale è un servizio gestito che consente ai data scientist e ai ricercatori in ambito di intelligenza artificiale di eseguire il training di modelli di intelligenza artificiale e di apprendimento automatico su larga scala in cluster di macchine virtuali di Azure. 
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
+
+Questa guida introduttiva illustra come eseguire il training di un modello di apprendimento avanzato di esempio su una macchina virtuale abilitata per GPU, gestita da Batch per intelligenza artificiale. Batch per intelligenza artificiale è un servizio gestito che consente ai data scientist e ai ricercatori in ambito di intelligenza artificiale di eseguire il training di modelli di intelligenza artificiale e di apprendimento automatico su larga scala in cluster di macchine virtuali di Azure. 
 
 In questo esempio si usa l'interfaccia della riga di comando di Azure per configurare Batch per intelligenza artificiale per il training di una rete neurale [TensorFlow](https://www.tensorflow.org/) di esempio sul [database MNIST](http://yann.lecun.com/exdb/mnist/) di cifre scritte a mano. Dopo il completamento dell'avvio rapido saranno chiari i concetti fondamentali relativi all'utilizzo di Batch per intelligenza artificiale per eseguire il training di un modello di intelligenza artificiale o di apprendimento automatico e sarà possibile provare a eseguire il training di modelli diversi su larga scala.
 

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 77387b52003923dffce7519df9cca47fad8f6e6c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 64464772b82a64324a706d1e09e7d2a75b7eb66a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007434"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834316"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Architettura per la replica di server VMware o fisici in un sito locale secondario
 
@@ -37,7 +37,7 @@ Questo articolo descrive l'architettura e i processi usati per la replica, il fa
 2. Dopo la replica iniziale, l'agente installato in ogni computer invia le modifiche della replica differenziale al server di elaborazione.
 3. Il server di elaborazione ottimizza i dati e li trasferisce nel server di destinazione master nel sito secondario. Il server di configurazione gestisce il processo di replica.
 
-**Figura 6: Replica da VMware a VMware**
+**Figura 6: replica da VMware a VMware**
 
 ![Da VMware a VMware](./media/site-recovery-components/vmware-to-vmware.png)
 

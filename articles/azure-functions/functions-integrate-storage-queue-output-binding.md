@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854525"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995527"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
 
@@ -31,7 +31,7 @@ Per completare questa guida introduttiva:
 
 * Seguire le indicazioni in [Creare la prima funzione nel portale di Azure](functions-create-first-azure-function.md) e non eseguire il passaggio **Pulire le risorse**. La guida introduttiva crea l'app per le funzioni e la funzione da usare.
 
-* Installare [Microsoft Azure Storage Explorer](http://storageexplorer.com/). Si tratta di uno strumento che consente di esaminare i messaggi della coda creati dall'associazione di output.
+* Installare [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Si tratta di uno strumento che consente di esaminare i messaggi della coda creati dall'associazione di output.
 
 ## <a name="add-binding"></a>Aggiungere un binding di output
 
@@ -122,7 +122,7 @@ Quando il binding di output viene usato per la prima volta, nell'account di arch
 
 Se Storage Explorer è già stato installato e connesso all'account di archiviazione in uso in questa guida introduttiva, ignorare questa sezione.
 
-2. Eseguire lo strumento [Microsoft Azure Storage Explorer](http://storageexplorer.com/), selezionare l'icona di connessione a sinistra, scegliere **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione) e selezionare **Avanti**.
+2. Eseguire lo strumento [Microsoft Azure Storage Explorer](https://storageexplorer.com/), selezionare l'icona di connessione a sinistra, scegliere **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione) e selezionare **Avanti**.
 
     ![Eseguire lo strumento di esplorazione dell'account di archiviazione.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Come installare Azure IoT Edge in Linux | Microsoft Docs
-description: Istruzioni per l'installazione di Azure IoT Edge in Linux
+title: Installare Azure IoT Edge in Linux | Microsoft Docs
+description: Istruzioni per l'installazione di Azure IoT Edge in dispositivi AMD64 Linux con Ubuntu
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
@@ -9,12 +9,13 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 08946076add9ab1c0972729fa89cf8aea0968c99
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: beda9fa096dd8308822a5cd5a816b569712b8c05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568507"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086088"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installare il runtime di Azure IoT Edge in Linux (x64)
 
@@ -106,7 +107,7 @@ Il daemon può essere configurato usando il file di configurazione in `/etc/iote
 
 È possibile effettuare il provisioning di un singolo dispositivo IoT Edge manualmente usando una stringa di connessione dispositivo fornita dall'hub IoT. In alternativa, è possibile usare il servizio di provisioning di dispositivi per effettuare il provisioning di dispositivi automaticamente. Ciò è utile quando si dispone di molti dispositivi di cui effettuare il provisioning. A seconda del provisioning, scegliere lo script di installazione appropriato. 
 
-### <a name="option-1-manual-provisioning"></a>Opzione 1: Provisioning manuale
+### <a name="option-1-manual-provisioning"></a>Opzione 1: provisioning manuale
 
 Per eseguire manualmente il provisioning di un dispositivo, è necessario fornire una [stringa di connessione del dispositivo](how-to-register-device-portal.md) che è possibile creare tramite la registrazione di un nuovo dispositivo nell'hub IoT.
 
@@ -141,7 +142,7 @@ Dopo aver immesso le informazioni di provisioning nel file di configurazione, ri
 sudo systemctl restart iotedge
 ```
 
-### <a name="option-2-automatic-provisioning"></a>Opzione 2: Provisioning automatico
+### <a name="option-2-automatic-provisioning"></a>Opzione 2: provisioning automatico
 
 Per eseguire il provisioning automatico di un dispositivo, [configurare il servizio Device Provisioning e recuperare l'ID di registrazione del dispositivo](how-to-auto-provision-simulated-device-linux.md). Il provisioning automatico funziona solo con i dispositivi che dispongono di un chip Trusted Platform Module (TPM). Ad esempio, i dispositivi Raspberry Pi non sono dotati di TPM per impostazione predefinita. 
 

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 48ac46a9087e8027d0282533afccc4d9b28481ba
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a82e7d795d9e40ebef8cf0937dd2b91f5bacd42e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582469"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138875"
 ---
-# <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Guida introduttiva: Creare e gestire una condivisione file di Azure con Azure PowerShell 
+# <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Avvio rapido: Creare e gestire una condivisione file di Azure con Azure PowerShell 
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con PowerShell. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -227,16 +227,18 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 È anche possibile rimuovere le risorse singolarmente:
 
 - Per rimuovere le condivisioni file di Azure create per questa guida introduttiva.
-```azurepowershell-interactive
-Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.IsSnapshot -eq $false } | ForEach-Object { 
-    Remove-AzureStorageShare -Context $storageAcct.Context -Name $_.Name
-}
-```
+
+    ```azurepowershell-interactive
+    Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.IsSnapshot -eq $false } | ForEach-Object { 
+        Remove-AzureStorageShare -Context $storageAcct.Context -Name $_.Name
+    }
+    ```
 
 - Per rimuovere l'account di archiviazione stesso. In questo modo verranno implicitamente rimosse le condivisioni file di Azure create, oltre a eventuali altre risorse di archiviazione create, ad esempio un contenitore di archiviazione BLOB di Azure.
-```azurepowershell-interactive
-Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -Name $storageAcct.StorageAccountName
-```
+
+    ```azurepowershell-interactive
+    Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -Name $storageAcct.StorageAccountName
+    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

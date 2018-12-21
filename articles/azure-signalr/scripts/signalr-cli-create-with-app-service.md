@@ -1,26 +1,19 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un servizio SignalR con un servizio app | Microsoft Docs
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un servizio SignalR con un servizio app
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un servizio SignalR con un servizio app
-services: signalr
-documentationcenter: signalr
 author: sffamily
-manager: cfowler
-editor: ''
-tags: azure-service-management
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: signalr
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 70b81eada9c71594b3c5223b825f0a6db8ed7ef1
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 007bf58c06d28f4445b3e57c5d692e3ee19b5b8c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664195"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257744"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Creare un servizio SignalR con un servizio app
 
@@ -30,7 +23,7 @@ Questo script di esempio crea una nuova risorsa servizio Azure SignalR che viene
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 

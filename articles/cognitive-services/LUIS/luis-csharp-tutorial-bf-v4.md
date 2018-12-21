@@ -1,23 +1,24 @@
 ---
-title: Bot LUIS con C# - Esercitazione - Bot per app Web - Bot Framework SDK 4.0
-titleSuffix: Azure Cognitive Services
+title: Bot - C# - v4
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Usando C#, creare un chat bot integrato con Language Understanding (LUIS). Questo bot chat utilizza l'app Risorse umane per implementare rapidamente una soluzione di bot. Il bot viene compilato con la versione Bot Framework 4 e il bot per app Web di Azure.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: 3ccec4fbd0fd69539e29e2f15f71115444bf0a48
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389293"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138932"
 ---
-# <a name="tutorial-luis-bot-in-c"></a>Esercitazione: Bot LUIS in C#
+# <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Esercitazione: Bot LUIS in C# con Bot Framework 4.x e il bot app Web di Azure
 Usando C#, è possibile creare un chat bot integrato con Language Understanding (LUIS). Questo bot Usa l'app HomeAutomation per implementare una soluzione di bot. Il bot viene compilato con il [bot per app Web](https://docs.microsoft.com/azure/bot-service/) di Azure e la [versione Bot Framework](https://github.com/Microsoft/botbuilder-js) 4.
 
 **In questa esercitazione si apprenderà come:**

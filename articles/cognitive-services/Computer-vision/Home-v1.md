@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 09a7f02df1102e42bc45b4615a2af4235372bcdc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982104"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957028"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Informazioni sull'API Visione artificiale versione 1.0?
 
@@ -38,13 +38,13 @@ L'API Visione artificiale basata sul cloud consente agli sviluppatori di acceder
 * [Tagliare le foto da usare come anteprime.](#Thumbnails)
 
 ## <a name="requirements"></a>Requisiti
-* Metodi di input supportati: file binario dell'immagine RAW di tipo application/octet-stream o URL dell'immagine.
+* Metodi di input supportati: file binario di immagine non elaborato di tipo application/octet-stream o URL di immagine.
 * Formati di immagine supportati: JPEG, PNG, GIF, BMP.
-* Dimensioni file di immagine: inferiori a 4 MB.
+* Dimensioni file di immagine: minori di 4 MB.
 * Dimensioni immagine: maggiori di 50 x 50 pixel.
 
 ## <a name="tagging-images"></a>Assegnazione di tag alle immagini
-L'API Visione artificiale restituisce tag basati su più di 2000 oggetti riconoscibili, esseri viventi, panorami e azioni. Quando i tag sono ambigui o di conoscenza non comune, la risposta dell'API indica suggerimenti per chiarire il significato del tag nel contesto di un'impostazione nota. I tag non sono organizzati in una tassonomia e non esiste alcuna gerarchia di ereditarietà. Una raccolta di tag di contenuto costituisce la base per la descrizione di un'immagine visualizzata come linguaggio leggibile dall'utente e formattata in frasi complete. Si noti che a questo punto l'inglese è l'unica lingua supportata per la descrizione dell'immagine.
+L'API Visione artificiale restituisce tag basati su migliaia di oggetti riconoscibili, esseri viventi, panorami e azioni. Quando i tag sono ambigui o di conoscenza non comune, la risposta dell'API indica suggerimenti per chiarire il significato del tag nel contesto di un'impostazione nota. I tag non sono organizzati in una tassonomia e non esiste alcuna gerarchia di ereditarietà. Una raccolta di tag di contenuto costituisce la base per la descrizione di un'immagine visualizzata come linguaggio leggibile dall'utente e formattata in frasi complete. Si noti che a questo punto l'inglese è l'unica lingua supportata per la descrizione dell'immagine.
 
 Dopo il caricamento di un'immagine o la specifica di un URL dell'immagine, gli algoritmi dell'API Visione artificiale assegnano i tag in base a oggetti, essere umani e azioni identificati nell'immagine. L'assegnazione di tag non è limitata al soggetto principale, ad esempio una persona in primo piano, ma include anche scenari (interni o esterni), arredamenti, strumenti, piante, animali, accessori, gadget e così via.
 
@@ -231,7 +231,7 @@ Le diverse categorie visive includono anche il gruppo di contenuto spinti e per 
 ## <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
 La tecnologia OCR rileva contenuto di testo in un'immagine ed estrae il testo identificato in un flusso di caratteri leggibile dal computer. È possibile usare il risultato per eseguire ricerche e per numerosi altri scopi, ad esempio compilazione di cartelle cliniche, sicurezza e servizi bancari. La lingua viene rilevata automaticamente. La tecnologia OCR consente di risparmiare tempo ed è molto pratica perché permette agli utenti di scattare foto del testo invece di trascriverlo.
 
-OCR supporta 25 lingue, ovvero arabo, cinese semplificato, cinese tradizionale, ceco, danese, olandese, inglese, finlandese, francese, tedesco, greco, ungherese, italiano, giapponese, coreano, norvegese, polacco, portoghese, romeno, russo, serbo (cirillico e latino), slovacco, spagnolo, svedese e turco.
+OCR supporta 25 lingue, Le lingue supportate sono: arabo, cinese semplificato, cinese tradizionale, ceco, coreano, danese, finlandese, francese, giapponese, greco, inglese, italiano, norvegese, olandese, polacco, portoghese, rumeno, russo, serbo (cirillico e latino), slovacco, spagnolo, svedese, tedesco, turco e ungherese.
 
 Se necessario, la funzione OCR corregge la rotazione del testo riconosciuto, espresso in gradi, intorno all'asse orizzontale dell'immagine. La funzione OCR indica le coordinate del riquadro per ogni parola, come illustrato nell'immagine seguente.
 
@@ -250,7 +250,7 @@ La precisione del riconoscimento del testo dipende dalla qualità dell'immagine.
 - Lettere maiuscole mancanti o di dimensioni eccessive all'inizio delle parole
 - Testo barrato, pedici o apici.
 
-Limitazioni: sulle foto in cui il testo è predominante, posso essere restituito risultati falsi positivi da parole parzialmente riconosciute. In alcune foto, in particolare quelle in cui non è presente alcun testo, la precisione può variare notevolmente a seconda del tipo di immagine.
+ Limitazioni: Nelle fotografie dove il testo è predominante, si possono ottenere risultati falsi positivi da parole riconosciute parzialmente. In alcune foto, in particolare quelle in cui non è presente alcun testo, la precisione può variare notevolmente a seconda del tipo di immagine.
 
 ## <a name="recognize-handwritten-text"></a>Riconoscere testo scritto a mano
 Questa tecnologia consente di rilevare ed estrarre testo scritto a mano da note, lettere, saggi, lavagne, moduli e così via. La tecnologia funziona per superfici e sfondi diversi, ad esempio carta bianca, memo gialli e lavagne.
@@ -267,11 +267,11 @@ Nota: questa tecnologia è attualmente disponibile in anteprima e solo per testo
 ## <a name="generating-thumbnails"></a>Generazione di anteprime
 Un'anteprima è una rappresentazione di piccole dimensioni di un'immagine con le dimensioni originali. Diversi dispositivi, ad esempio telefoni, tablet e PC, comportano la necessità di layout e di dimensioni delle anteprime diversi per l'esperienza utente. Grazie a una funzione di ritaglio intelligente, l'API Visione artificiale consente di risolvere il problema.
 
-Dopo il caricamento di un'immagine, viene generata un'anteprima di alta qualità e l'algoritmo dell'API Visione artificiale consente di analizzare gli oggetti all'interno dell'immagine e in seguito ritaglia l'immagine per soddisfare i requisiti dell'area di interesse. L'output viene visualizzato all'interno di un framework speciale come illustrato nella figura seguente. L'anteprima generata può essere visualizzata con proporzioni diverse da quelle dell'immagine originale per rispondere alle esigenze dell'utente.
+Dopo il caricamento di un'immagine, viene generata un'anteprima di alta qualità e l'algoritmo dell'API Visione artificiale consente di analizzare gli oggetti all'interno dell'immagine. L'immagine viene quindi ritagliata per soddisfare i requisiti dell'area di interesse. L'output viene visualizzato all'interno di un framework speciale come illustrato nella figura seguente. L'anteprima generata può essere visualizzata con proporzioni diverse da quelle dell'immagine originale per rispondere alle esigenze dell'utente.
 
 L'algoritmo per la generazione delle anteprime algoritmo funziona nel modo seguente:
 
-1. Rimuove gli elementi indesiderati dall'immagine e riconosce l'oggetto principale, ovvero l'area di interesse.
+1. Rimuove gli elementi di disturbo dall'immagine e riconosce l'oggetto principale, ovvero l'area di interesse.
 2. Ritaglia l'immagine in base all'area di interesse identificata.
 3. Modifica le proporzioni per adattare le dimensioni all'anteprima di destinazione.
 

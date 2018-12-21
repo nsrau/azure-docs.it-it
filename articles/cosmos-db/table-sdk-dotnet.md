@@ -1,23 +1,22 @@
 ---
-title: .NET SDK e risorse dell'API di tabella di Azure CosmosDB | Microsoft Docs
+title: SDK .NET e risorse dell'API Tabella di Azure Cosmos DB
 description: Informazioni sull'API Table di Azure Cosmos DB, incluse le date di rilascio, le date di ritiro e le modifiche apportate nelle diverse versioni.
 services: cosmos-db
 author: rnagpal
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.author: rnagpal
-ms.openlocfilehash: 6d2ede88e9e218ddbdfed0add48e7df8bfae0b60
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7092daa7cf3a1cfcbeac06db308fa53e18d27131
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466461"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878585"
 ---
-# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET di tabella di CosmosDB di Azure: download e note sulla versione
+# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET tabella per Azure Cosmos DB: download e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -29,8 +28,8 @@ ms.locfileid: "49466461"
 |---|---|
 |**Download dell'SDK**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**Documentazione sull'API**|[Documentazione di riferimento API .NET](https://aka.ms/acdbtableapiref)|
-|**Guida introduttiva**|[Azure Cosmos DB: Build an app with .NET and the Table API](create-table-dotnet.md) (Cosmos DB di Azure: compilare un'app con .NET e l'API di tabella)|
-|**Esercitazione**|[Azure Cosmos DB: sviluppare con l'API Table in .NET](tutorial-develop-table-dotnet.md)|
+|**Guida introduttiva**|[Azure Cosmos DB: compilare un'app con .NET e l'API Tabella](create-table-dotnet.md)|
+|**Esercitazione**|[Azure Cosmos DB: sviluppare con l'API Tabella in .NET](tutorial-develop-table-dotnet.md)|
 |**Framework attualmente supportato**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]

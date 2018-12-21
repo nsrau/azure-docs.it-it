@@ -1,19 +1,19 @@
 ---
-title: Importare dati da usare con l'API Tabelle di Azure Cosmos DB
-description: Informazioni su come importare dati da usare con l'API Tabelle di Azure Cosmos DB.
-services: cosmos-db
+title: Eseguire la migrazione dei dati in un account dell'API Tabella in Azure Cosmos DB
+description: Informazioni su come eseguire la migrazione o importare un'istanza locale o cloud dei dati all'account API Tabella di Azure in Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 12/07/2017
 ms.author: sngun
-ms.openlocfilehash: d277df3fa98564ebec92e548fa070e92cf76f200
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: b2256f16d284cb079231e271a7fc06c25c381c8a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874040"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137685"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Eseguire la migrazione dei dati nell'account dell'API Tabella di Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Questa esercitazione illustra le attività seguenti:
 
 * **Aumentare la velocità effettiva:** la durata della migrazione dei dati dipende dalla velocità effettiva configurata per un singolo contenitore o un set di contenitori. Assicurarsi di aumentare la velocità effettiva per le migrazioni dei dati di dimensioni più grandi. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva nel portale di Azure, vedere Livelli di prestazioni e piani tariffari in Azure Cosmos DB.
 
-* **Creare le risorse di Azure Cosmos DB:** prima di iniziare la migrazione dei dati, creare in anticipo tutte le tabelle dal portale di Azure. Se si esegue la migrazione a un account Azure Cosmos DB con velocità effettiva a livello di database, assicurarsi di fornire una chiave di partizione quando si creano le tabelle di Azure Cosmos DB.
+* **Creare risorse di Azure Cosmos DB:** prima di iniziare la migrazione dei dati, creare tutte le tabelle dal portale di Azure. Se si esegue la migrazione a un account Azure Cosmos DB con velocità effettiva a livello di database, assicurarsi di fornire una chiave di partizione quando si creano le tabelle di Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Utilità di migrazione dati
 
@@ -97,7 +97,7 @@ Ecco un esempio di riga di comando per importare dall'archiviazione tabelle di A
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
-### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Comando di esempio: l'origine è l'API Table (anteprima) di Azure Cosmos DB
+### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Comando di esempio: l'origine è l'API Tabella di Azure Cosmos DB (anteprima)
 
 Ecco un esempio di riga di comando per importare dall'anteprima dell'API Table all'API Table GA:
 

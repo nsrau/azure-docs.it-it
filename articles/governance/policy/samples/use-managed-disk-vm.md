@@ -1,5 +1,5 @@
 ---
-title: Esempio di Criteri di Azure - creare la macchina virtuale che usa il disco gestito
+title: Esempio - Creare una macchina virtuale usando un disco gestito
 description: Questo criterio di esempio richiede che le macchine virtuali usino dischi gestiti.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 9939451c1665f975dd651f97fee5ef079a842e83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a123734f9ee44718723f8e932d645ac54c599ebf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978378"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310677"
 ---
 # <a name="create-vm-using-managed-disk"></a>Creare una macchina virtuale usando un disco gestito
 

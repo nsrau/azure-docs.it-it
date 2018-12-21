@@ -1,10 +1,8 @@
 ---
-title: API Tabelle di Azure Cosmos DB per Java | Microsoft Docs
-description: Informazioni sull'API Tabelle di Azure Cosmos DB, incluse le date di rilascio, le date di ritiro e le modifiche apportate nelle diverse versioni.
+title: API Tabella di Azure Cosmos DB per Java
+description: Informazioni sull'API Table di Azure Cosmos DB, incluse le date di rilascio, le date di ritiro e le modifiche apportate nelle diverse versioni.
 services: cosmos-db
 author: yarong
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: java
@@ -12,14 +10,14 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 3bb4a433b06deff27ce80ab1fb631efde29a3f83
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 54fad2e830ae7ff1d07cc8f67e50d2b5bc4fe8a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465577"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096580"
 ---
-# <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API Tabelle di Azure Cosmos DB per Java: risorse e note sulla versione
+# <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API Tabella di Azure Cosmos DB per Java: note sulla versione e risorse
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -31,7 +29,7 @@ ms.locfileid: "49465577"
 |   |   |
 |---|---|
 |**Download dell'SDK**|[Opzioni di download](https://github.com/azure/azure-storage-java#download)|
-|**Documentazione sull'API**|[Documentazione di riferimento API Java](http://azure.github.io/azure-storage-java/)|
+|**Documentazione sull'API**|[Documentazione di riferimento API Java](https://azure.github.io/azure-storage-java/)|
 |**Contribuire all'SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]

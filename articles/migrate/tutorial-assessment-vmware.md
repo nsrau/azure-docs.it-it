@@ -4,15 +4,15 @@ description: Questo articolo descrive come individuare e valutare le macchine vi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dddfbab1d40c03659ba346c9f0e898cfefc8d55e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847984"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257812"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -38,9 +38,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Azure Migrate deve avere accesso ai server VMware per l'individuazione automatica delle VM per la valutazione. Creare un account VMware con le proprietà seguenti. Questo account viene specificato durante la configurazione di Azure Migrate.
 
-- Tipo di utente: almeno un utente di sola lettura
-- Autorizzazioni: Data Center object (Oggetto data center) > Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura)
-- Dettagli: l'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.
+- Tipo di utente: Almeno un utente in sola lettura
+- Autorizzazioni: Data Center object (Oggetto data center)–> Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura)
+- Dettagli: L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.
 - Per limitare l'accesso, assegnare il ruolo No access (Nessun accesso) con Propagate to Child Object (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, macchine virtuali e reti).
 
 
@@ -54,9 +54,14 @@ Accedere al [portale di Azure](https://portal.azure.com).
 2. Cercare **Azure Migrate** e selezionare il servizio **Azure Migrate** nei risultati della ricerca. Fare quindi clic su **Crea**.
 3. Specificare un nome di progetto e la sottoscrizione di Azure per il progetto.
 4. Creare un nuovo gruppo di risorse.
-5. Specificare l'area geografica in cui creare il progetto e quindi fare clic su **Crea**. È possibile creare un progetto Azure Migrate solo nell'area geografica Stati Uniti. Tuttavia, è comunque possibile pianificare la migrazione per qualsiasi località di Azure di destinazione. L'area geografica specificata per il progetto viene usato solo per archiviare i metadati raccolti da macchine virtuali locali.
+5. Specificare l'area geografica in cui creare il progetto e quindi fare clic su **Crea**. È possibile creare un progetto Azure Migrate solo nelle aree geografiche seguenti. Tuttavia, è comunque possibile pianificare la migrazione per qualsiasi località di Azure di destinazione. L'area geografica specificata per il progetto viene usato solo per archiviare i metadati raccolti da macchine virtuali locali.
 
-    ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
+**Area geografica** | **Posizione di archiviazione**
+--- | ---
+Stati Uniti | Stati Uniti centro-occidentali, Stati Uniti orientali
+Azure Government | US Gov Virginia
+
+![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
 
 ## <a name="download-the-collector-appliance"></a>Scaricare l'appliance dell'agente di raccolta
@@ -77,7 +82,7 @@ Azure Migrate crea una macchina virtuale locale definita appliance dell'agente d
 
     - Aggiunta di elementi (macchine virtuali, dischi, core e così via): per riflettere tali modifiche nel portale di Azure, è possibile arrestare l'individuazione dall'appliance e quindi riavviarla. Ciò garantisce che le modifiche vengono aggiornate nel progetto Azure Migrate.
 
-    - Eliminazione di macchine virtuali: a causa della modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
+    - Eliminazione di macchine virtuali: a causa del modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
 
 
 3. In **Copiare le credenziali del progetto** copiare l'ID e la chiave del progetto. Queste informazioni sono necessarie per configurare l'agente di raccolta.
@@ -95,6 +100,14 @@ Verificare che il file con estensione ova sia sicuro prima di distribuirlo.
 3. Il valore hash generato deve corrispondere a queste impostazioni.
 
 #### <a name="continuous-discovery"></a>Individuazione continua
+
+  Per OVA versione 1.0.10.9
+
+  **Algoritmo** | **Valore hash**
+  --- | ---
+  MD5 | 169f6449cc1955f1514059a4c30d138b
+  SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
+  SHA256 | d68fe7d94be3127eb35dd80fc5ebc60434c8571dcd0e114b87587f24d6b4ee4d
 
   Per OVA versione 1.0.10.4
 
@@ -156,12 +169,13 @@ Importare il file scaricato nel server vCenter.
 3. Sul desktop fare clic sul collegamento **Run collector** (Esegui agente di raccolta).
 4. Fare clic su **Check for updates** (Controlla aggiornamenti) nella barra superiore dell'interfaccia utente dell'agente di raccolta e verificare che sia in esecuzione la versione più recente dell'agente di raccolta. In caso contrario, è possibile scegliere di scaricare il pacchetto di aggiornamento più recente dal collegamento e aggiornare l'agente di raccolta.
 5. In Agente di raccolta di Azure Migrate aprire **Set up prerequisites** (Configura prerequisiti).
+    - Selezionare il cloud di Azure in cui si intende eseguire la migrazione (Azure globale o Azure per enti pubblici).
     - Accettare le condizioni di licenza e leggere le informazioni di terze parti.
     - L'agente di raccolta verifica che la macchina virtuale abbia accesso a Internet.
-    - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) sui requisiti di connettività Internet e l'elenco di URL ai quali accede l'agente di raccolta.
+    - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sui requisiti di connettività Internet e l'[elenco di URL](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) ai quali accede l'agente di raccolta.
 
-    > [!NOTE]
-    > È necessario immettere l'indirizzo proxy nel formato http://ProxyIPAddress o http://ProxyFQDN. È supportato solo il proxy HTTP. Se si ha un proxy di intercettazione, inizialmente la connessione Internet potrebbe non riuscire se non è stato importato il certificato proxy. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sul modo in cui è possibile risolvere il problema importando il certificato proxy come certificato attendibile nella macchina virtuale dell'agente di raccolta.
+      > [!NOTE]
+      > È necessario immettere l'indirizzo proxy nel formato http://ProxyIPAddress o http://ProxyFQDN. È supportato solo il proxy HTTP. Se si ha un proxy di intercettazione, inizialmente la connessione Internet potrebbe non riuscire se non è stato importato il certificato proxy. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sul modo in cui è possibile risolvere il problema importando il certificato proxy come certificato attendibile nella macchina virtuale dell'agente di raccolta.
 
     - L'agente di raccolta verifica che il servizio dell'agente di raccolta sia in esecuzione. Il servizio è installato per impostazione predefinita nella macchina virtuale dell'agente di raccolta.
     - Scaricare e installare VMware PowerCLI.

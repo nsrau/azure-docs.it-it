@@ -1,10 +1,10 @@
 ---
-title: 'SSMS: Connettersi ed eseguire query sui dati nel database SQL di Azure | Microsoft Docs'
+title: 'SSMS: connettersi ed eseguire query sui dati nel database SQL di Azure | Microsoft Docs'
 description: Informazioni su come connettersi a un database SQL in Azure tramite SQL Server Management Studio (SSMS). Eseguire quindi istruzioni Transact-SQL (T-SQL) per eseguire query sui dati e modificare questi ultimi.
 keywords: connettersi al database sql,sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: scenario
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -12,29 +12,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: f8d153ef415bcab85720f6733d4e01e9b44c9e50
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: b3342164aec49967e819c316827dca9a65f2674f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871003"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098953"
 ---
-# <a name="quickstart-azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Guida introduttiva: Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati
+# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare SQL Server Management Studio per connettersi a un database SQL di Azure ed eseguire query
 
-[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) è un ambiente integrato per la gestione di qualsiasi infrastruttura SQL, da SQL Server al database SQL per Microsoft Windows. Questa guida introduttiva illustra come usare SSMS per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query e inserire, eliminare e aggiornare dati nel database. 
+È possibile usare [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) per gestire qualsiasi infrastruttura SQL, da SQL Server al database SQL per Microsoft Windows. Questa guida introduttiva illustra come usare SSMS per connettersi a un database SQL di Azure e quindi eseguire query e inserire, eliminare e aggiornare dati con istruzioni Transact-SQL. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
+Per completare questa esercitazione, sono necessari:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-Questa guida introduttiva richiede anche di configurare una regola del firewall a livello di server. Per consultare la guida introduttiva che illustra come eseguire questa operazione, vedere [Creare una regola di firewall a livello di server](sql-database-get-started-portal-firewall.md).
+* Una regola del firewall a livello di server configurata. Per altre informazioni, vedere [Creare una regola del firewall a livello di server](sql-database-get-started-portal-firewall.md).
 
 #### <a name="install-the-latest-ssms"></a>Installare la versione di SSMS più recente
 
-Prima di iniziare, assicurarsi di avere installato la versione più recente di [SSMS][ssms-install-latest-84g]. 
+Prima di iniziare, assicurarsi di aver installato l'ultima versione di [SSMS][ssms-install-latest-84g]. 
 
 ## <a name="sql-server-connection-information"></a>Informazioni di connessione SQL Server
 
@@ -42,43 +42,44 @@ Prima di iniziare, assicurarsi di avere installato la versione più recente di [
 
 ## <a name="connect-to-your-database"></a>Connettersi al database
 
-Usare SQL Server Management Studio per stabilire una connessione al server del database SQL di Azure. 
+In SMSS connettersi al database SQL di Azure. 
 
 > [!IMPORTANT]
-> Il server logico del database SQL di Azure è in ascolto sulla porta 1433. Se si sta tentando di connettersi a un server logico del database SQL di Azure dall'interno di un firewall aziendale, questa porta deve essere aperta.
+> Il server logico del database SQL di Azure è in ascolto sulla porta 1433. Per connettersi a un server logico tramite un firewall aziendale, è necessario che nel firewall sia aperta tale porta.
 >
 
-1. Aprire SQL Server Management Studio.
+1. Aprire SQL Server Management Studio. Viene visualizzata la finestra di dialogo **Connetti al server** .
 
-2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
+2. Immettere le seguenti informazioni:
 
    | Impostazione      | Valore consigliato    | DESCRIZIONE | 
    | ------------ | ------------------ | ----------- | 
-   | **Tipo di server** | Motore di database | Questo valore è obbligatorio. |
-   | **Nome server** | Nome completo del server | Il nome sarà simile a: **mynewserver20170313.database.windows.net**. |
-   | **autenticazione** | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-   | **Accesso** | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
-   | **Password** | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
+   | **Tipo di server** | Motore di database | Valore obbligatorio. |
+   | **Nome server** | Nome completo del server | Ad esempio, **mynewserver20170313.database.windows.net**. |
+   | **autenticazione** | Autenticazione di SQL Server | Questa esercitazione usa l'autenticazione SQL. |
+   | **Accesso** | ID utente dell'account amministratore del server | ID utente dell'account amministratore del server usato per creare il server. |
+   | **Password** | Password dell'account amministratore del server | Password dell'account amministratore del server usato per creare il server. |
    ||||
 
    ![connetti al server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Fare clic su **Opzioni** nella finestra di dialogo **Connetti al server**. Nella sezione **Connetti al database** immettere **mySampleDatabase** per connettersi a tale database.
+3. Selezionare **Opzioni** nella finestra di dialogo **Connetti al server**. Nel menu a discesa **Connetti al database** selezionare **mySampleDatabase**.
 
    ![connettersi al database nel server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Fare clic su **Connetti**. La finestra Esplora oggetti viene visualizzata in SSMS. 
+4. Selezionare **Connessione**. Viene visualizzata la finestra Esplora oggetti. 
 
-   ![connesso al server](./media/sql-database-connect-query-ssms/connected.png)  
+5. Per visualizzare gli oggetti del database, espandere **Database** e quindi **mySampleDatabase**.
 
-5. In Esplora oggetti espandere **Database** e quindi espandere **mySampleDatabase** per visualizzare gli oggetti disponibili nel database di esempio.
+   ![Visualizzare gli oggetti del database](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>Eseguire query sui dati
 
-Usare il codice seguente per eseguire una query per individuare i primi 20 prodotti per categoria usando l'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) di Transact-SQL.
+Usare il codice dell'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL seguente per eseguire una query per individuare i primi 20 prodotti per categoria.
 
 1. In Esplora oggetti fare clic con il pulsante destro del mouse su **mySampleDatabase** e scegliere **Nuova query**. Viene visualizzata una finestra di query vuota, connessa al database.
-2. Nella finestra delle query, immettere la query seguente:
+
+1. Incollare questa query SQL nella finestra di query.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -87,15 +88,15 @@ Usare il codice seguente per eseguire una query per individuare i primi 20 prodo
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. Sulla barra degli strumenti fare clic su **Esegui** per recuperare dati dalle tabelle Product e ProductCategory.
+3. Sulla barra degli strumenti selezionare **Esegui** per recuperare i dati dalle tabelle `Product` e `ProductCategory`.
 
-    ![query](./media/sql-database-connect-query-ssms/query.png)
+    ![Eseguire una query per recuperare dati da 2 tabelle](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Inserire dati
 
-Usare il codice seguente per inserire un nuovo prodotto nella tabella SalesLT.Product usando l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) di Transact-SQL.
+Usare il codice dell'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL seguente per creare un nuovo prodotto nella tabella `SalesLT.Product`.
 
-1. Nella finestra delle query, sostituire la query precedente con quella seguente:
+1. Sostituire la query precedente con questa.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -105,8 +106,7 @@ Usare il codice seguente per inserire un nuovo prodotto nella tabella SalesLT.Pr
            , [ProductCategoryID]
            , [StandardCost]
            , [ListPrice]
-           , [SellStartDate]
-           )
+           , [SellStartDate] )
      VALUES
            ('myNewProduct'
            ,123456789
@@ -117,15 +117,26 @@ Usare il codice seguente per inserire un nuovo prodotto nella tabella SalesLT.Pr
            ,GETDATE() );
    ```
 
-2. Sulla barra degli strumenti fare clic su **Esegui** per inserire una nuova riga nella tabella Product.
+2. Selezionare **Esegui** per inserire una nuova riga nella tabella Product. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
 
-    <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
+## <a name="view-the-result"></a>Visualizzare il risultato
 
-## <a name="update-data"></a>Aggiornare i dati
+1. Sostituire la query precedente con questa.
 
-Usare il codice seguente per aggiornare il nuovo prodotto aggiunto in precedenza usando l'istruzione [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) di Transact-SQL.
+   ```sql
+   SELECT * FROM [SalesLT].[Product] 
+   WHERE Name='myNewProduct' 
 
-1. Nella finestra delle query, sostituire la query precedente con quella seguente:
+2. Select **Execute**. The following result appears. 
+
+   ![result](./media/sql-database-connect-query-ssms/result.png)
+
+ 
+## Update data
+
+Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+
+1. Replace the previous query with this one.
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -133,28 +144,24 @@ Usare il codice seguente per aggiornare il nuovo prodotto aggiunto in precedenza
    WHERE Name = 'myNewProduct';
    ```
 
-2. Sulla barra degli strumenti fare clic su **Esegui** per aggiornare la riga specificata nella tabella Product.
-
-    <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
+2. Selezionare **Esegui** per aggiornare la riga specificata nella tabella Product. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
 
 ## <a name="delete-data"></a>Eliminare i dati
 
-Usare il codice seguente per eliminare il nuovo prodotto aggiunto in precedenza usando l'istruzione [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) di Transact-SQL.
+Usare il codice dell'istruzione [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL seguente per rimuovere il nuovo prodotto aggiunto in precedenza.
 
-1. Nella finestra delle query, sostituire la query precedente con quella seguente:
+1. Sostituire la query precedente con questa.
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. Sulla barra degli strumenti fare clic su **Esegui** per eliminare la riga specificata nella tabella Product.
-
-    <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
+2. Selezionare **Esegui** per eliminare la riga specificata nella tabella Product. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su SSMS, vedere [Usare SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+- Per informazioni su SSMS, vedere [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Per connettersi ed eseguire query tramite il portale di Azure, vedere [Connettersi ed eseguire query con l'editor di query SQL del portale di Azure](sql-database-connect-query-portal.md).
 - Per connettersi ed eseguire query usando Visual Studio Code, vedere [Connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md).
 - Per connettersi ed eseguire una query usando .NET, vedere [Connettersi ed eseguire una query con .NET](sql-database-connect-query-dotnet.md).
