@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per chiamare le API di ricerca cognitiva in Ricerca di Azure | Microsoft Docs
+title: Esercitazione per chiamare le API di ricerca cognitiva - Ricerca di Azure
 description: In questa esercitazione verrà illustrato in dettaglio un esempio di estrazione dei dati, linguaggio naturale ed elaborazione AI delle immagini nell'indicizzazione di Ricerca di Azure per l'estrazione e la trasformazione dei dati.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 4694d7a580c9544e43cf0b56b192b55c02257531
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730665"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386231"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Esercitazione: Informazioni su come chiamare le API di ricerca cognitiva (anteprima)
 
@@ -34,7 +35,9 @@ L'output è un indice di ricerca full-text in Ricerca di Azure. È possibile mig
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!NOTE]
-> La ricerca cognitiva è disponibile in anteprima pubblica. Le funzionalità di esecuzione di set di competenze e di estrazione e normalizzazione di immagini sono attualmente disponibili gratuitamente. Il prezzo per queste funzionalità verrà annunciato in un momento successivo. 
+> A partire dal 21 dicembre 2018 è possibile associare una risorsa dei Servizi cognitivi a un set di competenze della Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare per l'esecuzione del set di competenze. In questa data avrà inizio anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione del testo dai documenti continuerà a essere offerta gratuitamente.
+>
+> L'esecuzione delle competenze predefinite verrà addebitata in base ai[prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione delle immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,30 +55,31 @@ Prima di tutto, iscriversi al servizio Ricerca di Azure.
 
 1. Fare clic su **Crea una risorsa**, cercare Ricerca di Azure e fare clic su **Crea**. Vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md) se è la prima volta che si configura un servizio di ricerca.
 
-  ![Portale del dashboard](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Creare un servizio di Ricerca di Azure nel portale")
+  ![Portale del dashboard](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Creare un servizio di Ricerca di Azure nel portale")
 
 1. Per Gruppo di risorse creare un gruppo di risorse per contenere tutte le risorse che verranno create in questa esercitazione. In questo modo è più semplice pulire le risorse dopo aver completato l'esercitazione.
 
-1. Per Località scegliere **Stati Uniti centro-meridionali** oppure **Europa occidentale**. Attualmente, l'anteprima è disponibile solo in queste aree.
+1. Per Località scegliere una delle [aree supportate](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions) per la ricerca cognitiva.
 
 1. Per Piano tariffario è possibile creare un servizio **Gratuito** per completare le esercitazioni e le guide introduttive. Per eseguire altre analisi usando dati personali, creare un [servizio a pagamento](https://azure.microsoft.com/pricing/details/search/), ad esempio **Basic** o **Standard**. 
 
   Un servizio Gratuito è limitato a 3 indici, dimensioni BLOB massime di 16 MB e 2 minuti di indicizzazione, capacità insufficienti per mettere alla prova tutte le funzionalità della ricerca cognitiva. Per esaminare i limiti per i diversi livelli, vedere [Limiti del servizio](search-limits-quotas-capacity.md).
 
-  > [!NOTE]
-  > La ricerca cognitiva è disponibile in anteprima pubblica. L'esecuzione di set di competenze è attualmente disponibile in tutti i livelli, incluso quello gratuito. Il prezzo per questa funzionalità verrà annunciato in un momento successivo.
+  ![Pagina di definizione del servizio nel portale](./media/cognitive-search-tutorial-blob/create-search-service1.png "Pagina di definizione del servizio nel portale")
+  ![Pagina di definizione del servizio nel portale](./media/cognitive-search-tutorial-blob/create-search-service2.png "Pagina di definizione del servizio nel portale")
 
+ 
 1. Aggiungere il servizio al dashboard per un rapido accesso alle informazioni sul servizio.
 
-  ![Pagina di definizione del servizio nel portale](./media/cognitive-search-tutorial-blob/create-search-service.png "Pagina di definizione del servizio nel portale")
+  ![Pagina di definizione del servizio nel portale](./media/cognitive-search-tutorial-blob/create-search-service3.png "Pagina di definizione del servizio nel portale")
 
-1. Dopo aver creato il servizio, raccogliere le informazioni seguenti: **URL** dalla pagina Panoramica e **api-key** (primaria o secondaria) dalla pagina Chiavi.
+1. Dopo che il servizio è stato creato, raccogliere le informazioni seguenti: **URL** dalla pagina di panoramica, e **chiave api** (primaria o secondaria) dalla pagina Chiavi.
 
   ![Informazioni su endpoint e chiavi nel portale](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Informazioni su endpoint e chiavi nel portale")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurare il servizio BLOB di Azure e caricare i dati di esempio
 
-La pipeline di arricchimento effettua il pull da origini dati di Azure. I dati di origine devono provenire da un tipo di origine dati supportato di un [indicizzatore di Ricerca di Azure](search-indexer-overview.md). Per questo esercizio viene usato l'archivio BLOB per presentare più tipi di contenuto.
+La pipeline di arricchimento effettua il pull da origini dati di Azure. I dati di origine devono provenire da un tipo di origine dati supportato di un [indicizzatore di Ricerca di Azure](search-indexer-overview.md). Nota bene: il servizio tabelle di Azure non è supportato per la ricerca cognitiva. Per questo esercizio viene usato l'archivio BLOB per presentare più tipi di contenuto.
 
 1. [Scaricare i dati di esempio](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). I dati di esempio sono costituiti da un piccolo set di file di tipi diversi. 
 
@@ -127,7 +131,7 @@ Trattandosi della prima richiesta, controllare nel portale di Azure per verifica
 Se si riceve l'errore 403 o 404, controllare la costruzione della richiesta: `api-version=2017-11-11-Preview` deve essere nell'endpoint `api-key` deve essere nell'intestazione dopo `Content-Type` e il relativo valore deve essere valido per un servizio di ricerca. È possibile riutilizzare l'intestazione per i passaggi rimanenti in questa esercitazione.
 
 > [!TIP]
-> A questo punto, prima di eseguire numerose operazioni, è utile verificare che il servizio di ricerca sia in esecuzione in una delle località supportate che offre la funzionalità di anteprima, ovvero Stati Uniti centro-meridionali o Europa occidentale.
+> A questo punto, prima di eseguire numerose operazioni, è utile verificare che il servizio di ricerca sia in esecuzione in una delle località supportate che offre la funzionalità di anteprima: Stati Uniti centro-meridionali o Europa occidentale.
 
 ## <a name="create-a-skillset"></a>Creare un set di competenze
 
@@ -523,7 +527,7 @@ Per reindicizzare i documenti con le nuove definizioni:
 2. Modificare la definizione di un set di competenze e un indice.
 3. Ricreare un indice e un indicizzatore nel servizio per eseguire la pipeline. 
 
-È possibile usare il portale per eliminare indici e indicizzatori. I set di competenze possono essere eliminati solo tramite un comando HTTP, se si decide di eliminarli.
+È possibile usare il portale per eliminare indici, indicizzatori e set di competenze.
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
