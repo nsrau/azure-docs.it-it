@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a76486eaf2f9df8eb47b8bb73f1577324152a80f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 65747da92a3cad770cd9d474d27645782f7306b9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623299"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998717"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Risoluzione dei problemi relativi ai pacchetti di contenuto dei log attività di Azure Active Directory 
 
@@ -34,12 +34,13 @@ Quando si usa il pacchetto di contenuto di Power BI per Azure Active Directory (
 
 - [Aggiornamento non riuscito](troubleshoot-content-pack.md#refresh-failed) 
 - [L'aggiornamento delle credenziali dell'origine dati non è riuscito](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [L'importazione dei dati richiede troppo tempo](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long)  
+- [L'importazione dei dati richiede troppo tempo](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+
 Questo articolo offre informazioni sulle possibili cause e su come risolvere questi errori.
  
 ## <a name="refresh-failed"></a>Aggiornamento non riuscito 
  
-**Modalità di esposizione dell'errore**: messaggio di posta elettronica inviato da Power BI o stato di errore nella cronologia aggiornamenti. 
+**Modalità di esposizione dell’errore**: Messaggio di posta elettronica inviato da Power BI o stato di errore nella cronologia aggiornamenti. 
 
 
 | Causa | Modalità di correzione |
@@ -50,7 +51,7 @@ Questo articolo offre informazioni sulle possibili cause e su come risolvere que
  
 ## <a name="failed-to-update-data-source-credentials"></a>L'aggiornamento delle credenziali dell'origine dati non è riuscito 
  
-**Modalità di esposizione dell'errore**: in Power BI durante la connessione al pacchetto di contenuto dei log attività di Azure AD. 
+**Modalità di esposizione dell’errore**: In Power BI durante la connessione al pacchetto di contenuto dei log attività di Azure AD. 
 
 | Causa | Modalità di correzione |
 | ---   | ---        |
@@ -61,7 +62,7 @@ Questo articolo offre informazioni sulle possibili cause e su come risolvere que
 
 ## <a name="data-import-is-too-slow"></a>L'importazione dei dati è troppo lenta 
  
-**Modalità di esposizione dell'errore**: in Power BI, dopo la connessione del pacchetto di contenuto, viene avviato il processo di importazione dei dati per preparare il dashboard per il log attività di Azure AD. Viene visualizzato il messaggio: **Importazione di dati...** senza alcun ulteriore avanzamento.  
+**Modalità di esposizione dell’errore**: In Power BI, dopo la connessione del pacchetto di contenuto, viene avviato il processo di importazione dei dati per preparare il dashboard per il log attività di Azure AD. Viene visualizzato il messaggio: **Importazione di dati...** senza alcun ulteriore avanzamento.  
 
 | Causa | Modalità di correzione |
 | ---   | ---        |

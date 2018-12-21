@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: bdae72f5ed4ebed87842ade05ec7a6bc21d349dc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086642"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994545"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
@@ -81,7 +81,7 @@ L'attributo trigger specifica il tipo di trigger e associa i dati di input a un 
 Method Signature può contenere parametri diversi da quelli usati con l'attributo trigger. Ecco alcuni dei parametri aggiuntivi che è possibile includere:
 
 * [Associazioni di input e output](functions-triggers-bindings.md) contrassegnate come tali tramite la decorazione con attributi.  
-* Un parametro `ILogger` o `TraceWriter` per la [registrazione](#logging).
+* Un parametro `ILogger` o `TraceWriter` ([solo versione 1.x](functions-versions.md#creating-1x-apps)) per la [registrazione](#logging).
 * Un parametro `CancellationToken` per [arresto normale](#cancellation-tokens).
 * Parametri di [espressioni di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns) per ottenere i metadati trigger.
 
@@ -154,7 +154,7 @@ Il file *function.json* generato include una proprietà `configurationSource` ch
 
 ## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
-La generazione del file *function.json* viene eseguita dal pacchetto NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+La generazione del file *function.json* viene eseguita dal pacchetto NuGet [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
 Per le versioni 1.x e 2.x del runtime di Funzioni viene usato lo stesso pacchetto. Un progetto 1.x si distingue da un progetto 2.x in base al framework di destinazione. Ecco le parti rilevanti dei file con estensione *csproj* che mostrano i diversi framework di destinazione e lo stesso pacchetto `Sdk`:
 
@@ -183,7 +183,7 @@ Per le versioni 1.x e 2.x del runtime di Funzioni viene usato lo stesso pacchett
 
 Tra le dipendenze del pacchetto `Sdk` sono inclusi i trigger e le associazioni. Un progetto 1.x fa riferimento a trigger e associazioni 1.x perché questi hanno come destinazione .NET Framework, mentre i trigger e le associazioni 2.x hanno come destinazione .NET Core.
 
-Il pacchetto `Sdk` dipende inoltre da [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) e indirettamente da [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Queste dipendenze consentono di assicurarsi che il progetto usi le versioni dei pacchetti compatibili con la versione del runtime di Funzioni definita come destinazione del progetto. Se ad esempio è disponibile `Newtonsoft.Json` versione 11 per .NET Framework 4.6.1, ma il runtime di Funzioni che ha come destinazione .NET Framework 4.6.1 è compatibile solo con `Newtonsoft.Json` 9.0.1, anche il codice delle funzioni nel progetto deve usare `Newtonsoft.Json` 9.0.1.
+Il pacchetto `Sdk` dipende inoltre da [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) e indirettamente da [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Queste dipendenze consentono di assicurarsi che il progetto usi le versioni dei pacchetti compatibili con la versione del runtime di Funzioni definita come destinazione del progetto. Se ad esempio è disponibile `Newtonsoft.Json` versione 11 per .NET Framework 4.6.1, ma il runtime di Funzioni che ha come destinazione .NET Framework 4.6.1 è compatibile solo con `Newtonsoft.Json` 9.0.1, anche il codice delle funzioni nel progetto deve usare `Newtonsoft.Json` 9.0.1.
 
 Il codice sorgente per `Microsoft.NET.Sdk.Functions` è disponibile nel repository GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
@@ -233,7 +233,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Registrazione
 
-Per registrare l'output nei log in streaming in C#, includere un argomento di tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). È consigliabile denominarlo `log`. Evitare di usare `Console.Write` in Funzioni di Azure.
+Per registrare l'output nei log in streaming in C#, includere un argomento di tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Si consiglia di denominarlo `log`, come nell'esempio seguente:  
 
 ```csharp
 public static class SimpleExample
@@ -248,8 +248,7 @@ public static class SimpleExample
 } 
 ```
 
-> [!NOTE]
-> Per informazioni su un framework di registrazione più recente che è possibile usare al posto di `TraceWriter`, vedere [Scrivere i log nelle funzioni C#](functions-monitoring.md#write-logs-in-c-functions) nell'articolo **Monitorare Funzioni di Azure**.
+Evitare di usare `Console.Write` in Funzioni di Azure. Per altre informazioni, vedere [Scrivere log in funzioni C#](functions-monitoring.md#write-logs-in-c-functions) nell'articolo **Monitorare Funzioni di Azure**.
 
 ## <a name="async"></a>Async
 
