@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Ricerca Web Bing
+title: Informazioni sull'API Ricerca Web Bing
 titleSuffix: Azure Cognitive Services
 description: L'API Ricerca Web Bing è un servizio RESTful che fornisce risposte immediate alle query dell'utente. I risultati della ricerca sono configurati in modo facile per includere pagine Web, immagini, video, notizie, traduzioni e altro ancora. I risultati sono restituiti in formato JSON e basati sulla pertinenza della ricerca e sulle sottoscrizioni di Ricerca Web Bing.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: overview
 ms.date: 08/14/2018
 ms.author: aahi
-ms.openlocfilehash: 738941afadbad318d383a119967e3f98c098a9c1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec2018
+ms.openlocfilehash: b11e7117143dea6db71b1c60d89054477e94227d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160716"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255993"
 ---
-# <a name="what-is-bing-web-search"></a>Informazioni su Ricerca Web Bing
+# <a name="what-is-the-bing-web-search-api"></a>Informazioni sull'API Ricerca Web Bing
 
 L'API Ricerca Web Bing è un servizio RESTful che fornisce risposte immediate alle query dell'utente. I risultati della ricerca sono configurati in modo facile per includere pagine Web, immagini, video, notizie, traduzioni e altro ancora. I risultati sono restituiti in formato JSON e basati sulla pertinenza della ricerca e sulle sottoscrizioni di Ricerca Web Bing.
 

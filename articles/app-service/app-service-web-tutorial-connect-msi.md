@@ -1,5 +1,5 @@
 ---
-title: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita | Microsoft Docs
+title: Proteggere la connessione al database SQL con un'identità gestita - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come rendere più sicura la connettività del database usando un'identità gestita e su come applicarla ad altri servizi di Azure.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8c31e410713e4ba8ce6443170ba5ad5c2e740419
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52677934"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259070"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
@@ -44,7 +44,7 @@ Si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo riprende come punto di partenza le procedure completate in [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Se non si è ancora provveduto, seguire prima tale esercitazione. In alternativa, è possibile adattare le procedure alla propria app ASP.NET con un database SQL.
+Questo articolo continua da dove è stato interrotto in [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Se non si è ancora provveduto, seguire prima tale esercitazione. In alternativa, è possibile adattare le procedure alla propria app ASP.NET con un database SQL.
 
 <!-- ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png) -->
 
@@ -95,11 +95,10 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 ## <a name="modify-aspnet-code"></a>Modificare il codice ASP.NET
 
-Nel progetto **DotNetAppSqlDb** in Visual Studio aprire _packages.config_ e aggiungere la riga seguente nell'elenco dei pacchetti.
+In Visual Studio, aprire la Console di Gestione pacchetti e aggiungere il pacchetto NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
-```xml
-<package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
-<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
+```PowerShell
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.1.0-preview
 ```
 
 Aprire _Models\MyDatabaseContext.cs_ e aggiungere le istruzioni `using` seguenti all'inizio del file:

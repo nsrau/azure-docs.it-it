@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 132e13f213a681b2e6e8581200070fb316e7b582
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c44936604d0dcea2f00f237f27d27a03491c532e
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847100"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407678"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-gremlin-api"></a>Azure Cosmos DB: Creare un'applicazione .NET Framework o Core tramite l'API Gremlin
 
@@ -30,7 +30,7 @@ ms.locfileid: "52847100"
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa guida introduttiva illustra come creare un account, un database e un grafo (contenitore) dell'[API Gremlin](graph-introduction.md) in Azure Cosmos DB tramite il portale di Azure. In seguito, si crea e si esegue un'app console basata sul driver open source [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
+Questa guida introduttiva illustra come creare un account, un database e un grafo (contenitore) dell'[API Gremlin](graph-introduction.md) in Azure Cosmos DB tramite il portale di Azure. In seguito, si crea e si esegue un'app console basata sul driver open source [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -142,14 +142,13 @@ Tutti i frammenti di codice seguenti sono tratti dal file Program.cs.
 * Eseguire ogni query Gremlin usando l'oggetto `GremlinClient` con un'attività asincrona (riga 63). In questo modo, le query Gremlin verranno lette dal dizionario definito in precedenza (riga 26):
 
     ```csharp
-    var task = gremlinClient.SubmitAsync<dynamic>(query.Value);
-    task.Wait();
+    var results = await gremlinClient.SubmitAsync<dynamic>(query.Value);
     ```
 
 * Recuperare il risultato e leggere i valori, formattati come dizionario, usando la classe `JsonSerializer` da Newtonsoft.Json:
 
     ```csharp
-    foreach (var result in task.Result)
+    foreach (var result in results)
     {
         // The vertex results are formed as dictionaries with a nested dictionary for their properties
         string output = JsonConvert.SerializeObject(result);
@@ -161,7 +160,7 @@ Tutti i frammenti di codice seguenti sono tratti dal file Program.cs.
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Dal [portale di Azure](http://portal.azure.com/) passare all'account di database del grafo. Nella scheda **Panoramica** sono visualizzati due endpoint: 
+1. Dal [portale di Azure](https://portal.azure.com/) passare all'account di database del grafo. Nella scheda **Panoramica** sono visualizzati due endpoint: 
  
    **URI .NET SDK**: questo valore viene usato quando ci si connette all'account del grafo tramite la libreria Microsoft.Azure.Graphs. 
 

@@ -1,6 +1,6 @@
 ---
-title: Creare un modello di Azure Resource Manager per la distribuzione di un account di archiviazione crittografato | Microsoft Docs
-description: Usare Visual Studio Code per creare un modello per la distribuzione di un account di archiviazione crittografato.
+title: Usare le informazioni di riferimento sui modelli di Azure Resource Manager | Microsoft Docs
+description: Usare le informazioni di riferimento sui modelli di Azure Resource Manager per la creazione di un modello di distribuzione di un account di archiviazione crittografato.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,17 +10,18 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c75c0ce7d12f65878ec8cde0f265022c7beeb29
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613512"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097591"
 ---
-# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>Esercitazione: Distribuire un account di archiviazione di Azure crittografato con un modello di Resource Manager
+# <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Esercitazione: Usare le informazioni di riferimento sui modelli di Resource Manager
 
 Questo articolo illustra come trovare le informazioni sullo schema dei modelli e usarle per creare modelli di Azure Resource Manager.
 
@@ -77,9 +78,11 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 1. Passare a [Modelli di Azure](https://docs.microsoft.com/azure/templates/).
 2. In **Filtra per titolo**, immettere **account di archiviazione**.
-3. Selezionare **Riferimento/Riferimento al modello/Archiviazione/ Account di archiviazione** come illustrato nello screenshot seguente:
+3. Selezionare **Riferimento/Riferimento al modello/Archiviazione/<Version>/Account di archiviazione** come illustrato nello screenshot seguente:
 
     ![Account di archiviazione di riferimento al modello di Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    Se non si conosce la versione da scegliere, usare la versione più recente.
 
 4. Trovare le informazioni della definizione correlate alla crittografia.  
 

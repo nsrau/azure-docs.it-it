@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 1ce74afd8ee2266439a591730686b4f5277e1b03
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603195"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322006"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Esercitazione: concedere l'accesso a un'API Web Node.js da un'app desktop usando Azure Active Directory B2C
 
@@ -125,7 +125,7 @@ L'API Web Node.js di esempio usa la libreria Passport.js per consentire ad Azure
 
 ### <a name="configure-the-web-api"></a>Configurare l'API Web
 
-1. Aprire il file `index.html` nell'API Web Node.js di esempio.
+1. Aprire il file `index.js` nell'API Web Node.js di esempio.
 2. Configurare l'esempio con le informazioni di registrazione tenant di Azure Active Directory B2C. Modificare le righe di codice seguenti:
 
 ```nodejs

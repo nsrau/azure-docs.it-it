@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c2f5ff778b49ffb544c53b41cf515e820d646249
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 3ae454be8327c1f9ce605899e4b26105d44ab0f6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157854"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189303"
 ---
-# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato TPM tramite Azure IoT C SDK
+# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Avvio rapido: Effettuare il provisioning di un dispositivo simulato TPM tramite l'SDK IoT di Azure
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
@@ -25,8 +25,8 @@ In questa guida introduttiva si apprenderà come creare ed eseguire un simulator
 Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). Assicurarsi anche di avere completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare con questa guida introduttiva. 
 
 Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
-- [Gruppi di registrazioni](concepts-service.md#enrollment-group): usato per registrare più dispositivi correlati.
-- [Registrazioni singole](concepts-service.md#individual-enrollment): usato per registrare un singolo dispositivo.
+- [Gruppi di registrazioni](concepts-service.md#enrollment-group): Usato per registrare più dispositivi correlati.
+- [Registrazioni singole](concepts-service.md#individual-enrollment): Usato per registrare un singolo dispositivo.
 
 Questo articolo descrive le registrazioni singole.
 
@@ -145,12 +145,12 @@ In questa sezione verrà compilato ed eseguito un esempio che leggerà la chiave
     - **Meccanismo:** Selezionare **TPM** come *meccanismo* di attestazione dell'identità.
     - **Chiave di approvazione:** immettere la *Chiave di approvazione* generata per il dispositivo TPM con l'esecuzione del progetto *tpm_device_provision*.
     - **ID registrazione:** immettere l'*ID registrazione* generato per il dispositivo TPM con l'esecuzione del progetto *tpm_device_provision*.
-    - **Dispositivo IoT Edge:** selezionare **Disabilita**.
-    - **ID dispositivo IoT Hub:** immettere **test-docs-device** per assegnare un ID al dispositivo.
+    - **Dispositivo IoT Edge:** Selezionare **Disabilita**.
+    - **ID dispositivo hub IoT:** immettere **test-docs-device** per assegnare un ID al dispositivo.
 
-    ![Immettere le informazioni di registrazione del dispositivo nel portale](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+      ![Immettere le informazioni di registrazione del dispositivo nel portale](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-    Dopo la corretta registrazione, l'*ID registrazione* del dispositivo verrà visualizzato nell'elenco della scheda *Individual Enrollments* (Registrazioni singole). 
+      Dopo la corretta registrazione, l'*ID registrazione* del dispositivo verrà visualizzato nell'elenco della scheda *Individual Enrollments* (Registrazioni singole). 
 
 
 <a id="firstbootsequence"></a>

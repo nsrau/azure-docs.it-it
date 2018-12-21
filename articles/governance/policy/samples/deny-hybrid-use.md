@@ -1,5 +1,5 @@
 ---
-title: Esempio di criteri di Azure - Nega vantaggio Hybrid Use
+title: Esempio - Non consentire l'uso del vantaggio Hybrid Use
 description: Questo criterio di esempio impedisce di usare il vantaggio Azure Hybrid Use (AHUB).
 services: azure-policy
 author: DCtheGeek
@@ -8,15 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 368a56ed46116a11a8abb8887f12204c72521c7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f2b9056bdb9c4f6b4c999c19ee51d888ce56afaa
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959734"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308199"
 ---
-# <a name="deny-hybrid-use-benefit"></a>Deny hybrid use benefit (Rifiuta vantaggio Hybrid Use)
+# <a name="deny-hybrid-use-benefit"></a>Non consentire l'uso del vantaggio Hybrid Use
 
 Impedisce di usare il vantaggio Azure Hybrid Use. Usare quando non si vuole consentire l'uso di licenze locali.
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare altri esempi in [Esempio di Criteri di Azure](index.md)
+- Vedere altri esempi in [Esempi di Criteri di Azure](index.md)

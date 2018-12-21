@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Eseguire una ricerca di immagini con C# - API Ricerca immagini Bing'
+title: 'Avvio rapido: Cercare immagini - API REST Ricerca immagini Bing e C#'
 titleSuffix: Azure Cognitive Services
-description: Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca immagini Bing e visualizzare un risultato di ricerca dalla risposta JSON. Questa semplice applicazione C# invia una query di ricerca immagine HTTP all'API e visualizza l'URL della prima immagine restituita.
+description: Usare questa guida di avvio rapido per inviare richieste di ricerca di immagini all'API REST Ricerca immagini Bing usando C# e ricevere risposte JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 3819b476c5d3638f409b4195d6340920032d7b99
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 67dd91d7555ebd1e72cea168fc8b841bf4ed9175
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307492"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249516"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>Guida introduttiva: Inviare query di ricerca con l'API Ricerca immagini Bing e C#
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e C#
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca immagini Bing e visualizzare un risultato di ricerca dalla risposta JSON. Questa semplice applicazione C# invia una query di ricerca immagine HTTP all'API e visualizza l'URL della prima immagine restituita.
 

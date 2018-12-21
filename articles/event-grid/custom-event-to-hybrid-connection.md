@@ -1,21 +1,22 @@
 ---
-title: Inviare eventi personalizzati per Griglia di eventi di Azure alla connessione ibrida | Microsoft Docs
+title: Inviare eventi personalizzati a una connessione ibrida - Griglia di eventi, interfaccia della riga di comando di Azure
 description: Usare Griglia di eventi di Azure e l'interfaccia della riga di comando di Azure per pubblicare un argomento e sottoscrivere l'evento. Per l'endpoint viene usata una connessione.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/30/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 488f4e09e329ee41fb307dc3579e76b5378d3a9f
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 1f66c75333b41cf399a72b801a7e362672744775
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747780"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099589"
 ---
-# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Instradare eventi personalizzati a Connessioni ibride di Inoltro di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
+# <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Esercitazione: Instradare eventi personalizzati a Connessioni ibride di Inoltro di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Connessioni ibride di Inoltro di Azure è uno gestore dell'evento supportato. Usare le connessioni ibride come gestore dell'evento quando è necessario elaborare gli eventi da applicazioni che non hanno un endpoint pubblico. Queste applicazioni potrebbero trovarsi all'interno della rete aziendale dell'organizzazione. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. Inviare gli eventi alla connessione ibrida.
 

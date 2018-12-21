@@ -1,6 +1,7 @@
 ---
-title: Informazioni sul servizio Azure Machine Learning
-description: Informazioni sull'apprendimento automatico nel cloud e sulle relative finalità d'uso. Panoramica del servizio Azure Machine Learning, una soluzione integrata di data science end-to-end destinata a data scientist professionali per lo sviluppo, la sperimentazione e la distribuzione di applicazioni per analisi avanzate su scala cloud.
+title: Informazioni
+titleSuffix: Azure Machine Learning service
+description: Panoramica del servizio Azure Machine Learning, una soluzione integrata di data science end-to-end destinata a data scientist professionali per lo sviluppo, la sperimentazione e la distribuzione di applicazioni per analisi avanzate su scala cloud.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: fc241b284ab9370e03debf3e0851394c32087a57
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: a9e91a2c11dbef3b3d9b887bfd6bb4b3372f3523
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870692"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408613"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Informazioni sul servizio Azure Machine Learning
 
@@ -22,9 +24,9 @@ Il servizio Azure Machine Learning è un servizio cloud che è possibile usare p
 
 ## <a name="what-is-machine-learning"></a>Che cos'è l'apprendimento automatico?
 
-L'apprendimento automatico è una tecnica di analisi scientifica dei dati che consente ai computer di usare i dati esistenti per prevedere comportamenti, tendenze e risultati futuri. Con l'apprendimento automatico, i computer apprendono senza essere programmati in modo esplicito.
+Machine Learning è una tecnica di analisi scientifica dei dati che consente ai computer di usare i dati esistenti per prevedere comportamenti, tendenze e risultati futuri. Con Machine Learning, i computer apprendono senza essere programmati in modo esplicito.
 
-Queste previsioni o stime di apprendimento automatico possono rendere più intelligenti le app e i dispositivi. Quando si effettuano acquisti online, l'apprendimento automatico consiglia altri prodotti che potrebbero interessare in base a ciò che si è acquistato. Quando si usa la carta di credito, l'apprendimento automatico confronta la transazione con un database di transazioni e consente di rilevare eventuali frodi. Infine, quando il robot aspirapolvere aspira la polvere in una stanza, l'apprendimento automatico gli consente di decidere se il lavoro è stato completato.
+Queste previsioni o stime di Machine Learning possono rendere più intelligenti le app e i dispositivi. Quando si effettuano acquisti online, l'apprendimento automatico consiglia altri prodotti che potrebbero interessare in base a ciò che si è acquistato. Quando si usa la carta di credito, l'apprendimento automatico confronta la transazione con un database di transazioni e consente di rilevare eventuali frodi. Infine, quando il robot aspirapolvere aspira la polvere in una stanza, l'apprendimento automatico gli consente di decidere se il lavoro è stato completato.
 
 ## <a name="what-is-azure-machine-learning-service"></a>Informazioni sul servizio Azure Machine Learning
 
@@ -33,12 +35,12 @@ Il servizio Azure Machine Learning offre un ambiente basato su cloud utile per s
 [ ![Flusso di lavoro del servizio Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png) ] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Il servizio Azure Machine Learning supporta le tecnologie open source e consente pertanto di usare decine di migliaia di pacchetti Python open source con componenti di apprendimento automatico come TensorFlow e scikit-learn.
-Il supporto per strumenti avanzati come i [notebook di Jupyter](http://jupyter.org) o l'estensione [Azure Machine Learning per Visual Studio Code](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) offre la possibilità di esplorare interattivamente i dati, trasformarli e quindi sviluppare e testare i modelli con facilità.
+Il supporto per strumenti avanzati come i [notebook di Jupyter](http://jupyter.org) o l'estensione [Azure Machine Learning per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) offre la possibilità di esplorare interattivamente i dati, trasformarli e quindi sviluppare e testare i modelli con facilità.
 Il servizio Azure Machine Learning include anche funzionalità per [automatizzare la generazione e l'ottimizzazione dei modelli](tutorial-auto-train-models.md), per creare modelli in modo semplice, efficiente e accurato.
 
 Consente anche di avviare il training sul computer locale per poi scalare orizzontalmente nel cloud. Grazie alla disponibilità di molte [destinazioni di calcolo](how-to-set-up-training-targets.md), ad esempio l'ambiente di calcolo di Azure Machine Learning e [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), e a [servizi avanzati per l'ottimizzazione degli iperparametri](how-to-tune-hyperparameters.md), è possibile creare modelli migliori in modo più rapido, sfruttando le potenzialità del cloud.
 
-Dopo aver ottenuto il modello più idoneo, è possibile distribuirlo in un contenitore come Docker. In questo modo, sarà semplice da distribuire in [Istanze di Azure Container](how-to-deploy-to-aci.md) o nel [servizio Azure Kubernetes](how-to-deploy-to-aks.md), oppure sarà possibile usare il contenitore nelle proprie distribuzioni, in locale o nel cloud.
+Dopo aver ottenuto il modello più idoneo, è possibile distribuirlo in un contenitore come Docker. In questo modo, il modello sarà semplice da distribuire in Istanze di Azure Container o nel servizio Azure Kubernetes oppure sarà possibile usare il contenitore nelle proprie distribuzioni, in locale o nel cloud. Per altre informazioni, vedere il documento [Come distribuire e dove](how-to-deploy-and-where.md).
 È possibile gestire i modelli distribuiti e tenere traccia delle diverse esecuzioni sperimentate per individuare la soluzione migliore.
 Una volta distribuito, il modello può restituire stime, [in tempo reale](how-to-consume-web-service.md) o [in modo asincrono](how-to-run-batch-predictions.md), su grandi quantità di dati.
 
@@ -58,9 +60,9 @@ Usando l'<a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> di Azure Machi
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
 
-Dopo aver creato un modello, è possibile usarlo per creare un contenitore, ad esempio Docker, che può essere distribuito in locale per il test. Al termine del test, il modello può essere distribuito come servizio Web di produzione in [Istanze di Azure Container](how-to-deploy-to-aci.md) o nel [servizio Azure Kubernetes](how-to-deploy-to-aks.md).
+Dopo aver creato un modello, è possibile usarlo per creare un contenitore, ad esempio Docker, che può essere distribuito in locale per il test. Al termine del test, il modello può essere distribuito come servizio Web di produzione in Istanze di Azure Container o nel servizio Azure Kubernetes. Per altre informazioni, vedere il documento [Come distribuire e dove](how-to-deploy-and-where.md).
 
-Si possono quindi gestire i modelli distribuiti usando l'[SDK di Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o il [portale di Azure](https://portal.azure.com/).
+Si possono quindi gestire i modelli distribuiti usando l'[SDK di Azure Machine Learning per Python](https://aka.ms/aml-sdk) o il [portale di Azure](https://portal.azure.com/).
 È possibile valutare le metriche del modello, ripetere il training, ridistribuire le nuove versioni del modello e al tempo stesso tenere traccia degli esperimenti del modello.
 
 Per iniziare a usare il servizio Azure Machine Learning, vedere la sezione [Passaggi successivi](#next-steps) più avanti.
@@ -77,7 +79,10 @@ Il servizio Azure Machine Learning è adatto agli ambienti Python, quando è nec
 > I modelli creati in Azure Machine Learning Studio non possono essere distribuiti né gestiti dal servizio Azure Machine Learning.
 
 ## <a name="free-trial"></a>Versione di prova gratuita
-Se non si è abbonati, è possibile [aprire un account Azure gratuitamente](https://aka.ms/amlfree). Si ricevono così crediti da spendere in servizi di Azure. Quando i crediti saranno esauriti, sarà possibile mantenere l'account e usare i [servizi di Azure gratuiti](https://azure.microsoft.com/free/). Verranno applicati addebiti alla carta di credito solo se l'utente modifica le impostazioni e richiede esplicitamente l'addebito. In alternativa, è possibile [attivare i vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), in modo da accumulare ogni mese crediti che possono essere usati per i servizi di Azure a pagamento.
+
+Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Accedere alla [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
+
+Si ricevono così crediti da spendere in servizi di Azure. Quando i crediti saranno esauriti, sarà possibile mantenere l'account e usare i [servizi di Azure gratuiti](https://azure.microsoft.com/free/). Verranno applicati addebiti alla carta di credito solo se l'utente modifica le impostazioni e richiede esplicitamente l'addebito. In alternativa, è possibile [attivare i vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), in modo da accumulare ogni mese crediti che possono essere usati per i servizi di Azure a pagamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -86,6 +91,8 @@ Se non si è abbonati, è possibile [aprire un account Azure gratuitamente](http
 - Eseguire l'esercitazione completa per [il training e la distribuzione di un modello di classificazione delle immagini con Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 - [Usare Azure Machine Learning per generare e ottimizzare automaticamente un modello](tutorial-auto-train-models.md).
+
+- Per preparare i dati, usare [ Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
 
 - Vedere le [pipeline di apprendimento automatico](/azure/machine-learning/service/concept-ml-pipelines) per compilare, ottimizzare e gestire gli scenari di Machine Learning.
 
