@@ -1,24 +1,27 @@
 ---
-title: Guida introduttiva - Cluster Kubernetes Azure per Linux
+title: '(DEPRECATO) Avvio rapido: cluster Kubernetes di Azure per Linux'
 description: Informazioni per creare in modo rapido un cluster Kubernetes per contenitori Linux nel servizio contenitore di Azure con l'interfaccia della riga di comando di Azure.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2186bd8c28851552bdbd80a74ba7cefd9f7a82d7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c5320a541e189043fc27f5c4bcd29afd5d7c70f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950353"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994159"
 ---
-# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Distribuire cluster Kubernetes per contenitori Linux
+# <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(DEPRECATO) - Distribuire cluster Kubernetes per contenitori Linux
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Per la versione aggiornata di questo avvio rapido che usa il servizio Azure Kubernetes, vedere [Avvio rapido: Distribuire un cluster di servizio Azure Kubernetes](../../aks/kubernetes-walkthrough.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In questa guida introduttiva viene distribuito un cluster Kubernetes usando l'interfaccia della riga di comando di Azure. Un'applicazione multicontenitore costituita dal front-end Web e da un'istanza di Redis viene quindi distribuita ed eseguita nel cluster. Al termine, l'applicazione è accessibile tramite Internet. 
 

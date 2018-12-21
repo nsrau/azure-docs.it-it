@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Generare un'anteprima - REST, Ruby - Visione artificiale"
+title: "Avvio rapido: Generare un'anteprima - REST, Ruby - Visione artificiale"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva, si genererà l'anteprima di un'immagine usando l'API Visione artificiale con Ruby.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 16cfadb1b1dec90324739427656a6587ba6314cc
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 2ddd2417a1e2a7548be641eca8e72b7967ace685
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343045"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958619"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>Guida introduttiva: Generare un'anteprima con l'API REST e Ruby in Visione artificiale
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>Avvio rapido: Generare un'anteprima con l'API REST e Ruby in Visione artificiale
 
 In questa guida introduttiva si genererà l'anteprima di un'immagine usando l'API REST di Visione artificiale. Il metodo [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) consente di generare l'anteprima di un'immagine. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale usa il ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
 

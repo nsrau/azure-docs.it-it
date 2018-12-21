@@ -1,20 +1,20 @@
 ---
-title: Script dell'interfaccia della riga di comando di Azure - Creare un account API Tabella, un database e una tabella di Azure Cosmos DB | Microsoft Docs
+title: Script dell'interfaccia della riga di comando di Azure - Creare un account API Tabella, un database e una tabella di Azure Cosmos DB
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account API Tabella, un database e una tabella di Azure Cosmos DB
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 178ecfe6971a47009781d8866986d936f8e3a5d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5e9cd406f02ea17c4d91e316cbd3f0cc937f6afc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019557"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957573"
 ---
-# <a name="azure-cosmos-db-create-a-table-api-account-using-azure-cli"></a>Azure Cosmos DB: creare un account API Tabella con l'interfaccia della riga di comando di Azure
+# <a name="azure-cosmos-db-create-a-table-api-account-using-azure-cli"></a>Azure Cosmos DB: Creare un account di API Tabella con l'interfaccia della riga di comando di Azure
 
 Questo script di esempio dell'interfaccia della riga di comando di Azure crea un account API Tabella, un database e una tabella di Azure Cosmos DB.
 

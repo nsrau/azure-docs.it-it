@@ -1,5 +1,6 @@
 ---
-title: Panoramica di Azure Load Balancer | Microsoft Docs
+title: Informazioni su Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Panoramica di funzionalità, architettura e implementazione di Azure Load Balancer. Informazioni sul funzionamento di Load Balancer e su come usarlo nel cloud.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
 ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219580"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185614"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
@@ -27,7 +29,7 @@ Load Balancer distribuisce i nuovi flussi in ingresso che arrivano sul front-end
 
 In aggiunta, un Load Balancer pubblico può anche offrire connessioni in uscita per le macchine virtuali all'interno della rete virtuale convertendo gli indirizzi IP privati in indirizzi IP pubblici.
 
-Azure Load Balancer è disponibile in due SKU: Basic e Standard, con differenze di scalabilità, funzionalità e prezzo. Tutti gli scenari possibili con Load Balancer Basic possono essere creati anche con Load Balancer Standard, anche se l'approccio può essere leggermente diverso. Man mano che si apprendono nuove cose su Load Balancer, è importante acquisire familiarità con le caratteristiche principali e le differenze specifiche per SKU.
+Azure Load Balancer è disponibile in due SKU, ovvero Basic e Standard. con differenze di scalabilità, funzionalità e prezzo. Tutti gli scenari possibili con Load Balancer Basic possono essere creati anche con Load Balancer Standard, anche se l'approccio può essere leggermente diverso. Man mano che si apprendono nuove cose su Load Balancer, è importante acquisire familiarità con le caratteristiche principali e le differenze specifiche per SKU.
 
 ## <a name="why-use-load-balancer"></a>Perché usare Azure Load Balancer 
 
@@ -62,7 +64,7 @@ Load Balancer offre le funzionalità principali seguenti per applicazioni TCP e 
 
     ![Distribuzione basata su hash](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    *Figura: distribuzione basata su hash*
+    *Figura: Distribuzione basata su hash*
 
 * **Port forwarding**
 
@@ -86,7 +88,7 @@ Load Balancer offre le funzionalità principali seguenti per applicazioni TCP e 
      
     Il bilanciamento del carico fornisce [diversi tipi di probe di integrità](load-balancer-custom-probe-overview.md#types) per endpoint TCP, HTTP e HTTPS.
 
-    Inoltre, quando si utilizzano servizi cloud Classic, è consentito anche un tipo aggiuntivo: [Agente guest](load-balancer-custom-probe-overview.md#guestagent).  Questo deve essere considerato tuttavia come probe di integrità di ultima scelta e non è consigliato se sono disponibili altre opzioni.
+    Inoltre, quando si utilizzano servizi cloud Classic, è consentito anche un tipo aggiuntivo, ovvero  [Agente guest](load-balancer-custom-probe-overview.md#guestagent).  Questo deve essere considerato tuttavia come probe di integrità di ultima scelta e non è consigliato se sono disponibili altre opzioni.
     
 * **Connessioni in uscita (SNAT)**
 

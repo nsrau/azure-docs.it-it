@@ -1,5 +1,5 @@
 ---
-title: Creare uno spazio dei nomi di Hub eventi di Azure e abilitare l'acquisizione con un modello | Microsoft Docs
+title: Creare un hub eventi con la funzionalità di acquisizione abilitata - Hub eventi di Azure | Microsoft Docs
 description: Creare uno spazio dei nomi di Hub eventi di Azure con un hub eventi e abilitare l'acquisizione con un modello di Azure Resource Manager
 services: event-hubs
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: c8341b40ba7616add1415178a2f0775fbbc66ec1
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 36764b661d88f034b306251f76d47d72298308dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919407"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139997"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creare uno spazio dei nomi con l'hub eventi e abilitare l'acquisizione usando un modello
 

@@ -1,24 +1,27 @@
 ---
-title: Entità servizio per il cluster Kubernetes di Azure
+title: (DEPRECATO) Entità servizio per il cluster Azure Kubernetes
 description: Creare e gestire un'entità servizio di Azure Active Directory per un cluster Kubernetes nel servizio contenitore di Azure
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 53bb09824a88980a171fa4067a9efd2fc067a898
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954573"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992152"
 ---
-# <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurare un'entità servizio di Azure AD per un cluster Kubernetes nel servizio contenitore
+# <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(DEPRECATO) Configurare un'entità servizio di Azure AD per un cluster Kubernetes in servizio Container
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Per la versione aggiornata di questa esercitazione che usa il servizio Azure Kubernetes, vedere [Entità servizio con il servizio Azure Kubernetes](../../aks/kubernetes-service-principal.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Un cluster Kubernetes richiede un'[entità servizio di Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) nel servizio contenitore di Azure per l'interazione con le API di Azure. L'entità servizio è necessaria per la gestione dinamica di risorse quali le [route definite dall'utente](../../virtual-network/virtual-networks-udr-overview.md) e [Azure Load Balancer di livello 4](../../load-balancer/load-balancer-overview.md).
 
@@ -30,9 +33,9 @@ Questo articolo illustra le diverse opzioni disponibili per configurare un'entit
 
 È possibile usare un'entità servizio di Azure AD esistente che soddisfi i requisiti seguenti oppure crearne una nuova.
 
-* **Ambito**: gruppo di risorse
+* **Ambito**: Gruppo di risorse
 
-* **Ruolo**: collaboratore
+* **Ruolo**: Collaboratore
 
 * **Segreto client**: deve essere una password. Non è attualmente possibile usare un'entità servizio configurata per l'autenticazione del certificato.
 
@@ -40,7 +43,7 @@ Questo articolo illustra le diverse opzioni disponibili per configurare un'entit
 > Per creare un'entità servizio sono necessarie autorizzazioni sufficienti per registrare un'applicazione con il tenant di Azure AD e assegnare l'applicazione a un ruolo nella sottoscrizione. È possibile verificare se si hanno a disposizione le autorizzazioni necessarie [nel portale](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
-## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Opzione 1: creare un'entità servizio in Azure AD
+## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Opzione 1: Creare un'entità servizio in Azure AD
 
 Azure mette a disposizione diversi metodi per creare un'entità servizio di Azure AD prima di distribuire il cluster Kubernetes.
 
@@ -94,7 +97,7 @@ L'esempio seguente illustra un modo per passare i parametri con l'interfaccia de
     ```
 
 
-## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opzione 2: generare un'entità servizio durante la creazione del cluster con `az acs create`
+## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opzione 2: Generare un'entità servizio durante la creazione del cluster con `az acs create`
 
 Se si esegue il comando [`az acs create`](/cli/azure/acs#az-acs-create) per creare il cluster Kubernetes, è possibile scegliere di generare automaticamente un'entità servizio.
 

@@ -1,5 +1,5 @@
 ---
-title: Esercitazione Registro contenitori di Azure - Eseguire il push di un'immagine aggiornata nelle distribuzioni regionali
+title: Esercitazione - Eseguire il push dell'immagine del contenitore aggiornata nelle distribuzioni di app Azure a livello di area
 description: Eseguire il push di un'immagine Docker modificata nel registro contenitori di Azure con replica geografica e quindi visualizzare le modifiche distribuite automaticamente alle app Web in esecuzione in più aree. Terza parte di una serie in tre parti.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 96e46c84039b7c72d5419972c7a5a401eab64659
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: d9faa89d33dde7da35ad4490b78b9a1d023274ae
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855511"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256622"
 ---
-# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Esercitazione: Eseguire il push di un'immagine aggiornata nelle distribuzioni regionali
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Esercitazione: Eseguire il push di un'immagine del contenitore aggiornata in un registro contenitori con replica geografica per distribuzioni di app Web regionali
 
 Questa è la terza parte di un'esercitazione in tre parti. Nell'[esercitazione precedente](container-registry-tutorial-deploy-app.md) è stata configurata la replica geografica per due diverse distribuzioni regionali di app Web. In questa esercitazione, verrà prima di tutto modificata l'applicazione, poi si compilerà una nuova immagine del contenitore e si eseguirà il push di tale immagine nel registro con replica geografica. Infine, si visualizzerà la modifica, distribuita automaticamente dai webhook di Registro contenitori di Azure, in entrambe le istanze delle app Web.
 

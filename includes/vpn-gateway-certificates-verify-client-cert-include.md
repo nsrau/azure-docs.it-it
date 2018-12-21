@@ -5,20 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9fa18b14b82376a25bb434acd770d340b1ef9262
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c0ce4e882f270f5e0c789a608aaada5c6c9cba92
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197088"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323728"
 ---
 In caso di problemi di connessione, effettuare i controlli seguenti:
 
-- Se è stato esportato un certificato client, assicurarsi che si tratti di un file PFX con il valore predefinito "Se possibile, includi tutti i certificati nel percorso certificazione". Usando questo valore per l'esportazione, vengono esportate anche le informazioni del certificato radice. Quando il certificato viene installato nel computer client, anche il certificato radice contenuto nel file PFX viene installato nel computer client. Nel computer client devono essere installate le informazioni del certificato radice. Per verificare, aprire **Gestire i certificati utente** e passare ad **Autorità di certificazione radice attendibili\Certificati**. Verificare che il certificato radice sia incluso nell'elenco. Per il corretto funzionamento dell'autenticazione è necessario che il certificato radice sia presente.
+- Se è stato esportato un certificato client con la **procedura guidata di esportazione dei certificati**, assicurarsi che si tratti di un file con estensione pfx e che sia selezionata l'opzione **Include all certificates in the certification path if possible** (Se possibile, includi tutti i certificati nel percorso di certificazione). Usando questo valore per l'esportazione, vengono esportate anche le informazioni del certificato radice. Dopo l'installazione del certificato nel computer client, viene installato anche il certificato radice nel file con estensione pfx. Per verificare che il certificato radice sia installato, aprire **Gestire i certificati utente** e selezionare **Autorità di certificazione radice attendibili\Certificati**. Per il funzionamento dell'autenticazione, verificare che il certificato radice sia presente nell'elenco.
 
-- Se si usa un certificato che è stato rilasciato tramite una soluzione CA globale e si riscontrano problemi durante l'autenticazione, controllare l'ordine di autenticazione del certificato client. È possibile controllare l'ordine dell'elenco di autenticazione facendo doppio clic sul certificato client e andando in **Dettagli > Utilizzo chiavi avanzato**. Assicurarsi che l'elenco mostri "Autenticazione client" come primo elemento. In caso contrario, è necessario emettere un certificato client in base al modello di utente con l'autenticazione client come primo elemento nell'elenco.
+- Se è stato usato un certificato emesso tramite una soluzione CA globale (enterprise) e non è possibile eseguire l'autenticazione, verificare l'ordine di autenticazione del certificato client. Controllare l'ordine dell'elenco di autenticazione facendo doppio clic sul certificato client, selezionando **Dettagli**, quindi **Utilizzo chiavi avanzato**. Assicurarsi che l'elenco mostri *Autenticazione client* come primo elemento. In caso contrario, emettere un certificato client in base al modello di utente che presenta *Autenticazione client* come primo elemento nell'elenco.
 
 - Per altre informazioni sulla risoluzione dei problemi delle connessioni P2S, vedere [Risoluzione dei problemi di connessione da punto a sito](../articles/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

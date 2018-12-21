@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere la lunghezza delle frasi, Python - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere la lunghezza delle frasi, Python - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa Guida introduttiva si apprenderà come determinare la lunghezza delle frasi (in caratteri) con Python e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 64831f13811029263a2b76f8030589d9329dd318
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 1d7ba50bf57a5c7f88f4380c4874d6053f07082e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086132"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992601"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Guida introduttiva: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con Python
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con Python
 
 In questa Guida introduttiva si apprenderà come determinare la lunghezza delle frasi (in caratteri) con Python e l'API REST Traduzione testuale.
 
@@ -69,7 +69,7 @@ Attualmente, è disponibile un solo endpoint per Traduzione testuale e viene imp
 `params` in questo esempio viene usato per impostare la lingua del testo fornito. `params` non è necessario per la route `breaksentence`. Se viene escluso dalla richiesta, l'API proverà a rilevare la lingua del testo fornito e a fornire queste informazioni insieme a un punteggio di attendibilità nella risposta.
 
 >[!NOTE]
-> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Per altre informazioni su endpoint, route e parametri della richiesta, vedere [API Traduzione testuale 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -153,7 +153,7 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 
 ## <a name="see-also"></a>Vedere anche 
 
-Oltre alla traslitterazione di un testo, scopri come usare l'API Traduzione testuale per:
+Informazioni su come usare l'API Traduzione testuale per:
 
 * [Tradurre un testo](quickstart-python-translate.md)
 * [Traslitterare testo](quickstart-python-transliterate.md)

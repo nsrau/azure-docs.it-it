@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare una knowledge base in REST, Python - QnA Maker'
+title: 'Avvio rapido: Creare una knowledge base in REST, Python - QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: Questa guida introduttiva per Python basata su REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: 598a861c207aaff6e61f7ffcb0fd6bf7a9b506a1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 423413d07b0c84b5d9461cef37c95f41c112764c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335798"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249702"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con Python
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Avvio rapido: Creare una knowledge base in QnA Maker con Python
 
 Questa guida introduttiva illustra come creare e pubblicare a livello di codice una knowledge base QnA Maker di esempio. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/data-sources-supported.md). Il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API. 
 
@@ -30,7 +30,7 @@ In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
 * [Python 3.7](https://www.python.org/downloads/)
 * È necessario disporre di un servizio QnA Maker. Per recuperare la chiave, selezionare Chiavi in Gestione risorse nel dashboard.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 ## <a name="create-a-knowledge-base-python-file"></a>Creare un file Python per la knowledge base
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: API Gremlin con PHP - Azure Cosmos DB'
+title: 'Guida introduttiva: API Gremlin con PHP - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Gremlin di Azure Cosmos DB per creare un'applicazione console con il portale di Azure e PHP
 services: cosmos-db
 author: luisbosquez
@@ -10,12 +10,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e5a7d40007076d09695d166148d84684c1cccee5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f6ff46f391ce03f67619ef685f841dcf95a1fd92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839620"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089467"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: Creare un database di grafi con PHP e il portale di Azure
 
@@ -37,7 +37,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]In alternativa, è possibile [provare gratuitamente Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure e senza impegno.
 
 Eseguire anche queste operazioni:
-* [PHP](http://php.net/) 5.6 o versioni successive
+* [PHP](https://php.net/) 5.6 o versioni successive
 * [Composer](https://getcomposer.org/download/)
 
 ## <a name="create-a-database-account"></a>Creare un account di database
@@ -104,7 +104,7 @@ Questo passaggio è facoltativo. Per scoprire in che modo le risorse del databas
 
 Tornare ora al portale di Azure per recuperare la stringa di connessione e copiarla nell'app. Queste impostazioni consentono all'app di comunicare con il database ospitato.
 
-1. Nel [portale di Azure](http://portal.azure.com/) fare clic su **Chiavi**. 
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Chiavi**. 
 
     Copiare la prima parte del valore dell'URI.
 

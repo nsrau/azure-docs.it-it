@@ -4,29 +4,23 @@ description: Informazioni su come usare Ansible per creare e configurare un set 
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, macchina virtuale, set di scalabilità di macchine virtuali, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 5f915f7b1b425a3bd6e5d62eb70bb3f633b7eda8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: 8dacfb054a36801c076435037a530daa87c4a89c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011709"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409403"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Crea set di scalabilità di macchine virtuali in Azure con Ansible
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per gestire il set di scalabilità di macchine virtuali in Azure, così come si farebbe con qualsiasi altra risorsa di Azure. Questo articolo illustra come usare Ansible per creare e scalare orizzontalmente un set di scalabilità di macchine virtuali. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 - **Sottoscrizione di Azure** - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
-- **Configurare Ansible** - [Creare le credenziali di Azure e configurare Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible e i moduli dell'SDK Python di Azure** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
 > In questa esercitazione, per eseguire i playbook di esempio seguenti è necessario Ansible 2.6. 
@@ -43,7 +37,7 @@ In questa sezione viene presentato un playbook Ansible di esempio che definisce 
 
 Immettere la propria password per il valore *admin_password*.
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -147,7 +141,7 @@ Per eseguire il playbook Ansible, usare il comando **ansible-playbook** come seg
 
 Dopo aver eseguito il playbook, un output simile all'esempio seguente indica che il set di scalabilità di macchine virtuali è stato creato correttamente:
 
-  ```bash
+  ```Output
   PLAY [localhost] ***********************************************************
 
   TASK [Gathering Facts] *****************************************************
@@ -186,7 +180,7 @@ Il set di scalabilità di macchine virtuali creato ha due istanze. Se si passa a
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-L'output dovrebbe essere simile al seguente:
+Verrà visualizzato un output simile al seguente:
 
   ```bash
   {
@@ -196,7 +190,7 @@ L'output dovrebbe essere simile al seguente:
 
 A questo punto, è possibile passare da due a tre istanze. Il seguente codice del playbook Ansible recupera le informazioni sulla scalabilità delle macchine virtuali e ne modifica la capacità da due a tre. 
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -231,7 +225,7 @@ Il playbook verrà eseguito dal comando seguente:
 
 L'output generato dall'esecuzione del playbook Ansible indica che il set di scalabilità di macchine virtuali è stato aumentato correttamente:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -281,4 +275,6 @@ I risultati dell'esecuzione del comando in Cloud Shell indicano che ora sono dis
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"] 
-> [Playbook Ansible di esempio per il set di scalabilità di macchine virtuali](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Distribuire applicazioni nei set di scalabilità di macchine virtuali tramite Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
+
+> [Ridimensionare automaticamente un set di scalabilità di macchine virtuali con Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

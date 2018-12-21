@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB: compilare un'app Node.js con JavaScript SDK per gestire i dati dell'API SQL di Azure Cosmos DB"
+title: "Azure Cosmos DB: Compilare un'app Node.js con JavaScript SDK per gestire i dati API SQL di Azure Cosmos DB"
 description: Presenta un esempio di codice Node.js che permette di connettersi all'API SQL di Azure Cosmos DB e di eseguire query su di essa
 services: cosmos-db
 author: deborahc
@@ -10,14 +10,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 615e03e1905fc282a8561138904a965db6226837
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ae935157264dd5fa33df9afd0d8f7d5447855a92
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833013"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161290"
 ---
-# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: compilare un'app Node.js con JavaScript SDK per gestire i dati dell'API SQL di Azure Cosmos DB
+# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: Compilare un'app Node.js con JavaScript SDK per gestire i dati API SQL di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -39,7 +39,7 @@ Questa guida introduttiva illustra come creare un account dell'[API SQL](sql-api
 
 * Eseguire anche queste operazioni:
     * [Node.js](https://nodejs.org/en/) versione v6.0.0 o successiva
-    * [Git](http://git-scm.com/)
+    * [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -135,7 +135,7 @@ Tutti i frammenti di codice seguenti sono tratti dal file **app.js**.
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Nell'account Azure Cosmos DB nel [portale di Azure](http://portal.azure.com/) fare clic su **Chiavi** nel riquadro di spostamento a sinistra e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file `config.js` nel passaggio seguente.
+1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) fare clic su **Chiavi** nel riquadro di spostamento a sinistra e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file `config.js` nel passaggio seguente.
 
     ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-sql-api-dotnet/keys.png)
 

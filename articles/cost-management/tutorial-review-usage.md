@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7b9c9a600d105d4b7fbbeb4f52ee42b5eb2bcaaa
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275871"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093608"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -51,15 +51,15 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Di seguito è illustrato un report di esempio:
 
-![report di esempio](./media/tutorial-review-usage/actual-cost01.png)
+![Esempio di report dei costi effettivi nel tempo](./media/tutorial-review-usage/actual-cost01.png)
 
 Il report visualizza tutte le spese degli ultimi 30 giorni. Per visualizzare solo le spese per i servizi di Azure, applicare il gruppo Servizio e quindi applicare un filtro per tutti i servizi di Azure. L'immagine seguente mostra i servizi filtrati.
 
-![servizi filtrati](./media/tutorial-review-usage/actual-cost02.png)
+![Esempio che mostra i servizi di Azure filtrati](./media/tutorial-review-usage/actual-cost02.png)
 
 Nell'esempio precedente a partire dal 29-10-2018 la spesa è stata inferiore rispetto al periodo precedente. Un numero eccessivo di colonne può però rendere meno evidente una tendenza ovvia. È possibile modificare la visualizzazione del report in un grafico a linee o ad area per visualizzare i dati visibili in altre visualizzazioni. La figura seguente illustra la tendenza più chiaramente.
 
-![tendenza nel report](./media/tutorial-review-usage/actual-cost03.png)
+![Esempio che mostra una tendenza dei costi delle macchine virtuali di Azure in diminuzione](./media/tutorial-review-usage/actual-cost03.png)
 
 Continuando con l'esempio, è possibile vedere che il costo per macchina virtuale di Azure è diminuito. Anche i costi relativi ad altri servizi di Azure hanno iniziato a diminuire nello stesso giorno. Che cosa ha causato il calo della spesa? In questo esempio è stato completato un progetto di lavoro di grandi dimensioni, di conseguenza è diminuito il consumo di numerosi servizi di Azure.
 
@@ -77,15 +77,15 @@ Il report Cost Effective Sizing Recommendations (Consigli di ridimensionamento p
 
 Nel menu nella parte superiore del portale fare clic su **Optimizer** (Utilità di ottimizzazione)  > **Pricing Optimization** (Ottimizzazione dimensioni)  > **Cost Effective Sizing Recommendations** (Consigli di ridimensionamento per la riduzione dei costi). Se utile, applicare un filtro per ridurre il numero di risultati. Di seguito è riportata una figura di esempio.
 
-![Macchine virtuali di Azure](./media/tutorial-review-usage/sizing01.png)
+![Report Cost Effective Sizing Recommendations (Consigli di ridimensionamento per la riduzione dei costi) per le macchine virtuali di Azure](./media/tutorial-review-usage/sizing01.png)
 
 In questo esempio è stato possibile risparmiare $ 2.382 seguendo i consigli per modificare i tipi di istanza di macchina virtuale. Fare clic sul segno più (+) in **Details** (Dettagli) per il primo consiglio. Di seguito sono illustrati i dettagli del primo consiglio.
 
-![dettagli del consiglio](./media/tutorial-review-usage/sizing02.png)
+![Esempio che mostra i dettagli dei consigli](./media/tutorial-review-usage/sizing02.png)
 
 Fare clic sul segno più accanto a **List of Candidates** (Elenco dei candidati) per visualizzare gli ID delle istanze della macchina virtuale.
 
-![Elenco dei candidati](./media/tutorial-review-usage/sizing03.png)
+![Esempio che mostra un elenco di candidati di macchine virtuali da ridimensionare](./media/tutorial-review-usage/sizing03.png)
 
 Per guardare un video di esercitazione per il rilevamento delle inefficienze di utilizzo, vedere [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704) (Ottimizzazione delle dimensioni delle macchine virtuali in Cloudyn).
 
@@ -99,7 +99,7 @@ Gestione costi di Azure fornisce anche gli elementi consigliati di ottimizzazion
 
 Nella casella Save or Schedule this report (Salva o pianifica report), usare la scheda **Scheduling** (Pianificazione) per inviare a se stessi un messaggio di posta elettronica con il report con la frequenza desiderata. Assicurarsi di selezionare **Send via email** (Invia tramite posta elettronica). Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati. Fare clic sulla scheda **Threshold** (Soglia) e selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia). Se si ha a disposizione un budget totale di $ 20.000 e si vuole ricevere una notifica quando il costo si avvicina alla metà del budget, creare un **Red alert** (Avviso rosso) a $ 10.000 e un **Yellow alert** (Avviso giallo) a $ 9.000. Non includere le virgole nei valori immessi. Scegliere quindi il numero di avvisi consecutivi. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi. Salvare il report pianificato.
 
-![report di esempio](./media/tutorial-review-usage/schedule-alert01.png)
+![Esempio che mostra gli avvisi di colore giallo e rosso in base alle soglie di spesa](./media/tutorial-review-usage/schedule-alert01.png)
 
 È anche possibile scegliere Cost Percentage vs. Budget (Percentuale costo/budget) per la creazione degli avvisi. Con questa metrica è possibile usare le percentuali del budget anziché i valori di valuta.
 

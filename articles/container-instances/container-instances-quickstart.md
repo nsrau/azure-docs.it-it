@@ -1,23 +1,23 @@
 ---
-title: "Guida introduttiva: eseguire un'applicazione in Istanze di contenitore di Azure"
-description: In questa guida introduttiva si userà l'interfaccia della riga di comando di Azure per distribuire un'applicazione in esecuzione in un contenitore Docker in Istanze di contenitore di Azure
+title: Avvio rapido - Eseguire un'applicazione in Istanze di Azure Container - Interfaccia della riga di comando
+description: In questo avvio rapido si userà l'interfaccia della riga di comando di Azure per distribuire un'applicazione in esecuzione in un contenitore Docker in un contenitore isolato di Istanze di Azure Container
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855664"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189609"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Guida introduttiva: eseguire un'applicazione in Istanze di contenitore di Azure
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Avvio rapido: Eseguire un'applicazione in esecuzione in un contenitore in Istanze di Azure Container con l'interfaccia della riga di comando di Azure
 
-Le Istanze di contenitore di Azure consentono di eseguire i contenitori Docker in Azure in modo semplice e rapido, senza la necessità di distribuire macchine virtuali o usare una piattaforma di orchestrazione di contenitori completa come Kubernetes. In questa guida introduttiva viene usato il portale di Azure per creare un contenitore in Azure e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Pochi secondi dopo aver eseguito un comando di distribuzione singola, è possibile passare all'applicazione in esecuzione:
+Le Istanze di contenitore di Azure consentono di eseguire i contenitori Docker in Azure in modo semplice e rapido, senza la necessità di distribuire macchine virtuali o usare una piattaforma di orchestrazione di contenitori completa come Kubernetes. In questo avvio rapido viene usata l'interfaccia della riga di comando di Azure per creare un contenitore in Azure e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Pochi secondi dopo aver eseguito un comando di distribuzione singola, è possibile passare all'applicazione in esecuzione:
 
 ![App distribuita in Istanze di contenitore di Azure visualizzata nel browser][aci-app-browser]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Rilevare la lingua del testo, Python - API Traduzione testuale'
+title: 'Avvio rapido: Rilevare la lingua del testo, Python - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa Guida introduttiva si apprenderà come identificare la lingua del testo fornito con Python e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 564a12de2a0823372ce267f9ff2759ab17199a80
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: cfc2565c0ee2b51eaff40647cfcd7505e0479e64
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086040"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993821"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo con Python
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con Python
 
 In questa Guida introduttiva si apprenderà come rilevare la lingua del testo fornito con Python e l'API REST Traduzione testuale.
 
@@ -67,7 +67,7 @@ else:
 Attualmente, è disponibile un solo endpoint per Traduzione testuale e viene impostato come `base_url`. `path` imposta la route `detect` e identifica che si vuole usare la versione 3 dell'API.
 
 >[!NOTE]
-> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Per altre informazioni su endpoint, route e parametri della richiesta, consultare [API Traduzione testuale 3.0: Rileva](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -163,7 +163,7 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 
 ## <a name="see-also"></a>Vedere anche 
 
-Oltre al rilevamento della lingua, scopri come usare l'API Traduzione testuale per:
+Informazioni su come usare l'API Traduzione testuale per:
 
 * [Tradurre un testo](quickstart-python-translate.md)
 * [Traslitterare testo](quickstart-python-transliterate.md)

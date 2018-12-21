@@ -1,25 +1,24 @@
 ---
-title: 'Esercitazione: Analisi del sentiment su dati in streaming con Azure Databricks'
+title: 'Esercitazione: Analisi della valutazione sui dati in streaming con Azure Databricks'
 description: Informazioni su come usare Azure Databricks con Hub eventi e l'API Servizi cognitivi per eseguire l'analisi del sentiment su dati in streaming quasi in tempo reale.
 services: azure-databricks
 author: lenadroid
+ms.author: alehall
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 10/23/2018
-ms.author: alehall
-ms.openlocfilehash: cf396dea6ee467267ea73379ea04026fc8cc53b2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 12/07/2018
+ms.openlocfilehash: 449d721683bd59646506db57d78b9535aa7d614d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636581"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100184"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Esercitazione: Analisi del sentiment su dati in streaming con Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Esercitazione: Analisi della valutazione sui dati in streaming con Azure Databricks
 
-In questa esercitazione si apprenderà come eseguire l'analisi del sentiment su un flusso di dati quasi in tempo reale con Azure Databricks. Il sistema di inserimento dati viene configurato con Hub eventi di Azure. I messaggi di Hub eventi verranno usati in Azure Databricks tramite il connettore di Hub eventi per Apache Spark. Si useranno infine le API Servizi cognitivi di Microsoft per eseguire l'analisi del sentiment sui dati trasmessi.
+In questa esercitazione si apprenderà come eseguire l'analisi della valutazione su un flusso di dati near real time con Azure Databricks. Il sistema di inserimento dati viene configurato con Hub eventi di Azure. I messaggi di Hub eventi verranno usati in Azure Databricks tramite il connettore di Hub eventi per Apache Spark. Si useranno infine le API Servizi cognitivi di Microsoft per eseguire l'analisi del sentiment sui dati trasmessi.
 
 Al termine di questa esercitazione saranno stati trasmessi tweet di Twitter contenenti il termine "Azure" e sarà stata eseguita l'analisi del sentiment sui tweet.
 
@@ -100,7 +99,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
     * Immettere un nome per il cluster.
     * Per questo articolo è necessario creare un cluster con il runtime **4.0 (beta)**.
-    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
+    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo ___ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
 
     Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
 
@@ -151,7 +150,7 @@ In questa esercitazione verranno usate le API Twitter per inviare tweet a Hub ev
 
 ## <a name="get-a-cognitive-services-access-key"></a>Ottenere una chiave di accesso per Servizi cognitivi
 
-In questa esercitazione si useranno le [API Analisi del testo di Servizi cognitivi Microsoft](../cognitive-services/text-analytics/overview.md) per eseguire l'analisi del sentiment su un flusso di tweet quasi in tempo reale. Prima di usare le API è necessario creare un account Servizi cognitivi Microsoft in Azure e recuperare una chiave di accesso per usare le API Analisi del testo.
+In questa esercitazione si useranno le [API Analisi del testo di Servizi cognitivi Microsoft](../cognitive-services/text-analytics/overview.md) per eseguire l'analisi della valutazione su un flusso di tweet near real time. Prima di usare le API è necessario creare un account Servizi cognitivi Microsoft in Azure e recuperare una chiave di accesso per usare le API Analisi del testo.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -206,7 +205,7 @@ In questa sezione vengono creati due notebook nell'area di lavoro di Databricks 
 
 ## <a name="send-tweets-to-event-hubs"></a>Inviare tweet a Hub eventi
 
-Nel notebook **SendTweetsToEventHub** incollare il codice seguente e sostituire i segnaposto con i valori per lo spazio dei nomi di Hub eventi e l'applicazione Twitter creata in precedenza. Questo notebook trasmette i tweet con la parola chiave "Azure" a Hub eventi in tempo reale.
+Nel notebook **SendTweetsToEventHub** incollare il codice seguente e sostituire il segnaposto con i valori per lo spazio dei nomi di Hub eventi e l'applicazione Twitter creata in precedenza. Questo notebook trasmette i tweet con la parola chiave "Azure" a Hub eventi in tempo reale.
 
 ```scala
 import java.util._
@@ -313,7 +312,7 @@ val customEventhubParameters =
   EventHubsConf(connectionString)
   .setMaxEventsPerTrigger(5)
 
-val incomingStream = spark.readStream.format("eventhubs").option(customEventhubParameters.toMap).load()
+val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
 
 incomingStream.printSchema
 
@@ -396,7 +395,7 @@ L'output sarà ora simile al seguente:
     ...
     ...
 
-È stato eseguito lo streaming di dati da Hub eventi di Azure ad Azure Databricks in tempo quasi reale usando il connettore di Hub eventi per Apache Spark. Per altre informazioni su come usare il connettore di Hub eventi per Spark, vedere la [documentazione del connettore](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+È stato eseguito lo streaming di dati near real time da Hub eventi di Azure ad Azure Databricks usando il connettore di Hub eventi per Apache Spark. Per altre informazioni su come usare il connettore di Hub eventi per Spark, vedere la [documentazione del connettore](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Eseguire l'analisi del sentiment sui tweet
 
@@ -571,7 +570,7 @@ Dovrebbe venire visualizzato un output simile al frammento di codice seguente:
 
 Un valore più vicino a **1** nella colonna **Sentiment** indica un'ottima esperienza con Azure. Un valore più vicino a **0** indica problemi riscontrati dall'utente durante l'interazione con Microsoft Azure.
 
-L'operazione è terminata. Usando Azure Databricks sono stati trasmessi dati a Hub eventi di Azure, i dati trasmessi sono stati utilizzati con il connettore di Hub eventi ed è stata quindi eseguita l'analisi del sentiment sui dati in streaming quasi in tempo reale.
+L'operazione è terminata. Usando Azure Databricks sono stati trasmessi dati a Hub eventi di Azure, i dati trasmessi sono stati usati con il connettore di Hub eventi ed è stata quindi eseguita l'analisi della valutazione sui dati in streaming near real time.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -579,7 +578,7 @@ Dopo aver concluso l'esecuzione per l'esercitazione è possibile terminare il cl
 
 ![Arrestare un cluster Databricks](./media/databricks-sentiment-analysis-cognitive-services/terminate-databricks-cluster.png "Arrestare un cluster Databricks")
 
-Se non viene terminato manualmente, il cluster si arresterà automaticamente se è stata selezionata la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività) durante la creazione del cluster. In tal caso, il cluster verrà automaticamente arrestato se è rimasto inattivo per il tempo specificato.
+Se non viene terminato manualmente, il cluster si arresterà automaticamente se è stata selezionata la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo ___ minuti di attività) durante la creazione del cluster. In tal caso, il cluster verrà automaticamente arrestato se è rimasto inattivo per il tempo specificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come usare Azure Databricks per trasmettere dati a Hub eventi di Azure e quindi leggere i dati trasmessi da Hub eventi in tempo reale. Si è appreso come:

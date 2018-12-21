@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c5340599bc4ed400ce11ea8ba997d03c4df7cc05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634329"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963216"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -33,16 +33,18 @@ Il servizio Visione artificiale basato sul cloud consente agli sviluppatori di a
 
 Visione artificiale può eseguire le azioni seguenti durante l'analisi di un'immagine:
 
-| Azione | Descrizione |
+| Azione | DESCRIZIONE |
 | ------ | ----------- |
-|**[Assegnare tag agli elementi visivi](concept-tagging-images.md)**|È possibile identificare e assegnare tag agli elementi visivi di un'immagine in base a più di 2.000 oggetti riconoscibili, esseri viventi, panorami e azioni. Quando i tag sono ambigui o di conoscenza non comune, la risposta fornisce suggerimenti per chiarire il significato del tag nel contesto di un'impostazione nota. L'assegnazione di tag non è limitata al soggetto principale, ad esempio una persona in primo piano, ma include anche scenari (interni o esterni), arredamenti, strumenti, piante, animali, accessori, gadget e così via.|
+|**[Assegnare tag agli elementi visivi](concept-tagging-images.md)**|Identificare e assegnare tag agli elementi visivi di un'immagine in base a un set di migliaia di oggetti riconoscibili, esseri viventi, panorami e azioni. Quando i tag sono ambigui o non di conoscenza comune, la risposta dell'API indica suggerimenti per chiarire il significato del tag nel contesto di uno scenario noto. L'assegnazione di tag non è limitata al soggetto principale, ad esempio una persona in primo piano, ma include anche scenari (interni o esterni), arredamenti, strumenti, piante, animali, accessori, gadget e così via.|
+|**[Rilevare gli oggetti](concept-object-detection.md)**| Il rilevamento di oggetti è simile all'assegnazione di tag, ma l'API restituisce le coordinate del rettangolo di selezione per ogni tag applicato. Se, ad esempio, un'immagine contiene un cane, gatto e una persona, l'operazione di rilevamento elencherà tali oggetti insieme alle relative coordinate nell'immagine. È possibile usare questa funzionalità per elaborare ulteriormente le relazioni tra gli oggetti in un'immagine. Questa funzionalità consente anche di sapere quando sono presenti più istanze dello stesso tag in un'immagine.|
 |**[Classificare un'immagine](concept-categorizing-images.md)**|È possibile identificare e classificare un'intera immagine usando una [tassonomia di categorie](Category-Taxonomy.md) con gerarchie ereditarie di tipo padre/figlio. Le categorie possono essere usate singolarmente o con i nuovi modelli di assegnazione di tag.<br/>L'inglese è attualmente l'unica lingua supportata per l'assegnazione di tag e la classificazione di immagini.|
 |**[Descrivere un'immagine](concept-describing-images.md)**|È possibile generare una descrizione di un'intera immagine in un linguaggio leggibile dall'utente, con frasi complete. Gli algoritmi di Visione artificiale generano descrizioni diverse in base agli oggetti identificati nell'immagine. Tutte le descrizioni vengono valutate e per ognuna viene generato un punteggio di attendibilità. Viene quindi restituito un elenco dei punteggi di attendibilità in ordine decrescente.|
 |**[Rilevare visi](concept-detecting-faces.md)** |È possibile rilevare visi in un'immagine e fornire informazioni su ogni viso rilevato. Visione artificiale restituisce le coordinate, un rettangolo, il sesso e l'età per ogni viso rilevato.<br/>Visione artificiale fornisce un sottoinsieme delle funzionalità disponibili in [Viso](/azure/cognitive-services/face/) ed è possibile usare il servizio Viso per ottenere analisi più dettagliate, ad esempio l'identificazione dei visi e il rilevamento della posa.|
 |**[Rilevare i tipi di immagine](concept-detecting-image-types.md)**|È possibile rilevare le caratteristiche di un'immagine, ad esempio per determinare se un'immagine è un disegno a linee o per ottenere la probabilità che un'immagine sia ClipArt.|
 |**[Rilevare contenuti specifici del dominio](concept-detecting-domain-content.md)**|È possibile usare modelli di dominio per rilevare e identificare contenuti specifici del dominio in un'immagine, ad esempio celebrità e luoghi di interesse. Se ad esempio un'immagine contiene persone, Visione artificiale può usare un modello di dominio per le celebrità incluso nel servizio per determinare se le persone rilevate nell'immagine corrispondono a celebrità note.|
 |**[Rilevare la combinazione di colori](concept-detecting-color-schemes.md)**|È possibile analizzare l'utilizzo dei colori in un'immagine. Visione artificiale può determinare se un'immagine è in bianco e nero o a colori e nel caso delle immagini a colore può identificare il colore dominante e i colori in primo piano.|
-|**[Generare un'anteprima](concept-generating-thumbnails.md)**|È possibile analizzare i contenuti di un'immagine per generare un'anteprima appropriata per tale immagine. Visione artificiale genera prima di tutto un'anteprima di qualità elevata e quindi analizza gli oggetti inclusi nell'immagine per determinare l'*area di interesse*. Visione artificiale ritaglia quindi l'immagine per soddisfare i requisiti dell'area di interesse. L'anteprima generata può essere visualizzata con proporzioni diverse da quelle dell'immagine originale, in base alle esigenze specifiche.|
+|**[Generare un'anteprima](concept-generating-thumbnails.md)**|È possibile analizzare i contenuti di un'immagine per generare un'anteprima appropriata per tale immagine. Visione artificiale genera prima di tutto un'anteprima di qualità elevata e quindi analizza gli oggetti inclusi nell'immagine per determinare l'*area di interesse*. L'immagine viene quindi ritagliata per soddisfare i requisiti dell'area di interesse. L'anteprima generata può essere visualizzata con proporzioni diverse da quelle dell'immagine originale, in base alle esigenze specifiche.|
+|**[Ottenere l'area di interesse](concept-generating-thumbnails.md#area-of-interest)**|Analizzare il contenuto di un'immagine per restituire le coordinate dell'*area di interesse*. Questa funzione corrisponde a quella usata per generare un'anteprima, ma invece di ritagliare l'immagine Visione artificiale restituisce le coordinate del rettangolo di selezione dell'area, in modo che l'applicazione chiamante possa modificare l'immagine originale in base alle esigenze.|
 
 ## <a name="extracting-text-from-images"></a>Estrazione di testo dalle immagini
 

@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 4fde6d203999b15f0f60d4879c2fdc595e1fb7e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ece6780803809829e69fccc320ae65a0c7b0f94b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835557"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089259"
 ---
-# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Guida introduttiva: creare un'app Xamarin.Forms per le API MongoDB con .NET e il portale di Azure
+# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Guida introduttiva: Creare un'app Xamarin.Forms per le API MongoDB con .NET e il portale di Azure
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -156,7 +156,7 @@ I frammenti seguenti provengono tutti dalla classe `MongoService`, nel percorso 
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Nell'account Azure Cosmos DB nel [portale di Azure](http://portal.azure.com/) fare clic su **Stringa di connessione** nel riquadro di spostamento a sinistra e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro della schermata per copiare la stringa di connessione primaria nei passaggi successivi.
+1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) fare clic su **Stringa di connessione** nel riquadro di spostamento a sinistra e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro della schermata per copiare la stringa di connessione primaria nei passaggi successivi.
 
 2. Aprire il file **APIKeys.cs** nella directory **Helpers** del progetto **TaskList.Core**.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: domini sospesi | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Domini sospesi | Microsoft Docs'
 description: Sospensione ed eliminazione di domini gestiti
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 31e7307e427b175eb7424ecaee380bd90ce8150e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 161a9f1ac517d372884e7606dbd2ef30c910bf6b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443407"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968101"
 ---
 # <a name="suspended-domains"></a>Domini sospesi
 Quando Azure Active Directory Domain Services non è in grado di amministrare un dominio gestito per un lungo periodo di tempo, lo stato del dominio diventa sospeso. Questo articolo descrive il motivo per cui i domini gestiti vengono sospesi e il modo in cui risolvere il problema.
@@ -28,7 +28,7 @@ Quando Azure Active Directory Domain Services non è in grado di amministrare un
 
 ## <a name="states-your-managed-domain-can-be-in"></a>Stati possibili del dominio gestito
 
-![Sequenza temporale dei domini sospesi](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
+![Sequenza temporale dei domini sospesi](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
 La figura precedente illustra gli stati possibili in cui può trovarsi un dominio gestito di Azure Active Directory Domain Services.
 

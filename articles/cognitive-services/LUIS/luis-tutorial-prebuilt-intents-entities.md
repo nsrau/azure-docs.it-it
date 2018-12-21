@@ -1,23 +1,24 @@
 ---
-title: 'Esercitazione 2: finalità ed entità predefinite - usare espressioni comuni predefinite - estrarre dati comuni in LUIS'
+title: Finalità ed entità predefinite
 titleSuffix: Azure Cognitive Services
 description: Aggiungere finalità ed entità predefinite all'app dell'esercitazione relativa alle risorse umane per ottenere rapidamente le previsioni delle finalità e l'estrazione dei dati. Non è necessario etichettare ogni espressione con entità predefinite. L'entità viene rilevata automaticamente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3bad68d1a388a5bc8780df633313206afaadcef9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422423"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074077"
 ---
-# <a name="tutorial-2-identify-common-intents-and-entities"></a>Esercitazione 2: identificare finalità ed entità comuni
+# <a name="tutorial-2-identify-common-intents-and-entities"></a>Esercitazione 2: Identificare finalità ed entità comuni
 Questa esercitazione illustra come modificare l'app delle risorse umane. Aggiungere finalità ed entità predefinite all'app dell'esercitazione relativa alle risorse umane per ottenere rapidamente le previsioni delle finalità e l'estrazione dei dati. Non è necessario etichettare ogni espressione con entità predefinite perché l'entità viene rilevata automaticamente.
 
 I modelli predefiniti di tipi di domini soggetto e di dati comuni aiutano a creare rapidamente il modello e forniscono un esempio dell'aspetto di un modello analogo. 
@@ -90,7 +91,7 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
 
 2. Andare alla fine dell'URL nella barra degli indirizzi del browser e immettere `I want to cancel on March 3`. L'ultimo parametro della stringa di query è `q`, la **query** dell'espressione. 
 
-    ```JSON
+    ```json
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {

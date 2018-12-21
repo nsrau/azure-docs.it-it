@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 3b766cfa339e6cbb568cf57383667d270153401f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dd47976bca75569142f1912eee06c66061e92fa6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262421"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097666"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Effettuare il provisioning della velocità effettiva per un contenitore di Azure Cosmos DB
 
@@ -28,6 +28,7 @@ Questo articolo illustra come effettuare il provisioning della velocità effetti
 
    * Creare un nuovo database o usarne uno esistente.
    * Immettere un ID raccolta (o tabella o grafo).
+   * Immettere un valore della chiave di partizione, ad esempio `/userid`.
    * Immettere una velocità effettiva, ad esempio 1000 UR/sec.
    * Selezionare **OK**.
 

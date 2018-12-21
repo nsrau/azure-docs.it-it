@@ -1,24 +1,27 @@
 ---
-title: Esercitazione sul servizio contenitore di Azure - Preparare il Registro contenitori di Azure
+title: (DEPRECATO) Esercitazione sul servizio Azure Container - Preparare il Registro Azure Container
 description: Esercitazione sul servizio contenitore di Azure - Preparare il Registro contenitori di Azure
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 735aca5509373f840c56e28887088f7a696ca137
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c3e5e7c4fb46b3f68013ac857dcad2e5434a978d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024087"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998318"
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Distribuire e usare il Registro contenitori di Azure
+# <a name="deprecated-deploy-and-use-azure-container-registry"></a>(DEPRECATO) Distribuire e usare il Registro Azure Container
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Per la versione aggiornata di questa esercitazione che usa il servizio Azure Kubernetes, vedere [Esercitazione: Distribuire e usare il Registro Azure Container](../../aks/tutorial-kubernetes-prepare-acr.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Il Registro contenitori di Azure è un registro privato basato su Azure per le immagini del contenitore Docker. Questa esercitazione, parte due di sette, illustra la distribuzione di un'istanza di Registro contenitori di Azure e il push di un'immagine del contenitore al suo interno. I passaggi completati comprendono:
 

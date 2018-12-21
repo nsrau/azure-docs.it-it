@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416886"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135339"
 ---
-# <a name="tutorial-configure-message-routing-with-iot-hub"></a>Esercitazione: Configurare il routing dei messaggi con l'IoT Hub
+# <a name="tutorial-configure-message-routing-with-iot-hub"></a>Esercitazione: configurare il routing dei messaggi con l'hub IoT
 
 Il [routing dei messaggi](iot-hub-devguide-messages-d2c.md) consente l'invio dei dati di telemetria dai dispositivi IoT agli endpoint compatibili con Hub eventi predefiniti o agli endpoint personalizzati, ad esempio l'archiviazione BLOB, la coda del bus di servizio, l'argomento del bus di servizio e Hub eventi. Durante la configurazione del routing dei messaggi, è possibile creare [query di routing](iot-hub-devguide-routing-query-syntax.md) per personalizzare la route che corrisponde a una determinata condizione. Una volta impostati, i dati in ingresso vengono automaticamente indirizzati agli endpoint dall'hub IoT. 
 
@@ -56,6 +56,10 @@ Le sezioni seguenti descrivono come eseguire questa procedura necessaria. Seguir
 1. Creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md). 
 
 2. Creare un hub IoT nel livello S1. Aggiungere un gruppo di consumer all'hub IoT Il gruppo di consumer è usato da Analisi di flusso di Azure quando si recuperano i dati.
+
+   > [!NOTE]
+   > Per completare questa esercitazione, è necessario utilizzare un hub IoT in un livello a pagamento. Il livello gratuito consente solo di configurare un endpoint e questa esercitazione ne richiede di più.
+   > 
 
 3. Creare un account di archiviazione V1 standard con la replica Standard_LRS.
 
@@ -306,11 +310,11 @@ I dati vengono scritti nell'archiviazione BLOB in formato Avro.
 
    **Endpoint**: viene visualizzato l'endpoint appena configurato. 
    
-   **Origine dati**: selezionare **Device Telemetry Messages** (Messaggi telemetria dispositivo) nell'elenco a discesa.
+   **Origine dati**: selezionare **Messaggi di telemetria del dispositivo** nell'elenco a discesa.
 
-   **Enable route** (Abilita route): verificare che questa opzione sia abilitata.
+   **Abilita route**: verificare che questa opzione sia abilitata.
    
-   **Routing query** (Query di routing): immettere `level="storage"` come stringa di query. 
+   **Query di routing**: immettere `level="storage"` come stringa di query. 
 
    ![Screenshot che mostra la creazione di una query di routing per l'account di archiviazione.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
@@ -330,7 +334,7 @@ Ora configurare il routing per la coda del bus di servizio. Passare al riquadro 
 
 4. Compilare i campi:
 
-   **Nome endpoint**: immettere un nome per l'endpoint. Questa esercitazione usa **CriticalQueue**.
+   **Nome endpoint**: Immettere un nome per l'endpoint. Questa esercitazione usa **CriticalQueue**.
    
    **Spazio dei nomi del bus di servizio**: fare clic su questo campo per visualizzare l'elenco a discesa; selezionare lo spazio dei nomi del bus di servizio configurato nei passaggi di preparazione. Questa esercitazione usa **ContosoSBNamespace**.
 
@@ -344,9 +348,9 @@ Ora configurare il routing per la coda del bus di servizio. Passare al riquadro 
 
    **Endpoint**: viene visualizzato l'endpoint appena configurato.
 
-   **Origine dati**: selezionare **Device Telemetry Messages** (Messaggi telemetria dispositivo) nell'elenco a discesa.
+   **Origine dati**: selezionare **Messaggi di telemetria del dispositivo** nell'elenco a discesa.
 
-   **Routing query** (Query di routing): immettere `level="critical"` come stringa di query. 
+   **Query di routing**: immettere `level="critical"` come stringa di query. 
 
    ![Screenshot che mostra la creazione di una query di routing per la coda del bus di servizio.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
@@ -366,15 +370,15 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
 
 1. Nel [portale di Azure](https://portal.azure.com), fare clic su **Crea una risorsa**. Inserire **app per la logica** nella casella di ricerca e fare clic su Invio. Dai risultati di ricerca visualizzati, selezionare App per la logica, quindi fare clic su **Crea** per passare al riquadro **Crea app per la logica**. Compilare i campi. 
 
-   **Nome**: questo campo è il nome dell'app per la logica. Questa esercitazione usa **ContosoLogicApp**. 
+   **Nome**: il nome dell'app per la logica. Questa esercitazione usa **ContosoLogicApp**. 
 
-   **Sottoscrizione**: selezionare una sottoscrizione di Azure.
+   **Sottoscrizione** Selezionare la sottoscrizione di Azure.
 
    **Gruppo di risorse**: fare clic su **Usa esistente** e selezionare un gruppo di risorse. Questa esercitazione usa **ContosoResources**. 
 
-   **Percorso**: usare il percorso. Questa esercitazione usa **Stati Uniti occidentali**. 
+   **Località**: usare la propria località. Questa esercitazione usa **Stati Uniti occidentali**. 
 
-   **Log Analytics**: questa alternanza deve essere disattivata. 
+   **Log Analytics**: questo interruttore deve essere disattivato. 
 
    ![Screenshot che mostra la schermata Crea app per la logica.](./media/tutorial-routing/create-logic-app.png)
 
@@ -424,11 +428,11 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
 2. Immettere le seguenti informazioni per il processo.
 
-   **Nome processo**: il nome del processo. Il nome deve essere univoco a livello globale. Questa esercitazione usa **contosoJob**.
+   **Nome processo**: Nome del processo. Il nome deve essere univoco a livello globale. Questa esercitazione usa **contosoJob**.
 
    **Gruppo di risorse**: usare lo stesso gruppo di risorse usato dall'hub IoT dell'utente. Questa esercitazione usa **ContosoResources**. 
 
-   **Percorso**: usare la stessa posizione usata nello script di configurazione. Questa esercitazione usa **Stati Uniti occidentali**. 
+   **Località**: usare la stessa località usata nello script di configurazione. Questa esercitazione usa **Stati Uniti occidentali**. 
 
    ![Screenshot che mostra come creare il processo di analisi di flusso.](./media/tutorial-routing/stream-analytics-create-job.png)
 
@@ -440,15 +444,15 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
 5. Nel riquadro **Input**, fare clic su **Aggiungi input del flusso** e selezionare Hub IoT. Nella schermata che viene visualizzata, compilare i campi seguenti:
 
-   **Alias di input**: questa esercitazione usa **contosoinputs**.
+   **Alias di input**: Questa esercitazione usa **contosoinputs**.
 
-   **Sottoscrizione**: selezionare la propria sottoscrizione.
+   **Sottoscrizione** Selezionare la propria sottoscrizione.
 
-   **IoT Hub**: Selezionare l'hub IoT. Questa esercitazione usa **ContosoTestHub**.
+   **Hub IoT**: selezionare l'hub IoT. Questa esercitazione usa **ContosoTestHub**.
 
    **Endpoint**: selezionare **Messaggistica**. (Se si seleziona Monitoraggio delle operazioni, si ottengono i dati di telemetria relativi all'hub IoT anziché i dati che si stanno inviando.) 
 
-   **Nome del criterio di accesso condiviso**: selezionare **iothubowner**. Nel portale viene inserita la chiave di criteri di accesso condivisi per l'utente.
+   **Nome criteri di accesso condiviso**: selezionare **iothubowner**. Nel portale viene inserita la chiave di criteri di accesso condivisi per l'utente.
 
    **Gruppo di consumer**: selezionare il gruppo di consumer creato in precedenza. Questa esercitazione usa **contosoconsumers**.
    
@@ -466,9 +470,9 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    **Alias di output**: l'alias univoco per l'output. Questa esercitazione usa **contosooutputs**. 
 
-   **Nome del set di dati**: nome del set di dati da usare in Power BI. Questa esercitazione usa **contosodataset**. 
+   **Nome del set di dati**: il nome del set di dati da usare in Power BI. Questa esercitazione usa **contosodataset**. 
 
-   **Nome della tabella**: nome della tabella da usare in Power BI. Questa esercitazione usa **contosotable**.
+   **Nome tabella**: il nome della tabella da usare in Power BI. Questa esercitazione usa **contosotable**.
 
    Accettare le impostazioni predefinite nei campi rimanenti.
 

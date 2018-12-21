@@ -13,12 +13,13 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 3a84f9ed35bac7f56d4a6aa2af94d1c28e335b74
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334211"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093200"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Resource Manager
 
@@ -81,7 +82,7 @@ Per creare un'istanza di Key Vault:
 
 1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea un'istanza e un segreto di Key Vault.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" /></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Selezionare o immettere i valori seguenti.  Non selezionare **Acquista** al termine dell'immissione dei valori.
 
@@ -94,8 +95,8 @@ Per creare un'istanza di Key Vault:
     * **ID tenant**: viene recuperato automaticamente dalla funzione del modello.  Non modificare il valore predefinito.
     * **Ad User Id** (ID utente AD): immettere l'ID oggetto utente di Azure AD recuperato con la procedura precedente.
     * **Nome segreto**: il nome predefinito è **vmAdminPassword**. Se si modifica il nome del segreto in questa posizione, è necessario aggiornarlo quando si distribuisce la macchina virtuale.
-    * **Secret Value** (Valore segreto): immettere il segreto.  Il segreto è la password usata per accedere alla macchina virtuale. È consigliabile usare la password generata che è stata creata nella procedura precedente.
-    * **Accetto le condizioni riportate sopra**: selezionare.
+    * **Valore del segreto**: immettere il segreto.  Il segreto è la password usata per accedere alla macchina virtuale. È consigliabile usare la password generata che è stata creata nella procedura precedente.
+    * **Accetto le condizioni riportate sopra**: selezionare questa casella.
 3. Selezionare **Modifica parametri** in alto per esaminare il modello.
 4. Passare alla riga 28 del file JSON del modello, corrispondente alla definizione della risorsa Key Vault.
 5. Passare alla riga 35:

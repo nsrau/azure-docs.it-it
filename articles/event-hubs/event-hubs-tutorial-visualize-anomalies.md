@@ -1,20 +1,20 @@
 ---
-title: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Azure | Microsoft Docs
+title: Visualizzare le anomalie dei dati in eventi in tempo reale - Hub eventi di Azure | Microsoft Docs
 description: 'Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Microsoft Azure'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.author: shvija
-ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.custom: mvc
-ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004114"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091680"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Azure
 
@@ -176,11 +176,11 @@ A questo punto è possibile trasmettere i dati nell'hub eventi. Per usare i dati
 
    **Nome processo**: usare **contosoEHjob**. Questo campo è il nome del processo e deve essere globalmente univoco.
 
-   **Sottoscrizione**: selezionare la propria sottoscrizione.
+   **Sottoscrizione** Selezionare la propria sottoscrizione.
 
-   **Gruppo di risorse**: usare lo stesso gruppo di risorse usato dall'hub eventi dell'utente (**ContosoResourcesEH**).
+   **Gruppo di risorse**: usare lo stesso gruppo di risorse usato dall'hub eventi dell'utente, ovvero **ContosoResourcesEH**.
 
-   **Percorso**: usare la stessa posizione usata nello script di configurazione (**West US**).
+   **Località**: usare la stessa località usata nello script di configurazione, ovvero **Stati Uniti occidentali**.
 
    ![Screenshot che illustra come creare un nuovo processo di Analisi di flusso di Azure.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -201,15 +201,15 @@ Le transazioni con carta di credito dell'hub eventi sono gli input per il proces
 
    **Alias di input**: usare **contosoinputs**. Questo campo è il nome del flusso di input, usato quando si definisce la query per i dati.
 
-   **Sottoscrizione**: selezionare la propria sottoscrizione.
+   **Sottoscrizione** Selezionare la propria sottoscrizione.
 
-   **Spazio dei nomi degli hub eventi**: selezionare lo spazio dei nomi di Hub eventi ($**eventHubNamespace**). 
+   **Spazio dei nomi degli hub eventi**: selezionare lo spazio dei nomi di Hub eventi, ovvero $**eventHubNamespace**. 
 
-   **Nome hub eventi**: fare clic su **Usa esistente** e selezionare l'hub eventi ($**eventHubName**).
+   **Nome hub eventi**: fare clic su **Usa esistente** e selezionare l'hub eventi, ovvero $**eventHubName**.
 
-   **Event Hubs policy name** (Nome criterio hub eventi): selezionare **RootManageSharedAccessKey**.
+   **Nome criteri hub eventi**: selezionare **RootManageSharedAccessKey**.
 
-   **Event Hubs consumer group** (Gruppo di consumer di Hub eventi): lasciare vuoto questo campo per usare il gruppo di consumer predefinito.
+   **Gruppo di consumer dell'hub eventi**: lasciare vuoto questo campo per usare il gruppo di consumer predefinito.
 
    Accettare le impostazioni predefinite nei campi rimanenti.
 

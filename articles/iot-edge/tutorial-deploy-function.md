@@ -1,6 +1,6 @@
 ---
-title: Distribuire Funzioni di Azure con Azure IoT Edge | Microsoft Docs
-description: In questa esercitazione una funzione di Azure viene distribuita come modulo in un dispositivo perimetrale.
+title: 'Esercitazione: distribuire una funzione di Azure in un dispositivo - Azure IoT Edge | Microsoft Docs'
+description: In questa esercitazione una funzione di Azure viene distribuita come modulo IoT Edge, quindi in un dispositivo perimetrale.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,15 +8,15 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: d0ae009db0d9470942a4ff5d7c09e2cdd7bcdd53
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165620"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081881"
 ---
-# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Esercitazione: Distribuire Funzioni di Azure come moduli IoT Edge
+# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Esercitazione: Distribuire funzioni di Azure come moduli IoT Edge
 
 È possibile usare Funzioni di Azure per distribuire il codice che implementa la logica di business direttamente nei dispositivi Azure IoT Edge. Questa esercitazione illustra la creazione e distribuzione di una funzione di Azure che filtra i dati del sensore nel dispositivo IoT Edge simulato. Viene usato il dispositivo IoT Edge simulato che è stato creato nelle guide introduttive per la distribuzione di Azure IoT Edge in un dispositivo simulato in [Windows](quickstart.md) o [Linux](quickstart-linux.md). In questa esercitazione si apprenderà come:     
 
@@ -27,7 +27,7 @@ ms.locfileid: "52165620"
 > * Visualizzare i dati filtrati.
 
 <center>
-![Diagramma dell'architettura dell'esercitazione](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+![Diagramma - esercitazione sull'architettura, lo staging e la distribuzione di un modulo (funzione)](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -63,7 +63,7 @@ In questa esercitazione si usa l'estensione Azure IoT Edge per Visual Studio Cod
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori**.
 
-    ![Creare un registro di contenitori](./media/tutorial-deploy-function/create-container-registry.png)
+    ![Creare un registro contenitori nel portale di Azure](./media/tutorial-deploy-function/create-container-registry.png)
 
 2. Specificare i valori seguenti per creare il registro contenitori:
 
@@ -90,7 +90,7 @@ L'estensione Azure IoT Edge per Visual Studio Code installata nei prerequisiti f
 
 2. Aprire il riquadro comandi di VS Code selezionando **Visualizza** > **Riquadro comandi**.
 
-3. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Seguire i prompt nel riquadro comandi per creare la soluzione.
+3. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: Nuova soluzione IoT Edge**. Seguire i prompt nel riquadro comandi per creare la soluzione.
 
    | Campo | Valore |
    | ----- | ----- |
@@ -227,7 +227,7 @@ Visual Studio Code genera un messaggio di conferma quando viene eseguito il push
 
 2. Cercare ed eseguire il comando **Azure: Sign in** (Azure: Accedi). Seguire le istruzioni per accedere all'account Azure. 
 
-3. Nel riquadro comandi cercare ed eseguire il comando **Azure IoT Hub: Select IoT Hub** (Hub IoT di Azure: Seleziona l'hub IoT). 
+3. Nel riquadro comandi cercare ed eseguire il comando **Azure IoT Hub: Select IoT Hub (Hub IoT di Azure: Selezionare l'hub IoT**. 
 
 4. Selezionare la sottoscrizione che include l'hub IoT, quindi selezionare l'hub IoT a cui si vuole accedere.
 
@@ -247,7 +247,7 @@ Visual Studio Code genera un messaggio di conferma quando viene eseguito il push
 
 È anche possibile applicare un filtro alla visualizzazione per mostrare tutti i messaggi in arrivo all'hub IoT da un dispositivo specifico. Fare clic con il pulsante destro del mouse sul dispositivo nella sezione **Azure IoT Hub Devices** (Dispositivi dell'Hub IoT di Azure) e scegliere **Start Monitoring D2C Messages** (Avvia il monitoraggio dei messaggi D2C).
 
-Per arrestare il monitoraggio dei messaggi, eseguire il comando **Azure IoT Hub: Stop monitoring D2C message** (Hub IoT di Azure: Interrompi il monitoraggio del messaggio D2C) nel riquadro comandi. 
+Per arrestare il monitoraggio dei messaggi, eseguire il comando **hub IoT di Azure: Arrestare il monitoraggio di messaggi D2C** nel riquadro comandi. 
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

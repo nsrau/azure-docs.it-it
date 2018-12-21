@@ -1,21 +1,22 @@
 ---
-title: Confronto tra i servizi di messaggistica di Azure
-description: Confronta Griglia di eventi di Azure, Hub eventi e il bus di servizio. Consiglia il servizio da usare a seconda dello scenario.
+title: Confronto della messaggistica Azure - Griglia di eventi, Hub eventi, bus di servizio
+description: Descrive i tre servizi di messaggistica di Azure - Griglia di eventi di Azure, Hub eventi di Azure e bus di servizio di Azure. Consiglia il servizio da usare a seconda dello scenario.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 07/05/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852198"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166524"
 ---
-# <a name="choose-between-azure-services-that-deliver-messages"></a>Scegliere tra i servizi di Azure che recapitano messaggi
+# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Scegliere tra i servizi di messaggistica di Azure - Griglia di eventi, Hub eventi, bus di servizio
 
 Azure offre tre servizi che agevolano il recapito di messaggi di eventi tramite una soluzione. Questi servizi sono:
 
@@ -33,7 +34,7 @@ Nonostante alcune analogie, ogni servizio è progettato per determinati scenari.
 
 Un evento è una notifica leggera di una condizione o di una modifica di stato. L'autore dell'evento non ha aspettative su come viene gestito l'evento. Il consumer dell'evento decide come procedere con la notifica. Gli eventi possono essere unità separate o fare parte di una serie.
 
-Gli eventi separati segnalano una modifica dello stato ed possibile intervenire. Per eseguire il passaggio successivo, il consumer deve solo sapere che è accaduto qualcosa. I dati dell'evento contengono informazioni su ciò che è accaduto, ma non includono i dati che hanno attivato l'evento. Un evento ad esempio notifica ai consumer che è stato creato un file. Può contenere informazioni generali sul file, ma non il file stesso. Gli eventi separati sono ideali per le soluzioni senza server che devono essere ridimensionate.
+Gli eventi separati segnalano una modifica dello stato ed possibile intervenire. Per eseguire il passaggio successivo, il consumer deve solo sapere che è accaduto qualcosa. I dati dell'evento contengono informazioni su ciò che è accaduto, ma non includono i dati che hanno attivato l'evento. Un evento ad esempio notifica ai consumer che è stato creato un file. Può contenere informazioni generali sul file, ma non il file stesso. Gli eventi separati sono ideali per le soluzioni [senza server](http://azure.com/serverless) che devono essere ridimensionate.
 
 Gli eventi di una serie segnalano una condizione e sono analizzabili. Gli eventi sono ordinati nel tempo e intercorrelati. Il consumer ha bisogno della serie sequenziata di eventi per analizzare che cosa è accaduto.
 

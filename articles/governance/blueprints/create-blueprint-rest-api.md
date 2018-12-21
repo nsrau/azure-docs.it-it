@@ -1,5 +1,5 @@
 ---
-title: Creare un progetto Azure Blueprint con l'API REST
+title: Creare un progetto con l'API REST
 description: Usare Azure Blueprint per creare, definire e distribuire elementi.
 services: blueprints
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: b600eeff0482944a8b9b18ad39c23ee6ea4700ce
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: 9e44a44b76e79375076f71cf808d6d30eebc5cdb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283547"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311423"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definire e assegnare un progetto Azure Blueprint con l'API REST
 

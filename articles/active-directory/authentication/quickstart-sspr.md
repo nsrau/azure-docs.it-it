@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c40cb3192d514d990ea2a5d66e1484ff204e9b10
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d04d27ee6136edec8d9af16f9133cf9a7cc0720c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223558"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311559"
 ---
-# <a name="quickstart-self-service-password-reset"></a>Guida introduttiva: Reimpostazione della password self-service
+# <a name="quickstart-self-service-password-reset"></a>Avvio rapido: Reimpostazione della password self-service
 
 In questa guida introduttiva vengono presentate le procedure per configurare la reimpostazione della password self-service, che offre agli amministratori IT un modo semplice per consentire agli utenti di reimpostare le password o sbloccare i loro account.
 
@@ -25,7 +25,7 @@ In questa guida introduttiva vengono presentate le procedure per configurare la 
 
 * Un tenant di Azure AD funzionante, con almeno una licenza di valutazione abilitata.
 * Un account con privilegi di amministratore globale.
-* Un utente di prova non amministratore con una password nota. Se è necessario creare un utente, vedere l'articolo [Guida introduttiva: Aggiungere nuovi utenti ad Azure Active Directory](../add-users-azure-active-directory.md).
+* Un utente di prova non amministratore con una password nota. Se è necessario creare un utente, vedere l'articolo [Avvio rapido: Aggiungere nuovi utenti ad Azure Active Directory](../add-users-azure-active-directory.md).
 * Un gruppo pilota per il test di cui fare parte l'utente di prova non amministratore. Se è necessario creare un gruppo, vedere l'articolo [Creare un gruppo e aggiungere membri in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Abilitare la reimpostazione self-service delle password
@@ -45,7 +45,7 @@ In questa guida introduttiva vengono presentate le procedure per configurare la 
       * **Telefono ufficio**
    * Fare clic su **Save**.
 
-    ![Autenticazione][Authentication]
+    ![autenticazione][Authentication]
 
 4. Nella pagina **Registrazione** effettuare le scelte seguenti:
    * Richiedere agli utenti di registrarsi all'accesso: **Sì**
@@ -64,7 +64,7 @@ La configurazione della reimpostazione della password self-service verrà ora te
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-La disabilitazione della reimpostazione password self-service è un'operazione semplice. Aprire il tenant di Azure AD e passare a **Reimpostazione password** > **Proprietà** e scegliere **Nessuno** in **Reimpostazione password self-service abilitata**.
+La disabilitazione della reimpostazione password self-service è un'operazione semplice. Aprire il tenant di Azure Active Directory e passare a **Proprietà** > **Reimpostazione password** e scegliere **Nessuno** in **Reimpostazione password self-service abilitata**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

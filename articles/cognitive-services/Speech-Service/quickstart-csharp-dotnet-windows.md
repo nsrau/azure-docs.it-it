@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscere e trascrivere contenuti vocali, .NET Framework (Windows) - Servizio Voce'
+title: 'Avvio rapido: Riconoscere i contenuti vocali, .NET Framework (Windows) - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione console di riconoscimento vocale con .NET framework per Windows e Speech SDK. Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 171d6c6a972d6fa3eb2e96ceacb75dd2fce1eb92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683499"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074896"
 ---
-# <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Guida introduttiva: Riconoscere e trascrivere contenuti vocali usando Speech SDK e .NET Framework (Windows)
+# <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Avvio rapido: Riconoscere e trascrivere contenuti vocali con Speech SDK e .NET Framework (Windows)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

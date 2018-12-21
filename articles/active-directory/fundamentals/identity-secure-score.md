@@ -1,6 +1,6 @@
 ---
-title: Informazioni su Identity Secure Score in Azure AD - Anteprima | Microsoft Docs
-description: Come usare Identity Secure Score per aumentare la sicurezza del tenant di Azure AD.
+title: Informazioni sul punteggio Identity Secure Score - Azure Active Directory (anteprima pubblica) | Microsoft Docs
+description: Istruzioni su come usare Identity Secure Score per aumentare la sicurezza del tenant di Azure AD.
 services: active-directory
 keywords: Identity Secure Score, Azure AD, accesso sicuro alle risorse aziendali
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a9bb22cae2e9fcd607a81d442f4fb51f12c43454
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro
+ms.openlocfilehash: 5a133d0a38852ca3e95e3ae07716c4fbd3c87f5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224138"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092085"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-ad---preview"></a>Informazioni su Identity Secure Score in Azure AD - Anteprima
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>Informazioni su Identity Secure Score in Azure Active Directory (anteprima pubblica)
 
 Quanto è sicuro il proprio tenant di Azure AD? Se non si conosce la risposta a questa domanda, leggere questo articolo per informazioni su come usare Identity Secure Score per monitorare e migliorare le condizioni di sicurezza delle identità. 
 

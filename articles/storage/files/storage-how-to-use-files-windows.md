@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: ee6b93c26918b4f70eb23e7055db813f35d3787d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2cce962058357e104ee2f8b8677af8fa4a31f80a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445736"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409276"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -41,15 +41,24 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 > È sempre consigliabile seguire l'articolo della KB più recente per la propria versione di Windows.
 
 ## <a name="prerequisites"></a>Prerequisiti 
-* **Nome dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessario il nome dell'account di archiviazione.
+* **Nome account di archiviazione**: per montare una condivisione file di Azure, sarà necessario il nome dell'account di archiviazione.
 
-* **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave dell'account primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
+* **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave di archiviazione primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
 
-* **Assicurarsi che la porta 445 sia aperta**: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se la porta 445 è bloccata dal firewall con il cmdlet `Test-NetConnection`. Ricordarsi di sostituire `your-storage-account-name` con il nome pertinente per il proprio account di archiviazione.
+* **Assicurarsi che la porta 445 sia aperta**: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se la porta 445 è bloccata dal firewall con il cmdlet `Test-NetConnection`. Il codice PowerShell seguente presuppone che sia installato il modulo AzureRM di PowerShell. Per altre informazioni, vedere l'articolo su come [installare il modulo di Azure PowerShell](/powershell/azure/install-azurerm-ps). Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resoure-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
 
     ```PowerShell
-    Test-NetConnection -ComputerName <your-storage-account-name>.file.core.windows.net -Port 445
-    
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
+
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
     ```
 
     Se la connessione ha avuto esito positivo, verrà visualizzato l'output seguente:

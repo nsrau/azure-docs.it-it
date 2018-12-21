@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: be3ac9fab6c89c65ad9673811e108cefe2c80d00
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b768b50af7ad6736e5cc3c885e6ac5016976f48a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724248"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958543"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare PHP per eseguire query su un database SQL di Azure
 
@@ -32,9 +32,9 @@ Per completare questo esempio, accertarsi di avere i prerequisiti seguenti:
 
 - Software correlato a PHP installato per il sistema operativo in uso:
 
-    - **MacOS**: installare Homebrew e PHP, il driver ODBC e SQLCMD, quindi installare il driver PHP per SQL Server. Vedere i [passaggi 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
+    - **MacOS**: installare PHP, il driver ODBC e quindi il driver PHP per SQL Server. Vedere i [passaggi 1, 2 e 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-    - **Ubuntu**: installare PHP e gli altri pacchetti necessari, quindi installare il driver PHP per SQL Server. Vedere i [passaggi 1.2 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Linux**: installare PHP, il driver ODBC e quindi il driver PHP per SQL Server. Vedere i [passaggi 1, 2 e 3](/sql/connect/php/installation-tutorial-linux-mac).
 
     - **Windows**: installare PHP per IIS Express e Chocolatey, quindi installare il driver ODBC e SQLCMD. Vedere i [passaggi 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 
@@ -91,4 +91,4 @@ Per completare questo esempio, accertarsi di avere i prerequisiti seguenti:
 
 - [Segnalare problemi o porre domande](https://github.com/Microsoft/msphpsql/issues)
 
-- [Esempio di logica di ripetizione dei tentativi: connettersi in modo resiliente a SQL tramite PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [Esempio di logica di ripetizione dei tentativi: connettersi in modo resiliente a SQL con PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

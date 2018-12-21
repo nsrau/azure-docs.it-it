@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere la lunghezza delle frasi, Node.js - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere la lunghezza delle frasi, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa Guida introduttiva si apprenderà come determinare la lunghezza delle frasi (in caratteri) con Node.js e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 08c01f8c73f8d25b824a97d31f1681d9a7eb302e
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 09d0c855aada753b0a3e594055ec188c2698e677
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249103"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998999"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Avvio rapido: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con Node.js
 
 In questa Guida introduttiva si apprenderà come determinare la lunghezza delle frasi (in caratteri) con Node.js e l'API REST Traduzione testuale.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 Il metodo `request()`, reso disponibile tramite il modulo di richiesta, consente di passare il metodo HTTP, l'URL, i parametri di richiesta, le intestazioni e il corpo JSON come oggetto `options`. In questo frammento di codice verrà configurata la richiesta:
 
 >[!NOTE]
-> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Dictionary Break Sentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Per altre informazioni su endpoint, route e parametri della richiesta, consultare [API Traduzione testuale 3.0: Interrompi frase](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```javascript
 let options = {

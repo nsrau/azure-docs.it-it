@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: a12107fe0dd25a383e7be1adbc717c7c1c654fa5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6f3f1f6eb89127e6b0ac0e2983a27dfd731651cb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846539"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094237"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app per le API SQL con Python e il portale di Azure
 
@@ -153,7 +153,7 @@ Tutti i frammenti di codice seguenti sono tratti dal file `CosmosGetStarted.py`.
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Nell'account Azure Cosmos DB nel [portale di Azure](http://portal.azure.com/) nel riquadro di spostamento a sinistra fare clic su **Chiavi**. Usare i pulsanti di copia sul lato destro dello schermo per copiare **URI** e **Chiave primaria** nel file `CosmosGetStarted.py` nel passaggio seguente.
+1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) nel riquadro di spostamento a sinistra fare clic su **Chiavi**. Usare i pulsanti di copia sul lato destro dello schermo per copiare **URI** e **Chiave primaria** nel file `CosmosGetStarted.py` nel passaggio seguente.
 
     ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-sql-api-dotnet/keys.png)
 
@@ -173,7 +173,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. In Visual Studio Code selezionare **Visualizza**>**Riquadro comandi**. 
 
-2. Al prompt dei comandi immettere **Python: Select Interpreter** e quindi selezionare la versione di Python da usare.
+2. Al prompt immettere **Python: Select Interpreter** e quindi selezionare la versione di Python da usare.
 
     Il piè di pagina in Visual Studio Code viene aggiornato per indicare l'interprete selezionato. 
 

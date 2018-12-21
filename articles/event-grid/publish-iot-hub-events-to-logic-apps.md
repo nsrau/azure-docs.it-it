@@ -4,22 +4,22 @@ description: Tramite il servizio di routing di eventi di Griglia di eventi di Az
 services: iot-hub
 documentationcenter: ''
 author: kgremban
-manager: timlt
+manager: philmea
 editor: ''
 ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242520"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135016"
 ---
-# <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Esercitazione: Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica
 
 Griglia di eventi di Azure consente di rispondere agli eventi dell'hub IoT attivando azioni nelle applicazioni aziendali downstream.
 
@@ -37,19 +37,16 @@ Per prima cosa, creare un'app per la logica e aggiungere un trigger di Griglia d
 
 ### <a name="create-a-logic-app-resource"></a>Creare una risorsa di App per la logica
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Nuovo** > **Integrazione** > **App per la logica**.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Integrazione** > **App per la logica**.
 
    ![Creare l'app per la logica](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
 2. Assegnare all'app per la logica un nome che sia univoco nella sottoscrizione e quindi selezionare la stessa sottoscrizione, lo stesso gruppo di risorse e la stessa posizione dell'hub IoT. 
-3. Selezionare quindi **Aggiungi al dashboard** e scegliere **Crea**.
+3. Selezionare **Create**.
 
-   È stata creata ora una risorsa di Azure per l'app per la logica. Al termine della distribuzione dell'app per la logica, Progettazione app per la logica mostra i modelli comuni disponibili per poter iniziare più rapidamente.
+4. Dopo aver creato la risorsa, passare all'app per la logica. 
 
-   > [!NOTE] 
-   > Se si seleziona **Aggiungi al dashboard**, l'app per la logica viene aperta automaticamente in Progettazione app per la logica. In caso contrario, è possibile trovare e aprire manualmente l'app per la logica.
-
-4. In Progettazione app per la logica, nella sezione **Modelli**, scegliere **App per la logica vuota** per creare un'app per la logica completamente nuova.
+5. Progettazione app per la logica mostra i modelli comuni disponibili per poter iniziare più rapidamente. In Progettazione app per la logica, nella sezione **Modelli**, scegliere **App per la logica vuota** per creare un'app per la logica completamente nuova.
 
 ### <a name="select-a-trigger"></a>Selezionare un trigger
 
@@ -66,51 +63,51 @@ Un trigger è un evento specifico che avvia l'app per la logica. Per questa eser
 
 4. Incollare l'esempio di codice JSON seguente nella casella di testo e quindi selezionare **Fine**:
 
-```json
-[{
-  "id": "56afc886-767b-d359-d59e-0da7877166b2",
-  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
-  "subject": "devices/LogicAppTestDevice",
-  "eventType": "Microsoft.Devices.DeviceCreated",
-  "eventTime": "2018-01-02T19:17:44.4383997Z",
-  "data": {
-    "twin": {
-      "deviceId": "LogicAppTestDevice",
-      "etag": "AAAAAAAAAAE=",
-      "deviceEtag": "null",
-      "status": "enabled",
-      "statusUpdateTime": "0001-01-01T00:00:00",
-      "connectionState": "Disconnected",
-      "lastActivityTime": "0001-01-01T00:00:00",
-      "cloudToDeviceMessageCount": 0,
-      "authenticationType": "sas",
-      "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-      },
-      "version": 2,
-      "properties": {
-        "desired": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        },
-        "reported": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        }
-      }
-    },
-    "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
+   ```json
+   [{
+     "id": "56afc886-767b-d359-d59e-0da7877166b2",
+     "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+     "subject": "devices/LogicAppTestDevice",
+     "eventType": "Microsoft.Devices.DeviceCreated",
+     "eventTime": "2018-01-02T19:17:44.4383997Z",
+     "data": {
+       "twin": {
+         "deviceId": "LogicAppTestDevice",
+         "etag": "AAAAAAAAAAE=",
+         "deviceEtag": "null",
+         "status": "enabled",
+         "statusUpdateTime": "0001-01-01T00:00:00",
+         "connectionState": "Disconnected",
+         "lastActivityTime": "0001-01-01T00:00:00",
+         "cloudToDeviceMessageCount": 0,
+         "authenticationType": "sas",
+         "x509Thumbprint": {
+           "primaryThumbprint": null,
+           "secondaryThumbprint": null
+         },
+         "version": 2,
+         "properties": {
+           "desired": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           },
+           "reported": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           }
+         }
+       },
+       "hubName": "egtesthub1",
+       "deviceId": "LogicAppTestDevice"
+     },
+     "dataVersion": "1",
+     "metadataVersion": "1"
+   }]
+   ```
 
 5. È possibile che venga inviata una notifica popup con la dicitura **Ricordare di includere nella richiesta un'intestazione Content-Type impostata su application/json**. Questo suggerimento può essere tranquillamente ignorato ed è possibile passare alla sezione successiva. 
 
@@ -119,13 +116,17 @@ Un trigger è un evento specifico che avvia l'app per la logica. Per questa eser
 Le azioni sono i passaggi eseguiti dopo che il trigger ha avviato il flusso di lavoro dell'app per la logica. Per questa esercitazione, l'azione è costituita dall'invio di una notifica dal provider di posta elettronica. 
 
 1. Selezionare **Nuovo passaggio**. Verrà visualizzata una finestra **Scegliere un'azione**.
+
 2. Cercare **Posta elettronica**.
+
 3. Selezionare il connettore corrispondente al provider di posta elettronica in uso. Questa esercitazione usa **Office 365 Outlook**. I passaggi per altri provider di posta elettronica sono del tutto simili. 
 
    ![Selezionare il connettore del provider di posta elettronica](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
 
 4. Selezionare l'azione **Invia un messaggio di posta elettronica**. 
+
 5. Se richiesto, accedere all'account di posta elettronica. 
+
 6. Creare il modello di messaggio di posta elettronica. 
    * **A**: immettere l'indirizzo di posta elettronica per ricevere i messaggi di notifica. Per questa esercitazione, usare un account di posta elettronica a cui è possibile accedere per il test. 
    * **Oggetto** e **Corpo**: scrivere il testo del messaggio di posta elettronica. Selezionare le proprietà JSON tramite lo strumento di selezione per includere il contenuto dinamico in base ai dati degli eventi.  
@@ -166,17 +167,19 @@ In questa sezione viene configurato l'hub IoT per la pubblicazione degli eventi 
 
     ![URL di Selezione endpoint](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **Dettagli sottoscrizione evento**: fornire un nome descrittivo e selezionare **Schema griglia di eventi**.
-
-  È possibile salvare la sottoscrizione di eventi e ricevere notifiche per ogni dispositivo creato nell'hub IoT. Per questa esercitazione, tuttavia, si vogliono usare i campi facoltativi per filtrare dispositivi specifici: 
-
-  * **L'oggetto inizia con**: immettere `devices/Building1_` per filtrare gli eventi del dispositivo nell'edificio 1.
-  * **L'oggetto termina con**: immettere `_Temperature` per filtrare gli eventi del dispositivo correlati alla temperatura.
+    * **Dettagli sottoscrizione evento**: fornire un nome descrittivo e selezionare **Schema Griglia di eventi**
 
   Al termine, verrà visualizzato un modulo simile all'esempio seguente: 
 
     ![Modulo sottoscrizione di eventi di esempio](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
-    
+
+5. È possibile salvare la sottoscrizione di eventi e ricevere notifiche per ogni dispositivo creato nell'hub IoT. Per questa esercitazione, tuttavia, si vogliono usare i campi facoltativi per filtrare dispositivi specifici. Selezionare **Funzionalità aggiuntive** nella parte superiore del modulo. 
+
+6. Creare i filtri seguenti:
+
+  * **L'oggetto inizia con**: immettere `devices/Building1_` per filtrare gli eventi del dispositivo nell'edificio 1.
+  * **L'oggetto termina con**: immettere `_Temperature` per filtrare gli eventi del dispositivo correlati alla temperatura.
+
 5. Selezionare **Crea** per salvare la sottoscrizione di eventi.
 
 ## <a name="create-a-new-device"></a>Creare un nuovo dispositivo

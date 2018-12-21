@@ -1,21 +1,22 @@
 ---
-title: 'Esercitazione: Come creare un modello linguistico con il servizio Voce'
+title: 'Esercitazione: Come creare un modello linguistico con il servizio di riconoscimento vocale'
 titlesuffix: Azure Cognitive Services
-description: Informazioni su come creare un modello linguistico con il servizio Voce.
+description: Informazioni su come creare un modello linguistico con il servizio di riconoscimento vocale. Usare il modello linguistico personalizzato insieme ai modelli conversione voce/testo Microsoft avanzati esistenti per aggiungere l'interazione vocale alla propria applicazione.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: b8d58450ccc5081e3be3131761d1321a32567df3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468994"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093465"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Esercitazione: Creare un modello linguistico personalizzato
 
@@ -33,9 +34,9 @@ Se non si ha un account Servizi cognitivi, crearne [uno gratuito](https://azure.
 
 Assicurarsi che l'account Servizi cognitivi sia collegato a una sottoscrizione aprendo la pagina [Sottoscrizioni Servizi cognitivi](https://customspeech.ai/Subscriptions).
 
-È possibile connettersi a una sottoscrizione al servizio Voce creata nel portale di Azure selezionando il pulsante **Connetti a una sottoscrizione esistente**.
+È possibile connettersi a una sottoscrizione al servizio di riconoscimento vocale creata nel portale di Azure selezionando il pulsante **Connetti a una sottoscrizione esistente**.
 
-Per informazioni sulla creazione di una sottoscrizione al servizio Voce nel portale di Azure, consultare la pagina [Come iniziare](get-started.md).
+Per informazioni sulla creazione di una sottoscrizione al servizio di riconoscimento vocale nel portale di Azure, consultare la pagina [Come iniziare](get-started.md).
 
 ## <a name="prepare-the-data"></a>Preparare i dati
 
@@ -48,7 +49,7 @@ Le frasi non devono essere necessariamente complete o corrette da un punto di vi
 
 I dati del modello linguistico devono essere scritti in UTF-8 BOM. Il file di testo deve contenere un esempio (frase, espressione o query) per riga.
 
-Se si vuole che alcuni termini abbiano un peso (importanza) maggiore, è possibile aggiungere ai dati diverse espressioni che includano tali termini. 
+Se si vuole che alcuni termini abbiano un peso (importanza) maggiore, è possibile aggiungere ai dati diverse espressioni che includano tali termini.
 
 Nella tabella seguente sono riassunti i requisiti principali per i dati linguistici.
 
@@ -65,7 +66,7 @@ Quando viene importato, il testo viene normalizzato per poter essere elaborato d
 
 ## <a name="language-support"></a>Supporto per le lingue
 
-Consultare l'elenco completo delle [lingue supportate](language-support.md#text-to-speech) per i modelli linguistici di **riconoscimento vocale** personalizzati.
+Consultare l’elenco completo delle [lingue supportate](language-support.md#text-to-speech) per i modelli linguistici di **riconoscimento vocale** personalizzati.
 
 
 
@@ -73,9 +74,9 @@ Consultare l'elenco completo delle [lingue supportate](language-support.md#text-
 
 Selezionare il pulsante **Importa** nella riga **Set di dati linguistici**. Sul sito verrà visualizzata una pagina per caricare un nuovo set di dati.
 
-Quando si è pronti per importare il set di dati linguistici, accedere al [portale del servizio Voce](https://customspeech.ai). Prima di tutto, selezionare il menu a discesa **Riconoscimento vocale personalizzato** nella barra multifunzione in alto. Quindi selezionare **Dati adattamento**. La prima volta che si caricano dati nel servizio Voce, si vedrà una tabella vuota chiamata **Set di dati**.
+Quando si è pronti per importare il set di dati linguistici, accedere al [portale del Servizio di riconoscimento vocale](https://customspeech.ai). Prima di tutto, selezionare il menu a discesa **Riconoscimento vocale personalizzato** nella barra multifunzione in alto. Quindi selezionare **Dati adattamento**. La prima volta che si caricano dati nel Servizio di riconoscimento vocale, si vedrà una tabella vuota chiamata **Set di dati**.
 
-Per importare un nuovo set di dati, selezionare il tasto **Importa** nella riga **Set di dati linguistici**. A questo punto, il sito visualizza una pagina per il caricamento di un nuovo set di dati. Immettere un **Nome** e una **Descrizione** per identificare il set di dati in futuro, quindi scegliere le impostazioni locali. 
+Per importare un nuovo set di dati, selezionare il tasto **Importa** nella riga **Set di dati linguistici**. A questo punto, il sito visualizza una pagina per il caricamento di un nuovo set di dati. Immettere un **Nome** e una **Descrizione** per identificare il set di dati in futuro, quindi scegliere le impostazioni locali.
 
 Successivamente, usare il pulsante **Scegli file** per individuare il file di testo dei dati linguistici. Dopodiché, fare clic su **Importa** per caricare il set di dati. A seconda delle dimensioni del set di dati, l'importazione può richiedere diversi minuti.
 
@@ -97,9 +98,9 @@ Quando i dati linguistici sono pronti, selezionare **Modelli linguistici** dal m
 
 Prima di intraprendere qualsiasi azione, è necessario selezionare le impostazioni locali appropriate. Le impostazioni locali correnti sono indicate nel titolo della tabella in tutti i dati, modelli e pagine della distribuzione. Per modificare le impostazioni locali, selezionare il pulsante **Modifica impostazioni locali** sotto il titolo della tabella.  Verrà visualizzata una pagina di conferma delle impostazioni locali. Selezionare **OK** per tornare alla tabella.
 
-Nella pagina Crea modello linguistico immettere **Nome** e **Descrizione** per tenere traccia delle informazioni pertinenti sul modello, ad esempio il set di dati usato. Quindi, selezionare **Modello linguistico di base** dal menu a discesa. Questo modello sarà il punto di partenza per la personalizzazione. 
+Nella pagina Crea modello linguistico immettere **Nome** e **Descrizione** per tenere traccia delle informazioni pertinenti sul modello, ad esempio il set di dati usato. Quindi, selezionare **Modello linguistico di base** dal menu a discesa. Questo modello sarà il punto di partenza per la personalizzazione.
 
-Esistono due modelli linguistici di base tra cui scegliere. Il modello Search and Dictation (Ricerca e dettatura) è appropriato per un parlato diretto a un'applicazione, ad esempio comandi, query di ricerca o dettatura. Il modello Conversational (Colloquiale) è adatto per il riconoscimento vocale di una conversazione. Questo tipo di parlato è solitamente diretto a un'altra persona e si verifica nei call center o nelle riunioni. 
+Esistono due modelli linguistici di base tra cui scegliere. Il modello Search and Dictation (Ricerca e dettatura) è appropriato per un parlato diretto a un'applicazione, ad esempio comandi, query di ricerca o dettatura. Il modello Conversational (Colloquiale) è adatto per il riconoscimento vocale di una conversazione. Questo tipo di parlato è solitamente diretto a un'altra persona e si verifica nei call center o nelle riunioni.
 
 Il modello Search and Dictation (Ricerca e dettatura) è appropriato per un parlato diretto a un'applicazione, ad esempio comandi, query di ricerca o dettatura. Il modello Conversational (Colloquiale) è adatto per il riconoscimento vocale di una conversazione. Questo tipo di parlato è solitamente diretto a un'altra persona e si verifica nei call center o nelle riunioni. È inoltre disponibile al pubblico un nuovo modello chiamato "Universal" (Universale). Il modello universale mira ad affrontare tutti gli scenari e a sostituire il modello di ricerca e dettatura e il modello colloquiale.
 
@@ -117,10 +118,10 @@ Quando si è pronti per avviare l'elaborazione, selezionare **Crea**. Successiva
 
 Quando il modello raggiunge lo stato **Completato**, può essere distribuito a un endpoint. Facendo clic su **Visualizza risultato** vengono visualizzati i risultati del test offline, se eseguito.
 
-Se in qualsiasi momento si desidera modificare il **Nome** o la **Descrizione** del modello, è possibile usare il collegamento **Modifica** nell'apposita riga della tabella dei modelli linguistici.
+Se in qualsiasi momento si desidera modificare il **Nome** o la **Descrizione** del modello, è possibile usare il collegamento **Modifica** nell’apposita riga della tabella dei modelli linguistici.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di prova gratuita al servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+- [Ottenere una sottoscrizione di prova gratuita al Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 - [Riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
 - [Dati di esempio in Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

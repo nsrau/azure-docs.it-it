@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: f54a9e40c4f75704e66c4a3a90ad4b293d1e6309
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 9929662f1fe4612e51c82248f64e3191f7fdb223
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889226"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955208"
 ---
-# <a name="quickstart-configure-azure-dns-for-name-resolution-by-using-the-portal"></a>Avvio rapido: Configurare DNS di Azure per la risoluzione dei nomi con il portale di Azure
+# <a name="quickstart-configure-azure-dns-for-name-resolution-by-using-the-portal"></a>Guida introduttiva: Configurare DNS di Azure per la risoluzione dei nomi con il portale
 
 È possibile configurare DNS di Azure per la risoluzione dei nomi host nel dominio pubblico. Ad esempio, se è stato acquistato il nome di dominio *contoso.com* da un registrar di nomi di dominio, è possibile configurare DNS di Azure in modo da ospitare il dominio *contoso.com* e risolvere *www.contoso.com* nell'indirizzo IP del server Web o dell'app Web.
 
@@ -41,8 +41,8 @@ Una zona DNS contiene le voci DNS per un dominio. Per iniziare a ospitare il dom
    
 1. Nella pagina **Crea zona DNS** digitare o selezionare i valori seguenti:
    
-   - **Nome**: digitare *contoso.xyz* per questo esempio di avvio rapido. Il nome della zona DNS può essere qualsiasi valore che non sia già configurato nei server DNS di Azure. Un valore reale sarebbe un dominio acquistato da un registrar di nomi di dominio.
-   - **Gruppo di risorse**: selezionare **Crea nuovo**, immettere *dns-test*e selezionare **OK**. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione di Azure. 
+   - **Nome**: digitare *contoso.xyz* per questo esempio della guida introduttiva. Il nome della zona DNS può essere qualsiasi valore che non sia già configurato nei server DNS di Azure. Un valore reale sarebbe un dominio acquistato da un registrar di nomi di dominio.
+   - **Gruppo di risorse**: selezionare **Crea nuovo**, immettere *dns-test* e fare clic su **OK**. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione di Azure. 
    
 1. Selezionare **Create**.
 
@@ -66,7 +66,7 @@ Creare voci o record DNS per il dominio all'interno della zona DNS. Creare un nu
    - **Tipo**: selezionare **A**. I record "A" sono i più comuni, ma esistono altri tipi di record per server di posta elettronica ("MX"), indirizzi IPv6 ("AAAA") e così via. 
    - **TTL**: digitare *1*. La *durata TTL*  della richiesta DNS specifica per quanto tempo i client e i server DNS possono memorizzare nella cache una risposta.
    - **Unità TTL**: selezionare **Ore**. Questo è l'unità di tempo per il valore **TTL**. 
-   - **Indirizzo IP**: per questo esempio di avvio rapido, digitare *10.10.10.10*. Questo valore indica l'indirizzo IP in cui viene risolto il record "A". In uno scenario reale, sarebbe necessario immettere l'indirizzo IP pubblico per il server Web.
+   - **Indirizzo IP**: per questo esempio della guida introduttiva digitare *10.10.10.10*. Questo valore indica l'indirizzo IP in cui viene risolto il record "A". In uno scenario reale, sarebbe necessario immettere l'indirizzo IP pubblico per il server Web.
 
 Poiché questo avvio rapido non usa un dominio reale, non è necessario configurare i server dei nomi DNS di Azure presso un registrar. Con un dominio reale, si vorrebbe consentire a qualsiasi utente su Internet di risolvere il nome host per connettersi al server o all'app Web. Si visiterebbe quindi il registrar per sostituire i record del server dei nomi con i server dei nomi DNS di Azure. Per altre informazioni, vedere [Esercitazione: Ospitare un dominio in DNS di Azure](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 

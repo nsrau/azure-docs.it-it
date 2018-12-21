@@ -1,22 +1,25 @@
 ---
-title: Guida introduttiva al linguaggio Go - modificare il modello ed eseguire il training di app LUIS
-description: In questa guida introduttiva al linguaggio Go si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
-titleSuffix: Microsoft Cognitive Services
+title: Modificare l'app ed eseguirne il training, Go
+description: In questa guida introduttiva al linguaggio Go si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app.
+titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2cd8c1aa2deb2af97d4f720efa0e40146b15b888
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e3fb6b2532f2dc99a48cc3c2eac9029367c52185
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031867"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100294"
 ---
-# <a name="quickstart-change-model-using-go"></a>Guida introduttiva: Modificare il modello con Go
+# <a name="quickstart-change-model-using-go"></a>Avvio rapido: Modificare il modello tramite Go
+
+In questa guida introduttiva si passano le espressioni a un endpoint LUIS per ottenere la restituzione di finalità ed entità.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -66,7 +69,7 @@ ms.locfileid: "47031867"
 
 2. Eseguire l'applicazione Go alla riga di comando immettendo il testo seguente nel prompt dei comandi: 
 
-    ```CMD
+    ```console
     add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
 
     ```
@@ -75,7 +78,7 @@ ms.locfileid: "47031867"
 
     Nel prompt dei comandi vengono visualizzati i risultati:
 
-    ```CMD
+    ```console
     add example utterances requested
     [
         {

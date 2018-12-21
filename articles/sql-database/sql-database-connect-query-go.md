@@ -11,30 +11,30 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: c270fef40b732f170add32ef52eeadc790d8cd83
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/07/2018
+ms.openlocfilehash: 34b3ee54c48040eaa6f7b7569921678869baa84b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913502"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092367"
 ---
 # <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Go per eseguire query su un database SQL di Azure
 
-Questa guida introduttiva illustra come usare [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) per connettersi a un database SQL di Azure. Vengono illustrate anche istruzioni Transact-SQL per eseguire query e modificare i dati.
+Questa guida introduttiva illustra come usare il linguaggio di programmazione [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) per connettersi a un database SQL di Azure ed eseguire query e modifiche sui dati con istruzioni Transact-SQL. [Go](https://golang.org/) è un linguaggio di programmazione open source che consente di creare facilmente software semplice, affidabile ed efficiente.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti seguenti:
+Per completare questa esercitazione, sono necessari:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Avere una [regola del firewall a livello di server](sql-database-get-started-portal-firewall.md) per l'indirizzo IP pubblico del computer usato per questa guida introduttiva.
+- Una [regola del firewall a livello di server](sql-database-get-started-portal-firewall.md) configurata per l'indirizzo IP pubblico del computer.
 
-- Avere installato Go e il software correlato adatti per il sistema operativo in uso:
+- Installazione di Go e del software correlato per il sistema operativo in uso.
 
     - **MacOS**: installare Homebrew e GoLang. Vedere il [passaggio 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-    - **Ubuntu**: installare GoLang. Vedere il [passaggio 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+    - **Ubuntu**:  installare GoLang. Vedere il [passaggio 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
     - **Windows**: installare GoLang. Vedere il [passaggio 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
 
 ## <a name="sql-server-connection-information"></a>Informazioni di connessione SQL Server
@@ -49,7 +49,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
    mkdir SqlServerSample
    ```
 
-2. Passare alla directory **SqlServerSample**, ottenere il driver di SQL Server per Go e installarlo:
+2. Passare alla directory **SqlServerSample** e installare il driver di SQL Server per Go.
 
    ```bash
    cd SqlServerSample
@@ -59,7 +59,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 
 ## <a name="create-sample-data"></a>Creare dati di esempio
 
-1. Usando l'editor di testo preferito, creare un file denominato **CreateTestData.sql** nella cartella **SqlServerSample**. Copiare il codice T-SQL seguente e copiarlo all'interno del file. Questo codice crea uno schema e una tabella e inserisce alcune righe.
+1. Nell'editor di testo preferito creare un file denominato **CreateTestData.sql** nella cartella **SqlServerSample**. Nel file copiare e incollare il codice T-SQL seguente, che crea uno schema e una tabella e inserisce alcune righe.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -82,7 +82,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
    GO
    ```
 
-2. Connettersi al database tramite sqlcmd ed eseguire lo script SQL per creare lo schema e la tabella e inserire alcune righe. Sostituire i valori relativi al server, al database, al nome utente e alla password con quelli appropriati.
+2. Usare `sqlcmd` per connettersi al database ed eseguire lo script SQL appena creato. Sostituire i valori relativi al server, al database, al nome utente e alla password con quelli appropriati.
 
    ```bash
    sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
@@ -92,7 +92,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 
 1. Creare un file denominato **sample.go** nella cartella **SqlServerSample**.
 
-2. Aprire il file e sostituirne il contenuto con il codice seguente. Aggiungere i valori appropriati per il server, il database, il nome utente e la password. Questo esempio usa i metodi Context di GoLang per verificare che sia presente una connessione attiva al server di database.
+2. Aprire il file e incollare il codice seguente. Aggiungere i valori appropriati per il server, il database, il nome utente e la password. Questo esempio usa i metodi Context di GoLang per verificare che sia presente una connessione attiva al server di database.
 
    ```go
    package main
@@ -288,13 +288,13 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 
 ## <a name="run-the-code"></a>Eseguire il codice
 
-1. Al prompt dei comandi eseguire questi comandi:
+1. Nel prompt dei comandi, eseguire il seguente comando:
 
    ```bash
    go run sample.go
    ```
 
-2. Verificare l'output:
+2. Verificare l'output.
 
    ```text
    Connected!

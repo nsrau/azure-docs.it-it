@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 2125863f212b9e79b88e9f46ed0eb0def71d79b4
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 5c99d638845cf0cd00ddbacf1ed0dcf3da889dd6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276194"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082544"
 ---
-# <a name="what-is-cloudyn"></a>Che cos'è Cloudyn?
+# <a name="what-is-the-cloudyn-service"></a>Che cos'è il servizio Cloudyn?
 
 Cloudyn, un'affiliata Microsoft, consente di tenere traccia dell'uso del cloud e delle spese per le risorse di Azure e altri provider cloud, tra cui AWS e Google. I dashboard report di facile comprensione agevolano l'allocazione dei costi e gli showback/chargeback. Cloudyn consente di ottimizzare la spesa per il cloud individuando le risorse scarsamente usate che è quindi possibile gestire e adattare.
 

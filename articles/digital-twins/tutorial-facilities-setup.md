@@ -7,14 +7,14 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 61b81602342b910a50c0cc6318746ec85a659a92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582332"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080590"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Esercitazione: Distribuire Gemelli digitali di Azure e configurare un grafico spaziale
+# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Esercitazione: Distribuire Gemelli digitali di Azure e configurare un grafo spaziale
 
 È possibile usare il servizio Gemelli digitali di Azure per riunire persone, luoghi e dispositivi in un sistema spaziale coerente. Questa serie di esercitazioni illustra come usare Gemelli digitali di Azure per determinare l'occupazione di una stanza con condizioni ottimali di temperatura e qualità dell'aria. 
 
@@ -163,6 +163,9 @@ Il file **provisionSample.yaml** contiene i nodi seguenti:
     > Assicurarsi che le chiavi `dataType` e `hardwareId` siano allineate con le istruzioni sopra questo frammento di codice. Assicurarsi inoltre che l'editor non sostituisca gli spazi con tabulazioni. 
 
 Salvare e chiudere il file provisionSample.yaml. Nella prossima esercitazione verranno aggiunte altre informazioni a questo file e quindi si effettuerà il provisioning dell'edificio di esempio di Gemelli digitali di Azure.
+
+> [!TIP]
+> È possibile visualizzare e modificare il grafo spaziale con il [Visualizzatore di Microsoft Azure Active Directory Graph](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

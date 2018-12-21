@@ -1,23 +1,24 @@
 ---
-title: "Esercitazione 1: trovare intenzioni nell'app LUIS personalizzata"
+title: Prevedere finalità
 titleSuffix: Azure Cognitive Services
 description: Creare un'app personalizzata che stima l'intenzione dell'utente. Questa app è il tipo più semplice di app LUIS perché non estrae i vari elementi di dati dal testo dell'espressione, come gli indirizzi di posta elettronica o le date.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b1a9718fdf7222dae06f7fe9b3a0f14b50293c08
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426860"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097795"
 ---
-# <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Esercitazione 1: creare un'app personalizzata per determinare le intenzioni dell'utente
+# <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Esercitazione 1: Creare un'app personalizzata per determinare le intenzioni dell'utente
 
 In questa esercitazione verrà creata un'app Human Resources (HR) personalizzata che consente di prevedere l'intenzione dell'utente in base all'espressione (testo). Al termine, sarà disponibile un endpoint Language Understanding in esecuzione nel cloud.
 
@@ -43,11 +44,11 @@ Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non 
 
 2. Selezionare **Create new app** (Crea nuova app).  
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Screenshot della pagina My Apps del sito LUIS (Language Understanding)")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+    [![Screenshot della pagina Language Understanding (LUIS) My Apps](media/luis-quickstart-intents-only/app-list.png "Screenshot della pagina Language Understanding (LUIS) My Apps")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
 3. Nella finestra di dialogo popup, immettere il nome `HumanResources` e non modificare le impostazioni cultura predefinite (**English**). Lasciare vuota la descrizione.
 
-    ![Nuova app Language Understanding](./media/luis-quickstart-intents-only/create-app.png)
+    ![Creare una nuova app HumanResources LUIS](./media/luis-quickstart-intents-only/create-app.png)
 
     Successivamente, l'app visualizza la pagina **Intents** (Finalità) con la finalità **None** (Nessuna).
 
@@ -55,7 +56,7 @@ Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non 
 
 1. Selezionare **Create new intent** (Crea nuova finalità). Immettere il nome della nuova finalità `GetJobInformation`. Questa finalità è prevista ogni volta che un utente desidera informazioni sulle mansioni aperte all'interno dell'azienda.
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Screenshot della finestra di dialogo New intent del sito LUIS (Language Understanding)")
+    ![Screenshot della finestra di dialogo Language Understanding (LUIS) New intent](media/luis-quickstart-intents-only/create-intent.png "Screenshot della finestra di dialogo Language Understanding (LUIS) New intent")
 
 2. Fornendo _espressioni di esempio_, LUIS impara quali sono i tipi di espressione che dovranno essere stimate per la finalità in questione. Aggiungere a questa finalità diverse espressioni di esempio che verranno presumibilmente usate dagli utenti, ad esempio:
 
@@ -69,7 +70,7 @@ Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non 
     |New jobs?|
     |Are there any new positions in the Seattle office?|
 
-    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Schermata di immissione di nuove espressioni per la finalità MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![Screenshot dell'immissione di nuove espressioni per finalità MyStore](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot dell'immissione di nuove espressioni per finalità MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
@@ -150,7 +151,7 @@ Tornare al sito Web LUIS e creare una nuova finalità per determinare se l'espre
     |Here is my c.v. for position 654234|
     |Job 567890 and my paperwork|
 
-    [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot di immissione di nuove espressioni per la finalità ApplyForJob")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+    [![Screenshot dell'immissione di nuove espressioni per finalità ApplyForJob](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot dell'immissione di nuove espressioni per finalità ApplyForJob")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
     La finalità etichettata viene evidenziata in rosso perché Language Understanding non è sicuro attualmente che la finalità è corretta. Il training dell'app indica a Language Understanding che le espressioni sono sulla finalità corretta. 
 
@@ -168,7 +169,7 @@ Tornare al sito Web LUIS e creare una nuova finalità per determinare se l'espre
 
 2. Nella nuova finestra del browser, immettere `Can I submit my resume for job 235986` alla fine dell'URL. 
 
-    ```JSON
+    ```json
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 0cec1fb09503d3cc685b718c2497a363dfd15824
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 20a921a0248fdb8a3856e27ad5e2620f7adb70de
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868395"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962135"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
@@ -59,7 +59,7 @@ Di seguito sono descritti i passaggi fondamentali per la creazione di questa sol
 
     Il diagramma generale della soluzione è il seguente: 
 
-    ![Caricare i dati in modo incrementale](media\tutorial-incremental-copy-multiple-tables-powershell\high-level-solution-diagram.png)
+    ![Caricare i dati in modo incrementale](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
 
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -268,7 +268,7 @@ Tenere presente quanto segue:
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro dei ruoli collaboratore o proprietario oppure un amministratore della sottoscrizione di Azure.
-* Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL e così via) e le risorse di calcolo (Azure HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+* Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL e così via) e le risorse di calcolo (Azure HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -704,22 +704,22 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
 
 1. Selezionare **Tutti i servizi**, eseguire una ricerca con la parola chiave *Data factory* e selezionare **Data factory**. 
 
-    ![Menu Data factory](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
+    ![Menu Data factory](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-data-factories-menu-1.png)
 
 1. Cercare la propria data factory nell'elenco delle data factory e selezionarla per aprire la pagina **Data factory**. 
 
-    ![Cercare la data factory](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-search-data-factory-2.png)
+    ![Cercare la data factory](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-search-data-factory-2.png)
 
 1. Nella pagina **Data factory** selezionare **Monitoraggio e gestione**. 
 
-    ![Riquadro Monitoraggio e gestione](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)
+    ![Riquadro Monitoraggio e gestione](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-monitor-manage-tile-3.png)
 
 1. Si aprirà l'applicazione **Integrazione dati** in una scheda separata. È possibile visualizzare tutte le esecuzioni di pipeline e i rispettivi stati. Notare che nell'esempio seguente lo stato dell'esecuzione della pipeline è **Riuscito**. Per verificare i parametri passati alla pipeline, selezionare il collegamento nella colonna **Parametri**. Se si è verificato un errore, verrà visualizzato un collegamento nella colonna **Errore**. Selezionare il collegamento nella colonna **Azioni**. 
 
-    ![Esecuzioni di pipeline](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-4.png)    
+    ![Esecuzioni di pipeline](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 1. Quando si seleziona il collegamento nella colonna **Azioni**, viene visualizzata la pagina seguente con tutte le esecuzioni di attività per la pipeline: 
 
-    ![Esecuzioni di attività](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
+    ![Esecuzioni di attività](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-activity-runs-5.png)
 
 1. Per tornare alla visualizzazione **Esecuzioni di pipeline**, selezionare **Pipeline** come mostrato nell'immagine. 
 
@@ -801,11 +801,11 @@ VALUES
     ```
 1. Monitorare le esecuzioni di pipeline seguendo le istruzioni contenute nella sezione [Monitorare la pipeline](#monitor-the-pipeline). Poiché lo stato della pipeline è **In corso**, in **Azioni** viene visualizzato un altro collegamento a un'azione per annullare l'esecuzione della pipeline. 
 
-    ![Esecuzioni di pipeline in corso](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-6.png)
+    ![Esecuzioni di pipeline in corso](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-6.png)
 
 1. Selezionare **Aggiorna** per aggiornare l'elenco finché l'esecuzione della pipeline non riesce. 
 
-    ![Aggiornare le esecuzioni di pipeline](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-succeded-7.png)
+    ![Aggiornare le esecuzioni di pipeline](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-succeded-7.png)
 
 1. Fare eventualmente clic sul collegamento **Visualizza esecuzioni attività** in **Azioni** per visualizzare tutte le esecuzioni di attività associate a questa esecuzione di pipeline. 
 

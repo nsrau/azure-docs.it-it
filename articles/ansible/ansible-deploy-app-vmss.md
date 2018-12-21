@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413996"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408375"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Distribuire applicazioni nei set di scalabilità di macchine virtuali in Azure tramite Ansible
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per distribuire le applicazioni in Azure. Questo articolo illustra come distribuire un'applicazione Java in un set di scalabilità di macchine virtuali di Azure (VMSS).  
@@ -35,7 +35,7 @@ Questa sezione illustra come usare Ansible per recuperare informazioni sull'host
 
 Salvare il playbook di esempio seguente come `get-hosts-tasks.yml`: 
 
-  ```yaml
+  ```yml
   - name: Get facts for all Public IPs within a resource groups
     azure_rm_publicipaddress_facts:
       resource_group: "{{ resource_group }}"
@@ -63,7 +63,7 @@ Salvare il playbook di esempio seguente come `get-hosts-tasks.yml`:
 
 In questa sezione, git viene usato per clonare un progetto Java di esempio da GitHub e compilare il progetto. Salvare il playbook seguente come `app.yml`:
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
@@ -87,7 +87,7 @@ Eseguire il playbook di Ansible di esempio con il comando seguente:
 
 L'output del comando ansible-playbook è simile al seguente, in cui l'app di esempio clonata è stata compilata a partire da GitHub:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -110,7 +110,7 @@ La sezione seguente in un playbook Ansible consente di installare JRE (Java Runt
 
 (Sostituire la `admin_password` con la propria password.)
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -167,7 +167,7 @@ Eseguire il playbook con il comando seguente:
 
 L'output prodotto dall'esecuzione del comando ansible-playbook indica che l'applicazione Java di esempio è stata installata nel gruppo host del set di scalabilità di macchine virtuali:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -208,4 +208,4 @@ Congratulazioni. L'applicazione è in esecuzione su Azure. È ora possibile pass
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"] 
-> [Playbook Ansible di esempio per il set di scalabilità di macchine virtuali](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Ridimensionare automaticamente un set di scalabilità di macchine virtuali con Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

