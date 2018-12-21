@@ -1,5 +1,5 @@
 ---
-title: "Esempi di Criteri di Azure: controllare l'impostazione di controllo di SQL Server"
+title: Esempio - Controllare l'impostazione di controllo di SQL Server
 description: Questo criterio di esempio consente di controllare l'impostazione di controllo di SQL Server.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 258d56f70349c99faf6053de46886b736ffb95cf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7a9f5779b8a0c853d938734f82f3bd63e7f0a45b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949611"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53307870"
 ---
 # <a name="audit-sql-server-audit-settings"></a>Controllare l'impostazione di controllo di SQL Server
 

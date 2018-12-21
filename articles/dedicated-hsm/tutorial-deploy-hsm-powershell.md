@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Distribuzione di moduli di protezione hardware dedicati di Azure in una rete virtuale esistente con PowerShell | Microsoft Docs'
-description: Distribuire moduli di protezione hardware in una rete virtuale esistente con PowerShell
+title: 'Esercitazione: Distribuzione in una rete virtuale esistente con PowerShell - Modulo di protezione hardware dedicato di Azure | Microsoft Docs'
+description: Esercitazione che illustra come distribuire un modulo di protezione hardware dedicato in una rete virtuale esistente con PowerShell.
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,17 +8,17 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: a714a52ecd6398fde459c5814b8a6cf223655eff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3f165b5d372168ef3ce6fea75547513a0148ae5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318756"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086308"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con PowerShell
 
@@ -37,7 +37,7 @@ L'esercitazione è incentrata sull'integrazione di una coppia di moduli di prote
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-HSM dedicato di Azure non è attualmente disponibile nel portale di Azure, di conseguenza l'interazione con il servizio avverrà interamente tramite riga di comando o con PowerShell. In questa esercitazione verrà usato PowerShell in Azure Cloud Shell. Se non si ha familiarità con PowerShell, seguire le istruzioni introduttive riportate nell'[introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
+HSM dedicato di Azure non è attualmente disponibile nel portale di Azure, di conseguenza l'interazione con il servizio avverrà interamente tramite riga di comando o con PowerShell. In questa esercitazione verrà usato PowerShell in Azure Cloud Shell. Se non si ha familiarità con PowerShell, seguire le istruzioni introduttive disponibili nell'[introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
 
 Presupposti:
 
@@ -143,6 +143,14 @@ $delegation = New-AzureRmDelegation `
 ```
 
 ```powershell
+$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+  -Name hsmsubnet ` 
+  -AddressPrefix 10.2.1.0/24 ` 
+  -Delegation $delegation 
+
+```
+
+```powershell
 
 $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
@@ -179,7 +187,7 @@ Il completamento di questo comando richiederà circa 20 minuti. L'opzione "-verb
 
 ![Stato del provisioning](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-Al termine verrà visualizzato "provisioningState": "Succeeded" e sarà possibile accedere alla macchina virtuale esistente e usare ssh per verificare la disponibilità del dispositivo HSM.
+Al termine verrà visualizzato "provisioningState": "Succeeded" e sarà possibile accedere alla macchina virtuale esistente e usare SSH per verificare la disponibilità del dispositivo del modulo di protezione hardware.
 
 ## <a name="verifying-the-deployment"></a>Verifica della distribuzione
 

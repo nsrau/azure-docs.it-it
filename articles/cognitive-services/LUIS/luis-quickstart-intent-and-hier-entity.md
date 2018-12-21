@@ -1,23 +1,24 @@
 ---
-title: 'Esercitazione 5: relazioni padre/figlio - entità gerarchica LUIS per i dati acquisiti in base al contesto'
+title: Entità gerarchica
 titleSuffix: Azure Cognitive Services
 description: Trovare informazioni correlate di dati basati sul contesto. Ad esempio, spostare una località di origine e destinazione di un computer fisico da un edificio e un ufficio a un altro edificio e ufficio sono informazioni correlate.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424701"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104408"
 ---
-# <a name="tutorial-5-extract-contextually-related-data"></a>Esercitazione 5: estrarre dati correlati in base al contesto
+# <a name="tutorial-5-extract-contextually-related-data"></a>Esercitazione 5: Estrarre dati correlati in base al contesto
 Questa esercitazione illustra come trovare informazioni correlate di dati basati sul contesto. Ad esempio, spostare una località di origine e destinazione di un computer fisico da un edificio e un ufficio a un altro edificio e ufficio sono informazioni correlate. Per generare un ordine di lavoro potrebbero essere necessarie entrambi i dati, i quali sono correlati tra loro.  
 
 L'app determina dove spostare un dipendente, dalla posizione di origine (edificio e ufficio) alla posizione di destinazione (edificio e ufficio). Viene usata l'entità gerarchica per determinare le posizioni nell'espressione. Lo scopo dell'entità **gerarchica** è trovare i dati correlati all'interno dell'espressione in base al contesto. 
@@ -32,7 +33,6 @@ L'entità gerarchica è una buona soluzione per questo tipo di dati, perché i d
 
 **In questa esercitazione si apprenderà come:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Usare l'app di esercitazione esistente
 > * Aggiungere le finalità 
@@ -55,7 +55,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `hier`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Rimuovere l'entità numero predefinita dall'app
-Per visualizzare l'intera espressione e contrassegnare gli elementi figlio gerarchici, è necessario rimuovere temporaneamente l'entità numero predefinita.
+Per visualizzare l'intera espressione e contrassegnare gli elementi figlio gerarchici, è necessario [rimuovere temporaneamente l'entità numero predefinita](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token). 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -90,7 +90,7 @@ LUIS deve comprendere le posizioni tramite etichette per l'origine e la destinaz
 
 Si consideri l'espressione seguente:
 
-```JSON
+```json
 mv Jill Jones from a-2349 to b-1298
 ```
 
@@ -100,19 +100,19 @@ Se è presente un solo elemento figlio (di origine o di destinazione) di un'enti
 
 1. Nell'espressione `Displace 425-555-0000 away from g-2323 toward hh-2345` selezionare la parola `g-2323`. Verrà visualizzato un menu a discesa con una casella di testo nella parte superiore. Immettere il nome dell'entità `Locations` nella casella di testo, quindi selezionare **Create new entity** (Crea nuova entità) nel menu a discesa. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Screenshot della creazione di una nuova entità nella pagina delle finalità")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![Screenshot della creazione di una nuova entità nella pagina delle finalità](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Screenshot della creazione di una nuova entità nella pagina delle finalità")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. Nella finestra popup, selezionare il tipo di entità **Hierarchical** (Gerarchica) con `Origin` e `Destination` come entità figlio. Selezionare **Operazione completata**.
 
-    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Screenshot della finestra popup di creazione dell'entità per la nuova entità posizione")
+    ![Screenshot della finestra di dialogo popup di creazione di entità per la nuova entità di posizione](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Screenshot della finestra di dialogo popup di creazione di entità per la nuova entità di posizione")
 
 3. L'etichetta per `g-2323` è contrassegnata come `Locations` perché Language Understanding non sa se il termine era l'origine, la destinazione o nessuna delle due. Selezionare `g-2323` e quindi **Locations**, seguire il menu a destra e selezionare `Origin`.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Screenshot della finestra popup di selezione delle etichette per le entità per la modifica degli elementi figlio dell'entità Locations")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![Screenshot della finestra di dialogo delle etichette di entità per modificare gli elementi figlio dell'entità Locations (Posizioni)](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Screenshot della finestra di dialogo delle etichette di entità per modificare gli elementi figlio dell'entità Locations (Posizioni)")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
 5. Impostare le etichette per le altre posizioni in tutte le altre espressioni selezionando l'edificio e l'ufficio nell'espressione, quindi selezionando Locations e seguendo il menu a destra per selezionare `Origin` o `Destination`. Una volta etichettate tutte le posizioni, l'aspetto delle espressioni in **Tokens View** (Vista token) diventa simile a un modello. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Screenshot dell'entità Locations etichettata nelle espressioni")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![Screenshot dell'entità Locations (Posizioni) con etichetta nelle espressioni](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Screenshot dell'entità Locations (Posizioni) con etichetta nelle espressioni")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## <a name="add-prebuilt-number-entity-to-app"></a>Aggiungere un'entità numero predefinita all'app
 Aggiungere di nuovo l'entità numero predefinita nell'applicazione.
@@ -140,7 +140,7 @@ Aggiungere di nuovo l'entità numero predefinita nell'applicazione.
 
 2. Passare alla fine dell'URL nella barra degli indirizzi e immettere `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, pertanto rappresenta un buon test e dovrebbe restituire la finalità `MoveEmployee` con l'entità gerarchica estratta.
 
-    ```JSON
+    ```json
     {
       "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
       "topScoringIntent": {

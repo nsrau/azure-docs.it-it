@@ -1,6 +1,6 @@
 ---
-title: Informazioni su Ricerca di Azure | Documentazione Microsoft
-description: Ricerca di Azure è un servizio di ricerca interamente ospitato sul cloud. In questa panoramica delle funzionalità sono fornite ulteriori informazioni sul servizio.
+title: Informazioni sul servizio Ricerca di Azure - Ricerca di Azure
+description: Ricerca di Azure è un servizio di ricerca interamente ospitato sul cloud. Descrizioni delle funzionalità, flusso di lavoro di sviluppo, confronto tra Ricerca di Azure e altri prodotti per la ricerca e informazioni per iniziare.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: overview
 ms.date: 11/09/2018
 ms.author: heidist
-ms.openlocfilehash: 85a071017f4394f4ccde297fb229f7786d9249b3
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec2018
+ms.openlocfilehash: 81b9aef553b4cdc214fbcc681a2e5a91b833e6be
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285136"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313497"
 ---
-# <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
+# <a name="what-is-azure-search"></a>Informazioni sul servizio Ricerca di Azure
 Ricerca di Azure è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. Le query vengono eseguite su un indice definito dall'utente.
 
 + Compilare un corpus di ricerca contenente solo i propri dati, originati da più piattaforme e tipi di contenuto. 
@@ -43,7 +44,7 @@ La funzionalità viene esposta tramite una semplice [API REST](/rest/api/searchs
 | Infrastruttura | La **piattaforma a disponibilità elevata** garantisce un'esperienza del servizio di ricerca estremamente affidabile. Se si applica una scala corretta, [Ricerca di Azure offre un contratto di servizio con disponibilità del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Gestione completa e scalabile** come soluzione end-to-end, Ricerca di Azure non richiede assolutamente alcun tipo di gestione dell'infrastruttura. Il servizio può essere adattato alle proprie esigenze scalando in due dimensioni per gestire più archivi di documenti, carichi di query maggiori o entrambi.
 
 ## <a name="how-to-use-azure-search"></a>Come usare Ricerca di Azure
-### <a name="step-1-provision-service"></a>Passaggio 1: Effettuare il provisioning del servizio
+### <a name="step-1-provision-service"></a>Passaggio 1: Servizio di provisioning
 È possibile eseguire il provisioning di un servizio Ricerca di Azure nel [portale di Azure](https://portal.azure.com/) o tramite l'[API Azure Resource Management](/rest/api/searchmanagement/). È possibile scegliere il servizio gratuito condiviso con altri sottoscrittori, o un [livello a pagamento](https://azure.microsoft.com/pricing/details/search/) che dedica risorse usate solo dal proprio servizio. Per i livelli a pagamento, è possibile scalare il servizio in due dimensioni: 
 
 - Aggiungere Repliche per aumentare la capacità di gestire carichi di lavoro elevati di query.   
@@ -63,7 +64,7 @@ Il modello pull recupera i dati da origini dati esterne. È supportato tramite *
 
 Il modello push viene fornito tramite il componente SDK o l'API REST per l'invio di documenti aggiornati a un indice. È possibile eseguire il push dei dati da qualsiasi set di dati usando il formato JSON. Per informazioni sul caricamento dei dati, vedere [Aggiungere, aggiornare o eliminare documenti](/rest/api/searchservice/addupdate-or-delete-documents) oppure [Come usare .NET SDK](search-howto-dotnet-sdk.md).
 
-### <a name="step-4-search"></a>Passaggio 4: Eseguire la ricerca
+### <a name="step-4-search"></a>Passaggio 4: Ricerca
 Dopo avere compilato un indice, è possibile [eseguire query di ricerca](/rest/api/searchservice/Search-Documents) nell'endpoint di servizio tramite semplici richieste HTTP con l'API REST o .NET SDK.
 
 ## <a name="how-it-compares"></a>Confronto
@@ -95,7 +96,7 @@ Tra i clienti, i casi in grado di sfruttare la gamma più ampia di funzionalità
 
 Mentre è possibile eseguire nel portale molte attività, la Ricerca di Azure è pensata per gli sviluppatori che vogliono integrare funzionalità di ricerca in applicazioni esistenti. Sono disponibili le seguenti interfacce di programmazione.
 
-|Piattaforma |DESCRIZIONE |
+|Piattaforma |Descrizione |
 |-----|------------|
 |[REST](/rest/api/searchservice/) | Comandi HTTP supportati da qualsiasi piattaforma e linguaggio di programmazione, inclusi Xamarin, Java e JavaScript|
 |[.NET SDK](search-howto-dotnet-sdk.md) | Il wrapper .NET per l'API REST offre una codifica efficiente in C# e altri linguaggi di codice destinati a .NET Framework |
@@ -105,7 +106,7 @@ I sottoscrittori di Azure possono [effettuare il provisioning di un servizio al 
 
 Se non si è abbonati, è possibile [aprire un account Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Si riceveranno crediti per provare i servizi di Azure a pagamento. Quando i crediti saranno esauriti, sarà possibile mantenere l'account e usare i [servizi di Azure gratuiti](https://azure.microsoft.com/free/). Verranno applicati addebiti alla carta di credito solo se l'utente modifica le impostazioni e richiede esplicitamente l'addebito.
 
-In alternativa, è possibile [attivare i benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento. 
+In alternativa, è possibile [attivare i vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con l'abbonamento MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento. 
 
 ## <a name="how-to-get-started"></a>Attività iniziali
 

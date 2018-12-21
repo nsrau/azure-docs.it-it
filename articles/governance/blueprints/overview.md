@@ -4,17 +4,17 @@ description: Azure Blueprint è un servizio disponibile in Azure usato per crear
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f1ebbc10109563b771c5417a0449efec12138526
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498608"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967692"
 ---
 # <a name="what-is-azure-blueprints"></a>Informazioni su Azure Blueprint
 
@@ -54,7 +54,7 @@ I criteri possono essere inclusi nella definizione di un progetto come i vari _a
 
 Un progetto è costituito da _artefatti_. Azure Blueprint supporta attualmente le seguenti risorse come artefatti:
 
-|Risorsa  | Opzioni della gerarchia| DESCRIZIONE  |
+|Risorsa  | Opzioni della gerarchia| Descrizione  |
 |---------|---------|---------|
 |Gruppi di risorse     | Sottoscrizione | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Azure Resource Manager.         |
 |Modello di Azure Resource Manager      | Sottoscrizione, gruppo di risorse | I modelli vengono usati per creare ambienti complessi. Esempi di ambienti complessi sono: una farm di SharePoint, la configurazione dello stato di Automazione di Azure o un'area di lavoro di Log Analytics. |
@@ -111,7 +111,7 @@ Per assegnare o annullare l'assegnazione di un progetto l'account necessita dell
 > [!NOTE]
 > Dato che le assegnazioni di progetto vengono create in una sottoscrizione, le autorizzazioni per assegnare o annullare l'assegnazione devono essere concesse nell'ambito della sottoscrizione o essere ereditate nell'ambito della sottoscrizione.
 
-Queste autorizzazioni, ad eccezione delle autorizzazioni di assegnazione di progetto, sono incluse nel ruolo **Proprietario** e nei ruoli **Collaboratore**. Se questi ruoli predefiniti non soddisfano specifiche esigenze di sicurezza, provare a creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
+Tutte le autorizzazioni precedenti sono incluse nel ruolo **Proprietario**. Il ruolo **Collaboratore** dispone delle autorizzazioni per creare ed eliminare progetti, ma non delle autorizzazioni per l'assegnazione di progetti. Se questi ruoli predefiniti non soddisfano specifiche esigenze di sicurezza, provare a creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > Per poter abilitare la distribuzione, l'entità servizio per Azure Blueprint richiede il ruolo **proprietario** nella sottoscrizione assegnata. Se si usa il portale, questo ruolo viene automaticamente concesso e revocato per la distribuzione. Se si usa l'API REST, questo ruolo deve essere concesso manualmente, ma viene comunque revocato automaticamente al termine della distribuzione.

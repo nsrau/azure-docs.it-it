@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 6e75ceb388b3111ea9ec31ba6bffded4077a019b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ab8a6d5b6d4bb52863e77b844a4008bb80d840be
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248669"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993942"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>Guida introduttiva: Usare l'API Traduzione testuale per ottenere traduzioni alternative con Python
 
@@ -69,7 +69,7 @@ Attualmente, è disponibile un solo endpoint per Traduzione testuale e viene imp
 `params` viene usato per impostare le lingue di origine e di output. In questo esempio vengono usate le lingue inglese e spagnolo: `en` e `es`.
 
 >[!NOTE]
-> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Per altre informazioni su endpoint, route e parametri della richiesta, consultare [API Traduzione testuale 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -167,7 +167,7 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 
 ## <a name="see-also"></a>Vedere anche 
 
-Oltre alla traslitterazione di un testo, scopri come usare l'API Traduzione testuale per:
+Informazioni su come usare l'API Traduzione testuale per:
 
 * [Tradurre un testo](quickstart-python-translate.md)
 * [Traslitterare testo](quickstart-python-transliterate.md)

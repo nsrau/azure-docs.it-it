@@ -1,6 +1,6 @@
 ---
-title: "Esempio di script dell'interfaccia della riga di comando di Azure: snapshot di esportazione/copia come disco rigido virtuale in un account di archiviazione di un'area diversa | Microsoft Docs"
-description: "Esempio di script dell'interfaccia della riga di comando di Azure: snapshot di esportazione/copia come disco rigido virtuale in un account di archiviazione nella stessa sottoscrizione o in una sottoscrizione diversa"
+title: Esempio dell’interfaccia della riga di comando di Azure - Copia uno snapshot su un account di archiviazione in un'altra in un'altra area | Microsoft Docs
+description: "Esempio di script dell'interfaccia della riga di comando di Azure: snapshot di esportazione/copia come disco rigido virtuale in un account di archiviazione nella stessa sottoscrizione o in un’area diversa."
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
-ms.custom: mvc
-ms.openlocfilehash: cd555cfea6a84a0bdf0d0c4c9b9b68ae079fbc7b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: mvc,seodec18
+ms.openlocfilehash: bdc9da206e938c0c7fd3d027ee02b11d01a1b4d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852618"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106720"
 ---
-# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>Snapshot gestiti di esportazione/copia come disco rigido virtuale in un account di archiviazione di un'area diversa con l'interfaccia della riga di comando
+# <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Esportare/copiare snapshot in un account di archiviazione di un'area diversa con l'interfaccia della riga di comando
 
 Questo script consente di esportare uno snapshot gestito in un account di archiviazione di un'area diversa. Per prima cosa viene generato l'URI di firma di accesso condiviso dello snapshot, che viene poi usato per copiare lo snapshot in un account di archiviazione di un'area diversa. Usare questo script per gestire il backup dei dischi gestiti in un'area diversa per il ripristino di emergenza. 
 

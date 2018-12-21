@@ -1,48 +1,50 @@
 ---
-title: Creare un gateway applicazione con ridondanza della zona e scalabilità automatica con un indirizzo IP riservato - Azure PowerShell
-description: Informazioni su come creare un gateway applicazione con ridondanza della zona e scalabilità automatica con un indirizzo IP riservato tramite Azure PowerShell.
+title: 'Esercitazione: Creare un gateway applicazione con ridondanza della zona e scalabilità automatica con un indirizzo IP riservato - Azure PowerShell'
+description: In questa esercitazione vengono fornite informazioni su come creare un gateway applicazione con ridondanza della zona e scalabilità automatica con un indirizzo IP riservato tramite Azure PowerShell.
 services: application-gateway
 author: amitsriva
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 9/26/2018
+ms.date: 11/26/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d86ce2e1bac2fb58df8df748381a00eac21e65cb
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 99fa5d6f0ba74b56a53f2d1af1b99c7e5c2896a7
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48016935"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323201"
 ---
-# <a name="tutorial-create-an-autoscaling-zone-redundant-application-gateway-with-a-reserved-virtual-ip-address-using-azure-powershell"></a>Esercitazione: Creare un gateway applicazione con ridondanza della zona e scalabilità automatica con un indirizzo IP virtuale riservato tramite Azure PowerShell
+# <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Esercitazione: creare un gateway applicazione per migliorare l'accesso alle applicazioni Web
 
-Questa esercitazione descrive come creare un gateway applicazione di Azure tramite i cmdlet di Azure PowerShell e il modello di distribuzione Azure Resource Manager. Questa esercitazione è incentrata sulle differenze nella nuova SKU con scalabilità automatica rispetto alla SKU Standard esistente. In particolare, vengono presentate le funzionalità per supportare la scalabilità automatica, la ridondanza della zona e gli indirizzi VIP riservati (indirizzi IP statici).
+Gli amministratori IT che desiderano migliorare l'accesso alle applicazioni Web possono ottimizzare il gateway applicazione in modo da ridimensionarsi in base alla richiesta dei clienti ed estendersi a più zone di disponibilità. Questa esercitazione aiuta a configurare funzioni del gateway applicazione di Azure per eseguire operazioni di scalabilità automatica, ridondanza della zona e indirizzi VIP riservati (indirizzi IP statici). Per risolvere il problema si useranno cmdlet di Azure PowerShell e il modello di distribuzione Azure Resource Manager.
 
-Per altre informazioni sulla scalabilità automatica e la ridondanza della zona del gateway applicazione, vedere [Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md).
-
-> [!IMPORTANT]
-> Lo SKU del gateway applicazione con scalabilità automatica e ridondanza della zona è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!IMPORTANT] 
+> Lo SKU del gateway applicazione con scalabilità automatica e ridondanza della zona è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Impostare il parametro di configurazione della scalabilità automatica
-> * Impostare il parametro di zona
-> * Usare un indirizzo VIP statico
+> * Creare una rete virtuale con scalabilità automatica
+> * Creare un indirizzo IP pubblico riservato
+> * Configurare l'infrastruttura del gateway applicazione
+> * Specificare la scalabilità automatica
 > * Creare il gateway applicazione
-
+> * Testare il gateway applicazione
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
+## <a name="prerequisites"></a>Prerequisiti
+
 Ai fini di questa esercitazione, è necessario eseguire Azure PowerShell in locale. Deve essere installato il modulo Azure PowerShell 6.9.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzureRmAccount` per creare una connessione ad Azure.
 
-## <a name="sign-in-to-your-azure-account"></a>Accedere con l'account Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 ```azurepowershell
 Connect-AzureRmAccount
 Select-AzureRmSubscription -Subscription "<sub name>"
 ```
+
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 Creare un gruppo di risorse in una delle località disponibili.
 
@@ -54,7 +56,8 @@ $rg = "<rg name>"
 New-AzureRmResourceGroup -Name $rg -Location $location
 ```
 
-## <a name="create-a-vnet"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a>Crea rete virtuale
+
 Creare una rete virtuale con una subnet dedicata per un gateway applicazione con scalabilità automatica. Attualmente è possibile distribuire un solo gateway applicazione con scalabilità automatica in ogni subnet dedicata.
 
 ```azurepowershell
@@ -85,7 +88,9 @@ $publicip = Get-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP"
 $vnet = Get-AzureRmvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
 $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
 ```
-## <a name="configure-application-gateway-infrastructure"></a>Configurare l'infrastruttura del gateway applicazione
+
+## <a name="configure-the-infrastructure"></a>Configurare l'infrastruttura
+
 Impostare la configurazione IP, la configurazione IP front-end, il pool back-end, le impostazioni HTTP, il certificato, la porta, il listener e la regola in un formato identico a quello del gateway applicazione Standard esistente. La nuova SKU segue lo stesso modello a oggetti della SKU Standard.
 
 ```azurepowershell
@@ -116,12 +121,13 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleTyp
 
 È ora possibile specificare la configurazione della scalabilità automatica per il gateway applicazione. Sono supportati due tipi di configurazione della scalabilità automatica:
 
-- **Modalità con capacità fissa**. In questa modalità il gateway applicazione non si ridimensiona automaticamente e opera a una capacità di unità di scala fissa.
+* **Modalità con capacità fissa**. In questa modalità il gateway applicazione non si ridimensiona automaticamente e opera a una capacità di unità di scala fissa.
 
    ```azurepowershell
    $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
    ```
-- **Modalità di scalabilità automatica**. In questa modalità il gateway applicazione si ridimensiona automaticamente in base al modello di traffico dell'applicazione.
+
+* **Modalità di scalabilità automatica**. In questa modalità il gateway applicazione si ridimensiona automaticamente in base al modello di traffico dell'applicazione.
 
    ```azurepowershell
    $autoscaleConfig = New-AzureRmApplicationGatewayAutoscaleConfiguration -MinCapacity 2
@@ -130,9 +136,7 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleTyp
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
 
-Creare il gateway applicazione e includere le zone di ridondanza. 
-
-La configurazione delle zone è supportata solo nelle aree in cui sono disponibili zone di Azure. Nelle aree in cui non sono disponibili zone di Azure il parametro di zona non deve essere usato. Un gateway applicazione può anche essere distribuito in una singola zona, in due zone o in tutte e tre le zone. L'indirizzo IP pubblico per un gateway applicazione in una sola zona deve essere associato alla stessa zona. Per un gateway applicazione con ridondanza in due o tre zone, anche l'indirizzo IP pubblico deve essere impostato con ridondanza della zona e di conseguenza non viene specificata alcuna zona.
+Creare il gateway applicazione e includere le zone di ridondanza e la configurazione di scalabilità automatica.
 
 ```azurepowershell
 $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
@@ -145,24 +149,17 @@ $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Usare [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) per ottenere l'indirizzo IP pubblico del gateway applicazione. Copiare l'indirizzo IP pubblico o il nome DNS e quindi incollarlo nella barra degli indirizzi del browser.
+Usare Get-AzureRmPublicIPAddress per ottenere l'indirizzo IP pubblico del gateway applicazione. Copiare l'indirizzo IP pubblico o il nome DNS e quindi incollarlo nella barra degli indirizzi del browser.
 
 `Get-AzureRmPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Per prima cosa, esplorare le risorse create con il gateway applicazione e quindi, quando non sono più necessarie, è possibile usare il comando `Remove-AzureRmResourceGroup` per rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
+
+Innanzitutto, esplorare le risorse che sono state create con il gateway applicazione. Successivamente, quando non servono più, è possibile usare il comando `Remove-AzureRmResourceGroup` per rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
 
 `Remove-AzureRmResourceGroup -Name $rg`
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Usare un indirizzo VIP statico
-> * Impostare il parametro di configurazione della scalabilità automatica
-> * Impostare il parametro di zona
-> * Creare il gateway applicazione
 
 > [!div class="nextstepaction"]
 > [Creare un gateway applicazione con regole di routing basate su percorsi URL](./tutorial-url-route-powershell.md)

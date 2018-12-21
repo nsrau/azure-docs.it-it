@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 89f5ae27e7ce3ec3155fd3fdbf42bb0f4322aa10
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 50abe2b067770976f19ae9b70c97c2df8354640f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835064"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091579"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Introduzione ad Azure Cosmos DB
 
@@ -38,8 +38,8 @@ Come servizio di database multimodello distribuito a livello globale, Azure Cosm
         * [API SQL](sql-api-introduction.md): un motore di database JSON senza schema con funzionalità di esecuzione di query SQL avanzate.
         * [API MongoDB](mongodb-introduction.md): *MongoDB come servizio* a scalabilità elevata con la tecnologia della piattaforma Azure Cosmos DB. Compatibile con librerie, driver, strumenti e applicazioni MongoDB esistenti.
         * [API Cassandra](cassandra-introduction.md): Cassandra come servizio con distribuzione a livello globale con la tecnologia della piattaforma Azure Cosmos DB. Compatibile con librerie, driver, strumenti e applicazioni [Apache Cassandra](https://cassandra.apache.org/) esistenti.
-        * [API Gremlin](graph-introduction.md): servizio di database a grafo completamente gestito e scalabile orizzontalmente che semplifica la compilazione e l'esecuzione delle applicazioni che usano set di dati con connessione elevata che supportano le API Open Gremlin (in base alla [specifica Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
-        * [API Tabelle](table-introduction.md): servizio di database di coppie chiave-valore progettato per offrire funzionalità Premium (ad esempio, indicizzazione automatica, bassa latenza garantita, distribuzione globale) alle applicazioni di archiviazione tabelle di Azure senza apportare modifiche alle app.
+        * [API Gremlin](graph-introduction.md): servizio di database a grafo completamente gestito e scalabile orizzontalmente che semplifica la compilazione e l'esecuzione delle applicazioni che usano set di dati con connessione elevata che supportano le API Open Gremlin (in base alla [specifica Apache TinkerPop](https://tinkerpop.apache.org/), Apache Gremlin).
+        * [API Tabella](table-introduction.md): servizio di database di coppie chiave-valore progettato per offrire funzionalità Premium (ad esempio, indicizzazione automatica, bassa latenza garantita, distribuzione globale) alle applicazioni di archiviazione tabelle di Azure senza apportare modifiche alle app.
         * Altri modelli di dati e API saranno presto disponibili.
 
 * **Ridimensionamento elastico e indipendente della velocità effettiva e dell'archiviazione su richiesta e in tutto il mondo**

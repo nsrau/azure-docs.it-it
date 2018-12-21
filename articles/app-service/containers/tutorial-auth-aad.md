@@ -1,6 +1,6 @@
 ---
-title: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure in Linux | Microsoft Docs
-description: Informazioni su come usare le funzionalità di autenticazione e autorizzazione del servizio app per proteggere le app del servizio app, incluso l'accesso alle API remote.
+title: Autenticare e autorizzare gli utenti end-to-end su Linux - Servizio app di Azure | Microsoft Docs
+description: Informazioni su come usare le funzionalità di autenticazione e autorizzazione del Servizio app per proteggere le app del Servizio app in esecuzione su Linux, incluso l'accesso alle API remote.
 keywords: servizio app, Servizio app di Azure, autenticazione, autorizzazione, proteggere, sicurezza, multilivello, Azure Active Directory, Azure AD
 services: app-service\web
 documentationcenter: dotnet
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
-ms.openlocfilehash: a468c5d0f73cc182927f26ea9b7a85e2c5afb7c8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766360"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409410"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure in Linux
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel Servizio app di Azure in Linux
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Il servizio app include anche il supporto predefinito per [l'autenticazione e l'autorizzazione degli utenti](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Questa esercitazione illustra come proteggere le app con le funzionalità di autenticazione e autorizzazione del servizio app. Viene usata un'app ASP.NET Core con un front-end Angular.js, ma solo a titolo di esempio. Le funzionalità di autenticazione e autorizzazione del servizio app supportano runtime di tutti i linguaggi e seguendo l'esercitazione si può apprendere come applicarle al linguaggio preferito.
 
@@ -50,7 +51,7 @@ I passaggi illustrati in questa esercitazione possono essere eseguiti in macOS, 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -237,11 +238,11 @@ Passare a `http://<back_end_app_name>.azurewebsites.net` per visualizzare gli el
 
 In questo passaggio si abilitano l'autenticazione e l'autorizzazione per le due app. Si configura anche l'app front-end per generare un token di accesso che potrà essere usato per effettuare chiamate autenticate all'app back-end.
 
-Come provider di identità viene usato Azure Active Directory. Per altre informazioni, vedere [Configurare l'autenticazione di Azure Active Directory per un'applicazione dei servizi app](../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Come provider di identità viene usato Azure Active Directory. Per altre informazioni, vedere [Configurare l'autenticazione di Azure Active Directory per un'applicazione dei servizi app](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Abilitare l'autenticazione e l'autorizzazione per l'app back-end
 
-Nel [portale di Azure](https://portal.azure.com) aprire la pagina di gestione dell'app back-end facendo clic su **Gruppi di risorse** > **myAuthResourceGroup** > _\<nome\_app\_back\_end>_ dal menu a sinistra.
+Nel [portale di Azure](https://portal.azure.com), aprire la pagina di gestione dell'app back-end facendo clic su **Gruppi di risorse** > **myAuthResourceGroup** > _\<nome\_app\_back\_end>_ dal menu a sinistra.
 
 ![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 

@@ -1,23 +1,24 @@
 ---
-title: 'Esercitazione 4: estrarre corrispondenze del testo - entità elenco LUIS'
+title: Corrispondenza di testo esatta
 titleSuffix: Azure Cognitive Services
 description: Ottenere i dati che corrisponde a un elenco predefinito di elementi. Ogni elemento nell'elenco può avere anche sinonimi che corrispondono esattamente
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425072"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096690"
 ---
-# <a name="tutorial-4-extract-exact-text-matches"></a>Esercitazione 4: estrarre corrispondenze esatte del testo
+# <a name="tutorial-4-extract-exact-text-matches"></a>Esercitazione: 4: Estrarre corrispondenze esatte del testo
 Questa esercitazione spiega come ottenere dati corrispondenti a un elenco predefinito di elementi. Ogni elemento nell'elenco può includere un elenco di sinonimi. Per l'app HumanResources, un dipendente può essere identificato tramite diverse informazioni essenziali, ad esempio nome, indirizzo di posta elettronica, numero di telefono e codice fiscale federale degli Stati Uniti. 
 
 L'app HumanResources deve stabilire quali sono i dipendenti che si spostano verso un edificio diverso. Per un'espressione relativa allo spostamento di un dipendente, LUIS stabilisce la finalità ed estrae il dipendente in modo che l'applicazione client crei un ordine standard per spostare il dipendente.
@@ -106,11 +107,11 @@ Il nome _canonico_ per ogni elemento è il numero dipendente. Ecco alcuni sinoni
 
 3. Nella finestra popup relativa all'entità immettere `Employee` come nome dell'entità e **List** come tipo di entità. Selezionare **Operazione completata**.  
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Screenshot della finestra popup di creazione di una nuova entità")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![Screenshot della creazione di una nuova finestra di dialogo entità](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Screenshot della creazione di una nuova finestra di dialogo entità")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
 4. Nella pagina relativa all'entità dipendente immettere `Employee-24612` come nuovo valore.
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Screenshot di immissione di un valore")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
+    [![Schermata di immissione valore](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Schermata di immissione valore")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
 5. Per i sinonimi, aggiungere i valori seguenti:
 
@@ -122,7 +123,7 @@ Il nome _canonico_ per ogni elemento è il numero dipendente. Ecco alcuni sinoni
     |Numero di telefono cellulare personale|425-555-1212|
     |Codice fiscale federale degli Stati Uniti|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Screenshot dell'immissione di sinonimi")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+    [![Schermata di immissione sinonimi](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Schermata di immissione sinonimi")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 6. Immettere `Employee-45612` come nuovo valore.
 
@@ -150,7 +151,7 @@ Il nome _canonico_ per ogni elemento è il numero dipendente. Ecco alcuni sinoni
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `shift 123-45-6789 from Z-1242 to T-54672`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire la finalità `MoveEmployee` con l'oggetto `Employee` estratto.
 
-  ```JSON
+  ```json
   {
     "query": "shift 123-45-6789 from Z-1242 to T-54672",
     "topScoringIntent": {

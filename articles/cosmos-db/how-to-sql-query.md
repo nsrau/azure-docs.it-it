@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f7b3826e1e77933b49f0a742ebf8dfb994bf7ea9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fb8e2b11ce6178c10fb9dc7d13c5c7d817ece821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848732"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344109"
 ---
-# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Eseguire query sui dati di Azure Cosmos DB con query SQL
+# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Esempi di query SQL per eseguire query sui dati di Azure Cosmos DB
 
 Azure Cosmos DB supporta l'esecuzione di query sugli elementi mediante SQL (Structured Query Language) come linguaggio di query JSON per gli account API SQL. Durante la progettazione del linguaggio di query per Azure Cosmos DB, sono considerati i seguenti due obiettivi:
 
@@ -21,7 +21,7 @@ Azure Cosmos DB supporta l'esecuzione di query sugli elementi mediante SQL (Stru
 
 * Azure Cosmos DB usa il modello di programmazione di JavaScript come base per il linguaggio di query. L'API SQL è radicata nel sistema di tipi, nella valutazione delle espressioni e nella chiamata di funzioni di JavaScript. Questo rappresenta a sua volta un modello di programmazione naturale per le proiezioni relazionali, la navigazione gerarchica attraverso gli elementi JSON, i self join, le query spaziali e la chiamata di funzioni definite dall'utente (UDF) scritte interamente in JavaScript, tra le altre funzionalità.
 
-Questo articolo illustra alcuni esempi di query SQL usando semplici elementi JSON. Per altre informazioni sulla sintassi del linguaggio SQL di Azure Cosmos DB, vedere l’articolo [Riferimento alla sintassi SQL](sql-api-sql-query-reference.md).
+Questo articolo illustra alcuni esempi di query SQL usando semplici elementi JSON. Per altre informazioni sulla sintassi del linguaggio SQL di Azure Cosmos DB, vedere l’articolo [Riferimento alla sintassi SQL](sql-api-query-reference.md).
 
 ## <a id="GettingStarted"></a> Introduzione ai comandi di SQL
 
@@ -86,7 +86,7 @@ Ecco un secondo elemento con una sottile differenza: vengono usati `givenName` e
 
 A questo punto è possibile provare a eseguire alcune query a fronte di questi dati per comprendere alcuni aspetti chiave del linguaggio delle query SQL di Azure Cosmos DB.
 
-**Query1**: ad esempio, la query seguente restituisce gli elementi in cui il campo ID corrisponde a `AndersenFamily`. Poiché si tratta di `SELECT *`, l'output della query è l'elemento JSON completo. Per altre informazioni sulla sintassi, vedere [Istruzione SELECT](sql-api-sql-query-reference.md#select-query):
+**Query1**: ad esempio, la query seguente restituisce gli elementi in cui il campo ID corrisponde a `AndersenFamily`. Poiché si tratta di `SELECT *`, l'output della query è l'elemento JSON completo. Per altre informazioni sulla sintassi, vedere [Istruzione SELECT](sql-api-query-reference.md#select-query):
 
 ```sql
     SELECT *
@@ -116,7 +116,7 @@ A questo punto è possibile provare a eseguire alcune query a fronte di questi d
     }]
 ```
 
-**Query2**: si prenda ora in considerazione il caso in cui fosse necessario modificare la formattazione dell'output JSON in una forma differente. Questa query proietta un nuovo oggetto JSON con due campi selezionati, Name e City, quando la città in cui si trova l'indirizzo ha lo stesso nome dello stato. In questo caso, "NY, NY" corrispondono.
+**Query2:** Si prenda ora in considerazione il caso in cui fosse necessario modificare la formattazione dell'output JSON in una forma differente. Questa query proietta un nuovo oggetto JSON con due campi selezionati, Name e City, quando la città in cui si trova l'indirizzo ha lo stesso nome dello stato. In questo caso, "NY, NY" corrispondono.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -166,7 +166,7 @@ Ecco alcuni aspetti del linguaggio di query di Cosmos DB attraverso gli esempi v
 
 ## <a id="SelectClause"></a>Clausola SELECT
 
-Ogni query consiste in una clausola SELECT e clausole FROM e WHERE facoltative in base agli standard ANSI-SQL. In genere, l'origine nella clausola FROM per ogni query viene enumerata, quindi il filtro nella clausola WHERE viene applicato all'origine per recuperare un sottoinsieme di elementi JSON. Infine, viene usata la clausola SELECT per proiettare i valori JSON richiesti nell'elenco selezionato. Per altre informazioni sulla sintassi, vedere [sintassi SELECT](sql-api-sql-query-reference.md#bk_select_query).
+Ogni query consiste in una clausola SELECT e clausole FROM e WHERE facoltative in base agli standard ANSI-SQL. In genere, l'origine nella clausola FROM per ogni query viene enumerata, quindi il filtro nella clausola WHERE viene applicato all'origine per recuperare un sottoinsieme di elementi JSON. Infine, viene usata la clausola SELECT per proiettare i valori JSON richiesti nell'elenco selezionato. Per altre informazioni sulla sintassi, vedere [sintassi SELECT](sql-api-query-reference.md#bk_select_query).
 
 L'esempio seguente illustra una tipica query SELECT.
 
@@ -260,7 +260,7 @@ Verrà ora esaminato il ruolo di `$1` . La clausola `SELECT` deve creare un ogge
 
 ## <a id="FromClause"></a>Clausola FROM
 
-La clausola FROM <from_specification> è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Per altre informazioni sulla sintassi, vedere [sintassi FROM](sql-api-sql-query-reference.md#bk_from_clause). Una query come `SELECT * FROM Families` indica che l'intero contenitore Families è il database di origine in base al quale eseguire l'enumerazione. Invece di usare il nome del contenitore, è possibile usare uno speciale identificatore ROOT per rappresentare il contenitore.
+La clausola FROM <from_specification> è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Per altre informazioni sulla sintassi, vedere [sintassi FROM](sql-api-query-reference.md#bk_from_clause). Una query come `SELECT * FROM Families` indica che l'intero contenitore Families è il database di origine in base al quale eseguire l'enumerazione. Invece di usare il nome del contenitore, è possibile usare uno speciale identificatore ROOT per rappresentare il contenitore.
 L'elenco seguente include le regole applicate per ogni query:
 
 * È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Qui `f` è l'equivalente di `Families`. `AS` è una parola chiave facoltativa per eseguire l'aliasing dell'identificatore.  
@@ -313,7 +313,7 @@ L'elenco seguente include le regole applicate per ogni query:
     ]
 ```
 
-Mentre nell'esempio precedente viene usata una matrice come origine, si potrebbe usare anche un oggetto come origine, che è quanto mostrato nell'esempio seguente: qualsiasi valore JSON valido (non indefinito) che può essere trovato nell'origine viene considerato per l'inclusione nel risultato della query. Se alcune famiglie non hanno un valore `address.state` vengono escluse dal risultato della query.
+Se nell'esempio precedente veniva usata una matrice come origine, è possibile usare anche un oggetto come origine, come illustrato nell'esempio seguente: Qualsiasi valore JSON valido (diverso da Undefined) che è disponibile nell'origine è considerato per essere incluso nel risultato della query. Se alcune famiglie non hanno un valore `address.state` vengono escluse dal risultato della query.
 
 **Query**
 
@@ -333,7 +333,7 @@ Mentre nell'esempio precedente viene usata una matrice come origine, si potrebbe
 
 ## <a id="WhereClause"></a>Clausola WHERE
 
-La clausola WHERE (**`WHERE <filter_condition>`**) è facoltativa. Specifica la condizione (o le condizioni) che gli elementi JSON forniti dall'origine devono soddisfare per essere inclusi come parte del risultato. Per essere considerato per il risultato, qualsiasi elemento JSON deve valutare le condizioni specificate come "true". La clausola WHERE viene usata dal livello di indice allo scopo di determinare il sottoinsieme più piccolo in assoluto di elementi di origine che possono fare parte del risultato. Per altre informazioni sulla sintassi, vedere [sintassi WHERE](sql-api-sql-query-reference.md#bk_where_clause).
+La clausola WHERE (**`WHERE <filter_condition>`**) è facoltativa. Specifica la condizione (o le condizioni) che gli elementi JSON forniti dall'origine devono soddisfare per essere inclusi come parte del risultato. Per essere considerato per il risultato, qualsiasi elemento JSON deve valutare le condizioni specificate come "true". La clausola WHERE viene usata dal livello di indice allo scopo di determinare il sottoinsieme più piccolo in assoluto di elementi di origine che possono fare parte del risultato. Per altre informazioni sulla sintassi, vedere [sintassi WHERE](sql-api-query-reference.md#bk_where_clause).
 
 La query seguente richiede elementi che contengono una proprietà nome il cui valore è `AndersenFamily`. Qualsiasi altro elemento che non contiene una proprietà nome o il cui valore non corrisponde a `AndersenFamily` verrà escluso.
 
@@ -1411,14 +1411,14 @@ Le funzioni di controllo del tipo consentono di controllare il tipo di un'espres
 
 | **Utilizzo** | **Descrizione** |
 |-----------|------------|
-| [IS_ARRAY (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array) | Restituisce un valore booleano che indica se il tipo del valore è una matrice. |
-| [IS_BOOL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool) | Restituisce un valore booleano che indica se il tipo del valore è booleano. |
-| [IS_NULL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null) | Restituisce un valore booleano che indica se il tipo del valore è Null. |
-| [IS_NUMBER (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number) | Restituisce un valore booleano che indica se il tipo del valore è un numero. |
-| [IS_OBJECT (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object) | Restituisce un valore booleano che indica se il tipo del valore è un oggetto JSON. |
-| [IS_STRING (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string) | Restituisce un valore booleano che indica se il tipo del valore è una stringa. |
-| [IS_DEFINED (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined) | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore. |
-| [IS_PRIMITIVE (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive) | Restituisce un valore booleano che indica se il tipo del valore è stringa, numero, valore booleano o Null. |
+| [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Restituisce un valore booleano che indica se il tipo del valore è una matrice. |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Restituisce un valore booleano che indica se il tipo del valore è booleano. |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | Restituisce un valore booleano che indica se il tipo del valore è Null. |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | Restituisce un valore booleano che indica se il tipo del valore è un numero. |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | Restituisce un valore booleano che indica se il tipo del valore è un oggetto JSON. |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | Restituisce un valore booleano che indica se il tipo del valore è una stringa. |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore. |
+| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | Restituisce un valore booleano che indica se il tipo del valore è stringa, numero, valore booleano o Null. |
 
 Usando queste funzioni è ora possibile eseguire query come illustrato nell'esempio seguente:
 
@@ -1440,22 +1440,22 @@ Le funzioni scalari seguenti eseguono un'operazione su un valore di stringa di i
 
 | Uso | DESCRIZIONE |
 | --- | --- |
-| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) | Restituisce il numero di caratteri dell'espressione stringa specificata |
-| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) | Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa. |
-| [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) | Restituisce parte di un'espressione stringa. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) | Restituisce un valore booleano che indica se la prima espressione stringa inizia con il secondo |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) | Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo. |
-| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) | Restituisce un valore booleano che indica se la prima espressione stringa contiene il secondo. |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) | Restituisce la posizione iniziale della prima occorrenza della seconda stringa di espressione all'interno della prima espressione stringa specificata oppure -1 se la stringa non viene trovata. |
-| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) | Restituisce la parte sinistra di una stringa con il numero specificato di caratteri. |
-| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) | Restituisce la parte destra di una stringa con il numero specificato di caratteri. |
-| [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) | Restituisce un'espressione stringa dopo aver rimosso gli spazi vuoti iniziali. |
-| [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) | Restituisce un'espressione stringa dopo la rimozione di tutti gli spazi vuoti finali. |
-| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) | Restituisce un'espressione stringa dopo la conversione di dati in caratteri maiuscoli in caratteri minuscoli. |
-| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) | Restituisce un'espressione stringa dopo aver convertito i caratteri minuscoli in caratteri maiuscoli. |
-| [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) | Sostituisce tutte le occorrenze di un valore stringa specificato con un altro valore stringa. |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Restituisce il numero di caratteri dell'espressione stringa specificata |
+| [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa. |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Restituisce parte di un'espressione stringa. |
+| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Restituisce un valore booleano che indica se la prima espressione stringa inizia con il secondo |
+| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo. |
+| [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Restituisce un valore booleano che indica se la prima espressione stringa contiene il secondo. |
+| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Restituisce la posizione iniziale della prima occorrenza della seconda stringa di espressione all'interno della prima espressione stringa specificata oppure -1 se la stringa non viene trovata. |
+| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Restituisce la parte sinistra di una stringa con il numero specificato di caratteri. |
+| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Restituisce la parte destra di una stringa con il numero specificato di caratteri. |
+| [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Restituisce un'espressione stringa dopo aver rimosso gli spazi vuoti iniziali. |
+| [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | Restituisce un'espressione stringa dopo la rimozione di tutti gli spazi vuoti finali. |
+| [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | Restituisce un'espressione stringa dopo la conversione di dati in caratteri maiuscoli in caratteri minuscoli. |
+| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | Restituisce un'espressione stringa dopo aver convertito i caratteri minuscoli in caratteri maiuscoli. |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Sostituisce tutte le occorrenze di un valore stringa specificato con un altro valore stringa. |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | Ripete un valore stringa in un numero di volte specificato. |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) | Restituisce l'inverso di un valore stringa. |
+| [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Restituisce l'inverso di un valore stringa. |
 
 Usando queste funzioni, è ora possibile eseguire query come le seguenti. Ad esempio, è possibile restituire il nome della famiglia in lettere maiuscole come segue:
 
@@ -1522,10 +1522,10 @@ Le funzioni scalari seguenti eseguono un'operazione su un valore di input di mat
 
 | Uso | DESCRIZIONE |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Restituisce il numero di elementi dell'espressione di matrice specificato. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Restituisce una matrice che rappresenta il risultato della concatenazione di due o più valori della matrice. |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Restituisce un valore booleano che indica se la matrice contiene il valore specificato. Può specificare se la corrispondenza è completa o parziale. |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Restituisce parte di un'espressione di matrice. |
+| [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |Restituisce il numero di elementi dell'espressione di matrice specificato. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |Restituisce una matrice che rappresenta il risultato della concatenazione di due o più valori della matrice. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |Restituisce un valore booleano che indica se la matrice contiene il valore specificato. Può specificare se la corrispondenza è completa o parziale. |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |Restituisce parte di un'espressione di matrice. |
 
 Le funzioni di matrice possono essere usate per manipolare le matrici in JSON. Ad esempio, la query seguente restituisce tutti gli elementi in cui uno dei genitori è "Robin Wakefield". 
 
@@ -1627,7 +1627,7 @@ L'immagine seguente illustra l'architettura di supporto delle query LINQ usando 
 
 ### <a name="net-and-json-mapping"></a>Mapping .NET e JSON
 
-Il mapping tra oggetti .NET ed elementi JSON avviene naturalmente: ogni campo del membro dati viene mappato a un oggetto JSON, in cui il nome del campo viene mappato alla parte "chiave" dell'oggetto e la parte "valore" viene mappata in modo ricorsivo alla parte del valore dell'oggetto. Si consideri l'esempio seguente: l'oggetto Family creato viene mappato all'elemento JSON, come illustrato di seguito. Viceversa, l'elemento JSON viene mappato nuovamente a un oggetto .NET.
+Il mapping tra oggetti .NET ed elementi JSON avviene naturalmente: ogni campo del membro dati viene mappato a un oggetto JSON, in cui il nome del campo viene mappato alla parte "chiave" dell'oggetto e la parte "valore" viene mappata in modo ricorsivo alla parte del valore dell'oggetto. Si consideri l'esempio seguente: L'oggetto Family creato viene mappato all'elemento JSON, come illustrato di seguito. Viceversa, l'elemento JSON viene mappato nuovamente a un oggetto .NET.
 
 **Classe C#**
 
@@ -1735,19 +1735,19 @@ In primo luogo, per il sistema di tipi sono supportati tutti i tipi primitivi JS
 
 Di seguito è riportato un elenco di operatori LINQ supportati nel provider LINQ incluso in SQL .NET SDK.
 
-* **Select**: le proiezioni convertono in SQL SELECT inclusa la costruzione dell'oggetto.
-* **Where**: i filtri convertono in SQL WHERE e supportano la conversione tra &amp;&amp; , || e ! in operatori SQL.
+* **Select**: le proiezioni traslano in SQL SELECT, inclusa la costruzione di oggetti
+* **Where**: i filtri traslano in SQL WHERE e supportano la traslazione tra &&, || e ! in operatori SQL.
 * **SelectMany**: consente la rimozione di matrici nella clausola SQL JOIN. Può essere usato per concatenare/annidare le espressioni per filtrare in base agli elementi della matrice.
-* **OrderBy e OrderByDescending**: converte in ORDER BY crescente o decrescente.
+* **OrderBy e OrderByDescending**: trasla in ORDER BY crescente o decrescente
 * Operatori di aggregazione **Count**, **Sum**, **Min**, **Max** e **Average** e relativi equivalenti asincroni **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** e **AverageAsync**.
-* **CompareTo**: converte in confronti di intervallo. In genere usato per le stringhe in quanto non sono confrontabili in .NET
-* **Take**: converte in SQL TOP per limitare i risultati da una query.
-* **Math Functions**: supporta la conversione da Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan e Truncate di .NET nelle funzioni predefinite di SQL equivalenti.
-* **String Functions**: supporta la conversione da Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString e ToUpper di .NET nelle funzioni predefinite di SQL equivalenti.
-* **Array Functions**: supporta la conversione da Concat, Contains e Count di .NET nelle funzioni predefinite di SQL equivalenti.
-* **Geospatial Extension Functions**: supporta la conversione dai metodi sthub Distance, Within, IsValid e IsValidDetailed nelle funzioni predefinite di SQL equivalenti.
-* **User Defined Function Extension Function**: supporta la conversione dal metodo stub UserDefinedFunctionProvider.Invoke alla funzione corrispondente definita dall'utente.
-* **Miscellaneous**: supporta la conversione degli operatori condizionali e di unione. Consente la conversione di Contains in String CONTAINS, ARRAY_CONTAINS o SQL IN in base al contesto.
+* **CompareTo**: trasla in confronti di intervallo. In genere usato per le stringhe in quanto non sono confrontabili in .NET
+* **Take**: trasla in SQL TOP per limitare i risultati da una query
+* **Math Functions**: supporta la traslazione da Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan e Truncate di .NET nelle funzioni predefinite di SQL equivalenti.
+* **String Functions**: supporta la traslazione da Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString e ToUpper di .NET nelle funzioni predefinite di SQL equivalenti.
+* **Array Functions**: supporta la traslazione da Concat, Contains e Count di .NET nelle funzioni predefinite di SQL equivalenti.
+* **Geospatial Extension Functions**: supporta la traslazione dai metodi sthub Distance, Within, IsValid e IsValidDetailed nelle funzioni predefinite di SQL equivalenti.
+* **User-Defined Function Extension Function**: supporta la traslazione dal metodo stub UserDefinedFunctionProvider.Invoke alla funzione corrispondente definita dall'utente.
+* **Miscellaneous**: supporta la traslazione degli operatori condizionali e di unione. Consente la conversione di Contains in String CONTAINS, ARRAY_CONTAINS o SQL IN in base al contesto.
 
 ### <a name="sql-query-operators"></a>Operatori di query SQL
 
@@ -2117,7 +2117,7 @@ Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x
 
 Se i criteri di indicizzazione configurati per il contenitore non possono supportare la query specificata, il server di Azure Cosmos DB restituisce il codice di errore 400 (Richiesta non valida). Questo messaggio di errore viene restituito per le query di intervallo per ricerche hash (uguaglianza) e per i percorsi esplicitamente esclusi dall'indicizzazione. È possibile specificare l'intestazione `x-ms-documentdb-query-enable-scan` per consentire alla query di eseguire una scansione quando non è disponibile un indice.
 
-È possibile ottenere metriche dettagliate sull'esecuzione di query impostando l'intestazione `x-ms-documentdb-populatequerymetrics` su `True`. Per altre informazioni, vedere [metriche di query SQL per Azure Cosmos DB](sql-api-sql-query-metrics.md).
+È possibile ottenere metriche dettagliate sull'esecuzione di query impostando l'intestazione `x-ms-documentdb-populatequerymetrics` su `True`. Per altre informazioni, vedere [metriche di query SQL per Azure Cosmos DB](sql-api-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 
@@ -2253,17 +2253,17 @@ L'esempio seguente mostra come usare queryDocuments nell'API del server JavaScri
 ## <a id="References"></a>Riferimenti
 
 1. [Introduzione ad Azure Cosmos DB][introduction]
-2. [Specifica SQL di Azure Cosmos DB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2. [Specifica SQL di Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Livelli di coerenza di Azure Cosmos DB][consistency-levels]
-5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON [http://json.org/](http://json.org/)
-7. Specifiche JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Tecniche di valutazione di query per database di grandi dimensioni [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6. JSON [https://json.org/](https://json.org/)
+7. Specifiche JavaScript [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
+9. Tecniche di valutazione di query per database di grandi dimensioni [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
-12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: un linguaggio non così estraneo per l'elaborazione dati, SIGMOD 2008.
+12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
 [1]: ./media/how-to-sql-query/sql-query1.png

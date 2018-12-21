@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Cercare immagini con Bing Image Search SDK per C#'
-description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite Bing Image Search SDK, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione C# invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
+title: 'Avvio rapido: Cercare immagini - SDK di Ricerca immagini Bing per C#'
+description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione C# invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -10,16 +10,17 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 2df767ef92ca056535e2d70a53a1588c9e89c647
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 2d81c7b22e5d7cae0beb8a549d4e44f3a1ebc132
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316787"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261246"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>Guida introduttiva: Cercare immagini con Bing Image Search SDK e C#
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>Avvio rapido: Cercare immagini con l'SDK di Ricerca immagini Bing per C#
 
-Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite Bing Image Search SDK, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione C# invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
+Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione C# invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) con annotazioni aggiuntive e altre informazioni sulla gestione degli errori.
 
@@ -27,7 +28,7 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
 * Qualsiasi edizione di [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/).
 * Il [pacchetto NuGet di ricerca cognitiva di immagini](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
-Per installare Bing Image Search SDK in Visual Studio, usare l'opzione `Manage NuGet Packages` da Esplora soluzioni in Visual Studio.
+Per installare l'SDK di Ricerca immagini Bing in Visual Studio, usare l'opzione `Manage NuGet Packages` da Esplora soluzioni in Visual Studio.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -53,8 +54,12 @@ string subscriptionKey = "ENTER YOUR KEY HERE";
 Images imageResults = null;
 // the image search term to be used in the query
 string searchTerm = "canadian rockies";
+
 //initialize the client
-var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+//NOTE: If you're using version 1.2.0 or below for the Bing Image Search SDK, 
+// use ImageSearchAPI() instead of ImageSearchClient() to initialize your search client.
+
+var client = new ImageSearchClient(new ApiKeyServiceClientCredentials(subscriptionKey));
 ```
 
 ## <a name="send-a-search-query-using-the-client"></a>Inviare una query di ricerca tramite il client

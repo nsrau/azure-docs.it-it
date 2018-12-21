@@ -1,23 +1,24 @@
 ---
-title: "Guida introduttiva: Riconoscimento vocale in C# in un'app UWP con l'SDK del servizio Voce"
+title: 'Avvio rapido: Riconoscere i contenuti vocali, C# (UWP) - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in C# in un'app UWP con l'SDK del servizio Voce
+description: In questo articolo viene creata un'applicazione della piattaforma UWP (Universal Windows Platform) C# usando Speech SDK di Servizi cognitivi. Trascrizione riconoscimento vocale in tempo reale dal microfono del dispositivo. L'applicazione si basa sul pacchetto NuGet Speech SDK e su Microsoft Visual Studio 2017.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 7b132ea9fea7591d32b693ef9c95acf7626c8fff
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.custom: seodec18
+ms.openlocfilehash: 55988ef65e223c76a485c3cbec13626abf68d3b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218900"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104630"
 ---
-# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Avvio rapido: riconoscimento vocale in un'applicazione piattaforma UWP con Speech SDK
+# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in un'app UWP con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,7 +35,7 @@ In questo articolo verrà creata un'applicazione piattaforma UWP (Universal Wind
 
 1. Avviare Visual Studio 2017.
 
-1. Assicurarsi che il carico di lavoro dello **sviluppo di Universal Windows Platform** sia disponibile. Scegliere **Strumenti** > **Ottieni strumenti e funzionalità** dalla barra dei menu di Visual Studio per aprire il programma di installazione di Visual Studio. Se questo carico di lavoro è già attivato, chiudere la finestra di dialogo. 
+1. Assicurarsi che il carico di lavoro dello **sviluppo di Universal Windows Platform** sia disponibile. Scegliere **Strumenti** > **Ottieni strumenti e funzionalità** dalla barra dei menu di Visual Studio per aprire il programma di installazione di Visual Studio. Se questo carico di lavoro è già attivato, chiudere la finestra di dialogo.
 
     ![Screenshot di Visual Studio installer, con evidenziata la scheda dei carichi di lavoro](media/sdk/vs-enable-uwp-workload.png)
 

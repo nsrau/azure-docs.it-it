@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva per la creazione di un'app Web Java nel servizio app di Azure in Linux
+title: Creare un app Web Java in Linux - Servizio app di Azure
 description: Questa guida introduttiva spiega come distribuire la prima app Java Hello World nel servizio app di Azure in pochi minuti.
 services: app-service\web
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/07/2018
+ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247556"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252610"
 ---
-# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Guida introduttiva: Creare un'app Web Java nel servizio app in Linux
+# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Guida introduttiva: creare un'app Web Java nel servizio app in Linux
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva spiega come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in Maven per App Web di Azure (anteprima)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio web Java per applicazioni web (WAR).
 
@@ -108,8 +108,10 @@ Al termine della distribuzione, passare all'applicazione distribuita usando l'UR
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva è stato usato Maven per creare un'app Web Java, è stato configurato il [plug-in Maven per le app Web di Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), quindi è stata distribuita un'app Java inclusa in pacchetti come archivio Web nel servizio app in Linux. Per informazioni su come collegare i database, configurare la registrazione e il monitoraggio, configurare la sicurezza e impostare le opzioni di runtime, continuare con la guida dello sviluppatore Java per il servizio app in Linux.
+In questa Guida introduttiva è stato usato Maven per creare un'app Web Java, è stato configurato il [plug-in Maven per le app Web di Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), quindi è stata distribuita un'app Java inclusa in pacchetti come archivio Web nel servizio app in Linux. Fare riferimento alle seguenti esercitazioni e articoli sulle procedure per altre informazioni sull’hosting delle applicazioni Java nel servizio App in Linux.
 
-> [!div class="nextstepaction"]
-> [Guida dello sviluppatore Java per il servizio app in Linux](app-service-linux-java.md)
+- [Esercitazione: Distribuire un’app aziendale Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+- [Configurare un'origine dati di Tomcat](app-service-linux-java.md#connecting-to-data-sources)
+- [Integrazione continua e distribuzione continua con Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+- [Configurare gli strumenti di monitoraggio delle prestazioni delle applicazioni](how-to-java-apm-monitoring.md)
 

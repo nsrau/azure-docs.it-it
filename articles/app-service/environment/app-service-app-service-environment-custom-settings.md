@@ -1,5 +1,5 @@
 ---
-title: Impostazioni personalizzate per gli ambienti del servizio app
+title: Impostazioni personalizzate per gli ambienti del servizio app - Azure
 description: Impostazioni di configurazione personalizzate per gli ambienti del servizio app
 services: app-service
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/22/2016
 ms.author: stefsch
-ms.custom: mvc
-ms.openlocfilehash: d60cdca78c143996fa5935726db0631321c9e2fe
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.custom: seodec18
+ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26129516"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271359"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Impostazioni di configurazione personalizzate per gli ambienti del servizio app
 ## <a name="overview"></a>Panoramica

@@ -1,5 +1,6 @@
 ---
-title: Esercitazioni sul servizio Azure Machine Learning in notebook di Jupyter
+title: Notebook di Jupyter di esempio
+titleSuffix: Azure Machine Learning service
 description: Come trovare e usare notebook di Jupyter di esempio per esplorare il servizio Azure Machine Learning in Python.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 5ec010d6e0539e9ba316b48dc02110dc19e4b13e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883804"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434529"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Usare i notebook di Jupyter per esplorare il servizio Azure Machine Learning
 
@@ -96,7 +98,7 @@ Oltre a usare una qualsiasi delle opzioni descritte sopra, è anche possibile in
    >[!NOTE]
    >È possibile usare un conda esistente purché nella versione 4.4.10 o successiva. Usare `conda -V` per visualizzare la versione. È possibile aggiornare una versione di conda con il comando `conda update conda`. Non è necessario installare specificamente mini-conda.
 
-1. Scaricare i notebook da [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
+1. Scaricare i notebook da [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
 ) in formato ZIP ed estrarre il contenuto in una directory locale. I notebook per l'apprendimento automatico si trovano nella cartella `how-to-use-azureml/automated-machine-learning`.
 
 1. Configurare un nuovo ambiente Conda. 
@@ -114,9 +116,10 @@ Oltre a usare una qualsiasi delle opzioni descritte sopra, è anche possibile in
       + Configura il widget
       + Avvia un notebook di Jupyter
       
-      Lo script accetta il nome dell'ambiente Conda come parametro facoltativo. Il nome dell'ambiente Conda predefinito è `azure_automl`. Il comando esatto dipende dal sistema operativo. 
+   >[!NOTE]
+   > Lo script accetta il nome dell'ambiente Conda come parametro facoltativo. Il nome dell'ambiente Conda predefinito è `azure_automl`. Il comando esatto dipende dal sistema operativo. Ciò è utile se si crea un nuovo ambiente o si esegue l’aggiornamento a una nuova versione. Ad esempio è possibile usare 'automl_setup.cmd azure_automl_sandbox' per creare un nome ambiente azure_automl_sandbox. 
       
-      Dopo il completamento dello script, nel browser verrà aperta la home page di un notebook Jupyter.
+1. Dopo il completamento dello script, nel browser verrà aperta la home page di un notebook Jupyter.
 
 1. Passare al percorso in cui sono stati salvati i notebook. 
 

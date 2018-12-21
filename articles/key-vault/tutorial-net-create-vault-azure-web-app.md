@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: defe1a109381c7ee44c6fc5e5db4c6f6ecc5ac6f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706841"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322142"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Esercitazione: Usare Azure Key Vault con un'app web di Azure in .NET
+# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Esercitazione: Usare Azure Key Vault con un'app Web di Azure in .NET
 
 Azure Key Vault consente di proteggere i segreti, ad esempio le chiavi API e le stringhe di connessione del database. Fornisce accesso ai propri servizi, applicazioni e risorse IT.
 
@@ -56,7 +56,7 @@ Prima di procedere, leggere i [concetti di base di Azure Key Vault](key-vault-wh
 
 Con Azure Key Vault è possibile archiviare le credenziali in modo sicuro in modo da non inserirle nel codice. Tuttavia, è necessario eseguire l'autenticazione con Azure Key Vault per recuperare le chiavi. E per eseguire l'autenticazione con Key Vault servono le credenziali. È un classico circolo vizioso. Identità del servizio gestita risolve questo problema fornendo un'_identità bootstrap_ che semplifica il processo.
 
-Quando si abilita identità del servizio gestita per un servizio di Azure (ad esempio: Macchine virtuali, Servizio app o Funzioni), Azure crea un'[entità servizio](key-vault-whatis.md#basic-concepts) per l'istanza del servizio in Azure Active Directory (Azure AD) e inserisce le credenziali per l'entità servizio in tale istanza.
+Quando si abilita un'identità del servizio gestito per un servizio di Azure (ad esempio macchine virtuali, servizio app o funzioni), Azure crea un'[entità servizio](key-vault-whatis.md#basic-concepts). per l'istanza del servizio in Azure Active Directory (Azure AD) e inserisce le credenziali per l'entità servizio in tale istanza.
 
 ![Diagramma di identità del servizio gestita](media/MSI.png)
 
@@ -88,9 +88,9 @@ Questo gruppo di risorse verrà usato durante tutta l'esercitazione.
 
 Per creare un insieme di credenziali delle chiavi nel gruppo di risorse, fornire le informazioni seguenti:
 
-* Nome dell'insieme di credenziali delle chiavi: una stringa contenente da 3 a 24 caratteri, limitati a numeri, lettere e trattini (0-9, a-z, A-Z, -)
+* Nome dell'insieme di credenziali delle chiavi: una stringa contenente da 3 a 24 caratteri, limitati a numeri, lettere e trattini (ad esempio, 0-9, a-z, A-Z e - )
 * Nome del gruppo di risorse
-* Località: **Stati Uniti occidentali**
+* Percorso: **Stati Uniti occidentali**
 
 Immettere il comando seguente nell'interfaccia della riga di comando di Azure:
 
@@ -132,7 +132,7 @@ Seguire questa [esercitazione](../app-service/app-service-web-get-started-dotnet
    - [Insieme di credenziali delle chiavi](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Importare il codice seguente nel file About.cshtml.cs:
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -140,7 +140,7 @@ Seguire questa [esercitazione](../app-service/app-service-web-get-started-dotnet
 
 4. Il codice nella classe AboutModel dovrebbe essere simile al seguente:
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -220,7 +220,7 @@ Azure Key Vault consente di archiviare in modo sicuro le credenziali e altri seg
 
 1. Prendere nota del valore di `PrincipalId` quando si pubblica l'applicazione in Azure. L'output del comando nel passaggio 1 dovrà avere il formato seguente:
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",

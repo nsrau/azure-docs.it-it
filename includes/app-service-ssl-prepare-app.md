@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 858d098f18604d1360af8509eb8a0cec6fa7d0c7
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354553"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53381540"
 ---
 ## <a name="prepare-your-web-app"></a>Preparare l'app Web
 
@@ -41,7 +41,7 @@ Verificare che l'app Web non sia inclusa nel livello **F1** o **D1**. Il livello
 
 ![Controllare il piano tariffario](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-Il certificato SSL personalizzato non è supportato nel livello **F1** o **D1**. Se è necessario passare a un livello superiore, seguire la procedura della sezione successiva. In caso contrario, chiudere la pagina **Aumenta** e passare a [Caricare il certificato SSL e Associare il certificato SSL](#upload).
+Il certificato SSL personalizzato non è supportato nel livello **F1** o **D1**. Se è necessario passare a un livello superiore, seguire la procedura della sezione successiva. Altrimenti, chiudere la pagina **Aumenta** e ignorare la sezione [Passare a un piano di servizio app superiore](#scale-up-your-app-service-plan) sezione.
 
 ### <a name="scale-up-your-app-service-plan"></a>Passare a un piano di servizio app superiore
 

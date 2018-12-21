@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Eseguire una ricerca con C# - API Ricerca Web Bing'
+title: 'Avvio rapido: Eseguire una ricerca Web con C# - API REST Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si apprenderà come eseguire la prima chiamata all'API Ricerca Web Bing usando C# e ricevere una risposta JSON.
+description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando C# e ricevere una risposta JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: d868bec1e19ddde556f3c387646c5d7aa898b7d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 844fe2f65b59caba41697db00e809e34e1fe1017
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313487"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258662"
 ---
-# <a name="quickstart-use-c-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare C# per chiamare l'API Ricerca Web Bing  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Avvio rapido: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e C#
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere una risposta JSON.  
 

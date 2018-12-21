@@ -1,20 +1,21 @@
 ---
-title: Esercitazione - Lezione di esercitazione sulla configurazione dei ruoli utente e di amministratore del server di Azure Analysis Services | Microsoft Docs
+title: Esercitazione - Configurazione dei ruoli amministratore e utente di Azure Analysis Services | Microsoft Docs
+description: Informazioni su come configurare i ruoli di Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: a1e6e04c4019086d56cc0eb25176a507e514c477
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929230"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000637"
 ---
-# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Esercitazione: Configurare i ruoli utente e di amministratore del server
+# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Esercitazione: Configurare i ruoli amministratore e utente del server
 
  In questa esercitazione si usa SQL Server Management Studio (SSMS) per connettersi al server in Azure per configurare i ruoli del database modello e di amministratore del server. Viene anche presentato [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL è un linguaggio di scripting basato su JSON per i modelli tabulari ai livelli di compatibilità 1200 e superiori. Può essere usato per automatizzare molte attività di modellazione tabulare. TMSL viene spesso usato con PowerShell, ma in questa esercitazione si usa l'editor di query XMLA in SSMS. Con questa esercitazione, si completano le attività seguenti: 
   
@@ -27,7 +28,7 @@ ms.locfileid: "37929230"
 
 Per altre informazioni sulla sicurezza utente in Azure Analysis Services, vedere [Autenticazione e autorizzazioni utente](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Azure Active Directory nella sottoscrizione.
 - Avere creato un [server di Azure Analysis Services](../analysis-services-create-server.md) nella sottoscrizione.
@@ -35,7 +36,7 @@ Per altre informazioni sulla sicurezza utente in Azure Analysis Services, vedere
 - [Aggiungere il modello di esempio adventureworks](../analysis-services-create-sample-model.md) al server.
 - [Installare la versione più recente di SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
+## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
 Accedere al [portale](https://portal.azure.com/).
 

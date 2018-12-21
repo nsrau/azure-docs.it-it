@@ -1,37 +1,37 @@
 ---
-title: "Esercitazione 3: dati corrispondenti a un'espressione regolare - estrarre dati con formattazione corretta"
+title: Entità di espressioni normali
 titleSuffix: Azure Cognitive Services
 description: Estrarre dati formattati coerentemente da un'espressione usando l'entità di espressione regolare.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423416"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135577"
 ---
-# <a name="tutorial-3-extract-well-formatted-data"></a>Esercitazione 3: estrarre dati con formattazione corretta
+# <a name="tutorial-3-extract-well-formatted-data"></a>Esercitazione 3: Estrarre dati con formattazione corretta
 Questa esercitazione illustra come modificare l'app Human Resources per estrarre dati formattati in modo coerente da un'espressione usando l'entità **Espressione regolare**.
 
 Lo scopo di un'entità è estrarre i dati importanti contenuti all'interno dell'espressione. Questa app usa l'entità di espressione regolare per estrarre numeri di modulo formattati delle Risorse Umane (HR) da un'espressione. Mentre la finalità dell'espressione è sempre stabilita tramite Machine Learning, ciò non vale per questo tipo di entità specifico. 
 
 **Le espressioni di esempio includono:**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|Espressioni di esempio|
+|--|
+|Dove si trova HRF-123456?|
+|Chi ha creato HRF-123234?|
+|HRF-456098 viene pubblicato in francese?|
+|HRF 456098|
+|Data di HRF 456098?|
  
 Un'espressione regolare è una scelta appropriata per questo tipo di dati quando:
 
@@ -129,7 +129,7 @@ Creare un'entità di espressione regolare per indicare a Language Understanding 
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `When were HRF-123456 and hrf-234567 published in the last year?`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire la finalità `FindForm` con i due numeri di modulo `HRF-123456` e `hrf-234567`.
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {

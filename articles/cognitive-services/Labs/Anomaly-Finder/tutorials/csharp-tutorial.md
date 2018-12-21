@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Rilevamento anomalie, C#'
+title: 'Esercitazione: rilevamento anomalie, C#'
 titlesuffix: Azure Cognitive Services
 description: Esplorare un'app C# che usa l'API Rilevamento anomalie. Inviare i punti dati originali all'API e ottenere i punti dei valori previsti e delle anomalie.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ea9083d530d9a94825b8c568ef4c3dbc847c44c0
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887650"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162461"
 ---
-# <a name="tutorial-anomaly-detection-with-c-application"></a>Esercitazione: Rilevamento anomalie con un'applicazione C#
+# <a name="tutorial-anomaly-detection-with-c-application"></a>Esercitazione: rilevamento anomalie con un'applicazione C#
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -35,7 +35,7 @@ L'esempio è stato sviluppato per .NET Framework usando [Visual Studio 2017, Com
 
 ## <a name="get-and-use-the-example"></a>Ottenere e usare l'esempio
 
-È possibile clonare l'applicazione di esempio AnomalyDetection nel computer in uso da [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
+È possibile clonare l'applicazione di esempio per il rilevamento anomalie nel computer in uso da [GitHub](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
 <a name="Step1"></a>
 ### <a name="install-the-example"></a>Installare l'esempio
 

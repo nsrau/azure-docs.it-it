@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Web HTML statica in Azure | Microsoft Docs
+title: Creare un'app Web HTML statica - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come eseguire app Web nel servizio app di Azure mediante la distribuzione di un'app HTML statica di esempio.
 services: app-service\web
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 08/28/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: e48c2aceb2a8f45d01b922a186900780c1c5ef51
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.custom: seodec18
+ms.openlocfilehash: c7d01d4c079eacfd2af1ebad4ac41d70f792a0bb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968757"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253578"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creare un'app Web HTML statica in Azure
 
-Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione.  Questa guida introduttiva illustra come distribuire un sito HTML e CSS di base in un'app Web di Azure. Questa guida introduttiva verrà completata in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa guida introduttiva illustra come distribuire un sito HTML e CSS di base in un'app Web di Azure. Questa guida introduttiva verrà completata in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ![Home page dell'app di esempio](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -39,7 +39,7 @@ Per completare questa guida introduttiva è necessario aggiungere l'[estensione 
 Per installare l'estensione dell'app Web, eseguire il comando seguente:
 
 ```bash
-az extension add -n webapp
+az extension add --name webapp
 ```
 
 Una volta installata l'estensione, Cloud Shell mostra le informazioni come nell'esempio seguente:
@@ -73,7 +73,7 @@ Nell'esempio seguente sostituire <app_name> con un nome di app univoco.
 ```bash
 cd html-docs-hello-world
 
-az webapp up -n <app_name>
+az webapp up --location westeurope --name <app_name>
 ```
 
 Il comando `az webapp up` esegue le azioni seguenti:
@@ -91,13 +91,13 @@ L'esecuzione del comando può richiedere alcuni minuti. Durante l'esecuzione, il
 ```json
 {
   "app_url": "https://<app_name>.azurewebsites.net",
-  "location": "Central US",
+  "location": "westeurope",
   "name": "<app_name>",
   "os": "Windows",
-  "resourcegroup": "appsvc_rg_Windows_CentralUS ",
-  "serverfarm": "appsvc_asp_Windows_CentralUS",
+  "resourcegroup": "appsvc_rg_Windows_westeurope",
+  "serverfarm": "appsvc_asp_Windows_westeurope",
   "sku": "FREE",
-  "src_path": "/home/username/quickstart/html-docs-hello-world ",
+  "src_path": "/home/<username>/quickstart/html-docs-hello-world ",
   < JSON data removed for brevity. >
 }
 ```
@@ -116,7 +116,7 @@ La pagina è in esecuzione come un'app Web del servizio app di Azure.
 
 ## <a name="update-and-redeploy-the-app"></a>Aggiornare e ridistribuire l'app
 
-In Cloud Shell digitare `nano index.html` per aprire l'editor di testo Nano. Nell'intestazione H1 modificare "Azure App Service - Sample Static HTML Site" in "Azure App Service", come mostrato di seguito.
+In Cloud Shell digitare `nano index.html` per aprire l'editor di testo Nano. Nel tag di intestazione `<h1>` modificare "Azure App Service - Sample Static HTML Site" in "Azure App Service", come mostrato più avanti.
 
 ![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
 
@@ -125,7 +125,7 @@ Salvare le modifiche e uscire da Nano. Usare il comando `^O` per salvare e `^X` 
 Ora l'applicazione verrà ridistribuita con lo stesso comando `az webapp up`.
 
 ```bash
-az webapp up -n <app_name>
+az webapp up --location westeurope --name <app_name>
 ```
 
 Al termine della distribuzione, tornare alla finestra del browser aperta nel passaggio **Passare all'app** e aggiornare la pagina.
@@ -151,7 +151,7 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 Nei passaggi precedenti sono state create risorse di Azure in un gruppo di risorse. Se si ritiene che queste risorse non saranno necessarie in futuro, eliminare il gruppo di risorse eseguendo questo comando in Cloud Shell. Si ricorda che il nome del gruppo di risorse è stato generato automaticamente nel passaggio [Creare un'app Web](#create-a-web-app).
 
 ```bash
-az group delete --name appsvc_rg_Windows_CentralUS
+az group delete --name appsvc_rg_Windows_westeurope
 ```
 
 L'esecuzione del comando può richiedere un minuto.

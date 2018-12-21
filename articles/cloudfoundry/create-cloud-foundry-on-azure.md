@@ -1,6 +1,6 @@
 ---
-title: Creare Cloud Foundry in Azure
-description: Informazioni su come impostare i parametri necessari per eseguire il provisioning di un cluster Cloud Foundry PCF in Azure
+title: Creare un cluster Pivotal Cloud Foundry in Azure
+description: Informazioni su come configurare i parametri necessari per eseguire il provisioning di un cluster Pivotal Cloud Foundry (PCF) in Azure
 services: Cloud Foundry
 documentationcenter: CloudFoundry
 author: ruyakubu
@@ -14,76 +14,77 @@ ms.service: Cloud Foundry
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: a0a3379a8a2579080d9b686917395feec9cf8f3d
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 9514118e1f29faab937ed01899b5947789ca9735
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250626"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101399"
 ---
-# <a name="create-cloud-foundry-on-azure"></a>Creare Cloud Foundry in Azure
+# <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Creare un cluster Pivotal Cloud Foundry in Azure
 
-Questa esercitazione fornisce i passaggi rapidi per creare e generare i parametri necessari per eseguire il provisioning di un cluster Pivotal Cloud Foundry PCF in Azure.  Per trovare la soluzione Pivotal Cloud Foundry, eseguire una ricerca in Azure [MarketPlace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Questa esercitazione fornisce i passaggi rapidi per creare e generare i parametri necessari per eseguire il provisioning di un cluster Pivotal Cloud Foundry (PCF) in Azure. Per trovare la soluzione Pivotal Cloud Foundry, eseguire una ricerca in Azure [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
-![Testo immagine alt](media/deploy/pcf-marketplace.png "Cercare Pivotal Cloud Foundry in Azure")
+![Ricercare Pivotal Cloud Foundry in Azure](media/deploy/pcf-marketplace.png)
 
 
 ## <a name="generate-an-ssh-public-key"></a>Generare una chiave pubblica SSH
 
-Esistono diversi modi per generare una chiave pubblica SSH con Windows, Mac o Linux.
+Esistono diversi modi per generare una chiave SSH pubblica con Windows, Mac o Linux.
 
 ```Bash
 ssh-keygen -t rsa -b 2048
 ```
-- Fare clic qui per vedere le [istruzioni]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) per l'ambiente usato.
+
+Per altre informazioni, vedere [Uso delle chiavi SSH con Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
 > [!NOTE]
 >
-> Per creare un'entità servizio è necessaria l'autorizzazione di un account proprietario.  Inoltre, è possibile scrivere uno script per automatizzare la creazione dell'entità servizio. Ad esempio, usando l'interfaccia della riga di comando di Azure [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
+> Per creare un'entità servizio è necessaria l'autorizzazione di un account proprietario. Inoltre, è possibile scrivere uno script per automatizzare la creazione dell'entità servizio. Ad esempio, usando l'interfaccia della riga di comando di Azure [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
 
 1. Accedere all'account Azure.
 
     `az login`
 
-    ![Testo immagine alt](media/deploy/az-login-output.png "Accesso all'interfaccia della riga di comando di Azure")
+    ![Login dell'interfaccia della riga di comando di Azure](media/deploy/az-login-output.png )
  
-    Copiare il valore "id" come l'**ID sottoscrizione** e il valore **tenantId** da usare più avanti.
+    Copiare il valore "id" come l'**ID sottoscrizione** e il valore "tenantId" da usare in seguito.
 
 2. Impostare la sottoscrizione predefinita per questa configurazione.
 
     `az account set -s {id}`
 
-3. Creare un'applicazione AAD per PCF e specificare una password alfanumerica univoca.  Archiviare la password come **clientSecret** da usare più avanti.
+3. Creare un'applicazione di Azure Active Directory per il PCF. Specificare una password alfanumerica univoca. Archiviare la password come **clientSecret** da usare successivamente.
 
-    `az ad app create --display-name "Svc Prinicipal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
 
-    Copiare il valore "appId" nell'output come **ClientID** da usare più avanti.
+    Copiare il valore "appId" nell'output come **clientID** da usare successivamente.
 
     > [!NOTE]
     >
-    > Scegliere la propria home page dell'applicazione e l'URI dell'identificatore.  ad esempio http://www.contoso.com.
+    > Scegliere l'home page dell'applicazione e l'URI dell'identificatore, ad esempio http://www.contoso.com.
 
-4. Creare un'entità servizio con il nuovo valore "appId".
+4. Creare un'entità servizio con il nuovo ID app.
 
     `az ad sp create --id {appId}`
 
-5. Impostare il ruolo dell'autorizzazione dell'entità servizio come **Collaboratore**.
+5. Impostare il ruolo di autorizzazione dell'entità servizio come Collaboratore.
 
     `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor” `
 
-    In alternativa, è anche possibile usare…
+    In alternativa, è anche possibile usare
 
     `az role assignment create --assignee {service-princ-name} --role “Contributor” `
 
-    ![Testo immagine alt](media/deploy/svc-princ.png "assegnazione del ruolo dell'entità servizio")
+    ![Assegnazione di ruolo dell'entità servizio](media/deploy/svc-princ.png )
 
-6. Verificare di poter accedere correttamente all'entità servizio usando i valori appId, password e tenantId.
+6. Verificare di poter accedere correttamente all'entità servizio usando l'ID app, la password e l'ID tenant.
 
-    `az login --service-principal -u {appId} -p {your-passward}  --tenant {tenantId}`
+    `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
-7. Creare un file con estensione JSON nel formato seguente usando tutti i valori precedenti copiati: **ID sottoscrizione**, **tenantId**, **clientID** e **clientSecret**.  Salvare il file.
+7. Creare un file .json con il formato seguente. Usare i valori **ID sottoscrizione**, **tenantID**, **clientID** e **clientSecret** copiati in precedenza. Salvare il file.
 
     ```json
     {
@@ -97,34 +98,34 @@ ssh-keygen -t rsa -b 2048
 ## <a name="get-the-pivotal-network-token"></a>Ottenere il valore Pivotal Network Token
 
 1. Registrarsi o accedere all'account di [Pivotal Network](https://network.pivotal.io).
-2. Fare clic sul nome del profilo nella pagina in alto a destra, quindi selezionare "Edit Profile" (Modifica profilo).
-3. Scorrere fino alla fine della pagina e copiare il valore **LEGACY API TOKEN**.  Questo è il valore **Pivotal Network Token** che verrà usato più avanti.
+2. Selezionare il nome profilo nell'angolo superiore destro della pagina. Selezionare **Modifica profilo**.
+3. Scorrere fino alla fine della pagina e copiare il valore **LEGACY API TOKEN**. Questo è il valore **Pivotal Network Token** da usare successivamente.
 
-## <a name="provision-your-cloud-foundry-on-azure"></a>Eseguire il provisioning di Cloud Foundry in Azure
+## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Eseguire il provisioning del cluster Cloud Foundry in Azure
 
-1. A questo punto si hanno tutti i parametri necessari per eseguire il provisioning del cluster [Pivotal Cloud Foundry in Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
-2. Immettere i parametri e creare il cluster PFC.
+A questo punto si hanno tutti i parametri necessari per eseguire il provisioning del [cluster Pivotal Cloud Foundry in Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Immettere i parametri e creare il cluster PCF.
 
-## <a name="verify-the-deployment-and-log-into-the-pivotal-ops-manager"></a>Verificare la distribuzione e accedere a Pivotal Ops Manager
+## <a name="verify-the-deployment-and-sign-in-to-the-pivotal-ops-manager"></a>Verificare la distribuzione e accedere a Pivotal Ops Manager
 
-1. Il cluster PFC deve mostrare lo stato della distribuzione.
+1. Il cluster PCF mostra lo stato della distribuzione.
 
-    ![Testo immagine alt](media/deploy/deployment.png "Stato della distribuzione di Azure")
+    ![Stato della distribuzione di Azure](media/deploy/deployment.png )
 
-2. Fare clic sul collegamento **Deployments** (Distribuzioni) nel riquadro di spostamento a sinistra per ottenere le credenziali per PCF Ops Manager, quindi fare clic sul collegamento **Deployment Name** (Nome distribuzione) nella pagina successiva.
-3. Nel riquadro di spostamento a sinistra fare clic sul collegamento **Outputs** (Output) per visualizzare l'URL, il nome utente e la password per PCF Ops Manager.  Il valore "OPSMAN-FQDN" è l'URL.
+2. Selezionare il collegamento **Distribuzioni** nel riquadro di navigazione a sinistra per ottenere le credenziali per PCF Ops Manager. Selezionare il **nome della distribuzione** nella pagina successiva.
+3. Nel riquadro di navigazione a sinistra, selezionare il collegamento **Output** per visualizzare l'URL, il nome utente e la password per PCF Ops Manager. Il valore "OPSMAN-FQDN" è l'URL.
  
-    ![Testo immagine alt](media/deploy/deploy-outputs.png "Output della distribuzione di Cloud Foundry")
+    ![Output della distribuzione di Cloud Foundry](media/deploy/deploy-outputs.png )
  
-4. Avviare l'URL in un Web browser e immettere le credenziali del passaggio precedente per l'accesso.
+4. Aprire l'URL in un browser Web. Per accedere, immettere le credenziali del passaggio precedente.
 
-    ![Testo immagine alt](media/deploy/pivotal-login.png "Pagina di accesso di Pivotal")
+    ![Pagina di accesso di Pivotal](media/deploy/pivotal-login.png )
          
     > [!NOTE]
     >
-    > Se nel browser Internet Explorer si verifica un errore e viene restituito il messaggio di avviso sito non sicuro, fare clic su "Altre informazioni" e passare alla pagina Web.  Per Firefox fare clic su Avanzate e aggiungere la certificazione per continuare.
+    > Se il browser di Internet Explorer restituisce un errore a causa del messaggio di avviso "Sito non sicuro", selezionare **Maggiori informazioni** e passare alla pagina Web. Per procedere in Firefox, selezionare **Avanzate** e aggiungere il certificato.
 
-5. PCF Ops Manager visualizzerà le istanze di Azure distribuite. Ora è possibile avviare la distribuzione e la gestione delle applicazioni.
+5. PCF Ops Manager visualizzerà le istanze di Azure distribuite. Ora è possibile distribuire e gestire le applicazioni da qui.
                
-    ![Testo immagine alt](media/deploy/ops-mgr.png "Istanza di Azure distribuita in Pivotal")
+    ![Istanza di Azure distribuita in Pivotal](media/deploy/ops-mgr.png )
  

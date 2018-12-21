@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Web ASP.NET Framework in C# in Azure | Microsoft Docs
+title: Creare un'app Web ASP.NET Framework C# - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come eseguire app Web nel servizio app di Azure distribuendo l'app Web ASP.NET in C# predefinita.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: cce14d91509fe051beef87acdaeac9a92d998ef6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.custom: seodec18
+ms.openlocfilehash: 5f32ed74086b26f91f3ab24cd619bb117d497012
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053779"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251267"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creare un'app Web del framework ASP.NET in Azure
 
@@ -98,7 +98,7 @@ Nella finestra di dialogo **Configura piano di hosting** usare le impostazioni d
 
 ![Creare un piano di servizio app](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
-| Impostazione | Valore consigliato | DESCRIZIONE |
+| Impostazione | Valore consigliato | Descrizione |
 |-|-|-|
 |Piano di servizio app| myAppServicePlan | Nome del piano di servizio app. |
 | Località | Europa occidentale | Data center in cui è ospitata l'app Web. |

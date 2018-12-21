@@ -1,25 +1,19 @@
 ---
-title: Prerequisiti per l'adozione di Azure ExpressRoute | Documentazione Microsoft
-description: Questa pagina fornisce un elenco di requisiti da soddisfare prima di potere ordinare un circuito Azure ExpressRoute.
-documentationcenter: na
+title: 'Prerequisiti - ExpressRoute : Azure | Microsoft Docs'
+description: Questa pagina fornisce un elenco di requisiti da soddisfare prima di potere ordinare un circuito Azure ExpressRoute. Include un elenco di controllo.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mialdrid
-ms.openlocfilehash: 3e597e4f8be0af6e42f8ccc09c058cda619764a7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: c44eb4bbf4945973e075ff88bccde19053b812be
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713436"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133481"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Prerequisiti di ExpressRoute ed elenco di controllo
 Per connettersi ai servizi di Microsoft Cloud usando ExpressRoute sarà necessario verificare che siano stati soddisfatti i requisiti elencati nelle sezioni seguenti.

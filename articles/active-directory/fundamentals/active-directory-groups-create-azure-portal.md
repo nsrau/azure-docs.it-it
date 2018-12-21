@@ -1,6 +1,6 @@
 ---
-title: Come creare un gruppo di base e aggiungere membri tramite Azure Active Directory | Microsoft Docs
-description: Informazioni su come creare un gruppo di base tramite Azure Active Directory.
+title: Creare un gruppo di base e aggiungere membri con Azure Active Directory | Microsoft Docs
+description: Istruzioni su come creare un gruppo di base con Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,15 @@ ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 36bd0ca06859c1952a75b1aa8397fba88dc22d40
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: be3271a1105e8222ae04e17140c6e925a1c612f9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574913"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105453"
 ---
-# <a name="how-to-create-a-basic-group-and-add-members-using-azure-active-directory"></a>Procedura: Creare un gruppo di base e aggiungere membri con Azure Active Directory
-
+# <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Creare un gruppo di base e aggiungere membri con Azure Active Directory
 È possibile creare un gruppo di base usando il portale di Azure Active Directory (Azure AD). Ai fini di questo articolo, un gruppo di base viene aggiunto a una singola risorsa dal proprietario della risorsa (amministratore) e include membri specifici (dipendenti) che devono accedere a tale risorsa. Per scenari più complessi, incluse le appartenenze dinamiche e la creazione di regole, vedere la [documentazione sulla gestione degli utenti di Azure Active Directory](../users-groups-roles/index.yml).
 
 ## <a name="create-a-basic-group-and-add-members"></a>Creare un gruppo di base e aggiungere membri

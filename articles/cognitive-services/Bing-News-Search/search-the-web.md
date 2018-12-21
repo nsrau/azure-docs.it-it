@@ -1,7 +1,7 @@
 ---
-title: Informazioni su Ricerca notizie Bing
+title: Informazioni sull'API Ricerca notizie Bing
 titlesuffix: Azure Cognitive Services
-description: Illustra come usare l'API Ricerca notizie Bing per cercare notizie nel Web.
+description: Informazioni su come usare l'API Ricerca notizie Bing per la ricerca sul Web di notizie in diverse categorie, tra cui titoli e gli argomenti di tendenza.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 7a5df20358198e7ccb44ccc60be3ab7716f71ba6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 17383d38b1401149003ad9d1794b3e69284f9033
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227859"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253093"
 ---
-# <a name="what-is-bing-news-search"></a>Informazioni su Ricerca notizie Bing
+# <a name="what-is-the-bing-news-search-api"></a>Informazioni sull'API Ricerca notizie Bing
 
 L'API Ricerca notizie Bing offre un'esperienza simile (ma non uguale) a [Bing Notizie](https://www.bing.com/news). L'API Ricerca notizie Bing consente di inviare una query di ricerca a Bing e di visualizzare un elenco dei notizie pertinenti.
 

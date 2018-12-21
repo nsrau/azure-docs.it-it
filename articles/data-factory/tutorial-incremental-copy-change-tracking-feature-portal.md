@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 2f56cba26f4f21e81734f68663d0054e77ab23a4
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918420"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957266"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche 
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali basati su informazioni di **rilevamento delle modifiche** nel database SQL di Azure di origine in una risorsa di archiviazione BLOB di Azure.  
@@ -322,7 +322,7 @@ Fare clic su **Trigger** sulla barra degli strumenti per la pipeline e quindi su
 ### <a name="review-the-results"></a>Esaminare i risultati
 Viene visualizzato un file denominato `incremental-<GUID>.txt` nella cartella `incchgtracking` del contenitore `adftutorial`. 
 
-![File di output dalla copia completa](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![File di output dalla copia completa](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 Il file conterrà i dati del database SQL di Azure:
 
@@ -445,7 +445,7 @@ In questo passaggio viene creata una pipeline con le attività seguenti, eseguit
 ### <a name="review-the-results"></a>Esaminare i risultati
 Il secondo file viene visualizzato nella cartella `incchgtracking` del contenitore `adftutorial`. 
 
-![File di output dalla copia incrementale](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![File di output dalla copia incrementale](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 Il file conterrà solo i dati differenziali del database SQL di Azure. Il record con `U` è la riga aggiornata nel database e `I` è la riga aggiunta. 
 

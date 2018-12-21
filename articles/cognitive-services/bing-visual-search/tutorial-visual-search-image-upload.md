@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 24b4bacd6a369812a07095b1d9c114f557d10d57
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443458"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960058"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Esercitazione: Suddivisione del processo di caricamento in Ricerca visiva Bing
 
@@ -26,12 +26,12 @@ Questa esercitazione è destinata agli sviluppatori che vogliono esaminare il co
 Per questa esercitazione è necessario avviare una sottoscrizione in base al piano tariffario S9, come illustrato in [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
 
 Per avviare una sottoscrizione nel portale di Azure:
-1. Nella parte superiore del portale di Azure immettere 'BingSearchV7' nella casella di testo `Search resources, services, and docs`.  
+1. Nella parte superiore del portale di Azure immettere BingSearchV7 nella casella di testo con la dicitura `Search resources, services, and docs`.  
 2. Nella sezione Marketplace dell'elenco a discesa selezionare `Bing Search v7`.
 3. Immettere `Name` per la nuova risorsa.
 4. Selezionare la sottoscrizione `Pay-As-You-Go`.
 5. Selezionare il piano tariffario `S9`.
-6. Fare clic su `Enable` per iniziare a usare la sottoscrizione.
+6. Fare clic su `Enable` per attivare la sottoscrizione.
 
 ## <a name="where-to-start"></a>Dove iniziare?
 
@@ -1340,4 +1340,4 @@ Di seguito viene indicato l'esempio di codice HTML e JavaScript completo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su come ottenere informazioni dettagliate tramite token di informazioni dettagliate, vedere [Esercitazione: SDK di Ricerca visiva Bing - ImageInsightsToken e risultati](.\tutorial-visual-search-insights-token.md).
+Per altre informazioni su come ottenere informazioni dettagliate tramite token di informazioni dettagliate, vedere [Esercitazione: SDK di Ricerca visiva Bing - ImageInsightsToken e risultati](./tutorial-visual-search-insights-token.md).

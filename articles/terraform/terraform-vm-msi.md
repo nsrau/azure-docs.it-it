@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242093"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971165"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con identità gestite per risorse di Azure
 
@@ -37,7 +37,7 @@ Ecco i passaggi necessari per creare un'istanza di una macchina virtuale Linux T
 
 3. Nella scheda dei dettagli di Terraform in basso a destra selezionare il pulsante **Crea**.
 
-    ![Creare una macchina virtuale Terraform](media\terraformmsi.png)
+    ![Creare una macchina virtuale Terraform](media/terraformmsi.png)
 
 4. Le sezioni seguenti forniscono gli input per ognuno dei passaggi della procedura guidata usata per creare la macchina virtuale Terraform Linux. La sezione seguente elenca gli input necessari per configurare ognuno di questi passaggi.
 
@@ -50,14 +50,14 @@ Immettere i dettagli seguenti nella scheda **Crea Terraform**:
    * **Nome**: nome della macchina virtuale Terraform.
    * **Nome utente**: primo ID di accesso dell'account.
    * **Password**: prima password dell'account. È possibile usare una chiave pubblica SSH invece di una password.
-   * **Sottoscrizione**: sottoscrizione in cui il computer deve essere creato e fatturato. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
-   * **Gruppo di risorse**: gruppo di risorse nuovo o esistente.
-   * **Località**: data center più appropriato. In genere è il data center che include la maggior parte dei dati o quello più vicino alla posizione fisica per l'accesso più veloce alla rete.
+   * **Sottoscrizione** sottoscrizione in cui il computer deve essere creato e fatturato. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
+   * **Gruppo di risorse**: Gruppo di risorse nuovo o esistente.
+   * **Percorso**: data center più appropriato. In genere è il data center che include la maggior parte dei dati o quello più vicino alla posizione fisica per l'accesso più veloce alla rete.
 
 2. **Impostazioni aggiuntive**
 
-   * **Dimensioni**: dimensioni della macchina virtuale. 
-   * **Tipo di disco della macchina virtuale**: SSD o HDD.
+   * **Dimensione**: Dimensione della macchina virtuale. 
+   * **Tipo di disco VM**: unità SSD o HDD.
 
 3. **Riepilogo di Terraform**
 

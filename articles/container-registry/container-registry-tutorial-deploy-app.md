@@ -1,21 +1,21 @@
 ---
-title: Esercitazione per Registro contenitori di Azure - Distribuire un'app Web dal Registro contenitori di Azure
-description: Distribuire un'app Web basata su Linux usando un'immagine del contenitore da un registro contenitori di Azure con replica geografica. Seconda parte di una serie in tre parti.
+title: "Esercitazione: distribuire un'app dal registro con replica geografica di Docker in Azure"
+description: Distribuire un'app Web basata su Linux a due diverse aree di Azure usando un'immagine del contenitore da un registro contenitori di Azure con replica geografica. Seconda parte di una serie in tre parti.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: d1924d730f2c2a64063496d4be759194cef99175
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853862"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253834"
 ---
-# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Esercitazione: Distribuire un'app Web dal Registro contenitori di Azure
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Esercitazione: distribuire un'app Web da un registro contenitori di Azure con replica geografica
 
 Questa esercitazione è la seconda di una serie in tre parti. Nella [prima parte](container-registry-tutorial-prepare-registry.md), è stato creato un registro contenitori privato, con replica geografica; è stata quindi creata un'immagine del contenitore poi inserita nel registro contenitori. In questo articolo vengono sfruttati i vantaggi della struttura simile alla rete del registro con replica geografica distribuendo il contenitore nelle istanze dell'app Web in due diverse aree di Azure. Ogni istanza effettua quindi il pull dell'immagine del contenitore dal registro più vicino.
 

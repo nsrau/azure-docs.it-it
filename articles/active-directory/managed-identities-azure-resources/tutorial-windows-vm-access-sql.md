@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: 5d67d25912df5040665b3a04858be0f3807e8112
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ee4b504cf26456baa7d10eab05305eee5e36c35a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623826"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191904"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure SQL
 
@@ -63,6 +63,8 @@ Per il passaggio successivo, sarà necessario [Microsoft SQL Server Management S
 
 - [Autenticazione universale con database SQL e SQL Data Warehouse (supporto SSMS per MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL oppure con SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+
+Il database SQL richiede nomi visualizzati AAD univoci. Con questa impostazione, gli account AAD come utenti, gruppi ed entità servizio (applicazioni) e i nomi di macchine virtuali abilitati per l'identità gestita devono essere definiti in modo univoco in AAD in relazione ai nomi visualizzati. Il database SQL controlla il nome visualizzato AAD durante la creazione T-SQL di tali utenti e, se non è univoco, il comando ha esito negativo e viene richiesto di specificare un nome visualizzato AAD univoco per un dato account.
 
 1.  Avviare SQL Server Management Studio.
 2.  Nella finestra di dialogo **Connetti al server** immettere il nome del server SQL nel campo **Nome server**.

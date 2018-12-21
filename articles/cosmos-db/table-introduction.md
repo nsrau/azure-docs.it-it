@@ -8,12 +8,12 @@ ms.component: cosmosdb-table
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 5d50b50d05877b213f0211a6ca8fa89f69231f52
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2647065d251caea571e2bfcd5703bbb3bec08345
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866492"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074306"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduzione ad Azure Cosmos DB: API di tabella
 
@@ -23,7 +23,7 @@ ms.locfileid: "52866492"
 * [Velocità effettiva dedicata](partition-data.md) in tutto il mondo.
 * Latenze pari a singole unità di millisecondi al 99° percentile.
 * Disponibilità elevata garantita.
-* [Indicizzazione secondaria automatica](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+* [Indicizzazione secondaria automatica](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 Le applicazioni scritte per l'archivio tabelle di Azure possono essere trasferite in Azure Cosmos DB usando l'API di tabella senza modifiche al codice e sfruttare quindi i vantaggi offerti dalle funzionalità Premium. L'API Tabelle include SDK client per .NET, Java, Python e Node.js.
 

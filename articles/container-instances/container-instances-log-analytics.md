@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 7f4af06222141eb0e143e67ba4bfcdcb2f5f92fa
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614005"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337887"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registrazione di istanze di contenitore con Azure Log Analytics
 
@@ -24,7 +24,7 @@ Per inviare i dati delle istanze di contenitore a Log Analytics, è necessario c
 
 Per abilitare la registrazione nelle istanze di contenitore, è necessario quanto segue:
 
-* [Area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
+* [Area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Ottenere le credenziali di Log Analytics
@@ -135,7 +135,7 @@ ContainerInstanceLog_CL
 Per altre informazioni sull'esecuzione di query nei log e la configurazione di avvisi in Azure Log Analytics, vedere:
 
 * [Informazioni sulle ricerche log in Log Analytics](../log-analytics/log-analytics-log-search.md)
-* [Avvisi unificati in Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+* [Avvisi unificati in Monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Monitorare CPU e memoria del contenitore

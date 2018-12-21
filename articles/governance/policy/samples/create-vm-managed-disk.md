@@ -1,5 +1,5 @@
 ---
-title: 'Esempio di Criteri di Azure: controllare la macchina virtuale che non usa il disco gestito'
+title: Esempio - Controllare la macchina virtuale che non usa il disco gestito
 description: Questo esempio JSON controlla quando viene creata una macchina virtuale che non usa dischi gestiti.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 98e0b2cc79d7e2ca8d5308127a63c55c15a4c5bd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1f704ed363dfd34bbe3acf134bbf1392f3101f9c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995415"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310865"
 ---
 # <a name="audit-when-vm-does-not-use-managed-disk"></a>Controllare quando la macchina virtuale non usa il disco gestito
 

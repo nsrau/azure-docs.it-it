@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare e incorniciare i visi in un'immagine con Python SDK"
+title: "Avvio rapido: Rilevare e incorniciare i visi in un'immagine con l'SDK per Python"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà creato un semplice script Python che usa l'API Viso per rilevare e incorniciare i visi in un'immagine remota.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 1e35d650f6fc99bff5bf49e517e2b38fcdc58dde
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853150"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077002"
 ---
-# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Guida introduttiva: Creare uno script Python per rilevare e incorniciare i visi in un'immagine
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Avvio rapido: Creare uno script Python per rilevare e incorniciare i visi in un'immagine
 
 In questa guida introduttiva verrà creato un semplice script Python che usa l'API Viso di Azure, attraverso Python SDK, per rilevare visi umani in un'immagine remota. L'applicazione mostra un'immagine selezionata e traccia una cornice attorno a ogni viso rilevato.
 
@@ -28,14 +28,18 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 - Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
 - [Python 2.7 o 3.5 e versioni successive](https://www.python.org/downloads/)
 - Strumento [pip](https://pip.pypa.io/en/stable/installing/)
-- Python SDK dell'API Viso. È possibile installarlo eseguendo il comando seguente:
-    ```bash
-    pip install cognitive_face
-    ```
+
+## <a name="get-the-face-sdk"></a>Aggiungere l'SDK Viso
+
+Installare l'SDK Viso per Python aprendo un prompt dei comandi ed eseguendo il comando seguente:
+
+```shell
+pip install cognitive_face
+```
 
 ## <a name="detect-faces-in-an-image"></a>Rilevare i visi in un'immagine
 
-Creare un nuovo script Python, _FaceQuickstart.py_. Aggiungere il codice seguente. Questa è la funzionalità principale di rilevamento volto. Sarà necessario sostituire `<Subscription Key>` con il valore della chiave. È anche necessario modificare il valore di `BASE_URL` in modo che usi l'identificatore di area corretto per la chiave (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree). Le chiavi di sottoscrizione per la versione di valutazione gratuita vengono generate nell'area **westus**. Facoltativamente, impostare `img_url` sull'URL di qualsiasi immagine si voglia usare.
+Creare un nuovo script Python denominato _FaceQuickstart.py_ e aggiungere il codice seguente. Questa è la funzionalità principale di rilevamento volto. Sarà necessario sostituire `<Subscription Key>` con il valore della chiave. È anche necessario modificare il valore di `BASE_URL` in modo che usi l'identificatore di area corretto per la chiave (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree). Le chiavi di sottoscrizione per la versione di valutazione gratuita vengono generate nell'area **westus**. Facoltativamente, impostare `img_url` sull'URL di qualsiasi immagine si voglia usare.
 
 Lo script rileverà i visi chiamando il metodo **cognitive_face.face.detect**, che esegue il wrapping dell'API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e restituisce un elenco di visi.
 

@@ -1,17 +1,17 @@
 ---
-title: Script dell'interfaccia della riga di comando di Azure - Creare un criterio di failover per la disponibilità elevata | Documentazione Microsoft
+title: Script dell'interfaccia della riga di comando di Azure - Creare un criterio di failover per la disponibilità elevata
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un criterio di failover per la disponibilità elevata
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: abfe386c438e943cbe481168daaa4c58a39ed44f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 613177f61e9b50af7f671b3c0f20c83a97ac6133
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014314"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969261"
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Creare un criterio di failover per la disponibilità elevata con l'interfaccia della riga di comando di Azure
 

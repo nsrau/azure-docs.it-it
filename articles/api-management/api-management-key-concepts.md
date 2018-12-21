@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436009"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965156"
 ---
 # <a name="what-is-api-management"></a>Informazioni su Gestione API
 
@@ -59,7 +59,7 @@ Il sistema è costituito dai componenti seguenti:
   * Creare un account ed eseguire la sottoscrizione per ottenere le chiavi API.
   * Accedere all'analisi di utilizzo personalizzata.
 
-Per altre informazioni, vedere il white paper in formato PDF [Cloud-based API Management: Harnessing the Power of APIs](http://j.mp/ms-apim-whitepaper) sulla gestione delle API basate sul cloud. Questo white paper introduttivo sulla gestione delle API redatto da CITO Research tratta gli argomenti seguenti: 
+Per altre informazioni, vedere [Gestione API basate sul cloud: sfruttare appieno i vantaggi delle API](https://j.mp/ms-apim-whitepaper) white paper PDF. Questo white paper introduttivo sulla gestione delle API redatto da CITO Research tratta gli argomenti seguenti: 
  
  * Problematiche e requisiti comuni delle API
  * Disaccoppiamento delle API e presentazione delle facciate

@@ -1,23 +1,24 @@
 ---
-title: Panoramica di Griglia di eventi di Azure
-description: Descrive Griglia di eventi di Azure e ne illustra i principali concetti.
+title: Pubblicare e sottoscrivere gli eventi dell'applicazione - Griglia di eventi di Azure
+description: Informazioni su come inviare i dati degli eventi un'origine ai gestori con Griglia di eventi di Azure. Creare applicazioni basate su eventi e integrarle con i servizi di Azure.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 08/17/2018
+ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: fbe9b79cd407f74686d572aa1e5c7ac1d837cd25
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: seodec18
+ms.openlocfilehash: 466f7614026866bb038f3c73b23e28e34d9f2e30
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223415"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321017"
 ---
-# <a name="an-introduction-to-azure-event-grid"></a>Introduzione a Griglia di eventi di Azure
+# <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
-Griglia di eventi di Azure consente di compilare facilmente applicazioni con architetture basate su eventi. Selezionare prima di tutto la risorsa di Azure da sottoscrivere e quindi specificare il gestore dell'evento o l'endpoint del webhook a cui inviare l'evento. Griglia di eventi offre il supporto predefinito per gli eventi generati dai servizi di Azure, ad esempio BLOB di archiviazione e gruppi di risorse. Griglia di eventi offre anche supporto per gli eventi personalizzati, tramite argomenti personalizzati. 
+Griglia di eventi di Azure consente di compilare facilmente applicazioni con architetture basate su eventi. Selezionare prima la risorsa di Azure da sottoscrivere e quindi specificare il gestore dell'evento o l'endpoint del webhook a cui inviare l'evento. Griglia di eventi offre il supporto predefinito per gli eventi generati dai servizi di Azure, ad esempio BLOB di archiviazione e gruppi di risorse. Griglia di eventi offre anche supporto per gli eventi personalizzati, tramite argomenti personalizzati. 
 
 È possibile usare i filtri per instradare eventi specifici a endpoint diversi, trasmetterli a più endpoint e verificare che gli eventi vengano recapitati in modo affidabile.
 
@@ -25,9 +26,9 @@ Al momento, Griglia di eventi di Azure è disponibile in tutte le aree pubbliche
 
 Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). 
 
-![Modello funzionale di Griglia di eventi](./media/overview/functional-model.png)
+![Modello di Griglia di eventi per origini e gestori](./media/overview/functional-model.png)
 
-Questa immagine illustra in che modo Griglia di eventi collega origini e gestori, ma non fornisce un elenco completo delle integrazioni supportate.
+Questa immagine illustra in che modo Griglia di eventi collega origini e gestori, ma non costituisce un elenco completo delle integrazioni supportate.
 
 ## <a name="event-sources"></a>Origini eventi
 
@@ -86,23 +87,23 @@ Per un confronto tra Griglia di eventi, Hub eventi e Bus di servizio, vedere [Ch
 
 ## <a name="what-can-i-do-with-event-grid"></a>Quali operazioni si possono eseguire con Griglia di eventi?
 
-Griglia di eventi di Azure offre diverse funzionalità che migliorano considerevolmente le attività senza server, di automazione delle operazioni e di integrazione: 
+Griglia di eventi di Azure offre diverse funzionalità che migliorano considerevolmente le attività senza server, di automazione delle operazioni e di [integrazione](http://azure.com/integration): 
 
 ### <a name="serverless-application-architectures"></a>Architetture di applicazioni senza server
 
-![Applicazione senza server](./media/overview/serverless_web_app.png)
+![Architettura di applicazioni senza server](./media/overview/serverless_web_app.png)
 
-Griglia di eventi connette le origini dati e i gestori di eventi. Usare, ad esempio, Griglia di eventi per attivare immediatamente una funzione senza server per eseguire l'analisi dell'immagine ogni volta che una nuova foto viene aggiunta a un contenitore di archiviazione BLOB. 
+Griglia di eventi connette le origini dati e i gestori di eventi. Usare, ad esempio, Griglia di eventi per attivare una funzione senza server che analizza le immagini quando vengono aggiunte a un contenitore di archiviazione BLOB. 
 
 ### <a name="ops-automation"></a>Automazione delle operazioni
 
 ![Automazione delle operazioni](./media/overview/Ops_automation.png)
 
-Griglia di eventi consente di velocizzare l'automazione e semplificare l'applicazione dei criteri. Griglia di eventi, ad esempio, può notificare ad Automazione di Azure quando una macchina virtuale viene creata o un database SQL viene attivato. Questi eventi possono essere usati per controllare automaticamente che le configurazioni dei servizi siano conformi, inserire i metadati negli strumenti per le operazioni, contrassegnare le macchine virtuali o archiviare gli elementi di lavoro.
+Griglia di eventi consente di velocizzare l'automazione e semplificare l'applicazione dei criteri. Usare, ad esempio, Griglia di eventi, per notificare ad Automazione di Azure la creazione di una macchina virtuale o un database SQL. Usare gli eventi per controllare automaticamente che le configurazioni dei servizi siano conformi, inserire i metadati negli strumenti per le operazioni, contrassegnare le macchine virtuali o archiviare gli elementi di lavoro.
 
 ### <a name="application-integration"></a>Integrazione di applicazioni
 
-![Integrazione di applicazioni](./media/overview/app_integration.png)
+![Integrazione delle applicazioni con Azure](./media/overview/app_integration.png)
 
 Griglia di eventi connette l'app con altri servizi. Creare, ad esempio, un argomento personalizzato per inviare i dati dell'evento dell'app a Griglia di eventi e sfruttare il recapito affidabile, il routing avanzato e l'integrazione diretta con Azure. In alternativa è possibile usare Griglia di eventi con App per la logica per elaborare i dati ovunque, senza scrivere codice. 
 
@@ -121,4 +122,4 @@ Griglia di eventi di Azure usa un modello di determinazione prezzi basato sul pa
 * [Trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md)  
   Un'esercitazione che usa Funzioni di Azure per eseguire il flusso di dati da Hub eventi a SQL Data Warehouse.
 * [Event Grid REST API reference (Informazioni di riferimento sulle API REST di Griglia di eventi)](/rest/api/eventgrid)  
-  Offre informazioni più tecniche su Griglia di eventi di Azure e un riferimento per la gestione di sottoscrizioni agli eventi, routing e filtri.
+  Offre contenuto di riferimento per la gestione di sottoscrizioni agli eventi, routing e filtri.

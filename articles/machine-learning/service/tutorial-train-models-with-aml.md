@@ -1,5 +1,6 @@
 ---
-title: 'Esercitazione: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning'
+title: 'Esercitazione sulla classificazione di immagini: Eseguire il training dei modelli'
+titleSuffix: Azure Machine Learning service
 description: Questa esercitazione mostra come usare il servizio Azure Machine Learning per eseguire il training di un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python. Questa esercitazione è la prima di una serie in due parti.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: a2208e160d641d762b57668cdc635fe877677ff5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879486"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310114"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Esercitazione n. 1: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning
+# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Esercitazione: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning
 
 In questa esercitazione si eseguirà il training di un modello di Machine Learning sia in locale che su risorse di calcolo remote. Si userà il flusso di lavoro per il training e la distribuzione per il servizio Azure Machine Learning in un notebook di Jupyter di Python.  È quindi possibile usare il notebook come modello per eseguire il training di un modello di Machine Learning con i propri dati di training. Questa esercitazione è la **prima di una serie in due parti**.  
 
@@ -33,7 +35,7 @@ Questa esercitazione esegue il training di una semplice regressione logistica us
 
 Si vedrà come selezionare un modello e distribuirlo nella [seconda parte di questa esercitazione](tutorial-deploy-models-with-aml.md) in seguito. 
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
+Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Accedere alla [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
 
 >[!NOTE]
 > Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.2
@@ -141,7 +143,7 @@ else:
 
 Sono ora disponibili i pacchetti e le risorse di calcolo necessari per eseguire il training di un modello nel cloud. 
 
-## <a name="explore-data"></a>Esplorare i dati
+## <a name="explore-data"></a>Esplorazione dei dati
 
 Prima di eseguire il training di un modello, è necessario conoscere i dati usati per il training.  È anche necessario copiare i dati nel cloud in modo che siano accessibili dall'ambiente di training nel cloud.  In questa sezione si apprenderà come:
 
@@ -382,13 +384,13 @@ In totale, la prima esecuzione richiede **circa 10 minuti**. Per le successive e
 
 Ecco ciò che avviene durante l'attesa:
 
-- **Creazione dell'immagine**: viene creata un'immagine Docker corrispondente all'ambiente Python specificato dall'oggetto di stima. L'immagine viene caricata nell'area di lavoro. Per la creazione e il caricamento delle immagini sono richiesti **circa 5 minuti**. 
+- **Creazione di immagini**: viene creata un'immagine Docker corrispondente all'ambiente Python specificato dall'oggetto di stima. L'immagine viene caricata nell'area di lavoro. Per la creazione e il caricamento delle immagini sono richiesti **circa 5 minuti**. 
 
   Questa fase viene eseguita una volta per ogni ambiente Python, perché il contenitore viene memorizzato nella cache per le esecuzioni successive.  Durante la creazione dell'immagine, i log vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato di creazione dell'immagine usando questi log.
 
 - **Ridimensionamento**: se il cluster remoto richiede più nodi per l'esecuzione di quelli attualmente disponibili, vengono aggiunti automaticamente altri nodi. Per il ridimensionamento sono in genere necessari **circa 5 minuti**.
 
-- **Esecuzione**: in questa fase, gli script e i file necessari vengono inviati alla destinazione di calcolo, quindi gli archivi dati vengono montati/copiati e infine viene eseguito entry_script. Durante l'esecuzione del processo, stdout e la directory ./logs vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato dell'esecuzione usando questi log.
+- **In esecuzione**: in questa fase, gli script e i file necessari vengono inviati alla destinazione di calcolo, quindi gli archivi dati vengono montati/copiati e infine viene eseguito entry_script. Durante l'esecuzione del processo, stdout e la directory ./logs vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato dell'esecuzione usando questi log.
 
 - **Post-elaborazione**: la directory ./outputs dell'esecuzione viene copiata nella cronologia di esecuzione nell'area di lavoro in modo che sia possibile accedere a questi risultati.
 

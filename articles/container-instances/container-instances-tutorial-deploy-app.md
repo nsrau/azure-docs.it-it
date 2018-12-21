@@ -1,21 +1,21 @@
 ---
-title: Esercitazione di Istanze di contenitore di Azure - Distribuire un'app
-description: Esercitazione di Istanze di contenitore di Azure - Parte 3 di 3 - Distribuire un'applicazione
+title: "Esercitazione: Distribuire un'app contenitore in Istanze di Azure Container"
+description: Esercitazione di Istanze di Azure Container - Parte 3 di 3 - Distribuire un'applicazione contenitore in Istanze di Azure Container
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9e8a72564151bea9194ef5180589fa8eae001df5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863721"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191101"
 ---
-# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Esercitazione: Distribuire un contenitore in Istanze di contenitore di Azure
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Esercitazione: Distribuire un'applicazione contenitore in Istanze di Azure Container
 
 Questa è l'ultima esercitazione di una serie in tre parti. Nelle parti precedenti della serie, [è stata creata un'immagine del contenitore](container-instances-tutorial-prepare-app.md) e ne è stato eseguito il [push in Registro contenitori di Azure](container-instances-tutorial-prepare-acr.md). Questo articolo completa la serie con la distribuzione del contenitore in Istanze di contenitore di Azure.
 

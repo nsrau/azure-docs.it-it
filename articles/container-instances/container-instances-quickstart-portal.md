@@ -1,21 +1,21 @@
 ---
-title: "Guida introduttiva: eseguire un'applicazione in Istanze di contenitore di Azure"
-description: In questa guida introduttiva si userà il portale di Azure per distribuire un'applicazione in esecuzione in un contenitore Docker in Istanze di contenitore di Azure
+title: "Avvio rapido: eseguire un'applicazione in Istanze di Azure Container - Portale"
+description: In questo avvio rapido si userà il portale di Azure per distribuire un'applicazione in esecuzione in un contenitore Docker in un contenitore isolato di Istanze di Azure Container
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857721"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190289"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Guida introduttiva: eseguire un'applicazione in Istanze di contenitore di Azure
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Avvio rapido: Eseguire un'applicazione in esecuzione in Istanze di Azure Container nel portale di Azure
 
 Le Istanze di contenitore di Azure consentono di eseguire i contenitori Docker in Azure in modo semplice e rapido, senza la necessità di distribuire macchine virtuali o usare una piattaforma di orchestrazione di contenitori completa come Kubernetes. In questa guida introduttiva viene usato il portale di Azure per creare un contenitore in Azure e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Dopo la configurazione di alcune impostazioni e la distribuzione del contenitore, è possibile passare all'applicazione in esecuzione:
 

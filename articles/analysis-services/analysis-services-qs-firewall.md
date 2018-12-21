@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 96141ddeeb73c7483935d5da49b9341436c10c18
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0351ab3213ac75559cc025f2ef71e2f098a7504c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429705"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993190"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Guida introduttiva: Configurare il firewall del server - Portale
 
@@ -24,7 +24,7 @@ Questa guida introduttiva consente di configurare un firewall per il server di A
 - Un server di Analysis Services nella sottoscrizione. Per altre informazioni, vedere [Guida introduttiva: Creare un server - Portale](analysis-services-create-server.md) o [Guida introduttiva: Creare un server - PowerShell](analysis-services-create-powershell.md)
 - Uno o più intervalli di indirizzi IP per i computer client (se necessario).
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure 
+## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure 
 
 [Accedere al portale](https://portal.azure.com)
 

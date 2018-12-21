@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sul servizio contenitore di Azure - Gestire DC/OS
+title: (DEPRECATO) Esercitazione sul servizio contenitore di Azure - Gestire DC/OS
 description: Esercitazione sul servizio contenitore di Azure - Gestire DC/OS
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8f4b1c1c66243c06d46ef3fddec8ea495163fa07
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe943ae5ac7894cdd8d8e104615cea670513b7eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999614"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000412"
 ---
-# <a name="azure-container-service-tutorial---manage-dcos"></a>Esercitazione sul servizio contenitore di Azure - Gestire DC/OS
+# <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(DEPRECATO) Esercitazione sul servizio contenitore di Azure - Gestire DC/OS
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS fornisce una piattaforma distribuita per l'esecuzione di applicazioni in contenitori e moderne. Con il servizio contenitore di Azure, il provisioning di un cluster DC/OS pronto per la produzione è semplice e rapido. Questa guida rapida illustra in dettaglio i passaggi di base necessari per distribuire un cluster DC/OS ed eseguire un carico di lavoro di base.
 

@@ -1,6 +1,6 @@
 ---
-title: Come effettuare l'iscrizione alle edizioni Azure Active Directory Premium | Microsoft Docs
-description: Istruzioni dettagliate su come effettuare l'iscrizione alle edizioni Azure Active Directory Premium.
+title: Effettuare l'iscrizione alle edizioni Premium - Azure Active Directory | Microsoft Docs
+description: Istruzioni su come effettuare l'iscrizione alle edizioni Premium di Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.custom: it-pro
-ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394698"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073993"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-premium"></a>Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium
-È possibile acquistare e associare Azure Active Directory (Azure AD) Premium alla sottoscrizione di Azure. Se è necessario creare una nuova sottoscrizione di Azure, sarà anche necessario attivare il piano di licenze e l'accesso al servizio Azure AD.
+# <a name="sign-up-for-azure-active-directory-premium-editions"></a>Effettuare l'iscrizione alle edizioni Premium di Azure Active Directory
+È possibile acquistare e associare le edizioni Premium di Azure Active Directory (Azure AD) alla sottoscrizione di Azure. Se è necessario creare una nuova sottoscrizione di Azure, sarà anche necessario attivare il piano di licenze e l'accesso al servizio Azure AD.
 
 > [!NOTE]
 >Le edizioni Premium e Basic di Azure AD sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Le edizioni Azure AD Premium e Basic non sono attualmente supportate nel servizio di Azure gestito da 21Vianet in Cina. Per altre informazioni, contattare Microsoft tramite il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).

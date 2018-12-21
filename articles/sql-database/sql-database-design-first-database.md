@@ -4,24 +4,22 @@ description: Informazioni su come progettare il primo database SQL di Azure con 
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: tutorial
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: ''
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 2eebc083c4595a9190c60a60b8375b3a46296584
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/04/2018
+ms.openlocfilehash: 9fa36b9b87a8e9591b0c863826cd2278a29ba28e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162764"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956058"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Esercitazione: Progettare il primo database SQL di Azure con SSMS
 
-Il database SQL di Azure è un database relazionale distribuito come servizio, ovvero DBaaS, in Microsoft Cloud (Azure). Questa esercitazione illustra come usare il portale di Azure e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) per le operazioni seguenti: 
+Il database SQL di Azure è un database relazionale distribuito come servizio in Microsoft Cloud (Azure). Questa esercitazione illustra come usare il portale di Azure e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) per le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Creare un database nel portale di Azure*
@@ -29,279 +27,254 @@ Il database SQL di Azure è un database relazionale distribuito come servizio, o
 > * Connettersi al database con SSMS
 > * Creare tabelle con SQL Server Management Studio
 > * Eseguire il caricamento bulk dei dati con BCP
-> * Eseguire una query su quei dati con SQL Server Management Studio
+> * Eseguire query sui dati con SSMS
 
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+*Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-   >[!NOTE]
-   > Ai fini di questa esercitazione verrà usato il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md), ma è possibile scegliere il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). 
+> [!NOTE]
+> Ai fini di questa esercitazione verrà usato il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md), ma è possibile scegliere il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, accertarsi di avere installato:
-- La versione più recente di [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
-- La versione più recente di [BCP e SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
+Per completare questa esercitazione, assicurarsi di aver installato quanto segue:
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
+- [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (ultima versione)
+- [BCP e SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433) (ultima versione)
+
+## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
 Accedere al [portale di Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database"></a>Creare un database SQL vuoto
+## <a name="create-a-blank-database"></a>Creazione di un database vuoto
 
-Un database SQL di Azure viene creato con un set definito di [risorse di calcolo e di archiviazione](sql-database-service-tiers-dtu.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di database SQL di Azure](sql-database-features.md). 
+Un database SQL di Azure viene creato con un set definito di [risorse di calcolo e di archiviazione](sql-database-service-tiers-dtu.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di database SQL di Azure](sql-database-features.md).
 
-Per creare un database SQL vuoto, attenersi alla procedura seguente. 
+Per creare un database SQL vuoto, attenersi alla procedura seguente.
 
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
-2. Nella pagina **Nuovo**, selezionare **Database** nella sezione Azure Marketplace e quindi fare clic su **Database SQL** nella sezione **In primo piano**.
+1. Nella pagina **Nuovo**, selezionare **Database** nella sezione Azure Marketplace e quindi fare clic su **Database SQL** nella sezione **In primo piano**.
 
    ![creare database vuoto](./media/sql-database-design-first-database/create-empty-database.png)
 
-3. Compilare il modulo Database SQL con le informazioni seguenti, come illustrato nell'immagine precedente:   
+   1. Compilare il modulo **Database SQL** con le informazioni seguenti, come illustrato nell'immagine precedente:
 
-   | Impostazione       | Valore consigliato | Descrizione | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Nome database** | mySampleDatabase | Per i nomi di database validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
-   | **Sottoscrizione** | Sottoscrizione in uso  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
-   | **Gruppo di risorse** | myResourceGroup | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Select source** (Seleziona origine) | Database vuoto | Indica che deve essere creato un database vuoto. |
+      | Impostazione       | Valore consigliato | Descrizione |
+      | ------------ | ------------------ | ------------------------------------------------- |
+      | **Nome database** | *yourDatabase* | Per informazioni sui nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). |
+      | **Sottoscrizione** | *yourSubscription*  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
+      | **Gruppo di risorse** | *yourResourceGroup* | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/naming-conventions). |
+      | **Select source** (Seleziona origine) | Database vuoto | Indica che deve essere creato un database vuoto. |
 
-4. Fare clic su **Server** per creare e configurare un nuovo server per il nuovo database. Compilare il **modulo del nuovo server** con le informazioni seguenti: 
+   1. Fare clic su **Server** per usare un server esistente o crearne e configurarne uno nuovo per il database. Selezionare il server oppure fare clic su **Crea un nuovo server** e compilare il modulo **Nuovo server** con le informazioni seguenti:
 
-   | Impostazione       | Valore consigliato | Descrizione | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
-   | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Password** | Qualsiasi password valida | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
-   | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
+      | Impostazione       | Valore consigliato | Descrizione |
+      | ------------ | ------------------ | ------------------------------------------------- |
+      | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/naming-conventions). |
+      | **Accesso amministratore server** | Qualsiasi nome valido | Per informazioni sui nomi di accesso validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). |
+      | **Password** | Qualsiasi password valida | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
+      | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
 
-   ![Creare il server di database](./media/sql-database-design-first-database/create-database-server.png)
+      ![Creare il server di database](./media/sql-database-design-first-database/create-database-server.png)
 
-5. Fare clic su **Seleziona**.
+      Fare clic su **Seleziona**.
 
-6. Fare clic su **Piano tariffario** per specificare il livello di servizio, il numero di DTU o vCores e la quantità di risorse di archiviazione. Esplorare le opzioni relative al numero di DTU/vCores e di risorse di archiviazione disponibile per ogni livello di servizio. Ai fini di questa esercitazione verrà usato il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md), ma è possibile scegliere il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). 
+   1. Fare clic su **Piano tariffario** per specificare il livello di servizio, il numero di DTU o vCores e la quantità di risorse di archiviazione. Esplorare le opzioni relative al numero di DTU/vCore e di risorse di archiviazione disponibile per ogni livello di servizio. Per impostazione predefinita viene selezionato il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) **Standard**, ma è possibile scegliere il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
-7. Per questa esercitazione selezionare il livello di servizio **Standard** e quindi usare il dispositivo di scorrimento per selezionare **100 DTU (S3)** e **400** GB di archiviazione.
+      > [!IMPORTANT]
+      > Nel livello Premium è attualmente disponibile uno spazio di archiviazione superiore a 1 TB in tutte le aree tranne le seguenti: Regno Unito settentrionale, Stati Uniti centro-occidentali, Regno Unito meridionale 2, Cina orientale, US DoD (area centrale), Germania centrale, US DoD (area orientale), US Gov (area sudoccidentale), US Gov (area centro-meridionale), Germania nord-orientale, Cina settentrionale, US Gov (area orientale). Nelle altre aree la quantità massima di risorse di archiviazione nel livello Premium è limitata a 1 TB. Vedere [Limitazioni correnti per P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
-   ![Creare il database s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+      Dopo aver selezionato il livello di servizio, il numero di DTU e la quantità di spazio di archiviazione, fare clic su **Applica**.
 
-8. Accettare le condizioni dell'anteprima per usare l'opzione **Spazio di archiviazione aggiuntivo**. 
+   1. Immettere le **regole di confronto** per il database vuoto. Per questa esercitazione usare il valore predefinito. Per altre informazioni sulle regole di confronto, vedere [Collations](/sql/t-sql/statements/collations) (Regole di confronto)
 
-   > [!IMPORTANT]
-   > Nel livello Premium è attualmente disponibile più di 1 TB di archiviazione in tutte le aree tranne le seguenti: Regno Unito settentrionale, Stati Uniti centro-occidentali, Regno Unito meridionale 2, Cina orientale, USDoDCentral, Germania centrale, USDoDEast, US Gov Southwest, US Gov South Central, Germania nord-orientale, Cina settentrionale, US Gov East. Nelle altre aree la quantità massima di risorse di archiviazione nel livello Premium è limitata a 1 TB. Vedere [Limitazioni correnti per P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
+1. Dopo aver completato il modulo **Database SQL**, fare clic su **Crea** per effettuare il provisioning del database. Questo passaggio potrebbe richiedere alcuni minuti.
 
-9. Dopo la selezione del livello di servizio, del numero di DTU e della quantità di risorse di archiviazione, fare clic su **Applica**.  
+1. Sulla barra degli strumenti fare clic su **Notifiche** per monitorare il processo di distribuzione.
 
-10. Selezionare **regole di confronto** per il database vuoto. Per questa esercitazione usare il valore predefinito. Per altre informazioni sulle regole di confronto, vedere [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations) (Regole di confronto)
+     ![notifica](./media/sql-database-design-first-database/notification.png)
 
-11. Dopo aver completato il modulo del database SQL, fare clic su **Crea** per effettuare il provisioning del database. Il provisioning richiede alcuni minuti. 
+## <a name="create-a-firewall-rule"></a>Creare una regola del firewall
 
-12. Sulla barra degli strumenti fare clic su **Notifiche** per monitorare il processo di distribuzione.
-    
-     ![notifica](./media/sql-database-get-started-portal/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Creare una regola del firewall a livello di server
-
-Il servizio di database SQL crea un firewall a livello di server che impedisce alle applicazioni e agli strumenti esterni di connettersi al server o ai database sul server a meno che non venga creata una regola del firewall per aprire il firewall per indirizzi IP specifici. Seguire questi passaggi per creare una [regola del firewall a livello di server di database SQL](sql-database-firewall-configure.md) per l'indirizzo IP del client e abilitare la connettività esterna tramite il firewall del database SQL solo per il proprio indirizzo IP. 
+Il servizio di database SQL crea un firewall a livello di server. Il firewall impedisce ad applicazioni e strumenti esterni di connettersi al server e a qualsiasi database nel server. Per abilitare la connettività esterna al database, è prima di tutto necessario aggiungere una regola per l'indirizzo IP al firewall. Per creare una [regola del firewall a livello di server per il database SQL](sql-database-firewall-configure.md), seguire questa procedura.
 
 > [!NOTE]
-> Il database SQL comunica attraverso la porta 1433. Se si sta tentando di connettersi da una rete aziendale, il traffico in uscita attraverso la porta 1433 potrebbe non essere autorizzato dal firewall della rete. In questo caso, non è possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
->
+> Il database SQL comunica sulla porta 1433. Se si sta tentando di connettersi da una rete aziendale, il traffico in uscita attraverso la porta 1433 potrebbe non essere autorizzato dal firewall della rete. In questo caso, non è possibile connettersi al server di database SQL di Azure a meno che l'amministratore non apra la porta 1433.
 
-1. Al termine della distribuzione, scegliere **Database SQL** dal menu a sinistra e fare clic su **mySampleDatabase** nella pagina **Database SQL**. Si apre la pagina di panoramica per il database che visualizza il nome completo del server, ad esempio **mynewserver-20170824.database.windows.net**, e offre altre opzioni di configurazione. 
+1. Al termine della distribuzione, fare clic su **Database SQL** nel menu a sinistra e quindi su *yourDatabase* nella pagina **Database SQL**. Verrà visualizzata la pagina di panoramica del database, che mostra il **nome server** completo, ad esempio *yourserver.database.windows.net*, e offre opzioni per operazioni di configurazione aggiuntive.
 
-2. Copiare il nome completo del server per connettersi al server e ai relativi database nelle esercitazioni e nelle guide introduttive successive. 
+1. Copiare il nome completo del server per usarlo per la connessione al server e ai database da SQL Server Management Studio.
 
-   ![Nome del server](./media/sql-database-get-started-portal/server-name.png) 
+   ![Nome del server](./media/sql-database-design-first-database/server-name.png)
 
-3. Fare clic su **Imposta firewall server** sulla barra degli strumenti. Si apre la pagina **Impostazioni del firewall** per il server del database SQL. 
+1. Fare clic su **Imposta firewall server** sulla barra degli strumenti. Verrà visualizzata la pagina **Impostazioni del firewall** per il server di database SQL.
 
-   ![Regola del firewall del server](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![Regola del firewall del server](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall. Una regola del firewall può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP.
+   1. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall. Una regola del firewall può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP.
 
-5. Fare clic su **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
+   1. Fare clic su **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
 
-6. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
+   1. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 
-È ora possibile connettersi al server del database SQL e ai relativi database usando SQL Server Management Studio o un altro strumento di propria scelta da questo indirizzo IP, con l'account amministratore del server creato in precedenza.
+L'indirizzo IP può ora superare il firewall. È ora possibile connettersi al server di database SQL e ai relativi database usando SQL Server Management Studio o un altro strumento di propria scelta. Assicurarsi di usare l'account amministratore del server creato in precedenza.
 
 > [!IMPORTANT]
 > Per impostazione predefinita, l'accesso attraverso il firewall del database SQL è abilitato per tutti i servizi di Azure. Selezionando **NO** in questa pagina permette di disabilitare tutti i servizi di Azure.
 
-## <a name="sql-server-connection-information"></a>Informazioni di connessione SQL Server
+## <a name="connect-to-the-database"></a>Connettersi al database
 
-Ottenere il nome completo del server per il server del database SQL di Azure nel portale di Azure. Usare il nome completo del server per connettersi al server tramite SQL Server Management Studio.
-
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
-3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server**.
-
-   ![informazioni di connessione](./media/sql-database-get-started-portal/server-name.png)
-
-## <a name="connect-to-the-database-with-ssms"></a>Connettersi al database con SSMS
-
-Usare [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) per stabilire una connessione al server del database SQL di Azure.
+Usare [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) per stabilire una connessione al server di database SQL di Azure.
 
 1. Aprire SQL Server Management Studio.
 
-2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
+1. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
 
-   | Impostazione       | Valore consigliato | DESCRIZIONE | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | Tipo di server | Motore di database | Questo valore è obbligatorio |
-   | Nome server | Nome completo del server | Il nome sarà simile a: **mynewserver20170824.database.windows.net**. |
-   | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-   | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
-   | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
+   | Impostazione       | Valore consigliato | DESCRIZIONE |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **Tipo di server** | Motore di database | Questo valore è obbligatorio. |
+   | **Nome server** | Nome completo del server | Ad esempio, *yourserver.database.windows.net*. |
+   | **autenticazione** | Autenticazione di SQL Server | L'autenticazione SQL è l'unico tipo di autenticazione configurato in questa esercitazione. |
+   | **Accesso** | Account amministratore del server | Account specificato quando è stato creato il server. |
+   | **Password** | Password per l'account amministratore del server | Password specificata quando è stato creato il server. |
 
-   ![connetti al server](./media/sql-database-connect-query-ssms/connect.png)
+   ![connetti al server](./media/sql-database-design-first-database/connect.png)
 
-3. Fare clic su **Opzioni** nella finestra di dialogo **Connetti al server**. Nella sezione **Connetti al database** immettere **mySampleDatabase** per connettersi a tale database.
+   1. Fare clic su **Opzioni** nella finestra di dialogo **Connetti al server**. Nella sezione **Connetti al database** immettere *yourDatabase* per connettersi a tale database.
 
-   ![connettersi al database nel server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+      ![connettersi al database nel server](./media/sql-database-design-first-database/options-connect-to-db.png)  
 
-4. Fare clic su **Connetti**. La finestra Esplora oggetti viene visualizzata in SSMS. 
+   1. Fare clic su **Connetti**. In SSMS verrà visualizzata la finestra **Esplora oggetti**.
 
-5. In Esplora oggetti espandere **Database** e quindi espandere **mySampleDatabase** per visualizzare gli oggetti disponibili nel database di esempio.
+1. In **Esplora oggetti** espandere **Database** e quindi *yourDatabase* per visualizzare gli oggetti presenti nel database di esempio.
 
-   ![oggetti di database](./media/sql-database-connect-query-ssms/connected.png)  
+   ![oggetti di database](./media/sql-database-design-first-database/connected.png)  
 
-## <a name="create-tables-in-the-database"></a>Creare tabelle nel database 
+## <a name="create-tables-in-the-database"></a>Creare tabelle nel database
 
-Creare uno schema di database con quattro tabelle che modellano un sistema di gestione degli studenti per le università tramite [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
+Creare uno schema di database con quattro tabelle che modellano un sistema di gestione degli studenti per le università tramite [Transact-SQL](/sql/t-sql/language-reference):
 
 - Person
 - Corso
 - Studente
-- Accreditare quel modello come un sistema di gestione degli studenti per le università
+- Riconoscimenti
 
-Nel diagramma seguente viene illustrato come queste tabelle sono correlate tra loro. Alcune di queste tabelle fanno riferimento a delle colonne in altre tabelle. Ad esempio, la tabella Student fa riferimento alla colonna **PersonId** della tabella **Person**. Studiare il diagramma per comprendere come sono correlate tra loro le tabelle in questa esercitazione. Per un esame approfondito su come creare tabelle di database efficaci, vedere [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx) (Creare tabelle di database efficaci). Per informazioni sulla scelta dei tipi di dati, vedere [Tipi di dati](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
+Nel diagramma seguente viene illustrato come queste tabelle sono correlate tra loro. Alcune di queste tabelle fanno riferimento a delle colonne in altre tabelle. La tabella *Student*, ad esempio, fa riferimento alla colonna *PersonId* della tabella *Person*. Studiare il diagramma per comprendere come sono correlate tra loro le tabelle in questa esercitazione. Per un esame approfondito su come creare tabelle di database efficaci, vedere [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx) (Creare tabelle di database efficaci). Per informazioni sulla scelta dei tipi di dati, vedere [Tipi di dati](/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
-> È anche possibile usare la [Progettazione delle tabelle in SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) per creare e progettare le tabelle. 
+> È anche possibile usare la [Progettazione delle tabelle in SQL Server Management Studio](/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) per creare e progettare le tabelle.
 
 ![Relazioni tra tabelle](./media/sql-database-design-first-database/tutorial-database-tables.png)
 
-1. In Esplora oggetti fare clic con il pulsante destro del mouse su **mySampleDatabase** e scegliere **Nuova query**. Viene visualizzata una finestra di query vuota, connessa al database.
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse su *yourDatabase* e scegliere **Nuova query**. Viene visualizzata una finestra di query vuota, connessa al database.
 
-2. Nella finestra di query, eseguire la query seguente per creare quattro tabelle nel database: 
+1. Nella finestra di query, eseguire la query seguente per creare quattro tabelle nel database:
 
-   ```sql 
+   ```sql
    -- Create Person table
-
    CREATE TABLE Person
    (
-   PersonId   INT IDENTITY PRIMARY KEY,
-   FirstName   NVARCHAR(128) NOT NULL,
-   MiddelInitial NVARCHAR(10),
-   LastName   NVARCHAR(128) NOT NULL,
-   DateOfBirth   DATE NOT NULL
+       PersonId INT IDENTITY PRIMARY KEY,
+       FirstName NVARCHAR(128) NOT NULL,
+       MiddelInitial NVARCHAR(10),
+       LastName NVARCHAR(128) NOT NULL,
+       DateOfBirth DATE NOT NULL
    )
-   
+
    -- Create Student table
- 
    CREATE TABLE Student
    (
-   StudentId INT IDENTITY PRIMARY KEY,
-   PersonId  INT REFERENCES Person (PersonId),
-   Email   NVARCHAR(256)
+       StudentId INT IDENTITY PRIMARY KEY,
+       PersonId INT REFERENCES Person (PersonId),
+       Email NVARCHAR(256)
    )
-   
+
    -- Create Course table
- 
    CREATE TABLE Course
    (
-   CourseId  INT IDENTITY PRIMARY KEY,
-   Name   NVARCHAR(50) NOT NULL,
-   Teacher   NVARCHAR(256) NOT NULL
-   ) 
+       CourseId INT IDENTITY PRIMARY KEY,
+       Name NVARCHAR(50) NOT NULL,
+       Teacher NVARCHAR(256) NOT NULL
+   )
 
    -- Create Credit table
- 
    CREATE TABLE Credit
    (
-   StudentId   INT REFERENCES Student (StudentId),
-   CourseId   INT REFERENCES Course (CourseId),
-   Grade   DECIMAL(5,2) CHECK (Grade <= 100.00),
-   Attempt   TINYINT,
-   CONSTRAINT  [UQ_studentgrades] UNIQUE CLUSTERED
-   (
-   StudentId, CourseId, Grade, Attempt
-   )
+       StudentId INT REFERENCES Student (StudentId),
+       CourseId INT REFERENCES Course (CourseId),
+       Grade DECIMAL(5,2) CHECK (Grade <= 100.00),
+       Attempt TINYINT,
+       CONSTRAINT [UQ_studentgrades] UNIQUE CLUSTERED
+       (
+           StudentId, CourseId, Grade, Attempt
+       )
    )
    ```
 
    ![Creare tabelle](./media/sql-database-design-first-database/create-tables.png)
 
-3. Espandere il nodo "tabelle" in SQL Server Management Studio Object Explorer per visualizzare le tabelle create.
+1. In **Esplora oggetti** espandere il nodo **Tabelle** in *yourDatabase* per visualizzare le tabelle create.
 
    ![tabelle create con SQL Server Management Studio](./media/sql-database-design-first-database/ssms-tables-created.png)
 
 ## <a name="load-data-into-the-tables"></a>Caricare i dati nelle tabelle
 
-1. Creare una cartella denominata **SampleTableData** nella cartella download per archiviare i dati di esempio per il database. 
+1. Creare una cartella denominata *sampleData* nella cartella Download per archiviare dati di esempio per il database.
 
-2. Fare doppio clic sui seguenti collegamenti e salvarli nella cartella **SampleTableData**. 
+1. Fare clic con il pulsante destro del mouse sui collegamenti seguenti e salvare i dati nella cartella *sampleData*.
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-3. Aprire una finestra del prompt dei comandi e passare alla cartella SampleTableData.
+1. Aprire una finestra del prompt dei comandi e passare alla cartella *sampleData*.
 
-4. Eseguire i comandi seguenti per inserire dei dati di esempio nelle tabelle sostituendo i valori per **ServerName**, **DatabaseName**, **UserName** e **Password** con i valori dell'ambiente.
+1. Eseguire questi comandi per inserire i dati di esempio nelle tabelle, sostituendo i valori *server*, *database*, *user* e *password* con i valori dell'ambiente in uso.
   
-   ```bcp
-   bcp Course in SampleCourseData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+   ```cmd
+   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 A questo punto, sono stati caricati i dati di esempio nelle tabelle create in precedenza.
 
 ## <a name="query-data"></a>Eseguire query sui dati
 
-Eseguire le query seguenti per recuperare informazioni dalle tabelle del database. Vedere [Writing SQL Queries](https://technet.microsoft.com/library/bb264565.aspx) (Scrittura di query SQL) per altre informazioni sulla scrittura di query SQL. La prima query unisce tutte e quattro le tabelle per trovare tutti gli studenti a cui ha insegnato "Dominick Pope" che hanno un livello superiore al 75% nella sua classe. La seconda query unisce tutte e quattro le tabelle e trova tutti i corsi in cui si è registrato "Noe Coleman".
+Eseguire le query seguenti per recuperare informazioni dalle tabelle del database. Per altre informazioni sulla scrittura di query SQL, vedere l'articolo su come [scrivere query SQL](https://technet.microsoft.com/library/bb264565.aspx). La prima query crea un join di tutte le quattro tabelle per trovare tutti gli studenti con "Dominick Pope" come insegnante e un voto superiore al 75%. La seconda query crea un join di tutte le quattro tabelle e trova i corsi a cui è stato iscritto "Noe Coleman".
 
 1. In una finestra di query di SQL Server Management Studio, eseguire la query seguente:
 
-   ```sql 
+   ```sql
    -- Find the students taught by Dominick Pope who have a grade higher than 75%
-
-   SELECT  person.FirstName,
-   person.LastName,
-   course.Name,
-   credit.Grade
+   SELECT  person.FirstName, person.LastName, course.Name, credit.Grade
    FROM  Person AS person
-   INNER JOIN Student AS student ON person.PersonId = student.PersonId
-   INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
-   INNER JOIN Course AS course ON credit.CourseId = course.courseId
-   WHERE course.Teacher = 'Dominick Pope' 
-   AND Grade > 75
+       INNER JOIN Student AS student ON person.PersonId = student.PersonId
+       INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
+       INNER JOIN Course AS course ON credit.CourseId = course.courseId
+   WHERE course.Teacher = 'Dominick Pope'
+       AND Grade > 75
    ```
 
-2. In una finestra di query di SQL Server Management Studio, eseguire la query seguente:
+1. In una finestra di query eseguire questa query:
 
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
-
-   SELECT  course.Name,
-   course.Teacher,
-   credit.Grade
+   SELECT  course.Name, course.Teacher, credit.Grade
    FROM  Course AS course
-   INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
-   INNER JOIN Student AS student ON student.StudentId = credit.StudentId
-   INNER JOIN Person AS person ON person.PersonId = student.PersonId
+       INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
+       INNER JOIN Student AS student ON student.StudentId = credit.StudentId
+       INNER JOIN Person AS person ON person.PersonId = student.PersonId
    WHERE person.FirstName = 'Noe'
-   AND person.LastName = 'Coleman'
+       AND person.LastName = 'Coleman'
    ```
 
-## <a name="next-steps"></a>Passaggi successivi 
-Questa esercitazione ha illustrato le attività di base che è possibile eseguire con i database, come creare database e tabelle, caricare dati, eseguire query sui dati e ripristinare un database a un momento precedente. Si è appreso come:
+## <a name="next-steps"></a>Passaggi successivi
+
+In questa esercitazione sono state illustrate molte attività di base sui database. Si è appreso come:
+
 > [!div class="checklist"]
 > * Creare un database
 > * Configurare una regola del firewall
@@ -313,4 +286,4 @@ Questa esercitazione ha illustrato le attività di base che è possibile eseguir
 Per informazioni sulla progettazione di un database con Visual Studio e C#, passare all'esercitazione successiva.
 
 > [!div class="nextstepaction"]
->[Progettare un database SQL di Azure e connettersi con C# e ADO.NET](sql-database-design-first-database-csharp.md)
+> [Progettare un database SQL di Azure e connettersi con C# e ADO.NET](sql-database-design-first-database-csharp.md)

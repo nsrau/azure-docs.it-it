@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 439a3338d5b2104d20e8de99a83fe19c6935a5ac
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 87ccc80d36022361ad6191aaf674d38d0f632f10
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499477"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321733"
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
@@ -48,8 +48,8 @@ Per impostazione predefinita, tutte le risorse in una rete virtuale possono comu
 
 Le risorse di Azure comunicano in modo sicuro tra di esse in uno dei modi seguenti:
 
-- **Tramite una rete virtuale**: è possibile distribuire VM e diversi altri tipi di risorse di Azure in una rete virtuale, ad esempio ambienti del servizio app di Azure, Azure Kubernetes Service (AKS) e set di scalabilità di macchine virtuali di Azure. Per visualizzare un elenco completo delle risorse di Azure che è possibile distribuire in una rete virtuale, vedere [Integrazione del servizio di rete virtuale](virtual-network-for-azure-services.md). 
-- **Tramite un endpoint servizio di rete virtuale**: estendere lo spazio di indirizzi privato della rete virtuale e l'identità della rete virtuale alle risorse dei servizi di Azure, ad esempio gli account di archiviazione di Azure e i database SQL di Azure, tramite una connessione diretta. Gli endpoint servizio consentono di associare le risorse critiche dei servizi di Azure solo a una rete virtuale. Per altre informazioni, vedere [Panoramica degli endpoint del servizio Rete virtuale](virtual-network-service-endpoints-overview.md).
+- **Tramite una rete virtuale**: è possibile distribuire macchine virtuali e diversi altri tipi di risorse di Azure in una rete virtuale, ad esempio ambienti del servizio app di Azure, servizio Azure Kubernetes e set di scalabilità di macchine virtuali di Azure. Per visualizzare un elenco completo delle risorse di Azure che è possibile distribuire in una rete virtuale, vedere [Integrazione del servizio di rete virtuale](virtual-network-for-azure-services.md). 
+- **Tramite un endpoint del servizio di rete virtuale**: estendere lo spazio di indirizzi privato della rete virtuale e l'identità della rete virtuale alle risorse dei servizi di Azure, ad esempio gli account di archiviazione di Azure e i database SQL di Azure, tramite una connessione diretta. Gli endpoint servizio consentono di associare le risorse critiche dei servizi di Azure solo a una rete virtuale. Per altre informazioni, vedere [Panoramica degli endpoint del servizio Rete virtuale](virtual-network-service-endpoints-overview.md).
  
 ## <a name="communicate-with-on-premises-resources"></a>Comunicare con le risorse locali
 
@@ -61,14 +61,14 @@ Le risorse di Azure comunicano in modo sicuro tra di esse in uno dei modi seguen
 
 ## <a name="filter-network-traffic"></a>Filtrare il traffico di rete
 È possibile filtrare il traffico di rete tra subnet usando una o entrambe le opzioni seguenti.
-- **Gruppi di sicurezza di rete:** un gruppo di sicurezza di rete può contenere più regole di sicurezza in ingresso e in uscita che consentono di filtrare il traffico verso e dalle risorse per protocollo, porta e indirizzo IP di origine e di destinazione. Per altre informazioni, vedere [Gruppi di sicurezza di rete](security-overview.md#network-security-groups).
-- **Appliance virtuali di rete:** un'appliance virtuale di rete è una VM che esegue una funzione di rete, ad esempio un firewall, un'ottimizzazione WAN o un'altra funzione di rete. Per visualizzare un elenco delle appliance virtuali di rete disponibili che è possibile distribuire in una rete virtuale di Azure, vedere [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
+- **Gruppi di sicurezza:** gruppi di sicurezza di rete e gruppi di sicurezza delle applicazioni possono contenere più regole di sicurezza in ingresso e in uscita che consentono di filtrare il traffico verso e dalle risorse per protocollo, porta e indirizzo IP di origine e di destinazione. Per altre informazioni, consultare [Gruppi di sicurezza di rete](security-overview.md#network-security-groups) e [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups).
+- **Appliance virtuali di rete:** un'appliance virtuale di rete è una macchina virtuale che esegue una funzione di rete, ad esempio un firewall, un'ottimizzazione WAN o un'altra funzione di rete. Per visualizzare un elenco delle appliance virtuali di rete disponibili che è possibile distribuire in una rete virtuale di Azure, vedere [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ## <a name="route-network-traffic"></a>Indirizzare il traffico di rete
 
 Azure instrada il traffico tra subnet, reti virtuali connesse, reti locali e Internet, per impostazione predefinita. Per sostituire le route predefinite create da Azure, è possibile implementare una o entrambe le opzioni seguenti.
-- **Tabelle di route:** è possibile creare tabelle di route personalizzate con route che controllano l'instradamento del traffico per ogni subnet. Altre informazioni sulle [tabelle di route](virtual-networks-udr-overview.md#user-defined).
-- **Route BGP (Border Gateway Protocol):** se si connette la rete virtuale alla rete locale con un gateway VPN di Azure o una connessione ExpressRoute, è possibile propagare le route BGP locale alle reti virtuali. Altre informazioni sull'uso di BGP con [Gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ed [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
+- **Tabelle di route:** è possibile creare tabelle di route personalizzate con route che controllano dove viene instradato il traffico per ogni subnet. Altre informazioni sulle [tabelle di route](virtual-networks-udr-overview.md#user-defined).
+- **Route Border Gateway Protocol (BGP):** se si connette la rete virtuale alla rete locale con un gateway VPN di Azure o una connessione ExpressRoute, è possibile propagare le route BGP locali alle reti virtuali. Altre informazioni sull'uso di BGP con [Gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ed [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
 
 ## <a name="connect-virtual-networks"></a>Connettere reti virtuali
 

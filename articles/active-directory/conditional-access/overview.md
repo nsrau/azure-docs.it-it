@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2673a0ec1e9ed66c9a1bb6e369ad5300a570ba0a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f0ba365096808954c24beb073f3570499fd23523
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240444"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408277"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Che cos'è l'accesso condizionale in Azure Active Directory?
 
 La sicurezza è una priorità assoluta per le organizzazioni che usano il cloud. Identità e accesso rappresentano aspetti chiave della sicurezza cloud in ambito di gestione delle risorse cloud. In un mondo dominato dai dispositivi mobili e basato sul cloud, gli utenti possono accedere alle risorse dell'organizzazione con una serie di dispositivi e app ovunque si trovino. Di conseguenza, non è più sufficiente concentrarsi solo su chi può accedere a una risorsa. Per ottenere un equilibrio ideale tra produttività e sicurezza, nelle decisioni relative al controllo di accesso è anche necessario considerare il modo in cui si accede a una risorsa. Con l'accesso condizionale di Azure Active Directory (Azure AD) è possibile soddisfare questo requisito. L'accesso condizionale è una funzionalità di Azure Active Directory. Con l'accesso condizionale è possibile implementare decisioni di controllo di accesso automatiche per l'accesso alle app cloud in base a determinate condizioni. 
+
+I criteri di accesso condizionale vengono applicati dopo il completamento dell'autenticazione con primo fattore. In altre parole, l'accesso condizionale non deve essere considerato un meccanismo che, ad esempio, consente di contrastare gli attacchi Denial of Service.  
 
 ![Controllo](./media/overview/81.png)
 
@@ -56,6 +58,11 @@ Di seguito sono indicate alcune problematiche di accesso comuni per cui l'access
 - **[Applicazione client](conditions.md#client-apps)**: oggi è possibile accedere a molte app cloud con tipi di app diversi, ad esempio app basate sul Web, app per dispositivi mobili o app desktop. Cosa accade se un tentativo di accesso viene eseguito usando un tipo di app client che causa problemi noti? Cosa accade se è necessario un dispositivo gestito dal reparto IT per determinati tipi di app? 
 
 Queste domande e le relative risposte rappresentano scenari comuni per l'accesso condizionale di Azure AD. L'accesso condizionale è una funzionalità di Azure Active Directory che consente di gestire gli scenari di accesso con un approccio basato su criteri.
+
+  
+
+
+> [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
 
 
 ## <a name="conditional-access-policies"></a>Criteri di accesso condizionale
@@ -107,7 +114,5 @@ L'uso dell'accesso condizionale richiede una licenza di Azure AD Premium. Per tr
     - Controlli di accesso, vedere [Controlli di accesso nell'accesso condizionale di Azure Active Directory](controls.md).
 
 - Per acquisire esperienza nella configurazione di criteri di controllo di accesso, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](app-based-mfa.md).
-
-- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md). 
 
 - Per un piano di distribuzione dettagliato con i criteri consigliati, vedere il [piano di distribuzione dell'accesso condizionale](https://aka.ms/conditionalaccessdeploymentplan)

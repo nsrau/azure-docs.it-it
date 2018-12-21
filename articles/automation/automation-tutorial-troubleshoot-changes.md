@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: modifica, rilevamento, automazione
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e4ea8f92a562ea4bc90df98d6e459377b9886777
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844907"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190017"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
 
@@ -102,7 +102,7 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 |Attivato     | Determina se l'impostazione viene applicata        |
 |Item Name     | Nome descrittivo del file da rilevare        |
 |Group     | Nome del gruppo per il raggruppamento logico dei file        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Aggiungere un file di Windows
 
@@ -177,12 +177,11 @@ La visualizzazione delle modifiche nel portale di Azure può essere utile, ma la
 
 Per aggiungere un avviso per un arresto del servizio, nel portale di Azure passare a **Monitoraggio**. In **Servizi condivisi** selezionare **Avvisi** e fare clic su **+ Nuova regola di avviso**
 
-In **1. Definire la condizione dell'avviso** fare clic su **+ Seleziona destinazione**. In **Filtra per tipo di risorsa** selezionare **Log Analytics**. Selezionare l'area di lavoro di Log Analytics e quindi selezionare **Fine**.
+Fare clic su **Seleziona** per scegliere una risorsa. Nella pagina **Seleziona risorsa**, selezionare **Log Analytics** nell'elenco a discesa **Filter by resource type** (Filter by resource type). Selezionare l'area di lavoro di Log Analytics e quindi selezionare **Fine**.
 
 ![Selezionare una risorsa](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Selezionare **+ Aggiungi criteri**.
-In **Configurare la logica dei segnali** selezionare **Custom log search** (Ricerca log personalizzata) nella tabella. Immettere la query seguente nella casella di testo Query di ricerca:
+In **Aggiungi condizione**, nella tabella contenuta nella pagina **Configure signal logic** (Configura logica segnale), selezionare **Custom log search** (Ricerca log personalizzata). Immettere la query seguente nella casella di testo Query di ricerca:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -194,11 +193,9 @@ In **Logica avvisi**, per **Soglia** immettere **0**. Al termine, fare clic su *
 
 ![Configurare la logica dei segnali](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-In **2. Definire i dettagli dell'avviso** assegnare un nome e una descrizione per l'avviso. Impostare **Gravità** su **Informazioni (gravità 2)**, **Avviso (gravità 1)** o **Critico (gravità 0)**.
+Da **Gruppi di azioni**, selezionare **Crea nuovo**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
 
-![Definire i dettagli dell'avviso](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-In **3. Definire il gruppo di azioni** selezionare **Nuovo gruppo di azioni**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md).
+In **Dettagli avviso**, assegnare un nome e una descrizione per l'avviso. Impostare **Gravità** su **Informazioni (gravità 2)**, **Avviso (gravità 1)** o **Critico (gravità 0)**.
 
 Nella casella **Nome gruppo di azioni** immettere un nome per l'avviso e un nome breve. Il nome breve viene usato al posto del nome completo di un gruppo di azioni quando le notifiche vengono inviate usando questo gruppo.
 

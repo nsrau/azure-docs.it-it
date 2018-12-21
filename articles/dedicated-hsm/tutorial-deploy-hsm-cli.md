@@ -1,6 +1,6 @@
 ---
-title: "Esercitazione: HSM dedicato di Azure per la distribuzione di moduli di protezione hardware in una rete virtuale esistente con l'interfaccia della riga di comando | Microsoft Docs"
-description: Esercitazione che illustra come distribuire un modulo di protezione hardware dedicato con l'interfaccia della riga di comando
+title: "Esercitazione: Distribuzione in una rete virtuale esistente con l'interfaccia della riga di comando di Azure - Modulo di protezione hardware dedicato di Azure | Microsoft Docs"
+description: Esercitazione che illustra come distribuire un modulo di protezione hardware dedicato in una rete virtuale esistente con l'interfaccia della riga di comando.
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,19 +8,19 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: ca30dc9d86db8faabfdd3791b74b9f86c9480ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679648"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080317"
 ---
-# <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con l'interfaccia della riga di comando
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con l'interfaccia della riga di comando
 
 HSM dedicato di Azure offre un dispositivo fisico ad uso esclusivo del cliente, con controllo amministrativo completo e piena responsabilità di gestione. Con l'uso di dispositivi fisici, per Microsoft diventa necessario controllarne l'allocazione per garantire una gestione efficace della capacità. Di conseguenza, il servizio HSM dedicato non sarà normalmente visibile per il provisioning delle risorse all'interno di una sottoscrizione di Azure. Per accedere al servizio HSM dedicato, i clienti di Azure dovranno prima contattare il rispettivo account executive Microsoft per richiedere la registrazione per tale servizio. Solo al termine di tale processo sarà possibile effettuare il provisioning. 
 
@@ -38,7 +38,7 @@ L'esercitazione è incentrata sull'integrazione di una coppia di moduli di prote
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-HSM dedicato di Azure non è attualmente disponibile nel portale di Azure. L'interazione con il servizio avverrà interamente tramite riga di comando o con PowerShell. In questa esercitazione verrà usata l'interfaccia della riga di comando in Azure Cloud Shell. Se non si ha familiarità con l'interfaccia della riga di comando di Azure, seguire le istruzioni introduttive riportate nell'[introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+HSM dedicato di Azure non è attualmente disponibile nel portale di Azure. L'interazione con il servizio avverrà interamente tramite riga di comando o con PowerShell. In questa esercitazione verrà usata l'interfaccia della riga di comando in Azure Cloud Shell. Se non si ha familiarità con l'interfaccia della riga di comando di Azure, seguire le istruzioni introduttive disponibili nell'[introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
 Presupposti:
 
@@ -130,7 +130,7 @@ Dopo l'impostazione dei valori dei parametri, per usare i file è necessario car
 
 Sulla barra degli strumenti della shell è disponibile un'opzione per il caricamento e il download. Selezionare questa opzione per caricare i file del modello e dei parametri nella condivisione file:
 
-![Stato della sottoscrizione](media/tutorial-deploy-hsm-cli/file-share.png)
+![Condivisione file](media/tutorial-deploy-hsm-cli/file-share.png)
 
 Dopo aver caricato i file, è possibile creare le risorse. Prima di creare le nuove risorse HSM, verificare che siano presenti alcune risorse che ne costituiscono i prerequisiti. È necessario avere una rete virtuale con intervalli di subnet per il calcolo, i moduli di protezione hardware e il gateway. I comandi seguenti offrono un esempio di come creare una rete virtuale di questo tipo.
 
@@ -191,7 +191,7 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![Stato di provisioning](media/tutorial-deploy-hsm-cli/progress-status2.png)
+![output del provisioning](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
 Sarà ora possibile anche visualizzare le risorse con [Azure Resource Explorer](https://resources.azure.com/).   In Resource Explorer espandere "subscriptions" (sottoscrizioni) a sinistra, la sottoscrizione specifica per HSM dedicato, "resource groups" (gruppi di risorse) e quindi il gruppo di risorse usato e infine selezionare l'elemento "resources" (risorse).
 

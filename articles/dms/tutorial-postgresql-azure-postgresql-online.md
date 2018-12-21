@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Usare il Servizio Migrazione del database di Azure per eseguire la migrazione online di PostgreSQL a Database di Azure per MySQL | Microsoft Docs'
+title: 'Esercitazione: Usare il Servizio Migrazione del database di Azure per eseguire la migrazione online di PostgreSQL in Database di Azure per MySQL | Microsoft Docs'
 description: Informazioni su come eseguire la migrazione online da PostgreSQL locale in Database di Azure per PostgreSQL con il Servizio Migrazione del database di Azure.
 services: dms
 author: HJToland3
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: ba27ceb784cf139c288a89f3191282fb9b364ddc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 8780e145845d820ef0c6ff2c43891287c1902e2c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864377"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000920"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di PostgreSQL a Database di Azure per PostgreSQL online con il Servizio Migrazione del database
+# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di PostgreSQL in Database di Azure per PostgreSQL online mediante il Servizio Migrazione del database di Azure
 È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di PostgreSQL locale a [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con tempi di inattività minimi. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da un'istanza locale di PostgreSQL 9.6 a Database di Azure per PostgreSQL usando un'attività di migrazione online nel Servizio Migrazione del database di Azure.
 
 In questa esercitazione si apprenderà come:
@@ -38,7 +38,7 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione, è necessario:
 
-- Scaricare e installare l'[Edizione PostgreSQL Community](https://www.postgresql.org/download/) 9.5, 9.6 o 10.3. La versione del server PostgreSQL di origine deve essere 9.5.11, 9.6.7, 10.3 o successive. Per altre informazioni, vedere l'articolo [Versioni supportate del database PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- Scaricare e installare [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6 o 10. La versione del server PostgreSQL di origine deve essere 9.5.11, 9.6.7, 10 o successiva. Per altre informazioni, vedere l'articolo [Versioni supportate del database PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
     Inoltre, la versione di PostgreSQL in locale deve corrispondere alla versione del Database di Azure per PostgreSQL. Ad esempio, per PostgreSQL 9.5.11.5 è possibile solo eseguire la migrazione al Database di Azure per PostgreSQL 9.5.11 e non alla versione 9.6.7.
 
@@ -52,7 +52,7 @@ Per completare questa esercitazione, è necessario:
 - Esistono due metodi per richiamare l'interfaccia della riga di comando:
     - Nel menu nell'angolo superiore destro del portale di Azure selezionare il pulsante Cloud Shell:
  
-       ![Pulsante Cloud Shell nel portale di Azure](media\tutorial-postgresql-to-azure-postgresql-online\cloud-shell-button.png)
+       ![Pulsante Cloud Shell nel portale di Azure](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
  
     - Installare ed eseguire l'interfaccia della riga di comando. L'interfaccia della riga di comando 2.0 è uno strumento da riga di comando per la gestione delle risorse di Azure.
      
@@ -188,10 +188,10 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
     ```
 
     Ad esempio il comando seguente creerà un servizio in:
-    - Posizione: Stati Uniti orientali 2
+    - Posizione: Stati Uniti Orientali 2
     - Sottoscrizione: 97181df2-909d-420b-ab93-1bff15acb6b7
-    - Nome del gruppo di risorse: PostgresDemo
-    - Nome del Servizio Migrazione del database: PostgresCLI
+    - Nome gruppo di risorse: PostgresDemo
+    - Nome servizio Migrazione del database: PostgresCLI
 
     ```
     az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
@@ -233,10 +233,10 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
     ```
     Ad esempio, il comando seguente crea un progetto usando questi parametri:
 
-      - Località: Stati Uniti centro-occidentali
-      - Nome del gruppo di risorse: PostgresDemo
-      - Nome del servizio: PostgresCLI
-      - Nome del progetto: PGMigration
+      - Posizione: Stati Uniti centro-occidentali
+      - Nome gruppo di risorse: PostgresDemo
+      - Nome servizio: PostgresCLI
+      - Nome progetto: PGMigration
       - Piattaforma di origine: PostgreSQL
       - Piattaforma di destinazione: AzureDbForPostgreSql
  

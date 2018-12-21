@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con ServiceNow | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con ServiceNow | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ServiceNow.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 470805b2bb77e367887767b95e0f1e04d79c8f9d
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 5b7baffea8e718810a91ea9687a007d36c806aab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830736"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850007"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Esercitazione: Integrazione di Azure Active Directory con ServiceNow
+# <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Esercitazione: integrazione di Azure Active Directory con ServiceNow
 
 Questa esercitazione descrive come integrare ServiceNow con Azure Active Directory (Azure AD).
 
@@ -41,7 +41,7 @@ Per configurare l'integrazione di Azure AD con ServiceNow, sono necessari gli el
 - Sottoscrizione di Azure AD
 - Per ServiceNow, un'istanza o un tenant di ServiceNow, versione Calgary o successiva
 - Per ServiceNow Express, un'istanza di ServiceNow Express, versione Helsinki o successiva
-- Nel tenant di ServiceNow deve essere abilitato il [plug-in Multiple Provider Single Sign On](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0). Questa operazione può essere eseguita [inviando una richiesta di servizio](https://hi.service-now.com).
+- Nel tenant di ServiceNow deve essere abilitato il [plug-in Multiple Provider Single Sign On](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0). Questa operazione può essere eseguita [inviando una richiesta di servizio](https://hi.service-now.com).
 - Per la configurazione automatica, abilitare il plug-in per più provider per ServiceNow.
 
 > [!NOTE]
@@ -113,7 +113,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/servicenow-tutorial/tutorial_general_300.png)
 
-3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare il Single Sign-On.
+3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
     ![Configure Single Sign-On](./media/servicenow-tutorial/tutorial_general_301.png)
 
@@ -301,7 +301,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/servicenow-tutorial/tutorial_general_300.png)
 
-3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare il Single Sign-On.
+3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
     ![Configure Single Sign-On](./media/servicenow-tutorial/tutorial_general_301.png)
 
@@ -356,7 +356,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configurare l'accesso Single Sign-On](./media/servicenow-tutorial/ic7694975.png "Configurare l'accesso Single Sign-On")
 
-    a. Nella casella di testo **Name** (Nome) digitare un nome per la configurazione, ad esempio **TestSAML2.0**.
+    a. Nella casella di testo **Name**, digitare un nome per la configurazione, ad esempio: **TestSAML2.0**.
 
     b. Selezionare **Active**.
 
@@ -376,7 +376,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configurare l'accesso Single Sign-On](./media/servicenow-tutorial/ic7694982ex.png "Configurare l'accesso Single Sign-On")
 
-    a. Nella casella di testo **Name** (Nome) digitare un nome per la configurazione, ad esempio **SAML 2.0**.
+    a. Nella casella di testo **Name**, digitare un nome per la configurazione, ad esempio: **SAML 2.0**.
 
     b. Nel campo **Identity Provider URL** (URL provider di identità) incollare il valore di **Identity Provider ID** (ID provider di identità) copiato dal portale di Azure.
 
@@ -424,7 +424,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel portale di Azure, nel riquadro sinistro, selezionare **Azure Active Directory**, selezionare **Utenti** e quindi selezionare **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Creare un utente di Azure AD][100]
 

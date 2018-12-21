@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: API Tabella con Node.js - Azure Cosmos DB'
+title: 'Guida introduttiva: API Tabella con Node.js - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e Node.js
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: a547e52fffb981747c2a752778cbf187d37549d9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 870b07013aa279a20dd231fecc83775fd1aebc5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841295"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166099"
 ---
-# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Guida introduttiva: creare un'app di API Tabelle con Node.js e Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app di API Tabella con Node.js e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -38,7 +38,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 Eseguire anche queste operazioni:
 
 * [Node.js](https://nodejs.org/en/) 0.10.29 o versione successiva
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -82,7 +82,7 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app. Questo consente all'app di comunicare con il database ospitato. 
 
-1. Nel [portale di Azure](http://portal.azure.com/) fare clic su **Stringa di connessione**. 
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Stringa di connessione**. 
 
     ![Visualizzare e copiare le informazioni necessarie sulla stringa di connessione nel riquadro Stringa di connessione](./media/create-table-nodejs/connection-string.png)
 

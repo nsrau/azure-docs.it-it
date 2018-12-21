@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Web PHP e MySQL in Azure | Microsoft Docs
+title: Compilare un'app PHP con MySQL - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come ottenere un'app PHP che è possibile usare in Azure con connessione a un database MySQL in Azure.
 services: app-service\web
 documentationcenter: php
@@ -14,13 +14,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 9a1468c27e668663ca9079f5f1c9e5e97e51d2d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291288"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251675"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Esercitazione: Creare un'app Web PHP e MySQL in Azure
 
@@ -49,9 +49,9 @@ In questa esercitazione si apprenderà come:
 Per completare questa esercitazione:
 
 * [Installare Git](https://git-scm.com/)
-* [Installare PHP 5.6.4 o versione successiva](http://php.net/downloads.php)
+* [Installare PHP 5.6.4 o versione successiva](https://php.net/downloads.php)
 * [Installare Composer](https://getcomposer.org/doc/00-intro.md)
-* Abilitare le estensioni PHP seguenti necessarie per Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* Abilitare le estensioni PHP seguenti richieste da Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Installare e avviare MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Preparare MySQL in locale
@@ -66,7 +66,7 @@ In una finestra terminale connettersi al server MySQL locale. È possibile usare
 mysql -u root -p
 ```
 
-Se viene richiesto di immettere una password, immettere la password per l'account `root`. Se non si ricorda la password dell'account radice, vedere [MySQL: procedura per reimpostare la password radice](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Se viene richiesto di immettere una password, immettere la password per l'account `root`. Se non si ricorda la password dell'account radice, vedere [MySQL: Come reimpostare la password radice](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Se il comando viene eseguito correttamente, il server MySQL è in esecuzione. In caso contrario, assicurarsi che il server MySQL locale sia stato avviato seguendo la [procedura successiva all'installazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
@@ -598,9 +598,9 @@ Dopo avere avviato lo streaming dei log, aggiornare l'app Web di Azure nel brows
 Per interrompere lo streaming dei log in qualsiasi momento, digitare `Ctrl`+`C`.
 
 > [!TIP]
-> Un'applicazione PHP può usare lo standard [error_log()](http://php.net/manual/function.error-log.php) da inviare alla console. L'applicazione di esempio usa questo approccio in _app/Http/routes.php_.
+> Un'applicazione PHP può usare lo standard [error_log()](https://php.net/manual/function.error-log.php) da inviare alla console. L'applicazione di esempio usa questo approccio in _app/Http/routes.php_.
 >
-> Come framework Web, [Laravel usa Monolog](https://laravel.com/docs/5.4/errors) come provider di registrazione. Per informazioni su come fare in modo che Monolog invii messaggi alla console, vedere [PHP: How to use monolog to log to console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out) (PHP: procedura per usare Monolog per registrarsi alla console (php://out)).
+> Come framework Web, [Laravel usa Monolog](https://laravel.com/docs/5.4/errors) come provider di registrazione. Per vedere come ottenere da Monolog l'output dei messaggi sulla console, vedere [PHP: Come usare Monolog per accedere alla console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 >
 

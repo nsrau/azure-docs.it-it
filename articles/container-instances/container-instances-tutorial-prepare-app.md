@@ -1,21 +1,21 @@
 ---
-title: Esercitazione su Istanze di contenitore di Azure - Preparare l'app
-description: Esercitazione di Istanze di contenitore di Azure - Parte 1 di 3 - Preparare un'app per la distribuzione in Istanze di contenitore di Azure
+title: "Esercitazione: Preparare l'immagine del contenitore per Istanze di Azure Container"
+description: Esercitazione di Istanze di Azure Container - Parte 1 di 3 - Preparare un'app in un'immagine del contenitore per la distribuzione in Istanze di Azure Container
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: dfe494eba64f546616e4e6cc9898f9d63d81eaa2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 029b4f2d0f0f88f56ca1f3e282d8c80e76f4d5c7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854780"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186413"
 ---
-# <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>Esercitazione: Creare un contenitore per la distribuzione in Istanze di contenitore di Azure
+# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Esercitazione: Creare un'immagine del contenitore per la distribuzione in Istanze di Azure Container
 
 Istanze di contenitore di Azure consente di eseguire la distribuzione di contenitori Docker nell'infrastruttura di Azure senza effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore. In questa esercitazione si inserisce una piccola applicazione Web Node.js in un'immagine del contenitore eseguibile con Istanze di contenitore di Azure.
 

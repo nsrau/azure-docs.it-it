@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: f1803dd051b380743b56f4f026ee5c5fb684ce69
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: e31f35aadfa7e46426a1779cdc057691bef91336
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41920779"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965548"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Caricare i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure a un archivio BLOB di Azure. 
@@ -43,7 +43,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 ## <a name="overview"></a>Panoramica
 Il diagramma generale della soluzione è il seguente: 
 
-![Caricare i dati in modo incrementale](media\tutorial-Incremental-copy-portal\incrementally-load.png)
+![Caricare i dati in modo incrementale](media/tutorial-Incremental-copy-portal/incrementally-load.png)
 
 Di seguito sono descritti i passaggi fondamentali per la creazione di questa soluzione: 
 

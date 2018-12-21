@@ -1,21 +1,22 @@
 ---
-title: 'Esercitazione: Creare, pubblicare, rispondere da una knowledge base - REST, C# - QnA Maker'
-titleSuffix: Azure Cognitive Services
+title: Creare, pubblicare, rispondere
+titleSuffix: QnA Maker - Azure Cognitive Services
 description: Questa esercitazione basata su REST illustra la procedura di creazione e pubblicazione di una knowledge base a livello di codice e quindi descrive come rispondere a una domanda dalla knowledge base stessa.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 013b74165afe6eafee337bd00ca88b1034ad5662
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: dd5bc95be3959e7af5911d8a765791718680581a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299562"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162937"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Esercitazione: Creare una knowledge base e quindi rispondere a una domanda con C#
 
@@ -43,7 +44,7 @@ In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
 * È necessario disporre di un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave, selezionare **Chiavi** in **GESTIONE RISORSE** nel dashboard. 
 
 > [!NOTE] 
-> I file di soluzione completi sono disponibili nella [**repository di gitHub**  Azure-Samples/cognitive-services-qnamaker-csharo](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> I file di soluzione completi sono disponibili nel [repository GitHub **Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="create-a-knowledge-base-project"></a>Creare un progetto per la knowledge base
 

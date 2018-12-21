@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 2c417a0e9a3f50032aa3c97ced57d3249bc7c93a
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 549194ce1dcab5cd449c60c934421b3bea154d6a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620669"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015688"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
 
@@ -38,7 +38,7 @@ Contenuto dell'esercitazione:
 ## <a name="availability"></a>Disponibilità
 
 > [!NOTE]
-> La cache interna non è disponibile nel livello **A consumo** di Gestione API di Azure. È invece possibile [usare una cache Redis esterna](api-management-howto-cache-external.md).
+> La cache interna non è disponibile nel livello **A consumo** di Gestione API di Azure. È possibile [usare una cache di Azure per Redis esterna](api-management-howto-cache-external.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -91,7 +91,7 @@ Per vedere il funzionamento della memorizzazione nella cache, chiamare l'operazi
 ## <a name="next-steps"> </a>Passaggi successivi
 * Per altre informazioni sui criteri di caching, vedere [Caching policies][Caching policies] (Criteri di caching) nell'argomento [API Management policy reference][API Management policy reference] (Riferimento ai criteri di Gestione API).
 * Per informazioni sul caching degli elementi in base alla chiave usando espressioni di criteri, vedere [Caching personalizzato in Gestione API di Azure](api-management-sample-cache-by-key.md).
-* Per altre informazioni sull'uso della cache Redis esterna, vedere [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md).
+* Per altre informazioni sull'uso della cache di Azure per Redis esterna, vedere [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

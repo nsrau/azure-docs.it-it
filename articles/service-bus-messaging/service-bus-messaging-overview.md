@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 7b4045737ea2be466a436e6abb0de6a1a61e6a5b
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 55a651080c4ed1d22901681317046f0853e257f0
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636595"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163107"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 
-Il bus di servizio di Microsoft Azure è un broker di messaggi di integrazione aziendale completamente gestito. Il bus di servizio viene in genere usato per disaccoppiare applicazioni e servizi ed è una piattaforma affidabile e sicura per il trasferimento dello stato e dei dati asincrono. I dati vengono trasferiti tra applicazioni e servizi diversi usando i *messaggi*. Un messaggio è in formato binario e può contenere solo testo, XML o JSON. 
+Il bus di servizio di Microsoft Azure è un broker di messaggi di [integrazione](http://azure.com/integration) aziendale completamente gestito. Il bus di servizio viene in genere usato per disaccoppiare applicazioni e servizi ed è una piattaforma affidabile e sicura per il trasferimento dello stato e dei dati asincrono. I dati vengono trasferiti tra applicazioni e servizi diversi usando i *messaggi*. Un messaggio è in formato binario e può contenere solo testo, XML o JSON. 
 
 Alcuni scenari di messaggistica comuni sono:
 

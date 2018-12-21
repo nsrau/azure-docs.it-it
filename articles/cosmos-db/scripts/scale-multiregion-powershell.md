@@ -1,25 +1,20 @@
 ---
-title: Script di Azure PowerShell - Replica multiarea per Azure Cosmos DB | Documentazione Microsoft
+title: Script di Azure PowerShell - Replica multiarea per Azure Cosmos DB
 description: Esempio di script di Azure PowerShell - Replica multiarea per Azure Cosmos DB
 services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 ms.service: cosmos-db
+author: SnehaGunda
+ms.author: sngun
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
-ms.openlocfilehash: 99d6a0852fbdb031b34abca433569f9297ecd740
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8bc2b44f240327d8272af8a20c117c770377421f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41920318"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954584"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-powershell"></a>Replicare l'account di database di Azure Cosmos DB in più aree e configurare le priorità di failover mediante PowerShell
 

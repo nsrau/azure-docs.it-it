@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 0a582dc3acf17a10bd143988da7dd12627650dff
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8150774a630e6888dcd3bb5a4d219cfbf2c2c477
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834867"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310165"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint del servizio Rete virtuale
 
@@ -30,19 +30,20 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti:
 
 **Disponibile a livello generale**
 
-- **[Archiviazione di Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: disponibile a livello generale in tutte le aree di Azure.
-- **[Database SQL di Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile a livello generale in tutte le aree di Azure.
-- **[Server di Database di Azure per PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
-- **[Server di Database di Azure per MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile a livello generale in tutte le aree di cloud pubblico di Azure.
-- **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: disponibile a livello generale in tutte le aree di cloud pubblico di Azure.
+- **[Archiviazione di Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: disponibilità generale in tutte le aree di Azure.
+- **[Database SQL di Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilità generale in tutte le aree di Azure.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilità generale in tutte le aree di Azure.
+- **[Server Database di Azure per PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilità generale nelle aree di Azure in cui è disponibile il servizio di database.
+- **[Server Database di Azure per MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilità generale nelle aree di Azure in cui è disponibile il servizio di database.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilità generale in tutte le aree del cloud pubblico di Azure.
+- **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: disponibilità generale in tutte le aree del cloud pubblico di Azure.
+- **[Bus di servizio di Azure](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilità generale in tutte le aree del cloud pubblico di Azure.
+- **[Hub eventi di Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilità generale in tutte le aree del cloud pubblico di Azure.
 
 **Anteprima**
 
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima in tutte le aree del cloud pubblico di Azure.
-- **[Bus di servizio di Azure](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima.
-- **[Hub eventi di Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima.
-- **[Azure Data Lake Store Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilità in anteprima in tutte le aree del cloud pubblico di Azure.
+- **[Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilità in anteprima.
 
 Per le notifiche più aggiornate, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -50,11 +51,11 @@ Per le notifiche più aggiornate, vedere la pagina [Aggiornamenti della rete vir
 
 Gli endpoint di servizio offrono i vantaggi seguenti:
 
-- **Maggiore sicurezza per le risorse dei servizi di Azure**: lo spazio indirizzi privato della rete virtuale può essere sovrapposto e quindi non può essere usato per identificare in modo univoco il traffico proveniente dalla rete virtuale. Gli endpoint di servizio consentono di proteggere le risorse dei servizi di Azure in modo che siano limitate alla rete virtuale estendendo l'identità della rete virtuale al servizio. Quando gli endpoint di servizio sono abilitati nella rete virtuale, è possibile associare le risorse del servizio di Azure alla rete virtuale aggiungendo una regola della rete virtuale alle risorse. In questo modo si ottiene una maggiore sicurezza perché si impedisce completamente l'accesso alle risorse da Internet pubblico, consentendo solo il traffico dalla rete virtuale.
-- **Routing ottimale per il traffico del servizio di Azure dalla rete virtuale**: attualmente le route nella rete virtuale che forzano il transito del traffico Internet attraverso appliance locali e/o virtuali, eseguendo così un tunneling forzato, forzano anche il traffico del servizio di Azure nella stessa route del traffico Internet. Gli endpoint di servizio forniscono il routing ottimale per il traffico di Azure. 
+- **Maggiore sicurezza per le risorse dei servizi di Azure**. A causa della possibile sovrapposizione dello spazio indirizzi privato della rete virtuale, questo non può essere usato per identificare in modo univoco il traffico proveniente dalla rete virtuale. Gli endpoint di servizio consentono di proteggere le risorse dei servizi di Azure in modo che siano limitate alla rete virtuale estendendo l'identità della rete virtuale al servizio. Quando gli endpoint di servizio sono abilitati nella rete virtuale, è possibile associare le risorse del servizio di Azure alla rete virtuale aggiungendo una regola della rete virtuale alle risorse. In questo modo si ottiene una maggiore sicurezza perché si impedisce completamente l'accesso alle risorse da Internet pubblico, consentendo solo il traffico dalla rete virtuale.
+- **Routing ottimale per il traffico dei servizi di Azure dalla rete virtuale**. Attualmente, tutte le route nella rete virtuale che forzano il traffico Internet verso appliance locali e/o virtuali (tunneling forzato) forzano anche il traffico dei servizi di Azure affinché usi la stessa route del traffico Internet. Gli endpoint di servizio forniscono il routing ottimale per il traffico di Azure. 
 
   Gli endpoint instradano sempre il traffico del servizio direttamente dalla rete virtuale al servizio nella rete backbone di Microsoft Azure. Mantenendo il traffico nella rete backbone di Azure è possibile continuare a monitorare e verificare il traffico Internet in uscita dalle reti virtuali, tramite il tunneling forzato, senza conseguenze per il traffico del servizio. Vedere altre informazioni sulle [route definite dall'utente e il tunneling forzato](virtual-networks-udr-overview.md).
-- **Semplice da configurare con un minor overhead di gestione**: non sono più necessari indirizzi IP pubblici riservati nelle reti virtuali per proteggere le risorse di Azure attraverso il firewall IP. Non sono necessari dispositivi NAT o gateway per configurare gli endpoint di servizio. Un endpoint di servizio può essere configurato con un semplice clic in una subnet. Non c'è alcun overhead aggiuntivo per la gestione degli endpoint.
+- **Semplicità di configurazione con sovraccarico di gestione inferiore**. Non sono più necessari indirizzi IP pubblici riservati nelle reti virtuali per proteggere le risorse di Azure tramite il firewall IP. Non sono necessari dispositivi NAT o gateway per configurare gli endpoint di servizio. Un endpoint di servizio può essere configurato con un semplice clic in una subnet. Non c'è alcun overhead aggiuntivo per la gestione degli endpoint.
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -99,10 +100,10 @@ Gli endpoint di servizio offrono i vantaggi seguenti:
 
 ### <a name="scenarios"></a>Scenari
 
-- **Reti virtuali con peering, connesse o multiple**: per associare i servizi di Azure a più subnet in una o più reti virtuali, è possibile abilitare gli endpoint di servizio in modo indipendente in ognuna di queste subnet e associare le risorse dei servizi di Azure a tutte queste subnet.
+- **Reti virtuali multiple, connesse o con peering**: per associare i servizi di Azure a più subnet in una o più reti virtuali, è possibile abilitare gli endpoint di servizio in modo indipendente in ognuna di queste subnet e associare le risorse dei servizi di Azure a tutte le subnet.
 - **Filtro del traffico in uscita da una rete virtuale ai servizi di Azure**: per verificare o filtrare il traffico destinato a un servizio di Azure da una rete virtuale, è possibile distribuire un'appliance virtuale di rete nella rete virtuale. Sarà quindi possibile applicare gli endpoint di servizio alla subnet in cui è distribuita l'appliance virtuale di rete e associare le risorse del servizio di Azure solo a questa subnet. Questo scenario può essere utile se si vuole limitare l'accesso al servizio di Azure dalla rete virtuale solo a risorse di Azure specifiche, usando il filtro dell'applicance virtuale di rete. Per altre informazioni, vedere il [traffico in uscita con le appliance virtuali di rete](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - **Associazione delle risorse di Azure ai servizi distribuiti direttamente nelle reti virtuali**: diversi servizi di Azure possono essere distribuiti direttamente in subnet specifiche di una rete virtuale. È possibile associare le risorse dei servizi di Azure a subnet di [servizi gestiti](virtual-network-for-azure-services.md), configurando un endpoint di servizio nella subnet del servizio gestito.
-- **Traffico del disco da una macchina virtuale di Azure**: il traffico del disco della macchina virtuale, inclusi montaggio, smontaggio e diskIO, per dischi gestiti/non gestiti non è interessato dalle modifiche al routing degli endpoint servizio per Archiviazione di Azure. È possibile limitare l'accesso REST ai BLOB di pagine per selezionare reti tramite endpoint servizio e [regole della rete di Archiviazione di Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- **Traffico dei dischi da una macchina virtuale di Azure**: il traffico dei dischi gestiti/non gestiti della macchina virtuale, che include montaggio, smontaggio e I/O del disco, non è interessato dalle modifiche al routing degli endpoint di servizio per Archiviazione di Azure. È possibile limitare l'accesso REST ai BLOB di pagine per selezionare reti tramite endpoint servizio e [regole della rete di Archiviazione di Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ### <a name="logging-and-troubleshooting"></a>Registrazione e risoluzione dei problemi
 
@@ -135,15 +136,19 @@ Per una risorsa del servizio di Azure, ad esempio un account di archiviazione di
 
 ## <a name="virtual-network-service-endpoint-policies"></a>Criteri degli endpoint di servizio di rete virtuale 
 
-I criteri degli endpoint di servizio di rete virtuale consentono di filtrare il traffico di rete virtuale verso i servizi di Azure, limitando l'accesso a risorse specifiche dei servizi di Azure, sugli endpoint di servizio. I criteri degli endpoint di servizio forniscono un controllo granulare dell'accesso per il traffico di rete virtuale verso i servizi di Azure. Altre informazioni: [Criteri degli endpoint di servizio di rete virtuale](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+I criteri degli endpoint di servizio di rete virtuale consentono di filtrare il traffico di rete virtuale verso i servizi di Azure, limitando l'accesso a risorse specifiche dei servizi di Azure, sugli endpoint di servizio. I criteri degli endpoint di servizio forniscono un controllo granulare dell'accesso per il traffico di rete virtuale verso i servizi di Azure. Per altre informazioni, vedere [Criteri degli endpoint di servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
 
+## <a name="faqs"></a>Domande frequenti
+
+Vedere le [domande frequenti sugli endpoint di servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [configurare gli endpoint del servizio di rete virtuale](tutorial-restrict-network-access-to-resources.md)
 - Informazioni su come [associare un account di archiviazione di Azure a una rete virtuale](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Informazioni su come [associare un database SQL di Azure a una rete virtuale](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Informazioni su come [associare un'istanza di Azure SQL Data Warehouse a una rete virtuale](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - Informazioni sull'[integrazione dei servizi di Azure nelle reti virtuali](virtual-network-for-azure-services.md)
-- Informazioni su [Criteri degli endpoint di servizio di rete virtuale](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
--  Avvio rapido: [modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) per configurare un endpoint di servizio in una subnet della rete virtuale e associare l'account di Archiviazione di Azure a tale subnet.
+- Informazioni su [Criteri degli endpoint di servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+-  Guida introduttiva: [modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) per configurare un endpoint di servizio in una subnet di una rete virtuale e associare un account di archiviazione di Azure a tale subnet.
 

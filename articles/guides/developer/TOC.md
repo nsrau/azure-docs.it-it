@@ -36,7 +36,7 @@
 
 # Concetti
 ## [Fatturazione e sottoscrizioni](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Confronti di hosting](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [Confronti di hosting](https://docs.microsoft.com/azure/app-service/overview-compare)
 ## [Informazioni sul servizio app](https://docs.microsoft.com/azure/app-service/overview)
 ## Macchine virtuali
 ### [Macchine virtuali di Linux](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
@@ -76,11 +76,11 @@
 ### [App Web e per dispositivi mobili](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Backup
-### [App Web e per dispositivi mobili](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+### [App Web e per dispositivi mobili](https://docs.microsoft.com/azure/app-service/manage-backup)
 ### [Macchine virtuali](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## Monitorare
-### [App Web e per dispositivi mobili](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
+### [App Web e per dispositivi mobili](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
 ### [VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [VM Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Microservizi](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)

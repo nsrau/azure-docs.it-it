@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 0f2bcc34a1f82c33c8f640dce8eecccf312651fb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 58fca9e66b0be12992d7762824df4ceb9a22e614
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844211"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073415"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB: Creare un'applicazione Node.js tramite l'API Gremlin
 
@@ -36,7 +36,7 @@ Questa guida introduttiva illustra come creare un account, un database e un graf
 
 Prima di poter eseguire questo esempio, è necessario soddisfare i prerequisiti seguenti:
 * [Node.js](https://nodejs.org/en/) versione v0.10.29 o versioni successive
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

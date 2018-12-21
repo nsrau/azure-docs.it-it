@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Riconoscimento vocale in C++ su Windows con l'SDK del servizio Voce"
+title: 'Guida introduttiva: Riconoscimento vocale, C++ - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ su Windows Desktop con l'SDK del servizio Voce
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8947ba3f39cebf51e956db0d841e393963832bc4
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218737"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075188"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK
+# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -31,11 +31,11 @@ In questo articolo, viene creata un'applicazione console C++ per Windows. Utiliz
 
 1. Avviare Visual Studio 2017.
 
-1. Assicurarsi che il carico di lavoro di **sviluppo di applicazioni desktop con C++** sia disponibile. Scegliere **Strumenti** > **Ottieni strumenti e funzionalità** dalla barra dei menu di Visual Studio per aprire il programma di installazione di Visual Studio. Se questo carico di lavoro è già attivato, andare al passaggio successivo. 
+1. Assicurarsi che il carico di lavoro di **sviluppo di applicazioni desktop con C++** sia disponibile. Scegliere **Strumenti** > **Ottieni strumenti e funzionalità** dalla barra dei menu di Visual Studio per aprire il programma di installazione di Visual Studio. Se questo carico di lavoro è già attivato, andare al passaggio successivo.
 
     ![Screenshot della scheda del carico di lavoro di Visual Studio](media/sdk/vs-enable-cpp-workload.png)
 
-    In caso contrario, selezionare la casella accanto a **Sviluppo di applicazioni Desktop con C++**. 
+    In caso contrario, selezionare la casella accanto a **Sviluppo di applicazioni Desktop con C++**.
 
 1. Assicurarsi che il componente **Gestione pacchetti NuGet** sia disponibile. Passare alla scheda **Singoli componenti** della finestra di dialogo del programma di installazione di Visual Studio e selezionare **Gestione pacchetti NuGet** se non è già abilitato.
 

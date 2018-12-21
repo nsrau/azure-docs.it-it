@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 84bdc560a135f8f1eb7d6c86fe4f3749135ff7e1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395080"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139045"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM
 
@@ -40,7 +41,7 @@ Questo articolo si basa sull'esempio [Encrypting with DRM](https://github.com/Az
 
         L'app imposta una restrizione di tipo token JWT nei criteri.
 
-* Creare uno StreamingLocator per l'asset specificato con il nome dei criteri di flusso specificati. In questo caso vengono usati i criteri predefiniti. Imposta due chiavi del contenuto nello StreamingLocator: AES-128 (busta) e CENC (PlayReady e Widevine).  
+* Creare uno StreamingLocator per l'asset specificato con il nome dei criteri di flusso specificati. In questo caso vengono usati i criteri predefiniti. Imposta due chiavi del contenuto nello StreamingLocator: AES-128 (envelope) e CENC (PlayReady e Widevine).  
     
     Dopo aver creato lo StreamingLocator, l'asset di output viene pubblicato e diventa disponibile per i client per la riproduzione.
 
@@ -58,7 +59,7 @@ Questo articolo si basa sull'esempio [Encrypting with DRM](https://github.com/Az
 
 L'esempio descritto in questo articolo genera il risultato seguente:
 
-![Proteggere con DRM](./media/protect-with-drm/ams_player.png)
+![AMS con video protetto con DRM](./media/protect-with-drm/ams_player.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 

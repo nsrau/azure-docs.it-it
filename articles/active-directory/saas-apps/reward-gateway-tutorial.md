@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Reward Gateway | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Reward Gateway | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Reward Gateway.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: d5cda8830b480e9ef9dff18cb3d7b99e1db55590
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0339889228c80cc3675fd7fde52e75cb84521ab6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442796"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840181"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Esercitazione: Integrazione di Azure Active Directory con Reward Gateway
+# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Esercitazione: integrazione di Azure Active Directory con Reward Gateway
 
 Questa esercitazione descrive come integrare Reward Gateway con Azure Active Directory (Azure AD).
 
@@ -129,7 +129,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, configurare l'integrazione nel portale di gestione di Reward. Per informazioni dettagliate, vedere http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, configurare l'integrazione nel portale di gestione di Reward. Per informazioni dettagliate, vedere https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
  
 1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -139,10 +139,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/reward-gateway-tutorial/tutorial_general_400.png)
 
-1. Per configurare l'accesso Single Sign-On in **Reward Gateway**, configurare l'integrazione nel portale di gestione di Reward. Usare i metadati scaricati per ottenere il certificato di firma e caricarlo durante la configurazione. Per informazioni dettagliate, vedere http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+1. Per configurare l'accesso Single Sign-On in **Reward Gateway**, configurare l'integrazione nel portale di gestione di Reward. Usare i metadati scaricati per ottenere il certificato di firma e caricarlo durante la configurazione. Per informazioni dettagliate, vedere https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD

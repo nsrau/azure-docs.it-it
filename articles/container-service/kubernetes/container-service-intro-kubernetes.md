@@ -1,5 +1,5 @@
 ---
-title: Introduzione al servizio contenitore di Azure per Kubernetes
+title: (DEPRECATO) Introduzione al servizio Azure Container per Kubernetes
 description: Il servizio contenitore di Azure per Kubernetes semplifica la distribuzione e la gestione delle applicazioni basate su contenitori in Azure.
 services: container-service
 author: gabrtv
@@ -9,16 +9,19 @@ ms.topic: overview
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 3e019f02d13ade6a42f4739eacae55f5bf6ac2af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e00ac57cc36b3331cfb847ecedc6c75132cdeb6b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973593"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999185"
 ---
-# <a name="introduction-to-azure-container-service-for-kubernetes"></a>Introduzione al servizio contenitore di Azure per Kubernetes
+# <a name="deprecated-introduction-to-azure-container-service-for-kubernetes"></a>(DEPRECATO) Introduzione al servizio Azure Container per Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Per la versione aggiornata di questo articolo, che usa il servizio Azure Kubernetes, vedere [Panoramica del servizio Azure Kubernetes](../../aks/intro-kubernetes.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Il servizio contenitore di Azure per Kubernetes semplifica la creazione, la configurazione e la gestione di un cluster di macchine virtuali preconfigurate per eseguire le applicazioni nei contenitori. Ciò consente di usare le competenze già acquisite o di attingere da un consistente e crescente bagaglio di competenze a livello di community per distribuire e gestire applicazioni basate sul contenitore in Microsoft Azure.
 

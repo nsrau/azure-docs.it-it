@@ -9,12 +9,12 @@ ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: f753d7273c685a7ec3e4e0877e171df04e69e5b4
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: da5370e274aa1904f803227d8c85912a7d26c533
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978316"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000650"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Informazioni su Service Fabric Mesh
 
@@ -50,6 +50,7 @@ Con Service Fabric Mesh è possibile:
 - Distribuire e gestire risorse usando il [portale di Azure](https://portal.azure.com), i modelli di Resource Manager o le librerie dell'interfaccia della riga di comando di Azure o di PowerShell.
 - Configurare il monitoraggio e gli avvisi di funzionamento usando [Application Insights](/azure/application-insights/) (o uno strumento a scelta) per acquisire le tracce operative e diagnostiche dalla piattaforma.
 - Accedere alle informazioni di diagnostica dell'applicazione generate dal modello dell'applicazione usando [Application Insights](/azure/application-insights/) o uno strumento a scelta.
+- Ottimizzare l'utilizzo delle risorse specificando regole di scalabilità automatica per i servizi nella definizione dell'applicazione.
 
 ## <a name="mission-critical-platform-capabilities"></a>Funzionalità strategiche della piattaforma
 
@@ -67,7 +68,7 @@ Con Service Fabric Mesh è possibile:
 
 Bastano pochi passaggi per distribuire un progetto di esempio con Visual Studio. Per altre informazioni, vedere [Guida introduttiva: Creare e distribuire un'app Web in Azure Service Fabric Mesh](service-fabric-mesh-quickstart-dotnet-core.md). 
 
-Risposte alle [domande comuni](service-fabric-mesh-faq.md).
+Risposte a [domande comuni](service-fabric-mesh-faq.md).
 
 
 <!-- Links -->

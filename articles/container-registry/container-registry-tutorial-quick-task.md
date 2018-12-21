@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Compilare immagini dei contenitori nel cloud con ACR Tasks'
+title: 'Esercitazione: Compilare immagini dei contenitori nel cloud - Attività del Registro Azure Container'
 description: Questa esercitazione illustra come compilare un'immagine del contenitore Docker in Azure con ACR Tasks e quindi distribuire tale immagine nelle istanze di contenitore di Azure.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7ac4fb62c6832920634de96c3e5befb15ce3b3a4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eafd6a75b4297056bcf4c5415f77179cefde6541
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854729"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256690"
 ---
-# <a name="tutorial-build-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Esercitazione: Compilare immagini dei contenitori nel cloud con ACR Tasks
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Esercitazione: Compilare e distribuire immagini dei contenitori nel cloud con Attività del Registro Azure Container
 
 **ACR Tasks** è un gruppo di funzionalità in Registro contenitori di Azure che consente una compilazione efficiente e semplificata delle immagini dei contenitori Docker in Azure. Questo articolo illustra come usare la funzionalità di *attività rapida* di ACR Tasks.
 

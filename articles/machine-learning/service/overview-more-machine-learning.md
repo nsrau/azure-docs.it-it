@@ -1,5 +1,5 @@
 ---
-title: Confrontare le opzioni dei prodotti di machine learning di Microsoft - Azure | Microsoft Docs
+title: Confrontare le opzioni di machine learning di Microsoft
 description: Confrontare la varietà di prodotti Microsoft per compilare, distribuire e gestire i propri modelli di Machine Learning. Decidere quali prodotti scegliere per la soluzione.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872552"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274121"
 ---
-# <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Informazioni sulle opzioni di machine learning fornite da Microsoft
+# <a name="what-are-the-machine-learning-products-at-microsoft"></a>Informazioni sui prodotti di machine learning forniti da Microsoft
 
 Microsoft offre un'ampia gamma di prodotti per compilare, distribuire e gestire i propri modelli di machine learning. Confrontare questi prodotti e scegliere ciò che è necessario per sviluppare le soluzioni di machine learning nel modo più efficace.
 
@@ -27,8 +27,8 @@ Microsoft offre un'ampia gamma di prodotti per compilare, distribuire e gestire 
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Interfaccia visiva di trascinamento della selezione per Machine Learning | Compilare, provare e distribuire i modelli usando algoritmi preconfigurati |
 | [Azure Databricks](#azure-databricks) | Piattaforma di analisi basata su Spark | Compilare e distribuire modelli e flussi di lavoro dei dati |
 | [Servizi cognitivi di Azure](#azure-cognitive-services) | Servizi di Azure con modelli predefiniti di Machine Learning e intelligenza artificiale | È possibile aggiungere con facilità funzionalità intelligenti alle app |
-| [Data Science Virtual Machine di Azure](#azure-data-science-virtual-machine) | Macchina virtuale con strumenti di data science preinstallati | Sviluppare soluzioni di Machine Learning in un ambiente preconfigurato |
-| ***In locale***<br>*(anche i server locali possono essere eseguiti in una macchina virtuale nel cloud)* | | |
+| [Macchina virtuale di data science di Azure](#azure-data-science-virtual-machine) | Macchina virtuale con strumenti di data science preinstallati | Sviluppare soluzioni di Machine Learning in un ambiente preconfigurato |
+| ***Locale***<br>*(anche i server locali possono essere eseguiti in una macchina virtuale nel cloud)* | | |
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Motore di analisi incorporato in SQL | Creare e distribuire modelli all'interno di SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Server enterprise autonomo per l'analisi predittiva | Creare e distribuire modelli con R e Python |
 | ***Strumenti per sviluppatori*** | | |
@@ -41,8 +41,7 @@ Il [servizio Azure Machine Learning](overview-what-is-azure-ml.md) è un servizi
 
 Usare il servizio di Azure Machine Learning per eseguire il training, distribuire e gestire modelli di Machine Learning con Python e CLI su scalabilità cloud.
 
->[!Note]
-> È possibile provare gratuitamente Azure Machine Learning. Non è necessaria una carta di credito o una sottoscrizione di Azure. Per iniziare. https://azure.microsoft.com/free/
+Accedere alla [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 
@@ -71,11 +70,11 @@ Usare Databricks quando si desidera collaborare alla creazione di soluzioni di m
 
 Usare i Servizi cognitivi per sviluppare app tra dispositivi e piattaforme diverse. Le API vengono migliorate continuamente e sono facili da installare.
 
-## <a name="azure-data-science-virtual-machine"></a>Data Science Virtual Machine di Azure
+## <a name="azure-data-science-virtual-machine"></a>Macchina virtuale di data science di Azure
 
-[Data Science Virtual Machine di Azure](../data-science-virtual-machine/overview.md) è un ambiente di macchina virtuale personalizzato nel cloud di Microsoft Azure, creato in modo specifico per l'analisi scientifica dei dati. Include diversi strumenti comuni per l'analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l'analisi avanzata.
+[Macchina virtuale di data science di Azure](../data-science-virtual-machine/overview.md) è un ambiente di macchina virtuale personalizzato nel cloud di Microsoft Azure, creato in modo specifico per l'analisi scientifica dei dati. Include diversi strumenti comuni per l'analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l'analisi avanzata.
 
-L'ambiente Data Science Virtual Machine è supportato come destinazione per il servizio Azure Machine Learning.
+La macchina virtuale di data science è supportata come destinazione per il servizio Machine Learning di Azure.
 È disponibile nelle versioni per Windows e Linux Ubuntu. Il servizio Azure Machine Learning non è supportato in Linux CentOS.
 Per informazioni sulla versione specifica e un elenco di quanto  incluso, vedere [Introduzione a Data Science Virtual Machine di Azure](../data-science-virtual-machine/overview.md).
 

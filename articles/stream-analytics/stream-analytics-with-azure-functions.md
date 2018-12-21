@@ -1,5 +1,5 @@
 ---
-title: Esercitazione:Eseguire Funzioni di Azure in processi di Analisi di flusso | Microsoft Docs
+title: 'Esercitazione: Eseguire Funzioni di Azure con processi di Analisi di flusso di Azure | Microsoft Docs'
 description: Questa esercitazione descrive come configurare Funzioni di Azure come sink di output per i processi di Analisi di flusso.
 services: stream-analytics
 author: jasonwhowell
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977996"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164161"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
@@ -35,34 +35,34 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Configurare un processo di Analisi di flusso per eseguire una funzione 
 
-Questa sezione illustra come configurare un processo di Analisi di flusso per eseguire una funzione che scriva dati in Cache Redis di Azure. Il processo di Analisi di flusso legge gli eventi da Hub eventi di Azure ed esegue una query che richiama la funzione. Quest'ultima legge i dati dal processo di Analisi di flusso e li scrive in Cache Redis di Azure.
+Questa sezione illustra come configurare un processo di Analisi di flusso per eseguire una funzione che scriva dati in Azure Cache per Redis. Il processo di Analisi di flusso legge gli eventi da Hub eventi di Azure ed esegue una query che richiama la funzione. Quest'ultima legge i dati dal processo di Analisi di flusso e li scrive in Azure Cache per Redis.
 
 ![Diagramma che mostra le relazioni tra i servizi di Azure](./media/stream-analytics-with-azure-functions/image1.png)
 
 Per eseguire questa attività sono necessari i passaggi seguenti:
 * [Creare un processo di Analisi di flusso con Hub eventi come input](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [Creare un'istanza di Cache Redis di Azure](#create-an-azure-redis-cache-instance)  
-* [Creare una funzione in Funzioni di Azure che possa scrivere dati in Cache Redis di Azure](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [Creare un'istanza di Azure Cache per Redis ](#create-an-azure-redis-cache-instance)  
+* [Creare una funzione in Funzioni di Azure che possa scrivere dati in Azure Cache per Redis](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
 * [Aggiornare il processo di Analisi di flusso con la funzione come output](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [Controllare i risultati in Cache Redis di Azure](#check-azure-redis-cache-for-results)  
+* [Controllare i risultati in Azure Cache per Redis](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Creare un processo di Analisi di flusso con Hub eventi come input
 
 Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytics-real-time-fraud-detection.md) per creare un hub eventi, avviare l'applicazione di generazione di eventi e creare un processo di Analisi di flusso (ignorare i passaggi per la creazione della query e dell'output, ma fare riferimento alle sezioni seguenti per la configurazione dell'output di Funzioni).
 
-## <a name="create-an-azure-redis-cache-instance"></a>Creare un'istanza di Cache Redis di Azure
+## <a name="create-an-azure-cache-for-redis-instance"></a>Creare un'istanza di Azure Cache per Redis
 
-1. Creare una cache in Cache Redis di Azure seguendo la procedura descritta in [Creare una cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
+1. Creare una cache in Azure Cache per Redis seguendo la procedura descritta in [Creare una cache](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
 2. Dopo aver creato la cache, in **Impostazioni**selezionare **Chiavi di accesso**. Annotare la **Stringa di connessione primaria**.
 
-   ![Screenshot della stringa di connessione di Cache Redis di Azure](./media/stream-analytics-with-azure-functions/image2.png)
+   ![Screenshot della stringa di connessione di Azure Cache per Redis](./media/stream-analytics-with-azure-functions/image2.png)
 
-## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Creare una funzione in Funzioni di Azure che possa scrivere dati in Cache Redis di Azure
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Creare una funzione in Funzioni di Azure che possa scrivere dati in Azure Cache per Redis
 
 1. Vedere la sezione [Creare un'app per le funzioni](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) della documentazione relativa a Funzioni. L'articolo illustra come creare un'app per le funzioni e una [funzione attivata da HTTP in Funzioni di Azure](../azure-functions/functions-create-first-azure-function.md#create-function) usando il linguaggio CSharp.  
 
-2. Passare alla funzione **run.csx** e aggiornarla con il codice seguente. Assicurarsi di sostituire "\<your redis cache connection string goes here\>" (inserire qui la stringa di connessione di Cache Redis) con la stringa di connessione primaria di Cache Redis di Azure recuperata nella sezione precedente.  
+2. Passare alla funzione **run.csx** e aggiornarla con il codice seguente. (Assicurarsi di sostituire "\<inserire qui la stringa di connessione di Azure Cache per Redis\>" con la stringa di connessione primaria di Azure Cache per Redis recuperata nella sezione precedente.)  
 
    ```csharp
    using System;
@@ -85,7 +85,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
       {        
          return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
       }
-      var connection = ConnectionMultiplexer.Connect("<your redis cache connection string goes here>");
+      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
       log.Info($"Connection string.. {connection}");
     
       // Connection refers to a property that returns a ConnectionMultiplexer
@@ -185,17 +185,17 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
     
 6.  Avviare il processo di Analisi di flusso.
 
-## <a name="check-azure-redis-cache-for-results"></a>Controllare i risultati in Cache Redis di Azure
+## <a name="check-azure-cache-for-redis-for-results"></a>Controllare i risultati in Azure Cache per Redis
 
-1. Accedere al portale di Azure e individuare Cache Redis di Azure. Selezionare **Console**.  
+1. Accedere al portale di Azure e individuare Azure Cache per Redis. Selezionare **Console**.  
 
-2. Usare i [comandi di Cache Redis](https://redis.io/commands) per verificare che i dati si trovino al suo interno. Il comando assume il formato Get {chiave}. Ad esempio: 
+2. Usare [i comandi di Azure Cache per Redis](https://redis.io/commands) per verificare che i dati siano in Azure Cache per Redis. Il comando assume il formato Get {chiave}. Ad esempio: 
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
    Questo comando dovrebbe visualizzare il valore relativo alla chiave specificata:
 
-   ![Screenshot dell'output di Cache Redis di Azure](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Screenshot dell’output di Azure Cache per Redis](./media/stream-analytics-with-azure-functions/image5.png)
    
 ## <a name="error-handling-and-retries"></a>Gestione degli errori e tentativi
 In caso di errore durante l'invio di eventi a Funzioni di Azure, Analisi di flusso effettua ulteriori tentativi per completare l'operazione. Non vengono però effettuati ulteriori tentativi per gli errori seguenti:
@@ -207,6 +207,8 @@ In caso di errore durante l'invio di eventi a Funzioni di Azure, Analisi di flus
 ## <a name="known-issues"></a>Problemi noti
 
 Nel portale di Azure, quando si tenta di reimpostare il valore di Dimensioni massime batch/Numero massimo di batch su un valore vuoto (impostazione predefinita), al momento del salvataggio il valore viene reimpostato sul valore immesso in precedenza. In questo caso, immettere manualmente i valori predefiniti per questi campi.
+
+L'uso di [routing HTTP](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) in funzioni di Azure non è attualmente supportato da Analisi di flusso di Azure.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

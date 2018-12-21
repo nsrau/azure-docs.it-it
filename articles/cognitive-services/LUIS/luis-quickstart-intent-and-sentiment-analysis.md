@@ -1,23 +1,24 @@
 ---
-title: 'Esercitazione 9: analisi delle valutazioni positive, negative e neutre in LUIS'
+title: Analisi del sentiment
 titleSuffix: Azure Cognitive Services
 description: Questa esercitazione mostra come creare un'app che illustra come estrarre una valutazione positiva, negativa e neutra da espressioni. La valutazione è determinata dall'intera espressione.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424851"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098935"
 ---
-# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Esercitazione 9: estrazione della valutazione dell'intera espressione
+# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Esercitazione 9:  Estrarre la valutazione dell'intera espressione
 Questa esercitazione mostra come creare un'app che illustra come estrarre una valutazione positiva, negativa e neutra da espressioni. La valutazione è determinata dall'intera espressione.
 
 L'analisi del sentiment offre la possibilità di determinare se un'espressione utente è positiva, negativa o neutra. 
@@ -94,7 +95,7 @@ Aggiungere una nuova finalità per acquisire il feedback dei dipendenti dai memb
 
 2. Attivare **Analisi del sentiment** per abilitare questa impostazione. 
 
-    ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
+    ![Attivare l'analisi della valutazione come impostazione di pubblicazione](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
 ## <a name="publish"></a>Pubblica
 
@@ -106,7 +107,7 @@ Aggiungere una nuova finalità per acquisire il feedback dei dipendenti dai memb
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `Jill Jones work with the media team on the public portal was amazing`. L'ultimo parametro QueryString è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni con etichetta, per cui rappresenta un buon test e deve restituire la finalità `EmployeeFeedback` con analisi del sentiment estratta.
     
-    ```JSON
+    ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {

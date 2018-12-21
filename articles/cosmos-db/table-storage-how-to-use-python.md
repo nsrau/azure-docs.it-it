@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: b24116e72091fc3814df9936c311ee3f96a6b6cc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1010ff2222599a4a0a63e49fefd89f93f4784c02
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872748"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316682"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con Python
 
@@ -31,7 +31,7 @@ Questo esempio illustra come usare [Azure Cosmos DB Table SDK per Python](https:
 * Inserire ed eseguire query sulle entità
 * Modificare entità
 
-Mentre si lavora agli scenari di questo esempio, è possibile vedere le [informazioni di riferimento sull'API Azure Cosmos DB SDK per Python](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python).
+Mentre si lavora agli scenari di questo esempio, è possibile vedere le [informazioni di riferimento sull'API Azure Cosmos DB SDK per Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -221,7 +221,7 @@ table_service.delete_table('tasktable')
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Domande frequenti - Sviluppare con l'API Tabelle](https://docs.microsoft.com/azure/cosmos-db/faq#develop-with-the-table-api)
-* [Informazioni di riferimento sull'API di Azure Cosmos DB SDK per Python](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python)
+* [Informazioni di riferimento sull'API di Azure Cosmos DB SDK per Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)
 * [Centro per sviluppatori Python](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): un'applicazione gratuita multipiattaforma per lavorare in modo visivo con i dati di Archiviazione di Azure in Windows, macOS e Linux.
 * [Working with Python in Visual Studio (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio) (Utilizzo di Python in Visual Studio - Windows)

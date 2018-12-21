@@ -1,24 +1,25 @@
 ---
-title: Usare l'SDK di riconoscimento vocale C# con LUIS
+title: Usare Speech SDK per C#
 titleSuffix: Azure Cognitive Services
-description: Il servizio Voce consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS. Il progetto usa il pacchetto Speech NuGet già incluso come riferimento.
+description: Il Servizio di riconoscimento vocale consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139092"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162632"
 ---
-# <a name="integrate-speech-service"></a>Integrare il servizio Voce
-Il [servizio Voce](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS. Il progetto usa il pacchetto Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) già incluso come riferimento. 
+# <a name="integrate-speech-service"></a>Integrare il Servizio di riconoscimento vocale
+Il [Servizio di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS. Il progetto usa il pacchetto Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) già incluso come riferimento. 
 
 Per questo articolo è necessario un account del sito Web [LUIS][LUIS] gratuito per importare l'applicazione.
 
@@ -26,7 +27,7 @@ Per questo articolo è necessario un account del sito Web [LUIS][LUIS] gratuito 
 Nel portale di Azure [creare](luis-how-to-azure-subscription.md#create-luis-endpoint-key) una chiave **Language Understanding** (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importare l'app LUIS per le risorse umane
-Le finalità e le espressioni di questo articolo derivano dall'app LUIS per le risorse umane disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) (Esempi LUIS). Scaricare il file [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), salvarlo con l'estensione `.json` e [importarlo](luis-how-to-start-new-app.md#import-new-app) in LUIS. 
+Le finalità e le espressioni usate in questo articolo derivano dall'app LUIS per le risorse umane disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Scaricare il file [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), salvarlo con l'estensione `.json` e [importarlo](luis-how-to-start-new-app.md#import-new-app) in LUIS. 
 
 Questa app include le finalità, le entità e le espressioni correlate al dominio Human Resources (Risorse umane). Le espressioni di esempio includono:
 
@@ -65,7 +66,7 @@ Questo articolo usa il dispositivo audio del computer. Il dispositivo può esser
 
 Speech SDK è già incluso come riferimento. 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot di Visual Studio 2017 con il pacchetto NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Screenshot di Visual Studio 2017 che mostra il pacchetto NuGet Microsoft.CognitiveServices.Speech](./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot di Visual Studio 2017 che mostra il pacchetto NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modificare il codice C#
 Aprire il file `Program.cs` e modificare le variabili seguenti:

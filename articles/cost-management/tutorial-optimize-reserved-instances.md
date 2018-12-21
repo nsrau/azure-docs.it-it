@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: db4a2356d3de91e4951acd69dc858730349019d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a5376aed3e9cdb12be58cb07d7eb00303a03a963
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274553"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074878"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -112,7 +112,7 @@ Ad esempio, se si acquista una prenotazione per una macchina virtuale di tipo DS
 
 Tuttavia, se viene eseguita solo il 50% del tempo, il punto di pareggio sarà al decimo mese e il risparmio annuale sarà solo di $49,74. In questo esempio si potrebbe non trarre alcun vantaggio dall'acquisto della prenotazione per tale tipo di istanza. Vedere l'immagine seguente:
 
-![Punto di pareggio in Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
+![Esempio del punto di pareggio per le macchine virtuali di Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
 
 ## <a name="view-ri-costs"></a>Visualizzare i costi delle istanze riservate
 
@@ -127,11 +127,11 @@ I report di analisi dei costi effettivi e di analisi nel tempo mostrano l'intero
 
 Passare a **Costs** (Costi) > **Cost Analysis** (Analisi dei costi) nel portale di Cloudyn e quindi fare clic su **Actual Cost Analysis** (Analisi dei costi effettivi) o **Actual Cost Over Time** (Costo effettivo nel tempo). Successivamente, impostare i filtri. Ad esempio, filtrare solo per servizio di Azure/macchina virtuale e raggruppare per tipo di risorsa e modello di prezzo. Vedere l'immagine seguente:
 
-![Costo effettivo dell'istanza riservata](./media/tutorial-optimize-reserved-instances/azure05.png)
+![Esempio del costo effettivo delle istanze riservate](./media/tutorial-optimize-reserved-instances/azure05.png)
 
 È possibile filtrare per servizio, **Azure/macchina virtuale** in questo esempio, e raggruppare per **tipo di risorsa** e **modello di prezzo** come illustrato nella figura seguente:
 
-![Filtri e gruppi del report del costo effettivo](./media/tutorial-optimize-reserved-instances/azure06.png)
+![Esempio di filtri e gruppi del report del costo effettivo raggruppati per modello di prezzo e tipo di risorsa](./media/tutorial-optimize-reserved-instances/azure06.png)
 
 È anche possibile analizzare il tipo di pagamento effettuato, ad esempio pagamento una tantum, spese di utilizzo e spese di licenza.
 
@@ -145,7 +145,7 @@ Nel report del costo effettivo si può notare un picco per l'acquisto di un'ista
 
 Per visualizzare questo report, passare a **Costs** (Costi) > **Cost Analysis** (Analisi dei costi) e quindi selezionare **Amortized Cost Analysis** (Analisi dei costi ammortizzati) o **Amortized Cost Over Time** (Costo ammortizzato nel tempo).
 
-![Costo ammortizzato delle istanze riservate](./media/tutorial-optimize-reserved-instances/azure07.png)
+![Report di esempio che mostra il costo ammortizzato delle istanze riservate](./media/tutorial-optimize-reserved-instances/azure07.png)
 
 ## <a name="optimize-aws-ri-costs"></a>Ottimizzare i costi delle istanze riservate di AWS
 
@@ -166,25 +166,25 @@ Nel menu dei report nella parte superiore del portale fare clic su **Optimizer (
 
 L'immagine seguente mostra i consigli per gli acquisti presenti nel report.
 
-![Consigli per gli acquisti](./media/tutorial-optimize-reserved-instances/aws01.png)
+![Esempio che mostra i consigli per gli acquisti nel report dei consigli per gli acquisti EC2](./media/tutorial-optimize-reserved-instances/aws01.png)
 
 In questo esempio l'account Cloudyn\_A ha 32 consigli per gli acquisti di istanze riservate. Se si seguono tutti i consigli per gli acquisti, è possibile risparmiare annualmente $137.770. Tenere presente che i consigli per gli acquisti forniti da Cloudyn presuppongono che l'utilizzo dei carichi di lavoro in esecuzione rimanga costante.
 
 Per visualizzare i dettagli che spiegano il motivo per cui è consigliato ogni acquisto, fare clic sul segno più ( **+** ) in **Justifications** (Motivazioni). Di seguito è riportato un esempio per il primo consiglio nell'elenco.
 
-![Motivazioni di acquisto](./media/tutorial-optimize-reserved-instances/aws02.png)
+![Esempio che mostra i dettagli di giustificazione dell'acquisto](./media/tutorial-optimize-reserved-instances/aws02.png)
 
 L'esempio precedente mostra che il costo annuale dell'esecuzione del carico di lavoro on demand sarebbe di $90.456. Tuttavia, se si acquista in anticipo la prenotazione, lo stesso carico di lavoro costerebbe $56.592 con un risparmio annuale di $33.864.
 
 Fare clic sul segno più accanto a **EC2 RI Purchase Impact** (Impatto dell'acquisto di istanze riservate EC2) per visualizzare il punto di pareggio in un anno e vedere quando viene realizzato approssimativamente l'investimento dell'acquisto. L'esempio seguente mostra come otto mesi circa dopo aver effettuato l'acquisto, il costo complessivo dell'istanza on demand inizia a superare il costo complessivo dell'istanza riservata:
 
-![Impatto dell'acquisito](./media/tutorial-optimize-reserved-instances/aws03.png)
+![Esempio che mostra i dettagli di impatto dell'acquisto](./media/tutorial-optimize-reserved-instances/aws03.png)
 
 Il risparmio inizia in quel preciso momento.
 
 È possibile esaminare le **istanze nel tempo** per verificare l'accuratezza del consiglio per gli acquisiti suggerito. In questo esempio, si può notare che in media sono state usate sei istanze per il carico di lavoro negli ultimi 30 giorni.
 
-![Istanze nel tempo](./media/tutorial-optimize-reserved-instances/aws04.png)
+![Esempio che mostra l'utilizzo cronologico delle istanze nel tempo](./media/tutorial-optimize-reserved-instances/aws04.png)
 
 ## <a name="modify-unused-reservations"></a>Modificare le prenotazioni inutilizzate
 
@@ -196,23 +196,23 @@ Nel menu dei report nella parte superiore del portale fare clic su **Optimizer (
 
 Le immagini seguenti mostrano il report con le istanze riservate inutilizzate.
 
-![Prenotazioni inutilizzate](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
+![Esempio che mostra le informazioni riepilogative sulle prenotazioni inutilizzate](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
 
 Fare clic sul segno più in **Details** (Dettagli) per visualizzare i dettagli di una prenotazione specifica.
 
-![Dettagli delle prenotazioni inutilizzate](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
+![Esempio che mostra i dettagli delle prenotazioni inutilizzate](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
 
 Nell'esempio precedente sono presenti 77 prenotazioni inutilizzate totali in varie zone di disponibilità. La prima prenotazione ha 51 istanze inutilizzate. Guardando più in basso nell'elenco, è possibile apportare alcune modifiche all'istanza riservata scegliendo il tipo di istanza **m3.2xlarge** nella zona di disponibilità **us-east-1c**.
 
 Fare clic su **Modify** (Modifica) per la prima prenotazione nell'elenco per aprire la pagina **Modify RI** (Modifica istanza riservata) in cui vengono visualizzati i dati sulla prenotazione.
 
-![Modify RI (Modifica istanza riservata)](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
+![Esempio che mostra le prenotazioni che è possibile modificare](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
 
 Vengono elencate le istanze riservate che è possibile modificare. Nella figura dell'esempio seguente esistono 51 prenotazioni inutilizzate che è possibile modificare con 54 istanze necessarie tra le due prenotazioni. Se si modificano le prenotazioni inutilizzate per usarle tutte, quattro istanze continueranno a essere eseguite on demand. Per questo esempio, dividere le prenotazioni inutilizzate in modo che la prima prenotazione userà 30 istanze e la seconda prenotazione ne userà 21.
 
 Fare clic sul segno più per la prima prenotazione e impostare la **quantità di prenotazione** su **30**. Per la seconda voce, impostare la quantità di prenotazione su **21** e quindi fare clic su **Apply** (Applica).
 
-![Modifica della quantità di prenotazione](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
+![Esempio che mostra le modifiche alla quantità di prenotazione](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
 
 Tutte le istanze inutilizzate per la prenotazione vengono usate appieno e 51 istanze non sono più in esecuzione on demand. In questo esempio l'organizzazione ha avuto un notevole risparmio riducendo l'utilizzo on demand e usando le prenotazioni già pagate.
 

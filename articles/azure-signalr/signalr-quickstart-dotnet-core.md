@@ -1,25 +1,18 @@
 ---
-title: Guida introduttiva per imparare a usare il servizio Azure SignalR | Microsoft Docs
+title: Guida introduttiva per imparare a usare il servizio Azure SignalR
 description: Una guida introduttiva per usare il servizio Azure SignalR per la creazione di una chat room con le app ASP.NET Core MVC.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: b667f38c4e3d2a3fad323171a3b3b49ed3619fd9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959479"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260617"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Guida introduttiva: Creare una chat room con il servizio SignalR
 
@@ -133,8 +126,8 @@ In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.mic
 
 In SignalR un hub è un componente di base che espone un set di metodi che possono essere chiamati dal client. In questa sezione si definisce una classe hub con due metodi: 
 
-* `Broadcast`: questo metodo trasmette un messaggio a tutti i client.
-* `Echo`: questo metodo invia un messaggio al chiamante.
+* `Broadcast`: Questo metodo trasmette un messaggio a tutti i client.
+* `Echo`: Questo metodo invia un messaggio al chiamante.
 
 Entrambi i metodi usano l'interfaccia `Clients` fornita da ASP.NET Core SignalR SDK. Questa interfaccia consente di accedere a tutti i client connessi abilitando il push dei contenuti ai client.
 

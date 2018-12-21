@@ -1,6 +1,6 @@
 ---
-title: Abilitazione di Acquisizione di Hub eventi di Azure tramite il portale | Microsoft Docs
-description: Abilitare la funzionalità Acquisizione di Hub eventi usando il portale di Azure.
+title: Acquisire eventi di streaming tramite il portale di Azure - Hub eventi di Azure | Microsoft Docs
+description: Questo articolo descrive come abilitare l'acquisizione di eventi in streaming tramite Hub eventi di Azure tramite il portale di Azure.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -10,18 +10,19 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 5cb3fee975e99af3d86affcbc18d89277dde2dc1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7f57e75f90511ace45198d7516a5d2550123d9be
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409119"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075115"
 ---
-# <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Abilitare Acquisizione di Hub eventi usando il portale di Azure
+# <a name="enable-capturing-of-events-streaming-through-azure-event-event-hubs"></a>Abilitare l'acquisizione di eventi in streaming tramite Hub eventi di Azure
 
 La [funzionalità di acquisizione di Hub eventi][capture-overview] di Azure consente di distribuire automaticamente i dati di streaming di Hub eventi all'[archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) o all'account [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) desiderato.
 
@@ -35,7 +36,7 @@ Quando si crea un hub eventi, è possibile abilitare l'acquisizione facendo clic
 
 L'intervallo di tempo predefinito è di 5 minuti. Il valore minimo è 1, quello massimo 15. La finestra **Dimensione** ha un intervallo compreso tra 10 e 500 MB.
 
-![][1]
+![Intervallo di tempo per l'acquisizione][1]
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Acquisire i dati un account Azure Data Lake Store
 
@@ -52,7 +53,7 @@ Per acquisire i dati in Azure Data Lake Store, si creano un account Data Lake St
 2. Nella pagina del portale **Crea hub eventi** selezionare **Azure Data Lake Store** nella casella **Provider di acquisizione**.
 3. In **Seleziona Data Lake Store** specificare l'account Data Lake Store creato in precedenza e nel campo **Percorso Data Lake** immettere il percorso della cartella dati creata.
 
-    ![][3]
+    ![Selezionare l'account Data Lake Storage][3]
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>Aggiungere o configurare l'acquisizione in un hub eventi esistente
 
@@ -60,11 +61,11 @@ Per acquisire i dati in Azure Data Lake Store, si creano un account Data Lake St
 
 ### <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 
-![][2]
+![Configurare Archiviazione BLOB di Azure][2]
 
 ### <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
 
-![][4]
+![Configurare Azure Data Lake Storage][4]
 
 [1]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture1.png
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png

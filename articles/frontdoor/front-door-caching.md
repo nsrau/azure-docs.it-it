@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 6c62e2e559749ae8dc29e86d9c2414c28b487995
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 97c02726c7e359195c6bf4ea793404562f2acccf
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965620"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001955"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Informazioni sul servizio Frontdoor di Azure
 Il documento seguente specifica il comportamento di Frontdoor di Azure con regole di routing che hanno abilitato la memorizzazione nella cache.
@@ -26,7 +26,7 @@ Servizio Frontdoor di Azure recapita i file di grandi dimensioni senza limiti su
 
 </br>Quando il blocco arriva all'ambiente Frontdoor, viene memorizzato nella cache e reso immediatamente disponibile all'utente. Frontdoor esegue la prelettura del blocco successivo in parallelo. Questa prelettura fa sì che il contenuto resti in anticipo di un blocco rispetto all'utente, riducendo la latenza. Questo processo continua finché non viene scaricato l'intero file (se richiesto), non sono disponibili tutti gli intervalli di byte (se richiesto) o il client non termina la connessione.
 
-</br>Per altre informazioni sulla richiesta di intervalli di byte, vedere [RFC 7233](http://www.rfc-base.org/rfc-7233.html).
+</br>Per altre informazioni sulla richiesta di intervalli di byte, vedere [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
 Frontdoor memorizza nella cache tutti i blocchi alla loro ricezione e pertanto l'intero file non deve essere memorizzato nella cache di Frontdoor. Le richieste successive del file o di intervalli di byte vengono soddisfatte dalla cache. Se non tutti i blocchi vengono memorizzati nella cache, viene usata la prelettura per richiedere i blocchi dal back-end. Questa ottimizzazione si basa sulla capacità del server di back-end di supportare le richieste di intervallo di byte. Se il server di back-end non supporta le richieste di intervallo di byte, questa ottimizzazione non è efficace.
 
 ## <a name="file-compression"></a>Compressione dei file
@@ -83,18 +83,18 @@ Quando una richiesta per una risorsa indica la compressione e i risultati della 
 
 ## <a name="query-string-behavior"></a>Comportamento di memorizzazione della stringa di query
 Frontdoor consente di controllare la modalità di memorizzazione nella cache dei file per una richiesta Web contenente una stringa di query. In una richiesta Web con una stringa di query, la stringa di query è la parte della richiesta che si verifica dopo un punto di domanda (?). Una stringa di query può contenere una o più coppie chiave-valore, in cui il nome del campo e il relativo valore sono separati da un segno di uguale (=). Ogni coppia chiave-valore è separata da una e commerciale (&). Ad esempio: http://www.contoso.com/content.mov?field1=value1&field2=value2. Se è presente più di una coppia chiave-valore in una stringa di query di una richiesta, l'ordine non ha importanza.
-- **Ignora stringhe di query**: modalità predefinita. In questa modalità Frontdoor passa la stringa di query dal richiedente al back-end alla prima richiesta ed esegue la memorizzazione nella cache dell'asset. Tutte le richieste successive dell'asset gestite dall'ambiente Frontdoor ignoreranno le stringhe di query finché l'asset memorizzato nella cache non sarà scaduto.
+- **Ignora stringhe di query**: Modalità predefinita. In questa modalità Frontdoor passa la stringa di query dal richiedente al back-end alla prima richiesta ed esegue la memorizzazione nella cache dell'asset. Tutte le richieste successive dell'asset gestite dall'ambiente Frontdoor ignoreranno le stringhe di query finché l'asset memorizzato nella cache non sarà scaduto.
 
-- **Memorizza nella cache tutti gli URL univoci**: in questa modalità ogni richiesta con URL univoco, compresa la stringa di query, viene considerata un asset univoco con la propria cache. Ad esempio, la risposta inviata da back-end per una richiesta di `www.example.ashx?q=test1` viene memorizzata nella cache nell'ambiente Frontdoor e restituita per le memorizzazioni nella cache successive con la stessa stringa di query. Una richiesta di `www.example.ashx?q=test2` viene memorizzata nella cache come asset separato con la propria impostazione di durata (TTL).
+- **Memorizza nella cache tutti gli URL univoci**: In questa modalità ogni richiesta con URL univoco, compresa la stringa di query, viene considerata un asset univoco con la propria cache. Ad esempio, la risposta inviata da back-end per una richiesta di `www.example.ashx?q=test1` viene memorizzata nella cache nell'ambiente Frontdoor e restituita per le memorizzazioni nella cache successive con la stessa stringa di query. Una richiesta di `www.example.ashx?q=test2` viene memorizzata nella cache come asset separato con la propria impostazione di durata (TTL).
 
 ## <a name="cache-purge"></a>Ripulire la cache
 Frontdoor memorizzerà nella cache gli asset fino alla scadenza della durata TTL dell'asset. Dopo la scadenza della durata TTL dell'asset, quando un client richiede l'asset dall'ambiente Frontdoor, questo recupera una nuova copia aggiornata dell'asset per soddisfare la richiesta del client e aggiornare la cache.
 </br>La procedura consigliata per assicurarsi che gli utenti ottengano sempre la copia più recente degli asset consiste nel versioning di questi ultimi per ogni aggiornamento e nella relativa pubblicazione come nuovi URL. Frontdoor recupera immediatamente i nuovi asset per le richieste client successive. A volte si desidera ripulire il contenuto memorizzato nella cache da tutti i nodi periodici e forzare il recupero dei nuovi asset aggiornati. Ciò potrebbe essere dovuto agli aggiornamenti all'applicazione Web o a un aggiornamento rapido di asset che contengono informazioni non corrette.
 
 </br>Selezionare gli asset che si desidera ripulire dai nodi periferici. Se si desidera ripulire tutti gli asset, fare clic sulla casella di controllo Elimina tutto. In alternativa digitare il percorso di ogni asset che si vuole ripulire nella casella di testo Percorso. I formati seguenti sono supportati nel percorso.
-1. **Single URL purge**: (Eliminazione di un URL singolo) eliminazione di un singolo asset specificando l'URL completo, con o senza l'estensione di file, ad esempio /pictures/strasbourg.png;
-2. **Wildcard purge**: (Eliminazione dei caratteri jolly) l'asterisco (\*) può essere usato come carattere jolly. Consente di ripulire tutte le cartelle, le sottocartelle e i file in un endpoint inserendo /\* nel percorso o di eliminare tutte le sottocartelle e i file in una determinata cartella specificando la cartella seguita da / \*, ad esempio, /pictures/ \*.
-3. **Root domain purge**: (Eliminazione del dominio radice) consente di eliminare la radice dell'endpoint inserendo "/" nel percorso.
+1. **Eliminazione di un URL singolo**: Eliminazione di un singolo asset specificando l'URL completo, con l'estensione di file, ad esempio /pictures/strasbourg.png;
+2. **Eliminazione dei caratteri jolly**: L’asterisco (\*) può essere usato come carattere jolly. Consente di ripulire tutte le cartelle, le sottocartelle e i file in un endpoint inserendo /\* nel percorso o di eliminare tutte le sottocartelle e i file in una determinata cartella specificando la cartella seguita da / \*, ad esempio, /pictures/ \*.
+3. **Elimina dominio radice**: Consente di eliminare la radice dell'endpoint inserendo "/" nel percorso.
 
 Le pulizie della cache su Frontdoor non fanno distinzione tra maiuscole e minuscole. Inoltre, risultano indipendenti dalla stringa di query, vale a dire che l'eliminazione di un indirizzo Web eliminerà tutte le variazioni delle stringhe di query. 
 
@@ -116,5 +116,5 @@ Le intestazioni della richiesta seguenti non verranno inoltrate a un back-end qu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su [come creare una Frontdoor](quickstart-create-front-door.md).
+- Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
 - Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).

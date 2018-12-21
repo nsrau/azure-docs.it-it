@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2fe5c44e834826f9dc62acd30e853c3736b432ee
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621262"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412436"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Eseguire la federazione di più istanze di Azure AD con una singola istanza di AD FS
 
@@ -45,7 +45,7 @@ Per consentire all'istanza di AD FS in contoso.com di autenticare gli utenti in 
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>Passaggio 2: Modificare le impostazioni di federazione di contoso.com 
  
-L'autorità di certificazione predefinita impostata per un singolo dominio federato ad AD FS è "http://ADFSServiceFQDN/adfs/services/trust", ad esempio "http://fs.contoso.com/adfs/services/trust". Azure Active Directory richiede un'autorità di certificazione univoca per ogni dominio federato. Dato che la stessa istanza di AD FS eseguirà la federazione di due domini, il valore dell'autorità di certificazione deve essere modificato in modo che sia univoco per ogni dominio federato con Azure Active Directory da AD FS. 
+L'autorità di certificazione predefinita impostata per un singolo dominio federato ad AD FS è "http://ADFSServiceFQDN/adfs/services/trust", ad esempio `http://fs.contoso.com/adfs/services/trust`. Azure Active Directory richiede un'autorità di certificazione univoca per ogni dominio federato. Dato che la stessa istanza di AD FS eseguirà la federazione di due domini, il valore dell'autorità di certificazione deve essere modificato in modo che sia univoco per ogni dominio federato con Azure Active Directory da AD FS. 
  
 Nel server AD FS aprire Azure AD PowerShell (verificare che sia installato il modulo MSOnline) ed eseguire i passaggi seguenti:
  
@@ -55,7 +55,7 @@ L'autorità di certificazione nell'impostazione di federazione del dominio verr�
  
 ## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Passaggio 3: Eseguire la federazione di fabrikam.com con AD FS
  
-Nella sessione di Azure AD PowerShell seguire questa procedura: connettersi all'istanza di Azure Active Directory contenente il dominio fabrikam.com
+Nella sessione di Azure AD PowerShell eseguire questa procedura: connettersi all'istanza di Azure Active Directory contenente il dominio fabrikam.com
 
     Connect-MsolService
 Convertire il dominio gestito fabrikam.com in federato:

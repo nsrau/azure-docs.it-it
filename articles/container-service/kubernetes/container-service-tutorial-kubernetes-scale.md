@@ -1,6 +1,6 @@
 ---
-title: Esercitazione per il servizio contenitore di Azure - Scalare un'applicazione
-description: Esercitazione per il servizio contenitore di Azure - Scalare un'applicazione
+title: (DEPRECATO) Esercitazione per il servizio Azure Container - Ridimensionare un'applicazione
+description: Esercitazione per il servizio Azure Container - Ridimensionare un'applicazione
 services: container-service
 author: dlepow
 manager: jeconnoc
@@ -9,16 +9,19 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429883"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993082"
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Scalare i pod e l'infrastruttura Kubernetes
+# <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(DEPRECATO) Ridimensionare i pod e l'infrastruttura Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Per la versione aggiornata di questa esercitazione che usa il servizio Azure Kubernetes, vedere [Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes ](../../aks/tutorial-kubernetes-scale.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Se sono state eseguite le esercitazioni, si ha un cluster Kubernetes in funzione nel servizio contenitore di Azure ed è stata distribuita l'app Azure Voting. 
 

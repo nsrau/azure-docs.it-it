@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 5d209d0290d8ca813101b531f18fc0f08a6edf8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b03a0538e92ac126a50a1346eb1bf7fb003189f9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246889"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966859"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Esercitazione: Aggiornare l'inventario usando il portale di Azure e argomenti/sottoscrizioni
 
@@ -91,7 +91,7 @@ Per creare un argomento del bus di servizio, specificare lo spazio dei nomi in c
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Creare regole di filtro nelle sottoscrizioni
 
-Dopo che è stato effettuato il provisioning dello spazio dei nomi e di argomento/sottoscrizioni e sono disponibili le credenziali necessarie, è possibile creare regole di filtro nelle sottoscrizioni, quindi inviare e ricevere messaggi. È possibile esaminare il codice in [questa cartella dell'esempio di GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters).
+Dopo che è stato effettuato il provisioning dello spazio dei nomi e di argomento/sottoscrizioni e sono disponibili le credenziali necessarie, è possibile creare regole di filtro nelle sottoscrizioni, quindi inviare e ricevere messaggi. È possibile esaminare il codice in [questa cartella dell'esempio di GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted/BasicSendReceiveTutorialwithFilters).
 
 ### <a name="send-and-receive-messages"></a>Inviare e ricevere messaggi
 

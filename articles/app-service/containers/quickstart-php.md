@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Web PHP e distribuirla nel Servizio app in Linux | Microsoft Docs
+title: "Creare un'app Web PHP su Linux: Servizio app di Azure | Microsoft Docs"
 description: Distribuire in pochi minuti la prima app Hello World PHP in un'app Web del Servizio app in Linux.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 1cbd29b480c80c93f750b97d47ccb3c09c984942
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: 2c9586bb5abce66e4043e3df80b420174a582cbb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306787"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257404"
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Creare un'app Web PHP nel Servizio app in Linux
 
@@ -36,7 +36,7 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva:
 
@@ -54,7 +54,7 @@ cd php-docs-hello-world
 
 ## <a name="run-the-app-locally"></a>Eseguire l'app in locale
 
-Per eseguire l'applicazione in locale, aprire una finestra del terminale e usare il comando `php` per avviare il server Web PHP predefinito.
+Eseguire l'applicazione in locale, in modo da verificare l'aspetto che assumerà dopo la distribuzione in Azure. Aprire una finestra del terminale e usare il comando `php` per avviare il server Web PHP predefinito.
 
 ```bash
 php -S localhost:8080

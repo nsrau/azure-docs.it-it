@@ -4,21 +4,20 @@ description: Informazioni su Analisi di flusso, un servizio gestito che consente
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
 ms.workload: data-services
-ms.custom: mvc
-ms.date: 03/27/2018
-ms.openlocfilehash: 7b38548ce3266d74ffd51ce75ffa92bdb4ac24b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.custom: seodec18
+ms.date: 12/07/2018
+ms.openlocfilehash: 9cd1a8a095c697c4baeaa435f80c136ce49e0313
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437621"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098577"
 ---
-# <a name="what-is-stream-analytics"></a>Che cos'è Analisi di flusso?
+# <a name="what-is-azure-stream-analytics"></a>Informazioni su Analisi di flusso di Azure
 
 Analisi di flusso di Azure è un motore di elaborazione di eventi che permette di esaminare volumi elevati di streaming di dati per i dispositivi. I dati in ingresso possono provenire da dispositivi, sensori, siti Web, feed di social media, applicazioni e altro ancora. Il servizio supporta anche l'estrazione di informazioni da flussi di dati, nonché l'identificazione di modelli e relazioni. È quindi possibile usare questi modelli per attivare altre azioni a valle, ad esempio avvisi, e inviare le informazioni a uno strumento di creazione di report o archiviarle per usarle successivamente.
 
@@ -42,13 +41,13 @@ Dopo avere analizzato i dati in ingresso, è possibile specificare un output per
 
 L'immagine seguente mostra la pipeline di Analisi di flusso. Il processo di Analisi di flusso può usare tutti o un set selezionato di input e output. L'immagine mostra il modo in cui i dati vengono inviati ad Analisi di flusso, analizzati e inviati per altre azioni, tra cui archiviazione o presentazione:
 
-![Pipeline di Analisi di flusso](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
+![Pipeline introduttiva di Analisi di flusso](./media/stream-analytics-introduction/stream-analytics-intro-pipeline.png)
 
 ## <a name="key-capabilities-and-benefits"></a>Funzionalità e vantaggi principali
 
 Analisi di flusso di Azure è progettato in modo da essere facile da usare, flessibile, affidabile e scalabile in base a processi di qualsiasi dimensione. È disponibile in più data center, nonché in cloud sovrani. L'immagine seguente mostra le caratteristiche principali di Analisi di flusso di Azure:
 
-![Caratteristiche principali di Analisi di flusso](./media/stream-analytics-introduction/stream_analytics_key_capabilities.png)
+![Caratteristiche principali di Analisi di flusso](./media/stream-analytics-introduction/stream-analytics-key-capabilities.png)
 
 ## <a name="ease-of-getting-started"></a>Semplicità delle operazioni iniziali
 

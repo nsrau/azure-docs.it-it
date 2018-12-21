@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 0dd7e3e19d9b7949803cdaf1dfb5eac6ea345dbd
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eb7354f8e099f28f4a3476b16c11f5f2d8feda00
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011178"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412488"
 ---
 # <a name="introduction-to-azure-netapp-files"></a>Introduzione ad Azure NetApp Files
 Il servizio Azure NetApp Files è un servizio di archiviazione di file a consumo, di livello aziendale e ad alte prestazioni. Azure NetApp Files supporta qualsiasi tipo di carico di lavoro e offre disponibilità elevata per impostazione predefinita. È possibile selezionare i livelli di servizio e di prestazioni garantiti e configurare gli snapshot tramite il servizio. 
@@ -27,12 +27,13 @@ Il servizio Azure NetApp Files è un servizio di archiviazione di file a consumo
 La documentazione di Azure NetApp Files include istruzioni per la creazione e la gestione dei volumi tramite Azure NetApp Files. 
 
 > [!IMPORTANT] 
-> Per tutte le attività descritte in questa documentazione è necessario far parte del programma di anteprima pubblica ed essere nell'elenco di elementi consentiti per l'accesso al provider di risorse Microsoft.NetApp di Azure. Per informazioni dettagliate sulla partecipazione al programma di anteprima pubblica, vedere la [pagina di iscrizione all'anteprima pubblica di Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+> Per tutte le attività descritte in questa documentazione è necessario far parte del programma di anteprima pubblica ed essere nell'elenco di elementi consentiti per l'accesso al provider di risorse Microsoft.NetApp di Azure. Per richiedere di partecipare al programma di anteprima pubblica, vedere [Effettuare la registrazione per Azure NetApp Files](azure-netapp-files-register.md). 
 
 **Introduzione** 
+1. [Effettuare la registrazione ad Azure NetApp Files](azure-netapp-files-register.md)
 1. [Creare un account di NetApp](azure-netapp-files-create-netapp-account.md)
-2. [Configurare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md)
-3. [Creare un volume per Azure NetApp Files](azure-netapp-files-create-volumes.md)
-4. [Configurare i criteri di esportazione per un volume (facoltativo)](azure-netapp-files-configure-export-policy.md)
+1. [Configurare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md)
+1. [Creare un volume per Azure NetApp Files](azure-netapp-files-create-volumes.md)
+1. [Configurare i criteri di esportazione per un volume (facoltativo)](azure-netapp-files-configure-export-policy.md)
 
 

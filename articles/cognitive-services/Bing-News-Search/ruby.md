@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: API Ricerca notizie Bing, Ruby'
+title: 'Guida introduttiva: Eseguire una ricerca di notizie con Ruby: API REST Ricerca notizie Bing'
 titlesuffix: Azure Cognitive Services
-description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Ricerca notizie Bing.
+description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca notizie Bing usando Ruby e ricevere una risposta JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: 714f28166b8d24a5b8a69fe4f76ba1737de56e1d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 02b603c0a7e1f84b2677511f73f96eee20a613d9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315087"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250230"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Guida introduttiva per l'API Ricerca notizie Bing con Ruby
+# <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Guida introduttiva: Eseguire una ricerca di notizie usando Ruby e l'API REST Ricerca notizie Bing
 
 Questo articolo spiega come usare l'API Ricerca notizie Bing, inclusa in Servizi cognitivi Microsoft in Azure. Questo articolo riguarda Ruby, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione che sia in grado di effettuare richieste HTTP e analizzare una stringa JSON. 
 

@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per Registro contenitori di Azure - Preparare Registro contenitori di Azure con replica geografica
+title: 'Esercitazione: Creare un registro con replica geografica di Docker in Azure'
 description: Creare un registro contenitori di Azure, configurare la replica geografica, preparare un'immagine Docker e distribuirla nel registro. Prima parte di una serie in tre parti.
 services: container-registry
 author: dlepow
@@ -7,13 +7,13 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854304"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261314"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Esercitazione: Preparare un registro contenitori di Azure con replica geografica
 
@@ -49,7 +49,7 @@ Selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori di A
 
 Configurare il nuovo registro con le impostazioni seguenti:
 
-* **Nome registro**: creare un nome di registro univoco a livello globale all'interno di Azure e contenente da 5 a 50 caratteri alfanumerici
+* **Nome registro**: creare un nome di registro univoco a livello globale all'interno di Azure e contenente da 5 a 50 caratteri alfanumerici.
 * **Gruppo di risorse**: **Crea nuovo** > `myResourceGroup`
 * **Percorso**: `West US`
 * **Utente amministratore**: `Enable` (obbligatorio per app Web per contenitori per eseguire il pull delle immagini)

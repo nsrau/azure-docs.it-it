@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: cced9a313664eaeaed4dd1298488670960b76413
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d57e251b241297c461b117edec8fee6316b337b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195771"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098033"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurare il transito nel gateway VPN per il peering di rete virtuale
 
@@ -79,7 +79,7 @@ Seguire le istruzioni per creare o aggiornare i peering di rete virtuale in modo
     - Impostare l'opzione "**Use remote gateways**" (Usa gateway remoti)
     - Fare clic su "OK"
 
-    ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+      ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
 
 2. Se il peering è già stato creato, passare alla risorsa di peering, quindi abilitare l'opzione "**Use remote gateways**" in modo simile a quanto mostrato nello screenshot al passaggio (1)
 
@@ -90,7 +90,7 @@ Seguire le istruzioni per creare o aggiornare i peering di rete virtuale in modo
     - Impostare l'opzione "**Consenti transito gateway**"
     - Fare clic su "OK"
 
-    ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+      ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
 
 4. Se il peering è già stato creato, passare alla risorsa di peering, quindi abilitare l'opzione "**Consenti transito gateway**" in modo simile a quanto mostrato nello screenshot al passaggio (3)
 

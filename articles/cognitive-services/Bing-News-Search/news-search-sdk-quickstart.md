@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Bing News Search SDK, C#'
+title: 'Avvio rapido: Eseguire una ricerca di notizie - SDK di Ricerca notizie Bing per C#'
 titleSuffix: Azure Cognitive Services
-description: Configurazione per l'applicazione console Bing News Search SDK.
+description: Usare questa guida di avvio rapido per cercare notizie con l'SDK di Ricerca notizie Bing per Python ed elaborare la risposta.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 447c59d45e3b1614ce8dbddc56f9dba0dd156e90
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: d116f2553ce35c2d4041f37cc3fe4567e1595adc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317059"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258764"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-c"></a>Guida introduttiva: Bing News Search SDK con C#
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Avvio rapido: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per C#
 
 L'SDK di Ricerca notizie Bing contiene la funzionalità dell'API REST per query di notizie e analisi dei risultati. 
 

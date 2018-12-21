@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ab1e879a7c145699779f6af3a97cef0ee6b5d219
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582395"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105513"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guida introduttiva: Trovare le stanze disponibili usando Gemelli digitali di Azure
 
@@ -57,8 +57,8 @@ Compilare l'applicazione di occupazione seguendo questa procedura.
 1. Eseguire `cd occupancy-quickstart/src`.
 1. Eseguire `dotnet restore`.
 1. Modificare **appSettings.json** per aggiornare le variabili seguenti:
-    - **ClientId**: immettere l'ID applicazione della registrazione dell'app Azure AD, annotato nella sezione precedente.
-    - **Tenant**: immettere l'ID directory del tenant di Azure AD, anche questo annotato nella sezione precedente.
+    - **ClientId**: immettere l'ID applicazione della registrazione dell'app Azure AD, di cui si preso nota nella sezione precedente.
+    - **Tenant**: immettere l'ID directory del tenant di Azure AD, di cui si è preso nota nella sezione precedente.
     - **BaseUrl**: URL dell'API di gestione dell'istanza di Gemelli digitali nel formato `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Sostituire i segnaposto in questo URL con i valori per l'istanza dalla sezione precedente.
 
 ## <a name="provision-graph"></a>Effettuare il provisioning del grafico
@@ -71,7 +71,7 @@ In questo passaggio viene effettuato il provisioning del grafico spaziale di Gem
 - Una funzione personalizzata. 
 - Un'assegnazione di ruolo.
  
-Il provisioning del grafico spaziale viene effettuato usando il file [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
+Il provisioning del grafico spaziale viene effettuato usando il file [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml). 
 
 1. Eseguire `dotnet run ProvisionSample`.
     >[!NOTE]
@@ -88,6 +88,9 @@ Il provisioning del grafico spaziale viene effettuato usando il file [provisionS
 1. Al termine dell'esecuzione, copiare il valore `ConnectionString` del dispositivo per usarlo nell'esempio del simulatore di dispositivo. Copiare solo la stringa evidenziata nell'immagine seguente.
 
     ![Effettuare il provisioning dell'esempio][1]
+
+    >[!TIP]
+    > È possibile visualizzare e modificare il grafico spaziale con il [visualizzatore grafi di Gemelli digitali di Azure](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 ## <a name="send-sensor-data"></a>Inviare i dati dei sensori
 

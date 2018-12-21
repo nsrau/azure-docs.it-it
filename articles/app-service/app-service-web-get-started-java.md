@@ -1,5 +1,5 @@
 ---
-title: Creare la prima app Web Java in Azure
+title: Creare un app Web Java - Servizio app di Azure
 description: Informazioni su come eseguire app Web nel servizio app mediante la distribuzione di un'app Java di base.
 services: app-service\web
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.custom: seodec18
+ms.openlocfilehash: b9321241f174a97976b2f150a9bd6c3547f0dc20
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283929"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253161"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Creare la prima app Web Java in Azure
 
-Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa guida introduttiva illustra come distribuire un'app Web Java nel servizio app usando [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
+Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa guida introduttiva illustra come distribuire un'app Web Java nel servizio app usando [Eclipse IDE for Java EE Developers](https://www.eclipse.org/).
 
 > [!NOTE]
 >
@@ -37,11 +37,11 @@ Al termine di questa guida introduttiva, l'applicazione visualizzata in un Web b
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva, installare:
 
-* Lo strumento gratuito <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. In questa guida introduttiva viene usato Eclipse Neon.
+* Lo strumento gratuito <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. In questa guida introduttiva viene usato Eclipse Neon.
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit for Eclipse</a>.
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Nella finestra di dialogo **Crea servizio app**:
 
   * **Crea nuovo**: mantenere il valore predefinito, ovvero il nome del piano di servizio app.
   * **Località**: selezionare **Europa occidentale** o un'area geografica nelle vicinanze.
-  * **Piano tariffario**: selezionare l'opzione gratuita. Per le funzionalità, vedere [Prezzi di Servizio app](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+  * **Piano tariffario**: Selezionare l'opzione gratuita. Per le funzionalità, vedere [Prezzi di Servizio app](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
    ![Finestra di dialogo Crea servizio app](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 

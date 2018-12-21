@@ -1,21 +1,21 @@
 ---
 title: Registrare il contratto Enterprise di Azure in Cloudyn | Microsoft Docs
-description: Usare il contratto Enterprise per registrarsi in Cloudyn.
+description: Questa guida introduttiva illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
-ms.custom: ''
+ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 36f53203a7d75fc06f872e9cc9ef9379944df108
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 7a3ed93814407df8f3adfe7d16ba50258fcb323e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273566"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082333"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrare un Azure Enterprise Agreement e visualizzare i dati sui costi
 
@@ -25,22 +25,22 @@ Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-- Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+- Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="register-with-cloudyn"></a>Registrarsi in Cloudyn
 
 1. Nel portale di Azure fare clic su **Gestione dei costi e fatturazione** nell'elenco dei servizi.
 2. In **Panoramica** fare clic su **Cloudyn**  
-    ![Pagina Cloudyn](./media/quick-register-ea/cost-mgt-billing-service.png)
+    ![Pagina di Cloudyn mostrata nel portale di Azure](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. Nella pagina **Cloudyn** fare clic su **Vai a Cloudyn** per aprire la pagina di registrazione di Cloudyn in una nuova finestra.
 4. Nella pagina della registrazione di valutazione del portale Cloudyn digitare il nome della società e quindi selezionare **Azure Enterprise Enrollment Administrator** (Amministratore delle registrazioni di Azure Enterprise).  
-    ![registrazione di valutazione](./media/quick-register-ea/trial-reg.png)
-5. Immettere la chiave API di registrazione di Enterprise Portal. Se non si dispone della chiave necessaria fare clic sul link [Enterprise Portal](https://ea.azure.com) ed eseguire i passaggi seguenti:
+5. Immettere la chiave API di registrazione di Enterprise Portal. Se non si dispone della chiave necessaria fare clic sul link [Enterprise Portal](https://ea.azure.com) ed eseguire i passaggi seguenti:  
+    ![Incollare la chiave API nella scheda Fatturazione](./media/quick-register-ea/trial-reg.png)
   1. Accedere al sito Web di Azure Enterprise e fare clic su **Report**, quindi su **API Access Key** (Chiave di accesso dell'API) e copiare la chiave primaria.  
-    ![Chiave API di EA](./media/quick-register-ea/ea-key.png)
+    ![Esempio di una chiave API EA nel portale EA](./media/quick-register-ea/ea-key.png)
   3. Tornare alla pagina di registrazione e copiare la chiave API.
 6. Accettare le condizioni d'uso e convalidare la chiave. Fare clic su **Avanti** per autorizzare Cloudyn a raccogliere i dati sulle risorse di Azure. Dalla sottoscrizione vengono raccolti dati riguardanti l'uso, le prestazioni, la fatturazione e dati dei tag.  
-    ![convalida della chiave](./media/quick-register-ea/ea-key-validated.png)
+    ![Esempio di una convalida chiave API EA riuscita](./media/quick-register-ea/ea-key-validated.png)
 7. In **Invite other stakeholder** (Invita altri stakeholder) è possibile aggiungere utenti digitando i loro indirizzi di posta elettronica. Al termine, fare clic su **Avanti**. A seconda delle dimensioni della registrazione di Azure, l'aggiunta dei dati di fatturazione a Cloudyn può richiedere fino a 24 ore.
 8. Fare clic su **Go to Cloudyn** (Passa a Cloudyn) per aprire il portale di Cloudyn. Nella pagina **Cloud Accounts Management** (Gestione account cloud) saranno visualizzate le informazioni sugli account EA registrati.
 

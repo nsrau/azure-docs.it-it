@@ -1,25 +1,25 @@
 ---
-title: Creare flussi di lavoro che elaborano messaggi di posta elettronica e allegati - App per la logica di Azure | Microsoft Docs
-description: Questa esercitazione illustra come creare flussi di lavoro automatizzati per poter elaborare messaggi di posta elettronica e allegati con App per la logica di Azure, Archiviazione di Azure e Funzioni di Azure
+title: Esercitazione - Automatizzare l'elaborazione di messaggi di posta elettronica e allegati - App per la logica di Azure | Microsoft Docs
+description: Esercitazione - Creare flussi di lavoro automatizzati per la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure, Archiviazione di Azure e Funzioni di Azure
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231969"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140507"
 ---
-# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Elaborare messaggi di posta elettronica e allegati con App per la logica di Azure
+# <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Esercitazione: automatizzare la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure
 
-App per la logica di Azure permette di automatizzare i flussi di lavoro e integrare dati tra servizi di Azure, servizi Microsoft, altre app software come un servizio (SaaS) e sistemi locali. Questa esercitazione illustra come creare un'[app per la logica](../logic-apps/logic-apps-overview.md) che gestisce i messaggi di posta elettronica in arrivo e gli eventuali allegati. L'app per la logica elabora il contenuto, lo salva in Archiviazione di Azure e invia notifiche per la verifica del contenuto. 
+App per la logica di Azure permette di automatizzare i flussi di lavoro e integrare dati tra servizi di Azure, servizi Microsoft, altre app software come un servizio (SaaS) e sistemi locali. Questa esercitazione illustra come creare un'[app per la logica](../logic-apps/logic-apps-overview.md) che gestisce i messaggi di posta elettronica in arrivo e gli eventuali allegati. Questa app per la logica analizza il contenuto dei messaggi di posta elettronica, lo salva in Archiviazione di Azure e invia notifiche per la verifica del contenuto. 
 
 In questa esercitazione si apprenderà come:
 
@@ -246,11 +246,11 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
 ## <a name="monitor-incoming-email"></a>Monitorare la posta elettronica in arrivo
 
-1. Nella casella di ricerca della finestra di progettazione immettere "all'arrivo di un nuovo messaggio di posta elettronica" come filtro. Selezionare il trigger per il proprio provider di posta elettronica: **All'arrivo di un nuovo messaggio di posta elettronica - <*provider-posta-elettronica*>**.
+1. Nella casella di ricerca della finestra di progettazione immettere "all'arrivo di un nuovo messaggio di posta elettronica" come filtro. Selezionare questo trigger per il provider di posta elettronica: **All'arrivo di un nuovo messaggio di posta elettronica - <*provider di posta elettronica*>**
 
    Ad esempio: 
 
-   ![Selezionare il trigger per il provider di posta elettronica: "All'arrivo di un nuovo messaggio di posta elettronica"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
+   ![Selezionare questo trigger per il provider di posta elettronica: "All'arrivo di un nuovo messaggio di posta elettronica"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
    * Per un account aziendale o dell'istituto di istruzione di Azure, selezionare Office 365 Outlook. 
    * Per gli account Microsoft personali, selezionare Outlook.com. 
@@ -274,7 +274,7 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
       | Impostazione | Valore | DESCRIZIONE | 
       | ------- | ----- | ----------- | 
-      | **Con allegato** | Yes | Recupera solo i messaggi di posta elettronica con allegati. <p>**Nota:** il trigger non rimuove alcun messaggio di posta elettronica dall'account, controlla solo i nuovi messaggi ed elabora solo i messaggi che corrispondono al filtro dell'oggetto. | 
+      | **Con allegato** | Yes | Recupera solo i messaggi di posta elettronica con allegati. <p>**Nota:** il trigger non rimuove alcun messaggio di posta elettronica dall'account, ma controlla solo i nuovi messaggi ed elabora esclusivamente quelli che corrispondono al filtro dell'oggetto. | 
       | **Includi allegati** | Yes | Recupera gli allegati da usare come input per il flusso di lavoro, invece che limitarsi a controllare la presenza di allegati. | 
       | **Filtro oggetto** | ```Business Analyst 2 #423501``` | Testo da trovare nell'oggetto del messaggio di posta elettronica | 
       |  |  |  | 
@@ -313,7 +313,7 @@ Aggiungere quindi una condizione per selezionare solo i messaggi di posta elettr
 
    2. Nella casella centrale mantenere l'operatore **è uguale a**.
 
-   3. Nella casella di destra immettere **True** come valore da confrontare con il valore della proprietà **Con allegato** del trigger.
+   3. Nella casella di destra immettere **true** come valore da confrontare con il valore della proprietà **Has Attachment** del trigger.
 
       ![Creare una condizione](./media/tutorial-process-email-attachments-workflow/finished-condition.png)
 
@@ -328,7 +328,7 @@ Aggiungere quindi una condizione per selezionare solo i messaggi di posta elettr
          "and": [ {
             "equals": [
                "@triggerBody()?['HasAttachment']",
-                 "True"
+                 "true"
             ]
          } ]
       },
@@ -377,15 +377,15 @@ Questo passaggio aggiunge la funzione di Azure creata in precedenza all'app per 
 
    ![Aggiungere un'azione all'interno di "È true"](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-2. Nella casella di ricerca inserire "funzioni di azure" e selezionare l'azione **Scegliere una funzione di Azure - Funzioni di Azure**
+2. Nella casella di ricerca cercare "Funzioni di Azure" e selezionare questa azione: **Scegliere una funzione di Azure - Funzioni di Azure**
 
    ![Selezionare l'azione "Scegliere una funzione di Azure"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Selezionare l'app per le funzioni creata in precedenza: **CleanTextFunctionApp**
+3. Selezionare l'app per la funzione creata in precedenza: **CleanTextFunctionApp**
 
    ![Selezionare l'app per le funzioni di Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
-4. Selezionare ora la funzione: **RemoveHTMLFunction**
+4. A questo punto selezionare la funzione: **RemoveHTMLFunction**
 
    ![Selezionare la funzione di Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
@@ -419,7 +419,7 @@ Aggiungere quindi un'azione che crea un BLOB nel contenitore di archiviazione pe
 
 1. Nel blocco **È true** scegliere **Aggiungi un'azione** sotto la funzione di Azure. 
 
-2. Nella casella di ricerca immettere "crea blob" come filtro e selezionare l'azione **Crea BLOB - Archivio BLOB di Azure**.
+2. Nella casella di ricerca immettere "Crea BLOB" come filtro e selezionare questa azione: **Crea BLOB - Archivio BLOB di Azure**
 
    ![Aggiungere un'azione per creare un BLOB per il corpo del messaggio di posta elettronica](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
 
@@ -518,7 +518,7 @@ Aggiungere quindi l'azione che consente di salvare ogni allegato come BLOB nel c
 
    ![Aggiungere un'azione al ciclo](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
-2. Nella casella di ricerca immettere "crea blob" come filtro e quindi selezionare l'azione **Crea BLOB - Archivio BLOB di Azure**.
+2. Nella casella di ricerca immettere "Crea BLOB" come filtro e selezionare questa azione: **Crea BLOB - Archivio BLOB di Azure**
 
    ![Aggiungere un'azione per creare un BLOB](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
@@ -572,7 +572,7 @@ Aggiungere quindi un'azione in modo che l'app per la logica invii un messaggio d
 
 ## <a name="send-email-notifications"></a>Inviare notifiche di posta elettronica
 
-1. Nel ramo **È true** nel ciclo **For each email attachment** scegliere **Aggiungi un'azione**. 
+1. Nel ramo **If true** nel ciclo **For each email attachment** (Per ogni allegato di posta elettronica) scegliere **Aggiungi un'azione**. 
 
    ![Aggiungere un'azione nel ciclo "For each"](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 

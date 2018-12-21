@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844839"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437147"
 ---
-# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione della password self-service di Azure AD dalla schermata di accesso
+# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione password self-service di Azure AD dalla schermata di accesso
 
 In questa esercitazione viene descritto come consentire agli utenti di reimpostare le password dalla schermata di accesso di Windows 10. Con il nuovo aggiornamento del 10 aprile 2018 di Windows 10, gli utenti con dispositivi **aggiunti ad Azure AD** o **aggiunti ad Azure AD in modalità ibrida** possono usare il collegamento "Reimposta password" nella schermata di accesso. Facendo clic su questo collegamento, viene visualizzata l'esperienza di reimpostazione della password self-service che gli utenti conoscono.
 
@@ -29,8 +29,8 @@ In questa esercitazione viene descritto come consentire agli utenti di reimposta
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Aggiornamento di aprile 2018 di Windows 10 o un client più recente:
-   * [Aggiunto ad Azure AD](../device-management-azure-portal.md) o 
-   * [Aggiunto a Azure AD in modalità ibrida](../device-management-hybrid-azuread-joined-devices-setup.md)
+   * [Computer aggiunto ad Azure AD](../device-management-azure-portal.md) o
+   * [Computer aggiunto ad Azure AD ibrido](../device-management-hybrid-azuread-joined-devices-setup.md), con connettività di rete a un controller di dominio.
 * È necessario abilitare la reimpostazione password self-service di Azure AD.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurare il collegamento di reimpostazione della password con Intune
@@ -125,7 +125,11 @@ Se i criteri richiedono la combinazione Ctrl + Alt + Canc o se le notifiche dell
    * EnableLostMode è impostato sul dispositivo
    * Explorer.exe è sostituito con una shell personalizzata
 
+Questa funzionalità non funziona per le reti con autenticazione di rete 802.1x distribuita e l'opzione "Esegui immediatamente prima dell'accesso utente". Per le reti con autenticazione di rete 802.1x distribuita, è consigliabile usare l'autenticazione di computer per abilitare questa funzionalità.
+
 Se i computer Windows 10 sono protetti da un server proxy o da un firewall, deve essere consentito il traffico HTTPS (443) verso passwordreset.microsoftonline.com e ajax.aspnetcdn.com.
+
+Per gli scenari di identità ibrida aggiunta a un dominio, esiste uno scenario in cui si completerà il flusso di lavoro SSPR senza la necessità di un controller di dominio Active Directory. Per usare la nuova password per la prima volta è necessaria una connessione con un controller di dominio.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

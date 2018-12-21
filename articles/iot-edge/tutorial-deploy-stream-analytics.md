@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Distribuire processi ASA in dispositivi Azure IoT Edge | Microsoft Docs
+title: 'Esercitazione: Distribuire un processo di Analisi di flusso di Azure in un dispositivo - Azure IoT Edge | Microsoft Docs'
 description: In questa esercitazione Analisi di flusso di Azure viene distribuito come modulo in un dispositivo Iot Edge
 author: kgremban
 manager: philmea
@@ -7,16 +7,15 @@ ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566942"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139812"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge (anteprima)
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge
 
 Molte soluzioni IoT usano servizi di analisi per ottenere informazioni sui dati quando arrivano nel cloud dai dispositivi IoT. Con Azure IoT Edge, è possibile spostare direttamente nel dispositivo la logica di [Analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/). Elaborando i flussi di telemetria sul perimetro, è possibile ridurre la quantità di dati caricati e ridurre il tempo necessario per reagire a informazioni dettagliate di utilità pratica.
 
@@ -34,11 +33,9 @@ In questa esercitazione si apprenderà come:
 > * Distribuire il processo di Analisi di flusso di Azure in un dispositivo IoT Edge dal portale di Azure.
 
 <center>
-![Diagramma dell'architettura dell'esercitazione](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+![Diagramma - Esercitazione sull'architettura, lo staging e la distribuzione di un processo di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
->[!NOTE]
->I moduli di Analisi di flusso di Azure per IoT Edge sono in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -100,7 +97,7 @@ Usando i tre elementi di input, di output e di query, questa sezione crea un pro
 
 1. In **Topologia processo** selezionare **Input**, quindi **Aggiungi input del flusso**.
 
-   ![Input di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_input.png)
+   ![Aggiunta input in Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
 1. Scegliere **Hub Edge** dall'elenco a discesa.
 
@@ -110,7 +107,7 @@ Usando i tre elementi di input, di output e di query, questa sezione crea un pro
 
 1. In **Topologia processo** aprire **Output**, quindi selezionare **Aggiungi**.
 
-   ![Output di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Aggiunta output in Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 1. Scegliere **Hub Edge** dall'elenco a discesa.
 
@@ -207,7 +204,7 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **tempSensor
 
     Dovrebbe essere visualizzato il nuovo modulo di Analisi di flusso in esecuzione insieme al modulo dell'agente IoT Edge e all'hub IoT Edge.
 
-    ![Output del modulo](./media/tutorial-deploy-stream-analytics/module_output2.png)
+    ![Moduli tempSensor e di Analisi di flusso di Azure visualizzati dal dispositivo](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>Visualizzare i dati
 
@@ -229,7 +226,7 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **tempSensor
 
 Dovrebbe essere possibile osservare un progressivo aumento della temperatura del computer fino a raggiungere i 70 gradi per 30 secondi. Il modulo di Analisi di flusso attiva quindi la reimpostazione e la temperatura del computer ritorna a 21. 
 
-   ![Log di Docker](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![Reimpostazione dell'output del comando nei log del modulo](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 

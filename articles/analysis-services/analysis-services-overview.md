@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429440"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970196"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -23,7 +23,7 @@ Azure Analysis Services è una piattaforma distribuita come servizio (PaaS) comp
 
 ![Origini dati](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Video:** guardare [Azure Analysis Services Overview](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) (Panoramica di Azure Analysis Services) per scoprire come Azure Analysis Services si integra con le funzionalità BI generali di Microsoft.
+**Video:** guardare [Panoramica di Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) per scoprire come Azure Analysis Services si integra con le funzionalità BI generali di Microsoft.
 
 ## <a name="get-up-and-running-quickly"></a>Operazioni iniziali rapide
 
@@ -146,7 +146,7 @@ I modelli tabulari in Azure Analysis Services supportano un'ampia gamma di origi
 
 ## <a name="your-data-is-secure"></a>I dati sono protetti
 
-Azure Analysis Services fornisce la sicurezza per i dati sensibili a più livelli. A livello di server: firewall, autenticazione di Azure, ruoli di amministratore del server e crittografia sul lato server. A livello di modello di dati, i ruoli utente e la sicurezza a livello di riga e a livello di oggetto assicurano che i dati siano sicuri e vengano visualizzati solo dagli utenti che devono visualizzarli.
+Azure Analysis Services fornisce la sicurezza per i dati sensibili a più livelli. A livello di server: firewall, autenticazione di Azure, ruoli di amministratore del server e crittografia lato server. A livello di modello di dati, i ruoli utente e la sicurezza a livello di riga e a livello di oggetto assicurano che i dati siano sicuri e vengano visualizzati solo dagli utenti che devono visualizzarli.
 
 ### <a name="firewall"></a>Firewall
 
@@ -182,7 +182,7 @@ Le entità servizio sono una risorsa dell'applicazione Azure Active Directory cr
 
 ### <a name="azure-governance"></a>Governance di Azure
 
-Azure Analysis Services è disciplinato dalle [Condizioni di Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) e dall'[Informativa sulla privacy di Microsoft](https://privacy.microsoft.com/privacystatement).
+Azure Analysis Services è disciplinato dalle [Condizioni di Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) e dall'[Informativa sulla privacy di Microsoft](https://privacy.microsoft.com/privacystatement).
 Per altre informazioni sulla sicurezza di Azure, vedere [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
 ## <a name="use-the-tools-you-already-know"></a>Usare gli strumenti noti
@@ -251,7 +251,7 @@ Analysis Services è costituito da una vivace community di utenti. È possibile 
 > [Iscriversi per ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Creare un server - Portale](analysis-services-create-server.md)   
+> [Avvio rapido: Creare un server - Portale](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Creare un server - PowerShell](analysis-services-create-powershell.md)  
+> [Avvio rapido: Creare un server: PowerShell](analysis-services-create-powershell.md)  

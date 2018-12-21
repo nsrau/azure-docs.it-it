@@ -1,24 +1,27 @@
 ---
-title: Esercitazione sul servizio contenitore di Azure - App di preparazione
-description: Esercitazione sul servizio contenitore di Azure - App di preparazione
+title: (DEPRECATO) Esercitazione sul servizio Azure Container - Preparare l'app
+description: Esercitazione sul servizio Azure Container - Preparare l'app
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2fe160652bf8df289d590722ef4024f0b3dd397c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a003248104c45fa2bcc1020e0ad8ea895d759457
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164356"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992386"
 ---
-# <a name="create-container-images-to-be-used-with-azure-container-service"></a>Creare immagini del contenitore da usare con il servizio contenitore di Azure
+# <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(DEPRECATO) Creare immagini del contenitore da usare con il servizio Azure Container
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Per la versione aggiornata di questa esercitazione che usa il servizio Azure Kubernetes, vedere [Esercitazione: Preparare un'applicazione per il servizio Azure Kubernetes](../../aks/tutorial-kubernetes-prepare-app.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In questa esercitazione, parte uno di sette, si prepara un'applicazione multi-contenitore per l'uso in Kubernetes. I passaggi completati comprendono:  
 

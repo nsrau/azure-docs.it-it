@@ -1,6 +1,6 @@
 ---
-title: Panoramica di Azure Notebooks | Microsoft Docs
-description: Eseguire i notebook di Jupyter nel cloud usando il servizio Azure Notebooks gratuito.
+title: Panoramica di Azure Notebooks
+description: Eseguire i notebook di Jupyter nel cloud usando il servizio Azure Notebooks gratuito, in cui non è necessaria alcuna installazione o configurazione.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a84f71c2656c73867ee076d4b993026558a0a504
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 92cfdea12dc51884ea04ed894a79ded7f532d88b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853361"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085400"
 ---
 # <a name="overview-of-azure-notebooks"></a>Panoramica di Azure Notebooks
 
-Azure Notebooks è un servizio ospitato gratuito che consente di sviluppare ed eseguire notebook di Jupyter nel cloud senza alcuna installazione. [Jupyter](http://jupyter.org/) (in precedenza noto come IPython) è un progetto open source che consente di combinare facilmente testo in formato Markdown, codice eseguibile, dati persistenti, grafica e visualizzazioni in un'unica area di disegno condivisibile, il *notebook* (immagine per gentile concessione di jupyter.org):
+Azure Notebooks è un servizio ospitato gratuito che consente di sviluppare ed eseguire notebook di Jupyter nel cloud senza alcuna installazione. [Jupyter](https://jupyter.org/) (in precedenza noto come IPython) è un progetto open source che consente di combinare facilmente testo in formato Markdown, codice eseguibile, dati persistenti, grafica e visualizzazioni in un'unica area di disegno condivisibile, il *notebook* (immagine per gentile concessione di jupyter.org):
 
-[![](http://jupyter.org/assets/jupyterpreview.png "Notebook Jupyter")](http://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![](https://jupyter.org/assets/jupyterpreview.png "Notebook Jupyter")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Grazie a questa combinazione avanzata di codice, grafica e testo esplicativo, Jupyter è molto diffuso per diversi scopi, tra cui istruzione di data science, pulizia e trasformazione dei dati, simulazione numerica, modellazione statistica e sviluppo di modelli di Machine learning.
 
@@ -51,7 +51,7 @@ Poiché Azure Notebooks è una piattaforma per la creazione, l'esecuzione e la c
 In breve, Azure Notebook consente di svolgere il proprio lavoro in modo più efficiente e produttivo.
 
 > [!Note]
-> Per altre informazioni su Jupyter, vedere [jupyter.org](http://jupyter.org/) e la [documentazione di Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).
+> Per altre informazioni su Jupyter, vedere [jupyter.org](https://jupyter.org/) e la [documentazione di Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/).
 
 ## <a name="pricing-and-quotas"></a>Prezzi e quote
 
@@ -71,7 +71,7 @@ Per ogni notebook, si seleziona il kernel (ovvero l'ambiente di runtime) usato p
 
 Azure Notebooks include anche pacchetti aggiuntivi oltre alle distribuzioni di base. I kernel Python, ad esempio, includono le librerie numpy, pandas, scikit-learn, matplotlib e bokeh.
 
-È anche possibile personalizzare un progetto per creare un ambiente per tutti i notebook in tale progetto. Per altre informazioni, vedere [Quickstart: Create a project with a custom environment](quickstart-create-jupyter-notebook-project-environment.md) (Avvio rapido: Creare un progetto con un ambiente personalizzato).
+È anche possibile personalizzare un progetto per creare un ambiente per tutti i notebook in tale progetto. Per ulteriori informazioni, consultare [Avvio rapido: Creare un progetto con un ambiente personalizzato](quickstart-create-jupyter-notebook-project-environment.md).
 
 Oltre alle distribuzioni di base, in Azure Notebooks sono preinstallati numerosi pacchetti aggiuntivi utili ai data scientist. È anche possibile installare pacchetti personalizzati usando il processo tipico per ogni linguaggio.
 

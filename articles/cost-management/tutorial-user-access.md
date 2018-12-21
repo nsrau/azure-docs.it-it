@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 19cb1e414ba4a486139a502034e958907d027470
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 64e56233546a22804036b43d9769247678036049
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275268"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099444"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Esercitazione: Assegnare un accesso ai dati di Cloudyn
 
@@ -47,7 +47,7 @@ Anche se si dispone già di un accesso amministrativo, lo stesso potrebbe essere
 Immettere le informazioni necessarie relative all'utente. L'**ID di accesso** deve essere un indirizzo di posta elettronica valido. Scegliere le autorizzazioni per consentire la Gestione utenti in modo che l'utente possa creare e modificare altri utenti. La gestione degli elenchi di destinatari consente all'utente di modificare gli elenchi di destinatari. Selezionando **Notify user by email** (Notifica utente tramite posta elettronica), all'utente verrà inviato tramite posta elettronica da Cloudyn un collegamento con informazioni di accesso. L'utente imposta una password al primo accesso.
 
 In **User has admin access** (L'utente dispone di un accesso amministrativo), viene selezionata l'entità radice dell'organizzazione. Lasciare la radice selezionata e salvare le informazioni utente. La selezione dell'entità radice consente all'utente di disporre dell'autorizzazione di amministratore non solo per l'entità radice nell'albero, ma anche per tutte le entità che si trovano sotto di essa.  
-  ![Aggiungere un nuovo utente con accesso amministrativo](.\media\tutorial-user-access\new-admin-access.png)
+  ![Esempio che mostra l'accesso amministrativo nella casella Aggiunta nuovo utente](./media/tutorial-user-access/new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Creare un utente con accesso utente
 Gli utenti tipici che richiedono l'accesso a dati di Cloudyn, come dashboard e report, devono disporre di un accesso utente per visualizzarli. Creare un nuovo utente con accesso utente simile a quello creato con accesso amministrativo, con le differenze seguenti:
@@ -56,7 +56,7 @@ Gli utenti tipici che richiedono l'accesso a dati di Cloudyn, come dashboard e r
 - Selezionare le entità a cui l'utente deve accedere nell'elenco **User has user access** (L'utente dispone di un accesso utente).
 - È anche possibile consentire all'amministratore di accedere a entità specifiche, in base alle esigenze.
 
-![aggiungere un nuovo utente con accesso utente](.\media\tutorial-user-access\new-user-access.png)
+![Esempio che mostra l'accesso utente nella casella Aggiunta nuovo utente](./media/tutorial-user-access/new-user-access.png)
 
 Per guardare un video di esercitazione sull'aggiunta di utenti, vedere [Aggiungere utenti in Cloudyn](https://youtu.be/Nzn7GLahx30).
 
@@ -88,11 +88,11 @@ Al momento della registrazione del contratto o dell'account di Azure con Cloudyn
 
 Nel portale di Cloudyn fare clic sul simbolo a forma di ingranaggio in alto a destra e selezionare **Cloud Accounts** (Account cloud). Si inizierà con una singola entità (radice), per poi compilare la struttura ad albero a partire da essa. Di seguito è riportato un esempio di una gerarchia di entità che potrebbe somigliare a molte organizzazioni IT dopo avere completato la struttura ad albero:
 
-![Struttura ad albero di entità](.\media\tutorial-user-access\entity-tree.png)
+![Esempio di un albero delle entità nella pagina di gestione degli account](./media/tutorial-user-access/entity-tree.png)
 
 Accanto a **Entità**, fare clic su **Aggiungi entità**. Immettere le informazioni sulla persona o sul reparto che si desidera aggiungere. I campi **Nome e cognome** e **Posta elettronica** non devono corrispondere a utenti esistenti. Per visualizzare un elenco di livelli di accesso, cercare *Aggiunta di un'entità* nella Guida.
 
-![Aggiungi entità](.\media\tutorial-user-access\add-entity.png)
+![Esempio che illustra il nome entità e i livelli di accesso nella casella Aggiungi entità](./media/tutorial-user-access/add-entity.png)
 
 Al termine, **salvare** l'entità.
 

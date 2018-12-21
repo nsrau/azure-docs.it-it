@@ -9,14 +9,17 @@ ms.topic: tutorial
 ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: de19b20865127fd37cd7bc1ac854288a95a68091
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 45255845d8645391ee33471830ac2ef27870a40d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058137"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408630"
 ---
 # <a name="tutorial-train-a-distributed-model-with-horovod"></a>Esercitazione: Eseguire il training di un modello distribuito con Horovod
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 In questa esercitazione viene eseguito il training di un modello di apprendimento avanzato distribuito tramite l'esecuzione in parallelo su più nodi in un cluster Batch per intelligenza artificiale. Batch per intelligenza artificiale è un servizio gestito per il training di modelli di apprendimento automatico e di intelligenza artificiale su larga scala su cluster di GPU di Azure. 
 
@@ -40,7 +43,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="why-use-horovod"></a>Perché usare Horovod?
 
-Horovod è un framework di training distribuito per Tensorflow, Keras e PyTorch e viene usato in questa esercitazione. Horovod consente di convertire uno script di training progettato per essere eseguito su un singolo GPU in uno che può essere eseguito in modo efficiente in un sistema distribuito, usando solo poche righe di codice.
+Horovod è un framework di training distribuito per Tensorflow, Keras e PyTorch e viene usato in questa esercitazione. Horovod consente di convertire uno script di training progettato per essere eseguito su una singola GPU in uno che può essere eseguito in modo efficiente in un sistema distribuito, usando solo poche righe di codice.
 
 Oltre a Horovod, Batch per intelligenza artificiale supporta il training distribuito con altri framework open source diffusi. Verificare le condizioni di licenza dei framework usati prima di eseguire il training dei modelli in fase di produzione.
 
@@ -324,7 +327,7 @@ Dopo aver completato i passaggi precedenti, creare un processo di training. In B
 
 Descrizione delle proprietà:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --------- | --------- |
 | `nodeCount` | Il numero di nodi da dedicare al processo. In questo caso, il processo viene eseguito in parallelo su `4` nodi. |
 | `horovodSettings` | Il campo `pythonScriptFilePath` definisce il percorso allo script Horovod, che si trova nella directory `cifar` creata in precedenza. Il campo `commandLineArgs` indica gli argomenti della riga di comando per l'esecuzione dello script. Per questo esperimento, l'unico argomento richiesto è la directory in cui salvare il modello. `$AZ_BATCHAI_JOB_MOUNT_ROOT/myshare` è il percorso in cui è stata montata la condivisione file. | 

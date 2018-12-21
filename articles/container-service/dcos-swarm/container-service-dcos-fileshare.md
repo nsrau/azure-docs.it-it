@@ -1,5 +1,5 @@
 ---
-title: Condivisione dei file per cluster DC/OS di Azure
+title: (DEPRECATO) Condivisione dei file per cluster DC/OS di Azure
 description: Creare e montare una condivisione di file per un cluster DC/OS nel servizio contenitore di Azure
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4e03a0b450c9806edfb81a867fba97052659ec44
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 728f8ddbda35f27c0f89e1d72e98fd2d7669320e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973505"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999851"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Creare e montare una condivisione di file per un cluster DC/OS
+# <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(DEPRECATO) Creare e montare una condivisione di file per un cluster DC/OS
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Questa esercitazione illustra nei dettagli come creare una condivisione file in Azure e come montarla in ogni agente e nel master del cluster DC/OS. La configurazione della condivisione file semplifica la condivisione di file tra i cluster ad esempio configurazione, accesso, log e altro ancora. Nell'esercitazione verranno eseguite le attività seguenti:
 

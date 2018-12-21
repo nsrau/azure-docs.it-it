@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163172"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001962"
 ---
 # <a name="configure-storage"></a>Configurare l'archivio
 
@@ -19,6 +19,12 @@ Questo passaggio configura il sistema di archiviazione back-end per il cluster v
 
 > [!TIP]
 > Se è stato usato lo script prototipo `create-cloudbacked-cluster` per creare un nuovo contenitore BLOB insieme al cluster Avere vFXT, quel contenitore è già configurato per l'uso e non occorre aggiungere risorse di archiviazione.
+>
+> Tuttavia, se il nuovo contenitore Blob è stato crittografato con una chiave di crittografia predefinita, è necessario scaricare il file di ripristino della chiave dal cluster o sostituire la chiave predefinita con una nuova chiave prima di archiviare i dati. La chiave predefinita viene salvata solo nel cluster e non può essere recuperata se il cluster viene perso o non è più disponibile.
+>
+> Dopo la connessione al pannello di controllo di Avere, fare clic sulla scheda **Impostazioni**, quindi scegliere **Archiviatore principale** > **Impostazioni di crittografia cloud**. Nella sezione **Archivio chiavi locale**, scegliere una delle opzioni seguenti: 
+> * Usare il pulsante **Scarica di nuovo file di ripristino** per ottenere il file di ripristino della chiave esistente. Il file di ripristino è crittografato con la password amministrativa del cluster. Assicurarsi di salvare il file in un percorso affidabile. 
+> * Seguire le istruzioni della sezione **Generare una nuova chiave principale** per creare una nuova chiave di crittografia controllata. Questa opzione consente di specificare una passphrase univoca e richiede il caricamento e il nuovo download del file di ripristino per convalidare la coppia file-passphrase.
 
 Seguire queste istruzioni se è stato usato lo script di prototipo `create-minimal-cluster` per il cluster o se si vuole aggiungere un altro sistema di archiviazione, hardware o basato sul cloud.
 

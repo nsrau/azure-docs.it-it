@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva per Azure IoT Edge e Linux | Microsoft Docs
-description: Questa guida introduttiva descrive come distribuire codice precompilato in remoto in un dispositivo IoT Edge.
+title: 'Guida introduttiva: Creare un dispositivo Azure IoT Edge in Linux | Microsoft Docs'
+description: Questa guida introduttiva descrive come creare un dispositivo IoT Edge e distribuire codice predefinito in modalità remota dal portale di Azure.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2d988d70285e64414277bc2337a564aa87e45201
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1bc7425d1979b2e1a35884c0800117455aebe9b6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888138"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338058"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Guida introduttiva: Distribuire il primo modulo IoT Edge in un dispositivo Linux x64
 
@@ -27,7 +27,7 @@ In questa guida introduttiva si apprende come:
 3. Installare e avviare il runtime IoT Edge nel dispositivo.
 4. Distribuire in remoto un modulo in un dispositivo IoT Edge.
 
-![Guida introduttiva sull'architettura](./media/quickstart-linux/install-edge-full.png)
+![Diagramma - Guida introduttiva sull'architettura per dispositivo e cloud](./media/quickstart-linux/install-edge-full.png)
 
 Questa guida introduttiva trasforma il computer o la macchina virtuale Linux in un dispositivo IoT Edge. È quindi possibile distribuire un modulo dal portale di Azure nel dispositivo. Il modulo distribuito in questa guida introduttiva è un sensore simulato che genera dati di temperatura, umidità e pressione. Le altre esercitazioni su Azure IoT Edge si basano sulle operazioni eseguite qui tramite la distribuzione di moduli che analizzano dati simulati per ottenere informazioni aziendali accurate.
 
@@ -71,7 +71,7 @@ Dispositivo IoT Edge:
 
 Iniziare la guida introduttiva creando l'hub IoT con l'interfaccia della riga di comando di Azure.
 
-![Creare un hub IoT](./media/quickstart-linux/create-iot-hub.png)
+![Diagramma - Creare un hub IoT nel cloud](./media/quickstart-linux/create-iot-hub.png)
 
 Per questa guida introduttiva è possibile usare il livello gratuito dell'hub IoT. Se l'hub IoT è già stato usato in passato ed già stato creato un hub gratuito, è possibile usarlo qui. Ogni sottoscrizione può avere un solo hub IoT gratuito. 
 
@@ -86,7 +86,7 @@ Il codice seguente crea un hub **F1** gratuito nel gruppo di risorse **IoTEdgeRe
 ## <a name="register-an-iot-edge-device"></a>Registrare un dispositivo IoT Edge
 
 Registrare un dispositivo IoT Edge con l'hub IoT appena creato.
-![Registrare un dispositivo](./media/quickstart-linux/register-device.png)
+![Diagramma - Registrare un dispositivo con un'identità dell'hub IoT](./media/quickstart-linux/register-device.png)
 
 Creare un'identità del dispositivo per il dispositivo simulato in modo che possa comunicare con l'hub IoT. L'identità del dispositivo si trova nel cloud e si usa una stringa di connessione del dispositivo univoca per associare un dispositivo fisico a un'identità del dispositivo. 
 
@@ -111,7 +111,7 @@ Poiché i dispositivi IoT Edge si comportano e possono essere gestiti in modo di
 ## <a name="connect-the-iot-edge-device-to-iot-hub"></a>Connettere il dispositivo IoT Edge all'hub IoT
 
 Installare e avviare il runtime Azure IoT Edge nel dispositivo IoT Edge. 
-![Registrare un dispositivo](./media/quickstart-linux/start-runtime.png)
+![Diagramma - Avviare il runtime nel dispositivo](./media/quickstart-linux/start-runtime.png)
 
 Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da tre componenti. Il **daemon di sicurezza IoT Edge** si avvia a ogni avvio di un dispositivo Edge ed esegue l' avvio del dispositivo avviando l'agente IoT Edge. L'**agente IoT Edge** semplifica la distribuzione e il monitoraggio di moduli nel dispositivo IoT Edge, tra cui l'hub di IoT Edge. L'**hub IoT Edge** gestisce le comunicazioni tra moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT. 
 
@@ -171,7 +171,7 @@ Il dispositivo IoT Edge è ora configurato. È pronto per eseguire i moduli dist
 ## <a name="deploy-a-module"></a>Distribuire un modulo
 
 Gestire il dispositivo Azure IoT Edge dal cloud per distribuire un modulo che invierà dati di telemetria all'hub IoT.
-![Registrare un dispositivo](./media/quickstart-linux/deploy-module.png)
+![Diagramma - Distribuire un modulo dal cloud al dispositivo](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
@@ -197,7 +197,7 @@ Visualizzare i messaggi inviati dal modulo tempSensor:
 
 Il modulo del sensore temperatura può attendere di connettersi all'hub di IoT Edge se l'ultima riga visualizzata nel log è `Using transport Mqtt_Tcp_Only`. Provare a terminare il modulo e permettere all'agente IoT Edge di riavviarlo. È possibile terminare il modulo con il comando `sudo docker stop tempSensor`.
 
-È anche possibile visualizzare i messaggi ricevuti dall'hub IoT usando l'[estensione Azure IoT Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+È anche possibile visualizzare i messaggi ricevuti dall'hub IoT usando l'[estensione Azure IoT Hub Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (in precedenza Azure IoT Toolkit). 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
