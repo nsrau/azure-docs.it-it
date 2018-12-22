@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: rayne
-ms.openlocfilehash: 1a9a89138dc71f7a0255b8ab4084182848d6e994
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 50ef6ff452713ec8a8023c5d5e3d58a4b91ea323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211741"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849803"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurare l'indirizzo IP per la connessione a un sito secondario locale dopo il failover
 
@@ -23,8 +23,8 @@ Dopo avere eseguito il failover delle macchine virtuali Hyper-V nei cloud System
 
 Dopo il failover, è possibile gestire gli indirizzi IP per le macchine virtuali di replica in un paio di modi: 
 
-- **Mantenere lo stesso indirizzo IP dopo il failover**: in questo scenario la macchina virtuale di replica ha lo stesso indirizzo IP di quella primaria. Questa operazione semplifica i problemi correlati alla rete dopo il failover, ma richiede alcuni interventi di infrastruttura.
-- **Usare un indirizzo IP diverso dopo il failover**: in questo scenario la macchina virtuale ottiene un nuovo indirizzo IP dopo il failover. 
+- **Conservare lo stesso indirizzo IP dopo il failover**: In questo scenario la macchina virtuale di replica ha lo stesso indirizzo IP di quella primaria. Questa operazione semplifica i problemi correlati alla rete dopo il failover, ma richiede alcuni interventi di infrastruttura.
+- **Usare un indirizzo IP diverso dopo il failover**: In questo scenario, la macchina virtuale ottiene un nuovo indirizzo IP dopo il failover. 
  
 
 ## <a name="retain-the-ip-address"></a>Mantenere l'indirizzo IP
