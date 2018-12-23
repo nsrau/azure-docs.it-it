@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Mimecast Personal Portal | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Mimecast Personal Portal | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Mimecast Personal Portal.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 71ecffebe095fd325837aeb1d6e741a2f3321aea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88952d09672fb4dd2d31878d56a59cb425f53de2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421839"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850449"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Esercitazione: Integrazione di Azure Active Directory con Mimecast Personal Portal
+# <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Esercitazione: integrazione di Azure Active Directory con Mimecast Personal Portal
 
 Questa esercitazione descrive come integrare Mimecast Personal Portal con Azure Active Directory (Azure AD).
 
@@ -139,7 +139,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | Estero        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
-    > Il valore dell'identificatore non è reale. È necessario aggiornare questo valore con l'ID effettivo. Per ottenerlo, contattare il [team di supporto clienti di Mimecast Personal Portal](http://www.mimecast.com/customer-success/technical-support/). 
+    > Il valore dell'identificatore non è reale. È necessario aggiornare questo valore con l'ID effettivo. Per ottenerlo, contattare il [team di supporto clienti di Mimecast Personal Portal](https://www.mimecast.com/customer-success/technical-support/). 
 
 1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -293,7 +293,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Mimecast Personal Portal nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Mimecast Personal Portal.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

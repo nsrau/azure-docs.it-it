@@ -4,17 +4,17 @@ description: Questo articolo descrive come analizzare i log di diagnostica in An
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: 9001a2962806ee3e691fa448dde162d12c6ecdd2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: db3c9874676e3240f6896c1e1ff8f873360c20d5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905863"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090823"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Risoluzione dei problemi di Analisi di flusso di Azure mediante i log di diagnostica
 
@@ -36,15 +36,15 @@ I log di diagnostica sono **disattivati** per impostazione predefinita. Per atti
 
 1.  Accedere al portale di Azure e passare al pannello Processo di streaming. In **Monitoraggio**selezionare **Log di diagnostica**.
 
-    ![Navigazione tra i pannelli per trovare i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/image1.png)  
+    ![Navigazione tra i pannelli per trovare i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
 2.  Selezionare **Attiva diagnostica**.
 
-    ![Attivare i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/image2.png)
+    ![Attivare i log di diagnostica di Analisi di flusso di Azure](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
 
 3.  Nella pagina **Impostazioni di diagnostica** per **Stato**selezionare **Attivato**.
 
-    ![Cambiare lo stato per i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/image3.png)
+    ![Cambiare lo stato per i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
 
 4.  Impostare la destinazione di archiviazione (account di archiviazione, hub di eventi, Log Analytics) desiderata. Quindi selezionare le categorie di log da raccogliere (Esecuzione, Creazione). 
 
@@ -52,7 +52,7 @@ I log di diagnostica sono **disattivati** per impostazione predefinita. Per atti
 
 La configurazione di diagnostica impiega circa 10 minuti per diventare effettiva. I log vengono poi visualizzati nella destinazione di archiviazione configurata (è possibile vederli nella pagina **Log di diagnostica**):
 
-![Navigazione tra i pannelli per trovare i log di diagnostica - destinazioni di archiviazione](./media/stream-analytics-job-diagnostic-logs/image4.png)
+![Navigazione tra i pannelli per trovare i log di diagnostica - destinazioni di archiviazione](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
 
 Per altre informazioni sulla configurazione di diagnostica, vedere [Raccogliere e usare i dati di diagnostica dalle risorse di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
@@ -77,7 +77,7 @@ NOME | DESCRIZIONE
 time | Timestamp del log (in UTC).
 ResourceId | ID della risorsa interessata dall'operazione, in lettere maiuscole. Include l'ID sottoscrizione, il gruppo di risorse e il nome del processo. Ad esempio, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | Categoria del log, ovvero **Execution** o **Authoring**.
-operationName | Il nome dell'operazione registrata. Ad esempio **Send Events: SQL Output write failure to mysqloutput**.
+operationName | Il nome dell'operazione registrata. Per esempio, **Inviare eventi: SQL Output scrive un errore in mysqloutput**.
 status | Stato dell'operazione. Ad esempio **Failed** o **Succeeded**.
 level | Il livello del log. Ad esempio **Error**, **Warning** o **Informational**.
 properties | Dettagli specifici delle voci di log; serializzazione come stringa JSON. Per altre informazioni, vedere le sezioni seguenti.
@@ -99,7 +99,7 @@ Dati | Dati utili per individuare con precisione l'origine dell'errore. Sono sog
 
 In base al valore **operationName**, lo schema degli errori nei dati è il seguente:
 * **Eventi di serializzazione**. Gli eventi di serializzazione si verificano durante le operazioni di lettura degli eventi. Si verificano quando i dati in input non soddisfano lo schema di query per uno dei seguenti motivi:
-    * *Mancata corrispondenza del tipo durante la (de)serializzazione dell'evento*: identifica il campo che causa l'errore.
+    * *Tipo non corrispondente durante la (de)serializzazione dell'evento*: identifica il campo che causa l'errore.
     * *Impossibile leggere un evento, serializzazione non valida*: elenca le informazioni sulla posizione nei dati di input in cui si è verificato l'errore. Include il nome del BLOB per l'input del BLOB, l'offset e un campione dei dati.
 * **Eventi di invio**. Gli eventi di invio si verificano durante le operazioni di scrittura. Identificano l'evento di streaming che ha causato l'errore.
 

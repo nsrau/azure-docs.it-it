@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8ba4fa1b5f5efd671c13ad2201b0cd34642d346
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261877"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844941"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Pianificare la capacità per il ripristino di emergenza di macchine virtuali Hyper-V 
 
@@ -65,17 +65,17 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
 4. Dopo aver immesso i valori per l'ambiente di origine, l'output visualizzato include:
 
-   * **Bandwidth required for delta replication (in Megabits/sec)** (Larghezza di banda necessaria per la replica differenziale in Mbps): la larghezza di banda di rete per la replica differenziale viene calcolata in base alla frequenza di modifica giornaliera media dei dati.
-   * **Bandwidth required for initial replication (in Megabits/sec)** (Larghezza di banda necessaria per la replica iniziale in Mbps): la larghezza di banda di rete per la replica iniziale viene calcolata in base ai valori della replica iniziale immessi.
-   * **Storage required (in GBs)** (Spazio di archiviazione necessario in GB): lo spazio totale di archiviazione di Azure necessario.
-   * **Total IOPS on Standard Storage** (Totale operazioni di I/O al secondo in archiviazione Standard): il numero viene calcolato in base alla dimensione unitaria delle operazioni di I/O al secondo pari a 8K sul totale degli account di archiviazione Standard. Per lo strumento di pianificazione rapida, il numero viene calcolato in base a tutti i dischi di macchine virtuali di origine e alla frequenza di modifica giornaliera dei dati. Per lo strumento di pianificazione dettagliata, il numero viene invece calcolato in base al numero totale di macchine virtuali con mapping alle macchine virtuali standard di Azure e alla frequenza di modifica dei dati su tali macchine virtuali.
-   * **Number of Standard storage accounts required** (Numero di account di archiviazione Standard necessari): il numero di account di archiviazione Standard necessari per proteggere le macchine virtuali. Un account di archiviazione standard può contenere fino a 20.000 operazioni di I/O al secondo in tutte le macchine virtuali dello spazio di archiviazione standard. È supportato un massimo di 500 operazioni di I/O al secondo per ogni disco.
-   * **Number of Blob disks required** (Numero di dischi BLOB necessari): il numero di dischi che verranno creati nello spazio di archiviazione di Azure.
-   * **Number of premium storage accounts required** (Numero di account di archiviazione Premium necessari): il numero totale di account di archiviazione Premium necessari per proteggere le macchine virtuali. Per una macchina virtuale di origine con un numero di operazioni di I/O al secondo elevato (superiore a 20.000) è necessario un account di archiviazione Premium. Un account di archiviazione di questo tipo può contenere fino a 80.000 operazioni di I/O al secondo.
-   * **Total IOPS on Premium Storage** (Totale operazioni di I/O al secondo in archiviazione Premium): il numero viene calcolato in base alla dimensione unitaria delle operazioni di I/O al secondo pari a 256K sul totale degli account di archiviazione Premium. Per lo strumento di pianificazione rapida, il numero viene calcolato in base a tutti i dischi di macchine virtuali di origine e alla frequenza di modifica giornaliera dei dati. Per lo strumento di pianificazione dettagliata, il numero viene calcolato in base al numero totale di macchine virtuali con mapping alle macchine virtuali Premium di Azure (serie DS e GS) e alla frequenza di modifica dei dati su tali macchine virtuali.
-   * **Number of configuration servers required** (Numero di server di configurazione necessari): indica il numero di server di configurazione necessari per la distribuzione.
-   * **Number of additional Process Servers required** (Numero di server di elaborazione aggiuntivi necessari): indica se sono necessari server di elaborazione aggiuntivi oltre al server di elaborazione in esecuzione nel server di configurazione per impostazione predefinita.
-   * **100% additional storage on the Source** (100% archiviazione aggiuntiva nell'origine): mostra se è necessario spazio di archiviazione aggiuntivo nella posizione di origine.
+   * **Bandwidth required for delta replication (in Megabits/sec)** (Larghezza di banda necessaria per la replica differenziale, in megabit al secondo): La larghezza di banda di rete per la replica delta viene calcolata in base alla frequenza di modifica giornaliera media dei dati.
+   * **Bandwidth required for initial replication (in Megabits/sec)** (Larghezza di banda necessaria per la replica iniziale, in megabit al secondo): La larghezza di banda di rete per la replica iniziale viene calcolata in base ai valori di replica iniziale immessi.
+   * **Storage required (in GBs)** (Archiviazione richiesta in GB): Archiviazione di Azure totale richiesta.
+   * **Total IOPS on Standard Storage** (IOPS totali in Archiviazione Standard): il numero viene calcolato in base alla dimensione unitaria delle operazioni di I/O al secondo pari a 8K sul totale degli account di archiviazione Standard. Per lo strumento di pianificazione rapida, il numero viene calcolato in base a tutti i dischi di macchine virtuali di origine e alla frequenza di modifica giornaliera dei dati. Per lo strumento di pianificazione dettagliata, il numero viene invece calcolato in base al numero totale di macchine virtuali con mapping alle macchine virtuali standard di Azure e alla frequenza di modifica dei dati su tali macchine virtuali.
+   * **Number of standard storage accounts required** (Numero di account di archiviazione Standard richiesti): Numero totale di account di archiviazione Standard necessari per proteggere le macchine virtuali. Un account di archiviazione standard può contenere fino a 20.000 operazioni di I/O al secondo in tutte le macchine virtuali dello spazio di archiviazione standard. È supportato un massimo di 500 operazioni di I/O al secondo per ogni disco.
+   * **Number of Blob disks required** (Numero di dischi BLOB necessari): Numero di dischi che vengono creati in Archiviazione di Azure.
+   * **Number of premium accounts required** (Numero di account Premium richiesti): Numero totale di account di archiviazione Premium necessari per proteggere le macchine virtuali. Per una macchina virtuale di origine con un numero di operazioni di I/O al secondo elevato (superiore a 20.000) è necessario un account di archiviazione Premium. Un account di archiviazione di questo tipo può contenere fino a 80.000 operazioni di I/O al secondo.
+   * **Total IOPS on Premium Storage** (IOPS totali per l'Archiviazione Premium): il numero viene calcolato in base alla dimensione unitaria delle operazioni di I/O al secondo pari a 256K sul totale degli account di archiviazione Premium. Per lo strumento di pianificazione rapida, il numero viene calcolato in base a tutti i dischi di macchine virtuali di origine e alla frequenza di modifica giornaliera dei dati. Per lo strumento di pianificazione dettagliata, il numero viene calcolato in base al numero totale di macchine virtuali con mapping alle macchine virtuali Premium di Azure (serie DS e GS) e alla frequenza di modifica dei dati su tali macchine virtuali.
+   * **Number of Configuration Servers required** (Numero di server di configurazione necessari): indica il numero di server di configurazione necessari per la distribuzione.
+   * **Number of additional Process Servers required** (Numero di server di elaborazione aggiuntivi necessari): Indica se sono necessari server di elaborazione aggiuntivi oltre al server di elaborazione in esecuzione nel server di configurazione per impostazione predefinita.
+   * **100% additional storage on the Source** (100% archiviazione aggiuntiva nell'origine): Mostra se è necessario spazio di archiviazione aggiuntivo nella posizione di origine.
 
       ![Output](./media/site-recovery-capacity-planner/output.png)
 

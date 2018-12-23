@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9d3d1e5ba7ebc7e2afefb31df3be9f2a8f43e153
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685396"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076356"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure
 
@@ -436,7 +436,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Aggiungere il contenuto in grassetto seguente al file se i valori non sono presenti o sono diversi. Assicurarsi di modificare il token in modo da ottenere 30000 per consentire la manutenzione con mantenimento della memoria. Per altre informazioni, vedere [questo articolo per Linux][virtual-machines-linux-maintenance] o [Windows][virtual-machines-windows-maintenance].
+   Aggiungere il contenuto in grassetto seguente al file se i valori non sono presenti o sono diversi. Assicurarsi di modificare il token in modo da ottenere 30000 per consentire la manutenzione con mantenimento della memoria. Per altre informazioni, vedere [questo articolo per Linux][virtual-machines-linux-maintenance] o [Windows][virtual-machines-windows-maintenance]. Inoltre, verificare di rimuovere il parametro mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000
@@ -449,6 +449,8 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
         [...] 
      }
      <b>transport:      udpu</b>
+     # remove parameter mcastaddr
+     <b># mcastaddr: IP</b>
    } 
    <b>nodelist {
      node {
@@ -527,10 +529,10 @@ Assegnare all'entità servizio il ruolo personalizzato "Linux Fence Agent Role" 
 1. Aprire il pannello Tutte le risorse
 1. Selezionare la macchina virtuale del primo nodo del cluster.
 1. Fare clic su Controllo di accesso (IAM)
-1. Fare clic su Aggiungi.
+1. Fare clic su Aggiungi assegnazione ruolo
 1. Selezionare il ruolo "Linux Fence Agent Role".
 1. Immettere il nome dell'applicazione creata in precedenza
-1. Fare clic su OK.
+1. Fare clic su Salva.
 
 Ripetere la procedura precedente per il secondo nodo del cluster.
 

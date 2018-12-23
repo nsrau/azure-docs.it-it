@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 206dddd70ae9063782b7dc8dfaf1214f53d5fac8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 62b7e293468a8b92f22ee1a5fd5b38cd15cfafbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955708"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261535"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite .NET SDK
 > [!div class="op_single_selector"]
@@ -104,7 +104,7 @@ Per semplicità, il frammento seguente usa valori predefiniti per ID client e UR
 
 Informazioni utili sul frammento di codice precedente:
 
-* Il frammento precedente usa le funzioni helper `GetTokenCache` e `GetCreds_User_Popup`. Il codice per queste funzioni helper è disponibile [in Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* Il frammento precedente usa le funzioni helper `GetTokenCache` e `GetCreds_User_Popup`. Il codice per queste funzioni helper è disponibile [qui su GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
 * Per velocizzare il completamento dell'esercitazione, il frammento usa un ID client applicazione nativa disponibile per impostazione predefinita per tutte le sottoscrizioni di Azure. È quindi possibile **usare questo frammento così com'è nell'applicazione**.
 * Se, tuttavia, si vuole usare il proprio dominio di Azure AD e il proprio ID client dell'applicazione, è necessario creare un'applicazione nativa di Azure AD e quindi usare l'ID tenant di Azure AD, l'ID client e l'URI di reindirizzamento per l'applicazione creata. Per istruzioni, vedere [Creare un'applicazione Active Directory per l'autenticazione dell'utente finale con Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
 
