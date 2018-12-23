@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210262"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847797"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurare il ripristino di emergenza per SQL Server 
 
@@ -26,9 +26,9 @@ Prima di iniziare, acquisire familiarità con le funzionalità di ripristino di 
 
 Molti carichi di lavoro usano come base SQL Server, che può essere integrato con app come SharePoint, Dynamics e SAP per implementare servizi dati.  È possibile distribuire SQL Server in diversi modi.
 
-* **SQL Server autonomo**: SQL Server e tutti i database sono ospitati in un singolo computer (fisico o una macchina virtuale). Se è virtualizzato, il clustering dell'host viene usato per la disponibilità elevata. La disponibilità elevata a livello di guest non viene implementata.
-* **Istanze di clustering di failover di SQL Server (AlwaysOn)**: due o più nodi che eseguono istanze di SQL Server con dischi condivisi vengono configurati in un cluster di failover di Windows. Se un nodo è inattivo, il cluster può effettuare il failover di SQL Server in un'altra istanza. Questa configurazione viene in genere usata per implementare la disponibilità elevata in un sito primario. Questa distribuzione non offre la protezione da errori o interruzioni nel livello dell'archiviazione condivisa. Un disco condiviso può essere implementato con iSCSI, Fibre Channel o VHDX condiviso.
-* **Gruppi di disponibilità SQL AlwaysOn**: due o più nodi vengono configurati in un cluster non condiviso con i database SQL Server configurati in un gruppo di disponibilità con replica sincrona e failover automatico.
+* **SQL Server autonomo**: SQL Server e tutti i database sono ospitati in un unico computer (fisico o virtuale). Se è virtualizzato, il clustering dell'host viene usato per la disponibilità elevata. La disponibilità elevata a livello di guest non viene implementata.
+* **Istanze di clustering di failover di SQL Server (AlwaysOn FCI)**: Due o più nodi che eseguono SQL Server a istanze con dischi condivisi vengono configurati in un cluster di failover di Windows. Se un nodo è inattivo, il cluster può effettuare il failover di SQL Server in un'altra istanza. Questa configurazione viene in genere usata per implementare la disponibilità elevata in un sito primario. Questa distribuzione non offre la protezione da errori o interruzioni nel livello dell'archiviazione condivisa. Un disco condiviso può essere implementato con iSCSI, Fibre Channel o VHDX condiviso.
+* **Gruppi di disponibilità AlwaysOn di SQL**: Due o più nodi sono configurati in un cluster non condiviso con i database di SQL Server configurati in un gruppo di disponibilità con replica sincrona e failover automatico.
 
  Per ripristinare i database in un sito remoto, in questo articolo vengono sfruttate le tecnologie di ripristino di emergenza native di SQL riportate di seguito:
 

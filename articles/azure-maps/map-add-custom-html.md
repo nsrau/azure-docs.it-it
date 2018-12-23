@@ -1,6 +1,6 @@
 ---
-title: Aggiungere codice HTML personalizzato in Mappe di Azure | Microsoft Docs
-description: Come aggiungere codice HTML personalizzato a una mappa JavaScript
+title: Aggiungere un indicatore HTML in Mappe di Azure | Microsoft Docs
+description: Come aggiungere un indicatore HTML alla mappa Javascript
 author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
@@ -9,35 +9,98 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 21689cf7fe3df7ca7e362ba49824fadd5daaa3ea
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382046"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888773"
 ---
-# <a name="add-custom-html-to-the-map"></a>Aggiungere codice HTML personalizzato alla mappa
+# <a name="add-html-markers-to-the-map"></a>Aggiungere indicatori HTML alla mappa
 
-Questo articolo illustra come aggiungere un codice HTML personalizzato, ad esempio un file di immagine, alla mappa. 
+Questo articolo illustra come aggiungere un codice HTML personalizzato, ad esempio un file di immagine, alla mappa come indicatore HTML.
 
-## <a name="understand-the-code"></a>Informazioni sul codice
+> [!NOTE]
+> Gli indicatore HTML non si connettono alle origini dati. Le informazioni sulla posizione sono invece aggiunte direttamente all'indicatore, il quale viene aggiunto alla proprietà `markers` delle mappe, un [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
-<iframe height='466' scrolling='no' title='Aggiungere codice HTML personalizzato a una mappa - PNG' src='//codepen.io/azuremaps/embed/MVoeVw/?height=466&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>Add custom html to a map - png</a> (Aggiungere codice HTML personalizzato a una mappa - PNG) di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+> [!IMPORTANT]
+> A differenza della maggior parte dei livelli nel controllo Web di Mappe di Azure, dove per il rendering viene sfruttato WebGL, gli indicatori HTML usano elementi DOM tradizionali. Di conseguenza, più si aggiungono indicatori HTML a una pagina, più saranno disponibili elementi DOM. Le prestazioni possono calare dopo aver aggiunto alcune centinaia di indicatori HTML. Per set di dati più grandi, prendere in considerazione il clustering dei dati o l'uso di un livello per i simboli o per le bolle.
+
+## <a name="add-an-html-marker"></a>Aggiungere un indicatore HTML
+
+La classe HtmlMarker ha uno stile predefinito. È possibile personalizzare l'indicatore configurandone le impostazioni di colore e testo. Lo stile predefinito della classe HtmlMarker è un modello SVG con un segnaposto colore e testo. Configurare le proprietà di colore e testo nelle opzioni HtmlMarker per una rapida personalizzazione. 
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Aggiungere un indicatore HTML a una mappa' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento 2078801 <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>Aggiungere un indicatore HTML a una mappa</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Nel codice precedente il primo blocco di codice costruisce un oggetto mappa. Per le istruzioni, è possibile vedere [Creare una mappa](./map-create.md).
+Nel codice precedente il primo blocco di codice costruisce un oggetto mappa. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
 
-Il secondo blocco di codice crea un elemento HTML da un'immagine.
+Il secondo blocco di codice aggiunge un [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) alla mappa usando la proprietà [markers](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#markers) della classe [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). L'HtmlMarker viene aggiunto alla mappa all'interno della funzione [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per assicurarsi che venga visualizzato dopo il caricamento completo della mappa.
 
-L'ultimo blocco di codice usa la funzione [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml) della classe Map per aggiungere l'immagine alla posizione specificata della mappa.
+## <a name="create-svg-templated-html-marker"></a>Creare un indicatore HTML basato su modello SVG
+
+Il valore predefinito `htmlContent` di un indicatore Html è un modello di SVG che include i segnaposto `{color}` e `{text}`. È possibile creare stringhe SVG personalizzate e aggiungere questi segnaposto in SVG, in modo che l'impostazione delle opzioni `color` e `text` dell'indicatore aggiorni tali segnaposto in SVG.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Indicatore HTML con Modello SVG personalizzato' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento 2078801 <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>indicatore HTML con modello SVG personalizzato</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="add-a-css-styled-html-marker"></a>Aggiungere un indicatore HTML in stile CSS
+
+Uno dei vantaggi degli indicatori HTML è la presenza di diverse eccezionali personalizzazioni che si possono ottenere sfruttando lo stile CSS. In questo esempio, il contenuto di HtmlMarker è costituito da HTML e CSS che creano un indicatore animato che cade sulla posizione ed emette un'onda.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Origine dati HTML' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere il Pen <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>HTML DataSource</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="draggable-html-markers"></a>Indicatori HTML trascinabili
+
+Questo esempio mostra come rendere trascinabile un indicatore HTML. Gli indicatori HTML supportano gli eventi `drag`, `dragstart` e `dragend`.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Indicatore HTML trascinabile' src='//codepen.io/azuremaps/embed/wQZoEV/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento 2078801 <a href='https://codepen.io/azuremaps/pen/wQZoEV/'>Indicatore HTML trascinabile</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="add-mouse-events-to-html-markers"></a>Aggiungere eventi del mouse a indicatori HTML
+
+Questi esempi mostrano come aggiungere eventi del mouse a un indicatore HTML aggiungendo eventi JavaScript standard al contenuto HTML dell'indicatore. 
+
+Se l'elemento `htmlContent` dell'indicatore è un elemento DOM (div, img...), è possibile aggiungere eventi direttamente. 
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Aggiungere eventi del mouse a indicatori HTML' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento 2078801 <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>Aggiungere eventi del mouse a indicatori HTML</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Se l'elemento `htmlContent` è una stringa (ad es. come l'impostazione predefinita), è possibile creare un elemento DOM e aggiungervi la stringa come innerHTML, quindi aggiungere l'elemento DOM come htmlContent. Se l'elemento `htmlContent` è una stringa basata su modelli, sarà prima necessario trovare/sostituire i valori `{text}` e `{color}` nella stringa.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Aggiungere eventi del mouse all'indicatore HTML predefinito' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento 2078801 <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>Aggiungere eventi del mouse all'indicatore HTML predefinito</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere: 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
-    
-Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti: 
-* [Visualizzare i risultati della ricerca](./map-search-location.md)
-* [Ottenere informazioni su una coordinata](./map-get-information-from-coordinate.md)
+Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
+> [!div class="nextstepaction"]
+> [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)
+
+Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
+
+> [!div class="nextstepaction"]
+> [Aggiungere un livello per i simboli](./map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [Aggiungere un livello per le bolle](./map-add-bubble-layer.md)

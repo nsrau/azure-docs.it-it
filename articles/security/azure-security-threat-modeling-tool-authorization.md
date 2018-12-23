@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eec628a5084dc663978e16e617192802d3ecfcfa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307657"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994751"
 ---
-# <a name="security-frame-authorization--mitigations"></a>Infrastruttura di sicurezza: autorizzazione - Procedure di mitigazione 
+# <a name="security-frame-authorization--mitigations"></a>Frame di sicurezza: Autorizzazione | Soluzioni di prevenzione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
 | **Limite di Trust del computer** | <ul><li>[Verificare che gli ACL appropriati siano configurati per limitare l'accesso non autorizzato ai dati nel dispositivo](#acl-restricted-access)</li><li>[Verificare che il contenuto sensibile dell'applicazione specifico dell'utente venga archiviato nella directory del profilo utente](#sensitive-directory)</li><li>[Verificare che le applicazioni distribuite vengano eseguite con privilegi minimi](#deployed-privileges)</li></ul> |
@@ -349,7 +349,7 @@ L'elemento `<behaviorExtensions/>` del file di configurazione WCF seguente indic
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico, .NET Framework 3 |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Passaggi** | <p>Questo servizio non usa un controllo di autorizzazione. Quando un client chiama un servizio WCF specifico, WCF mette a disposizione vari schemi di autorizzazione per verificare che il chiamante sia autorizzato a eseguire il metodo del servizio nel server. Se i controlli di autorizzazione non sono abilitati per i servizi WCF, un utente autenticato può ottenere l'escalation dei privilegi.</p>|
 
 ### <a name="example"></a>Esempio

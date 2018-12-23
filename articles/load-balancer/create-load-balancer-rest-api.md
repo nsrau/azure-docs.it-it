@@ -1,5 +1,6 @@
 ---
-title: Creare Azure Load Balancer con API REST | Microsoft Docs
+title: Creare un'istanza di Azure Load Balancer con API REST
+titlesuffix: Azure Load Balancer
 description: Informazioni sulle modalità di creazione di Azure Load Balancer con API REST.
 services: load-balancer
 documentationcenter: na
@@ -7,20 +8,21 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
-ms.openlocfilehash: 2f5d3584a429ce35e6905b14bb412c3782fb0185
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416920"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079722"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Creare Azure Load Balancer Basic con API REST
 
-Azure Load Balancer del carico distribuisce i nuovi flussi in ingresso che arrivano sul front-end di bilanciamento del carico nelle istanze del pool back-end in base alle regole e ai probe di integrità. Per Load Balancer sono disponibili due SKU: Basic e Standard. Per comprendere la differenza tra le due versioni, SKU, vedere [Confronto tra gli SKU di Load Balancer](load-balancer-overview.md#skus).
+Azure Load Balancer del carico distribuisce i nuovi flussi in ingresso che arrivano sul front-end di bilanciamento del carico nelle istanze del pool back-end in base alle regole e ai probe di integrità. Il Load Balancer è disponibile in due SKU: Di base e standard. Per comprendere la differenza tra le due versioni, SKU, vedere [Confronto tra gli SKU di Load Balancer](load-balancer-overview.md#skus).
  
 Questa sezione illustra come creare Azure Load Balancer Basic usando [API REST di Azure](/rest/api/azure/) per consentire la richiesta in ingresso di bilanciamento del carico tra più macchine virtuali all'interno di una rete virtuale di Azure. La documentazione di riferimento completa e altri esempi relativi sono disponibili nelle [informazioni di riferimento REST di Azure Load Balancer](/rest/api/load-balancer/).
  
@@ -49,7 +51,7 @@ L'unico parametro obbligatorio è `location`. Se non si definisce la versione *S
 | location | stringa | Percorso della risorsa. Ottenere un elenco aggiornato delle località usando l'operazione [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
 
 
-## <a name="example-create-and-update-a-basic-load-balancer"></a>Esempio: creare e aggiornare Load Balancer Basic
+## <a name="example-create-and-update-a-basic-load-balancer"></a>Esempio: creare e aggiornare un Load Balancer di base
 
 In questo esempio, è innanzitutto necessario creare Load Balancer Basic e le relative risorse. Successivamente, configurare le risorse di bilanciamento del carico che includono una configurazione IP front-end, un pool di indirizzi back-end, una regola di bilanciamento del carico, un probe di integrità e una regola NAT in ingresso.
 
