@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.author: ramamill
-ms.openlocfilehash: 50d1170f64ae199f4a1bf4b852c1ed3232df4d42
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974802"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253681"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Scalabilità per il failback con server di elaborazione aggiuntivi
 
@@ -23,6 +23,9 @@ Per impostazione predefinita, quando si esegue la replica di server fisici o mac
 ### <a name="capacity-planning"></a>Pianificazione della capacità
 
 Assicurarsi di aver [pianificato la capacità](site-recovery-plan-capacity-vmware.md) per la replica VMware. Ciò consente di identificare come e quando è necessario distribuire i server di elaborazione aggiuntivi.
+
+>[!NOTE]
+L'uso di un componente server di processo clonato non è supportato. Seguire i passaggi in questo articolo per ciascun scale-out PS.
 
 ### <a name="sizing-requirements"></a>Requisiti di dimensione 
 
