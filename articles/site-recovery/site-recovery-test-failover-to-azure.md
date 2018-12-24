@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 173a64181c1e8c051c6856fa8353f484540917e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cd8a7540b14c9d0896b9b0db2cae91ac54d92f2a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249711"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844686"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Eseguire un'esercitazione sul ripristino di emergenza in Azure 
 
@@ -30,12 +30,12 @@ Questa procedura descrive come eseguire un failover di test per un piano di ripr
 
 1. Nel portale di Azure, in Site Recovery fare clic su **Piani di ripristino** > *recoveryplan_name* > **Failover di test**.
 2. Selezionare un **Punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
-    - **Elaborato più recente**: questa opzione consente di eseguire il failover di tutte le macchine virtuali del piano nel punto di ripristino più recente elaborato da Site Recovery. Per vedere il punto di ripristino più recente per una macchina virtuale specifica, selezionare **Punti di ripristino più recenti** nelle impostazioni della macchina virtuale. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
-    - **Coerente con l'app più recente**: questa opzione esegue il failover di tutte le macchine virtuali del piano nel punto di ripristino coerente con l'app più recente elaborato da Site Recovery. Per vedere il punto di ripristino più recente per una macchina virtuale specifica, selezionare **Punti di ripristino più recenti** nelle impostazioni della macchina virtuale.
-    - **Più recente**: con questa opzione vengono prima elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni VM e quindi viene eseguito il failover in tale punto di ripristino. Questa opzione offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale creata dopo il failover conterrà tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
-    - **Elaborato più recente tra più macchine virtuali**: questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali in cui è abilitata l'impostazione eseguono il failover nel punto di ripristino coerente tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente elaborato.  
-    - **Coerente con l'app più recente tra più macchine virtuali**: questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di ripristino coerente a livello applicazione tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente coerente con l'applicazione.
-    - **Personalizzato**: questa opzione consente di eseguire il failover di una macchina virtuale specifica in un determinato punto di ripristino.
+    - **Elaborato più recente**: Questa opzione consente di eseguire il failover di tutte le macchine virtuali del piano nel punto di ripristino più recente elaborato da Site Recovery. Per vedere il punto di ripristino più recente per una macchina virtuale specifica, selezionare **Punti di ripristino più recenti** nelle impostazioni della macchina virtuale. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
+    - **Coerente con l'app più recente**: Questa opzione esegue il failover di tutte le macchine virtuali del piano nel punto di ripristino coerente con l'app più recente elaborato da Site Recovery. Per vedere il punto di ripristino più recente per una macchina virtuale specifica, selezionare **Punti di ripristino più recenti** nelle impostazioni della macchina virtuale.
+    - **Più recente**: Con questa opzione vengono prima elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni VM e quindi viene eseguito il failover in tale punto di ripristino. Questa opzione offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale creata dopo il failover conterrà tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
+    - **Elaborato più recente tra più macchine virtuali**: Questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali in cui è abilitata l'impostazione eseguono il failover nel punto di ripristino coerente tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente elaborato.  
+    - **Coerente con l'app più recente tra più macchine virtuali**: Questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di ripristino coerente a livello applicazione tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente coerente con l'applicazione.
+    - **Personalizzato**: Questa opzione consente di eseguire il failover di una macchina virtuale specifica in un determinato punto di ripristino.
 3. Selezionare una rete virtuale di Azure in cui verranno create le macchine virtuali di test.
 
     - Site Recovery tenta di creare le macchine virtuali di test in una subnet con lo stesso nome e con lo stesso indirizzo IP specificati nelle impostazioni **Calcolo e rete** della macchina virtuale.
@@ -52,10 +52,10 @@ Questa procedura descrive come eseguire un failover di test per un piano di ripr
 
 L'attivazione di un failover di test comporta l'esecuzione dei passaggi seguenti:
 
-1. **Prerequisiti**: viene eseguito un controllo dei prerequisiti per verificare che tutte le condizioni necessarie per il failover siano in atto.
-2. **Failover**: il failover elabora e prepara i dati in modo che sia possibile creare una macchina virtuale di Azure.
-3. **Più recente**: se si è scelto il punto di ripristino più recente, viene creato un punto di ripristino dai dati che sono stati inviati al servizio.
-4. **Avvio**: questo passaggio crea una macchina virtuale di Azure usando i dati elaborati nel passaggio precedente.
+1. **Prerequisiti**: Viene eseguito un controllo dei prerequisiti per verificare che tutte le condizioni necessarie per il failover siano in atto.
+2. **Failover**: Il failover elabora e prepara i dati in modo che sia possibile creare una macchina virtuale di Azure.
+3. **Più recente**: Se si è scelto il punto di ripristino più recente, viene creato un punto di ripristino dai dati che sono stati inviati al servizio.
+4. **Avvio**: Questo passaggio crea una macchina virtuale di Azure usando i dati elaborati nel passaggio precedente.
 
 ### <a name="failover-timing"></a>Intervallo di failover
 

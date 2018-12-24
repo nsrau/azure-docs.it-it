@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457084"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082647"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -55,7 +55,7 @@ L'attività di copia viene sottoposta alle fasi seguenti per copiare i dati dall
 
 È possibile usare l'attività di copia per **copiare i file così come sono** tra due archivi dati basati su file. In questo caso i dati vengono copiati in modo efficiente senza serializzazione/deserializzazione.
 
-L'attività di copia supporta anche operazioni di lettura e scrittura di file in formati specifici, ovvero **Text, JSON, Avro, ORC e Parquet** e sono supportati i codec di compressione **GZip, Deflate, BZip2 e ZipDeflate**. Vedere [Formati di compressione e file supportati](supported-file-formats-and-compression-codecs.md) per i dettagli.
+L’attività di copia supporta anche la lettura e scrittura di file in formati specificati: Sono supportati **Testo, JSON, Avro, ORC e Parquet** e codec di compressione **GZip, Deflate, BZip2 e ZipDeflate**. Vedere [Formati di compressione e file supportati](supported-file-formats-and-compression-codecs.md) per i dettagli.
 
 È possibile ad esempio eseguire queste attività di copia:
 
@@ -130,7 +130,7 @@ Nel modello seguente di un'attività di copia è incluso l'elenco completo delle
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type di un'attività di copia deve essere impostata su: **Copy** | Yes |
+| type | La proprietà type di un'attività di copia deve essere impostata su: **Copia** | Yes |
 | inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta un singolo input. | Yes |
 | outputs | Specificare il set di dati creato che fa riferimento ai dati sink. L'attività di copia supporta un singolo output. | Yes |
 | typeProperties | Un gruppo di proprietà per configurare l'attività di copia. | Yes |
@@ -173,6 +173,7 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche relative
 | dataRead | Dimensioni dei dati letti nell'origine | Valore Int64 in **byte** |
 | dataWritten | Dimensioni dei dati scritti nel sink | Valore Int64 in **byte** |
 | filesRead | Numero di file copiati quando si copiano dati da una risorsa di archiviazione di file. | Valore Int64 (senza unità) |
+| fileScanned | Numero di file sottoposti a scansione dall'archiviazione di file di origine. | Valore Int64 (senza unità) |
 | filesWritten | Numero di file copiati quando si copiano dati in una risorsa di archiviazione di file. | Valore Int64 (senza unità) |
 | rowsCopied | Numero di righe copiate (non applicabile alla copia binaria). | Valore Int64 (senza unità) |
 | rowsSkipped | Numero di righe incompatibili ignorate. È possibile abilitare la funzionalità impostando il valore "enableSkipIncompatibleRow" su True. | Valore Int64 (senza unità) |

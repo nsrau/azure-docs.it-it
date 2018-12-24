@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 4b008cc119951e50567218e332818585fb017e5a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c20f61788086806d3eebb62d35b7ac9fbcbd6fb9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229408"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846930"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali Hyper-V tramite PowerShell e Azure Resource Manager
 
@@ -43,11 +43,11 @@ Inoltre, l'esempio specifico descritto in questo articolo presenta i seguenti pr
 * Host Hyper-V che esegue Windows Server 2012 R2 o Microsoft Hyper-V Server 2012 R2 contenente una o più macchine virtuali. I server Hyper-V devono essere connessi a Internet, in modo diretto o tramite proxy.
 * Le macchine virtuali da replicare devono essere conformi a [questi prerequisiti](hyper-v-azure-support-matrix.md#replicated-vms).
 
-## <a name="step-1-sign-in-to-your-azure-account"></a>Passaggio 1: Accedere al proprio account Azure
+## <a name="step-1-sign-in-to-your-azure-account"></a>Passaggio 1: Accedere con l'account Azure
 
 1. Aprire una console di PowerShell ed eseguire questo comando per accedere all'account di Azure. Il cmdlet visualizza una pagina Web che richiede le credenziali dell'account: **Connect-AzureRmAccount**.
     - In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Connect-AzureRmAccount**, usando il parametro **-Credential**.
-    - Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+    - Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio:  **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 2. Associare la sottoscrizione che si vuole usare all'account perché un account può avere molte sottoscrizioni:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
@@ -78,7 +78,7 @@ Inoltre, l'esempio specifico descritto in questo articolo presenta i seguenti pr
     È possibile recuperare un elenco degli insiemi di credenziali esistente con il cmdlet **Get AzureRmRecoveryServicesVault**.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>Passaggio 3: Impostare il contesto dell’insieme di credenziali di Servizi di ripristino
+## <a name="step-3-set-the-recovery-services-vault-context"></a>Passaggio 3: Impostare il contesto dell'insieme di credenziali di Servizi di ripristino
 
 Impostare il contesto dell'insieme di credenziali come segue:
 
