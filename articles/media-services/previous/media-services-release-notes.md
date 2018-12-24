@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 41376448095a5dd760fae594fdfe2d2b57e4440a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9370cdfc75995f36101804d2a9f7dc9cf275243c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231652"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186311"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 Nelle presenti note sulla versione per Servizi multimediali di Azure vengono riepilogate le modifiche rispetto alle versioni precedenti e i problemi noti.
@@ -39,7 +39,7 @@ Nelle presenti note sulla versione per Servizi multimediali di Azure vengono rie
 | Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP 503 indicante che il servizio non è disponibile. |Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 in [Codici di errore di Servizi multimediali](media-services-encoding-error-codes.md). |
 | Quando si esegue una query di entità, è previsto un limite di 1.000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1.000 risultati. |Usare Skip e Take (.NET)/top (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e in [questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Alcuni client possono riscontrare un problema di tag di ripetizione nel manifesto Smooth Streaming. |Per altre informazioni, vedere [questa sezione](media-services-deliver-content-overview.md#known-issues). |
-| Gli oggetti Media Services .NET SDK non possono essere serializzati e di conseguenza non funzionano con Cache Redis di Azure. |Se si prova a serializzare l'oggetto AssetCollection dell'SDK per aggiungerlo a Cache Redis di Azure, viene generata un'eccezione. |
+| Gli oggetti Media Services .NET SDK non possono essere serializzati e di conseguenza non funzionano con la Cache di Azure per Redis. |Se si prova a serializzare l'oggetto AssetCollection dell'SDK per aggiungerlo a Cache di Azure per Redis, viene generata un'eccezione. |
 
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Cronologia delle versioni dell'API REST
@@ -86,7 +86,7 @@ A partire dal 12 maggio 2018 i canali live non supporteranno più il protocollo 
     * Miglioramenti apportati al decodificatore H.264 usato nel codificatore Standard allo scopo di eliminare alcuni elementi rari. 
 
 #### <a name="media-analytics"></a>Analisi Servizi multimediali
-Disponibilità generale di Azure Media Redactor - Questo processore di contenuti multimediali consente di rendere anonimi i video oscurando i volti delle persone selezionate. È quindi ideale in scenari multimediali di pubblica sicurezza e notiziari. 
+Disponibilità generale di Azure Media Redactor: questo processore di contenuti multimediali esegue l'anonimizzazione tramite la sfocatura dei visi di persone selezionate ed è ideale per l'uso in scenari multimediali di pubblica sicurezza e notizie. 
 
 Per una panoramica di questo nuovo processore, vedere [questo post di blog](https://azure.microsoft.com/blog/azure-media-redactor/). Per informazioni sulla documentazione e le impostazioni, vedere [Offuscare i volti con Analisi Servizi multimediali di Azure](media-services-face-redaction.md).
 
@@ -194,9 +194,9 @@ Per altre informazioni, vedere:
 I servizi di distribuzione delle licenze Widevine forniti da Servizi multimediali sono in anteprima. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Versione di ottobre 2015
-Servizi multimediali è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di Azure per [creare account di Servizi multimediali](media-services-portal-create-account.md) ed eseguire diverse attività descritte nella [pagina Web sulla documentazione di Servizi multimediali](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
+Servizi multimediali di Microsoft Azure è ora disponibile nei seguenti data center: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di Azure per [creare account di Servizi multimediali](media-services-portal-create-account.md) ed eseguire diverse attività descritte nella [pagina Web sulla documentazione di Servizi multimediali](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
 
-* Brasile meridionale:                                           sono disponibili solo unità riservate di codifica Standard e Basic.
+* Brasile meridionale:                                          sono disponibili solo unità riservate di codifica Standard e Basic.
 * India occidentale, India meridionale e India centrale:             sono disponibili solo unità riservate di codifica Basic.
 
 ## <a id="september_changes_15"></a>Versione di settembre 2015
@@ -270,7 +270,7 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/20
 ### <a name="media-services-net-sdk-updates"></a>Aggiornamenti di Media Services .NET SDK
 Media Services .NET SDK è ora disponibile nella versione 3.2.0.0. Sono stati eseguiti gli aggiornamenti seguenti:
 
-* Modifica di rilievo: sono stati modificati TokenRestrictionTemplate.Issuer e TokenRestrictionTemplate.Audience in modo che siano di tipo string.
+* Modifica che causa un'interruzione: sono stati modificati TokenRestrictionTemplate.Issuer e TokenRestrictionTemplate.Audience in modo che siano di tipo string.
 * Sono stati eseguiti aggiornamenti per la creazione di criteri per i tentativi personalizzati.
 * Sono stati corretti bug correlati all'upload/download di file.
 * La classe MediaServicesCredentials accetta ora endpoint di controllo di accesso primari e secondari per l'autenticazione.
@@ -374,8 +374,8 @@ Quando si esegue la codifica di un asset, al termine del processo viene restitui
 ## <a id="july_changes_14"></a>Versione di luglio 2014
 Le seguenti correzioni di bug sono state introdotte per lo strumento per la creazione di pacchetti e il componente di crittografia di Servizi multimediali di Azure:
 
-* Quando un asset di archivio live viene trasmesso ad HLS, viene riprodotto solo l'audio: questo problema è stato risolto e ora è possibile riprodurre sia l'audio che il video.
-* Quando si creano un pacchetto di un asset per HLS e si definisce una crittografia della busta AES a 128 bit, i flussi in pacchetti non vengono riprodotti in dispositivi Android. Questo bug è stato risolto e i flussi in pacchetti vengono riprodotti in dispositivi Android che supportano HLS.
+* Quando un asset di archivio live viene trasmesso in HLS, viene riprodotto solo l'audio: Questo problema è stato risolto: adesso si possono riprodurre sia audio che video.
+* Quando un asset viene incluso nel pacchetto per la busta crittografica con HLS e AES a 128 bit, i flussi nei pacchetti non vengono riprodotti su dispositivi Android: questo bug è stato risolto e i flussi in pacchetti vengono riprodotti in dispositivi Android che supportano HLS.
 
 ## <a id="may_changes_14"></a>Versione di maggio 2014
 ### <a id="may_14_changes"></a>Aggiornamenti generali di Servizi multimediali
@@ -476,7 +476,7 @@ Le modifiche seguenti sono state apportate alle versioni di Media Services SDK d
     * Proprietà StorageAccount
     * Proprietà StorageAccountName
   
-    Per altre informazioni, vedere [Gestione di asset di Servizi multimediali su più account di archiviazione](https://msdn.microsoft.com/library/azure/dn271889.aspx).
+      Per altre informazioni, vedere [Gestione di asset di Servizi multimediali su più account di archiviazione](https://msdn.microsoft.com/library/azure/dn271889.aspx).
 * API correlate alle notifiche. A partire dalla versione 2.2.0.0 è possibile ascoltare le notifiche dal servizio Archiviazione code di Azure. Per altre informazioni, vedere [Gestione delle notifiche dei processi di Servizi multimediali](https://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * Proprietà Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions
