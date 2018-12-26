@@ -1,19 +1,20 @@
 ---
-title: Modelli di percorso di data/ora personalizzati per l'output di archiviazione BLOB di Analisi di flusso di Azure (anteprima)
-description: ''
+title: Modelli di percorso datetime per l'output di BLOB di Analisi di flusso di Azure (anteprima)
+description: Questo articolo descrive la funzione dei modelli di percorso datetime personalizzati per l'output di archiviazione BLOB dai processi di Analisi di flusso di Azure.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452565"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090788"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Modelli di percorso di data/ora personalizzati per l'output di archiviazione BLOB di Analisi di flusso di Azure (anteprima)
 
@@ -61,7 +62,7 @@ Ad esempio: `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={da
 
 Grazie all'output personalizzato, non è più necessario modificare le tabelle e aggiungere manualmente le partizioni per trasferire i dati tra Analisi di flusso di Azure e Hive. È invece possibile aggiungere numerose cartelle automaticamente usando:
 
-```
+```SQL
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
@@ -75,9 +76,9 @@ Creare un sink di output BLOB con la configurazione seguente:
 
 Il modello di percorso completo è il seguente:
 
-```
-year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
-```
+
+`year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}`
+
 
 Quando si avvia il processo, una struttura di cartelle basata sul modello di percorso viene creata nel contenitore BLOB. È possibile eseguire il drill down a livello di giorno.
 

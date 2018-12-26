@@ -2,18 +2,18 @@
 title: Monitorare gli avvisi di backup per le macchine virtuali di Azure
 description: Monitorare gli eventi e gli avvisi dai processi di backup delle macchine virtuali di Azure. Inviare messaggi di posta elettronica in base agli avvisi.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: markgal
-ms.openlocfilehash: 3783014738ec4e8f185531773b1259dc63e7f49f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: raynew
+ms.openlocfilehash: 0cfbb258364ed684ff38b2be9f998d8ff0656251
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606308"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864537"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorare gli avvisi per i backup della macchina virtuale di Azure
 Gli avvisi sono risposte del servizio che informano che è stata raggiunta o superata la soglia di un evento. Sapere quando i problemi hanno inizio può essere determinante per contenere i costi aziendali. Gli avvisi in genere non seguono una pianificazione e quindi è utile sapere appena possibile quando un avviso viene generato. Quando ad esempio un processo di backup o ripristino non riesce, l'avviso verrà generato entro cinque minuti dall'errore. Nel dashboard dell'insieme di credenziali il riquadro Avvisi di backup visualizza gli eventi di livello critico e avviso. Nelle impostazioni di Avvisi di backup è possibile visualizzare tutti gli eventi. Ma cosa fare se un avviso viene generato mentre si lavora a un problema diverso? Non sapere quando l'avviso viene generato può essere un piccolo inconveniente o può compromettere i dati. Per verificare che chi di dovere sia informato dell'avviso e sappia quando viene generato, configurare il servizio per l'invio tramite posta elettronica di notifiche di avviso. Per informazioni dettagliate sulla configurazione di notifiche di posta elettronica, vedere [Configurare le notifiche](backup-azure-monitor-vms.md#configure-notifications).
@@ -124,6 +124,6 @@ Gli avvisi basati su eventi sono soggetti alle limitazioni seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come ricreare una macchina virtuale da un punto di ripristino, vedere [Ripristinare macchine virtuali in Azure](backup-azure-arm-restore-vms.md).
 
-Per informazioni sulla protezione delle macchine virtuali, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md). 
+Per informazioni sulla protezione delle macchine virtuali, vedere [Primo approccio: eseguire il backup di macchine virtuali in un insieme di credenziali di Servizi di ripristino](backup-azure-vms-first-look-arm.md). 
 
 Per altre informazioni sulle attività di gestione per i backup delle macchine virtuali, vedere l'articolo [Gestire i backup delle macchine virtuali di Azure](backup-azure-manage-vms.md).

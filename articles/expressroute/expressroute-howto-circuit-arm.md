@@ -1,18 +1,19 @@
 ---
-title: 'Creare e modificare un circuito ExpressRoute: PowerShell: Azure Resource Manager| Microsoft Docs'
-description: Questo articolo descrive le procedure di creazione, provisioning, verifica, aggiornamento, eliminazione e deprovisioning di un circuito ExpressRoute.
+title: 'Creare e modificare un circuito ExpressRoute - PowerShell: Azure | Microsoft Docs'
+description: Creazione, provisioning, verifica, aggiornamento, eliminazione e deprovisioning di un circuito ExpressRoute.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: f95bdfe9a61a271825ff9bbe5ca7f84330c98df5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: ff86c87690f5dd4a919929f0deef4af739cbe4d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257453"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105003"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Creare e modificare un circuito ExpressRoute mediante PowerShell
 > [!div class="op_single_selector"]
@@ -23,7 +24,7 @@ ms.locfileid: "51257453"
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
 >
 
-Questo articolo illustra i passaggi per creare un circuito ExpressRoute di Azure tramite i cmdlet di PowerShell e il modello di distribuzione Azure Resource Manager. L'articolo descrive anche le procedure di controllo di stato, aggiornamento, eliminazione e deprovisioning del circuito.
+Questo articolo include informazioni utili per creare un circuito ExpressRoute di Azure usando cmdlet di PowerShell e il modello di distribuzione di Azure Resource Manager. È anche possibile controllare lo stato, aggiornare, eliminare o effettuare il deprovisioning di un circuito.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
