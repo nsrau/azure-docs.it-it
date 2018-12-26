@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 222558a6596c676034e52812d3b2dd0c77e1466b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3c4bd08d2ba3aa4aeceb38a0ae498786f681d800
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046902"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960686"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati
 
@@ -63,7 +63,7 @@ Alcuni archivi di dati supportano la crittografia dei dati inattivi. È consigli
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 La funzionalità Transparent Data Encryption (TDE) di Azure SQL Data Warehouse consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei dati inattivi. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [Proteggere un database in SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>database SQL di Azure
+#### <a name="azure-sql-database"></a>Database SQL di Azure
 Il database SQL di Azure supporta anche la funzionalità Transparent Data Encryption (TDE), che consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei dati, senza dover apportare modifiche all'applicazione. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [Transparent Data Encryption con il database SQL di Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
@@ -99,7 +99,7 @@ Le credenziali per gli archivi dati locali vengono salvate in locale (non nel cl
 #### <a name="javascript-cryptography-library-based-encryption"></a>Crittografia basata sulla libreria JavaScript per la crittografia
 È possibile crittografare le credenziali di archivio dati usando la [libreria JavaScript per la crittografia](https://www.microsoft.com/download/details.aspx?id=52439) da [Copia guidata](data-factory-copy-wizard.md). Quando si seleziona questa opzione, Copia guidata recupera la chiave pubblica del gateway e la usa per crittografare le credenziali dell'archivio dati. Le credenziali vengono decrittografate dal computer del gateway e protetta da Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).
 
-**Browser supportati:** IE8, IE9, IE10, IE11, Microsoft Edge e l'ultima versione di Firefox, Chrome, Opera, Safari. 
+**Browser supportati:** IE8, IE9, IE10, IE11, Microsoft Edge e l'ultima versione di Firefox, Chrome, Opera e Safari. 
 
 #### <a name="click-once-credentials-manager-app"></a>App di gestione delle credenziali con un solo clic
 È possibile avviare l'app di gestione delle credenziali basata su un solo clic dal portale di Azure/Copia guidata durante la creazione di pipeline. Questa applicazione assicura che le credenziali non vengano trasmesse via cavo in testo normale. Per impostazione predefinita, questa app usa la porta **8050** nella macchina con il gateway per la comunicazione sicura. Se necessario, è possibile cambiare porta.  
@@ -126,7 +126,7 @@ La rete virtuale è una rappresentazione logica della propria rete nel cloud. È
 
 La tabella seguente riassume i consigli di configurazione di rete e del gateway in base alle diverse combinazioni di percorsi di origine e destinazione per lo spostamento dei dati ibridi.
 
-| Sorgente | Destination | Network configuration | Configurazione del gateway |
+| Sorgente | Destination | Configurazione di rete | Configurazione del gateway |
 | ------ | ----------- | --------------------- | ------------- | 
 | Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | VPN IPSec (da punto a sito o da sito a sito) | Il gateway può essere installato in locale o in una VM di Azure nella VNet | 
 | Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | ExpressRoute (peering privato) | Il gateway può essere installato in locale o in una macchina virtuale di Azure nella VNet | 
@@ -166,7 +166,7 @@ Nella tabella seguente vengono indicati i requisiti relativi alla **porta in ing
 | ------------- | ----------- | 
 | 8050 (TCP) | Richiesta dall'applicazione di gestione delle credenziali per impostare in modo sicuro le credenziali per gli archivi dati locali nel gateway. | 
 
-![Requisiti relativi alla porta del gateway](media\data-factory-data-movement-security-considerations/gateway-port-requirements.png) 
+![Requisiti relativi alla porta del gateway](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
 #### <a name="ip-configurations-whitelisting-in-data-store"></a>Inserimento nell'elenco elementi consentiti/configurazioni IP nell'archivio dati
 Alcuni archivi dati nel cloud richiedono anche l'inserimento nell'elenco elementi consentiti del computer da cui si accede. Assicurarsi che l'indirizzo IP del computer del gateway sia stato correttamente inserito nell'elenco elementi consentiti nel firewall.
@@ -175,19 +175,19 @@ Gli archivi dati cloud seguenti richiedono l'inserimento nell'elenco elementi co
 
 - [Database SQL di Azure](../../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Archivio Data Lake di Azure](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 **Domanda:** il gateway può essere condiviso tra data factory diverse?
-**Risposta:** questa funzionalità non è ancora supportata, ma Microsoft ci sta lavorando attivamente.
+**Risposta:** Questa funzionalità non è ancora supportata. ma Microsoft ci sta lavorando attivamente.
 
-**Domanda:** quali sono i requisiti di porta per poter usare il gateway?
-**Risposta:** il gateway stabilisce connessioni basate su HTTP per accedere a Internet. Le **porte in uscita 80 e 443** deve essere aperte per permettere al gateway di stabilire una connessione. Aprire la **porta in ingresso 8050** solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se si usa il database SQL di Azure o Azure SQL Data Warehouse come origine o destinazione, allora sarà necessario aprire anche la porta **1433**. Per altre informazioni, vedere la sezione [Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
+**Domanda:** quali sono i requisiti di porta per il funzionamento del gateway?
+**Risposta:** il gateway stabilisce connessioni basate su HTTP per aprire Internet. Le **porte in uscita 80 e 443** deve essere aperte per permettere al gateway di stabilire una connessione. Aprire la **porta in ingresso 8050** solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se si usa il database SQL di Azure o Azure SQL Data Warehouse come origine o destinazione, allora sarà necessario aprire anche la porta **1433**. Per altre informazioni, vedere la sezione [Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
 
-**Domanda:** quali sono i requisiti relativi al certificato per il gateway?
+**Domanda:** quali sono i requisiti dei certificati per il gateway?
 **Risposta:** il gateway corrente richiede un certificato che viene usato dall'applicazione di gestione delle credenziali per impostare in modo sicuro le credenziali dell'archivio dati. Si tratta di un certificato autofirmato creato e configurato dal programma di installazione del gateway. In alternativa, è possibile usare il proprio certificato TLS/SSL. Per altre informazioni, vedere la sezione dedicata all'[applicazione di gestione delle credenziali con un solo clic](#click-once-credentials-manager-app). 
 
 ## <a name="next-steps"></a>Passaggi successivi
