@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 12e2f96e66305370499fbacf9ae6a834a22eb504
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fec5ef3ef190270d22e9a7d0306eb9477b39a8c8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412500"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095235"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrare l'autenticazione RADIUS del gateway VPN di Azure con server NPS per l'autenticazione a più fattori 
 
@@ -32,7 +32,7 @@ Per abilitare l'autenticazione a più fattori, gli utenti devono usare Azure Act
 
 ## <a name="detailed-steps"></a>Procedura dettagliata
 
-### <a name="step-1-create-a-virtual-network-gateway"></a>Passaggio 1: creare un gateway di rete virtuale
+### <a name="step-1-create-a-virtual-network-gateway"></a>Passaggio 1: Creare un gateway di rete virtuale
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella rete virtuale che ospiterà il gateway di rete virtuale, selezionare **Subnet**, quindi selezionare **Subnet gateway** per creare una subnet. 
@@ -40,10 +40,10 @@ Per abilitare l'autenticazione a più fattori, gli utenti devono usare Azure Act
     ![Immagine che illustra come aggiungere una subnet gateway](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
 3. Creare un gateway di rete virtuale specificando le impostazioni seguenti:
 
-    - **Tipo di gateway**: selezionare **VPN**.
-    - **Tipo VPN**: selezionare **Basato su route**.
-    - **SKU**: selezionare un tipo di SKU in base alle esigenze.
-    - **Rete virtuale**: selezionare la rete virtuale creata in cui è stata creata la subnet gateway.
+    - **Tipo di gateway**: Selezionare **VPN**.
+    - **Tipo di VPN**: Selezionare **Basato su route**.
+    - **SKU**: Selezionare un tipo di SKU in base alle esigenze.
+    - **Rete virtuale**: Selezionare la rete virtuale in cui è stata creata la subnet del gateway.
 
         ![Immagine che illustra le impostazioni del gateway di rete virtuale](./media/vpn-gateway-radiuis-mfa-nsp/create-vpn-gateway.png)
 
@@ -54,11 +54,11 @@ Per abilitare l'autenticazione a più fattori, gli utenti devono usare Azure Act
 1. Sul server NPS, [installare l'estensione NPS per Multi-Factor Authentication di Azure](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. Aprire la console NSP, fare clic con il tasto destro del mouse su **Client RADIUS**, quindi selezionare **Nuovo**. Creare il client RADIUS specificando le impostazioni seguenti:
 
-    - **Nome descrittivo**: digitare qualsiasi nome.
-    - **Indirizzo (IP o DNS)**: digitare la subnet gateway creata nel passaggio 1.
+    - **Nome descrittivo**: Digitare un nome qualsiasi.
+    - **Indirizzo (IP o DNS)**: Digitare la subnet del gateway creata nel passaggio 1.
     - **Segreto condiviso**: digitare qualsiasi chiave privata e annotarla per un uso successivo.
 
-    ![Immagine delle impostazioni del client RADIUS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![Immagine delle impostazioni del client RADIUS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  Nella scheda **Avanzate**, impostare il nome del fornitore su **RADIUS Standard** e verificare che la casella di controllo **Opzioni aggiuntive** sia deselezionata.
@@ -73,11 +73,11 @@ Per abilitare l'autenticazione a più fattori, gli utenti devono usare Azure Act
 2. Aprire il gateway di rete virtuale creato. Assicurarsi che il tipo di gateway sia impostato su **VPN** e che il tipo di VPN sia **Basato su route**.
 3. Fare clic su **Configurazione point-to-site** > **Configura ora**, quindi specificare le impostazioni seguenti:
 
-    - **Pool di indirizzi**: digitare la subnet gateway creata al passaggio 1.
-    - **Tipo di autenticazione**: selezionare **Autenticazione RADIUS**.
-    - **Indirizzo IP del server**: digitare l'indirizzo IP del server NPS.
+    - **Pool di indirizzi**: Digitare la subnet del gateway creata nel passaggio 1.
+    - **Tipo di autenticazione**: Selezionare **autenticazione RADIUS**.
+    - **Indirizzo IP del server**: Digitare l'indirizzo IP del server NPS.
 
-    ![Immagine delle impostazioni point-to-site](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
+      ![Immagine delle impostazioni point-to-site](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con MCM | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con MCM | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e MCM.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 5ddd28838e7db7b7f2798b18028aba56246fda4c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b8ff27413888e1745bd9a83e2e2e8c7b77fba34
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437791"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Esercitazione: Integrazione di Azure Active Directory con MCM
 
@@ -117,7 +117,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://myaba.co.uk/<companyname>`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto client di MCM](http://mcmtechnology.com/support/). 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto client di MCM](https://mcmtechnology.com/support/). 
  
 1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -127,10 +127,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/mcm-tutorial/tutorial_general_400.png) 
 
-1. Per configurare l’accesso Single Sign-On sul lato **MCM**, è necessario inviare il file di **XML metadati** scaricato al [team di supporto di MCM](http://mcmtechnology.com/support/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l’accesso Single Sign-On sul lato **MCM**, è necessario inviare il file di **XML metadati** scaricato al [team di supporto di MCM](https://mcmtechnology.com/support/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -166,7 +166,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-mcm-test-user"></a>Creazione di un utente test di MCM
 
-In questa sezione viene creato un utente di nome Britta Simon in MCM. Collaborare con il [team di supporto di MCM](http://mcmtechnology.com/support/) per aggiungere gli utenti alla piattaforma MCM.
+In questa sezione viene creato un utente di nome Britta Simon in MCM. Collaborare con il [team di supporto di MCM](https://mcmtechnology.com/support/) per aggiungere gli utenti alla piattaforma MCM.
 
 > [!NOTE]
 > È possibile usare qualsiasi altro strumento o API di creazione di account utente forniti da MCM per eseguire il provisioning degli account utente di AAD.

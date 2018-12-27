@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva - Cluster Kubernetes Azure per Windows
+title: '(DEPRECATO) Quickstart: cluster Kubernetes Azure per Windows'
 description: Informazioni per creare in modo rapido un cluster Kubernetes per contenitori Windows nel servizio contenitore di Azure con l'interfaccia della riga di comando di Azure.
 services: container-service
 author: dlepow
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 24659f60e44dc306451528cc7bfb823ad14268a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dfc1d2128e1cf3b4d6b4d9e5141116a2b2ff9c0d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946154"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000611"
 ---
-# <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Distribuire cluster Kubernetes per contenitori Windows
+# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(DEPRECATO) Distribuire il cluster Kubernetes per contenitori Windows
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida illustra in modo dettagliato come usare l'interfaccia della riga di comando di Azure per distribuire un cluster [Kubernetes](https://kubernetes.io/docs/home/) nel [servizio contenitore di Azure](../container-service-intro.md). Dopo aver distribuito il cluster, è possibile connettersi a esso con lo strumento da riga di comando `kubectl` di Kubernetes e distribuire il primo contenitore Windows.
 

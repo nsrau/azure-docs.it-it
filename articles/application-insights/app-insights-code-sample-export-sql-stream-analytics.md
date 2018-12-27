@@ -9,15 +9,15 @@ ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: article
-ms.date: 03/06/2015
+ms.topic: conceptual
+ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: e410bb87d017a7659c3eaffbedef378aaf7f5716
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 140e9699f19986c929aaa58872b420dd97568c5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995463"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 Questo articolo illustra come spostare i dati di telemetria da [Azure Application Insights][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
@@ -73,7 +73,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](app-insights-metrics-explorer.md) e i singoli eventi in [Ricerca diagnostica](app-insights-diagnostic-search.md). 
    
     I dati verranno inoltre esportati nell'archivio. 
-2. Esaminare i dati esportati, nel portale (scegliere **Esplora**, selezionare l'account di archiviazione, quindi **Contenitori**) o in Visual Studio. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
+2. Esaminare i dati esportati, nel portale (scegliere **Esplora**, selezionare l'account di archiviazione, quindi **Contenitori**) o in Visual Studio. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. (Se non si dispone di questa opzione di menu, è necessario installare SDK di Azure: aprire la finestra di dialogo Nuovo progetto e aprire l'oggetto visivo C# /cloud/Ottieni Microsoft Azure SDK per .NET.)
    
     ![In Visual Studio aprire Esplora server, Azure, Archiviazione](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
    
@@ -142,21 +142,21 @@ In questo esempio vengono usati i dati delle visualizzazioni pagina. Per visuali
 ## <a name="create-an-azure-stream-analytics-instance"></a>Creare un'istanza di analisi di flusso di Azure
 Nel [portale di Azure](https://portal.azure.com/) selezionare il servizio Analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
+![Impostazioni di Analisi di flusso](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
 Quando viene creato il nuovo processo, selezionare **Vai alla risorsa**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
+![Impostazioni di Analisi di flusso](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>Aggiungere un nuovo input
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+![Impostazioni di Analisi di flusso](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
 
 Impostarlo in modo da accettare l'input dal BLOB di esportazione continua:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
+![Impostazioni di Analisi di flusso](./media/app-insights-code-sample-export-sql-stream-analytics/SA0005.png)
 
 A questo punto è necessaria la chiave di accesso primaria dell'account di archiviazione, di cui si è preso nota in precedenza. Impostarla come chiave dell'account di archiviazione.
 
@@ -178,7 +178,7 @@ Esempio:
 Per ottenere il nome e la chiave di strumentazione (iKey) della risorsa di Application Insights, aprire Essentials nella relativa pagina di panoramica o aprire le impostazioni.
 
 > [!TIP]
-> Utilizzare la funzione di esempio per verificare di aver impostato correttamente il percorso di input. In caso di errore: verificare che ci siano dati nell’archiviazione per l’intervallo di tempo esemplificativo che si seleziona. Modificare la definizione di input e controllare di impostare l'account di archiviazione, il prefisso del percorso e il formato di data corretto.
+> Utilizzare la funzione di esempio per verificare di aver impostato correttamente il percorso di input. In caso di esito negativo: verificare che ci siano dati nell'archivio per l'intervallo di tempo di esempio che si seleziona. Modificare la definizione di input e controllare di impostare l'account di archiviazione, il prefisso del percorso e il formato di data corretto.
 > 
 > 
 ## <a name="set-query"></a>Impostare la query
@@ -259,6 +259,6 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 [diagnostic]: app-insights-diagnostic-search.md
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
-[portal]: http://portal.azure.com/
+[portal]: https://portal.azure.com/
 [start]: app-insights-overview.md
 
