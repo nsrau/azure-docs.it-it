@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 379cc5412d317680afa9b03f0eea60c7f1a3b60d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9402be4045b9b3113623cfe3e441c944f62296cc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051087"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079383"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiare dati da Hive usando Azure Data Factory 
 
@@ -42,12 +42,12 @@ Per il servizio collegato Hive sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Hive** | Sì |
-| host | Indirizzo IP o nome host del server Hive, separati da ';' in caso di più host (solo quando l'opzione serviceDiscoveryMode è abilitata).  | Sì |
-| port | Porta TCP che il server Hive usa per l'ascolto delle connessioni client. Se ci si connette a Azure HDInsights, specificare la porta come 443. | Sì |
-| serverType | Tipo di server Hive. <br/>I valori consentiti sono: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | No  |
-| thriftTransportProtocol | Protocollo di trasporto da usare nel livello Thrift. <br/>I valori consentiti sono **Binary**, **SASL**, **HTTP** | No  |
-| authenticationType | Metodo di autenticazione usato per accedere al server Hive. <br/>I valori consentiti sono **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sì |
+| type | La proprietà type deve essere impostata su: **Hive** | Yes |
+| host | Indirizzo IP o nome host del server Hive, separati da ';' in caso di più host (solo quando l'opzione serviceDiscoveryMode è abilitata).  | Yes |
+| port | Porta TCP che il server Hive usa per l'ascolto delle connessioni client. Se ci si connette a Azure HDInsights, specificare la porta come 443. | Yes |
+| serverType | Tipo di server Hive. <br/>I valori consentiti sono i seguenti: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | No  |
+| thriftTransportProtocol | Protocollo di trasporto da usare nel livello Thrift. <br/>I valori consentiti sono i seguenti: **Binary**, **SASL**, **HTTP** | No  |
+| authenticationType | Metodo di autenticazione usato per accedere al server Hive. <br/>I valori consentiti sono i seguenti: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | serviceDiscoveryMode | true per indicare l'uso del servizio ZooKeeper; in caso contrario, false.  | No  |
 | zooKeeperNameSpace | Spazio dei nomi in ZooKeeper nel quale vengono aggiunti i nodi del server Hive 2.  | No  |
 | useNativeQuery | Specifica se il driver usa query HiveQL native o se le converte in una forma equivalente in HiveQL.  | No  |
@@ -86,7 +86,12 @@ Per il servizio collegato Hive sono supportate le proprietà seguenti:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Hive.
 
-Per copiare dati da Hive, impostare la proprietà type del set di dati su **HiveObject**. Non sono presenti proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da Hive, impostare la proprietà type del set di dati su **HiveObject**. Sono supportate le proprietà seguenti:
+
+| Proprietà | DESCRIZIONE | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà type del set di dati deve essere impostata su: **HiveObject** | Yes |
+| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -98,7 +103,8 @@ Per copiare dati da Hive, impostare la proprietà type del set di dati su **Hive
         "linkedServiceName": {
             "referenceName": "<Hive linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -113,8 +119,8 @@ Per copiare dati da Hive, impostare il tipo di origine nell'attività di copia s
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **HiveSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **HiveSource** | Yes |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

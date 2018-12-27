@@ -1,20 +1,21 @@
 ---
-title: Ricevere eventi da Hub eventi di Azure usando Go | Microsoft Docs
-description: Guida introduttiva alla ricezione di eventi da Hub eventi tramite Go
+title: 'Ricevere eventi tramite Go: Hub eventi di Azure | Microsoft Docs'
+description: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Go in grado di ricevere eventi da Hub eventi di Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: db952b82172928e42e951563d98bb32b275e8af7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239492"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084992"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>Ricevere eventi da Hub eventi usando Go
 
@@ -80,7 +81,7 @@ import (
 
 ## <a name="create-service-principal"></a>Creare un'entità servizio
 
-Creare una nuova entità servizio seguendo le istruzioni riportate in [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Salvare le credenziali specificate nell'ambiente in uso con i nomi seguenti: entrambi i pacchetti di Azure SDK per Go e Hub eventi sono preconfigurati per cercare questi nomi di variabili.
+Creare una nuova entità servizio seguendo le istruzioni riportate in [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Salvare le credenziali fornite nel proprio ambiente con i nomi seguenti: Sia Azure SDK per Go sia il pacchetto Hub eventi sono preconfigurati in modo da cercare questi nomi di variabile.
 
 ```bash
 export AZURE_CLIENT_ID=

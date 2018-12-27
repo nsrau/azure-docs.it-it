@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cec9e5bfea16e5ba11f8cd7324acf15188fb907a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669358"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844958"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Informazioni sulla personalizzazione dell'interfaccia utente in Azure Active Directory B2C
 
@@ -23,13 +23,13 @@ La possibilità di personalizzare e applicare un marchio all'interfaccia utente 
 
 L'interfaccia utente dell'applicazione si personalizza in modo diverso in base alle proprie esigenze rispetto a queste esperienze. Ad esempio: 
 
-- Se si usano [criteri predefiniti](active-directory-b2c-reference-policies.md) per fornire le esperienze di iscrizione, accesso, reimpostazione della password o modifica del profilo all'interno dell'applicazione, si usa il [portale di Azure per personalizzare l'interfaccia utente](tutorial-customize-ui.md).
+- Se si usano [flussi utente](active-directory-b2c-reference-policies.md) per fornire esperienze di iscrizione, accesso, reimpostazione della password o modifica del profilo all'interno dell'applicazione, si usa il [portale di Azure per personalizzare l'interfaccia utente](tutorial-customize-ui.md).
 - Se si forniscono solo l'accesso, la relativa pagina di reimpostazione della password e le e-mail di verifica, si usano gli stessi passaggi di personalizzazione da seguire per una [pagina di accesso di Azure AD](../active-directory/fundamentals/customize-branding.md).
 - Se i clienti provano a modificare il proprio profilo prima di effettuare l'accesso, vengono reindirizzati a una pagina che si può personalizzare usando gli stessi passaggi seguiti per personalizzare la pagina di accesso di Azure AD.
 - Se si usano [criteri personalizzati](active-directory-b2c-overview-custom.md) per fornire iscrizione, accesso, reimpostazione della password o modifica del profilo all'interno dell'applicazione, si usano i [file dei criteri per personalizzare l'interfaccia utente](active-directory-b2c-ui-customization-custom.md).
 - Se è necessario fornire contenuto dinamico in base a decisione del cliente, si usano [criteri personalizzati che consentono di cambiare il contenuto della pagina](active-directory-b2c-ui-customization-custom-dynamic.md) in base a un parametro inviato in una stringa di query. L'immagine di sfondo della pagina di accesso o di iscrizione ad Azure AD B2C viene ad esempio modificata in base a un parametro passato dall'applicazione Web o per dispositivi mobili.
 
-Azure AD B2C esegue il codice nel browser del cliente e usa un approccio moderno denominato [Condivisione di risorse tra le origini (CORS)](http://www.w3.org/TR/cors/). In fase di esecuzione, il contenuto viene caricato da un URL specificato in un criterio. Per pagine diverse si specificano URL diversi. Dopo il caricamento dall'URL, il contenuto viene unito con un frammento HTML inserito da Azure AD B2C e quindi mostrato al cliente.
+Azure AD B2C esegue il codice nel browser del cliente e usa un approccio moderno denominato [Condivisione di risorse tra le origini (CORS)](https://www.w3.org/TR/cors/). In fase di esecuzione, il contenuto viene caricato da un URL specificato in un flusso utente o in un criterio. Per pagine diverse si specificano URL diversi. Dopo il caricamento dall'URL, il contenuto viene unito con un frammento HTML inserito da Azure AD B2C e quindi mostrato al cliente.
 
 Prima di iniziare, leggere le linee guida seguenti:
 
@@ -118,6 +118,6 @@ Per esempi di personalizzazione, scaricare ed esaminare questi [file modello di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se si usano criteri predefiniti, è possibile iniziare a personalizzare l'interfaccia utente con l'esercitazione: [Personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C](tutorial-customize-ui.md).
-- Se si usano criteri personalizzati, è possibile iniziare a personalizzare l'interfaccia utente con l'articolo: [Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- Se si usano flussi utente, è possibile iniziare a personalizzare l'interfaccia utente con l'esercitazione seguente: [Personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C](tutorial-customize-ui.md).
+- Se si usano i criteri personalizzati, è possibile iniziare a personalizzare l'interfaccia utente con il seguente articolo: [Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
 

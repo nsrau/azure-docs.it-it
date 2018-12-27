@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 4f488128b3f7a9aa06be9358439536d78615430e
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5a0181a1430e9de690fe4b4a48aa298db4c024e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146767"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433666"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Usare gli endpoint e le regole di servizio di rete virtuale per Database di Azure per PostgreSQL
 
@@ -33,11 +33,11 @@ Per creare una regola di rete virtuale, devono innanzitutto essere disponibili u
 
 **Rete virtuale:** è possibile associare reti virtuali alla sottoscrizione di Azure.
 
-**Subnet:** una rete virtuale contiene **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
+**Subnet:** una rete virtuale contiene una o più **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
 
-**Endpoint del servizio Rete virtuale:** un [endpoint del servizio Rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori di proprietà includono uno o più nomi formali di tipi di servizi Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL. Questo tag di servizio si applica ai servizi di Database di Azure per PostgreSQL e MySQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i server di Database SQL di Azure, Database di Azure per PostgreSQL e Database di Azure per MySQL nella subnet. 
+**Endpoint del servizio di rete virtuale:** un [endpoint del servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL. Questo tag di servizio si applica ai servizi di Database di Azure per PostgreSQL e MySQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i server di Database SQL di Azure, Database di Azure per PostgreSQL e Database di Azure per MySQL nella subnet. 
 
-**Regola di rete virtuale:** una regola di rete virtuale per il server di Database di Azure per PostgreSQL è una subnet presente nell'elenco di controllo di accesso (ACL) del server di Database di Azure per PostgreSQL. Per essere inclusa nell'elenco ACL del server di Database di Azure per PostgreSQL, la subnet deve contenere il nome del tipo **Microsoft.Sql**.
+**Regola di rete virtuale:** Una regola di rete virtuale per il Database di Azure per il server PostgreSQL è una subnet presente nell'elenco di controllo di accesso (ACL) del Database di Azure per il server PostgreSQL. Per essere inclusa nell'elenco ACL del server di Database di Azure per PostgreSQL, la subnet deve contenere il nome del tipo **Microsoft.Sql**.
 
 Una regola di rete virtuale indica al server di Database di Azure per PostgreSQL di accettare le comunicazioni da ogni nodo che si trova nella subnet.
 
@@ -91,8 +91,8 @@ Ogni regola di rete virtuale si applica all'intero server di Database di Azure p
 
 I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint del servizio Rete virtuale. Ogni ruolo indicato di seguito deve svolgere determinate azioni:
 
-- **Amministratore di rete:**&nbsp; attivare l'endpoint.
-- **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server di Database di Azure per PostgreSQL.
+- **Amministratore di rete:** &nbsp; attiva l'endpoint.
+- **Amministratore del database:** &nbsp; aggiorna l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al Database di Azure per il server PostgreSQL.
 
 *Alternativa del controllo degli accessi in base al ruolo:*
 
@@ -115,7 +115,7 @@ Per Database di Azure per PostgreSQL, la funzionalità delle regole di rete virt
 
 - Le regole della rete virtuale si applicano solo alle reti virtuali di Azure Resource Manager e non alle reti con un [modello di distribuzione classica][arm-deployment-model-568f].
 
-- L'attivazione degli endpoint di servizio di rete virtuale su Database di Azure per PostgreSQL tramite il tag di servizio **Microsoft.Sql** abilita anche gli endpoint per tutti i servizi di Database di Azure: Database di Azure per MySQL, Database di Azure per PostgreSQL, Database SQL di Azure e Azure SQL Data Warehouse.
+- L'attivazione degli endpoint del servizio di rete virtuale nel Database di Azure per PostgreSQL con il tag di servizio **Microsoft.Sql** abilita gli endpoint anche per tutti i servizi di Database di Azure: Database di Azure per MySQL, Database di Azure per PostgreSQL, database SQL di Azure e Azure SQL Data Warehouse.
 
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 
@@ -145,7 +145,7 @@ Per articoli relativi alla creazione di regole di rete virtuale, vedere:
 - [Creare e gestire le regole di rete virtuale per Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure](howto-manage-vnet-using-cli.md)
 
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

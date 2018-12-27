@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 59ca7a98bfa275502e847a8d2c34ec79141603da
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633445"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433815"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Eseguire una query Apache Hive tramite il driver JDBC in HDInsight
 
@@ -31,7 +31,7 @@ Per altre informazioni sull'interfaccia Hive JDBC, vedere [HiveJDBCInterface](ht
   > [!IMPORTANT]
   > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [Ritiro di HDInsight 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL è un'applicazione client JDBC.
+* [SQuirreL SQL](https://squirrel-sql.sourceforge.net/). SQuirreL è un'applicazione client JDBC.
 
 * [Java Developer Kit (JDK) versione 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o successiva.
 
@@ -45,7 +45,7 @@ Le connessioni JDBC a un cluster HDInsight in Azure vengono stabilite tramite la
 
 Sostituire `CLUSTERNAME` con il nome del cluster HDInsight.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Quando si stabilisce la connessione, è necessario usare il nome amministratore e la password del cluster HDInsight per l'autenticazione nel gateway cluster. Durante la connessione dai client JDBC come SQuirreL SQL, è necessario immettere il nome amministratore e la password nelle impostazioni del client.
 
@@ -88,9 +88,9 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 5. Nella finestra di dialogo di aggiunta del driver aggiungere le informazioni seguenti:
 
-    * **Name**: Hive
+    * **Name** (Nome): Hive
     * **Example URL** (URL di esempio): `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Extra Class Path** (Percorso classe extra): usare il pulsante Add (Aggiungi) per aggiungere tutti i file JAR scaricati in precedenza
+    * **Extra Class Path** (Percorso classe aggiuntiva): usare il pulsante Add (Aggiungi) per aggiungere tutti i file con estensione jar scaricati in precedenza
     * **Class Name** (Nome classe): org.apache.hive.jdbc.HiveDriver
 
    ![finestra di dialogo add driver](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
@@ -103,9 +103,9 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 7. Usare i valori seguenti per la finestra di dialogo **Add Alias** (Aggiungi alias).
 
-    * **Name** (Nome): Hive on HDInsight
+    * **Name** (Nome): Hive in HDInsight
 
-    * **Driver**: usare l'elenco a discesa per selezionare il driver **Hive**
+    * **Driver**: usare l'elenco a discesa per selezionare il driver **Hive**.
 
     * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
@@ -118,7 +118,7 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
  ![finestra di dialogo add alias](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
     > [!IMPORTANT] 
-    > Usare il pulsante **Test** per verificare il funzionamento della connessione. Quando viene visualizzata la finestra di dialogo **Connect to: Hive on HDInsight** (Connetti a: Hive in HDInsight), selezionare **Connect** (Connetti) per eseguire il test. Se il test ha esito positivo, verrà visualizzata la finestra di dialogo **Connection successful** (Connessione riuscita). Se si verifica un errore, vedere [Risoluzione dei problemi](#troubleshooting).
+    > Usare il pulsante **Test** per verificare il funzionamento della connessione. Quando viene visualizzata la finestra di dialogo **Connect to: Hive o HDInsight** (Connetti a: Hive in HDInsight), selezionare **Connect** (Connetti) per eseguire il test. Se il test ha esito positivo, verrà visualizzata la finestra di dialogo **Connection successful** (Connessione riuscita). Se si verifica un errore, vedere [Risoluzione dei problemi](#troubleshooting).
 
     Usare il pulsante **OK** nella parte inferiore della finestra di dialogo **Add Alias** (Aggiungi alias) per salvare l'alias di connessione.
 
@@ -140,7 +140,7 @@ Un esempio dell'uso di un client Java per query Hive in HDInsight è disponibile
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Errore imprevisto durante il tentativo di aprire una connessione SQL
 
-**Sintomi**: quando ci si connette a un cluster HDInsight versione 3.3 o superiore, un errore potrebbe segnalare che si è verificato un errore imprevisto. L'analisi dello stack dell'errore inizia con le righe seguenti:
+**Sintomi**: quando ci si connette a un cluster HDInsight versione 3.3 o superiore, è possibile ricevere la segnalazione di un errore imprevisto. L'analisi dello stack dell'errore inizia con le righe seguenti:
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -150,7 +150,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Causa**: questo errore è causato da una versione precedente del file commons-codec.jar incluso con SQuirreL.
 
-**Soluzione**: per risolvere l'errore eseguire questa procedura:
+**Risoluzione**: per risolvere l'errore seguire questa procedura.
 
 1. Scaricare il file commons-codec.jar dal cluster HDInsight.
 
@@ -164,14 +164,14 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 Dopo avere appreso come usare JDBC con Hive, vedere i collegamenti seguenti per scoprire altre modalità di utilizzo di Azure HDInsight.
 
-* [Visualizzare i dati Hive con Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Visualizzare i dati Apache Hive con Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) (Visualizzare i dati Hive di Interactive Query con Power BI in Azure HDInsight).
-* [Usare Zeppelin per eseguire query Hive in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Usare Apache Zeppelin per eseguire query Apache Hive in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Connettere Excel a Hadoop mediante Power Query](apache-hadoop-connect-excel-power-query.md).
-* [Connettersi ad Azure HDInsight ed eseguire query Hive usando Strumenti Data Lake per Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
+* [Connettere Excel ad Apache Hadoop mediante Power Query](apache-hadoop-connect-excel-power-query.md).
+* [Connettersi ad Azure HDInsight ed eseguire query Apache Hive usando Strumenti Data Lake per Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
 * [Usare gli strumenti di Azure HDInsight per Visual Studio Code](../hdinsight-for-vscode.md).
 * [Caricare dati in HDInsight](../hdinsight-upload-data.md)
-* [Usare Hive con HDInsight](hdinsight-use-hive.md)
-* [Usare Pig con HDInsight](hdinsight-use-pig.md)
+* [Usare Apache Hive con HDInsight](hdinsight-use-hive.md)
+* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)

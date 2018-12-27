@@ -2,18 +2,18 @@
 title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
 description: Gestire processi e avvisi in un insieme di credenziali di Servizi di ripristino di Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
-ms.author: markgal
-ms.openlocfilehash: c9b3b027a52a6847c566c385c304edc195f7fdda
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250697"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871334"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -67,7 +67,7 @@ Fare clic sui riquadri (a eccezione di Archivio backup) per aprire il menu assoc
 
 ![Menu Avvisi di backup filtrato per gli avvisi critici](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-Il menu Avvisi di backup nell'immagine precedente viene filtrato per: stato attivo, gravità critica e intervallo di tempo corrispondente alle 24 ore precedenti.
+Il menu Avvisi di Backup, nell'immagine precedente, viene filtrato per: Lo stato è attivo, la gravità è critica e l'ora è impostata sulle 24 ore precedenti.
 
 ## <a name="manage-backup-alerts"></a>Gestire gli avvisi di backup
 
@@ -283,7 +283,7 @@ R3. Sì. Le notifiche non vengono inviate nei casi seguenti.
 
 **Problema:** i processi e/o gli avvisi generati dall'agente di Backup di Azure non vengono visualizzati nel portale.
 
-**Procedura per la risoluzione del problema:** il processo, ```OBRecoveryServicesManagementAgent```, viene usato per inviare i dati dei processi e degli avvisi al servizio Backup di Azure. A volte questo processo può risultare danneggiato o arrestato.
+**Passaggi per la risoluzione dei problemi:** Il prpcesso, ```OBRecoveryServicesManagementAgent```, viene usato per inviare i dati dei processi e degli avvisi al servizio Backup di Azure. A volte questo processo può risultare danneggiato o arrestato.
 
 1. Per controllare se il processo si è arrestato, aprire **Gestione attività** e controllare se ```OBRecoveryServicesManagementAgent``` è in esecuzione.
 

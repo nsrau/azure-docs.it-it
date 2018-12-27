@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare G Suite per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: configurare G Suite per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a G Suite.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 48a835bf8c63ffa5512173b600fb85abd5c6cb45
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346390"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840351"
 ---
-# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: Configurare G Suite per il provisioning utenti automatico
+# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: configurare G Suite per il provisioning utenti automatico
 
 Questa esercitazione descrive come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure Active Directory (Azure AD) a G Suite.
 
@@ -67,7 +67,7 @@ Questa sezione illustra il processo di connessione di Azure AD all'API di provis
 > [!NOTE]
 > Un'altra soluzione valida per l'automazione del provisioning utenti in G Suite consiste nell'usare [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS esegue il provisioning in G Suite delle identità locali di Active Directory. Al contrario, la soluzione in questa esercitazione esegue il provisioning in G Suite dei gruppi abilitati alla posta elettronica e degli utenti (cloud) di Azure Active Directory. 
 
-1. Accedere alla [console di amministrazione di Google Apps](http://admin.google.com/) con l'account amministratore e selezionare **Security** (Sicurezza). Se il collegamento non è visibile, è possibile che sia nascosto sotto il menu **More Controls** (Altri controlli) nella parte inferiore della schermata.
+1. Accedere alla [console di amministrazione di Google Apps](https://admin.google.com/) con l'account amministratore e selezionare **Security** (Sicurezza). Se il collegamento non è visibile, è possibile che sia nascosto sotto il menu **More Controls** (Altri controlli) nella parte inferiore della schermata.
    
     ![Selezionare Security (Sicurezza).][10]
 
@@ -110,7 +110,7 @@ Questa sezione illustra il processo di connessione di Azure AD all'API di provis
 
 1. Ora che tutti i domini sono stati verificati con Azure AD, è necessario verificarli nuovamente con Google Apps. Per ogni dominio non ancora registrato con Google, seguire questa procedura:
    
-    a. Nella [console di amministrazione di Google Apps](http://admin.google.com/) selezionare **Domains** (Domini).
+    a. Nella [console di amministrazione di Google Apps](https://admin.google.com/) selezionare **Domains** (Domini).
      
      ![Selezionare i domini][20]
 
@@ -127,9 +127,9 @@ Questa sezione illustra il processo di connessione di Azure AD all'API di provis
     e. Ripetere i passaggi precedenti per tutti i domini aggiuntivi che si desidera aggiungere a Google Apps.
      
      > [!WARNING]
-     > Se si modifica il dominio primario per il tenant di G Suite e si è già configurato l'accesso Single Sign-On con Azure AD, è necessario ripetere il passaggio 3 in [Passaggio 2: Abilitare il servizio Single Sign-On](#step-two-enable-single-sign-on).
+     > Se si modifica il dominio primario per il tenant di G Suite e si è già configurato l'accesso Single Sign-On con Azure AD, è necessario ripetere il passaggio 3 in [Passaggio 2: abilitare il servizio Single Sign-On](#step-two-enable-single-sign-on).
        
-1. Nella [console di amministrazione di Google Apps](http://admin.google.com/) selezionare **Admin Roles** (Ruoli amministratore).
+1. Nella [console di amministrazione di Google Apps](https://admin.google.com/) selezionare **Admin Roles** (Ruoli amministratore).
    
      ![Selezionare Google Apps][26]
 

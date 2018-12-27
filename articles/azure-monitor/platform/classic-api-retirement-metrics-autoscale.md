@@ -7,13 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 450eac3613df18997c5b0f9189555555da20cfcf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585432"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433091"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Ritiro da parte di Monitoraggio di Azure di API di modelli di distribuzione classici per metriche e scalabilità automatica
 
@@ -25,7 +24,7 @@ Le stesse operazioni sono state supportate tramite un set di API basate su Azure
 
 Se si sta gestendo la scalabilità automatica tramite il portale di Azure, il [nuovo SDK di Monitoraggio di Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, l’interfaccia della riga di comando o i modelli di Gestione risorse, non è necessaria alcuna azione.  
 
-Se si utilizzano le metriche tramite il portale di Azure o tramite vari [servizi dei partner di monitoraggio](../../monitoring-and-diagnostics/monitoring-partners.md), non è necessaria alcuna azione. Microsoft sta lavorando con partner di monitoraggio per eseguire la migrazione alle nuove API.
+Se si utilizzano le metriche tramite il portale di Azure o tramite vari [servizi dei partner di monitoraggio](../../azure-monitor/platform/partners.md), non è necessaria alcuna azione. Microsoft sta lavorando con partner di monitoraggio per eseguire la migrazione alle nuove API.
 
 ## <a name="who-is-affected"></a>Chi è interessato
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 71a8077f2423dd170d08d540edd307c08ed886cc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165505"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073823"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configurare il tunneling forzato con il modello di distribuzione classico
 
@@ -42,7 +42,7 @@ Il tunneling forzato in Azure viene configurato tramite route di rete virtuale d
 * Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i tre gruppi di route seguenti:
 
   * **Route della rete virtuale locale:** direttamente alle macchine virtuali di destinazione nella stessa rete virtuale.
-  * **Route locali:** al gateway VPN di Azure.
+  * **Route in locale:** al gateway VPN di Azure.
   * **Route predefinita:** direttamente a Internet. I pacchetti destinati agli indirizzi IP privati non rientranti nelle due route precedenti verranno eliminati.
 * Con il rilascio di route definite dall'utente, è possibile creare una tabella di routing per aggiungere una route predefinita, quindi associare la tabella di routing alle subnet della rete virtuale per abilitare il tunneling forzato in tali subnet.
 * È necessario impostare un "sito predefinito" tra i siti locali cross-premise connessi alla rete virtuale.
@@ -104,38 +104,41 @@ La procedura seguente consentirà di specificare il tunneling forzato per una re
     </VirtualNetworkSite>
 ```
 
-In questo esempio, la rete virtuale 'MultiTier-VNet' include tre subnet: 'Frontend', 'Midtier' e 'Backend' con quattro connessioni cross-premise: 'DefaultSiteHQ' e tre rami. 
+In questo esempio, la rete virtuale "MultiTier-VNet" include tre subnet: "Frontend", "Midtier" e "Backend", con quattro connessioni cross-premise: "DefaultSiteHQ" e tre rami. 
 
 La procedura consente di impostare 'DefaultSiteHQ' come connessione predefinita del sito per il tunneling forzato e di configurare le subnet Midtier e Backend per l'uso del tunneling forzato.
 
 1. Creare una tabella di routing. Utilizzare il cmdlet seguente per creare la tabella route.
 
-  ```powershell
-  New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
-  ```
+   ```powershell
+   New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
+   ```
+
 2. Aggiungere una route predefinita alla tabella di routing. 
 
-  L'esempio seguente aggiunge una route predefinita alla tabella di routing creata nel passaggio 1. Notare che l'unica route supportata è il prefisso di destinazione di "0.0.0.0/0" su NextHop "VPNGateway".
+   L'esempio seguente aggiunge una route predefinita alla tabella di routing creata nel passaggio 1. Notare che l'unica route supportata è il prefisso di destinazione di "0.0.0.0/0" su NextHop "VPNGateway".
 
-  ```powershell
-  Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
-  ```
+   ```powershell
+   Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+   ```
+
 3. Associare la tabella di routing alle subnet. 
 
-  Dopo aver creato una tabella di routing e aggiunto una route, usare l'esempio seguente per aggiungere o associare la tabella di route a una subnet della rete virtuale. L'esempio aggiunge la tabella di route "MyRouteTable" alle subnet Midtier e Backend della rete virtuale MultiTier-VNet.
+   Dopo aver creato una tabella di routing e aggiunto una route, usare l'esempio seguente per aggiungere o associare la tabella di route a una subnet della rete virtuale. L'esempio aggiunge la tabella di route "MyRouteTable" alle subnet Midtier e Backend della rete virtuale MultiTier-VNet.
 
-  ```powershell
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
-  ```
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+   ```
+
 4. Assegnare un sito predefinito per il tunneling forzato. 
 
-  Nel passaggio precedente, gli script di cmdlet di esempio hanno consentito di creare la tabella route e di associarla a due delle subnet della rete virtuale. L'ultimo passaggio consiste nel selezionare un sito locale tra le connessioni multisito della rete virtuale come sito predefinito o tunnel.
+   Nel passaggio precedente, gli script di cmdlet di esempio hanno consentito di creare la tabella route e di associarla a due delle subnet della rete virtuale. L'ultimo passaggio consiste nel selezionare un sito locale tra le connessioni multisito della rete virtuale come sito predefinito o tunnel.
 
-  ```powershell
-  $DefaultSite = @("DefaultSiteHQ")
-  Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
-  ```
+   ```powershell
+   $DefaultSite = @("DefaultSiteHQ")
+   Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
+   ```
 
 ## <a name="additional-powershell-cmdlets"></a>Ulteriori cmdlet di PowerShell
 ### <a name="to-delete-a-route-table"></a>Per eliminare una tabella route

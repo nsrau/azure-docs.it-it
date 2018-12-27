@@ -1,11 +1,12 @@
 ---
 title: Strumenti per data science e machine learning in Azure | Microsoft Docs
-description: Strumenti per machine learning e data science
+description: Informazioni su strumenti per machine learning e framework preinstallati in Data Science Virtual Machine.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9308c51c0ff5fc7278eab632f9d23f23cf016a2a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d8c607b5f1d338ca3a2bd3844b26ef51d801c720
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901669"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086071"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Strumenti per machine learning e data science
 Data Science Virtual Machine offre un ampio set di strumenti e librerie per machine learning (ML) disponibili nei linguaggi più diffusi, ad esempio Python, R, Julia. 
@@ -31,7 +32,7 @@ Ecco alcuni strumenti e librerie ML in Data Science Virtual Machine.
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   |   Azure Machine Learning è un servizio cloud usato per sviluppare e distribuire modelli di Machine Learning. È possibile tenere traccia dei modelli durante la compilazione, il training, il ridimensionamento e la gestione con Python SDK. Distribuire modelli come contenitori ed eseguirli nel cloud, in locale o in Azure IoT Edge.   |
-| Edizioni supportate     | Windows (ambiente Conda: AzureML), Linux (ambiente Conda: py36)    |
+| Edizioni supportate     | Windows (ambiente conda: Azure ML), Linux (ambiente conda: py36)    |
 | Usi tipici      | Piattaforma Machine Learning generale      |
 | Come viene configurata o installata?      |  Installata con supporto GPU   |
 | Come usarla o eseguirla      | Come Python SDK e interfaccia della riga di comando di Azure. Attivare per l'ambiente Conda `AzureML` nell'edizione per Windows *o* per `py36` nell'edizione per Linux.      |

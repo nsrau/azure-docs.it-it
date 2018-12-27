@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 5aade5a2ad0b0f51c5bd7f53ed0ee191950aa7c4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 58dc344cc7ab40218a122e34a9032276107a944c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213322"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964459"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -77,7 +77,7 @@ Lo strumento prevede due fasi principali: profilatura e generazione di report. �
 
 | Requisito server | DESCRIZIONE|
 |---|---|
-|Profilatura e misurazione della velocità effettiva| <ul><li>Sistema operativo: Windows Server 2016 o Windows Server 2012 R2<br>(idealmente corrispondente almeno alle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1.000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>Le impostazioni a livello di statistiche di VMware vCenter possono essere 1 o un valore superiore</li><li>Consentire la porta vCenter, 443 per impostazione predefinita: Site Recovery Deployment Planner usa questa porta per la connessione al server vCenter o all'host ESXi</ul></ul>|
+|Profilatura e misurazione della velocità effettiva| <ul><li>Sistema operativo: Windows Server 2016 o Windows Server 2012 R2<br>(idealmente corrispondente almeno alle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, HDD da 300 GB</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1.000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>Le impostazioni a livello di statistiche di VMware vCenter possono essere 1 o un valore superiore</li><li>Consentire la porta vCenter (443 come valore predefinito): Site Recovery Deployment Planner usa questa porta per la connessione al server vCenter/all'host ESXi</ul></ul>|
 | Generazione di report | Un PC o server Windows con Excel 2013 o versione successiva.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) è obbligatorio solo quando si passa l'opzione -User nel comando di generazione del report per recuperare le informazioni di configurazione macchina virtuale più recenti delle VM. Lo strumento di pianificazione della distribuzione si connette al server vCenter. Consentire la porta vCenter, che è la 443 per impostazione predefinita, per la connessione al server vCenter.</li>|
 | Autorizzazioni utente | Autorizzazioni di sola lettura per l'account utente usato per accedere al server VMware vCenter o all'host VMware vSphere ESXi durante la profilatura |
 
@@ -98,10 +98,10 @@ Lo strumento è compresso in una cartella ZIP. La versione corrente dello strume
 3. Estrarre la cartella ZIP.
 La cartella contiene più file e sottocartelle. Il file eseguibile è ASRDeploymentPlanner.exe e si trova nella cartella padre.
 
-    Esempio: copiare il file ZIP nell'unità E:\ ed estrarlo.
-    E:\ASR Deployment Planner_v2.2.zip
+    Esempio: Copiare il file ZIP nell'unità E:\ ed estrarlo.
+    E:\ASR Deployment Planner_v2.3.zip
 
-    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Eseguire l'aggiornamento alla versione più recente di Deployment Planner
 Se si ha una versione precedente di Deployment Planner, eseguire una di queste operazioni:
@@ -117,7 +117,7 @@ Se si ha una versione precedente di Deployment Planner, eseguire una di queste o
 
 
 ## <a name="version-history"></a>Cronologia delle versioni
-La versione più recente di Site Recovery Deployment Planner è la 2.2.
+La versione più recente dello strumento Site Recovery Deployment Planner è la 2.3.
 Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina della [cronologia delle versioni di Site Recovery Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
