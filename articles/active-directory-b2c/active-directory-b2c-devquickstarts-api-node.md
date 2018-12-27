@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 93c3bd3f902f08c8f019744b3f30745c1fd9fa01
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442424"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847661"
 ---
-# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: proteggere un'API Web usando Node.js
+# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Proteggere un'API Web usando node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Azure Active Directory (Azure AD) B2C permette di proteggere un'API Web usando i token di accesso OAuth 2.0. I token di accesso consentono alle app client che usano Azure AD B2C di eseguire l'autenticazione all'API. Questo articolo illustra come creare un'API di elenco attività che consenta agli utenti di aggiungere ed elencare attività. L'API Web è protetta con Azure AD B2C e consente soltanto agli utenti autenticati di gestire il proprio elenco attività.
@@ -47,7 +47,7 @@ A questo punto è necessario creare un'app nella directory B2C, che fornisce ad 
 * Copiare l' **ID applicazione** assegnato all'app. Questi dati saranno necessari in un secondo momento.
 
 ## <a name="create-your-policies"></a>Creare i criteri
-In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md)specifici. Questa app contiene due esperienze di identità: iscrizione e accesso. È necessario creare i criteri per ogni tipo, come descritto nell' [articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Durante la creazione dei tre criteri assicurarsi di:
+In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md)specifici. Questa app contiene due esperienze di identità: iscrizione e accesso. È necessario creare i criteri per ogni tipo, come descritto nell' [articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  Durante la creazione dei tre criteri assicurarsi di:
 
 * Scegliere **Nome visualizzato** e altri attributi nei criteri di iscrizione.
 * Scegliere le attestazioni dell'applicazione **Nome visualizzato** e **ID oggetto** in tutti i criteri.  È consentito scegliere anche altre attestazioni.
@@ -71,12 +71,12 @@ L'app completata è anche [disponibile come file ZIP](https://github.com/AzureAD
 ## <a name="download-nodejs-for-your-platform"></a>Scaricare node.js per la piattaforma corrente
 Per usare correttamente questo esempio è necessaria un'installazione funzionante di Node.js.
 
-Installare Node.js da [nodejs.org](http://nodejs.org).
+Installare Node.js da [nodejs.org](https://nodejs.org).
 
 ## <a name="install-mongodb-for-your-platform"></a>Installare MongoDB per la piattaforma corrente
 Per usare correttamente questo esempio è necessaria un'installazione funzionante di MongoDB. MongoDB viene usato per rendere l'API REST persistente nelle istanze del server.
 
-Installare MongoDB da [mongodb.org](http://www.mongodb.org).
+Installare MongoDB da [mongodb.org](https://www.mongodb.org).
 
 > [!NOTE]
 > In questa procedura dettagliata si presume che si usino gli endpoint server e di installazione predefiniti per MongoDB, al momento della stesura di questo articolo `mongodb://localhost`.
@@ -265,13 +265,13 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 ### <a name="required-values"></a>Valori richiesti
 `clientID`: ID client dell'applicazione API Web.
 
-`IdentityMetadata`: qui `passport-azure-ad` cerca i dati di configurazione per il provider di identità e le chiavi di convalida dei token JSON Web.
+`IdentityMetadata`: Qui `passport-azure-ad` cerca i dati di configurazione per il provider di identità. e le chiavi di convalida dei token JSON Web.
 
-`audience`: URI (Uniform Resource Identifier) dal portale che identifica l'applicazione chiamante.
+`audience`: L'URI (Uniform Resource Identifier) dal portale che identifica l'applicazione chiamante.
 
-`tenantName`: nome del tenant, ad esempio **contoso.onmicrosoft.com**.
+`tenantName`: Nome del tenant (ad esempio **contoso.onmicrosoft.com**).
 
-`policyName`: criteri da usare per convalidare i token in ingresso nel server. Usare gli stessi criteri usati nell'applicazione client per l'accesso.
+`policyName`: I criteri da usare per convalidare i token in ingresso nel server. Usare gli stessi criteri usati nell'applicazione client per l'accesso.
 
 > [!NOTE]
 > Per questo esempio, usare gli stessi i criteri per entrambe le configurazioni client e server. Se è già stata completata una procedura dettagliata in cui sono stati creati questi criteri, non è necessario crearli di nuovo. Dal momento che la procedura dettagliata è stata completata, non è necessario impostare nuovi criteri per procedure dettagliate relative ai client nel sito.
@@ -337,13 +337,13 @@ Dopo aver indicato al server quale database MongoDB usare, è necessario scriver
 ### <a name="expand-the-model"></a>Espandere il modello
 Questo modello di schema è semplice ed è possibile espanderlo in base alle esigenze.
 
-`owner`: utente assegnato all'attività. Questo oggetto è di tipo **stringa**.  
+`owner`: L'utente assegnato all'attività. Questo oggetto è di tipo **stringa**.  
 
-`Text`: l'attività stessa. Questo oggetto è di tipo **stringa**.
+`Text`: L'attività stessa. Questo oggetto è di tipo **stringa**.
 
-`date`: data di scadenza dell'attività. Questo oggetto è di tipo **datetime**.
+`date`: Data di scadenza dell'attività. Questo oggetto è di tipo **datetime**.
 
-`completed`: indica se l'attività è stata completata. Questo oggetto è di tipo **booleano**.
+`completed`: Indica se l'attività è stata completata. Questo oggetto è di tipo **booleano**.
 
 ### <a name="create-the-schema-in-the-code"></a>Creare lo schema nel codice
 Dalla riga di comando passare alla directory `azuread`, se non è già la posizione corrente:

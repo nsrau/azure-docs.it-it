@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di criteri di Gestione API di Azure: autorizzare la richiesta con un provider di autorizzazioni esterno | Microsoft Docs'
-description: 'Esempio di criteri di gestione API di Azure: illustra come autorizzare le richieste usando un provider di autorizzazioni esterno incapsulando una logica di autenticazione/autorizzazione personalizzata o legacy.'
+title: 'Esempio di criteri di gestione API di Azure: autorizzare la richiesta con un provider di autorizzazioni esterno | Microsoft Docs'
+description: 'Esempio di criteri di gestione API di Azure: illustra come autorizzare le richieste usando un provider di autorizzazioni esterno che incapsula una logica di autenticazione/autorizzazione personalizzata o legacy.'
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
-ms.openlocfilehash: 70f43a058cfd3818dae1ccfa4b222a7d0d740aee
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 65ea8622187d0665e4680f4162ddff0bc01e6eb9
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979404"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869392"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>Autorizzare richieste usando un provider di autorizzazioni esterno
 

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 6345cf47d19f7990e776e0fe4ec2bafd005c9cf2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 3e71c4e31c6d57cb54a654e0e1c28dcb0fa82cda
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212489"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875332"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Domande frequenti - Ripristino di emergenza da Hyper-V ad Azure
 
@@ -55,11 +55,11 @@ Sì, sono supportate sia la crittografia in transito che la [crittografia in Azu
 
 ### <a name="what-can-i-do-with-hyper-v-to-azure-replication"></a>Cosa si può fare con la replica da Hyper-V ad Azure?
 
-- **Ripristino di emergenza**: è possibile configurare un ripristino di emergenza completo. In questo scenario viene eseguita la replica di macchine virtuali Hyper-V locali in Archiviazione di Azure:
+- **Ripristino di emergenza**: È possibile configurare il ripristino di emergenza completo. In questo scenario viene eseguita la replica di macchine virtuali Hyper-V locali in Archiviazione di Azure:
     - È possibile replicare macchine virtuali in Azure. Se l'infrastruttura locale non è disponibile, si effettua il failover in Azure.
     - Quando si esegue un failover, vengono create macchine virtuali di Azure con i dati replicati. È possibile accedere alle app e ai carichi di lavoro nelle macchine virtuali di Azure.
     - Quando il data center locale è di nuovo disponibile, è possibile eseguire il failback da Azure al sito locale.
-- **Migrazione**: è possibile usare Site Recovery per eseguire la migrazione delle macchine virtuali Hyper-V locali in Archiviazione di Azure. Quindi si esegue il failover dal sito locale in Azure. Dopo il failover, le app e i carichi di lavoro sono disponibili e in esecuzione all'interno di macchine virtuali di Azure.
+- **Migrazione**: È possibile usare Site Recovery per eseguire la migrazione delle macchine virtuali Hyper-V locali in Archiviazione di Azure. Quindi si esegue il failover dal sito locale in Azure. Dopo il failover, le app e i carichi di lavoro sono disponibili e in esecuzione all'interno di macchine virtuali di Azure.
 
 
 ### <a name="what-do-i-need-on-premises"></a>Cosa è necessario avere in locale?
@@ -124,7 +124,7 @@ Site Recovery replica i dati dal sito locale ad Archiviazione di Azure su un end
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>È possibile eseguire la replica in Azure con ExpressRoute?
 
-Sì, è possibile usare ExpressRoute per replicare macchine virtuali in Azure. Site Recovery replica i dati in un account di archiviazione di Azure su un endpoint pubblico ed è necessario configurare il [peering pubblico](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) per la replica di Site Recovery. Dopo il failover delle macchine virtuali in una rete virtuale di Azure, è possibile accedervi usando il [peering privato](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Sì, è possibile usare ExpressRoute per replicare macchine virtuali in Azure. Site Recovery replica i dati in un account di archiviazione di Azure su un endpoint pubblico ed è necessario configurare il [peering pubblico](../expressroute/expressroute-circuit-peerings.md#publicpeering) per la replica di Site Recovery. Dopo il failover delle macchine virtuali in una rete virtuale di Azure, è possibile accedervi usando il [peering privato](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Perché non è possibile eseguire la replica su VPN?
@@ -197,8 +197,8 @@ Quando l'infrastruttura locale è di nuovo operativa, è possibile eseguire il f
 
 1. Si può avviare un failover pianificato da Azure al sito primario scegliendo tra due diverse opzioni:
 
-    - Ridurre al minimo il tempo di inattività: se si usa questa opzione, Site Recovery sincronizza i dati prima del failover. Il servizio verifica la presenza di blocchi di dati modificati e li scarica nel sito locale, mentre la macchina virtuale di Azure resta in esecuzione, riducendo al minimo il tempo di inattività. Quando si specifica manualmente che è necessario completare il failover, la macchina virtuale di Azure viene arrestata, vengono copiate tutte le modifiche differenziali finali e viene avviato il failover.
-    - Download completo: con questa opzione i dati vengono sincronizzati durante il failover. Questa opzione scarica l'intero disco. Questa opzione è più veloce, perché non viene calcolato alcun checksum, ma il tempo di inattività è maggiore. Usare questa opzione se le macchine virtuali di Azure di replica sono state eseguite per un certo tempo o se la macchina virtuale locale è stata eliminata.
+    - Ridurre al minimo il tempo di inattività: Se si usa questa opzione, Site Recovery sincronizza i dati prima del failover. Il servizio verifica la presenza di blocchi di dati modificati e li scarica nel sito locale, mentre la macchina virtuale di Azure resta in esecuzione, riducendo al minimo il tempo di inattività. Quando si specifica manualmente che è necessario completare il failover, la macchina virtuale di Azure viene arrestata, vengono copiate tutte le modifiche differenziali finali e viene avviato il failover.
+    - Download completo: Con questa opzione i dati vengono sincronizzati durante il failover. Questa opzione scarica l'intero disco. Questa opzione è più veloce, perché non viene calcolato alcun checksum, ma il tempo di inattività è maggiore. Usare questa opzione se le macchine virtuali di Azure di replica sono state eseguite per un certo tempo o se la macchina virtuale locale è stata eliminata.
 
 2. È possibile scegliere di eseguire il failback nella stessa macchina virtuale o in una alternativa. È possibile specificare che Site Recovery deve creare la macchina virtuale, se non esiste già.
 3. Al termine della sincronizzazione iniziale, scegliere di completare il failover. Al termine, è possibile accedere alla macchina virtuale locale per verificare che funzioni tutto come previsto. Nel portale di Azure si noterà che le macchine virtuali di Azure sono state arrestate.

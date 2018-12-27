@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 0f5eee20b0487fb5fce82047f40d137effb87ead
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: b975f84106507da6adff11dc62441526773f5cab
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164425"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998142"
 ---
 # <a name="enable-support-uploads"></a>Abilitare i caricamenti per il supporto
 
@@ -42,6 +42,6 @@ Seguire questi passaggi dal pannello di controllo di Avere per attivare il suppo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se è necessario aggiungere un sistema di archiviazione locale al cluster, seguire le istruzioni in [Configure storage](avere-vfxt-add-storage.md) (Configurare lo spazio di archiviazione). 
+Se è necessario aggiungere un sistema di archiviazione locale al cluster o aggiornare la chiave di crittografia predefinita in un contenitore BLOB appena creato, seguire le istruzioni in [Configura archiviazione](avere-vfxt-add-storage.md). 
 
 Se si è pronti per cominciare a collegare client al cluster, leggere [Montare il cluster Avere vFXT](avere-vfxt-mount-clients.md).
