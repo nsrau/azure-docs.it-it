@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 954eec8566173dd4707926d5f713a5cd509bdd9b
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 9c63808af8d883badd379cf8bc3372a1d65d6624
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620065"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Esercitazione: Integrazione di Azure Active Directory con SharePoint locale
 
@@ -76,7 +76,7 @@ Per configurare l'integrazione di SharePoint locale in Azure AD, è necessario a
 
 4. Nella casella di ricerca digitare **SharePoint locale**, selezionare **SharePoint locale** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![SharePoint locale nell'elenco risultati](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
+    ![SharePoint locale nell'elenco risultati](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -104,11 +104,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
 
-    ![Finestra di dialogo Single Sign-On](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
+    ![Finestra di dialogo Single Sign-On](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
 
 3. Nella sezione **URL e dominio SharePoint locale** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di SharePoint locale](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di SharePoint locale](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
@@ -118,21 +118,21 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Collegamento di download del certificato](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
+    ![Collegamento di download del certificato](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
     > [!Note]
     > Annotare il percorso del file in cui è stato scaricato il file del certificato, perché è necessario usarlo in seguito nello script di PowerShell per la configurazione.
 
 5. Fare clic sul pulsante **Salva** .
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media\sharepoint-on-premises-tutorial/tutorial_general_400.png)
+    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/sharepoint-on-premises-tutorial/tutorial_general_400.png)
 
 6. Nella sezione **Configurazione di SharePoint locale** fare clic su **Configura SharePoint locale** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML** dalla **sezione di riferimento rapido.** Per **URL servizio Single Sign-On**, usare il valore nel formato seguente: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
     > [!Note]
     > _my_directory_id_ è l'ID tenant della sottoscrizione di Azure AD.
 
-    ![Configurazione di SharePoint locale](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
+    ![Configurazione di SharePoint locale](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
     > [!NOTE]
     > L'applicazione SharePoint locale usa il token SAML 1.1, quindi Azure AD attende la richiesta di WS Fed dal server di SharePoint e, dopo l'autenticazione, emette il token SAML 1.1.
@@ -171,7 +171,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     e. Fare clic su **OK**.
 
-    ![Configurare il provider di autenticazione](./media\sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+    ![Configurare il provider di autenticazione](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
     > [!NOTE]
     > Alcuni degli utenti esterni non potranno usare questa integrazione single sign-on poiché il loro UPN avrà valori alterati simili a `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. A breve si consentirà ai clienti di configurare l'app per gestire l'UPN in base al tipo di utente. In seguito tutti gli utenti guest dovrebbero essere in grado di usare l'accesso SSO senza problemi come i dipendenti dell'organizzazione.
@@ -186,19 +186,19 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 1. Nel portale di Azure fare clic sul pulsante **Azure Active Directory** nel riquadro sinistro.
 
-    ![Pulsante Azure Active Directory](./media\sharepoint-on-premises-tutorial/create_aaduser_01.png)
+    ![Pulsante Azure Active Directory](./media/sharepoint-on-premises-tutorial/create_aaduser_01.png)
 
 2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media\sharepoint-on-premises-tutorial/create_aaduser_02.png)
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/sharepoint-on-premises-tutorial/create_aaduser_02.png)
 
 3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
-    ![Pulsante Aggiungi](./media\sharepoint-on-premises-tutorial/create_aaduser_03.png)
+    ![Pulsante Aggiungi](./media/sharepoint-on-premises-tutorial/create_aaduser_03.png)
 
 4. Nella finestra di dialogo **Utente** seguire questa procedura:
 
-    ![Finestra di dialogo Utente](./media\sharepoint-on-premises-tutorial/create_aaduser_04.png)
+    ![Finestra di dialogo Utente](./media/sharepoint-on-premises-tutorial/create_aaduser_04.png)
 
     a. Nella casella **Nome** digitare **BrittaSimon**.
 
@@ -220,7 +220,7 @@ Gli utenti che si registreranno ad Azure AD ed effettueranno l'accesso a SharePo
 
 4. In Criteri per applicazioni Web fare clic su **Aggiungi utenti**.
 
-    ![Ricerca di un utente in base all'attestazione del nome](./media\sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
+    ![Ricerca di un utente in base all'attestazione del nome](./media/sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
 
 5. Nella finestra di dialogo **Aggiungi utenti** fare clic sulla zona appropriata in **Zone**e quindi fare clic su **Avanti**.
 
@@ -232,7 +232,7 @@ Gli utenti che si registreranno ad Azure AD ed effettueranno l'accesso a SharePo
 
 9. In Autorizzazioni fare clic su **Controllo completo**.
 
-    ![Concessione del controllo completo a un utente di attestazioni](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
+    ![Concessione del controllo completo a un utente di attestazioni](./media/sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
 
 10. Fare clic su **Avanti**, quindi su **OK**.
 
@@ -263,7 +263,7 @@ La configurazione funziona per una singola applicazione Web, ma necessita di una
 
 Gli utenti possono ora accedere a SharePoint 2016 con identità di Azure AD, ma l'esperienza utente può ancora migliorare. Ad esempio, la ricerca di un utente presenta molteplici risultati della ricerca nella selezione utenti. È disponibile un risultato di ricerca per ognuno dei 3 tipi di attestazioni creati nel mapping delle attestazioni. Per scegliere un utente con la selezione utenti, è necessario digitare esattamente il nome utente e scegliere il risultato dell'attestazione **name**.
 
-![Risultati della ricerca di attestazioni](./media\sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
+![Risultati della ricerca di attestazioni](./media/sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
 
 Non essendo previste convalide per i valori cercati, possono verificarsi errori di ortografia o la scelta accidentale del tipo errato di attestazione da assegnare, ad esempio l'attestazione **SurName**. Questo può impedire agli utenti di accedere correttamente alle risorse.
 
@@ -283,7 +283,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni selezionare **SharePoint locale**.
 
-    ![Collegamento di SharePoint nell'elenco delle applicazioni](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
+    ![Collegamento di SharePoint nell'elenco delle applicazioni](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

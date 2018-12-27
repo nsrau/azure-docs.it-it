@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: c0525cfba16fb61f8388ae4d6a693be3bb71674c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0333bc5e95b74fc97cfff3d79adbe28aefff5d40
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628530"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834639"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Indicizzazione in Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Uno pseudo nodo radice viene creato come elemento padre dei nodi effettivi corri
 
 Azure Cosmos DB progetta elementi come documenti JSON e l'indice come alberi. È possibile quindi usare i criteri per i percorsi all'interno dell'albero. È possibile scegliere di includere o escludere i percorsi dall'indicizzazione. Questo consente di migliorare le prestazioni di scrittura e ridurre lo spazio di archiviazione dell'indice per gli scenari in cui i modelli di query sono già noti. Per altre informazioni, vedere [Percorsi di indice](index-paths.md).
 
-## <a name="indexing-under-the-hood"></a>Indicizzazione: dietro le quinte
+## <a name="indexing-under-the-hood"></a>Indicizzazione: Dietro le quinte
 
 Il database di Azure Cosmos applica l'indicizzazione automatica dei dati, dove ogni percorso di un albero è indicizzato a meno che non si configuri per escludere determinati percorsi.
 

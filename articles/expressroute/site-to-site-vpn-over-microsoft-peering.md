@@ -1,5 +1,5 @@
 ---
-title: Configurare una VPN da sito a sito tramite peering Microsoft per Azure ExpressRoute | Microsoft Docs
+title: Configurare una VPN da sito a sito tramite peering Microsoft - ExpressRoute - Azure | Microsoft Docs
 description: Configurare la connettività IPsec/IKE in Azure tramite un circuito di peering ExpressRoute Microsoft con un gateway VPN da sito a sito.
 services: expressroute
 author: cherylmc
@@ -7,25 +7,25 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240909"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094203"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurare una VPN da sito a sito tramite peering ExpressRoute Microsoft
 
-Questo articolo illustra come configurare una connettività crittografata protetta tra la rete locale e le reti virtuali (VNet) di Azure tramite una connessione privata ExpressRoute. La configurazione di un tunnel sicuro tramite ExpressRoute consente lo scambio di dati con riservatezza, impossibilità di riproduzione, autenticità e integrità.
+Questo articolo illustra come configurare una connettività crittografata protetta tra la rete locale e le reti virtuali (VNet) di Azure tramite una connessione privata ExpressRoute. È possibile usare il peering Microsoft per stabilire un tunnel VPN IPsec/IKE da sito a sito tra le reti locali selezionate e le reti virtuali di Azure. La configurazione di un tunnel sicuro tramite ExpressRoute consente lo scambio di dati con riservatezza, impossibilità di riproduzione, autenticità e integrità.
 
-## <a name="architecture"></a>Architettura
-
-È possibile usare il peering Microsoft per stabilire un tunnel VPN IPsec/IKE da sito a sito tra le reti locali selezionate e le reti virtuali di Azure.
-
-  >[!NOTE]
+>[!NOTE]
 >Quando si configura una VPN da sito a sito tramite peering Microsoft vengono addebitati il gateway e i dati in uscita dalla VPN. Per altre informazioni, vedere [Prezzi di Gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+## <a name="architecture"></a>Architettura
+
 
   ![Panoramica sulla connettività](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 

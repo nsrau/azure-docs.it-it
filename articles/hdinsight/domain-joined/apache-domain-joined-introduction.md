@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b120d50b6b0f72b5977d238866cfdf26fd9be5ff
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632000"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436892"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Introduzione alla sicurezza Apache Hadoop con Enterprise Security Package
 
@@ -22,10 +22,10 @@ Fino a questo momento, Azure HDInsight ha supportato solo un unico amministrator
 
 È possibile creare un cluster HDInsight con Enterprise Security Package (ESP) aggiunto a un dominio Active Directory. È quindi possibile configurare un elenco di dipendenti dell'azienda autorizzati a eseguire l'autenticazione tramite Azure Active Directory per accedere al cluster HDInsight. Nessun utente esterno all'azienda può accedere al cluster HDInsight. 
 
-L'amministratore può configurare il controllo degli accessi basato sui ruoli per la sicurezza di Apache Hive usando [Apache Ranger](http://hortonworks.com/apache/ranger/). La configurazione di RBAC limita l'accesso ai dati solo ai ruoli interessati. Infine, l'amministratore può controllare l'accesso ai dati per i dipendenti e le eventuali modifiche apportate ai criteri di controllo degli accessi. L'amministratore può quindi ottenere un elevato livello di governance delle risorse aziendali.
+L'amministratore può configurare il controllo degli accessi basato sui ruoli per la sicurezza di Apache Hive usando [Apache Ranger](https://hortonworks.com/apache/ranger/). La configurazione di RBAC limita l'accesso ai dati solo ai ruoli interessati. Infine, l'amministratore può controllare l'accesso ai dati per i dipendenti e le eventuali modifiche apportate ai criteri di controllo degli accessi. L'amministratore può quindi ottenere un elevato livello di governance delle risorse aziendali.
 
-> [!NOTE]
-> Oozie ora è abilitato sui cluster ESP. Per poter accedere all'interfaccia utente Web Oozie, gli utenti devono essere abilitati a eseguire le operazioni di [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
+> [!NOTE]  
+> Apache Oozie ora è abilitato sui cluster ESP. Per poter accedere all'interfaccia utente Web Oozie, gli utenti devono essere abilitati a eseguire le operazioni di [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 La protezione aziendale si basa su quattro importanti pilastri: protezione perimetrale, autenticazione, autorizzazione e crittografia.
 
@@ -39,19 +39,19 @@ Un altro livello di protezione perimetrale viene garantito grazie al servizio ga
 ## <a name="authentication"></a>Authentication
 Un amministratore può creare un cluster HDInsight con ESP in una [rete virtuale](https://azure.microsoft.com/services/virtual-network/). Tutti i nodi del cluster HDInsight vengono aggiunti al dominio gestito dall'azienda. Questo è possibile grazie all'uso di [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-Con questa configurazione, i dipendenti dell'azienda possono accedere ai nodi del cluster usando le credenziali del dominio. Possono usare anche le credenziali del dominio per eseguire l'autenticazione con altri endpoint approvati, ad esempio visualizzazioni di Ambari, ODBC, JDBC, PowerShell e le API REST per interagire con il cluster. L'amministratore ha il pieno controllo sulla limitazione del numero di utenti che interagiscono con il cluster tramite questi endpoint.
+Con questa configurazione, i dipendenti dell'azienda possono accedere ai nodi del cluster usando le credenziali del dominio. Possono usare le credenziali del dominio anche per eseguire l'autenticazione con altri endpoint approvati, ad esempio visualizzazioni di Apache Ambari, ODBC, JDBC, PowerShell e API REST per l'interazione con il cluster. L'amministratore ha il pieno controllo sulla limitazione del numero di utenti che interagiscono con il cluster tramite questi endpoint.
 
 ## <a name="authorization"></a>Authorization
 Una procedura consigliata seguita dalla maggior parte delle aziende è assicurarsi di limitare l'accesso a tutte le risorse aziendali da parte dei dipendenti. In modo analogo, l'amministratore può definire i criteri di controllo degli accessi in base al ruolo per le risorse del cluster. 
 
-Ad esempio, l'amministratore può configurare [Apache Ranger](http://hortonworks.com/apache/ranger/) per impostare criteri di controllo degli accessi per Hive. Questa funzionalità garantisce che i dipendenti possano accedere solo ai dati di cui hanno bisogno per svolgere il loro lavoro in modo corretto. L'accesso SSH al cluster è limitato solo all'amministratore.
+Ad esempio, l'amministratore può configurare [Apache Ranger](https://hortonworks.com/apache/ranger/) per impostare criteri di controllo degli accessi per Hive. Questa funzionalità garantisce che i dipendenti possano accedere solo ai dati di cui hanno bisogno per svolgere il loro lavoro in modo corretto. L'accesso SSH al cluster è limitato solo all'amministratore.
 
 ## <a name="auditing"></a>Controllo
 Controllare tutti gli accessi per le risorse del cluster e i dati, è necessario per tenere traccia dell'accesso non autorizzato o non intenzionale delle risorse. È importante tanto quanto proteggere le risorse del cluster HDInsight da utenti non autorizzati e garantire la sicurezza dei dati. 
 
 L'amministratore può visualizzare e segnalare tutti gli accessi ai dati e alle risorse del cluster HDInsight. L'amministratore può anche visualizzare e segnalare tutte le modifiche ai criteri di controllo degli accessi creati negli endpoint supportati da Apache Ranger. 
 
-Un cluster HDInsight con ESP usa la già nota interfaccia utente di Apache Ranger per effettuare ricerche nei log di controllo. Ranger usa [Apache Solr](http://hortonworks.com/apache/solr/) per l'archiviazione e la ricerca dei log nel back-end.
+Un cluster HDInsight con ESP usa la già nota interfaccia utente di Apache Ranger per effettuare ricerche nei log di controllo. Ranger usa [Apache Solr](https://hortonworks.com/apache/solr/) per l'archiviazione e la ricerca dei log nel back-end.
 
 ## <a name="encryption"></a>Crittografia
 La protezione dei dati è importante per rispettare i requisiti di sicurezza e conformità dell'organizzazione. Oltre a limitare l'accesso ai dati da parte di dipendenti non autorizzati, è necessario crittografarli. 
@@ -63,6 +63,6 @@ Entrambi gli archivi di dati per i cluster HDInsight, il BLOB di archiviazione d
 * [Pianificare i cluster HDInsight con ESP](apache-domain-joined-architecture.md)
 * [Configurare i cluster HDInsight con ESP](apache-domain-joined-configure.md)
 * [Gestire i cluster HDInsight con ESP](apache-domain-joined-manage.md)
-* [Configurare criteri Hive per i cluster HDInsight con ESP](apache-domain-joined-run-hive.md)
+* [Configurare i criteri Apache Hive per i cluster HDInsight con ESP](apache-domain-joined-run-hive.md)
 * [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
 

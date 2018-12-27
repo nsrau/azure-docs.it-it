@@ -1,5 +1,5 @@
 ---
-title: Versione canary con Vamp nel cluster DC/OS di Azure
+title: (DEPRECATO) Versione canary con Vamp nel cluster DC/OS di Azure
 description: Come usare Vamp per i servizi della versione canary e applicare filtri intelligenti al traffico in un cluster Azure DC/OS del servizio contenitore di Azure
 services: container-service
 author: gggina
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975857"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002064"
 ---
-# <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Microservizi della versione canary con Vamp in un cluster DC/OS del servizio contenitore di Azure
+# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(DEPRECATO) Microservizi della versione canary con Vamp in un cluster DC/OS del servizio Azure Container
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In questa procedura dettagliata viene configurato Vamp nel servizio contenitore di Azure con un cluster DC/OS. Viene rilasciata la versione canary del servizio demo "sava" di Vamp che risolvere un problema di incompatibilità del servizio con Firefox applicando filtri intelligenti al traffico. 
 
@@ -198,7 +200,7 @@ Per unire il nuovo servizio sava 1.1 con la distribuzione in esecuzione:
 
 1. Nell'interfaccia utente di Vamp fare clic su **Blueprints** (Progetti).
 
-2. Fare clic su **Add** (Aggiungi) e incollare il seguente progetto YAML: questo progetto descrive una nuova variante di servizio, sava: 1.1.0, da distribuire nel cluster esistente, sava_cluster.
+2. Fare clic su **Add** (Aggiungi) e incollare il progetto YAML seguente: questo progetto descrive una nuova variante di servizio, sava:1.1.0, da distribuire nel cluster esistente, sava_cluster.
 
   ```YAML
   name: sava:1.1.0      # blueprint name
