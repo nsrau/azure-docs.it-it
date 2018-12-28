@@ -2,50 +2,52 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 9ad715f47f2de9c6f9032ed07232f45fb33b0114
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0d9f0a24d84bd18bdf1fac84c744cc34a7d89ab3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132908"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742252"
 ---
-Se si vuole abilitare la modifica del profilo nell'applicazione, si usano i criteri di **modifica del profilo**. Questi criteri descrivono l'esperienza utente durante la procedura di modifica del profilo e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
+Se si vuole abilitare la modifica del profilo nell'applicazione, usare un flusso utente di **modifica del profilo**. Questo flusso utente descrive l'esperienza utente durante la procedura di modifica del profilo e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Nella sezione delle impostazioni relativa ai criteri selezionare **Criteri di modifica del profilo** e fare clic su **+ Aggiungi**.
+In **Gestione** selezionare **Flussi utente** e fare clic su +**Nuovo flusso utente**.
 
-![Selezionare Criteri di modifica del profilo e fare clic sul pulsante Aggiungi](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-policy.png)
+![Selezionare Nuovo flusso utente](media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
 
-Immettere un **Nome** di criterio a cui l'applicazione può fare riferimento. Ad esempio, immettere `SiPe`.
+Nella scheda **Consigliati** selezionare **Modifica del profilo**.
 
-Selezionare **Provider di identità** e quindi selezionare**Accesso all'account locale**. Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
+Immettere un **nome** per il flusso utente a cui l'applicazione può fare riferimento. Ad esempio, immettere `SiPe`.
 
-![Selezionare Accesso all'account locale come provider di identità e quindi fare clic sul pulsante OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-identity-providers.png)
+In **Provider di identità** selezionare**Accesso all'account locale**. Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati.
 
-Selezionare **Attributi del profilo**. Scegliere gli attributi che l'utente può visualizzare e modificare nel profilo. Selezionare ad esempio **Paese/area geografica**, **Nome visualizzato** e **Codice postale**. Fare clic su **OK**.
+![Selezionare Accesso all'account locale come provider di identità e quindi fare clic sul pulsante OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
 
-![Selezionare alcuni attributi e fare clic sul pulsante OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-attributes.png)
+In **Attributi utente** fare clic su **Mostra dettagli**. Nella colonna **Raccogli l'attributo** scegliere gli attributi che l'utente può visualizzare e modificare nel profilo. Selezionare ad esempio **Paese/area geografica**, **Nome visualizzato** e **Codice postale**.
 
-Selezionare **Attestazioni dell'applicazione**. Scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione dopo un'esperienza di modifica del profilo riuscita. Selezionare ad esempio **Nome visualizzato** e **Codice postale**.
+Nella colonna **Restituisci l'attestazione** scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione al completamento dell'esperienza di modifica del profilo. Selezionare ad esempio **Nome visualizzato** e **Codice postale**.
 
-![Selezionare alcune attestazioni dell'applicazione e fare clic sul pulsante OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-application-claims.png)
+Fare clic su **OK**.
 
-Fare clic su **Crea** per aggiungere il criterio. Il criterio viene elencato come **B2C_1_SiPe**. Il prefisso **B2C_1_** viene aggiunto al nome.
+![Selezionare alcune attestazioni dell'applicazione e fare clic sul pulsante OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
 
-Aprire i criteri selezionando **B2C_1_SiPe**. Verificare le impostazioni specificate nella tabella e quindi fare clic su **Esegui adesso**.
+Fare clic su **Crea** per aggiungere il flusso utente. Il flusso utente viene elencato come **B2C_1_SiPe**. Il prefisso **B2C_1_** viene aggiunto al nome.
 
-![Selezionare un criterio ed eseguirlo](media/active-directory-b2c-create-profile-editing-policy/run-b2c-editing-policy.png)
+Selezionare **Esegui il flusso utente**. Verificare le impostazioni specificate nella tabella e quindi fare clic su **Esegui il flusso utente**.
+
+![Selezionare il flusso utente ed eseguirlo](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
 
 | Impostazione      | Valore  |
 | ------------ | ------ |
-| **Applicazioni** | App Contoso B2C |
-| **Selezionare l'URL di risposta** | `https://localhost:44316/` |
+| **Applicazione** | App Contoso B2C |
+| **URL di risposta** | `https://localhost:44316/` |
 
 Viene visualizzata una nuova scheda del browser ed è possibile verificare l'esperienza di modifica del profilo dell'utente in base alla configurazione specificata.
 
 > [!NOTE]
-> La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+> La creazione e gli aggiornamenti del flusso utente avranno effetto dopo circa un minuto.
 >

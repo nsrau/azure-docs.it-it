@@ -1,12 +1,11 @@
 ---
-title: Panoramica di Azure Load Balancer Standard | Microsoft Docs
+title: Informazioni su Load Balancer Standard di Azure
+titlesuffix: Azure Load Balancer
 description: Panoramica delle funzionalità di Azure Load Balancer Standard
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161642"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438762"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Panoramica di Azure Load Balancer Standard
 
@@ -58,7 +57,7 @@ Revisionare i [limiti del servizio di Load Balancer](https://aka.ms/lblimits), n
 
 ### <a name="backend"></a>Pool back-end
 
-Standard pool back-end di Load Balancer carico si espande a qualsiasi risorsa di macchina virtuale in una rete virtuale.  Può contenere fino a 1000 istanze di back-end.  Un'istanza di back-end è una configurazione IP, che è una proprietà di una risorsa di scheda di rete.
+I pool back-end di Load Balancer Standard si espandono a qualsiasi risorsa di macchina virtuale in una rete virtuale.  Può contenere fino a 1000 istanze di back-end.  Un'istanza di back-end è una configurazione IP, che è una proprietà di una risorsa di scheda di rete.
 
 Il pool back-end può contenere le macchine virtuali autonome, set di disponibilità o set di scalabilità di macchine virtuali.  È anche possibile eseguire unire le risorse nel pool di back-end. È possibile combinare fino a 150 risorse nel pool di back-end per ogni risorsa di Load Balancer.
 
@@ -101,11 +100,11 @@ Consultare [per ulteriori dettagli sulla diagnostica di Load Balancer Standard](
 
 ### <a name="haports"></a>Porte a disponibilità elevata
 
-Load Balancer Standard supporta un nuovo tipo di norma.  
+Load Balancer Standard supporta un nuovo tipo di regola.  
 
-È possibile configurare le norme di bilanciamento del carico per ridimensionare l’applicazione e migliorarne l’affidabilità. Quando si usa una regola di bilanciamento a porte a disponibilità elevata, Load Balancer Standard fornirà bilanciamento del carico per ogni flusso su tutte le porte effimere dell'indirizzo IP di un front-end interno di Load Balancer standard.  La funzionalità è utile per altri scenari in cui specificare le singole porte è poco pratico o non opportuno.
+È possibile configurare regole di bilanciamento del carico per ridimensionare l'applicazione e aumentarne l'affidabilità. Quando si usa una regola di bilanciamento del carico con porte a disponibilità elevata, Load Balancer Standard fornisce il bilanciamento del carico per ogni flusso su tutte le porte temporanee dell'indirizzo IP di un front-end interno di Load Balancer Standard.  La funzionalità è utile per altri scenari in cui specificare le singole porte è poco pratico o non opportuno.
 
-Un regola di bilanciamento del carico a porte a disponibilità elevata consente di creare scenari attivo-passivo o attivo-attivo n+1 per dispositivi di rete virtuali e qualsiasi applicazione che richiede di ampi intervalli di porte in ingresso.  Un probe di integrità può essere utilizzato per determinare quali back-end dovrebbero ricevere nuovi flussi.  È possibile utilizzare un gruppo di sicurezza di rete per emulare uno scenario di intervallo di porte.
+Una regola di bilanciamento del carico con porte a disponibilità elevata consente di creare scenari attivo-passivo o attivo-attivo n+1 per appliance virtuali di rete e qualsiasi applicazione che richieda ampi intervalli di porte in ingresso.  Un probe di integrità può essere utilizzato per determinare quali back-end dovrebbero ricevere nuovi flussi.  È possibile utilizzare un gruppo di sicurezza di rete per emulare uno scenario di intervallo di porte.
 
 >[!IMPORTANT]
 > Se si intende usare un dispositivo di rete virtuale, contattare il fornitore per informazioni aggiuntive oppure per sapere se il prodotto è stato testato con le porte a disponibilità elevata e, quindi, seguire le linee guida specifiche per l'implementazione. 
@@ -120,7 +119,7 @@ Per altre informazioni sui gruppi di sicurezza di rete e su come applicarli allo
 
 ### <a name="outbound"></a> Connessioni in uscita
 
-Load Balancer supporta scenari in ingresso e in uscita.  Load Balancer Standard presenta differenze sostanziali da Load Balancer Basic per quanto riguarda le connessioni in uscita.
+Load Balancer supporta scenari in ingresso e in uscita.  Load Balancer Standard presenta differenze sostanziali rispetto a Load Balancer Basic per quanto riguarda le connessioni in uscita.
 
 Origine rete indirizzo traduzione (SNAT) viene utilizzato per eseguire il mapping di indirizzi IP interni e privati nella rete virtuale per gli indirizzi IP pubblici nel server front-end di Load Balancer.
 
@@ -132,13 +131,13 @@ Di seguito, i concetti chiave da ricordare quando si lavora con Load Balancer St
 - Quando sono disponibili più server front-end, tutti vengono utilizzati e ognuno moltiplicata il numero di porte SNAT disponibili
 - È possibile selezionare e controllare che un server front-end specifico non venga utilizzato per le connessioni in uscita, se lo si desidera.
 - Gli scenari in uscita sono espliciti e non esiste connettività in uscita fino a quando non è stata specificata.
-- Regole di bilanciamento del carico deducono come SNAT è programmato. Le regole di bilanciamento del carico sono specifiche del protocollo. SNAT è specifico del protocollo e la configurazione deve riflettere questa situazione, anziché creare un effetto collaterale.
+- Le regole di bilanciamento del carico deducono il modo in cui SNAT è programmato. Le regole di bilanciamento del carico sono specifiche del protocollo. SNAT è specifico del protocollo e la configurazione deve riflettere questa situazione, anziché creare un effetto collaterale.
 
 #### <a name="multiple-frontends"></a>Più front-end
 Se si desiderano più porte SNAT perché è previsto o è già presente un numero elevato di richieste per le connessioni in uscita, è possibile aggiungere anche l'inventario di porta incrementale SNAT tramite la configurazione di ulteriori server front-end, regole e pool back-end per le stesse risorse della macchina virtuale.
 
 #### <a name="control-which-frontend-is-used-for-outbound"></a>Controllo di quale front-end viene utilizzato in uscita
-Se si desidera vincolare le connessioni in uscita provenienti solo da un indirizzo IP front-end specifico, è possibile disabilitare facoltativamente SNAT in uscita sulla regola che esprime il mapping in uscita.
+Se si intende vincolare le connessioni in uscita in modo che provengano solo da un indirizzo IP front-end specifico, è possibile disabilitare facoltativamente SNAT in uscita per la regola che esprime il mapping in uscita.
 
 #### <a name="control-outbound-connectivity"></a>Controllo della connettività in uscita
 Load Balancer Standard esiste all'interno del contesto della rete virtuale.  Una rete virtuale è una rete isolata privata.  A meno che non esista un'associazione con un indirizzo IP pubblico, la connettività pubblica non è consentita.  È possibile contattare [gli endpoint di servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) perché sono dentro e in locale alla rete virtuale.  Se si desidera stabilire la connettività in uscita verso una destinazione esterna alla rete virtuale, sono disponibili due opzioni:
@@ -154,7 +153,7 @@ Connettività in uscita di una risorsa di macchina virtuale non associata con SK
 Verificare la [discussione approfondita di Connessioni in uscita](load-balancer-outbound-connections.md).
 
 ### <a name="multife"></a>Front-end multipli
-Load Balancer supporta più regole con più front-end.  Load Balancer Standard ne consente l’espansione agli scenari in uscita.  Gli scenari in uscita sono essenzialmente l'inverso di una regola di bilanciamento del carico in ingresso.  Anche la regola di bilanciamento del carico in ingresso crea un collegamento per le connessioni in uscita. Load Balancer Standard utilizza tutti i server front-end associati a una risorsa di macchina virtuale tramite una regola di bilanciamento del carico.  Inoltre, un parametro di una regola di bilanciamento del carico consente di eliminare una regola di bilanciamento del carico allo scopo di favorire la connettività in uscita, il che consente la selezione di server front-end specifici, tra i quali nessuno.
+Load Balancer supporta più regole con più front-end.  Load Balancer Standard ne consente l’espansione agli scenari in uscita.  Gli scenari in uscita sono essenzialmente l'inverso di una regola di bilanciamento del carico in ingresso.  Anche la regola di bilanciamento del carico in ingresso crea un collegamento per le connessioni in uscita. Load Balancer Standard usa tutti i front-end associati a una risorsa di macchina virtuale tramite una regola di bilanciamento del carico.  Inoltre, un parametro della regola di bilanciamento del carico consente di eliminare una regola di bilanciamento del carico allo scopo di favorire la connettività in uscita, il che consente la selezione di front-end specifici e persino di nessun front-end.
 
 In confronto, Load Balancer Basic consente di selezionare un unico server front-end in modo casuale e non consente di controllare il server selezionato.
 
@@ -162,7 +161,7 @@ Verificare la [discussione approfondita di Connessioni in uscita](load-balancer-
 
 ### <a name="operations"></a> Operazioni di gestione
 
-Le risorse di Load Balancer Standard sono presenti in una piattaforma infrastrutturale completamente nuova.  Ciò consente operazioni di gestione per gli SKU Standard significativamente più veloci e i tempi di completamento sono in genere inferiori a 30 secondi per ogni risorsa SKU Standard.  Si noti che i pool back-end aumentano in rapporto alla dimensione, allo stesso modo anche la durata necessaria per back-end pool si modifica.
+Le risorse di Load Balancer Standard sono presenti in una piattaforma infrastrutturale completamente nuova.  Ciò consente operazioni di gestione più veloci per gli SKU Standard e i tempi di completamento sono in genere inferiori a 30 secondi per ogni risorsa SKU Standard.  Man mano che i pool back-end aumentano di dimensione, aumenta anche il tempo necessario per le modifiche del pool back-end.
 
 È possibile modificare le risorse di Load Balancer Standard e spostare un indirizzo IP pubblico Standard da una macchina virtuale a un altro molto più veloce.
 
@@ -211,7 +210,7 @@ I Load Balancer Standard sono disponibili con un contratto di servizio del 99,99
 
 ## <a name="pricing"></a>Prezzi
 
-Load Balancer Standard è un prodotto addebitato in base al numero di regole di bilanciamento del carico configurate e a tutti i dati in ingresso e in uscita elaborati. Per informazioni sul prezzo di Load Balancer Standard, visitare la pagina [Prezzi di Loard Balancer](https://aka.ms/lbpricing).
+Per Load Balancer Standard viene applicato un addebito in base al numero di regole di bilanciamento del carico configurate e a tutti i dati in ingresso e in uscita elaborati. Per informazioni sul prezzo di Load Balancer Standard, visitare la pagina [Prezzi di Loard Balancer](https://aka.ms/lbpricing).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -222,7 +221,7 @@ Load Balancer Standard è un prodotto addebitato in base al numero di regole di 
 - Le [operazioni di spostamento delle sottoscrizioni](../azure-resource-manager/resource-group-move-resources.md) non sono supportate per le risorse LB e PIP dello SKU Standard.
 - I ruoli di lavoro Web senza una rete virtuale e altri servizi della piattaforma Microsoft possono essere accessibili quando si usa solo Load Balancer Standard interno a causa di un effetto collaterale della modalità di funzionamento dei servizi pre-VNet e altre piattaforme di servizi. Non è necessario basarsi su questo poiché il servizio stesso o la piattaforma sottostante possono essere soggetti a modifiche senza preavviso. Presupporre sempre che è necessario creare una [connettività in uscita](load-balancer-outbound-connections.md) in modo esplicito se desiderato quando si usa solo Load Balancer Standard interno.
 - Load Balancer è un prodotto TCP o UDP per il bilanciamento del carico e il port forwarding per questi protocolli IP specifici.  Le regole di bilanciamento del carico e le regole NAT in ingresso sono supportate per TCP e UDP e non per altri protocolli IP, tra cui ICMP. Load Balancer non termina, non risponde o non interagisce in altro modo con il payload di un flusso UDP o TCP. Non è un proxy. La convalida della connettività a un front-end deve avvenire in banda con lo stesso protocollo usato in un bilanciamento del carico o in una regola NAT in ingresso (TCP o UDP) _e_ almeno una delle macchine virtuali deve generare una risposta affinché un client possa vedere una risposta da un front-end.  La mancata ricezione di una risposta in banda da parte del front-end di Load Balancer indica che nessuna macchina virtuale è stata in grado di rispondere.  Non è possibile interagire con un front-end di Load Balancer senza una macchina virtuale in grado di rispondere.  Questo vale anche per le connessioni in uscita in cui lo [SNAT di mascheramento delle porte](load-balancer-outbound-connections.md#snat) è supportato solo per TCP e UDP. Qualsiasi altro protocollo IP, incluso ICMP, non funziona.  Assegnare un indirizzo IP pubblico a livello di istanza per la mitigazione.
-- A differenza dei servizi di bilanciamento del carico pubblici che forniscono [connessioni in uscita](load-balancer-outbound-connections.md) quando si passa da indirizzi IP privati all'interno della rete virtuale a indirizzi IP pubblici, i servizi di bilanciamento del carico interni non convertono le connessioni originate in uscita nel front-end di un servizio di bilanciamento del carico perché entrambi si trovano in uno spazio indirizzi IP privato.  In questo modo si evita il rischio di esaurimento SNAT all'interno di uno spazio indirizzi IP interno univoco in cui non è richiesta la conversione.  L'effetto collaterale è che se un flusso in uscita da una VM nel pool di back-end tenta di raggiungere il front-end del servizio di bilanciamento del carico interno in cui risiede il pool _e_ viene rimappato su se stesso, i due lati del flusso non corrispondono e il flusso avrà esito negativo.  Se il flusso non è stato rimappato sulla stessa VM del pool di back-end che ha creato il flusso verso il front-end, il flusso avrà esito positivo.   Quando il flusso viene rimappato su se stesso, il flusso in uscita sembra provenire dalla VM verso il front-end e il flusso in ingresso corrispondente sembra provenire dalla VM verso se stessa. Dal punto di vista del sistema operativo guest, le parti in ingresso e in uscita dello stesso flusso non corrispondono all'interno della macchina virtuale. Lo stack TCP non riconoscerà queste metà del flusso come facenti parte dello stesso flusso perché l'origine e la destinazione non corrispondono.  Quando il flusso viene mappato su qualsiasi altra VM nel pool di back-end, le metà del flusso corrispondono e la VM può rispondere correttamente al flusso stesso.  Il sintomo di questo scenario è il timeout intermittente della connessione. Esistono diverse soluzioni alternative comuni per ottenere questo scenario in modo affidabile (origine dei flussi da un pool di back-end verso i pool di back-end o il front-end del servizio di bilanciamento del carico interno) che includono l'inserimento di un proxy di terze parti dietro il servizio di bilanciamento del carico interno oppure l'[uso di regole in stile DSR](load-balancer-multivip-overview.md).  Anche se è possibile usare un servizio di bilanciamento del carico pubblico per la mitigazione, lo scenario risultante è soggetto a [esaurimento SNAT](load-balancer-outbound-connections.md#snat) e deve essere evitato a meno che non venga gestito con attenzione.
+- A differenza dei servizi di bilanciamento del carico pubblici che forniscono [connessioni in uscita](load-balancer-outbound-connections.md) quando si passa da indirizzi IP privati all'interno della rete virtuale a indirizzi IP pubblici, i servizi di bilanciamento del carico interni non convertono le connessioni originate in uscita nel front-end di un servizio di bilanciamento del carico perché entrambi si trovano in uno spazio indirizzi IP privato.  In questo modo si evita il rischio di esaurimento SNAT all'interno di uno spazio indirizzi IP interno univoco in cui non è richiesta la conversione.  L'effetto collaterale è che se un flusso in uscita da una VM nel pool di back-end tenta di raggiungere il front-end del servizio di bilanciamento del carico interno in cui risiede il pool _e_ viene rimappato su se stesso, i due lati del flusso non corrispondono e il flusso avrà esito negativo.  Se il flusso non è stato rimappato sulla stessa VM del pool di back-end che ha creato il flusso verso il front-end, il flusso avrà esito positivo.   Quando il flusso viene rimappato su se stesso, il flusso in uscita sembra provenire dalla VM verso il front-end e il flusso in ingresso corrispondente sembra provenire dalla VM verso se stessa. Dal punto di vista del sistema operativo guest, le parti in ingresso e in uscita dello stesso flusso non corrispondono all'interno della macchina virtuale. Lo stack TCP non riconoscerà queste metà del flusso come facenti parte dello stesso flusso perché l'origine e la destinazione non corrispondono.  Quando il flusso viene mappato su qualsiasi altra VM nel pool di back-end, le metà del flusso corrispondono e la VM può rispondere correttamente al flusso stesso.  Il sintomo di questo scenario è il timeout intermittente della connessione. Esistono diverse soluzioni alternative comuni per ottenere questo scenario in modo affidabile (origine dei flussi da un pool back-end verso i pool back-end o il front-end del servizio di bilanciamento del carico interno) che includono l'inserimento di un proxy di terze parti dietro il servizio di bilanciamento del carico interno oppure l'[uso di regole in stile DSR](load-balancer-multivip-overview.md).  Anche se è possibile usare un servizio di bilanciamento del carico pubblico per la mitigazione, lo scenario risultante è soggetto a [esaurimento SNAT](load-balancer-outbound-connections.md#snat) e deve essere evitato a meno che non venga gestito con attenzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -230,7 +229,7 @@ Load Balancer Standard è un prodotto addebitato in base al numero di regole di 
 - Informazioni sui [probe di integrità](load-balancer-custom-probe-overview.md).
 - Altre informazioni sulle [zone di disponibilità](../availability-zones/az-overview.md).
 - Altre informazioni sulla diagnostica per [Azure Load Balancer Standard](load-balancer-standard-diagnostics.md).
-- Altre informazioni sulle [metriche multidimensionali supportate](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) per la diagnostica in [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+- Altre informazioni sulle [metriche multidimensionali supportate](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) per la diagnostica in [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 - Informazioni sull'uso di [Load Balancer per le connessioni in uscita](load-balancer-outbound-connections.md).
 - Altre informazioni sulle [Regole in uscita](load-balancer-outbound-rules-overview.md).
 - Informazioni su [Reimpostare TCP in caso di inattività](load-balancer-tcp-reset.md).

@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: f4acec3db7d74b969c55e725d9ec1c5f063b552c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cc72fb39bf62915be10493a780538121f26ca835
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628158"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002272"
 ---
-# <a name="securing-docker-containers-in-azure-container-service"></a>Protezione dei contenitori Docker nel servizio contenitore di Azure
+# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(DEPRECATO) Protezione dei contenitori Docker nel servizio Azure Container
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 Questo articolo introduce considerazioni e indicazioni per la sicurezza dei contenitori Docker distribuiti nel servizio contenitore di Azure. In genere molte di queste considerazioni si applicano ai contenitori Docker distribuiti in Azure o in altri ambienti. 
 
@@ -58,9 +60,9 @@ Per altre informazioni sulla sicurezza specifica per l'orchestrator, vedere le r
 
 * **Kubernetes**: [Security Best Practices for Kubernetes Deployment](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/) (Pratiche consigliate di sicurezza per la distribuzione di Kubernetes)
 
-* **DC/OS**: [Securing Your Cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/) (Protezione del cluster)
+* **Controller di dominio/sistema operativo**: [Protezione del cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
 
-* **Docker Swarm**: [Docker Security](https://www.docker.com/docker-security) (Sicurezza Docker)
+* **Docker Swarm**: [Sicurezza di Docker](https://www.docker.com/docker-security)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

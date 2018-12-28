@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0dc0421baf1e5cb19be925072b5fffb989e23a3b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 9bdd3060219907f95454bfc9248572f796afd72e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979251"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437607"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrare Azure Active Directory con il servizio Kubernetes di Azure
 
@@ -149,7 +149,7 @@ Prima di tutto, usare il comando [az aks get-credentials][az-aks-get-credentials
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Successivamente, usare il manifesto seguente per creare un ClusterRoleBinding per un account di Azure AD. Aggiornare il nome utente con uno dal tenant di Azure AD. Questo esempio concede all'account l'accesso completo a tutti gli spazi dei nomi del cluster:
+Successivamente, usare il manifesto seguente per creare un ClusterRoleBinding per un account di Azure AD. Questo esempio concede all'account l'accesso completo a tutti gli spazi dei nomi del cluster. Creare un file, ad esempio *rbac-aad-user.yaml*, e incollare i contenuti seguenti. Aggiornare il nome utente con un nome dal tenant di Azure AD:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -166,7 +166,13 @@ subjects:
   name: "user@contoso.com"
 ```
 
-È anche possibile creare un'associazione di ruolo per tutti i membri di un gruppo di Azure AD. I gruppi di Azure AD vengono specificati tramite l'ID oggetto del gruppo, come mostrato nell'esempio seguente:
+Applicare il binding usando il comando [kubectl apply][kubectl-apply] come illustrato nell'esempio seguente:
+
+```console
+kubectl apply -f rbac-aad-user.yaml
+```
+
+È anche possibile creare un'associazione di ruolo per tutti i membri di un gruppo di Azure AD. I gruppi di Azure AD vengono specificati tramite l'ID oggetto del gruppo, come mostrato nell'esempio seguente. Creare un file, ad esempio *rbac-aad-group.yaml*, e incollare i contenuti seguenti. Aggiornare l'ID oggetto del gruppo con un ID dal tenant di Azure AD:
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -181,6 +187,12 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
    kind: Group
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
+```
+
+Applicare il binding usando il comando [kubectl apply][kubectl-apply] come illustrato nell'esempio seguente:
+
+```console
+kubectl apply -f rbac-aad-group.yaml
 ```
 
 Per altre informazioni sulla protezione di un cluster Kubernetes con RBAC, vedere [Using RBAC Authorization][rbac-authorization] (Uso delle autorizzazioni RBAC).
@@ -221,6 +233,7 @@ Scoprire di più sulla protezione dei cluster Kubernetes con RBAC nella document
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [rbac-authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

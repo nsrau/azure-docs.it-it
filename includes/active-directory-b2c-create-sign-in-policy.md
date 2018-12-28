@@ -2,36 +2,40 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 19e7c919345c0f56b274737840f8150f7d710501
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0ab34d6234db9c13ffe82ccd0e8580217085f631
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132808"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742309"
 ---
-Se si vuole abilitare solo l'accesso nell'applicazione, si usano i criteri di **accesso**. Questi criteri descrivono l'esperienza utente durante la procedura di accesso e il contenuto dei token che l'applicazione riceverà al completamento dell'accesso.
+Se si vuole abilitare solo l'accesso nell'applicazione, usare il flusso utente di **accesso**. Questo flusso utente descrive l'esperienza utente durante la procedura di accesso e il contenuto dei token che l'applicazione riceverà al completamento dell'accesso.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
-Fare clic su **Criteri di accesso**.
+In **Gestione** selezionare **Flussi utente**.
 
-Fare clic su **+Aggiungi** nella parte superiore del pannello.
+Fare clic su +**Nuovo flusso utente** nella parte superiore del pannello.
 
-Il **Nome** determina il nome dei criteri di accesso usati dall'applicazione. Immettere ad esempio **SiIn**.
+In **Selezionare un tipo di flusso utente** scegliere **Tutti** e quindi selezionare la versione di **Accesso** che si vuole usare.
 
-Fare clic su **Provider di identità** e selezionare **Accesso all'account locale**. Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
+Il campo **Nome** determina il nome del flusso utente di accesso usato dall'applicazione. Immettere ad esempio **SiIn**.
 
-Fare clic su **Attestazioni applicazione**. Qui è possibile scegliere le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di accesso. Selezionare ad esempio **Nome visualizzato**, **Provider di identità**, **Codice postale** e **ID oggetto dell'utente**. Fare clic su **OK**.
+In **Provider di identità** selezionare un'opzione. È anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
 
-Fare clic su **Create**(Crea). Si noti che il criterio appena creato è visualizzato come **B2C_1_SiIn** (il frammento **B2C\_1\_** viene aggiunto automaticamente come prefisso) nel pannello **Criteri di accesso**.
+In **Attestazioni dell'applicazione** fare clic su **Mostra dettagli**.
 
-Aprire i criteri facendo clic su **B2C_1_SiIn**.
+Nella colonna **Restituisci l'attestazione** scegliere le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di accesso. Selezionare ad esempio **Nome visualizzato**, **Provider di identità**, **Codice postale** e **ID oggetto dell'utente**. Fare clic su **OK**.
 
-Selezionare **Contoso B2C app** nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta/URI di reindirizzamento**.
+Fare clic su **Create**(Crea). Si noti che il flusso utente appena creato è visualizzato come **B2C_1_SiIn** (il frammento **B2C\_1\_** viene aggiunto automaticamente).
 
-Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di accesso all'applicazione.
+Fare clic su **Esegui il flusso utente**.
+
+Selezionare **Contoso B2C app** nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta**.
+
+Fare clic su **Esegui il flusso utente**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di accesso all'applicazione.
 
 > [!NOTE]
-> La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+> La creazione e gli aggiornamenti del flusso utente avranno effetto dopo circa un minuto.
 >

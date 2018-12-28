@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 69eeadd8252d20dd25ac6d0abbbf0c6c158383d5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633343"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438626"
 ---
 # <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>Eseguire processi Apache Pig da una connessione Desktop remoto
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
 Questo documento fornisce una procedura dettagliata dell'uso del comando Apache Pig per l'esecuzione di istruzioni Pig Latin da una connessione Desktop remoto a un cluster HDInsight basato su Windows. Pig Latin consente di creare applicazioni MapReduce descrivendo le trasformazioni di dati, anziché eseguendo il mapping e la riduzione delle funzioni.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Desktop remoto è disponibile solo nei cluster HDInsight che usano Windows come sistema operativo. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> Per HDInsight 3.4 o versione successiva, vedere [Usare Pig con HDInsight e SSH](apache-hadoop-use-pig-ssh.md) per informazioni sull'esecuzione interattiva di processi Pig sul cluster dalla riga di comando.
+> Per HDInsight 3.4 o versioni successive, vedere [Usare Pig con HDInsight e SSH](apache-hadoop-use-pig-ssh.md) per informazioni sull'esecuzione interattiva di processi Pig direttamente sul cluster dalla riga di comando.
 
 ## <a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
@@ -78,7 +78,7 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
-   > [!NOTE]
+   > [!NOTE]  
    > I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un messaggio di errore.
    >
    >
@@ -119,9 +119,9 @@ Come si può notare, il comando Pig consente di eseguire in modo interattivo ope
 ## <a id="nextsteps"></a>Passaggi successivi
 Per informazioni generali su Pig in HDInsight:
 
-* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)
 
 Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
-* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
-* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
+* [Usare Apache Hive con Apache Hadoop su HDInsight](hdinsight-use-hive.md)
+* [Usare MapReduce in Apache Hadoop in HDInsight](hdinsight-use-mapreduce.md)

@@ -2,42 +2,46 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: bff2543ec48c66c10db697650def0077e3de28be
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 78abb190dccd27c5bf70dfe12f978e1118601815
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134419"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742512"
 ---
-Per abilitare la reimpostazione della password nell'applicazione con granularità fine, si usano i criteri di **reimpostazione della password**. Annotare l'opzione di reimpostazione delle password a livello di tenant specificata [qui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Questi criteri descrivono l'esperienza utente durante la procedura di reimpostazione della password e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
+Per abilitare la reimpostazione della password nell'applicazione con granularità fine, usare un flusso utente di **reimpostazione della password**. Tenere presente che l'opzione di reimpostazione della password a livello di tenant è specificata [qui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Questo flusso utente descrive l'esperienza utente durante la procedura di reimpostazione della password e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Nella sezione delle impostazioni relativa ai criteri selezionare **Criteri di reimpostazione password** e fare clic su **+ Aggiungi**.
+In **Gestione** selezionare **Flussi utente** e fare clic su +**Nuovo flusso utente**.
 
-![Selezionare i criteri di iscrizione o di accesso e fare clic sul pulsante Aggiungi](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-policy.png)
+![Selezionare Nuovo flusso utente](media/active-directory-b2c-create-password-reset-policy/add-b2c-new-user-flow.png)
 
-Immettere un **Nome** di criterio a cui l'applicazione può fare riferimento. Ad esempio, immettere `SSPR`.
+Nella scheda **Consigliati** selezionare **Reimpostazione password**.
 
-Selezionare **Provider di identità** e quindi selezionare **Reimposta la password usando l'indirizzo di posta elettronica**. Fare clic su **OK**.
+Immettere un **nome** per il flusso utente a cui l'applicazione può fare riferimento. Ad esempio, immettere `SSPR`.
 
-![Selezionare Reimposta la password usando l'indirizzo di posta elettronica come provider di identità e fare clic sul pulsante OK](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
+In **Provider di identità** selezionare **Reimposta la password usando l'indirizzo di posta elettronica**.
 
-Selezionare **Attestazioni dell'applicazione**. Scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione dopo un'esperienza di reimpostazione della password riuscita. Selezionare ad esempio **ID oggetto dell'utente**.
+![Immettere il nome e selezionare Reimposta la password usando l'indirizzo di posta elettronica come provider di identità](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
+
+In **Attestazioni dell'applicazione** fare clic su **Mostra dettagli** e scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione al completamento dell'esperienza di reimpostazione della password. Selezionare ad esempio **ID oggetto dell'utente**.
+
+Fare clic su **OK**.
 
 ![Selezionare alcune attestazioni dell'applicazione e fare clic sul pulsante OK](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-application-claims.png)
 
-Fare clic su **Crea** per aggiungere il criterio. Il criterio viene elencato come **B2C_1_SSPR**. Il prefisso **B2C_1_** viene aggiunto al nome.
+Fare clic su **Crea** per aggiungere il flusso utente. Il flusso utente viene elencato come **B2C_1_SSPR**. Il prefisso **B2C_1_** viene aggiunto al nome.
 
-Aprire i criteri selezionando **B2C_1_SSPR**. Verificare le impostazioni specificate nella tabella e quindi fare clic su **Esegui adesso**.
+Fare clic su **Esegui il flusso utente**. Verificare le impostazioni specificate nella tabella e quindi fare clic su **Esegui il flusso utente**.
 
-![Selezionare un criterio ed eseguirlo](media/active-directory-b2c-create-password-reset-policy/run-b2c-password-reset-policy.png)
+![Selezionare il flusso utente ed eseguirlo](media/active-directory-b2c-create-password-reset-policy/add-b2c-sspr-run-user-flow.png)
 
 | Impostazione      | Valore  |
 | ------------ | ------ |
-| **Applicazioni** | App Contoso B2C |
+| **Applicazione** | App Contoso B2C |
 | **Selezionare l'URL di risposta** | `https://localhost:44316/` |
 
 Viene visualizzata una nuova scheda del browser ed è possibile verificare l'esperienza di reimpostazione della password dell'utente nell'applicazione.
