@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/10/2018
+ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 74132c436670247f3eb84859216274d3e1363d07
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258460"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338703"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 Prima di caricare una macchina virtuale di Windows dall'ambiente locale a Microsoft Azure, è necessario preparare il disco rigido virtuale, VHD o VHDX. Azure supporta **solo macchine virtuali di prima generazione** nel formato di file VHD e con un disco a dimensione fissa. La dimensione massima consentita per il disco rigido virtuale è 1023 GB. È possibile convertire una VM di prima generazione dal file system VHDX a VHD e da un disco a espansione dinamica a un disco a dimensione fissa. Non è tuttavia possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) (Creare una macchina virtuale di prima o seconda generazione in Hyper-V).
@@ -73,6 +73,16 @@ Nella macchina virtuale che si prevede di caricare in Azure eseguire tutti quest
     ```PowerShell
     netsh winhttp reset proxy
     ```
+
+    Se la macchina virtuale deve lavorare con un proxy specifico, è necessario aggiungere un'eccezione del proxy all'indirizzo IP di Azure ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
+)), in modo che la macchina virtuale disponga della connettività ad Azure:
+    ```
+    $proxyAddress="<your proxy server>"
+    $proxyBypassList="<your list of bypasses>;168.63.129.16"
+
+    netsh winhttp set proxy $proxyAddress $proxyBypassList
+    ```
+
 3. Impostare il criterio SAN disco su [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
@@ -283,7 +293,7 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    Se il repository è danneggiato, vedere [WMI: Repository Corruption, or Not?](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) (WMI: il repository è davvero danneggiato?)
+    Se il repository è danneggiato, vedere [WMI: Repository Corruption, or Not](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) (WMI: ipotesi di danneggiamento del repository).
 
 5. Assicurarsi che un'altra applicazione non stia usando la porta 3389. Questa porta viene utilizzata per il servizio RDP in Azure. È possibile eseguire **netstat -anob** per verificare quali porte sono in uso nella macchina virtuale:
 
@@ -409,7 +419,7 @@ Le seguenti impostazioni non influenzano il caricamento del disco rigido virtual
 *  Dopo aver creato la VM in Azure, è consigliabile inserire il file di paging nel volume della "unità temporale" per migliorare le prestazioni. A tale scopo, procedere come segue:
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile" -Type MultiString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
     ```
 Se è presente un disco dati collegato alla macchina virtuale, la lettera del volume dell'unità temporale è in genere "D". Questa designazione può differire a seconda del numero di unità disponibili e delle impostazioni.
 

@@ -2,19 +2,20 @@
 title: Modellazione multi-tenancy in Ricerca di Azure | Documentazione Microsoft
 description: Informazioni sui modelli di progettazione comuni per le applicazioni SaaS multi-tenant quando si usa Ricerca di Azure.
 manager: jlembicz
-author: ashmaka
+author: LiamCavanagh
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: liamca
+ms.custom: seodec2018
+ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232380"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313038"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modelli di progettazione per le applicazioni SaaS multi-tenant e Ricerca di Azure
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento dei tenant per le applicazioni multi-tenant compilate con Ricerca di Azure.
@@ -57,8 +58,8 @@ In pratica, un servizio S3 potrebbe avere fino a 200 indici che insieme potrebbe
 ## <a name="considerations-for-multitenant-applications"></a>Considerazioni per le applicazioni multi-tenant
 Le applicazioni multi-tenant devono distribuire in modo efficace le risorse tra i tenant mantenendo al tempo stesso un certo livello di privacy tra i vari tenant. Quando si progetta l'architettura di un'applicazione di questo tipo, ci sono alcuni aspetti da considerare:
 
-* *Isolamento del tenant:* gli sviluppatori di applicazioni devono adottare misure appropriate per assicurarsi che nessun tenant non autorizzato o indesiderato acceda ai dati di altri tenant. Oltre alla questione della privacy dei dati, le strategie di isolamento tenant richiedono una gestione efficace delle risorse condivise e la protezione da vicini fastidiosi.
-* *Costi delle risorse del cloud:* come con qualsiasi altra applicazione, le soluzioni software devono rimanere competitive quando sono componenti di un'applicazione multi-tenant.
+* *Isolamento dei tenant:* gli sviluppatori di applicazioni devono adottare misure appropriate per assicurarsi che nessun tenant non autorizzato o indesiderato acceda ai dati di altri tenant. Oltre alla questione della privacy dei dati, le strategie di isolamento tenant richiedono una gestione efficace delle risorse condivise e la protezione da vicini fastidiosi.
+* *Costi delle risorse cloud:* come con qualsiasi altra applicazione, le soluzioni software devono rimanere competitive in termini di costi come componenti di un'applicazione multi-tenant.
 * *Semplicità delle operazioni:* quando si sviluppa un'architettura multi-tenant, l'impatto sulle operazioni e la complessità dell'applicazione è un fattore importante. Ricerca di Azure ha un [contratto di servizio del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 * *Presenza globale:* le applicazioni multi-tenant potrebbero dover gestire in modo efficace tenant distribuiti in tutto il mondo.
 * *Scalabilità:* gli sviluppatori di applicazioni devono mantenere le applicazioni a un livello di complessità sufficientemente ridotto e allo stesso tempo progettarle in maniera che siano scalabili in base al numero di tenant e alla dimensione dei dati e del carico di lavoro dei tenant.
@@ -68,9 +69,9 @@ Ricerca di Azure offre alcuni confini che consentono di isolare i dati e il cari
 ## <a name="modeling-multitenancy-with-azure-search"></a>Modellazione del multi-tenancy con Ricerca di Azure
 Nel caso di uno scenario multi-tenant, lo sviluppatore dell'applicazione usa uno o più servizi di ricerca e divide i tenant tra i servizi, gli indici o entrambi. Ricerca di Azure dispone di alcuni modelli comuni per la modellazione di uno scenario multi-tenant:
 
-1. *Indice per tenant:* ogni tenant dispone di un proprio indice all'interno di un servizio di ricerca che è condiviso con altri tenant.
+1. *Indice per tenant:* ogni tenant dispone di un proprio indice all'interno di un servizio di ricerca condiviso con altri tenant.
 2. *Servizio per tenant:* ogni tenant dispone di un proprio servizio Ricerca di Azure dedicato, il che offre un livello più elevato di separazione dei dati e del carico di lavoro.
-3. *Combinazione di entrambi:* ai tenant più grandi e attivi vengono assegnati servizi dedicati mentre ai tenant più piccoli vengono assegnati singoli indici all'interno di servizi condivisi.
+3. *Combinazione di entrambi gli approcci:* ai tenant più grandi e attivi vengono assegnati servizi dedicati mentre ai tenant più piccoli vengono assegnati singoli indici all'interno di servizi condivisi.
 
 ## <a name="1-index-per-tenant"></a>1. Indice per tenant
 ![Un'immagine del modello "indice per tenant"](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)

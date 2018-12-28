@@ -1,23 +1,24 @@
 ---
-title: Informazioni di riferimento sui domini predefiniti - Azure| Microsoft Docs
+title: Informazioni di riferimento sui domini predefiniti
 titleSuffix: Azure
 description: Informazioni di riferimento sui domini predefiniti che sono raccolte predefinite di finalità ed entità di Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335624"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140966"
 ---
-# <a name="prebuilt-domain-reference"></a>Informazioni di riferimento sui domini predefiniti
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Informazioni di riferimento sui domini predefiniti per l'app LUIS
 Queste informazioni di riferimento descrivono i [domini predefiniti](luis-how-to-use-prebuilt-domains.md) che sono raccolte predefinite delle finalità ed delle entità offerte da LUIS.
 
 I [domini personalizzati](luis-how-to-start-new-app.md), al contrario, vengono avviati senza finalità e modelli. È possibile aggiungere le finalità e le entità dei domini predefiniti a un modello personalizzato.
@@ -241,11 +242,12 @@ Il dominio HomeAutomation (Domotica) offre le finalità e le entità correlate a
 Il dominio MovieTickets (Biglietti cinema) offre le finalità e le entità correlate alla prenotazione di biglietti per gli spettacoli cinematografici.
 
 ### <a name="examples"></a>Esempi
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|Esempi|
+|--|
+|Prenota due biglietti per I tre moschettieri|
+|Annulla i biglietti|
+|A che ora è I tre moschettieri?|
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -266,11 +268,12 @@ When is Captain Omar showing?
 Il dominio Music (Musica) offre le finalità e le entità correlate alla riproduzione di musica su un lettore musicale.
 
 ### <a name="examples"></a>Esempi
-```
-play Beethoven
-Increase track volume
-Skip to the next song
-```
+
+|Esempi|
+|--|
+|Riproduci Beethoven|
+|Alza il volume del brano|
+|Passa al prossimo brano|
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -297,11 +300,12 @@ Skip to the next song
 Il dominio Note (Nota) offre finalità ed entità correlate alla creazione, alla modifica e alla ricerca di note.
 
 ### <a name="examples"></a>Esempi
-```
-Add to my groceries note lettuce tomato bread coffee
-Check off bananas from my grocery list
-Remove all items from my vacation list
-```
+
+|Esempi|
+|--|
+|Aggiungi alla lista della spesa lattuga pomodoro pane caffè|
+|Aggiungi segno di spunta alle banane nella lista della spesa|
+|Rimuovi tutte le voci dalla lista delle vacanze|
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -330,11 +334,13 @@ Remove all items from my vacation list
 Il dominio OnDevice (Dispositivo) offre finalità ed entità correlate al controllo del dispositivo.
 
 ### <a name="examples"></a>Esempi
-```
-Close video player
-Cancel playback
-Can you make the screen brighter?
-```
+
+|Esempi|
+|--|
+|Chiudi lettore video|
+|Annulla la riproduzione|
+|Schermo più luminoso|
+
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -381,11 +387,13 @@ Can you make the screen brighter?
 Il dominio Places (Luoghi) offre le finalità per la gestione di query correlate a luoghi come uffici, istituzioni, ristoranti, luoghi pubblici e indirizzi.
 
 ### <a name="examples"></a>Esempi
-```
-Save this location to my favorites
-How far away is Holiday Inn?
-At what time does Safeway close?
-```
+
+|Esempi|
+|--|
+|Salva questa posizione nei Preferiti|
+|Quanto è lontano l'Holiday Inn?|
+|A che ora chiude Safeway?|
+
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -450,11 +458,13 @@ restart|
 Il dominio Reminder (Promemoria) offre le finalità e le entità per la creazione, la modifica e la ricerca dei promemoria.
 
 ### <a name="examples"></a>Esempi
-```
-Change my interview to 9 am tomorrow
-Remind me to buy milk on my way back home
-Can you check if I have a reminder about Christine's birthday?
-```
+
+|Esempi|
+|--|
+|Sposta il mio colloquio alle 9.00 di domani|
+|Ricordami di comprare il latte prima di rientrare a casa|
+|Controlla se c'è un promemoria per il compleanno di Christine|
+
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -473,11 +483,12 @@ Can you check if I have a reminder about Christine's birthday?
 Il dominio RestaurantReservation (Prenotazione ristorante) offre le finalità e le entità correlate alla gestione delle prenotazioni dei ristoranti.
 
 ### <a name="examples"></a>Esempi
-```
-Reserve at Zucca for two for tonight
-Book a table at BJ's for tomorrow
-Table for 3 in Palo Alto at 7
-```
+
+|Esempi|
+|--|
+|Prenota allo Zucca per due per stasera|
+|Prenota un tavolo al BJ per domani|
+|Tavolo per 3 al Palo Alto per le 7|
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -502,11 +513,12 @@ Table for 3 in Palo Alto at 7
 Il dominio Taxi offre le finalità e le entità per la creazione e la gestione delle prenotazioni di taxi.
 
 ### <a name="examples"></a>Esempi
-```
-Get me a cab at 3 pm
-How much longer do I have to wait for my taxi?
-Cancel my Uber
-```
+
+|Esempi|
+|--|
+|Prenota un taxi per le 3 del pomeriggio|
+|Quanto tempo deve attendere il taxi?|
+|Annulla Uber|
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -531,11 +543,13 @@ Cancel my Uber
 Il dominio Translate (Tradurre) offre le finalità e le entità correlate alla traduzione di testo in una lingua di destinazione.
 
 ### <a name="examples"></a>Esempi
-```
-Translate to French
-Translate hello to German
-Translate this sentence to English
-```
+
+|Esempi|
+|--|
+|Traduci in francese|
+|Traduci ciao in tedesco|
+|Traduci questa frase in inglese|
+
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -554,11 +568,12 @@ Translate this sentence to English
 Il dominio TV offre le finalità e le entità per il controllo dei televisori.
 
 ### <a name="examples"></a>Esempi
-```
-Switch channel to BBC
-Show TV guide
-Watch National Geographic
-```
+
+|Esempi|
+|--|
+|Cambia canale passando alla BBC|
+|Mostra Guida TV|
+|Guarda National Geographic|
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -576,11 +591,13 @@ Watch National Geographic
 Il dominio Utilities (Utilità) offre le finalità per operazioni comuni a molte attività, ad esempio saluti, annullamento, conferma, aiuto, ripetizione, navigazione, avvio e interruzione.
 
 ### <a name="examples"></a>Esempi
-```
-Go back to Twitter
-Please help
-Repeat last question please
-```
+
+|Esempi|
+|--|
+|Torna a Twitter|
+|Aiuto|
+|Ripeti l'ultima domanda|
+
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -600,11 +617,13 @@ Repeat last question please
 Il dominio Weather (Meteo) offre le finalità e le entità per recuperare i report e le previsioni meteo.
 
 ### <a name="examples"></a>Esempi
-```
-weather in London in september
-What?s the 10 day forecast?
-What's the average temperature in India in september?
-```
+
+|Esempi|
+|--|
+|meteo a Londra in settembre|
+|Che tempo farà fra 10 giorni?|
+|Qual è la temperatura media in India nel mese di settembre?|
+
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
@@ -621,11 +640,12 @@ What's the average temperature in India in september?
 Il dominio Web offre una finalità per la navigazione in un sito Web.
 
 ### <a name="examples"></a>Esempi
-```
-Navigate to facebook.com
-Go to www.twitter.com
-Navigate to www.bing.com
-```
+
+|Esempi|
+|--|
+|Passa a facebook.com|
+|Vai a www.twitter.com|
+|Passa a www.bing.com|
 
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |

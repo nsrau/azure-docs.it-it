@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095046"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139521"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
 
@@ -81,7 +81,7 @@ Ad esempio, se un proxy ha un modello di route come `/pets/{petId}`, l'URL di ba
 Oltre ai parametri del modello di route, i valori seguenti possono essere usati nei valori di configurazione:
 
 * **{request.method}**: il metodo HTTP usato nella richiesta originale.
-* **{request.headers.\<HeaderName\>}**: un'intestazione che può essere letta dalla richiesta originale. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella richiesta, il valore sarà una stringa vuota.
+* **{request. headers. \<HeaderName\>}**: un'intestazione che può essere letta dalla richiesta originale. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella richiesta, il valore sarà una stringa vuota.
 * **{request.querystring.\<ParameterName\>}**: un parametro di stringa di query che può essere letto dalla richiesta originale. Sostituire *\<ParameterName\>* con il nome del parametro che si desidera leggere. Se il parametro non è incluso nella richiesta, il valore sarà una stringa vuota.
 
 ### <a name="response-parameters"></a>Parametri di riferimento della risposta dal back-end
@@ -149,7 +149,7 @@ Ogni proxy ha un nome descrittivo, come *proxy1* nell'esempio precedente. L'ogge
 > [!NOTE] 
 > La proprietà *route* in Proxy di Funzioni di Azure non rispetta la proprietà *routePrefix* della configurazione host dell'app per le funzioni. Per includere un prefisso, ad esempio `/api`, deve essere incluso nella proprietà *route*.
 
-### <a name="disableProxies"></a>Disabilitare i singoli proxy
+### <a name="disableProxies"></a> Disabilitare i singoli proxy
 
 È possibile disabilitare un singolo proxy aggiungendo `"disabled": true` al proxy nel file `proxies.json`. In questo modo le richieste che soddisfano matchCondidtion restituiranno 404.
 ```json
@@ -166,6 +166,22 @@ Ogni proxy ha un nome descrittivo, come *proxy1* nell'esempio precedente. L'ogge
     }
 }
 ```
+
+### <a name="applicationSettings"></a> Impostazioni dell'applicazione
+
+Il comportamento del proxy può essere controllato da diverse impostazioni dell'app. Sono tutti indicati nel [Informazioni di riferimento sulle impostazioni dell'app per le funzioni](./functions-app-settings.md)
+
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+
+### <a name="reservedChars"></a> Caratteri riservati (formattazione della stringa)
+
+I proxy leggono tutte le stringhe senza interpretazione, fatta eccezione per le parentesi graffe e le barre
+
+|Character|Carattere di escape|Esempio|
+|-|-|-|
+|{ or }|{{ or }}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
 
 ### <a name="requestOverrides"></a>Definire un oggetto requestOverrides
 
@@ -231,7 +247,7 @@ Un esempio di configurazione apparirà come segue:
 > [!NOTE] 
 > In questo esempio il corpo della risposta viene impostato direttamente, quindi non sono necessarie proprietà `backendUri`. L'esempio illustra come usare i proxy di Funzioni di Azure per le API di simulazione.
 
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 [Trigger HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

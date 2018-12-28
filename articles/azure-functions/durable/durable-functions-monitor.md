@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7af8015e424b4a9169a9b80ed5e7070a8fa6de1c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4322841f126e4aa017b4d901cbfb1afd39e5bccf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638456"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342573"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
 
@@ -32,7 +32,7 @@ Questo esempio monitora le condizioni meteo correnti di una località e avvisa u
 * I monitoraggi possono terminare quando viene soddisfatta una condizione o essere terminati da un altro processo.
 * Monitoraggi possono accettare parametri. L'esempio illustra come lo stesso processo di monitoraggio del meteo possa essere applicato a qualsiasi località richiesta e numero di telefono.
 * Monitoraggi sono scalabili. Poiché ogni monitoraggio è un'istanza di orchestrazione, si possono creare più monitoraggi senza dover creare nuove funzioni o definire altro codice.
-* I monitoraggi si integrano facilmente in flussi di lavoro più grandi. Un monitoraggio può essere una sezione di una funzione di orchestrazione più complessa o un'[orchestrazione secondaria](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
+* I monitoraggi si integrano facilmente in flussi di lavoro più grandi. Un monitoraggio può essere una sezione di una funzione di orchestrazione più complessa o un'[orchestrazione secondaria](durable-functions-sub-orchestrations.md).
 
 ## <a name="configuring-twilio-integration"></a>Configurazione dell'integrazione di Twilio
 
@@ -54,12 +54,12 @@ Dopo avere acquisito la chiave API, aggiungere l'**impostazione app** seguente a
 
 Questo articolo descrive le funzioni seguenti nell'app di esempio:
 
-* `E3_Monitor`: funzione dell'agente di orchestrazione che chiama periodicamente `E3_GetIsClear`. Chiama `E3_SendGoodWeatherAlert` se `E3_GetIsClear` restituisce true.
+* `E3_Monitor`: funzione dell'agente di orchestrazione che chiama `E3_GetIsClear` periodicamente. Chiama `E3_SendGoodWeatherAlert` se `E3_GetIsClear` restituisce true.
 * `E3_GetIsClear`: funzione dell'attività che controlla le condizioni meteo correnti per una località.
 * `E3_SendGoodWeatherAlert`: funzione dell'attività che invia un SMS tramite Twilio.
 
 Le sezioni seguenti illustrano la configurazione e il codice usati per gli script in C# e in JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
- 
+
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Orchestrazione di monitoraggio del meteo (Visual Studio Code e codice di esempio del portale di Azure)
 
 La funzione **E3_Monitor** usa il codice *function.json* standard per le funzioni dell'agente di orchestrazione.
@@ -72,7 +72,7 @@ Di seguito è riportato il codice che implementa la funzione:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -83,7 +83,7 @@ Le azioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 3. Chiama **E3_GetIsClear** per determinare se nella località richiesta il tempo è sereno.
 4. Se il tempo è sereno, chiama **E3_SendGoodWeatherAlert** per inviare un SMS di notifica al numero di telefono richiesto.
 5. Crea un timer durevole per riprendere l'orchestrazione all'intervallo di polling successivo. L'esempio usa un valore hardcoded per ragioni di brevità.
-6. Continua l'esecuzione finché [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) supera la scadenza del monitoraggio o viene inviato un SMS di avviso.
+6. Continua l'esecuzione finché [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (C#) o `currentUtcDateTime` (JavaScript) supera la scadenza del monitoraggio o viene inviato un SMS di avviso.
 
 Si possono eseguire simultaneamente più istanze dell'agente di orchestrazione inviando più **MonitorRequest**. Si possono specificare la località da monitorare e il numero di telefono a cui inviare un SMS di avviso.
 
@@ -107,7 +107,7 @@ Di seguito ne viene riportata l'implementazione. Come gli oggetti POCO usati per
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -121,7 +121,7 @@ Di seguito è disponibile il codice che invia l'SMS:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
@@ -134,8 +134,9 @@ POST https://{host}/orchestrators/E3_Monitor
 Content-Length: 77
 Content-Type: application/json
 
-{ "Location": { "City": "Redmond", "State": "WA" }, "Phone": "+1425XXXXXXX" }
+{ "location": { "city": "Redmond", "state": "WA" }, "phone": "+1425XXXXXXX" }
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
@@ -144,9 +145,6 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
-
-   > [!NOTE]
-   > Attualmente, le funzioni di avvio dell'orchestrazione JavaScript non possono restituire URI di gestione delle istanze. Questa funzionalità verrà aggiunta in una versione successiva.
 
 L'istanza **E3_Monitor** viene avviata ed esegue una query delle condizioni meteo correnti per la località richiesta. Se il tempo è sereno, chiama una funzione dell'attività per inviare un avviso. In caso contrario, imposta un timer. Quando il timer scade, l'orchestrazione viene ripresa.
 
@@ -168,7 +166,7 @@ L'istanza **E3_Monitor** viene avviata ed esegue una query delle condizioni mete
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-L'orchestrazione [terminerà](durable-functions-instance-management.md#terminating-instances) quando verrà raggiunto il timeout o verrà rilevato tempo sereno. È anche possibile usare `TerminateAsync` in un'altra funzione o richiamare il webhook HTTP POST **terminatePostUri** a cui si è fatto riferimento nella risposta 202 precedente, sostituendo `{text}` con il motivo della terminazione:
+L'orchestrazione [terminerà](durable-functions-instance-management.md#terminating-instances) quando verrà raggiunto il timeout o verrà rilevato tempo sereno. È anche possibile usare `TerminateAsync` (.NET) o `terminate` (JavaScript) in un'altra funzione o richiamare il webhook HTTP POST **terminatePostUri** a cui si è fatto riferimento nella risposta 202 precedente, sostituendo `{text}` con il motivo della terminazione:
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

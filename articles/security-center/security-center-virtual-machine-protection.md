@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316651"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340828"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protezione delle macchine virtuali nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali (VM) e computer, applicazioni, risorse di rete, SQL, identità e accesso.
@@ -59,7 +59,7 @@ Viene visualizzato **Monitoring agent health issues** (Problemi di integrità de
 ### Macchine virtuali e computer non monitorati <a name="unmonitored-vms-and-computers"></a>
 Una macchina virtuale o un computer non è monitorata dal Centro sicurezza se non esegue l'estensione Microsoft Monitoring Agent. È possibile che in una macchina sia già installato un agente locale, ad esempio l'agente diretto di OMS o l'agente di SCOM. Le macchine virtuali con questi agenti vengono identificate come non monitorate perché tali agenti non sono supportati completamente nel Centro sicurezza. Per sfruttare in modo ottimale i vantaggi di tutte le funzionalità del Centro sicurezza, è necessaria l'estensione Microsoft Monitoring Agent.
 
-È possibile installare l'estensione nella VM o del computer non monitorata oltre all'agente locale già installato. Configurare gli agenti allo stesso modo, connettendoli alla stessa area di lavoro. Ciò consente al Centro sicurezza di interagire con l'estensione Microsoft Monitoring Agent e raccogliere dati. Vedere [Abilitare l'estensione macchina virtuale](../log-analytics/log-analytics-quick-collect-azurevm.md) per istruzioni su come installare l'estensione Microsoft Monitoring Agent.
+È possibile installare l'estensione nella VM o del computer non monitorata oltre all'agente locale già installato. Configurare gli agenti allo stesso modo, connettendoli alla stessa area di lavoro. Ciò consente al Centro sicurezza di interagire con l'estensione Microsoft Monitoring Agent e raccogliere dati. Vedere [Abilitare l'estensione macchina virtuale](../azure-monitor/learn/quick-collect-azurevm.md) per istruzioni su come installare l'estensione Microsoft Monitoring Agent.
 
 Vedere [Problemi di integrità dell'agente di monitoraggio](security-center-troubleshooting-guide.md#mon-agent) per altre informazioni sui motivi per cui il Centro sicurezza non è in grado di monitorare correttamente VM e computer inizializzati per il provisioning automatico.
 
@@ -74,9 +74,9 @@ Ogni raccomandazione è inoltre associata a una serie di azioni che è possibile
 
 **Applicare gli aggiornamenti di sistema** include un riepilogo degli aggiornamenti critici in un formato grafico, uno per Windows e uno per Linux. La seconda parte visualizza una tabella con le informazioni seguenti:
 
-- **NOME**: nome dell'aggiornamento mancante.
-- **N. di VM e computer**: numero totale di VM e computer cui manca l'aggiornamento.
-- **AGGIORNA GRAVITÀ**: descrive il livello di gravità della raccomandazione:
+- **NOME**: il nome dell'aggiornamento mancante.
+- **N. DI MACCHINE VIRTUALI E COMPUTER**: il numero totale di macchine virtuali e computer a cui manca l'aggiornamento.
+- **GRAVITÀ**: descrive il livello di gravità della raccomandazione:
 
     - **Critica**: esiste una vulnerabilità associata a una risorsa significativa, ad esempio applicazione, macchina virtuale, gruppo di sicurezza di rete, che richiede attenzione.
     - **Importante**: sono necessari passaggi aggiuntivi, o non critici, per completare un processo o eliminare una vulnerabilità.
@@ -249,7 +249,7 @@ Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risors
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 

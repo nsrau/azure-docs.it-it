@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 03fe587ede297ac7dea90b7a5fb2d5323f60659e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 00124562d3bc21f9139ae54f022d7893a4eaf11c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628156"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326492"
 ---
 | Risorsa | Destinazione | Limite rigido |
 |----------|--------------|------------|
@@ -22,7 +22,7 @@ ms.locfileid: "51628156"
 | Server registrati per servizio di sincronizzazione archiviazione | 99 server | Yes |
 | Endpoint cloud per gruppo di sincronizzazione | 1 endpoint cloud | Yes |
 | Endpoint server per gruppo di sincronizzazione | 50 endpoint server | No  |
-| Endpoint server per server | 33-99 endpoint server | Sì, ma varia in base alla configurazione (CPU, memoria, volumi, varianza del file, numero di file e così via) |
+| Endpoint server per server | 30 endpoint server | Yes |
 | Dimensioni endpoint | 4 TiB | No  |
 | Oggetti file system (directory e file) per gruppo di sincronizzazione | 25 milioni di oggetti | No  |
 | Numero massimo di oggetti file system (directory e file) in una directory | 200.000 oggetti | Yes |

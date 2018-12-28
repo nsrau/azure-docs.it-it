@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457392"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344092"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Come effettuare il provisioning per la multi-tenancy 
 
@@ -90,7 +90,7 @@ Per semplicità, in questo articolo viene usata l'[attestazione con chiave simme
 
 2. Selezionare la scheda **Gestisci registrazioni**, quindi fare clic sul pulsante **Aggiungi gruppo di registrazioni** nella parte superiore della pagina. 
 
-3. In **Aggiungi gruppo di registrazione** immettere le informazioni seguenti e fare clic sul pulsante **Salva**.
+3. In **Aggiungi gruppo di registrazioni** immettere le informazioni seguenti e fare clic sul pulsante **Salva**.
 
     **Nome gruppo**: immettere **contoso-us-devices**.
 
@@ -98,14 +98,14 @@ Per semplicità, in questo articolo viene usata l'[attestazione con chiave simme
 
     **Genera chiavi automaticamente**: questa casella di controllo dovrebbe essere già selezionata.
 
-    **Selezionare la modalità secondo cui assegnare i dispositivi agli hub**: selezionare **Latenza più bassa**.
+    **Selezionare la modalità di assegnazione dei dispositivi agli hub**: selezionare **Latenza più bassa**.
 
     ![Aggiungere il gruppo di registrazione multi-tenant per l'attestazione con chiave simmetrica](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
 4. In **Aggiungi gruppo di registrazione** fare clic su **Collega un nuovo hub IoT** per collegare entrambi gli hub a livello di area.
 
-    **Sottoscrizione**: se si hanno più sottoscrizioni, scegliere quella in cui sono stati creati gli hub IoT a livello di area.
+    **Sottoscrizione** se si hanno più sottoscrizioni, scegliere quella in cui sono stati creati gli hub IoT a livello di area.
 
     **Hub IoT**: selezionare uno degli hub a livello di area creato.
 
@@ -139,7 +139,7 @@ Per rendere più semplici le operazioni di pulizia, queste macchine virtuali ver
     ```azurecli-interactive
     az vm create \
     --resource-group contoso-us-resource-group \
-    --name ContosoSimDeviceEest \
+    --name ContosoSimDeviceEast \
     --location eastus \
     --image Canonical:UbuntuServer:18.04-LTS:18.04.201809110 \
     --admin-username contosoadmin \
@@ -220,7 +220,7 @@ In questa sezione si clonerà Azure IoT C SDK in ogni macchina virtuale. L'SDK c
 1. Per entrambe le macchine virtuali, eseguire il comando seguente, che compila una versione dell'SDK specifica per la piattaforma client di sviluppo. 
 
     ```bash
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
     Al termine della compilazione, le ultime righe di output saranno simili all'output seguente:
@@ -327,28 +327,28 @@ Il codice di esempio simula una sequenza di avvio di dispositivo che invia la ri
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-
-1. Aprire **~/azure-iot-sdk-c/provisioning\_client/adapters/hsm\_client\_key.c** in entrambe le macchine virtuali. 
-
-    ```bash
-     vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
-    ```
-
-1. Individuare la dichiarazione delle costanti `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Apportare le modifiche seguenti ai file in entrambe le macchine virtuali a livello di area e salvare i file.
-
-    Aggiornare il valore della costante `REGISTRATION_NAME` con l'**ID registrazione univoco per il dispositivo**.
-    
-    Aggiornare il valore della costante `SYMMETRIC_KEY_VALUE` con la **chiave di dispositivo derivata**.
+1. Su entrambe le macchine virtuali individuare la chiamata a `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** che è impostata come commento.
 
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-east";
-    static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
+    Rimuovere il commento dalla chiamata alla funzione e sostituire i valori di segnaposto (incluse le parentesi angolari) con l'ID registrazione univoco e le chiave di dispositivo derivate per ogni dispositivo. Le chiavi illustrate di seguito sono solo a titolo di esempio. Usare le chiavi generate in precedenza.
+
+    Stati Uniti orientali:
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-west";
-    static const char* const SYMMETRIC_KEY_VALUE = "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-east", "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=");
     ```
+
+    Stati Uniti occidentali:
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-west", "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=");
+    ```
+
+    Salvare i file.
 
 1. In entrambe le macchine virtuali passare alla cartella di esempio illustrata di seguito e compilare l'esempio.
 
@@ -358,6 +358,13 @@ Il codice di esempio simula una sequenza di avvio di dispositivo che invia la ri
     ```
 
 1. Al termine della compilazione, eseguire **prov\_dev\_client\_sample.exe** in entrambe le macchine virtuali per simulare un dispositivo tenant da ogni area. Si noti che ogni dispositivo viene allocato all'hub IoT del tenant più vicino alle aree del dispositivo simulato.
+
+    Eseguire la simulazione:
+    ```bash
+    ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample
+    ```
+
+    Output di esempio per la macchina virtuale Stati Uniti orientali:
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -374,6 +381,7 @@ Il codice di esempio simula una sequenza di avvio di dispositivo che invia la ri
 
     ```
 
+    Output di esempio per la macchina virtuale Stati Uniti occidentali:
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9

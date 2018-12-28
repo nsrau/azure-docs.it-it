@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: a4c4017d7fa798559817c281d159148ec675d158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281354"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386503"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Eseguire query in Azure Log Analytics per monitorare i cluster HDInsight
 
@@ -46,7 +46,7 @@ Informazioni su come cercare metriche specifiche per il cluster HDInsight.
 
 5. Nel riquadro sinistro, in **Tipo**, selezionare una metrica da analizzare più a fondo e quindi selezionare **Applica**. Nella schermata riportata di seguito è illustrato il tipo `metrics_resourcemanager_queue_root_default_CL` selezionato.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Potrebbe essere necessario selezionare il pulsante **[+]Altro** per trovare la metrica che si sta cercando. Anche il pulsante **Applica** si trova nella parte inferiore dell'elenco, quindi è necessario scorrere verso il basso per visualizzarlo.
 
     Si noti che la query nella casella di testo cambia in quella visualizzata nella casella evidenziata nello screenshot seguente:
@@ -115,7 +115,7 @@ Per modificare o eliminare un avviso esistente:
 1. Aprire l'area di lavoro di Log Analytics dal portale di Azure.
 2. Nel menu a sinistra selezionare **Avviso**.
 3. Selezionare l'avviso da modificare o eliminare.
-4. Sono disponibili le opzioni seguenti: **Salva**, **Ignora**, **Disabilita** ed **Elimina**.
+4. L'utente ha a disposizione le seguenti opzioni: **Salva**, **Disabilita**, **Disattiva**, e **Elimina**.
 
     ![Modifica o eliminazione degli avvisi di Log Analytics in HDInsight](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 

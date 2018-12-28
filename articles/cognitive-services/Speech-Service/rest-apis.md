@@ -1,5 +1,5 @@
 ---
-title: API REST del Servizio di riconoscimento vocale - Servizio di riconoscimento vocale
+title: API REST dei servizi Voce - Servizi Voce
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare le API REST per il riconoscimento vocale e la sintesi vocale. In questo articolo vengono illustrate le opzioni di autorizzazione, le opzioni di query, come strutturare una richiesta e ricevere una risposta.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584860"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338891"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servizio Voce
 
@@ -33,7 +34,7 @@ Ogni richiesta all'API REST del riconoscimento vocale o della sintesi vocale ric
 | Intestazione dell'autorizzazione supportata | Riconoscimento vocale | Sintesi vocale |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | Yes | No  |
-| Autorizzazione: Bearer | Yes | Yes |
+| Authorization: Bearer | Yes | Yes |
 
 Quando viene usata l'intestazione `Ocp-Apim-Subscription-Key`, è sufficiente fornire la chiave di sottoscrizione. Ad esempio: 
 
@@ -321,9 +322,20 @@ Il trasferimento in blocchi (`Transfer-Encoding: chunked`) aiuta a ridurre la la
 Questo esempio di codice mostra come inviare audio in blocchi. Solo il primo blocco deve contenere l'intestazione del file audio. `request` è un oggetto HTTPWebRequest connesso all'endpoint REST appropriato. `audioFile` è il percorso di un file audio su disco.
 
 ```csharp
+
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
@@ -423,20 +435,10 @@ Di seguito è riportata una tipica risposta per il riconoscimento `detailed`.
 
 ## <a name="text-to-speech-api"></a>API Sintesi vocale
 
-Queste aree sono supportate per la trascrizione vocale usando l'API REST. Assicurarsi di selezionare l'endpoint corrispondente all'area della propria sottoscrizione.
+L'API REST Sintesi vocale supporta voci neurali e standard, ognuna delle quali supporta a sua volta una lingua e un dialetto specifici, identificati dalle impostazioni locali.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-Il servizio di riconoscimento vocale supporta un output audio a 24 KHz, oltre all'output a 16 Khz, supportato dal Riconoscimento vocale Bing. Sono supportati quattro formati di output a 24 KHz e due voci a 24 KHz.
-
-### <a name="voices"></a>Voci
-
-| Impostazioni locali | Linguaggio   | Sesso | Mapping |
-|--------|------------|--------|---------|
-| en-US  | Inglese (Stati Uniti) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" |
-| en-US  | Inglese (Stati Uniti) | Maschio   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" |
-
-Per un elenco completo delle voci disponibili, vedere [Lingue supportate](language-support.md#text-to-speech).
+* Per un elenco completo delle voci, vedere [Supporto per le lingue](language-support.md#text-to-speech).
+* Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#text-to-speech).
 
 ### <a name="request-headers"></a>Intestazioni della richiesta
 
@@ -451,7 +453,7 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 ### <a name="audio-outputs"></a>Output audio
 
-Questo è un elenco dei formati audio supportati che vengono inviati in ogni richiesta come intestazione `X-Microsoft-OutputFormat`. Ognuno incorpora una velocità in bit e il tipo di codifica.
+Questo è un elenco dei formati audio supportati che vengono inviati in ogni richiesta come intestazione `X-Microsoft-OutputFormat`. Ognuno incorpora una velocità in bit e il tipo di codifica. Il servizio Voce supporta output audio a 24 e 16 KHz.
 
 |||
 |-|-|

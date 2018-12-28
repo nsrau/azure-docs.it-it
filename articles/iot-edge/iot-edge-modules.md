@@ -1,6 +1,6 @@
 ---
-title: Informazioni sui moduli di Azure IoT Edge | Microsoft Docs
-description: Informazioni sui moduli di Azure IoT Edge e sulle relative modalità di configurazione
+title: Informazioni su come eseguire la logica dei moduli nei dispositivi - Azure IoT Edge | Microsoft Docs
+description: I moduli di Azure IoT Edge sono inclusi in contenitori di unità di logica che possono essere distribuiti e gestiti in remoto in modo che sia possibile eseguire la logica di business in dispositivi perimetrali IoT
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3d76f5931e3636f19c2030c4090116a0791db819
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 90fb6eadb2edb92d4516d8565d8c2c2bd5120c05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567333"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094186"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informazioni sui moduli Azure IoT Edge
 
@@ -31,7 +32,7 @@ Le immagini si trovano nel cloud e possono essere aggiornate, modificate e distr
 
 Ogni volta che un'immagine del modulo viene distribuita in un dispositivo e avviata dal runtime di IoT Edge, viene creata una nuova istanza del modulo. Due dispositivi in diverse parti del mondo possono usare la stessa immagine del modulo; tuttavia ognuno di essi ha la propria istanza del modulo quando il modulo viene avviato sul dispositivo. 
 
-![Immagini del modulo nel cloud: istanze del modulo nei dispositivi](./media/iot-edge-modules/image_instance.png)
+![Diagramma - Immagini del modulo nel cloud, istanze del modulo nei dispositivi](./media/iot-edge-modules/image_instance.png)
 
 Nell'implementazione, le immagini dei moduli esistono come immagini del contenitore in un repository e le istanze del modulo sono contenitori nei dispositivi. 
 
@@ -46,7 +47,7 @@ L'identità associata all'istanza del modulo dipende dall'identità del disposit
 
 Chiaramente, negli scenari in cui è necessario distribuire un'immagine del modulo più volte sullo stesso dispositivo, è possibile distribuire la stessa immagine più volte con nomi diversi.
 
-![Le identità del modulo sono univoche](./media/iot-edge-modules/identity.png)
+![Diagramma - Le identità del modulo sono univoche all'interno dei dispositivi e tra dispositivi diversi](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Moduli gemelli
 

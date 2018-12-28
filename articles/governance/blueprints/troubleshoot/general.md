@@ -1,25 +1,26 @@
 ---
-title: Risoluzione degli errori con Azure Blueprint
+title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi di creazione e assegnazione dei progetti
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b910f90e70af4ce6d4243c06bfe5bd03d25d74d6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092935"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315527"
 ---
-# <a name="troubleshoot-errors-using-azure-blueprints"></a>Risoluzione degli errori con Azure Blueprint
+# <a name="troubleshoot-errors-using-azure-blueprints"></a>Risoluzione errori con Azure Blueprint
 
 È possibile riscontrare errori durante la creazione o l'assegnazione dei progetti. Questo articolo descrive i diversi errori che possono verificarsi e come risolverli.
 
-## <a name="finding-error-details"></a>Ricerca dei dettagli errore
+## <a name="finding-error-details"></a>Ricerca dei dettagli di errore
 
 L'assegnazione di un progetto a un ambito comporta una serie di errori. Quando si verifica un errore di assegnazione, il progetto fornisce i dettagli relativi alla distribuzione non riuscita. Le informazioni indicano il problema in modo da poterlo risolvere e garantire la riuscita della distribuzione successiva.
 
@@ -35,7 +36,7 @@ In genere l'errore è dovuto a un artefatto e non al progetto stesso. Se un arte
 
 ## <a name="general-errors"></a>Errori generali
 
-### <a name="policy-violation"></a>Scenario: violazione dei criteri
+### <a name="policy-violation"></a>Scenario: Violazione dei criteri
 
 #### <a name="issue"></a>Problema
 

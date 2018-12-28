@@ -3,7 +3,7 @@ title: Guida alla risoluzione dei problemi di Backup di Azure per le macchine vi
 description: Informazioni sulla risoluzione dei problemi per il backup di macchine virtuali di SQL Server in Azure.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: ''
@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: markgal;anuragm
+ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 1c87382c2aae70b022fb391f80f7c75b0a4e5fe6
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296958"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339519"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Risolvere i problemi relativi al backup di SQL Server in Azure
 
@@ -79,13 +78,13 @@ Le tabelle seguenti sono organizzate in base al codice di errore.
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
 | Cannot take backup as transaction log for the data source is full (Non è possibile eseguire il backup perché il log delle transazioni per l'origine dati è pieno). | Lo spazio del log delle transazioni del database è pieno. | Per risolvere questo problema, fare riferimento alla [documentazione di SQL Server](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Il database SQL non supporta il tipo di backup richiesto. | Le repliche secondarie di gruppi di disponibilità Always On non supportano backup completi e differenziali. | <ul><li>Se è stato attivato un backup ad hoc, attivare i backup nel nodo primario.</li><li>Se il backup è stato pianificato da criteri, verificare che il nodo primario sia registrato. Per registrare il nodo [seguire la procedura per individuare un database di SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> | 
+| Il database SQL non supporta il tipo di backup richiesto. | Le repliche secondarie di gruppi di disponibilità Always On non supportano backup completi e differenziali. | <ul><li>Se è stato attivato un backup ad hoc, attivare i backup nel nodo primario.</li><li>Se il backup è stato pianificato da criteri, verificare che il nodo primario sia registrato. Per registrare il nodo [seguire la procedura per individuare un database di SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Errori di ripristino
 
 I codici di errore seguenti vengono visualizzati in caso di esito negativo dei processi di ripristino.
 
-### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite 
+### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
@@ -108,7 +107,7 @@ I codici di errore seguenti vengono visualizzati in caso di esito negativo dei p
 
 I codici di errore seguenti riguardano gli errori di registrazione.
 
-### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError 
+### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
@@ -125,6 +124,16 @@ I codici di errore seguenti riguardano gli errori di registrazione.
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
 | Il servizio Backup di Azure usa l'agente guest di macchine virtuali di Azure per l'esecuzione del backup ma l'agente guest non è disponibile nel server di destinazione. | L'agente guest non è abilitato o non è integro | [Installare l'agente guest di macchine virtuali](../virtual-machines/extensions/agent-windows.md) manualmente. |
+
+## <a name="configure-backup-failures"></a>Configurare gli errori di backup
+
+I codici di errore seguenti riguardano gli errori di backup.
+
+### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
+
+| Messaggio di errore | Possibili cause | Azione consigliata |
+|---|---|---|
+| La finalità di protezione automatica è stata rimossa o non è più valida. | Quando si abilita la protezione automatica in un'istanza SQL, i processi di **configurazione del backup** vengono eseguiti per tutti i database dell'istanza. Se si disabilita la protezione automatica mentre i processi sono in esecuzione, i processi **in corso** vengono annullati con questo codice di errore. | Abilitare di nuovo la protezione automatica per proteggere tutti i database rimanenti. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

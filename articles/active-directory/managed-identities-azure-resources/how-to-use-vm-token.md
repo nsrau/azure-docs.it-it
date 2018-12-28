@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 86830d8a13e4d83ff48bcf7e2f2dfac41d764718
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0355b8cf19209509dca2f3cac93c7abb92a63990
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106730"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323321"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Come usare le identità gestite per risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso 
 
@@ -51,6 +51,7 @@ Un'applicazione client può richiedere un [token di accesso solo app](../develop
 | [Ottenere un token tramite HTTP](#get-a-token-using-http) | Dettagli sul protocollo per l'endpoint del token delle identità gestite per risorse di Azure |
 | [Ottenere un token usando la libreria Microsoft.Azure.Services.AppAuthentication per .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Esempio di utilizzo della libreria Microsoft.Azure.Services.AppAuthentication da un client .NET
 | [Ottenere un token tramite C#](#get-a-token-using-c) | Esempio di utilizzo dell'endpoint REST delle identità gestite per risorse di Azure da un client C# |
+| [Ottenere un token tramite Java](#get-a-token-using-java) | Esempio di utilizzo dell'endpoint REST delle identità gestite per risorse di Azure da un client Java |
 | [Ottenere un token tramite Go](#get-a-token-using-go) | Esempio di utilizzo dell'endpoint REST delle identità gestite per risorse di Azure da un client Go |
 | [Ottenere un token tramite Azure PowerShell](#get-a-token-using-azure-powershell) | Esempio di utilizzo dell'endpoint REST delle identità gestite per risorse di Azure da un client PowerShell |
 | [Ottenere un token tramite CURL](#get-a-token-using-curl) | Esempio di utilizzo dell'endpoint REST delle identità gestite per risorse di Azure da un client Bash/CURL |
@@ -174,6 +175,50 @@ catch (Exception e)
 
 ```
 
+## <a name="get-a-token-using-java"></a>Ottenere un token tramite Java
+
+Usare questa [libreria JSON](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) per recuperare un token usando Java.
+
+```Java
+import java.io.*;
+import java.net.*;
+import com.fasterxml.jackson.core.*;
+ 
+class GetMSIToken {
+    public static void main(String[] args) throws Exception {
+ 
+        URL msiEndpoint = new URL("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+        HttpURLConnection con = (HttpURLConnection) msiEndpoint.openConnection();
+        con.setRequestMethod("GET");
+        con.setRequestProperty("Metadata", "true");
+ 
+        if (con.getResponseCode()!=200) {
+            throw new Exception("Error calling managed identity token endpoint.");
+        }
+ 
+        InputStream responseStream = con.getInputStream();
+ 
+        JsonFactory factory = new JsonFactory();
+        JsonParser parser = factory.createParser(responseStream);
+ 
+        while(!parser.isClosed()){
+            JsonToken jsonToken = parser.nextToken();
+ 
+            if(JsonToken.FIELD_NAME.equals(jsonToken)){
+                String fieldName = parser.getCurrentName();
+                jsonToken = parser.nextToken();
+ 
+                if("access_token".equals(fieldName)){
+                    String accesstoken = parser.getValueAsString();
+                    System.out.println("Access Token: " + accesstoken.substring(0,5)+ "..." + accesstoken.substring(accesstoken.length()-5));
+                    return;
+                }
+            }
+        }
+    }
+}
+```
+
 ## <a name="get-a-token-using-go"></a>Ottenere un token tramite Go
 
 ```
@@ -266,14 +311,14 @@ Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?ap
 Esempio di come analizzare il token di accesso dalla risposta:
 ```azurepowershell
 # Get an access token for managed identities for Azure resources
-$response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F `
+$response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' `
                               -Headers @{Metadata="true"}
 $content =$response.Content | ConvertFrom-Json
 $access_token = $content.access_token
 echo "The managed identities for Azure resources access token is $access_token"
 
 # Use the access token to get resource information for the VM
-$vmInfoRest = (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
+$vmInfoRest = (Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01' -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
 echo "JSON returned from call to get VM info:"
 echo $vmInfoRest
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 57929b23e437e17ceb90196e3cfa59c16d518f5a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527438"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138586"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB standard di settore. Questo articolo descrive gli obiettivi di scalabilità e prestazioni per File di Azure e Sincronizzazione file di Azure.
@@ -39,13 +39,14 @@ Con Sincronizzazione file di Azure si è tentato di progettare nella misura mass
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-performance-metrics"></a>Metriche delle prestazioni di Sincronizzazione file di Azure
-Poiché l'agente di Sincronizzazione file di Azure viene eseguito in un computer Windows Server che si connette alle condivisioni file di Azure, le effettive prestazioni di sincronizzazione dipendono da diversi fattori nell'infrastruttura: Windows Server e configurazione dei dischi sottostante, larghezza di banda tra il server e l'archiviazione di Azure, dimensioni dei file, dimensioni totali del set di dati e attività nel set di dati. Poiché Sincronizzazione file di Azure opera a livello di file, le caratteristiche in termini di prestazioni di una soluzione basata su Sincronizzazione file di Azure possono essere misurate meglio in base al numero di oggetti (file e directory) elaborati al secondo. 
+Poiché l'agente Sincronizzazione file di Azure viene eseguito su un computer Windows Server che si connette alle condivisioni file di Azure, le prestazioni di sincronizzazione effettive dipendono da una serie di fattori dell'infrastruttura: Windows Server e la configurazione dei dischi sottostanti, larghezza di banda di rete tra il server e l'archiviazione di Azure, dimensioni del file, dimensione totale di set di dati e l'attività nel set di dati. Poiché Sincronizzazione file di Azure opera a livello di file, le caratteristiche in termini di prestazioni di una soluzione basata su Sincronizzazione file di Azure possono essere misurate meglio in base al numero di oggetti (file e directory) elaborati al secondo. 
  
 Per Sincronizzazione file di Azure, le prestazioni sono critiche in due fasi:
 1. **Provisioning monouso iniziale**: per ottimizzare le prestazioni in fase di provisioning iniziale, fare riferimento a [Onboarding con Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) per informazioni dettagliate sulla distribuzione ottimale.
 2. **Sincronizzazione continua**: dopo il seeding iniziale dei dati nelle condivisioni file di Azure, Sincronizzazione file di Azure mantiene sincronizzati più endpoint.
 
 Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di seguito vengono presentati i risultati osservati durante i test interni su un sistema con una configurazione specifica
+
 | Configurazione del sistema |  |
 |-|-|
 | CPU | 64 core virtuali con cache L3 da 64 MiB |
@@ -58,7 +59,7 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 |-|-|
 | Numero di oggetti | 10 milioni di oggetti | 
 | Dimensioni del set di dati| Circa 4 TiB |
-| Dimensioni medie dei file | Circa 500 KiB (File più grande: 100 GiB) |
+| Dimensioni medie dei file | 500 KiB (File più grande: 100 GiB) |
 | Velocità effettiva di caricamento | 15 oggetti al secondo |
 | Velocità effettiva di download dello spazio dei nomi* | 350 oggetti al secondo |
  

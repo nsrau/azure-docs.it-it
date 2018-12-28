@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/6/2017
+ms.date: 12/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84068376f35bc4df6672cffcc0ac3438b12edbb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d912f559af98045aaef8fe6fcaa1d83ab5f96bd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979676"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269363"
 ---
 # <a name="model-management-setup"></a>Installazione di Gestione modelli
 
@@ -68,7 +68,7 @@ pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="configuring-docker-on-linux"></a>Configurazione di Docker su Linux
-Per poter configurare Docker su Linux per l'uso da parte degli utenti non radice, seguire le istruzioni riportate qui: [Post-installation steps for Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/) (Passaggi di post-installazione per Linux)
+Per poter configurare Docker su Linux per l'uso da parte degli utenti non ROOT, seguire le istruzioni riportate qui: [Passaggi successivi all'installazione per Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
 
 >[!NOTE]
 > In un DSVM di Linux è possibile eseguire lo script di seguito per configurare un Docker in modo corretto. **Ricordarsi di disconnettersi e accedere di nuovo dopo aver eseguito lo script.**
@@ -85,7 +85,7 @@ Per iniziare è necessario configurare l'ambiente di distribuzione. L'impostazio
 
 Una volta completata l'installazione dell'ambiente:
 - Viene visualizzata la richiesta di accedere ad Azure. Per accedere, usare un Web browser per aprire la pagina https://aka.ms/devicelogin e immettere il codice fornito per l'autenticazione.
-- Durante il processo di autenticazione viene richiesta l'autenticazione con un account. Importante: selezionare un account che dispone di una sottoscrizione di Azure valida e di autorizzazioni sufficienti per creare risorse nell'account. Quando il log è completo, vengono presentate le informazioni riguardanti la sottoscrizione e viene chiesto se si desidera continuare con l'account selezionato.
+- Durante il processo di autenticazione viene richiesta l'autenticazione con un account. Importante: selezionare un account che disponga di una sottoscrizione di Azure valida e di autorizzazioni sufficienti per creare risorse nell'account. Quando il log è completo, vengono presentate le informazioni riguardanti la sottoscrizione e viene chiesto se si desidera continuare con l'account selezionato.
 
 ### <a name="environment-setup"></a>Configurazione dell'ambiente
 Per avviare il processo di installazione, è necessario registrare alcuni provider di ambiente immettendo il comando seguente:

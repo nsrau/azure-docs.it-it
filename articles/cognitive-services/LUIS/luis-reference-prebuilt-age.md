@@ -1,32 +1,33 @@
 ---
-title: Riferimento all'età per le entità predefinite LUIS - Azure | Microsoft Docs
+title: Entità predefinita age
 titleSuffix: Azure
-description: Questo articolo contiene informazioni sull'entità predefinita età in Language Understanding, ovvero LUIS.
+description: Questo articolo contiene informazioni sull'entità predefinita age in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 63ff00c29548af2f26a2b7b5e5ac68b5397671ec
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 88d2633a107f36c7c0eab8803a3b6ea10e067506
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441826"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166541"
 ---
-# <a name="age-entity"></a>Entità di età
-L'entità predefinita età acquisisce il valore dell'età sia numericamente che in termini di giorni, settimane, mesi e anni. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti l'età per le finalità dell'applicazione. L'entità età è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
+# <a name="age-prebuilt-entity-for-a-luis-app"></a>Entità predefinita age per un'app LUIS
+L'entità predefinita age acquisisce il valore dell'età sia numericamente che in termini di giorni, settimane, mesi e anni. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti l'età per le finalità dell'applicazione. L'entità age è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-age"></a>Tipi di età
-L'età viene gestita nel repository Github [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3)
+L'entità age viene gestita nel repository GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3).
 
-## <a name="resolution-for-prebuilt-age-entity"></a>Risoluzione per l'entità età predefinita
+## <a name="resolution-for-prebuilt-age-entity"></a>Risoluzione per l'entità predefinita age
 L'esempio seguente illustra la risoluzione dell'entità **builtin.age**.
 
-```JSON
+```json
 {
   "query": "A 90 day old utilities bill is quite late.",
   "topScoringIntent": {

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: c8bee6902fb74cb77c34395fd05c1c861b4f630e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 349d3a6eacf22a0ce3f842dd30df19964cdf7f23
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166135"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337326"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiare dati da un'origine OData tramite Azure Data Factory
 
@@ -35,7 +35,7 @@ Questo articolo descrive come usare l'attività di copia in Azure Data Factory p
 In particolare, il connettore OData supporta:
 
 - OData versioni 3.0 e 4.0.
-- Copia di dati tramite queste autenticazioni: **Anonima**, **Di base** e **Windows**.
+- Copia di dati tramite una di queste autenticazioni: **Anonima**, **Di base** e **Windows**, **entità servizio AAD**e **identità del servizio gestita**.
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -51,9 +51,16 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **OData**. |Yes |
 | URL | URL radice del servizio OData. |Yes |
-| authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonymous**, **Basic** e **Windows**. L'autenticazione OAuth non è supportata. | Yes |
+| authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonima**, **Di base** e **Windows**, **entità servizio AAD**e **identità del servizio gestita**. L'autenticazione OAuth basata su utente non è supportata. | Yes |
 | userName | Specificare **userName** se si usa l'autenticazione di base o di Windows. | No  |
 | password | Specificare la proprietà **password** per l'account utente indicato per **userName**. Contrassegnare questo campo come tipo **SecureString** per archiviare la password in modo sicuro in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No  |
+| servicePrincipalId | Specificare l'ID client. dell'applicazione Azure Active Directory. | No  |
+| aadServicePrincipalCredentialType | Specificare il tipo di credenziale da usare per l'autenticazione dell'entità servizio. I valori consentiti sono: `ServicePrincipalKey` o `ServicePrincipalCert`. | No  |
+| servicePrincipalKey | Specificare la chiave dell'applicazione Azure Active Directory. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No  |
+| servicePrincipalEmbeddedCert | Specificare il certificato con codificata base64 dell'applicazione registrata in Azure Active Directory. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No  |
+| servicePrincipalEmbeddedCertPassword | Specificare la password del certificato se il certificato è protetto con una password. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md).  | No |
+| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | No  |
+| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione.| No  |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile scegliere tra Azure Integration Runtime e un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No  |
 
 **Esempio 1: Uso dell'autenticazione anonima**
@@ -119,6 +126,64 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
         }
+    }
+}
+```
+
+**Esempio 4: Uso dell'autenticazione con chiave dell'entità servizio**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of on-premises OData source>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "aadServicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<AAD resource>"
+        }
+    },
+    "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
+**Esempio 5: Uso dell'autenticazione con certificato dell'entità servizio**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of on-premises OData source>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "aadServicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalEmbeddedCert": { 
+                "type": "SecureString", 
+                "value": "<base64 encoded string of (.pfx) certificate data>"
+            },
+            "servicePrincipalEmbeddedCertPassword": { 
+                "type": "SecureString", 
+                "value": "<password of your certificate>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<AAD resource e.g. https://tenant.sharepoint.com>"
+        }
+    },
+    "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
     }
 }
 ```

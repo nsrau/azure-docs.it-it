@@ -1,6 +1,6 @@
 ---
-title: Distribuzione continua da un registro contenitori Docker con l'app Web per contenitori - Azure | Microsoft Docs
-description: Come configurare la distribuzione continua da un registro contenitori Docker con l'app Web per contenitori.
+title: Distribuzione continua con app Web per contenitori | Servizio app di Azure | Microsoft Docs
+description: Come configurare la distribuzione continua in app Web per contenitori.
 keywords: servizio app di azure, linux, docker, acr,oss
 services: app-service
 documentationcenter: ''
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2018
-ms.author: msangapu;yili
-ms.openlocfilehash: b26366edddc223b842cc5d38473bda42422f1840
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.author: yili
+ms.custom: seodec18
+ms.openlocfilehash: 4acadc4c08ef50e7d52303689c38c43f81187669
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298537"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315532"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Distribuzione continua con l'app Web per contenitori
 

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/7/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5ca551c3d85f4f68de4169653452b3cd6faa4c35
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 14e959e4aa26b04ec70cbb03ea3feaf0e93f31c1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638556"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344177"
 ---
 # <a name="durable-functions-overview"></a>Panoramica di Funzioni permanenti
 
@@ -32,7 +32,7 @@ L'estensione consente di definire flussi di lavoro con stato in un nuovo tipo di
 
 Il caso d'uso principale per Funzioni permanenti è la semplificazione di problemi complessi di coordinamento con stato nelle applicazioni senza server. Le sezioni seguenti descrivono alcuni modelli di applicazione tipici che possono trarre vantaggio da Funzioni permanenti.
 
-## <a name="pattern-1-function-chaining"></a>Modello 1: Concatenamento di funzioni
+## <a name="pattern-1-function-chaining"></a>Modello 1 - Concatenamento di funzioni
 
 Il *concatenamento di funzioni* fa riferimento al modello di esecuzione di una sequenza di funzioni in un ordine particolare. Spesso l'output di una funzione deve essere applicato all'input di un'altra funzione.
 
@@ -40,17 +40,17 @@ Il *concatenamento di funzioni* fa riferimento al modello di esecuzione di una s
 
 Funzioni permanenti consente di implementare questo modello nel codice in modo conciso.
 
-#### <a name="c-script"></a>Script C#
+### <a name="c-script"></a>Script C#
 
 ```cs
-public static async Task<object> Run(DurableOrchestrationContext ctx)
+public static async Task<object> Run(DurableOrchestrationContext context)
 {
     try
     {
-        var x = await ctx.CallActivityAsync<object>("F1");
-        var y = await ctx.CallActivityAsync<object>("F2", x);
-        var z = await ctx.CallActivityAsync<object>("F3", y);
-        return  await ctx.CallActivityAsync<object>("F4", z);
+        var x = await context.CallActivityAsync<object>("F1");
+        var y = await context.CallActivityAsync<object>("F2", x);
+        var z = await context.CallActivityAsync<object>("F3", y);
+        return  await context.CallActivityAsync<object>("F4", z);
     }
     catch (Exception)
     {
@@ -58,27 +58,31 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+
 > [!NOTE]
 > Vi sono lievi differenze tra la scrittura di una funzione permanente precompilata in C# e l'esempio di script C# illustrato in precedenza. In una funzione precompilata in C# è necessario che per i parametri permanenti siano definiti i rispettivi attributi. Un esempio è rappresentato dall'attributo `[OrchestrationTrigger]` per il parametro `DurableOrchestrationContext`. Se per i parametri non sono definiti gli attributi corretti, il runtime non è in grado di inserire le variabili della funzione e restituisce un errore. Per altri esempi, visitare [questa pagina](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```js
 const df = require("durable-functions");
 
-module.exports = df.orchestrator(function*(ctx) {
-    const x = yield ctx.df.callActivity("F1");
-    const y = yield ctx.df.callActivity("F2", x);
-    const z = yield ctx.df.callActivity("F3", y);
-    return yield ctx.df.callActivity("F4", z);
+module.exports = df.orchestrator(function*(context) {
+    const x = yield context.df.callActivity("F1");
+    const y = yield context.df.callActivity("F2", x);
+    const z = yield context.df.callActivity("F3", y);
+    return yield context.df.callActivity("F4", z);
 });
 ```
 
 I valori "F1", "F2", "F3" e "F4" sono i nomi delle altre funzioni nell'app per le funzioni. Il flusso di controllo viene implementato usando normali costrutti di codice imperativo. Questo vuol dire che il codice viene eseguito dall'alto verso il basso e può implicare semantica esistente del flusso di controllo, ad esempio istruzioni condizionali e cicli.  La logica di gestione degli errori può essere inclusa in blocchi try/catch/finally.
 
-Il parametro `ctx` ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) fornisce metodi per richiamare altre funzioni tramite il nome, il passaggio di parametri e la restituzione dell'output della funzione. Ogni volta che il codice chiama `await`, Durable Functions framework *imposta checkpoint* sullo stato di avanzamento dell'istanza della funzione corrente. Se il processo o la macchina virtuale viene riciclato durante l'esecuzione, l'istanza della funzione riprende dalla chiamata `await` precedente. Altre informazioni su questo comportamento di riavvio sono disponibili più avanti.
+Il parametro `context` ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) (.NET) e l'oggetto `context.df` (JavaScript) forniscono metodi per chiamare altre funzioni tramite il nome, il passaggio di parametri e la restituzione dell'output della funzione. Ogni volta che il codice chiama `await` (C#) o `yield` (JavaScript), Durable Functions Framework imposta *checkpoint* sullo stato di avanzamento dell'istanza della funzione corrente. Se il processo o la macchina virtuale vengono riciclati durante l'esecuzione, l'istanza della funzione riprende dalla chiamata `await` o `yield` precedente. Altre informazioni su questo comportamento di riavvio sono disponibili più avanti.
 
-## <a name="pattern-2-fan-outfan-in"></a>Modello 2: Fan-out/fan-in
+> [!NOTE]
+> L'oggetto `context` in JavaScript rappresenta il [contesto funzione nel suo complesso] e non DurableOrchestrationContext.(../functions-reference-node.md#context-object).
+
+## <a name="pattern-2-fan-outfan-in"></a>Modello 2 - Fan-out/fan-in
 
 *Fan-out/fan-in* fa riferimento al modello di eseguire più funzioni in parallelo e quindi restare in attesa del completamento di tutte.  Spesso sui risultati restituiti dalle funzioni vengono eseguite alcune operazioni di aggregazione.
 
@@ -86,62 +90,62 @@ Il parametro `ctx` ([DurableOrchestrationContext](https://azure.github.io/azure-
 
 Nelle funzioni normali, il fan-out può essere effettuato facendo in modo che la funzione invii più messaggi a una coda. Effettuare di nuovo il fan-in, tuttavia, è molto più complesso. È necessario scrivere codice per rilevare il completamento delle funzioni attivate dalla coda e archiviare l'output delle funzioni. L'estensione Funzioni permanenti gestisce questo modello con codice relativamente semplice.
 
-#### <a name="c-script"></a>Script C#
+### <a name="c-script"></a>Script C#
 
 ```cs
-public static async Task Run(DurableOrchestrationContext ctx)
+public static async Task Run(DurableOrchestrationContext context)
 {
     var parallelTasks = new List<Task<int>>();
- 
+
     // get a list of N work items to process in parallel
-    object[] workBatch = await ctx.CallActivityAsync<object[]>("F1");
+    object[] workBatch = await context.CallActivityAsync<object[]>("F1");
     for (int i = 0; i < workBatch.Length; i++)
     {
-        Task<int> task = ctx.CallActivityAsync<int>("F2", workBatch[i]);
+        Task<int> task = context.CallActivityAsync<int>("F2", workBatch[i]);
         parallelTasks.Add(task);
     }
- 
+
     await Task.WhenAll(parallelTasks);
- 
+
     // aggregate all N outputs and send result to F3
     int sum = parallelTasks.Sum(t => t.Result);
-    await ctx.CallActivityAsync("F3", sum);
+    await context.CallActivityAsync("F3", sum);
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```js
 const df = require("durable-functions");
 
-module.exports = df.orchestrator(function*(ctx) {
+module.exports = df.orchestrator(function*(context) {
     const parallelTasks = [];
 
     // get a list of N work items to process in parallel
-    const workBatch = yield ctx.df.callActivity("F1");
+    const workBatch = yield context.df.callActivity("F1");
     for (let i = 0; i < workBatch.length; i++) {
-        parallelTasks.push(ctx.df.callActivity("F2", workBatch[i]));
+        parallelTasks.push(context.df.callActivity("F2", workBatch[i]));
     }
 
-    yield ctx.df.task.all(parallelTasks);
+    yield context.df.Task.all(parallelTasks);
 
     // aggregate all N outputs and send result to F3
     const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
-    yield ctx.df.callActivity("F3", sum);
+    yield context.df.callActivity("F3", sum);
 });
 ```
 
-Le operazioni di fan-out vengono distribuite in più istanze della funzione `F2` e vengono monitorate tramite un elenco dinamico di attività. Viene chiamata l'API .NET `Task.WhenAll` per attendere il completamento di tutte le funzioni chiamate. Quindi, gli output della funzione `F2` vengono aggregati dall'elenco di attività dinamiche e passati alla funzione `F3`.
+Le operazioni di fan-out vengono distribuite in più istanze della funzione `F2` e vengono monitorate tramite un elenco dinamico di attività. Viene chiamata l'API .NET `Task.WhenAll` o l'API JavaScript `context.df.Task.all` per attendere il completamento di tutte le funzioni chiamate. Quindi, gli output della funzione `F2` vengono aggregati dall'elenco di attività dinamiche e passati alla funzione `F3`.
 
-L'impostazione automatica di checkpoint che avviene alla chiamata di `await` su `Task.WhenAll` assicura che qualsiasi riavvio o arresto anomalo del sistema durante l'esecuzione non richieda il riavvio di attività già completate.
+L'impostazione automatica di checkpoint che avviene alla chiamata di `await` o `yield` su `Task.WhenAll` o `context.df.Task.all` assicura che qualsiasi riavvio o arresto anomalo del sistema durante l'esecuzione non richieda il riavvio di attività già completate.
 
-## <a name="pattern-3-async-http-apis"></a>Modello 3: API HTTP asincrone
+## <a name="pattern-3-async-http-apis"></a>Modello 3 - API HTTP asincrone
 
 Il terzo modello riguarda il problema di coordinare lo stato di operazioni a esecuzione prolungata con client esterni. Un modo comune per implementare questo modello consiste nel fare in modo che l'azione a esecuzione prolungata sia attivata da una chiamata HTTP, reindirizzando quindi il client a un endpoint di stato su cui possa eseguire il polling per avere informazioni sul completamento dell'operazione.
 
 ![Diagramma API HTTP](./media/durable-functions-overview/async-http-api.png)
 
-Funzioni permanenti integra API incorporate che semplificano il codice da scrivere per l'interazione con l'esecuzione di funzioni a esecuzione prolungata. L'[esempio dell'avvio rapido](durable-functions-create-first-csharp.md) mostra un semplice comando REST che può essere usato per avviare nuove istanze di funzione agente di orchestrazione. Dopo l'avvio di un'istanza, l'estensione espone API HTTP webhook che eseguono query sullo stato della funzione di orchestrazione. L'esempio seguente mostra i comandi REST per avviare un agente di orchestrazione e per eseguire una query sul relativo stato. Per maggiore chiarezza, alcuni dettagli sono omessi dall'esempio.
+Funzioni permanenti integra API incorporate che semplificano il codice da scrivere per l'interazione con l'esecuzione di funzioni a esecuzione prolungata. Gli esempi dell'avvio rapido ([C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md)) mostrano un semplice comando REST che può essere usato per avviare nuove istanze di funzione agente di orchestrazione. Dopo l'avvio di un'istanza, l'estensione espone API HTTP webhook che eseguono query sullo stato della funzione di orchestrazione. L'esempio seguente mostra i comandi REST per avviare un agente di orchestrazione e per eseguire una query sul relativo stato. Per maggiore chiarezza, alcuni dettagli sono omessi dall'esempio.
 
 ```
 > curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
@@ -168,7 +172,9 @@ Content-Type: application/json
 
 Poiché lo stato è gestito dal runtime di Funzioni permanenti, non è necessario implementare un meccanismo personalizzato di monitoraggio dello stato.
 
-Anche se l'estensione Funzioni permanenti ha webhook incorporati per la gestione delle orchestrazioni a esecuzione prolungata, è possibile implementare questo modello usando trigger di funzione personalizzati ad esempio HTTP, coda o Hub eventi, e il binding `orchestrationClient`. Ad esempio, è possibile usare un messaggio di coda per attivare la terminazione.  In alternativa, è possibile usare un trigger HTTP protetto da un criterio di autenticazione di Azure Active Directory anziché webhook incorporati che per l'autenticazione usano una chiave generata. 
+Anche se l'estensione Funzioni permanenti ha webhook incorporati per la gestione delle orchestrazioni a esecuzione prolungata, è possibile implementare questo modello usando trigger di funzione personalizzati ad esempio HTTP, coda o Hub eventi, e il binding `orchestrationClient`. Ad esempio, è possibile usare un messaggio di coda per attivare la terminazione.  In alternativa, è possibile usare un trigger HTTP protetto da un criterio di autenticazione di Azure Active Directory anziché webhook incorporati che per l'autenticazione usano una chiave generata.
+
+### <a name="c"></a>C#
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -182,18 +188,43 @@ public static async Task<HttpResponseMessage> Run(
     // Function input comes from the request content.
     dynamic eventData = await req.Content.ReadAsAsync<object>();
     string instanceId = await starter.StartNewAsync(functionName, eventData);
-    
+
     log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
-    
+
     return starter.CreateCheckStatusResponse(req, instanceId);
 }
 ```
 
-Il parametro `starter` di [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) è un valore proveniente dal binding di output `orchestrationClient`, incluso nell'estensione Funzioni permanenti. Fornisce metodi per avviare istanze di una funzione di orchestrazione, inviarle eventi, terminarla o eseguire query su istanze della funzione di orchestrazione nuove o esistenti. Nell'esempio precedente una funzione attivata tramite HTTP accetta un valore `functionName` dall'URL in ingresso e lo passa a [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Questa API di binding restituisce quindi una risposta che contiene un'intestazione `Location` e ulteriori informazioni sull'istanza, che in seguito possono essere usate per cercare lo stato dell'istanza avviata o terminarla.
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
-## <a name="pattern-4-monitoring"></a>Modello 4: Monitoraggio
+```javascript
+// HTTP-triggered function to start a new orchestrator function instance.
+const df = require("durable-functions");
 
-Il modello di monitoraggio fa riferimento a un processo *ricorrente* flessibile in un flusso di lavoro, ad esempio il polling finché vengono soddisfatte determinate condizioni. Un normale trigger timer può essere applicato a un semplice scenario, ad esempio un processo di pulizia periodico, ma l'intervallo è statico e la gestione delle durate delle istanze diventa complessa. Funzioni durevoli abilita gli intervalli di ricorrenza flessibili, la gestione delle durate delle attività e la possibilità di creare più processi di monitoraggio da una singola orchestrazione.
+module.exports = async function (context, req) {
+    const client = df.getClient(context);
+
+    // Function name comes from the request URL.
+    // Function input comes from the request content.
+    const eventData = req.body;
+    const instanceId = await client.startNew(req.params.functionName, undefined, eventData);
+
+    context.log(`Started orchestration with ID = '${instanceId}'.`);
+
+    return client.createCheckStatusResponse(req, instanceId);
+};
+```
+
+> [!WARNING]
+> Quando si sviluppa in locale con JavaScript, è necessario impostare la variabile di ambiente `WEBSITE_HOSTNAME` su `localhost:<port>`, ad esempio `localhost:7071` per usare i metodi su `DurableOrchestrationClient`. Per altre informazioni su questo requisito, vedere il [problema GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
+
+In .NET, il parametro [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` è un valore proveniente dal binding di output `orchestrationClient`, incluso nell'estensione Durable Functions. In JavaScript, questo oggetto viene restituito chiamando `df.getClient(context)`. Questi oggetti forniscono metodi per avviare istanze di una funzione di orchestrazione, inviarle eventi, terminarla o eseguire query su istanze della funzione di orchestrazione nuove o esistenti.
+
+Nell'esempio precedente una funzione attivata tramite HTTP accetta un valore `functionName` dall'URL in ingresso e lo passa a [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). L'API di binding [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) restituisce quindi una risposta che contiene un'intestazione `Location` e altre informazioni sull'istanza, che in seguito possono essere usate per cercare lo stato dell'istanza avviata o terminarla.
+
+## <a name="pattern-4-monitoring"></a>Modello 4 - Monitoraggio
+
+Il modello di monitoraggio fa riferimento a un processo *ricorrente* flessibile in un flusso di lavoro, ad esempio il polling finché vengono soddisfatte determinate condizioni. Un normale [trigger timer](../functions-bindings-timer.md) può essere applicato a un semplice scenario, ad esempio un processo di pulizia periodico, ma l'intervallo è statico e la gestione delle durate delle istanze diventa complessa. Funzioni durevoli abilita gli intervalli di ricorrenza flessibili, la gestione delle durate delle attività e la possibilità di creare più processi di monitoraggio da una singola orchestrazione.
 
 Un esempio può essere l'inversione dello scenario API HTTP asincrono precedente. Invece di esporre un endpoint per un client esterno per monitorare un'operazione con esecuzione prolungata, il monitoraggio con esecuzione prolungata utilizza un endpoint esterno, in attesa di un cambiamento di stato.
 
@@ -201,65 +232,65 @@ Un esempio può essere l'inversione dello scenario API HTTP asincrono precedente
 
 Usando Funzioni durevoli, in poche righe di codice si possono creare più monitoraggi che osservano gli endpoint arbitrari. I monitoraggi possono terminare l'esecuzione quando una condizione viene soddisfatta oppure essere terminati da [DurableOrchestrationClient](durable-functions-instance-management.md) e l'intervallo di attesa può essere modificato in base ad alcune condizioni (ad esempio, il backoff esponenziale). Il codice seguente implementa un monitoraggio di base.
 
-#### <a name="c-script"></a>Script C#
+### <a name="c-script"></a>Script C#
 
 ```cs
-public static async Task Run(DurableOrchestrationContext ctx)
+public static async Task Run(DurableOrchestrationContext context)
 {
-    int jobId = ctx.GetInput<int>();
+    int jobId = context.GetInput<int>();
     int pollingInterval = GetPollingInterval();
     DateTime expiryTime = GetExpiryTime();
-    
-    while (ctx.CurrentUtcDateTime < expiryTime) 
+
+    while (context.CurrentUtcDateTime < expiryTime)
     {
-        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        var jobStatus = await context.CallActivityAsync<string>("GetJobStatus", jobId);
         if (jobStatus == "Completed")
         {
             // Perform action when condition met
-            await ctx.CallActivityAsync("SendAlert", machineId);
+            await context.CallActivityAsync("SendAlert", machineId);
             break;
         }
 
         // Orchestration will sleep until this time
-        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
-        await ctx.CreateTimer(nextCheck, CancellationToken.None);
+        var nextCheck = context.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await context.CreateTimer(nextCheck, CancellationToken.None);
     }
 
     // Perform further work here, or let the orchestration end
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```js
 const df = require("durable-functions");
 const moment = require("moment");
 
-module.exports = df.orchestrator(function*(ctx) {
-    const jobId = ctx.df.getInput();
+module.exports = df.orchestrator(function*(context) {
+    const jobId = context.df.getInput();
     const pollingInternal = getPollingInterval();
     const expiryTime = getExpiryTime();
 
-    while (moment.utc(ctx.df.currentUtcDateTime).isBefore(expiryTime)) {
-        const jobStatus = yield ctx.df.callActivity("GetJobStatus", jobId);
+    while (moment.utc(context.df.currentUtcDateTime).isBefore(expiryTime)) {
+        const jobStatus = yield context.df.callActivity("GetJobStatus", jobId);
         if (jobStatus === "Completed") {
             // Perform action when condition met
-            yield ctx.df.callActivity("SendAlert", machineId);
+            yield context.df.callActivity("SendAlert", machineId);
             break;
         }
 
         // Orchestration will sleep until this time
-        const nextCheck = moment.utc(ctx.df.currentUtcDateTime).add(pollingInterval, 's');
-        yield ctx.df.createTimer(nextCheck.toDate());
+        const nextCheck = moment.utc(context.df.currentUtcDateTime).add(pollingInterval, 's');
+        yield context.df.createTimer(nextCheck.toDate());
     }
 
     // Perform further work here, or let the orchestration end
 });
 ```
 
-Quando viene ricevuta una richiesta, viene creata una nuova istanza di orchestrazione per tale ID di processo. L'istanza esegue il polling di uno stato fino a quando non viene soddisfatta una condizione e terminato il ciclo. Un timer durevole viene usato per controllare l'intervallo di polling. Possono quindi essere eseguite ulteriori attività oppure l'orchestrazione può terminare. Quando `ctx.CurrentUtcDateTime` supera `expiryTime`, il monitoraggio termina.
+Quando viene ricevuta una richiesta, viene creata una nuova istanza di orchestrazione per tale ID di processo. L'istanza esegue il polling di uno stato fino a quando non viene soddisfatta una condizione e terminato il ciclo. Un timer durevole viene usato per controllare l'intervallo di polling. Possono quindi essere eseguite ulteriori attività oppure l'orchestrazione può terminare. Quando `context.CurrentUtcDateTime` (.NET) o `context.df.currentUtcDateTime` (JavaScript) superano `expiryTime`, il monitoraggio termina.
 
-## <a name="pattern-5-human-interaction"></a>Modello 5: Interazione umana
+## <a name="pattern-5-human-interaction"></a>Modello 5 - Interazione umana
 
 Molti processi comportano un'interazione umana di qualche tipo. Il problema quando un processo automatizzato coinvolge delle persone è che queste ultime non sempre sono disponibili e reattive quanto i servizi cloud. I processi automatizzati devono tenerne conto e spesso lo fanno usando timeout e logica di compensazione.
 
@@ -269,54 +300,54 @@ Un esempio di processo di business con interazione umana è un processo di appro
 
 Questo modello può essere implementato usando una funzione di orchestrazione. L'agente di orchestrazione userà un [timer permanente](durable-functions-timers.md) per richiedere l'approvazione ed eseguire l'escalation in caso di timeout. Attenderà un [evento esterno](durable-functions-external-events.md), che potrebbe essere la notifica generata da un'interazione umana.
 
-#### <a name="c-script"></a>Script C#
+### <a name="c-script"></a>Script C#
 
 ```cs
-public static async Task Run(DurableOrchestrationContext ctx)
+public static async Task Run(DurableOrchestrationContext context)
 {
-    await ctx.CallActivityAsync("RequestApproval");
+    await context.CallActivityAsync("RequestApproval");
     using (var timeoutCts = new CancellationTokenSource())
     {
-        DateTime dueTime = ctx.CurrentUtcDateTime.AddHours(72);
-        Task durableTimeout = ctx.CreateTimer(dueTime, timeoutCts.Token);
+        DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
+        Task durableTimeout = context.CreateTimer(dueTime, timeoutCts.Token);
 
-        Task<bool> approvalEvent = ctx.WaitForExternalEvent<bool>("ApprovalEvent");
+        Task<bool> approvalEvent = context.WaitForExternalEvent<bool>("ApprovalEvent");
         if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
         {
             timeoutCts.Cancel();
-            await ctx.CallActivityAsync("ProcessApproval", approvalEvent.Result);
+            await context.CallActivityAsync("ProcessApproval", approvalEvent.Result);
         }
         else
         {
-            await ctx.CallActivityAsync("Escalate");
+            await context.CallActivityAsync("Escalate");
         }
     }
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```js
 const df = require("durable-functions");
 const moment = require('moment');
 
-module.exports = df.orchestrator(function*(ctx) {
-    yield ctx.df.callActivity("RequestApproval");
+module.exports = df.orchestrator(function*(context) {
+    yield context.df.callActivity("RequestApproval");
 
-    const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
-    const durableTimeout = ctx.df.createTimer(dueTime.toDate());
+    const dueTime = moment.utc(context.df.currentUtcDateTime).add(72, 'h');
+    const durableTimeout = context.df.createTimer(dueTime.toDate());
 
-    const approvalEvent = ctx.df.waitForExternalEvent("ApprovalEvent");
-    if (approvalEvent === yield ctx.df.Task.any([approvalEvent, durableTimeout])) {
+    const approvalEvent = context.df.waitForExternalEvent("ApprovalEvent");
+    if (approvalEvent === yield context.df.Task.any([approvalEvent, durableTimeout])) {
         durableTimeout.cancel();
-        yield ctx.df.callActivity("ProcessApproval", approvalEvent.result);
+        yield context.df.callActivity("ProcessApproval", approvalEvent.result);
     } else {
-        yield ctx.df.callActivity("Escalate");
+        yield context.df.callActivity("Escalate");
     }
 });
 ```
 
-Il timer permanente viene creato chiamando `ctx.CreateTimer`. La notifica viene ricevuta da `ctx.WaitForExternalEvent`. Viene chiamato `Task.WhenAny` per decidere se eseguire l'escalation (si verifica prima il timeout) o elaborare l'approvazione (l'approvazione viene ricevuta prima del timeout).
+Il timer permanente viene creato chiamando `context.CreateTimer` (.NET) o `context.df.createTimer` (JavaScript). La notifica viene ricevuta da `context.WaitForExternalEvent` (.NET) o `context.df.waitForExternalEvent` (JavaScript). Viene chiamato `Task.WhenAny` (.NET) o `context.df.Task.any` (JavaScript) per decidere se eseguire l'escalation (si verifica prima il timeout) o elaborare l'approvazione (l'approvazione viene ricevuta prima del timeout).
 
 Un client esterno può recapitare la notifica degli eventi a una funzione dell'agente di orchestrazione in attesa tramite le [API HTTP incorporate](durable-functions-http-api.md#raise-event) oppure tramite l'API [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) da un'altra funzione:
 
@@ -328,6 +359,16 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const isApproved = true;
+    await client.raiseEvent(instanceId, "ApprovalEvent", isApproved);
+};
+```
+
 ## <a name="the-technology"></a>La tecnologia
 
 L'estensione Funzioni durevoli è basata su [Durable Task Framework](https://github.com/Azure/durabletask), una libreria open source su GitHub per la creazione di orchestrazioni di attività durevoli. Così come Funzioni di Azure è l'evoluzione senza server di Processi Web di Azure, Funzioni permanenti è l'evoluzione senza server di Durable Task Framework. Durable Task Framework è molto usato in Microsoft e all'esterno anche per automatizzare i processi cruciali. È una scelta ideale per l'ambiente senza server di Funzioni di Azure.
@@ -336,7 +377,7 @@ L'estensione Funzioni durevoli è basata su [Durable Task Framework](https://git
 
 Le funzioni di orchestrazione mantengono in modo affidabile il proprio stato di esecuzione usando uno schema progettuale noto come [Origine eventi](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Anziché archiviare direttamente lo stato *corrente* di un'orchestrazione, l'estensione Funzioni permanenti usa un archivio di solo accodamento per registrare la *serie completa di azioni* eseguita dall'orchestrazione di funzioni. Questo offre numerosi vantaggi, tra cui il miglioramento delle prestazioni, della scalabilità e della velocità di risposta rispetto al dump completo dello stato di runtime. Inoltre, consente di garantire coerenza finale ai dati transazionali e mantenere dati di cronologia e audit trail completi, che consentono di eseguire azioni di compensazione affidabili.
 
-L'uso dell'origine eventi da parte di questa estensione è trasparente. Dietro le quinte, l'operatore `await` in una funzione di orchestrazione restituisce il controllo del thread di orchestrazione al dispatcher di Durable Task Framework. Il dispatcher quindi esegue il commit di eventuali nuove azioni pianificate dalla funzione di orchestrazione (ad esempio, la chiamata di una o più funzioni figlio o la pianificazione di un timer permanente) in un archivio. Questa azione di commit trasparente viene accodata alla *cronologia di esecuzione* dell'istanza di orchestrazione. La cronologia viene archiviata in una tabella di archiviazione. L'azione di commit aggiunge quindi messaggi a una coda per pianificare le operazioni effettive. A questo punto, la funzione di orchestrazione può essere scaricata dalla memoria. Se si usa il piano a consumo di Funzioni di Azure, la fatturazione per la funzione si interrompe.  Quando ci sono altre operazioni da eseguire, la funzione viene riavviata e il relativo stato viene ricostruito.
+L'uso dell'origine eventi da parte di questa estensione è trasparente. Dietro le quinte, l'operatore `await` (C#) o `yield` (JavaScript) in una funzione di orchestrazione restituisce il controllo del thread di orchestrazione al dispatcher di Durable Task Framework. Il dispatcher quindi esegue il commit di eventuali nuove azioni pianificate dalla funzione di orchestrazione (ad esempio, la chiamata di una o più funzioni figlio o la pianificazione di un timer permanente) in un archivio. Questa azione di commit trasparente viene accodata alla *cronologia di esecuzione* dell'istanza di orchestrazione. La cronologia viene archiviata in una tabella di archiviazione. L'azione di commit aggiunge quindi messaggi a una coda per pianificare le operazioni effettive. A questo punto, la funzione di orchestrazione può essere scaricata dalla memoria. Se si usa il piano a consumo di Funzioni di Azure, la fatturazione per la funzione si interrompe.  Quando ci sono altre operazioni da eseguire, la funzione viene riavviata e il relativo stato viene ricostruito.
 
 Quando a una funzione di orchestrazione vengono assegnate altre operazioni da eseguire (ad esempio, viene ricevuto un messaggio di risposta o un timer permanente scade), l'agente di orchestrazione si riattiva ed esegue nuovamente l'intera funzione dall'inizio per ricompilare lo stato locale. Se durante la riesecuzione il codice tenta di chiamare una funzione o di eseguire altro lavoro asincrono, Durable Task Framework esamina la *cronologia di esecuzione* dell'orchestrazione corrente. Se rileva che la [funzione di attività](durable-functions-types-features-overview.md#activity-functions) è già stata eseguita e ha restituito un risultato, riesegue il risultato della funzione e l'esecuzione del codice dell'agente di orchestrazione continua. Il processo continua finché il codice della funzione non giunge a un punto in cui termina o viene pianificato nuovo lavoro asincrono.
 
@@ -346,7 +387,7 @@ Questo comportamento di riesecuzione crea vincoli rispetto al tipo di codice che
 
 ## <a name="language-support"></a>Supporto per le lingue
 
-Attualmente C# (funzioni v1 e v2), F# e JavaScript (solo funzioni v2) sono gli unici linguaggi supportati per Funzioni permanenti. Questo include le funzioni di orchestrazione e le funzioni di attività. In futuro verrà aggiunto il supporto per tutti i linguaggi supportati da Funzioni di Azure. Per informazioni sullo stato attuale del supporto di linguaggi aggiuntivi, vedere l'[elenco di problemi del repository GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) di Funzioni di Azure.
+Attualmente C# (Funzioni 1.x e 2.x), F# e JavaScript (solo Funzioni 2.x, Durable Functions 1.7.0 o versione successiva) sono gli unici linguaggi supportati per Durable Functions. Questo include le funzioni di orchestrazione e le funzioni di attività. In futuro verrà aggiunto il supporto per tutti i linguaggi supportati da Funzioni di Azure. Per informazioni sullo stato attuale del supporto di linguaggi aggiuntivi, vedere l'[elenco di problemi del repository GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) di Funzioni di Azure.
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
 
@@ -368,7 +409,7 @@ L'estensione Funzioni permanenti usa code, tabelle e BLOB di Archiviazione di Az
 
 Le funzioni di orchestrazione pianificano le funzioni attività e ricevono le relative risposte tramite messaggi di coda interni. Quando si esegue un'app per le funzioni nel piano a consumo di Funzioni di Azure, le code vengono monitorate dal [controller di scalabilità di Funzioni di Azure](../functions-scale.md#how-the-consumption-plan-works) e nuove istanze di calcolo vengono aggiunte in base alle esigenze. Quando viene scalata orizzontalmente a più macchine virtuali, una funzione di orchestrazione può essere eseguita in una sola macchina virtuale mentre le funzioni attività da essa chiamate vengono eseguite su più macchine virtuali diverse. Per altre informazioni sul comportamento di scalabilità di Funzioni permanenti, vedere [Scalabilità e prestazioni](durable-functions-perf-and-scale.md).
 
-Per archiviare la cronologia di esecuzione per gli account dell'agente di orchestrazione viene usata l'archiviazione tabelle. Ogni volta che un'istanza viene riattivata in una determinata macchina virtuale, recupera la cronologia di esecuzione dall'archiviazione tabelle in modo da poter ricompilare il suo stato locale. Uno degli aspetti utili della disponibilità della cronologia nell'archiviazione tabelle è che consente di esaminare la cronologia delle orchestrazioni tramite strumenti come [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Per archiviare la cronologia di esecuzione per gli account dell'agente di orchestrazione viene usata l'archiviazione tabelle. Ogni volta che un'istanza viene riattivata in una determinata macchina virtuale, recupera la cronologia di esecuzione dall'archiviazione tabelle in modo da poter ricompilare il suo stato locale. Uno degli aspetti utili della disponibilità della cronologia nell'archiviazione tabelle è che consente di esaminare la cronologia delle orchestrazioni tramite strumenti come [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 I BLOB di archiviazione vengono usati principalmente come meccanismo di leasing per coordinare lo scale-out delle istanze di orchestrazione tra più macchine virtuali, nonché per contenere dati di messaggi di grandi dimensioni che non possono essere archiviati direttamente in tabelle o code.
 

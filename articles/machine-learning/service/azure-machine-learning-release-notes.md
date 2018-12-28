@@ -1,6 +1,7 @@
 ---
-title: Novità in Azure Machine Learning
-description: Questo documento illustra in dettaglio gli aggiornamenti di Azure Machine Learning.
+title: Novità della versione
+titleSuffix: Azure Machine Learning service
+description: Informazioni sugli aggiornamenti più recenti del servizio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,85 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 10/24/2018
-ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 34d084bc4115d0abf8f57c576c16330611f3a21b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291341"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409871"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
 Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine Learning. 
+
+## <a name="2018-12-04-general-availability"></a>2018-12-04: Disponibilità generale
+
+Il servizio Azure Machine Learning è ora disponibile a livello generale.
+
+### <a name="azure-machine-learning-compute"></a>Ambiente di calcolo di Azure Machine Learning
+Con questa versione, annunciamo una nuova esperienza di calcolo gestita tramite [Ambiente di calcolo di Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute). Questo ambiente di calcolo può essere usato per l'inferenza di Training e Batch, è un ambiente di calcolo singolo e per più node e si occupa della gestione del cluster e della pianificazione dei processi per l'utente. Viene ridimensionato automaticamente per impostazione predefinita, include il supporto per le risorse di CPU e GPU e consente anche l'uso di macchine virtuali con priorità bassa per una riduzione dei costi. Sostituisce l'ambiente di calcolo di Batch per intelligenza artificiale per Azure Machine Learning.
+  
+L'ambiente di calcolo di Azure Machine Learning può essere creato in Python, tramite il portale di Azure o l'interfaccia della riga di comando. Deve essere creato nella zona dell'area di lavoro e non può essere collegato ad altre aree di lavoro. Questo ambiente di calcolo utilizza un contenitore Docker per l'esecuzione e i pacchetti delle dipendenze per replicare lo stesso ambiente in tutti i nodi.
+
+> [!Warning]
+> È consigliabile creare una nuova area di lavoro per usare l'ambiente di calcolo di Azure Machine Learning. C'è una possibilità remota che gli utenti che tentano di creare l'ambiente di calcolo di Azure Machine Learning da un'area di lavoro esistente visualizzino un errore. L'ambiente di calcolo esistente nell'area di lavoro deve continuare a lavorare senza problemi.
+
+### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine Learning SDK per Python v1.0.2
++ **Modifiche di rilievo**
+  + Con questa versione, si rimuoverà il supporto per la creazione di una macchina virtuale da Azure Machine Learning. È comunque possibile associare una macchina virtuale del cloud esistente o un server remoto in locale. 
+  + Verrà rimosso anche il supporto per BatchAI, che ora dovrà essere supportato tramite l'ambiente di calcolo di Azure Machine Learning.
+
++ **Nuovo**
+  + Per le pipeline di apprendimento automatico:
+    + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
+    + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
+    + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
+
+
++ **Aggiornato**
+  + Per le pipeline di apprendimento automatico:
+    + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) ora accetta runconfig
+    + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) ora copia da e verso un'origine dati SQL
+    + Pianificare la funzionalità in SDK per creare e aggiornare le pianificazioni per l'esecuzione di pipeline pubblicate
+
+<!--+ **Bugs fixed**-->
+
+### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning Data Prep SDK v0.5.2
++ **Modifiche di rilievo** 
+  * `SummaryFunction.N` è stato rinominato `SummaryFunction.Count`.
+  
++ **Correzioni di bug**
+  * Usare il più recente token di esecuzione di Azure Machine Learning durante la lettura e la scrittura negli archivi dati in esecuzioni remote. Precedentemente, se il Token di esecuzione di Azure Machine Learning viene aggiornato in Python, il runtime di preparazione dei dati non viene aggiornato con il token di esecuzione di Azure Machine Learning aggiornato.
+  * Altri messaggi di errore più chiari
+  * to_spark_dataframe() non viene più interrotta quando Spark usa la serializzazione Kryo
+  * L'ispettore del conteggio del valore può ora mostrare più di 1000 valori univoci
+  * La Divisione casuale non commette più errori se il flusso di dati originale non ha un nome  
+
++ **Altre informazioni**
+  * [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
+
+### <a name="docs-and-notebooks"></a>Documentazione e notebook
++ Pipeline di Machine Learning
+  + Notebook nuovi e aggiornati per iniziare con le pipeline, la definizione dell'ambito di batch e gli esempi di trasferimenti di stile: https://aka.ms/aml-pipeline-notebooks
+  + Informazioni su come [creare la prima pipeline](how-to-create-your-first-pipeline.md)
+  + Informazioni su come [eseguire previsioni in batch utilizzando le pipeline](how-to-run-batch-predictions.md)
++ Ambiente di calcolo di Azure Machine Learning
+  + [I notebook di esempio] (https://aka.ms/aml-notebooks) vengono ora aggiornati per usare questo nuovo ambiente di calcolo gestito.
+  + [Informazioni su questo ambiente di calcolo](how-to-set-up-training-targets.md#amlcompute)
+
+### <a name="azure-portal-new-features"></a>Portale di Azure: nuove funzionalità
++ Creare e gestire i tipi di [Ambiente di calcolo di Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) nel portale.
++ Monitorare l'utilizzo della quota e [richiedere una quota](how-to-manage-quotas.md) per l'ambiente di calcolo di Azure Machine Learning.
++ Visualizzare lo stato del cluster dell'ambiente di calcolo di Azure Machine Learning in tempo reale.
++ È stato aggiunto il supporto di rete virtuale per la creazione dell'ambiente di calcolo di Azure Machine Learning e del servizio Azure Kubernetes.
++ Eseguire di nuovo le pipeline pubblicate con i parametri esistenti.
++ Nuovi [grafici automatizzati di apprendimento automatico](how-to-track-experiments.md#auto) per i modelli di classificazione (accuratezza, miglioramenti, calibrazione, grafico dell'importanza delle funzionalità con la spiegabilità del modello) e i modelli di regressione (valori residui e grafico di importanza della funzionalità con la spiegabilità del modello). 
++ Le pipeline possono essere visualizzate nel portale di Azure
+
+
+
 
 ## <a name="2018-11-20"></a>20-11-2018
 
@@ -167,9 +236,9 @@ La [versione 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) include le
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (aggiornamento dell'anteprima pubblica)
 
-Una nuova versione completamente aggiornata di Azure Machine Learning. Per altre informazioni, visitare https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+Una nuova versione completamente aggiornata di Azure Machine Learning: Per altre informazioni su questa versione: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## <a name="older-notes-sept-2017---jun-2018"></a>Note sulle versioni meno recenti: settembre 2017 - giugno 2018
+## <a name="older-notes-sept-2017---jun-2018"></a>Note precedenti: Settembre 2017 - giugno 2018
 ### <a name="2018-05-sprint-5"></a>Sprint 5 05-2018
 
 Con questa versione di Azure Machine Learning, è possibile:
@@ -181,7 +250,7 @@ Con questa versione di Azure Machine Learning, è possibile:
   + [Previsione](../desktop-workbench/how-to-build-deploy-forecast-models.md)
 
 ### <a name="2018-03-sprint-4"></a>Sprint 4 03-2018
-**Numero di versione**: 0.1.1801.24353 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Numero di versione**: 0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione in uso](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
 Molti degli aggiornamenti riportati di seguito sono una conseguenza diretta dei commenti ricevuti. Si prega di continuare a inviare i propri commenti!
@@ -235,7 +304,7 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 
 
 ### <a name="2018-01-sprint-3"></a>Sprint 3 01-2018 
-**Numero di versione**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Numero di versione**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione in uso](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Di seguito è riportato un elenco degli aggiornamenti e miglioramenti in questo sprint. Molti degli aggiornamenti sono una conseguenza diretta del feedback ricevuto. 
 
@@ -270,7 +339,7 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
   - Abilitata la configurazione dell'ambiente locale per le sottoscrizioni gratuite 
 
 ### <a name="2017-12-sprint-2-qfe"></a>Sprint 2 QFE 12-2017 
-**Numero di versione**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Numero di versione**: 0.1.1711.15323  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione in uso](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Questa è la versione QFE (Quick Fix Engineering), una versione minore. In questa versione sono stati risolti alcuni problemi di telemetria e per il team di prodotto risulta più semplice comprendere meglio l'uso del prodotto. Le conoscenze acquisite potranno essere quindi sfruttate nell'impegno futuro per il miglioramento dell'esperienza del prodotto. 
 
@@ -280,7 +349,7 @@ Sono inoltre disponibili due aggiornamenti importanti:
 - Nello strumento della riga di comando non è più necessario essere un proprietario della sottoscrizione di Azure per eseguire il provisioning di cluster ACS di calcolo di Machine Learning. 
 
 ### <a name="2017-12-sprint-2"></a>Sprint 2 12-2017
-**Numero di versione**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Numero di versione**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione in uso](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Benvenuti al terzo aggiornamento di Azure Machine Learning, che include miglioramenti all'app Workbench, all'interfaccia della riga di comando e ai servizi back-end. Si ringrazia per i commenti inviati. Molti degli aggiornamenti riportati di seguito sono una conseguenza diretta dei commenti ricevuti. 
 
@@ -379,12 +448,12 @@ Per altre informazioni sulla creazione di destinazioni di calcolo, vedere [Confi
     - `az ml computetarget attach --type cluster` è ora `az ml computetarget attach cluster`
 
 ### <a name="2017-11-sprint-1"></a>Sprint 1 11-2017 
-**Numero di versione**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Numero di versione**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione in uso](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 In questa versione sono stati apportati miglioramenti alla sicurezza, alla stabilità e alla manutenibilità nell'app Workbench, dell'interfaccia della riga di comando e del livello di servizi back-end. Si ringrazia per i commenti inviati. Molti degli aggiornamenti riportati di seguito sono una conseguenza diretta dei commenti ricevuti. Si prega di continuare a inviarli!
 
 #### <a name="notable-new-features"></a>Nuove funzionalità importanti
-- Azure ML è ora disponibile in due nuove aree di Azure: **Europa occidentale** e **Asia sud-orientale**. Queste vanno a unirsi alle precedenti aree **Stati Uniti orientali 2**, **Stati Uniti centro-occidentali** e **Australia orientale**, portando a cinque il numero totale di aree di distribuzione.
+- Azure Machine Learning è ora disponibile in due nuove aree di Azure: **Europa occidentale** e **Asia sud-orientale**. Queste vanno a unirsi alle precedenti aree **Stati Uniti orientali 2**, **Stati Uniti centro-occidentali** e **Australia orientale**, portando a cinque il numero totale di aree di distribuzione.
 - È stata abilitata l'evidenziazione della sintassi del codice Python nell'app Workbench per facilitare la lettura e la modifica del codice sorgente Python. 
 - Ora è possibile avviare l'IDE preferito direttamente da un file, anziché dall'intero progetto.  Aprendo un file in Workbench e facendo clic su "Modifica" si avvia l'IDE (attualmente sono supportati VS Code e PyCharm ) con il file e il progetto correnti aperti.  È anche possibile fare clic sulla freccia accanto al pulsante Modifica per modificare il file nell'editor di testo di Workbench.  I file sono di sola lettura fino a quando non si fa clic su Modifica, impedendo modifiche accidentali.
 - La diffusa libreria di tracciati `matplotlib` versione 2.1.0 viene ora fornita con l'app Workbench.
@@ -501,7 +570,7 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 
 
 ### <a name="2017-10-sprint-0"></a>Sprint 0 10-2017 
-**Numero di versione**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Numero di versione**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione in uso](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 È uscito il primo aggiornamento di Azure Machine Learning Workbench in seguito alla versione di anteprima pubblica iniziale in occasione della conferenza Microsoft Ignite 2017. Gli aggiornamenti principali di questa versione sono costituiti da correzioni relative all'affidabilità e alla stabilizzazione.  Ecco alcuni dei problemi critici risolti:
 

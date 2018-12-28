@@ -1,11 +1,12 @@
 ---
 title: Uso della macchina virtuale di data science con intelligenza artificiale geografica - Azure | Microsoft Docs
-description: Come usare una macchina virtuale con intelligenza artificiale geografica in Azure.
+description: Informazioni su come usare la Data Science Virtual Machine Geo intelligenza artificiale per analizzare i dati e costruire modelli basati su dati geospaziali.
 keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: f346b086a0269f247d64edf9346b01849ba3d0ee
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 872bfdfdef28dbb88861b723bd3186faea461cad
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408038"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410007"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Uso della macchina virtuale di data science con intelligenza artificiale geografica
 
@@ -42,11 +43,11 @@ Il bridge R per ArcGIS viene installato come libreria R denominata [arcgisbindin
 Oltre agli esempi basati su framework di apprendimento automatico e apprendimento avanzato della VM di data science di base, nell'ambito della VM di data science con intelligenza artificiale geografica viene anche fornito un set di esempi geospaziali. Questi esempi consentono di iniziare rapidamente lo sviluppo di applicazioni per l'intelligenza artificiale usando i dati geospaziali e il software ArcGIS. 
 
 
-1. [Introduzione all'analisi geospaziale con Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): esempio introduttivo che illustra come usare i dati geospaziali con l'interfaccia di Python per ArcGIS fornita dalla libreria [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm). Illustra anche come combinare il tradizionale apprendimento automatico con i dati geospaziali e visualizzare il risultato su una mappa in ArcGIS. 
+1. [Introduzione all'analisi geospaziale con Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Esempio introduttivo che illustra come usare i dati geospaziali con l'interfaccia di Python per ArcGIS fornita dalla libreria [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm). Illustra anche come combinare il tradizionale apprendimento automatico con i dati geospaziali e visualizzare il risultato su una mappa in ArcGIS. 
 
-2. [Introduzione all'analisi geospaziale con R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): esempio introduttivo che illustra come usare i dati geospaziali con l'interfaccia di R per ArcGIS fornita dalla libreria [arcgisbinding](https://github.com/R-ArcGIS/r-bridge). 
+2. [Introduzione all'analisi geospaziale con R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Esempio introduttivo che illustra come usare i dati geospaziali con l'interfaccia di R per ArcGIS fornita dalla libreria [arcgisbinding](https://github.com/R-ArcGIS/r-bridge). 
 
-3. [Classificazione dell'uso del suolo a livello di pixel](https://github.com/Azure/pixel_level_land_classification): esercitazione che illustra come creare un modello di rete neurale profonda che accetta un'immagine aerea come input e restituisce un'etichetta relativa alla copertura del suolo. Esempi di etichette indicanti la copertura del suolo sono "coperto da vegetazione" o "acqua". Il modello restituisce tale etichetta per ogni pixel dell'immagine. Il modello viene compilato usando il framework di apprendimento avanzato [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) open source di Microsoft. L'esempio illustra anche come aumentare il numero di istanze del training su [Azure Batch per intelligenza artificiale](https://docs.microsoft.com/azure/batch-ai/) e usare le stime del modello nel software ArcGIS Pro. 
+3. [Classificazione dell'uso del suolo a livello di pixel](https://github.com/Azure/pixel_level_land_classification): Esercitazione che illustra come creare un modello di rete neurale profonda che accetta un'immagine aerea come input e restituisce un'etichetta relativa alla copertura del suolo. Esempi di etichette indicanti la copertura del suolo sono "coperto da vegetazione" o "acqua". Il modello restituisce tale etichetta per ogni pixel dell'immagine. Il modello viene compilato usando il framework di apprendimento avanzato [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) open source di Microsoft. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -10,14 +10,14 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345204"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256399"
 ---
-# <a name="translator-speech-api-languages"></a>API Traduzione vocale: lingue
+# <a name="translator-speech-api-languages"></a>API Traduzione vocale: Lingue
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -33,9 +33,9 @@ GET /languages
 
 Un client usa il parametro di query `scope` per definire i set di lingue desiderati.
 
-* **Conversione della voce in testo scritto:** usare il parametro di query `scope=speech` per recuperare il set di lingue disponibili per la trascrizione di contenuti vocali.
+* **Riconoscimento vocale:** usare il parametro di query `scope=speech` per recuperare il set di lingue disponibili per la trascrizione di contenuti vocali.
 * **Traduzione testuale:** usare il parametro di query `scope=text` per recuperare il set di lingue disponibili per la traduzione del testo trascritto.
-* **Sintesi vocale:** usare il parametro di query `scope=tts` per recuperare il set di lingue e voci disponibili per sintetizzare il testo tradotto di nuovo in output vocale.
+* **Sintesi vocale:**  usare il parametro di query `scope=tts` per recuperare il set di lingue e voci disponibili per eseguire la sintesi vocale del testo tradotto.
 
 Un client può recuperare più set contemporaneamente specificando un elenco di opzioni delimitato da virgole. Ad esempio: `scope=speech,text,tts`.
 
@@ -59,12 +59,12 @@ Poiché un client può usare il parametro di query `scope` per selezionare i set
 
 Di seguito è indicato il valore fornito con ogni proprietà.
 
-### <a name="speech-to-text-speech"></a>Conversione della voce in testo scritto (speech)
+### <a name="speech-to-text-speech"></a>Riconoscimento vocale (speech)
 
 Il valore associato alla proprietà di conversione della voce in testo scritto, `speech`, è un dizionario di coppie (chiave, valore). Ogni chiave identifica una lingua supportata per la conversione della voce in testo scritto. La chiave è l'identificatore che il client passa all'API. Il valore associato alla chiave è un oggetto con le proprietà seguenti:
 
 * `name`: nome visualizzato della lingua.
-* `language`: tag di lingua della lingua scritta associata. Vedere "Traduzione testuale", più avanti.
+* `language`: tag della lingua scritta associata. Vedere "Traduzione testuale", più avanti.
 Di seguito è riportato un esempio:
 
 ```
@@ -80,7 +80,7 @@ Di seguito è riportato un esempio:
 Il valore associato alla proprietà `text` è anch'esso un dizionario in cui ogni chiave identifica una lingua supportata per la traduzione testuale. Il valore associato alla chiave descrive la lingua:
 
 * `name`: nome visualizzato della lingua.
-* `dir`: direzionalità, che è `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
+* `dir`: direzionalità, ovvero `rtl` per le lingue da destra a sinistra e `ltr` per le lingue da sinistra a destra.
 
 Di seguito è riportato un esempio:
 
@@ -97,11 +97,11 @@ Di seguito è riportato un esempio:
 Il valore associato alla proprietà di sintesi vocale, tts, è anch'esso un dizionario in cui ogni chiave identifica una voce supportata. Gli attributi di un oggetto voce sono i seguenti:
 
 * `displayName`: nome visualizzato per la voce.
-* `gender`: genere della voce (maschio o femmina).
-* `locale`: tag di lingua della voce con sottotag per la lingua principale e per l'area.
-* `language`: tag di lingua della lingua scritta associata.
+* `gender`: genere della voce (maschile o femminile).
+* `locale`: tag della lingua della voce con sottotag per la lingua principale e per l'area.
+* `language`: tag della lingua scritta associata.
 * `languageName`: nome visualizzato della lingua.
-* `regionName`: nome visualizzato dell'area per la lingua.
+* `regionName`: nome visualizzato dell'area relativa alla lingua.
 
 Di seguito è riportato un esempio:
 
@@ -129,7 +129,7 @@ Valore di esempio del modello:
 
 Langagues { speech (oggetto, facoltativo), text (oggetto, facoltativo), tts (oggetto, facoltativo) }
 
-### <a name="headers"></a>Headers
+### <a name="headers"></a>Intestazioni
 
 |Intestazione|DESCRIZIONE|type|
 :--|:--|:--|

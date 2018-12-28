@@ -7,14 +7,14 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 8ffa9823000efbb101be73397cd0025f9933cecd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652645"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387047"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i registri
 
@@ -38,9 +38,7 @@ Questa estensione funziona con entrambi i modelli di distribuzione di Azure.
 
 ## <a name="installing-the-extension-in-your-vm"></a>Installazione dell'estensione nella macchina virtuale
 
-È possibile abilitare questa estensione usando i cmdlet di Azure PowerShell, gli script dell'interfaccia della riga di comando di Azure o i modelli di distribuzione di Azure. Per altre informazioni, vedere [Funzionalità delle estensioni](features-linux.md).
-
-Il portale di Azure non può essere usato per abilitare o configurare LAD 3.0, ma esso stesso installa e configura la versione 2.3. Gli avvisi e i grafici del portale di Azure funzionano con i dati di entrambe le versioni dell'estensione.
+È possibile abilitare questa estensione usando i cmdlet di Azure PowerShell, gli script dell'interfaccia della riga di comando di Azure, i modelli ARM o il portale di Azure. Per altre informazioni, vedere [Funzionalità delle estensioni](features-linux.md).
 
 Le istruzioni di installazione e la [configurazione di esempio scaricabile](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configurano LAD 3.0 per:
 
@@ -51,12 +49,13 @@ Le istruzioni di installazione e la [configurazione di esempio scaricabile](http
 
 La configurazione scaricabile è solo un esempio; modificarla per adattarla alle proprie esigenze.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 * **Agente Linux di Azure 2.2.0 o versione successiva**. La maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.2.7 o successive. Eseguire `/usr/sbin/waagent -version` per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente dell'agente guest, seguire [queste istruzioni](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) per aggiornarla.
-* **Interfaccia della riga di comando di Azure**. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) nella macchina virtuale.
-* Il comando wget. Se non è già disponibile, eseguire `sudo apt-get install wget`.
+* **Interfaccia della riga di comando di Azure**. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nella macchina virtuale.
+* Il comando wget, se non è già disponibile: Eseguire `sudo apt-get install wget`.
 * Una sottoscrizione di Azure esistente e un account di archiviazione al suo interno per l'archiviazione dei dati.
+* L'elenco delle distribuzioni Linux supportate è disponibile all'indirizzo https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
 ### <a name="sample-installation"></a>Installazione di esempio
 
@@ -147,7 +146,7 @@ sinksConfig | (facoltativo) Informazioni sulle destinazioni alternative a cui po
 1. Creare le sezioni appropriate come descritto in precedenza
 1. Fare clic sul pulsante "Genera firma di accesso condiviso".
 
-![immagine](./media/diagnostics-linux/make_sas.png)
+![image](./media/diagnostics-linux/make_sas.png)
 
 Copiare la firma di accesso condiviso generata nel campo storageAccountSasToken; rimuovere il punto interrogativo ("?") principale.
 
@@ -173,7 +172,7 @@ Elemento | Valore
 name | Una stringa usata per fare riferimento a questo sink altrove nella configurazione dell'estensione.
 type | Il tipo di sink da definire. Determina gli altri valori, se presenti, nelle istanze di questo tipo.
 
-La versione 3.0 dell'estensione Diagnostica per Linux supporta due tipi di sink: EventHub e JsonBlob.
+La versione 3.0 dell'estensione Diagnostica per Linux supporta due tipi di sink: Hub eventi e JsonBlob.
 
 #### <a name="the-eventhub-sink"></a>Sink EventHub
 
@@ -687,7 +686,7 @@ Nella configurazione `resourceId` deve corrispondere al valore della macchina vi
 
 Usare il portale di Azure per visualizzare i dati sulle prestazioni o impostare gli avvisi:
 
-![immagine](./media/diagnostics-linux/graph_metrics.png)
+![image](./media/diagnostics-linux/graph_metrics.png)
 
 I dati `performanceCounters` sono sempre archiviati in una tabella di archiviazione di Azure. Le API di Archiviazione di Azure sono disponibili per più linguaggi e piattaforme.
 
@@ -700,7 +699,7 @@ I dati inviati ai sink JsonBlob sono archiviati nei BLOB nell'account di archivi
 
 Questo snapshot di una sessione di Microsoft Azure Storage Explorer mostra le tabelle di archiviazione di Azure e i contenitori generati da un'estensione LAD 3.0 correttamente configurata su una macchina virtuale di test. L'immagine non corrisponde esattamente alla [configurazione LAD 3.0 di esempio](#an-example-lad-30-configuration).
 
-![immagine](./media/diagnostics-linux/stg_explorer.png)
+![image](./media/diagnostics-linux/stg_explorer.png)
 
 Vedere la relativa [documentazione di EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) per avere informazioni su come usare i messaggi pubblicati in un endpoint EventHubs.
 
