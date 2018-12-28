@@ -3,7 +3,7 @@ title: Gestione dei database cloud con scalabilità orizzontale | Documentazione
 description: Usare il servizio processo di database elastico per eseguire uno script in un gruppo di database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: f5878c510e048bea2ce1aedaf4e0e5dbb4611caf
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9647522f4b3990d065f292f05934b8d19c691454
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242518"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865523"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gestione dei database cloud con scalabilità orizzontale
 
@@ -81,8 +81,8 @@ Definire gruppi personalizzati di database SQL di Azure e pianificazioni per l'e
 2. Utilizzare le API di PowerShell per accedere a ulteriori funzionalità, ad esempio la creazione di raccolte di database personalizzati, l’aggiunta di pianificazioni e/o la raccolta di set di risultati. Usare il portale per un'installazione semplice e la creazione o il monitoraggio dei processi limitati all'esecuzione in un **pool elastico**.
 3. Creare credenziali crittografate per l'esecuzione del processo e [aggiungere l'utente (o il ruolo) a ogni database nel gruppo](sql-database-security-overview.md).
 4. Creare uno script T-SQL idempotente che può essere eseguito su ogni database nel gruppo.
-5. Seguire questi passaggi per creare processi tramite il portale di Azure: [Creazione e gestione di processi di database elastici](sql-database-elastic-jobs-create-and-manage.md)
-6. In alternativa, usare script di PowerShell: [Creare e gestire processi di database elastici del database SQL tramite PowerShell (anteprima)](sql-database-elastic-jobs-powershell.md).
+5. Seguire questa procedura per creare processi tramite il portale di Azure: [Creare e gestire processi di database elastico](sql-database-elastic-jobs-create-and-manage.md).
+6. Oppure utilizzare gli script di PowerShell: [Creare e gestire processi di database elastici del database SQL tramite PowerShell (anteprima)](sql-database-elastic-jobs-powershell.md).
 
 ## <a name="idempotent-scripts"></a>Script idempotenti
 
@@ -120,7 +120,7 @@ I seguenti componenti interagiscono per creare un servizio Cloud di Azure che co
 
   I processi di database elastici (anteprima) vengono recapitati come servizio cloud di Azure ospitato dal cliente per l'esecuzione delle attività richieste. Dal portale, il servizio viene distribuito e ospitato nella sottoscrizione Microsoft Azure. Il servizio predefinito distribuito viene eseguito con un numero minimo di due ruoli di lavoro per la disponibilità elevata. La dimensione predefinita di ogni ruolo di lavoro (ElasticDatabaseJobWorker) viene eseguita in un'istanza A0. Per informazioni sui prezzi, vedere [Servizi cloud Prezzi](https://azure.microsoft.com/pricing/details/cloud-services/).
 
-- database SQL di Azure
+- Database SQL di Azure
 
   Il servizio usa un database SQL di Azure noto come **database di controllo** per archiviare tutti i metadati del processo. Il livello di servizio predefinito è S0. Per informazioni sui prezzi, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -137,8 +137,8 @@ I seguenti componenti interagiscono per creare un servizio Cloud di Azure che co
 1. Un database SQL di Azure viene designato come **database di controllo** per l'archiviazione di tutti i dati di stato e i metadati.
 2. Il **servizio processi** accede al database di controllo per avviare e tenere traccia dei processi da eseguire.
 3. Due diversi ruoli comunicano con il database di controllo:
-   - Controller: Determina quali processi richiedono attività per eseguire il processo richiesto e ritenta di eseguire i processi non riusciti tramite la creazione di nuove attività di processo.
-   - Esecuzione dell'attività di processo: Esegue le attività di processo.
+   - Controller: determina quali processi richiedono attività per eseguire il processo richiesto e ritenta di eseguire i processi non riusciti tramite la creazione di nuove attività di processo.
+   - Esecuzione dell'attività di processo: esegue le attività di processo.
 
 ### <a name="job-task-types"></a>Tipi di attività di processo
 

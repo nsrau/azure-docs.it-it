@@ -1,21 +1,22 @@
 ---
-title: 'Esercitazione: Creare un bot QnA con il servizio Azure Bot - QnA Maker'
+title: Bot QnA - Servizio Azure Bot - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Questo tutorial illustra in modo guidato la compilazione di un bot QnA con il servizio Azure Bot v3 sul portale di Azure.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker`
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 19c56cf05e307deca52808b0eeba65b8949ffc0b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f5587e14a0250e7312f1c95598b481bd052931c3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212742"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094832"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Esercitazione: Creare un bot QnA con il servizio Azure Bot v3
 
@@ -60,13 +61,13 @@ Per questo articolo, è possibile usare il [servizio](../how-to/set-up-qnamaker-
 
 5. Selezionare il modello **domande e risposte** per il campo modello di Bot, quindi salvare le impostazioni del modello selezionando **seleziona**.
 
-    ![Selezione del servizio bot](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+    ![salvare una selezione di modelli del servizio bot](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
 
 6. Rivedere le impostazioni e quindi selezionare **Crea**. Il servizio bot viene creato e distribuito in Azure.
 
-    ![Selezione del servizio bot](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+    ![Creare il bot](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
 
-7. Confermare che il servizio robot è stato distribuito.
+7. Confermare che il servizio bot è stato distribuito.
 
     - Selezionare le **notifiche** (l'icona a forma di campanello visibile nella parte superiore del portale di Azure). La notifica cambierà da **Distribuzione iniziata** a **Distribuzione completata**.
     - Dopo che la notifica è cambiata in **Distribuzione completata**, selezionare **Vai alla risorsa** in quella notifica.

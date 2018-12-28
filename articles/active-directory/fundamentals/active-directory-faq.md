@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Azure Active Directory | Microsoft Docs
+title: Domande frequenti (FAQ) - Azure Active Directory | Microsoft Docs
 description: Domande frequenti su Azure e Azure Active Directory, sulla gestione delle password e sull'accesso alle applicazioni.
 services: active-directory
 author: eross-msft
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: a3571ff24c36b7f2129f60348414d4d178ef30d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621752"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084094"
 ---
-# <a name="azure-active-directory-faq"></a>Domande frequenti su Azure Active Directory
+# <a name="frequently-asked-questions-about-azure-active-directory"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
 
 Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-directory-whatis.md).
@@ -44,7 +45,7 @@ I servizi a pagamento di Azure AD, ad esempio Enterprise Mobility + Security, so
 
 - - -
 
-**D: Quali sono le differenze tra proprietario e amministratore globale?**
+**D:  Quali sono le differenze tra proprietario e amministratore globale?**
 
 **R:** Per impostazione predefinita, la persona che esegue l'iscrizione a una sottoscrizione di Azure riceve il ruolo di Proprietario per le risorse di Azure. Il proprietario può usare un account Microsoft oppure un account aziendale o dell'istituto di istruzione della directory a cui è associata la sottoscrizione di Azure.  Questo ruolo è autorizzato a gestire i servizi nel portale di Azure.
 
@@ -55,9 +56,9 @@ Per impostazione predefinita, la persona che effettua l'iscrizione per una sotto
 I servizi a pagamento di Azure AD, ad esempio Enterprise Mobility + Security, sono complementari ad altri servizi Web come Office 365 e Microsoft Azure, con soluzioni di gestione e di sicurezza complete di scala aziendale.
 
 - - -
-**D: è disponibile un report che indica la scadenza delle licenze utente di Azure AD?**
+**D: È disponibile un report che indica la scadenza delle licenze utente di Azure AD?**
 
-**R:** No.  Non è attualmente disponibile.
+**R:**  No.  Non è attualmente disponibile.
 
 - - -
 
@@ -117,7 +118,7 @@ Per altre informazioni, vedere [Introduzione alla gestione delle password](../au
 
 Per altre risposte a domande relative alle password, vedere [Domande frequenti sulla gestione delle password](../authentication/active-directory-passwords-faq.md).
 - - -
-**D: Cosa si può fare se non si ricorda la password di Office 365/Azure AD esistente durante il tentativo di modificare la password?**
+**D:  Cosa si può fare se non si ricorda la password di Office 365/Azure AD esistente durante il tentativo di modificare la password?**
 
 **R:** In situazioni di questo tipo è possibile procedere in due modi.  Usare la reimpostazione password self-service (SSPR), se disponibile.  La disponibilità della funzione SSPR dipende dalla sua configurazione.  Per altre informazioni, vedere [Funzionamento del portale di reimpostazione delle password](../authentication/howto-sspr-deployment.md).
 
@@ -135,7 +136,7 @@ Per gli account Azure AD, gli amministratori possono reimpostare le password in 
 
 La strategia usata per bloccare gli account è più sofisticata e  si basa sull'indirizzo IP della richiesta e le password immesse. La durata del blocco aumenta anche in base alla probabilità che sia in corso un attacco.  
 
-**Q: Alcune password (comuni) vengono rifiutate con messaggi indicanti che la password è stata usata molte volte; si fa riferimento alle password usate nell'istanza corrente di Active Directory?**
+**D:  Alcune password (comuni) vengono rifiutate con messaggi indicanti che la password è stata usata molte volte; si fa riferimento alle password usate nell'istanza corrente di Active Directory?**
 
 Si fa riferimento alle password comuni a livello globale, ad esempio tutte le varianti di "Password" e "123456".
 
@@ -145,9 +146,9 @@ Esiste un gateway che filtra le richieste e fornisce un livello di protezione da
 
 ## <a name="application-access"></a>Accesso all'applicazione
 
-**D: Dove si può trovare un elenco di applicazioni preintegrate con Azure AD e delle rispettive funzionalità?**
+**D: Dove si può trovare un elenco di applicazioni pre-integrate con Azure AD e delle rispettive funzionalità?**
 
-**D:** Azure AD include più di 2.600 applicazioni preintegrate di Microsoft, application service provider o partner. Tutte le applicazioni preintegrate supportano l'accesso Single Sign-On, che consente di usare le credenziali aziendali per accedere alle app. Alcune applicazioni supportano anche il provisioning e il deprovisioning automatici.
+**R:** Azure AD include più di 2.600 applicazioni pre-integrate di Microsoft, provider di servizi dell'applicazione o partner. Tutte le applicazioni preintegrate supportano l'accesso Single Sign-On, che consente di usare le credenziali aziendali per accedere alle app. Alcune applicazioni supportano anche il provisioning e il deprovisioning automatici.
 
 Per un elenco completo delle applicazioni preintegrate, vedere il [Marketplace di Active Directory](https://azure.microsoft.com/marketplace/active-directory/).
 
@@ -187,25 +188,25 @@ Per altre informazioni, vedere:
 - - -
 **D: È possibile aggiungere applicazioni in esecuzione in locale?**
 
-**R:** Il proxy di applicazione di Azure AD offre un accesso semplice e sicuro alle applicazioni Web locali scelte. È possibile accedere a queste applicazioni in modo analogo all'accesso alle app SaaS in Azure AD. Non è necessario avere una VPN o modificare l'infrastruttura di rete.  
+**R:** Azure Active Directory Application Proxy offre un accesso semplice e sicuro alle applicazioni Web locali scelte. È possibile accedere a queste applicazioni in modo analogo all'accesso alle app SaaS in Azure AD. Non è necessario avere una VPN o modificare l'infrastruttura di rete.  
 
 Per altre informazioni, vedere [Come fornire l'accesso remoto sicuro alle applicazioni locali](../manage-apps/application-proxy.md).
 
 - - -
-**D: Come si richiede l'autenticazione Multi-Factor Authentication per gli utenti che accedono a un'applicazione specifica?**
+**D: Come si richiede l'autenticazione a più fattori per gli utenti che accedono a un'applicazione specifica?**
 
 **R:** L'accesso condizionale di Azure AD consente di assegnare criteri di accesso univoci per ogni applicazione. Nel criterio è possibile richiedere sempre l'autenticazione Multi-Factor Authentication o solo quando gli utenti non sono connessi alla rete locale.  
 
 Per altre informazioni, vedere [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
 - - -
-**D: Che cos'è il provisioning utenti automatizzato per le app SaaS?**
+**D: Che cos'è il provisioning utenti automatizzato per app SaaS?**
 
 **R:** Azure AD consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente in molte app cloud SaaS comuni.
 
 Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
 
 - - -
-**D: È possibile configurare una connessione LDAP sicura con Azure AD?**
+**D:  È possibile configurare una connessione LDAP sicura con Azure AD?**
 
-**R:** No. Azure AD non supporta il protocollo LDAP. Tuttavia, è possibile configurare un LDAP sicuro con Azure Active Directory Domain Services.
+**R:**   No. Azure AD non supporta il protocollo LDAP. Tuttavia, è possibile configurare un LDAP sicuro con Azure Active Directory Domain Services.

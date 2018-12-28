@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: c437f350e394dc8c264903508a2a5a66fa8225a7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346577"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161985"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Risolvere i problemi delle query di Analisi di flusso di Azure
 
@@ -47,47 +48,47 @@ Nell'elaborazione dei dati in tempo reale può essere utile conoscere l'aspetto 
 
 La seguente query di esempio in un processo di Analisi di flusso di Azure ha un input di flusso, due input di dati di riferimento e un output in Archiviazione tabelle di Azure. La query unisce i dati dell'hub eventi e di due BLOB di riferimento per ottenere le informazioni di nome e categoria:
 
-![Esempio di query SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
+![Esempio di Analisi di flusso SELECT nella query](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
 Si noti che il processo è in esecuzione ma non vengono generati eventi nell'output. Nel riquadro **Monitoraggio**, illustrato di seguito, è possibile vedere che l'input produce dati, ma non sa quale passaggio del **JOIN** ha causato l'eliminazione di tutti gli eventi.
 
-![Riquadro Monitoraggio](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
+![Riquadro Monitoraggio di Analisi di flusso](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  
 In questa situazione è possibile aggiungere alcune istruzioni SELECT INTO aggiuntive per "registrare" i risultati intermedi di JOIN e i dati che vengono letti dall'input.
 
 In questo esempio sono stati aggiunti due nuovi "output temporanei". Può trattarsi di qualsiasi sink desiderato. Qui si usa Archiviazione di Azure come esempio:
 
-![Aggiunta di ulteriori istruzioni SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
+![Aggiunta di istruzioni SELECT INTO aggiuntive alla query analisi di flusso](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 
 È quindi possibile riscrivere la query come segue:
 
-![Query SELECT INTO riscritta](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
+![Query di Analisi di flusso SELECT INTO riscritta](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
 
 Ora avviare nuovamente il processo e lasciarlo in esecuzione per alcuni minuti. Quindi eseguire una query su temp1 e temp2 con Visual Studio Cloud Explorer per generare le tabelle seguenti:
 
-**temp1 table**
-![SELECT INTO temp1 table](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+**tabella temp1**
+![query di analisi di flusso della tabella temp1 SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
-**temp2 table**
-![SELECT INTO temp2 table](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+**tabella temp2**
+![query di analisi di flusso della tabella temp2 SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Come si può vedere, temp1 e temp2 hanno entrambe dati e la colonna del nome viene popolata in modo corretto in temp2. Tuttavia, poiché non sono ancora presenti dati nell'output, c'è qualcosa di sbagliato:
 
-![Tabella SELECT INTO output1 senza dati](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
+![Tabella SELECT INTO output1 senza dati di query di analisi di flusso](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
 
 Tramite il campionamento dei dati, è possibile essere quasi certi che il problema riguardi il secondo JOIN. È possibile scaricare i dati di riferimento dal BLOB e dare un'occhiata:
 
-![Tabella SELECT INTO riferimento](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
+![Query di analisi di flusso della tabella di riferimento SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
 
 Come si può notare, il formato del GUID in questi dati di riferimento è diverso dal formato della colonna [da] di temp2. Ecco perché i dati non arrivavano in output1 come previsto.
 
 È possibile correggere il formato dei dati, caricarlo nel BLOB di riferimento e riprovare:
 
-![Tabella SELECT INTO temporanea](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
+![Query di analisi di flusso della tabella temporanea SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
 
 Questa volta i dati nell'output vengono formattati e popolati come previsto.
 
-![Tabella SELECT INTO finale](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
+![Query di analisi di flusso della tabella finale SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
 ## <a name="get-help"></a>Ottenere aiuto
 

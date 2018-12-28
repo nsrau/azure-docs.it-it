@@ -1,19 +1,20 @@
 ---
-title: Creare un gateway trasparente con Azure IoT Edge | Microsoft Docs
-description: Usare un dispositivo Azure IoT Edge per creare un gateway trasparente in grado di elaborare informazioni per più dispositivi
+title: Creare un dispositivo gateway trasparente - Azure IoT Edge | Microsoft Docs
+description: Usare un dispositivo Azure IoT Edge per creare un gateway trasparente in grado di elaborare informazioni da dispositivi downstream
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568472"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094356"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurare un dispositivo IoT Edge come gateway trasparente
 
@@ -31,7 +32,7 @@ Un dispositivo downstream può essere qualsiasi applicazione o piattaforma la cu
 
 È possibile creare qualsiasi infrastruttura di certificati che abilita la relazione di trust necessaria per la topologia dispositivo-gateway. Questo articolo presuppone la stessa configurazione di certificati usata per abilitare la [sicurezza CA X.509](../iot-hub/iot-hub-x509ca-overview.md) nell'hub IoT, che include un certificato della CA X.509 associato a un hub IoT specifico (la CA proprietaria dell'hub IoT), una serie di certificati firmati da tale CA e una CA per il dispositivo Edge.
 
-![Configurazione del gateway](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![Installazione del certificato del gateway](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 Il gateway presenta il certificato della CA del dispositivo Edge al dispositivo downstream durante l'avvio della connessione. Il dispositivo downstream verifica che il certificato della CA del dispositivo Edge sia firmato dal certificato della CA proprietaria. Questo processo consente al dispositivo downstream di verificare che il gateway provenga da una fonte attendibile.
 
@@ -59,9 +60,9 @@ Installare OpenSSL per Windows nel computer usato per generare i certificati. È
    >[!NOTE]
    >Se OpenSSL è già installato nel dispositivo Windows, è possibile ignorare questo passaggio, ma assicurarsi che openssl.exe sia disponibile nella variabile di ambiente PATH.
 
-* **Metodo più semplice:** scaricare e installare uno dei [file binari OpenSSL di terze parti](https://wiki.openssl.org/index.php/Binaries), ad esempio da [questo progetto in SourceForge](https://sourceforge.net/projects/openssl/). Aggiungere il percorso completo di openssl.exe alla variabile di ambiente PATH. 
+* **Più semplice:** Scaricare e installare qualsiasi [file binario OpenSSL di terze parti](https://wiki.openssl.org/index.php/Binaries), ad esempio da [questo progetto in SourceForge](https://sourceforge.net/projects/openssl/). Aggiungere il percorso completo di openssl.exe alla variabile di ambiente PATH. 
    
-* **Metodo consigliato:** scaricare il codice sorgente di OpenSSL source code e creare i file binari nel computer personalmente o tramite [vcpkg](https://github.com/Microsoft/vcpkg). Nelle istruzioni elencate di seguito viene usato vcpkg per scaricare il codice sorgente, compilare e installare OpenSSL nel computer Windows con passaggi molto semplici.
+* **Consigliato:** Scaricare il codice sorgente OpenSSL e generare i file binari nel computer in uso in maniera autonoma o tramite [vcpkg](https://github.com/Microsoft/vcpkg). Nelle istruzioni elencate di seguito viene usato vcpkg per scaricare il codice sorgente, compilare e installare OpenSSL nel computer Windows con passaggi molto semplici.
 
    1. Passare alla directory in cui installare vcpkg, Questa directory è denominata *\<VCPKGDIR>*. Seguire le istruzioni per scaricare e installare [vcpkg](https://github.com/Microsoft/vcpkg).
    
@@ -258,7 +259,11 @@ Quando si installa IoT Edge in un dispositivo per la prima volta, viene avviato 
 6. Nel passaggio **Rivedi modello** selezionare **Invia**.
 
 ## <a name="route-messages-from-downstream-devices"></a>Instradare i messaggi da dispositivi downstream
-Il runtime IoT Edge può instradare i messaggi inviati dai dispositivi downstream come i messaggi inviati dai moduli. In questo modo è possibile eseguire analisi in un modulo in esecuzione nel gateway prima di inviare dati al cloud. La route seguente viene usata per inviare messaggi da un dispositivo downstream denominato `sensor` a un modulo denominato `ai_insights`.
+Il runtime IoT Edge può instradare i messaggi inviati dai dispositivi downstream come i messaggi inviati dai moduli. In questo modo è possibile eseguire analisi in un modulo in esecuzione nel gateway prima di inviare dati al cloud. 
+
+Attualmente, il modo per instradare i messaggi inviati dai dispositivi downstream consiste nel differenziarli dai messaggi inviati dai moduli. I messaggi inviati da tutti i moduli contengono una proprietà di sistema denominata **connectionModuleId** ma non i messaggi inviati dai dispositivi downstream. È possibile utilizzare la clausola WHERE della route da escludere eventuali messaggi che contengono tale proprietà di sistema. 
+
+La route seguente viene usata per inviare messaggi da un dispositivo downstream a un modulo denominato `ai_insights`.
 
 ```json
 {
@@ -269,7 +274,7 @@ Il runtime IoT Edge può instradare i messaggi inviati dai dispositivi downstrea
 }
 ```
 
-Per altre informazioni sul routing dei messaggi, vedere l'articolo sulla [composizione dei moduli](./module-composition.md).
+Per altre informazioni sul routing dei messaggi, vedere [distribuire moduli e stabilire le route](./module-composition.md#declare-routes).
 
 [!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 

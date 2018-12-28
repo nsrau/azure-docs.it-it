@@ -4,15 +4,15 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: wesmc
-ms.openlocfilehash: 1ddb81de479317a098f9de8aa5756cbaae59cb72
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd9700c9472e07daf294eca12b766e3dc4832955
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331137"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111869"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
-Piano tariffario della nuova Cache Redis di Azure.
+Piano tariffario del nuovo servizio Cache Redis di Azure.
 
     "cacheSKUName": {
       "type": "string",
@@ -22,7 +22,7 @@ Piano tariffario della nuova Cache Redis di Azure.
       ],
       "defaultValue": "Basic",
       "metadata": {
-        "description": "The pricing tier of the new Azure Redis Cache."
+        "description": "The pricing tier of the new Azure Cache for Redis."
       }
     },
 
@@ -45,7 +45,7 @@ Famiglia dello SKU.
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-Dimensioni dell'istanza della nuova Cache Redis di Azure. 
+Dimensione della nuova istanza di Cache Redis di Azure. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -60,10 +60,10 @@ Dimensioni dell'istanza della nuova Cache Redis di Azure.
       ],
       "defaultValue": 0,
       "metadata": {
-        "description": "The size of the new Azure Redis Cache instance. "
+        "description": "The size of the new Azure Cache for Redis instance. "
       }
     }
 
 
-Il modello definisce i valori consentiti per questo parametro (0, 1, 2, 3, 4, 5 o 6) e assegna un valore predefinito (0) se non viene specificato alcun valore. Questi numeri corrispondono alle dimensioni della cache seguenti: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+Il modello definisce i valori consentiti per questo parametro (0, 1, 2, 3, 4, 5 o 6) e assegna un valore predefinito (0) se non viene specificato alcun valore. Questi numeri corrispondono alle dimensioni della cache seguenti: 0 = 250 MB, 1 = 1 GB, 2 = 2.5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

@@ -1,21 +1,22 @@
 ---
-title: Usare Gestione traffico di Microsoft Azure per aumentare la quota di endpoint in Language Understanding (LUIS)
+title: Aumentare la quota di endpoint
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi).
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3f3dddca7944403ace6a9779be07b0d458fb3cd1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042177"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076764"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usare Gestione traffico di Microsoft Azure per gestire la quota di endpoint tra le chiavi
 Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi). 
@@ -36,7 +37,7 @@ Prima di creare le risorse di Azure, creare un gruppo di risorse per contenere t
 
 Creare un gruppo di risorse con il cmdlet **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.2.0)**.
 
-```PowerShell
+```powerShell
 New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
@@ -69,7 +70,7 @@ La creazione del profilo di Gestione traffico per l'area Stati Uniti orientali p
 
     Usare il cmdlet seguente per creare il profilo. Assicurarsi di modificare `appIdLuis` e `subscriptionKeyLuis`. SubscriptionKey è per la chiave LUIS per l'area Stati Uniti orientali. Se il percorso non è corretto con l'inclusione dell'ID dell'applicazione LUIS e della chiave endpoint, lo stato del polling di Gestione traffico è `degraded`, poiché Gestione traffico non può richiedere correttamente l'endpoint LUIS. Verificare che il valore di `q` sia `traffic-manager-east`, in modo da poter visualizzare questo valore nei registri di endpoint LUIS.
 
-    ```PowerShell
+    ```powerShell
     $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
     
@@ -89,7 +90,7 @@ La creazione del profilo di Gestione traffico per l'area Stati Uniti orientali p
 
 2. Aggiungere l'endpoint per l'area Stati Uniti orientali con il cmdlet **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/add-azurermtrafficmanagerendpointconfig?view=azurermps-6.2.0)**
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
     ```
     Questa tabella illustra ogni variabile nel cmdlet:
@@ -105,7 +106,7 @@ La creazione del profilo di Gestione traffico per l'area Stati Uniti orientali p
 
     Una risposta con esito positivo ha un aspetto simile al seguente:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-eastus
     Name                             : luis-profile-eastus
     ResourceGroupName                : luis-traffic-manager
@@ -124,7 +125,7 @@ La creazione del profilo di Gestione traffico per l'area Stati Uniti orientali p
 
 3. Impostare l'endpoint per l'area Stati Uniti orientali con il cmdlet **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/set-azurermtrafficmanagerprofile?view=azurermps-6.2.0)**
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
     ```
 
@@ -137,7 +138,7 @@ Per creare il profilo di Gestione traffico per l'area Stati Uniti occidentali, s
 
     Usare il cmdlet seguente per creare il profilo. Assicurarsi di modificare `appIdLuis` e `subscriptionKeyLuis`. SubscriptionKey è per la chiave LUIS per l'area Stati Uniti orientali. Se il percorso non è corretto con l'inclusione dell'ID dell'applicazione LUIS e della chiave endpoint, lo stato del polling di Gestione traffico è `degraded`, poiché Gestione traffico non può richiedere correttamente l'endpoint LUIS. Verificare che il valore di `q` sia `traffic-manager-west`, in modo da poter visualizzare questo valore nei registri di endpoint LUIS.
 
-    ```PowerShell
+    ```powerShell
     $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
     
@@ -157,7 +158,7 @@ Per creare il profilo di Gestione traffico per l'area Stati Uniti occidentali, s
 
 2. Aggiungere l'endpoint per l'area Stati Uniti occidentali con il cmdlet **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)**
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
     ```
 
@@ -174,7 +175,7 @@ Per creare il profilo di Gestione traffico per l'area Stati Uniti occidentali, s
 
     Una risposta con esito positivo ha un aspetto simile al seguente:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-westus
     Name                             : luis-profile-westus
     ResourceGroupName                : luis-traffic-manager
@@ -193,7 +194,7 @@ Per creare il profilo di Gestione traffico per l'area Stati Uniti occidentali, s
 
 3. Impostare l'endpoint per l'area Stati Uniti occidentali con il cmdlet **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)**
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
     ```
 
@@ -204,7 +205,7 @@ Creare il profilo di Gestione traffico padre e collegare ad esso i due profili d
 
 1. Creare un profilo padre con il cmdlet **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)**
 
-    ```PowerShell
+    ```powerShell
     $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
     ```
 
@@ -224,7 +225,7 @@ Creare il profilo di Gestione traffico padre e collegare ad esso i due profili d
 
 2. Aggiungere il profilo figlio per l'area Stati Uniti orientali al padre con **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** e il tipo **NestedEndpoints**
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
     ```
 
@@ -242,7 +243,7 @@ Creare il profilo di Gestione traffico padre e collegare ad esso i due profili d
 
     Una risposta con esito positivo ha un aspetto simile al seguente e include il nuovo endpoint `child-endpoint-useast`:    
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -261,7 +262,7 @@ Creare il profilo di Gestione traffico padre e collegare ad esso i due profili d
 
 3. Aggiungere il profilo figlio per l'area Stati Uniti occidentali al padre con il cmdlet **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** e il tipo **NestedEndpoints**
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
     ```
 
@@ -279,7 +280,7 @@ Creare il profilo di Gestione traffico padre e collegare ad esso i due profili d
 
     Una risposta con esito positivo ha un aspetto simile al seguente e include sia il precedente endpoint `child-endpoint-useast` che il nuovo endpoint `child-endpoint-uswest`:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -298,7 +299,7 @@ Creare il profilo di Gestione traffico padre e collegare ad esso i due profili d
 
 4. Impostare gli endpoint con il cmdlet **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** 
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $parentprofile
     ```
 
@@ -309,7 +310,7 @@ Nelle sezioni precedenti sono state create tre variabili di PowerShell: `$eastpr
 
 Sostituire gli elementi tra parentesi acute `<>` con i valori corretti per ognuno dei tre profili necessari. 
 
-```PowerShell
+```powerShell
 $<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
@@ -329,7 +330,7 @@ Gestione traffico esegue il polling del percorso di ogni endpoint per verificare
 ### <a name="validate-traffic-manager-polling-works"></a>Convalidare il funzionamento di polling di Gestione traffico
 Un altro modo per convalidare il funzionamento di polling di Gestione traffico è offerto dai registri endpoint LUIS. Nella pagina di elenco delle app del sito Web [LUIS][LUIS] esportare il registro endpoint per l'applicazione. Poiché Gestione traffico esegue frequentemente il polling per i due endpoint, i registri contengono voci anche in caso di attività di pochi minuti. Ricordarsi di cercare le voci in cui la query inizia la query con `traffic-manager-`.
 
-```text
+```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 traffic-manager-east    6/7/2018 19:20  {"query":"traffic-manager-east","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 ```
@@ -339,7 +340,7 @@ Per convalidare che la risposta DNS restituisca un endpoint LUIS, richiedere il 
 
 Il codice Node.js seguente effettua una richiesta per il profilo padre e restituisce un endpoint LUIS:
 
-```javascript
+```nodejs
 const dns = require('dns');
 
 dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {

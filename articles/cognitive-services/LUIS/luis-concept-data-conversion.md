@@ -1,23 +1,24 @@
 ---
-title: Concetti relativi alla conversione di dati in LUIS - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Conversione di dati
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Informazioni su come modificare le espressioni prima delle stime in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9324f7b4f7bed844f16d17b8960878892be4b165
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: dc9040661eee4cafc655deb2436130f1abcfcfd5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638393"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094798"
 ---
-# <a name="data-conversion-concepts-in-luis"></a>Concetti di conversione dei dati in LUIS
+# <a name="convert-data-format-of-utterances"></a>Convertire il formato dati delle espressioni
 LUIS usa Servizi cognitivi e il Servizio di riconoscimento vocale per convertire le espressioni da vocali a testuali prima delle stime. 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>Concetti di conversione del riconoscimento finalità voce

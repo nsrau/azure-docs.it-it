@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317496"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344143"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Correggere le configurazioni di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle macchine virtuali e dei computer per trovare eventuali configurazioni che li renderebbero più vulnerabili agli attacchi. Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo non corrisponde alle regole di configurazione della sicurezza consigliate e suggerisce di modificare la configurazione per risolvere le vulnerabilità.
@@ -66,14 +66,14 @@ Questo esempio illustra la raccomandazione "Correggi le configurazioni di sicure
 
    La visualizzazione include le informazioni seguenti:
 
-   - **Nome**: nome della regola.
-   - **CCEID**: identificatore univoco di CCE per la regola.
+   - **Nome**: il nome della regola.
+   - **CCIED**: identificatore univoco di CCE per la regola.
    - **Versione del sistema operativo**: versione del sistema operativo del computer o della macchina virtuale.
    - **Gravità della regola**: valore di CCE *Critico*, *Importante* o *Avviso*.
-   - **Descrizione completa**: descrizione della regola.
+   - **Descrizione completa**: la descrizione della regola.
    - **Vulnerabilità**: spiegazione della vulnerabilità o del rischio in caso di mancata applicazione della regola.
    - **Impatto potenziale**: impatto sull'azienda quando viene applicata la regola.
-   - **Contromisura**: procedura di correzione.
+   - **Contromisura**: la procedura di correzione.
    - **Valore previsto**: valore previsto quando il Centro sicurezza analizza la configurazione del sistema operativo della VM rispetto alla regola.
    - **Valore effettivo**: valore restituito dopo un'analisi della configurazione del sistema operativo della VM rispetto alla regola.
    - **Operazione di regola**: operazione di regola usata dal Centro sicurezza durante l'analisi della configurazione del sistema operativo della VM rispetto alla regola.
@@ -101,7 +101,7 @@ Per esaminare le configurazioni specifiche sottoposte a monitoraggio, vedere l'[
 Per altre informazioni sul Centro sicurezza, vedere le risorse seguenti:
 
 * Per un elenco di macchine virtuali Windows e Linux supportate, vedere [Piattaforme supportate nel Centro sicurezza di Azure](security-center-os-coverage.md).
-* Per informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure, vedere [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md).
+* Per informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure, vedere [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md).
 * Per informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 * Per informazioni su come monitorare l'integrità delle risorse di Azure, vedere [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md).
 * Per informazioni su come gestire e rispondere agli avvisi di sicurezza, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).

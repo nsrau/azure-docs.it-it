@@ -1,25 +1,26 @@
 ---
-title: 'Esercitazione 2: test in batch con set di 1000 espressioni '
+title: Test in batch
 titleSuffix: Azure Cognitive Services
-description: Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni nell'app e corregerli.
+description: Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni nell'app e correggerli.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162542"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106040"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>Esercitazione 2: test in batch con set di dati
+# <a name="tutorial-2-batch-test-data-sets"></a>Esercitazione 2: Eseguire test in batch dei set di dati
 
-Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni nell'app e corregerli.  
+Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni nell'app e correggerli.  
 
 L'esecuzione di test in batch consente di convalidare lo stato del modello attivo e sottoposto a training con un set noto di espressioni ed entità etichettate. Nel file batch in formato JSON aggiungere le espressioni e impostare le etichette di entità che è necessario prevedere all'interno dell'espressione. 
 
@@ -35,7 +36,7 @@ Quando si usa un'app diversa rispetto a quella di questa esercitazione, *non* us
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usare le app di esercitazione esistenti
+> * Usare l'app di esercitazione esistente
 > * Creare un file di test in batch 
 > * Eseguire un test in batch
 > * Esaminare i risultati del test
@@ -46,7 +47,7 @@ Quando si usa un'app diversa rispetto a quella di questa esercitazione, *non* us
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
 
-Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
 Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
 
@@ -54,7 +55,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 2. Importare il file JSON in una nuova app.
 
-3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `batchtest`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL. 
+3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `batchtest`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL. 
 
 4. Eseguire il training dell'app.
 

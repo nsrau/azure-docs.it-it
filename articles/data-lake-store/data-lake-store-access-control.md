@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: eaabb29a492ec6a0ef4c85afe839a9df5f588958
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567486"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087168"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controllo di accesso in Azure Data Lake Storage Gen1
 
@@ -71,15 +71,15 @@ Nel modello di tipo POSIX usato da Data Lake Storage Gen1, le autorizzazioni per
 
 Di seguito sono riportati alcuni scenari comuni che consentono di comprendere quali autorizzazioni sono necessarie per eseguire determinate operazioni su un account Data Lake Storage Gen1.
 
-|    Operazione             |    /    | Seattle/ | Portland/ | Data.txt     |
-|--------------------------|---------|----------|-----------|--------------|
-| Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Elenco /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| List /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| Elenco /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Operazione | Oggetto              |    /      | Seattle/   | Portland/   | Data.txt       |
+|-----------|---------------------|-----------|------------|-------------|----------------|
+| Lettura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Accoda a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Elenco      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Elenco      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Elenco      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -133,7 +133,7 @@ Poiché non esiste alcun "gruppo primario" associato agli utenti in Data Lake St
 **Assegnazione del gruppo proprietario per un nuovo file o cartella**
 
 * **Caso 1**: cartella radice "/". Questa cartella viene creata al momento della creazione di un account Data Lake Storage Gen1. In questo caso, il gruppo proprietario viene impostato su un GUID costituito solo da zeri.  Questo valore non permette alcun accesso.  È un segnaposto fino a quando non viene assegnato un gruppo.
-* **Caso 2**: tutti gli altri casi. Quando viene creato un nuovo elemento, il gruppo proprietario viene copiato dalla cartella padre.
+* **Caso 2** (qualsiasi altro caso): quando viene creato un nuovo elemento, il gruppo proprietario viene copiato dalla cartella padre.
 
 **Modifica del gruppo proprietario**
 

@@ -1,10 +1,10 @@
 ---
-title: Componente aggiuntivo di Excel per i servizi Web di Machine Learning | Documentazione Microsoft
+title: Componente aggiuntivo Excel per i servizi Web - Azure Machine Learning Studio | Microsoft Docs
 description: Come usare i servizi Web di Azure Machine Learning direttamente in Excel senza scrivere codice.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=marthalc, author=marthalc)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 2/1/2018
-ms.openlocfilehash: debe3165a60cd0da866842a425c1ca8c52eab644
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 02/01/2018
+ms.openlocfilehash: e836323ad452b86d89eee62936b574b2cc9d0337
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262024"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269498"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning Studio
 Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun codice.
@@ -41,7 +41,7 @@ Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun c
    
     ![Sezione Stima][02]
 
-Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Machine Learning](walkthrough-5-publish-web-service.md).
+Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Azure Machine Learning](walkthrough-5-publish-web-service.md).
 
 Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l'operazione varia a seconda che sia stato pubblicato un servizio Web classico o un nuovo servizio Web di Machine Learning.
 
@@ -69,7 +69,7 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 
 ## <a name="steps-to-add-a-new-web-service"></a>Procedura per aggiungere un nuovo servizio Web
 
-1. Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Machine Learning](walkthrough-5-publish-web-service.md).
+1. Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Azure Machine Learning](walkthrough-5-publish-web-service.md).
 2. Fare clic su **Consume**(Uso).
 3. Cercare la sezione **Basic consumption info** (Informazioni di base sull'uso). Copiare e salvare il valore di **Primary Key** (Chiave primaria) e l'URL **Request-Response** (Richiesta-risposta).
 4. In Excel passare alla sezione **Servizi Web** (se si è nella sezione **Stima**, fare clic sulla freccia indietro per tornare all'elenco dei servizi Web).

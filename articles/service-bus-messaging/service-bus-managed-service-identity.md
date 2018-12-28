@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5532c86271fa6a5f2b573e005993a68ac0a9e248
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 25d2db5dcf3979341fc104643f7178047c29483b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857075"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842833"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identità gestite per le risorse di Azure con il bus di servizio 
 
@@ -53,13 +53,11 @@ Una volta abilitata la funzionalità, una nuova identità del servizio viene cre
 
 Successivamente, [creare uno spazio dei nomi della messaggistica del bus di servizio](service-bus-create-namespace-portal.md) in una delle aree di Azure con supporto di anteprima per Controllo degli accessi in base al ruolo: **Stati Uniti orientali**, **Stati Uniti orientali 2** o **Europa occidentale**. 
 
-Passare alla pagina **Controllo di accesso (IAM)** dello spazio dei nomi nel portale e quindi fare clic su **Aggiungi** per aggiungere l'identità gestita al ruolo **Proprietario**. A tale scopo, cercare il nome dell'applicazione Web nel campo **Seleziona** del pannello **Aggiungi autorizzazioni** e quindi fare clic sulla voce. Fare quindi clic su **Salva**.
+Passare alla pagina **Controllo di accesso (IAM)** dello spazio dei nomi nel portale e quindi fare clic su **Aggiungi un'assegnazione di ruolo** per aggiungere l'identità gestita al ruolo **Proprietario**. A tale scopo, cercare il nome dell'applicazione Web nel campo **Seleziona** del pannello **Aggiungi autorizzazioni** e quindi fare clic sulla voce. Fare quindi clic su **Salva**.
 
-![](./media/service-bus-managed-service-identity/msi2.png)
- 
 L'identità gestita dell'applicazione Web può ora accedere allo spazio dei nomi del bus di servizio e alla coda creata in precedenza. 
 
-### <a name="run-the-app"></a>Eseguire l'app
+### <a name="run-the-app"></a>Esecuzione dell'app
 
 Modificare ora la pagina predefinita dell'applicazione ASP.NET creata. È possibile usare il codice dell'applicazione Web di [questo repository GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 

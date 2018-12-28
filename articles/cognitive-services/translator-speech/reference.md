@@ -1,45 +1,47 @@
 ---
-title: Informazioni di riferimento sull'API Traduzione vocale Microsoft | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Documentazione di riferimento per l'API Traduzione vocale Microsoft.
+title: Informazioni di riferimento sull'API Traduzione vocale
+titleSuffix: Azure Cognitive Services
+description: Documentazione di riferimento per l'API Traduzione vocale.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: be8faddf56158de3399713c41638c0b913b4627e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378404"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259427"
 ---
-# <a name="microsoft-translator-speech-api"></a>API Traduzione vocale Microsoft
+# <a name="translator-speech-api"></a>API Traduzione vocale
 
-Questo servizio offre un'API di streaming per trascrivere le conversazioni vocali da una lingua in testo in un'altra lingua. L'API integra anche funzionalità di sintesi vocale per riconvertire in audio il testo tradotto. L'API Traduzione vocale Microsoft abilita alcuni scenari tra cui la traduzione in tempo reale delle conversazioni come in Skype Translator.
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Con l'API Traduzione vocale Microsoft le applicazioni client trasmettono audio vocale al servizio e ricevono un flusso di risultati basati su testo, inclusi il testo riconosciuto nella lingua di origine e la sua traduzione nella lingua di destinazione. I risultati del testo vengono prodotti applicando il riconoscimento vocale automatico (ASR) alimentato da reti neurali profonde al flusso audio in ingresso. L'output ASR non elaborato viene migliorato ulteriormente con una nuova tecnica chiamata TrueText, per riflettere più da vicino le finalità dell'utente. Ad esempio, TrueText rimuove le disfluenze (gli hmmm e i colpi di tosse) e ripristina la punteggiatura e l'uso delle maiuscole corretti. Vi è anche la possibilità di nascondere o escludere i contenuti volgari. Per i motori di riconoscimento e di traduzione il training viene eseguito specificamente per gestire gli argomenti delle conversazioni. Il servizio di traduzione vocale usa il rilevamento dei silenzi per determinare la fine di un'espressione. Dopo una pausa nell'attività vocale, il servizio riprodurrà un risultato finale per l'espressione completata. Il servizio può anche restituire risultati parziali, che forniscono traduzioni e riconoscimenti intermedi per un'espressione in corso. Per i risultati finali, il servizio offre la possibilità di sintetizzare il vocale (sintesi vocale) dal testo parlato alle lingue di destinazione. L'audio della sintesi vocale viene creato nel formato specificato dal client. Sono disponibili i formati WAV e MP3.
+Questo servizio offre un'API di streaming per trascrivere le conversazioni vocali da una lingua in testo in un'altra lingua. L'API integra anche funzionalità di sintesi vocale per riconvertire in audio il testo tradotto. L'API Traduzione vocale abilita alcuni scenari tra cui la traduzione in tempo reale delle conversazioni come in Skype Translator.
 
-L'API Traduzione vocale Microsoft sfrutta il protocollo WebSocket per fornire un canale di comunicazione full-duplex tra il client e il server. Per usare il servizio in un'applicazione, saranno necessari questi passaggi:
+Con l'API Traduzione vocale le applicazioni client trasmettono audio vocale al servizio e ricevono un flusso di risultati basati su testo, inclusi il testo riconosciuto nella lingua di origine e la sua traduzione nella lingua di destinazione. I risultati del testo vengono prodotti applicando il riconoscimento vocale automatico (ASR) alimentato da reti neurali profonde al flusso audio in ingresso. L'output ASR non elaborato viene migliorato ulteriormente con una nuova tecnica chiamata TrueText, per riflettere più da vicino le finalità dell'utente. Ad esempio, TrueText rimuove le disfluenze (gli hmmm e i colpi di tosse) e ripristina la punteggiatura e l'uso delle maiuscole corretti. Vi è anche la possibilità di nascondere o escludere i contenuti volgari. Per i motori di riconoscimento e di traduzione il training viene eseguito specificamente per gestire gli argomenti delle conversazioni. Il servizio di traduzione vocale usa il rilevamento dei silenzi per determinare la fine di un'espressione. Dopo una pausa nell'attività vocale, il servizio riprodurrà un risultato finale per l'espressione completata. Il servizio può anche restituire risultati parziali, che forniscono traduzioni e riconoscimenti intermedi per un'espressione in corso. Per i risultati finali, il servizio offre la possibilità di sintetizzare il vocale (sintesi vocale) dal testo parlato alle lingue di destinazione. L'audio della sintesi vocale viene creato nel formato specificato dal client. Sono disponibili i formati WAV e MP3.
+
+L'API Traduzione vocale sfrutta il protocollo WebSocket per fornire un canale di comunicazione full-duplex tra il client e il server. Per usare il servizio in un'applicazione, saranno necessari questi passaggi:
 
 ## <a name="1-getting-started"></a>1. Introduzione
-Per accedere all'API Traduzione testuale Microsoft, è necessario [registrarsi per Microsoft Azure](translator-speech-how-to-signup.md).
+Per accedere all'API Traduzione testuale, è necessario [registrarsi per Microsoft Azure](translator-speech-how-to-signup.md).
 
 ## <a name="2-authentication"></a>2. Authentication
 
-Usare la chiave di sottoscrizione per l'autenticazione. L'API Traduzione vocale Microsoft supporta due modalità di autenticazione:
+Usare la chiave di sottoscrizione per l'autenticazione. L'API Traduzione vocale supporta due modalità di autenticazione:
 
-* **Uso di un token di accesso:** nell'applicazione ottenere un token di accesso dal servizio token. Usare la chiave di sottoscrizione dell'API Traduzione vocale Microsoft per ottenere un token di accesso dal servizio di autenticazione di Servizi cognitivi. Il token di accesso è valido per 10 minuti. Ottenere un nuovo token di accesso ogni 10 minuti e continuare a usare lo stesso token di accesso per le richieste ripetute entro 10 minuti.
+* **Uso di un token di accesso:** nell'applicazione ottenere un token di accesso dal servizio dei token. Usare la chiave di sottoscrizione dell'API Traduzione vocale per ottenere un token di accesso dal servizio di autenticazione di Servizi cognitivi di Azure. Il token di accesso è valido per 10 minuti. Ottenere un nuovo token di accesso ogni 10 minuti e continuare a usare lo stesso token di accesso per le richieste ripetute entro 10 minuti.
 
 * **Uso diretto di una chiave di sottoscrizione:** nell'applicazione passare la chiave di sottoscrizione come valore nell'intestazione `Ocp-Apim-Subscription-Key`.
 
 Trattare la chiave di sottoscrizione e il token di accesso come informazioni riservate da tenere nascoste e non visualizzare.
 
 ## <a name="3-query-languages"></a>3. Eseguire una query delle lingue
-**Cercare nella risorsa Languages il set corrente di lingue supportate.** La [risorsa Languages](languages-reference.md) espone il set di lingue e voci disponibili per riconoscimento vocale, traduzione testuale e sintesi vocale. A ogni lingua o voce è assegnato un identificatore usato dall'API Traduzione vocale Microsoft per identificare la stessa lingua o voce.
+**Cercare nella risorsa Languages il set corrente di lingue supportate.** La [risorsa Languages](languages-reference.md) espone il set di lingue e voci disponibili per riconoscimento vocale, traduzione testuale e sintesi vocale. A ogni lingua o voce è assegnato un identificatore usato dall'API Traduzione vocale per identificare la stessa lingua o voce.
 
 ## <a name="4-stream-audio"></a>4. Trasmettere l'audio
 **Aprire una connessione e iniziare a trasmettere l'audio al servizio.** L'URL del servizio è `wss://dev.microsofttranslator.com/speech/translate`. I parametri e i formati audio previsti dal servizio sono descritti sotto, nell'operazione `/speech/translate`. Uno dei parametri viene usato per passare il token di accesso dal passaggio 2 precedente.
@@ -87,17 +89,20 @@ Si noti che le dimensioni del file totali (byte 4-7) e le dimensioni di "data" (
 
 Dopo l'invio dell'intestazione WAV (RIFF), il client invia blocchi di dati audio. Il client trasmetterà in genere blocchi con dimensioni fisse che rappresentano una durata fissa (ad esempio, 100 ms di audio per volta).
 
+### <a name="signal-the-end-of-the-utterance"></a>Segnalare la fine dell'espressione
+L'API Traduzione vocale restituisce la trascrizione e la traduzione del flusso audio mentre è in corso l'invio dell'audio. La trascrizione finale, la traduzione finale e il contenuto audio tradotto verranno restituiti all'utente solo alla fine dell'espressione. In alcuni casi può essere necessario forzare la fine dell'espressione. A tal fine, inviare 2,5 secondi di silenzio. 
+
 ### <a name="final-result"></a>Risultato finale
 Alla fine di un'espressione viene generato un risultato di riconoscimento vocale finale. Un risultato viene trasmesso dal servizio al client con un messaggio WebSocket di tipo Text. Il contenuto del messaggio è la serializzazione JSON di un oggetto con le proprietà seguenti:
 
 * `type`: costante di tipo stringa per identificare il tipo di risultato. Il valore è finale per i risultati finali.
 * `id`: identificatore di tipo stringa assegnato al risultato del riconoscimento.
 * `recognition`: testo riconosciuto nella lingua di origine. Il testo può essere una stringa vuota in caso di falso riconoscimento.
-* `translation`: testo tradotto riconosciuto nella lingua di destinazione.
+* `translation`: testo riconosciuto tradotto nella lingua di destinazione.
 * `audioTimeOffset`: offset temporale dell'inizio del riconoscimento in tick (1 tick = 100 nanosecondi). L'offset è relativo all'inizio del flusso.
 * `audioTimeSize`: durata in tick (100 nanosecondi) del riconoscimento.
 * `audioStreamPosition`: offset di byte dell'inizio del riconoscimento. L'offset è relativo all'inizio del flusso.
-* `audioSizeBytes`: dimensioni in byte del riconoscimento.
+* `audioSizeBytes`: dimensione in byte del riconoscimento.
 
 Si noti che il posizionamento del riconoscimento nel flusso audio non è incluso nei risultati per impostazione predefinita. La funzionalità `TimingInfo` deve essere selezionata dal client. Vedere il parametro `features`.
 
@@ -124,11 +129,11 @@ Un risultato parziale viene trasmesso dal servizio al client con un messaggio We
 * `type`: costante di tipo stringa per identificare il tipo di risultato. Il valore è parziale per i risultati parziali.
 * `id`: identificatore di tipo stringa assegnato al risultato del riconoscimento.
 * `recognition`: testo riconosciuto nella lingua di origine.
-* `translation`: testo tradotto riconosciuto nella lingua di destinazione.
+* `translation`: testo riconosciuto tradotto nella lingua di destinazione.
 * `audioTimeOffset`: offset temporale dell'inizio del riconoscimento in tick (1 tick = 100 nanosecondi). L'offset è relativo all'inizio del flusso.
 * `audioTimeSize`: durata in tick (100 nanosecondi) del riconoscimento.
 * `audioStreamPosition`: offset di byte dell'inizio del riconoscimento. L'offset è relativo all'inizio del flusso.
-* `audioSizeBytes`: dimensioni in byte del riconoscimento.
+* `audioSizeBytes`: dimensione in byte del riconoscimento.
 
 Si noti che il posizionamento del riconoscimento nel flusso audio non è incluso nei risultati per impostazione predefinita. La funzionalità TimingInfo deve essere selezionata dal client. Vedere il parametro features.
 
@@ -169,7 +174,7 @@ Quando un'applicazione client ha completato la trasmissione dell'audio e ha rice
 |voice|(vuoto)|Identifica la voce da usare per il rendering della sintesi vocale del testo tradotto. Il valore è uno degli identificatori della voce dell'ambito tts nella risposta dall'API Languages. Se non viene specificata una voce, il sistema ne sceglierà automaticamente una quando verrà abilitata la funzionalità di sintesi vocale.|query|stringa|
 |format|(vuoto)|Specifica il formato del flusso audio di sintesi vocale restituito dal servizio. Le opzioni disponibili sono:<ul><li>`audio/wav`: flusso audio Waveform. Il client userà l'intestazione WAV per interpretare correttamente il formato audio. L'audio WAV per la sintesi vocale è una modulazione PCM a canale singolo a 16 bit con una frequenza di campionamento di 24 kHz o 16 kHz.</li><li>`audio/mp3`: flusso audio MP3.</li></ul>Il valore predefinito è `audio/wav`.|query|stringa|
 |ProfanityAction    |(vuoto)    |Specifica come il servizio deve gestire i contenuti volgari riconosciuti nel parlato. Le azioni valide sono:<ul><li>`NoAction`: i contenuti volgari rimangono invariati.</li><li>`Marked`: i contenuti volgari vengono sostituiti con un marcatore. Vedere il parametro `ProfanityMarker`.</li><li>`Deleted`: i contenuti volgari vengono eliminati. Se ad esempio la parola `"jackass"` viene trattata come contenuto volgare, la frase `"He is a jackass."` diventerà `"He is a .".`</li></ul>Il valore predefinito è Marked.|query|stringa|
-|ProfanityMarker|(vuoto)    |Specifica come vengono gestiti i contenuti volgari quando `ProfanityAction` è impostato su `Marked`. Le opzioni valide sono:<ul><li>`Asterisk`: i contenuti volgari vengono sostituiti con la stringa `***`. Se ad esempio la parola `"jackass"` viene trattata come contenuto volgare, la frase `"He is a jackass."` diventerà `"He is a ***.".`</li><li>`Tag`: il contenuto volgare viene racchiuso in un tag XML profanity. Se ad esempio la parola `"jackass"` viene trattata come contenuto volgare, la frase `"He is a jackass."` diventerà `"He is a <profanity>jackass</profanity>."`.</li></ul>Il valore predefinito è `Asterisk`.|query|stringa|
+|ProfanityMarker|(vuoto)    |Specifica come vengono gestiti i contenuti volgari quando `ProfanityAction` è impostato su `Marked`. Le opzioni valide sono:<ul><li>`Asterisk`: i contenuti volgari vengono sostituiti con la stringa `***`. Se ad esempio la parola `"jackass"` viene trattata come contenuto volgare, la frase `"He is a jackass."` diventerà `"He is a ***.".`</li><li>`Tag`: i contenuti volgari vengono racchiusi in tag XML profanity. Se ad esempio la parola `"jackass"` viene trattata come contenuto volgare, la frase `"He is a jackass."` diventerà `"He is a <profanity>jackass</profanity>."`.</li></ul>Il valore predefinito è `Asterisk`.|query|stringa|
 |Authorization|(vuoto)  |Specifica il valore del token di connessione del client. Usare il prefisso `Bearer` seguito dal valore del valore `access_token` restituito dal servizio token di autenticazione.|intestazione   |stringa|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se l'intestazione `Authorization` non è specificata.|intestazione|stringa|
 |access_token|(vuoto)   |Modo alternativo per passare un token di accesso OAuth valido. Il token di connessione viene in genere fornito con l'intestazione `Authorization`. Alcune librerie WebSocket non consentono al codice client di impostare le intestazioni. In tal caso, il client può usare il parametro di query `access_token` per passare un token valido. Quando si usa un token di accesso per l'autenticazione, se l'intestazione `Authorization` non è impostata, è necessario impostare `access_token`. Se vengono impostati sia l'intestazione che il parametro di query, il parametro di query viene ignorato. I client devono usare solo un metodo per passare il token.|query|stringa|
@@ -177,11 +182,11 @@ Quando un'applicazione client ha completato la trasmissione dell'audio e ha rice
 |X-ClientTraceId    |(vuoto)    |GUID generato dal client per tenere traccia di una richiesta. Per la corretta risoluzione dei problemi, i client devono fornire un nuovo valore con ogni richiesta e registrarlo.<br/>Invece di usare un'intestazione, questo valore può essere passato con il parametro di query `X-ClientTraceId`. Se vengono impostati sia l'intestazione che il parametro di query, il parametro di query viene ignorato.|intestazione|stringa|
 |X-CorrelationId|(vuoto)    |Identificatore generato dal client usato per correlare più canali in una conversazione. È possibile creare più sessioni di traduzione vocale per abilitare le conversazioni tra gli utenti. In questo scenario, tutte le sessioni di traduzione vocale usano lo stesso ID di correlazione per collegare i canali. Ciò facilita l'analisi e la diagnostica. L'identificatore deve essere conforme a: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Invece di usare un'intestazione, questo valore può essere passato con il parametro di query `X-CorrelationId`. Se vengono impostati sia l'intestazione che il parametro di query, il parametro di query viene ignorato.|intestazione|stringa|
 |X-ClientVersion|(vuoto)    |Identifica la versione dell'applicazione client. Esempio: "2.1.0.123".<br/>Invece di usare un'intestazione, questo valore può essere passato con il parametro di query `X-ClientVersion`. Se vengono impostati sia l'intestazione che il parametro di query, il parametro di query viene ignorato.|intestazione|stringa|
-|X-OsPlatform|(vuoto)   |Identifica il nome e la versione del sistema operativo in cui l'applicazione client è in esecuzione. Esempi: "Android 5.0", "iOs 8.1.3", "Windows 8.1".<br/>Invece di usare un'intestazione, questo valore può essere passato con il parametro di query `X-OsPlatform`. Se vengono impostati sia l'intestazione che il parametro di query, il parametro di query viene ignorato.|intestazione|stringa|
+|X-OsPlatform|(vuoto)   |Identifica il nome e la versione del sistema operativo in cui l'applicazione client è in esecuzione. Esempi: "Android 5.0", "iOS 8.1.3", "Windows 8.1".<br/>Invece di usare un'intestazione, questo valore può essere passato con il parametro di query `X-OsPlatform`. Se vengono impostati sia l'intestazione che il parametro di query, il parametro di query viene ignorato.|intestazione|stringa|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Codice di stato HTTP|Motivo|Modello di risposta|Headers|
+|Codice di stato HTTP|Motivo|Modello di risposta|Intestazioni|
 |:--|:--|:--|:--|
 |101    |Aggiornamento WebSocket.|Valore di esempio del modello <br/> Oggetto {}|X-RequestId<br/>Valore che identifica la richiesta per la risoluzione dei problemi.<br/>stringa|
 |400    |Richiesta non valida. Controllare i parametri di input per verificare che siano validi. L'oggetto della risposta include una descrizione più dettagliata dell'errore.|||

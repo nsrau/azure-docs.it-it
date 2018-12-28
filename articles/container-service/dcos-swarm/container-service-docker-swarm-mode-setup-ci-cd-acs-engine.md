@@ -1,5 +1,5 @@
 ---
-title: CI/CD con il motore del servizio contenitore di Azure e la modalità Swarm
+title: (DEPRECATO) CI/CD con il motore del servizio contenitore di Azure e la modalità Swarm
 description: Usare il motore del servizio contenitore di Azure con la modalità Swarm Docker, un Registro contenitori di Azure e Azure DevOps per distribuire in modo continuativo un'applicazione multi-contenitore .Net Core
 services: container-service
 author: diegomrtnzg
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 296c097ee3302eaa39210274b16c6352866eac8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 52d20004f43b5c553a17c44f3f35d30fd5693286
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299577"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995060"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>Pipeline CI/CD completa per distribuire un'applicazione con più contenitori nel servizio contenitore di Azure con il motore ACS e la modalità Docker Swarm tramite Azure DevOps
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione con più contenitori nel servizio contenitore di Azure con il motore ACS e la modalità Docker Swarm tramite Azure DevOps
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 *Questo articolo si basa sulla[ pipeline CI/CD completa per distribuire un'applicazione a più contenitori nel servizio contenitore di Azure con Docker Swarm e sfruttando la ](container-service-docker-swarm-setup-ci-cd.md)documentazione Azure DevOps*
 
@@ -58,7 +60,7 @@ Prima di iniziare questa esercitazione, è necessario soddisfare i requisiti seg
 > L'agente di orchestrazione Docker Swarm nel servizio contenitore di Azure usa Swarm autonomo legacy. La [modalità Swarm](https://docs.docker.com/engine/swarm/) integrata (in Docker 1.12 e versioni successive) attualmente non è un agente di orchestrazione supportato nel servizio contenitore di Azure. Per questo motivo viene usato il [motore del servizio contenitore di Azure](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), un [modello di avvio rapido](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/) realizzato con il contributo della community o una soluzione Docker in [Azure Marketplace](https://azuremarketplace.microsoft.com).
 >
 
-## <a name="step-1-configure-your-azure-devops-organization"></a>Passaggio 1: configurare l'organizzazione di Azure DevOps 
+## <a name="step-1-configure-your-azure-devops-organization"></a>Passaggio 1: Configurare l'organizzazione di Azure DevOps 
 
 In questa sezione, si configura l'organizzazione di Azure DevOps. Per configurare gli endpoint degli Azure DevOps Services, nel progetto di Azure DevOps, fare clic sull'icona **Impostazioni** nella barra degli strumenti e selezionare **Servizi**.
 
@@ -92,7 +94,7 @@ Prima di passare alla pipeline CI/CD occorre configurare le connessioni esterne 
 
 Tutti i passaggi di configurazione vengono eseguiti ora. Nei passaggi successivi viene creata la pipeline CI/CD che compila e distribuisce l'applicazione al cluster Docker Swarm. 
 
-## <a name="step-2-create-the-build-pipeline"></a>Passaggio 2: creare la pipeline di compilazione
+## <a name="step-2-create-the-build-pipeline"></a>Passaggio 2: Creare la pipeline di compilazione
 
 In questo passaggio, viene impostata una pipeline di compilazione per il progetto Azure DevOps e definito il flusso di lavoro di compilazione per le immagini contenitore
 
@@ -187,7 +189,7 @@ Sono necessari due passaggi di Docker per ogni immagine, uno per compilare l'imm
 
   ![DevOps di Azure - Compilazione completata](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
-## <a name="step-3-create-the-release-pipeline"></a>Passaggio 3: creare la pipeline di versione
+## <a name="step-3-create-the-release-pipeline"></a>Passaggio 3: Creare la pipeline di versione
 
 Azure DevOps consente di [gestire le versione in diversi ambienti](https://www.visualstudio.com/team-services/release-management/). È possibile abilitare la distribuzione continua per assicurarsi che l'applicazione venga distribuita in ambienti diversi (ad esempio sviluppo, test, preproduzione e produzione) in modo uniforme. È possibile creare un ambiente che rappresenti il cluster della modalità Docker Swarm del servizio contenitore di Azure.
 
@@ -195,7 +197,7 @@ Azure DevOps consente di [gestire le versione in diversi ambienti](https://www.v
 
 ### <a name="initial-release-setup"></a>Configurazione iniziale del rilascio
 
-1. Per creare una pipeline di versione, fare clic su **Rilascia** > **+ Rilascia**
+1. Per creare una pipeline di versione, fare clic su **Rilascio** > **+ Rilascio**
 
 2. Per configurare l'origine dell'elemento, fare clic su **Elementi** > **Collega un'origine elemento**. In questo caso, è possibile collegare questa nuova pipeline di versione alla compilazione definita nel passaggio precedente. Successivamente, il file docker-compose.yml è disponibile nel processo di rilascio.
 

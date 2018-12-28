@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: cf470ad14c27fd36cf60bb540e823b15fc58eded
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8d3ffa2664c747f5fbbd4269b23ae54850e0d750
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496907"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321000"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestire le impostazioni utente nel cloud con Azure Multi-Factor Authentication
 
@@ -30,8 +30,8 @@ Questa impostazione impone all'utente di completare di nuovo il processo di regi
 
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Come richiedere agli utenti di fornire di nuovo i metodi di contatto
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Sulla sinistra selezionare **Azure Active Directory** > **Utenti e gruppi** > **Tutti gli utenti**.
-3. Selezionare **Multi-Factor Authentication**. Viene aperta la pagina dell'autenticazione a più fattori. 
+2. A sinistra selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
+3. A destra selezionare **Multi-Factor Authentication** sulla barra degli strumenti. Viene aperta la pagina dell'autenticazione a più fattori. 
 4. Selezionare la casella accanto a uno o più utenti che si desidera gestire. Sulla destra viene visualizzato un elenco di opzioni di azione rapida. 
 5. Selezionare **Gestisci le impostazioni dell'utente**.
 6. Selezionare la casella accanto a **Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto**.
@@ -44,8 +44,8 @@ Questa impostazione elimina tutte le password dell'app create da un utente. Le a
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Come eliminare le password per le app esistenti degli utenti
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Sulla sinistra selezionare **Azure Active Directory** > **Utenti e gruppi** > **Tutti gli utenti**.
-3. Selezionare **Multi-Factor Authentication**. Viene aperta la pagina dell'autenticazione a più fattori. 
+2. A sinistra selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
+3. A destra selezionare **Multi-Factor Authentication** sulla barra degli strumenti. Viene aperta la pagina dell'autenticazione a più fattori. 
 6. Selezionare la casella accanto a uno o più utenti che si desidera gestire. Sulla destra viene visualizzato un elenco di opzioni di azione rapida. 
 7. Selezionare **Gestisci le impostazioni dell'utente**.
 8. Selezionare la casella accanto a **Eliminare tutte le password dell'app esistenti generate dagli utenti selezionati**.
@@ -62,8 +62,8 @@ L'impostazione **Ripristina l'autenticazione a più fattori in tutti i dispositi
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Come ripristinare Multi-Factor Authentication in tutti i dispositivi sospesi per un utente
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Sulla sinistra selezionare **Azure Active Directory** > **Utenti e gruppi** > **Tutti gli utenti**.
-3. Selezionare **Multi-Factor Authentication**. Viene aperta la pagina dell'autenticazione a più fattori. 
+2. A sinistra selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
+3. A destra selezionare **Multi-Factor Authentication** sulla barra degli strumenti. Viene aperta la pagina dell'autenticazione a più fattori. 
 6. Selezionare la casella accanto a uno o più utenti che si desidera gestire. Sulla destra viene visualizzato un elenco di opzioni di azione rapida. 
 7. Selezionare **Gestisci le impostazioni dell'utente**.
 8. Selezionare la casella accanto a **Ripristina l'autenticazione a più fattori in tutti i dispositivi memorizzati**

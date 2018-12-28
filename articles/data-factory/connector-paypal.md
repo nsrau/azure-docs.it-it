@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da PayPal usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da PayPal tramite Azure Data Factory (anteprima) | Microsoft Docs
 description: Informazioni su come copiare dati da PayPal in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 844b9979ed3bb61850ff9448d065bc1300fe23d0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9abd567f629cf405a5e7414a23f43ea2fc613b72
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054399"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088078"
 ---
-# <a name="copy-data-from-paypal-using-azure-data-factory"></a>Copiare dati da PayPal usando Azure Data Factory
+# <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copiare dati da PayPal tramite Azure Data Factory (anteprima)
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da PayPal. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
@@ -45,10 +45,10 @@ Per il servizio collegato di PayPal sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **PayPal** | Sì |
-| host | URL dell'istanza di PayPal, ad esempio api.sandbox.paypal.com  | Sì |
-| clientId | ID client associato all'applicazione PayPal.  | Sì |
-| clientSecret | Segreto client associato all'applicazione PayPal. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| type | La proprietà type deve essere impostata su: **PayPal** | Yes |
+| host | URL dell'istanza di PayPal. ad esempio api.sandbox.paypal.com  | Yes |
+| clientId | ID client associato all'applicazione PayPal.  | Yes |
+| clientSecret | Segreto client associato all'applicazione PayPal. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No  |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No  |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No  |
@@ -76,7 +76,12 @@ Per il servizio collegato di PayPal sono supportate le proprietà seguenti:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati di PayPal.
 
-Per copiare dati da PayPal, impostare la proprietà type del set di dati su **PayPalObject**. Non sono presenti proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da PayPal, impostare la proprietà type del set di dati su **PayPalObject**. Sono supportate le proprietà seguenti:
+
+| Proprietà | DESCRIZIONE | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà type del set di dati deve essere impostata su: **PayPalObject** | Yes |
+| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -88,7 +93,8 @@ Per copiare dati da PayPal, impostare la proprietà type del set di dati su **Pa
         "linkedServiceName": {
             "referenceName": "<PayPal linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -97,14 +103,14 @@ Per copiare dati da PayPal, impostare la proprietà type del set di dati su **Pa
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine di PayPal.
 
-### <a name="paypalsource-as-source"></a>PayPalSource come origine
+### <a name="paypal-as-source"></a>PayPal come origine
 
 Per copiare dati da PayPal, impostare il tipo di origine nell'attività di copia su **PayPalSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **PayPalSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Payment_Experience"`. | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **PayPalSource** | Yes |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Payment_Experience"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

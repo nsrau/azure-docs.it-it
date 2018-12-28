@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 2f0b2984bf2390a9af0b824495b84c71d04aeac2
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852844"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682596"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migrazione dell'API Traduzione testuale dalla versione 2 alla versione 3
 
@@ -59,7 +59,7 @@ L'elenco di metodi delle versioni 2 e 3 seguente individua le API e i metodi del
 
 La Traduzione testuale Microsoft V2 ha accettato e restituito i dati in formato XML. Nella V3 tutti i dati inviati e ricevuti tramite l'API sono in formato JSON. La V3 non accetterà o restituirà più il formato XML.
 
-Tale modifica interesserà diversi aspetti di un'applicazione scritta per l'API Traduzione testuale della V2. Ad esempio, l'API Languages restituisce informazioni sulla lingua per i metodi di traduzione testuale, traslitterazione e i due metodi del dizionario. È possibile richiedere tutte le informazioni sulla lingua per tutti i metodi in un'unica chiamata o richiederle singolarmente.
+Tale modifica interesserà diversi aspetti di un'applicazione scritta per l'API Traduzione testuale della V2. Ad esempio: L'API di lingue restituisce informazioni sulla lingua per i metodi di traduzione testuale, traslitterazione e i due metodi del dizionario. È possibile richiedere tutte le informazioni sulla lingua per tutti i metodi in un'unica chiamata o richiederle singolarmente.
 
 Il metodo Languages non richiede l'autenticazione. Facendo clic sul collegamento seguente è possibile visualizzare tutte le informazioni sulla lingua per la V3 in formato JSON:
 
@@ -105,11 +105,33 @@ Globale
 
 [Dictionary/example](reference/v3-0-dictionary-examples.md)
 
-## <a name="customization"></a>Personalizzazione
+## <a name="compatibility-and-customization"></a>Compatibilità e personalizzazione
 
-Microsoft Translator V3 usa la traduzione neurale automatica per impostazione predefinita. Di conseguenza, non può essere usato con l'hub di Microsoft Translator, che supporta solo la traduzione automatica statistica legacy. La personalizzazione per la traduzione neurale è ora disponibile usando Custom Translator (traduttore personalizzato). [Altre informazioni sulla personalizzazione della traduzione automatica neurale](customization.md)
+Microsoft Translator V3 usa la traduzione neurale automatica per impostazione predefinita. Di conseguenza, non può essere usato con l'hub di Microsoft Translator, che supporta solo la traduzione automatica statistica legacy. La personalizzazione per la traduzione neurale è ora disponibile usando Custom Translator (traduttore personalizzato). [Altre informazioni sulla personalizzazione della traduzione automatica neurale](custom-translator/overview.md)
 
 La traduzione neurale con l'API testuale V3 non supporta l'uso delle categorie standard (SMT, voce, testo, generalnn).
+
+| |Endpoint|    Conformità al processore GDPR|  Usare l'Hub di Translator| Usare il traduttore personalizzato (anteprima)|
+|:-----|:-----|:-----|:-----|:-----|
+|API Traduzione testuale versione 2| api.microsofttranslator.com|    No   |Yes    |No |
+|API Traduzione testuale versione 3| api.cognitive.microsofttranslator.com|  Yes|    No | Yes|
+
+**API Traduzione testuale versione 3**
+* È disponibile a livello generale e completamente supportata.
+* È un processore conforme al GDPR e soddisfa tutti i requisiti ISO 20001 e 20018 nonché i requisiti della certificazione SOC 3. 
+* Consente di richiamare i sistemi di traduzione di rete neurale che sono stati personalizzati con il traduttore personalizzato (anteprima), la nuova funzionalità di personalizzazione di Translator NMT. 
+* Non fornisce l'accesso ai sistemi di traduzione personalizzati creati tramite l'Hub di Microsoft Translator.
+
+Se si usa l'endpoint api.cognitive.microsofttranslator.com, si usa la versione 3 dell'API Traduzione testuale.
+
+**API Traduzione testuale versione 2**
+* È deprecata. Sarà sospesa il 30 aprile 2019. 
+* Non soddisfa tutti i requisiti di certificazione 20001,20018 ISO e SOC 3. 
+* Non consente di richiamare i sistemi di traduzione di rete neurale che sono stati personalizzati con la funzionalità di personalizzazione di Translator.
+* Fornisce l'accesso ai sistemi di traduzione personalizzati creati tramite l'Hub di Microsoft Translator.
+* Se si usa l'endpoint api.microsofttranslator.com, si usa la versione 2 dell'API Traduzione testuale.
+
+Nessuna versione dell'API Translator crea un record delle traduzioni. Le traduzioni non vengono mai condivise con altri. Altre informazioni sulla pagina Web [Nessuna traccia relativa a Translator](http://www.aka.ms/NoTrace).
 
 
 ## <a name="links"></a>Collegamenti

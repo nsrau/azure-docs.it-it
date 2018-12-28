@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 042d2ee0f615ce5216fc11152f0f65518ff9bd5c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5fe1739fa341a5e3bd2f4d26ef1e94d725b74a61
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376380"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001227"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico interno con Azure Kubernetes Service (AKS)
 
 Per limitare l'accesso alle applicazioni nel servizio Kubernetes di Azure (AKS), è possibile creare e usare un bilanciamento del carico interno. Un bilanciamento del carico interno rende accessibile un servizio Kubernetes solo alle applicazioni in esecuzione nella stessa rete virtuale del cluster Kubernetes. Questo articolo descrive come usare un servizio di bilanciamento del carico interno con Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per altre informazioni, vedere [Confronto tra SKU di Load Balancer][azure-lb-comparison]. Servizio Kubernetes di Azure supporta attualmente la SKU *Basic*. Se si vuole usare la SKU *Standard*, è possibile usare [acs-engine][acs-engine] upstream.
+> Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per altre informazioni, vedere [Confronto tra SKU di Load Balancer][azure-lb-comparison]. Servizio Kubernetes di Azure supporta attualmente la SKU *Basic*. Se si vuole usare la SKU *Standard*, è possibile usare [aks-engine][aks-engine] upstream.
 
 ## <a name="create-an-internal-load-balancer"></a>Creare un bilanciamento del carico interno
 
@@ -128,7 +128,7 @@ Altre informazioni sui servizi Kubernetes sono disponibili nella [documentazione
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-advanced-networking.md

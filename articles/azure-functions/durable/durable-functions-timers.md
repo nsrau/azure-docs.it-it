@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad6ddacad322e4c2f952591be786d46cbcb95a21
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7af204ad76cb04c3d71c5108948be4036be1d1e4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637556"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338839"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timer in Funzioni permanenti (Funzioni di Azure)
 
 [Funzioni permanenti](durable-functions-overview.md) fornisce *timer permanenti* da usare nelle funzioni di orchestrazione per implementare ritardi o per impostare timeout nelle azioni asincrone. I timer permanenti devono essere usati nelle funzioni dell'agente di orchestrazione al posto di `Thread.Sleep` e `Task.Delay` (C#) oppure di `setTimeout()` e `setInterval()` (JavaScript).
 
-Per creare un timer permanente si chiama il metodo [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) in [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). Il metodo restituisce un'attività che riprende a una data e ora specificata.
+Si crea un timer permanente chiamando il metodo [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) di [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) in .NET o il metodo `createTimer` di `DurableOrchestrationContext` in JavaScript. Il metodo restituisce un'attività che riprende a una data e ora specificata.
 
 ## <a name="timer-limitations"></a>Limitazioni dei timer
 
@@ -29,13 +29,13 @@ Quando si crea un timer che scade alle 16:30, il Durable Task Framework sottosta
 
 > [!NOTE]
 > * I timer permanenti non possono durare più di 7 giorni a causa dei limiti di Archiviazione di Azure. Microsoft sta lavorando su una [richiesta di funzionalità per estendere i timer oltre i 7 giorni](https://github.com/Azure/azure-functions-durable-extension/issues/14).
-> * Usare sempre [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) anziché `DateTime.UtcNow` come illustrato negli esempi riportati di seguito durante il calcolo di una scadenza relativa di un timer permanente.
+> * Usare sempre [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) anziché `DateTime.UtcNow` in .NET e `currentUtcDateTime` anziché `Date.now` o `Date.UTC` in JavaScript, come illustrato negli esempi riportati di seguito durante il calcolo di una scadenza relativa di un timer permanente.
 
 ## <a name="usage-for-delay"></a>Utilizzo per il ritardo
 
 L'esempio seguente illustra come usare i timer permanenti per ritardare l'esecuzione. L'esempio emette una notifica di fatturazione ogni giorno per dieci giorni.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -51,7 +51,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```js
 const df = require("durable-functions");
@@ -68,13 +68,13 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Evitare i cicli infiniti nelle funzioni di orchestrazione. Per informazioni su come implementare scenari di ciclo infinito in modo sicuro ed efficiente, vedere [Orchestrazioni perenni](durable-functions-eternal-orchestrations.md). 
+> Evitare i cicli infiniti nelle funzioni di orchestrazione. Per informazioni su come implementare scenari di ciclo infinito in modo sicuro ed efficiente, vedere [Orchestrazioni perenni](durable-functions-eternal-orchestrations.md).
 
 ## <a name="usage-for-timeout"></a>Utilizzo per i timeout
 
 Questo esempio illustra come usare i timer permanenti per implementare timeout.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -105,7 +105,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```js
 const df = require("durable-functions");
@@ -142,4 +142,3 @@ Per un esempio dettagliato su come implementare i timeout nelle funzioni di orch
 
 > [!div class="nextstepaction"]
 > [Informazioni su come generare e gestire eventi esterni](durable-functions-external-events.md)
-

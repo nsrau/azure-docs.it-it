@@ -1,32 +1,36 @@
 ---
-title: Usare l'API di trascrizione di Azure Batch
+title: Come usare la trascrizione batch - Servizi di riconoscimento vocale
 titlesuffix: Azure Cognitive Services
-description: Esempi per la trascrizione di volumi elevati di contenuto audio.
+description: La trascrizione batch è ideale se si desidera trascrivere una grande quantità di audio in un archivio, ad esempio BLOB di Azure. Usando l'API REST dedicata è possibile puntare ai file audio con un URI di firma di accesso condiviso (SAS) e ricevere trascrizioni in modo asincrono.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: b4e7c11a6077104e874d67b75f5d00e8f481f739
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495584"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086930"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
-La trascrizione Batch è ideale se nello spazio di archiviazione sono presenti grandi quantità di dati audio. Usando l'API REST dedicato è possibile fare riferimento ai file audio tramite URI di firma di accesso condiviso e ricevere trascrizioni in modo asincrono.
+La trascrizione batch è ideale se si desidera trascrivere una grande quantità di audio in un archivio, ad esempio BLOB di Azure. Usando l'API REST dedicata è possibile puntare ai file audio con un URI di firma di accesso condiviso (SAS) e ricevere trascrizioni in modo asincrono.
+
+>[!NOTE]
+> Per usare la trascrizione batch è necessaria una sottoscrizione standard (S0) per i servizi di riconoscimento vocale. Le chiavi di sottoscrizione gratuita (F0) non funzioneranno. Per altre informazioni, vedere [prezzi e limiti](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
 
 ## <a name="the-batch-transcription-api"></a>API di trascrizione batch
 
 L'API di trascrizione batch offre la trascrizione asincrona della voce in testo scritto insieme ad altre funzionalità. Si tratta di un'API REST che espone metodi per eseguire le operazioni seguenti:
 
 1. Creare richieste di elaborazione batch
-1. Eseguire query sullo stato 
+1. Eseguire query sullo stato
 1. Scaricare le trascrizioni
 
 > [!NOTE]
@@ -75,7 +79,7 @@ Questi parametri possono essere inclusi nella stringa di query della richiesta R
 
 ## <a name="authorization-token"></a>Token di autorizzazione
 
-Come per tutte le funzionalità del servizio Voce, si crea una chiave di sottoscrizione dal [portale di Azure](https://portal.azure.com) seguendo la [guida introduttiva](get-started.md). Se si prevede di ottenere trascrizioni dai modelli di base, la creazione di una chiave è l'unica operazione da eseguire. 
+Come per tutte le funzionalità del servizio Voce, si crea una chiave di sottoscrizione dal [portale di Azure](https://portal.azure.com) seguendo la [guida introduttiva](get-started.md). Se si prevede di ottenere trascrizioni dai modelli di base, la creazione di una chiave è l'unica operazione da eseguire.
 
 Se si prevede di personalizzare e usare un modello personalizzato, aggiungere la chiave di sottoscrizione nel portale del Servizio di riconoscimento vocale personalizzato eseguendo queste operazioni:
 
@@ -106,19 +110,19 @@ Personalizzare il codice di esempio seguente con una chiave di sottoscrizione e 
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-         
+
             return new CrisClient(client);
         }
 ```
 
-Dopo avere ottenuto il token, specificare l'URI di firma di accesso condiviso che punta al file di cui eseguire la trascrizione. La parte restante del codice esegue l'iterazione attraverso i diversi valori di stato e visualizza i risultati. Prima di tutto, si impostano la chiave, l'area, i modelli da usare e l'amministratore del servizio, come illustrato nel frammento di codice seguente. Successivamente, si crea un'istanza del client e della richiesta POST. 
+Dopo avere ottenuto il token, specificare l'URI di firma di accesso condiviso che punta al file di cui eseguire la trascrizione. La parte restante del codice esegue l'iterazione attraverso i diversi valori di stato e visualizza i risultati. Prima di tutto, si impostano la chiave, l'area, i modelli da usare e l'amministratore del servizio, come illustrato nel frammento di codice seguente. Successivamente, si crea un'istanza del client e della richiesta POST.
 
 ```cs
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
-    
-            // SAS URI 
+
+            // SAS URI
             private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
 
             // adapted model Ids
@@ -127,14 +131,14 @@ Dopo avere ottenuto il token, specificare l'URI di firma di accesso condiviso ch
 
             // Creating a Batch Transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
-            
+
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
 ```
 
 Dopo aver creato la richiesta, è possibile eseguire una query e scaricare i risultati della trascrizione, come illustrato nel frammento di codice seguente:
 
 ```cs
-  
+
             // get all transcriptions for the user
             transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
@@ -152,9 +156,9 @@ Dopo aver creato la richiesta, è possibile eseguire una query e scaricare i ris
                             // not created from here, continue
                             continue;
                         }
-                            
+
                         completed++;
-                            
+
                         // if the transcription was successful, check the results
                         if (transcription.Status == "Succeeded")
                         {
@@ -166,7 +170,7 @@ Dopo aver creato la richiesta, è possibile eseguire una query e scaricare i ris
                             Console.WriteLine("Transcription succeeded. Results: ");
                             Console.WriteLine(results);
                         }
-                    
+
                     break;
                     case "Running":
                     running++;
@@ -174,7 +178,7 @@ Dopo aver creato la richiesta, è possibile eseguire una query e scaricare i ris
                     case "NotStarted":
                     notStarted++;
                     break;
-                    
+
                     }
                 }
             }
@@ -188,7 +192,7 @@ Per informazioni dettagliate sulle chiamate precedenti, vedere il [documento di 
 
 Prendere nota della configurazione asincrona per l'inserimento dell'audio e la ricezione dello stato della trascrizione. Viene creato un client HTTP .NET. Il metodo `PostTranscriptions` consente di inviare i dettagli del file audio e il metodo `GetTranscriptions` consente di ricevere i risultati. `PostTranscriptions` restituisce un handle e `GetTranscriptions` usa l'handle per crearne uno nuovo per ottenere lo stato della trascrizione.
 
-Il codice di esempio corrente non specifica un modello personalizzato. Per la trascrizione dei file, il servizio userà i modelli di base. Per specificare i modelli, è possibile passare nello stesso metodo gli ID per il modello acustico e per quello linguistico. 
+Il codice di esempio corrente non specifica un modello personalizzato. Per la trascrizione dei file, il servizio userà i modelli di base. Per specificare i modelli, è possibile passare nello stesso metodo gli ID per il modello acustico e per quello linguistico.
 
 Se non si vogliono usare i modelli di base, passare gli ID per il modello acustico e per quello linguistico.
 

@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: cd3d159e4482b43c6356ab7b657a79fa59159c60
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.custom: seodec18
+ms.openlocfilehash: 2f57a5ddfdf18214e927a8a903fda54872900375
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214988"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166473"
 ---
-# <a name="qna-maker-rest-api-with-nodejs"></a>API REST QnA Maker con Node.js 
+# <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Come usare l'API REST QnA Maker con Node.js 
 <a name="HOLTop"></a>
 
 Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/overview.md)  con Node.js per eseguire le operazioni seguenti.
@@ -37,7 +38,7 @@ Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/over
 - [Ottenere il set corrente di variazioni delle parole.](#GetAlterations)
 - [Sostituire il set corrente di variazioni delle parole.](#PutAlterations)
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
