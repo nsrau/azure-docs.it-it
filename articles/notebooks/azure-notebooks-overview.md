@@ -48,7 +48,7 @@ Poiché Azure Notebooks è una piattaforma per la creazione, l'esecuzione e la c
 - Consentire agli utenti di GitHub di caricare ed eseguire direttamente i notebook [creando una notifica di avvio di GitHub](https://notebooks.azure.com/help/projects/sharing/create-a-github-badge)
 - Creare [presentazioni di PowerPoint](https://notebooks.azure.com/help/jupyter-notebooks/slides) con diapositive contenenti codice eseguibile.
 
-In breve, Azure Notebook consente di svolgere il proprio lavoro in modo più efficiente e produttivo.
+In breve, Azure Notebooks consente di svolgere il proprio lavoro in modo più efficiente e produttivo.
 
 > [!Note]
 > Per altre informazioni su Jupyter, vedere [jupyter.org](https://jupyter.org/) e la [documentazione di Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/).
