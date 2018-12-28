@@ -9,16 +9,15 @@ ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 2538bbf32b41e51796e333c11b7af6c091a71ede
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9f58c8c99fa48c0ffb4c76dd9752993b5e7d092e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309090"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994379"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introduzione ad Application Insights in un progetto Web Java
 
@@ -75,8 +74,8 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
     </dependencies>
 ```
 
-* *Errori di convalida checksum o compilazione?* Provare a usare una versione specifica, ad esempio `<version>2.0.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *È necessario eseguire l'aggiornamento a un nuovo SDK?*  Aggiornare le dipendenze del progetto.
+* *Errori di convalida checksum o compilazione?* Provare a usare una versione specifica, ad esempio `<version>2.0.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o negli [elementi Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *È necessario eseguire l'aggiornamento a un nuovo SDK?* Aggiornare le dipendenze del progetto.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Se si usa Gradle: <a name="gradle-setup" />
 Se il progetto è già stato configurato per usare Gradle per la compilazione, unire il codice seguente al file build.gradle.
@@ -98,7 +97,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Se si usa Eclipse per creare un progetto Web dinamico:
 Usare il [plug-in di Application Insights SDK per Java][eclipse]. Nota: anche se con questo plug-in è possibile iniziare a usare Application Insights più rapidamente (presupponendo che non si usi Maven o Gradle), non si tratta di un sistema di gestione delle dipendenze. Con l'aggiornamento del plug-in non verranno quindi aggiornate automaticamente le librerie di Application Insights nel progetto.
 
-* *Errori di convalida checksum o compilazione?* Provare a usare una versione specifica, ad esempio `version:'2.0.n'`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Errori di convalida checksum o compilazione?* Provare a usare una versione specifica, ad esempio `version:'2.0.n'`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o negli [elementi Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Per eseguire l'aggiornamento a un nuovo SDK*, aggiornare le dipendenze del progetto.
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>In caso contrario, se le dipendenze vengono gestite manualmente:
@@ -325,7 +324,7 @@ Quando si visualizzano le proprietà di una richiesta, è possibile visualizzare
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
-### <a name="analytics-powerful-query-language"></a>Analytics: linguaggio di query avanzato
+### <a name="analytics-powerful-query-language"></a>Analisi: Linguaggio di query avanzato
 Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole.  [Analisi](app-insights-analytics.md) è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e ai fini della diagnostica.
 
 ![Esempio di Analytics](./media/app-insights-java-get-started/025.png)

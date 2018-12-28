@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1e2d809ed476b1789736f0d61dfea528b090da50
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8c60e7dec2d2a9bc3e063adfee0ffaff63417265
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447130"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960164"
 ---
-> [!WARNING]
-> L'integrazione di Azure Active Directory B2C è disponibile solo nei livelli [Developer, Standard e Premium](https://azure.microsoft.com/pricing/details/api-management/).
-
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Come autorizzare gli account per sviluppatore usando Azure Active Directory B2C in Gestione API di Azure
 
 ## <a name="overview"></a>Panoramica
-Azure Active Directory B2C è una soluzione di gestione delle identità cloud per applicazioni per dispositivi mobili e Web rivolte agli utenti. Può essere usato per gestire l'accesso a un portale per sviluppatori. Questa guida illustra la configurazione necessaria nel servizio Gestione API per l'integrazione con Azure Active Directory B2C. Per informazioni su come abilitare l'accesso al portale per sviluppatori con la versione classica di Azure Active Directory, vedere [Come autorizzare gli account per sviluppatori usando Azure Active Directory].
+
+Azure Active Directory B2C è una soluzione di gestione delle identità cloud per applicazioni per dispositivi mobili e Web rivolte agli utenti. Può essere usato per gestire l'accesso a un portale per sviluppatori. Questa guida illustra la configurazione necessaria nel servizio Gestione API per l'integrazione con Azure Active Directory B2C. Per informazioni su come abilitare l'accesso al portale per sviluppatori con la versione classica di Azure Active Directory, vedere [Come autorizzare gli account per sviluppatore usando Azure Active Directory].
 
 > [!NOTE]
 > Per completare i passaggi di questa guida, è necessario un tenant di Azure Active Directory B2C in cui creare un'applicazione. È necessario anche che siano pronti i criteri di iscrizione e accesso. Per altre informazioni, vedere la [panoramica di Azure Active Directory B2C].
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Autorizzare gli account per sviluppatore usando Azure Active Directory B2C
 
@@ -187,11 +185,11 @@ Azure Active Directory B2C è una soluzione di gestione delle identità cloud pe
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[http://oauth.net/2/]: http://oauth.net/2/
+[https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
+[Accessing the Graph API]: https://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 [Panoramica di Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
-[Come autorizzare gli account per sviluppatori usando Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
+[Come autorizzare gli account per sviluppatore usando Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
 [Azure Active Directory B2C: framework di criteri estendibile]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
 [Usare un account Microsoft come provider di identità in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
 [Usare un account Google come provider di identità in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
