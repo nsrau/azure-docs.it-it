@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914040"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413488"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -27,19 +27,21 @@ Griglia di eventi di Azure ha tre tipi di autenticazione:
 
 I webhook sono uno dei modi per ricevere gli eventi da Griglia di eventi di Azure. Quando un nuovo evento è pronto, il servizio Griglia di eventi esegue il POST di una richiesta HTTP nell'endpoint configurato con l'evento nel corpo della richiesta.
 
-Analogamente a molti altri servizi che supportano i webhook, Griglia di eventi richiede la dimostrazione della "proprietà" dell'endpoint del webhook prima dell'inizio del recapito di eventi a tale endpoint. Questo requisito consente di impedire a un endpoint di diventare inconsapevolmente l'endpoint di destinazione per il recapito di eventi da Griglia di eventi. Quando tuttavia si usa uno dei tre servizi di Azure elencati di seguito, l'infrastruttura di Azure gestisce automaticamente questa convalida:
+Analogamente a molti altri servizi che supportano i webhook, Griglia di eventi richiede la dimostrazione della proprietà dell'endpoint del webhook prima dell'inizio del recapito di eventi a tale endpoint. Questo requisito impedisce a un utente malintenzionato di sovraccaricare l'endpoint con eventi. Quando si usa uno dei tre servizi di Azure elencati di seguito, l'infrastruttura di Azure gestisce automaticamente questa convalida:
 
 * App per la logica di Azure
 * Automazione di Azure
-* Funzioni di Azure per un trigger di Griglia di eventi
+* Funzioni di Azure per il trigger Griglia di eventi
 
-Se si usa un altro tipo di endpoint, ad esempio un trigger HTTP basato su una funzione di Azure, il codice dell'endpoint deve partecipare a un handshake di convalida con Griglia di eventi. Griglia di eventi supporta due diversi modelli di handshake di convalida:
+Se si usa un altro tipo di endpoint, ad esempio un trigger HTTP basato su una funzione di Azure, il codice dell'endpoint deve partecipare a un handshake di convalida con Griglia di eventi. Griglia di eventi supporta due modalità di convalida della sottoscrizione.
 
-1. **Handshake ValidationCode**: durante la creazione della sottoscrizione di eventi, il servizio Griglia di eventi esegue il POST di un "evento di convalida della sottoscrizione" nell'endpoint. Lo schema di questo evento è simile a qualsiasi altro evento di Griglia eventi e la parte "data" di tale evento include una proprietà `validationCode`. Quando l'applicazione ha verificato che la richiesta di convalida è relativa a una sottoscrizione di eventi prevista, il codice dell'applicazione deve rispondere restituendo il codice di convalida a Griglia di eventi. Questo meccanismo di handshake è supportato in tutte le versioni di Griglia di eventi.
+1. **Handshake ValidationCode (programmatico)**: se si controlla il codice sorgente per l'endpoint, è consigliabile usare questo metodo. In fase di creazione della sottoscrizione di eventi, Griglia di eventi invia un evento di convalida della sottoscrizione all'endpoint. Lo schema di questo evento è simile a qualsiasi altro evento di Griglia di eventi. La parte di dati dell'evento include una proprietà `validationCode`. L'applicazione verifica che la richiesta di convalida sia per una sottoscrizione di eventi prevista e restituisce il codice di convalida a Griglia di eventi. Questo meccanismo di handshake è supportato in tutte le versioni di Griglia di eventi.
 
-2. **Handshake ValidationURL (handshake manuale)**: in determinati casi non è possibile controllare il codice sorgente dell'endpoint per implementare l'handshake basato su ValidationCode. Se ad esempio si usa un servizio di terze parti, ad esempio [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), non è possibile restituire il codice di convalida a livello di programmazione. A partire dalla versione 2018-05-01-preview, EventGrid supporta quindi un handshake di convalida manuale. Se si sta creando una sottoscrizione di eventi con un SDK o uno strumento che usa l'API 2018-05-01-preview o versione successiva, EventGrid invia una proprietà `validationUrl` come parte della porzione "data" dell'evento di convalida della sottoscrizione. Per completare l'handshake, è sufficiente inviare una richiesta GET in tale URL, tramite un client REST oppure il Web browser. L'URL di convalida specificato è valido solo per circa 10 minuti. Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se si non completata la convalida manuale entro 10 minuti, lo stato di provisioning è impostato su `Failed`. È possibile creare la sottoscrizione all'evento nuovamente prima di avviare la convalida manuale.
+2. **Handshake ValidationURL (manuale)**: in alcuni casi è impossibile accedere al codice sorgente dell'endpoint per implementare l'handshake ValidationCode. Se ad esempio si usa un servizio di terze parti, come [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), non è possibile rispondere con il codice di convalida a livello di programmazione.
 
-Questo meccanismo di convalida manuale è disponibile in anteprima. Per usarla, è necessario installare l'[estensione Griglia di eventi](/cli/azure/azure-cli-extensions-list) per l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). È possibile installarla con `az extension add --name eventgrid`. Se si usa l'API REST, assicurarsi di usare `api-version=2018-05-01-preview`.
+   A partire dalla versione 2018-05-01-preview, Griglia di eventi supporta un handshake di convalida manuale. Se si sta creando una sottoscrizione di eventi con un SDK o uno strumento che usa l'API 2018-05-01-preview o versione successiva, Griglia di eventi invia una proprietà `validationUrl` nella parte di dati dell'evento di convalida della sottoscrizione. Per completare l'handshake, trovare l'URL nei dati dell'evento e inviare manualmente una richiesta GET a tali dati. È possibile usare un client REST o un Web browser.
+
+   L'URL specificato è valido per 10 minuti. Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se si non completata la convalida manuale entro 10 minuti, lo stato di provisioning è impostato su `Failed`. È possibile creare la sottoscrizione all'evento nuovamente prima di avviare la convalida manuale.
 
 ### <a name="validation-details"></a>Dettagli di convalida
 
@@ -78,9 +80,11 @@ Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida nel
 }
 ```
 
+È necessario restituire un codice di stato risposta HTTP 200 OK. HTTP 202 Accettata non una risposta di convalida di sottoscrizione di Griglia di eventi riconosciuta come valida.
+
 In alternativa, è possibile convalidare manualmente la sottoscrizione inviando una richiesta GET all'URL di convalida. La sottoscrizione dell'evento rimane nello stato in sospeso fino a quando non viene convalidata.
 
-Un esempio C# che illustra come gestire l'handshake di convalida della sottoscrizione è disponibile in https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
+Per un esempio di gestione dell'handshake di convalida della sottoscrizione, vedere un [ esempio C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ### <a name="checklist"></a>Elenco di controllo
 
@@ -269,7 +273,7 @@ Se è necessario specificare autorizzazioni diverse rispetto ai ruoli predefinit
 
 Le seguenti sono definizioni di esempio del ruolo di Griglia di eventi che consentono agli utenti di eseguire diverse azioni. Questi ruoli personalizzati sono diversi dai ruoli predefiniti perché garantiscono un accesso più ampio rispetto alle sole sottoscrizioni di eventi.
 
-**EventGridReadOnlyRole.json**: consente solo operazioni di sola lettura.
+**EventGridReadOnlyRole.json**: consente esclusivamente operazioni di sola lettura.
 
 ```json
 {
@@ -311,7 +315,7 @@ Le seguenti sono definizioni di esempio del ruolo di Griglia di eventi che conse
 }
 ```
 
-**EventGridContributorRole.json**: consente tutte le azioni di Griglia di eventi.
+**EventGridContributorRole.json**: consente a tutte le azioni di Griglia di eventi.
 
 ```json
 {

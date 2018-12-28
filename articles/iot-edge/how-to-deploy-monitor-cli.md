@@ -1,6 +1,6 @@
 ---
-title: Distribuire e monitorare i moduli per Azure IoT Edge (CLI) | Microsoft Docs
-description: Gestire i moduli eseguiti su dispositivi perimetrali
+title: Creare distribuzioni automatiche dalla riga di comando - Azure IoT Edge | Microsoft Docs
+description: Usare l'estensione IoT dell'interfaccia della riga di comando di Azure per creare distribuzioni automatiche per i gruppi di dispositivi IoT Edge
 keywords: ''
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3f2e7de6b32b4cca6320933050775f843e2cdf39
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 64c4b82208b2f8a20f7fd00fb574d5e017030e81
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567934"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094152"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite l'interfaccia della riga di comando di Azure
 

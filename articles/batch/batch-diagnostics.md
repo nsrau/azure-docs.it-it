@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
+ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822756"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438439"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
  
-Questo articolo descrive come monitorare un account Batch tramite le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/platform/data-collection.md#metrics) e [log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per le risorse nell'account Batch. È possibile raccogliere e utilizzare i dati in svariati modi per monitorare l'account Batch e diagnosticare i problemi. È anche possibile configurare [avvisi sulle metriche](../monitoring-and-diagnostics/monitoring-overview-alerts.md) per ricevere notifiche quando una metrica raggiunge un valore specificato. 
+Questo articolo descrive come monitorare un account Batch tramite le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/platform/data-collection.md#metrics) e [log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per le risorse nell'account Batch. È possibile raccogliere e utilizzare i dati in svariati modi per monitorare l'account Batch e diagnosticare i problemi. È anche possibile configurare [avvisi sulle metriche](../azure-monitor/platform/alerts-overview.md) per ricevere notifiche quando una metrica raggiunge un valore specificato. 
 
 ## <a name="batch-metrics"></a>Metriche di Batch
 
-Le metriche sono dati di telemetria di Azure (chiamati anche contatori delle prestazioni) generati dalle risorse di Azure che vengono usate dal servizio Monitoraggio di Azure. Tra le metriche di esempio in un account Batch sono incluse quelle relative a eventi di creazione di pool, conteggio di nodi per priorità bassa ed eventi di completamento di attività. 
+Le metriche sono dati di telemetria di Azure (chiamati anche contatori delle prestazioni) generati dalle risorse di Azure che vengono usate dal servizio Monitoraggio di Azure. Metriche di esempio di un account Batch sono quelle relative a eventi di creazione di pool, numero di nodi con priorità bassa ed eventi di completamento di attività. 
 
-Vedere l'[elenco delle metriche di Batch supportate](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+Vedere l'[elenco delle metriche di Batch supportate](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Le metriche:
 
@@ -53,11 +53,17 @@ Per visualizzare tutte le metriche dell'account Batch:
 
 Per recuperare le metriche a livello di codice, usare le API di Monitoraggio di Azure. Ad esempio, vedere [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) (Recuperare metriche di Monitoraggio di Azure con .NET).
 
+## <a name="batch-metric-reliability"></a>Affidabilità delle metriche di Batch
+
+Le metriche sono destinate all'uso per l'analisi dei dati e delle tendenze. La trasmissione delle metriche non è garantita ed è soggetta a recapito non ordinato, perdita di dati e/o duplicazione. Non è consigliabile usare singoli eventi come avviso o per attivare funzioni. Per altre informazioni su come impostare le soglie di avviso, vedere la sezione [Avvisi sulle metriche di Batch](#batch-metric-alerts).
+
+Le metriche generate negli ultimi 3 minuti possono essere ancora in fase di aggregazione. Durante questo intervallo di tempo possono essere indicati valori delle metriche inferiori a quelli effettivi.
+
 ## <a name="batch-metric-alerts"></a>Avvisi sulle metriche di Batch
 
-Facoltativamente, è possibile configurare *avvisi sulle metriche* praticamente in tempo reale, che vengono attivati quando il valore di una metrica specificata supera la soglia assegnata. L'avviso genera una [notifica](../monitoring-and-diagnostics/insights-alerts-portal.md) personalizzata quando viene "attivato" (quando la soglia viene superata e viene soddisfatta la condizione di avviso) e anche quando viene "risolto" (quando il valore rientra nella soglia e la condizione non viene più soddisfatta). 
+Facoltativamente, è possibile configurare *avvisi sulle metriche* praticamente in tempo reale, che vengono attivati quando il valore di una metrica specificata supera la soglia assegnata. L'avviso genera una [notifica](../monitoring-and-diagnostics/insights-alerts-portal.md) personalizzata quando viene "attivato" (quando la soglia viene superata e viene soddisfatta la condizione di avviso) e anche quando viene "risolto" (quando il valore rientra nella soglia e la condizione non viene più soddisfatta). Non è consigliabile generare avvisi in base a singoli punti dati poiché le metriche sono soggette a recapito non ordinato, perdita di dati e/o duplicazione. Per tenere conto di queste incongruenze, gli avvisi devono essere basati su soglie.
 
-Ad esempio, è possibile configurare un avviso sulle metriche quando il numero di core per priorità bassa diminuisce a un determinato livello, per consentire la regolazione della composizione dei pool.
+Ad esempio, è possibile configurare un avviso sulle metriche quando il numero di core per priorità bassa diminuisce a un determinato livello, per consentire la regolazione della composizione dei pool. È consigliabile impostare un periodo di 10 minuti o più in cui gli avvisi si attivano se il numero medio di core con priorità bassa scende sotto il valore di soglia per l'intero periodo. Non è consigliabile generare avvisi per un intervallo di tempo di 1-5 minuti perché le metriche potrebbero essere ancora in fase di aggregazione.
 
 Per configurare un avviso sulle metriche nel portale:
 
@@ -65,7 +71,7 @@ Per configurare un avviso sulle metriche nel portale:
 2. In **Monitoraggio** fare clic su **Regole di avviso** > **Aggiungi avviso per la metrica**.
 3. Selezionare una metrica, una condizione di avviso, ad esempio quando una metrica supera un valore specifico durante un periodo, e una o più notifiche.
 
-È anche possibile configurare un avviso praticamente in tempo reale usando l'[API REST](https://docs.microsoft.com/rest/api/monitor/). Per altre informazioni, vedere la [panoramica degli avvisi](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+È anche possibile configurare un avviso praticamente in tempo reale usando l'[API REST](https://docs.microsoft.com/rest/api/monitor/). Per altre informazioni, vedere la [panoramica degli avvisi](../azure-monitor/platform/alerts-overview.md)
 
 ## <a name="batch-diagnostics"></a>Diagnostica di Batch
 
@@ -103,7 +109,7 @@ Altre destinazioni facoltative per i log di diagnostica:
 
     ![Diagnostica di Batch](media/batch-diagnostics/diagnostics-portal.png)
 
-Altre opzioni per abilitare la raccolta di log includono l'uso di Monitoraggio di Azure nel portale per configurare le impostazioni di diagnostica, di un [modello di Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) oppure di Azure PowerShell o dell'interfaccia della riga di comando di Azure. Vedere [Raccogliere e utilizzare dati dei log dalle risorse di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+Altre opzioni per abilitare la raccolta di log includono l'uso di Monitoraggio di Azure nel portale per configurare le impostazioni di diagnostica, di un [modello di Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) oppure di Azure PowerShell o dell'interfaccia della riga di comando di Azure. Vedere [Raccogliere e utilizzare dati dei log dalle risorse di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Accedere ai log di diagnostica nell'archiviazione
@@ -127,7 +133,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 Ogni file di BLOB PT1H.json contiene eventi in formato JSON che si sono verificati nell'ora specificata nell'URL del BLOB, ad esempio, h=12. Durante l'ora attuale, gli eventi vengono aggiunti al file PT1H.json man mano che si verificano. Il valore dei minuti (m=00) è sempre 00, perché gli eventi del log di diagnostica vengono sempre suddivisi in singoli BLOB per ogni ora. Tutte le ore sono in formato UTC.
 
 
-Per altre informazioni sullo schema dei log di diagnostica nell'account di archiviazione, vedere [Archiviare log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+Per altre informazioni sullo schema dei log di diagnostica nell'account di archiviazione, vedere [Archiviare log di diagnostica di Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 Per accedere ai log nell'account di archiviazione a livello di codice, usare le API di Archiviazione. 
 

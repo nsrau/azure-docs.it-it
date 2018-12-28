@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a0dad228f23b055d68009eb737e0347ade49e94b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274180"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968049"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Collegare l'ID partner agli account Azure
 
@@ -30,9 +30,9 @@ Prima di collegare l'ID partner, il cliente deve consentire l'accesso alle risor
 
 - **Utente guest:** il cliente può consentire l'accesso come utente guest e assegnare uno dei ruoli RBAC. Per altre informazioni, vedere [Aggiungere utenti guest da un'altra directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Account di directory:** il cliente può creare un nuovo utente dell'organizzazione nella propria directory e assegnare uno dei ruoli RBAC.
+- **Account directory:**  il cliente può creare un account utente nella propria directory e assegnare ruoli RBAC.
 
-- **Entità servizio:** il cliente può aggiungere un'app o uno script dell'organizzazione nella propria directory e assegnare uno dei ruoli RBAC. L'identità dell'app o dello script viene definita entità servizio.
+- **Entità servizio:**  il cliente può aggiungere un'app o uno script dell'organizzazione nella propria directory e assegnare uno dei ruoli RBAC. L'identità dell'app o dello script viene definita entità servizio.
 
 ## <a name="link-partner-id"></a>Collegare l'ID partner
 

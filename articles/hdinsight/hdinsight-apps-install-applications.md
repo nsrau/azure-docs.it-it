@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e1a6b453bb92ca57a1c9be9bff958ac0780ea12e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 47a634ca1c4e904cc1054db3a834483489ade0ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498031"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093557"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight
 
@@ -28,8 +28,8 @@ L'elenco seguente mostra le applicazioni pubblicate:
 * **Cask CDAP for HDInsight**: offre la prima piattaforma di integrazione unificata per Big Data che riduce i tempi per la produzione di applicazioni dati e Data Lake dell'80%. Questa applicazione supporta solo i cluster Standard HBase 3.4.
 * **DATAIKU DDS on HDInsight**: consente ai professionisti che lavorano con i dati di creare prototipi, compilare e distribuire servizi altamente specifici che trasformano i dati non elaborati in stime aziendali di grande impatto.
 * **Datameer** è una piattaforma scalabile self-service che consente di preparare, esplorare e controllare i dati per accelerare l'analisi convertendo i dati complessi a più origini in informazioni pronte per l'azienda, con conseguente generazione più veloce e più intelligente di informazioni dettagliate su scala aziendale.
-* **H2O Artificial Intelligence for HDInsight (Beta)**: H2O Sparkling Water supporta i seguenti algoritmi distribuiti: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection e Autoencoders.
-* **Kyligence Analytics Platform**: Kyligence Analytics Platform (KAP) è un data warehouse di livello aziendale con tecnologia Apache Kylin e Apache Hadoop che supporta una latenza di query inferiore al secondo su set di dati di enormi dimensioni e semplifica l'analisi dei dati per gli utenti aziendali e gli analisti. 
+* **H2O Artificial Intelligence for HDInsight (Beta)** H2O Sparkling Water supporta i seguenti algoritmi distribuiti: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection e Autoencoders.
+* **Kyligence Enterprise**, con tecnologia Apache Kylin, offre informazioni dettagliate immediate su grandi set di dati per gli analisti di dati e gli utenti aziendali. Con tecnologia di apprendimento automatico all'avanguardia e funzionalità di modellazione di dati intelligenti, migliora notevolmente la produttività dell'analisi di Big Data. 
 * **Preparazione dei dati self-service di Paxata**
 * **Spark Job Server for KNIME Spark Executor**: Spark Job Server for KNIME Spark Executor consente di connettere la piattaforma di analisi KNIME ai cluster HDInsight.
 * **Starburst Presto** è un motore di query SQL distribuito veloce e scalabile. Progettato per separare l'archiviazione dal calcolo, Presto è perfetto per eseguire query sui dati in Azure Data Lake Storage, Archiviazione BLOB di Azure, database SQL e NoSQL e altre origini dati.
@@ -82,8 +82,8 @@ Il portale include un elenco delle applicazioni HDInsight installate per un clus
    * Nome dell'app: nome all'applicazione.
    * Stato: stato dell'applicazione. 
    * Pagina Web: URL dell'applicazione Web distribuita nel nodo perimetrale. Le credenziali sono le stesse usate per le credenziali utente HTTP configurate per il cluster.
-   * Endpoint HTTP: le credenziali sono le stesse usate per le credenziali utente HTTP configurate per il cluster. 
-   * Endpoint SSH: è possibile usare SSH per connettersi al nodo perimetrale. Le credenziali SSH sono le stesse usate per le credenziali utente SSH configurate per il cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+   * Endpoint HTTP: Le credenziali sono le stesse usate per le credenziali utente HTTP configurate per il cluster. 
+   * Endpoint SSH: È possibile usare SSH per connettersi al nodo perimetrale. Le credenziali SSH sono le stesse usate per le credenziali utente SSH configurate per il cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 6. Per eliminare un'applicazione, fare clic con il pulsante destro del mouse sull'applicazione e quindi scegliere **Elimina** dal menu di scelta rapida.
 
 ## <a name="connect-to-the-edge-node"></a>Connettersi al nodo perimetrale
@@ -96,8 +96,8 @@ Vedere [Risolvere i problemi di installazione](hdinsight-apps-install-custom-app
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md): informazioni su come distribuire in HDInsight un'applicazione HDInsight non pubblicata.
-* [Pubblicare applicazioni HDInsight](hdinsight-apps-publish-applications.md): informazioni su come pubblicare applicazioni HDInsight personalizzate in Azure Marketplace.
-* [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: Installare un'applicazione HDInsight): informazioni su come definire le applicazioni HDInsight.
+* [Pubblicare applicazioni HDInsight](hdinsight-apps-publish-applications.md): Informazioni su come pubblicare applicazioni HDInsight personalizzate in Azure Marketplace.
+* [MSDN: Installare un'applicazione HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Informazioni su come definire le applicazioni HDInsight.
 * [Personalizzare cluster HDInsight basati su Linux tramite Azioni script](hdinsight-hadoop-customize-cluster-linux.md): informazioni su come usare Azioni script per installare applicazioni aggiuntive.
 * [Creare cluster Apache Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): informazioni su come chiamare i modelli di Azure Resource Manager per creare cluster HDInsight.
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md)(Usare nodi perimetrali vuoti in HDInsight): informazioni su come usare un nodo perimetrale vuoto per l'accesso a cluster HDInsight, il test di applicazioni HDInsight e l'hosting di applicazioni HDInsight.

@@ -1,6 +1,6 @@
 ---
-title: Usare il Codificatore standard in Servizi multimediali di Azure per codificare video usando una tabella di coppie velocità in bit-risoluzione generata automaticamente | Microsoft Docs
-description: Questo argomento descrive come usare il Codificatore standard in Servizi multimediali per codificare un video di input con una tabella di coppie velocità in bit-risoluzione generata automaticamente, in base alla velocità in bit e alla risoluzione di input. La risoluzione di input e la velocità in bit non vengono mai superate. Ad esempio, se l'input è 720p a 3 Mbps, l'output resterà al massimo a 720p e inizierà a una velocità inferiore a 3 Mbps.
+title: Codificare i video con Codificatore standard in Servizi multimediali - Azure | Microsoft Docs
+description: Questo argomento descrive come usare il Codificatore standard in Servizi multimediali per codificare un video di input con una tabella di coppie velocità in bit-risoluzione generata automaticamente, in base alla velocità in bit e alla risoluzione di input.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: ec1b4b88e5b9639c3ee9debbd8ac7d48544344dc
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 976e1ea013c6a30615bdc742ed79e76ec35258a1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378959"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132807"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificare con una tabella di coppie velocità in bit-risoluzione generata automaticamente
 

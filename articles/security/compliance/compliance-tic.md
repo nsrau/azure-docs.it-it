@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388321"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017100"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Indicazioni su Trusted Internet Connections
 
@@ -63,8 +63,8 @@ Per garantire la conformità all'architettura di riferimento del TIC è essenzia
 
 La conformità al TIC dell'infrastruttura IaaS di Azure prevede due passaggi principali:
 
-- Passaggio 1: Configurazione
-- Passaggio 2: Controllo
+- Passaggio 1: Configurazione.
+- Passaggio 2: Controllo.
 
 ### <a name="azure-iaas-tic-compliance-configuration"></a>Conformità al TIC dell'infrastruttura IaaS di Azure: Configurazione
 
@@ -125,7 +125,7 @@ I servizi PaaS di Azure, come Archiviazione di Azure, sono accessibili tramite U
 Quando i servizi PaaS di Azure sono integrati in una rete virtuale, il servizio è accessibile privatamente da tale rete. È possibile applicare il routing personalizzato per 0.0.0.0/0 tramite route definite dall'utente o il protocollo BGP. Il routing personalizzato assicura che tutto il traffico associato a Internet venga inoltrato in locale in modo da attraversare il TIC. Integrare i servizi di Azure nelle reti virtuali usando i modelli seguenti:
 
 - **Distribuire un'istanza dedicata di un servizio**: un numero crescente di servizi PaaS possono essere distribuiti come istanze dedicate con endpoint collegati a una rete virtuale. È possibile distribuire un ambiente del Servizio app per PowerApps in modalità "Isolato" per consentire che l'endpoint di rete sia vincolato a una rete virtuale. L'ambiente del servizio App può quindi ospitare molti servizi PaaS di Azure, ad esempio App Web di Azure, Gestione API di Azure e Funzioni di Azure.
-- **Usare gli endpoint di servizio della rete virtuale**: un numero crescente di servizi PaaS offre la possibilità di spostare l'endpoint a un indirizzo IP privato della rete virtuale anziché a uno pubblico.
+- **Usare endpoint del servizio di rete virtuale**: un numero crescente di servizi PaaS offre la possibilità di spostare l'endpoint a un indirizzo IP privato della rete virtuale anziché a uno pubblico.
 
 Le tabelle seguenti elencano i servizi che supportano la distribuzione di istanze dedicate in una rete virtuale o l'uso di endpoint di servizio, a partire dal mese di maggio 2018.
 
@@ -143,7 +143,7 @@ Le tabelle seguenti elencano i servizi che supportano la distribuzione di istanz
 |Database di Azure per PostgreSQL  | Anteprima privata  |
 |Database di Azure per MySQL       | Anteprima privata  |
 |Azure SQL Data Warehouse       | Anteprima pubblica   |
-|database SQL di Azure             | Disponibilità generale (GA) |
+|Database SQL di Azure             | Disponibilità generale (GA) |
 |Archiviazione di Azure                  | GA               |
 
 ### <a name="support-for-virtual-network-injection"></a>Supporto per l'integrazione di una rete virtuale
@@ -258,7 +258,7 @@ Le reti nelle aree monitorate da Network Watcher possono eseguire test di hop su
 | Web e dispositivi mobili | Applicazioni per le API | | Ambiente del servizio app | |
 | Contenitori | Servizio contenitore di Azure | | | Yes |
 | Contenitori | Servizio Kubernetes di Azure (AKS) \* | | | Yes |
-| Database | database SQL di Azure | | Istanza gestita di database SQL di Azure \* | SQL di Azure |
+| Database | Database SQL di Azure | | Istanza gestita di database SQL di Azure \* | SQL di Azure |
 | Database | Database di Azure per MySQL | | | Yes |
 | Database | Database di Azure per PostgreSQL | | | Yes |
 | Database | Azure SQL Data Warehouse | | | Yes |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 67f8b49cd2205403dec8843beebb92c9f41f6e37
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 964ef3bd988d71bfb90dbaa473b4b259769064b3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955797"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722056"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -139,9 +139,10 @@ Per eseguire l'autenticazione con un'entità servizio, è necessario assegnare i
 
 1. Nel portale di Azure passare all'account Batch usato dall'applicazione.
 2. Nel pannello **Impostazioni** per l'account Batch selezionare **Controllo di accesso (IAM)**.
-3. Fare clic su **Add** . 
-4. Dall'elenco a discesa **Ruolo** scegliere il ruolo _Collaboratore_ o _Lettore_ per l'applicazione. Per altre informazioni sui ruoli, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).  
-5. Nel campo **Seleziona** immettere il nome dell'applicazione. Selezionare l'applicazione dall'elenco e fare clic su **Salva**.
+3. Fare clic sulla scheda **Assegnazioni di ruolo**.
+4. Fare clic sul pulsante **Aggiungi un'assegnazione di ruolo**. 
+5. Dall'elenco a discesa **Ruolo** scegliere il ruolo _Collaboratore_ o _Lettore_ per l'applicazione. Per altre informazioni sui ruoli, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).  
+6. Nel campo **Seleziona** immettere il nome dell'applicazione. Selezionare l'applicazione dall'elenco e fare clic su **Salva**.
 
 L'applicazione dovrebbe ora essere visualizzata nelle impostazioni di controllo di accesso con un ruolo con controllo degli accessi in base al ruolo assegnato. 
 
@@ -310,7 +311,7 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Esempio di codice: uso di un'entità servizio di Azure AD con Batch Python
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Esempio di codice: uso di un'entità servizio Azure AD con Batch Python
 
 Per eseguire l'autenticazione con un'entità servizio di Batch Python, installare e fare riferimento ai moduli [azure-batch](https://pypi.org/project/azure-batch/) e [azure-common](https://pypi.org/project/azure-common/).
 

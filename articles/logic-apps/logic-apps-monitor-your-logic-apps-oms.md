@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232377"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995651"
 ---
 # <a name="monitor-logic-apps-with-azure-log-analytics"></a>Monitorare le app per la logica con Azure Log Analytics
 
@@ -23,11 +23,11 @@ Per monitorare le app per la logica e ottenere dettagli di debug più completi, 
 Per attivare Azure Log Analytics per le app per la logica esistenti, seguire questa procedura per [attivare la registrazione diagnostica e inviare a Log Analytics i dati di runtime dell'app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
-> Questa pagina offriva in precedenza una descrizione dei passaggi per eseguire queste attività con Microsoft Operations Management Suite (OMS), che verrà [ritirato nel gennaio 2019](../log-analytics/log-analytics-oms-portal-transition.md), mentre ora riguarda gli stessi passaggi in Azure Log Analytics. 
+> Questa pagina offriva in precedenza una descrizione dei passaggi per eseguire queste attività con Microsoft Operations Management Suite (OMS), che verrà [ritirato nel gennaio 2019](../azure-monitor/platform/oms-portal-transition.md), mentre ora riguarda gli stessi passaggi in Azure Log Analytics. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessaria un'area di lavoro di Log Analytics. Informazioni su [come creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
+Prima di iniziare, è necessaria un'area di lavoro di Log Analytics. Informazioni su [come creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Attivare la registrazione della diagnostica durante la creazione di app per la logica
 
@@ -122,7 +122,7 @@ Dopo l'esecuzione dell'app per la logica, è possibile visualizzare lo stato e i
 
 1. Per filtrare questi risultati, è possibile applicare un filtro sia sul lato client sia sul lato server.
 
-   * **Filtro lato client**: per ogni colonna scegliere i filtri desiderati, ad esempio:
+   * **Filtro lato client:** per ogni colonna scegliere i filtri desiderati, ad esempio:
 
      ![Esempi di filtri di colonna](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 

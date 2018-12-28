@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 11/27/2018
-ms.openlocfilehash: 4d71e54beac6e4816d8bcc9097219b2e7b7cabb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441860"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437069"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Livelli di servizio vCore, Vantaggio Azure Hybrid e migrazione
 
@@ -40,10 +40,10 @@ La tabella seguente consente di comprendere le differenze tra questi due livelli
 ||**Utilizzo generico**|**Business Critical**|**Iperscalabilità (anteprima)**|
 |---|---|---|---|
 |Ideale per|La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione scalabili e bilanciate a prezzi convenienti.|Applicazioni aziendali con requisiti di I/O elevati. Offre massima resilienza agli errori tramite diverse repliche isolate.|La maggior parte dei carichi di lavoro aziendali con archiviazione con scalabilità elevata e requisiti di scalabilità in lettura|
-|Calcolo|Gen4: Da 1 a 24 vCore<br/>Gen5: Da 1 a 80 vCore|Gen4: Da 1 a 24 vCore<br/>Gen5: Da 1 a 80 vCore|Gen4: Da 1 a 24 vCore<br/>Gen5: Da 1 a 80 vCore|
-|Memoria|4° generazione: 7 GB per core<br>5° generazione: 5,1 GB per core | 4° generazione: 7 GB per core<br>5° generazione: 5,1 GB per core |4° generazione: 7 GB per core<br>5° generazione: 5,1 GB per core|
-|Archiviazione|Usa l'[archiviazione remota Premium](../virtual-machines/windows/premium-storage.md):<br/>Database singolo: da 5 GB a 4 TB<br/>Istanza gestita: da 32 GB a 8 TB |Usa l'archiviazione SSD locale:<br/>Database singolo: da 5 GB a 1 TB<br/>Istanza gestita: da 32 GB a 4 TB |Aumento automatico e flessibile dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di archiviazione e oltre. Archiviazione SSD locale per la cache del pool di buffer locale e l'archiviazione locale dei dati. Archiviazione remota di Azure come archivio dati a lungo termine finale. |
-|Velocità effettiva di I/O (approssimativa)|Database singolo: 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000</br>Istanza gestita: dipende dalle [dimensioni dei file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|Da definire|
+|Calcolo|Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore|Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore|Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: da 1 a 80 vCore|
+|Memoria|Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core | Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core |Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core|
+|Archiviazione|Usa l'[archiviazione remota Premium](../virtual-machines/windows/premium-storage.md):<br/>Database singolo: 5 GB - 4 TB<br/>Istanza gestita: 32 GB - 8 TB |Usa l'archiviazione SSD locale:<br/>Database singolo: 5 GB - 1 TB<br/>Istanza gestita: 32 GB - 4 TB |Aumento automatico e flessibile dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di archiviazione e oltre. Archiviazione SSD locale per la cache del pool di buffer locale e l'archiviazione locale dei dati. Archiviazione remota di Azure come archivio dati a lungo termine finale. |
+|Velocità effettiva di I/O (approssimativa)|Database singolo: 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000</br>Istanza gestita: dipende dalle [dimensioni del file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|Da definire|
 |Disponibilità|1 replica, senza scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](sql-database-read-scale-out.md),<br/>DISPONIBILITÀ ELEVATA con ridondanza|?|
 |Backup|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|Backup basato su snapshot nell'archiviazione remota di Azure e questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscono sulle prestazioni di I/O di calcolo. I ripristini sono molto veloci e non corrispondono a un'operazione di dimensionamento dei dati (impiegano pochi minuti invece di ore o giorni).|
 |In memoria|Non supportate|Supportato|Non supportate|
@@ -75,7 +75,7 @@ La migrazione di un database dal modello di acquisto basato su DTU al modello di
 
 ### <a name="migration-of-databases-with-geo-replication-links"></a>Migrazione di database con collegamenti di replica geografica
 
-La migrazione dal modello basato su DTU a quello basato su vCore o viceversa è simile all'aggiornamento o al downgrade delle relazioni di replica geografica tra i database Standard e Premium. Non è richiesta la terminazione della replica geografica, ma l'utente deve rispettare le regole di sequenziazione. Quando si esegue l'aggiornamento, è necessario aggiornare prima il database secondario e dopo il database primario. Quando si esegue il downgrade, è necessario seguire l'ordine inverso, ovvero eseguire prima il downgrade del database primario e dopo quello del database secondario.
+La migrazione dal modello basato su DTU al modello basato su vCore è simile all'aggiornamento o downgrade delle relazioni di replica geografica tra i database Standard e Premium. Non è richiesta la terminazione della replica geografica, ma l'utente deve rispettare le regole di sequenziazione. Quando si esegue l'aggiornamento, è necessario aggiornare prima il database secondario e dopo il database primario. Quando si esegue il downgrade, è necessario seguire l'ordine inverso, ovvero eseguire prima il downgrade del database primario e dopo quello del database secondario.
 
 Quando si usa la replica geografica tra due pool elastici, è consigliabile designarne uno come primario e l'altro come secondario. In questo caso, la migrazione dei pool elastici deve rispettare le stesse linee guida.  È tuttavia tecnicamente possibile che un pool elastico contenga sia il database primario sia quello secondario. In questo caso, per eseguire correttamente la migrazione, è necessario trattare come primario il pool con l'utilizzo più elevato e seguire le regole di sequenziazione di conseguenza.  
 

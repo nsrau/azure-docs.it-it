@@ -1,26 +1,26 @@
 ---
-title: Creare un input del processo di Servizi multimediali di Azure da un URL HTTP(s) | Microsoft Docs
+title: Creare un input del processo di Servizi multimediali di Azure da un URL HTTPS | Microsoft Docs
 description: Questo argomento illustra come creare un input del processo da un URL HTTP(s).
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: d429665de64dacc5818d1d26c2a9029531cd39b3
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2295df97dfe6792979738debcc56e3b18b271e69
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159928"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412942"
 ---
-# <a name="create-a-job-input-from-an-https-url"></a>Creare un input del processo da un URL HTTP(s)
+# <a name="create-a-job-input-from-an-https-url"></a>Creare un input del processo da un URL HTTPS
 
-In Servizi multimediali v3, quando si inviano processi per elaborare i video, è necessario indicare a Servizi multimediali dove trovare il video di input. Una delle opzioni consiste nello specificare come processo di input un URL HTTP(s), come illustrato in questo esempio. Per un esempio completo, vedere questo [esempio di github](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
+In Servizi multimediali v3, quando si inviano processi per elaborare i video, è necessario indicare a Servizi multimediali dove trovare il video di input. Una delle opzioni consiste nello specificare come processo di input un URL HTTP(s), come illustrato in questo esempio. Attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS. Per un esempio completo, vedere questo [esempio di GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 ## <a name="net-sample"></a>Esempio .NET
 

@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva - Richiedere Multi-Factor Authentication (MFA) per app specifiche con l'accesso condizionale di Azure Active Directory | Microsoft Docs
+title: Avvio rapido - Richiedere Multi-Factor Authentication (MFA) per app specifiche con l'accesso condizionale di Azure Active Directory | Microsoft Docs
 description: In questa guida introduttiva viene illustrato come è possibile collegare i requisiti di autenticazione al tipo di app cloud a cui si accede con l'accesso condizionale di Azure Active Directory (Azure AD).
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
@@ -13,17 +13,17 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eee4d73042232aabd995a749b7848306be0ef655
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1c61286a24c3562e32cb4c734ea081526d38837a
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628257"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413152"
 ---
-# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Guida introduttiva: Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory 
+# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Avvio rapido: Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory 
 
 Per semplificare l'esperienza di accesso degli utenti, è possibile consentire di accedere alle app cloud usando un nome utente e una password. Molti ambienti hanno tuttavia almeno alcune applicazioni per cui è consigliabile richiedere una forma più affidabile di verifica dell'account, ad esempio Multi-Factor Authentication (MFA), come nel caso dell'accesso al sistema di posta elettronica dell'organizzazione o alle app per la gestione delle risorse umane. In Azure Active Directory (Azure AD) è possibile raggiungere questo obiettivo con i criteri di accesso condizionale.    
 
@@ -42,7 +42,7 @@ Per completare lo scenario in questa guida introduttiva, sono necessari gli elem
 
 - **Accesso a un'edizione Azure AD Premium**: l'accesso condizionale di Azure AD è una funzionalità di Azure AD Premium. 
 
-- **Account di test denominato Isabella Simonsen**: se non si conosce la procedura per creare un account di test, vedere [Aggiungere gli utenti basati su cloud](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **Account di test denominato Isabella Simonsen**: se non si conosce la procedura per creare un account di test, vedere [Aggiungere gli utenti basati su cloud](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## <a name="test-your-sign-in"></a>Verificare il proprio accesso
@@ -85,11 +85,11 @@ Nei criteri, impostare:
 
     ![Azure Active Directory](./media/app-based-mfa/02.png)
 
-3. Nella sezione **Gestisci** della pagina **Azure Active Directory** fare clic su **Accesso condizionale**.
+3. Nella sezione **Sicurezza** della pagina **Azure Active Directory** fare clic su **Accesso condizionale**.
 
     ![Accesso condizionale](./media/app-based-mfa/03.png)
  
-4. Nella pagina **Accesso condizionale** fare clic su **Aggiungi** nella barra degli strumenti in alto.
+4. Nella pagina **Accesso condizionale** fare clic su **Nuovi criteri** sulla barra degli strumenti in alto.
 
     ![Add](./media/app-based-mfa/04.png)
 
@@ -209,7 +209,7 @@ Per testare i criteri, provare ad accedere al [portale di Azure](https://portal.
 
 Quando non sono più necessari, eliminare l'utente di test e i criteri di accesso condizionale:
 
-- Se non si conosce la procedura per eliminare un utente di Azure AD, vedere [Eliminare gli utenti da Azure Active Directory](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Se non si conosce la procedura per eliminare un utente di Azure AD, vedere [Eliminare gli utenti da Azure Active Directory](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - Per eliminare i criteri, selezionarli e quindi fare clic su **Elimina** nella barra di accesso rapido.
 

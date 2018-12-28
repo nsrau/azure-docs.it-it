@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 46e05ef45cca5accd6af817a06b63861c41aa2b3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 11832a3b7fb68dce6fb24f44ceec5ffb9a57eb69
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160614"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437555"
 documentType: LandingData
 title: Istanza gestita di database SQL di Azure
 metadata:
@@ -18,8 +18,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 11/11/2018
-  ms.author: jovanpop-msft
+  ms.date: 12/14/2018
+  ms.author: jovanpop
 abstract:
   description: Istanza gestita di database SQL di Azure è un'istanza del motore di database SQL Server completamente gestita ospitata nel cloud di Azure. Si tratta dell'opzione più efficiente per la migrazione del database SQL Server nel cloud. Le guide introduttive, le esercitazioni e gli esempi disponibili consentono di apprendere rapidamente come creare e usare Istanza gestita.
   aside:
@@ -65,6 +65,20 @@ sections:
     - title: Sicurezza avanzata
       href: /azure/sql-database/sql-database-security-index
       html: <p>Protezione dell'istanza e dei database con le funzionalità di sicurezza del database SQL di Azure predefinite.<p>
+- title: Funzionalità nuove e di anteprima
+  items:
+  - type: paragraph
+    text: 'Microsoft è costantemente impegnata a migliorare Istanza gestita con le nuove funzionalità:'
+  - type: list
+    style: unordered
+    items:
+    - html: Il <a href="sql-database-managed-instance#business-critical-service-tier">livello di servizio Business Critical</a> è ora disponibile in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">GA (General Availability)</a>.
+    - html: (Anteprima) È possibile creare <a href="https://aka.ms/managed-instance-aadlogins">accessi ad Azure AD a livello di Istanza </a> tramite <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> da un provider esterno.
+    - html: (Anteprima) È possibile creare istanze con <a href="https://aka.ms/managed-instance-collation">regole di confronto a livello di server di propria scelta</a>.
+    - html: È possibile <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurare un periodo di conservazione backup fino a 35 giorni</a> per il ripristino temporizzato. Si noti che la conservazione backup a lungo termine (fino a 10 anni) non è ancora abilitata ed è quindi possibile usare <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backup di sola copia</a> come opzione alternativa.
+    - html: (Anteprima) È possibile usare <a href="https://aka.ms/managed-instance-failover-groups">gruppi di failover con distribuzione geografica</a> per mantenere una copia dell'istanza in un'altra area geografica e assicurare che i dati saranno disponibili anche in caso di emergenza a livello di area.
+    - html: (Anteprima) È possibile <a href="https://aka.ms/managed-instance-tde-byok">trasferire le proprie chiavi di crittografia</a> durante la migrazione di database locali per i quali è già abilitata la tecnologia Transparent Data Encryption (TDE).
+    - html: Le istanze gestite sono protette con un <a href="sql-database-managed-instance-endpoint-verify-built-in-firewall">firewall predefinito</a>.
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
@@ -116,16 +130,17 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Informazioni su <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">caratteristiche e limitazioni dell'hardware</a> e sulle <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">limitazioni del linguaggio SQL</a>.
+    - html: Informazioni su <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">caratteristiche e limitazioni dell'hardware</a> e sulle <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">differenze del linguaggio Transact-SQL</a>.
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configurare</a> la rete virtuale di Azure in cui verrà distribuita l'istanza gestita.
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#modify-an-existing-virtual-network-for-managed-instances">Verificare</a> che la rete virtuale di Azure esistente possa essere usata per la distribuzione di istanze gestite.
     - html: Connettersi all'istanza tramite <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Macchina virtuale di Azure</a>, <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">connessione da punto a sito</a> o <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">applicazioni</a>.
     - html: Verificare che sia possibile eseguire la migrazione del database tramite <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> o <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Database Experimentation Assistant</a>.
     - html: Trasferire i database in Istanza gestita tramite <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">ripristino nativo</a> o il <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Servizio Migrazione del database</a>.
     - html: Spostare i pacchetti SSIS in <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, i modelli tabulari SSAS in <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Services</a> e i report SSRS in <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.
+    - html: Applicare le <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">procedure consigliate e le considerazioni sulle prestazioni di archiviazione per il livello di servizio per utilizzo generico</a>.
     - html: Scoprire procedure consigliate e consigli per <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">proteggere l'istanza</a>.
-    - html: Distribuire i dati tramite la <a href="/azure/sql-database/replication-with-sql-database-managed-instance">replica transazionale</a>.
-- title: riferimento
+    - html: Scoprire altre <a href="sql-database-howto-managed-instance.md">guide pratiche</a> che consentono di configurare Istanza gestita.
+- title: Riferimenti
   items:
   - type: list
     style: cards
@@ -135,3 +150,5 @@ sections:
       html: <p><a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/tag/managed-instance/">MSDN</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance ">Medium</a></p>
     - title: Domande frequenti
       html: <p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>
+    - title: Materiale didattico
+      html: <p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Esercitazioni pratiche</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Esercitazioni con docente</a></p>

@@ -1,5 +1,5 @@
 ---
-title: Configurare la replica di cluster HBase nelle reti virtuali di Azure
+title: Configurare la replica di cluster HBase nelle reti virtuali di Azure - Azure HDInsight
 description: Informazioni su come configurare la replica HBase da una versione di HDInsight a un'altra, per bilanciamento del carico, disponibilità elevata, aggiornamenti e migrazione senza tempo di inattività e ripristino di emergenza.
 services: hdinsight,virtual-network
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584180"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163837"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure
 
@@ -261,11 +261,11 @@ sudo service bind9 status
 Creare un cluster [Apache HBase](http://hbase.apache.org/) in ognuna delle due reti virtuali con la configurazione seguente:
 
 - **Nome gruppo di risorse**: usare lo stesso nome di gruppo di risorse creato per le reti virtuali.
-- **Tipo di cluster**: HBase
+- **Tipo di cluster**: hbase
 - **Versione**: HBase 1.1.2 (HDI 3.6)
-- **Località**: usare la stessa località della rete virtuale.  Per impostazione predefinita, vnet1 è *Stati Uniti occidentali* e vnet2 è *Stati Uniti orientali*.
+- **Posizione**: Usare la stessa posizione della rete virtuale.  Per impostazione predefinita, vnet1 è *Stati Uniti occidentali* e vnet2 è *Stati Uniti orientali*.
 - **Archiviazione**: creare un nuovo account di archiviazione per il cluster.
-- **Rete virtuale** (da Impostazioni avanzate sul portale): selezionare la vnet1 creata nella procedura precedente.
+- **Rete virtuale** (da Impostazioni avanzate nel portale): Selezionare vnet1 creata nella procedura precedente.
 - **Subnet**: il nome predefinito usato nel modello è **subnet1**.
 
 Per verificare che l'ambiente sia configurato correttamente, provare a effettuare il ping dell'FQDN del nodo head tra i due cluster.
@@ -274,7 +274,7 @@ Per verificare che l'ambiente sia configurato correttamente, provare a effettuar
 
 Quando si esegue la replica di un cluster, è necessario specificare le tabelle da replicare. In questa sezione, alcuni dati verranno caricati nel cluster di origine. Nella sezione successiva viene abilitata la replica tra i due cluster.
 
-Per creare una tabella **Contatti** e inserire alcuni dati nella tabella, seguire le istruzioni in [Esercitazione su Apache HBase: Iniziare a usare un esempio di Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Per creare una tabella **Contatti** e inserire alcuni dati nella tabella, seguire le istruzioni in [Esercitazione su Apache HBase: Introduzione ad Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Abilitare la replica
 
@@ -289,7 +289,7 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
 5. Selezionare o immettere le seguenti informazioni:
 
   1. **Nome**: immettere **Abilitazione replica**.
-  2. **URL dello script Bash**: Immettere **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+  2. **URL script Bash**: Immettere **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
   3.  **Head**: assicurarsi che questa opzione sia selezionata. Deselezionare gli altri tipi di nodo.
   4. **Parametri**: i parametri di esempio seguenti abilitano la replica per tutte le tabelle esistenti e quindi copiano tutti i dati dal cluster di origine al cluster di destinazione:
 

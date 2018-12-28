@@ -1,20 +1,21 @@
 ---
-title: Inviare eventi ad Hub eventi di Azure tramite Node.js | Microsoft Docs
-description: Guida introduttiva all'invio di eventi ad Hub eventi tramite Node.js.
+title: Inviare eventi tramite Node.js- Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Node.js in grado di inviare eventi da Hub eventi di Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 14ea98b9d31bee08b962e8b3801ed507472ba692
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: c75d4404cb0892c3d90261af2fb4982ac84041c4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49455794"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163787"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Inviare eventi a Hub eventi di Azure usando Node.js
 
@@ -35,8 +36,10 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi
 Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md) e quindi procedere con i passaggi seguenti di questa esercitazione.
 
+Ottenere la stringa di connessione per lo spazio dei nomi dell'hub eventi seguendo le istruzioni disponibili nell'articolo: [Ottenere la stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La stringa di connessione sarà necessaria più avanti nell'esercitazione.
+
 ## <a name="clone-the-sample-git-repository"></a>Clonare il repository Git di esempio
-Clonare il repository Git di esempio da [Github](https://github.com/Azure/azure-event-hubs-node) nel computer. 
+Clonare il repository Git di esempio da [GitHub](https://github.com/Azure/azure-event-hubs-node) nel computer. 
 
 ## <a name="install-nodejs-package"></a>Installare il pacchetto Node.js
 Installare il pacchetto Node.js per Hub eventi di Azure nel computer. 

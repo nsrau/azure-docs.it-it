@@ -4,14 +4,14 @@ description: Questo articolo offre una panoramica del ripristino di emergenza di
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9368ff848c9be075a08d5a80a49ffc64f5392cad
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 22be5d7438fdb554d1550fd6675ee1884c638824
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214699"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851061"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Informazioni sul ripristino di emergenza di macchine virtuali VMware in Azure
 
@@ -88,16 +88,16 @@ Di seguito vengono indicate le operazioni da eseguire.
 Dopo aver creato l'infrastruttura di Azure e in locale, è possibile configurare il ripristino di emergenza.
 
 1. Per comprendere i componenti da distribuire, esaminare l'[architettura di replica di VMware in Azure](vmware-azure-architecture.md) e l'[architettura di replica di server fisici in Azure](physical-azure-architecture.md). Esistono diversi componenti, pertanto è importante comprendere il modo in cui si combinano.
-2. **Ambiente di origine**. Il primo passo della distribuzione consiste nel configurare l'ambiente di origine della replica. Specificare gli elementi da replicare e la posizione in cui eseguire la replica.
-3. **Server di configurazione**. È necessario configurare un server di configurazione nell'ambiente di origine in locale.
+2. **Ambiente di origine**: il primo passo della distribuzione consiste nel configurare l'ambiente di origine della replica. Specificare gli elementi da replicare e la posizione in cui eseguire la replica.
+3. **Server di configurazione**: è necessario configurare un server di configurazione nell'ambiente di origine in locale:
     - Il server di configurazione è un singolo computer locale. Per il ripristino di emergenza di VMware, è consigliabile distribuirlo come una macchina virtuale VMware che può essere distribuito da un modello OVF scaricabile.
     - Il server di configurazione coordina le comunicazioni tra l'ambiente locale e Azure.
     - Nel server di configurazione sono in esecuzione un paio di altri componenti.
         - Il server di elaborazione riceve, ottimizza e invia i dati di replica ad Archiviazione di Azure. Il server gestisce anche l'installazione automatica del servizio Mobility nei computer da replicare ed esegue l'individuazione automatica delle macchine virtuali su server VMware.
         - Il server di destinazione master gestisce i dati di replica durante il failback da Azure.
     - La configurazione include la registrazione del server di configurazione nell'insieme di credenziali, il download di server MySQL e di VMware PowerCLI e la specifica degli account creati per l'individuazione automatica e installazione del servizio Mobility.
-4. **Ambiente di destinazione**. È necessario configurare l'ambiente di Azure di destinazione specificando le impostazioni della sottoscrizione di Azure, dell'archiviazione e della rete.
-5. **Criteri di replica**. Specificare come eseguire la replica. Le impostazioni includono la frequenza di creazione e di archiviazione dei punti di ripristino e indicano se devono essere creati snapshot coerenti con le app.
+4. **Ambiente di destinazione**: è necessario configurare l'ambiente di Azure di destinazione specificando le impostazioni della sottoscrizione di Azure, dell'archiviazione e della rete.
+5. **Criteri di replica**: specificare come eseguire la replica. Le impostazioni includono la frequenza di creazione e di archiviazione dei punti di ripristino e indicano se devono essere creati snapshot coerenti con le app.
 6. **Abilitare la replica**. Abilitare la replica per i computer locali. Se è stato creato un account per installare il servizio Mobility, tale account verrà installato quando si abilita la replica per un computer. 
 
 *Ulteriore assistenza?*

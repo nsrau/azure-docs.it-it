@@ -8,13 +8,13 @@ keywords: server di Backup di Azure; protezione dei carichi di lavoro; backup de
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan; kasinh
-ms.openlocfilehash: e1ed8b1f62eeb52d65ba178c8ca13f94b57da6f0
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: adigan
+ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616317"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728277"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Questo articolo illustra come preparare l'ambiente per eseguire il backup dei ca
 È anche possibile proteggere carichi di lavoro dell'infrastruttura distribuita come servizio (IaaS), ad esempio VM in Azure.
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo include informazioni e procedure per il ripristino di VM distribuite con il modello Resource Manager.
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo include informazioni e procedure per il ripristino di VM distribuite con il modello Resource Manager.
 >
 >
 
@@ -43,9 +43,9 @@ Il server di Backup di Azure eredita molte funzionalità per il backup dei caric
 Per rendere operativo il server di Backup di Azure, è prima di tutto necessario installare un server Windows, in Azure o in locale.
 
 ### <a name="using-a-server-in-azure"></a>Uso di un server in Azure
-Quando si sceglie un server per eseguire il server di Backup di Azure, è consigliabile usare come punto di partenza un'immagine della raccolta di Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter o Windows Server 2019 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) offre un'esercitazione per implementare la macchina virtuale consigliata in Azure anche se si usa Azure per la prima volta. I requisiti minimi consigliati per la macchina virtuale (VM) server sono A2 Standard con due core e 3,5 GB di RAM.
+Quando si sceglie un server per eseguire il server di Backup di Azure, è consigliabile usare come punto di partenza un'immagine della raccolta di Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter o Windows Server 2019 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)offre un'esercitazione per implementare la macchina virtuale consigliata in Azure anche se si usa Azure per la prima volta. I requisiti minimi consigliati per la macchina virtuale di server sono: A2 Standard con due core e 3,5 GB di RAM.
 
-La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. L'articolo [Installare DPM come una macchina virtuale di Azure](https://technet.microsoft.com/library/jj852163.aspx) ne illustra i diversi aspetti. Prima di distribuire la macchina, leggere interamente questo articolo.
+La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. L'articolo [Installare DPM come una macchina virtuale di Azure](https://technet.microsoft.com/library/jj852163.aspx)ne illustra i diversi aspetti. Prima di distribuire la macchina leggere interamente questo articolo.
 
 ### <a name="using-an-on-premises-server"></a>Uso di un server locale
 Se non si vuole eseguire il server di base in Azure, è possibile eseguire il server in una VM Hyper-V o VMware oppure in un host fisico. I requisiti minimi consigliati per l'hardware del server sono due core e 4 GB di RAM. Nella tabella seguente sono elencati i sistemi operativi supportati:
@@ -59,7 +59,7 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 | Windows Storage Server 2012 R2 e versioni più recenti di SP |64 bit |Standard, Workgroup |
 | Windows Storage Server 2012 e versioni più recenti di SP |64 bit |Standard, Workgroup |
 
-È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. In caso di distribuzione in macchine virtuali Hyper-V, vedere altre informazioni sull'interazione di [DPM e deduplicazione](https://technet.microsoft.com/library/dn891438.aspx).
+È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sull'interazione di [DPM e deduplicazione](https://technet.microsoft.com/library/dn891438.aspx) in caso di distribuzione in macchine virtuali Hyper-V.
 
 > [!NOTE]
 > Il server di Backup di Azure è progettato per essere eseguito su un server dedicato, con un unico scopo. Non è possibile installare il server di Backup di Azure su:
@@ -263,7 +263,7 @@ Ecco i passaggi necessari se si vuole spostare MABS in un nuovo server, mantenen
 9. Ripristinare il DPMDB da SQL
 10. Dalla riga di comando di amministratore nel nuovo server cambiare directory per passare al percorso di installazione e alla cartella bin di Backup di Microsoft Azure
 
-Esempio di percorso: C:\windows\system32>cd "c:\Programmi\Microsoft Azure Backup\DPM\DPM\bin\"
+Esempio di percorso: C:\windows\system32>cd "c:\Programmi\Backup di Microsoft Azure\DPM\DPM\bin\
 a Backup di Azure. Eseguire DPMSYNC -SYNC
 
 10) Eseguire DPMSYNC -SYNC. Nota: se sono stati aggiunti NUOVI dischi al pool di archiviazione DPM invece di spostare quelli vecchi, eseguire DPMSYNC -Reallocatereplica
