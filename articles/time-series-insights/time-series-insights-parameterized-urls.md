@@ -1,5 +1,5 @@
 ---
-title: Condividere le visualizzazioni personalizzate di Azure Time Series Insights con gli URL con parametri | Microsoft Docs
+title: URL di Azure Time Series Insights - Condividere le visualizzazioni personalizzate di Azure Time Series Insights con gli URL con parametri | Microsoft Docs
 description: Questo articolo descrive come sviluppare URL con parametri in Azure Time Series Insights, per poter condividere facilmente una visualizzazione di un cliente.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: dbd717d79230c5dc2fc823484376267e7b7b8ab1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 5b43ba4c3f88c678b160e8aec442fa92b4822a3d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628801"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274361"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
 
@@ -70,7 +71,7 @@ Il parametro `timeSeriesDefinitions=<collection of term objects>` specifica i te
   - Nome della colonna della *misura*.
 - "predicate":"<string>"
   - Clausola *where* per i filtri lato server.
--  "useSum":"true"
+- "useSum":"true"
   - Si tratta di un parametro facoltativo che specifica l'uso della somma per la misura.  Si noti che se "Events" (Eventi) è la misura selezionata, per impostazione predefinita è selezionato il parametro count (Conteggio).  Se "Events" (Eventi) non è selezionato, per impostazione predefinita è selezionato il parametro average (Media).  
 
 Il parametro 'multiChartStack=<true/false>' consente l'impilamento nel grafico, mentre il parametro 'multiChartSameScale=<true/false>' abilita la stessa scala dell'asse Y in tutti i termini di un parametro facoltativo.  

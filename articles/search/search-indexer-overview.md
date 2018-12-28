@@ -1,5 +1,5 @@
 ---
-title: Indicizzatori in Ricerca di Azure | Documentazione Microsoft
+title: Indicizzatori per la ricerca per indicizzazione delle origini dati durante l'indicizzazione - Ricerca di Azure
 description: Effettuare una ricerca per indicizzazione in un database SQL, in Azure Cosmos DB o in Archiviazione di Azure per estrarre dati ricercabili e popolare un indice di Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 2164e0b7cc973969e39f5708bb6509c1ed5f636a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 8dae593dea36944f8db037803c0dfac68cbac7c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641136"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384905"
 ---
 # <a name="indexers-in-azure-search"></a>Indicizzatori in Ricerca di Azure
 
@@ -45,8 +46,9 @@ Gli indicizzatori eseguono ricerche per indicizzazione negli archivi dati in Azu
 
 * [SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
-* [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
+* [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
+* [Archivio tabelle di Azure](search-howto-indexing-azure-tables.md) 
+    * Nota bene: il servizio tabelle di Azure non è supportato per la [ricerca cognitiva](cognitive-search-concept-intro.md)
 
 
 ## <a name="basic-configuration-steps"></a>Procedura di configurazione di base
@@ -71,7 +73,7 @@ Dopo aver acquisito queste informazioni di base, il passaggio successivo prevede
 
 * [Database SQL di Azure o SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
-* [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
+* [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
+* [Archivio tabelle di Azure](search-howto-indexing-azure-tables.md)
 * [Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-csv-blobs.md)
 * [Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-json-blobs.md)

@@ -3,7 +3,7 @@ title: Ripristinare un database SQL di Azure da un backup | Microsoft Docs
 description: Informazioni sul ripristino temporizzato, che consente di ripristinare un database SQL di Azure a un momento precedente (fino a 35 giorni).
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: ba6493f77b622a814c970b07fc2a23e7ce1d3624
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4d77f8aad07d2fd4b3e2c4ec42b5b0ec328f779d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987563"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269516"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
 
@@ -67,7 +67,7 @@ Per una singola sottoscrizione, ci sono alcune limitazioni sul numero di richies
 Non è disponibile una funzionalità incorporata per il ripristino in blocco. Lo script [Database SQL di Azure: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) è un esempio di un modo per eseguire questa operazione.
 
 > [!IMPORTANT]
-> Per eseguire il ripristino tramite i backup automatici, è necessario essere un membro del ruolo di collaboratore di SQL Server o proprietario della sottoscrizione. Vedere [RBAC: ruoli predefiniti](../role-based-access-control/built-in-roles.md). Per il ripristino, è possibile usare il portale di Azure, PowerShell o l'API REST. Non è possibile usare Transact-SQL.
+> Per eseguire il ripristino tramite i backup automatici, è necessario essere un membro del ruolo di collaboratore di SQL Server o proprietario della sottoscrizione - vedere [RBAC: ruoli predefiniti](../role-based-access-control/built-in-roles.md). Per il ripristino, è possibile usare il portale di Azure, PowerShell o l'API REST. Non è possibile usare Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Ripristino temporizzato
 
@@ -129,7 +129,7 @@ Il ripristino geografico è l'opzione di ripristino predefinita quando il databa
 Il ripristino temporizzato in un database di replica geografica secondaria non è attualmente supportato. Il ripristino temporizzato può essere eseguito solo in un database primario. Per informazioni dettagliate sull'uso del ripristino geografico in caso di un'interruzione del servizio, vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Il ripristino da backup è la più semplice delle soluzioni di ripristino di emergenza disponibili nel database SQL con il massimo valore per l'obiettivo del punto di ripristino e il tempo di recupero stimato. Per le soluzioni che usano database di piccole dimensioni (ad esempio, livello di servizio Basic o database tenant di piccole dimensioni in pool elastici), il ripristino geografico è spesso una soluzione di ripristino di emergenza ragionevole con un tempo di recupero stimato fino a 12 ore (in genere molto di meno). Per le soluzioni che usano database di grandi dimensioni e richiedono tempi di ripristino inferiori, è consigliabile usare i [gruppi di failover e la replica geografica attiva](sql-database-geo-replication-overview.md). La replica geografica attiva offre un obiettivo del punto di ripristino e un tempo di recupero stimato decisamente inferiori perché richiede solo l'avvio di un failover in un database secondario con replica continua. Per altre informazioni sulle opzioni di continuità aziendale, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+> Il ripristino da backup è la più semplice delle soluzioni di ripristino di emergenza disponibili nel database SQL con il massimo valore per l'obiettivo del punto di ripristino e il tempo di recupero stimato. Per le soluzioni che usano database di piccole dimensioni (ad esempio, livello di servizio Basic o database tenant di piccole dimensioni in pool elastici), il ripristino geografico è spesso una soluzione di ripristino di emergenza ragionevole con un tempo di recupero stimato fino a 12 ore (in genere molto di meno). Per le soluzioni che usano database di grandi dimensioni e richiedono tempi di ripristino inferiori, è consigliabile usare la [replica geografica attiva](sql-database-active-geo-replication.md) o i [gruppi di failover automatico](sql-database-auto-failover-group.md). La replica geografica attiva offre un obiettivo del punto di ripristino e un tempo di recupero stimato decisamente inferiori perché richiede solo l'avvio di un failover in un database secondario con replica continua. I gruppi di failover automatico abilitano il failover automatico per un gruppo di database. Per altre informazioni sulle opzioni di continuità aziendale, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Eseguire il ripristino geografico tramite il portale di Azure
 
@@ -177,4 +177,4 @@ I backup automatici proteggono i database da errori dell'utente e delle applicaz
 - Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
 - Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
 - Per altre informazioni sulla conservazione a lungo termine, vedere [Conservazione a lungo termine](sql-database-long-term-retention.md).
-- Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Gruppi di failover e replica geografica attiva](sql-database-geo-replication-overview.md).
+- Per altre informazioni su opzioni di ripristino più veloci, vedere [Replica geografica attiva](sql-database-active-geo-replication.md) o [Gruppi di failover automatico](sql-database-auto-failover-group.md).

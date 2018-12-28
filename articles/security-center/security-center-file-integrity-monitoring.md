@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9cfb098fd8e6cb777b6cd968f92b20baabfab705
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313985"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338533"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
@@ -136,7 +136,7 @@ La scheda **Modifiche** (mostrata sotto) elenca tutte le modifiche per l'area di
 
   ![Impostazioni][11]
 
-  Si apre **Configurazione dell'area di lavoro**, che visualizza tre schede: **Registro di sistema di Windows**, **File Windows** e **File Linux**. Ogni scheda elenca le entità che è possibile modificare nella categoria. Per ogni entità elencata, il Centro sicurezza identifica se il monitoraggio dell'integrità dei file è abilitato (true) o non abilitato (false).  La modifica dell'entità consente di abilitare o disabilitare il monitoraggio dell'integrità dei file.
+  **Configurazione dell'area di lavoro** si apre visualizzando tre schede: **Registro di sistema di Windows**, **File Windows** e **File Linux**. Ogni scheda elenca le entità che è possibile modificare nella categoria. Per ogni entità elencata, il Centro sicurezza identifica se il monitoraggio dell'integrità dei file è abilitato (true) o non abilitato (false).  La modifica dell'entità consente di abilitare o disabilitare il monitoraggio dell'integrità dei file.
 
   ![Configurazione dell'area di lavoro][12]
 
@@ -205,7 +205,7 @@ Usare i caratteri jolly per semplificare le attività di rilevamento nelle direc
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come usare il monitoraggio dell'integrità dei file nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza](security-center-azure-policy.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Impostazione dei criteri di sicurezza](tutorial-security-policy.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione dei consigli di sicurezza](security-center-recommendations.md): informazioni su come i consigli semplificano la protezione delle risorse di Azure.
 * [Monitoraggio dell'integrità della sicurezza](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md): informazioni su come gestire gli avvisi di sicurezza e rispondervi.

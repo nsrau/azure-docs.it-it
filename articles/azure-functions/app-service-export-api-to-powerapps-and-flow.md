@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: ceb0b1ce0d04c15a5b949519caad65d2c33b40ed
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c9ff4332a10247787e3b11c5508d0d94a1f1c8ba
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092451"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410466"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Esportazione di un'API ospitata in Azure in PowerApps e Microsoft Flow
 
@@ -25,7 +25,7 @@ ms.locfileid: "44092451"
 Analogamente, gli sviluppatori che vogliono esporre ulteriormente le proprie API in un'organizzazione possono renderle disponibili a chi crea app e flussi. Questo argomento mostra come esportare un'API compilata con [Funzioni di Azure](../azure-functions/functions-overview.md) o [Servizio app di Azure](../app-service/app-service-web-overview.md). L'API esportata diventa un *connettore personalizzato*, che viene usato in PowerApps e Microsoft Flow proprio come un connettore predefinito.
 
 ## <a name="create-and-export-an-api-definition"></a>Creare ed esportare una definizione dell'API
-Prima di esportare un'API, è necessario descrivere l'API usando una definizione OpenAPI (nota in passato come file [Swagger](http://swagger.io/)). Questa definizione contiene informazioni sulle operazioni disponibili in un'API e su come devono essere strutturati i dati della richiesta e della risposta per l'API. PowerApps e Microsoft Flow possono creare connettori personalizzati per qualsiasi definizione OpenAPI 2.0. Funzioni di Azure e Servizio app di Azure includono supporto predefinito per creazione, hosting e gestione di definizioni OpenAPI. Per altre informazioni, vedere [Ospitare un'API RESTful con CORS in Servizio app di Azure](../app-service/app-service-web-tutorial-rest-api.md).
+Prima di esportare un'API, è necessario descrivere l'API usando una definizione OpenAPI (nota in passato come file [Swagger](https://swagger.io/)). Questa definizione contiene informazioni sulle operazioni disponibili in un'API e su come devono essere strutturati i dati della richiesta e della risposta per l'API. PowerApps e Microsoft Flow possono creare connettori personalizzati per qualsiasi definizione OpenAPI 2.0. Funzioni di Azure e Servizio app di Azure includono supporto predefinito per creazione, hosting e gestione di definizioni OpenAPI. Per altre informazioni, vedere [Ospitare un'API RESTful con CORS in Servizio app di Azure](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
 > È anche possibile creare connettori personalizzati nell'interfaccia utente di PowerApps e Microsoft Flow, senza usare una definizione OpenAPI. Per altre informazioni, vedere [Registrare e usare connettori personalizzati in PowerApps](https://powerapps.microsoft.com/tutorials/register-custom-api/) e [Registrare e usare connettori personalizzati in Microsoft Flow](https://flow.microsoft.com/documentation/register-custom-api/).
@@ -154,7 +154,7 @@ Quando si usa una chiave API, agli utenti del connettore viene chiesto di specif
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 Quando si usa Azure AD, sono necessarie due registrazioni per l'applicazione Azure AD: una per l'API stessa e l'altra per il connettore personalizzato:
 
-- Per configurare la registrazione per l'API, usare la funzionalità di [autenticazione/autorizzazione del servizio app](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Per configurare la registrazione per l'API, usare la funzionalità di [autenticazione/autorizzazione del servizio app](../app-service/configure-authentication-provider-aad.md).
 
 - Per configurare la registrazione per il connettore, seguire i passaggi riportati in [Aggiunta di un'applicazione Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). La registrazione deve avere accesso delegato all'API e un URL di risposta `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 

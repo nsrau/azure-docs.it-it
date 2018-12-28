@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2018
+ms.date: 12/9/2018
 ms.author: rkarlin
-ms.openlocfilehash: f46837751901015fd80d3ecc7a620878cadb3f12
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317875"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343871"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteggere il servizio app con il Centro sicurezza di Azure
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare e proteggere le applicazioni in esecuzione sul servizio app.
 
-Il servizio app consente di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito senza gestire l'infrastruttura. Offre scalabilità automatica e disponibilità elevata, supporta sia Windows che Linux e consente le distribuzioni automatizzate da GitHub, Visual Studio Team Services o qualsiasi repository Git. 
+Il servizio app consente di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito senza gestire l'infrastruttura. Il servizio app offre scalabilità automatica e disponibilità elevata, supporta sia Windows che Linux e consente le distribuzioni automatizzate da GitHub, Azure DevOps, o qualsiasi repository Git. 
 
 Le vulnerabilità nelle applicazioni Web vengono spesso sfruttate dagli utenti malintenzionati perché dispongono di un'interfaccia comune e dinamica per quasi tutte le organizzazioni su Internet. Le richieste alle applicazioni in esecuzione sul servizio app passano attraverso diversi gateway distribuiti nei data center di Azure in tutto il mondo, responsabili del routing di ogni richiesta all'applicazione corrispondente. 
 
@@ -34,7 +34,7 @@ Il Centro sicurezza sfrutta la scalabilità del cloud per identificare gli attac
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per monitorare e proteggere il servizio app, è necessario disporre di un piano di servizio app associato a macchine dedicate. I piani sono Basic, Standard, Premium, Isolato o Linux. Il Centro sicurezza di Azure non supporta i piani Gratuito, Condiviso o A consumo. Per altre informazioni, vedere [Piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Per monitorare e proteggere il servizio app, è necessario disporre di un piano di servizio app associato a macchine dedicate. Questi piani sono: Basic, Standard, Premium, Isolato o Linux. Il Centro sicurezza di Azure non supporta i piani Gratuito, Condiviso o A consumo. Per altre informazioni, vedere [Piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 ## <a name="security-center-protection"></a>Protezione del Centro sicurezza
 
@@ -63,8 +63,8 @@ Per disabilitare il monitoraggio e gli elementi consigliati per il servizio app,
 ## <a name="see-also"></a>Vedere anche 
 Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-azure-policy.md): informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): Informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): Informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): Informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
+* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): Domande frequenti sull'uso del servizio.
+* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): Post di blog sulla sicurezza e sulla conformità di Azure.

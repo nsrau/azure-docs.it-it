@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15ec028046b7c2b21f1892c460d53c73499680fe
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c589d1a11903f761fa791f36014fe235c1973514
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312538"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386911"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -35,7 +35,7 @@ Non è possibile modificare il percorso della risorsa. Lo spostamento di una ris
 
 ## <a name="checklist-before-moving-resources"></a>Controllo prima di spostare le risorse
 
-Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La verifica di queste condizioni consente di evitare errori.
+Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. La verifica di queste condizioni consente di evitare errori.
 
 1. Le sottoscrizioni di origine e di destinazione devono trovarsi nello stesso [tenant di Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md). Per verificare che entrambe le sottoscrizioni contengano lo stesso ID tenant, usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
@@ -58,7 +58,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   * [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md)
   * [Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indica che la **sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa.
+1. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indica che la **sottoscrizione non è registrata per un tipo di risorsa**. Questo errore può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa.
 
   In PowerShell, per ottenere lo stato della registrazione usare i comandi seguenti:
 
@@ -93,7 +93,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
 
 1. Prima di spostare le risorse, controllare le quote della sottoscrizione in cui si desidera spostare le risorse. Se lo spostamento di risorse causa il superamento dei limiti della sottoscrizione, è necessario verificare se è possibile richiedere un aumento della quota. Per un elenco dei limiti e su come richiedere un aumento, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
-1. Quando possibile, suddividere spostamenti di grandi dimensioni in operazioni di spostamento separate. Resource Manager restituisce immediatamente l'esito negativo di tentativi di spostamento di più di 800 risorse in un'unica operazione. Anche lo spostamento di meno di 800 risorse può non riuscire a causa di un timeout.
+1. Quando possibile, suddividere spostamenti di grandi dimensioni in operazioni di spostamento separate. Resource Manager restituisce immediatamente un errore quando sono presenti più di 800 risorse in un'unica operazione. Anche lo spostamento di meno di 800 risorse può non riuscire a causa di un timeout.
 
 1. Il servizio deve abilitare lo spostamento di risorse. Per determinare se lo spostamento avrà esito positivo, [convalidare la richiesta di spostamento](#validate-move). Vedere le sezioni riportate di seguito in questo articolo riguardante i [servizi che consentono di spostare risorse](#services-that-can-be-moved) e [i servizi che invece non lo consentono](#services-that-cannot-be-moved).
 
@@ -130,7 +130,7 @@ Con un corpo della richiesta:
 
 ```json
 {
- "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "resources": ["<resource-id-1>", "<resource-id-2>"],
  "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
 }
 ```
@@ -169,7 +169,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Analysis Services
 * Gestione API
 * App del servizio app (app Web): vedere [Limitazioni del servizio app](#app-service-limitations)
-* Certificati del servizio app
+* Certificati del servizio app - vedere [Limitazioni del certificato del servizio app](#app-service-certificate-limitations)
 * Application Insights
 * Automazione
 * Azure Active Directory B2C
@@ -215,7 +215,8 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Dashboard del portale
 * Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * Indirizzo IP pubblico: vedere [Limitazioni dell'indirizzo IP pubblico](#pip-limitations)
-* Cache Redis: se l'istanza di Cache Redis è configurata con una rete virtuale, l'istanza non può essere spostata su una sottoscrizione diversa. Vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations).
+* Insieme di credenziali di Servizi di ripristino: è necessario essere registrati in un'anteprima privata. Vedere [Limitazioni di Servizi di ripristino](#recovery-services-limitations).
+* Cache Redis di Azure: se l'istanza di Cache Redis di Azure è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations).
 * Utilità di pianificazione
 * Ricerca
 * Bus di servizio
@@ -244,7 +245,6 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Migrazione del database di Azure
 * Azure Databricks
 * Azure Migrate
-* Intelligenza artificiale per Batch
 * Certificati: i certificati del servizio app possono essere spostati, ma i certificati caricati presentano alcune [limitazioni](#app-service-limitations).
 * Istanze di contenitore
 * Servizio contenitore
@@ -259,7 +259,6 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Genomica di Microsoft
 * NetApp
 * Indirizzo IP pubblico: vedere [Limitazioni dell'indirizzo IP pubblico](#pip-limitations)
-* Insieme di credenziali delle chiavi di Servizi di ripristino: non spostare anche le risorse di calcolo, rete e archiviazione associate con l'insieme di credenziali di Servizi di ripristino, vedere [Limitazioni dei servizi di ripristino](#recovery-services-limitations).
 * SAP HANA in Azure
 * Sicurezza
 * Site Recovery
@@ -309,19 +308,11 @@ Questo supporto consente anche di spostare:
 * Snapshot gestiti
 * Set di disponibilità con macchine virtuali con dischi gestiti
 
-Di seguito vi sono i vincoli non ancora supportati:
+Di seguito sono indicati i vincoli non ancora supportati:
 
 * Le macchine virtuali con certificato archiviato in Key Vault possono essere spostate in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non da una sottoscrizione a un'altra.
-* Macchine virtuali configurate con Backup di Azure. Usare la soluzione alternativa seguente per spostare queste macchine virtuali
-  * Individuare la posizione della macchina virtuale.
-  * Individuare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1` ad esempio, AzureBackupRG_westus2_1
-  * Nel portale di Azure selezionare quindi l'opzione "Mostra tipi nascosti"
-  * In PowerShell usare il cmdlet `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-  * Nella CLI usare il `az resource list -g AzureBackupRG_<location of your VM>_1`
-  * Individuare quindi la risorsa con il tipo `Microsoft.Compute/restorePointCollections` che ha il modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########`
-  * Eliminare questa risorsa
-  * Una volta completata l'eliminazione, sarà possibile spostare la macchina virtuale
-* Il set di scalabilità di macchine virtuali con il servizio di bilanciamento del carico dello SKU Standard o l'indirizzo IP pubblico dello SKU Standard non possono essere spostati
+* Se la macchina virtuale è configurata per il backup, vedere [Limitazioni di Servizi di ripristino](#recovery-services-limitations).
+* Il set di scalabilità di macchine virtuali con il servizio di bilanciamento del carico dello SKU Standard o l'indirizzo IP pubblico dello SKU Standard non può essere spostato.
 * Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altra macchine virtuali create a partire da risorse Marketplace con piani assegnati. Sottoporre a deprovisioning le macchine virtuali nella sottoscrizione in cui si trovano e distribuirle di nuovo nella nuova sottoscrizione.
 
 ## <a name="virtual-networks-limitations"></a>Limitazioni delle reti virtuali
@@ -330,23 +321,21 @@ Quando si esegue lo spostamento di una rete virtuale, è necessario spostare anc
 
 Per spostare una rete virtuale con peering, è prima necessario disabilitare il peering. Dopo la disabilitazione del peering è possibile spostare la rete virtuale. Riabilitare il peering della rete virtuale dopo lo spostamento.
 
-Non è possibile spostare una rete virtuale in un'altra sottoscrizione se la rete virtuale contiene una subnet con collegamenti di navigazione delle risorse. Se ad esempio una risorsa Cache Redis è distribuita in una subnet, tale subnet ha un collegamento di navigazione della risorsa.
+Non è possibile spostare una rete virtuale in un'altra sottoscrizione se la rete virtuale contiene una subnet con collegamenti di navigazione delle risorse. Se un'istanza di Cache Redis di Azure viene distribuita in una subnet, in tale subnet è presente un collegamento di navigazione per la risorsa.
 
 ## <a name="app-service-limitations"></a>Limitazioni del servizio app
 
-Le limitazioni per lo spostamento delle risorse del Servizio app di Azure variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione.
-
-Le limitazioni descritte in queste sezioni si applicano ai certificati caricati e non ai certificati del servizio app. È possibile spostare i certificati del servizio app in un nuovo gruppo di risorse o in una nuova sottoscrizione senza limitazioni. Se si hanno più app Web che usano lo stesso certificato del servizio app, spostare prima tutte le app Web e quindi spostare il certificato.
+Le limitazioni per lo spostamento delle risorse del Servizio app di Azure variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione. Se l'app Web usa un certificato del servizio app, vedere [Limitazioni del certificato del servizio app](#app-service-certificate-limitations)
 
 ### <a name="moving-within-the-same-subscription"></a>Spostamento all'interno della stessa sottoscrizione
 
-Quando si sposta un'app Web _nella stessa sottoscrizione_, non è possibile spostare i certificati SSL caricati. È comunque possibile spostare un'app Web nel nuovo gruppo di risorse senza spostare il relativo certificato SSL caricato mantenendo effettiva la funzionalità SSL dell'app.
+Quando si sposta un'app Web _nella stessa sottoscrizione_, non è possibile spostare i certificati SSL di terze parti. È comunque possibile spostare un'app Web nel nuovo gruppo di risorse senza spostare il relativo certificato di terze parti mantenendo effettiva la funzionalità SSL dell'app.
 
 Se si desidera spostare il certificato SSL con l'app Web, attenersi alla procedura seguente:
 
-1. Eliminare il certificato caricato dall'app Web.
+1. Eliminare il certificato di terze parti dall'app Web, ma conservare una copia del certificato
 2. Spostare l'app Web.
-3. Caricare il certificato nell'app Web spostata.
+3. Caricare il certificato di terze parti nell'app Web spostata.
 
 ### <a name="moving-across-subscriptions"></a>Spostamento tra sottoscrizioni
 
@@ -359,6 +348,10 @@ Quando si sposta un'app Web _tra sottoscrizioni_, si applicano le limitazioni se
     - Ambienti del servizio app
 - Tutte le risorse del servizio app nel gruppo di risorse devono essere spostate insieme.
 - Le risorse del servizio app possono essere spostate solo dal gruppo di risorse in cui sono state originariamente create. Se una risorsa del servizio app non si trova più nel gruppo di risorse originale, deve essere spostata nuovamente in tale gruppo prima di poter essere spostata tra le sottoscrizioni.
+
+## <a name="app-service-certificate-limitations"></a>Limitazioni del certificato del servizio app
+
+È possibile spostare il certificato del servizio app in un nuovo gruppo di risorse oppure in una nuova sottoscrizione. Se il certificato del servizio app è associato a un'app Web, è necessario eseguire alcuni passaggi prima di spostare le risorse in una nuova sottoscrizione. Eliminare l'associazione SSL e il certificato privato dall'app Web prima di spostare le risorse. Il certificato del servizio app non deve essere eliminato, è sufficiente eliminare solo il certificato privato nell'app Web.
 
 ## <a name="classic-deployment-limitations"></a>Limitazioni della distribuzione classica
 
@@ -444,17 +437,25 @@ Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazio
 
 Questa operazione potrebbe richiedere alcuni minuti.
 
-## <a name="recovery-services-limitations"></a>Limitazioni dei servizi di ripristino
+## <a name="recovery-services-limitations"></a>Limitazioni di Servizi di ripristino
 
-Lo spostamento non è abilitato per le risorse di archiviazione, di rete o di calcolo usate per configurare il ripristino di emergenza con Azure Site Recovery.
+Per spostare un insieme di credenziali di Servizi di ripristino, è necessario registrarsi in un'anteprima privata. Per provare, scrivere a AskAzureBackupTeam@microsoft.com.
 
-Ad esempio, si supponga di avere configurato la replica delle macchine locali su un account di archiviazione (Storage1) e di desiderare che il computer protetto venga avviato dopo il failover in Azure come macchina virtuale (VM1) collegata a una rete virtuale (Network1). Non è possibile spostare una di queste risorse di Azure - Storage1 VM1 e Network1 - nei gruppi di risorse all'interno della stessa sottoscrizione o tra le sottoscrizioni.
+Attualmente, è possibile spostare un solo insieme di credenziali di Servizi di ripristino per ogni area contemporaneamente. Non è possibile spostare insiemi di credenziali di cui eseguire il backup di file di Azure, Sincronizzazione file di Azure o SQL in macchine virtuali IaaS. 
 
-Per spostare una VM registrata in **Backup di Azure** tra gruppi di risorse:
- 1. Interrompere temporaneamente il backup e conservare i dati di backup
- 2. Spostare la VM nel gruppo di risorse di destinazione
- 3. Riproteggerla con lo stesso o con un nuovo insieme di credenziali Gli utenti possono eseguire il ripristino dai punti di ripristino disponibili creati prima dell'operazione di spostamento.
-Se l'utente sposta la macchina virtuale sottoposta a backup tra sottoscrizioni, i passaggi 1 e 2 restano invariati. Nel passaggio 3, è necessario proteggere la macchina virtuale in un nuovo insieme di credenziali presente o creato nella sottoscrizione di destinazione. L'insieme di credenziali di Servizi di ripristino non supporta i backup tra più sottoscrizioni.
+Se non si sposta una macchina virtuale con l'insieme di credenziali, i punti di ripristino delle macchine virtuali correnti rimangono nell'insieme di credenziali fino alla scadenza. Sia che macchina virtuale venga spostata nell'insieme di credenziali o meno, è possibile ripristinare la macchina virtuale dalla cronologia di backup nell'insieme di credenziali.
+
+L'insieme di credenziali di Servizi di ripristino non supporta i backup tra più sottoscrizioni. Se si sposta un insieme di credenziali con i dati di backup di macchine virtuali tra sottoscrizioni diverse, è necessario spostare le macchine virtuali nella stessa sottoscrizione e usare lo stesso gruppo di risorse di destinazione per continuare l'esecuzione dei backup.
+
+I criteri di backup definiti per l'insieme di credenziali vengono mantenuti dopo lo spostamento dell'insieme di credenziali. Dopo lo spostamento, la creazione di report e il monitoraggio devono essere nuovamente impostati per l'insieme di credenziali.
+
+Per spostare una macchina virtuale in una nuova sottoscrizione senza spostare l'insieme di credenziali di Servizi di ripristino:
+
+ 1. Interrompere temporaneamente il backup
+ 2. Spostare le macchine virtuali nella nuova sottoscrizione
+ 3. Proteggerle nuovamente con un nuovo insieme di credenziali nella sottoscrizione
+
+Lo spostamento non è abilitato per le risorse di archiviazione, di rete o di calcolo usate per configurare il ripristino di emergenza con Azure Site Recovery. Ad esempio, si supponga di avere configurato la replica delle macchine locali su un account di archiviazione (Storage1) e di desiderare che il computer protetto venga avviato dopo il failover in Azure come macchina virtuale (VM1) collegata a una rete virtuale (Network1). Non è possibile spostare una di queste risorse di Azure - Storage1 VM1 e Network1 - nei gruppi di risorse all'interno della stessa sottoscrizione o tra le sottoscrizioni.
 
 ## <a name="hdinsight-limitations"></a>Limitazioni di HDInsight
 
@@ -464,7 +465,7 @@ Quando si sposta un cluster HDInsight in una nuova sottoscrizione, spostare prim
 
 ## <a name="search-limitations"></a>Limitazioni del servizio di ricerca
 
-Non è possibile spostare contemporaneamente più risorse del servizio di ricerca che si trovano nella stessa area.
+È possibile spostare diverse risorse di ricerca in aree differenti contemporaneamente.
 In tal caso, è necessario spostarle separatamente.
 
 ## <a name="lb-limitations"></a> Limitazioni del servizio di bilanciamento del carico
@@ -479,7 +480,7 @@ L'indirizzo IP pubblico dello SKU Standard non può essere spostato.
 
 ## <a name="use-portal"></a>Usare il portale
 
-Per spostare le risorse, selezionare il gruppo contenente queste risorse, quindi usare il pulsante **Sposta**.
+Per spostare le risorse, selezionare il gruppo con tali risorse, quindi usare il pulsante **Sposta**.
 
 ![Spostare le risorse](./media/resource-group-move-resources/select-move.png)
 
@@ -499,7 +500,7 @@ Al completamento dell'operazione si riceverà la notifica del risultato.
 
 ## <a name="use-powershell"></a>Usare PowerShell
 
-Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizione diversa, usare il comando [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) . L'esempio seguente illustra come spostare più risorse in un nuovo gruppo di risorse.
+Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizione diversa, usare il comando [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) . L'esempio seguente illustra come spostare diverse risorse in un nuovo gruppo di risorse.
 
 ```azurepowershell-interactive
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
@@ -511,7 +512,7 @@ Per eseguire lo spostamento in una nuova sottoscrizione, includere un valore per
 
 ## <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
-Per spostare risorse esistenti in un altro gruppo di risorse o un'altra sottoscrizione, usare il comando [az resource move](/cli/azure/resource?view=azure-cli-latest#az-resource-move). Fornire gli ID risorsa delle risorse da spostare. L'esempio seguente illustra come spostare più risorse in un nuovo gruppo di risorse. Nel parametro `--ids` inserire un elenco delimitato da spazi di ID di risorse da spostare.
+Per spostare risorse esistenti in un altro gruppo di risorse o un'altra sottoscrizione, usare il comando [az resource move](/cli/azure/resource?view=azure-cli-latest#az-resource-move). Fornire gli ID risorsa delle risorse da spostare. L'esempio seguente illustra come spostare diverse risorse in un nuovo gruppo di risorse. Nel parametro `--ids` inserire un elenco delimitato da spazi di ID di risorse da spostare.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

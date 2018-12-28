@@ -8,14 +8,14 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321989"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409021"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Hosting di applicazioni Web PaaS per carichi di lavoro UK OFFICIAL
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Progetto di sicurezza e conformità di Azure: Hosting di applicazioni Web PaaS per i carichi di lavoro UK OFFICIAL
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Progetti di sicurezza e conformità di Azure
 
@@ -62,7 +62,7 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 - Log Analytics
 - Azure Resource Manager
 - Centro sicurezza di Azure
-- database SQL di Azure
+-  database SQL di Azure
 - Archiviazione di Azure
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
@@ -104,21 +104,21 @@ I dati in transito dall'esterno e tra i componenti di Azure vengono protetti con
 
 App Web di Azure rende disponibile un ambiente di hosting Web completamente gestito per le applicazioni Web sviluppate con Java, PHP, Node.js, Python, HTML e C# senza dover gestire l'infrastruttura. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente distribuzioni automatiche da [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) o qualsiasi repository basato su Git.
 
-Il servizio app è [conforme a ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/) e consente l'autenticazione degli utenti con [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) o con account di accesso di social networking ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication) e [autenticazione Microsoft](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)).
+Il servizio app è [conforme a ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/) e consente l'autenticazione degli utenti con [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) o con account di accesso di social networking ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter) e [autenticazione Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)).
 
 I piani Basic, Standard e Premium sono destinati a carichi di lavoro di produzione e vengono eseguiti in istanze dedicate delle macchine virtuali. Ogni istanza può supportare più applicazioni e domini. I servizi app supportano anche [restrizioni degli indirizzi IP](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) per proteggere il traffico verso indirizzi IP attendibili, se necessario, nonché [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) per la connessione sicura ad altri servizi PaaS, ad esempio [Key Vault](https://azure.microsoft.com/services/key-vault/) e [database SQL di Azure](https://azure.microsoft.com/services/sql-database/). Nei casi in cui è richiesta maggiore sicurezza, il piano Isolato ospita le app in un ambiente di Azure privato e dedicato ed è ottimale per le app che richiedono connessioni sicure alla rete locale o prestazioni e scalabilità aggiuntive.
 
 Questo modello distribuisce le funzionalità seguenti del servizio app:
 
 - Livello del piano di servizio app [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)
-- Più [slot di distribuzione](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing) per app Web: Dev, Preview, QA, UAT e naturalmente Production (slot predefinito).
+- Più [slot di distribuzione](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing) di app Web: Dev, Preview, QA, UAT e naturalmente Production (slot predefinito).
 - [Identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) per connettersi ad [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (questa funzionalità potrebbe essere usata anche per fornire l'accesso al [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) 
 - Integrazione con [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) per monitorare le prestazioni
 - [Log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - [Avvisi](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) delle metriche 
 - [App per le API di Azure](https://azure.microsoft.com/services/app-service/api/) 
 
-#### <a name="azure-sql-database"></a>database SQL di Azure
+#### <a name="azure-sql-database"></a>Database SQL di Azure
 
 Il database SQL è un servizio gestito di database relazionale per utilizzo generico in Microsoft Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Il database SQL offre database SQL singoli gestiti, database SQL gestiti in un [pool elastico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) e [istanze gestite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) di SQL (in anteprima pubblica). Questo servizio offre [prestazioni con scalabilità dinamica])https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) e opzioni come gli [indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) per funzionalità di analisi e report avanzatissime e [OLTP in memoria](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) per l'elaborazione XTP (Extreme Transaction Processing). Microsoft gestisce agevolmente tutte le operazioni di applicazione di patch e aggiornamento della base di codice SQL, rimuovendo tutte le attività di gestione dell'infrastruttura sottostante.
 
@@ -230,9 +230,9 @@ Questo progetto di automazione Azure Security and Compliance Blueprint è costit
 Per la distribuzione sono stati forniti tre approcci: un approccio semplice rapido con l'[interfaccia della riga di comando di Azure 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) adatto per l'implementazione rapida di un ambiente di test; un approccio con parametri con l'[interfaccia della riga di comando di Azure 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) che consente una maggiore configurazione per gli ambienti del carico di lavoro; e una distribuzione basata sul portale di Azure in cui l'operatore può specificare i parametri di distribuzione tramite il portale di Azure. 
 
 1.  Clonare o scaricare [questo](https://aka.ms/ukofficial-paaswa-repo) repository GitHub nella workstation locale.
-2.  Vedere il [metodo 1: interfaccia della riga di comando di Azure 2 (versione rapida)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) ed eseguire i comandi specificati
-3.  Vedere il [metodo 1a: interfaccia della riga di comando di Azure 2 (configurazione della distribuzione tramite argomenti script)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) ed eseguire i comandi specificati
-4.  Vedere il [metodo 2: processo di distribuzione con il portale di Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) ed eseguire i comandi elencati
+2.  Revisione [Metodo 1: interfaccia della riga di comando di Azure 2 (versione rapida)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) ed esecuzione dei i comandi specificati.
+3.  Revisione [Metodo 1a: interfaccia della riga di comando di Azure 2 (configurazione della distribuzione tramite argomenti script)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) ed eseguire i comandi specificati
+4.  Revisione [Metodo 2: processo di distribuzione con il portale di Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) ed esecuzione dei comandi elencati
 
 ## <a name="guidance-and-recommendations"></a>Indicazioni e consigli
 

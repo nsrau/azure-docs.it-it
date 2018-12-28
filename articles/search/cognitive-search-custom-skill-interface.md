@@ -1,29 +1,33 @@
 ---
-title: Definizione dell'interfaccia per le competenze personalizzate in una pipeline di ricerca cognitiva (Ricerca di Azure) | Microsoft Docs
+title: Definizione dell'interfaccia per le competenze personalizzate in una pipeline di ricerca cognitiva - Ricerca di Azure
 description: Interfaccia di estrazione dati personalizzata per una competenza personalizzata di tipo API Web nella pipeline di ricerca cognitiva di Ricerca di Azure.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 08/14/2018
 ms.author: luisca
-ms.openlocfilehash: 8f21a56982189aa13745f27f0fae49310ae55aa0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.custom: seodec2018
+ms.openlocfilehash: 1df2a565b1c9e8bd2bea75ce78abc84608c89eea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640320"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314653"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Come aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva
 
-Questo articolo illustra come aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva. Un [pipeline di indicizzazione di ricerca cognitiva](cognitive-search-concept-intro.md) in Ricerca di Azure può essere assemblata da [competenze predefinite](cognitive-search-predefined-skills.md) e competenze personalizzate create e aggiunte personalmente alla pipeline.
+Una [pipeline di indicizzazione di ricerca cognitiva](cognitive-search-concept-intro.md) in Ricerca di Azure può essere assemblata da [competenze predefinite](cognitive-search-predefined-skills.md), nonché da competenze personalizzate create e aggiunte personalmente alla pipeline. Questo articolo offre informazioni su come creare una competenza personalizzata che esponga un'interfaccia che possa essere inclusa in una pipeline di ricerca cognitiva. 
 
 Compilare un'esperienza personalizzata permette di inserire trasformazioni esclusive nel proprio contenuto. Una competenza personalizzata viene eseguita in modo indipendente, applicando qualsiasi passaggio di arricchimento desiderato. Ad esempio, è possibile definire entità personalizzate specifiche per campo, compilare modelli di classificazione personalizzati per distinguere i contratti e documenti commerciali da quelli finanziari oppure aggiungere una competenza di riconoscimento vocale per analizzare in modo più approfondito i file audio allo scopo di individuare il contenuto pertinente. Per un esempio dettagliato, vedere [Esempio: creare una competenza personalizzata](cognitive-search-create-custom-skill-example.md).
 
  Qualunque sia la capacità personalizzata necessaria, è disponibile un'interfaccia semplice e chiara per la connessione di una competenza personalizzata al resto della pipeline di arricchimento. L'unico requisito per l'inclusione in un [set di competenze](cognitive-search-defining-skillset.md) è la capacità di accettare input e generare output in modi che possano essere usati all'interno del set di competenze nel suo complesso. Questo articolo è incentrato sui formati di input e output richiesti dalla pipeline di arricchimento.
 
 ## <a name="web-api-custom-skill-interface"></a>Interfaccia della competenza personalizzata API Web
+
+Gli endpoint di competenze WebAPI personalizzate devono restituire una risposta entro un periodo di 5 minuti. La pipeline di indicizzazione è sincrona e l'indicizzazione genera un errore di timeout se in tale periodo non viene ricevuta alcuna risposta.
 
 Attualmente, l'unico meccanismo per interagire con una competenza è tramite un'interfaccia API Web. L'API Web deve soddisfare i requisiti descritti in questa sezione.
 

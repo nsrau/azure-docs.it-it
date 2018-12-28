@@ -4,9 +4,8 @@ description: Informazioni su come ripetere il training di un modello in modo pro
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 59d12ae91f8c75ab0fdd2058057cc8de158897e7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0dc41b001ecca26239c0a9e8f69e2709d6927fcd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314185"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250578"
 ---
-# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-studio-management-powershell-cmdlets"></a>Ripetere il training di un nuovo servizio Web basato su Resource Manager usando i cmdlet di gestione di PowerShell per Machine Learning Studio
+# <a name="retrain-a-new-resource-manager-based-studio-web-service-using-powershell"></a>Ripetere il training di un nuovo servizio Web di Studio basato su Resource Manager usando PowerShell
 Quando si ripete il training di un nuovo servizio Web, si aggiorna la definizione del servizio Web predittivo perché faccia riferimento al nuovo modello sottoposto a training.
 
 ## <a name="prerequisites"></a>Prerequisiti

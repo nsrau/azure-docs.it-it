@@ -1,12 +1,11 @@
 ---
-title: Bilanciare il carico di macchine virtuali con ridondanza della zona tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: Bilanciare il carico di macchine virtuali con ridondanza della zona tramite l'interfaccia della riga di comando di Azure
+titlesuffix: Azure Load Balancer
 description: Informazioni sulla creazione di un servizio Load Balancer Standard pubblico con un front-end con ridondanza della zona tramite l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: dc8a0228c9b2a0c2ab54bc14dc911698593ba691
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948537"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250808"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Bilanciare il carico delle macchine virtuali in tutte le zone di disponibilità tramite l'interfaccia della riga di comando di Azure
 

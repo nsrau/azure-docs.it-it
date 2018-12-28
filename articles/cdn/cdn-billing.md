@@ -3,8 +3,8 @@ title: Informazioni sulla fatturazione per la rete CDN di Azure | Microsoft Docs
 description: Queste domande frequenti descrivono il funzionamento della fatturazione per la rete CDN di Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: v-deasim
-ms.openlocfilehash: 218c493c772dc8fd212efaf60a0599fa2e896411
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: magattus
+ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161284"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309279"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Informazioni sulla fatturazione per la rete CDN di Azure
 
@@ -40,7 +40,7 @@ Un'area di fatturazione è un'area geografica usata per determinare la frequenza
 
 Per informazioni sulle aree point-of-presence (POP), vedere [Località POP della rete CDN per area](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Ad esempio, una località POP situata in Messico si trova nell'area dell'America del Nord e pertanto è inclusa nella zona 1. 
 
-Per informazioni sui prezzi della rete CDN di Azure, vedere [Prezzi della rete per la distribuzione di contenuti](https://azure.microsoft.com/is-is/pricing/details/cdn/).
+Per informazioni sui prezzi della rete CDN di Azure, vedere [Prezzi della rete per la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>Come vengono calcolate le spese di spedizione per area?
 L'area di fatturazione della rete CDN di Azure è basata sulla posizione del server di origine che fornisce il contenuto all'utente finale. La destinazione (posizione fisica) del client non viene considerata l'area di fatturazione.
@@ -65,7 +65,7 @@ Per altre informazioni sulla fatturazione di Archiviazione di Azure, vedere [Inf
 
 Quando si usa una *consegna tramite servizio ospitato*, è necessario includere anche le spese seguenti:
 
-- Tempo di calcolo di Azure: istanze di calcolo che fungono da origine.
+- Tempo delle risorse di calcolo di Azure: istanze di calcolo che fungono da origine.
 
 - Trasferimento di calcolo di Azure: trasferimenti di dati dalle istanze di calcolo per riempire le cache della rete CDN di Azure.
 
@@ -82,7 +82,7 @@ Ogni volta che un POP della rete CDN deve riempire la cache, presenta una richie
 
 - Il numero di nodi che devono caricare l'oggetto: ogni volta che un nodo carica un oggetto dall'origine, viene generata una transazione fatturabile. Di conseguenza, contenuti più globali (accesso da più nodi) si traducono in più transazioni fatturabili.
 
-- Influenza TTL: un TTL maggiore per l'oggetto indica che questo deve essere recuperato dall'origine con una frequenza minore. Esso indica anche che i client, come ad esempio i browser, possono memorizzare nella cache l'oggetto per un tempo più lungo, riducendo le transazioni nella rete CDN.
+- Influenza (TTL): un TTL maggiore per l'oggetto indica che questo deve essere recuperato dall'origine con una frequenza minore. Esso indica anche che i client, come ad esempio i browser, possono memorizzare nella cache l'oggetto per un tempo più lungo, riducendo le transazioni nella rete CDN.
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Ricerca per categorie su come gestire più efficacemente i costi
 Impostare la durata TTL massima possibile per il contenuto. 

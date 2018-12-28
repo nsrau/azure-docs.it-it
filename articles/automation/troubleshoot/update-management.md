@@ -4,16 +4,16 @@ description: Informazioni su come risolvere i problemi con Gestione aggiornament
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: d0d6ed03b6e28df9767e24170ebf5ec92bb9fe9a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092628"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434733"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -23,7 +23,7 @@ Questo articolo illustra alcune procedure per la risoluzione dei problemi che si
 
 ## <a name="general"></a>Generale
 
-### <a name="components-enabled-not-working"></a>Scenario: I componenti per la soluzione di Gestione aggiornamenti sono stati abilitati ed è in corso la configurazione della macchina virtuale
+### <a name="components-enabled-not-working"></a>Scenario: i componenti per la soluzione di Gestione aggiornamenti sono stati abilitati ed è in corso la configurazione della macchina virtuale
 
 #### <a name="issue"></a>Problema
 
@@ -45,13 +45,56 @@ Questo errore può dipendere dalle cause seguenti:
 1. Vedere [Configurare la rete](../automation-hybrid-runbook-worker.md#network-planning) per informazioni sugli indirizzi e sulle porte da abilitare per il funzionamento di Gestione aggiornamenti.
 2. Se si usa un'immagine clonata, preparare prima l'immagine con Sysprep e installare l'agente MMA al termine dell'operazione.
 
-## <a name="windows"></a>Windows
+### <a name="multi-tenant"></a>Scenario: viene visualizzato un errore di sottoscrizione collegata durante la creazione di una distribuzione degli aggiornamenti per i computer in un altro tenant di Azure.
+
+#### <a name="issue"></a>Problema
+
+viene visualizzato il seguente durante la creazione di una distribuzione degli aggiornamenti per i computer in un altro tenant di Azure:
+
+```
+The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
+```
+
+#### <a name="cause"></a>Causa
+
+Questo errore si verifica quando si crea una distribuzione degli aggiornamenti con macchine virtuali di Azure in un altro tenant incluso in una distribuzione degli aggiornamenti.
+
+#### <a name="resolution"></a>Risoluzione
+
+Occorrerà usare la seguente soluzione alternativa per la pianificazione. È possibile usare il cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) con l'opzione `-ForUpdate` per creare una pianificazione, usare il cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) e passare i computer nell'altro tenant al parametro `-NonAzureComputer`. Segue un esempio di come effettuare questa operazione:
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
+### <a name="nologs"></a>Scenario: i dati di Gestione aggiornamenti non vengono visualizzati in Log Analytics per un computer
+
+#### <a name="issue"></a>Problema
+
+Sono presenti computer che vengono visualizzati come **Non valutati** in **Conformità**. Tuttavia, si possono vedere i dati di heartbeat in Log Analytics per il ruolo di lavoro ibrido per runbook ma non per Gestione aggiornamenti.
+
+#### <a name="cause"></a>Causa
+
+È possibile che il ruolo di lavoro ibrido per runbook debba essere registrato nuovamente e reinstallato.
+
+#### <a name="resolution"></a>Risoluzione
+
+Seguire i passi descritti in [Distribuire un ruolo di lavoro ibrido per runbook di Windows](../automation-windows-hrw-install.md) per reinstallare il ruolo di lavoro ibrido per Windows o [Distribuire un ruolo di lavoro ibrido per runbook di Linux](../automation-linux-hrw-install.md) per Linux.
+
+## <a name="windows"></a> Windows
 
 Se si riscontrano problemi durante il tentativo di caricare la soluzione o una macchina virtuale, nel computer locale cercare nel log eventi di **Operations Manager**, in **Registri applicazioni e servizi**, gli eventi con ID **4502** e il messaggio di evento contenente **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
 La sezione seguente evidenzia i messaggi di errore specifici e una possibile risoluzione per ognuno. Per altri problemi di onboarding, vedere la sezione relativa alla [risoluzione dei problemi di onboarding delle soluzioni](onboarding.md).
 
-### <a name="machine-already-registered"></a>Scenario: Il computer è già registrato per un altro account
+### <a name="machine-already-registered"></a>Scenario: il computer è già registrato per un altro account
 
 #### <a name="issue"></a>Problema
 
@@ -69,7 +112,7 @@ Il computer è già caricato in un'altra area di lavoro per Gestione aggiornamen
 
 Eseguire la pulizia degli elementi obsoleti nel computer [eliminando il gruppo di runbook ibridi](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) e riprovare.
 
-### <a name="machine-unable-to-communicate"></a>Scenario: Il computer non è in grado di comunicare con il servizio
+### <a name="machine-unable-to-communicate"></a>Scenario: il computer non è in grado di comunicare con il servizio
 
 #### <a name="issue"></a>Problema
 
@@ -95,7 +138,7 @@ La comunicazione di rete potrebbe essere bloccata da un proxy, un gateway o un f
 
 Esaminare le funzionalità di rete e verificare che le porte e gli indirizzi appropriati siano consentiti. Vedere i [requisiti di rete](../automation-hybrid-runbook-worker.md#network-planning) per un elenco di porte e indirizzi richiesti da Gestione aggiornamenti e i ruoli di lavoro ibrido per runbook.
 
-### <a name="unable-to-create-selfsigned-cert"></a>Scenario: Impossibile creare un certificato autofirmato
+### <a name="unable-to-create-selfsigned-cert"></a>Scenario: impossibile creare un certificato autofirmato
 
 #### <a name="issue"></a>Problema
 
@@ -113,21 +156,7 @@ Il ruolo di lavoro ibrido per runbook non è stato in grado di generare un certi
 
 Verificare che l'account di sistema abbia accesso in lettura alla cartella **C:\ProgramData\Microsoft\Crypto\RSA** e riprovare.
 
-### <a name="nologs"></a>Scenario: i dati di Gestione aggiornamenti non vengono visualizzati in Log Analytics per un computer
-
-#### <a name="issue"></a>Problema
-
-Sono presenti computer che vengono visualizzati come **Non valutati** in **Conformità**. Tuttavia, si possono vedere i dati di heartbeat in Log Analytics per il ruolo di lavoro ibrido per runbook ma non per Gestione aggiornamenti.
-
-#### <a name="cause"></a>Causa
-
-È possibile che il ruolo di lavoro ibrido per runbook debba essere registrato nuovamente e reinstallato.
-
-#### <a name="resolution"></a>Risoluzione
-
-Seguire i passaggi descritti in [Distribuire un ruolo di lavoro ibrido per runbook di Windows](../automation-windows-hrw-install.md) per reinstallare il ruolo di lavoro ibrido.
-
-### <a name="hresult"></a>Scenario: il computer viene indicato come non valutato e genera a un'eccezione HResult.
+### <a name="hresult"></a>Scenario: il computer viene indicato come non valutato e genera a un'eccezione HResult
 
 #### <a name="issue"></a>Problema
 
@@ -135,7 +164,7 @@ Sono presenti computer che risultano **non valutati** in **Conformità** con un 
 
 #### <a name="cause"></a>Causa
 
-Windows Update non è configurato correttamente nel computer.
+Windows Update o Windows Server Update Services non sono configurati correttamente nel computer. Gestione aggiornamenti si basa su Windows Update o Windows Server Update Services per fornire gli aggiornamenti necessari, lo stato delle patch e i risultati delle patch distribuite. Senza queste informazioni Gestione aggiornamenti non può segnalare correttamente segnalare le patch necessarie o installate.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -151,7 +180,7 @@ Fare doppio clic sull'eccezione in rosso per visualizzare il messaggio completo.
 
 ## <a name="linux"></a>Linux
 
-### <a name="scenario-update-run-fails-to-start"></a>Scenario: Impossibile avviare le operazioni di aggiornamento
+### <a name="scenario-update-run-fails-to-start"></a>Scenario: impossibile avviare le operazioni di aggiornamento
 
 #### <a name="issue"></a>Problema
 
@@ -169,7 +198,7 @@ Creare una copia del file di log seguente e conservarlo per la risoluzione dei p
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
 
-### <a name="scenario-update-run-starts-but-encounters-errors"></a>Scenario: L'operazione di aggiornamento viene avviata, ma si verificano errori
+### <a name="scenario-update-run-starts-but-encounters-errors"></a>Scenario: l'operazione di aggiornamento viene avviata, ma si verificano errori
 
 #### <a name="issue"></a>Problema
 

@@ -9,16 +9,15 @@ editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 54fda4852e986749499b7fc8717308edf81915b2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633198"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338493"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -30,7 +29,7 @@ La soluzione Gestione di Office 365 consente di monitorare l'ambiente Office 365
 - Monitoraggio delle attività dell'amministratore per tenere traccia delle modifiche alla configurazione o le operazioni con privilegi elevati.
 - Rilevamento e analisi del comportamento utente indesiderato, che può essere personalizzato per esigenze organizzative.
 - Dimostrazione di conformità e controllo. Ad esempio, è possibile monitorare le operazioni di accesso nei file riservati, favorendo così il processo di conformità e controllo.
-- Risoluzione dei problemi operativi usando le [ricerche log](../../log-analytics/log-analytics-queries.md) per i dati di attività di Office 365 dell'organizzazione.
+- Risoluzione dei problemi operativi usando le [ricerche log](../../azure-monitor/log-query/log-query-overview.md) per i dati di attività di Office 365 dell'organizzazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di installare e configurare la soluzione, è richiesto quanto segue.
@@ -41,7 +40,7 @@ Prima di installare e configurare la soluzione, è richiesto quanto segue.
  
 
 ## <a name="management-packs"></a>Management Pack
-Questa soluzione non installa alcun Management Pack nei [gruppi di gestione connessi](../../log-analytics/log-analytics-om-agents.md).
+Questa soluzione non installa alcun Management Pack nei [gruppi di gestione connessi](../../azure-monitor/platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Installare e configurare
 Per iniziare, aggiungere la [soluzione di Office 365 alla sottoscrizione](solutions.md#install-a-management-solution). Dopo aver aggiunto la soluzione, è necessario eseguire i passaggi di configurazione descritti in questa sezione per consentire l'accesso alla sottoscrizione di Office 365.
@@ -52,8 +51,8 @@ Prima di iniziare questa procedura, raccogliere le informazioni seguenti.
 Dall'area di lavoro di Log Analytics:
 
 - Nome dell'area di lavoro: area di lavoro in cui verranno raccolti i dati di Office 365.
-- Nome del gruppo di risorse: gruppo di risorse contenente l'area di lavoro.
-- ID sottoscrizione di Azure: sottoscrizione contenente l'area di lavoro.
+- Nome gruppo di risorse: Gruppo di risorse che contiene il gruppo di risorse.
+- ID sottoscrizione di Azure: la sottoscrizione che contiene il gruppo di risorse.
 
 Dalla sottoscrizione di Office 365:
 
@@ -709,6 +708,6 @@ La tabella seguente contiene esempi di ricerche log per i record di aggiornament
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Usare le ricerche log in [Log Analytics](../../log-analytics/log-analytics-queries.md) per visualizzare dati dettagliati sugli aggiornamenti.
+* Usare le ricerche log in [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) per visualizzare dati dettagliati sugli aggiornamenti.
 * [Creare dashboard personalizzati](../../azure-monitor/platform/dashboards.md) per visualizzare le query di ricerca di Office 365 preferite.
-* [Creare avvisi](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) per essere notificati in modo proattivo delle attività importanti di Office 365.  
+* [Creare avvisi](../../azure-monitor/platform/alerts-overview.md) per essere notificati in modo proattivo delle attività importanti di Office 365.  

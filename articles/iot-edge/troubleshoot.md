@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi di Azure IoT Edge | Microsoft Docs
-description: Risolvere problemi comuni e acquisire competenze di risoluzione dei problemi per Azure IoT Edge
+title: Risoluzione dei problemi - Azure IoT Edge | Microsoft Docs
+description: Usare questo articolo per acquisire competenze diagnostiche standard per Azure IoT Edge, come il recupero dello stato e dei log dei componenti e la risoluzione di problemi comuni
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a553798a3ac15340805984a0e87312875f82c46c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: cd9ff1a1a7730ae870ef4e80fbca2d934aa5c8e2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567656"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342664"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -146,7 +147,7 @@ Sostituire `env: {}` con:
 
 Salvare il file e riavviare il gestore sicurezza IoT Edge.
 
-È anche possibile verificare i messaggi inviati tra l'hub IoT e i dispositivi IoT Edge. Visualizzare questi messaggi tramite l'estensione [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) per Visual Studio Code. Per altre informazioni, vedere [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) (Strumento utile quando si sviluppa con Azure IoT).
+È anche possibile verificare i messaggi inviati tra l'hub IoT e i dispositivi IoT Edge. Visualizzare questi messaggi usando l'estensione del [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (in precedenza estensione Azure IoT Toolkit) per Visual Studio Code. Per altre informazioni, vedere [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) (Strumento utile quando si sviluppa con Azure IoT).
 
 ### <a name="restart-containers"></a>Riavviare i contenitori
 Dopo avere esaminato i log e i messaggi per raccogliere informazioni, è possibile provare a riavviare i contenitori:
@@ -243,7 +244,7 @@ Quando viene visualizzato questo errore, è possibile risolvere il problema conf
 1. Nel portale di Azure passare alla pagina di panoramica della macchina virtuale. 
 2. Selezionare **Configura** sotto Nome DNS. Se la macchina virtuale dispone già di un nome DNS configurato, non è necessario configurarne uno nuovo. 
 
-   ![Configurare il nome DNS](./media/troubleshoot/configure-dns.png)
+   ![Configurare il nome DNS della macchina virtuale](./media/troubleshoot/configure-dns.png)
 
 3. Specificare un valore per **Etichetta del nome DNS** e selezionare **Salva**.
 4. Copiare il nuovo nome DNS, che deve essere nel formato  **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
@@ -274,7 +275,7 @@ Nell'interfaccia utente:
 
 Nel portale in *Dettagli dispositivo*->*Imposta moduli*->*Configura impostazioni avanzate per il runtime di IoT Edge* creare una variabile di ambiente denominata *OptimizeForPerformance* impostata su *false* per l'*Hub Edge*.
 
-![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
+![OptimizeForPerformance impostato su false](./media/troubleshoot/optimizeforperformance-false.png)
 
 **OR**
 

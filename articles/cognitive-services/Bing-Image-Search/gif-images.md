@@ -1,7 +1,7 @@
 ---
-title: Ottenere immagini .gif - API Ricerca immagini Bing
+title: Cercare immagini .gif usando l'API Ricerca immagini Bing
 titleSuffix: Azure Cognitive Services
-description: Come usare l'API Ricerca immagini Bing per ottenere altre informazioni sulle immagini con estensione gif.
+description: Usare l'API Ricerca immagini Bing per cercare immagini .gif nel Web.
 services: cognitive-services
 author: MikeDodaro
 manager: cgronlun
@@ -10,16 +10,17 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
-ms.openlocfilehash: 82a096ccc1ead9bfb542663ae193539fc227c1fb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.custom: seodec2018
+ms.openlocfilehash: 7536452d3ed0030b34e4f30deba56d6d8ae1957c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870248"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249312"
 ---
-# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>Cercare immagini .gif usando l'API Ricerca immagini Bing
+# <a name="search-for-gif-images"></a>Cercare immagini GIF 
 
-L'API Ricerca immagini Bing consente anche di cercare nell'intero Web le immagini più rilevanti con estensione gif.  Gli sviluppatori possono integrare coinvolgenti immagini con estensione gif in vari scenari di conversazione. 
+L'API Ricerca immagini Bing consente anche di cercare nell'intero Web le immagini più rilevanti con estensione gif.  Gli sviluppatori possono integrare coinvolgenti immagini con estensione gif in vari scenari di conversazione. 
 
 L'URL seguente è una query per cercare immagini animate con estensione gif.
 ````

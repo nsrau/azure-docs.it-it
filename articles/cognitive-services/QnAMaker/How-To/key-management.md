@@ -1,5 +1,5 @@
 ---
-title: Gestione di risorse e gestione della chiave di Qna Maker
+title: Gestione di risorse e chiavi - Qna Maker
 titleSuffix: Azure Cognitive Services
 description: 'Il servizio QnA Maker gestisce due tipi di chiavi: le chiavi di sottoscrizione e le chiavi endpoint.'
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
-ms.openlocfilehash: 1fe39cf9e4a1e58a0d37cc8ebf9fe02c6ad7eed5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 25b23d280aca9ef13b8820596686a1f9dbecd2a1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334619"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085944"
 ---
-# <a name="key-management"></a>Gestione della chiave
+# <a name="how-to-manage-keys-in-qna-maker"></a>Come gestire le chiavi in QnA Maker
 
-Il servizio QnA Maker gestisce due tipi di chiavi, le **chiavi di sottoscrizione** e le **chiavi endpoint**.
+Il servizio QnA Maker gestisce due tipi di chiavi: le **chiavi di sottoscrizione** e le **chiavi endpoint**.
 
 ![gestione delle chiavi](../media/qnamaker-how-to-key-management/key-management.png)
 

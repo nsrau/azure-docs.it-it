@@ -4,18 +4,18 @@ description: Modello di messaggio di posta elettronica di invito per la collabor
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: e8285779154914bd09513c057d8e5ae0b6388831
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8b6edcb70bca480ebe0d53c061c6461745f189e8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259586"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321290"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
@@ -27,7 +27,7 @@ I messaggi di posta elettronica di invito sono strumenti fondamentali per entrar
 Per sfruttare al meglio le potenzialità del messaggio di posta elettronica, di seguito ne vengono descritti alcuni elementi.
 
 ### <a name="subject"></a>Oggetto
-Il contenuto dell'oggetto del messaggio di posta elettronica è basato su questo modello: Ti invitiamo all'organizzazione &lt;nometenant&gt;
+L'oggetto del messaggio di posta elettronica segue il modello seguente: Ti invitiamo all'organizzazione &lt;nometenant&gt;
 
 ### <a name="from-address"></a>Indirizzo del mittente.
 Per l'indirizzo del mittente si userà un modello simile a quello LinkedIn.  È consigliabile chiarire chi è il mittente dell'invito e a quale azienda appartiene, oltre a mettere in evidenza che il messaggio proviene da un indirizzo di posta elettronica Microsoft. Il formato è: &lt;nome visualizzato del mittente dell'invito&gt; da &lt;nometenant&gt; (tramite Microsoft) <invites@microsoft.com>
@@ -40,7 +40,7 @@ Nei messaggi di posta elettronica di invito vengono usate le informazioni person
 
 ### <a name="call-to-action"></a>Chiamata all'azione
 La chiamata all'azione è costituita da due parti: la spiegazione del motivo per cui il destinatario ha ricevuto il messaggio e l'indicazione delle successive azioni richieste al destinatario.
-- La sezione relativa al "motivo" può essere basata sul seguente modello: Hai ricevuto l'invito per accedere alle applicazioni nell'organizzazione &lt;nometenant&gt;
+- La sezione "perché" può essere indirizzata usando il modello seguente: Si è stati invitati ad accedere alle applicazioni nell'organizzazione &lt;nometenant&gt;
 
 - La sezione relativa alle "successive azioni richieste al destinatario" è indicata dalla presenza del pulsante **Get Started** (Inizia). Se per aggiungere il destinatario non è stato necessario inviare inviti, questo pulsante non viene visualizzato.
 
@@ -52,7 +52,7 @@ Se non è ancora stata impostata un'immagine del profilo, al posto dell'immagine
   ![visualizzazione iniziali del mittente dell'invito](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Corpo
-Il corpo contiene il messaggio digitato dal mittente dell'invito oppure passato tramite l'API di invito. Si tratta di un'area di testo, che quindi non supporta l'elaborazione dei tag HTML per motivi di sicurezza.
+Il corpo contiene il messaggio digitato dal mittente dell'invito quando [viene invitato un utente guest alla directory, al gruppo o all'app](add-users-administrator.md) oppure [usando l'API di invito](customize-invitation-api.md). Si tratta di un'area di testo, che quindi non supporta l'elaborazione dei tag HTML per motivi di sicurezza.
 
 ### <a name="footer-section"></a>Sezione piè di pagina
 Il piè di pagina contiene il marchio aziendale di Microsoft e indica al destinatario se il messaggio di posta elettronica è stato inviato da un alias non monitorato. Casi speciali:

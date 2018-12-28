@@ -1,27 +1,28 @@
 ---
-title: Trovare l'area di endpoint con Node.js in LUIS
-titleSuffix: Azure Cognitive Services
-description: Ricerca programmatica dell'area di pubblicazione con chiave endpoint e ID dell'applicazione LUIS.
+title: Area di endpoint, Node.js
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Con Node.js, trovare l'area di pubblicazione con chiave endpoint e ID dell'applicazione LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 193872d03dde1d5c620acca1b7aba99b60db238d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6bcea43fb21cae6f000f3522b498dfc6c0f6d9a7
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034077"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166218"
 ---
 # <a name="find-endpoint-region-with-nodejs"></a>Trovare l'area di endpoint con Node.js
 Se si dispone dell'ID dell'applicazione LUIS e dell'ID della sottoscrizione LUIS, è possibile trovare la regione da utilizzare per le query sugli endpoint.
 
 > [!NOTE] 
-> La soluzione Node.js completa è disponibile nel [**repository Github degli esempi LUIS**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
+> La soluzione Node.js completa è disponibile nel repository GitHub [**LUIS-Samples**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
 
 ## <a name="luis-endpoint-query-strategy"></a>Strategia di query dell’endpoint LUIS
 Ogni query dell’endpoint LUIS richiede:

@@ -1,20 +1,21 @@
 ---
-title: Ricevere eventi da Hub eventi di Azure usando Java | Microsoft Docs
-description: Guida introduttiva alla ricezione da Hub eventi usando Java
+title: Ricevere eventi tramite Java - Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Java in grado di ricevere eventi da Hub eventi di Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/26/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e29cf43f490bf5e8bac5e5c36b16476f93d80bfa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240633"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081961"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Ricevere eventi da Hub eventi di Azure usando Java
 
@@ -44,11 +45,11 @@ Per usare EventProcessorHost, è necessario un [account di archiviazione di Azur
 1. Accedere al [portale di Azure][Azure portal] e fare clic su **+ Crea una risorsa** nella parte sinistra della schermata.
 2. Fare clic su **Archiviazione** e quindi su **Account di archiviazione**. Nella finestra **Crea account di archiviazione** digitare un nome per l'account di archiviazione. Completare il resto dei campi, selezionare l'area geografica desiderata e quindi fare clic su **Crea**.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Crea account di archiviazione](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. Fare clic sull'account di archiviazione appena creato e quindi su **Chiavi di accesso**:
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Ottenere le chiavi di accesso](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
     Copiare il valore key1 in una posizione temporanea. perché sarà usato più avanti in questa esercitazione.
 
@@ -277,7 +278,7 @@ Creare una classe che implementi l'interfaccia com.microsoft.azure.eventprocesso
 
 Usare l'implementazione personalizzata di gestione del checkpoint (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-All'interno dell'implementazione, è possibile sostituire il meccanismo di checkpoint predefinito e implementare un checkpoint basato sul proprio archivio dati (SQL Server, COSMOS DB, Redis Cache di Azure e così via). È consigliabile che l'archivio utilizzato per sostenere la realizzazione dell'implementazione del manager del checkpoint sia accessibile a tutte le istanze EPH che elaborano gli eventi per il gruppo di consumer.
+All'interno dell'implementazione, è possibile sostituire il meccanismo di checkpoint predefinito e implementare un checkpoint basato sul proprio archivio dati (SQL Server, COSMOS DB, Cache Redis di Azure e così via). È consigliabile che l'archivio utilizzato per sostenere la realizzazione dell'implementazione del manager del checkpoint sia accessibile a tutte le istanze EPH che elaborano gli eventi per il gruppo di consumer.
 
 È possibile usare qualsiasi archivio dati disponibile nell'ambiente in uso.
 

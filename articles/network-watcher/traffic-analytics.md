@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443033"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338584"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -39,21 +39,21 @@ Le reti virtuali di Azure hanno i log dei flussi dei gruppi di sicurezza di rete
 
 ## <a name="key-components"></a>Componenti chiave
 
-- **Gruppo di sicurezza di rete (NSG)**: contiene un elenco di regole di sicurezza che consentono o rifiutano il traffico di rete verso le risorse connesse a Rete virtuale di Azure. I gruppi di sicurezza di rete possono essere associati a subnet, singole VM (distribuzione classica) o singole interfacce di rete collegate a VM (Resource Manager). Per altre informazioni, vedere [Panoramica dei gruppi di sicurezza di rete](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Log dei flussi dei gruppi di sicurezza di rete (NSG)**: permettono di visualizzare le informazioni sul traffico IP in ingresso e in uscita attraverso un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita per ogni regola, la scheda di rete a cui si applica il flusso, informazioni a cinque tuple relative al flusso (indirizzo IP di origine/destinazione, porta di origine/destinazione e protocollo) e se il traffico è consentito o meno. Per altre informazioni sui log dei flussi dei gruppi di sicurezza di rete, vedere [Log dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
+- **Gruppo di sicurezza di rete**: contiene un elenco di regole di sicurezza che consentono o rifiutano il traffico di rete verso le risorse connesse a Rete virtuale di Microsoft Azure. I gruppi di sicurezza di rete possono essere associati a subnet, singole VM (distribuzione classica) o singole interfacce di rete collegate a VM (Resource Manager). Per altre informazioni, vedere [Panoramica dei gruppi di sicurezza di rete](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log dei flussi del gruppo di sicurezza di rete (NSG)**: Consente di visualizzare le informazioni sul traffico IP in ingresso e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita per ogni regola, la scheda di rete a cui si applica il flusso, informazioni a cinque tuple relative al flusso (indirizzo IP di origine/destinazione, porta di origine/destinazione e protocollo) e se il traffico è consentito o meno. Per altre informazioni sui log dei flussi dei gruppi di sicurezza di rete, vedere [Log dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
 - **Log Analytics**: servizio di Azure che raccoglie i dati di monitoraggio e li archivia in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API di Azure. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. Le applicazioni di monitoraggio, ad esempio Monitoraggio prestazioni rete e Analisi del traffico, sono basate su Log Analytics. Per altre informazioni, vedere [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Area di lavoro di Log Analytics**: istanza di Log Analytics, in cui vengono archiviati i dati relativi a un account Azure. Per altre informazioni sulle aree di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Area di lavoro di Log Analytics**: istanza di Log Analytics, in cui vengono archiviati i dati relativi a un account Azure. Per altre informazioni sulle aree di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher**: servizio a livello di area che permette di monitorare e diagnosticare le condizioni al livello di scenario di rete in Azure. Con Network Watcher è possibile attivare e disattivare i log dei flussi dei gruppi di sicurezza di rete. Per altre informazioni, vedere [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Come funziona Analisi del traffico
 
-Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e acquisisce log ridotti aggregando i flussi comuni tra lo stesso indirizzo IP di origine, indirizzo IP di destinazione, porta di destinazione e protocollo, ad esempio Host 1 (indirizzo IP: 10.10.10.10) che comunica con Host 2 (indirizzo IP: 10.10.20.10), 100 volte nell'arco di 1 ora usando una porta (ad esempio, 80) e un protocollo (ad esempio, http). Il log ridotto ha una voce, indicante che Host 1 e Host 2 hanno comunicato 100 volte nell'arco di 1 ora usando la porta *80* e il protocollo *HTTP*, invece di 100 voci. I log ridotti vengono migliorati con informazioni su geografia, sicurezza e topologia e quindi archiviati in un'area di lavoro di Log Analytics. L'immagine seguente illustra il flusso di dati:
+Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e acquisisce log ridotti aggregando i flussi comuni tra lo stesso indirizzo IP di origine, indirizzo IP di destinazione, porta di destinazione e protocollo, Ad esempio Host 1 (indirizzo IP: 10.10.10.10) che comunica con Host 2 (indirizzo IP: 10.10.20.10), 100 volte in un periodo di 1 ora usando la porta (ad esempio, 80) e il protocollo (ad esempio, http). Il log ridotto ha una voce, indicante che Host 1 e Host 2 hanno comunicato 100 volte nell'arco di 1 ora usando la porta *80* e il protocollo *HTTP*, invece di 100 voci. I log ridotti vengono migliorati con informazioni su geografia, sicurezza e topologia e quindi archiviati in un'area di lavoro di Log Analytics. L'immagine seguente illustra il flusso di dati:
 
 ![Flusso di dati per l'elaborazione dei log dei flussi dei gruppi di sicurezza di rete](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
 ## <a name="supported-regions"></a>Aree supportate
 
-È possibile usare l'analisi del traffico per NSG in una qualsiasi delle aree supportate seguenti:
+È possibile usare l'analisi del traffico per i gruppi di sicurezza di rete in una qualsiasi delle aree supportate seguenti:
 
 * Canada centrale
 * Stati Uniti centro-occidentali
@@ -291,9 +291,12 @@ Di seguito sono elencate alcune informazioni utili da visualizzare dopo la confi
     ![Dashboard che presenta la distribuzione delle reti virtuali](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - La topologia delle reti virtuali mostra la barra multifunzione in alto per selezionare parametri come le connessioni esterne, i flussi attivi e i flussi dannosi di una rete virtuale (connessioni tra reti virtuali/attive/inattive).
+- È possibile filtrare la topologia di rete virtuale basata su sottoscrizioni, aree di lavoro, gruppi di risorse e intervallo di tempo. Filtri aggiuntivi che consentono di comprendere il flusso sono: Tipo di flusso (tra reti virtuali, IntraVNET e così via), la direzione del flusso (In ingresso, In uscita), lo stato del flusso (Consentito, Bloccato), le reti virtuali (Assegnate e Connesse), il tipo di connessione (Peering o Gateway: connessione da punto a sito e S2S) e gruppo di sicurezza di rete (NSG). Usare questi filtri per concentrarsi sulle reti virtuali che si desidera esaminare in dettaglio.
 - La topologia delle reti virtuali illustra la distribuzione del traffico verso una rete virtuale per quanto concerne i flussi (consentiti/bloccati/in ingresso/in uscita/non dannosi/dannosi), il protocollo applicativo e i gruppi di sicurezza di rete, ad esempio:
 
     ![Topologia delle reti virtuali che presenta i dettagli della distribuzione e dei flussi di traffico](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
+    
+    ![Topologia di rete virtuale che presenta i filtri di livello superiore e altri filtri](./media/traffic-analytics/virtual-network-filters.png)
 
     ![Dettagli dei flussi per la distribuzione del traffico di rete virtuale nella ricerca log](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90bba26bf1fd941085568cacd4d005f10eaed1b8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005394"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384199"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
 Informazioni su come personalizzare il cluster HDInsight tramite script Bash. Le azioni script consentono di personalizzare HDInsight durante o dopo la creazione del cluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Definizione di azioni script
@@ -43,7 +43,7 @@ Per altre informazioni sull'uso di questi metodi per l'applicazione di azioni sc
 
 Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opportuno seguire le procedure consigliate indicate di seguito:
 
-* [Usare la versione di Hadoop](#bPS1)
+* [Usare la versione di Apache Hadoop](#bPS1)
 * [Usare la versione del sistema operativo](#bps10)
 * [Fornire collegamenti stabili alle risorse di script](#bPS2)
 * [Usare risorse precompilate](#bPS4)
@@ -54,10 +54,10 @@ Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opport
 * [Salvare i file in formato ASCII con terminazioni di riga LF](#bps8)
 * [Usare la logica di ripetizione dei tentativi per il ripristino da errori temporanei](#bps9)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Le azioni di script devono essere completate entro 60 minuti; in caso contrario il processo avrà esito negativo. Durante il provisioning dei nodi, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script può richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
 
-### <a name="bPS1"></a>Usare la versione di Hadoop
+### <a name="bPS1"></a>Usare la versione di Apache Hadoop
 
 Nelle diverse versioni di HDInsight sono installate versioni diverse di servizi e componenti di Hadoop. Se lo script prevede una versione specifica di un servizio o un componente, si dovrà usare lo script solo con la versione di HDInsight che include i componenti richiesti. Per trovare informazioni sulle versioni dei componenti incluse in HDInsight, usare il documento relativo al [controllo delle versioni dei componenti di HDInsight](hdinsight-component-versioning.md) .
 
@@ -110,7 +110,7 @@ Lo script e le risorse associate devono rimanere disponibili per tutta la durata
 
 È consigliabile scaricare e archiviare tutti gli elementi in un account di archiviazione di Azure nella propria sottoscrizione.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > L'account di archiviazione usato deve essere quello predefinito per il cluster o un contenitore pubblico di sola lettura per qualsiasi altro account di archiviazione.
 
 Gli esempi forniti da Microsoft, ad esempio, vengono archiviati nell'account di archiviazione [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). Si tratta di un percorso pubblico e di sola lettura, gestito dal team di HDInsight.
@@ -129,12 +129,12 @@ Uno script che modifica i file di configurazione, ad esempio, non deve aggiunger
 
 I cluster HDInsight basati su Linux forniscono due nodi head attivi all'interno del cluster e le azioni script vengono eseguite per entrambi i nodi. Se i componenti da installare prevedono un solo nodo head, non installare i componenti in entrambi i nodi head.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > I servizi forniti nell'ambito di HDInsight sono progettati per supportare il failover tra i due nodi head, se necessario. Questa funzionalità non è estesa ai componenti personalizzati installati tramite azioni script. Se i componenti personalizzati richiedono una disponibilità elevata, è necessario implementare un meccanismo di failover personalizzato.
 
 ### <a name="bPS6"></a>Configurare i componenti personalizzati per l'uso dell'archivio BLOB di Azure
 
-I componenti installati nel cluster possono avere una configurazione predefinita che usa l'archiviazione di Hadoop Distributed File System (HDFS). HDInsight usa l'archiviazione di Azure o Azure Data Lake Store come risorsa di archiviazione predefinita, poiché entrambi forniscono un file system compatibile con HDFS che rende permanenti i dati anche se il cluster viene eliminato. In alcuni casi, è possibile che sia necessario configurare i componenti installati in modo da usare WASB o ADL anziché HDFS.
+I componenti installati nel cluster possono avere una configurazione predefinita che usa l'archiviazione di Apache Hadoop Distributed File System (HDFS). HDInsight usa l'archiviazione di Azure o Azure Data Lake Store come risorsa di archiviazione predefinita, poiché entrambi forniscono un file system compatibile con HDFS che rende permanenti i dati anche se il cluster viene eliminato. In alcuni casi, è possibile che sia necessario configurare i componenti installati in modo da usare WASB o ADL anziché HDFS.
 
 Per la maggior parte delle operazioni, tuttavia, non è necessario specificare il file system. Il codice seguente, ad esempio, copia il file giraph-examples.jar dal file system locale alla risorsa di archiviazione del cluster:
 
@@ -148,8 +148,8 @@ In questo esempio, il comando `hdfs` usa in modo trasparente la risorsa di archi
 
 HDInsight registra l'output dello script scritto in STDOUT e STDERR. È possibile visualizzare queste informazioni tramite l'interfaccia utente Web di Ambari.
 
-> [!NOTE]
-> Ambari è disponibile solo se il cluster viene creato correttamente. Se si usa un'azione script durante la creazione del cluster e la creazione ha esito negativo, vedere la sezione relativa alla risoluzione dei problemi nell'articolo [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) che illustra altri modi per accedere alle informazioni registrate.
+> [!NOTE]  
+> Apache Ambari è disponibile solo se il cluster viene creato correttamente. Se si usa un'azione script durante la creazione del cluster e la creazione ha esito negativo, vedere la sezione relativa alla risoluzione dei problemi nell'articolo [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) che illustra altri modi per accedere alle informazioni registrate.
 
 Sebbene la maggior parte delle utilità e dei pacchetti di installazione scriva già le informazioni in STDOUT e STDERR, è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. Ad esempio: 
 
@@ -278,16 +278,16 @@ Gli script usati per la personalizzazione di un cluster devono essere archiviati
 
 * __URI leggibile pubblicamente__, ad esempio un URL per accedere ai dati archiviati in OneDrive, Dropbox o altri servizi di hosting di file.
 
-* __Account Azure Data Lake Store__ associato al cluster HDInsight. Per altre informazioni sull'uso di Azure Data Lake Store con HDInsight, vedere [Guida introduttiva: impostare i cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* __Account Azure Data Lake Store__ associato al cluster HDInsight. Per altre informazioni sull'uso di Azure Data Lake Store con HDInsight, vedere [Avvio rapido: impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > L'entità servizio usata da HDInsight per accedere a Data Lake Store deve avere accesso in lettura allo script.
 
 Anche le risorse usate dallo script devono essere disponibili pubblicamente.
 
 L'archiviazione dei file in un account di archiviazione di Azure o in Azure Data Lake Store ne consentirà l'accesso in tempi rapidi, poiché si trovano entrambi nella rete di Azure.
 
-> [!NOTE]
+> [!NOTE]  
 > Il formato URI usato per fare riferimento allo script varia a seconda del servizio in uso. Per gli account di archiviazione associati al cluster HDInsight, usare `wasb://` o `wasbs://`. Per gli URI leggibili pubblicamente, usare `http://` o `https://`. Per Data Lake Store, usare `adl://`.
 
 ### <a name="checking-the-operating-system-version"></a>Verifica della versione del sistema operativo
@@ -332,8 +332,8 @@ Per altre informazioni sull'utilizzo di ogni metodo, vedere [Come usare azioni s
 Microsoft fornisce script di esempio per installare i componenti in un cluster HDInsight. Vedere i collegamenti seguenti per altre azioni di script di esempio.
 
 * [Installare e usare Hue nei cluster HDInsight.](hdinsight-hadoop-hue-linux.md)
-* [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install-linux.md)
-* [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+* [Installare e usare Apache Solr in cluster HDInsight](hdinsight-hadoop-solr-install-linux.md)
+* [Installare e usare Apache Giraph in cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Installare o aggiornare Mono nei cluster HDInsight](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
@@ -348,7 +348,7 @@ Questo problema si verifica più spesso quando lo script viene creato in un ambi
 
 *Risoluzione*: se nell'editor di testo è disponibile come opzione, selezionare il formato Unix o LF come terminazione di riga. È anche possibile usare i comandi seguenti in un sistema Unix per cambiare CRLF in LF:
 
-> [!NOTE]
+> [!NOTE]  
 > I comandi seguenti sono all'incirca equivalenti nel senso che cambiano le terminazioni di riga CRLF in LF. Selezionarne uno in base alle utilità disponibili nel proprio sistema.
 
 | Comando | Note |

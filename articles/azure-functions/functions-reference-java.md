@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e4d96fa558e1122ef9e0fe0b265166757c45e678
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686893"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321051"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -105,7 +105,9 @@ e il file `function.json` corrispondente generato da [azure-functions-maven-plug
 
 ## <a name="jdk-runtime-availability-and-support"></a>Disponibilità del runtime JDK e supporto 
 
-Eseguire il download e usare i pacchetti JDK [Azul Zulu per Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) di [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) per lo sviluppo locale di app per le funzioni Java. I pacchetti JDK sono disponibili per Windows, Linux e macOS. Il [supporto di Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) è disponibile con un [piano di supporto completo](https://azure.microsoft.com/support/plans/).
+Eseguire il download e usare i pacchetti Java 8 JDK [Azul Zulu Enterprise per Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) di [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) per lo sviluppo locale di app per le funzioni Java. Funzioni di Azure usa il runtime di Java 8 JDK di Azul quando l'app per le funzioni viene distribuita nel cloud.
+
+[Supporto tecnico di Azure](https://azure.microsoft.com/en-us/support/) per i problemi con i JDK e le app per le funzioni è disponibile con un [piano di supporto completo](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Librerie di terze parti 
 
@@ -139,7 +141,7 @@ Per associare dati di input/output binari a `byte[]`, impostare il campo `dataTy
 
 Usare `Optional<T>` se sono previsti valori Null
 
-## <a name="bindings"></a>Binding
+## <a name="bindings"></a>Associazioni
 
 I binding di input e output forniscono una modalità dichiarativa per connettersi ai dati dall'interno del codice. Una funzione può avere più binding di input e output.
 
@@ -361,11 +363,11 @@ Prima di eseguire questo comando, è necessario aver abilitato la registrazione 
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 
-In Funzioni, le [impostazioni dell'app](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), come le stringhe di connessione al servizio, vengono esposte come variabili di ambiente durante l'esecuzione. È possibile accedere a queste impostazioni usando `System.getenv("AzureWebJobsStorage")`
+In Funzioni, le [impostazioni dell'app](https://docs.microsoft.com/azure/azure-functions/functions-app-settings), come le stringhe di connessione al servizio, vengono esposte come variabili di ambiente durante l'esecuzione. È possibile accedere a queste impostazioni usando `System.getenv("AzureWebJobsStorage")`
 
 Esempio:
 
-Aggiungere [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings) con il nome testAppSetting e il valore testAppSettingValue
+Aggiungere [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) con il nome testAppSetting e il valore testAppSettingValue
 
 ```java
 

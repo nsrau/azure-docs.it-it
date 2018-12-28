@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0fd4efe7fc6f8f217d889b5f87c133b5e250b54
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808167"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258203"
 ---
 <a name="logic-app-test-drive"></a>Test drive di app per la logica
 ====================
@@ -29,7 +29,7 @@ Questo articolo è per gli autori che hanno un'offerta in AppSource e vogliono c
 <a name="how-to-build-a-logic-app-test-drive"></a>Come compilare un test drive di app per la logica
 -----------------------------------
 
-Attualmente, la documentazione di test drive di app per la logica è ancora disponibile su github per [Operazioni](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [Engagement dei clienti](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) (fare clic per altre informazioni).
+Attualmente, la documentazione di test drive di app per la logica è ancora disponibile su GitHub per [Operazioni](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [Engagement dei clienti](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) (fare clic per altre informazioni).
 
 <a name="how-to-publish-a-test-drive"></a>Come pubblicare un test drive
 ---------------------------
@@ -40,7 +40,7 @@ Dopo aver compilato il test drive, la sezione conterrà i campi da compilare per
 
 Il primo campo, che è il più importante, è da attivare se si vuole un test del modulo con tutti i campi obbligatori pronti per essere compilati. Quando si seleziona **No,** il modulo viene disabilitato e se si pubblica nuovamente con il test drive disabilitato, il test drive viene rimosso dall'ambiente di produzione.
 
-*Nota*: se non vi sono test drive usati attivamente dagli utenti, quei test drive devono continuare l'esecuzione fino alla fine della sessione.
+*Nota*: se non ci sono test drive usati attivamente dagli utenti, quei test drive devono continuare l'esecuzione fino alla fine della sessione.
 
 ### <a name="details"></a>Dettagli
 
@@ -48,7 +48,7 @@ La sezione successiva da compilare contiene i dettagli relativi all'offerta del 
 
 ![Dettagli del test drive](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Descrizione** *[Campo obbligatorio]* Il campo in cui scrivere la descrizione principale di ciò che è presente nel test drive. Il cliente potrà scoprire gli scenari relativi al prodotto descritti dal test drive. 
+**Descrizione** *[Campo obbligatorio]* Il campo in cui scrivere la descrizione principale di ciò che è presente nel test drive. Il cliente potrà scoprire gli scenari relativi al prodotto descritti dal test drive. 
 
 **Manuale dell'utente** *[Campo obbligatorio]* Tratta in modo approfondito la procedura guidata dell'esperienza di test drive. Una volta aperto, il cliente verrà guidato a compiere i passaggi a lui richiesti attraverso il test drive. È importante che il contenuto sia facile da comprendere e seguire. (Deve essere un file con estensione PDF)
 
@@ -70,7 +70,7 @@ Nella sezione successiva da compilare, si configura l'app per la logica del test
 
 - **Area** - *[Campo obbligatorio]* L'area selezionata dove si sceglie dove distribuire le risorse dell'app per la logica del test drive.
 
-    *Note:* se vi sono risorse personalizzate archiviate in un'area, assicurarsi qui che l'area sia selezionata. Il modo migliore per farlo è **distribuire completamente l'app per la logica in locale nella sottoscrizione di Azure del portale e verificare che funzioni** prima di scrivere qui.
+    *Nota:* se ci sono risorse personalizzate archiviate in un'area, assicurarsi qui che l'area sia selezionata. Il modo migliore per farlo è **distribuire completamente l'app per la logica in locale nella sottoscrizione di Azure del portale e verificare che funzioni** prima di scrivere qui.
 
 - **Numero massimo di test drive simultanei** - *[Campo obbligatorio]* Numero di istanze di test drive che sono già distribuite e che sono in attesa dell'accesso all'area selezionata. I clienti possono accedere immediatamente a questo test drive, anziché dover attendere la distribuzione.
 
@@ -114,27 +114,25 @@ In caso contrario, creare un nuovo tenant in Azure Active Directory.
 1. Nella directory appena creata o in quelle già esistenti, selezionare la directory Azure Active nel filtro.
 2. Cercare "Registrazioni app" e fare clic su "Aggiungi"
 3. Immettere un nome applicazione.
-4. Selezionare il tipo come "app Web/API"
+4. Selezionare il tipo come "app/API Web"
 5. Fornire qualsiasi valore nell'URL di accesso, quel campo non verrà utilizzato.
 6. Fare clic su Crea.
 7. Dopo aver creato l'applicazione, andare su Proprietà \> Impostare l'applicazione come multi tenant e fare clic su Salva.
 
-Fare clic su Save. L'ultimo passaggio consiste nell'individuare dell'ID dell'applicazione per l'app registrata e nell'incollarlo nel campo del test drive qui di seguito.
+Fare clic su Save. L'ultimo passaggio consiste nell'individuare l'ID applicazione per l'app registrata e nell'incollarlo nel campo del test drive qui di seguito.
 
 ![ID dell'applicazione Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails7.png)
 
 Poiché l'applicazione da distribuire nella sottoscrizione è in uso, è necessario aggiungere l'applicazione come collaboratore nella sottoscrizione. Le istruzioni per questi sono le seguenti:
 
 1. Sul pannello di sottoscrizione, selezionare la sottoscrizione in uso usando soltanto per il test drive.
-2. Fare clic su Controllo di accesso (IAM).
-3. Accesso + Aggiungi nel nuovo pannello.
-4. Impostare il ruolo di collaboratore.
-5. Digitare il nome dell'applicazione AAD e selezionare l'applicazione AAD per assegnare il ruolo.
-6. Fare clic su Salva.
-
-![Azure Active Directory, aggiungere una nuova entità di sicurezza Controllo di accesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Autorizzazioni di Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic sulla scheda **Assegnazioni di ruolo**.  ![Azure Active Directory, aggiungere una nuova entità di sicurezza Controllo di accesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Fare clic su **Aggiungi assegnazione ruolo**.
+1. Impostare il ruolo di **collaboratore**.
+1. Digitare il nome dell'applicazione Azure AD e selezionare l'applicazione per assegnare il ruolo.
+    ![Autorizzazioni di Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Fare clic su **Save**.
 
 **Chiave dell'app Azure AD**  *[Campo obbligatorio]* L'ultimo campo genera una chiave di autenticazione. In Chiavi, aggiungere una descrizione di chiave, impostare la scadenza come Non scade, quindi selezionare Salva. È **importante** evitare di avere una chiave scaduta, che interrompe il test drive in corso. Copiare questo valore e incollarlo nel campo corrispondente del test drive.
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821086"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387081"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -58,7 +58,7 @@ Questo documento è incentrato principalmente sulla creazione di una roadmap per
 
 ## <a name="develop-a-roadmap"></a>Sviluppare una roadmap 
 
-Microsoft consiglia di sviluppare e seguire una roadmap per proteggere l'accesso con privilegi dagli utenti malintenzionati. È sempre possibile modificare la roadmap per adattarla alle capacità esistenti e ai requisiti specifici dell'organizzazione. Ogni fase della roadmap deve ostacolare sempre di più gli avversari che cercano di attaccare l'accesso con privilegi per gli asset locali, cloud e ibridi. Microsoft consiglia le seguenti quattro fasi della roadmap: questa roadmap consigliata prevede di iniziare con le implementazioni più efficaci e più rapide, in base all'esperienza di Microsoft con gli episodi di attacchi informatici e l'implementazione delle risposte. Le sequenze temporali per la roadmap sono approssimative.
+Microsoft consiglia di sviluppare e seguire una roadmap per proteggere l'accesso con privilegi dagli utenti malintenzionati. È sempre possibile modificare la roadmap per adattarla alle capacità esistenti e ai requisiti specifici dell'organizzazione. Ogni fase della roadmap deve ostacolare sempre di più gli avversari che cercano di attaccare l'accesso con privilegi per gli asset locali, cloud e ibridi. Microsoft consiglia le seguenti quattro fasi della roadmap: Questa roadmap consigliata prevede di iniziare con le implementazioni più efficaci e più rapide, in base all'esperienza di Microsoft con gli episodi di attacchi informatici e l'implementazione delle risposte. Le sequenze temporali per la roadmap sono approssimative.
 
 ![Fasi della roadmap con sequenze temporali](./media/directory-admin-roles-secure/roadmap-timeline.png)
 
@@ -121,7 +121,7 @@ Valutare gli account assegnati o idonei per il ruolo di amministratore globale. 
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Attivare l'autenticazione a più fattori e registrare tutti gli altri account amministratore con privilegi elevati non federati per utente singolo 
 
-Richiedere Azure Multi-Factor Authentication (MFA) all'accesso per tutti i singoli utenti a cui sono assegnati in modo permanente uno o più ruoli di amministratore di Azure AD: amministratore globale, amministratore del ruolo con privilegi, amministratore di Exchange Online e amministratore di SharePoint Online. Usare la guida per abilitare [Multi-Factor Authentication (MFA) per gli account amministratore](../authentication/howto-mfa-userstates.md) e assicurarsi che tali utenti abbiano tutti eseguito la registrazione in [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Altre informazioni sono disponibili nei passaggi 2 e 3 della guida [Proteggere l'accesso a dati e servizi in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Richiedere l'autenticazione a più fattori (MFA) di Azure al momento dell'accesso per tutti i singoli utenti che sono assegnati in modo permanente a uno o più ruoli amministrativi di Azure AD: Amministratore globale, Amministratore dei ruoli con privilegi, Amministratore di Exchange Online e Amministratore di SharePoint Online. Usare la guida per abilitare [Multi-Factor Authentication (MFA) per gli account amministratore](../authentication/howto-mfa-userstates.md) e assicurarsi che tali utenti abbiano tutti eseguito la registrazione in [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Altre informazioni sono disponibili nei passaggi 2 e 3 della guida [Proteggere l'accesso a dati e servizi in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: attenuazione delle tecniche di attacco usate più di frequente
 
@@ -196,7 +196,7 @@ Rispondere in modo efficace agli eventi imprevisti è molto difficile. Per poter
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>Proteggere gli account amministrativi con privilegi locali, se non è già stato fatto
 
-Se il tenant di Azure Active Directory è sincronizzato con Active Directory locale, seguire le indicazioni nella fase 1 in [Protezione dell'accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). Le attività includono la creazione di account amministratore separati per gli utenti che devono eseguire attività amministrative in locale, la distribuzione di workstation con accesso con privilegi per gli amministratori di Active Directory e la creazione di password di amministratore locale univoche per le workstation e i server.
+Se il tenant di Azure Active Directory è sincronizzato con Active Directory locale, seguire le indicazioni in [Protezione dell'accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Fase 1. Le attività includono la creazione di account amministratore separati per gli utenti che devono eseguire attività amministrative in locale, la distribuzione di workstation con accesso con privilegi per gli amministratori di Active Directory e la creazione di password di amministratore locale univoche per le workstation e i server.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Passaggi aggiuntivi per le organizzazioni che gestiscono l'accesso ad Azure
 
@@ -210,7 +210,7 @@ Gli account Microsoft di altri programmi, ad esempio Xbox Live e Outlook, non de
 
 #### <a name="monitor-azure-activity"></a>Monitorare l'attività di Azure
 
-Il log attività di Azure fornisce una cronologia degli eventi a livello di sottoscrizione in Azure. Offre informazioni su chi ha creato, aggiornato ed eliminato quali risorse e su quando tali eventi si sono verificati. Per altre informazioni, vedere [Controllare e ricevere notifiche sulle azioni importanti nella sottoscrizione di Azure](../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md).
+Il log attività di Azure fornisce una cronologia degli eventi a livello di sottoscrizione in Azure. Offre informazioni su chi ha creato, aggiornato ed eliminato quali risorse e su quando tali eventi si sono verificati. Per altre informazioni, vedere [Controllare e ricevere notifiche sulle azioni importanti nella sottoscrizione di Azure](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Passaggi aggiuntivi per le organizzazioni che gestiscono l'accesso ad altre app cloud tramite Azure AD 
@@ -247,7 +247,7 @@ Gli utenti malintenzionati possono tentare di prendere di mira account con privi
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Esaminare le indicazioni del National Institute of Standards and Technology per la gestione degli eventi imprevisti 
 
-Il National Institute of Standards e Technology (NIST) fornisce linee guida per la gestione degli eventi imprevisti, in particolare per analizzare i dati relativi agli eventi imprevisti e determinare la risposta appropriata per ogni evento. Per altre informazioni, vedere il documento [NIST Computer Security Incident Handling Guide (SP 800-61, revisione 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+Il National Institute of Standards e Technology (NIST) fornisce linee guida per la gestione degli eventi imprevisti, in particolare per analizzare i dati relativi agli eventi imprevisti e determinare la risposta appropriata per ogni evento. Per altre informazioni, vedere il documento [NIST Computer Security Incident Handling Guide (SP 800-61, revisione 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Implementare Privileged Identity Management (PIM) per JIT per altri ruoli amministrativi
 
@@ -275,7 +275,7 @@ Valutare se tutti gli utenti amministratori hanno i ruoli corretti (eliminare e 
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>Continuare a proteggere gli account amministrativi con privilegi locali
 
-Se il servizio Azure Active Directory è connesso con Active Directory locale, seguire le indicazioni nella fase 2 in [Protezione dell'accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). Le attività includono la distribuzione di workstation con accesso con privilegi per tutti gli amministratori, l'applicazione di MFA, l'uso di Just Enough Administration per la manutenzione del controller di dominio, la riduzione della superficie di attacco dei domini e la distribuzione di ATA per il rilevamento degli attacchi.
+Se il servizio Azure Active Directory è connesso con Active Directory locale, seguire le indicazioni in [Protezione dell'accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Fase 2. Le attività includono la distribuzione di workstation con accesso con privilegi per tutti gli amministratori, l'applicazione di MFA, l'uso di Just Enough Administration per la manutenzione del controller di dominio, la riduzione della superficie di attacco dei domini e la distribuzione di ATA per il rilevamento degli attacchi.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Passaggi aggiuntivi per le organizzazioni che gestiscono l'accesso ad Azure
 
@@ -405,7 +405,7 @@ Per altre informazioni su come Microsoft Office 365 gestisce gli eventi di sicur
 
 **D:** Cosa succede se gli amministratori con privilegi sono stati disattivati?
 
-**Risposta:** Creare un account amministratore globale che viene mantenuto sempre aggiornato.
+**Risposta:** Creare un account amministratore globale che venga mantenuto sempre aggiornato.
 
 
 **D:** Cosa succede se è rimasto un solo amministratore globale e non è possibile raggiungerlo? 
@@ -415,7 +415,7 @@ Per altre informazioni su come Microsoft Office 365 gestisce gli eventi di sicur
 
 **D:** Come è possibile proteggere gli amministratori nell'organizzazione?
 
-**Risposta:** Fare in modo che gli amministratori eseguano le attività quotidiane come utenti "standard" senza privilegi.
+**Risposta:** Fare in modo che gli amministratori eseguano le attività quotidiane come utenti standard "senza privilegi".
  
 
 **D:** Quali sono le procedure consigliate per la creazione di account amministratore in Azure AD?

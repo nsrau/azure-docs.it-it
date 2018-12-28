@@ -1,5 +1,5 @@
 ---
-title: Configurazione delle app Web in Servizio app di Azure
+title: Configurazione delle app Web - Servizio app di Azure
 description: Come configurare un'app Web nel servizio app di Azure
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443509"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269431"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurazione delle app Web in Servizio app di Azure
 
@@ -38,7 +39,7 @@ Nel pannello **Impostazioni applicazione** le impostazioni sono raggruppate in d
 ### <a name="general-settings"></a>Impostazioni generali
 **Versioni del framework**. Impostare le opzioni seguenti se l'app usa uno dei seguenti framework: 
 
-* **.NET Framework**: consente di impostare la versione di .NET Framework. 
+* **.NET Framework**: impostare la versione .NET Framework. 
 * **PHP**: impostare la versione PHP oppure scegliere **DISATTIVATO** per disabilitare PHP. 
 * **Java**: selezionare la versione di Java oppure **DISATTIVATO** per disabilitare Java. Utilizzare l'opzione **Contenitore Web** per scegliere tra le versioni Tomcat e Jetty.
 * **Python**: selezionare la versione Python oppure **DISATTIVATO** per disabilitare Python.
@@ -164,7 +165,7 @@ Per visualizzare gli slot di distribuzione, fare clic su **Tutte le impostazioni
 ### <a name="monitoring"></a>Monitoraggio
 In modalità Basic o Standard è possibile testare la disponibilità degli endpoint HTTP o HTTPS, da un numero massimo di tre posizioni geograficamente distribuite. Un test di monitoraggio ha esito negativo se il codice della risposta HTTP è un errore (4xx o 5xx) o se la risposta richiede più di 30 secondi. Un endpoint è considerato disponibile se il test di monitoraggio ha esito positivo da tutte le posizioni specificate. 
 
-Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoint].
+Per ulteriori informazioni, consultare [Procedura: Monitorare lo stato degli endpoint].
 
 > [!NOTE]
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app], dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
@@ -179,14 +180,14 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Portale di Azure]: https://portal.azure.com/
 [Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./app-service-web-tutorial-custom-domain.md
 [Configurare ambienti di staging per le app Web nel servizio app di Azure]: ./web-sites-staged-publishing.md
 [Abilitare HTTPS per un'app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[Procedura: monitorare lo stato degli endpoint]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Procedura: Monitorare lo stato degli endpoint]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Informazioni di base sul monitoraggio di App Web nel servizio app di Azure]: ./web-sites-monitor.md
-[modalità pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[modalità pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Scalare un'app Web nel servizio app di Azure]: ./web-sites-scale.md
 [Prova il servizio app]: https://azure.microsoft.com/try/app-service/
 

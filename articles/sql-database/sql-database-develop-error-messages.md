@@ -13,14 +13,14 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/31/2018
-ms.openlocfilehash: 71a23e982f1e4ae5609d4f9a160cd1861e043ea1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251816"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317458"
 ---
-# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database
+# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codici di errore SQL per le applicazioni client del database SQL: Errori di connessione di database e altri problemi
 
 Questo articolo elenca i codici di errore di SQL per le applicazioni client del database SQL, inclusi errori di connessione del database, errori temporanei (noti anche come guasti temporanei), errori di governance delle risorse, errori di copia del database, errori relativi al pool elastico e altri errori. La maggior parte delle categorie sono specifiche di Database SQL di Azure e non si applicano a Microsoft SQL Server. Vedere anche i [messaggi di errore di sistema](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
@@ -37,7 +37,7 @@ Gli errori temporanei solitamente si manifestano sotto forma di uno dei messaggi
 * Il database &lt;nome_db&gt; nel server &lt;istanza_Azure&gt; non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento. Se il problema persiste, contattare il supporto tecnico indicando l'ID traccia sessione di &lt;id_sessione&gt;
 * Il database &lt;nome_db&gt; nel server &lt;istanza_Azure&gt; non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento. Se il problema persiste, contattare il supporto tecnico indicando l'ID traccia sessione di &lt;id_sessione&gt;. (Microsoft SQL Server, Errore: 40613)
 * Connessione in corso interrotta forzatamente dall'host remoto.
-* System.Data.Entity.Core.EntityCommandExecutionException: errore durante l'esecuzione della definizione del comando. Per altre informazioni, vedere l'eccezione interna. ---> System.Data.SqlClient.SqlException: si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: provider di sessione, errore: 19 - impossibile usare la connessione fisica)
+* System.Data.Entity.Core.EntityCommandExecutionException: Si è verificato un errore durante l'esecuzione della definizione del comando. Per altre informazioni, vedere l'eccezione interna. ---> System.Data.SqlClient.SqlException: si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: Provider di sessioni, errore: 19 - la connessione fisica non può essere usata)
 * Un tentativo di connessione a un database secondario non è riuscito perché il database è in corso di riconfigurazione ed è occupato nell'applicazione di nuove pagine durante l'esecuzione una transazione attiva nel database primario. 
 
 Per esempi di codice relativi alla logica di ripetizione dei tentativi, vedere:
@@ -50,7 +50,7 @@ Per i client che usano ADO.NET, è disponibile una discussione sul *periodo di b
 ### <a name="transient-fault-error-codes"></a>Codici di errore degli errori temporanei
 I seguenti errori sono temporanei e devono essere ripetuti nella logica dell'applicazione: 
 
-| Codice di errore | Gravità | Descrizione |
+| Codice di errore | Gravità | DESCRIZIONE |
 | ---:| ---:|:--- |
 | 4060 |16 |Impossibile aprire il database "%.&#x2a;ls" richiesto dall'account di accesso. Accesso non riuscito. |
 | 40197 |17 |Il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprova più tardi. Codice di errore %d.<br/><br/>Questo errore viene visualizzato quando il servizio non è disponibile a causa di aggiornamenti software o hardware, guasti hardware o altri problemi di failover. Nel codice di errore (%d) incorporato nel messaggio di errore 40197 sono contenute ulteriori informazioni sul tipo di errore o failover che si è verificato. Alcuni esempi dei codici di errore incorporati nel messaggio di errore 40197 sono 40020, 40143, 40166 e 40540.<br/><br/>Con la riconnessione al server di database SQL verrà effettuata la connessione automatica a una copia integra del database. L'applicazione deve rilevare l'errore 40197, registrare il codice di errore incorporato (%d) nel messaggio per la risoluzione dei problemi e tentare la riconnessione al database SQL finché le risorse non saranno disponibili e la connessione non sarà stata ristabilita. |
@@ -64,7 +64,7 @@ I seguenti errori sono temporanei e devono essere ripetuti nella logica dell'app
 ## <a name="database-copy-errors"></a>Errori di copia del database
 Durante la copia di un database nel database SQL di Azure, possono essere rilevati gli errori seguenti. Per altre informazioni, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 
-| Codice di errore | Gravità | Descrizione |
+| Codice di errore | Gravità | DESCRIZIONE |
 | ---:| ---:|:--- |
 | 40635 |16 |Il client con indirizzo IP '%.&#x2a;ls' è temporaneamente disabilitato. |
 | 40637 |16 |La creazione della copia del database è attualmente disabilitata. |
@@ -90,12 +90,12 @@ I seguenti errori sono causati dall'uso eccessivo delle risorse durante l'utiliz
 
 Argomenti correlati:
 
-* Informazioni più dettagliate sono disponibili qui: [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md).
+* Altre informazioni dettagliate sono disponibili qui: [limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md).
 
-| Codice di errore | Gravità | Descrizione |
+| Codice di errore | Gravità | DESCRIZIONE |
 | ---:| ---:|:--- |
-| 10928 |20 |ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per altre informazioni, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637). In caso contrario, riprovare più tardi.<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [Limiti delle risorse del database SQL per database singoli e in pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per altre informazioni, vedere [Limiti delle risorse del database SQL per database singoli e in pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server). In caso contrario, riprovare più tardi.<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limiti delle risorse del database SQL di Azure](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |Il database ha raggiunto la quota delle dimensioni. Partizionare o eliminare dati, eliminare indici o consultare la documentazione per le possibili soluzioni. |
 | 40549 |16 |La sessione è stata terminata a causa di una transazione a esecuzione prolungata. Provare ad abbreviare la transazione. |
 | 40550 |16 |La sessione è stata terminata perché sono stati acquisiti troppi blocchi. Provare a leggere o modificare meno righe in una singola transazione. |
@@ -106,10 +106,10 @@ Argomenti correlati:
 ## <a name="elastic-pool-errors"></a>Errori relativi al pool elastico
 Di seguito sono elencati gli errori riguardanti la creazione e l'uso di pool elastici:
 
-| Codice di errore | Gravità | Descrizione | Azione correttiva |
+| Codice di errore | Gravità | DESCRIZIONE | Azione correttiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Il pool elastico ha raggiunto il limite di archiviazione. L'utilizzo dell'archiviazione per il pool elastico non può superare (%d) MB. Tentativo di scrittura dei dati in un database quando viene raggiunto il limite di archiviazione del pool elastico. |Prendere in considerazione l'aumento delle DTU e/o l'aggiunta di risorse di archiviazione al pool elastico, se possibile, per aumentare il limite di archiviazione, ridurre le risorse di archiviazione usate dai singoli database all'interno del pool elastico o rimuovere database dal pool elastico. |
-| 10929 | 16 |La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per assistenza, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637). In caso contrario, riprovare più tardi. Numero minimo DTU/vCore per database; numero massimo DTU/vCore per database. Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. |Prendere in considerazione l'aumento delle DTU o dei vCore del pool elastico, se possibile, per aumentare il limite del ruolo di lavoro, o rimuovere database dal pool elastico. |
+| 10929 | 16 |La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Vedere [Limiti delle risorse del database SQL per database singoli e in pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) per assistenza. In caso contrario, riprovare più tardi. Numero minimo DTU/vCore per database; numero massimo DTU/vCore per database. Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. |Prendere in considerazione l'aumento delle DTU o dei vCore del pool elastico, se possibile, per aumentare il limite del ruolo di lavoro, o rimuovere database dal pool elastico. |
 | 40844 | 16 |Il database '%ls' sul Server '%ls' è un database versione '%ls' in un pool elastico e non può avere una relazione di copia continua.  |N/D |
 | 40857 | 16 |Pool elastico non trovato per il server: '%ls', nome del pool elastico: '%ls'. Il pool elastico specificato non esiste nel server specificato. | Fornire un nome pool elastico valido. |
 | 40858 | 16 |Il pool elastico '%ls' esiste già nel server: '%ls'. Il pool elastico specificato esiste già nel server logico specificato. | Fornire un nuovo nome pool elastico. |
@@ -139,12 +139,12 @@ Argomenti correlati:
 ## <a name="general-errors"></a>Errori generali
 I seguenti errori non rientrano nelle categorie precedenti.
 
-| Codice di errore | Gravità | Descrizione |
+| Codice di errore | Gravità | DESCRIZIONE |
 | ---:| ---:|:--- |
 | 15006 |16 |AdministratorLogin non è un nome valido perché contiene caratteri non validi. |
 | 18452 |14 |Accesso non riuscito. L'accesso proviene da un dominio non trusted e non può essere usato con l'autenticazione di Window.%.&#x2a;ls (Account di accesso di Windows non supportati in questa versione di SQL Server.) |
 | 18456 |14 |Accesso non riuscito per l'utente '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls (Accesso non riuscito per l'utente "%.&#x2a;ls".) |
-| 18470 |14 |Accesso non riuscito per l'utente '%.&#x2a;ls'. Motivo: l'account è disabilitato.%.&#x2a;ls |
+| 18470 |14 |Accesso non riuscito per l’utente '%.&#x2a;ls'. Motivo: l'account è disabilitato.%.&#x2a;ls |
 | 40014 |16 |Non è possibile usare più database nella stessa transazione. |
 | 40054 |16 |Le tabelle senza indice cluster non sono supportate in questa versione di SQL Server. Creare un indice cluster e riprovare. |
 | 40133 |15 |Questa operazione non è supportata in questa versione di SQL Server. |

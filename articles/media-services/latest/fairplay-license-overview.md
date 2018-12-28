@@ -2,7 +2,7 @@
 title: Supporto delle licenze di Servizi multimediali di Azure e Apple FairPlay | Microsoft Docs
 description: Questo argomento offre una panoramica dei requisiti e della configurazione della licenza FairPlay di Apple.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: a68896d061040843990318cbc39eaf1aaa3c8b27
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.custom: seodec18
+ms.openlocfilehash: 66d816795ec06891aafce73036d7aea9bb52b2c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115115"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140536"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Configurazione e requisiti della licenza Apple FairPlay 
 
@@ -48,7 +49,7 @@ Se si usa Servizi multimediali per crittografare il contenuto HLS crittografato 
 
             "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
             
-    * **App Cert password**: password del cliente per creare il file con estensione pfx.
+    * **Password di App Cert**: password per creare il file con estensione pfx.
     * **ASK**: chiave ricevuta quando si genera la certificazione usando il portale Apple Developer. Ogni team di sviluppo riceve una chiave ASK univoca. Salvare una copia della chiave ASK e archiviarla in un luogo sicuro. È necessario configurare la chiave ASK come FairPlayAsk in Servizi multimediali.
     
 * Sul lato client FPS è necessario impostare quanto segue:

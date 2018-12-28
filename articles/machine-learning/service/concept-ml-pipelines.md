@@ -1,5 +1,6 @@
 ---
-title: Creare pipeline di machine Learning - servizio Azure Machine Learning
+title: 'Azure Pipelines: ottimizzare il Machine Learning (ML) per la velocità, la portabilità e il riutilizzo'
+titleSuffix: Azure Machine Learning service
 description: In questo articolo viene illustrata la pipeline di machine learning che è possibile compilare con SDK di Azure Machine Learning per Python e i vantaggi dell'uso di pipeline. Le pipeline di Machine learning (ML) vengono utilizzate dai data scientist per creare, ottimizzare e gestire i flussi di lavoro di apprendimento automatico.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +10,17 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
-ms.openlocfilehash: 099b59cde4ee438f16b9d7e77bd81c004006cb71
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: e2874c4a40a2347fd47e93c99fdec7ff5e81aec1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684869"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308210"
 ---
-# <a name="pipelines-and-azure-machine-learning"></a>Pipeline e Azure Machine Learning
+# <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Creare pipeline di apprendimento automatico con il servizio Azure Machine Learning
 
-In questo articolo viene illustrata la pipeline di machine learning che è possibile compilare con SDK di Azure Machine Learning per Python e i vantaggi dell'uso di pipeline.
+In questo articolo viene illustrata la pipeline di apprendimento automatico che è possibile compilare con SDK di Azure Machine Learning per Python e i vantaggi dell'uso delle pipeline.
 
 ## <a name="what-are-machine-learning-pipelines"></a>Cosa sono le pipeline di apprendimento automatico?
 
@@ -30,38 +32,38 @@ Tramite le pipeline di machine learning (ML), i data scientist, i data engineer 
 
 Il diagramma seguente mostra un esempio di pipeline:
 
-[ ![Pipeline di apprendimento automatico nel servizio Azure Machine Learning](./media/concept-ml-pipelines/pipelines.png) ] (. / media/concept-ml-pipelines/machine-learning-pipelines-big.png#lightbox)
+![Pipeline di apprendimento automatico nel servizio Azure Machine Learning](./media/concept-ml-pipelines/pipelines.png)
 
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>Perché creare delle pipeline con Azure Machine Learning?
 
-[SDK di Azure Machine Learning per Python](#the-python-sdk-for-pipelines) può essere utilizzato per creare pipeline di Machine Learning o anche per inviare e rilevare le esecuzioni della pipeline singole.
+È possibile usare l'[SDK di Azure Machine Learning per Python](#the-python-sdk-for-pipelines) per creare pipeline di Machine Learning (ML) o anche per inviare e rilevare le esecuzioni delle singole pipeline.
 
-Con le pipeline, è possibile ottimizzare il flusso di lavoro con maggiore semplicità, velocità, portabilità e riutilizzo. Quando si compilano le pipeline con Azure Machine Learning, è possibile concentrarsi su ciò che si conosce meglio &mdash; l'apprendimento automatico &mdash; invece dell'infrastruttura distribuita.
+Con le pipeline, è possibile ottimizzare il flusso di lavoro con maggiore semplicità, velocità, portabilità e riutilizzo. Quando si compilano le pipeline con Azure Machine Learning è possibile concentrarsi sulle proprie competenze, l'apprendimento automatico invece sull'infrastruttura.
 
-Usare i passaggi distinti rende possibile eseguire nuovamente solo i passaggi che è necessario regolare e testare il flusso di lavoro. Un passaggio è un'unità di calcolo nella pipeline. Come illustrato nel diagramma precedente, l'attività di preparazione dei dati può comportare molti passaggi inclusi, ma non limitati alla normalizzazione, trasformazione, convalida e definizione delle funzioni. Le origini dati e i dati intermedi vengono riutilizzati attraverso la pipeline, risparmiando tempo e risorse di elaborazione. 
+Usare passaggi distinti rende possibile eseguire nuovamente solo i passaggi necessari durante la regolazione e il test del flusso di lavoro. Un passaggio è un'unità di calcolo nella pipeline. Come illustrato nel diagramma precedente, l'attività di preparazione dei dati può implicare numerosi passaggi. Questi includono tra l'altro la normalizzazione, trasformazione, convalida e definizione delle funzionalità. Le origini dati e i dati intermedi vengono riutilizzati attraverso la pipeline, risparmiando tempo e risorse di elaborazione. 
 
-Una volta che la pipeline è stata progettata, vi è spesso una maggiore ottimizzazione di tutto il ciclo di training della pipeline. Quando viene nuovamente eseguita una pipeline, l'esecuzione va ai passaggi che devono essere nuovamente eseguiti, come uno script di training aggiornato, e ignora gli elementi che non sono stati modificati. Lo stesso paradigma si applica agli script invariati usati per l'esecuzione del passaggio. 
+Dopo che la pipeline è stata progettata, vi è spesso un'ulteriore ottimizzazione di tutto il ciclo di training della pipeline. Quando viene nuovamente eseguita una pipeline, l'esecuzione va ai passaggi che devono essere nuovamente eseguiti, come uno script di training aggiornato, e ignora gli elementi che non sono stati modificati. Lo stesso paradigma si applica agli script invariati usati per l'esecuzione del passaggio. 
 
-Con Azure Machine Learning, è possibile utilizzare vari Toolkit e Framework come Microsoft Cognitive Toolkit o TensorFlow per ogni passaggio nella pipeline. Azure coordina tra le varie [destinazioni di calcolo](concept-azure-machine-learning-architecture.md) utilizzate in modo che i dati intermedi possano essere condivisi semplicemente con le destinazioni di calcolo a valle. 
+Con Azure Machine Learning, è possibile usare vari toolkit e framework come Microsoft Cognitive Toolkit o TensorFlow per ogni passaggio nella pipeline. Azure coordina le varie [destinazioni di calcolo](concept-azure-machine-learning-architecture.md) usate in modo che i dati intermedi possano essere condivisi semplicemente con le destinazioni di calcolo downstream. 
 
 È possibile [tenere traccia delle metriche per gli esperimenti della pipeline](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) direttamente dal portale di Azure. 
 
 ## <a name="key-advantages"></a>Vantaggi principali
 
-I vantaggi principali per la creazione di pipeline per i flussi di lavoro di apprendimento automatico è:
+I vantaggi principali della creazione di pipeline per i flussi di lavoro di apprendimento automatico sono:
 
 |Vantaggi principali|DESCRIZIONE|
 |:-------:|-----------|
 |**Esecuzione&nbsp;automatica**|Pianificare alcuni passaggi per eseguire in parallelo o in sequenza in modo affidabile e automatico. Dal momento che la preparazione e la modellazione dei dati può durare giorni o settimane, è ora possibile concentrarsi su altre attività mentre è in esecuzione la pipeline. |
-|**Risorse di calcolo miste e diverse**|Usare più pipeline che sono coordinate in modo affidabile tra le varie risorse di archiviazione e servizi di calcolo scalabili ed eterogenei. Passaggi di singole pipeline possono essere eseguiti su diverse destinazioni di calcolo, come HDInsight, GPU Data, Science VM e Databricks, per rendere efficiente l'utilizzo delle opzioni di calcolo disponibili.|
-|**Riutilizzo**|Le pipeline possono essere impostate come modello per scenari specifici, come di ripetizione del training e assegnazione di punteggio batch.  Possono essere attivati da sistemi esterni attraverso semplici chiamate REST.|
-|**Rilevamento e controllo delle versioni**|Anziché rilevare manualmente i dati e i percorsi del risultato durante l'iterazione, usare le pipeline SDK per assegnare esplicitamente un nome e modificare le origini dei dati, gli input e gli output, oltre a gestire gli script e i dati separatamente per una maggiore produttività.|
+|**Risorse di calcolo miste e diverse**|Usare più pipeline che sono coordinate in modo affidabile tra le varie risorse di archiviazione e servizi di calcolo scalabili ed eterogenei. Passaggi di singole pipeline possono essere eseguiti su diverse destinazioni di calcolo, come HDInsight, GPU Data, Science VM e Databricks. Ciò rende efficiente l'uso delle opzioni di calcolo disponibili.|
+|**Riutilizzo**|Le pipeline possono essere impostate come modello per scenari specifici, come la ripetizione del training e assegnazione di punteggio batch. Attivarle da sistemi esterni attraverso semplici chiamate REST.|
+|**Rilevamento e controllo delle versioni**|Invece di tenere traccia manualmente dei dati e dei percorsi dei risultati durante l'iterazione, usare l'SDK delle pipeline per denominare esplicitamente e controllare la versione di origini dati, input e output. È anche possibile gestire gli script e i dati separatamente per una maggiore produttività.|
 
 ## <a name="the-python-sdk-for-pipelines"></a>Python SDK per le pipeline
 
-Usare Python per creare le pipeline di Machine Learning. SDK di Azure Machine Learning offre costrutti imperativi per la sequenziazione e l'abbinamento dei passaggi nelle pipeline quando non è presente alcuna dipendenza dei dati. È possibile interagire con esso nel notebook Jupyter o in un altro IDE preferito. 
+Usare Python per creare le pipeline di Machine Learning. SDK di Azure Machine Learning offre costrutti imperativi per la sequenziazione e l'abbinamento dei passaggi nelle pipeline quando non è presente alcuna dipendenza dei dati. È possibile interagire con esso nel notebook Jupyter o in un altro ambiente di sviluppo integrato preferito. 
 
-Usando le dipendenze dei dati dichiarativi, è possibile ottimizzare le attività. SDK include un framework di moduli precompilati per attività comuni, come il trasferimento dei dati e la pubblicazione dei modelli. Il framework può essere esteso per modellare le convenzioni implementando passaggi personalizzati che sono riutilizzabili tra le pipeline. Anche le destinazioni di calcolo e le risorse di archiviazione possono essere gestite direttamente dall'SDK.
+Usando le dipendenze dei dati dichiarativi, è possibile ottimizzare le attività. L'SDK include un framework di moduli precompilati per attività comuni, come il trasferimento dei dati e la pubblicazione dei modelli. È possibile estendere il framework per modellare le convenzioni implementando passaggi personalizzati che sono riutilizzabili tra le pipeline. Anche le destinazioni di calcolo e le risorse di archiviazione possono essere gestite direttamente dall'SDK.
 
 Le pipeline possono essere salvate come modelli e possono essere distribuite in un endpoint REST in modo che sia possibile pianificare i processi di assegnazione dei punteggi o ripetizione del training.
 
@@ -69,8 +71,10 @@ Consultare i [documenti di riferimento Python SDK per le pipeline](https://docs.
 
 ## <a name="example-notebooks"></a>Notebook di esempio
  
-Il notebook seguente illustra le pipeline con Azure Machine Learning: [pipeline/pipeline-batch-scoring.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/pipeline-batch-scoring.ipynb).
- 
-Per ottenere questo blocco appunti:
+I notebook seguenti illustrano le pipeline con Azure Machine Learning: [how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Informazioni su come [creare la prima pipeline](how-to-create-your-first-pipeline.md).

@@ -1,6 +1,6 @@
 ---
-title: Indicizzazione di Ricerca di Azure disponibile in più lingue | Microsoft Docs
-description: Ricerca di Azure supporta 56 lingue, grazie ai vantaggi offerti dagli analizzatori delle lingue della tecnologia Lucene e di elaborazione del linguaggio naturale di Microsoft.
+title: Indicizzazione multilingue per le query di ricerca non in lingua inglese - Ricerca di Azure
+description: " Ricerca di Azure supporta 56 lingue, grazie ai vantaggi offerti dagli analizzatori delle lingue della tecnologia Lucene e di elaborazione del linguaggio naturale di Microsoft."
 author: yahnoosh
 manager: jlembicz
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 38f93f5415282d2f976d9f3acc2b0a7aeead6c3d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec2018
+ms.openlocfilehash: 3f88965e0d48a9ed3e9a91b4df42a79b83d2a79b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093355"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313327"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Creare un indice per i documenti in più lingue in Ricerca di Azure
 > [!div class="op_single_selector"]

@@ -1,6 +1,6 @@
 ---
-title: Configurare la sicurezza per l'accesso e la gestione di Azure Time Series Insights | Microsoft Docs
-description: Questo articolo descrive come configurare la sicurezza e le autorizzazioni come criteri di accesso per la gestione e come criteri di accesso ai dati per proteggere Azure Time Series Insights.
+title: Sicurezza dell'anteprima di Azure Time Series Insights - Configurare la sicurezza per accedere e gestire l'anteprima di Azure Time Series Insightes | Microsoft Docs
+description: Questo articolo descrive come configurare la sicurezza e le autorizzazioni come criteri di accesso per la gestione e di accesso ai dati per proteggere Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -9,64 +9,130 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/15/2017
-ms.openlocfilehash: 97c9480d6f2b75d83252bfb6410d7b5f946757ef
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.date: 11/26/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7f8eb66feecd58b766b3414b1bbc6bd4e27bf4f7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630654"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275466"
 ---
-# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Concedere l'accesso ai dati in un ambiente Time Series Insights con il portale di Azure
+# <a name="grant-data-access-to-an-environment"></a>Concedere l'accesso ai dati in un ambiente
 
-Gli ambienti Time Series Insights hanno due tipologie indipendenti di criteri di accesso:
-
-* Criteri di accesso di gestione
-* Criteri di accesso ai dati
-
-Entrambi criteri concedono alle entità di sicurezza di Azure Active Directory (utenti e app) varie autorizzazioni per un determinato ambiente. Le entità di sicurezza (utenti e app) devono appartenere all'istanza di Active Directory (nota come tenant di Azure) associata alla sottoscrizione contenente l'ambiente.
-
-I criteri di accesso di gestione concedono le autorizzazioni relative alla configurazione dell'ambiente, che includono:
-*   Creazione ed eliminazione dell'ambiente, delle origini evento e dei set di dati di riferimento
-*   Gestione dei criteri di accesso ai dati.
-
-I criteri di accesso ai dati concedono le autorizzazioni per eseguire query sui dati, modificare i dati di riferimento nell'ambiente e condividere le prospettive e le query salvate associate all'ambiente.
-
-Le due tipologie di criteri consentono una netta separazione tra l'accesso alla gestione dell'ambiente e l'accesso ai dati all'interno di esso. È ad esempio possibile configurare un ambiente in modo che il relativo proprietario/creatore sia rimosso dall'accesso ai dati. In più, a utenti e servizi a cui è consentita la lettura dei dati dell'ambiente può non essere concesso l'accesso alla configurazione dell'ambiente stesso.
+Questo articolo illustra i due tipi di criteri di accesso all'anteprima di Azure Time Series Insights.
 
 ## <a name="grant-data-access"></a>Concedere l'accesso ai dati
-Eseguire la procedura seguente per concedere l'accesso ai dati per un'entità utente:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+Per concedere l'accesso ai dati per un'entità utente, eseguire queste operazioni.
 
-2. Individuare l'ambiente Time Series Insights. Digitare **Time Series** nella casella di **ricerca**. Selezionare **ambiente Time Series** nei risultati della ricerca. 
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Individuare l'ambiente Time Series Insights. Immettere `Time Series` nella casella **Cerca**. Selezionare **ambiente Time Series** nei risultati della ricerca.
+1. Selezionare l'ambiente Time Series Insights nell'elenco.
+1. Selezionare **Criteri di accesso ai dati** e quindi selezionare **+ Aggiungi**.
 
-3. Selezionare l'ambiente Time Series Insights nell'elenco.
-   
-4. Selezionare **Criteri di accesso ai dati** e quindi selezionare **+ Aggiungi**.
-  ![Gestire l'origine Time Series Insights: ambiente](media/data-access/getstarted-grant-data-access1.png)
+    ![Accesso ai dati - uno][1]
 
-5. Selezionare **Seleziona utente**.  Cercare il nome utente o l'indirizzo di posta elettronica per individuare l'utente che si vuole aggiungere. Fare clic su **Seleziona** per confermare la selezione. 
+1. Scegliere **Seleziona utente**. Cercare il nome utente o l'indirizzo di posta elettronica per individuare l'utente che si vuole aggiungere. Fare clic su **Seleziona** per confermare la selezione.
 
-   ![Gestire l'origine Time Series Insights: aggiunta](media/data-access/getstarted-grant-data-access2.png)
+    ![Accesso ai dati - due][2]
 
-6. Selezionare **Selezionare un ruolo**. Scegliere il ruolo di accesso appropriato per l'utente:
-   - Selezionare **Collaboratore** se si vuole consentire all'utente di modificare i dati di riferimento e condividere le prospettive e le query salvate con altri utenti dell'ambiente. 
-   - In alternativa, selezionare **Lettore** per consentire all'utente di eseguire query sui dati e salvare query personali (non condivise) nell'ambiente.
+1. Scegliere **Seleziona ruolo**. Scegliere il ruolo di accesso appropriato per l'utente:
+
+    * Selezionare **Collaboratore** se si vuole consentire all'utente di modificare i dati di riferimento e condividere le prospettive e le query salvate con altri utenti dell'ambiente.
+
+    * In alternativa, selezionare **Lettore** per consentire all'utente di eseguire query sui dati e salvare query personali non condivise nell'ambiente.
 
    Selezionare **OK** per confermare la scelta del ruolo.
 
-   ![Gestire l'origine Time Series Insights: selezione dell'utente](media/data-access/getstarted-grant-data-access3.png)
+    ![Accesso ai dati - tre][3]
 
-8. Fare clic su **OK** nella pagina **Selezionare il ruolo utente**.
+1. Selezionare **OK** nella pagina **Selezionare il ruolo utente**.
 
-   ![Gestire l'origine Time Series Insights: selezione del ruolo](media/data-access/getstarted-grant-data-access4.png)
+    ![Accesso ai dati - quattro][4]
 
-9. La pagina **Criteri di accesso ai dati** elenca gli utenti e i ruoli per ogni utente.
+1. Verificare che nella pagina **Criteri di accesso ai dati** siano elencati gli utenti e i ruoli per ogni utente.
 
-   ![Gestire l'origine Time Series Insights: risultati](media/data-access/getstarted-grant-data-access5.png)
+    ![Accesso ai dati - cinque][5]
+
+## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>Concedere l'accesso guest a un utente da un altro tenant di Azure Active Directory
+
+`Guest` non è un ruolo di gestione, ma un termine usato per un account che viene invitato da un tenant a un altro. Dopo che l'account guest viene invitato nella directory del tenant, può disporre dello stesso controllo di accesso applicato alla directory come qualsiasi altro account. È possibile concedere l'accesso per la gestione a un ambiente Time Series Insights tramite il pannello di gestione delle identità e degli accessi. In alternativa, è possibile concedere l'accesso ai dati nell'ambiente tramite il pannello dei criteri di accesso ai dati. Per altre informazioni sull'accesso guest al tenant di Azure Active Directory (Azure AD), leggere [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+
+Per concedere l'accesso guest in un ambiente Time Series Insights a un utente AAD di un altro tenant, eseguire queste operazioni.
+
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Individuare l'ambiente Time Series Insights. Immettere **Time Series** nella casella **Cerca**. Selezionare **ambiente Time Series** nei risultati della ricerca.
+1. Selezionare l'ambiente Time Series Insights nell'elenco.
+1. Selezionare **Criteri di accesso ai dati** e quindi selezionare **+ Invita**.
+
+    ![Accesso ai dati - sei][6]
+
+1. Immettere l'indirizzo di posta elettronica per l'utente da invitare. Tale indirizzo deve essere associato ad Azure AD. Aggiungere un messaggio personale all'invito (facoltativo).
+
+    ![Accesso ai dati - sette][7]
+
+1. Cercare il messaggio di conferma visualizzato sullo schermo.
+
+    ![Accesso ai dati - otto][8]
+
+1. Scegliere **Seleziona utente**. Cercare l'indirizzo di posta elettronica dell'utente guest invitato per individuare l'utente da aggiungere. Fare clic su **Seleziona** per confermare la selezione.
+
+    ![Accesso ai dati - nove][9]
+
+1. Scegliere **Seleziona ruolo**. Scegliere il ruolo di accesso appropriato per l'utente guest:
+
+    * Selezionare **Collaboratore** se si vuole consentire all'utente di modificare i dati di riferimento e condividere le prospettive e le query salvate con altri utenti dell'ambiente.
+
+    * In alternativa, selezionare **Lettore** per consentire all'utente di eseguire query sui dati e salvare query personali non condivise nell'ambiente.
+
+   Selezionare **OK** per confermare la scelta del ruolo.
+
+    ![Accesso ai dati - dieci][10]
+
+1. Selezionare **OK** nella pagina **Selezionare il ruolo utente**.
+
+1. Verificare che nella pagina **Criteri di accesso ai dati** vengano elencati l'utente guest e i ruoli per ogni utente guest.
+
+    ![Accesso ai dati - undici][11]
+
+1. A questo punto l'utente guest deve seguire questa procedura per accedere all'ambiente presente nel tenant di Azure in cui è stato invitato. In primo luogo l'utente accetta l'invito che ha ricevuto. Tale invito viene inviato tramite posta elettronica all'indirizzo usato nel passaggio 5. L'utente seleziona **Get Started** (Inizia) per accettare.
+
+    ![Accesso ai dati - dodici][12]
+
+1. Successivamente, l'utente guest accetta le autorizzazioni associate all'organizzazione dell'amministratore.
+
+    ![Accesso ai dati - tredici][13]
+
+1. Dopo che l'utente guest ha eseguito l'accesso all'indirizzo di posta elettronica usato per invitarlo e dopo che ha accettato l'invito, accede al sito insights.azure.com. A questo punto seleziona l'avatar accanto all'indirizzo di posta elettronica nell'angolo superiore destro dello schermo.
+
+    ![Accesso ai dati - quattordici][14]
+
+1. Successivamente, l'utente guest seleziona il tenant di Azure nel menu a discesa della directory. Questo tenant è quello a cui l'utente è stato invitato.
+
+    ![Accesso ai dati - quindici][15]
+
+Dopo che l'utente guest ha selezionato il tenant, viene visualizzato l'ambiente Time Series Insights per cui è stato concesso l'accesso. A questo punto l'utente dispone di tutte le funzionalità associate al ruolo concesso nel passaggio 8.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Apprendere [come aggiungere un'origine evento hub eventi all'ambiente Azure Time Series Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
-* [Inviare eventi](time-series-insights-send-events.md) all'origine evento.
-* Visualizzare l'ambiente in [Time Series Insights Explorer](https://insights.timeseries.azure.com).
+
+* Informazioni su [come aggiungere un'origine evento di Hub eventi di Azure](./time-series-insights-how-to-add-an-event-source-eventhub.md) all'ambiente Time Series Insights.
+* Inviare [eventi all'origine evento](./time-series-insights-send-events.md).
+* Visualizzare [l'ambiente nell'anteprima di Time Series Insights Explorer](./time-series-insights-update-explorer.md).
+
+<!-- Images -->
+[1]: media/data-access/data-access-one.png
+[2]: media/data-access/data-access-two.png
+[3]: media/data-access/data-access-three.png
+[4]: media/data-access/data-access-four.png
+[5]: media/data-access/data-access-five.png
+[6]: media/data-access/data-access-six.png
+[7]: media/data-access/data-access-seven.png
+[8]: media/data-access/data-access-eight.png
+[9]: media/data-access/data-access-nine.png
+[10]: media/data-access/data-access-ten.png
+[11]: media/data-access/data-access-eleven.png
+[12]: media/data-access/data-access-twelve.png
+[13]: media/data-access/data-access-thirteen.png
+[14]: media/data-access/data-access-fourteen.png
+[15]: media/data-access/data-access-fifteen.png

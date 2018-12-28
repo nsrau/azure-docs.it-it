@@ -1,6 +1,6 @@
 ---
-title: Distribuire le risorse in una sottoscrizione di Azure | Microsoft Docs
-description: Questo articolo descrive come creare un modello di Azure Resource Manager per distribuire le risorse nell'ambito della sottoscrizione.
+title: Creare un gruppo di risorse e le risorse alla sottoscrizione - Modello di Azure Resource Manager
+description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,22 +9,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d281ebe80c6089c559cfaa77f4875a856566092
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 5b8247533a8bf51017767aac3a04e47ce6348a60
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079379"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435294"
 ---
-# <a name="deploy-resources-to-an-azure-subscription"></a>Distribuire le risorse in una sottoscrizione di Azure
+# <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>Creare gruppi di risorse e risorse per una sottoscrizione di Azure
 
-In genere, le risorse vengono distribuite ad un gruppo nell'ambito della sottoscrizione di Azure. Tuttavia, alcune risorse possono essere distribuite al livello della sottoscrizione di Azure e si applicano quindi all'intera sottoscrizione. [Criteri](../azure-policy/azure-policy-introduction.md), [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) e [Centro sicurezza di Azure](../security-center/security-center-intro.md) sono servizi che è possibile applicare al livello della sottoscrizione anziché del gruppo di risorse.
+In genere, le risorse vengono distribuite ad un gruppo nell'ambito della sottoscrizione di Azure. Tuttavia, è possibile usare le distribuzioni a livello di sottoscrizione per creare gruppi di risorse e risorse che si applicano nell'intera sottoscrizione.
 
-Per distribuire i modelli, in questo articolo viene usata l'interfaccia della riga di comando di Azure e PowerShell.
+Per creare un gruppo di risorse in un modello di Azure Resource Manager, definire una risorsa **Microsoft.Resources/resourceGroups** con un nome e un percorso specifici. È possibile creare un gruppo di risorse e distribuire risorse a tale gruppo di risorse nello stesso modello.
 
-## <a name="name-and-location-for-deployment"></a>Nomina il percorso in cui eseguire la distribuzione
+[Criteri](../azure-policy/azure-policy-introduction.md), [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) e [Centro sicurezza di Azure](../security-center/security-center-intro.md) sono servizi che è possibile applicare al livello della sottoscrizione anziché del gruppo di risorse.
+
+Questo articolo illustra come creare gruppi di risorse e come creare risorse applicabili a una sottoscrizione. Per distribuire i modelli, vengono usati l'interfaccia della riga di comando di Azure e PowerShell. Non + possibile usare il portale per distribuire i modelli, perché l'interfaccia del portale distribuisce nel gruppo di risorse, non nella sottoscrizione di Azure.
+
+## <a name="schema-and-commands"></a>Schema e comandi
+
+Lo schema e i comandi usati per le distribuzioni a livello di sottoscrizione sono diversi rispetto alle distribuzioni di gruppi di risorse. 
+
+Per lo schema, usare `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`.
+
+Per il comando di distribuzione dell'interfaccia della riga di comando di Azure, usare [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create).
+
+Per il comando di distribuzione di PowerShell, usare [New-AzureRmDeployment](/powershell/module/azurerm.resources/new-azurermdeployment).
+
+## <a name="name-and-location"></a>Nome e percorso
 
 Quando si distribuisce per la sottoscrizione, è necessario fornire un percorso per la distribuzione. È anche possibile fornire un nome per la distribuzione. Se non si specifica un nome per la distribuzione, il nome del modello viene utilizzato come nome della distribuzione. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
 
@@ -37,6 +51,207 @@ Per le distribuzioni a livello di sottoscrizione, esistono alcune considerazioni
 * La funzione [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) **non** è supportata.
 * La funzione [resourceId()](resource-group-template-functions-resource.md#resourceid) funzione è supportata. Usare la funzione per ottenere l'ID risorsa per le risorse che vengono usate in distribuzioni a livello di sottoscrizione. Ad esempio, ottenere l'ID risorsa per una definizione di criteri con `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
 * Le funzioni [reference()](resource-group-template-functions-resource.md#reference) e [list()](resource-group-template-functions-resource.md#list) sono supportate.
+
+## <a name="create-resource-group"></a>Creare un gruppo di risorse
+
+L'esempio seguente crea un gruppo di risorse vuoto.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[parameters('rgName')]",
+            "properties": {}
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Per distribuire questo modello con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az deployment create \
+  -n demoEmptyRG \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+  --parameters rgName=demoRG rgLocation=northcentralus
+```
+
+Per distribuire questo modello con PowerShell, usare:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
+```
+
+## <a name="create-several-resource-groups"></a>Creare più gruppi di risorse
+
+Per creare più gruppi di risorse usare l'[elemento copy](resource-group-create-multiple.md). 
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgNamePrefix": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        },
+        "instanceCount": {
+            "type": "int"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
+            "copy": {
+                "name": "rgCopy",
+                "count": "[parameters('instanceCount')]"
+            },
+            "properties": {}
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Per distribuire questo modello con l'interfaccia della riga di comando di Azure e creare tre gruppi di risorse, usare:
+
+```azurecli-interactive
+az deployment create \
+  -n demoCopyRG \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
+  --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
+```
+
+Per distribuire questo modello con PowerShell, usare:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgNamePrefix demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
+```
+
+## <a name="create-resource-group-and-deploy-resource"></a>Creare un gruppo di risorse e distribuire risorse
+
+Per creare un gruppo di risorse e distribuire risorse a tale gruppo, usare un modello annidato. Questo tipo di modello definisce le risorse da distribuire al gruppo. Impostare il modello annidato come dipendente dal gruppo di risorse per assicurarsi che il gruppo sia presente prima della distribuzione delle risorse.
+
+L'esempio seguente crea un gruppo di risorse e distribuisce un account di archiviazione al gruppo.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        },
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(subscription().id, parameters('rgName')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[parameters('rgName')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "storageDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Storage/storageAccounts",
+                            "apiVersion": "2017-10-01",
+                            "name": "[variables('storageName')]",
+                            "location": "[parameters('rgLocation')]",
+                            "kind": "StorageV2",
+                            "sku": {
+                                "name": "Standard_LRS"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Per distribuire questo modello con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az deployment create \
+  -n demoRGStorage \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json \
+  --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
+```
+
+Per distribuire questo modello con PowerShell, usare:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
+```
 
 ## <a name="assign-policy"></a>Assegnare un criterio
 
@@ -257,7 +472,5 @@ New-AzureRmDeployment `
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per un esempio di distribuzione delle impostazioni dell'area di lavoro per il Centro sicurezza di Azure, vedere [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Per creare un gruppo di risorse, consultare [Creare gruppi di risorse nei modelli di Azure Resource Manager](create-resource-group-in-template.md).
 * Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](resource-group-authoring-templates.md). 
 * Per un elenco delle funzioni disponibili in un modello, vedere [Funzioni di modelli](resource-group-template-functions.md).
-

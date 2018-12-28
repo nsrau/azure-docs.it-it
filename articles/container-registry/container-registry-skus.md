@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: danlep
-ms.openlocfilehash: 80ee1033ef7a5fee849126ab2b614de18b71e051
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3f058a68057d6b84cbbb2dfdb08ea8c2cb12b0b9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855851"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322094"
 ---
 # <a name="azure-container-registry-skus"></a>SKU del Registro contenitori di Azure
 
@@ -81,6 +81,8 @@ Per dettagli sull'aggiornamento del registro classico a uno SKU gestito, vedere 
 ## <a name="pricing"></a>Prezzi
 
 Per informazioni sui prezzi di ogni SKU del Registro contenitori di Azure, vedere [Prezzi del Registro contenitori][container-registry-pricing].
+
+Per i dettagli sui prezzi per i trasferimenti dei dati, vedere [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

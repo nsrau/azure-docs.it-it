@@ -4,14 +4,14 @@ description: Descrive come ridefinire una valutazione usando il mapping delle di
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: d79513569b53d2b8958f44fbfac3839c91caaff8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634303"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255262"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Ridefinire un gruppo usando il mapping delle dipendenze del gruppo
 
@@ -25,6 +25,9 @@ In questo articolo viene descritto come ridefinire un gruppo visualizzando le di
 ## <a name="prepare-for-dependency-visualization"></a>Prepararsi per la visualizzazione delle dipendenze
 Per abilitare la visualizzazione delle dipendenze dei computer, Azure Migrate usa la soluzione Mapping dei servizi in Log Analytics.
 
+> [!NOTE]
+> La funzionalità di visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
+
 ### <a name="associate-a-log-analytics-workspace"></a>Associare un'area di lavoro di Log Analytics
 Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile associare un'area di lavoro di Log Analytics, nuova o esistente, a un progetto di Azure Migrate. È possibile creare o collegare solo un'area di lavoro nella stessa sottoscrizione in cui viene creato il progetto di migrazione.
 
@@ -32,8 +35,9 @@ Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile ass
 
     ![Associare un'area di lavoro di Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. L'area di lavoro viene quindi creata nella stessa sottoscrizione del progetto di migrazione e in una regione della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) come progetto di migrazione.
-- L'opzione **Usa esistente** elenca solo le aree di lavoro che vengono create nelle aree in cui è disponibile il Mapping dei servizi. Se si dispone di un'area di lavoro in un'area in cui il Mapping dei servizi non è disponibile, non verrà elencata nell'elenco a discesa.
+- Durante l'associazione di un'area di lavoro si avrà la possibilità di creare una nuova area di lavoro o di collegarne una esistente:
+    - Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. L'area di lavoro viene quindi creata in una regione della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) come progetto di migrazione.
+    - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione. Sono elencate solo le aree di lavoro create in un'area geografica in cui [è supportato il mapping dei servizi](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Per poter collegare un'area di lavoro è necessario avere l'accesso in lettura all'area di lavoro.
 
 > [!NOTE]
 > Non è possibile modificare l'area di lavoro associata a un progetto di migrazione.
@@ -64,7 +68,6 @@ Per installare l'agente in un computer Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-
 ### <a name="install-the-dependency-agent"></a>Installare Dependency Agent
 1. Per installare Dependency Agent in un computer Windows, fare doppio clic sul file di installazione e seguire la procedura guidata.
 2. Per installare Dependency Agent in un computer Linux, procedere all'installazione come utente ROOT usando il comando seguente:
@@ -83,7 +86,7 @@ Dopo aver installato gli agenti in tutti i computer del gruppo, è possibile vis
         - I computer dipendenti in cui non sono installati l'agente MMA e l'agente Dependency Agent sono raggruppati in base ai numeri di porta
         - I computer dipendenti in cui sono installati l'agente MMA e l'agente Dependency Agent sono visualizzati in caselle separate
     - I processi in esecuzione sul computer: è possibile espandere ogni casella di computer per visualizzare i processi
-    - Proprietà quali: nome di dominio completo, sistema operativo, indirizzo MAC di ogni computer e così via. Fare clic su ogni casella macchina per visualizzare questi dettagli
+    - Le proprietà di ogni computer, come il nome di dominio completo, il sistema operativo, l'indirizzo MAC e così via: fare clic su ogni casella di computer per visualizzare questi dettagli
 
      ![Visualizzazione delle dipendenze del gruppo](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 

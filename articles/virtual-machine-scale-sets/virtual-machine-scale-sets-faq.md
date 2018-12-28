@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 40af55e48e0097f1ad6cb52a76b78fab40c2074c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1bba25d0b7fd6bbe4efeb9c2164fc663b22bed11
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447181"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139368"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -31,7 +31,7 @@ Risposte alle domande frequenti sui set di scalabilità di macchine virtuali in 
 
 **D.** Quante VM si possono includere in un set di scalabilità?
 
-**R.** Un set di scalabilità può includere da 0 a 1.000 VM basate su immagini della piattaforma oppure da 0 a 300 VM basate su immagini personalizzate.
+**R.** Un set di scalabilità può includere da 0 a 1.000 VM basate su immagini della piattaforma oppure da 0 a 600 VM basate su immagini personalizzate.
 
 **D.** I dischi dati sono supportati nei set di scalabilità?
 
@@ -277,7 +277,7 @@ Per un esempio, vedere il [modello di avvio rapido 101-vm-sshkey di GitHub](http
  
 ### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Quando si esegue `Update-AzureRmVmss` dopo avere aggiunto più di un certificato dallo stesso insieme di credenziali delle chiavi, viene visualizzato il messaggio seguente:
  
->Update-AzureRmVmss: L'elenco secrets contiene istanze ripetute di /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev. Questo scenario non è consentito.
+>Update-AzureRmVmss: l'elenco secrets contiene istanze ripetute di /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev. Questo scenario non è consentito.
  
 Questo problema si può verificare se si prova ad aggiungere di nuovo lo stesso insieme di credenziali invece di usare un nuovo certificato dell'insieme di credenziali per l'insieme di credenziali di origine esistente. Il comando `Add-AzureRmVmssSecret` non funziona correttamente se si aggiungono altri segreti.
  
@@ -510,7 +510,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -
 Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS 
 ```
 
-### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>È necessario eseguire uno script personalizzato ospitato in un account di archiviazione privato. Lo script viene eseguito correttamente quando la risorsa di archiviazione è pubblica, ma si verifica un errore quando si prova a usare una firma di accesso condiviso. Viene visualizzato questo messaggio: "Parametri obbligatori mancanti per la firma di accesso condiviso valida". Il collegamento e la firma di accesso condiviso funzionano correttamente.
+### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>È necessario eseguire uno script personalizzato ospitato in un account di archiviazione privato. Lo script viene eseguito correttamente quando la risorsa di archiviazione è pubblica, ma si verifica un errore quando si prova a usare una firma di accesso condiviso. Viene visualizzato il messaggio seguente: "Parametri obbligatori mancanti per la firma di accesso condiviso valida". Il collegamento e la firma di accesso condiviso funzionano correttamente.
 
 Per eseguire uno script personalizzato ospitato in un account di archiviazione provato, configurare le impostazioni protette con la chiave e il nome dell'account di archiviazione. Per altre informazioni, vedere [Estensione Script personalizzato per Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
@@ -559,7 +559,7 @@ Sì. È possibile applicare un gruppo di sicurezza di rete direttamente a un set
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Come si esegue lo scambio di indirizzi VIP per i set di scalabilità di macchine virtuali che si trovano nella stessa sottoscrizione e nella stessa area?
 
-Se si hanno due set di scalabilità di macchine virtuali con front-end di Azure Load Balancer, che sono nella stessa sottoscrizione e area, è possibile deallocare gli indirizzi IP pubblici da uno e assegnarli all'altro. Per un esempio, vedere [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Scambio di indirizzi VIP: distribuzione di tipo "blu-verde" in Azure Resource Manager). Ciò implica un ritardo anche se le risorse vengono deallocate/allocate a livello di rete. Un'opzione più rapida consiste nell'usare il Gateway applicazione di Azure con due pool di back-end e una regola di routing. In alternativa, è possibile ospitare l'applicazione con [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) che offre il supporto per commutare rapidamente gli slot di gestione temporanea in slot di produzione.
+Se si hanno due set di scalabilità di macchine virtuali con front-end di Azure Load Balancer, che sono nella stessa sottoscrizione e area, è possibile deallocare gli indirizzi IP pubblici da uno e assegnarli all'altro. Vedere ad esempio [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Scambio di indirizzi VIP: distribuzione di tipo "blu-verde" in Azure Resource Manager). Ciò implica un ritardo anche se le risorse vengono deallocate/allocate a livello di rete. Un'opzione più rapida consiste nell'usare il Gateway applicazione di Azure con due pool di back-end e una regola di routing. In alternativa, è possibile ospitare l'applicazione con [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) che offre il supporto per commutare rapidamente gli slot di gestione temporanea in slot di produzione.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Come è possibile specificare un intervallo di indirizzi IP privati per l'allocazione di indirizzi IP privati statici?
 
@@ -573,7 +573,7 @@ Per distribuire un set di scalabilità di macchine virtuali in una rete virtuale
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Come si aggiunge l'indirizzo IP della prima VM di un set di scalabilità di macchine virtuali all'output di un modello?
 
-Per aggiungere l'indirizzo IP della prima VM di un set di scalabilità di macchine virtuali all'output di un modello, vedere [ARM - get VMSS's private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips) (ARM: Ottenere gli indirizzi IP privati di VMSS).
+Per aggiungere l'indirizzo IP della prima VM di un set di scalabilità di macchine virtuali all'output di un modello, vedere [Azure Resource Manager: Ottenere gli indirizzi IP privati dei set di scalabilità di macchine virtuali](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>È possibile usare i set di scalabilità con la rete accelerata?
 
@@ -746,7 +746,7 @@ Per ottenere informazioni sulle proprietà per ogni macchina virtuale senza eseg
 
 No, non è possibile passare argomenti di estensione diversi a diverse VM in un set di scalabilità di macchine virtuali. Le estensioni possono tuttavia funzionare in base alle proprietà univoche della macchina virtuale sulla quale sono in esecuzione, ad esempio il nome della macchina. Le estensioni possono anche eseguire query sui metadati delle istanze in http://169.254.169.254 per ottenere altre informazioni sulla VM.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Perché sono presenti gap tra i nomi delle macchine virtuali del set di scalabilità di macchine virtuali e gli ID, ad esempio 0, 1, 3?
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Perché sono presenti gap tra i nomi delle macchine virtuali del set di scalabilità di macchine virtuali e gli ID, Ad esempio:  0, 1, 3...
 
 Sono presenti gap tra i nomi delle macchine virtuali del set di scalabilità di macchine virtuali e gli ID delle VM perché la proprietà **overprovision** del set di scalabilità di macchine virtuali è impostata sul valore predefinito **true**. Se la proprietà overprovision è impostata su **true**, viene creato un numero di VM superiore al necessario. Le VM aggiuntive vengono quindi eliminate. In questo caso si ottiene una maggiore affidabilità per la distribuzione, a scapito tuttavia delle regole di contiguità di denominazione e di NAT (Network Address Translation). 
 

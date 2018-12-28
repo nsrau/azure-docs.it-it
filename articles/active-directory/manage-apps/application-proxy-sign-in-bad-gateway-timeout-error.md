@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2af5ed294c4a53e38690991f1f65b3f7d2f46c73
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355479"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134829"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Errore "Can't Access this Corporate Application" (Impossibile accedere all'applicazione aziendale) quando si usa un'applicazione Proxy di applicazione
 
@@ -29,9 +29,9 @@ Questo articolo consente di risolvere alcuni problemi comuni per l'errore "Impos
 ## <a name="overview"></a>Panoramica
 Quando viene visualizzato questo errore, individuare il codice di stato nella pagina dell'errore. Questo codice è probabilmente uno dei seguenti codici di stato:
 
--   **Gateway Timeout** (timeout del gateway): il servizio Proxy di applicazione non è in grado di raggiungere il connettore. Questo errore in genere indica un problema con l'assegnazione del connettore, con il connettore stesso o con le regole di rete relative al connettore.
+-   **Gateway Timeout** (timeout del gateway): il servizio Proxy di applicazione non riesce a raggiungere il connettore. Questo errore in genere indica un problema con l'assegnazione del connettore, con il connettore stesso o con le regole di rete relative al connettore.
 
--   **Bad Gateway** (gateway non valido): il connettore non è in grado di raggiungere l'applicazione back-end. Questo errore potrebbe indicare un errore di configurazione dell'applicazione.
+-   **Bad Gateway** (gateway non valido): il connettore non riesce a raggiungere l'applicazione back-end. Questo errore potrebbe indicare un errore di configurazione dell'applicazione.
 
 -   **Forbidden** (accesso non consentito): l'utente non è autorizzato ad accedere all'applicazione. Questo errore può verificarsi quando l'utente non è assegnato all'applicazione in Azure Active Directory o se l'utente non dispone dell'autorizzazione per accedere all'applicazione sul back-end.
 
@@ -62,7 +62,7 @@ Un errore di gateway non valido indica che il connettore non è in grado di ragg
 
 Se viene visualizzato un errore di accesso non consentito, l'utente non è stato assegnato all'applicazione. Questo errore può riferirsi ad Azure Active Directory o all'applicazione back-end.
 
-Per informazioni su come assegnare utenti all'applicazione in Azure, vedere la [documentazione di configurazione](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
+Per informazioni su come assegnare utenti all'applicazione in Azure, vedere la [documentazione di configurazione](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
 
 Se l'utente risulta assegnato all'applicazione in Azure, controllare la configurazione dell'utente nell'applicazione back-end. Se si usa la delega vincolata Kerberos o l'autenticazione integrata di Windows, vedere la pagina di risoluzione dei problemi KCD per le linee guida.
 
@@ -82,11 +82,11 @@ Per verificare che l'applicazione sia assegnata a un gruppo di connettori funzio
 
 4.  A questo punto, vi sono alcuni metodi per ulteriori approfondimenti:
 
-  * Spostare un connettore attivo nel gruppo: se si dispone di un connettore attivo che deve appartenere a questo gruppo e ha una linea di visuale sull'applicazione back-end, è possibile spostare il connettore nel gruppo assegnato. A tale scopo, fare clic sul connettore. Nel campo "Gruppo di connettori", usare l'elenco a discesa per selezionare il gruppo di connettori e fare clic su Salva.
+  * Spostare un connettore attivo nel gruppo: se è disponibile un connettore attivo che deve appartenere a questo gruppo e ha una linea di visuale sull'applicazione back-end, è possibile spostare il connettore nel gruppo assegnato. A tale scopo, fare clic sul connettore. Nel campo "Gruppo di connettori", usare l'elenco a discesa per selezionare il gruppo di connettori e fare clic su Salva.
 
   * Scaricare un nuovo connettore per il gruppo: da questa pagina, è possibile accedere al collegamento per [scaricare un nuovo connettore](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installare il connettore in un computer che comunica direttamente con l'applicazione back-end. Normalmente il connettore è installato nello stesso server dell'applicazione. Usare il collegamento di download del connettore per scaricare un connettore nel computer di destinazione. Quindi, fare clic sul connettore e usare l'elenco a discesa "Gruppo di connettori" per assicurarsi che appartenga al gruppo corretto.
 
-  * Verificare se è presente un connettore non attivo: se un connettore risulta inattivo, non è in grado di raggiungere il servizio. Questo errore è dovuto in genere al fatto che alcune porte richieste sono bloccate. Per risolvere il problema, procedere con la sezione "Controllare che tutte le porte richieste siano inserite nell'elenco degli elementi consentiti".
+  * Verificare se è presente un connettore non attivo: se un connettore risulta inattivo, non riesce a raggiungere il servizio. Questo errore è dovuto in genere al fatto che alcune porte richieste sono bloccate. Per risolvere il problema, procedere con la sezione "Controllare che tutte le porte richieste siano inserite nell'elenco degli elementi consentiti".
 
 Dopo aver eseguito tutte queste operazioni per assicurarsi che l'applicazione sia assegnata a un gruppo con connettori funzionanti, provare di nuovo l'applicazione. Se ancora non funziona, passare alla sezione successiva.
 

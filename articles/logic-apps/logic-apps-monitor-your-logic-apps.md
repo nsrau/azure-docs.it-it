@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3779260d2dd6036e65be39b4a59ceb1459d01b9e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405736"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434257"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorare lo stato, configurare la registrazione diagnostica e attivare gli avvisi per App per la logica di Azure
 
@@ -74,7 +74,7 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
 
 Per il debug avanzato con dettagli ed eventi di runtime, è possibile configurare la registrazione diagnostica con [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics è un servizio incluso in Azure che monitora gli ambienti cloud e locali e consente di mantenerne la disponibilità e le prestazioni. 
 
-Prima di iniziare, è necessario avere un'area di lavoro di Log Analytics. Informazioni su [come creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Prima di iniziare, è necessario avere un'area di lavoro di Log Analytics. Informazioni su [come creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'app per la logica. 
 
@@ -155,10 +155,10 @@ Per affinare la query aggiungendo un filtro, scegliere **+Aggiungi**.
 
 Con Azure Log Analytics, è possibile usare in modo diverso i dati di diagnostica dell'app per la logica con altri servizi di Azure, ad esempio: 
 
-* [Archiviare i log di diagnostica di Azure in Archiviazione di Microsoft Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Archiviare i log di diagnostica di Azure in Archiviazione di Microsoft Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Trasmettere i log di diagnostica di Azure a Hub eventi di Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../log-analytics/log-analytics-powerbi.md), Ad esempio: 
+È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md), Ad esempio: 
 
 * [Trasmettere i dati da Hub eventi ad Analisi di flusso](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analizzare i dati di streaming con Analisi di flusso e creare un dashboard di analisi in tempo reale in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -174,7 +174,7 @@ In base alle opzioni che si vuole configurare, assicurarsi prima di tutto di [cr
 
 ## <a name="set-up-alerts-for-your-logic-app"></a>Configurare gli avvisi per l'app per la logica
 
-Per monitorare metriche specifiche o le soglie superate per l'app per la logica, configurare gli [avvisi in Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md). Informazioni sulle [metriche in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
+Per monitorare metriche specifiche o le soglie superate per l'app per la logica, configurare gli [avvisi in Azure](../azure-monitor/platform/alerts-overview.md). Informazioni sulle [metriche in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
 Per configurare gli avvisi senza [Azure Log Analytics](../log-analytics/log-analytics-overview.md), seguire questa procedura. Per azioni e criteri di avviso più avanzati, [configurare anche Log Analytics](#azure-diagnostics).
 
@@ -207,7 +207,7 @@ Per configurare gli avvisi senza [Azure Log Analytics](../log-analytics/log-anal
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Impostazioni e dettagli degli eventi di Diagnostica di Azure
 
-Ogni evento di diagnostica ha dettagli sull'app per la logica e sull'evento stesso, ad esempio lo stato, l'ora di inizio, l'ora di fine e così via. Per configurare a livello di codice il monitoraggio, la verifica e la registrazione, è possibile usare questi dettagli con l'[API REST per App per la logica di Azure](https://docs.microsoft.com/rest/api/logic) e l'[API REST per Diagnostica di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+Ogni evento di diagnostica ha dettagli sull'app per la logica e sull'evento stesso, ad esempio lo stato, l'ora di inizio, l'ora di fine e così via. Per configurare a livello di codice il monitoraggio, la verifica e la registrazione, è possibile usare questi dettagli con l'[API REST per App per la logica di Azure](https://docs.microsoft.com/rest/api/logic) e l'[API REST per Diagnostica di Azure](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
 L'evento `ActionCompleted`, ad esempio, ha le proprietà `clientTrackingId` e `trackedProperties` che è possibile usare per la verifica e il monitoraggio:
 

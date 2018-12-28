@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 52157797bb01fc73c551ca9654b2360d161b653d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2a55e39414cd691c48b015b3aae73f93cbb95aab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355789"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134659"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy
 
@@ -32,7 +32,7 @@ Questo articolo offre un punto di riferimento unico per risolvere e correggere i
 
 L'articolo presuppone quanto segue:
 
--   Il proxy dell'applicazione di Azure AD è stato distribuito come indicato nell'[introduzione al proxy dell'applicazione](application-proxy-enable.md) e l'accesso generale alle applicazioni non KCD funziona come previsto.
+-   Azure Active Directory Application Proxy è stato distribuito come indicato nell'[introduzione ad Application Proxy](application-proxy-add-on-premises-application.md) e l'accesso generale alle applicazioni non KCD funziona come previsto.
 
 -   L'applicazione di destinazione pubblicata è basata su Internet Information Services (IIS) e sull'implementazione Microsoft di Kerberos.
 

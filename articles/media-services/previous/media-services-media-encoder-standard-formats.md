@@ -1,27 +1,31 @@
 ---
-title: Formati e codec Media Encoder Standard
+title: Formati e codec Media Encoder Standard - Azure
 description: Questo argomento fornisce una panoramica dei formati e dei codec di Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255711"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384735"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formati e codec Media Encoder Standard
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versione 2](media-services-media-encoder-standard-formats.md)
+> * [Versione 3](../latest/media-encoder-standard-formats.md)
+
 Questo documento contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con Media Encoder Standard.
 
 ## <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
@@ -52,8 +56,6 @@ Il Codificatore multimedia standard supporta i seguenti formati audio nei conten
 oppure
 
 * File MXF, GXF e QuickTime in cui l'audio viene trasportato in tracce PCM separate, ma il mapping del canale (in stereo o 5.1) può essere dedotto dai metadati del file
-
-Il supporto per il mapping del canale esplicito/fornito dall'utente verrà fornito in futuro.
 
 ## <a name="input-video-codecs"></a>Codec video di input
 | Codec video di input | Supportato |
@@ -100,7 +102,7 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 
 | Formato file | Codec video | Codec audio |
 | --- | --- | --- |
-| MP4  <br/><br/>(multi-bitrate MP4 container inclusi) |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4  <br/><br/> (multi-bitrate MP4 container inclusi) |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali

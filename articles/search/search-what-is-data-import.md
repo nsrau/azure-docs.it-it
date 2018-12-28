@@ -1,6 +1,6 @@
 ---
-title: Importazione di dati in Ricerca di Azure | Microsoft Docs
-description: Informazioni su come caricare i dati in un indice in Ricerca di Azure
+title: Importazione dei dati per l'inserimento dati in un indice di ricerca - Ricerca di Azure
+description: Compilare e caricare dati in un indice in Ricerca di Azure da origini dati esterne.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249779"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314857"
 ---
-# <a name="indexing-in-azure-search"></a>Indicizzazione in Ricerca di Azure
+# <a name="indexing-external-data-for-queries-in-azure-search"></a>Indicizzazione dei dati esterni per le query in Ricerca di Azure
 > [!div class="op_single_selector"]
 > * [Overview](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -23,7 +24,7 @@ ms.locfileid: "51249779"
 > 
 > 
 
-In Ricerca di Azure vengono eseguite query sul contenuto caricato in un [indice di ricerca](search-what-is-an-index.md). Questo articolo esamina i due approcci di base per caricare il contenuto in un indice: *eseguire il push* dei dati nell'indice a livello di codice o puntare a un [indicizzatore di Ricerca di Azure](search-indexer-overview.md) in un'origine dati supportata per *eseguire il pull* nei dati.
+In Ricerca di Azure vengono eseguite query sul contenuto caricato e salvato in un [indice di ricerca](search-what-is-an-index.md). Questo articolo esamina i due approcci di base per la compilazione in un indice: *eseguire il push* dei dati nell'indice a livello di codice o puntare a un [indicizzatore di Ricerca di Azure](search-indexer-overview.md) in un'origine dati supportata per *eseguire il pull* nei dati.
 
 ## <a name="pushing-data-to-an-index"></a>Push dei dati in un indice
 Il modello basato sul push, usato per inviare a livello di codice i dati a Ricerca di Azure, è l'approccio più flessibile. Prima di tutto non ha restrizioni per il tipo di origine dati. È possibile eseguire il push di qualsiasi set di dati costituito da documenti JSON a un indice di Ricerca di Azure, presumendo che ai campi definiti nello schema dell'indice venga eseguito il mapping dei campi di ogni documento del set di dati. In secondo luogo non ha restrizioni per la frequenza di esecuzione. È possibile eseguire il push delle modifiche a un indice ogni volta che si vuole. Per applicazioni con requisiti di latenza molto bassa, ad esempio se è necessario che le operazioni di ricerca siano sincronizzate con i database di inventario dinamici, il modello push è l'unica opzione disponibile.

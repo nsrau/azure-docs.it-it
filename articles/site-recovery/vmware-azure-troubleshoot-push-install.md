@@ -6,19 +6,20 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 10/29/2018
-ms.openlocfilehash: 1a8396f91f1e6f863d99be17dc8d00133a1bdd3a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/12/2018
+ms.openlocfilehash: 748f4e56b4b7fa52928f8f6507960ec35b5fe6e5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162552"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314398"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Risolvere i problemi di installazione push del servizio Mobility
 
-L'installazione del servizio Mobility è un passaggio chiave dell'abilitazione della replica. La riuscita di questo passaggio dipende esclusivamente dal rispetto dei prerequisiti e dall'utilizzo di configurazioni supportate. Gli errori più comuni che si verificano durante l'installazione del servizio Mobility sono dovuti a
+L'installazione del servizio Mobility è un passaggio chiave dell'abilitazione della replica. La riuscita di questo passaggio dipende esclusivamente dal rispetto dei prerequisiti e dall'utilizzo di configurazioni supportate. Gli errori più comuni che si verificano durante l'installazione del servizio Mobility sono dovuti a:
 
 * Errori relativi a credenziali o privilegi
+* Errori di accesso
 * Errori di connettività
 * Sistemi operativi non supportati
 * Errori di installazione di VSS
@@ -28,23 +29,63 @@ Quando si abilita la replica, Azure Site Recovery tenta di eseguire l'installazi
 ## <a name="credentials-check-errorid-95107--95108"></a>Controllo delle credenziali (ID errore: 95107 e 95108)
 
 * Verificare se l'account utente scelto durante l'abilitazione della replica è **valido e corretto**.
-* Per eseguire l'installazione push, Azure Site Recovery richiede **privilegi di amministratore**.
-  * Per Windows, verificare se l'account utente ha accesso amministrativo, locale o di dominio, nel computer di origine.
+* Per eseguire l'installazione push, Azure Site Recovery richiede un account **radice** o un account utente con **privilegi di amministratore**. In caso contrario, l'installazione push viene bloccata nel computer di origine.
+  * In Windows (**errore 95107**), verificare se l'account utente dispone dell'accesso come amministratore, locale o di dominio, nel computer di origine.
   * Se non si usa un account di dominio, è necessario disabilitare il controllo di accesso utente remoto nel computer locale.
-    * Per disabilitare il controllo di accesso utente remoto, nella chiave HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System del Registro di sistema aggiungere un nuovo valore DWORD: LocalAccountTokenFilterPolicy. Impostare il valore su 1. Per eseguire questo comando, al prompt dei comandi eseguire il comando seguente:
+    * Per disabilitare il controllo di accesso utente remoto, nella chiave HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Chiave del Registro di sistema, aggiungere un nuovo valore DWORD: LocalAccountTokenFilterPolicy. Impostare il valore su 1. Per eseguire questo comando, al prompt dei comandi eseguire il comando seguente:
 
          `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
-  * Per la riuscita dell'installazione dell'agente di mobilità in Linux, è necessario scegliere l'account radice.
+  * Per la riuscita dell'installazione dell'agente di mobilità in Linux (**errore 95108**), è necessario scegliere l'account radice. I servizi SFTP devono essere in esecuzione. Per abilitare il sottosistema SFTP e l'autenticazione della password nel file sshd_config:
+    1. Accedere come utente ROOT.
+    2. Passare al file /etc/ssh/sshd_config, individuare la riga che inizia con PasswordAuthentication.
+    3. Rimuovere il commento dalla riga e modificare il valore in yes.
+    4. Individuare la riga che inizia con Subsystem e rimuovere il commento.
+    5. Riavviare il servizio sshd.
 
 Se si vogliono modificare le credenziali dell'account utente scelto, seguire le istruzioni illustrate [qui](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="connectivity-check-errorid-95117--97118"></a>**Controllo della connettività (ID errore: 95117 e 97118)**
+## <a name="insufficient-privileges-failure-errorid-95517"></a>Errore di privilegi insufficienti (ID errore: 95517)
+
+Se l'utente scelto per installare l'agente di mobilità non dispone dei privilegi di amministratore, il server di configurazione/server di elaborazione dello scale-out non può copiare il software dell'agente di mobilità nel computer di origine. Questo errore è quindi il risultato di un errore di accesso negato. Assicurarsi che l'account utente disponga dei privilegi di amministratore.
+
+Se si vogliono modificare le credenziali dell'account utente scelto, seguire le istruzioni illustrate [qui](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+
+## <a name="insufficient-privileges-failure-errorid-95518"></a>Errore di privilegi insufficienti (ID errore: 95518)
+
+Quando l'impostazione della relazione di trust tra il dominio primario e la workstation non riesce durante un tentativo di accesso al computer di origine, l'installazione dell'agente di mobilità genera un errore con ID 95518. Assicurarsi quindi che l'account utente usato per installare l'agente di mobilità disponga dei privilegi di amministratore per l'accesso al computer di origine tramite il dominio primario.
+
+Se si vogliono modificare le credenziali dell'account utente scelto, seguire le istruzioni illustrate [qui](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+
+## <a name="login-failure-errorid-95519"></a>Errore di accesso (ID errore: 95519)
+
+L'account utente scelto durante l'abilitazione della replica è stato disabilitato. Per abilitare l'account utente, fare riferimento all'articolo [qui](https://aka.ms/enable_login_user) oppure eseguire il comando seguente sostituendo *username* con il nome utente effettivo.
+`net user 'username' /active:yes`
+
+## <a name="login-failure-errorid-95520"></a>Errore di accesso (ID errore: 95520)
+
+Se si eseguono più tentativi di accesso a un computer senza esito positivo, il sistema blocca l'account utente. La cause dell'errore possono essere le seguenti:
+
+* le credenziali specificate durante l'installazione della configurazione non sono corrette O
+* l'account utente scelto durante l'abilitazione della replica è errato.
+
+Modificare quindi le credenziali scelte seguendo le istruzioni indicate [qui](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) e provare a eseguire l'operazione dopo avere atteso qualche minuto.
+
+## <a name="login-failure-errorid-95521"></a>Errore di accesso (ID errore: 95521)
+
+Questo errore si verifica quando i server di accesso non sono disponibili nel computer di origine. La mancata disponibilità dei server di accesso genera errori di richiesta di accesso e pertanto non è possibile installare l'agente di mobilità. Per eseguire l'accesso, assicurarsi che i server di accesso siano disponibili nel computer di origine e avviare il servizio di accesso. Per istruzioni dettagliate, fare clic [qui](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
+
+## <a name="login-failure-errorid-95522"></a>Errore di accesso (ID errore: 95522)
+
+Il servizio di accesso non è in esecuzione nel computer di origine e ha causato un errore nella richiesta di accesso. L'agente di mobilità non può pertanto essere installato. Per risolvere il problema, verificare che il servizio di accesso sia in esecuzione nel computer di origine. Per avviare il servizio di accesso, eseguire il comando "net start Logon" dal prompt dei comandi o avviare il servizio "Accesso rete" da Gestione attività.
+
+## <a name="connectivity-failure-errorid-95117--97118"></a>**Errore di connettività (ID errore: 95117 e 97118)**
+
+Il server di configurazione/server di elaborazione dello scale-out tenta di connettersi alla macchina virtuale di origine per installare l'agente di mobilità. Questo errore si verifica quando il computer di origine non è raggiungibile a causa di problemi di connettività di rete. Per risolvere il problema:
 
 * Assicurarsi che sia possibile effettuare il ping del computer di origine dal server di configurazione. Se durante l'abilitazione della replica si è scelto un server di elaborazione con scalabilità orizzontale, assicurarsi che sia possibile effettuare il ping del computer di origine dal server di elaborazione.
   * Dalla riga di comando del computer del server di origine, usare Telnet per effettuare il ping del server di configurazione o del server di elaborazione scale-out attraverso la porta HTTPS (135) come illustrato di seguito, per stabilire se sono presenti problemi di connettività di rete o problemi che causano il blocco delle porte del firewall.
 
      `telnet <CS/ scale-out PS IP address> <135>`
-  * Controllare lo stato di **InMage Scout VX Agent - Sentinel/Outpost** del servizio. Se non è in esecuzione, avviare il servizio.
 * Per una **macchina virtuale Linux**, poi,
   * Controllare se sono installati i pacchetti openssh, openssh-server e openssl più recenti.
   * Assicurarsi che il protocollo SSH (Secure Shell) sia abilitato e in esecuzione sulla porta 22.
@@ -55,11 +96,15 @@ Se si vogliono modificare le credenziali dell'account utente scelto, seguire le 
     * Individuare la riga che inizia con Subsystem e rimuovere il commento
     * Riavviare il servizio sshd.
 * Un tentativo di connessione può avere esito negativo se non è stata ricevuta una risposta corretta dopo un determinato periodo di tempo, oppure una connessione stabilita può generare un errore perché l'host connesso non ha risposto.
-* Può trattarsi di un problema correlato alla connettività, alla rete o al dominio. L'errore può anche essere dovuto a un problema di risoluzione dei nomi DNS o di esaurimento delle porte TCP. Controllare se sono presenti problemi noti di questo tipo all'interno del dominio.
+* Può trattarsi di un problema correlato alla connettività, alla rete o al dominio. L'errore può anche essere dovuto a un problema di risoluzione dei nomi DNS o di esaurimento delle porte TCP. Controllare se sono presenti problemi noti di questo tipo nel dominio.
 
-## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Controllo del servizio di condivisione di file e stampanti (ID errore: 95105 e 95106)
+## <a name="connectivity-failure-errorid-95523"></a>Errore di connettività (ID errore: 95523)
 
-Dopo il controllo della connettività, verificare se il servizio di condivisione di file e stampanti è abilitato nella macchina virtuale.
+Questo errore si verifica quando la rete in cui risiede il computer di origine non viene trovata, potrebbe essere stata eliminata o non è più disponibile. L'unico modo per risolvere il problema è assicurarsi che esista la rete.
+
+## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Controllo del servizio di condivisione di file e stampanti (ID errore 95105 e 95106)
+
+Dopo il controllo della connettività, verificare se il servizio di condivisione di file e stampanti è abilitato nella macchina virtuale. Queste impostazioni sono necessarie per copiare l'agente di mobilità nel computer di origine.
 
 Per **Windows 2008 R2 e versioni precedenti**,
 
@@ -68,16 +113,16 @@ Per **Windows 2008 R2 e versioni precedenti**,
   * Individuare le regole Condivisione file e stampanti (NB-Session-In) e Condivisione file e stampanti (SMB-In). Su ogni regola fare clic con il pulsante destro del mouse e quindi fare clic su **Abilita regola**.
 * Per abilitare la condivisione di file con Criteri di gruppo,
   * Passare a Start ed eseguire una ricerca digitando gpmc.msc.
-  * Nel riquadro di spostamento aprire le cartelle seguenti: Criteri del computer locale, Configurazione utente, Modelli amministrativi, Componenti di Windows e Condivisione di rete.
+  * Nel riquadro di spostamento, aprire le cartelle seguenti: Criteri del computer locale, Configurazione utente, Modelli amministrativi, Componenti di Windows e Condivisione di rete.
   * Nel riquadro dei dettagli fare doppio clic su **Impedisci di condividere file nel profilo utente**. Per disabilitare questa impostazione di Criteri di gruppo e consentire la condivisione di file, fare clic su Disabilitato. Fare clic su OK per salvare le modifiche. Per altre informazioni, fare clic [qui](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
 Per abilitare la condivisione di file e stampanti nelle **versioni successive**, seguire le istruzioni descritte [qui](vmware-azure-install-mobility-service.md).
 
-## <a name="windows-management-instrumentation-wmi-configuration-check"></a>Controllo della configurazione di Strumentazione gestione Windows (WMI)
+## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>Controllo della configurazione di Strumentazione gestione Windows (WMI) (ID errore: 95103)
 
-Dopo il controllo dei servizi file e stampanti, abilitare il servizio WMI attraverso il firewall.
+Dopo il controllo dei servizi file e stampanti, abilitare il servizio WMI per i profili, pubblici, privati e di dominio attraverso il firewall. Queste impostazioni sono necessarie per completare l'esecuzione remota nel computer di origine. Per abilitare:
 
-* Nel Pannello di controllo fare clic su Sicurezza e quindi su Windows Firewall.
+* Accedere al Pannello di controllo, fare clic su Sicurezza e quindi su Windows Firewall.
 * Fare clic su Cambia impostazioni e quindi sulla scheda Eccezioni.
 * Nella finestra Eccezioni selezionare la casella di controllo Strumentazione gestione Windows (WMI) per consentire il traffico WMI attraverso il firewall. 
 
@@ -93,6 +138,24 @@ Di seguito sono elencati altri articoli sulla risoluzione dei problemi di WMI.
 Un altro motivo di errore molto comune è l'uso di un sistema operativo non supportato. Per la riuscita dell'installazione del servizio Mobility, assicurarsi di usare la versione supportata del kernel e del sistema operativo.
 
 Per informazioni sui sistemi operativi supportati da Azure Site Recovery, fare riferimento al [documento matrice di supporto](vmware-physical-azure-support-matrix.md#replicated-machines).
+
+## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Le partizioni e i volumi di avvio e di sistema non sono lo stesso disco (ID errore: 95309)
+
+Nelle versioni precedenti alla 9.20, le partizioni e i volumi di avvio e di sistema su dischi diversi sono una configurazione non supportata. A partire dalla [versione 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) questa configurazione è supportata. Per usufruire di questo supporto, usare la versione più recente.
+
+## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Partizione di sistema su più dischi (ID errore: 95313)
+
+Nelle versioni precedenti alla 9.20, la partizione o il volume radice su più dischi è una configurazione non supportata. A partire dalla [versione 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) questa configurazione è supportata. Per usufruire di questo supporto, usare la versione più recente.
+
+## <a name="lvm-support-from-920-version"></a>Supporto LVM dalla versione 9.20
+
+Nelle versioni precedenti alla 9.20, LVM è supportato per solo i dischi dati. /boot deve trovarsi in una partizione del disco e non essere un volume LVM.
+
+A partire dalla [versione 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), il [disco del sistema operativo su LVM](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) è supportato. Per usufruire di questo supporto, usare la versione più recente.
+
+## <a name="insufficient-space-errorid-95524"></a>Spazio insufficiente (ID errore: 95524)
+
+Per copiare l'agente di mobilità nel computer di origine, sono necessari almeno 100 MB di spazio disponibile su disco. Verificare pertanto che nel computer di origine sia presente lo spazio disponibile richiesto e ripetere l'operazione.
 
 ## <a name="vss-installation-failures"></a>Errori di installazione di VSS
 

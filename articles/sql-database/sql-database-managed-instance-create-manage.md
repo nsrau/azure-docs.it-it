@@ -1,0 +1,90 @@
+---
+title: Riferimento all'API di gestione per Istanza gestita di database SQL di Azure | Microsoft Docs
+description: Informazioni sulla creazione e sulla gestione di Istanza gestita di database SQL di Azure.
+services: sql-database
+ms.service: sql-database
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
+manager: craigg
+ms.date: 12/12/2018
+ms.openlocfilehash: 7fb6917e129c015536143a707fd2a89fc5423a99
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323081"
+---
+# <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Riferimento all'API di gestione per Istanza gestita di database SQL di Azure
+
+È possibile creare e gestire Istanza gestita di database SQL di Azure usando il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST e Transact-SQL. Questo articolo contiene una panoramica di funzioni e API che è possibile usare per creare e configurare Istanza gestita.
+
+## <a name="azure-portal-create-a-managed-instance"></a>Portale di Azure: creare Istanza gestita
+
+Per una guida introduttiva che illustra come creare Istanza gestita di database SQL di Azure, vedere [Guida introduttiva: Creare Istanza gestita di database SQL di Azure](sql-database-managed-instance-get-started.md).
+
+## <a name="powershell-create-and-manage-a-managed-instance"></a>PowerShell: creare e gestire Istanza gestita
+
+Per creare e gestire server, database e firewall SQL di Azure con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
+
+> [!TIP]
+> Per gli script di esempio di PowerShell, vedere [Quick-start script: Create Azure SQL Managed Instance using PowerShell library](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) (Guida introduttiva: creare Istanza gestita di database SQL di Azure tramite la libreria PowerShell).
+
+| Cmdlet | Descrizione |
+| --- | --- |
+|[New-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Crea Istanza gestita di database SQL di Azure |
+|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlInstance)|Restituisce informazioni su Istanza gestita di database SQL di Azure|
+|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRmSqlInstance)|Imposta le proprietà di Istanza gestita di database SQL di Azure|
+|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRmSqlInstance)|Rimuove Istanza gestita di database SQL di Azure|
+
+## <a name="azure-cli-manage-logical-servers-and-databases"></a>Interfaccia della riga di comando di Azure: gestire i database e i server logici
+
+Per creare e gestire server, database e firewall SQL di Azure con l'[interfaccia della riga di comando di Azure](/cli/azure), usare i comandi seguenti dell'[Istanza gestita di database SQL dell'interfaccia della riga di comando di Azure](/cli/azure/sql/mi). Usare [Cloud Shell](/azure/cloud-shell/overview) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows.
+
+> [!TIP]
+> Per una guida introduttiva dell'interfaccia della riga di comando di Azure, vedere [Working with SQL Managed Instance using Azure CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) (Uso di Istanza gestita di database SQL tramite l'interfaccia della riga di comando di Azure).
+>
+
+| Cmdlet | DESCRIZIONE |
+| --- | --- |
+|[az sql mi create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-create) |Crea Istanza gestita|
+|[az sql mi list](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-list)|Elenca le istanze gestite disponibili|
+|[az sql mi show](/cli/azure/sql/db#az-sql-mi-show)|Ottiene i dettagli per Istanza gestita|
+|[az sql mi update](/cli/azure/sql/db#az-sql-mi-update)|Aggiorna Istanza gestita|
+|[az sql mi delete](/cli/azure/sql/db#az-sql-mi-delete)|Rimuove Istanza gestita|
+
+## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: gestire i database e i server logici
+
+Per creare e gestire un database di Istanza gestita di database SQL di Azure, dopo la creazione di Istanza gestita usare i comandi T-SQL seguenti. È possibile eseguire questi comandi usando il portale di Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is), [Visual Studio Code](https://code.visualstudio.com/docs) o qualsiasi altro programma in grado di connettersi a un server di database SQL di Azure e di passare comandi Transact-SQL.
+
+> [!TIP]
+> Per guide introduttive che descrivono la configurazione e la connessione a Istanza gestita tramite SQL Server Management Studio in Microsoft Windows, vedere [Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a Istanza gestita di database SQL di Azure](sql-database-managed-instance-configure-vm.md) e [Guida introduttiva: Configurare una connessione da punto a sito a Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md).
+> [!IMPORTANT]
+> Non è possibile creare o eliminare Istanza gestita usando Transact-SQL.
+
+| Comando | Descrizione |
+| --- | --- |
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crea un nuovo database di Istanza gestita. Per creare un nuovo database è necessario essere connessi al database master.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica un database di Istanza gestita di database SQL di Azure.|
+
+## <a name="rest-api-manage-logical-servers-and-databases"></a>API REST: gestire i database e i server logici
+
+Per creare e gestire Istanza gestita di database SQL di Azure, usare queste richieste di API REST.
+
+| Comando | Descrizione |
+| --- | --- |
+|[Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Crea o aggiorna Istanza gestita.|
+|[Managed Instances - Delete](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Elimina Istanza gestita.|
+|[Managed Instances - Get](https://docs.microsoft.com/rest/api/sql/managedinstances/get)|Ottiene Istanza gestita.|
+|[Managed Instances - List](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Restituisce un elenco di istanze gestite in una sottoscrizione.|
+|[Managed Instances - List By Resource Group](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Restituisce un elenco di istanze gestite in un gruppo di risorse.|
+|[Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Aggiorna Istanza gestita.|
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Per altre informazioni sulla migrazione di un database SQL Server in Azure, vedere [Migrazione al database SQL di Azure](sql-database-cloud-migrate.md).
+- Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database features](sql-database-features.md) (Funzioni del database SQL di Azure).

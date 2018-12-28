@@ -8,22 +8,24 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 58e5b06d613ee3e3311b58af64abd2411c637449
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4832a48489a043493639bdedd6c6adf3c828de11
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637446"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434699"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Agenti di orchestrazione singleton in Funzioni permanenti (Funzioni di Azure)
 
-Per i processi in background o per orchestrazioni in stile Attore, è spesso necessario garantire che venga eseguita solo un'istanza di un particolare agente di orchestrazione alla volta. In [Funzioni permanenti](durable-functions-overview.md) è possibile assegnare uno specifico ID di istanza a un agente di orchestrazione quando lo si crea.
+Per i processi in background è spesso necessario garantire che venga eseguita solo un'istanza di un particolare agente di orchestrazione alla volta. In [Funzioni permanenti](durable-functions-overview.md) è possibile assegnare uno specifico ID di istanza a un agente di orchestrazione quando lo si crea.
 
 ## <a name="singleton-example"></a>Esempio di singleton
 
-L'esempio C# seguente illustra una funzione di attivazione HTTP che crea un'orchestrazione di processo in background singleton. Il codice garantisce l'esistenza di una sola istanza per un ID istanza specificato.
+Gli esempi C# e JavaScript seguenti illustrano una funzione di attivazione HTTP che crea un'orchestrazione di processo in background singleton. Il codice garantisce l'esistenza di una sola istanza per un ID istanza specificato.
+
+### <a name="c"></a>C#
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -54,7 +56,39 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-Per impostazione predefinita, gli ID delle istanze sono GUID generati in modo casuale. In questo caso, l'ID istanza viene passato ai dati della route dall'URL. Il codice chiama [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) per verificare se un'istanza con l'ID specificato è già in esecuzione. In caso contrario, viene creata un'istanza con tale ID.
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+modules.exports = async function(context, req) {
+    const client = df.getClient(context);
+
+    const instanceId = req.params.instanceId;
+    const functionName = req.params.functionsName;
+
+    // Check if an instance with the specified ID already exists.
+    const existingInstance = await client.getStatus(instanceId);
+    if (!existingInstance) {
+        // An instance with the specified ID doesn't exist, create one.
+        const eventData = req.body;
+        await client.startNew(functionName, instanceId, eventData);
+        context.log(`Started orchestration with ID = '${instanceId}'.`);
+        return client.createCheckStatusResponse(req, instanceId);
+    } else {
+        // An instance with the specified ID exists, don't create one.
+        return {
+            status: 409,
+            body: `An instance with ID '${instanceId}' already exists.`,
+        };
+    }
+};
+```
+
+Per impostazione predefinita, gli ID delle istanze sono GUID generati in modo casuale. In questo caso, l'ID istanza viene passato ai dati della route dall'URL. Il codice chiama [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) o `getStatus` (JavaScript) per verificare se un'istanza con l'ID specificato è già in esecuzione. In caso contrario, viene creata un'istanza con tale ID.
+
+> [!WARNING]
+> Quando si sviluppa in locale con JavaScript, è necessario impostare la variabile di ambiente `WEBSITE_HOSTNAME` su `localhost:<port>`, ad esempio `localhost:7071` per usare i metodi su `DurableOrchestrationClient`. Per altre informazioni su questo requisito, vedere il [problema GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 > [!NOTE]
 > In questo esempio c'è una possibile race condition. Se due istanze di **HttpStartSingle** sono eseguite contemporaneamente, il risultato potrebbe essere la creazione di due istanze diverse del singleton, una che sovrascrive l'altra. A seconda dei requisiti, questo potrebbe avere effetti indesiderati. Per questo motivo è importante assicurarsi che due richieste non possano eseguire questa funzione trigger contemporaneamente.

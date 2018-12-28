@@ -1,6 +1,6 @@
 ---
-title: Indicizzazione in Archiviazione tabelle di Azure con Ricerca di Azure | Microsoft Docs
-description: Informazioni su come indicizzare i dati archiviati in Archiviazione tabelle di Azure con Ricerca di Azure
+title: Indicizzare il contenuto dell'Archiviazione tabelle di Azure per la ricerca full-text - Ricerca di Azure
+description: Informazioni su come indicizzare i dati archiviati in Archiviazione tabelle di Azure con Ricerca di Azure.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 738518f94869a55cf80db1c87b8c74b167f5cce1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406926"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317271"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indicizzare in Archiviazione tabelle di Azure con Ricerca di Azure
 In questo articolo viene illustrato come usare Ricerca di Azure per indicizzare i dati archiviati in Archiviazione tabelle di Azure.
@@ -66,9 +67,9 @@ Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare u
 
 Per specificare le credenziali per la tabella, sono disponibili questi modi: 
 
-- **Stringa di connessione dell'account di archiviazione per accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`.Per ottenere la stringa di connessione dal portale di Azure **, passare al pannello dell'account di archiviazione e quindi selezionare**  > **Impostazioni** > **Chiavi** (per gli account di archiviazione della versione classica) oppure **Impostazioni** > **Chiavi di accesso** (per gli account di archiviazione di Azure Resource Manager).
+- **Stringa di connessione dell'account di archiviazione per accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` per ottenere la stringa di connessione dal portale di Azure, passare al **pannello dell'account di archiviazione** > **Impostazioni** > **Chiavi** (per gli account di archiviazione della versione classica) oppure **Impostazioni** > **Chiavi di accesso** (per gli account di archiviazione di Azure Resource Manager).
 - **Stringa di connessione della firma di accesso condiviso dell'account di archiviazione**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` la firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura per i contenitori (tabelle) e gli oggetti (righe di tabella).
--  **Firma di accesso condiviso tabella**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` la firma di accesso condiviso deve disporre delle autorizzazioni di query (lettura) nella tabella.
+-  **Firma di accesso condiviso per la tabella**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` la firma di accesso condiviso deve disporre delle autorizzazioni di query (lettura) nella tabella.
 
 Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

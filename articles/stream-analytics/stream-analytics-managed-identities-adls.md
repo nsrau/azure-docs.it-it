@@ -1,24 +1,25 @@
 ---
-title: Usare le identità gestite per l'autenticazione dei processi di Analisi di flusso di Azure per l'output in Azure Data Lake Storage Gen1 (anteprima)
-description: ''
+title: Autenticare il processo di Analisi di flusso di Azure nell'output di Azure Data Lake Storage Gen1
+description: Questo articolo descrive come usare le identità gestite per autenticare il processo di Analisi di flusso di Azure nell'output di Azure Data Lake Storage Gen1.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2018
-ms.openlocfilehash: 72bf467cc0f2ba195aa4f25228bc9e08605cd4ee
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018594"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090432"
 ---
-# <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>Usare le identità gestite per l'autenticazione dei processi di Analisi di flusso di Azure per l'output in Azure Data Lake Storage Gen1 (anteprima)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Usare le identità gestite per autenticare Analisi di flusso in Azure Data Lake Storage Gen1
 
 Analisi di flusso di Azure supporta l'autenticazione con identità gestita con l'output di Azure Data Lake Storage (ADLS) Gen1. L'identità è un'applicazione gestita registrata in Azure Active Directory che rappresenta un determinato processo di Analisi di flusso e può essere usata per l'autenticazione in una risorsa di destinazione. Le identità gestite eliminano le limitazioni associate ai metodi di autenticazione basata sull'utente, ad esempio la necessità di ripetere l'autenticazione a causa di modifiche della password o le scadenze dei token utente ogni 90 giorni. Inoltre, le identità gestite semplificano l'automazione delle distribuzioni dei processi di Analisi di flusso che inviano l'output ad Azure Data Lake Storage Gen1.
 
-Per registrarsi per questa anteprima e scoprire di più sulle nuove funzionalità, vedere il post di blog [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) (Otto nuove funzionalità in Analisi di flusso di Azure).
+Per registrarsi per questa anteprima e scoprire di più sulle nuove funzionalità, vedere il post di blog [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) (Otto nuove funzionalità in Analisi di flusso di Azure).
 
 Questo articolo illustra due metodi per abilitare l'identità gestita per un processo di Analisi di flusso di Azure che invia l'output ad Azure Data Lake Storage Gen1: tramite il portale di Azure e tramite la distribuzione dei modelli di Azure Resource Manager.
 
@@ -32,7 +33,7 @@ Questo articolo illustra due metodi per abilitare l'identità gestita per un pro
 
    Al momento del salvataggio della configurazione, l'ID oggetto (OID) dell'entità servizio viene indicato come ID dell'entità, come illustrato di seguito:
 
-   ![ID dell'entità di Analisi di flusso](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
+   ![ID entità servizio di Analisi di flusso](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
    L'entità servizio ha lo stesso nome del processo di Analisi di flusso. Ad esempio, se il nome del processo è **MyASAJob**, anche il nome dell'entità servizio creata è **MyASAJob**.
 
@@ -56,11 +57,11 @@ Questo articolo illustra due metodi per abilitare l'identità gestita per un pro
  
 8. Nel riquadro **Autorizzazioni** selezionare le autorizzazioni **Scrittura** ed **Esecuzione**, quindi assegnarle a **Questa cartella e tutti gli elementi figlio**. Fare quindi clic su **OK**.
 
-   ![Selezionare un'autorizzazione](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
+   ![Selezionare le autorizzazioni di scrittura ed esecuzione](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
 9. L'entità servizio viene elencata in **Autorizzazioni assegnate** nel riquadro **Accesso** come illustrato di seguito. È ora possibile tornare indietro e avviare il processo di Analisi di flusso.
 
-   ![Elenco Accesso](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
+   ![Elenco di accesso di Analisi di flusso nel portale](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    Per altre informazioni sulle autorizzazioni del file system di Data Lake Storage Gen1, vedere [Controllo di accesso in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 

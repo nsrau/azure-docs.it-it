@@ -3,7 +3,7 @@ title: Uso della libreria client di database elastico con Dapper | Microsoft Doc
 description: Utilizzo della libreria client dei database elastici con Dapper.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3a25d68b0f0bdd97b204906af87fac8013ad3cff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14eb92141a9d27d9f8978abb6d5c9a738c821ead
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253024"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866305"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilizzo della libreria client dei database elastici con Dapper
 Questo documento è rivolto agli sviluppatori che si basano su Dapper per creare applicazioni, ma desiderano avvalersi degli [strumenti dei database elastici](sql-database-elastic-scale-introduction.md) per creare applicazioni che implementano il partizionamento per la scalabilità orizzontale del livello dati.  Questo documento illustra le modifiche da apportare nelle applicazioni basate su Dapper per l'integrazione con gli strumenti dei database elastici. L'obiettivo è comporre la gestione delle partizioni dei database elastici e il routing dipendente dai dati con Dapper. 
@@ -49,9 +49,9 @@ Anziché usare il sistema tradizionale per creare connessioni per Dapper, è nec
 ### <a name="requirements-for-dapper-integration"></a>Requisiti per l'integrazione con Dapper
 Quando si usano sia la libreria client dei database elastici che le API di Dapper, si desidera mantenere le seguenti proprietà:
 
-* **Scalabilità orizzontale**: si desidera aggiungere o rimuovere database dal livello dati dell'applicazione partizionata a seconda delle necessità per soddisfare le esigenze di capacità dell'applicazione. 
+* **Scalabilità orizzontale**: per aggiungere o rimuovere database dal livello dati dell'applicazione partizionata a seconda delle necessità, per soddisfare le esigenze di capacità dell'applicazione. 
 * **Coerenza**: poiché nell'applicazione viene implementata la scalabilità orizzontale con il partizionamento orizzontale, è necessario eseguire il routing dipendente dai dati. A tale scopo, è possibile usare le funzionalità di routing dipendente dai dati della libreria. In particolare, si desidera mantenere le garanzie di convalida e coerenza fornite dalle connessioni negoziate tramite il gestore mappe partizioni per evitare problemi di danneggiamento o di risultati di query non corretti. Ciò garantisce che le connessioni a un determinato shardlet vengano rifiutate o arrestate se ad esempio lo shardlet è attualmente spostato in una partizione diversa tramite API di suddivisione/unione.
-* **Mapping degli oggetti**: si desidera mantenere i vantaggi dei mapping forniti da Dapper per la conversione tra le classi nell'applicazione e le strutture di database sottostanti. 
+* **Mapping degli oggetti**: si vogliono mantenere i vantaggi dei mapping forniti da Dapper per la conversione tra le classi nell'applicazione e le strutture di database sottostanti. 
 
 La seguente sezione fornisce indicazioni per tali requisiti per le applicazioni basate su **Dapper** e **DapperExtensions**.
 
@@ -137,7 +137,7 @@ Questo è l'esempio di codice per la query:
     }
 
 ### <a name="handling-transient-faults"></a>Gestione degli errori temporanei
-Il team Microsoft Patterns & Practices ha pubblicato un articolo relativo al [blocco di applicazioni per la gestione degli errori temporanei](https://msdn.microsoft.com/library/hh680934.aspx) per consentire agli sviluppatori di applicazioni di attenuare le comuni condizioni di errori temporanei rilevate durante l'esecuzione nel cloud. Per ulteriori informazioni, vedere [Perseveranza, il segreto di tutti i successi: uso del Blocco di applicazioni per la gestione degli errori temporanei](https://msdn.microsoft.com/library/dn440719.aspx).
+Il team Microsoft Patterns & Practices ha pubblicato un articolo relativo al [blocco di applicazioni per la gestione degli errori temporanei](https://msdn.microsoft.com/library/hh680934.aspx) per consentire agli sviluppatori di applicazioni di attenuare le comuni condizioni di errori temporanei rilevate durante l'esecuzione nel cloud. Per altre informazioni, vedere [Perseverance, Secret of All Triumphs: Using the Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719.aspx) (La perseveranza, segreto di tutti i trionfi: usare il blocco di applicazioni per la gestione degli errori temporanei).
 
 L'esempio di codice si basa sulla libreria di errori temporanei per proteggersi da questo tipo di errori. 
 

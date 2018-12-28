@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 228f5135165cbf8806516e5e932f210586013402
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 12/04/2018
+ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056744"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274429"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Ripristinare un singolo tenant con un'applicazione SaaS di database per tenant
 
@@ -26,10 +26,8 @@ Il modello database per tenant semplifica le operazioni di ripristino temporizza
 Questa esercitazione illustra due modelli di ripristino dei dati:
 
 > [!div class="checklist"]
-
 > * Ripristino di un database in un database parallelo (side-by-side).
 > * Ripristino di un database con la sostituzione del database esistente.
-
 
 |||
 |:--|:--|
@@ -44,13 +42,13 @@ Per completare questa esercitazione, verificare che i prerequisiti seguenti sian
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Introduzione ai modelli di ripristino dei tenant SaaS
 
-Per il ripristino dei dati di un tenant singolo sono disponibili due modelli semplici. Poiché i database dei tenant sono isolati tra loro, il ripristino di un tenant non ha alcun impatto sui dati di qualsiasi altro tenant. La funzionalità di ripristino temporizzato del database SQL di Azure viene usata in entrambi i modelli. PITR crea sempre un nuovo database.   
+Per il ripristino dei dati di un tenant singolo sono disponibili due modelli semplici. Poiché i database dei tenant sono isolati tra loro, il ripristino di un tenant non ha alcun impatto sui dati di qualsiasi altro tenant. La funzionalità di ripristino temporizzato del database SQL di Azure viene usata in entrambi i modelli. PITR crea sempre un nuovo database.
 
-* **Ripristino in parallelo**: nel primo modello viene creato un nuovo database parallelo accanto al database corrente del tenant. Al tenant viene quindi assegnato l'accesso in sola lettura al database ripristinato. I dati ripristinati possono essere esaminati e potenzialmente usati per sovrascrivere i valori dei dati correnti. Spetta alla progettazione delle app stabilire il modo in cui il tenant deve accedere al database ripristinato e le opzioni per il ripristino disponibili. In alcuni scenari può essere sufficiente consentire al tenant di esaminare i dati di un momento precedente specifico. 
+* **Ripristino in parallelo**: nel primo modello viene creato un nuovo database parallelo accanto al database corrente del tenant. Al tenant viene quindi assegnato l'accesso in sola lettura al database ripristinato. I dati ripristinati possono essere esaminati e potenzialmente usati per sovrascrivere i valori dei dati correnti. Spetta alla progettazione delle app stabilire il modo in cui il tenant deve accedere al database ripristinato e le opzioni per il ripristino disponibili. In alcuni scenari può essere sufficiente consentire al tenant di esaminare i dati di un momento precedente specifico.
 
 * **Ripristino con sostituzione**: il secondo modello è utile nel caso in cui il tenant voglia ripristinare uno stato precedente in seguito a una perdita o a un danneggiamento dei dati. Mentre il database viene ripristinato, il tenant viene portato offline. Il database originale viene eliminato e il database ripristinato viene rinominato. La catena di backup del database originale rimane accessibile dopo l'eliminazione. In questo modo è possibile eseguire un ripristino temporizzato, se necessario.
 
-Se il database usa la [replica geografica](sql-database-geo-replication-overview.md) e si esegue il ripristino in parallelo, è consigliabile copiare i dati necessari dalla copia ripristinata nel database originale. Se il database originale viene sostituito con il database ripristinato, è necessario riconfigurare e risincronizzare la replica geografica.
+Se il database usa la [replica geografica attiva](sql-database-active-geo-replication.md) e si esegue il ripristino in parallelo, è consigliabile copiare i dati necessari dalla copia ripristinata nel database originale. Se il database originale viene sostituito con il database ripristinato, è necessario riconfigurare e risincronizzare la replica geografica.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione SaaS di database per tenant Wingtip Tickets
 
@@ -74,7 +72,6 @@ Per illustrare questi scenari di ripristino, è prima necessario eliminare "acci
 
    ![Viene visualizzato l'ultimo evento](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
-
 ### <a name="accidentally-delete-the-last-event"></a>Eliminare "accidentalmente" l'ultimo evento
 
 1. In PowerShell ISE aprire ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1* e impostare il valore seguente:
@@ -88,15 +85,13 @@ Per illustrare questi scenari di ripristino, è prima necessario eliminare "acci
    ```
 
 3. Verrà visualizzata la pagina eventi Contoso. Scorrere verso il basso e verificare che l'evento non sia più presente. Se l'evento è ancora presente nell'elenco, selezionare **Aggiorna** e verificare che non sia più presente.
-
    ![Ultimo evento rimosso](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
-
 
 ## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>Ripristinare un database tenant in parallelo con il database di produzione
 
 Questo esercizio ripristina il database Contoso Concert Hall a un punto nel tempo precedente all'eliminazione dell'evento. Questo scenario presuppone che si vogliano esaminare i dati eliminati in un database parallelo.
 
- Lo script *Restore-TenantInParallel.ps1* crea un database tenant parallelo denominato *ContosoConcertHall\_old* con una voce di catalogo parallela. Questo modello di ripristino è più adatto per il ripristino da una perdita di dati non grave. È possibile usare questo modello anche nel caso in cui sia necessario esaminare i dati a scopi di conformità o di controllo. Si tratta dell'approccio consigliato quando si usa la [replica geografica](sql-database-geo-replication-overview.md).
+ Lo script *Restore-TenantInParallel.ps1* crea un database tenant parallelo denominato *ContosoConcertHall\_old* con una voce di catalogo parallela. Questo modello di ripristino è più adatto per il ripristino da una perdita di dati non grave. È possibile usare questo modello anche nel caso in cui sia necessario esaminare i dati a scopi di conformità o di controllo. Si tratta dell'approccio consigliato quando si usa la [replica geografica attiva](sql-database-active-geo-replication.md).
 
 1. Completare la sezione [Simulare un tenant che elimina accidentalmente i dati](#simulate-a-tenant-accidentally-deleting-data).
 2. In PowerShell ISE aprire ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
@@ -115,7 +110,6 @@ Scorrere gli eventi elencati nel browser per confermare che l'evento eliminato n
 2. Per eseguire lo script, premere F5.
 3. La voce *ContosoConcertHall\_old* viene ora eliminata dal catalogo. Chiudere la pagina degli eventi per questo tenant nel browser.
 
-
 ## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>Ripristinare un tenant sul posto, sostituendo il database tenant esistente
 
 Questo esercizio ripristina uno stato del tenant Contoso Concert Hall precedente rispetto all'eliminazione dell'evento. Lo script *Restore-TenantInPlace* ripristina un database tenant in un nuovo database ed elimina l'originale. Questo modello di ripristino è particolarmente adatto per il ripristino dopo un grave danneggiamento dei dati, quando il tenant deve gestire una perdita significativa di dati.
@@ -128,14 +122,13 @@ Lo script ripristina uno stato del database tenant precedente l'eliminazione del
 
 Il database è stato ripristinato a un punto nel tempo precedente all'eliminazione dell'evento. Quando si apre la pagina **Eventi**, verificare che l'ultimo evento sia stato ripristinato.
 
-Dopo il ripristino del database sono necessari altri 10-15 minuti prima che il primo backup completo sia nuovamente disponibile per il ripristino. 
+Dopo il ripristino del database sono necessari altri 10-15 minuti prima che il primo backup completo sia nuovamente disponibile per il ripristino.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questa esercitazione illustra come:
 
 > [!div class="checklist"]
-
 > * Ripristino di un database in un database parallelo (side-by-side).
 > * Ripristinare un database con sostituzione del precedente.
 

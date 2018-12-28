@@ -1,6 +1,6 @@
 ---
-title: Aggiornamento all'ultima versione dell'API REST di Ricerca di Azure| Microsoft Docs
-description: Aggiornamento all'ultima versione dell'API REST di Ricerca di Azure
+title: Aggiornare all'ultima versione dell'API REST del servizio di Ricerca di Azure - Ricerca di Azure
+description: Esaminare le differenze nelle versioni API e ottenere informazioni su quali azioni sono necessarie per la migrazione del codice esistente per la versione più recente dell'API REST del servizio di Ricerca di Azure.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,14 +9,15 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 2efe7769f68988f3c0d52c8806b78c1b96d8c639
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.custom: seodec2018
+ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620230"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312188"
 ---
-# <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>Aggiornamento all'ultima versione dell'API REST di Ricerca di Azure
+# <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Aggiornare all'ultima versione dell'API REST di Ricerca di Azure
 Se si usa una versione precedente dell'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/), questo articolo fornisce informazioni utili per aggiornare l'applicazione alla più recente versione disponibile a livello generale dell'API, la versione 2017-11-11.
 
 La versione 2017-11-11 dell'API REST include alcune modifiche rispetto alle versioni precedenti. Le versioni sono abbastanza compatibili tra loro, pertanto la modifica del codice richiede un impegno minimo, a seconda della versione in uso prima. Per istruzioni su come modificare il codice per usare la nuova versione dell'API, vedere [Steps to upgrade](#UpgradeSteps) (Passaggi per eseguire l'aggiornamento).

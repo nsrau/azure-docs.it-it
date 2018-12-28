@@ -1,6 +1,6 @@
 ---
-title: Percorso di archiviazione dei dati di identità per i clienti europei di Azure AD | Microsoft Docs
-description: Informazioni su dove Microsoft Azure Active Directory archivia i dati relativi all'identità per i clienti europei.
+title: Archivi dati relativi all'identità per i clienti europei - Azure Active Directory | Microsoft Docs
+description: Informazioni su dove Azure Active Directory archivia i dati relativi all'identità per i clienti europei.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.custom: it-pro
-ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976894"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099938"
 ---
-# <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Percorso di archiviazione dei dati di identità per i clienti europei di Microsoft Azure Active Directory (Azure AD)
-Azure AD aiuta a gestire le identità degli utenti e a creare criteri di accesso basati su intelligence che consentono di proteggere le risorse dell'organizzazione. I dati di identità vengono archiviati in un percorso basato sull'indirizzo dell'organizzazione fornito quando è stato sottoscritto il servizio, ad esempio quando è stata effettuata la sottoscrizione di Office 365 o Azure. Per informazioni specifiche su dove vengono archiviati i dati di identità, è possibile usare la sezione [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Percorso di archiviazione dei dati) di Microsoft Trust Center.
+# <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Archivi dati relativi all'identità per i clienti europei - Azure Active Directory
+Azure Active Directory aiuta a gestire le identità degli utenti e a creare criteri di accesso basati su intelligence che consentono di proteggere le risorse dell'organizzazione. I dati di identità vengono archiviati in un percorso basato sull'indirizzo dell'organizzazione fornito quando è stato sottoscritto il servizio, ad esempio quando è stata effettuata la sottoscrizione di Office 365 o Azure. Per informazioni specifiche su dove vengono archiviati i dati di identità, è possibile usare la sezione [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Percorso di archiviazione dei dati) di Microsoft Trust Center.
 
 Anche se la maggior parte dei dati di identità europei relativi ad Azure AD rimane nei data center europei, tuttavia cinque attributi relativi agli utenti vengono in genere archiviati nei data center degli Stati Uniti. Questi attributi sono GivenName, Surname, userPrincipalName, Domain e PasswordHash. L'attributo PasswordHash può fare eccezione e non essere archiviato negli Stati Uniti se un utente usa un metodo di autenticazione federata locale che impedisce la sincronizzazione del valore di PasswordHash con Azure AD. Esistono anche alcuni dati operativi specifici del servizio, necessari per il normale funzionamento di Azure AD, che vengono archiviati negli Stati Uniti e non includono dati personali.
 

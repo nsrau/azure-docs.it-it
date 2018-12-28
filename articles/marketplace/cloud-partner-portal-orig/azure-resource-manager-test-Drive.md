@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025260"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139266"
 ---
 <a name="azure-resource-manager-test-drive"></a>Test drive di Azure Resource Manager
 =================================
@@ -177,7 +177,7 @@ Valore di esempio:
 
 Alcune risorse di Azure, ad esempio gli account di archiviazione o i nomi DNS, richiedono nomi univoci a livello internazionale.
 
-Ciò significa che ogni volta che il test drive consente di distribuire il modello di Resource Manager, si crea un **nuovo gruppo di risorse con nome univoco** per tutte le relative\' risorse **.** Di conseguenza, è necessario usare la funzione [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) concatenata con i nomi delle variabili negli ID dei gruppi di risorse per generare valori univoci casuali:
+Ciò significa che ogni volta che il test drive consente di distribuire il modello di Resource Manager, si crea un **nuovo gruppo di risorse con nome univoco** per tutte le\' relative risorse. Di conseguenza, è necessario usare la funzione [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) concatenata con i nomi delle variabili negli ID dei gruppi di risorse per generare valori univoci casuali:
 
       "variables": {
       ...
@@ -298,7 +298,7 @@ Dopo aver compilato il test drive, questa sezione descrive i campi necessari per
 
 Il primo e più importante campo è per attivare o disattivare il test drive per l'offerta. Selezionando **Sì,** si visualizza il resto del modulo con tutti i campi obbligatori da compilare. Selezionando **No,** il modulo viene disabilitato e se si pubblica nuovamente con il test drive disabilitato, il test drive viene rimosso dall'ambiente di produzione.
 
-Nota: se non vi sono test drive usati attivamente dagli utenti, quei test drive continuano l'esecuzione fino alla scadenza della sessione.
+Note: se non ci sono test drive usati attivamente dagli utenti, quei test drive continuano l'esecuzione fino alla scadenza della sessione.
 
 ### <a name="details"></a>Dettagli
 
@@ -310,7 +310,7 @@ La sezione successiva da compilare contiene i dettagli relativi all'offerta del 
 
 **Manuale dell'utente -** *Campo obbligatorio* Tratta approfonditamente la procedura guidata dell'esperienza di test drive. Una volta aperto, il cliente verrà guidato a compiere i passaggi richiesti attraverso il test drive. È importante che il contenuto sia facile da comprendere e seguire. (Deve essere un file con estensione PDF)
 
-**Video demo del test drive -** *Consigliato* Come per il manuale dell'utente, è consigliabile inserire un video di esercitazione sull'esperienza di test drive. Il cliente lo vedrà prima o durante il test drive e potrà compiere i passaggi a lui richiesti attraverso il test drive. È importante che il contenuto sia facile da comprendere e seguire.
+**Video demo del test drive** *Consigliato* Come per il Manuale per l'utente, la cosa migliore è inserire un tutorial video dell'esperienza di test drive. Il cliente lo vedrà prima o durante il test drive e potrà compiere i passaggi a lui richiesti attraverso il test drive. È importante che il contenuto sia facile da comprendere e seguire.
 
 - **Nome** -Titolo del video
 - **Collegamento** - Deve essere un URL incorporato di YouTube o Vimeo. Di seguito, un esempio di come recuperare l'URL incorporato:
@@ -382,15 +382,13 @@ Fare clic su Save. L'ultimo passaggio consiste nell'individuare l'ID applicazion
 Poiché l'applicazione da distribuire nella sottoscrizione è in uso, è necessario aggiungere l'applicazione come collaboratore nella sottoscrizione. Le istruzioni per questi sono le seguenti:
 
 1. Sul pannello di sottoscrizione, selezionare la sottoscrizione in uso usando soltanto per il test drive.
-2. Fare clic su Controllo di accesso (IAM).
-3. Accesso + Aggiungi nel nuovo pannello.
-4. Impostare il ruolo di collaboratore.
-5. Digitare il nome dell'applicazione AAD e selezionare l'applicazione AAD per assegnare il ruolo.
-6. Fare clic su Salva.
-
-![Aggiungere una nuova entità di sicurezza controllo di accesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Aggiungere le autorizzazioni](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic sulla scheda **Assegnazioni di ruolo**.  ![Aggiungere una nuova entità di sicurezza controllo di accesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Fare clic su **Aggiungi assegnazione ruolo**.
+1. Impostare il ruolo di **collaboratore**.
+1. Digitare il nome dell'applicazione Azure AD e selezionare l'applicazione per assegnare il ruolo.
+    ![Aggiungere le autorizzazioni](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Fare clic su **Save**.
 
 **Chiave dell'app Azure AD -** *Campo obbligatorio* L'ultimo campo genera una chiave di autenticazione. In Chiavi, aggiungere una descrizione di chiave, impostare la scadenza come Non scade, quindi selezionare Salva. È **importante** evitare di avere una chiave scaduta, che interrompe il test drive in corso. Copiare questo valore e incollarlo nel campo corrispondente del test drive.
 

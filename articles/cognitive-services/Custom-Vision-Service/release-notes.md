@@ -9,21 +9,31 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a4b6b1d267e9c86a03644129ee639b74ed214d88
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901329"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408358"
 ---
 # <a name="custom-vision-service-release-notes"></a>Note sulla versione di Servizio visione artificiale personalizzato
+
+
+## <a name="december-12-2018"></a>12 dicembre 2018
+- Aggiunto il supporto per l'esportazione dei modelli di rilevamento di oggetti (è stato introdotto il dominio compatto per il rilevamento di oggetti).
+- Risolti alcuni problemi di accessibilità per una migliore lettura dello schermo e una più agevole navigazione da tastiera. 
+- Aggiornata l'esperienza utente per il visualizzatore delle immagini e migliorata l'esperienza di assegnazione dei tag per il rilevamento di oggetti per consentire l'assegnazione più rapida dei tag.  
+- Aggiornato il modello di base per il dominio di rilevamento di oggetti per ottenere una qualità migliore nel rilevamento di oggetti. 
+- Correzioni di bug.
+
+## <a name="november-6-2018"></a>6 novembre 2018
+- Aggiunto il supporto per il dominio Logo nella funzionalità per il rilevamento di oggetti.
 
 ## <a name="october-9-2018"></a>9 ottobre 2018
 - Rilevamento di oggetti entra in anteprima a pagamento. È ora possibile creare progetti Rilevamento di oggetti con una risorsa di Azure.
 - Aggiunta la funzionalità "Sposta in Azure" al sito Web per facilitare l'aggiornamento di un progetto in versione di valutazione limitata per il collegamento ad Azure. progetto con risorse collegate (F0 o S0). È possibile trovarlo nella pagina Impostazioni per il prodotto.  
 - Aggiunta l'esportazione in ONNX 1.2 per supportare la versione di aggiornamento di Windows di ottobre 2018 per Windows ML.
 Correzione di bug, tra cui per l'esportazione ONNX con caratteri speciali. 
-
 
 ## <a name="august-14-2018"></a>14 agosto 2018
 - Aggiunto il widget "Get Started" al sito customvision.ai per guidare gli utenti nel training del progetto. 

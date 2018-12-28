@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/07/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 5f6908a80a467e1a8a12d61be2f67cbe70cce8a0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "49352238"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275638"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisiti di sistema per Importazione/Esportazione di Azure
 
@@ -26,7 +26,7 @@ Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supporta
 
 |Piattaforma |Version |
 |---------|---------|
-|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
+| Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Altri software obbligatori per il client Windows
@@ -41,8 +41,9 @@ Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supporta
 
 Il servizio Importazione/Esportazione di Azure supporta i tipi di account di archiviazione seguenti:
 
-- Account di archiviazione Utilizzo generico v1 (distribuzione classica o di Azure Resource Manager)
+- Account di archiviazione per utilizzo generico v2 (scelta consigliata per la maggior parte degli scenari)
 - Account di archiviazione BLOB
+- Account di archiviazione per utilizzo generico v1 (distribuzione classica o di Azure Resource Manager), 
 
 Per altre informazioni sugli account di archiviazione, vedere [Panoramica degli account di archiviazione di Azure](storage-account-overview.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Come aggiungere o rimuovere proprietari dei gruppi di Azure Active Directory | Microsoft Docs
-description: Informazioni su come aggiungere o rimuovere i proprietari dei gruppi usando Azure Active Directory.
+title: Aggiungere o rimuovere proprietari dei gruppi - Azure Active Directory | Microsoft Docs
+description: Istruzioni su come aggiungere o rimuovere i proprietari dei gruppi usando Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
-ms.custom: it-pro
-ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8c70378993e0155cbe730a5a351848ca1a1daa0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139721"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087151"
 ---
-# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Procedura: Aggiungere o rimuovere i proprietari dei gruppi in Azure Active Directory
+# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Aggiungere o rimuovere i proprietari dei gruppi in Azure Active Directory
 I gruppi di Azure Active Directory (Azure AD) sono di proprietà e gestiti dai proprietari del gruppo. I proprietari del gruppo vengono assegnati per gestire un gruppo e i relativi membri da un proprietario della risorsa (amministratore). Non è necessario che il proprietario del gruppo sia un membro del gruppo. Dopo che un proprietario del gruppo è stato assegnato, solo un proprietario della risorsa può aggiungerlo o rimuoverlo.
 
 In alcuni casi, l'amministratore può decidere di non assegnare un proprietario del gruppo. In questo caso, l'amministratore diventa il proprietario del gruppo. I proprietari possono anche assegnare altri proprietari al proprio gruppo, a meno che non siano state impostate limitazioni a questa opzione nelle impostazioni del gruppo.

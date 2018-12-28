@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/28/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: bb8eb4eae192cf0dd3a3555a3b1209705dd83aaf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583692"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268445"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
 I budget in Gestione costi consentono di pianificare e promuovere la responsabilizzazione nell'organizzazione. Con i budget, è possibile tenere traccia dei costi sostenuti per i servizi di Azure consumati o sottoscritti per un determinato periodo. Risultano utili per informare altri utenti in merito alle spese per una gestione proattiva dei costi e per monitorare l'andamento della spesa nel tempo. Quando vengono superate le soglie di budget create, vengono attivate solo notifiche. Nessuna delle risorse è interessata e il consumo non viene interrotto. È possibile usare i budget per confrontare e tenere traccia della spesa durante l'analisi dei costi.
+
+I budget mensili vengono valutati in base alla spesa ogni quattro ore. Tuttavia, i dati e le notifiche per le risorse utilizzate sono disponibili entro otto ore.  
 
 I budget vengono reimpostati automaticamente alla fine di un periodo (mensile, trimestrale o annuale) per lo stesso importo di budget quando si seleziona una data di scadenza nel futuro. Dato che vengono reimpostati con lo stesso importo di budget, è necessario creare budget distinti se gli importi in valuta previsti differiscono per periodi futuri.
 
@@ -45,7 +47,7 @@ Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-- Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+- Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Creare un budget nel portale di Azure
 
@@ -57,23 +59,23 @@ Dopo aver creato i budget, viene mostrata una semplice visualizzazione della spe
 
 Fare clic su **Aggiungi**.
 
-![Budget di Gestione costi](./media/tutorial-acm-create-budgets/budgets01.png)
+![Budget di Gestione costi nel portale di Azure](./media/tutorial-acm-create-budgets/budgets01.png)
 
 Nella finestra **Crea il budget** immettere un nome e l'importo per il budget. Scegliere quindi il periodo di durata mensile, trimestrale o annuale. Selezionare poi una data di fine. Per i budget sono richiesti almeno una soglia per i costi (% del budget) e un indirizzo di posta elettronica corrispondente. Facoltativamente, è possibile includere fino a cinque soglie e cinque indirizzi di posta elettronica in un unico budget. Quando viene raggiunta una soglia di budget, in genere vengono ricevute notifiche di posta elettronica in meno di otto ore.
 
 Di seguito è riportato un esempio di creazione di un budget mensile di $ 4.500. Viene generato un avviso tramite posta elettronica quando viene raggiunto il 90% del budget.
 
-![Esempio di budget mensile](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+![Informazioni di esempio illustrate nella finestra Crea il budget](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
 Quando si crea un budget trimestrale, funziona esattamente come un budget mensile. La differenza è che l'importo di budget per il trimestre viene suddiviso in modo uniforme tra i tre mesi del trimestre. Come è prevedibile, un importo di budget annuale viene suddiviso in modo uniforme tra tutti i 12 mesi dell'anno di calendario.
 
 La spesa corrente rispetto al budget viene aggiornata ogni volta che Gestione costi riceve i dati di fatturazione aggiornati. In genere, ogni giorno.
 
-![Spesa corrente rispetto al budget](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
+![Informazioni di esempio che mostrano la spesa corrente rispetto al budget](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
 
 Dopo averlo creato, il budget viene visualizzato nell'analisi dei costi. La visualizzazione del budget in relazione alla tendenza di spesa è uno dei primi passaggi quando si iniziano ad [analizzare i costi e la spesa](quick-acm-cost-analysis.md).
 
-![Budget visualizzato nell'analisi dei costi](./media/tutorial-acm-create-budgets/cost-analysis.png)
+![Esempio di budget e spesa di esempio illustrato nell'analisi dei costi](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 Nell'esempio precedente, è stato creato un budget per una sottoscrizione. Tuttavia, è anche possibile creare un budget per un gruppo di risorse. Se si vuole creare un budget per un gruppo di risorse, passare a **Gestione dei costi e fatturazione** &gt; **Sottoscrizioni** &gt; Selezionare una sottoscrizione > **Gruppi di risorse** > selezionare un gruppo di risorse > **Budget** > e quindi fare clic su **Aggiungi** per aggiungere un budget.
 
@@ -81,7 +83,7 @@ Nell'esempio precedente, è stato creato un budget per una sottoscrizione. Tutta
 
 A seconda del livello di accesso disponibile, è possibile modificare un budget per modificare le relative proprietà. Nell'esempio seguente alcune proprietà sono di sola lettura perché l'utente ha solo l'autorizzazione Collaboratore per la sottoscrizione. Attualmente, la **data di scadenza** è disabilitata e non può essere modificata dopo l'impostazione.
 
-![Modifica del budget - autorizzazione Collaboratore](./media/tutorial-acm-create-budgets/edit-budget.png)
+![Esempio di modifica di un budget per modificare le varie proprietà](./media/tutorial-acm-create-budgets/edit-budget.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

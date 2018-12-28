@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 4c35820daa9cc25f40dfa0034d9ce632ece235a7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 6ca39d13fa54d772de17d519be5977e1a437c033
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633406"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337564"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Log Analytics per Linux
 
@@ -39,13 +39,13 @@ L'estensione agente di Log Analytics può essere eseguita in queste distribuzion
 
 | Distribuzione | Version |
 |---|---|
-| CentOS Linux | 6 e 7 (x86/x64) |
-| Amazon Linux | 2017.09 | 
+| CentOS Linux | 6 (x86/x64) e 7 (x64) |
+| Amazon Linux | 2017.09 (x64) | 
 | Oracle Linux | 6 e 7 (x86/x64) |
-| Red Hat Enterprise Linux Server | 6 e 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 6 (x86/x64) e 7 (x64) |
 | Debian GNU/Linux | 8 e 9 (x86/x64) |
-| Ubuntu | 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64) |
-| SUSE Linux Enterprise Server | 12 (x86/x64) |
+| Ubuntu | 14.04 LTS (x86/x64), 16.04 LTS (x86/x64) e 18.04 LTS (x64) |
+| SUSE Linux Enterprise Server | 12 (x64) |
 
 >[!NOTE]
 >OpenSSL precedente alla versione 1.x non è supportato su alcuna piattaforma e la versione 1.10 è supportata solo su piattaforme x86_64 (64 bit).  
@@ -56,6 +56,8 @@ La tabella seguente contiene informazioni sull'associazione tra la versione dell
 
 | Versione delle estensioni di macchina virtuale di Log Analytics per Linux | Versione bundle agenti Log Analytics | 
 |--------------------------------|--------------------------|
+| 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
+| 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
 | 1.7.9 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
@@ -79,7 +81,7 @@ Per distribuire l'estensione agente di Log Analytics per Linux, è necessario ch
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di Log Analytics. L'estensione richiede che siano indicati l'ID e la chiave dell'area di lavoro presenti nell'area di lavoro di Log Analytics di destinazione. Questi valori sono [disponibili nell'area di lavoro di Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) nel portale di Azure. Poiché la chiave dell'area di lavoro deve essere tratta come i dati sensibili, deve essere memorizzata in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Tenere presente che **workspaceId** e **workspaceKey** distinguono tra maiuscole e minuscole.
+Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di Log Analytics. L'estensione richiede che siano indicati l'ID e la chiave dell'area di lavoro presenti nell'area di lavoro di Log Analytics di destinazione. Questi valori sono [disponibili nell'area di lavoro di Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) nel portale di Azure. Poiché la chiave dell'area di lavoro deve essere tratta come i dati sensibili, deve essere memorizzata in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Tenere presente che **workspaceId** e **workspaceKey** distinguono tra maiuscole e minuscole.
 
 ```json
 {
@@ -94,6 +96,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di L
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
     "typeHandlerVersion": "1.7",
+    "autoUpgradeMinorVersion": true,
     "settings": {
       "workspaceId": "myWorkspaceId"
     },

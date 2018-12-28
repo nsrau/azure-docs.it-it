@@ -10,12 +10,12 @@ ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167002"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408919"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -63,7 +63,7 @@ Verrà abilitata la soluzione per l'account di automazione. L'abilitazione della
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurazione di Rilevamento modifiche e Inventario
 
-Per informazioni sulla modalità di esecuzione dell'onboarding nella soluzione, vedere [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md) (Soluzioni per l'onboarding dall'account di Automazione). Dopo aver ottenuto un processo di onboarding del computer con la soluzione Rilevamento modifiche e Inventario, è possibile configurare gli elementi di cui tenere traccia. Quando si abilita un nuovo file o una chiave del Registro di sistema da rilevare, vengono abilitati sia per Rilevamento modifiche che per Inventario.
+Per informazioni sulla modalità di esecuzione dell'onboarding nella soluzione, vedere: [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md) (Soluzioni per l'onboarding dall'account di Automazione). Dopo aver ottenuto un processo di onboarding del computer con la soluzione Rilevamento modifiche e Inventario, è possibile configurare gli elementi di cui tenere traccia. Quando si abilita un nuovo file o una chiave del Registro di sistema da rilevare, vengono abilitati sia per Rilevamento modifiche che per Inventario.
 
 Per tenere traccia delle modifiche nei file sia di Windows che di Linux, vengono usati hash MD5 dei file. Questi hash vengono quindi usati per rilevare se dopo l'ultimo inventario sono state apportate modifiche.
 
@@ -135,7 +135,7 @@ Seguire questa procedura per configurare il rilevamento delle chiavi del Registr
 |Attivato     | Determina se l'impostazione viene applicata.        |
 |Item Name     | Nome descrittivo del file da rilevare.        |
 |Group     | Nome del gruppo per il raggruppamento logico dei file.        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file. Ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file. Ad esempio:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -167,10 +167,21 @@ La tabella seguente mostra la frequenza di raccolta dati per i tipi di modifiche
 | Registro di sistema di Windows | 50 minuti |
 | File Windows | 30 minuti |
 | File Linux | 15 minuti |
-| Servizi Windows | Da 10 secondi a 30 minuti</br> Impostazione predefinita: 30 minuti |
+| Servizi Windows | Da 10 secondi a 30 minuti</br> Predefinito: 30 minuti |
 | Daemon Linux | 5 minuti |
 | Software Windows | 30 minuti |
 | Software Linux | 5 minuti |
+
+La tabella seguente illustra i limiti dell'elemento di rilevamento per ogni macchina per il rilevamento modifiche.
+
+| **Risorsa** | **Limite**| **Note** |
+|---|---|---|
+|File|500||
+| Registro|250||
+|Software Windows|250|Non include gli aggiornamenti software|
+|Pacchetti Linux|1250||
+|Services|250||
+|daemon|250||
 
 ### <a name="windows-service-tracking"></a>Rilevamento dei servizi di Windows
 

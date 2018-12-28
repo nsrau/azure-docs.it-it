@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2018
+ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 2f9075cef671128cacc37f16e8bf29bf0f60401d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 46dfb96df7b16fe03bd5c2c69fd9e2e33b04bbd2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619640"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408579"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory
 
@@ -179,22 +179,29 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 |---|---|---|
 |App Azure Remote|Servizio app Azure Remote|Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
 |Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, iOS e Android|
-|App Posta/Calendario/Contatti, Outlook 2016, Outlook 2013 (con autenticazione moderna)|Office 365 Exchange Online|Windows 10|
+|App Mail/Calendar/People, Outlook 2016, Outlook 2013 |Office 365 Exchange Online|Windows 10|
 |MFA e criteri relativi alle applicazioni. I criteri basati su dispositivo non sono supportati. |Qualsiasi servizio app Mie app|Android e iOS|
 |Microsoft Team Services consente di controllare tutti i servizi che supportano Microsoft Teams e tutte le app client: Windows Desktop, iOS, Android, WP e Web Client|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
-|App di Office 2016, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|App di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), supporto per i gruppi di Office pianificato per il futuro, supporto per l'app SharePoint pianificato per il futuro|Office 365 SharePoint Online|Windows 10|
+|App Office 2016, Office 2013, client di sincronizzazione OneDrive (vedere le [note](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|App di Office 2016, app di Office universale, Office 2013, client sincronizzazione OneDrive (vedere le [note](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), supporto per i gruppi di Office pianificato per il futuro, supporto per l'app SharePoint pianificato per il futuro|Office 365 SharePoint Online|Windows 10|
 |Office 2016 per macOS (solo Word, Excel, PowerPoint e OneNote). OneDrive per il supporto Business pianificato in futuro|Office 365 SharePoint Online|Mac OS X|
 |App Office per dispositivi mobili|Office 365 SharePoint Online|Android, iOS|
 |App Office Yammer|Office 365 Yammer|Windows 10, iOS, Android|
 |Outlook 2016 (Office per macOS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Outlook 2016, Outlook 2013, Skype for Business|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |App Outlook Mobile|Office 365 Exchange Online|Android, iOS|
 |App PowerBI|Servizio PowerBI|Windows 10, Windows 8.1, Windows 7, Android e iOS|
 |Skype for Business Online|Office 365 Exchange Online|Android, iOS |
 |App Azure DevOps|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS e Android|
 
 
+## <a name="support-for-legacy-authentication"></a>Supporto per l'autenticazione legacy
+
+Selezionando **Altri client** è possibile specificare una condizione che influisce sulle app che usano l'autenticazione di base con protocolli di posta elettronica come IMAP, MAPI, POP, SMTP e le app Office meno recenti che non usano l'autenticazione moderna.  
+
+![Altri client](./media/technical-reference/11.png)
+
+Per altre informazioni, vedere la sezione relativa alle [app client](conditions.md#client-apps).
 
 ## <a name="approved-client-app-requirement"></a>Requisito per le app client approvate 
 

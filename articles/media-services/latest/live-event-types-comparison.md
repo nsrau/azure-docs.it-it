@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: juliako
-ms.openlocfilehash: 7ff48962d01a83e8c9fce380d92fbc196ff96533
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2dbc2b4e316155e880d3baa900196d5cdd31be72
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585424"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011777"
 ---
 # <a name="liveevent-types-comparison"></a>Confronto tra tipi di LiveEvent
 
@@ -42,6 +42,7 @@ La tabella seguente mette a confronto le funzionalità dei due tipi di LiveEvent
 | Profondità bit video di input e output supportata|Fino a 10 bit incluso HDR 10/HLG|8 bit|
 | Codec audio di input supportati|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|
 | Codec audio di output supportati|Uguale all'input|AAC-LC|
+| Risoluzione video massima del video di output|Uguale all'input|720p (a 30 fotogrammi/secondo)|
 | Protocolli di input|RTMP, MP4 frammentato (Smooth Streaming)|RTMP, MP4 frammentato (Smooth Streaming)|
 | Prezzo|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|
 | Tempo di esecuzione massimo|24 x 365 live lineare|24 x 7|

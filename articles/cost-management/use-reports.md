@@ -1,23 +1,23 @@
 ---
 title: Usare i report di Cloudyn in Azure | Microsoft Docs
-description: Questo articolo descrive come usare i diversi report nel portale di Cloudyn.
+description: Questo articolo illustra lo scopo dei report di Cloudyn che sono inclusi nel portale di Cloudyn e come usarli in modo efficace.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276024"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075881"
 ---
-# <a name="use-cloudyn-reports"></a>Usare i report di Cloudyn
+# <a name="reports-available-in-the-cloudyn-portal"></a>Report disponibili nel portale di Cloudyn
 
 Questo articolo illustra lo scopo dei report di Cloudyn costi che sono inclusi nel portale di Cloudyn. Descrive anche come usare in modo efficace i report. La maggior parte dei report presenta le informazioni in modo intuitivo e con un aspetto grafico uniforme. La maggior parte delle azioni che è possibile eseguire in un report, è possibile anche in altri report. Per una panoramica su come usare i report di Cloudyn, incluse le procedure per personalizzare e salvare o pianificare i report, vedere [Informazioni sui report dei costi](understanding-cost-reports.md).
 
@@ -59,7 +59,7 @@ I dashboard di Cloudyn offrono una panoramica dei report di livello elevato. I d
 
 ## <a name="budget-information-in-reports"></a>Informazioni sul budget nei report
 
-Molti report di Cloudyn mostrano informazioni sul budget dopo che l'utente ne ha creato uno manualmente. Pertanto i report non mostreranno informazioni sul budget fino a quando non si crea un budget. Per altre informazioni, vedere [Impostazioni del budget](#budget-settings).
+Molti report di Cloudyn mostrano informazioni sul budget dopo che l'utente ne ha creato uno manualmente. Pertanto i report non mostreranno informazioni sul budget fino a quando non si crea un budget. Per altre informazioni, vedere [Impostazioni di Gestione budget](#budget-management-settings).
 
 ## <a name="reports-and-reporting-features"></a>Report e funzionalità di creazione dei report
 

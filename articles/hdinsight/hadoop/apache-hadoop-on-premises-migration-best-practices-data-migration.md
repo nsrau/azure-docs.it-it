@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584707"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433424"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per la migrazione dei dati
 
 Questo articolo offre indicazioni per la migrazione dei dati ad Azure HDInsight. L'articolo fa parte di una serie di documenti che descrivono le procedure consigliate per facilitare la migrazione di sistemi Apache Hadoop locali ad Azure HDInsight.
 
-## <a name="migrate-data-from-on-premises-to-azure"></a>Eseguire la migrazione dei dati da un sistema locale ad Azure
+## <a name="migrate-on-premises-data-to-azure"></a>Eseguire la migrazione di dati locali ad Azure
 
 Esistono due opzioni principali per eseguire la migrazione dei dati da un sistema locale all'ambiente Azure:
 
@@ -47,9 +47,11 @@ La tabella seguente indica una durata di trasferimento dei dati approssimativa, 
 |1 PB|6 anni|3 anni|97 giorni|10 giorni|
 |2 PB|12 anni|5 anni|194 giorni|19 giorni|
 
-Gli strumenti nativi di Azure, ad esempio DistCp, Azure Data Factory e AzureCp, possono essere usati per trasferire i dati in rete. Per lo stesso scopo può essere usato anche lo strumento di terze parti WANDisco. Per i trasferimenti continui di dati da un sistema locale ai sistemi di archiviazione di Azure è possibile usare Kafka Mirrormaker e Sqoop.
+Gli strumenti nativi di Azure, ad esempio Apache Hadoop, DistCp, Azure Data Factory e AzureCp, possono essere usati per trasferire i dati in rete. Per lo stesso scopo può essere usato anche lo strumento di terze parti WANDisco. Per i trasferimenti continui di dati da un sistema locale ai sistemi di archiviazione di Azure è possibile usare Apache Kafka Mirrormaker e Apache Sqoop.
 
-## <a name="performance-considerations-when-using-apache-distcp"></a>Considerazioni sulle prestazioni con Apache DistCp
+
+## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>Considerazioni sulle prestazioni con Apache Hadoop DistCp
+
 
 DistCp è un progetto Apache che usa un processo di mapping di MapReduce per trasferire i dati, gestire gli errori ed eseguire il ripristino. Assegna un elenco di file di origine a ogni attività di mapping. L'attività di mapping copia quindi tutti i file ricevuti in assegnazione nella destinazione. Esistono diverse tecniche per migliorare le prestazioni di DistCp.
 
@@ -86,14 +88,14 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ## <a name="metadata-migration"></a>Migrazione di metadati
 
-### <a name="hive"></a>Hive
+### <a name="apache-hive"></a>Apache Hive
 
 È possibile eseguire la migrazione del metastore Hive usando gli script o la replica di database.
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Migrazione del metastore Hive con gli script
 
-1. Generare le istruzioni DDL Hive da un metastore Hive locale. Questo passaggio può essere eseguito tramite uno [script Bash wrapper]. (https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-1. Modificare l'istruzione DDL generata per sostituire l'URL HDFS con gli URL WASB/ADLS/ABFS.
+1. Generare le istruzioni DDL Hive da un metastore Hive locale. Questo passaggio può essere eseguito tramite uno [script Bash wrapper](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Modificare l'istruzione DDL generata per sostituire l'URL Hadoop Distributed File System con gli URL WASB/ADLS/ABFS.
 1. Eseguire l'istruzione DDL aggiornata sul metastore dal cluster HDInsight.
 1. Assicurarsi che la versione del metastore Hive sia compatibile per il passaggio da sistemi locali a cloud.
 
@@ -106,7 +108,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 ```
 
-### <a name="ranger"></a>Ranger
+### <a name="apache-ranger"></a>Apache Ranger
 
 - Esportare i criteri locali di Ranger nei file xml.
 - Trasformare i percorsi basati su HDFS specifici del sistema locale in WASB/ADLS usando uno strumento come XSLT.

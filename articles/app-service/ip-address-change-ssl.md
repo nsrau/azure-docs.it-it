@@ -1,5 +1,5 @@
 ---
-title: Come preparare un cambio di indirizzo IP SSL - Azure
+title: Preparare un cambio di indirizzo IP SSL - Servizio app di Azure
 description: Se l'indirizzo IP SSL sta per essere modificato, questo articolo spiega come procedere in modo che l'app continui a funzionare anche dopo la modifica.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: e8558b4c3c7dafca8d4fff7e2aae0597a66c031d
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 4de20ba46d3c16d6cd7bde8e17efb0a6212bc771
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576543"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270791"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Come preparare un cambio di indirizzo IP SSL
 
@@ -31,7 +32,7 @@ Se si riceve una notifica di modifica dell'indirizzo IP SSL dell'app Servizio ap
 
 4.  Sotto l'intestazione **Impostazioni** fare clic su **Impostazioni SSL** nel riquadro di spostamento a sinistra.
 
-5. Nella sezione delle associazioni SSL selezionare il record del nome host. Nell'editor che si apre scegliere **SNI SSL** nel menu a discesa **Tipo SSL** e fare clic su **Aggiungi binding**. Quando compare il messaggio che avvisa della riuscita dell'operazione, l'indirizzo IP esistente è stato rilasciato.
+1. Nella sezione delle associazioni SSL selezionare il record del nome host. Nell'editor che si apre scegliere **SNI SSL** nel menu a discesa **Tipo SSL** e fare clic su **Aggiungi binding**. Quando compare il messaggio che avvisa della riuscita dell'operazione, l'indirizzo IP esistente è stato rilasciato.
 
 6.  Nella sezione **Associazioni SSL** selezionare di nuovo lo stesso record del nome host con il certificato. Nell'editor che si apre questa volta scegliere **SSL basato su IP** nel menu a discesa **Tipo SSL** e fare clic su **Aggiungi binding**. Quando compare il messaggio che avvisa della riuscita dell'operazione, è stato acquisito un nuovo indirizzo IP.
 

@@ -1,21 +1,22 @@
 ---
 title: Configurare i contenitori
-titlesuffix: Text Analytics - Cognitive Services - Azure
-description: Impostazioni di configurazione per i contenitori di Analisi del testo.
+titlesuffix: Text Analytics - Azure Cognitive Services
+description: Analisi del testo fornisce a ogni contenitore un framework di configurazione comune che consente di configurare e gestire con facilità le impostazioni di archiviazione, registrazione, telemetria e sicurezza dei contenitori.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 0f6b8fa27d2db45be2c677a52c53cff5847acf4a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 7e993b9ccc57359ac64186765b7b704535eb5a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634896"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086675"
 ---
 # <a name="configure-containers"></a>Configurare i contenitori
 
@@ -27,11 +28,11 @@ Le impostazioni di configurazione nei contenitori di Analisi del testo seguono u
 
 * [ApiKey](#apikey-configuration-setting)
 * [ApplicationInsights](#applicationinsights-configuration-settings)
-* [Authentication](#authentication-configuration-settings)
-* [Billing](#billing-configuration-setting)
+* [Autenticazione](#authentication-configuration-settings)
+* [Fatturazione](#billing-configuration-setting)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
-* [Logging](#logging-configuration-settings)
+* [Registrazione](#logging-configuration-settings)
 * [Mounts](#mounts-configuration-settings)
 
 Per specificare le impostazioni di configurazione quando si crea un'istanza di un contenitore dai contenitori di Analisi del testo, è possibile usare le [variabili di ambiente](#configuration-settings-as-environment-variables) o gli [argomenti della riga di comando](#configuration-settings-as-command-line-arguments).
@@ -76,7 +77,7 @@ Le impostazioni di configurazione della sezione `ApplicationInsights` consentono
 
 La tabella seguente illustra le impostazioni di configurazione supportate nella sezione `ApplicationInsights`.
 
-| Nome | Tipo di dati | Descrizione |
+| NOME | Tipo di dati | Descrizione |
 |------|-----------|-------------|
 | `InstrumentationKey` | string | Chiave di strumentazione dell'istanza di Application Insights a cui vengono inviati i dati di telemetria per il contenitore. Per altre informazioni, vedere [Application Insights per ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
 
@@ -86,13 +87,13 @@ Le impostazioni di configurazione di `Authentication` forniscono opzioni di sicu
 
 La tabella seguente illustra le impostazioni di configurazione supportate nella sezione `Authentication`.
 
-| Nome | Tipo di dati | Descrizione |
+| NOME | Tipo di dati | Descrizione |
 |------|-----------|-------------|
 | `ApiKey` | string o array | Chiavi di sottoscrizione di Azure usate dal contenitore per accedere ad altre risorse di Azure, se necessarie per il contenitore.<br/> Se il contenitore usa più di una chiave di sottoscrizione, il relativo valore viene specificato come matrice di stringhe. In caso contrario, viene usato un valore stringa per specificare una sola chiave di sottoscrizione usata dal contenitore. |
 
 ## <a name="billing-configuration-setting"></a>Impostazione di configurazione Billing
 
-L'impostazione di configurazione `Billing` specifica l'URI dell'endpoint della risorsa di Analisi del testo in Azure usata per tenere traccia delle informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e tale valore deve essere un URI dell'endpoint valido per una risorsa di Analisi del testo in Azure.
+L'impostazione di configurazione `Billing` specifica l'URI dell'endpoint della risorsa di Analisi del testo in Azure usata per controllare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e tale valore deve essere un URI dell'endpoint valido per una risorsa di Analisi del testo in Azure.
 
 > [!IMPORTANT]
 > Le impostazioni di configurazione [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) vengono usate insieme ed è necessario fornire valori validi per tutte e tre, altrimenti il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](how-tos/text-analytics-how-to-install-containers.md#billing) (Fatturazione).
@@ -104,13 +105,15 @@ L'impostazione di configurazione `Eula` indica che è stata accettata la licenza
 > [!IMPORTANT]
 > Le impostazioni di configurazione [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) vengono usate insieme ed è necessario fornire valori validi per tutte e tre, altrimenti il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](how-tos/text-analytics-how-to-install-containers.md#billing) (Fatturazione).
 
+I contenitori di Servizi cognitivi sono concessi in licenza in base al [contratto](https://go.microsoft.com/fwlink/?linkid=2018657) che disciplina l'uso di Azure. Se non si dispone di tale contratto, si accetta che l'uso di Azure sia disciplinato dal [Contratto di Sottoscrizione Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755), in cui sono incluse le [condizioni per l'uso dei Servizi Online](https://go.microsoft.com/fwlink/?linkid=2018760). Per le anteprime si accettano inoltre le [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Con l'uso del contenitore si acconsente a rispettare tali condizioni.
+
 ## <a name="fluentd-configuration-settings"></a>Impostazioni di configurazione di Fluentd
 
 La sezione `Fluentd` gestisce le impostazioni di configurazione per [Fluentd](https://www.fluentd.org), un agente di raccolta dati open source per la registrazione unificata. I contenitori di Analisi del testo includono un provider di registrazione Fluentd che consente al contenitore di scrivere dati di log e, facoltativamente, dati delle metriche in un server Fluentd.
 
 La tabella seguente illustra le impostazioni di configurazione supportate nella sezione `Fluentd`.
 
-| Nome | Tipo di dati | Descrizione |
+| NOME | Tipo di dati | Descrizione |
 |------|-----------|-------------|
 | `Host` | string | Indirizzo IP o nome host DNS del server Fluentd. |
 | `Port` | Integer | Porta del server Fluentd.<br/> Il valore predefinito è 24224. |
@@ -125,13 +128,13 @@ Le impostazioni di configurazione di `Logging` gestiscono il supporto di registr
 
 * [Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)  
   Provider di registrazione `Console` di ASP.NET Core. Tutti i valori predefiniti e le impostazioni di configurazione di ASP.NET Core per questo provider di registrazione sono supportati.
-* [Debug](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)  
+* [Eseguire il debug](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)  
   Provider di registrazione `Debug` di ASP.NET Core. Tutti i valori predefiniti e le impostazioni di configurazione di ASP.NET Core per questo provider di registrazione sono supportati.
 * Disco  
   Provider di registrazione JSON. Questo provider di registrazione scrive i dati di log nel montaggio di output.  
   Il provider di registrazione `Disk` supporta le impostazioni di configurazione seguenti:  
 
-  | Nome | Tipo di dati | Descrizione |
+  | NOME | Tipo di dati | Descrizione |
   |------|-----------|-------------|
   | `Format` | string | Formato di output dei file di log.<br/> **Nota:** per abilitare il provider di registrazione, questo valore deve essere impostato su `json`. Se questo valore viene specificato senza specificare anche un montaggio di output durante la creazione di un'istanza di un contenitore, si verifica un errore. |
   | `MaxFileSize` | Integer | Dimensione massima, espressa in megabyte (MB), di un file di log. Quando la dimensione del file di log corrente corrisponde a questo valore o lo supera, il provider di registrazione avvia un nuovo file di log. Se viene specificato -1, la dimensione del file di log è limitata solo dalla dimensione massima del file del montaggio di output eventualmente presente. Il valore predefinito è 1. |
@@ -149,7 +152,7 @@ Tuttavia, dal momento che si tratta di contenitori Docker, è possibile usare le
 
 La tabella seguente illustra le impostazioni di configurazione supportate nella sezione `Mounts`.
 
-| Nome | Tipo di dati | Descrizione |
+| NOME | Tipo di dati | Descrizione |
 |------|-----------|-------------|
 | `Input` | string | Destinazione del montaggio di input. Il valore predefinito è `/input`. |
 | `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`. |
@@ -160,9 +163,9 @@ Per impostazione predefinita, ogni contenitore può supportare un *montaggio di 
 
 | Contenitore | Montaggio di input | Montaggio di output |
 |-----------|-------------|--------------|
-|[Estrazione frasi chiave](#working-with-key-phrase-extraction) | Non supportato | Facoltativo |
-|[Rilevamento lingua](#working-with-language-detection) | Non supportato | Facoltativo |
-|[Analisi del sentiment](#working-with-sentiment-analysis) | Non supportato | Facoltativo |
+|[Estrazione frasi chiave](#working-with-key-phrase-extraction) | Non supportate | Facoltativo |
+|[Rilevamento lingua](#working-with-language-detection) | Non supportate | Facoltativo |
+|[Analisi del sentiment](#working-with-sentiment-analysis) | Non supportate | Facoltativo |
 
 È possibile specificare il montaggio di input oppure output tramite l'opzione `--mount` nel comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) usato per creare un'istanza di un contenitore da un'immagine di contenitore scaricata. Per impostazione predefinita, il montaggio di input usa `/input` come destinazione e il montaggio di output usa `/output` come destinazione. Qualsiasi opzione di archiviazione di Docker disponibile per l'host del contenitore Docker può essere specificata nell'opzione `--mount`.
 

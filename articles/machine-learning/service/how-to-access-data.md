@@ -1,6 +1,7 @@
 ---
-title: Usare gli archivi dati in Azure Machine Learning per accedere ai dati
-description: Come usare gli archivi dati per accedere alle risorse di archiviazione dei dati di accesso durante il training
+title: Accesso ai dati negli archivi dati per il training
+titleSuffix: Azure Machine Learning service
+description: Informazioni su come usare gli archivi dati per accedere alle risorse di archiviazione dei dati di accesso durante il training con il servizio Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +10,15 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ef183397cf7ca3f1f561f6951290b722df31e5ed
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.custom: seodec18
+ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620201"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187144"
 ---
-# <a name="how-to-access-data-during-training"></a>Procedura per accedere ai dati durante il training
+# <a name="access-data-during-training-from-your-datastores"></a>Accedere ai dati durante il training dagli archivi dati
 Usare un archivio dati per interagire con i dati nei flussi di lavoro di Azure Machine Learning e accedervi.
 
 Nel servizio Azure Machine Learning un archivio dati è un'astrazione per [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction). L'archivio dati può usare un contenitore [Blob di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) o una [Condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) come risorsa di archiviazione sottostante. 

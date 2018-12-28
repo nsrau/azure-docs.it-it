@@ -1,18 +1,18 @@
 ---
-title: Eseguire attività in contenitori in istanze di contenitori di Azure con criteri di riavvio
+title: Usare i criteri di riavvio con le attività in contenitori in Istanze di Azure Container
 description: Informazioni su come usare Istanze di contenitore di Azure per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 12/10/2018
 ms.author: danlep
-ms.openlocfilehash: c9e3fadd5164ca0d770f36ba95c30db933efcd39
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853892"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321034"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Eseguire attività in contenitori con criteri di riavvio
 
@@ -24,7 +24,7 @@ Gli esempi presentati in questo articolo usano l'interfaccia della riga di coman
 
 ## <a name="container-restart-policy"></a>Criteri di riavvio del contenitore
 
-Quando si crea un contenitore in Istanze di contenitore di Azure, è possibile specificare una delle tre impostazioni dei criteri di riavvio.
+Quando si crea un [gruppo di contenitori](container-instances-container-groups.md) in Istanze di Azure Container, è possibile specificare una delle tre impostazioni dei criteri di riavvio.
 
 | Criterio di riavvio   | DESCRIZIONE |
 | ---------------- | :---------- |
@@ -93,6 +93,24 @@ Output:
 
 Questo esempio mostra l'output che lo script ha inviato a STDOUT. Le attività nei contenitori, tuttavia, potrebbero invece scrivere l'output in un archivio permanente per il recupero successivo. Ad esempio in una [condivisione file di Azure](container-instances-mounting-azure-files-volume.md).
 
+## <a name="manually-stop-and-start-a-container-group"></a>Arrestare e avviare manualmente un gruppo di contenitori
+
+Indipendentemente dai criteri di riavvio configurati per un [gruppo di contenitori](container-instances-container-groups.md), si potrebbe voler arrestare o avviare manualmente un gruppo di contenitori.
+
+* **Arresto**: è possibile arrestare manualmente un gruppo di contenitori in esecuzione in qualsiasi momento, ad esempio usando il comando [az container stop][az-container-stop]. Per alcuni carichi di lavoro dei contenitori, si potrebbe voler arrestare un gruppo di contenitori dopo un periodo definito per risparmiare sui costi. 
+
+  L'arresto di un gruppo di contenitori termina e ricicla i contenitori nel gruppo. Questa operazione non mantiene lo stato dei contenitori. 
+
+* **Avvio**: quando un gruppo di contenitori viene arrestato, sia perché i contenitori sono terminati singolarmente o perché il gruppo è stato arrestato manualmente, è possibile usare l'[API di avvio contenitori](/rest/api/container-instances/containergroups/start) oppure il portale di Azure per avviare manualmente i contenitori nel gruppo. Se l'immagine di un contenitore viene aggiornata, verrà inserita una nuova immagine. 
+
+  L'avvio di un gruppo di contenitori inizia una nuova distribuzione con la stessa configurazione del contenitore. Questa azione consente di riusare rapidamente la configurazione di un gruppo di contenitori nota che funziona come previsto. Non è necessario creare un nuovo gruppo di contenitori per eseguire lo stesso carico di lavoro.
+
+* **Riavvio**: è possibile riavviare un gruppo di contenitori durante l'esecuzione, ad esempio, usando il comando [az container restart][az-container-restart]. Questa operazione riavvia tutti i contenitori nel gruppo di contenitori. Se l'immagine di un contenitore viene aggiornata, verrà inserita una nuova immagine. 
+
+  Il riavvio di un gruppo di contenitori è utile quando si desidera risolvere un problema di distribuzione. Ad esempio, se una limitazione temporanea delle risorse impedisce la corretta esecuzione dei contenitori, riavviare il gruppo potrebbe risolvere il problema.
+
+Dopo aver avviato o riavviato manualmente un gruppo di contenitori, questo funzionerà in base ai criteri di riavvio configurati.
+
 ## <a name="configure-containers-at-runtime"></a>Configurare i contenitori durante il runtime
 
 Quando si crea un'istanza del contenitore, è possibile impostarne le **variabili di ambiente**, nonché specificare una **riga di comando** personalizzata da eseguire quando il contenitore viene avviato. È possibile usare queste impostazioni nei processi batch per preparare ogni contenitore con la configurazione specifica dell'attività.
@@ -103,9 +121,9 @@ Impostare le variabili di ambiente nel contenitore per offrire la configurazione
 
 Ad esempio, è possibile modificare il comportamento dello script nel contenitore di esempio, specificando le variabili di ambiente seguenti quando si crea l'istanza del contenitore:
 
-*NumWords*: il numero di parole inviate a STDOUT.
+*NumWords*: Numero di parole inviate a STDOUT.
 
-*MinLength*: il numero minimo di caratteri in una parola perché venga contata. Un numero più alto ignora le parole comuni, ad esempio "di" e "il".
+*MinLength*: Numero minimo di caratteri in una parola perché venga contata. Un numero più alto ignora le parole comuni, ad esempio "di" e "il".
 
 ```azurecli-interactive
 az container create \
@@ -131,6 +149,8 @@ Output:
  ('ROSENCRANTZ', 69),
  ('GUILDENSTERN', 54)]
 ```
+
+
 
 ## <a name="command-line-override"></a>Eseguire l'override della riga di comando
 
@@ -174,5 +194,7 @@ Per informazioni dettagliate su come mantenere l'output dei contenitori che veng
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

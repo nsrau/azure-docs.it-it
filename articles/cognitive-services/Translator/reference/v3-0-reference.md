@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853354"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870403"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -31,20 +31,41 @@ La versione 3 dell'API Traduzione testuale fornisce un'API Web moderna basata su
 
 ## <a name="base-urls"></a>URL di base
 
-L'API Traduzione testuale v3.0 è disponibile nel cloud seguente:
+Microsoft Translator è accessibile da più posizioni di data center. Attualmente tali posizioni si trovano in sei [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions):
 
-| DESCRIZIONE | Area | URL di base                                        |
-|-------------|--------|-------------------------------------------------|
-| Azure       | Globale | api.cognitive.microsofttranslator.com           |
+* **Americhe:** Stati Uniti occidentali 2 e Stati Uniti centro-occidentali 
+* **Asia Pacifico:** Asia sud-orientale e Corea meridionale
+* **Europa:** Europa settentrionale e Europa occidentale
+
+Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsoft vengono gestite dal data center più vicino all'area di origine della richiesta. In caso di errore del data center la richiesta può essere instradata all'esterno dell'area.
+
+Per fare in modo che la richiesta venga gestita da un data center specifico, cambiare l'endpoint Globale nella richiesta API nell'endpoint desiderato a livello di area:
+
+|Descrizione|Area|URL di base|
+|:--|:--|:--|
+|Azure|Globale|  api.cognitive.microsofttranslator.com|
+|Azure|America del Nord|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
+|Azure|Asia/Pacifico|    api-apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>Authentication
 
-Sottoscrivere l'API Traduzione testuale in Servizi cognitivi Microsoft e usare la chiave di sottoscrizione (disponibile nel portale di Azure) per l'autenticazione. 
+Sottoscrivere l'API Traduzione testuale o l'[offerta per Servizi cognitivi integrati](https://azure.microsoft.com/pricing/details/cognitive-services/) in Servizi cognitivi Microsoft e usare la chiave di sottoscrizione (disponibile nel portale di Azure) per eseguire l'autenticazione. 
 
-Il modo più semplice consiste nel passare la chiave privata di Azure al servizio Translator usando l'intestazione della richiesta `Ocp-Apim-Subscription-Key`.
+Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizione. Questa tabella spiega come usare ogni intestazione:
 
-Un'alternativa è quella di usare la chiave privata per ottenere un token di autorizzazione dal servizio token, che verrà a sua volta passato al servizio Translator usando l'intestazione della richiesta `Authorization`. Per ottenere un token di autorizzazione, effettuare una richiesta `POST` all'URL seguente:
+|Intestazioni|Descrizione|
+|:----|:----|
+|Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
+|Authorization|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
+|Ocp-Apim-Subscription-Region|*Usare con la sottoscrizione integrata di Servizi cognitivi se si passa una chiave privata integrata.*<br/>Il valore corrisponde all'area della sottoscrizione integrata. Questo valore è facoltativo quando non si usa una sottoscrizione integrata.|
+
+###  <a name="secret-key"></a>Chiave privata
+La prima opzione consiste nell'eseguire l'autenticazione usando l'intestazione `Ocp-Apim-Subscription-Key`. Aggiungere semplicemente l'intestazione `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` alla richiesta.
+
+### <a name="authorization-token"></a>Token di autorizzazione
+In alternativa, è possibile scambiare la chiave privata con un token di accesso. Questo token viene incluso in ogni richiesta come intestazione `Authorization`. Per ottenere un token di autorizzazione, effettuare una richiesta `POST` all'URL seguente:
 
 | Ambiente     | URL servizio di autenticazione                                |
 |-----------------|-----------------------------------------------------------|
@@ -55,6 +76,7 @@ Di seguito sono riportati esempi di richieste per ottenere un token con una chia
 ```
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+
 // Pass secret key using query string parameter
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
@@ -67,20 +89,21 @@ Authorization: Bearer <Base64-access_token>
 
 Un token di autenticazione è valido per 10 minuti. Il token deve essere riutilizzato quando si effettuano più chiamate alle API del servizio Translator. Tuttavia, se il programma effettua richieste all'API del servizio Translator per un periodo di tempo prolungato, il programma deve richiedere un nuovo token di accesso a intervalli regolari (ad esempio, ogni 8 minuti).
 
-Riassumendo, una richiesta client all'API del servizio Translator includerà un'intestazione dell'autorizzazione ricavata dalla tabella seguente:
+### <a name="all-in-one-subscription"></a>Sottoscrizione integrata
 
-<table width="100%">
-  <th width="30%">Intestazioni</th>
-  <th>DESCRIZIONE</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td>*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.</td>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.</td>
-  </tr>
-</table> 
+L'ultima opzione di autenticazione consiste nell'usare una sottoscrizione integrata di Servizi cognitivi. In questo modo è possibile usare una singola chiave privata per autenticare le richieste per più servizi. 
+
+Quando si usa una chiave privata integrata, è necessario includere due intestazioni di autenticazione nella richiesta. La prima passa la chiave privata, mentre la seconda specifica l'area associata alla sottoscrizione. 
+* `Ocp-Api-Subscription-Key`
+* `Ocp-Apim-Subscription-Region`
+
+Se si passa la chiave privata nella stringa di query con il parametro `Subscription-Key`, è necessario specificare l'area con il parametro di query `Subscription-Region`.
+
+Se si usa un bearer token, è necessario ottenere il token dall'endpoint di area: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus` e `westus2`.
+
+L'area è obbligatoria per la sottoscrizione integrata dell'API Traduzione testuale.
 
 ## <a name="errors"></a>Errors
 
@@ -102,7 +125,7 @@ Ad esempio, un cliente con una sottoscrizione della versione di valutazione grat
 ```
 Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. Codici errore comuni sono:
 
-| Codice | DESCRIZIONE |
+| Codice | Descrizione |
 |:----|:-----|
 | 400000| Uno degli input della richiesta non è valido.|
 | 400001| Il parametro "scope" non è valido.|

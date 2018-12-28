@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f133af5ec077821607bf3e942c8a931808d34fc
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953588"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337536"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connettere reti virtuali da diversi modelli di distribuzione usando PowerShell
 
@@ -34,7 +34,7 @@ I passaggi seguenti illustrano le impostazioni necessarie per configurare un gat
 
 ### <a name="pre"></a>Prerequisiti
 
-* Entrambe le reti virtuali sono già state create. Se è necessario creare una rete virtuale di Resource Manager, vedere [Creare una rete virtuale](../virtual-network/quick-create-powershell.md#create-a-virtual-network). Per creare una rete virtuale classica, vedere [Creare una rete virtuale classica](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
+* Entrambe le reti virtuali sono già state create. Se è necessario creare una rete virtuale di Resource Manager, vedere [Creare un gruppo di risorse e una rete virtuale](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Per creare una rete virtuale classica, vedere [Creare una rete virtuale classica](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * Gli intervalli di indirizzi per le reti virtuali non si sovrappongono l'uno con l'altro o non si sovrappongano con gli intervalli delle eventuali altre connessioni a cui i gateway potrebbero essere collegati.
 * Sono stati installati i cmdlet di PowerShell più recenti. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) . Assicurarsi di installare sia i cmdlet di Gestione dei servizi (SM) che i cmdlet di Resource Manager (RM). 
 
@@ -50,7 +50,7 @@ Spazi degli indirizzi della rete virtuale = 10.0.0.0/24 <br>
 Subnet-1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
 Nome della rete locale = RMVNetLocal <br>
-GatewayType = DynamicRouting
+ GatewayType = DynamicRouting
 
 **Impostazioni della rete virtuale di Resource Manager**
 
@@ -63,7 +63,7 @@ Località = Stati Uniti orientali <br>
 Nome IP pubblico del gateway = gwpip <br>
 Gateway di rete locale = ClassicVNetLocal <br>
 Nome gateway di rete virtuale = RMGateway <br>
-Configurazione di indirizzamento IP del gateway = gwipconfig
+ Configurazione di indirizzamento IP del gateway = gwipconfig
 
 ## <a name="createsmgw"></a>Sezione 1: Configurare una rete virtuale classica
 ### <a name="1-download-your-network-configuration-file"></a>1. Eseguire il download del file di configurazione di rete
@@ -263,7 +263,7 @@ In questa sezione viene usata la rete virtuale classica. Viene sostituito l'indi
 ## <a name="connect"></a>Sezione 4: Creazione di una connessione tra i gateway
 La creazione di una connessione tra i gateway richiede PowerShell. Potrebbe essere necessario aggiungere l'account Azure per usare la versione classica dei cmdlet di PowerShell. A tale scopo, usare **Add-AzureAccount**.
 
-1. Nella console di PowerShell impostare la chiave condivisa. Prima di eseguire i cmdlet, vedere i nomi esatti previsti da Azure nel file di configurazione di rete scaricato. Quando si specifica il nome di una rete virtuale che contiene spazi, racchiudere il valore tra virgolette singole.<br><br>Nell'esempio seguente **-VNetName** è il nome della rete virtuale classica, mentre **-LocalNetworkSiteName** è il nome specificato per il sito della rete locale. **-SharedKey** è un valore che è possibile generare e specificare. Per questo esempio è stato usato "abc123", ma è possibile generare e usare un elemento più complesso. È importante che il valore specificato qui sia lo stesso valore specificato nel passaggio successivo quando si crea la connessione. Il valore restituito deve mostrare lo **stato: Operazione completata**.
+1. Nella console di PowerShell impostare la chiave condivisa. Prima di eseguire i cmdlet, vedere i nomi esatti previsti da Azure nel file di configurazione di rete scaricato. Quando si specifica il nome di una rete virtuale che contiene spazi, racchiudere il valore tra virgolette singole.<br><br>Nell'esempio seguente **-VNetName** è il nome della rete virtuale classica, mentre **-LocalNetworkSiteName** è il nome specificato per il sito della rete locale. **-SharedKey** è un valore che è possibile generare e specificare. Per questo esempio è stato usato "abc123", ma è possibile generare e usare un elemento più complesso. È importante che il valore specificato qui sia lo stesso valore specificato nel passaggio successivo quando si crea la connessione. Il valore restituito deve mostrare lo **stato di operazione completata**.
 
   ```azurepowershell
   Set-AzureVNetGatewayKey -VNetName ClassicVNet `
