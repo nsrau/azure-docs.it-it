@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: cb3584101dea4dc8d8d888632175415480a6a1b3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b37626fe899bf7ee49bd71021631e21dc36b3963
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581529"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315622"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Controllare l'uso dei servizi gratuiti inclusi con l'account gratuito di Azure 
 
@@ -27,7 +27,7 @@ I servizi non inclusi nell'account gratuito di Azure non vengono addebitati finc
 
 ## <a name="check-usage-on-the-azure-portal"></a>Controllare l'uso sul portale di Azure
 
-1.  Accedere al [Portale di Azure]( http://portal.azure.com).
+1.  Accedere al [portale di Azure](https://portal.azure.com).
 
 2.  Nell'area di spostamento a sinistra selezionare **Tutti i servizi**.
 
@@ -49,20 +49,19 @@ I servizi non inclusi nell'account gratuito di Azure non vengono addebitati finc
 
     ![Screenshot che mostra l'uso dei servizi gratuiti](./media/billing-check-usage-of-free-services/subscription-usage-free-services.png)
 
-    La tabella contiene le colonne seguenti:
+    La tabella è composta dalle colonne seguenti:
 
-* **Nome misuratore:** identifica l'unità di misura del contatore utilizzato. Per informazioni sul mapping del misuratore di servizi, vedere [Comprendere il mapping del misuratore di servizi gratuiti](billing-understand-free-service-meter-mapping.md). 
-* **Uso/Limite:** uso e limite del mese attuale per il misuratore. Questa informazione è disponibile anche nella barra di stato.
-* **Stato**: stato dell'uso del misuratore. In base al modello di utilizzo è possibile avere uno di questi valori.
+* **Nome misuratore:** Identifica l'unità di misura del contatore utilizzato. Per informazioni sul mapping del misuratore di servizi, vedere [Comprendere il mapping del misuratore di servizi gratuiti](billing-understand-free-service-meter-mapping.md).
+* **Utilizzo/Limite:** utilizzo e limite del mese attuale per il misuratore. Questa informazione è disponibile anche nella barra di stato.
+* **Stato:** stato dell'uso del misuratore. In base al modello di utilizzo è possibile avere uno di questi valori.
   * **Non in uso:** il misuratore non è stato usato o l'uso del misuratore non ha raggiunto il sistema di fatturazione.
-  * **Il limite è stato superato il giorno \<Date>:** il limite per il misuratore è stato superato il giorno \<Date>.
+  * **Il limite è stato superato il giorno \<Data>:** il limite per il misuratore è stato superato il giorno \<Data>.
   * **Il superamento è improbabile:** è improbabile che il limite per il misuratore verrà superato.
-  * **Il limite verrà superato il giorno \<Date>:** è probabile che il limite per il misuratore verrà superato il giorno \<Date>.
-
+  * **Data del superamento \<Data>:** è improbabile che il limite per il misuratore verrà superato il giorno \<Data>.
 
 ## <a name="check-usage-through-the-usage-file"></a>Controllare l'utilizzo tramite il file di dati di utilizzo
 
-Il file di dati di utilizzo fornisce informazioni dettagliate per la sottoscrizione di Azure. È possibile scaricare il file di dati di utilizzo mensile e giornaliero dal Centro account di Azure. Per informazioni su come scaricare il file di dati di utilizzo e comprendere l'accesso richiesto, vedere [Ottenere la fattura e i dati di utilizzo](billing-download-azure-invoice-daily-usage-date.md). Per informazioni sulle colonne nel file di dati di utilizzo, vedere [Informazioni sulle condizioni dell'utilizzo](billing-understand-your-usage.md). 
+Il file di dati di utilizzo fornisce informazioni dettagliate per la sottoscrizione di Azure. È possibile scaricare il file di dati di utilizzo mensile e giornaliero dal Centro account di Azure. Per informazioni su come scaricare il file di dati di utilizzo e comprendere l'accesso richiesto, vedere [Ottenere la fattura e i dati di utilizzo](billing-download-azure-invoice-daily-usage-date.md). Per informazioni sulle colonne nel file di dati di utilizzo, vedere [Informazioni sulle condizioni dell'utilizzo](billing-understand-your-usage.md).
 
 Il file di dati di utilizzo contiene informazioni sui dati di utilizzo per i servizi gratuiti e a pagamento. I misuratori dei servizi gratuiti hanno la parola **Gratuito** alla fine del nome del misuratore. Per trovare i misuratori gratuiti, aprire il file in Excel e filtrare la **colonna Categoria misuratore** per le celle che contengono il testo **- Gratuito** (Usare il filtro Filtri per testo &rarr; Contiene) &nbsp;
 

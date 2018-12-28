@@ -1,5 +1,6 @@
 ---
-title: Creare un servizio di bilanciamento del carico pubblico con IPv6 - Interfaccia della riga di comando di Azure | Microsoft Docs
+title: Creare un servizio di bilanciamento del carico pubblico con IPv6 - Interfaccia della riga di comando di Azure
+titlesuffix: Azure Load Balancer
 description: Informazioni su come creare un servizio di bilanciamento del carico pubblico con IPv6 tramite l'interfaccia della riga di comando di Azure.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ keywords: ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobil
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: e3d6611c8a5c6faf3d1e070d1bafa2027adfc0cb
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739839"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53142020"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Creare un servizio di bilanciamento del carico pubblico con IPv6 tramite l'interfaccia della riga di comando di Azure
 
@@ -46,8 +48,8 @@ Per distribuire un servizio di bilanciamento del carico, creare e configurare gl
 
 * **Configurazione di IP front-end**: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
 * **Pool di indirizzi back-end**: contiene le interfacce di rete (NIC) per le macchine virtuali per la ricezione del traffico di rete dal servizio di bilanciamento del carico.
-* **Regole di bilanciamento del carico**: contiene le regole che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta nel pool di indirizzi back-end.
-* **Regole NAT in ingresso**: contiene le regole NAT (Network Address Translation) che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta per una macchina virtuale specifica nel pool di indirizzi back-end.
+* **Regole di bilanciamento del carico**: contiene le regole che eseguono il mapping di una porta pubblica nel servizio di bilanciamento del carico a una porta nel pool di indirizzi back-end.
+* **Regole NAT in ingresso**: contiene le regole NAT (Network Address Translation) che eseguono il mapping di una porta pubblica nel servizio di bilanciamento del carico a una porta per una macchina virtuale specifica nel pool di indirizzi back-end.
 * **Probe**: contiene i probe di integrità usati per verificare la disponibilità di istanze di macchine virtuali nel pool di indirizzi back-end.
 
 ## <a name="set-up-azure-cli"></a>Configurare l'interfaccia della riga di comando di Azure

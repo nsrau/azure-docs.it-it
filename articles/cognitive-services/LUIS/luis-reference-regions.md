@@ -1,21 +1,22 @@
 ---
-title: Regioni ed endpoint di pubblicazione - LUIS
+title: Regioni di pubblicazione ed endpoint
 titleSuffix: Azure Cognitive Services
-description: La regione in cui si pubblica l'app LUIS corrisponde alla regione o alla posizione specificata nel portale di Azure quando si crea una chiave endpoint LUIS di Azure. Quando si pubblica un'app, LUIS genera automaticamente un URL endpoint per la regione associata alla chiave. Per pubblicare un'app LUIS in più regioni, è necessaria almeno una chiave per regione.
+description: La regione in cui si pubblica l'app LUIS corrisponde alla regione o alla posizione specificata nel portale di Azure quando si crea una chiave endpoint LUIS di Azure. Quando si pubblica un'app, LUIS genera automaticamente un URL endpoint per la regione associata alla chiave.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 205a17a985986aab8039afe824e7e872a9885169
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5d8d3d4d55d4d03eb6d6a62898823158812d7c1f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039412"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135832"
 ---
 # <a name="regions-and-keys"></a>Regioni e chiavi
 

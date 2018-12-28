@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3da427974c4a270a7a743bb81d2376cf61b77390
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335062"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436909"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure
 
@@ -24,7 +24,7 @@ Un amministratore globale o un utente a cui è assegnato uno dei ruoli della dir
 In seguito all'aggiunta di un utente guest alla directory, è possibile inviare all'utente guest un collegamento diretto a un'app condivisa oppure l'utente guest può selezionare l'URL di riscatto nel messaggio di posta elettronica di invito. Per informazioni sul processo di riscatto, vedere [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md).
 
 > [!IMPORTANT]
-> È necessario seguire i passaggi descritti in [Procedura: Aggiungere le informazioni sulla privacy della propria organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement) per aggiungere l'URL dell'informativa sulla privacy della propria organizzazione. Come parte del primo processo riscatto per il primo invito, un utente invitato deve accettare le condizioni sulla privacy per continuare. 
+> È necessario seguire le procedure illustrate in [Procedura: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement) per aggiungere l'URL dell'informativa sulla privacy dell'organizzazione. Come parte del primo processo riscatto per il primo invito, un utente invitato deve accettare le condizioni sulla privacy per continuare. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Aggiungere utenti guest alla directory
 
@@ -37,6 +37,9 @@ Per aggiungere utenti di Collaborazione B2B alla directory, seguire questa proce
 
    ![Mostra la posizione dell'opzione Nuovo utente guest nell'interfaccia utente](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
+   > [!NOTE]
+   > L'opzione **Nuovo utente guest** è disponibile anche nella pagina **Relazioni aziendali**. In **Azure Active Directory**, nell'area **Gestisci**, selezionare **Relazioni aziendali**.
+
 5. In **Nome utente** immettere l'indirizzo di posta elettronica dell'utente esterno. Se si vuole, includere un messaggio di benvenuto. Ad esempio: 
 
    ![Mostra la posizione dell'opzione Nuovo utente guest nell'interfaccia utente](./media/add-users-administrator/InviteGuest.png) 

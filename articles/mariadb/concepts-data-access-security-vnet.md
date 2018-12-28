@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 31eec9e146c64e2310ab27414952593140f11cb2
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 8c4f14849c39414217837a3c86fb6e067cd87c90
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276920"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434342"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usare gli endpoint e le regole di servizio di rete virtuale per Database di Azure per MariaDB
 
@@ -35,9 +35,9 @@ Per creare una regola di rete virtuale, devono innanzitutto essere disponibili u
 
 **Rete virtuale:** è possibile associare reti virtuali alla sottoscrizione di Azure.
 
-**Subnet:** una rete virtuale contiene **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
+**Subnet:** una rete virtuale contiene una o più **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
 
-**Endpoint del servizio Rete virtuale:** un [endpoint del servizio Rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori di proprietà includono uno o più nomi formali di tipi di servizi Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL. Questo tag di servizio si applica ai servizi di Database di Azure per MariaDB, MySQL e PostgreSQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i server di Database SQL di Azure, Database di Azure per MariaDB, Database di Azure per MySQL e Database di Azure per PostgreSQL nella subnet.
+**Endpoint del servizio Rete virtuale:** un [endpoint del servizio Rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL. Questo tag di servizio si applica ai servizi di Database di Azure per MariaDB, MySQL e PostgreSQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i server di Database SQL di Azure, Database di Azure per MariaDB, Database di Azure per MySQL e Database di Azure per PostgreSQL nella subnet.
 
 **Regola di rete virtuale:** una regola di rete virtuale per il server di Database di Azure per MariaDB è una subnet presente nell'elenco di controllo di accesso (ACL) del server di Database di Azure per MariaDB. Per essere inclusa nell'elenco ACL del server di Database di Azure per MariaDB, la subnet deve contenere il nome tipo **Microsoft.Sql**.
 
@@ -93,7 +93,7 @@ Ogni regola di rete virtuale si applica all'intero server di Database di Azure p
 
 I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint del servizio Rete virtuale. Ogni ruolo indicato di seguito deve svolgere determinate azioni:
 
-- **Amministratore di rete:**&nbsp; attivare l'endpoint.
+- **Amministratore di rete:** &nbsp; attivare l'endpoint.
 - **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server di Database di Azure per MariaDB.
 
 *Alternativa del controllo degli accessi in base al ruolo:*
@@ -117,7 +117,7 @@ Per Database di Azure per MariaDB, la funzionalità delle regole di rete virtual
 
 - Le regole della rete virtuale si applicano solo alle reti virtuali di Azure Resource Manager e non alle reti con un [modello di distribuzione classica][resource-manager-deployment-model-568f].
 
-- L'attivazione degli endpoint di servizio di rete virtuale su Database di Azure per MariaDB tramite il tag di servizio **Microsoft.Sql** abilita anche gli endpoint per tutti i servizi di Database di Azure: Database di Azure per MariaDB, Database di Azure per MySQL, Database di Azure per PostgreSQL, Database SQL di Azure e Azure SQL Data Warehouse.
+- L'attivazione degli endpoint di servizio rete virtuale nel Database di Azure per MariaDB usando il tag di servizio **Microsoft. SQL** abilita anche gli endpoint per tutti i servizi di Database di Azure: Database di Azure per MariaDB, Database di Azure per MySQL, Database di Azure per PostgreSQL, database SQL di Azure e Azure SQL Data Warehouse.
 
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 
@@ -149,7 +149,7 @@ Per articoli relativi alla creazione di regole di rete virtuale, vedere:
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 -->
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

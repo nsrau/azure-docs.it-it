@@ -1,12 +1,11 @@
 ---
 title: Moduli personalizzati di Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
-description: Scoprire moduli personalizzati di Machine Learning in Azure AI Gallery.
+description: Scoprire moduli personalizzati di Machine Learning in Azure AI Gallery. I moduli personalizzati espandono le funzionalità di Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: a504bcfbbcd70c1d6fc8402d4c232e7e8a5476b0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 92067a93a1f67711df0312f4daf484a577ff14d1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313742"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273197"
 ---
 # <a name="machine-learning-studio-discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Machine Learning Studio: Scoprire moduli personalizzati di Machine Learning in Azure AI Gallery
 
@@ -94,5 +93,5 @@ Per usare un modulo importato:
 
 **[Passare a Gallery](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

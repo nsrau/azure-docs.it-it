@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5e24ec6124b6a5f7dea66e33018dffc753966075
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955258"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141969"
 ---
 # <a name="dtu-based-service-tiers"></a>Livelli di servizio basati su DTU
 
@@ -31,6 +31,7 @@ I livelli di servizio basati su DTU si differenziano in base a diverse dimension
 ## <a name="compare-the-dtu-based-service-tiers"></a>Confronto tra i livelli di servizio basati su DTU
 
 La scelta di un livello di servizio dipende soprattutto dai requisiti in termini di continuità aziendale, archiviazione e prestazioni.
+
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:|
 |Carico di lavoro di destinazione|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione||
@@ -71,7 +72,7 @@ Le dimensioni di calcolo per i database singoli sono espresse in unità di trans
 ||||||
 
 > [!IMPORTANT]
-> Nel livello Premium è attualmente disponibile più di 1 TB di archiviazione in tutte le aree tranne le seguenti: Stati Uniti centro-occidentali, Cina orientale, USDoDCentral, Germania centrale, USDoDEast, US Gov Southwest, USGov Iowa, Germania nord-orientale, Cina settentrionale. Nelle altre aree la quantità massima di risorse di archiviazione nel livello Premium è limitata a 1 TB. Vedere [Limitazioni correnti per P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Nel livello Premium è attualmente disponibile uno spazio di archiviazione superiore a 1 TB in tutte le aree tranne le seguenti: Stati Uniti centro-occidentali, Cina orientale, US DoD (area centrale), Germania centrale, US DoD (area orientale), US Gov (area sudoccidentale), US Gov (Iowa) Germania nord-orientale, Cina settentrionale. Nelle altre aree la quantità massima di risorse di archiviazione nel livello Premium è limitata a 1 TB. Vedere [Limitazioni correnti per P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 

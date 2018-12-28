@@ -1,5 +1,5 @@
 ---
-title: Scegliere un piano tariffario o SKU per il servizio Ricerca di Azure | Microsoft Docs
+title: Scegliere un piano tariffario o SKU per il servizio Ricerca di Azure - Ricerca di Azure
 description: 'È possibile effettuare il provisioning di Ricerca di Azure per questi SKU: Gratuito, Basic e Standard; il piano Standard è disponibile in più configurazioni di risorse e livelli di capacità.'
 services: search
 author: HeidiSteen
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.custom: seodec2018
+ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785308"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315554"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Scegliere un piano tariffario per Ricerca di Azure
 

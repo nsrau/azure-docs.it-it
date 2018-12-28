@@ -1,10 +1,12 @@
 ---
-title: Effettuare il provisioning di una macchina virtuale di data science CentOS di Linux in Azure | Microsoft Docs
+title: Creare una Data Science Virtual Machine CentOS Linux
+titleSuffix: Azure
 description: Configurare e creare una macchina virtuale Linux per l'analisi scientifica dei dati in Azure per eseguire analisi dei dati e per l'apprendimento automatico.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -14,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: ca3a0e9a8c63ddc9a5c2ca34faffc683d0324321
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 253934d450619ca67e429fbf396a5fed5b71a267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262554"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081864"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale di data science CentOS di Linux in Azure
 
@@ -35,7 +37,7 @@ La macchina virtuale Linux per l'analisi scientifica dei dati è una macchina vi
 * Interfaccia della riga di comando di Azure per la gestione delle risorse di Azure
 * Database PostgresSQL
 * Strumenti di Machine Learning
-  * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): toolkit per software di apprendimento avanzato sviluppato da Microsoft Research.
+  * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): toolkit per software di Deep Learning sviluppato da Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema di apprendimento automatico rapido che supporta tecniche come hash, allreduce, reduction, learning2search, nonché apprendimento online, attivo e interattivo.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): strumento che consente un'implementazione dell'albero con boosting rapida e accurata.
   * [Rattle](https://togaware.com/rattle/) (R Analytical Tool To Learn Easily): strumento che rende semplice la fase introduttiva all'analisi dei dati e al Machine Learning in R, grazie a funzionalità di esplorazione e modellazione dei dati basate su GUI con generazione automatica di codice R.
@@ -62,7 +64,7 @@ Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti c
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di creare una macchina virtuale Linux per l'analisi scientifica dei dati, è necessario avere gli elementi seguenti:
 
-* **Sottoscrizione di Azure**: per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
+* **Sottoscrizione di Azure**: Per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
 * **Account di archiviazione di Azure**: per crearne uno, vedere [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md). In alternativa, se non si vuole usare un account esistente è possibile creare l'account di archiviazione come parte del processo di creazione della macchina virtuale.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Creare la macchina virtuale Linux per l'analisi scientifica dei dati
@@ -74,12 +76,12 @@ Ecco i passaggi necessari per creare un'istanza della macchina virtuale Linux pe
    
    a. **Nozioni di base**:
    
-   * **Name**: nome del server di analisi scientifica dei dati che si sta creando.
+   * **Nome**: nome del server di data science che si sta creando.
    * **Nome utente**: primo ID di accesso dell'account.
-   * **Password**: la prima password dell'account. È possibile usare una chiave pubblica SSH invece di una password.
-   * **Sottoscrizione**: se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
-   * **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse o usarne uno esistente.
-   * **Location**: selezionare la posizione del data center più appropriata. In genere è il data center che include la maggior parte dei dati o è più vicino alla posizione fisica per l'accesso più veloce alla rete.
+   * **Password**: prima password dell'account. È possibile usare una chiave pubblica SSH invece di una password.
+   * **Sottoscrizione** Se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
+   * **Gruppo di risorse**: È possibile creare un nuovo gruppo di risorse o usare un gruppo esistente.
+   * **Posizione**: selezionare il data center più appropriato. In genere è il data center che include la maggior parte dei dati o è più vicino alla posizione fisica per l'accesso più veloce alla rete.
    
    b. **Dimensione**:
    
@@ -115,12 +117,12 @@ Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è pr
 1. Scaricare e installare il client X2Go per la piattaforma client da [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Eseguire il client X2Go e selezionare **New Session**(Nuova sessione). Viene visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti:
    * **Scheda Session**(Sessione):
-     * **Host**: nome host o indirizzo IP della VM Linux di analisi scientifica dei dati.
-     * **Login**(Accesso): nome utente di accesso della VM Linux.
-     * **SSH Port**(Porta SSH): lasciare il valore predefinito 22.
-     * **Session Type**(Tipo sessione): modificare il valore in XFCE. La VM Linux attualmente supporta solo l'ambiente desktop XFCE.
+     * **Host**: nome host o indirizzo IP dell'istanza di Data Science Virtual Machine per Linux.
+     * **Accesso**: nome utente della VM Linux.
+     * **Porta SSH**: lasciare il valore predefinito 22.
+     * **Tipo di sessione**: modificare il valore in XFCE. La VM Linux attualmente supporta solo l'ambiente desktop XFCE.
    * **Scheda Supporti**: è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
-   * **Shared folders**(Cartelle condivise): se si intende montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
+   * **Cartelle condivise**: se si prevede di montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
 
 Dopo aver eseguito l'accesso alla VM con il client SSH o il desktop con interfaccia grafica XFCE tramite il client X2Go, è possibile iniziare a usare gli strumenti installati e configurati nella VM. In XFCE è possibile visualizzare i collegamenti di menu delle applicazioni e le icone del desktop per molti di questi strumenti.
 
@@ -229,7 +231,7 @@ Anche nel pacchetto driver ODBC per SQL Server sono disponibili due strumenti da
 
 Per altre informazioni, vedere [Connessione a bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**sqlcmd**: questa utilità consente di immettere istruzioni Transact-SQL, procedure di sistema e file script al prompt dei comandi. Questa utilità usa ODBC per eseguire batch Transact-SQL.
+**sqlcmd**: questa utilità consente di immettere istruzioni Transact-SQL, procedure di sistema e file di script al prompt dei comandi. Questa utilità usa ODBC per eseguire batch Transact-SQL.
 
 Per altre informazioni, vedere [Connessione con sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -246,15 +248,15 @@ In R e Python sono disponibili librerie per accedere ai database.
 
 Per accedere a **Postgres**:
 
-* Da R usare il pacchetto **RPostgreSQL**.
-* Da Python usare la libreria **psycopg2** .
+* Da R: usare il pacchetto **RPostgreSQL**.
+* Da Python: usare la libreria **psycopg2**.
 
 ### <a name="azure-tools"></a>Strumenti di Azure
 Nella VM sono installati gli strumenti di Azure seguenti:
 
 * **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente **azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Microsoft Azure Storage Explorer**(Esplora archivi di Microsoft Azure): è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati nei BLOB e dai BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere installato X11 Forwarding.
-* **Librerie di Azure**: di seguito vengono illustrate alcune delle librerie preinstallate.
+* **Microsoft Azure Storage Explorer**: è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati nei BLOB e dai BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere installato X11 Forwarding.
+* **Librerie di Azure**: di seguito sono elencate alcune delle librerie preinstallate.
   
   * **Python**: le librerie installate correlate ad Azure in Python sono **azure**, **azureml**, **pydocumentdb** e **pyodbc**. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
   * **R**: le librerie installate correlate ad Azure in R sono **AzureML** e **RODBC**.
@@ -279,11 +281,11 @@ Per informazioni su come distribuire i modelli in R e Python in Azure Machine Le
 ### <a name="machine-learning-tools"></a>Strumenti di Machine Learning
 La VM viene fornita con alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. incluse le seguenti:
 
-* **Microsoft Cognitive Toolkit**: un toolkit di apprendimento avanzato.
+* **Microsoft Cognitive Toolkit**: un toolkit di Deep Learning.
 * **Vowpal Wabbit**: algoritmo di apprendimento rapido online.
 * **xgboost**: strumento che fornisce algoritmi di albero con boosting ottimizzati.
-* **Python**: Anaconda Python integra algoritmi Machine Learning con librerie come Scikit-learn. È possibile installare altre librerie usando il comando `pip install` .
-* **R**: una libreria completa di funzioni di Machine Learning disponibili per R. Alcune librerie preinstallate sono lm, glm, randomForest, rpart. Altre librerie possono essere installate eseguendo:
+* **Python**: Anaconda Python integra algoritmi di Machine Learning con librerie come Scikit-learn. È possibile installare altre librerie usando il comando `pip install` .
+* **R**: libreria completa di funzioni di Machine Learning disponibili per R. Alcune librerie preinstallate sono lm, glm, randomForest, rpart. Altre librerie possono essere installate eseguendo:
   
         install.packages(<lib name>)
 

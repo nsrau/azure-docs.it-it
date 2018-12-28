@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 94358ffde697b8122e65aefcbe1dd97385ca5b3a
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 1dca3621b31d74d2ae40156672009b15ba30e3f4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52621747"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339536"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Copiare dati da Dynamics AX tramite Azure Data Factory (anteprima)
 
@@ -62,7 +62,7 @@ Per il servizio collegato di Dynamics AX sono supportate le proprietà seguenti:
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Yes |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Yes |
-| aadResourceId | Specificare la risorsa per cui si sta richiedendo l'autorizzazione. | Yes |
+| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione. Ad esempio, se è l'URL di Dynamics è `https://sampledynamics.sandbox.operations.dynamics.com/data/`, la risorsa AAD corrispondente è in genere `https://sampledynamics.sandbox.operations.dynamics.com`. | Yes |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile scegliere tra Azure Integration Runtime e un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No  |
 
 **Esempio**
@@ -80,7 +80,7 @@ Per il servizio collegato di Dynamics AX sono supportate le proprietà seguenti:
                 "value": "<service principal key>"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<Dynamics AX resource url>"
+            "aadResourceId": "<AAD resource, e.g. https://sampledynamics.sandbox.operations.dynamics.com>"
         }
     },
     "connectVia": {

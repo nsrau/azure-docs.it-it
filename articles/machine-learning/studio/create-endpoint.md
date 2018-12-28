@@ -1,12 +1,11 @@
 ---
-title: Creazione di endpoint del servizio Web in Machine Learning - Azure Machine Learning Studio | Microsoft Docs
-description: Creazione di endpoint del servizio Web in Azure Machine Learning
+title: Creazione di endpoint del servizio Web - Azure Machine Learning Studio | Microsoft Docs
+description: Creazione di endpoint del servizio Web in Azure Machine Learning. Ciascun endpoint nel servizio Web viene indirizzato, limitato e gestito in maniera indipendente.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 58418357d6e96204485887cca5d7724c42183db7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314014"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275891"
 ---
-# <a name="creating-endpoints"></a>Creazione di endpoint 
+# <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Creazione di endpoint per servizi Web di Azure Machine Learning Studio distribuiti
 > [!NOTE]
 >  Questo argomento descrive le tecniche applicabili a un servizio Web di Machine Learning **classico**.
 > 
@@ -33,7 +32,7 @@ Quando si creano servizi Web da vendere ai propri clienti, è necessario fornire
 
 A questo scopo, Azure Machine Learning Studio consente di creare più endpoint per un servizio Web distribuito. Ciascun endpoint nel servizio Web viene indirizzato, limitato e gestito in maniera indipendente. Ciascun endpoint rappresnta un URL univoco e una chiave di autorizzazione che è possibile distribuire ai clienti.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="adding-endpoints-to-a-web-service"></a>Aggiunta di endpoint a un servizio Web
 Esistono due modi per aggiungere un endpoint a un servizio Web.
