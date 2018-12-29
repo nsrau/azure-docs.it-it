@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: a4f9fc31f411d36e63775a3665b6dfe27eec7710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e76464e294a3378bf3a275ec4fe7ccbd87c09475
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318940"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011641"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Criteri di sicurezza di Azure monitorati dal Centro sicurezza di Azure
 Questo articolo offre un elenco di definizioni di criteri di Azure che possono essere monitorate nel Centro sicurezza.
@@ -43,7 +43,7 @@ Per informazioni sui criteri predefiniti che vengono monitorati dal Centro sicur
 |Controlla l'impostazione della proprietà ClusterProtectionLevel su EncryptAndSign in Service Fabric|Service Fabric offre tre livelli di protezione (None, Sign ed EncryptAndSign) per la comunicazione da nodo a nodo mediante un certificato cluster primario. Impostare il livello di protezione per garantire che tutti i messaggi da nodo a nodo vengano crittografati e firmati digitalmente.| 
 |Controlla l'utilizzo di Azure Active Directory per l'autenticazione client in Service Fabric|Controlla l'utilizzo dell'autenticazione client solo tramite Azure Active Directory in Service Fabric| 
 |Controlla l'abilitazione dei log di diagnostica per il servizio di ricerca|Controlla l'abilitazione dei log e li conserva per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa.| 
-|Controlla l'abilitazione delle sole connessioni sicure alla cache Redis|Controlla l'abilitazione delle sole connessioni tramite SSL alla cache Redis. L'uso di connessioni sicure garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione| 
+|Controllare l'abilitazione delle sole connessioni sicure a Cache Redis|Controllare l'abilitazione delle sole connessioni tramite SSL a Cache Redis. L'uso di connessioni sicure garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione| 
 |Controlla l'abilitazione dei log di diagnostica nelle app per la logica|Controlla l'abilitazione dei log e li conserva per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa.| 
 |Controlla l'abilitazione dei log di diagnostica in Key Vault|Controlla l'abilitazione dei log e li conserva per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa.|
 |Controlla l'abilitazione dei log di diagnostica in Hub eventi|Controlla l'abilitazione dei log e li conserva per un periodo massimo di un anno. Ciò consente la ricreazione della traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa.| 
@@ -58,30 +58,30 @@ Per informazioni sui criteri predefiniti che vengono monitorati dal Centro sicur
 |Controlla l'abilitazione dei log di diagnostica in Servizi app|Controlla l'abilitazione dei log di diagnostica nell'app. Ciò consente di ricreare la traccia delle attività per scopi di analisi se si verifica un evento imprevisto della sicurezza o la rete viene compromessa.| 
 |Controllare lo stato di Transparent Data Encryption|Controlla lo stato di Transparent Data Encryption per i database SQL.| 
 |Controlla le impostazioni di controllo a livello del server SQL|Controlla l'esistenza di Controllo SQL a livello del server.| 
-|[Anteprima]: Monitora i database SQL non crittografati nel Centro sicurezza di Azure|I database o i server SQL non crittografati verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
-|[Anteprima]: Monitora i database SQL non controllati nel Centro sicurezza di Azure|I server e i database in cui non è abilitato il servizio di controllo SQL verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
-|[Anteprima]: Monitora gli aggiornamenti di sistema mancanti nel Centro sicurezza di Azure|Gli aggiornamenti di sistema per la sicurezza nei server verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
-|[Anteprima]: Controlla crittografia BLOB mancante per gli account di archiviazione|Questo criterio controlla gli account di archiviazione senza crittografia BLOB. Si applica solo ai tipi di risorsa Microsoft.Storage, non agli altri provider di archiviazione. I possibili accessi JIT alla rete verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
-|[Anteprima]: Monitora i possibili accessi JIT alla rete nel Centro sicurezza di Azure|I possibili accessi JIT alla rete verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
-|[Anteprima]: Monitora il possibile elenco elementi consentiti dell'app nel Centro sicurezza di Azure|La possibile configurazione dell'elenco elementi consentiti dell'applicazione verrà monitorata dal Centro sicurezza di Azure.| 
-|[Anteprima]: Monitora gli accessi di rete permissivi nel Centro sicurezza di Azure|I gruppi di sicurezza di rete con regole troppo permissive verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
-|[Anteprima]: Monitora le vulnerabilità del sistema operativo nel Centro sicurezza di Azure|I server che non soddisfano la baseline configurata verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
-|[Anteprima]: Monitora server senza Endpoint Protection nel Centro sicurezza di Azure|I server in cui non è installato un agente di Endpoint Protection verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
-|[Anteprima]: Monitora i dischi di macchine virtuali non crittografati nel Centro sicurezza di Azure|Le macchine virtuali per cui non è abilitata la crittografia dei dischi verranno monitorate dal Centro sicurezza di Azure che invierà consigli.| 
-|[Anteprima]: Monitora le vulnerabilità delle macchine virtuali nel Centro sicurezza di Azure|Monitora le vulnerabilità rilevate dalla soluzione Valutazione della vulnerabilità e le macchine virtuali senza una soluzione Valutazione della vulnerabilità nel Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
-|[Anteprima]: Monitora le applicazioni Web non protette nel Centro sicurezza di Azure|Le applicazioni Web senza la protezione di un web application firewall verranno monitorate dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
-|[Anteprima]: Monitora gli endpoint rete non protetti nel Centro sicurezza di Azure|Gli endpoint rete senza la protezione di un firewall di nuova generazione verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
-|[Anteprima]: Monitora i risultati della valutazione della vulnerabilità di SQL nel Centro sicurezza di Azure|Consente di monitorare i consigli e i risultati dell'analisi della valutazione della vulnerabilità per informazioni su come correggere le vulnerabilità del database.| 
-|[Anteprima]: Controlla il numero massimo di proprietari per una sottoscrizione|È consigliabile designare fino a 3 proprietari della sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso.| 
-|[Anteprima]: Controlla il numero minimo di proprietari per la sottoscrizione|È consigliabile designare più di un proprietario di sottoscrizione per assicurare la ridondanza dell'accesso amministratore.| 
-|[Anteprima]: Controlla gli account con autorizzazioni di proprietario non abilitati per MFA in una sottoscrizione|È necessario abilitare Multi-Factor Authentication (MFA) per tutti gli account della sottoscrizione con autorizzazioni di proprietario per evitare una violazione di account o risorse.| 
-|[Anteprima]: Controlla gli account con autorizzazioni di scrittura non abilitati per MFA in una sottoscrizione|È necessario abilitare Multi-Factor Authentication (MFA) per tutti gli account della sottoscrizione con privilegi di scrittura per evitare una violazione di account o risorse.| 
-|[Anteprima]: Controlla gli account con autorizzazioni di lettura non abilitati per MFA in una sottoscrizione|È necessario abilitare Multi-Factor Authentication (MFA) per tutti gli account della sottoscrizione con privilegi di lettura per evitare una violazione di account o risorse.| 
-|[Anteprima]: Controlla gli account deprecati con autorizzazioni di proprietario in una sottoscrizione|Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione. Gli account deprecati sono account a cui è stato bloccato l'accesso.| 
-|[Anteprima]: Controlla account deprecati in una sottoscrizione|È necessario rimuovere dalle sottoscrizioni gli account deprecati. Gli account deprecati sono account a cui è stato bloccato l'accesso.| 
-|[Anteprima]: Controlla gli account esterni con autorizzazioni di proprietario su una sottoscrizione|È necessario rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di proprietario in modo da evitare l'accesso non monitorato.| 
-|[Anteprima]: Controlla gli account esterni con autorizzazioni di scrittura in una sottoscrizione|È necessario rimuovere dalla sottoscrizione gli account esterni con privilegi di scrittura in modo da evitare l'accesso non monitorato.| 
-|[Anteprima]: Controlla gli account esterni con autorizzazioni di lettura in una sottoscrizione|È necessario rimuovere dalla sottoscrizione gli account esterni con privilegi di lettura in modo da evitare l'accesso non monitorato.| 
+|[Anteprima]: Monitorare i database SQL non crittografati nel Centro sicurezza di Azure|I database o i server SQL non crittografati verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
+|[Anteprima]: Monitorare i database SQL non controllati nel Centro sicurezza di Azure|I server e i database in cui non è abilitato il servizio di controllo SQL verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
+|[Anteprima]: Monitorare gli aggiornamenti di sistema mancanti nel Centro sicurezza di Azure|Gli aggiornamenti di sistema per la sicurezza nei server verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
+|[Anteprima]: Controllare crittografia BLOB mancante per gli account di archiviazione|Questo criterio controlla gli account di archiviazione senza crittografia BLOB. Si applica solo ai tipi di risorsa Microsoft.Storage, non agli altri provider di archiviazione. I possibili accessi JIT alla rete verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
+|[Anteprima]: Monitorare i possibili accessi JIT alla rete nel Centro sicurezza di Azure|I possibili accessi JIT alla rete verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
+|[Anteprima]: Monitorare il possibile elenco elementi consentiti dell'app nel Centro sicurezza di Azure|La possibile configurazione dell'elenco elementi consentiti dell'applicazione verrà monitorata dal Centro sicurezza di Azure.| 
+|[Anteprima]: Monitorare gli accessi di rete permissivi nel Centro sicurezza di Azure|I gruppi di sicurezza di rete con regole troppo permissive verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
+|[Anteprima]: Monitorare le vulnerabilità del sistema operativo nel Centro sicurezza di Azure|I server che non soddisfano la baseline configurata verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
+|[Anteprima]: Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure|I server in cui non è installato un agente di Endpoint Protection verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
+|[Anteprima]: Monitorare i dischi di macchine virtuali non crittografati nel Centro sicurezza di Azure|Le macchine virtuali per cui non è abilitata la crittografia dei dischi verranno monitorate dal Centro sicurezza di Azure che invierà consigli.| 
+|[Anteprima]: Monitorare le vulnerabilità delle macchine virtuali nel Centro sicurezza di Azure|Monitora le vulnerabilità rilevate dalla soluzione Valutazione della vulnerabilità e le macchine virtuali senza una soluzione Valutazione della vulnerabilità nel Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
+|[Anteprima]: Monitorare le applicazioni Web non protette nel Centro sicurezza di Azure|Le applicazioni Web senza la protezione di un web application firewall verranno monitorate dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
+|[Anteprima]: Monitorare gli endpoint di rete non protetti nel Centro sicurezza di Azure|Gli endpoint rete senza la protezione di un firewall di nuova generazione verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti.| 
+|[Anteprima]: Monitorare i risultati della valutazione della vulnerabilità di SQL nel Centro sicurezza di Azure|Consente di monitorare i consigli e i risultati dell'analisi della valutazione della vulnerabilità per informazioni su come correggere le vulnerabilità del database.| 
+|[Anteprima]: Controllare il numero massimo di proprietari per una sottoscrizione|È consigliabile designare fino a 3 proprietari della sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso.| 
+|[Anteprima]: Controllare il numero minimo di proprietari per sottoscrizione|È consigliabile designare più di un proprietario di sottoscrizione per assicurare la ridondanza dell'accesso amministratore.| 
+|[Anteprima]: Controllare gli account con autorizzazioni di proprietario non abilitati per MFA in una sottoscrizione|È necessario abilitare Multi-Factor Authentication (MFA) per tutti gli account della sottoscrizione con autorizzazioni di proprietario per evitare una violazione di account o risorse.| 
+|[Anteprima]: Controllare gli account con autorizzazioni di scrittura non abilitati per MFA in una sottoscrizione|È necessario abilitare Multi-Factor Authentication (MFA) per tutti gli account della sottoscrizione con privilegi di scrittura per evitare una violazione di account o risorse.| 
+|[Anteprima]: Controllare gli account con autorizzazioni di lettura non abilitati per MFA in una sottoscrizione|È necessario abilitare Multi-Factor Authentication (MFA) per tutti gli account della sottoscrizione con privilegi di lettura per evitare una violazione di account o risorse.| 
+|[Anteprima]: Controllare gli account deprecati con autorizzazioni di proprietario in una sottoscrizione|Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione. Gli account deprecati sono account a cui è stato bloccato l'accesso.| 
+|[Anteprima]: Controllare account deprecati in una sottoscrizione|È necessario rimuovere dalle sottoscrizioni gli account deprecati. Gli account deprecati sono account a cui è stato bloccato l'accesso.| 
+|[Anteprima]: Controllare gli account esterni con autorizzazioni di proprietario su una sottoscrizione|È necessario rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di proprietario in modo da evitare l'accesso non monitorato.| 
+|[Anteprima]: Controllare gli account esterni con autorizzazioni di scrittura su una sottoscrizione|È necessario rimuovere dalla sottoscrizione gli account esterni con privilegi di scrittura in modo da evitare l'accesso non monitorato.| 
+|[Anteprima]: Controllare gli account esterni con autorizzazioni di lettura su una sottoscrizione|È necessario rimuovere dalla sottoscrizione gli account esterni con privilegi di lettura in modo da evitare l'accesso non monitorato.| 
 
 
 
@@ -89,11 +89,11 @@ Per informazioni sui criteri predefiniti che vengono monitorati dal Centro sicur
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo si è appreso come configurare i criteri di sicurezza nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
-* [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md): informazioni sulla pianificazione e considerazioni di progettazione per il Centro sicurezza di Azure.
-* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-* [Gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Monitorare le soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): risposte alle domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
+* [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md): Informazioni sulla pianificazione e considerazioni di progettazione sul Centro sicurezza di Azure.
+* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): Informazioni su come monitorare l'integrità delle risorse di Azure.
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): Informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): Informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
+* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): Risposte alle domande frequenti sull'uso del servizio.
+* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): Post di blog sulla sicurezza e sulla conformità di Azure.
 
 Per altre informazioni su Criteri di Azure, vedere [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md).
