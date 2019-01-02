@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214733"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846012"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Risolvere i problemi di replica per macchine virtuali VMware e server fisici
 
@@ -43,7 +43,7 @@ Dal computer del server di elaborazione aprire Gestione attività (premere CTRL+
 
 Se non è questo il caso, seguire questa procedura:
 
-* **Controllare se il server di elaborazione è in grado di connettersi al servizio BLOB di Azure**: selezionare e controllare cbengine.exe per visualizzare le 'Connessioni TCP' e verificare se è disponibile la connettività dal server di elaborazione all'URL del BLOB del servizio di archiviazione di Azure.
+* **Controllare se il server di elaborazione è in grado di connettersi al servizio BLOB di Azure**: Selezionare e controllare cbengine.exe per visualizzare le 'Connessioni TCP' e verificare se è disponibile la connettività dal server di elaborazione all'URL del BLOB del servizio di archiviazione di Azure.
 
 ![Abilitare la replica](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
@@ -59,7 +59,7 @@ Se non è questo il caso, passare a Pannello di controllo > Servizi e controllar
 
 * **Controllare se il server di elaborazione è in grado di connettersi all'indirizzo IP pubblico di Azure tramite la porta 443**
 
-Aprire il più recente CBEngineCurr.errlog da `%programfiles%\Microsoft Azure Recovery Services Agent\Temp`, quindi cercare :443 e un messaggio di errore che indica un tentativo di connessione non riuscito.
+Aprire il file CBEngineCurr.errlog più recente da `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` e cercare: 443 e tentativo di connessione non riuscito.
 
 ![Abilitare la replica](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
@@ -69,9 +69,9 @@ Se sono presenti problemi, dalla riga di comando del server di elaborazione usar
 Se non si riesce a connettersi, verificare se il problema di accesso è causato dal firewall o da un proxy, come descritto nel passaggio successivo.
 
 
-* **Controllare che l'accesso non sia bloccato da un firewall basato su indirizzi IP nel server di elaborazione**: se si usano regole del firewall basate su indirizzi IP nel server, scaricare l'elenco completo degli intervalli IP dei data center di Microsoft Azure da [qui](https://www.microsoft.com/download/details.aspx?id=41653) e aggiungerli alla configurazione del firewall per assicurarsi che consentano le comunicazioni con Azure e la porta HTTPS (443).  Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali (usati per il controllo di accesso e la gestione delle identità).
+* **Controllare che l'accesso non sia bloccato da un firewall basato su indirizzi IP nel server di elaborazione**: Se si usano regole del firewall basate su indirizzi IP nel server, scaricare l'elenco completo degli intervalli IP dei data center di Microsoft Azure da [qui](https://www.microsoft.com/download/details.aspx?id=41653) e aggiungerli alla configurazione del firewall per assicurarsi che consentano le comunicazioni con Azure e la porta HTTPS (443).  Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali (usati per il controllo di accesso e la gestione delle identità).
 
-* **Controllare che l'accesso non sia bloccato da un firewall basato su URL nel server di elaborazione**: se si usano regole del firewall basate su URL nel server, assicurarsi di aggiungere gli URL seguenti alla configurazione del firewall.
+* **Controllare che l'accesso non sia bloccato da un firewall basato su URL nel server di elaborazione**:  Se si usano regole del firewall basate su URL nel server, assicurarsi di aggiungere gli URL seguenti alla configurazione del firewall.
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -86,7 +86,7 @@ Cercare Backup di Microsoft Azure
 Aprire il servizio e fare clic su Azione > Modifica proprietà. Nella scheda Configurazione proxy dovrebbe essere visualizzato l'indirizzo del proxy, che dovrebbe essere lo stesso indicato nelle impostazioni del Registro di sistema. In caso contrario, modificarlo per impostare lo stesso indirizzo.
 
 
-* **Controllare che la larghezza di banda non sia vincolata nel server di elaborazione**: aumentare la larghezza di banda e controllare se il problema persiste.
+* **Controllare che la limitazione della larghezza di banda non sia vincolata nel server di elaborazione**:  Aumentare la larghezza di banda e controllare se il problema persiste.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se è necessaria ulteriore assistenza, pubblicare la domanda nel [forum per Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). La community è molto attiva e uno dei tecnici Microsoft sarà in grado di offrire il supporto richiesto.

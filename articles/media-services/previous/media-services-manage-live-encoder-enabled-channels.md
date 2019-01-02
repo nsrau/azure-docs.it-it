@@ -1,6 +1,6 @@
 ---
 title: Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate | Microsoft Docs
-description: 'Questo argomento descrive come configurare un canale che riceve un flusso live a velocità in bit singola da un codificatore locale e quindi esegue la codifica live in un flusso a velocità in bit adattiva con Servizi multimediali. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei protocolli di flusso adattivo seguenti: HLS, Smooth Stream o MPEG-DASH.'
+description: 'Questo argomento descrive come configurare un canale che riceve un flusso live a velocità in bit singola da un codificatore locale e quindi esegue la codifica live in un flusso a velocità in bit adattiva con Servizi multimediali. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei protocolli di flusso adattivo seguenti: HLS, Smooth Streaming, MPEG DASH.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/29/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262619"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682657"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 
@@ -214,18 +214,17 @@ Specifica il set di impostazioni che dovrà essere usato dal codificatore live a
 
 Se sono necessari set di impostazioni personalizzati, contattare amslived@microsoft.com.
 
-**Default720p** il video sarà codificato nei 7 livelli seguenti.
+Con **Default720p** il video sarà codificato nei 6 livelli seguenti.
 
 #### <a name="output-video-stream"></a>Flusso video di output
 | Velocità in bit | Larghezza | Altezza: | MaxFPS | Profilo | Nome del flusso di output |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Principale |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Principale |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Principale |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Principale |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Di base |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Di base |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Flusso audio di output
 

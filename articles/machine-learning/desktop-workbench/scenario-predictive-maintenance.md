@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c638ed9132612db7b82168d3a57057aba9b2d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996214"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870335"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Manutenzione predittiva per scenari reali
 
@@ -98,13 +98,13 @@ I notebook di esempio sono archiviati nella directory Code. I notebook sono conf
 
 ## <a name="data-description"></a>Descrizione dei dati
 
-I [dati simulati](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) sono costituiti da cinque file con valori delimitati da virgole (CSV). Usare i collegamenti seguenti per ottenere descrizioni dettagliate sui set di dati.
+I [dati simulati](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide) sono costituiti dai [cinque file con valori delimitati da virgole (estensione csv)](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) seguenti:
 
-* [Macchine](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): caratteristiche che differenziano ogni macchina. Ad esempio, età e modello.
-* [Errori](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): il log degli errori contiene errori che non causano l'arresto, generati mentre la macchina è ancora in funzione. Questi errori non vengono considerati guasti, anche se potrebbero indicare un evento di guasto futuro. I valori di data e ora degli errori sono arrotondati all'ora più vicina perché i dati di telemetria vengono raccolti con una frequenza oraria.
-* [Manutenzione](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): il log di manutenzione contiene i record per la manutenzione pianificata e non pianificata. La manutenzione pianificata corrisponde alla regolare ispezione dei componenti. La manutenzione non pianificata potrebbe essere necessaria in seguito a guasti meccanici o a una riduzione delle prestazioni. I valori di data e ora per la manutenzione sono arrotondati all'ora più vicina perché i dati di telemetria vengono raccolti con una frequenza oraria.
-* [Telemetria](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): i dati di telemetria sono costituiti dalle misure delle serie temporali provenienti da più sensori all'interno di ogni macchina. I dati sono registrati calcolando la media dei valori dei sensori in ogni intervallo di un'ora.
-* [Guasti](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): i guasti corrispondono alle sostituzioni dei componenti nel log di manutenzione. Ogni record contiene l'ID della macchina, il tipo di componente e la data e l'ora della sostituzione. Questi record vengono usati per creare le etichette di apprendimento automatico che il modello sta cercando di stimare.
+* [Macchine](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/machines.csv): caratteristiche che differenziano ogni computer, ad esempio età e modello.
+* [Errori](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/errors.csv): il log degli errori contiene gli errori che non causano l'arresto generati mentre il computer è ancora in funzione. Questi errori non vengono considerati guasti, anche se potrebbero indicare un evento di guasto futuro. I valori di data e ora degli errori sono arrotondati all'ora più vicina perché i dati di telemetria vengono raccolti con una frequenza oraria.
+* [Manutenzione](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/maint.csv): il log di manutenzione contiene i record per la manutenzione pianificata e non pianificata. La manutenzione pianificata corrisponde alla regolare ispezione dei componenti. La manutenzione non pianificata potrebbe essere necessaria in seguito a guasti meccanici o a una riduzione delle prestazioni. I valori di data e ora per la manutenzione sono arrotondati all'ora più vicina perché i dati di telemetria vengono raccolti con una frequenza oraria.
+* [Telemetria](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/telemetry.csv): i dati di telemetria sono costituiti da misure delle serie temporali provenienti da più sensori all'interno di ogni computer. I dati sono registrati calcolando la media dei valori dei sensori in ogni intervallo di un'ora.
+* [Guasti](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/failures.csv): i guasti corrispondono alle sostituzioni dei componenti nel log di manutenzione. Ogni record contiene l'ID della macchina, il tipo di componente e la data e l'ora della sostituzione. Questi record vengono usati per creare le etichette di apprendimento automatico che il modello sta cercando di stimare.
 
 Per scaricare i set di dati non elaborati dal repository GitHub e creare i set di dati PySpark per l'analisi, vedere lo scenario di [inserimento di dati](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) nei notebook Jupyter nella cartella Code.
 
@@ -113,9 +113,9 @@ Il contenuto per lo scenario è disponibile nel [repository GitHub](https://gith
 
 Il file [Leggimi](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/README.md) illustra il flusso di lavoro, dalla preparazione dei dati alla creazione di un modello e quindi alla distribuzione di una soluzione per la produzione. Ogni passaggio del flusso di lavoro è incapsulato in un notebook di Jupyter nella cartella [Code](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) all'interno del repository.   
 
-[Code\1_data_ingestion.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): questo notebook scarica i cinque file di input con estensione csv ed esegue alcune pulizie preliminari e visualizzazioni dei dati. Il notebook converte ogni set di dati nel formato PySpark e li archivia in un contenitore BLOB di Azure per l'uso nel notebook di progettazione della funzionalità.
+[Code\1_data_ingestion.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): questo notebook scarica i cinque file di input con estensione csv ed esegue alcune operazioni preliminari di pulizia e visualizzazione dei dati. Il notebook converte ogni set di dati nel formato PySpark e li archivia in un contenitore BLOB di Azure per l'uso nel notebook di progettazione della funzionalità.
 
-[Code\2_feature_engineering.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): le funzionalità del modello vengono costruite dal set di dati non elaborati dall'archivio BLOB di Azure mediante un approccio di serie temporali standard per la telemetria, gli errori e i dati di manutenzione. Le sostituzioni dei componenti correlate al guasto vengono usate per costruire le etichette del modello che descrivono quale componente non ha funzionato. I dati della funzionalità dell'etichetta vengono salvati in un BLOB di Azure per il notebook di creazione del modello.
+[Code\2_feature_engineering.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): le funzionalità del modello vengono costruite dal set di dati non elaborati dell'archivio BLOB di Azure mediante un approccio di serie temporali standard per i dati di telemetria, errori e manutenzione. Le sostituzioni dei componenti correlate al guasto vengono usate per costruire le etichette del modello che descrivono quale componente non ha funzionato. I dati della funzionalità dell'etichetta vengono salvati in un BLOB di Azure per il notebook di creazione del modello.
 
 [Code\3_model_building.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): il notebook di compilazione del modello usa il set di dati della funzionalità con etichette e suddivide i dati in set di dati di training e di sviluppo in base a un indicatore di data e ora. Il notebook è configurato come esperimento con i modelli pyspark.ml.classification. I dati di training sono vettorizzati. L'utente può sperimentare con un **DecisionTreeClassifier** o un **RandomForestClassifier** manipolando gli iperparametri per individuare il modello con le prestazioni migliori. Le prestazioni sono determinate valutando le statistiche di misura sul set di dati di sviluppo. Queste statistiche vengono registrate nella schermata della fase di esecuzione di Machine Learning Workbench per il rilevamento. A ogni esecuzione, il notebook salva il modello risultante nel disco locale che esegue il kernel del notebook di Jupyter. 
 

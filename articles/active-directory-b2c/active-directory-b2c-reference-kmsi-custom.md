@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6d58a62ef70cb5bacb44a3a9832516a30fc91ffa
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: fcc81c8eb3a34b0bda5d91a1a67dd2e04e052967
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248060"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967760"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Abilitare "Mantieni l'accesso (KMSI)" in Active Directory B2C di Azure
 
@@ -29,7 +29,7 @@ Gli utenti dovrebbero evitare di abilitare questa funzione su un computer pubbli
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un tenant di Azure AD B2C configurato per consentire l'iscrizione/accesso a un account locale. Se non si dispone di un tenant, è possibile crearne uno seguendo la procedura descritta in [Esercitazione: Creare un tenant di Active Directory B2C di Azure](tutorial-create-tenant.md).
+Un tenant di Azure AD B2C configurato per consentire l'iscrizione/accesso a un account locale. Se non si dispone di un tenant, è possibile crearne uno seguendo la procedura descritta in [Esercitazione: Creare un tenant di Azure Active Directory B2C](tutorial-create-tenant.md).
 
 ## <a name="add-a-content-definition-element"></a>Aggiungere un elemento di definizione del contenuto 
 
@@ -152,7 +152,9 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
 
     KMSI è configurato usando l'elemento **UserJourneyBehaviors**. L'attributo **KeepAliveInDays** consente di controllare per quanto tempo l'utente rimane connesso. Nell'esempio seguente la sessione KMSI scade automaticamente dopo `7` giorni, indipendentemente dalla frequenza con cui l'utente esegue l'autenticazione automatica. Impostare il valore **KeepAliveInDays** a `0` disattiva la funzionalità KMSI. Per impostazione predefinita, questo valore è `0`. Se il valore di **SessionExpiryType** è `Rolling`, la sessione KMSI viene estesa di `7` giorni ogni volta che l'utente esegue l'autenticazione automatica.  Se `Rolling` è selezionato, è consigliabile mantenere il numero di giorni al minimo. 
 
-    Il valore di **SessionExpiryInSeconds** rappresenta l'ora di scadenza di una sessione SSO. Questo viene usato internamente da Azure Active Directory B2C per verificare se la sessione KMSI è scaduta oppure no. Il valore di **KeepAliveInDays** determina il valore di scadenza/validità massima del cookie SSO nel browser Web. A differenza di **SessionExpiryInSeconds**, **KeepAliveInDays** viene usato per impedire che il browser cancelli i cookie quando viene chiuso. Un utente può accedere automaticamente solo se il cookie di sessione SSO esiste (verificato da **KeepAliveInDays**) e non è scaduto (verificato da **SessionExpiryInSeconds**). È consigliabile impostare il valore di **SessionExpiryInSeconds** affinché sia equivalente all'ora di **KeepAliveInDays** espressa in secondi, come illustrato nell'esempio seguente.
+    Il valore di **SessionExpiryInSeconds** rappresenta l'ora di scadenza di una sessione SSO. Questo viene usato internamente da Azure Active Directory B2C per verificare se la sessione KMSI è scaduta oppure no. Il valore di **KeepAliveInDays** determina il valore di scadenza/validità massima del cookie SSO nel browser Web. A differenza di **SessionExpiryInSeconds**, **KeepAliveInDays** viene usato per impedire che il browser cancelli i cookie quando viene chiuso. Un utente può accedere automaticamente solo se il cookie di sessione SSO esiste (verificato da **KeepAliveInDays**) e non è scaduto (verificato da **SessionExpiryInSeconds**). 
+    
+    Se l'utente non abilita **Mantieni l'accesso** nella pagina di iscrizione e di accesso, la sessione scade dopo che è trascorso il tempo indicato da **SessionExpiryInSeconds** o dopo la chiusura del browser. Se l'utente abilita **Mantieni l'accesso**, il valore di **KeepAliveInDays** sostituisce il valore di **SessionExpiryInSeconds** e determina la scadenza della sessione. Se chiude il browser e lo riapre, l'utente può ancora eseguire l'accesso entro l'intervallo di tempo indicato da **KeepAliveInDays**. È consigliabile impostare il valore di **SessionExpiryInSeconds** su un periodo breve (1200 secondi), mentre il valore di **KeepAliveInDays** può essere impostato su un periodo relativamente lungo (7 giorni), come illustrato nell'esempio seguente:
 
     ```XML
     <RelyingParty>
@@ -160,7 +162,7 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
       <UserJourneyBehaviors>
         <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
         <SessionExpiryType>Absolute</SessionExpiryType>
-        <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
+        <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
       </UserJourneyBehaviors>
       <TechnicalProfile Id="PolicyProfile">
         <DisplayName>PolicyProfile</DisplayName>

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 9da213525a5921295d6271adfd473b7a05a049a4
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14513e23aafd05796767e1ae08d4d4c14cecdfbc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497913"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728311"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -139,6 +139,13 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |PartitionPrefix|string, valore predefinito "--"|statico|Controlla il valore della stringa prefisso di partizione nelle query DNS per i servizi partizionati. Il valore: <ul><li>Deve essere conforme a RFC poiché sarà parte di una query DNS.</li><li>Non deve contenere un punto '.', poiché il punto interferisce con il comportamento del suffisso DNS.</li><li>Non può contenere più di 5 caratteri.</li><li>Non può essere una stringa vuota.</li><li>Se viene eseguito l'override dell'impostazione PartitionPrefix, PartitionSuffix deve essere sottoposto a override e viceversa.</li></ul>Per altre informazioni, vedere [Servizio DNS di Service Fabric](service-fabric-dnsservice.md).|
 |PartitionSuffix|stringa, il valore predefinito è ""|statico|Controlla il valore della stringa suffisso di partizione nelle query DNS per i servizi partizionati. Il valore: <ul><li>Deve essere conforme a RFC poiché sarà parte di una query DNS.</li><li>Non deve contenere un punto '.', poiché il punto interferisce con il comportamento del suffisso DNS.</li><li>Non può contenere più di 5 caratteri.</li><li>Se viene eseguito l'override dell'impostazione PartitionPrefix, PartitionSuffix deve essere sottoposto a override e viceversa.</li></ul>Per altre informazioni, vedere [Servizio DNS di Service Fabric](service-fabric-dnsservice.md). |
 
+## <a name="eventstore"></a>EventStore
+| **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
+| --- | --- | --- | --- |
+|MinReplicaSetSize|int, valore predefinito: 0|statico|MinReplicaSetSize per il servizio EventStore |
+|PlacementConstraints|stringa, il valore predefinito è    ""|statico|  PlacementConstraints per il servizio EventStore |
+|TargetReplicaSetSize|int, valore predefinito: 0|statico| TargetReplicaSetSize per il servizio EventStore |
+
 ## <a name="fabricclient"></a>FabricClient
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
@@ -172,18 +179,18 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |ClientAuthX509FindValue |stringa, il valore predefinito è "" | Dinamico|Valore di filtro di ricerca usato per individuare un certificato per il ruolo di amministratore predefinito FabricClient. |
 |ClientAuthX509FindValueSecondary |stringa, il valore predefinito è "" |Dinamico|Valore di filtro di ricerca usato per individuare un certificato per il ruolo di amministratore predefinito FabricClient. |
 |ClientAuthX509StoreName |stringa, il valore predefinito è "My" |Dinamico|Nome dell'archivio certificati X.509 che contiene un certificato per il ruolo di amministratore predefinito FabricClient. |
-|ClusterX509FindType |stringa, valore predefinito è "FindByThumbprint" |Dinamico|Indica la modalità di ricerca di un certificato del cluster nell'archivio specificato da ClusterX509StoreName. Valori supportati: "FindByThumbprint"; "FindBySubjectName". Con "FindBySubjectName", in caso di più corrispondenze, viene usato il certificato con la scadenza più lontana. |
+|ClusterX509FindType |stringa, valore predefinito è "FindByThumbprint" |Dinamico|Indica la modalità di ricerca del certificato del cluster nell'archivio specificato da ClusterX509StoreName. Valori supportati: "FindByThumbprint"; "FindBySubjectName" con "FindBySubjectName"; quando sono presenti più corrispondenze; viene usata quella con la scadenza più lontana. |
 |ClusterX509FindValue |stringa, il valore predefinito è "" |Dinamico|Valore di filtro di ricerca usato per individuare il certificato del cluster. |
 |ClusterX509FindValueSecondary |stringa, il valore predefinito è "" |Dinamico|Valore di filtro di ricerca usato per individuare il certificato del cluster. |
 |ClusterX509StoreName |stringa, il valore predefinito è "My" |Dinamico|Nome dell'archivio certificati X.509 che contiene il certificato del cluster per proteggere la comunicazione all'interno del cluster. |
 |EndApplicationPortRange |Int, valore predefinito: 0 |statico|Termine (non inclusivo) delle porte di applicazione gestite dal sottosistema di hosting. Obbligatorio se EndpointFilteringEnabled è impostato su true in Hosting. |
-|ServerAuthX509FindType |stringa, valore predefinito è "FindByThumbprint" |Dinamico|Indica la modalità di ricerca del certificato server nell'archivio specificato da ServerAuthX509StoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
+|ServerAuthX509FindType |stringa, valore predefinito è "FindByThumbprint" |Dinamico|Indica la modalità di ricerca del certificato del server nell'archivio specificato da ServerAuthX509StoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
 |ServerAuthX509FindValue |stringa, il valore predefinito è "" |Dinamico|Valore di filtro di ricerca usato per individuare il certificato del server. |
 |ServerAuthX509FindValueSecondary |stringa, il valore predefinito è "" |Dinamico|Valore di filtro di ricerca usato per individuare il certificato del server. |
 |ServerAuthX509StoreName |stringa, il valore predefinito è "My" |Dinamico|Nome dell'archivio certificati X.509 che contiene il certificato server per il servizio di entrata. |
 |StartApplicationPortRange |Int, valore predefinito: 0 |statico|Avvio delle porte di applicazione gestite dal sottosistema di hosting. Obbligatorio se EndpointFilteringEnabled è impostato su true in Hosting. |
 |StateTraceInterval |Tempo in secondi, il valore predefinito è 300 |statico|Specificare l'intervallo di tempo in secondi. L'intervallo per la traccia dello stato di nodo in ogni nodo e dei nodi in FM/FMM. |
-|UserRoleClientX509FindType |stringa, valore predefinito è "FindByThumbprint" |Dinamico|Indica la modalità di ricerca del certificato nell'archivio specificato da UserRoleClientX509StoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
+|UserRoleClientX509FindType |stringa, valore predefinito è "FindByThumbprint" |Dinamico|Indica la modalità di ricerca del certificato del server nell'archivio specificato da ServerAuthX509StoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
 |UserRoleClientX509FindValue |stringa, il valore predefinito è "" |Dinamico|Valore di filtro di ricerca usato per individuare un certificato per il ruolo di utente predefinito FabricClient. |
 |UserRoleClientX509FindValueSecondary |stringa, il valore predefinito è "" |Dinamico|Valore di filtro di ricerca usato per individuare un certificato per il ruolo di utente predefinito FabricClient. |
 |UserRoleClientX509StoreName |stringa, il valore predefinito è "My" |Dinamico|Nome dell'archivio certificati X.509 che contiene un certificato per il ruolo di utente predefinito FabricClient. |
@@ -456,13 +463,13 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-|AffinityConstraintPriority | Int, valore predefinito: 0 | Dinamico|Determina la priorità del vincolo di affinità: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
-|ApplicationCapacityConstraintPriority | Int, valore predefinito: 0 | Dinamico|Determina la priorità del vincolo di capacità: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
+|AffinityConstraintPriority | Int, valore predefinito: 0 | Dinamico|Determina la priorità del vincolo di affinità: 0: alta; 1: bassa; numero negativo: ignorare. |
+|ApplicationCapacityConstraintPriority | Int, valore predefinito: 0 | Dinamico|Determina la priorità del vincolo di capacità: 0: alta; 1: bassa; numero negativo: ignorare. |
 |AutoDetectAvailableResources|bool, valore predefinito: TRUE|statico|Questa configurazione attiverà il rilevamento automatico delle risorse disponibili nel nodo (CPU e memoria). Quando questa configurazione è impostata su true, verranno lette le capacità reali che verranno corrette se l'utente ha specificato capacità del nodo non corrette o non le ha definite affatto. Se questo parametro di configurazione viene impostato su false, si terrà traccia di un avviso relativo alla specifica di capacità del nodo non corrette da parte dell'utente, ma tali capacità non verranno corrette. Questo significa che verranno presupposte capacità illimitate se l'utente vuole specificare capacità maggiori di quelle effettivamente disponibili oppure se le capacità non vengono definite. |
 |BalancingDelayAfterNewNode | Tempo in secondi, valore predefinito: 120 |Dinamico|Specificare l'intervallo di tempo in secondi. Non avviare attività di bilanciamento in questo periodo dopo aver aggiunto un nuovo nodo. |
 |BalancingDelayAfterNodeDown | Tempo in secondi, valore predefinito: 120 |Dinamico|Specificare l'intervallo di tempo in secondi. Non avviare attività di bilanciamento in questo periodo se un nodo va offline. |
-|CapacityConstraintPriority | Int, valore predefinito: 0 | Dinamico|Determina la priorità del vincolo di capacità: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
-|ConsecutiveDroppedMovementsHealthReportLimit | Int, valore predefinito: 20 | Dinamico|Definisce il numero di volte consecutive in cui i movimenti inviati da ResourceBalancer devono essere eliminati prima di eseguire la diagnostica e creare avvisi di integrità. Valore negativo: non vengono emessi avvisi. |
+|CapacityConstraintPriority | Int, valore predefinito: 0 | Dinamico|Determina la priorità del vincolo di capacità: 0: alta; 1: bassa; numero negativo: ignorare. |
+|ConsecutiveDroppedMovementsHealthReportLimit | Int, valore predefinito: 20 | Dinamico|Definisce il numero di volte consecutive in cui i movimenti inviati da ResourceBalancer devono essere eliminati prima di eseguire la diagnostica e creare avvisi di integrità. Negativo: non vengono emessi avvisi in questa condizione. |
 |ConstraintFixPartialDelayAfterNewNode | Tempo in secondi, valore predefinito: 120 |Dinamico| Specificare l'intervallo di tempo in secondi. Non risolvere violazioni di vincoli FaultDomain e UpgradeDomain in questo periodo dopo aver aggiunto un nuovo nodo. |
 |ConstraintFixPartialDelayAfterNodeDown | Tempo in secondi, valore predefinito: 120 |Dinamico| Specificare l'intervallo di tempo in secondi. Non risolvere violazioni di vincoli FaultDomain e UpgradeDomain in questo periodo dopo che un nodo va offline. |
 |ConstraintViolationHealthReportLimit | Int, valore predefinito: 50 |Dinamico| Definisce il numero di violazioni di vincoli di tempo non risolte da parte di una replica prima di eseguire la diagnostica e di creare report di integrità a riguardo. |
@@ -471,7 +478,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |DetailedNodeListLimit | Int, valore predefinito: 15 |Dinamico| Definisce il numero di nodi per vincolo da includere prima del troncamento nei report sulle repliche non spostate. |
 |DetailedPartitionListLimit | Int, valore predefinito: 15 |Dinamico| Definisce il numero di partizioni per ciascuna voce diagnostica di un vincolo da includere prima del troncamento della diagnostica. |
 |DetailedVerboseHealthReportLimit | Int, valore predefinito: 200 | Dinamico|Definisce il numero di posizionamenti errati continui di una replica prima di creare report di integrità dettagliati. |
-|FaultDomainConstraintPriority | Int, valore predefinito: 0 |Dinamico| Determina la priorità del vincolo di dominio di errore: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
+|FaultDomainConstraintPriority | Int, valore predefinito: 0 |Dinamico| Determina la priorità del vincolo di dominio di errore: 0: alta; 1: bassa; numero negativo: ignorare. |
 |GlobalMovementThrottleCountingInterval | Tempo in secondi, valore predefinito: 600 |statico| Specificare l'intervallo di tempo in secondi. Indicare la lunghezza dell'intervallo precedente per cui si desidera tenere traccia dei movimenti di replica di dominio. Usato insieme a GlobalMovementThrottleThreshold. È possibile impostarlo su 0 per ignorare del tutto la limitazione globale. |
 |GlobalMovementThrottleThreshold | Uint, valore predefinito: 1000 |Dinamico| Numero massimo di movimenti consentiti nella fase di bilanciamento nel precedente intervallo indicato in GlobalMovementThrottleCountingInterval. |
 |GlobalMovementThrottleThresholdForBalancing | Uint, valore predefinito: 0 | Dinamico|Numero massimo di movimenti consentiti nella fase di bilanciamento nel precedente intervallo indicato in GlobalMovementThrottleCountingInterval. Impostarlo su 0 per non avere limiti. |
@@ -491,18 +498,18 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |MoveParentToFixAffinityViolation | Bool, valore predefinito: false |Dinamico| Impostazione che determina se le repliche padre possono essere spostate per correggere i vincoli di affinità.|
 |PartiallyPlaceServices | Bool, valore predefinito: true |Dinamico| Determina se tutte le repliche servizio nel cluster verranno posizionate in modo "tutto o niente" in caso di nodi appropriati limitati.|
 |PlaceChildWithoutParent | Bool, valore predefinito: true | Dinamico|Impostazione che determina se è possibile posizionare una replica di servizio figlia in caso non sia presente una replica padre. |
-|PlacementConstraintPriority | Int, valore predefinito: 0 | Dinamico|Determina la priorità del vincolo di posizionamento: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
+|PlacementConstraintPriority | Int, valore predefinito: 0 | Dinamico|Determina la priorità del vincolo di posizionamento: 0: alta; 1: bassa; numero negativo: ignorare. |
 |PlacementConstraintValidationCacheSize | Int, valore predefinito: 10000 |Dinamico| Limita le dimensioni della tabella usata per la convalida e la memorizzazione nella cache rapide delle espressioni dei vincoli di posizionamento. |
 |PlacementSearchTimeout | Tempo in secondi, valore predefinito: 0.5 |Dinamico| Specificare l'intervallo di tempo in secondi. Tempo massimo di ricerca durante il posizionamento dei servizi prima di restituire un risultato. |
 |PLBRefreshGap | Tempo in secondi, valore predefinito: 1 |Dinamico| Specificare l'intervallo di tempo in secondi. Definisce il tempo minimo che deve passare prima che PLB aggiorni lo stato. |
-|PreferredLocationConstraintPriority | Int, valore predefinito: 2| Dinamico|Determina la priorità del vincolo di posizionamento preferito: 0 indica priorità elevata, 1 indica priorità minore; 2 indica ottimizzazione e un numero negativo indica "ignorare" |
+|PreferredLocationConstraintPriority | Int, valore predefinito: 2| Dinamico|Determina la priorità del vincolo di posizione preferita: 0: alta; 1: bassa; 2: ottimizzazione; numero negativo: Ignora |
 |PreventTransientOvercommit | Bool, valore predefinito: false | Dinamico|Determina se PLB deve conteggiare immediatamente le risorse che saranno liberate dagli spostamenti avviati. Per impostazione predefinita, PLB può avviare gli spostamenti in entrata e in uscita nello stesso nodo che può creare un overcommit temporaneo. Impostando il parametro su true sarà possibile prevenire overcommit simili e disabilitare le deframmentazioni su richiesta, note anche come placementWithMove. |
-|ScaleoutCountConstraintPriority | Int, valore predefinito: 0 |Dinamico| Determina la priorità del vincolo del conteggio di scalabilità orizzontale: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
+|ScaleoutCountConstraintPriority | Int, valore predefinito: 0 |Dinamico| Determina la priorità del vincolo del conteggio di scalabilità orizzontale: 0: alta; 1: bassa; numero negativo: ignorare. |
 |SwapPrimaryThrottlingAssociatedMetric | stringa, il valore predefinito è ""|statico| Il nome della metrica associato a questa limitazione. |
 |SwapPrimaryThrottlingEnabled | Bool, valore predefinito: false|Dinamico| Determina se la limitazione swap-primary è abilitata. |
 |SwapPrimaryThrottlingGlobalMaxValue | Int, valore predefinito: 0 |Dinamico| Il numero massimo di repliche swap-primary consentite a livello globale. |
 |TraceCRMReasons |Bool, valore predefinito: true |Dinamico|Specifica se tracciare i motivi dei movimenti indicati da CRM al canale degli eventi operativi. |
-|UpgradeDomainConstraintPriority | Int, valore predefinito: 1| Dinamico|Determina la priorità del vincolo di dominio di aggiornamento: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
+|UpgradeDomainConstraintPriority | Int, valore predefinito: 1| Dinamico|Determina la priorità del vincolo di dominio di aggiornamento: 0: alta; 1: bassa; numero negativo: ignorare. |
 |UseMoveCostReports | Bool, valore predefinito: false | Dinamico|Indica al servizio di bilanciamento del carico di ignorare l'elemento di costo della funzione di assegnazione dei punteggio. Comporterà potenzialmente un numero elevato di spostamenti per un posizionamento più bilanciato. |
 |UseSeparateSecondaryLoad | Bool, valore predefinito: true | Dinamico|Impostazione che determina se usare un carico secondario differente. |
 |ValidatePlacementConstraint | Bool, valore predefinito: true |Dinamico| Specifica se l'espressione PlacementConstraint per un servizio viene convalidata quando viene aggiornato il parametro ServiceDescription di un servizio. |
@@ -587,7 +594,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |CertificateHealthReportingInterval|TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(3600 * 8)|statico|Specificare l'intervallo di tempo in secondi. Specificare l'intervallo per il report di integrità del certificato. Il valore predefinito è 8 ore. L'impostazione del valore 0 disabilita i report sull'integrità dei certificati. |
 |ClientCertThumbprints|stringa, il valore predefinito è ""|Dinamico|Identificazioni personali dei certificati usati dai client per comunicare con il cluster. Il cluster usa questi valori per autorizzare la connessione in ingresso. Elenco di nomi delimitati da virgole. |
 |ClientClaimAuthEnabled|bool, valore predefinito: FALSE|statico|Indica se l'autenticazione basata sulle attestazioni è abilitata nei client. L'impostazione di questo parametro su true comporta l'impostazione implicita di ClientRoleEnabled. |
-|ClientClaims|stringa, il valore predefinito è ""|Dinamico|Tutte le attestazioni possibili previste dai client per la connessione al gateway. Si tratta di un elenco "O": ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry ... ogni ClaimsEntry è un elenco "E": ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue... |
+|ClientClaims|stringa, il valore predefinito è ""|Dinamico|Tutte le attestazioni possibili previste dai client per la connessione al gateway. Questo è un elenco "OR": ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry ... ogni ClaimsEntry è un elenco "AND": ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
 |ClientIdentities|stringa, il valore predefinito è ""|Dinamico|Identità di Windows di FabricClient. Il gateway di denominazione usa questi valori per autorizzare le connessioni in ingresso. Si tratta di un elenco delimitato da virgole, in cui ogni voce è un nome di account di dominio o un nome di gruppo. Per motivi di praticità, l'account che esegue fabric.exe viene autorizzato automaticamente, così come i gruppi ServiceFabricAllowedUsers e ServiceFabricAdministrators. |
 |ClientRoleEnabled|bool, valore predefinito: FALSE|statico|Indica se il ruolo di client è abilitato. Se impostato su true, ai client vengono assegnati i ruoli in base alle rispettive identità. Nella versione 2, l'abilitazione di questo parametro indica che un client non incluso in AdminClientCommonNames/AdminClientIdentities può solo eseguire operazioni di sola lettura. |
 |ClusterCertThumbprints|stringa, il valore predefinito è ""|Dinamico|Identificazioni personali dei certificati per cui è consentita l'aggiunta al cluster. Elenco di nomi separati da virgole. |
@@ -755,7 +762,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 ## <a name="tokenvalidationservice"></a>TokenValidationService
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-|Providers |stringa, il valore predefinito è "DSTS" |statico|Elenco separato da virgole dei provider di convalida dei token per l'abilitazione. I provider validi sono: DSTS, AAD. Attualmente è possibile abilitare un singolo provider alla volta. |
+|Providers |stringa, il valore predefinito è "DSTS" |statico|Elenco separato da virgole dei provider di convalida dei token per l'abilitazione. I provider validi sono: DSTS; AAD. Attualmente è possibile abilitare un singolo provider alla volta. |
 
 ## <a name="traceetw"></a>Traccia/Etw
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |

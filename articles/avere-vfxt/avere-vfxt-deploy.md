@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8e265f2bed480f7b40476e09ab8f442aedcc9dd4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164321"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999443"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuire il cluster vFXT
 
@@ -306,6 +306,15 @@ Al termine dell'esecuzione dello script, copiare l'indirizzo IP di gestione, nec
 
 ![Output della riga di comando dello script che visualizza l'indirizzo IP di gestione verso la fine](media/avere-vfxt-mgmt-ip.png)
 
+> [!IMPORTANT] 
+> Se è stato creato un nuovo contenitore BLOB, il contenitore potrebbe essere crittografato con una chiave predefinita che non è stata salvata all'esterno del cluster. Prima di archiviare dati nel contenitore è necessario scaricare il file di ripristino della chiave, oppure creare una chiave di crittografia personalizzata e salvare il file di ripristino corrispondente in una posizione permanente. 
+> 
+> Se si usa la chiave predefinita senza scaricare il file di ripristino, è possibile che non si riesca più ad accedere ai dati crittografati nel file BLOB di base se il cluster vFXT va perduto o viene eliminato definitivamente.
+>
+> Se lo script mostra messaggi `WARNING` simili a quelli evidenziati nello screenshot seguente, eseguire le istruzioni in [Configure storage](avere-vfxt-add-storage.md) (Configurare l'archiviazione) per scaricare il file della chiave o creare una nuova chiave per il contenitore BLOB. Usare lo strumento di configurazione del cluster Avere Control Panel (Pannello di controllo di Avere).
+
+![Output della riga di comando dello script che visualizza dei messaggi di avviso relativi alla creazione di una nuova chiave di crittografia](media/avere-vfxt-key-warning.png)
+
 ## <a name="next-step"></a>Passaggio successivo
 
-Ora che il cluster è in esecuzione e si conosce l'indirizzo IP di gestione, è possibile [connettersi allo strumento di configurazione del cluster](avere-vfxt-cluster-gui.md) per abilitare il supporto e aggiungere l'archiviazione, se necessario.
+Ora che il cluster è in esecuzione e si conosce l'indirizzo IP di gestione, è possibile [connettersi allo strumento di configurazione del cluster](avere-vfxt-cluster-gui.md) per abilitare il supporto, aggiungere l'archiviazione (se necessario) o indirizzare la chiave di crittografia predefinita sulla nuova archiviazione BLOB.

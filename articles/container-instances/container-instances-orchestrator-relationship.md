@@ -5,15 +5,15 @@ services: container-instances
 author: seanmck
 ms.service: container-instances
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803512"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845808"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Istanze di contenitore di Azure e agenti di orchestrazione dei contenitori
 
@@ -25,24 +25,24 @@ Istanze di contenitore di Azure fornisce alcune funzionalità di base di pianifi
 
 La definizione standard dell'orchestrazione include le attività seguenti:
 
-- **Pianificazione**: data un'immagine del contenitore e una richiesta di risorse, trovare una macchina adatta in cui eseguire il contenitore.
-- **Affinità/Antiaffinità**: specificare che i contenitori di un set devono essere eseguiti vicini tra loro (per le prestazioni) o sufficientemente distanti tra loro (disponibilità).
-- **Monitoraggio dell'integrità**: monitorare gli errori dei contenitori e modificare automaticamente la pianificazione.
-- **Failover**: tenere traccia degli elementi in esecuzione in ogni macchina e ripianificare i contenitori dalle macchine con errori ai nodi integri.
-- **Scalabilità**: aggiungere o rimuovere istanze di contenitori per soddisfare la domanda, in modo automatico o manuale.
-- **Rete**: fornire una rete di overlay per coordinare i contenitori nella comunicazione tra più computer host.
-- **Individuazione del servizio**: consentire l'individuazione reciproca dei contenitori anche quando si spostano tra computer host e cambiano indirizzo IP.
-- **Aggiornamenti coordinati delle applicazioni**: gestire gli aggiornamenti dei contenitori per evitare tempi di inattività delle applicazioni e consentire il rollback in caso di errore.
+- **Pianificazione**: Data un'immagine del contenitore e una richiesta di risorse, trovare una macchina adatta in cui eseguire il contenitore.
+- **Affinità/Antiaffinità**: Specificare che i contenitori di un set devono essere eseguiti vicini tra loro (per le prestazioni) o sufficientemente distanti tra loro (per la disponibilità).
+- **Monitoraggio dell'integrità**: Monitorare gli errori dei contenitori e modificare automaticamente la pianificazione.
+- **Failover**: Tenere traccia degli elementi in esecuzione in ogni computer e ripianificare i contenitori dai computer con errori ai nodi integri.
+- **Ridimensionamento**: Aggiungere o rimuovere istanze di contenitori per soddisfare la domanda, in modo automatico o manuale.
+- **Rete**: Fornire una rete di overlay per coordinare i contenitori nella comunicazione tra più computer host.
+- **Individuazione del servizio**: Consentire l'individuazione reciproca dei contenitori anche quando si spostano tra computer host e cambiano indirizzo IP.
+- **Aggiornamenti coordinati delle applicazioni**: Gestire gli aggiornamenti dei contenitori per evitare tempi di inattività delle applicazioni e consentire il rollback in caso di errore.
 
-## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orchestrazione con Istanze di contenitore di Azure: un approccio a più livelli
+## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orchestrazione con Istanze di Azure Container: un approccio a più livelli
 
 Istanze di contenitore di Azure consente un approccio a più livelli all'orchestrazione, fornendo tutte le funzionalità di pianificazione e gestione necessarie per eseguire un singolo contenitore, consentendo alle piattaforme degli agenti di orchestrazione di gestire attività di multi-contenitore sul contenitore stesso.
 
 Poiché l’infrastruttura sottostante per Istanze di contenitore è gestita da Azure, una piattaforma dell'agente di orchestrazione non ha bisogno di cercare un computer host appropriato in cui eseguire un singolo contenitore. L'elasticità del cloud garantisce che ci sia sempre un computer host a disposizione. L'agente di orchestrazione può invece concentrarsi sulle attività che semplificano lo sviluppo di architetture multi-contenitore, tra cui il ridimensionamento e gli aggiornamenti coordinati.
 
-## <a name="potential-scenarios"></a>Potenziali scenari
+## <a name="scenarios"></a>Scenari
 
-Anche se l'integrazione degli agenti di orchestrazione con Istanze di contenitore di Azure è ancora agli inizi, si prevede che possano emergere alcuni ambienti diversi:
+Anche se l'integrazione degli agenti di orchestrazione con Istanze di Azure Container è ancora agli inizi, si prevede che emergeranno alcuni ambienti diversi:
 
 ### <a name="orchestration-of-container-instances-exclusively"></a>Orchestrazione di Istanze di contenitore in modo esclusivo
 
@@ -54,13 +54,15 @@ Per i carichi di lavoro stabili e a esecuzione prolungata, l'orchestrazione di c
 
 Invece di aumentare il numero di macchine virtuali nel cluster e quindi distribuire altri contenitori in tali macchine, l'agente di orchestrazione può semplicemente pianificare i contenitori aggiuntivi in Istanze di contenitore di Azure ed eliminarli quando non sono più necessari.
 
-## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>Implementazione di esempio: Virtual Kubelet per Kubernetes
+## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Implementazione di esempio: nodi virtuali per il servizio Azure Kubernetes (AKS)
 
-Il progetto [Virtual Kubelet][aci-connector-k8s] illustra come le piattaforme di orchestrazione dei contenitori si integrano con le istanze di contenitore di Azure.
+Per ridimensionare rapidamente i carichi di lavoro dell'applicazione in un cluster del [servizio Azure Kubernetes](../aks/intro-kubernetes.md) è possibile usare *nodi virtuali* creati dinamicamente in Istanze di Azure Container. Attualmente in anteprima, i nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in ACI e nel cluster del servizio Azure Kubernetes. 
 
-Virtual Kubelet simula il [kubelet][kubelet-doc] di Kubernetes registrandosi come nodo con capacità illimitata e realizzando la creazione di [POD][pod-doc] come gruppi di contenitori in Istanze di contenitore di Azure.
+I nodi virtuali supportano attualmente le istanze di contenitore di Linux. Per imparare a usare i nodi virtuali usare l'[interfaccia della riga di comando di Azure](https://go.microsoft.com/fwlink/?linkid=2047538) o il [portale di Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-È possibile creare connettori per altri agenti di orchestrazione che si integrano in modo simile con le primitive di piattaforma per combinare le funzionalità avanzate dell'API dell'agente di orchestrazione con la velocità e la semplicità di gestione dei contenitori in Istanze di contenitore di Azure.
+I nodi virtuali usano il [kubelet virtuale][aci-connector-k8s] open source per simulare il [kubelet][kubelet-doc] di Kubernetes eseguendo la registrazione come nodo con capacità illimitata. Il kubelet virtuale recapita la creazione di [pod][pod-doc] come gruppi di contenitori in Istanze di Azure Container.
+
+Vedere il progetto [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) (Kubelet virtuale) per altri esempi di estensione dell'API Kubernetes nelle piattaforme di contenitori senza server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

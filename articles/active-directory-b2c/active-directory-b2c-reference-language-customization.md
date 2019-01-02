@@ -7,62 +7,59 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: affd52352dcc745557dd66c61ccfa1e7a99dcdb7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442322"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724316"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalizzazione della lingua in Azure AD B2C
 
-La personalizzazione della lingua in Azure Active Directory B2C (Azure AD B2C) consente ai criteri di modificare la lingua del percorso utente in base alle esigenze dei clienti.  Microsoft fornisce le traduzioni per [36 lingue](#supported-languages), ma è anche possibile inserire le proprie traduzioni per qualsiasi lingua. Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare qualsiasi testo nelle pagine.  
+La personalizzazione della lingua in Azure Active Directory B2C (Azure AD B2C) consente al flusso utente di modificare la lingua in base alle esigenze dei clienti.  Microsoft fornisce le traduzioni per [36 lingue](#supported-languages), ma è anche possibile inserire le proprie traduzioni per qualsiasi lingua. Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare qualsiasi testo nelle pagine.  
 
 ## <a name="how-language-customization-works"></a>Funzionamento della personalizzazione della lingua
-La personalizzazione della lingua consente di selezionare le lingue in cui è disponibile il percorso utente. Dopo aver abilitato la funzionalità, è possibile specificare il parametro della stringa di query, `ui_locales`, dall'applicazione. Quando si esegue la chiamata ad Azure AD B2C, la pagina viene tradotta nelle impostazioni locali indicate. Questo tipo di configurazione garantisce il controllo completo sulle lingue del percorso utente e ignora le impostazioni della lingua del browser del cliente. 
+La personalizzazione della lingua consente di selezionare le lingue in cui è disponibile il flusso utente. Dopo aver abilitato la funzionalità, è possibile specificare il parametro della stringa di query, `ui_locales`, dall'applicazione. Quando si esegue la chiamata ad Azure AD B2C, la pagina viene tradotta nelle impostazioni locali indicate. Questo tipo di configurazione garantisce il controllo completo sulle lingue del flusso utente e ignora le impostazioni della lingua del browser del cliente. 
 
-Potrebbe non essere necessario un tale livello di controllo sulle lingue visualizzate dal cliente. Se non si specifica un parametro `ui_locales`, l'esperienza del cliente è determinata dalle impostazioni del browser.  È comunque possibile controllare le lingue in cui il percorso utente è tradotto aggiungendole come lingue supportate. Se il browser del cliente è impostato su una lingua che non si vuole supportare, viene visualizzata la lingua selezionata come predefinita nelle impostazioni cultura supportate.
+Potrebbe non essere necessario un tale livello di controllo sulle lingue visualizzate dal cliente. Se non si specifica un parametro `ui_locales`, l'esperienza del cliente è determinata dalle impostazioni del browser.  È comunque possibile controllare le lingue in cui il flusso utente è tradotto aggiungendole come lingue supportate. Se il browser del cliente è impostato su una lingua che non si vuole supportare, viene visualizzata la lingua selezionata come predefinita nelle impostazioni cultura supportate.
 
-- **Lingua specificata tramite ui-locales**: dopo aver abilitato la personalizzazione della lingua, il percorso utente viene tradotto nella lingua qui specificata.
-- **Lingua richiesta dal browser**: se non è stato specificato alcun parametro `ui_locales`, il percorso utente viene tradotto nella lingua richiesta dal browser *se è supportata*.
-- **Lingua predefinita nei criteri**: se il browser non specifica alcuna lingua oppure ne specifica una non supportata, il percorso utente viene tradotto nella lingua predefinita nei criteri.
+- **Lingua specificata tramite ui-locales**: Dopo aver abilitato la personalizzazione della lingua, il flusso utente viene tradotto nella lingua specificata.
+- **Lingua richiesta dal browser**: Se non è stato specificato alcun parametro `ui_locales`, il flusso utente viene tradotto nella lingua richiesta dal browser *se è supportata*.
+- **Lingua predefinita nei criteri**: Se il browser non specifica alcuna lingua oppure ne specifica una non supportata, il flusso utente viene tradotto nella lingua predefinita del flusso.
 
 >[!NOTE]
 >Se si fa uso di attributi utente personalizzati, è necessario fornire le traduzioni. Per altre informazioni, vedere [Personalizzazione delle stringhe](#customize-your-strings).
 >
 
 ## <a name="support-requested-languages-for-uilocales"></a>Supporto delle lingue richieste per ui_locales 
-Per i criteri creati prima della disponibilità generale della personalizzazione della lingua occorre prima abilitare questa funzionalità. Per i criteri creati successivamente la personalizzazione della lingua è abilitata per impostazione predefinita. 
+Per i criteri creati prima della disponibilità generale della personalizzazione della lingua occorre prima abilitare questa funzionalità. Per i criteri e i flussi utente creati successivamente la personalizzazione della lingua è abilitata per impostazione predefinita. 
 
-Quando si abilita la personalizzazione della lingua nei criteri, è possibile controllare la lingua del percorso utente aggiungendo il parametro `ui_locales`.
-1. [Passare alla pagina delle funzionalità B2C nel portale di Azure](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings).
-2. Passare al criterio da abilitare per le traduzioni.
-3. Selezionare **Personalizzazione della lingua**.  
+Quando si abilita la personalizzazione della lingua in un flusso utente, è possibile controllare la lingua del flusso utente aggiungendo il parametro `ui_locales`.
+1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
+2. Fare clic sul flusso utente da abilitare per le traduzioni.
+3. Selezionare **Lingue**.  
 4. Selezionare **Abilita personalizzazione della lingua**.
-5. Leggere le informazioni nella finestra di dialogo e selezionare **Sì**.
 
-## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Selezionare le lingue abilitate per il percorso utente 
-Abilitare un set di lingue per il percorso utente da convertire quando richiesto dal browser senza il parametro `ui_locales`.
-1. Assicurarsi che la personalizzazione della lingua sia abilitata nei criteri in base alle istruzioni precedenti.
-2. Nella pagina **Modifica criterio** selezionare **Personalizzazione della lingua**.
-3. Selezionare una lingua che si vuole supportare.
-4. Nel riquadro delle proprietà impostare **Attivato** su **Sì**.  
-5. Scegliere **Salva** nella parte superiore del riquadro delle proprietà.
+## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>Selezionare le lingue abilitate per il flusso utente 
+Abilitare un set di lingue in cui tradurre il flusso utente quando richiesto dal browser senza il parametro `ui_locales`.
+1. Assicurarsi che la personalizzazione della lingua sia abilitata nel flusso utente in base alle istruzioni precedenti.
+2. Nella pagina **Lingua** del flusso utente selezionare una lingua che si vuole supportare.
+3. Nel riquadro delle proprietà impostare **Attivato** su **Sì**.  
+4. Scegliere **Salva** nella parte superiore del riquadro delle proprietà.
 
 >[!NOTE]
 >Se non viene specificato un parametro `ui_locales`, la pagina viene tradotta nella lingua del browser del cliente solo se è abilitata.
 >
 
 ## <a name="customize-your-strings"></a>Personalizzazione delle stringhe
-La personalizzazione della lingua consente di personalizzare qualsiasi stringa nel percorso utente.
-1. Assicurarsi che la personalizzazione della lingua sia abilitata nei criteri in base alle istruzioni precedenti.
-2. Nella pagina **Modifica criterio** selezionare **Personalizzazione della lingua**.
-3. Selezionare la lingua da personalizzare.
-4. Selezionare la pagina da modificare.
-5. Selezionare **Scarica impostazioni predefinite** (o **Scarica override** se in precedenza si è già modificata questa lingua). 
+La personalizzazione della lingua consente di personalizzare qualsiasi stringa nel flusso utente.
+1. Assicurarsi che la personalizzazione della lingua sia abilitata nel flusso utente in base alle istruzioni precedenti.
+2. Nella pagina **Lingua** del flusso utente selezionare la lingua che si vuole personalizzare.
+3. In **File di risorse a livello di pagina** selezionare la pagina che si vuole modificare.
+4. Selezionare **Scarica impostazioni predefinite** (o **Scarica override** se in precedenza si è già modificata questa lingua).
 
 Questa procedura permette di ottenere un file JSON con cui iniziare a modificare le stringhe.
 
@@ -128,12 +125,13 @@ Se si vuole specificare un elenco preimpostato di valori per le risposte, è nec
 
 ### <a name="upload-your-changes"></a>Caricamento delle modifiche
 1. Dopo aver completato le modifiche al file JSON, tornare al tenant B2C.
-2. Nella pagina **Modifica criterio** selezionare **Personalizzazione della lingua**.
-3. Selezionare la lingua in cui si vuole tradurre.
-4. Selezionare la pagina per cui si vogliono fornire traduzioni.
-5. Selezionare l'icona della cartella e selezionare il file JSON da caricare.
+2. Selezionare **Flussi utente** e fare clic sul flusso utente che si vuole abilitare per le traduzioni.
+3. Selezionare **Lingue**.
+4. Selezionare la lingua in cui si vuole tradurre.
+5. Selezionare la pagina per cui si vogliono fornire traduzioni.
+6. Selezionare l'icona della cartella e selezionare il file JSON da caricare.
  
-Le modifiche vengono salvate automaticamente nel criterio.
+Le modifiche vengono salvate automaticamente nel flusso utente.
 
 ## <a name="customize-the-page-ui-by-using-language-customization"></a>Personalizzare l'interfaccia utente della pagina usando la personalizzazione della lingua
 
@@ -151,15 +149,16 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>Aggiungere lingue personalizzate
 
-È anche possibile aggiungere per cui attualmente Microsoft non fornisce traduzioni. Sarà necessario fornire le traduzioni per tutte le stringhe contenute nei criteri.  I codici della lingua e delle impostazioni internazionali sono limitati a quelli nello standard ISO 639-1. 
+È anche possibile aggiungere per cui attualmente Microsoft non fornisce traduzioni. Sarà necessario fornire le traduzioni per tutte le stringhe contenute nel flusso utente.  I codici della lingua e delle impostazioni internazionali sono limitati a quelli nello standard ISO 639-1. 
 
-1. Nella pagina **Modifica criterio** selezionare **Personalizzazione della lingua**.
-2. Selezionare **Aggiungi lingua personalizzata** nella parte superiore della pagina.
-3. Nel riquadro del contesto che viene visualizzato identificare la lingua per cui si stanno inserendo le traduzioni immettendo un codice delle impostazioni locali valido.
-4. Per ogni pagina è possibile scaricare un set di sostituzioni per la lingua inglese e lavorare sulle traduzioni.
-5. Una volta terminato con i file JSON, è possibile caricarli per ogni pagina.
-6. Selezionare **Abilita** e i criteri potranno ora visualizzare la lingua per gli utenti.
-7. Salvare la lingua.
+1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
+2. Fare clic sul flusso utente in cui si vuole aggiungere le lingue personalizzate e quindi fare clic su **Lingue**.
+3. Selezionare **Aggiungi lingua personalizzata** nella parte superiore della pagina.
+4. Nel riquadro del contesto che viene visualizzato identificare la lingua per cui si stanno inserendo le traduzioni immettendo un codice delle impostazioni locali valido.
+5. Per ogni pagina è possibile scaricare un set di sostituzioni per la lingua inglese e lavorare sulle traduzioni.
+6. Una volta terminato con i file JSON, è possibile caricarli per ogni pagina.
+7. Selezionare **Abilita**. Il flusso utente può ora visualizzare la lingua per gli utenti.
+8. Salvare la lingua.
 
 >[!IMPORTANT]
 >È necessario abilitare le lingue personalizzate o caricare gli override per la lingua prima di poterla salvare.
@@ -170,7 +169,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ### <a name="page-ui-customization-labels-as-overrides"></a>Etichette di personalizzazione dell'interfaccia utente della pagina come sostituzioni
 Quando si abilita la personalizzazione della lingua, le modifiche precedenti apportate alle etichette usando la personalizzazione dell'interfaccia utente della pagina vengono rese persistenti in un file JSON per la lingua Inglese (en). È possibile continuare a modificare le etichette e le altre stringhe caricando le risorse di lingua nella funzionalità di personalizzazione della lingua.
 ### <a name="up-to-date-translations"></a>Traduzioni aggiornate
-Microsoft si impegna a fornire le traduzioni più aggiornate. Continuerà a migliorare le traduzioni e a garantirne la conformità. Verranno identificati i bug e le modifiche alla terminologia globale e verranno eseguiti aggiornamenti compatibili con il percorso utente.
+Microsoft si impegna a fornire le traduzioni più aggiornate. Continuerà a migliorare le traduzioni e a garantirne la conformità. Verranno identificati i bug e le modifiche alla terminologia globale e verranno eseguiti aggiornamenti compatibili con il flusso utente.
 ### <a name="support-for-right-to-left-languages"></a>Supporto per lingue da destra a sinistra
 Microsoft non fornisce attualmente supporto per le lingue da destra a sinistra. A questo scopo, è possibile usare impostazioni locali personalizzate e modificare la modalità di visualizzazione delle stringhe tramite CSS.  Se si ha bisogno di questa funzionalità, votarla in [Commenti e suggerimenti su Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traduzioni per provider di identità basati su social network
