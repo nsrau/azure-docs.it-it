@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: c4fb331076f88d4f14f56201aa31a00160f395aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f212e2555b6097912628791635a539bc488d4979
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995347"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413167"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Introduzione all'API Riconoscimento vocale in JavaScript
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Tramite l'API Riconoscimento vocale, è possibile sviluppare applicazioni che convertono audio parlato in testo. La libreria client JavaScript usa il [protocollo WebSocket del Servizio di riconoscimento vocale](../API-Reference-REST/websocketprotocol.md), che consente di parlare e contemporaneamente ricevere testo trascritto. Questo articolo illustra come usare l'API Riconoscimento vocale in JavaScript.
 
@@ -33,10 +34,10 @@ Speech API fa parte di Servizi cognitivi. È possibile ottenere le chiavi di sot
 
 ## <a name="get-started"></a>Attività iniziali
 
-Questa sezione illustra i passaggi necessari per caricare una pagina HTML di esempio. L'esempio si trova nel [repository GitHub](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). È possibile **aprire l'esempio direttamente** dal repository o **aprire il file di esempio da una copia locale** del repository. 
+Questa sezione illustra i passaggi necessari per caricare una pagina HTML di esempio. L'esempio si trova nel [repository GitHub](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). È possibile **aprire l'esempio direttamente** dal repository o **aprire il file di esempio da una copia locale** del repository.
 
 > [!NOTE]
-> Alcuni browser bloccano l'accesso al microfono da origini non sicure. In tal caso, è consigliabile ospitare 'esempio'/'app' su https, in modo che funzioni su tutti i browser supportati. 
+> Alcuni browser bloccano l'accesso al microfono da origini non sicure. In tal caso, è consigliabile ospitare 'esempio'/'app' su https, in modo che funzioni su tutti i browser supportati.
 
 ### <a name="open-the-sample-directly"></a>Aprire l'esempio direttamente
 
