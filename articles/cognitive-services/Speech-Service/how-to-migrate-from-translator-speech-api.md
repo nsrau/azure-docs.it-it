@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: 81513819fd60dc088c2ed4a781562684c84e803a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: dec903d8557145701e06ddd588a58eb11fef96f5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415475"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879308"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Eseguire la migrazione dall'API Traduzione vocale al Servizio di riconoscimento vocale
 
@@ -45,7 +45,7 @@ Usare le informazioni di questo articolo per eseguire la migrazione delle applic
 | Informazioni di temporizzazione                                       | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                 |
 | ID correlazione                                    | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Modelli conversione voce/testo personalizzati                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Il Servizio di riconoscimento vocale offre modelli conversione voce/testo personalizzati che consentono di personalizzare il riconoscimento vocale in base allo specifico vocabolario dell'organizzazione.                                                                                                                                           |
-| Modelli di traduzione personalizzati                         | :heavy_minus_sign:                                              | :heavy_check_mark:                 | La sottoscrizione all'API di traduzione testo Microsoft consente di impiegare [Custom Translator](https://www.microsoft.com/translator/business/customization/) (attualmente in anteprima) per usare i propri dati per traduzioni più accurate.                                                 |
+| Modelli di traduzione personalizzati                         | :heavy_minus_sign:                                              | :heavy_check_mark:                 | La sottoscrizione all'API Traduzione testuale Microsoft consente di usare il [traduttore personalizzato](https://www.microsoft.com/translator/business/customization/) per usare i propri dati per traduzioni più accurate.                                                 |
 
 ## <a name="migration-strategies"></a>Strategie di migrazione
 
@@ -62,7 +62,7 @@ Se l'organizzazione dispone di applicazioni in fase di sviluppo o in produzione 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md)
-* [Avvio rapido: Riconoscimento vocale in un'applicazione della piattaforma UWP con Speech SDK](quickstart-csharp-uwp.md)
+* [Avvio rapido: Riconoscere i contenuti vocali in un'app UWP con Speech SDK](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Vedere anche 
 

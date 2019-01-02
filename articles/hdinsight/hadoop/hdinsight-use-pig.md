@@ -1,5 +1,5 @@
 ---
-title: Usare Apache Pig in HDInsight
+title: Usare Apache Pig - Azure HDInsight
 description: Informazioni su come usare Pig con Apache Hadoop in HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 6a1247048907d81b3c9db644bcdb7b5e5eee5fba
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 25a91c6217aac1b2278957c1ff0ed8b7a9b1f6ac
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633632"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166167"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Usare Apache Pig con Apache Hadoop in HDInsight
 
-Informazioni su come usare [Apache Pig](http://pig.apache.org/) con HDInsight.
+Informazioni su come usare [Apache Pig](https://pig.apache.org/) con HDInsight.
 
 Apache Pig è una piattaforma che consente la creazione di programmi per Apache Hadoop usando un linguaggio procedurale denominato *Pig Latin*. Pig è un'alternativa a Java per la creazione di soluzioni *MapReduce* ed è incluso in Azure HDInsight. Usare la tabella seguente per individuare i vari modi in cui Pig può essere usato con HDInsight:
 
@@ -40,11 +40,11 @@ Pig consente di definire l'elaborazione come una serie di trasformazioni a cui v
 
 Il linguaggio Pig Latin consente di descrivere il flusso dati dall'input non elaborato fino all'output desiderato, attraverso una o più trasformazioni. I programmi in Pig Latin seguono questo modello generale:
 
-* **Load**: lettura dei dati da manipolare dal file system
+* **Caricamento**: lettura dei dati da manipolare dal file system
 
-* **Transform**: manipolazione dei dati
+* **Trasformazione**: manipolazione dei dati
 
-* **Dump or store**: output dei dati sullo schermo o archiviazione per l'elaborazione
+* **Backup o archiviazione**: output dei dati sullo schermo o archiviazione per l'elaborazione
 
 ### <a name="user-defined-functions"></a>Funzioni definite dall'utente
 
@@ -69,7 +69,7 @@ Ogni log all'interno del file è costituito da una riga di campi che contiene un
 Nell'esempio precedente, il livello log è ERROR.
 
 > [!NOTE]
-> È anche possibile generare un file log4j usando lo strumento di registrazione [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) e quindi caricandolo nel BLOB. Per istruzioni, vedere [Caricamento di dati in HDInsight](../hdinsight-upload-data.md) . Per altre informazioni sul modo in cui HDInsight usa l'archiviazione BLOB di Azure, vedere [Usare l'archiviazione BLOB di Azure con HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+> È anche possibile generare un file log4j usando lo strumento di registrazione [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) e quindi caricandolo nel BLOB. Per istruzioni, vedere [Caricamento di dati in HDInsight](../hdinsight-upload-data.md) . Per altre informazioni sul modo in cui HDInsight usa l'archiviazione BLOB di Azure, vedere [Usare l'archiviazione BLOB di Azure con HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 
 ## <a id="job"></a>Processo di esempio
 
@@ -120,12 +120,12 @@ Dopo avere appreso come usare Pig con HDInsight, vedere i collegamenti seguenti 
 * [Usare Oozie con HDInsight](../hdinsight-use-oozie.md)
 * [Usare processi MapReduce con HDInsight][hdinsight-use-mapreduce]
 
-[apachepig-home]: http://pig.apache.org/
-[putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-[curl]: http://curl.haxx.se/
-[pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[apachepig-home]: https://pig.apache.org/
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+[curl]: https://curl.haxx.se/
+[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
+[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md
@@ -136,7 +136,7 @@ Dopo avere appreso come usare Pig con HDInsight, vedere i collegamenti seguenti 
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif

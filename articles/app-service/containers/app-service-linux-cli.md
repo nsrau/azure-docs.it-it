@@ -1,6 +1,6 @@
 ---
-title: Gestire l'app Web per i contenitori tramite l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Gestire l'app Web per i contenitori tramite l'interfaccia della riga di comando di Azure.
+title: Gestire l'app Web per contenitori tramite l'interfaccia della riga di comando di Azure - Servizio app di Azure | Microsoft Docs
+description: Gestire l'app Web per contenitori tramite l'interfaccia della riga di comando di Azure.
 keywords: servizio app di Azure, app Web, interfaccia della riga di comando, domande frequenti, linux, oss
 services: app-service
 documentationCenter: ''
@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.custom: seodec18
+ms.openlocfilehash: 0b125903493712dca3b8c8c3a9ce663f9e1b408c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24105390"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257642"
 ---
-# <a name="manage-web-app-for-containers-using-azure-cli"></a>Gestire l'app Web per i contenitori tramite l'interfaccia della riga di comando di Azure
+# <a name="manage-web-app-for-containers-using-azure-cli"></a>Gestire l'app Web per contenitori tramite l'interfaccia della riga di comando di Azure
 
-Usando i comandi in questo articolo si è in grado di creare e gestire un'app Web per i contenitori con l'interfaccia della riga di comando di Azure 2.0.
+I comandi in questo articolo consentono di creare e gestire un'app Web per contenitori con l'interfaccia della riga di comando di Azure.
 È possibile iniziare a usare la nuova versione dell'interfaccia della riga di comando in due modi:
 
-* [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) sul computer.
+* [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nel computer.
 * Utilizzare [Azure Cloud Shell (anteprima)](../../cloud-shell/overview.md)
 
 ## <a name="create-a-linux-app-service-plan"></a>Creare un nuovo piano di servizio app
@@ -54,7 +55,7 @@ Per attivare la registrazione del contenitore Docker è possibile usare il coman
 az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
 
-## <a name="change-the-custom-docker-container-for-an-existing-web-app-for-containers-app"></a>Cambiare il contenitore Docker personalizzato per un'app Web per i contenitori esistente
+## <a name="change-the-custom-docker-container-for-an-existing-web-app-for-containers-app"></a>Cambiare il contenitore Docker personalizzato per un'app Web per contenitori esistente
 
 Per modificare un'app creata in precedenza, dall'immagine del Docker attuale a una nuova immagine, è possibile utilizzare il comando seguente:
 
@@ -64,7 +65,7 @@ az webapp config container set -n sname -g rgname -c apurvajo/mariohtml5
 
 ## <a name="using-docker-images-from-a-private-registry"></a>Utilizzo di immagini Docker da un registro privato
 
-È possibile configurare l'app per utilizzare le immagini da un registro di sistema privato. È necessario specificare l'URL per il Registro di sistema, nome utente e password. È possibile fare ciò utilizzando il comando seguente:
+È possibile configurare l'app per utilizzare le immagini da un registro di sistema privato.  È necessario specificare l'URL per il Registro di sistema, nome utente e password. È possibile fare ciò utilizzando il comando seguente:
 
 ```azurecli-interactive
 az webapp config container set -n sname1 -g rgname -c <container name> -r <server url> -u <username> -p <password>
@@ -78,9 +79,9 @@ Con il comando seguente è possibile abilitare la funzionalità CD e ottenere l'
 az webapp deployment container config -n sname -g rgname -e true
 ```
 
-## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Creare un'app Web per i contenitori usando uno dei nostri Framework di runtime integrati
+## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Creare un'app Web per contenitori usando uno dei framework di runtime predefiniti
 
-Per creare un'app Web per i contenitori PHP 5.6, è possibile usare il comando seguente.
+Per creare un'app Web per contenitori PHP 5.6, è possibile usare il comando seguente.
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -r "php|5.6"
@@ -105,7 +106,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Che cos'è il Servizio app di Azure in Linux?](app-service-linux-intro.md)
-* [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Installare l'interfaccia da riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (anteprima)](../../cloud-shell/overview.md)
 * [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Distribuzione continua con l'app Web per contenitori](app-service-linux-ci-cd.md)

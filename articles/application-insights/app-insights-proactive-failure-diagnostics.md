@@ -9,17 +9,16 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0895d31475de5d78c82f3bfedc0765e5a9549339
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960923"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877599"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
 [Application Insights](app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se si verifica un incremento anomalo della frequenza di richieste non riuscite nell'app Web, rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per quanto riguarda le richieste, quelle non riuscite hanno in genere un codice di risposta 400 o superiore. Per poter valutare e diagnosticare il problema, la notifica include un'analisi delle caratteristiche degli errori e i dati di telemetria correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
@@ -92,7 +91,7 @@ Esistono alcune altre indicazioni. Ad esempio, la percentuale di errori di dipen
 
 Per approfondire l'analisi, i collegamenti in ogni sezione consentono di passare direttamente a una [pagina di ricerca](app-insights-diagnostic-search.md) filtrata in base alle richieste, all'eccezione, alla dipendenza o alla traccia pertinenti. In alternativa è possibile aprire il [portale di Azure](https://portal.azure.com), passare alla risorsa di Application Insights per l'app e aprire il pannello Errori.
 
-In questo esempio, facendo clic sul collegamento "View dependency failures details" (Visualizza i dettagli degli errori di dipendenza), si apre il pannello di ricerca di Application Insights, che mostra l'istruzione SQL con un esempio della causa radice: sono stati specificati valori NULL nei campi obbligatori e non è stata superata la convalida durante l'operazione di salvataggio.
+In questo esempio, facendo clic sul collegamento "View dependency failures details" (Visualizza i dettagli degli errori di dipendenza), si apre il pannello di ricerca di Application Insights, Mostra l'istruzione SQL che include un esempio della causa radice: Nei campi obbligatori sono stati inseriti valori null che non hanno superato la convalida durante l'operazione di salvataggio.
 
 ![Ricerca diagnostica](./media/app-insights-proactive-failure-diagnostics/051.png)
 
@@ -124,11 +123,11 @@ Il rilevamento intelligente delle anomalie degli errori integra altre funzionali
 
 *Il servizio implica l'accesso manuale ai dati da parte di Microsoft?*
 
-* No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](app-insights-data-retention-privacy.md).
+*  No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](app-insights-data-retention-privacy.md).
 
 *Va eseguita una sottoscrizione a questo avviso?*
 
-* No. In ogni applicazione che invia dati di telemetria della richiesta è presente la regola di avviso per il rilevamento intelligente.
+*  No. In ogni applicazione che invia dati di telemetria della richiesta è presente la regola di avviso per il rilevamento intelligente.
 
 *È possibile annullare la sottoscrizione oppure ottenere le notifiche inviate ai colleghi?*
 
@@ -147,7 +146,7 @@ Gli strumenti di diagnostica seguenti consentono di controllare la telemetria da
 
 * [Esplora metriche](app-insights-metrics-explorer.md)
 * [Esplora ricerche](app-insights-diagnostic-search.md)
-* [Linguaggio avanzato di query di Analisi](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Linguaggio avanzato di query di Analisi](../azure-monitor/log-query/get-started-portal.md)
 
 Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 

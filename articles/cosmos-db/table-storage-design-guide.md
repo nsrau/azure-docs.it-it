@@ -1,23 +1,22 @@
 ---
-title: Guida alla progettazione di tabelle di Archiviazione di Azure | Microsoft Docs
-description: Progettare tabelle scalabili ed efficienti in Archiviazione tabelle di Azure
-services: cosmos-db
+title: Progettare tabelle di Azure Cosmos DB per supportare ridimensionamento e prestazioni
+description: 'Guida alla progettazione di tabelle di Archiviazione di Azure: Progettazione di tabelle scalabili ed efficienti in Azure Cosmos DB e in Tabella di archiviazione di Azure'
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/03/2017
-ms.author: sngun
-ms.openlocfilehash: 6ac0895ac31a815f00ca6c5fa1dfd325be2e3963
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 656a8acc06a0d02959dda42c980db65c011f0bb3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245818"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140949"
 ---
-# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione della tabella di archiviazione di Azure: Progettazione scalabile e Tabelle ad alte prestazioni 
+# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di Archiviazione di Azure: progettazione di tabelle scalabili ed efficienti
+
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 Per progettare tabelle scalabili ed efficienti, è necessario tenere in considerazione diversi fattori, come le prestazioni, la scalabilità e il costo. Se in precedenza si sono progettati schemi per i database relazionali, queste considerazioni saranno già state fatte, ma, pur essendoci alcune somiglianze tra il modello di archiviazione del servizio tabelle di Azure e i modelli relazionali, esistono anche molte importanti differenze. Queste differenze danno in genere origine a progettazioni diverse che potrebbero sembrare poco plausibili o errate a chi ha familiarità con i database relazionali, ma che invece hanno perfettamente senso se la progettazione è finalizzata a un archivio di chiavi/valori NoSQL, come il servizio tabelle di Azure. Molte differenze di progettazione rispecchieranno il fatto che il servizio tabelle è progettato per supportare applicazioni con scalabilità cloud che possono contenere miliardi di entità (dette righe nella terminologia dei database relazionali) di dati o per set di dati che devono supportare volumi di transazioni elevati. È quindi necessario pensare in modo diverso all'archiviazione dei dati e conoscere il funzionamento del servizio tabelle. Un archivio dati NoSQL ben progettato offre alla soluzione una scalabilità decisamente più elevata (e a un costo inferiore) rispetto a una soluzione che usa un database relazionale. Questa guida illustra proprio questi argomenti.  
@@ -133,7 +132,7 @@ Il nome account, il nome tabella e **PartitionKey** insieme identificano la part
 
 Nel servizio tabelle, un solo nodo gestisce una o più partizioni complete e il servizio scala bilanciando dinamicamente il carico delle partizioni tra i nodi. Se un nodo è in condizioni di carico, il servizio tabelle può *dividere* in più nodi l'intervallo di partizioni gestite da quel nodo. Quando il traffico diminuisce, il servizio può *unire* nuovamente in un solo nodo gli intervalli di partizioni dai nodi inattivi.  
 
-Per altre informazioni sui dettagli interni del servizio tabelle, in particolare sulla gestione delle partizioni con il servizio tabelle, vedere il documento relativo all’ [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
+Per altre informazioni sui dettagli interni del servizio tabelle, in particolare sulla gestione delle partizioni con il servizio tabelle, vedere il documento [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta).  
 
 ### <a name="entity-group-transactions"></a>Transazioni dei gruppi di entità
 Nel servizio tabelle, le transazioni di gruppi di entità (EGT, Entity Group Transaction) sono il solo meccanismo predefinito per eseguire aggiornamenti atomici tra più entità. In alcuni documenti, le transazioni EGT sono chiamate anche *transazioni batch*. Le transazioni EGT possono agire solo su entità archiviate nella stessa partizione (ovvero che condividono la stessa chiave di partizione in una determinata tabella), quindi, ogni volta che è necessario un comportamento transazionale atomico tra più entità, bisogna assicurarsi che tali entità siano nella stessa partizione. Per questo motivo spesso si tengono tipi diversi di entità nella stessa tabella (e partizione) e non si usa una tabella per ogni tipo di entità. Una sola EGT può agire al massimo su 100 entità.  Se si inviano più EGT simultanee per l'elaborazione, è importante garantire che tali EGT non vengano applicate a entità che sono comuni tra EGT, altrimenti l'elaborazione potrebbe subire ritardi.
@@ -163,19 +162,19 @@ Questi elenchi riepilogano alcune linee guida chiave che è necessario tenere pr
 
 Progettazione di una soluzione di servizio tabelle efficiente nelle operazioni di *lettura* :
 
-* ***Progettazione per le query nelle applicazioni con intensa attività di lettura.*** Quando si progettano le tabelle, considerare le query (soprattutto quelle sensibili alla latenza) che si eseguiranno prima di pensare a come si aggiorneranno le entità. Ciò comporta in genere una soluzione efficiente e ad alte prestazioni.  
+* ***Progettazione per le query nelle applicazioni con intensa attività di lettura.***  Quando si progettano le tabelle, considerare le query (soprattutto quelle sensibili alla latenza) che si eseguiranno prima di pensare a come si aggiorneranno le entità. Ciò comporta in genere una soluzione efficiente e ad alte prestazioni.  
 * ***Specificare PartitionKey e RowKey nelle query.*** *Scegliere query* come queste sono le query più efficienti del servizio tabella.  
-* ***Prendere in considerazione l'archiviazione di copie duplicate delle entità.*** Poiché l'archiviazione tabelle è economica, considerare la possibilità di archiviare la stessa entità più volte (con chiavi diverse) per consentire query più efficienti.  
-* ***Considerare la denormalizzazione dei dati.*** L’archiviazione delle tabelle è economica, dunque è opportuno considerare la denormalizzazione dei dati. Ad esempio, archiviare le entità di riepilogo in modo che le query per aggregare i dati debbano accedere a una singola entità.  
+* ***Prendere in considerazione l'archiviazione di copie duplicate delle entità.***  Poiché l'archiviazione tabelle è economica, considerare la possibilità di archiviare la stessa entità più volte (con chiavi diverse) per consentire query più efficienti.  
+* ***Considerare la denormalizzazione dei dati.***  L’archiviazione delle tabelle è economica, dunque è opportuno considerare la denormalizzazione dei dati. Ad esempio, archiviare le entità di riepilogo in modo che le query per aggregare i dati debbano accedere a una singola entità.  
 * ***Usare valori chiave composti.*** Le sole chiavi a disposizione sono **PartitionKey** e **RowKey**. Ad esempio, per abilitare percorsi alternativi per l'accesso con chiave alle entità, ad esempio, utilizzare valori chiave composti.  
-* ***Usare la proiezione di query.*** È possibile ridurre la quantità di dati trasferiti tramite la rete usando query che selezionano solo i campi necessari.  
+* ***Usare la proiezione di query.***  È possibile ridurre la quantità di dati trasferiti tramite la rete usando query che selezionano solo i campi necessari.  
 
 Progettazione di una soluzione di servizio tabelle efficiente nelle operazioni di *scrittura* :  
 
-* ***Non creare partizioni critiche.*** Scegliere chiavi che consentono di distribuire le richieste tra più partizioni in qualsiasi momento.  
-* ***Evitare picchi di traffico.*** Contenere il traffico in un intervallo di tempo ragionevole ed evitare i picchi di traffico.
-* ***Non creare necessariamente una tabella separata per ogni tipo di entità.*** Quando è necessario eseguire transazioni atomiche tra diversi tipi di entità, è possibile archiviare questi tipi di entità nella stessa partizione della stessa tabella.
-* ***Considerare la velocità effettiva massima che è necessario raggiungere.*** È necessario tenere presenti gli obiettivi di scalabilità per il servizio tabelle e assicurarsi di non superarli con la progettazione.  
+* ***Non creare partizioni critiche.***  Scegliere chiavi che consentono di distribuire le richieste tra più partizioni in qualsiasi momento.  
+* ***Evitare picchi di traffico.***  Contenere il traffico in un intervallo di tempo ragionevole ed evitare i picchi di traffico.
+* ***Non creare necessariamente una tabella separata per ogni tipo di entità.***  Quando è necessario eseguire transazioni atomiche tra diversi tipi di entità, è possibile archiviare questi tipi di entità nella stessa partizione della stessa tabella.
+* ***Considerare la velocità effettiva massima che è necessario raggiungere.***  È necessario tenere presenti gli obiettivi di scalabilità per il servizio tabelle e assicurarsi di non superarli con la progettazione.  
 
 Questa guida contiene esempi in cui vengono messi in pratica tutti questi principi.  
 
@@ -320,7 +319,7 @@ Questo esempio mostra anche un'entità reparto e le relative entità dipendente 
 
 Un approccio alternativo prevede la denormalizzazione dei dati e l'archiviazione delle sole entità dipendente con i dati reparto denormalizzati, come illustrato nell'esempio seguente. In questo particolare scenario, l'approccio denormalizzato non sarà quello migliore se si deve essere in grado di cambiare i dettagli di un responsabile di reparto perché, per questa operazione, sarà necessario aggiornare ogni dipendente del reparto.  
 
-![][2]
+![Entità dipendente][2]
 
 Per ulteriori informazioni, vedere il [Modello di denormalizzazione](#denormalization-pattern) più avanti in questa guida.  
 
@@ -397,18 +396,18 @@ Ad esempio, se si dispone di tabelle di piccole dimensioni che contengono dati c
 ### <a name="inheritance-relationships"></a>Relazioni di ereditarietà
 Se l'applicazione client usa un set di classi che fanno parte di una relazione di ereditarietà per rappresentare entità aziendali, è possibile rendere facilmente le entità persistenti nel servizio tabelle. Ad esempio, nell'applicazione client potrebbe essere definito il set di classi seguente, dove **Person** è una classe astratta.
 
-![][3]
+![Diagramma ER di relazioni di ereditarietà][3]
 
 È possibile rendere persistenti le istanze delle due classi concrete nel servizio tabelle usando una singola tabella Persone con entità simili alle seguenti:  
 
-![][4]
+![Diagramma delle entità cliente e dipendente][4]
 
 Per altre informazioni sull'uso di più tipi di entità nella stessa tabella nel codice del client, vedere la sezione [Uso di tipi di entità eterogenei](#working-with-heterogeneous-entity-types) più avanti in questa guida. In questa sezione sono disponibili esempi su come riconoscere il tipo di entità nel codice del client.  
 
 ## <a name="table-design-patterns"></a>Modelli di progettazione tabella
 Le sezioni precedenti illustrano in dettaglio come ottimizzare la progettazione della tabella sia per il recupero dei dati di entità mediante query che per l'inserimento, l'aggiornamento e l'eliminazione dei dati di entità. Questa sezione descrive alcuni modelli adatti all'uso con le soluzioni di servizio tabelle. Fornisce inoltre informazioni su come risolvere alcuni dei problemi e dei compromessi evidenziati in precedenza in questa guida. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi modelli:  
 
-![][5]
+![Immagine di schemi progettuali di tabelle][5]
 
 La mappa dei modelli nella figura precedente evidenzia alcune relazioni tra i modelli (blu) e gli anti-modelli (arancione) documentati in questa guida. Ovviamente esistono molti altri modelli utili. Ad esempio, uno degli scenari chiave per il servizio tabelle è l'uso del [modello di vista materializzata](https://msdn.microsoft.com/library/azure/dn589782.aspx) dal modello [Command Query Responsibility Segregation](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS).  
 
@@ -425,7 +424,7 @@ Se si desidera poter trovare un'entità dipendente anche in base al valore di un
 #### <a name="solution"></a>Soluzione
 Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia un valore **RowKey** diverso. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'id dipendente o all’indirizzo di posta elettronica. I valori di prefisso per **RowKey**, "empid_" e "email_", consentono di eseguire query per un singolo dipendente o un intervallo di dipendenti usando un intervallo di indirizzi e-mail o ID dipendente.  
 
-![][7]
+![Entità dipendente con valori RowKey diversi][7]
 
 I due criteri di filtro seguenti (uno che ricerca per ID dipendente e uno che ricerca per indirizzo di posta elettronica) specificano entrambi query di tipo punto:  
 
@@ -449,7 +448,7 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 * Il riempimento dei valori numerici in **RowKey** (ad esempio l'ID dipendente 000223) rende possibile l'ordinamento e il filtro corretto in base ai limiti superiori e inferiori.  
 * Non è necessario duplicare tutte le proprietà dell'entità. Se ad esempio le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non richiedono mai l'età del dipendente, queste entità potrebbero avere la struttura seguente:
 
-![][8]
+![Entità dipendente][8]
 
 * È in genere preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usando una query per individuare un'entità e una seconda per cercare i dati richiesti.  
 
@@ -470,7 +469,7 @@ Archivia più copie di ogni entità usando valori **RowKey** diversi in partizio
 #### <a name="context-and-problem"></a>Contesto e problema
 Il servizio tabelle indicizza automaticamente le entità usando i valori **PartitionKey** e **RowKey**. Questo consente a un'applicazione client di recuperare un'entità in modo efficiente mediante questi valori. Ad esempio, usando la struttura della tabella riportata di seguito, un'applicazione client può usare una query di tipo punto per recuperare una singola entità dipendente attraverso il nome del reparto e l'ID del dipendente (i valori **PartitionKey** e **RowKey**). Un client può anche recuperare entità ordinate per ID dipendente in ogni reparto.  
 
-![][9]
+![Entità dipendente][9]
 
 Se si desidera poter trovare un'entità dipendente anche in base al valore di un'altra proprietà, ad esempio l'indirizzo di posta elettronica, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza. Il motivo è che il servizio tabelle non fornisce indici secondari. Inoltre, non esiste un'opzione per richiedere un elenco di dipendenti ordinato in modo diverso rispetto all'ordine **RowKey** .  
 
@@ -479,7 +478,7 @@ Si prevede un volume elevato di transazioni su queste entità e si vuole ridurre
 #### <a name="solution"></a>Soluzione
 Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia valori **PartitionKey** e **RowKey** diversi. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'id dipendente o all’indirizzo di posta elettronica. I valori di prefisso per **PartitionKey**, "empid_" e "email_", consentono di identificare l'indice da usare per una query.  
 
-![][10]
+![Entità dipendente con indice primario ed entità dipendente con indice secondario][10]
 
 I due criteri di filtro seguenti (uno che ricerca per ID dipendente e uno che ricerca per indirizzo di posta elettronica) specificano entrambi query di tipo punto:  
 
@@ -502,7 +501,7 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 * Il riempimento dei valori numerici in **RowKey** (ad esempio l'ID dipendente 000223) rende possibile l'ordinamento e il filtro corretto in base ai limiti superiori e inferiori.  
 * Non è necessario duplicare tutte le proprietà dell'entità. Se ad esempio le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non hanno mai bisogno dell'età del dipendente, queste entità potrebbero avere la struttura seguente:
   
-  ![][11]
+  ![Entità dipendente con indice secondario][11]
 * In genere è preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usando una query per individuare un'entità mediante l'indice secondario e un'altra per cercare i dati richiesti nell'indice primario.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando usare questo modello
@@ -532,7 +531,7 @@ Le transazioni ETG consentono l'esecuzione di transazioni atomiche tra più enti
 Usando le code di Azure, è possibile implementare una soluzione che offre coerenza finale tra due o più partizioni o sistemi di archiviazione.
 Per illustrare questo approccio, si supponga di avere l'esigenza di archiviare le entità relative ai dipendenti precedenti. Queste entità sono raramente oggetto di query e devono essere escluse da tutte le attività associate ai dipendenti correnti. Per implementare questo requisito è necessario archiviare i dipendenti attivi nella tabella dei dipendenti **Correnti** e i dipendenti precedenti nella tabella dei dipendenti **Archiviati**. Per archiviare un dipendente è necessario eliminare l'entità dalla tabella dei dipendenti **Correnti** e aggiungerla a quella dei dipendenti **Archiviati**, ma non è possibile usare una transazione ETG per eseguire queste due operazioni. Per evitare il rischio che, a causa di un errore, un'entità venga visualizzata in entrambe le tabelle o in nessuna di esse, l'operazione di archiviazione deve garantire la coerenza finale. Il diagramma seguente illustra in sequenza i passaggi di questa operazione. Nel testo che segue sono disponibili maggiori dettagli per i percorsi di eccezione.  
 
-![][12]
+![Diagramma della soluzione ai fini della coerenza finale][12]
 
 Un client avvia l'operazione di archiviazione inserendo un messaggio in una coda di Azure, in questo esempio per l'archiviazione del dipendente 456. Un ruolo di lavoro esegue il polling della coda per individuare i nuovi messaggi. Quando ne trova uno, legge il messaggio e lascia una copia nascosta nella coda. Successivamente, il ruolo di lavoro recupera una copia dell'entità dalla tabella dei dipendenti **Correnti**, inserisce una copia nella tabella dei dipendenti **Archiviati** e quindi elimina l'originale dalla tabella dei dipendenti **Correnti**. Infine, se nei passaggi precedenti non si sono verificati errori, il ruolo di lavoro elimina il messaggio nascosto dalla coda.  
 
@@ -572,7 +571,7 @@ mantiene le entità di indice per consentire ricerche efficienti che restituisca
 #### <a name="context-and-problem"></a>Contesto e problema
 Il servizio tabelle indicizza automaticamente le entità usando i valori **PartitionKey** e **RowKey**. Consente a un'applicazione client di recuperare un'entità in modo efficiente mediante una query di tipo punto. Ad esempio, usando la struttura della tabella riportata di seguito, un'applicazione client può recuperare in modo efficiente una singola entità dipendente usando il nome del reparto e l'ID del dipendente (i valori **PartitionKey** e **RowKey**).  
 
-![][13]
+![Entità dipendente][13]
 
 Se si desidera poter recuperare un elenco di entità dipendente anche in base al valore di un'altra proprietà non univoca, ad esempio il cognome, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza piuttosto che usare un indice per la ricerca diretta. Il motivo è che il servizio tabelle non fornisce indici secondari.  
 
@@ -591,7 +590,7 @@ Per la prima opzione è necessario creare un BLOB per ogni cognome univoco e arc
 
 Per la seconda opzione, usare entità di indice che archiviano i dati seguenti:  
 
-![][14]
+![Entità dipendente con una stringa contenente un elenco di ID dipendente con lo stesso cognome][14]
 
 La proprietà **EmployeeIDs** contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.  
 
@@ -609,11 +608,11 @@ I passaggi seguenti illustrano il processo da seguire per cercare tutti i dipend
 2. Analizzare l'elenco di ID dipendente nel campo EmployeeIDs.  
 3. Se sono necessarie informazioni aggiuntive su ognuno dei dipendenti (ad esempio gli indirizzi e-mail), recuperare ognuna delle entità dipendente usando il valore **PartitionKey** "Sales" e i valori **RowKey** dall'elenco dei dipendenti ottenuti nel passaggio 2.  
 
-<u>Opzione 3:</u> creare entità di indice in una tabella o una partizione separata  
+<u>Opzione 3:</u> creare entità di indice in una tabella o in una partizione separata  
 
 Per la terza opzione, usare entità di indice che archiviano i dati seguenti:  
 
-![][15]
+![Entità dipendente con una stringa contenente un elenco di ID dipendente con lo stesso cognome][15]
 
 La proprietà **EmployeeIDs** contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.  
 
@@ -645,12 +644,12 @@ combina i dati correlati in una singola entità per consentire di recuperare tut
 #### <a name="context-and-problem"></a>Contesto e problema
 In un database relazionale, in genere i dati vengono normalizzati per rimuovere i risultati duplicati nelle query che recuperano dati da più tabelle. Se si normalizzano i dati nelle tabelle di Azure, è necessario eseguire più round trip dal client al server per recuperare i dati correlati. Con la struttura della tabella mostrata di seguito, ad esempio, per recuperare i dettagli per un reparto sono necessari due round trip: uno per recuperare l'entità reparto che include l'ID del manager e una seconda richiesta per recuperare i dettagli sul manager in un'entità dipendente.  
 
-![][16]
+![Entità reparto ed entità dipendente][16]
 
 #### <a name="solution"></a>Soluzione
 Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:   
 
-![][17]
+![Entità reparto denormalizzata e combinata][17]
 
 Archiviando le entità reparto con queste proprietà, è possibile recuperare tutti i dettagli necessari su un reparto mediante una query di tipo punto.  
 
@@ -678,18 +677,18 @@ In un database relazionale è normale usare join nelle query per restituire dati
 
 Si supponga di archiviare le entità dipendente nel servizio tabelle usando la struttura seguente:  
 
-![][18]
+![Entità dipendente][18]
 
 È inoltre necessario archiviare i dati cronologici relativi alle valutazioni e alle prestazioni per ogni anno che il dipendente ha lavorato presso l'organizzazione, nonché poter accedere a queste informazioni in base all'anno. Una possibilità consiste nel creare un'altra tabella di archiviazione delle entità con la struttura seguente:  
 
-![][19]
+![Entità revisione dipendente][19]
 
 Si noti che con questo approccio è possibile decidere di duplicare alcune informazioni (ad esempio nome e cognome) nella nuova entità, in modo da poter recuperare i dati con una singola richiesta. Non è tuttavia possibile mantenere la coerenza assoluta, in quanto non si può usare una transazione EGT per aggiornare le entità in modo atomico.  
 
 #### <a name="solution"></a>Soluzione
 Archiviare un nuovo tipo di entità nella tabella originale usando entità con la struttura seguente:  
 
-![][20]
+![Entità dipendente con chiave composta][20]
 
 Si noti che ora il valore di **RowKey** è una chiave composta costituita dall'ID dipendente e dall'anno dei dati di valutazione, che consente di recuperare le prestazioni e le valutazioni del dipendente con una singola richiesta per una singola entità.  
 
@@ -758,7 +757,7 @@ Molte applicazioni eliminano vecchi dati non più necessari a un'applicazione cl
 
 Una possibile progettazione prevede l'uso della data e dell'ora della richiesta di accesso in **RowKey**:  
 
-![][21]
+![Entità tentativo di accesso][21]
 
 Questo approccio evita aree sensibili della partizione perché l'applicazione può inserire ed eliminare entità di accesso per ogni utente in una partizione separata, ma può rivelarsi dispendioso in termini di denaro e tempo se si dispone di un numero elevato di entità perché è necessario innanzitutto eseguire un'analisi di tabella per identificare tutte le entità da eliminare e successivamente eliminare ogni entità precedente. Si noti che è possibile ridurre il numero di round trip al server necessari per eliminare le entità precedenti raggruppando più richieste di eliminazione in EGT.  
 
@@ -788,14 +787,14 @@ Archiviare serie di dati complete in un'unica entità per ridurre al minimo il n
 #### <a name="context-and-problem"></a>Contesto e problema
 Spesso un'applicazione archivia una serie di dati richiesti di frequente per recuperarli tutti simultaneamente. L'applicazione potrebbe, ad esempio, registrare il numero di messaggi immediati che ogni dipendente invia ogni ora e quindi usare queste informazioni per tracciare il numero di messaggi inviati da ogni utente nelle 24 ore precedenti. Una progettazione potrebbe essere l'archiviazione di 24 entità per ogni dipendente:  
 
-![][22]
+![Entità statistiche messaggio][22]
 
 Con questa progettazione è possibile individuare e aggiornare l'entità da aggiornare per ogni dipendente ogni volta che l'applicazione deve aggiornare il valore del numero di messaggi. Tuttavia, per recuperare le informazioni allo scopo di tracciare un grafico dell'attività per le 24 ore precedenti, è necessario recuperare 24 entità.  
 
 #### <a name="solution"></a>Soluzione
 Usare la progettazione seguente con una proprietà separata per archiviare il numero di messaggi per ogni ora:  
 
-![][23]
+![Entità statistiche messaggio con proprietà separate][23]
 
 Con questa progettazione è possibile usare un'operazione di unione per aggiornare il numero di messaggi per un dipendente per un'ora specifica. A questo punto, è possibile recuperare tutte le informazioni necessarie per tracciare il grafico usando una richiesta per una singola entità.  
 
@@ -824,7 +823,7 @@ Una singola entità può avere più di 252 proprietà (escludendo le proprietà 
 #### <a name="solution"></a>Soluzione
 Usando il servizio tabelle, è possibile archiviare più entità per rappresentare un singolo oggetto aziendale di grandi dimensioni con più di 252 proprietà. Ad esempio, se si vuole archiviare un conteggio del numero di messaggi immediati inviati da ogni dipendente negli ultimi 365 giorni, è possibile usare la progettazione seguente che si avvale di due entità con schemi diversi:  
 
-![][24]
+![Entità statistiche messaggio con Rowkey 01 ed entità statistiche messaggio con Rowkey 02][24]
 
 Per apportare una modifica che richiede l'aggiornamento di entrambe le entità per mantenerle sincronizzate tra loro, è possibile usare una transazione EGT. Diversamente, è possibile usare una singola operazione di unione per aggiornare il numero di messaggi per un giorno specifico. Per recuperare tutti i dati per un singolo dipendente, è necessario recuperare entrambe le entità, operazione che è possibile eseguire con due richieste efficienti che usano un valore **PartitionKey** e un valore **RowKey**.  
 
@@ -851,7 +850,7 @@ Una singola entità non può memorizzare più di 1 MB di dati in totale. Se una 
 #### <a name="solution"></a>Soluzione
 Se l'entità supera le dimensioni di 1 MB perché una o più proprietà contengono una grande quantità di dati, è possibile archiviare i dati nel servizio BLOB e quindi archiviare l'indirizzo del BLOB in una proprietà nell'entità. Ad esempio, è possibile archiviare la foto di un dipendente nell'archiviazione BLOB e archiviare un collegamento a foto nella proprietà **Photo** dell'entità del dipendente:  
 
-![][25]
+![Entità dipendente con stringa per Photo che fa riferimento all'archiviazione BLOB][25]
 
 #### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
@@ -876,12 +875,12 @@ Quando si dispone di un volume elevato di inserimenti, aumentare la scalabilità
 #### <a name="context-and-problem"></a>Contesto e problema
 L'anteposizione o l'aggiunta di entità alle entità archiviate determina in genere l'aggiunta da parte dell'applicazione di nuove entità alla prima o ultima partizione di una sequenza di partizioni. In questo caso, tutti gli inserimenti in un determinato momento vengono eseguiti nella stessa partizione, creando un hotspot che impedisce al servizio tabelle di bilanciare il carico degli inserimenti tra più nodi e causando il possibile raggiungimento degli obiettivi di scalabilità per partizione da parte dell'applicazione. Se ad esempio si dispone di un'applicazione che registra l'accesso alla rete e alle risorse da parte dei dipendenti, la struttura dell'entità mostrata sotto potrebbe determinare la trasformazione della partizione dell'ora corrente in un hotspot se il volume delle transazioni raggiunge l'obiettivo di scalabilità per una singola partizione:  
 
-![][26]
+![Entità dipendente][26]
 
 #### <a name="solution"></a>Soluzione
 La struttura di un'entità alternativa seguente evita gli hotspot in qualsiasi partizione specifica quando l'applicazione effettua la registrazione di eventi:  
 
-![][27]
+![Entità dipendente con RowKey composto da anno, mese, giorno, ora e ID evento][27]
 
 Si noti come in questo esempio entrambi i valori **PartitionKey** e **RowKey** siano chiavi composte. Il valore **PartitionKey** usa sia l'ID reparto che l'ID dipendente per distribuire la registrazione in più partizioni.  
 
@@ -907,13 +906,13 @@ In genere è necessario usare il servizio BLOB invece del servizio tabelle per a
 #### <a name="context-and-problem"></a>Contesto e problema
 Un caso di utilizzo comune per i dati di log è il recupero di una selezione di voci di log per un intervallo specifico di data/ora. Ad esempio, per trovare tutti i messaggi di errore e critici registrati dall'applicazione tra le ore 15.04 e le ore 15.06 in una data specifica senza usare la data e l'ora del messaggio del log per determinare la partizione in cui sono state salvate le entità, verrà creata una partizione critica perché in qualsiasi momento tutte le entità del log condividono lo stesso valore **PartitionKey**. Vedere la sezione [Anti-modello prepend/append](#prepend-append-anti-pattern). Ad esempio, lo schema di entità seguente per un messaggio di log determina una partizione critica perché l'applicazione scrive tutti i messaggi di log nella partizione per la data e l'ora correnti:  
 
-![][28]
+![Entità messaggio di log][28]
 
 In questo esempio il valore **RowKey** include la data e l'ora del messaggio di log per garantire che i messaggi di log vengano archiviati in ordine di data/ora e include un ID del messaggio nel caso in cui più messaggi di log condividano la stessa data e la stessa ora.  
 
 Un altro approccio prevede l'uso di un valore **PartitionKey** per assicurarsi che l'applicazione scriva i messaggi in un intervallo di partizioni. Ad esempio, se l'origine del messaggio di log consente di distribuire i messaggi in più partizioni, è possibile usare lo schema di entità seguente:  
 
-![][29]
+![Entità messaggio di log][29]
 
 Tuttavia, il problema con questo schema risiede nel fatto che per recuperare tutti i messaggi di log per un intervallo di tempo specifico è necessario cercare ogni partizione nella tabella.
 
@@ -973,7 +972,7 @@ var employees = query.Execute();
 
 Si noti come la query specifichi sia un valore **RowKey** che un valore **PartitionKey** per garantire prestazioni migliori.  
 
-L'esempio di codice seguente illustra la funzionalità equivalente usando l'API fluent (per altre informazioni sulle API fluent in generale, vedere l'articolo relativo alle [procedure consigliate per la progettazione di un’API fluent](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+L'esempio di codice seguente illustra la funzionalità equivalente usando l'API fluent (per altre informazioni sulle API fluent in generale, vedere l'articolo relativo alle [procedure consigliate per la progettazione di un’API fluent](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
@@ -1508,9 +1507,9 @@ In questo esempio asincrono è possibile visualizzare le modifiche seguenti dall
 L'applicazione client può chiamare più metodi asincroni come questo e ogni chiamata al metodo verrà eseguita su un thread separato.  
 
 ### <a name="credits"></a>Credits
-Vorremmo ringraziare i membri seguenti del team di Azure per il loro contributo: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah, Serdar Ozler e Tom Hollander di Microsoft DX. 
+Un particolare ringraziamento ai membri seguenti del team di Azure per il loro contributo: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah e Serdar Ozler, nonché Tom Hollander di Microsoft DX. 
 
-I nostri ringraziamenti vanno anche ai Microsoft MVP seguenti per i preziosi commenti forniti durante i cicli di revisione: Igor Papirov e Edward Bakker.
+Un grazie anche ai Microsoft MVP seguenti per i preziosi commenti forniti durante i cicli di revisione: Igor Papirov ed Edward Bakker.
 
 [1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
 [2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png

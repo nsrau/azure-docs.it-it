@@ -4,14 +4,14 @@ description: Risposte alle domande frequenti su Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.author: snehaa
-ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256376"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257795"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Domande frequenti su Azure Migrate
 
@@ -46,9 +46,14 @@ Azure Migrate è una strumento di pianificazione della migrazione e Azure Site R
 
 **Ripristino di emergenza da VMware/Hyper-V in Azure**: se si intende eseguire il ripristino di emergenza in Azure mediante Azure Site Recovery (Site Recovery), usare Azure Site Recovery Deployment Planner per la pianificazione del ripristino di emergenza. Azure Site Recovery Deployment Planner esegue una valutazione ASR specifica e completa dell'ambiente locale. Fornisce gli elementi consigliati necessarie per l'esito positivo delle operazioni di ripristino di emergenza di Site Recovery, ad esempio, replica, failover delle macchine virtuali.  
 
-### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Quali aree di Azure sono supportate da Azure Migrate?
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Quali aree geografiche di Azure sono supportate da Azure Migrate?
 
-Azure Migrate supporta attualmente Stati Uniti orientali e Stati Uniti centro-occidentali come località per i progetti di migrazione. Anche se si possono creare progetti di migrazione solo nelle aree Stati Uniti centro-occidentali e Stati Uniti orientali, è comunque possibile valutare i computer per [più località di destinazione](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). La località per il progetto viene usata solo per archiviare i dati individuati.
+Azure Migrate supporta attualmente Stati Uniti e Azure per enti pubblici come aree geografiche di progetto. Anche se si possono creare progetti di migrazione solo in queste aree geografiche, è comunque possibile valutare i computer per [più località di destinazione](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
+
+**Area geografica** | **Posizione di archiviazione dei metadati**
+--- | ---
+Stati Uniti | Stati Uniti centro-occidentali, Stati Uniti orientali
+Azure Government | US Gov Virginia
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>In che modo il sito locale si connette ad Azure Migrate?
 
@@ -137,9 +142,12 @@ Se si dispone di un ambiente condiviso da più tenant e non si desidera individu
 Azure Migrate attualmente non supporta la stima dei costi per [offerta del Contratto Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). La soluzione temporanea consiste nello specificare Con pagamento in base al consumo come l'offerta e specificando manualmente la percentuale di sconto (applicabile alla sottoscrizione) nel campo 'Sconto' delle proprietà della valutazione.
 
   ![Discount](./media/resources-faq/discount.png)
-  
+
 
 ## <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
+
+> [!NOTE]
+> La funzionalità di visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
 
 ### <a name="what-is-dependency-visualization"></a>Informazioni sulla visualizzazione delle dipendenze
 
@@ -147,11 +155,11 @@ La visualizzazione delle dipendenze consente di valutare in modo più attendibil
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>È necessario pagare per usare la funzionalità di visualizzazione delle dipendenze?
 
-No. Altre informazioni sui prezzi di Azure Migrate sono disponibili [qui](https://azure.microsoft.com/pricing/details/azure-migrate/).
+ No. Altre informazioni sui prezzi di Azure Migrate sono disponibili [qui](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>È necessario eseguire eventuali installazioni per usare la visualizzazione delle dipendenze?
 
-Per usare la visualizzazione delle dipendenze è necessario scaricare e installare gli agenti in ogni computer locale da valutare. 
+Per usare la visualizzazione delle dipendenze è necessario scaricare e installare gli agenti in ogni computer locale da valutare.
 
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) deve essere installato in ogni computer.
 - [Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) deve essere installato in ogni computer.

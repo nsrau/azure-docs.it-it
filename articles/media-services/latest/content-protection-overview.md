@@ -1,5 +1,5 @@
 ---
-title: Proteggere i contenuti con Servizi multimediali di Azure | Documentazione Microsoft
+title: Proteggere i contenuti con Servizi multimediali - Azure | Microsoft Docs
 description: Questi articoli forniscono informazioni generali sulla protezione dei contenuti con Servizi multimediali.
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 1c7454aead07c728d55ff2c309cca83a792aac88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: cb7e867ea4304cf8b8741eac183e60d325c752c7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238350"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141850"
 ---
 # <a name="content-protection-overview"></a>Panoramica della protezione del contenuto
 
@@ -52,14 +53,14 @@ Per completare la progettazione del sistema o dell'applicazione con "protezione 
 
 2. Lettore con un client DRM o AES. Un'app lettore video basata su un SDK per lettori, nativa o basata su browser, deve soddisfare i requisiti seguenti:
   * L'SDK per lettori supporta i client DRM necessari
-  * L'SDK per lettori supporta i protocolli di streaming necessari: Smooth, DASH e HLS
+  * L'SDK per lettori supporta i protocolli di streaming necessari: Smooth, DASH e/o HLS
   * L'SDK per lettori deve essere in grado di gestire il passaggio di un token JWT nella richiesta di acquisizione della licenza
   
     È possibile creare un lettore usando l'[API di Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/). Usare l'[API ProtectionInfo di Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) per specificare la tecnologia DRM da usare in varie piattaforme DRM.
 
     Per testare il contenuto crittografato con AES o CENC (Widevine e/o PlayReady), è possibile usare [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Assicurarsi di fare clic su "Opzioni avanzate" e controllare le opzioni d crittografia.
 
-    Se si vuole testare il contenuto crittografato di FairPlay, usare [questo lettore di test](https://aka.ms/amtest). Il lettore supporta Widevine, PlayReady e DRM FairPlay oltre alla crittografia AES-128 a chiave non crittografata. È necessario scegliere il browser giusto per testare DRM diversi: Opera/Chrome o Firefox per Widevine, MS Edge/Internet Explorer 11 per PlayReady, Safari su maOS per FairPlay.
+    Se si vuole testare il contenuto crittografato di FairPlay, usare [questo lettore di test](https://aka.ms/amtest). Il lettore supporta Widevine, PlayReady e DRM FairPlay oltre alla crittografia AES-128 a chiave non crittografata. È necessario scegliere il browser appropriato per testare i vari DRM: Opera/Chrome o Firefox per Widevine, MS Edge/Internet Explorer 11 per PlayReady, Safari su macOS per FairPlay.
 
 3. Secure Token Service (STS) che rilascia JSON Web Token (JWT) come token di accesso per l'accesso alle risorse back-end. È possibile usare i servizi di distribuzione di licenze di AMS come risorsa di back-end. Un STS deve definire gli elementi seguenti:
 

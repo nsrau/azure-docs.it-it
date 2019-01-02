@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3450a2ba4a0bf4b1f38806ad4aacf5772c13ed9f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317790"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890943"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Informazioni di riferimento sulle funzioni per il linguaggio di definizione del flusso di lavoro in App per la logica di Azure
 
@@ -265,7 +265,7 @@ Per eseguire operazioni con URI (Uniform Resource Identifier) e ottenere vari va
 
 <a name="manipulation-functions"></a>
 
-## <a name="manipulation-functions-json--xml"></a>Funzioni di manipolazione: JSON & XML
+## <a name="manipulation-functions-json--xml"></a>Funzioni di manipolazione: JSON e XML
 
 Per eseguire operazioni con gli oggetti JSON e i nodi XML, è possibile usare queste funzioni di manipolazione. Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
@@ -4026,7 +4026,7 @@ xml('<value>')
 
 Questo esempio crea la versione XML per questa stringa, che contiene un oggetto JSON: 
 
-`xml( '{ \"name\": \"Sophia Owen\" }' )`
+`xml(json('{ \"name\": \"Sophia Owen\" }'))`
 
 E viene restituito questo elemento XML: 
 
@@ -4049,7 +4049,7 @@ Si supponga di avere questo oggetto JSON:
 
 Questo esempio crea la versione XML per una stringa contenente questo oggetto JSON:
 
-`xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
+`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
 
 E viene restituito questo elemento XML: 
 

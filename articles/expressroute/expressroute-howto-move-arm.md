@@ -1,28 +1,21 @@
 ---
-title: 'Spostare i circuiti ExpressRoute dal modello classico al modello Resource Manager: PowerShell: Azure | Microsoft Docs'
+title: 'Spostare circuiti dal modello di distribuzione classica a Resource Manager - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Questa pagina illustra come spostare un circuito classico nel modello di distribuzione Resource Manager usando PowerShell.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/28/2018
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 0c3a1a57a89d716245dc075e47b7970cb228ff50
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.custom: seodec18
+ms.openlocfilehash: fae5ad4a9045115c0e7a68b0164593f639824073
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100454"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141500"
 ---
-# <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager usando PowerShell
+# <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager usando PowerShell
 
 Per usare un circuito ExpressRoute per il modello di distribuzione classica e per Resource Manager,è necessario spostare il circuito nel modello di distribuzione Resource Manager. Le sezioni seguenti descrivono come spostare il circuito tramite PowerShell.
 
@@ -46,7 +39,7 @@ Accedere all'ambiente Azure classico e quindi ottenere la chiave servizio.
   Add-AzureAccount
   ```
 
-2. Selezionare la sottoscrizione di Azure appropriata.
+2.  Selezionare la sottoscrizione di Azure appropriata.
 
   ```powershell
   Select-AzureSubscription "<Enter Subscription Name here>"
@@ -75,7 +68,7 @@ Accedere all'ambiente Resource Manager e creare un nuovo gruppo di risorse.
   Connect-AzureRmAccount
   ```
 
-2. Selezionare la sottoscrizione di Azure appropriata.
+2.  Selezionare la sottoscrizione di Azure appropriata.
 
   ```powershell
   Get-AzureRmSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzureRmSubscription

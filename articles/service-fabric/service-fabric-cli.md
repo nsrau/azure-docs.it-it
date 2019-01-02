@@ -6,14 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 370c8521127ffc28cc1b604c217544bccc82d705
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 579df1c8412ae626ced6776a98e054a13e4a3e64
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495945"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273086"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfaccia della riga di comando di Azure Service Fabric
 
@@ -33,7 +33,8 @@ L'interfaccia della riga di comando di Service Fabric è progettata per supporta
 
 | Versione dell'interfaccia della riga di comando   | Versione runtime supportata |
 |---------------|---------------------------|
-| Più recenti (~=6)  | Più recenti (~=6.3)            |
+| Più recente (~=7)  | Più recente (~=6.4)            |
+| 6.0.0         | 6.3                       |
 | 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
@@ -53,7 +54,7 @@ Per altre informazioni sulle versioni dell'interfaccia della riga di comando di 
 
 È possibile installare pip e Python nella piattaforma in molti modi. Ecco alcune procedure per configurare rapidamente i sistemi operativi principali con Python 3 e pip.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 Per Windows 10, Windows Server 2016 e Windows Server 2012 R2 usare le istruzioni di installazione standard ufficiali. Il programma di installazione di Python installa anche pip per impostazione predefinita.
 

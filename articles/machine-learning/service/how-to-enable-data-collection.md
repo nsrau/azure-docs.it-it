@@ -1,5 +1,6 @@
 ---
-title: Abilitare la raccolta di dati per i modelli nell'ambiente di produzione - Azure Machine Learning
+title: Raccogliere i dati per i modelli di produzione
+titleSuffix: Azure Machine Learning service
 description: Informazioni su come raccogliere i dati del modello di input di Azure Machine Learning in un archivio BLOB di Azure.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +10,17 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
-ms.openlocfilehash: f4340d1ef30bb4317e658c9a9a936f009054e784
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: 2a4f0f1100064010405c3d0bc599e7add1041074
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710631"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271573"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
-In questo articolo viene descritto come raccogliere i dati del modello di input dai servizi Azure Machine Learning che sono stati distribuiti nel cluster Kubernetes di Azure (AKS) in un archivio BLOB di Azure. 
+In questo articolo viene descritto come raccogliere i dati del modello di input dai servizi Azure Machine Learning che sono stati distribuiti nel cluster Azure Kubernetes (AKS) in una risorsa di archiviazione BLOB di Azure. 
 
 Una volta abilitata, la raccolta dei dati consente di:
 * Monitorare le deviazioni mentre i dati di produzione attraversano il modello
@@ -30,7 +32,7 @@ Una volta abilitata, la raccolta dei dati consente di:
 ## <a name="what-is-collected-and-where-does-it-go"></a>Quali informazioni vengono raccolte e dove sono trasferite?
 
 Possono essere raccolti i dati seguenti:
-* Dati di **input** del modello dai servizi Web distribuiti nel cluster Kubernetes di Azure (AKS) (audio, immagini e video **non** vengono raccolti) 
+* Dati di **input** del modello dai servizi Web distribuiti nel cluster Azure Kubernetes (AKS) (audio, immagini e video **non** vengono raccolti) 
   
 * Previsioni del modello usando i dati di input di produzione.
 
@@ -45,18 +47,16 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
->[!NOTE]
-> Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 0.1.74
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://aka.ms/AMLfree) prima di iniziare.
+- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
 
 - Un'area di lavoro del servizio Azure Machine Learning, una directory locale contenente gli script e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
 
-- Un modello di training di Machine Learning da distribuire nel servizio Kubernetes di Azure (AKS). Se non si dispone di un modello, vedere l'esercitazione su come [eseguire il training del modello di classificazione delle immagini](tutorial-train-models-with-aml.md).
+- Un modello di training di Machine Learning da distribuire nel servizio Azure Kubernetes (AKS). Se non si dispone di un modello, vedere l'esercitazione su come [eseguire il training del modello di classificazione delle immagini](tutorial-train-models-with-aml.md).
 
-- Un [cluster AKS](how-to-deploy-to-aks.md).
+- Un cluster del servizio Azure Kubernetes. Per informazioni su come creare un cluster di questo tipo e distribuire un modello in tale cluster, vedere il documento [Come e dove distribuire modelli](how-to-deploy-and-where.md).
 
 - [Configurare l'ambiente](how-to-configure-environment.md) e installare [Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
@@ -81,7 +81,7 @@ Per abilitarla, è necessario:
     prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId* è un parametro facoltativo. Non è necessario configurarlo se il modello non lo richiede. La presenza di un elemento correlationId semplifica il mapping con altri dati. Alcuni esempi sono: LoanNumber, CustomerId e così via.
+    *CorrelationId* è un parametro facoltativo. Non è necessario configurarlo se il modello non lo richiede. La presenza di un elemento correlationId semplifica il mapping con altri dati. Tra gli esempi sono inclusi LoanNumber, CustomerId e così via.
     
     *Identifier* viene usato in un secondo momento per creare la struttura di cartelle del BLOB. Può essere usato per dividere i dati "raw" da quelli "elaborati".
 
@@ -104,7 +104,7 @@ Per abilitarla, è necessario:
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
-5. [Creare una nuova immagine e distribuire il servizio.](how-to-deploy-to-aks.md) 
+5. Per creare una nuova immagine e distribuire il servizio, vedere il documento [Come e dove distribuire modelli](how-to-deploy-and-where.md).
 
 
 Se si dispone già di un servizio con le dipendenze installate nel **file di ambiente** e nel **file di assegnazione dei punteggi**, abilitare la raccolta di dati nel modo seguente:
@@ -136,7 +136,7 @@ Se si dispone già di un servizio con le dipendenze installate nel **file di amb
 
   1. Passare a **Distribuzioni** -> **Seleziona servizio** -> **Modifica**.
 
-    [![Modificare il servizio](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+    [![Opzione di modifica](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. In **Impostazioni avanzate** deselezionare **Abilita la raccolta dati del modello**. 
 
@@ -172,7 +172,7 @@ Per accedere rapidamente ai dati dal BLOB:
 
 ### <a name="analyzing-model-data-through-power-bi"></a>Analisi dei dati del modello tramite Power BI
 
-1. Scaricare e aprire [Power BI Desktop](http://www.powerbi.com)
+1. Scaricare e aprire [Power BI Desktop](https://www.powerbi.com)
 
 1. Selezionare **Recupera dati** e fare clic su [**Archivio BLOB di Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
@@ -231,8 +231,6 @@ Per accedere rapidamente ai dati dal BLOB:
 
 ## <a name="example-notebook"></a>Notebook di esempio
 
-Il notebook [00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) illustra i concetti descritti in questo articolo.  
+Il notebook [how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) illustra i concetti descritti in questo articolo.  
 
-Per ottenere questo blocco appunti:
- 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

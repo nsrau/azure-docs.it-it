@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 6cc4c0b01511309766e48c3d671ee897e5d6f326
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669114"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138956"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore Wirecast per inviare un flusso live a velocità in bit singola.
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 * Se si usano codificatori basati su software, chiudere tutti i programmi non necessari.
 
 ## <a name="create-a-channel"></a>Creare un canale
-1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
+1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel**  dal menu.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
@@ -69,21 +69,21 @@ Durante l'avvio del canale è possibile [configurare il codificatore](media-serv
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" /a>Configurare il codificatore Telestream Wirecast
+## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurare il codificatore Telestream Wirecast
 In questa esercitazione vengono usate le seguenti impostazioni di output. Nel resto di questa sezione vengono descritti in maggiore dettaglio i passaggi di configurazione.
 
 **Video**:
 
 * Codec: H.264
 * Profilo: alto (livello 4.0)
-* Velocità in bit: 5000 kbps
+* Velocità in bit: 5000 Kbps
 * Fotogramma chiave: 2 secondi (60 secondi)
 * Frequenza dei fotogrammi: 30
 
 **Audio**:
 
 * Codec: AAC (LC)
-* Velocità in bit: 192 kbps
+* Velocità in bit: 192 Kbps
 * Frequenza di campionamento: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Procedura di configurazione
@@ -103,16 +103,16 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
     **Video**
 
-   * Codificatore: MainConcept h. 264
+   * Codificatore: MainConcept H.264
    * Fotogrammi al secondo: 30
    * Velocità in bit media: 5000 kbit al secondo (può essere regolato in base alle limitazioni di rete)
-   * Profilo: principale
+   * Profilo: Principale
    * Fotogramma chiave ogni: 60 fotogrammi
 
     **Audio**
 
    * Velocità in bit di destinazione: 192 kbit/sec
-   * Frequenza di campionamento: 44,100 kHz
+   * Frequenza di campionamento: 44,1 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. Premere **Salva**.

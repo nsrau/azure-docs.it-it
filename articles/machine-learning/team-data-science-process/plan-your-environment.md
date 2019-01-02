@@ -1,6 +1,6 @@
 ---
-title: Identificare gli scenari e pianificare il processo di analisi - Azure | Documentazione Microsoft
-description: Pianificare l'analisi avanzata prendendo in considerazione una serie di domande chiave.
+title: Identificare scenari e pianificare il processo di analisi - Processo di data science per i team
+description: Identificare scenari e pianificare l'elaborazione dati dell'analisi avanzata prendendo in considerazione una serie di domande chiave.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446420"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138042"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
 Quali risorse è necessario pianificare quando si configura un ambiente per l'elaborazione dell'analisi avanzata su un set di dati? Questo articolo suggerisce una serie di domande che contribuiscono a identificare le attività e le risorse attinenti allo scenario. L'ordine dei passaggi generali per l'analisi predittiva è illustrato in [Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Ognuno di questi passaggi richiede risorse specifiche per le attività attinenti allo scenario specifico. Le domande principali per identificare lo scenario riguardano la logistica dei dati, le caratteristiche, la qualità dei set di dati e gli strumenti e linguaggi preferiti per eseguire l'analisi.
@@ -36,7 +36,7 @@ Le domande di logistica riguardano la posizione dell'**origine dati**, la **dest
    
    * Archiviazione BLOB di Azure
    * Database SQL Azure
-   * Macchine virtuali SQL Server in Azure
+   * SQL Server in macchina virtuale di Azure
    * Tabelle Hive o HDInsight (Hadoop in Azure)
    * Azure Machine Learning
    * Dischi rigidi virtuali di Azure montabili.
@@ -66,7 +66,7 @@ Queste domande sono fondamentali per la pianificazione degli ambienti di elabora
 3. **Quali sono le dimensioni dei dati?**
    
    * Piccole: meno di 2 GB
-   * Medie: compresi tra 2 GB e 10 GB
+   * Medie: comprese tra 2 GB e 10 GB
    * Grandi: più di 10 GB
 
 Si consideri ad esempio l'ambiente di Azure Machine Learning Studio:

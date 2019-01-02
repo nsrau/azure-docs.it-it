@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: bfa36cfeda514be0941481b0e4ed5ab9b3669b54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2da89e674b967287150b2e8f3a98fc25df2af81e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238098"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878263"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizzare cluster HDInsight tramite Bootstrap
 
@@ -50,7 +50,7 @@ Per informazioni sull'installazione di componenti aggiuntivi nel cluster HDInsig
 * [Personalizzare cluster HDInsight mediante Azione di script (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 ## <a name="use-azure-powershell"></a>Usare Azure PowerShell
-Il codice PowerShell seguente personalizza una configurazione Hive:
+Il codice PowerShell seguente personalizza una configurazione [Apache Hive](https://hive.apache.org/):
 
 ```powershell
 # hive-site.xml configuration
@@ -128,11 +128,11 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
 ![HDInsight Hadoop personalizzare cluster bootstrap modello di Azure Resource Manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Vedere anche 
-* [Creare cluster Hadoop in HDInsight][hdinsight-provision-cluster] contiene istruzioni relative alla creazione di un cluster HDInsight con altre opzioni personalizzate.
+* [Creare cluster Apache Hadoop in HDInsight][hdinsight-provision-cluster] contiene istruzioni relative alla creazione di un cluster HDInsight con altre opzioni personalizzate.
 * [Sviluppare script di Azione script per HDInsight][hdinsight-write-script]
-* [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]
-* [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
-* [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md).
+* [Installare e usare Apache Spark in cluster Hadoop di HDInsight][hdinsight-install-spark]
+* [Installare e usare Apache Solr in cluster Hadoop di HDInsight](hdinsight-hadoop-solr-install.md)
+* [Installare e usare Apache Giraph in cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install.md)
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
@@ -142,7 +142,7 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
 
-## <a name="appendix-powershell-sample"></a>Appendice: esempio di PowerShell
+## <a name="appendix-powershell-sample"></a>Appendice: Esempio PowerShell
 Questo script di PowerShell crea un cluster HDInsight e personalizza un'impostazione Hive:
 
 ```powershell

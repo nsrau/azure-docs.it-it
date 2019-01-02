@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 34b2658ef4b25b3d545932ceffd2f3cf8969034e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309363"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310372"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -43,13 +43,13 @@ Per pianificare l'implementazione di Azure AD ibrido, è necessario acquisire fa
 
 |   |   |
 |---|---|
-|![Segno di spunta][1]|Esame degli scenari|
-|![Segno di spunta][1]|Esame dell'infrastruttura di gestione delle identità|
-|![Segno di spunta][1]|Valutazione della gestione dei dispositivi|
-|![Segno di spunta][1]|Analisi delle considerazioni relative a risorse e applicazioni|
-|![Segno di spunta][1]|Identificazione delle opzioni di provisioning|
-|![Segno di spunta][1]|Configurazione di Enterprise State Roaming|
-|![Segno di spunta][1]|Configurazione dell'accesso condizionale|
+|![Controllo][1]|Esame degli scenari|
+|![Controllo][1]|Esame dell'infrastruttura di gestione delle identità|
+|![Controllo][1]|Valutazione della gestione dei dispositivi|
+|![Controllo][1]|Analisi delle considerazioni relative a risorse e applicazioni|
+|![Controllo][1]|Identificazione delle opzioni di provisioning|
+|![Controllo][1]|Configurazione di Enterprise State Roaming|
+|![Controllo][1]|Configurare l'accesso condizionale|
 
 
 
@@ -102,7 +102,7 @@ Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure 
 
 Non è possibile usare smart card o l'autenticazione basata su certificato per aggiungere dispositivi ad Azure AD. Tuttavia, è possibile usare smart card per accedere ai dispositivi aggiunti ad Azure AD se è stato configurato AD FS.
 
-**Consiglio:** implementare Windows Hello for Business per un'autenticazione sicura e senza password ai dispositivi Windows 10.
+**Raccomandazione:** implementare Windows Hello for Business per un'autenticazione sicura e senza password nei dispositivi Windows 10.
 
 
 ### <a name="user-configuration"></a>Configurazione degli utenti
@@ -127,7 +127,7 @@ L'aggiunta ad Azure AD:
 
 - Non è applicabile alle versioni precedenti di Windows o ad altri sistemi operativi. Se sono presenti dispositivi Windows 7/8.1, è necessario eseguire l'aggiornamento a Windows 10 per distribuire l'aggiunta ad Azure AD.
  
-**Consiglio:** usare sempre la versione più recente di Windows 10 per sfruttare i vantaggi delle funzionalità aggiornate.
+**Raccomandazione:** usare sempre la versione più recente di Windows 10 per sfruttare i vantaggi delle funzionalità aggiornate.
 
 
 ### <a name="management-platform"></a>Piattaforma di gestione
@@ -155,7 +155,7 @@ Se la soluzione MDM non è disponibile tramite la raccolta di app Azure AD, è p
 
 Tramite la co-gestione, è possibile usare SCCM per gestire determinati aspetti dei dispositivi, mentre i criteri vengono distribuiti tramite la piattaforma MDM. Microsoft Intune permette la co-gestione con SCCM. Per altre informazioni, vedere [Co-gestione per dispositivi Windows 10](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Se si usa un prodotto MDM diverso da Intune, verificare con il provider MDM gli scenari di co-gestione applicabili.
 
-**Consiglio:** prendere in considerazione la gestione solo MDM per i dispositivi aggiunti ad Azure AD.
+**Raccomandazione:** prendere in considerazione la gestione solo MDM per i dispositivi aggiunti ad Azure AD.
 
 
 
@@ -185,13 +185,13 @@ Se le app sono compilate in modo personalizzato e/o ospitate in locale, è neces
 
 Se si usa AD FS, vedere [Verificare e gestire l'accesso Single Sign-On con AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Consiglio:** per un'esperienza migliore, prendere in considerazione l'hosting nel cloud (ad esempio, Azure) e l'integrazione con Azure AD.
+**Raccomandazione:** per un'esperienza migliore, prendere in considerazione l'hosting nel cloud (ad esempio, Azure) e l'integrazione con Azure AD.
 
 ### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Applicazioni locali basate su protocolli legacy
 
 Gli utenti ottengono SSO dai dispositivi aggiunti ad Azure AD se il dispositivo ha accesso a un controller di dominio. 
 
-**Consiglio:** distribuire il [proxy di app Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) per abilitare l'accesso sicuro per queste applicazioni.
+**Raccomandazione:** distribuire il [proxy applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) per abilitare l'accesso sicuro per queste applicazioni.
 
 
 ### <a name="on-premises-network-shares"></a>Condivisioni di rete locali
@@ -209,11 +209,11 @@ Mentre le stampanti non possono essere individuate automaticamente in un ambient
 
 I dispositivi aggiunti ad Azure AD non supportano le applicazioni locali basate sull'autenticazione del computer. 
 
-**Consiglio:** valutare se ritirare queste applicazioni e passare ad applicazioni alternative più moderne.
+**Raccomandazione:** valutare se ritirare queste applicazioni e passare ad applicazioni alternative più moderne.
 
 ### <a name="remote-desktop-services"></a>Servizi Desktop remoto
 
-La connessione Desktop remoto a dispositivi aggiunti ad Azure AD richiede che il computer host sia stato aggiunto ad Azure AD o ad Azure AD ibrido. Desktop remoto da un dispositivo non aggiunto o non Windows non è supportato. Per altre informazioni, vedere [Connettersi a un PC remoto aggiunto ad Azure Active Directory](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
+La connessione Desktop remoto a dispositivi aggiunti ad Azure AD richiede che il computer host sia stato aggiunto ad Azure AD o ad Azure AD ibrido. Desktop remoto da un dispositivo non aggiunto o non Windows non è supportato. Per altre informazioni, vedere [Connettersi a un PC remoto aggiunto ad Azure Active Directory](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## <a name="understand-your-provisioning-options"></a>Identificazione delle opzioni di provisioning
@@ -235,10 +235,10 @@ Ecco un confronto di questi tre approcci
 ||Configurazione self-service|Windows Autopilot|Registrazione in blocco|
 |---|---|---|---|
 |Richiesta dell'interazione dell'utente per la configurazione|Yes|Sì|No |
-|Richiesta di attività IT|No |Sì|Sì|
+|Richiesta di attività IT|No |Yes|Yes|
 |Flussi applicabili|Configurazione guidata e impostazioni|Solo Configurazione guidata|Solo Configurazione guidata|
 |Diritti di amministratore locale a un utente primario|Sì, per impostazione predefinita|Configurabile|No |
-|Richiesta del supporto dell'OEM del dispositivo|No |Sì|No |
+|Richiesta del supporto dell'OEM del dispositivo|No |Yes|No |
 |Versioni supportate|1511+|1709+|1703+|
  
 Scegliere l'approccio o gli approcci di distribuzione consultando la tabella precedente e le considerazioni seguenti per l'adozione di uno degli approcci:  
@@ -310,9 +310,9 @@ Selezionare **In parte** o **Tutti** in base all'ambito della distribuzione.
 
 A seconda dell'ambito, si verifica una delle situazioni seguenti: 
 
-- **L'utente è incluso nell'ambito MDM**: se si ha una sottoscrizione Azure AD Premium, la registrazione MDM è un'operazione automatica che avviene durante l'aggiunta ad Azure AD. Tutti gli utenti con ambito devono avere una licenza appropriata per MDM. Se la registrazione MDM non riesce in questo scenario, viene eseguito il rollback anche dell'aggiunta ad Azure AD.
+- **L'utente è incluso nell'abito MDM**: se si ha una sottoscrizione Azure AD Premium, la registrazione MDM è un'operazione automatica che avviene durante l'aggiunta ad Azure AD. Tutti gli utenti con ambito devono avere una licenza appropriata per MDM. Se la registrazione MDM non riesce in questo scenario, viene eseguito il rollback anche dell'aggiunta ad Azure AD.
     
-- **Gli utenti non sono inclusi nell'ambito MDM**: se gli utenti non sono inclusi nell'ambito MDM, l'aggiunta ad Azure AD viene completata senza alcuna registrazione MDM. Questa situazione comporta un dispositivo non gestito.
+- **L'utente non è incluso nell'ambito MDM**: se gli utenti non sono inclusi nell'ambito MDM, l'aggiunta ad Azure AD viene completata senza alcuna registrazione MDM. Questa situazione comporta un dispositivo non gestito.
 
 
 ### <a name="mdm-urls"></a>URL MDM
@@ -343,7 +343,7 @@ Se si vuole abilitare Enterprise State Roaming in Azure AD in modo che gli utent
 **Consiglio**: abilitare questa impostazione anche per i dispositivi aggiunti ad Azure AD ibrido.
 
 
-## <a name="configure-conditional-access"></a>Configurazione dell'accesso condizionale
+## <a name="configure-conditional-access"></a>Configurare l'accesso condizionale
 
 Se per i dispositivi aggiunti ad Azure AD è stato configurato un provider MDM, il provider contrassegna il dispositivo come conforme non appena questo è in fase di gestione. 
 

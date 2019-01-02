@@ -13,17 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259089"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317193"
 ---
-<a id="preparemachines"></a>
-
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Pianificare e preparare la distribuzione del cluster autonomo di Service Fabric
-I passaggi seguenti devono essere eseguiti prima di creare il cluster.
+
+<a id="preparemachines"></a>Eseguire i passaggi seguenti prima di creare il cluster.
 
 ## <a name="plan-your-cluster-infrastructure"></a>Pianificazione dell'infrastruttura del cluster
 Prima di creare un cluster di Service Fabric sui propri computer, è possibile stabilire da quali tipi di errore il cluster non deve essere compromesso. Ad esempio, sono necessarie linee di alimentazione o connessioni Internet separate per queste macchine? È necessario inoltre considerare la sicurezza fisica di tali macchine. Dove si trovano le macchine e chi ha bisogno di accedervi? Dopo aver preso queste decisioni, è possibile eseguire il mapping logico delle macchine ai vari domini di errore (vedere il passaggio successivo). La pianificazione dell'infrastruttura per i cluster di produzione è più complicata rispetto ai cluster di test.
@@ -66,7 +65,7 @@ Di seguito sono indicate le specifiche per ogni computer da aggiungere al cluste
 * Un minimo di 40 GB di spazio disponibile su disco
 * CPU 4 core o superiore
 * Connessione a una o più reti protette per tutti i computer
-* Sistema operativo Windows Server installato (versioni valide: 2012 R2, 2016, 1709, o 1803)
+* Sistema operativo Windows Server installato (versioni valide: 2012 R2, 2016, 1709 o 1803)
 * [.NET Framework 4.5.1 o versione successiva](https://www.microsoft.com/download/details.aspx?id=40773), installazione completa
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * Il [servizio RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve essere eseguito in tutti i computer.
@@ -83,10 +82,11 @@ Per creare un cluster autonomo, è necessario creare un file ClusterConfig.json 
 Per informazioni dettagliate sulle sezioni di tale file, vedere [Impostazioni di configurazione per un cluster autonomo in Windows](service-fabric-cluster-manifest.md).
 
 Aprire uno dei file ClusterConfig.json del pacchetto scaricato e modificare le impostazioni seguenti:
+
 | **Impostazioni di configurazione** | **Descrizione** |
 | --- | --- |
 | **NodeTypes** |I tipi di nodo permettono di separare i nodi del cluster in diversi gruppi. Un cluster deve avere almeno un NodeType. Tutti i nodi in un gruppo possiedono le seguenti caratteristiche comuni:  <br> **Nome** : il nome del tipo di nodo. <br>**Porte di endpoint** : endpoint con nomi diversi (porte) associati a questo tipo di nodo. È possibile usare qualsiasi numero di porta desiderato, purché non entri in conflitto con qualsiasi altro nel manifesto e non sia già utilizzato da un'altra applicazione eseguita nel computer/VM. <br> **Proprietà di posizionamento**: descrivono proprietà per questo tipo di nodo usate come vincoli di posizionamento per i servizi di sistema o i servizi dell'utente. Queste proprietà sono coppie chiave-valore definite dall'utente che forniscono metadati aggiuntivi per un determinato nodo. Le proprietà del nodo possono includere ad esempio la presenza di un disco rigido o di una scheda grafica, il numero di spindle nel disco rigido, le memorie centrali e altre proprietà fisiche. <br> **Capacità** : le capacità del nodo definiscono il nome e la quantità di una particolare risorsa utilizzabile da parte di un determinato nodo. Ad esempio, un nodo può definire la propria capacità per una metrica denominata "MemoryInMb" con un valore predefinito di 2048 MB di memoria disponibile. Queste capacità vengono usate in fase di esecuzione per garantire che i servizi che richiedono una determinata quantità di risorse vengano inseriti nei nodi in cui tali risorse sono disponibili nelle quantità richieste.<br>**IsPrimary** : se sono definiti più NodeType, verificare che solo uno sia impostato come primario, con il valore *true*, ovvero quello in cui vengono eseguiti i servizi di sistema. Tutti gli altri tipi di nodo devono essere impostati sul valore *false* |
-| **Nodi** |Questi sono i dettagli per ciascun nodo che farà parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). I computer in cui si vuole creare il cluster devono essere elencati in questa sezione con il relativo indirizzo IP. <br> Se si usa lo stesso indirizzo IP per tutti i nodi, viene creato un cluster di una casella che può essere usato per scopi di test. Non usare cluster di una casella per la distribuzione dei carichi di lavoro di produzione. |
+| **Nodi** |Questi sono i dettagli per ciascun nodo che farà parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). I computer in cui si vuole creare il cluster devono essere elencati in questa sezione con il relativo indirizzo IP. <br>  Se si usa lo stesso indirizzo IP per tutti i nodi, viene creato un cluster di una casella che può essere usato per scopi di test. Non usare cluster di una casella per la distribuzione dei carichi di lavoro di produzione. |
 
 Dopo che tutte le impostazioni sono state configurate per l'ambiente nella configurazione del cluster, è possibile eseguire il test nell'ambiente del cluster (passaggio 7).
 
@@ -97,20 +97,20 @@ Dopo che tutte le impostazioni sono state configurate per l'ambiente nella confi
 Quando un amministratore di cluster configura un cluster autonomo di Service Fabric, l'ambiente deve essere configurato con i criteri seguenti: <br>
 1. L'utente che ha creato il cluster deve disporre dei privilegi di sicurezza a livello di amministratore per tutti i computer elencati come nodi nel file di configurazione del cluster.
 2. Il computer da cui viene creato il cluster e ogni computer del nodo del cluster devono rispettare i requisiti seguenti:
-* Service Fabric SDK non installato
-* Runtime di Service Fabric non installato 
-* Servizio Windows Firewall (mpssvc) abilitato
-* Servizio Registro di sistema remoto (remoteregistry) abilitato
-* Condivisione file (SMB) abilitata
-* Porte aperte necessarie in base alle porte di configurazione del cluster
-* Porte aperte necessarie per il servizio Registro di sistema remoto e Windows SMB: 135, 137, 138, 139 e 445
-* Connettività di rete reciproca
+   * Service Fabric SDK non installato
+   * Runtime di Service Fabric non installato 
+   * Servizio Windows Firewall (mpssvc) abilitato
+   * Servizio Registro di sistema remoto (remoteregistry) abilitato
+   * Condivisione file (SMB) abilitata
+   * Porte aperte necessarie in base alle porte di configurazione del cluster
+   * Porte aperte necessarie per il servizio Registro di sistema remoto e Windows SMB: 135, 137, 138, 139 e 445
+   * Connettività di rete reciproca
 3. Nessuna delle macchine ai nodi del cluster deve essere un controller di dominio.
 4. Se il cluster da distribuire è protetto, convalidare che i prerequisiti di sicurezza necessari siano corretti e che siano stati configurati correttamente in base alla configurazione.
 5. Se i computer del cluster non sono accessibili da Internet, impostare quanto segue nella configurazione del cluster:
-* Disabilitare la telemetria: in *properties* impostare *"enableTelemetry": false*
-* Disabilitare le notifiche e il download automatici della versione di Service Fabric relativi alla condizione che la versione corrente del cluster sta per raggiungere il termine del supporto: in *properties* impostare *"fabricClusterAutoupgradeEnabled": false*
-* In alternativa, se l'accesso a Internet dalla rete è limitato ai domini consentiti, è necessario l'aggiornamento automatico dei domini seguenti: go.microsoft.com download.microsoft.com
+   * Disabilitare la telemetria: in *properties* impostare *"enableTelemetry": false*
+   * Disabilitare il download automatico della versione di Service Fabric e le notifiche relative all'approssimarsi del termine del supporto per la versione corrente del cluster: in *properties* impostare *"fabricClusterAutoupgradeEnabled": false*
+   * In alternativa, se l'accesso a Internet dalla rete è limitato ai domini consentiti, i domini seguenti sono necessari per l'aggiornamento automatico: go.microsoft.com download.microsoft.com
 
 6. Impostare le esclusioni antivirus di Service Fabric appropriate:
 

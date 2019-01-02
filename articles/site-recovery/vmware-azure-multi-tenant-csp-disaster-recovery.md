@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208902"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842357"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurare il ripristino di emergenza di VMware in un ambiente multi-tenancy con il programma Cloud Solution Provider (CSP)
 
@@ -39,7 +39,7 @@ Per configurare la replica VMware è necessario eseguire queste operazioni:
 
     ![Pagina Informazioni account](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
-5. Quindi fare clic su **Successivo: Sottoscrizioni**.
+5. Fare quindi clic su **Avanti: Sottoscrizioni**.
 6. Nella pagina di selezione delle sottoscrizioni selezionare la casella di controllo **Microsoft Azure**. È possibile aggiungere altre sottoscrizioni subito o in qualsiasi momento nel futuro.
 7. Nella pagina **Revisione** verificare i dettagli del tenant e quindi fare clic su **Invia**.
 8. Dopo aver creato l'account tenant verrà visualizzata una pagina di conferma con i dettagli dell'account predefinito e la password per la sottoscrizione. Salvare le informazioni e modificare eventualmente la password in un secondo momento tramite la pagina di accesso del portale di Azure.
@@ -72,9 +72,13 @@ A questo punto è possibile eseguire tutte le operazioni di Site Recovery per il
 
       ![Pagina delle sottoscrizioni CSP del tenant](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-      b) Creare ora un nuovo utente immettendo i relativi dettagli e selezionando le autorizzazioni oppure caricando l'elenco di utenti in un file CSV.
+    b) Creare ora un nuovo utente immettendo i relativi dettagli e selezionando le autorizzazioni oppure caricando l'elenco di utenti in un file CSV.
+    
     c) Dopo aver creato un nuovo utente, tornare al portale di Azure. Nella pagina **Sottoscrizione** selezionare la sottoscrizione da usare.
-    d) Selezionare **Controllo di accesso (IAM)** e fare clic su **Aggiungi** per aggiungere un utente con il livello di accesso corrispondente. Gli utenti creati tramite il portale CSP verranno automaticamente visualizzati nella pagina che si apre dopo aver fatto clic su un livello di accesso.
+
+    d) Selezionare **Controllo di accesso (IAM)** e quindi **Assegnazioni di ruolo**.
+
+    e) Fare clic su **Aggiungi assegnazione di ruolo** per aggiungere un utente con il livello di accesso pertinente. Gli utenti creati tramite il portale CSP vengono visualizzati nella scheda Assegnazioni di ruolo.
 
       ![Aggiungere un utente](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 

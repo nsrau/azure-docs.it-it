@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per definire la struttura del codice JSON nelle query di Azure Time Series Insights.
-description: Informazioni su come migliorare l'efficienza delle query di Time Series Insights.
+title: JSON in Azure Time Series Insights - Procedure consigliate per definire la struttura del codice JSON nelle query di Azure Time Series Insights | Microsoft Docs
+description: Informazioni su come migliorare l'efficienza delle query di Azure Time Series Insights.
 services: time-series-insights
 author: ashannon7
 manager: cshankar
@@ -8,16 +8,23 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
-ms.openlocfilehash: 11bea78315ff7ebb4b0c167dbb687ce940907527
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 284bbf435c7940658753e7bbf1daff00a79d57a1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628913"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273851"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Come definire la struttura del codice JSON per massimizzare le prestazioni delle query 
 
 Questo articolo fornisce indicazioni per la definizione della struttura del codice JSON per massimizzare l'efficienza delle query di Azure Time Series Insights (TSI).
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-best-practices-around-shaping-json-to-meet-your-storage-needsbr"></a>In questo video vengono illustrate le procedure consigliate per definire la struttura del codice JSON in modo da soddisfare le esigenze di archiviazione.</br>
+
+> [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## <a name="best-practices"></a>Procedure consigliate
 
@@ -90,7 +97,7 @@ Tabella di dati di riferimento (la proprietà chiave è deviceId):
 
 Tabella di eventi di Time Series Insights (dopo la trasformazione in flat):
 
-| deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
+| deviceId | messageId | deviceLocation |  timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | --- | --- | --- | --- | --- | --- |
 | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
 | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
@@ -166,7 +173,7 @@ Dati di riferimento (le proprietà chiave sono deviceId e series.tagId):
 
 Tabella di eventi di Time Series Insights (dopo la trasformazione in flat):
 
-| deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
+| deviceId | series.tagId | messageId | deviceLocation | type | unit |  timestamp | series.value |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | FXXX | pumpRate | LINE\_DATA | EU | Velocità del flusso | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 |
 | FXXX | oilPressure | LINE\_DATA | EU | Pressione dell'olio del motore | psi | 2018-01-17T01:17:00Z | 34.7 |
