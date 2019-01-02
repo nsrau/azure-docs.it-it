@@ -1,6 +1,7 @@
 ---
-title: Esportare o eliminare i dati dell'area di lavoro - Azure Machine Learning | Microsoft Docs
-description: In Azure Machine Learning è possibile esportare o eliminare l'area di lavoro con il portale di Azure, l'interfaccia della riga di comando, l'SDK e le API REST autenticate. Questo articolo illustra i passaggi da eseguire.
+title: Esportare o eliminare i dati dell'area di lavoro
+titleSuffix: Azure Machine Learning service
+description: Informazioni su come esportare o eliminare l'area di lavoro con il portale di Azure, l'interfaccia della riga di comando, l'SDK e le API REST autenticate.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +10,17 @@ ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
 ms.date: 09/24/2018
-ms.openlocfilehash: 20c75b55e9b02f30e90ad40ea11383b91ae0a247
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.custom: seodec18
+ms.openlocfilehash: 81215058095acfeedd320025457feec73d3b0d23
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267311"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192346"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Esportare o eliminare i dati dell'area di lavoro nel servizio Machine Learning 
 
-In Azure Machine Learning è possibile esportare o eliminare i dati dell'area di lavoro con l'API REST autenticata. Questo articolo descrive come esportare o eliminare i dati.
+In Azure Machine Learning è possibile esportare o eliminare i dati dell'area di lavoro con l'API REST autenticata. Questo articolo spiega come procedere.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 

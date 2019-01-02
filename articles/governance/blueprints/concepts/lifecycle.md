@@ -1,5 +1,5 @@
 ---
-title: Comprendere il ciclo di vita di Azure Blueprint
+title: Informazioni sul ciclo di vita di un progetto
 description: Informazioni sulle fasi del ciclo di vita di un progetto e sui dettagli di ognuna.
 services: blueprints
 author: DCtheGeek
@@ -8,19 +8,20 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 882279019a5f321c6af9beab1f4d0f220781bc5c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094160"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309807"
 ---
-# <a name="understand-the-life-cycle-of-an-azure-blueprint"></a>Comprendere il ciclo di vita di Azure Blueprint
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Comprendere il ciclo di vita di un progetto di Azure
 
 Come molte risorse all'interno di Azure, un progetto di Azure Blueprint ha un ciclo di vita tipico e naturale. Sono creati, distribuiti e infine eliminati quando non sono più necessari o pertinenti.
 Blueprints supporta le operazioni del ciclo di vita standard. In seguito compila su di esse per fornire livelli di stato aggiuntivi che supportano pipeline comuni di integrazione e distribuzione continua per le organizzazioni che ne gestiscono l'infrastruttura come Codice, un elemento fondamentale in DevOps.
 
-Per informazioni complete sui progetti e le fasi, illustriamo un ciclo di vita standard:
+Per comprendere appieno i progetti e le relative fasi, illustriamo un ciclo di vita standard:
 
 > [!div class="checklist"]
 > - Creazione e modifica di un progetto
@@ -87,7 +88,7 @@ Eliminare un progetto tramite il [portale di Azure](../create-blueprint-portal.m
 
 ## <a name="assignments"></a>Assegnazioni
 
-Esistono diversi punti durante il ciclo di vita in cui un progetto può essere assegnato a una sottoscrizione. Quando la modalità di una versione del progetto è sullo stato **Pubblicato**, tale versione può essere assegnata a una sottoscrizione. Questo ciclo di vita consente alle versioni di un progetto di essere usate e assegnate attivamente mentre viene sviluppata una versione più recente.
+Esistono diversi punti durante il ciclo di vita in cui un progetto può essere assegnato a una sottoscrizione. Quando la modalità di una versione del progetto è sullo stato **Pubblicato**, tale versione può essere assegnata a una sottoscrizione. Questo ciclo di vita consente di usare e assegnare attivamente le versioni di un progetto mentre viene sviluppata una versione più recente.
 
 Man mano che le versioni dei progetti sono assegnate, è importante comprendere dove e con quali parametri. I parametri possono essere statici o dinamici. Per altre informazioni, vedere [parametri statici e dinamici](parameters.md).
 

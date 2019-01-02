@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/12/2018
+ms.openlocfilehash: 108d2ac83c0dc317dee2f8c66f95f01d3569a7c4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299607"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311661"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limiti del Database di Azure per PostgreSQL
 Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database.
@@ -31,10 +31,12 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 |Utilizzo generico| 8| 480|
 |Utilizzo generico| 16| 950|
 |Utilizzo generico| 32| 1500|
+|Utilizzo generico| 64| 1900|
 |Con ottimizzazione per la memoria| 2| 300|
 |Con ottimizzazione per la memoria| 4| 500|
 |Con ottimizzazione per la memoria| 8| 960|
 |Con ottimizzazione per la memoria| 16| 1900|
+|Con ottimizzazione per la memoria| 32| 3000|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
 > FATAL: sorry, too many clients already (ERRORE IRREVERSIBILE: ci sono già troppi client)
@@ -56,6 +58,9 @@ Il sistema Azure richiede cinque connessioni per il monitoraggio del server di D
 - Quando si usa la funzionalità di recupero temporizzato, il nuovo server viene creato con le stesse configurazioni relative al piano tariffario del server su cui si basa.
 - Il nuovo server creato durante un ripristino non dispone delle regole del firewall presenti nel server originale. Per questo nuovo server, le regole del firewall devono essere impostate separatamente.
 - Il ripristino di un server eliminato non è supportato.
+
+### <a name="utf-8-characters-on-windows"></a>Caratteri UTF-8 in Windows
+- In alcuni scenari, i caratteri UTF-8 non sono completamente supportati in PostgreSQL open source per Windows, con ripercussioni su Database di Azure per PostgreSQL. Per ulteriori informazioni, vedere il thread nell'articolo [Bug #15476 in the postgresql-archive](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) (Bug n. 15476 in postgresql-archive).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sulle [opzioni e prestazioni disponibili in ogni piano tariffario](concepts-pricing-tiers.md)

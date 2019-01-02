@@ -5,14 +5,14 @@ author: ponatara
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210313"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310522"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configurare il ripristino di emergenza di una distribuzione Citrix XenApp e XenDesktop multilivello
 
@@ -130,17 +130,17 @@ Un piano di ripristino raggruppa le macchine virtuali con requisiti simili per i
 
 1. Aggiungere le macchine virtuali del componente XenApp nel piano di ripristino.
 2. Fare clic su Piani di ripristino -> + Piano di ripristino. Specificare un nome intuitivo per il piano di ripristino.
-3. Per macchine virtuali VMware: selezionare il server di elaborazione VMware come origine, Microsoft Azure come destinazione e Resource Manager come modello di distribuzione, quindi fare clic su Seleziona elementi.
-4. Per macchine virtuali Hyper-V: selezionare il server VMM come origine, Microsoft Azure come destinazione e Resource Manager come modello di distribuzione, quindi fare clic su Seleziona elementi e selezionare le VM della distribuzione XenApp.
+3. Per le macchine virtuali VMware: selezionare il server di elaborazione VMware come origine, Microsoft Azure come destinazione e Resource Manager come modello di distribuzione, quindi fare clic su Seleziona elementi.
+4. Per le macchine virtuali Hyper-V: selezionare il server VMM come origine, Microsoft Azure come destinazione e Resource Manager come modello di distribuzione, quindi fare clic su Seleziona elementi e selezionare le macchine virtuali della distribuzione XenApp.
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>Aggiunta di macchine virtuali a gruppi di failover
 
 I piani di ripristino possono essere personalizzati per aggiungere gruppi di failover per specificare determinati ordini di avvio, script o azioni manuali. I gruppi seguenti devono essere aggiunti al piano di ripristino.
 
-1. Gruppo di failover 1: DNS di AD
-2. Gruppo di failover 2: VM SQL Server
-2. Gruppo di failover 3: VM di immagine master VDA
-3. Gruppo di failover 4: controller di distribuzione e VM del server StoreFront
+1. Gruppo di failover 1: DNS AD
+2. Gruppo di failover 2: macchine virtuali di SQL Server
+2. Gruppo di failover 3: macchina virtuale di immagine master VDA
+3. Gruppo di failover 4: macchine virtuali server StoreFront e controller di recapito
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Aggiunta di script al piano di ripristino
@@ -149,16 +149,17 @@ Gli script possono essere eseguiti prima o dopo un gruppo specifico in un piano 
 
 Il piano di ripristino personalizzato ha un aspetto simile al seguente:
 
-1. Gruppo di failover 1: DNS di AD
-2. Gruppo di failover 2: VM SQL Server
-3. Gruppo di failover 3: VM di immagine master VDA
+1. Gruppo di failover 1: DNS AD
+2. Gruppo di failover 2: macchine virtuali di SQL Server
+3. Gruppo di failover 3: macchina virtuale di immagine master VDA
 
    >[!NOTE]     
    >I passaggi 4, 6 e 7 contenenti le azioni manuali o di script sono applicabili solo a un ambiente XenApp locale con cataloghi MCS/PVS.
 
-4. Gruppo 3 - Azione manuale o di script: arresto della VM VDA master. Quando viene eseguito il failover dalla VM VDA master in Azure, lo stato della VM sarà In esecuzione. Per creare nuovi cataloghi MCS usando l'hosting di Azure, è necessario che lo stato della VM VDA master sia Arrestato (deallocato). Arrestare la VM dal portale di Azure.
+4. Azione manuale o di script gruppo 3: arresto della macchina virtuale VDA master.
+Lo stato della macchina virtuale VDA master quando ne viene eseguito il failover in Azure è In esecuzione. Per creare nuovi cataloghi MCS usando l'hosting di Azure, è necessario che lo stato della VM VDA master sia Arrestato (deallocato). Arrestare la VM dal portale di Azure.
 
-5. Gruppo di failover 4: controller di distribuzione e VM del server StoreFront
+5. Gruppo di failover 4: macchine virtuali server StoreFront e controller di recapito
 6. Gruppo 3 - Azione manuale o di script 1:
 
     ***Aggiungere una connessione host di Azure RM***

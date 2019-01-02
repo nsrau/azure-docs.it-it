@@ -10,17 +10,15 @@ ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 5e19c7c1ed15183fdb796a6fa4e537da946b40b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637336"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194233"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Connettere computer senza accesso a Internet tramite il gateway di Log Analytics
 Questo documento descrive come configurare la comunicazione con Automazione di Azure e Log Analytics usando il gateway di Log Analytics quando i computer connessi direttamente o monitorati con Operations Manager non hanno accesso a Internet.  Il gateway di Log Analytics, ovvero un proxy di inoltro HTTP che supporta il tunneling HTTP con il comando HTTP CONNECT, può raccogliere dati e inviarli ad Automazione di Azure e a Log Analytics per conto dei computer.  
@@ -82,15 +80,15 @@ Il gateway di Log Analytics è disponibile per lingue seguenti:
 - Spagnolo (internazionale)
 
 ### <a name="supported-encryption-protocols"></a>Protocolli di crittografia supportati
-Il gateway di Log Analytics supporta solo il protocollo TLS (Transport Layer Security) versioni 1.0, 1.1 e 1.2.  Non supporta SSL (Secure Sockets Layer).  Per garantire la sicurezza dei dati in transito verso Log Analytics, è consigliabile configurare il gateway in modo da usare almeno il protocollo Transport Layer Security (TLS) 1.2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**.  Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+Il gateway di Log Analytics supporta solo il protocollo TLS (Transport Layer Security) versioni 1.0, 1.1 e 1.2.  Non supporta SSL (Secure Sockets Layer).  Per garantire la sicurezza dei dati in transito verso Log Analytics, è consigliabile configurare il gateway in modo da usare almeno il protocollo Transport Layer Security (TLS) 1.2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**.  Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Numero di connessioni dell'agente supportate
 La tabella seguente indica il numero supportato di agenti che comunicano con un server gateway.  Questo supporto è basato su agenti che caricano circa 200 KB di dati ogni 6 secondi. Il volume di dati per agente del test è circa 2,7 GB al giorno.
 
 |Gateway |Numero approssimativo di agenti supportati|  
 |--------|----------------------------------|  
-|- CPU: Intel XEON CPU E5-2660 v3 \@ core da 2,6 GHz 2<br> - Memoria: 4 GB<br> - Larghezza di banda: 1 Gbps| 600|  
-|- CPU: Intel XEON CPU E5-2660 v3 \@ core da 2,6 GHz 4<br> - Memoria: 8 GB<br> - Larghezza di banda: 1 Gbps| 1000|  
+|- CPU: Intel XEON CPU E5-2660 v3 \@ 2 core da 2,6 GHz<br> - Memoria: 4 GB<br> - Larghezza di banda della rete: 1 Gbps| 600|  
+|- CPU: Intel XEON CPU E5-2660 v3 \@ 4 core da 2,6 GHz<br> - Memoria: 8 GB<br> - Larghezza di banda della rete: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Scaricare il gateway di Log Analytics
 
@@ -136,13 +134,13 @@ Per informazioni su come progettare e distribuire un cluster di bilanciamento de
 1. Accedere al server Windows membro del cluster di bilanciamento del carico di rete con un account amministrativo.  
 1. Aprire Gestione bilanciamento carico di rete in Server Manager, fare clic su **Strumenti** e quindi su **Gestione bilanciamento carico di rete**.
 1. Per connettere un server gateway di Log Analytics all'istanza di Microsoft Monitoring Agent installata, fare clic con il pulsante destro del mouse sull'indirizzo IP del cluster e quindi fare clic su **Aggiungi host al cluster**.<br><br> ![Gestione del bilanciamento del carico di rete – Aggiungi host al cluster](./media/gateway/nlb02.png)<br> 
-1. Immettere l'indirizzo IP del server gateway che si vuole connettere.<br><br> ![Gestione del bilanciamento del carico di rete – Aggiungi host al cluster: Connetti](./media/gateway/nlb03.png) 
+1. Immettere l'indirizzo IP del server gateway che si vuole connettere.<br><br> ![Gestione bilanciamento carico di rete - Aggiunta dell'host al cluster: Connettere](./media/gateway/nlb03.png) 
     
 ## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Configurare l'agente di Log Analytics e il gruppo di gestione di Operations Manager
 La sezione seguente include i passaggi per configurare gli agenti di Log Analytics connessi direttamente, un gruppo di gestione di Operations Manager o i ruoli di lavoro ibridi per runbook di Automazione di Azure con il gateway di Log Analytics per comunicare con Automazione di Azure o Log Analytics.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>Configurare l'agente di Log Analytics autonomo
-Per conoscere i requisiti e la procedura di installazione dell'agente di Log Analytics nei computer Windows che si connettono direttamente a Log Analytics, vedere [Connettere computer Windows a Log Analytics](agent-windows.md) o, per i computer Linux, vedere [Connettere computer Linux a Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md). Anziché specificare un server proxy durante la configurazione dell'agente, sostituire tale valore con l'indirizzo IP e il numero di porta del server gateway di Log Analytics.  Se sono stati distribuiti più server gateway dietro un servizio di bilanciamento del carico di rete, la configurazione del proxy dell'agente di Log Analytics corrisponde all'indirizzo IP virtuale del servizio di bilanciamento del carico di rete.  
+Per conoscere i requisiti e la procedura di installazione dell'agente di Log Analytics nei computer Windows che si connettono direttamente a Log Analytics, vedere [Connettere computer Windows a Log Analytics](agent-windows.md) o, per i computer Linux, vedere [Connettere computer Linux a Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). Anziché specificare un server proxy durante la configurazione dell'agente, sostituire tale valore con l'indirizzo IP e il numero di porta del server gateway di Log Analytics.  Se sono stati distribuiti più server gateway dietro un servizio di bilanciamento del carico di rete, la configurazione del proxy dell'agente di Log Analytics corrisponde all'indirizzo IP virtuale del servizio di bilanciamento del carico di rete.  
 
 Per informazioni correlate per il ruolo di lavoro ibrido per runbook di Automazione, vedere [Distribuire il ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md).
 
@@ -256,7 +254,7 @@ I cmdlet consentono di completare le attività necessarie per aggiornare le impo
 1. Se non si verifica alcun errore nel passaggio precedente, il modulo è stato importato ed è possibile usare i cmdlet. Digitare `Get-Module OMSGateway`.
 1. Dopo aver apportato le modifiche usando i cmdlet, assicurarsi di riavviare il servizio del gateway.
 
-Se si verifica un errore nel passaggio 3, il modulo non è stato importato. L'errore può verificarsi quando PowerShell non riesce a trovare il modulo. È possibile trovarlo nel percorso di installazione del gateway: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
+Se si verifica un errore nel passaggio 3, il modulo non è stato importato. L'errore può verificarsi quando PowerShell non riesce a trovare il modulo. È possibile trovarlo nel percorso di installazione del gateway: *C:\Programmi\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
 | **Cmdlet** | **Parametri** | **Descrizione** | **Esempio** |
 | --- | --- | --- | --- |  

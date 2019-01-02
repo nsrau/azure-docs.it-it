@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959988"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274565"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory
 
@@ -112,7 +112,6 @@ Se l'organizzazione richiede l'accesso a Internet tramite un proxy in uscita aut
 
 L'aggiunta ad Azure AD ibrido è un processo che consente di registrare automaticamente i dispositivi aggiunti a un dominio locale con Azure AD. In alcuni casi non si vuole che tutti i dispositivi vengano registrati automaticamente. In questo caso, vedere [Come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD](hybrid-azuread-join-control.md).
 
-
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Esaminare come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD
 
 L'aggiunta ad Azure AD ibrido è un processo che consente di registrare automaticamente i dispositivi aggiunti a un dominio locale con Azure AD. In alcuni casi non si vuole che tutti i dispositivi vengano registrati automaticamente. Questo avviene ad esempio durante l'implementazione iniziale, per verificare che tutto funzioni come previsto.
@@ -130,9 +129,9 @@ Per altre informazioni, vedere [Come controllare l'aggiunta dei dispositivi all'
 
 Se l'ambiente include domini gestiti, l'aggiunta ad Azure AD ibrido supporta:
 
-- Autenticazione pass-through con accesso Single Sign-On (SSO) facile 
+- Autenticazione pass-through
 
-- Sincronizzazione dell'hash delle password con accesso Single Sign-On (SSO) facile 
+- Sincronizzazione dell'hash delle password
 
 A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido che semplifica in modo significativo il processo di configurazione. Per altre informazioni, vedere:
 
@@ -145,7 +144,22 @@ A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedur
  Se non si può prendere in considerazione l'installazione della versione richiesta di Azure AD Connect, vedere [come configurare manualmente la registrazione dei dispositivi](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Supporto per ID di accesso alternativo nell'aggiunta ad Azure AD ibrido
 
+L'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per gli [ID di accesso alternativo](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) in base al tipo di ID di accesso alternativo, al [metodo di autenticazione](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di ID di accesso alternativo diversi.
+
+ - ID di accesso alternativo instradabili: un ID di accesso alternativo instradabile ha un dominio verificato valido, registrato con un registrar. Ad esempio, se contoso.com è il dominio primario, contoso.org e contoso.co.uk sono domini validi di proprietà di Contoso e [verificati in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ 
+ - ID di accesso alternativo non instradabili: un ID di accesso alternativo non instradabile non ha un dominio verificato. È applicabile solo all'interno della rete privata dell'organizzazione. Ad esempio, se contoso.com è il dominio primario, contoso.local non è un dominio verificabile in Internet, ma viene utilizzato nella rete di Contoso.
+ 
+La tabella seguente contiene informazioni sul supporto per questi ID di accesso alternativo nell'aggiunta ad Azure AD ibrido di Windows 10
+
+|Tipo di ID di accesso alternativo|Tipo di dominio|Versione di Windows 10|DESCRIZIONE|
+|-----|-----|-----|-----|
+|Instradabile|Federato |Dalla versione 1703|Disponibile a livello generale|
+|Instradabile|Gestito|Dalla versione 1709|Attualmente in anteprima privata. La reimpostazione della password self-service di Azure AD non è supportata |
+|Non instradabile|Federato|Dalla versione 1803|Disponibile a livello generale|
+|Non instradabile|Gestito|Non supportate||
 
 
 

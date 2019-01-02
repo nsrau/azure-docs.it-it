@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti su Monitoraggio di Azure per le macchine virtuali (Anteprima) | Microsoft Docs
-description: Monitoraggio di Azure per le macchine virtuali (Anteprima) è una soluzione di Azure che combina il monitoraggio dell'integrità e delle prestazioni del sistema operativo delle macchine virtuali di Azure, nonché l'individuazione automatica dei componenti e delle dipendenze delle applicazioni con altre risorse e mappa la comunicazione tra questi elementi. Questo articolo fornisce le risposte alle domande frequenti.
+title: Domande frequenti su Monitoraggio di Azure per le macchine virtuali (anteprima) | Microsoft Docs
+description: Monitoraggio di Azure per le macchine virtuali (anteprima) è una soluzione in Azure che combina il macchina virtuale di Azure. Individua automaticamente i componenti dell'applicazione e le dipendenze con altre risorse ed eseguire il mapping della comunicazione tra di essi. Questo articolo fornisce le risposte alle domande frequenti.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -8,96 +8,98 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 028179fb7718587ec2c277e1c3feb1569e76510d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: a97a7be0eaa8438a4df27b610106ec6ab9f60d30
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335743"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184392"
 ---
-# <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure per le macchine virtuali (Anteprima)
-Le Domande frequenti Microsoft sono un elenco di domande frequenti su Monitoraggio di Azure per le macchine virtuali. Per altre domande sulla soluzione, visitare il [forum di discussione](https://feedback.azure.com/forums/34192--general-feedback) e inviare le proprie domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
+# <a name="azure-monitor-for-vms-preview-faq"></a>Domande frequenti su Monitoraggio di Azure per le macchine virtuali (anteprima)
+Questo articolo risponde alle domande frequenti su Monitoraggio di Azure per le macchine virtuali. Per altre domande sulla soluzione, visitare il [forum di discussione di Azure](https://feedback.azure.com/forums/34192--general-feedback) e inviare le proprie domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
 
-## <a name="can-i-onboard-to-an-existing-workspace"></a>È possibile eseguire l'onboarding in un'area di lavoro esistente?
-Se le macchine virtuali sono già connesse a un'area di lavoro di Log Analytics, è possibile continuare a usare tale area di lavoro quando si esegue l'onboarding per Monitoraggio di Azure per le macchine virtuali, purché si trovi in una delle aree supportate elencate [qui](vminsights-onboard.md#prerequisites).
+## <a name="can-i-deploy-vms-to-an-existing-workspace"></a>È possibile distribuire macchine virtuali in un'area di lavoro esistente?
+Se le macchine virtuali sono già connesse a un'area di lavoro di Log Analytics, è possibile continuare a usare l'area di lavoro quando si distribuiscono le VM in Monitoraggio di Azure per le macchine virtuali. L'area di lavoro deve trovarsi in una delle aree supportate elencate nella sezione "Prerequisiti" di [Distribuire Monitoraggio di Azure per le macchine virtuali (anteprima)](vminsights-onboard.md#prerequisites).
 
-Quando si esegue l'onboarding, si configurano i contatori delle prestazioni per l'area di lavoro in modo che tutte le macchine virtuali che inviano dati all'area di lavoro inizino a raccogliere queste informazioni per la visualizzazione e l'analisi in Monitoraggio di Azure per le macchine virtuali.  Di conseguenza, verranno visualizzati i dati sulle prestazioni di tutte le macchine virtuali connesse all'area di lavoro selezionata.  Le funzionalità di integrità e mappa sono abilitate solo per le macchine virtuali specificate per l'onboarding.
+Durante la distribuzione, si configurano i contatori delle prestazioni per l'area di lavoro. In questo modo, le macchine virtuali che inviano dati all'area di lavoro iniziano a raccogliere le informazioni per la visualizzazione e l'analisi in Monitoraggio di Azure per le macchine virtuali. Di conseguenza, verranno visualizzati i dati sulle prestazioni di tutte le macchine virtuali connesse all'area di lavoro selezionata. Le funzionalità di integrità e mappa sono abilitate solo per le macchine virtuali specificate per la distribuzione.
 
-Per altre informazioni sui contatori delle prestazioni abilitati, vedere il nostro articolo sull'[onboarding](vminsights-onboard.md).
+Per altre informazioni sui contatori delle prestazioni abilitati, vedere [Distribuire Monitoraggio di Azure per le macchine virtuali (anteprima)](vminsights-onboard.md).
 
-## <a name="can-i-onboard-to-a-new-workspace"></a>È possibile eseguire l'onboarding in una nuova area di lavoro? 
-Se le macchine virtuali non attualmente connesse a un'area di lavoro di Log Analytics esistente, è necessario crearne una nuova per archiviare i dati.  La creazione di una nuova area di lavoro predefinita avviene automaticamente nel caso in cui si configuri una singola macchina virtuale di Azure per Monitoraggio di Azure per le macchine virtuali tramite il portale di Azure.
+## <a name="can-i-deploy-vms-to-a-new-workspace"></a>È possibile distribuire le macchine virtuali in una nuova area di lavoro? 
+Se le macchine virtuali non sono attualmente connesse a un'area di lavoro di Log Analytics esistente, è necessario creare una nuova area di lavoro per archiviare i dati. È possibile creare una automaticamente configurando una singola macchina virtuale per Monitoraggio di Azure per le macchine virtuali nel portale di Azure.
 
-Se si sceglie di usare il metodo basato su script, i passaggi sono illustrati nell'articolo sull'[onboarding](vminsights-onboard.md). 
+Se si sceglie di usare il metodo basato su script, vedere [Distribuire Monitoraggio di Azure per le macchine virtuali (anteprima)](vminsights-onboard.md). 
 
-## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Cosa occorre fare se la macchina virtuale invia già informazioni a un'area di lavoro esistente?
-Se già si raccolgono dati dalle macchine virtuali, è possibile che sia già stato configurato l'invio di dati a un'area di lavoro di Log Analytics esistente.  Se quest'area di lavoro è in una delle aree supportate, è possibile abilitare Monitoraggio di Azure per le macchine virtuali per tale area di lavoro preesistente.  Se l'area di lavoro già in uso non si trova in una delle aree supportate, non è attualmente possibile eseguire l'onboarding per Monitoraggio di Azure per le macchine virtuali.  Microsoft sta lavorando attivamente per supportare altre aree.
+## <a name="what-can-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Cosa occorre fare se la macchina virtuale invia già informazioni a un'area di lavoro esistente?
+Se già si raccolgono dati dalle macchine virtuali, è possibile che sia già stato configurato l'invio di dati a un'area di lavoro di Log Analytics esistente. Se quest'area di lavoro è in una delle aree supportate, è possibile abilitare Monitoraggio di Azure per le macchine virtuali per tale area di lavoro preesistente. Microsoft sta lavorando attivamente per supportare altre aree.
 
 >[!NOTE]
->Microsoft configura i contatori delle prestazioni per l'area di lavoro con effetto su tutte le macchine virtuali che inviano informazioni all'area di lavoro, anche se non si è scelto di eseguirne l'onboarding per Monitoraggio di Azure per le macchine virtuali. Per altre informazioni sulla configurazione dei contatori delle prestazioni per l'area di lavoro, vedere la [documentazione](../../azure-monitor/platform/data-sources-performance-counters.md). Per informazioni sui contatori configurati per Monitoraggio di Azure per le macchine virtuali, vedere la [documentazione sull'onboarding](vminsights-onboard.md#performance-counters-enabled).  
+>Microsoft configura i contatori delle prestazioni per l'area di lavoro, con effetto su tutte le macchine virtuali che inviano informazioni all'area di lavoro, anche se non si è scelto di distribuirle in Monitoraggio di Azure per le macchine virtuali. Per altre informazioni sulla configurazione dei contatori delle prestazioni per l'area di lavoro, vedere, vedere la sezione "Configurazione dei contatori delle prestazioni" in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md). Per informazioni sui contatori configurati per Monitoraggio di Azure per le macchine virtuali, vedere [Distribuire Monitoraggio di Azure per le macchine virtuali (anteprima)](vminsights-onboard.md). 
 
-## <a name="why-did-my-vm-fail-to-onboard"></a>Perché la macchina virtuale non è riuscita a eseguire l'onboarding?
-Quando si esegue l'onboarding di una macchina virtuale di Azure dal portale di Azure, si verificano i passaggi seguenti:
+## <a name="why-did-my-vm-deployment-fail"></a>Perché la distribuzione della macchina virtuale non è riuscita?
+Quando si esegue la distribuzione di una macchina virtuale di Azure dal portale di Azure, si verificano gli eventi seguenti:
 
 * Viene creata un'area di lavoro di Log Analytics predefinita, se tale opzione è stata selezionata.
-* I contatori delle prestazioni vengono configurati per l'area di lavoro selezionata. Se questo passaggio non riesce, si noterà che alcuni grafici delle prestazioni e alcune tabelle non contengono i dati relativi alla macchina virtuale di cui è stato eseguito l'onboarding. Per risolvere il problema, è possibile eseguire lo script di PowerShell documentato [qui](vminsights-onboard.md#enable-with-powershell).
-* L'agente di Log Analytics viene installato nelle macchine virtuali di Azure mediante un'estensione VM, se necessario.  
-* Dependency Agent per la mappa di Monitoraggio di Azure per le macchine virtuali viene installato nelle macchine virtuali di Azure mediante un'estensione, se necessario.  
+* I contatori delle prestazioni vengono configurati per l'area di lavoro selezionata. Se questo passaggio non riesce, alcuni grafici delle prestazioni e alcune tabelle non mostrano i dati relativi alla macchina virtuale distribuita. Per risolvere il problema, eseguire lo script di PowerShell documentato nella sezione "Eseguire l'abilitazione con PowerShell" di [Distribuire Monitoraggio di Azure per le macchine virtuali (anteprima)](vminsights-onboard.md#enable-with-powershell).
+* L'agente di Log Analytics viene installato nelle macchine virtuali di Azure mediante un'estensione VM, se necessario. 
+* Dependency Agent per la mappa di Monitoraggio di Azure per le macchine virtuali viene installato nelle macchine virtuali di Azure con un'estensione, se necessario. 
 * I componenti di Monitoraggio di Azure che supportano la funzionalità Integrità vengono configurati, se necessario, e la macchina virtuale viene configurata per l'invio dei dati sull'integrità.
 
-Durante il processo di onboarding, viene controllato lo stato di ciascun passaggio, visualizzando una notifica nel portale.  La configurazione dell'area di lavoro e l'installazione dell'agente richiedono in genere 5-10 minuti.  La visualizzazione dei dati di monitoraggio e sull'integrità nel portale richiedere altri 5-10 minuti.  
+Durante la distribuzione viene controllato lo stato di ciascun passaggio, visualizzando una notifica nel portale. La configurazione dell'area di lavoro e l'installazione dell'agente richiedono in genere 5-10 minuti. La visualizzazione dei dati di monitoraggio e sull'integrità nel portale di Azure richiede altri 5-10 minuti. 
 
-Se l'onboarding è stato avviato e vengono visualizzati dei messaggi che indicano che occorre eseguire l'onboarding della macchina virtuale, attendere 30 minuti affinché la macchina virtuale completi il processo. 
+Se la distribuzione è stata avviata e vengono visualizzati dei messaggi che indicano che occorre distribuire la macchina virtuale, attendere 30 minuti affinché la macchina virtuale completi il processo. 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>I grafici delle prestazioni della macchina virtuale non contengono alcuni dati o non ne contengono affatto
-Se non compaiono i dati sulle prestazioni nella tabella del disco o in alcuni grafici delle prestazioni, è possibile che i contatori delle prestazioni non siano stati configurati nell'area di lavoro. Per risolvere il problema, eseguire lo [script di PowerShell](vminsights-onboard.md#enable-with-powershell) seguente.
+Se nella tabella del disco o nei grafici delle prestazioni non compaiono i dati sulle prestazioni, è possibile che i contatori delle prestazioni non siano stati configurati nell'area di lavoro. Per risolvere il problema, eseguire lo script di PowerShell documentato nella sezione "Eseguire l'abilitazione con PowerShell" di [Distribuire Monitoraggio di Azure per le macchine virtuali (anteprima)](vminsights-onboard.md#enable-with-powershell).
 
-## <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>In cosa differisce la funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali da Mapping dei servizi?
+## <a name="how-is-the-azure-monitor-for-vms-map-feature-different-from-service-map"></a>In cosa differisce la funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali da Mapping dei servizi?
 La funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali si basa su Mapping dei servizi, ma presenta le differenze seguenti:
 
-* È possibile accedere alla vista della mappa dal pannello VM e da Monitoraggio di Azure per le macchine virtuali in Monitoraggio di Azure.
-* Le connessioni nella mappa ora sono selezionabili e mostrano i dati delle metriche di connessione nel pannello laterale relativo alla connessione selezionata.
-* È disponibile una nuova API che consente di creare le mappe in modo da supportare meglio quelle più complesse.
-* Le macchine virtuali monitorate sono ora incluse nel nodo del gruppo client e il grafico ad anello mostra la proporzione tra le macchine virtuali monitorate e non monitorate presenti nel gruppo.  Può anche essere utilizzato per filtrare l'elenco delle macchine quando il gruppo viene espanso.
-* Le macchine virtuali monitorate sono ora incluse nei nodi del gruppo di porte server e il grafico ad anello mostra la proporzione tra le macchine monitorate e non monitorate presenti nel gruppo.  Può anche essere utilizzato per filtrare l'elenco delle macchine quando il gruppo viene espanso.
-* Lo stile della mappa è stato aggiornato per maggiore coerenza con la mappa delle app di Application Insights.
-* I pannelli laterali sono stati aggiornati, ma non dispongono ancora del set completo di integrazioni supportate in Mapping dei servizi, ovvero Gestione aggiornamenti, Rilevamento modifiche, Sicurezza e Service Desk. 
-* L'opzione per la scelta dei gruppi e delle macchine di cui eseguire il mapping è stata aggiornata e ora supporta sottoscrizioni, gruppi di risorse, set di scalabilità delle macchine virtuali di Azure e servizi cloud.
-* Non è possibile creare nuovi gruppi di macchine di Mapping dei servizi nella funzionalità Monitoraggio di Azure per le macchine virtuali.  
+* È possibile accedere alla visualizzazione della mappa dal pannello della macchina virtuale e da Monitoraggio di Azure per le macchine virtuali in Monitoraggio di Azure.
+* Le connessioni nella mappa ora sono selezionabili e mostrano i dati delle metriche di connessione nel pannello laterale.
+* È disponibile una nuova API di creazione mappe, che supporta meglio le mappe più complesse.
+* Le macchine virtuali monitorate sono ora incluse nel nodo del gruppo client e il grafico ad anello mostra la proporzione tra le macchine virtuali monitorate e non monitorate. È anche possibile filtrare l'elenco delle macchine quando il gruppo viene espanso.
+* Le macchine virtuali monitorate sono ora incluse nei nodi del gruppo di porte server e il grafico ad anello mostra la proporzione tra le macchine virtuali monitorate e non monitorate. È anche possibile filtrare l'elenco delle macchine quando il gruppo viene espanso.
+* Lo stile della mappa è stato aggiornato per maggiore coerenza con la mappa delle app di Azure Application Insights.
+* I pannelli laterali sono stati aggiornati, ma non dispongono ancora del set completo di integrazioni supportate in Mapping dei servizi: Gestione aggiornamenti, Rilevamento modifiche, Sicurezza e Service Desk. 
+* L'opzione per la scelta dei gruppi e delle macchine di cui eseguire il mapping è stata aggiornata. Ora supporta sottoscrizioni, gruppi di risorse, set di scalabilità di macchine virtuali di Azure e servizi cloud.
+* Non è possibile creare nuovi gruppi di computer di Mapping dei servizi nella funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali. 
 
 ## <a name="why-do-my-performance-charts-show-dotted-lines"></a>Perché nei grafici delle prestazioni appaiono delle linee tratteggiate?
 
-I motivi possono essere vari.  Nei casi in cui sia presente un vuoto nella raccolta di dati, le linee si presentano tratteggiate.  Se è stata modificata la frequenza di campionamento dei dati per i contatori delle prestazioni abilitati (l'impostazione predefinita prevede la raccolta di dati ogni 60 secondi), è possibile che appaiano delle linee punteggiate nel grafico quando si sceglie un intervallo di tempo ristretto per il grafico e la frequenza di campionamento è inferiore alle dimensioni del bucket usate nel grafico (ad esempio, la frequenza di campionamento è ogni 10 minuti e ogni bucket del grafico è di 5 minuti).  Se si sceglie di visualizzare un intervallo di tempo più ampio, le linee del grafico appariranno continue e non tratteggiate.
+I grafici delle prestazioni possono visualizzare linee tratteggiate anziché che linee continue per due motivi:
+* Potrebbe esserci un vuoto nella raccolta di dati. 
+
+* L'impostazione predefinita per il campionamento dei dati è ogni 60 secondi. È possibile che nel grafico appaiano delle linee tratteggiate se si sceglie un intervallo di tempo più breve per il grafico e la frequenza di campionamento è inferiore alle dimensioni del bucket usate nel grafico. Si supponga di aver scelto una frequenza di campionamento di 10 minuti e che ogni bucket del grafico sia di 5 minuti. In questo caso, se si sceglie di visualizzare un intervallo di tempo più ampio, le linee del grafico appariranno continue e non tratteggiate.
 
 ## <a name="are-groups-supported-with-azure-monitor-for-vms"></a>I gruppi sono supportati con Monitoraggio di Azure per le macchine virtuali?
-Sì, dopo aver installato Dependency Agent, vengono raccolte informazioni dalle macchine virtuali per visualizzare i gruppi in base alla sottoscrizione, al gruppo di risorse, al set di scalabilità delle macchine virtuali e ai servizi cloud.  Se si usa Mapping dei servizi e sono stati creati gruppi di macchine, vengono visualizzati anch'essi.  Se per l'area di lavoro che si sta esaminando sono stati creati gruppi di computer, verranno visualizzati nel filtro dei gruppi. 
+Sì, dopo aver installato Dependency Agent, vengono raccolte informazioni dalle macchine virtuali per visualizzare i gruppi in base alla sottoscrizione, al gruppo di risorse, ai set di scalabilità di macchine virtuali e ai servizi cloud. Se si usa Mapping dei servizi e sono stati creati gruppi di computer, vengono visualizzati anch'essi. Se per l'area di lavoro che si sta esaminando sono stati creati gruppi di computer, verranno visualizzati nel filtro dei gruppi. 
 
-## <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Come visualizzare i dettagli alla base della linea del 95° percentile nei grafici delle prestazioni in forma aggregata?
-Per impostazione predefinita, l'elenco è ordinato in modo da mostrare le macchine virtuali con il valore più elevato per il 95° percentile in relazione alla metrica selezionata, ad eccezione del grafico della memoria disponibile, che mostra le macchine con il valore più basso per il 5° percentile.  Se si fa clic sul grafico, appare la visualizzazione **elenco delle prime N** con la metrica appropriata selezionata.
+## <a name="how-can-i-display-the-details-about-whats-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Come visualizzare i dettagli alla base della linea del 95° percentile nei grafici delle prestazioni in forma aggregata?
+Per impostazione predefinita, l'elenco è ordinato in modo da mostrare le macchine virtuali con il valore più elevato per il 95° percentile in relazione alla metrica selezionata. Un'eccezione è rappresentata dal grafico **Memoria disponibile**, che mostra i computer con il valore più basso per il 5° percentile. Selezionare il per aprire la visualizzazione **elenco Primi N** con la metrica appropriata selezionata.
 
-## <a name="how-does-the-map-feature-handle-duplicate-ips-across-different-vnets-and-subnets"></a>In che modo la funzionalità di mappa gestisce gli indirizzi IP duplicati su reti virtuali e subnet diverse?
-Se si duplicano gli intervalli IP con le VM o i set di scalabilità di macchine virtuali di Azure su subnet e reti virtuali, la mappa di Monitoraggio di Azure per le macchine virtuali potrebbe mostrare informazioni non corrette. Si tratta di un problema noto ed è in corso l'analisi delle opzioni per migliorare questa esperienza.
+## <a name="how-does-the-map-feature-handle-duplicate-ips-across-various-virtual-networks-and-subnets"></a>In che modo la funzionalità di mappa gestisce gli indirizzi IP duplicati su reti virtuali e subnet diverse?
+Se si duplicano gli intervalli IP usando macchine virtuali o set di scalabilità di macchine virtuali di Azure su subnet e reti virtuali, la funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali potrebbe mostrare informazioni non corrette. Si tratta di un problema noto ed è in corso l'analisi delle opzioni per migliorare questa esperienza.
 
-## <a name="does-map-feature-support-ipv6"></a>La funzionalità di mappa supporta il protocollo IPv6?
+## <a name="does-the-map-feature-support-ipv6"></a>La funzionalità di mappa supporta il protocollo IPv6?
 La funzionalità di mappa supporta attualmente solo il protocollo IPv4 ed è in corso l'analisi del supporto per IPv6. È supportato anche il protocollo IPv4 con a tunneling all'interno di IPv6.
 
-## <a name="when-i-load-a-map-for-a-resource-group-or-other-large-group-the-map-is-difficult-to-view"></a>Quando si carica una mappa per un gruppo di risorse o un altro gruppo di grandi dimensioni, la mappa è di difficile visualizzazione
-Anche se sono stati apportati miglioramenti alla mappa per gestire le configurazioni complesse e di grandi dimensioni, ci rendiamo conto che una mappa può contenere molti nodi, connessioni e nodi che funzionano come cluster.  Microsoft si impegna a migliorare costantemente il supporto per aumentare la scalabilità.   
+## <a name="when-i-load-a-map-for-a-resource-group-or-other-large-group-why-is-the-map-difficult-to-view"></a>Perché, quando si carica una mappa per un gruppo di risorse o un altro gruppo di grandi dimensioni, la mappa è di difficile visualizzazione?
+Anche se sono stati apportati miglioramenti alla funzionalità di mappa per gestire le configurazioni complesse e di grandi dimensioni, una mappa può contenere molti nodi, connessioni e nodi che funzionano come cluster. Microsoft si impegna a migliorare costantemente il supporto per aumentare la scalabilità.  
 
-## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Perché il grafico di rete nella scheda Prestazioni ha un aspetto diverso rispetto al grafico di rete nella pagina di panoramica della VM di Azure?
+## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-from-the-network-chart-on-the-azure-vm-overview-page"></a>Perché il grafico di rete nella scheda Prestazioni ha un aspetto diverso rispetto al grafico di rete nella pagina di panoramica della macchina virtuale di Azure?
 
-La pagina di panoramica di una VM di Azure mostra i grafici basati sulla misurazione dell'attività dell'host nella VM guest.  Per il grafico di rete nella panoramica della VM di Azure, viene visualizzato solo il traffico che verrà fatturato  e non è incluso il traffico tra reti virtuali.  I dati e i grafici visualizzati per Monitoraggio di Azure per le macchine virtuali si basano sui dati ottenuti dalla VM guest e il grafico di rete mostra tutto il traffico TCP/IP in ingresso e in uscita verso tale VM, incluso quello tra reti virtuali.
+La pagina di panoramica di una macchina virtuale di Azure mostra i grafici basati sulla misurazione dell'attività dell'host nella macchina virtuale guest. Il grafico di rete nella panoramica della macchina virtuale di Azure mostra solo il traffico che verrà fatturato. Questa visualizzazione non include il traffico tra reti virtuali. I dati e i grafici visualizzati per Monitoraggio di Azure per le macchine virtuali si basano sui dati ottenuti dalla macchina virtuale guest e il grafico di rete mostra tutto il traffico TCP/IP in ingresso e in uscita verso tale macchina virtuale, incluso quello tra reti virtuali.
 
-## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Sono previste limitazioni se è in vigore il piano tariffario Gratuito di Log Analytics?
-Se Monitoraggio di Azure è stato configurato con un'area di lavoro di Log Analytics che usa il piano tariffario *Gratuito*, la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali supporterà solo cinque computer connessi all'area di lavoro. Se si hanno cinque macchine virtuali connesse a un'area di lavoro gratuita, si disconnette una delle macchine virtuali e in un secondo momento si connette una nuova macchina virtuale, la nuova macchina virtuale non viene monitorata e riflessa nella pagina della mappa.  
+## <a name="what-are-the-limitations-of-the-log-analytics-free-pricing-plan"></a>Quali sono le limitazioni del piano tariffario Gratuito di Log Analytics?
+Se Monitoraggio di Azure è stato configurato con un'area di lavoro di Log Analytics che usa il piano tariffario *Gratuito*, la funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali supporta solo cinque computer connessi all'area di lavoro. 
 
-In questo caso, verrà visualizzata l'opzione **Prova adesso** quando si apre la macchina virtuale e si seleziona **Insights (preview)** (Insights - Anteprima) nel riquadro a sinistra, anche dopo che è già stato installato nella macchina virtuale.  Non vengono tuttavia visualizzate le normali opzioni come avverrebbe normalmente se non fosse stato eseguito l'onboarding di questa macchina virtuale in Monitoraggio di Azure per le macchine virtuali. 
+Si supponga ad esempio di avere cinque macchine virtuali connesse a un'area di lavoro gratuita. Se si disconnette una delle macchine virtuali e in un secondo momento si connette una nuova macchina virtuale, la nuova macchina virtuale non viene monitorata e riflessa nella pagina della mappa. In questo scenario, quando si apre la nuova macchina virtuale viene chiesto di usare l'opzione **Prova adesso** e selezionare **Informazioni dettagliate (anteprima)** nel riquadro a sinistra, anche dopo che è stato installato nella macchina virtuale. Non vengono tuttavia mostrate opzioni, come avverrebbe normalmente se la macchina virtuale non fosse stata distribuita in Monitoraggio di Azure per le macchine virtuali. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere [Eseguire l'onboarding di Monitoraggio di Azure per le macchine virtuali](vminsights-onboard.md) per informazioni sui requisiti e i metodi per abilitare il monitoraggio delle macchine virtuali.
+Per informazioni sui requisiti e i metodi per abilitare il monitoraggio delle macchine virtuali, vedere [Distribuire Monitoraggio di Azure per le macchine virtuali (anteprima)](vminsights-onboard.md).

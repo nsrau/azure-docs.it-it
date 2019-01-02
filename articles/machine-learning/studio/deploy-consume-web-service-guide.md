@@ -1,12 +1,11 @@
 ---
-title: 'Servizi Web di Machine Learning: distribuzione e utilizzo - Azure Machine Learning Studio | Microsoft Docs'
+title: Distribuzione e utilizzo - Azure Machine Learning Studio | Microsoft Docs'
 description: È possibile usare Azure Machine Learning per distribuire i flussi di lavoro e i modelli di Machine Learning come servizi Web. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a192bb50fe6931130492fad037f83e301e401762
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ed57f80a210cdb9c7ff8e77da2269d8494892fcc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315546"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268428"
 ---
-# <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning: distribuzione e uso
+# <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning Studio: Distribuzione e utilizzo
 È possibile usare Azure Machine Learning per distribuire i flussi di lavoro e i modelli di Machine Learning come servizi Web. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch. Essendo RESTFul, i servizi Web possono essere chiamati da diversi linguaggi di programmazione e piattaforme, come .NET e Java, nonché applicazioni, come Excel.
 
 Le sezioni successive forniscono collegamenti a procedure dettagliate, codice e documentazione per aiutarvi a iniziare.
@@ -40,7 +39,7 @@ I collegamenti seguenti offrono informazioni generali su come distribuire un nuo
 * Per una procedura dettagliata su come creare e distribuire un servizio Web, vedere [Passaggio 1 della procedura dettagliata: Creare un'area di lavoro di Machine Learning](walkthrough-1-create-ml-workspace.md).
 * Per esempi specifici di distribuzione di un servizio Web, vedere:
 
-  * [Passaggio 5 della procedura dettagliata: Distribuzione del servizio Web di Azure Machine Learning](walkthrough-5-publish-web-service.md)
+  * [Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Azure Machine Learning](walkthrough-5-publish-web-service.md)
   * [Come distribuire un servizio Web in più aree](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Con le API del provider di risorse di servizi Web (API di Azure Resource Manager)
@@ -90,7 +89,7 @@ Per altre informazioni, vedere gli articoli e il codice di esempio seguenti:
 
 * [Distribuire un nuovo servizio Web](publish-a-machine-learning-web-service.md)
 * [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md)
-* [Passaggio 5 della procedura dettagliata: Distribuzione del servizio Web di Azure Machine Learning](walkthrough-5-publish-web-service.md)
+* [Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Azure Machine Learning](walkthrough-5-publish-web-service.md)
 
 ### <a name="from-excel"></a>Da Excel
 È possibile scaricare un modello di Excel che usa il servizio Web:

@@ -1,25 +1,26 @@
 ---
 title: Supporto per la lingua - API servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Elenco delle lingue supportate dal servizio di riconoscimento vocale.
+description: I servizi di riconoscimento vocale di Azure supportano numerose lingue per la conversione della voce in testo scritto e la sintesi vocale, insieme a funzionalità di traduzione vocale. Questo articolo fornisce un elenco completo delle lingue supportate per ogni servizio.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284762"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342097"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Supporto di lingua e area geografica per API servizio di riconoscimento vocale
 
-Sono supportate lingue diverse a seconda delle funzioni dei servizi vocali. Le tabelle seguenti riepilogano il supporto della lingua.
+Le diverse funzioni dei servizi di riconoscimento vocale supportano lingue diverse. Le tabelle seguenti riepilogano il supporto della lingua.
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
@@ -37,7 +38,7 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti. Livelli diver
  en-IN | Inglese (India) | Yes | Sì | Yes
  en-NZ | Inglese (Nuova Zelanda) | No  | Yes | Yes  
  en-US | Inglese (Stati Uniti) | Yes | Sì | Yes
- es-ES | Spagnolo (Spagna) | No  | Yes | No 
+ es-ES | Spagnolo (Spagna) | Yes | Sì | No 
  es-MX | Spagnolo (Messico) | No  | Yes | No 
  fi-FI | Finlandese (Finlandia) | No  | No  | No 
  fr-CA | Francese (Canada) | No  | Yes | No 
@@ -49,7 +50,7 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti. Livelli diver
  nb-NO | Norvegese (Bokmål) (Norvegia) | No  | No  | No 
  nl-NL | Olandese (Paesi Bassi) | No  | Yes | No 
  pl-PL | Polacco (Polonia) | No  | No  | No 
- pt-BR | Portoghese (Brasile) | No  | Yes | No 
+ pt-BR | Portoghese (Brasile) | Yes | Sì | No 
  pt-PT | Portoghese (Portogallo) | No  | Yes | No 
  ru-RU | Russo (Russia) | Yes | Sì | No 
  sv-SE | Svedese (Svezia) | No  | No  | No 
@@ -61,7 +62,24 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti. Livelli diver
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 
-L'API sintesi vocale offre le voci seguenti, ognuna delle quali supporta una lingua e un dialetto specifici, identificati dalle impostazioni locali.
+L'API REST di sintesi vocale supporta le voci seguenti, ognuna delle quali supporta una lingua e un dialetto specifici, identificati dalle impostazioni locali.
+
+### <a name="neural-voices-preview"></a>Voci neurali (anteprima)
+
+La sintesi vocale neurale è un nuovo tipo di sintesi vocale basata su reti neurali profonde. Quando si usa una voce neurale, è praticamente impossibile distinguere la sintesi vocale dalle registrazioni umane.
+
+Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le interazioni con chatbot e assistenti virtuali, per convertire testo digitale, come gli e-book, in audiolibri e per migliorare i sistemi dei navigatori per le automobili. Con la prosodia naturale simile al linguaggio umano e l'articolazione chiara delle parole, le voci neurali riducono in modo significativo le difficoltà di ascolto durante l'interazione degli utenti con i sistemi di intelligenza artificiale.
+
+Per un elenco completo delle voci neurali con informazioni sulla disponibilità a livello di area, vedere [aree](regions.md#neural-voices).
+
+| Impostazioni locali | Linguaggio | Sesso | Mapping nome del servizio|
+|--------|----------|---------|--------------------|
+| en-US | Inglese (Stati Uniti) | Maschio | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
+| en-US | Inglese (Stati Uniti) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+
+### <a name="standard-voices"></a>Voci standard
+
+Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni locali, che consentono di convertire il testo in contenuto vocale sintetizzato. Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-voices).
 
 Impostazioni locali | Linguaggio | Sesso | Mapping nome del servizio
 -------|----------|---------|--------------------
@@ -158,7 +176,7 @@ La personalizzazione della voce è disponibile per l'inglese (Stati Uniti) (en-U
 
 ## <a name="speech-translation"></a>Traduzione vocale
 
-L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e con riconoscimento vocale. La lingua di origine deve essere sempre inclusa nella tabella Lingua per la sintesi vocale seguente. Le lingue di destinazione disponibili variano a seconda del fatto che siano parlate o scritte. È possibile tradurre la voce in ingresso in più di [60 lingue](https://www.microsoft.com/translator/business/languages/). Un subset di queste lingue è disponibile per la [sintesi vocale](language-support.md#text-languages). 
+L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e con riconoscimento vocale. La lingua di origine deve essere sempre inclusa nella tabella Lingua per la sintesi vocale seguente. Le lingue di destinazione disponibili variano a seconda del fatto che siano parlate o scritte. È possibile tradurre la voce in ingresso in più di [60 lingue](https://www.microsoft.com/translator/business/languages/). Un subset di queste lingue è disponibile per la [sintesi vocale](language-support.md#text-languages).
 
 ### <a name="speech-languages"></a>Lingue per la sintesi vocale
 

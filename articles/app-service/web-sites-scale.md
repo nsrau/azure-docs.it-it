@@ -1,5 +1,5 @@
 ---
-title: Aumentare le prestazioni di un'app in Azure | Documentazione Microsoft
+title: Aumentare le funzionalità e la capacità - Servizio app di Azure | Microsoft Docs
 description: Informazioni su come aumentare le prestazioni di un'app nel servizio app di Azure per aggiungere capacità e funzionalità.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 79450cdd0928304c3b98cf13f8aaca7a1bf11d33
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.custom: seodec18
+ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381936"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251054"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Aumentare le prestazioni di un'app in Azure
 
@@ -98,7 +99,7 @@ Per una tabella dei limiti, delle quote e dei vincoli del servizio e per le funz
   
     [Dimensioni delle macchine virtuali e dei servizi cloud per Microsoft Azure][vmsizes]
   
-* Per informazioni sulle procedure consigliate per Servizio app di Azure, inclusa la creazione di un'architettura scalabile e resiliente, vedere il post di blog relativo alle [procedure consigliate per le app Web del servizio app di Azure](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
+* Per informazioni sulle procedure consigliate per il Servizio app di Azure, inclusa la creazione di un'architettura scalabile e resiliente, vedere [Best Practices: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/) (Procedure consigliate per le app Web del Servizio app di Azure).
 * Per i video sul ridimensionamento delle app del servizio app, vedere le risorse seguenti:
   
   * [Quando è necessario ridimensionare i siti Web di Azure - con Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
@@ -107,7 +108,7 @@ Per una tabella dei limiti, delle quote e dei vincoli del servizio e per le funz
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
-[SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
+[SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/
 

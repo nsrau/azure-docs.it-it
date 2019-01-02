@@ -1,5 +1,5 @@
 ---
-title: Connessione di una macchina virtuale SQL a Ricerca di Azure | Microsoft Docs
+title: Connessione della macchina virtuale SQL di Azure per l'indicizzazione della ricerca - Ricerca di Azure
 description: Abilitare connessioni crittografate e configurare il firewall per consentire connessioni a SQL Server in una macchina virtuale (VM) Azure da un indicizzatore in Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,17 +8,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.custom: seodec2018
+ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366461"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312029"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurare una connessione da un indicizzatore di Ricerca di Azure a SQL Server in una VM Azure
 Come indicato in [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creazione di indici per **SQL Server in macchine virtuali di Azure** (o in breve **VM di SQL Azure**) è supportata da Ricerca di Azure, ma prima è necessario occuparsi di alcuni prerequisiti riguardanti la sicurezza. 
 
-**Durata attività:** circa 30 minuti, presumendo di avere già installato un certificato nella VM.
+**Durata attività:** circa 30 minuti, presumendo di avere già installato un certificato nella macchina virtuale.
 
 ## <a name="enable-encrypted-connections"></a>Abilitare le connessioni crittografate
 Ricerca di Azure richiede un canale crittografato per tutte le richieste di indicizzatori su una connessione Internet pubblica. Questa sezione elenca i passaggi necessari per eseguire questa operazione.
