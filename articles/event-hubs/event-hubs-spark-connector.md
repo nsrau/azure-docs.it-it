@@ -1,5 +1,5 @@
 ---
-title: Integrazione di Apache Spark con Hub eventi di Azure | Microsoft Docs
+title: Integrazione con Apache Spark - Hub eventi di Azure | Microsoft Docs
 description: Integrazione con Apache Spark per abilitare lo streaming strutturato con Hub eventi
 services: event-hubs
 documentationcenter: na
@@ -11,14 +11,15 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 301770d8950d820ddace6e47eac8cab5950b7ac8
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 194898f658c08a3a5a9d8c1d601ea53c817e7649
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004583"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076816"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Integrazione di Apache Spark con Hub eventi di Azure
 

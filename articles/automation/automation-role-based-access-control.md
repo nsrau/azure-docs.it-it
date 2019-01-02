@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094218"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727903"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controllo degli accessi in base al ruolo in Automazione di Azure
 
@@ -73,7 +73,7 @@ Un lettore può visualizzare tutte le risorse in un account di Automazione, ma n
 
 ### <a name="automation-operator"></a>Operatore di automazione
 
-Il ruolo Operatore di automazione può creare e gestire i processi, oltre che leggere le proprietà e i nomi, per tutti i runbook in un account di Automazione.  Nota: se si vuole controllare l'accesso dell'operatore ai singoli runbook, non impostare questo ruolo e usare invece i ruoli "Operatore processo di automazione" e "Operatore runbook di automazione" in combinazione. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
+Il ruolo Operatore di automazione può creare e gestire i processi, oltre che leggere le proprietà e i nomi, per tutti i runbook in un account di Automazione.  Note: se si vuole controllare l'accesso dell'operatore ai singoli runbook, non impostare questo ruolo e usare invece i ruoli "Operatore processo di automazione" e "Operatore runbook di automazione" in combinazione. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
 |**Actions**  |**Descrizione**  |
 |---------|---------|
@@ -274,12 +274,13 @@ La sezione seguente illustra come configurare il controllo degli accessi in base
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e aprire l'account di Automazione nella pagina Account di automazione.
 2. Fare clic sul controllo **Controllo di accesso (IAM)** nell'angolo superiore sinistro. Verrà visualizzata la pagina **Controllo di accesso (IAM)**, in cui è possibile aggiungere nuovi utenti, gruppi e applicazioni per gestire il proprio account di Automazione e visualizzare i ruoli esistenti che possono essere configurati per l'account di Automazione.
+3. Fare clic sulla scheda **Assegnazioni di ruolo**.
 
    ![Pulsante Accesso](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Aggiungere un nuovo utente e assegnare un ruolo
 
-1. Nella pagina **Controllo di accesso (IAM)** fare clic su **+ Aggiungi** per aprire la pagina **Aggiungi autorizzazioni**, in cui è possibile aggiungere un utente, un gruppo o un'applicazione cui assegnare un ruolo.
+1. Nella pagina **Controllo di accesso (IAM)** fare clic su **+ Aggiungi un'assegnazione di ruolo** per aprire la pagina **Aggiungi un'assegnazione di ruolo**, in cui è possibile aggiungere un utente, un gruppo o un'applicazione cui assegnare un ruolo.
 
 2. Selezionare un ruolo dall'elenco di ruoli disponibili. È possibile scegliere uno qualsiasi dei ruoli predefiniti disponibili supportati da un account di Automazione oppure un ruolo personalizzato definito dall'utente.
 

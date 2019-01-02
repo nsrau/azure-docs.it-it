@@ -1,5 +1,5 @@
 ---
-title: Creare un ambiente del servizio app di Azure usando un modello di Resource Manager
+title: Creare un ambiente del servizio app con un modello di Resource Manager - Azure
 description: Illustra come creare un ambiente del servizio app di Azure esterno o con bilanciamento del carico interno usando un modello di Resource Manager
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 62eecaba261ac2478ab6d1c7d47067f43a58d976
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.custom: seodec18
+ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231356"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277472"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creare un ambiente del servizio app usando un modello di Azure Resource Manager
 
@@ -30,7 +31,7 @@ ms.locfileid: "50231356"
 Quando si crea un ambiente del servizio app nel portale di Azure, è possibile creare contemporaneamente la rete virtuale o scegliere una rete virtuale preesistente in cui eseguire la distribuzione. Quando si crea un modello, è necessario iniziare con: 
 
 * Una rete virtuale di Resource Manager.
-* Una subnet in tale rete virtuale. Per un ambiente del servizio app è consigliabile una subnet di dimensioni pari a `/24` con 256 indirizzi per supportare le esigenze di crescita futura e scalabilità. Dopo che l'ambiente del servizio app è stato creato, non è possibile modificarne le dimensioni.
+* una subnet in tale rete virtuale. Per un ambiente del servizio app è consigliabile una subnet di dimensioni pari a `/24` con 256 indirizzi per supportare le esigenze di crescita futura e scalabilità. Dopo che l'ambiente del servizio app è stato creato, non è possibile modificarne le dimensioni.
 * L'ID risorsa dalla rete virtuale. È possibile ottenere questa informazione dal portale di Azure nelle proprietà della rete virtuale.
 * La sottoscrizione in cui si vuole eseguire la distribuzione.
 * La località in cui si vuole eseguire la distribuzione.
@@ -49,9 +50,9 @@ Un modello di Resource Manager che crea un ambiente del servizio app e il file d
 
 Per creare un ambiente del servizio app con bilanciamento del carico interno, usare questi [esempi][quickstartilbasecreate] di modello di Resource Manager. I modelli soddisfano questo caso d'uso. La maggior parte dei parametri del file *azuredeploy.parameters.json* è comune alla creazione degli ambienti del servizio app con bilanciamento del carico interno e degli ambienti del servizio app esterni. L'elenco seguente indica parametri importanti o specifici per la creazione di un ambiente del servizio app con bilanciamento del carico interno:
 
-* *internalLoadBalancingMode*: impostare nella maggior parte dei casi su 3, a indicare che sia il traffico HTTP/HTTPS sulle porte 80/443 che le porte dei canali di controllo/dati ascoltate dal servizio FTP nell'ambiente del servizio app saranno associati a un indirizzo interno della rete virtuale allocato dall'ILB. Se questa proprietà viene impostata su 2, solo le porte correlate al servizio FTP (canali di controllo e dati) vengono associate a un indirizzo del servizio di bilanciamento del carico interno. Il traffico HTTP/HTTPS resta nell'indirizzo VIP pubblico.
+* *internalLoadBalancingMode*: nella maggior parte dei casi impostare su 3. In questo modo, sia il traffico HTTP/HTTPS sulle porte 80/443 sia le porte dei canali di controllo/dati ascoltati dal servizio FTP nell'ambiente del servizio app saranno associati a un indirizzo interno della rete virtuale allocato dal servizio di bilanciamento del carico interno. Se questa proprietà viene impostata su 2, solo le porte correlate al servizio FTP (canali di controllo e dati) vengono associate a un indirizzo del servizio di bilanciamento del carico interno. Il traffico HTTP/HTTPS resta nell'indirizzo VIP pubblico.
 * *dnsSuffix*: questo parametro indica il dominio radice predefinito che viene assegnato all'ambiente del servizio app. Nella variante pubblica del servizio app di Azure, il dominio radice predefinito per tutte le app Web è *azurewebsites.net*. Poiché un ambiente del servizio app con servizio di bilanciamento del carico interno è interno alla rete virtuale di un cliente, non ha senso usare il dominio radice predefinito del servizio pubblico. Un ambiente del servizio app con servizio di bilanciamento del carico interno deve invece avere un dominio radice predefinito appropriato per la rete virtuale interna dell'azienda. Un'azienda Contoso Corporation potrebbe ad esempio usare un dominio radice predefinito *internal-contoso.com* per le app che devono essere risolvibili e accessibili solo nella rete virtuale di Contoso. 
-* *ipSslAddressCount*: questo parametro viene automaticamente impostato sul valore predefinito 0 nel file *azuredeploy.json* perché gli ambienti del servizio app con servizio di bilanciamento del carico interno hanno un solo indirizzo del servizio di bilanciamento del carico interno. Non esistono indirizzi IP SSL per un ambiente del servizio app con bilanciamento del carico interno. Il pool di indirizzi IP SSL per un ambiente del servizio app con bilanciamento del carico interno deve quindi essere impostato su zero. In caso contrario, si verifica un errore di provisioning. 
+* *ipSslAddressCount*: questo parametro viene impostato automaticamente sul valore predefinito 0 nel file *azuredeploy.json* perché gli ambienti del servizio app con servizio di bilanciamento del carico interno hanno un solo indirizzo per tale servizio. Non esistono indirizzi IP SSL per un ambiente del servizio app con bilanciamento del carico interno. Il pool di indirizzi IP SSL per un ambiente del servizio app con bilanciamento del carico interno deve quindi essere impostato su zero. In caso contrario, si verifica un errore di provisioning. 
 
 Dopo la compilazione di *azuredeploy.parameters.json*, creare l'ambiente del servizio app usando il frammento di codice di PowerShell. Modificare i percorsi dei file per fare in modo che corrispondano alle posizioni dei file dei modelli di Resource Manager nel computer. Indicare i valori per il nome della distribuzione di Resource Manager e il nome del gruppo di risorse:
 
@@ -69,8 +70,8 @@ La creazione dell'ambiente del servizio app richiede circa un'ora. L'ambiente de
 
 Ottenere un certificato SSL valido usando le autorità di certificazione interne, acquistando un certificato da un'autorità di certificazione esterna o usando un certificato autofirmato. Indipendentemente dall'origine del certificato SSL è necessario configurare correttamente gli attributi del certificato seguenti:
 
-* **Soggetto**: questo attributo deve essere impostato su **.your-root-domain-here.com*.
-* **Nome alternativo soggetto**: questo attributo deve includere sia **.your-root-domain-here.com* che **.scm.your-root-domain-here.com*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *your-app-name.scm.your-root-domain-here.com*.
+* **Soggetto**: questo attributo deve essere impostato su **.nome-dominio-radice.com*
+* **Nome alternativo del soggetto**: questo attributo deve includere sia **.nome-dominio-radice.com* sia **.scm.nome-dominio-radice.com*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *nome-app.scm.nome-dominio-radice.com*.
 
 Dopo aver ottenuto un certificato SSL valido sono necessari altri due passaggi preliminari. Convertire/Salvare il certificato SSL come file con estensione pfx. Tenere presente che il file con estensione pfx deve includere tutti i certificati intermedi e quelli radice. Proteggerlo con una password.
 
@@ -104,8 +105,8 @@ Dopo avere generato il certificato SSL e averlo convertito in una stringa con co
 I parametri del file *azuredeploy.parameters.json* sono elencati qui:
 
 * *appServiceEnvironmentName*: nome dell'ambiente del servizio app con servizio di bilanciamento del carico interno in fase di configurazione.
-* *existingAseLocation*: stringa di testo contenente l'area di Azure in cui è stato distribuito l'ambiente del servizio app con servizio di bilanciamento del carico interno.  Ad esempio "Stati Uniti centro-meridionali".
-* *pfxBlobString*: rappresentazione del file con estensione pfx sotto forma di stringa con codifica Base 64. Usare il frammento di codice visualizzato prima e copiare la stringa contenuta in "exportedcert.pfx.b64". Incollarla come valore dell'attributo *pfxBlobString*.
+* *existingAseLocation*: stringa di testo contenente l'area di Azure in cui è stato distribuito l'ambiente del servizio app con servizio di bilanciamento del carico interno.  Ad esempio:  "Stati Uniti centro-meridionali".
+* *pfxBlobString*: rappresentazione del file con estensione pfx sotto forma di stringa con codifica Base64. Usare il frammento di codice visualizzato prima e copiare la stringa contenuta in "exportedcert.pfx.b64". Incollarla come valore dell'attributo *pfxBlobString*.
 * *password*: password usata per la protezione del file con estensione pfx.
 * *certificateThumbprint*: identificazione personale del certificato. Se si recupera questo valore da PowerShell, ad esempio *$certificate.Thumbprint* nel frammento di codice precedente, è possibile usare il valore così com'è. Se si copia il valore dalla finestra di dialogo del certificato di Windows, rimuovere gli spazi estranei. Il valore di *certificateThumbprint* sarà simile a AF3143EB61D43F6727842115BB7F17BBCECAECAE.
 * *certificateName*: identificatore di stringa descrittivo scelto dall'utente per identificare il certificato. Il nome viene usato nell'ambito dell'identificatore univoco di Resource Manager per l'entità *Microsoft.Web/certificates* che rappresenta il certificato SSL. Il nome *deve* terminare con il suffisso seguente: \_yourASENameHere_InternalLoadBalancingASE. Il portale di Azure usa questo suffisso per indicare che il certificato è usato per la protezione di un ambiente del servizio app abilitato al bilanciamento del carico interno.
@@ -114,7 +115,7 @@ Un esempio abbreviato di *azuredeploy.parameters.json* è illustrato qui:
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "appServiceEnvironmentName": {
@@ -165,11 +166,11 @@ Per creare un ambiente del servizio app 1 usando un modello di Resource Manager,
 
 
 <!--Links-->
-[quickstartilbasecreate]: http://azure.microsoft.com/documentation/templates/201-web-app-asev2-ilb-create
-[quickstartasev2create]: http://azure.microsoft.com/documentation/templates/201-web-app-asev2-create
-[quickstartconfiguressl]: http://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl
-[quickstartwebapponasev2create]: http://azure.microsoft.com/documentation/templates/201-web-app-asp-app-on-asev2-create
-[examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
+[quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-asev2-ilb-create
+[quickstartasev2create]: https://azure.microsoft.com/documentation/templates/201-web-app-asev2-create
+[quickstartconfiguressl]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl
+[quickstartwebapponasev2create]: https://azure.microsoft.com/documentation/templates/201-web-app-asp-app-on-asev2-create
+[examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
@@ -183,10 +184,10 @@ Per creare un ambiente del servizio app 1 usando un modello di Resource Manager,
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../../app-service/web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ILBASEv1Template]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

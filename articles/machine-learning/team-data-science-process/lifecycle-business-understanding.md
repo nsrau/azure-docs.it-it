@@ -1,6 +1,6 @@
 ---
-title: Fase di comprensione del business del clic di vita del processo di data science per i team - Azure | Microsoft Docs
-description: Obiettivi, attività e risultati finali per la fase di comprensione del business dei progetti di data science
+title: Comprensione delle strategie aziendali nel processo di data science per i team
+description: Gli obiettivi, le attività e i risultati finali associati alla fase di comprensione delle strategie aziendali dei progetti di data science nel processo di data science per i team.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,19 +10,19 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3d2a6bf5a7e4766ca6205c413dd27fa9a69c16b7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f45d8a83c323689272313314d0f9ac9b79edecd7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446722"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141663"
 ---
-# <a name="business-understanding"></a>Informazioni commerciali
+# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Fase di comprensione delle strategie aziendali nel ciclo di vita del processo di data science per i team
 
-Questo argomento descrive gli obiettivi, le attività e i risultati finali associati alla fase di comprensione del business del processo di data science per i team. Questo processo offre un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
+Questo argomento descrive gli obiettivi, le attività e i risultati finali associati alla fase di comprensione delle strategie aziendali nel processo di data science per i team (TDSP, Team Data Science Process). Questo processo offre un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-   1. **Comprensione del business**
+   1. **Comprensione delle strategie aziendali**
    2. **Acquisizione e comprensione dei dati**
    3. **Modellazione**
    4. **Distribuzione**
@@ -40,7 +40,7 @@ Ecco una rappresentazione visiva del ciclo di vita del processo TDSP:
 ## <a name="how-to-do-it"></a>Procedura
 Questa fase comprende due attività principali: 
 
-   * **Definizione degli obiettivi**: interagire con il cliente e altre parti interessate per comprendere e identificare i problemi aziendali. Formulare domande che definiscano i target aziendali e a cui si possano applicare le tecniche di data science.
+   * **Definire gli obiettivi**: interagire con il cliente e altre parti interessate per comprendere e identificare i problemi aziendali. Formulare domande che definiscano i target aziendali e a cui si possano applicare le tecniche di data science.
    * **Identificare le origini dati**: trovare i dati rilevanti che consentono di rispondere alle domande di definizione degli obiettivi del progetto.
 
 ### <a name="define-objectives"></a>Definire gli obiettivi
@@ -78,19 +78,17 @@ Si può ad esempio scoprire che i sistemi esistenti devono raccogliere e registr
 Ecco i risultati finali di questa fase:
 
    * [Documento di dichiarazione di intenti](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): nella definizione della struttura del progetto TDSP è incluso un modello standard. Il documento di dichiarazione di intenti è sempre in evoluzione. Il modello viene aggiornato nel corso del progetto man mano che si ottengono nuove informazioni e cambiano i requisiti aziendali. È importante eseguire l'iterazione di questo documento, aggiungendo dettagli durante l'avanzamento del processo di scoperta. Coinvolgere il cliente e le altre parti interessate nelle modifiche e comunicare chiaramente l'importanza di tali modifiche.  
-   * [Origini dati](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): la sezione **Origini dati non elaborati** del report **Definizioni dei dati** disponibile nella cartella **Report dei dati** del progetto TDSP che contiene le origini dati. Questa sezione specifica le posizioni di origine e di destinazione dei dati non elaborati. Nelle fasi successive vengono inseriti dettagli aggiuntivi, ad esempio script per spostare i dati nell'ambiente di analisi.  
-   * [Dizionari di dati](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): questo documento contiene le descrizioni dei dati specificati dal client. Queste descrizioni includono informazioni sullo schema (tipi di dati e informazioni sulle regole di convalida, se presenti) e diagrammi sulle relazioni di entità, se disponibili.
+   * [Origini dati](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): le origini dati sono incluse nella sezione **Raw data sources** del report **Data definitions** disponibile nella cartella **Data report** del progetto TDSP. Questa sezione specifica le posizioni di origine e di destinazione dei dati non elaborati. Nelle fasi successive vengono inseriti dettagli aggiuntivi, ad esempio script per spostare i dati nell'ambiente di analisi.  
+   * [Dizionari di dati](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): questo documento contiene le descrizioni dei dati forniti dal client. Queste descrizioni includono informazioni sullo schema (tipi di dati e informazioni sulle regole di convalida, se presenti) e diagrammi sulle relazioni di entità, se disponibili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data science per i team:
 
-   1. [Comprensione del business](lifecycle-business-understanding.md)
+   1. [Comprensione delle strategie aziendali](lifecycle-business-understanding.md)
    2. [Acquisizione e comprensione dei dati](lifecycle-data.md)
    3. [Modellazione](lifecycle-modeling.md)
    4. [Distribuzione](lifecycle-deployment.md)
    5. [Accettazione del cliente](lifecycle-acceptance.md)
 
 Sono disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per scenari specifici. L'articolo sulle [procedure dettagliate di esempio](walkthroughs.md) include un elenco degli scenari con i collegamenti e le descrizioni di anteprima. Le procedure dettagliate illustrano come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
-
-Per esempi su come eseguire i passaggi nei processi di data science per i team (TDSP) che usano Azure Machine Learning Studio, vedere [Uso del processo di analisi scientifica dei dati per i team con Azure Machine Learning](https://aka.ms/datascienceprocess).

@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/3/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fab03f12f4099fe2df2525cb3a6fa093170d1c79
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037040"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850177"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizzare l'installazione del runtime di integrazione Azure-SSIS
 
@@ -131,7 +131,7 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
 
     c. Selezionare il contenitore dell'anteprima pubblica connesso e fare doppio clic sulla cartella `CustomSetupScript`. Questa cartella contiene gli elementi seguenti:
 
-       1. Una cartella `Sample`, che contiene un'installazione personalizzata per installare un'attività di base in ogni nodo del runtime di integrazione Azure-SSIS. L'attività non esegue alcuna operazione se non andare in sospensione per pochi secondi. La cartella contiene inoltre una cartella `gacutil` che contiene `gacutil.exe`. Inoltre, contiene commenti `main.cmd` per salvare in modo permanente le credenziali di accesso per le condivisioni di file.
+       1. Una cartella `Sample`, che contiene un'installazione personalizzata per installare un'attività di base in ogni nodo del runtime di integrazione Azure-SSIS. L'attività non esegue alcuna operazione se non andare in sospensione per pochi secondi. La cartella contiene inoltre una cartella `gacutil`, l'intero contenuto della quale (`gacutil.exe`, `gacutil.exe.config` e `1033\gacutlrc.dll`) può essere copiato così com'è nel contenitore. Inoltre, contiene commenti `main.cmd` per salvare in modo permanente le credenziali di accesso per le condivisioni di file.
 
        1. Una cartella `UserScenarios`, che contiene più installazioni personalizzate per scenari utente reali.
 
@@ -146,8 +146,6 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
        1. Una cartella `BCP`, che contiene un'installazione personalizzata per installare utilità della riga di comando di SQL Server (`MsSqlCmdLnUtils.msi`), tra cui il programma di copia bulk (`bcp`), in ogni nodo del runtime di integrazione Azure-SSIS.
 
        1. Una cartella `EXCEL`, che contiene un'installazione personalizzata per installare assembly open source (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll` e `ExcelDataReader.dll`) in ogni nodo del runtime di integrazione Azure-SSIS.
-
-       1. Una cartella `MSDTC`, che contiene un'installazione personalizzata per modificare le configurazioni di rete e di sicurezza per il servizio Microsoft Distributed Transaction Coordinator (MSDTC) in ogni nodo del runtime di integrazione Azure-SSIS. Per assicurarsi che MSDTC venga avviato, aggiungere l'attività Esegui processo all'inizio del flusso di controllo nei pacchetti per eseguire il seguente comando: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
        1. Una cartella `ORACLE ENTERPRISE`, che contiene uno script di installazione personalizzato (`main.cmd`) e un file di configurazione per l'installazione invisibile all'utente (`client.rsp`) dei connettori e del driver OCI di Oracle in ogni nodo di Azure-SSIS IR Enterprise Edition. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione Oracle. Scaricare prima i connettori Microsoft v5.0 per Oracle (`AttunitySSISOraAdaptersSetup.msi` e `AttunitySSISOraAdaptersSetup64.msi`) dall'[Area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e il client Oracle più recente, ad esempio `winx64_12102_client.zip`, da [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) e quindi caricarli tutti insieme con `main.cmd` e `client.rsp` nel contenitore. Se si usa TNS per la connessione a Oracle, è necessario anche scaricare `tnsnames.ora`, modificarlo e caricarlo nel contenitore, in modo che possa essere copiato nella cartella di installazione di Oracle durante l'installazione.
 

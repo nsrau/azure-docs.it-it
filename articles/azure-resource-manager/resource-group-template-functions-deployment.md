@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 12/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358235"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407355"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funzioni di distribuzione per i modelli di Azure Resource Manager 
 
@@ -86,6 +86,8 @@ Quando l'oggetto viene passato come collegamento, come quando si usa il parametr
 }
 ```
 
+Quando si [distribuisce in una sottoscrizione di Azure](deploy-to-subscription.md) anziché in un gruppo di risorse, l'oggetto restituito include una proprietà `location`. La proprietà location è inclusa quando si distribuisce un modello locale o un modello esterno.
+
 ### <a name="remarks"></a>Osservazioni
 
 È possibile usare deployment() per il collegamento a un altro modello in base all'URI del modello padre.
@@ -150,6 +152,8 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
+Per un modello a livello di sottoscrizione che usa la funzione di distribuzione, vedere la [funzione di distribuzione per sottoscrizione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). La distribuzione si esegue con i comandi `az deployment create` o `New-AzureRmDeployment`.
+
 <a id="parameters" />
 
 ## <a name="parameters"></a>Parametri
@@ -161,7 +165,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sì |stringa |Nome del parametro da restituire. |
+| parameterName |Yes |stringa |Nome del parametro da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -277,7 +281,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| variableName |Sì |string |Nome della variabile da restituire. |
+| variableName |Yes |string |Nome della variabile da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 

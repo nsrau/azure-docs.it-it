@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: a564e72cc695830edfa5092eddc1f4f9b80ba519
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b4f38d80bfddc342d83a3552efe5d4a60cf6350f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583534"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680124"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprendere il limite di spesa di Azure e la relativa rimozione
 
@@ -29,7 +29,7 @@ Il limite di spesa in Azure serve per evitare spese superiori all'importo del cr
 
 Quando l'uso comporta costi che superano gli importi mensili inclusi nella sottoscrizione, i servizi distribuiti vengono disabilitati per il resto del periodo di fatturazione. 
 
-Se, ad esempio, si spende tutto il credito incluso nella sottoscrizione, le istanze di Servizi cloud distribuite vengono rimosse dalla produzione e le macchine virtuali di Azure vengono arrestate e deallocate. I dati negli account di archiviazione e nei database sono disponibili in sola lettura.
+Se, ad esempio, si spende tutto il credito incluso nella sottoscrizione, le istanze di Servizi cloud distribuite vengono rimosse dalla produzione e le macchine virtuali di Azure vengono arrestate e deallocate. I dati negli account di archiviazione sono disponibili in sola lettura.
 
 All'inizio del periodo di fatturazione successivo, se l'offerta per la sottoscrizione include crediti per più mesi, la sottoscrizione verrà riabilitata automaticamente. È possibile quindi ridistribuire i servizi cloud e avere accesso completo agli account e ai database di archiviazione.
 
@@ -46,7 +46,7 @@ Se si usa una versione di valutazione gratuita e si raggiunge il limite di spesa
 Per rimuovere il limite di spesa, seguire questi passaggi:
 
 1. Accedere al [Centro account](https://account.windowsazure.com/Subscriptions).
-1. Selezionare una sottoscrizione. Se la sottoscrizione è stata disabilitata a causa del raggiungimento del limite di spesa, fare clic sulla notifica che indica che la sottoscrizione ha raggiunto il limite di spesa ed è stata disabilitata per impedire costi aggiuntivi. In caso contrario, fai clic su **Rimuovere il limite di spesa** nell'area **STATO SOTTOSCRIZIONE**.
+1. Selezionare una sottoscrizione. Se la sottoscrizione viene disabilitata a causa del raggiungimento del limite di spesa, fare clic su questa notifica: "La sottoscrizione ha raggiunto il limite di spesa ed è stata disabilitata per prevenire eventuali addebiti." In caso contrario, fai clic su **Rimuovere il limite di spesa** nell'area **STATO SOTTOSCRIZIONE**.
 1. Seleziona l'opzione appropriata.
 
 ![Selezione di un'opzione per la rimozione del limite di spesa](./media/billing-spending-limit/remove-spending-limit.PNG)

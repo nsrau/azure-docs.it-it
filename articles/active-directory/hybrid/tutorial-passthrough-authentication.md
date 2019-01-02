@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Integrare una singola foresta Active Directory in Azure tramite l'autenticazione pass-through | Microsoft Docs"
+title: "Esercitazione:  Integrare una singola foresta Active Directory in Azure tramite l'autenticazione pass-through | Microsoft Docs"
 description: Viene illustrato come configurare un ambiente ibrido di gestione delle identità tramite l'autenticazione pass-through.
 services: active-directory
 author: billmath
@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df4a1ef30997bef6b83e66182404d0e2659a5d51
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 140161e88ee572d728a7f9c923c9528ea6755cc1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422305"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165455"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Esercitazione: Integrare una singola foresta Active Directory tramite l'autenticazione pass-through
+# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Esercitazione:  Integrare una singola foresta di AD mediante l'autenticazione pass-through
 
 ![Create](media/tutorial-passthrough-authentication/diagram.png)
 
@@ -36,7 +36,7 @@ Per completare questa esercitazione sono necessari i requisiti seguenti
 >
 >L'uso degli script consente di creare un ambiente Active Directory generale prima di installare Azure AD Connect.  Sono rilevanti per tutte le esercitazioni.
 >
-> Le copie degli script di PowerShell usati in questa esercitazione sono disponibili in Github selezionando [questo collegamento](https://github.com/billmath/tutorial-phs).
+> Le copie degli script di PowerShell usati in questa esercitazione sono disponibili in GitHub [qui](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 Per poter attivare e usare un ambiente ibrido di gestione delle identità, è prima necessario creare una macchina virtuale che servirà come server Active Directory locale.  
@@ -84,7 +84,7 @@ Per concludere la creazione della macchina virtuale, è necessario completare l'
 5. Fare clic su **Installa**.
 6. Immettere il codice di licenza e fare clic su **Avanti**.
 7. Accettare le condizioni di licenza e fare clic su **Avanti**.
-8. Selezionare **Custom:  Install Windows Only (Advanced)** (Personalizzato: installare solo Windows (Avanzato))
+8. Selezionare **Custom:  Install Windows Only (Advanced)** (Personalizzato: installare solo Windows - Avanzato)
 9. Fare clic su **Avanti**
 10. Dopo aver completato l'installazione, riavviare la macchina virtuale, accedere ed eseguire gli aggiornamenti di Windows per assicurarsi che la macchina virtuale sia aggiornata.  Installare gli aggiornate più recenti.
 

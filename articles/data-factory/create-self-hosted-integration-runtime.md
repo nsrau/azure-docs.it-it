@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284830"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969482"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
@@ -49,7 +49,7 @@ Quando si spostano dati tra un ambiente locale e il cloud, l'attività usa un ru
 
 Di seguito viene indicato un flusso di dati generale per il riepilogo dei passaggi per eseguire la copia con il runtime di integrazione self-hosted:
 
-![Panoramica generale](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![Panoramica generale](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. Lo sviluppatore di dati crea un runtime di integrazione self-hosted in un'istanza di Azure Data Factory tramite un cmdlet di PowerShell. Il portale di Azure attualmente non supporta questa funzionalità.
 2. Lo sviluppatore di dati crea quindi un servizio collegato per un archivio dati locale specificando l'istanza del runtime di integrazione self-hosted da usare per la connessione agli archivi dati. Una parte della configurazione del servizio collegato è costituita dall'uso dell'applicazione Gestione credenziali (attualmente non supportata) per impostare i tipi di autenticazione e le credenziali. L'applicazione Gestione credenziali comunica con l'archivio dati per eseguire il test della connessione e con il runtime di integrazione self-hosted per salvare le credenziali.
@@ -131,7 +131,7 @@ Quando la memoria disponibile nel runtime di integrazione self-hosted non è suf
 
 Quando la memoria disponibile e la CPU non vengono usate correttamente, ma la capacità di esecuzione di processi simultanei sta raggiungendo il limite, è consigliabile aumentare le prestazioni aumentando il numero di processi simultanei che possono essere eseguiti in un nodo. È anche possibile aumentare le prestazioni quando si verifica un timeout delle attività perché il runtime di integrazione self-hosted è sovraccarico. Come illustrato nell'immagine seguente, è possibile aumentare la capacità massima di un nodo:  
 
-![Aumento dei processi simultanei che si possono eseguire su un nodo](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Aumento dei processi simultanei che si possono eseguire su un nodo](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>Requisiti del certificato TLS/SSL
 
@@ -162,33 +162,33 @@ Per un'introduzione di dodici minuti e una dimostrazione di questa funzionalità
 
 1. Nel runtime di integrazione self-hosted da condividere concedere l'autorizzazione alla data factory in cui si intende creare il runtime di integrazione collegato. 
 
-   ![Pulsante per concedere l'autorizzazione nella scheda di condivisione](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![Pulsante per concedere l'autorizzazione nella scheda di condivisione](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
 
-   ![Selezioni per l'assegnazione delle autorizzazioni](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+   ![Selezioni per l'assegnazione delle autorizzazioni](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
 
 2. Trovare l'ID risorsa del runtime di integrazione self-hosted da condividere.
 
-   ![Percorso dell'ID risorsa](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+   ![Percorso dell'ID risorsa](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
 
 3. Nella data factory per cui sono state concesse le autorizzazioni creare un nuovo runtime di integrazione self-hosted (collegato) e immettere l'ID risorsa.
 
-   ![Pulsante per la creazione di un runtime di integrazione self-hosted collegato](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+   ![Pulsante per la creazione di un runtime di integrazione self-hosted collegato](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
 
-   ![Caselle per nome e ID risorsa](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![Caselle per nome e ID risorsa](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
 ### <a name="monitoring"></a>Monitoraggio 
 
 - **IR condiviso**
 
-  ![Selezioni per la ricerca di un runtime di integrazione condiviso](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Selezioni per la ricerca di un runtime di integrazione condiviso](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![Scheda per il monitoraggio](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![Scheda per il monitoraggio](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
 - **IR collegato**
 
-  ![Selezioni per la ricerca di un runtime di integrazione collegato](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Selezioni per la ricerca di un runtime di integrazione collegato](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![Scheda per il monitoraggio](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![Scheda per il monitoraggio](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitazioni note della condivisione del runtime di integrazione self-hosted
 
@@ -211,12 +211,12 @@ Per un'introduzione di dodici minuti e una dimostrazione di questa funzionalità
 
 Se si sposta il cursore sul messaggio di notifica o sull'icona nell'area di notifica, vengono visualizzati i dettagli sullo stato del runtime di integrazione self-hosted.
 
-![Notifiche nell'area di notifica](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Notifiche nell'area di notifica](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>Porte e firewall
 È necessario prendere in considerazione due firewall, ovvero il *firewall aziendale* in esecuzione nel router centrale dell'organizzazione, e *Windows Firewall*, configurato come servizio daemon nel computer locale in cui è installato il runtime di integrazione self-hosted.
 
-![Firewall](media\create-self-hosted-integration-runtime\firewall.png)
+![Firewall](media/create-self-hosted-integration-runtime/firewall.png)
 
 A livello di *firewall aziendale* è necessario configurare le porte in uscita e i domini seguenti:
 
@@ -249,15 +249,15 @@ Per eseguire la copia da un archivio dati locale a un sink di database SQL di Az
 ## <a name="proxy-server-considerations"></a>Considerazioni sui server proxy
 Se nell'ambiente di rete aziendale è presente un server proxy per accedere a Internet, configurare il runtime di integrazione self-hosted per usare le impostazioni proxy appropriate. È possibile impostare il proxy durante la fase di registrazione iniziale.
 
-![Specificare il proxy](media\create-self-hosted-integration-runtime\specify-proxy.png)
+![Specificare il proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
 Il runtime di integrazione self-hosted usa il server proxy per connettersi al servizio cloud. Selezionare il collegamento **Change** (Modifica) durante la configurazione iniziale. Viene visualizzata la finestra di dialogo per l'impostazione del proxy.
 
-![Impostare il proxy](media\create-self-hosted-integration-runtime\set-http-proxy.png)
+![Impostare il proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 Sono disponibili tre opzioni di configurazione:
 
-- **Non usare proxy**: il runtime di integrazione self-hosted non usa in modo esplicito alcun proxy per connettersi ai servizi cloud.
+- **Non utilizzare proxy**: il runtime di integrazione self-hosted non usa in modo esplicito i proxy per connettersi ai servizi cloud.
 - **Usa il proxy di sistema**: il runtime di integrazione self-hosted usa l'impostazione del proxy configurata in diahost.exe.config e diawp.exe.config. Se non è stato configurato alcun proxy in diahost.exe.config e diawp.exe.config, il runtime di integrazione self-hosted si connette al servizio cloud direttamente usare il proxy.
 - **Usa proxy personalizzato**: configurare le impostazioni del proxy HTTP che il runtime di integrazione self-hosted deve usare al posto delle configurazioni in diahost.exe.config e diawp.exe.config. I campi **Indirizzo** e **Porta** sono obbligatori. I campi **Nome utente** e **Password** sono facoltativi e dipendono dalle impostazioni di autenticazione del proxy. Tutte le impostazioni vengono crittografate con Windows DPAPI nel runtime di integrazione self-hosted e archiviate localmente nel computer.
 
@@ -272,7 +272,7 @@ Dopo aver registrato correttamente il runtime di integrazione self-hosted, se si
 
 È possibile visualizzare e aggiornare il proxy HTTP tramite lo strumento Gestione configurazione.
 
-![Visualizzare il proxy](media\create-self-hosted-integration-runtime\view-proxy.png)
+![Visualizzare il proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
 > Se si configura un server proxy con autenticazione NTLM, il servizio host di runtime di integrazione viene eseguito nell'account di dominio. Se in un secondo momento si modifica la password per l'account di dominio, aggiornare le impostazioni di configurazione per il servizio e riavviarlo. Per questo requisito, si consiglia di usare un account di dominio dedicato per accedere al server proxy che non richieda l'aggiornamento frequente della password.
@@ -345,4 +345,4 @@ Se si sceglie di non aprire la porta 8060 nel computer del runtime di integrazio
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per istruzioni dettagliate, vedere [Esercitazione: Copiare dati da un database di SQL Server locale all'archivio BLOB di Azure](tutorial-hybrid-copy-powershell.md).
+Per istruzioni dettagliate, vedere l'esercitazione seguente: [Esercitazione: Copiare i dati locali nel cloud](tutorial-hybrid-copy-powershell.md).

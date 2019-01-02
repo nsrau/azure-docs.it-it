@@ -1,23 +1,22 @@
 ---
-title: Risorse, SDK e API del processore dei feed delle modifiche .NET per Azure Cosmos DB | Microsoft Docs
+title: 'Azure Cosmos DB: risorse, SDK e API del processore dei feed di modifiche .NET'
 description: Tutte le informazioni sull'SDK e sull'API del processore dei feed delle modifiche, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni dell'SDK del processore dei feed delle modifiche .NET.
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7b6fefd575901648a99bb3a67a05e705622bb74a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632484"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407865"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK del processore dei feed delle modifiche .NET: download e note sulla versione
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: download e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -28,7 +27,7 @@ ms.locfileid: "52632484"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -42,6 +41,10 @@ ms.locfileid: "52632484"
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="v2-builds"></a>Build della seconda versione
+
+### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
+* Aggiunta del supporto per la gestione della suddivisione nelle raccolte che usano la velocità effettiva per database condivisi.
+  * Questa versione corregge un problema che poteva verificarsi durante la suddivisione in raccolte che usano la velocità effettiva per database condivisi quando la suddivisione ha come risultato un nuovo bilanciamento delle partizioni e la creazione di un solo intervallo di chiavi di partizione figlio, anziché di due. Quando ciò si verifica, il processore dei feed di modifiche può rimanere bloccato durante l'eliminazione del lease per l'intervallo di chiavi di partizione precedente e non creare nuovi lease. Il problema è stato corretto in questa versione.
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * Nuova proprietà aggiunta ChangeFeedProcessorOptions.StartContinuation per supportare l'avvio del feed di modifica dal token di continuazione della richiesta. Viene utilizzato solo quando la raccolta di lease è vuota o un lease non ha impostato ContinuationToken. Per i lease nella raccolta di lease con ContinuationToken impostato, viene usato ContinuationToken e viene ignorato ChangeFeedProcessorOptions.StartContinuation.
@@ -155,6 +158,10 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.2.5](#2.2.5) |13 dicembre 2018 |--- |
+| [2.2.4](#2.2.4) |29 novembre 2018 |--- |
+| [2.2.3](#2.2.3) |19 novembre 2018 |--- |
+| [2.2.2](#2.2.2) |31 ottobre 2018 |--- |
 | [2.2.1](#2.2.1) |24 ottobre 2018 |--- |
 | [1.3.3](#1.3.3) |8 maggio 2018 |--- |
 | [1.3.2](#1.3.2) |18 aprile 2018 |--- |

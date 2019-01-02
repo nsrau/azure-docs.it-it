@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0d2f55538517881ce6cc237885f3bcadfa084520
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 312b476f8809d1d6375cc20035901d8d11c32173
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494966"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012352"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Usare le visualizzazioni di Apache Ambari per il debug di processi Apache Tez in HDInsight
 
@@ -90,9 +90,9 @@ Usare la procedura seguente per eseguire una query Hive che usa Tez:
 
 5. Le schede in questa pagina consentono di visualizzare le informazioni seguenti:
 
-    * **Informazioni sulla query**: informazioni dettagliate sulla query Hive.
-    * **Tempistiche**: informazioni sulla durata di ogni fase dell'elaborazione.
-    * **Configurazioni**: la configurazione usata per questa query.
+    * **Dettagli query**: informazioni dettagliate sulla query Hive.
+    * **Sequenza temporale**: informazioni sulla durata di ogni fase dell'elaborazione.
+    * **Configurazioni**: configurazione usata per questa query.
 
     Da __Dettagli query__ è possibile usare i collegamenti per trovare le informazioni sull'__applicazione__ o il __DAG__ per questa query.
     
@@ -103,6 +103,6 @@ Usare la procedura seguente per eseguire una query Hive che usa Tez:
 
 A questo punto, dopo avere appreso come usare la vista Apache Tez, è possibile trovare altre informazioni in [Uso di Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md).
 
-Per informazioni tecniche più dettagliate su Apache Tez, vedere la [pagina di Apache Tez in Hortonworks](http://hortonworks.com/hadoop/tez/).
+Per informazioni tecniche più dettagliate su Apache Tez, vedere la [pagina di Apache Tez in Hortonworks](https://hortonworks.com/hadoop/tez/).
 
 Per altre informazioni sull'uso di Apache Ambari con HDInsight, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambari.md)

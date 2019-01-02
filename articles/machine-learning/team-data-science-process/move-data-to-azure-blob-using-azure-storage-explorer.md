@@ -1,6 +1,6 @@
 ---
-title: Spostamento dei dati da e verso l'archiviazione BLOB utilizzando Esplora archivi Azure | Documentazione Microsoft
-description: Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Storage Explorer di Azure
+title: Spostare i dati di archiviazione BLOB con Azure Storage Explorer - Processo di data science per i team
+description: Spostare i dati da e verso Archiviazione BLOB di Azure con Azure Storage Explorer
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 7d4fc17c466f9f7187ca28c847631254d6600ead
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 99c9a86d130989e8c62a948e440b35c928b42299
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446997"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134099"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Spostamento dei dati da e verso l'archiviazione BLOB di Azure usando Storage Explorer di Azure
+# <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Spostare i dati da e verso Archiviazione BLOB di Azure con Azure Storage Explorer
 Esplora archivi di Azure è uno strumento gratuito di Microsoft che consente di lavorare con i dati di Archiviazione di Azure in Windows, MacOS e Linux. Questo argomento descrive come usarlo per caricare e scaricare i dati dall'archiviazione BLOB di Azure. Lo strumento può essere scaricato da [Esplora archivi di Microsoft Azure](http://storageexplorer.com/).
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
@@ -45,8 +45,8 @@ I passaggi seguenti documentano come caricare e scaricare i dati utilizzando Esp
 
 1. Avviare Esplora archivi di Microsoft Azure.
 2. Per visualizzare la procedura guidata **Accedi al tuo account...**, selezionare l'icona delle **impostazioni dell'account Azure**, selezionare **Aggiungi un account** e immettere le credenziali. ![Aggiungere un account di archiviazione di Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
-3. Per visualizzare la procedura guidata **Connetti ad Archiviazione di Azure**, selezionare l'icona per la **connessione ad Archiviazione di Azure**. ![Connetti ad Archiviazione di Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
-4. Immettere la chiave di accesso dell'account di archiviazione di Azure nella procedura guidata **Connetti ad Archiviazione di Azure** e selezionare **Avanti**. ![Connetti ad Archiviazione di Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
+3. Per visualizzare la procedura guidata **Connetti ad Archiviazione di Azure**, selezionare l'icona per la **connessione ad Archiviazione di Azure**. ![Fare clic su "Connetti ad Archiviazione di Azure"](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
+4. Immettere la chiave di accesso dell'account di archiviazione di Azure nella procedura guidata **Connetti ad Archiviazione di Azure** e selezionare **Avanti**. ![Immettere la chiave di accesso dell'account di archiviazione di Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
 5. Immettere il nome dell'account di archiviazione nella casella **Nome account** e selezionare **Avanti**. ![Associa archiviazione esterna](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
 6. L'account di archiviazione aggiunto apparirà nell'elenco. Per creare un contenitore BLOB in un account di archiviazione, fare clic con il pulsante destro del mouse sul nodo **Contenitori BLOB** in tale account, selezionare **Crea contenitore BLOB** e immettere un nome.
 7. Per caricare dati in un contenitore, selezionare il contenitore di destinazione e fare clic sul pulsante **Carica**.![Account di archiviazione](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)

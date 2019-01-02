@@ -1,5 +1,5 @@
 ---
-title: Creare un ambiente del servizio app di Azure esterno
+title: Creare un ambiente del servizio app esterno - Azure
 description: Questo articolo illustra come creare un ambiente del servizio app durante la creazione di un'app o un'app autonoma
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 0ee2654b313f453f7485c89c789edc8efc068d7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 98d534e20b8e4c6bf6bcc3f483f59b796dc85073
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442650"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274479"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno #
 
@@ -64,27 +65,27 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
     ![Creazione dell'app Web][1]
 
-1. Selezionare la propria sottoscrizione. L'app e l'ambiente del servizio app vengono creati nelle stesse sottoscrizioni.
+2. Selezionare la propria sottoscrizione. L'app e l'ambiente del servizio app vengono creati nelle stesse sottoscrizioni.
 
-1. Selezionare o creare un gruppo di risorse. Con i gruppi di risorse è possibile gestire insieme le risorse di Azure correlate. I gruppi di risorse sono utili anche quando si stabiliscono le regole di controllo degli accessi in base al ruolo per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ARMOverview].
+3. Selezionare o creare un gruppo di risorse. Con i gruppi di risorse è possibile gestire insieme le risorse di Azure correlate. I gruppi di risorse sono utili anche quando si stabiliscono le regole di controllo degli accessi in base al ruolo per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ARMOverview].
 
-1. Selezionare il sistema operativo (Windows, Linux o Docker). 
+4. Selezionare il sistema operativo (Windows, Linux o Docker). 
 
-1. Selezionare il piano di servizio app, quindi selezionare **Crea nuovo**. Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
+5. Selezionare il piano di servizio app, quindi selezionare **Crea nuovo**. Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
 
     ![Nuovo piano di servizio app][2]
 
-1. Nell'elenco a discesa **Località** selezionare l'area in cui si vuole creare l'ambiente del servizio app. Se si seleziona un ambiente del servizio app esistente, non viene creato un nuovo ambiente del servizio app. Il piano di servizio app viene creato nell'ambiente del servizio app selezionato. 
+6. Nell'elenco a discesa **Località** selezionare l'area in cui si vuole creare l'ambiente del servizio app. Se si seleziona un ambiente del servizio app esistente, non viene creato un nuovo ambiente del servizio app. Il piano di servizio app viene creato nell'ambiente del servizio app selezionato. 
 
-1. Selezionare **Piano tariffario** e scegliere uno dei prezzi SKU **Isolato**. Se si sceglie una scheda SKU **Isolato** e una località diversa da un ambiente del servizio app, un nuovo ambiente del servizio app viene creato in tale località. Per avviare il processo di creazione di un ambiente del servizio app, selezionare **Seleziona**. Lo SKU **Isolato** è disponibile in combinazione con un ambiente del servizio app. Non è inoltre possibile usare qualsiasi altro codice di riferimento del prodotto per i prezzi in un ambiente del servizio app diverso da **Isolato**. 
+7. Selezionare **Piano tariffario** e scegliere uno dei prezzi SKU **Isolato**. Se si sceglie una scheda SKU **Isolato** e una località diversa da un ambiente del servizio app, un nuovo ambiente del servizio app viene creato in tale località. Per avviare il processo di creazione di un ambiente del servizio app, selezionare **Seleziona**. Lo SKU **Isolato** è disponibile in combinazione con un ambiente del servizio app. Non è inoltre possibile usare qualsiasi altro codice di riferimento del prodotto per i prezzi in un ambiente del servizio app diverso da **Isolato**. 
 
     ![Selezione del piano tariffario][3]
 
-1. Immettere il nome per l'ambiente del servizio app. Questo nome viene usato nel nome indirizzabile per le app. Se il nome dell'ambiente del servizio app è _appsvcenvdemo_, il nome di dominio sarà *.appsvcenvdemo.p.azurewebsites.net*. Se è stata creata un'app denominata *mytestapp*, questa sarà disponibile all'indirizzo mytestapp.appsvcenvdemo.p.azurewebsites.net. Il nome non può contenere spazi. Anche se vengono usati caratteri maiuscoli, il nome di dominio corrisponde alla versione in caratteri minuscoli del nome.
+8. Immettere il nome per l'ambiente del servizio app. Questo nome viene usato nel nome indirizzabile per le app. Se il nome dell'ambiente del servizio app è _appsvcenvdemo_, il nome di dominio sarà *.appsvcenvdemo.p.azurewebsites.net*. Se è stata creata un'app denominata *mytestapp*, questa sarà disponibile all'indirizzo mytestapp.appsvcenvdemo.p.azurewebsites.net. Il nome non può contenere spazi. Anche se vengono usati caratteri maiuscoli, il nome di dominio corrisponde alla versione in caratteri minuscoli del nome.
 
     ![Nome del nuovo piano di servizio app][4]
 
-1. Specificare i dettagli della rete virtuale Azure. Selezionare **Crea nuovo** o **Seleziona esistente**. L'opzione per selezionare una rete virtuale esistente è disponibile solo se si ha una rete virtuale nell'area selezionata. Se si seleziona **Crea nuovo**, immettere un nome per la rete virtuale. Viene creata una nuova rete virtuale con questo nome, che usa lo spazio indirizzi `192.168.250.0/23` nell'area selezionata. Se si sceglie **Seleziona esistente**, è necessario:
+9. Specificare i dettagli della rete virtuale Azure. Selezionare **Crea nuovo** o **Seleziona esistente**. L'opzione per selezionare una rete virtuale esistente è disponibile solo se si ha una rete virtuale nell'area selezionata. Se si seleziona **Crea nuovo**, immettere un nome per la rete virtuale. Viene creata una nuova rete virtuale con questo nome, che usa lo spazio indirizzi `192.168.250.0/23` nell'area selezionata. Se si sceglie **Seleziona esistente**, è necessario:
 
     a. Selezionare il blocco di indirizzi della rete virtuale, se ne è disponibile più di uno.
 
@@ -94,7 +95,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
     d. Selezionare l'intervallo IP della subnet.
 
-1. Selezionare **Crea** per creare l'ambiente del servizio app. Questo processo crea anche il piano di servizio app e l'applicazione. L'ambiente del servizio app, il piano di servizio app e l'applicazione sono tutti inclusi nella stessa sottoscrizione e nello stesso gruppo di risorse. Se l'ambiente del servizio app richiede un gruppo di risorse separato o se è necessario un ambiente del servizio app con bilanciamento del carico interno, seguire la procedura per creare un ambiente del servizio app autonomo.
+10. Selezionare **Crea** per creare l'ambiente del servizio app. Questo processo crea anche il piano di servizio app e l'applicazione. L'ambiente del servizio app, il piano di servizio app e l'applicazione sono tutti inclusi nella stessa sottoscrizione e nello stesso gruppo di risorse. Se l'ambiente del servizio app richiede un gruppo di risorse separato o se è necessario un ambiente del servizio app con bilanciamento del carico interno, seguire la procedura per creare un ambiente del servizio app autonomo.
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Creare un ambiente del servizio app e un'app Web Linux tramite un'immagine personalizzata di Docker
 
@@ -199,5 +200,5 @@ Per altre informazioni sull'ambiente del servizio app 1, vedere [Introduction to
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md

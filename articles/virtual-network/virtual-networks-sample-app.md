@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 7a0f1313f8b22aba0a153563bd804435c3ef53f2
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 1ccdb8254551d0009a71cc047b8399a539edb8e2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52159866"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866851"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Applicazione di esempio per l'uso con reti perimetrali
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -142,7 +142,7 @@ Lo script di PowerShell deve essere eseguito localmente mentre viene usata una s
     Restart-Service -Name W3SVC
 
     Write-Host
-    Write-Host "Web App Creation Successfull!" -ForegroundColor Green
+    Write-Host "Web App Creation Successful!" -ForegroundColor Green
     Write-Host
 ```
 
@@ -156,7 +156,7 @@ Imposta il back-end per questa semplice applicazione. Questo script consentirà 
 5. Disattivare la sicurezza avanzata di Internet Explorer per facilitare l'esplorazione da questo server. 
 
 > [!IMPORTANT]
-> **Procedure consigliate**: non disattivare mai la sicurezza avanzata di Internet Explorer in un server di produzione, inoltre in genere è opportuno evitare di esplorare il Web da un server di produzione. Anche l'apertura di condivisioni file per l'accesso anonimo è un'attività da evitare, ma in questo caso viene eseguita per semplificare le operazioni.
+> **Procedura consigliata**: non disattivare mai la sicurezza avanzata di Internet Explorer in un server di produzione. Inoltre, in genere è opportuno evitare di esplorare il Web da un server di produzione. Anche l'apertura di condivisioni file per l'accesso anonimo è un'attività da evitare, ma in questo caso viene eseguita per semplificare le operazioni.
 > 
 > 
 
@@ -189,7 +189,7 @@ Lo script di PowerShell deve essere eseguito localmente mentre viene usata una s
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0
 
     Write-Host
-    Write-Host "File Server Set up Successfull!" -ForegroundColor Green
+    Write-Host "File Server Set up Successful!" -ForegroundColor Green
     Write-Host
 ```
 

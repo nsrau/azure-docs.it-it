@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8e1c58f2d60ee95189fb583e032d8748fedb88d4
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620218"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679530"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -127,12 +127,12 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
 
 - **Nome**: immettere un nome univoco per identificare la distribuzione di aggiornamenti.
 - **Sistema operativo**: selezionare **Windows** o **Linux**.
-- **Gruppi da aggiornare (anteprima)**: definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Gruppi dinamici](automation-update-management.md#using-dynamic-groups)
-- **Computer da aggiornare**: selezionare una ricerca salvata, gruppo importato, o selezionare le macchine virtuali, per scegliere i computer che si desidera aggiornare. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. È possibile visualizzare lo stato di integrità del computer prima di pianificare la distribuzione degli aggiornamenti. Per altre informazioni sui diversi metodi di creazione di gruppi di computer in Log Analytics, vedere [gruppi di Computer in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+- **Gruppi da aggiornare (anteprima)**: Definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Gruppi dinamici](automation-update-management.md#using-dynamic-groups)
+- **Computer da aggiornare**: selezionare una ricerca salvata, un gruppo importato oppure selezionare Computer, per scegliere i computer che si vuole aggiornare. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. È possibile visualizzare lo stato di integrità del computer prima di pianificare la distribuzione degli aggiornamenti. Per altre informazioni sui diversi metodi di creazione di gruppi di computer in Log Analytics, vedere [gruppi di Computer in Log Analytics](../azure-monitor/platform/computer-groups.md)
 
   ![Riquadro Nuova distribuzione di aggiornamenti](./media/manage-update-multi/update-select-computers.png)
 
-- **Classificazioni aggiornamenti**: selezionare i tipi di software da includere nella distribuzione di aggiornamenti. Per una descrizione dei tipi di classificazione, vedere le [classificazioni degli aggiornamenti](automation-update-management.md#update-classifications). I tipi di classificazione sono:
+- **Classificazione aggiornamento**: selezionare i tipi di software da includere nella distribuzione di aggiornamenti. Per una descrizione dei tipi di classificazione, vedere le [classificazioni degli aggiornamenti](automation-update-management.md#update-classifications). I tipi di classificazione sono:
   - Aggiornamenti critici
   - Aggiornamenti della sicurezza
   - Aggiornamenti cumulativi
@@ -144,14 +144,14 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
 
 - **Includi/Escludi aggiornamenti**: apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per altre informazioni sulla modalità di gestione dell'inclusione, vedere il [comportamento dell'inclusione](automation-update-management.md#inclusion-behavior)
 
-- **Impostazioni pianificazione**: è possibile accettare la data e l'ora predefinite, ossia 30 minuti dopo l'ora corrente, ma anche specificare un momento diverso.
+- **Impostazioni di pianificazione**: è possibile accettare la data e l'ora predefinite, ossia 30 minuti dopo l'ora corrente, ma anche specificare un momento diverso.
 
    Si può anche specificare se la distribuzione deve essere eseguita una sola volta o in base a una pianificazione ricorrente. Per configurare una pianificazione ricorrente, selezionare **Ricorrente** in **Ricorrenza**.
 
    ![Finestra di dialogo Impostazioni pianificazione](./media/manage-update-multi/update-set-schedule.png)
 
 - **Pre-script e post-script**: selezionare gli script da eseguire prima e dopo la distribuzione. Per altre informazioni, vedere [Gestire i pre-script e i post-script](pre-post-scripts.md).
-- **Finestra di manutenzione (minuti)**: specificare il periodo di tempo in cui deve avvenire la distribuzione di aggiornamenti. Questa impostazione consente di garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
+- **Finestra di manutenzione (minuti)**: specificare il periodo di tempo nel quale eseguire la distribuzione di aggiornamenti. Questa impostazione consente di garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
 
 - **Controllo riavvio:** questa impostazione determina come vengono gestiti i riavvii per la distribuzione degli aggiornamenti.
 
@@ -182,8 +182,8 @@ Per visualizzare il dashboard per una distribuzione di aggiornamenti, selezionar
 Il riquadro **Risultati aggiornamento** indica il numero totale di aggiornamenti e i risultati della distribuzione per la macchina virtuale. La tabella a destra offre una suddivisione dettagliata di ogni aggiornamento e dei risultati dell'installazione, che possono corrispondere a uno dei valori seguenti.
 
 - **Tentativo non eseguito**: l'aggiornamento non è stato installato perché il tempo disponibile in base alla finestra di manutenzione specificata non è stato sufficiente.
-- **Completato**: l'aggiornamento è stato completato.
-- **Non riuscito**: l'aggiornamento non è riuscito.
+- **Completato**: aggiornamento completato.
+- **Operazione non riuscita**: aggiornamento non riuscito.
 
 Per visualizzare tutte le voci di log create dalla distribuzione, selezionare **Tutti i log**.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: d6f18363cceaf279d92ada77f52d39b7f1d12f65
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dea12d7188b716b4a832a33bb173201e68dbe20f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785970"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189745"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configurazione dei criteri di distribuzione degli asset
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -28,10 +28,10 @@ Se si prevede di distribuire asset crittografati in modo dinamico, uno dei passa
 
 Questo argomento illustra perché e come creare i criteri di distribuzione degli asset.
 
->[!NOTE]
->Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+> [!NOTE]
+> Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
 >
->Per usare la creazione dinamica dei pacchetti e la crittografia dinamica, l'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva.
+> Per usare la creazione dinamica dei pacchetti e la crittografia dinamica, l'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva.
 
 È possibile applicare criteri differenti allo stesso asset. È ad esempio possibile applicare la crittografia PlayReady a Smooth Streaming e la crittografia envelope AES (Advanced Encryption Standard) a MPEG DASH e HLS. Gli eventuali protocolli non definiti nei criteri di distribuzione (ad esempio quando si aggiunge un singolo criterio che specifica soltanto HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non è presente alcun criterio di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
 
@@ -62,9 +62,9 @@ Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere 
 * È possibile avere più criteri di distribuzione degli asset associati a un singolo asset, ma è possibile specificare solo un modo per gestire un determinato AssetDeliveryProtocol.  Ciò significa che se si tenta di collegare due criteri di distribuzione che specificano il protocollo AssetDeliveryProtocol.SmoothStreaming, verrà generato un errore perché il sistema non sa quale applicare quando un client effettua una richiesta di Smooth Streaming.
 * Se si dispone di un asset con un localizzatore di streaming esistente, non è possibile collegare un nuovo criterio all'asset, scollegare un criterio esistente dall'asset, o aggiornare un criterio di distribuzione associato all'asset.  È innanzitutto necessario rimuovere il localizzatore di streaming, modificare i criteri e quindi creare nuovamente il localizzatore di streaming.  È possibile utilizzare lo stesso ID quando si ricrea il localizzatore di streaming, ma è necessario assicurarsi che questo non causi problemi per i client poiché il contenuto può essere memorizzato nella cache per l'origine o una rete CDN a valle.
 
->[!NOTE]
-
->Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
+> [!NOTE]
+> 
+> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
 
@@ -72,7 +72,7 @@ Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Se
 
 ## <a name="clear-asset-delivery-policy"></a>Criteri di distribuzione degli asset Clear
 ### <a id="create_asset_delivery_policy"></a>Creare criteri di distribuzione degli asset
-La seguente richiesta HTTP crea criteri di distribuzione degli asset che indicano di non applicare la crittografia dinamica e di distribuire il flusso con uno dei seguenti protocolli: MPEG DASH, HLS e Smooth Streaming. 
+La seguente richiesta HTTP crea criteri di distribuzione degli asset che indicano di non applicare la crittografia dinamica e di distribuire il flusso con uno dei seguenti protocolli:  MPEG DASH, HLS e Smooth Streaming. 
 
 Per informazioni sui valori che è possibile specificare quando si crea un oggetto AssetDeliveryPolicy, vedere la sezione [Tipi usati durante la definizione di AssetDeliveryPolicy](#types) .   
 
@@ -145,7 +145,7 @@ Risposta:
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Criteri di distribuzione degli asset DynamicEnvelopeEncryption
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Creare una chiave simmetrica di tipo EnvelopeEncryption e collegarla all'asset
-Quando si specificano criteri di distribuzione DynamicEnvelopeEncryption, è necessario assicurarsi di collegare l'asset a una chiave simmetrica di tipo EnvelopeEncryption. Per altre informazioni, vedere [Creazione di una chiave simmetrica](media-services-rest-create-contentkey.md)).
+Quando si specificano criteri di distribuzione DynamicEnvelopeEncryption, è necessario assicurarsi di collegare l'asset a una chiave simmetrica di tipo EnvelopeEncryption. Per altre informazioni, vedere: [Creazione di una chiave simmetrica](media-services-rest-create-contentkey.md).
 
 ### <a id="get_delivery_url"></a>Ottenere l'URL di distribuzione
 Ottenere l'URL relativo al metodo di distribuzione specificato per la chiave simmetrica creata nel passaggio precedente. Un client usa l'URL restituito per richiedere una chiave AES oppure una licenza PlayReady allo scopo di riprodurre contenuto protetto.
@@ -231,7 +231,7 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Criteri di distribuzione degli asset DynamicCommonEncryption
 ### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>Creare una chiave simmetrica di tipo CommonEncryption e collegarla all'asset
-Quando si specificano criteri di distribuzione DynamicEnvelopeEncryption, è necessario assicurarsi di collegare l'asset a una chiave simmetrica di tipo CommonEncryption. Per altre informazioni, vedere [Creazione di una chiave simmetrica](media-services-rest-create-contentkey.md)).
+Quando si specificano criteri di distribuzione DynamicEnvelopeEncryption, è necessario assicurarsi di collegare l'asset a una chiave simmetrica di tipo CommonEncryption. Per altre informazioni, vedere: [Creazione di una chiave simmetrica](media-services-rest-create-contentkey.md).
 
 ### <a name="get-delivery-url"></a>Ottenere l'URL di distribuzione
 Ottenere l'URL relativo al metodo di distribuzione PlayReady per la chiave simmetrica creata nel passaggio precedente. Un client usa l'URL restituito per richiedere una licenza PlayReady allo scopo di riprodurre contenuto protetto. Per altre informazioni, vedere [Ottenere l'URL di distribuzione](#get_delivery_url).

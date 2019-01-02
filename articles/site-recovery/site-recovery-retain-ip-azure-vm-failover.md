@@ -2,16 +2,16 @@
 title: Mantenere gli indirizzi IP durante il failover delle macchine virtuali di Azure con Azure Site Recovery | Microsoft Docs
 description: Viene descritto come mantenere gli indirizzi IP quando si effettua il failover di macchine virtuali di Azure per il ripristino di emergenza in un'area secondaria con Azure Site Recovery
 ms.service: site-recovery
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4e75ba210e12a39d2c4cfb9753bbc2da2893746b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567401"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842748"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Mantenere gli indirizzi IP durante il failover
 
@@ -51,7 +51,7 @@ Di seguito viene indicata l'architettura prima del failover.
         - La **rete virtuale di Azure** contiene una subnet (**Subnet 4**) con spazio degli indirizzi 10.2.4.0/24.
         - I nodi di replica per Gruppi di disponibilità AlwaysOn di SQL Server, i controller di dominio e così via si trovano in **Subnet 4**.
     - La **rete virtuale di origine** e la **rete virtuale di Azure** sono connesse con una connessione VPN da sito a sito.
-    - La **rete virtuale di ripristino** non è connessa ad alcun'altra rete virtuale.
+    - La **Rete virtuale di ripristino** non è connessa ad alcun'altra rete virtuale.
     - La **società A** assegna/verifica gli indirizzi IP di destinazione per gli elementi replicati. L'indirizzo IP di destinazione è lo stesso indirizzo IP di origine per ogni macchina virtuale.
 
 ![Risorse in Azure prima del failover completo](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)

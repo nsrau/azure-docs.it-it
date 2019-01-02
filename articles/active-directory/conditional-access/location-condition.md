@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eeb12500a5ddfb95317b3d20b41acf12e3978bad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 80818a7264b35b703be217f07127ab7883da339a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626523"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271590"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory? 
 
@@ -58,7 +58,7 @@ Una posizione specifica ha le caratteristiche seguenti:
 
 - **Nome**: nome visualizzato di una posizione specifica.
 
-- **Intervalli IP**: uno o più intervalli di indirizzi IP in formato CIDR.
+- **Intervalli IP**: uno o più intervalli di indirizzi IPv4 in formato CIDR. L'immissione di un intervallo di indirizzi Ipv6 non è supportata.
 
 - **Contrassegna come posizione attendibile**: flag che è possibile impostare per una posizione specifica per indicare un percorso attendibile. In genere, i percorsi attendibili sono aree della rete controllate dal reparto IT. Oltre che per l'accesso condizionale, le posizioni specifiche attendibili vengono usate anche da Azure AD Identity Protection e dai report di sicurezza di Azure AD per ridurre il numero di [falsi positivi](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 

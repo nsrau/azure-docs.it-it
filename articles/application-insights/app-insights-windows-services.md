@@ -9,16 +9,15 @@ ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 461b1f4e72f0a47da4ccb560bfb4cfb7d0f3ccd2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096436"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001734"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurare manualmente Application Insights per applicazioni .NET
 
@@ -30,14 +29,14 @@ ms.locfileid: "47096436"
 
 È necessario:
 
-* Una sottoscrizione a [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando il rispettivo [account Microsoft](http://live.com).
+* Una sottoscrizione a [Microsoft Azure](https://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando il rispettivo [account Microsoft](https://live.com).
 * Visual Studio 2013 o versione successiva.
 
 ## <a name="add"></a>1. Scegliere una risorsa di Application Insights
 
 La "risorsa" è la posizione in cui verranno raccolti e visualizzati i dati nel portale di Azure. È necessario decidere se crearne una nuova oppure condividerne una esistente.
 
-### <a name="part-of-a-larger-app-use-existing-resource"></a>Parte di un'app più grande: usare una risorsa esistente
+### <a name="part-of-a-larger-app-use-existing-resource"></a>Parte di un'app più grande: usare la risorsa esistente
 
 Se l'applicazione Web include diversi componenti, ad esempio un'app Web front-end e uno o più servizi back-end, è consigliabile inviare i dati di telemetria di tutti i componenti alla stessa risorsa. In questo modo potranno essere visualizzati in una singola mappa delle applicazioni e sarà possibile tracciare una richiesta da un componente a un altro.
 
@@ -45,7 +44,7 @@ Se vengono già monitorati altri componenti dell'app, usare quindi la stessa ris
 
 Aprire la risorsa nel [portale di Azure](https://portal.azure.com/). 
 
-### <a name="self-contained-app-create-a-new-resource"></a>App completa: creare una nuova risorsa
+### <a name="self-contained-app-create-a-new-resource"></a>App completa: Creare una nuova risorsa
 
 Se la nuova app non è correlata ad altre applicazioni, dovrà avere una propria risorsa.
 

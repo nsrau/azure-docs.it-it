@@ -1,12 +1,11 @@
 ---
-title: Come usare un servizio Web di Azure Machine Learning Studio | Microsoft Docs
+title: Come utilizzare un servizio Web - Azure Machine Learning Studio | Microsoft Docs
 description: Dopo la distribuzione di un servizio di apprendimento automatico da Azure Machine Learning Studio è possibile usare il servizio Web RESTFul come servizio di richiesta-risposta o come un servizio di esecuzione batch.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: df837c64cf0e40f3bfc1c596b2950a9d23c74a90
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d7a48dcb56d2bed0e84714087bb9fda3fae65fc1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309107"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273783"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Come usare un servizio Web di Azure Machine Learning Studio
+# <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Come utilizzare un servizio Web di Azure Machine Learning Studio
 
 Dopo aver distribuito un modello predittivo di Azure Machine Learning come servizio Web, è possibile usare un'API REST per inviare dati e ottenere stime. È possibile inviare i dati in tempo reale o in modalità batch.
 
@@ -33,7 +32,7 @@ Per informazioni su come creare e distribuire un servizio Web di Machine Learnin
 * Per dettagli su come distribuire un servizio Web, vedere [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md).
 * Per altre informazioni su Machine Learning in generale, accedere alla [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>Panoramica
 Con il servizio Web di Azure Machine Learning, un'applicazione esterna comunica con un modello di valutazione del flusso di lavoro di Machine Learning in tempo reale. Una chiamata al servizio Web di Machine Learning restituisce i risultati della stima a un'applicazione esterna. Per effettuare una chiamata al servizio Web di Machine Learning, passare una chiave API creata quando si distribuisce una stima. Il servizio Web di Machine Learning è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.

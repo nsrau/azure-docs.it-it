@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a8744afe3ec3e83e4a543942441118356730347c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139938"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957242"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Eseguire OpenFoam con Microsoft HPC Pack in un cluster Linux RDMA in Azure
 Questo articolo descrive un modo per eseguire OpenFoam nelle macchine virtuali di Azure. Viene distribuito un cluster Microsoft HPC Pack con nodi di calcolo Linux in Azure e viene eseguito un processo [OpenFoam](http://openfoam.com/) con Intel MPI. Per i nodi di calcolo è possibile usare macchine virtuali di Azure con supporto per RDMA. In questo modo i nodi di calcolo comunicano attraverso la rete RDMA di Azure. Le altre opzioni per l'esecuzione di OpenFoam in Azure includono le immagini commerciali completamente configurate disponibili in Marketplace, come [OpenFoam 2.3 u CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud) di UberCloud e tramite esecuzione su [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -46,7 +46,7 @@ Microsoft HPC Pack fornisce le funzionalità necessarie per eseguire applicazion
   * Dopo aver distribuito i nodi Linux, è necessaria una connessione tramite SSH per eseguire eventuali attività amministrative aggiuntive. I dettagli della connessione SSH relativi a ciascuna macchina virtuale di Linux sono disponibili nel portale di Azure.  
 * **Intel MPI**: per eseguire OpenFOAM su nodi di calcolo SLES 12 HPC in Azure, è necessario installare il runtime di Intel MPI Library 5 dal [sito Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 è preinstallato nelle immagini HPC basate su CentOS).  Se necessario, in un passaggio successivo installare Intel MPI nei nodi di calcolo Linux. Come preparazione a questo passaggio, dopo aver eseguito la registrazione a Intel fare clic sul collegamento contenuto nel messaggio di posta elettronica di conferma per accedere alla relativa pagina Web. Copiare quindi il collegamento di download del file con estensione tgz per la versione appropriata di Intel MPI. Questo articolo si riferisce a Intel MPI versione 5.0.3.048.
 * **OpenFOAM Source Pack** : scaricare il software OpenFOAM Source Pack per Linux dal [sito OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). In questo articolo viene usato Source Pack versione 2.3.1, disponibile per il download come OpenFOAM 2.3.1.tgz. Seguire le istruzioni riportate più avanti in questo articolo per decomprimere e compilare OpenFOAM nei nodi di calcolo Linux.
-* **EnSight** (facoltativo): per visualizzare i risultati della simulazione OpenFOAM, scaricare e installare il programma di analisi e visualizzazione [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) . Per informazioni sul download e la gestione delle licenze, vedere il sito EnSight.
+* **EnSight** (facoltativo): per visualizzare i risultati della simulazione OpenFOAM, scaricare e installare il programma di analisi e visualizzazione [EnSight](https://www.ansys.com/products/platform/ansys-ensight/data-interfaces) . Per informazioni sul download e la gestione delle licenze, vedere il sito EnSight.
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>Configurare il trust reciproco tra i nodi di calcolo
 L'esecuzione di un processo su più nodi Linux richiede una relazione di trust tra i nodi (tramite **rsh** o **ssh**). Quando si crea il cluster HPC Pack con lo script di distribuzione IaaS di Microsoft HPC Pack, lo script configura automaticamente un trust reciproco permanente per l'account amministratore specificato. Per gli utenti non amministratori creati nel dominio del cluster è necessario configurare una relazione di trust reciproco temporanea tra i nodi in caso di allocazione di un processo e quindi eliminare la relazione dopo il completamento del processo. Per stabilire la relazione di trust per ciascun utente, fornire una coppia di chiavi RSA al cluster usato da HPC Pack per stabilire la relazione di trust.
@@ -226,7 +226,7 @@ Usare la condivisione del nodo head configurata in precedenza per condividere i 
 4. Quando si usano i parametri predefiniti di questo esempio, l'esecuzione può richiedere una decina di minuti ed è quindi consigliabile modificarne alcuni per accelerare l'operazione. Un modo semplice prevede la modifica delle variabili delle fasi temporali deltaT e writeInterval nel file system/controlDict, in cui vengono archiviati tutti i dati di input relativi al controllo di tempo, lettura e scrittura dei dati della soluzione. È ad esempio possibile modificare il valore di deltaT da 0,05 a 0,5 e il valore di writeInterval da 0,05 a 0,5.
    
    ![Modificare le variabili delle fasi][step_variables]
-5. Specificare i valori desiderati per le variabili nel file system/decomposeParDict. Questo esempio usa due nodi Linux con 8 core ciascuno. Impostare quindi numberOfSubdomains su 16 e il numero di hierarchicalCoeffs su (1 1 16) per specificare di eseguire OpenFOAM in parallelo con 16 processi. Per altre informazioni, vedere la sezione [3.4 del manuale dell'utente di OpenFOAM relativa all'esecuzione di applicazioni in parallelo](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
+5. Specificare i valori desiderati per le variabili nel file system/decomposeParDict. Questo esempio usa due nodi Linux con 8 core ciascuno. Impostare quindi numberOfSubdomains su 16 e il numero di hierarchicalCoeffs su (1 1 16) per specificare di eseguire OpenFOAM in parallelo con 16 processi. Per altre informazioni, vedere [OpenFOAM User Guide: 3.4 Running applications in parallel](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4) (Manuale dell'utente di OpenFOAM 3.4: Esecuzione di applicazioni in parallelo).
    
    ![Scomporre i processi][decompose]
 6. Eseguire i comandi seguenti dalla directory sloshingTank3D per preparare i dati di esempio.
@@ -362,7 +362,7 @@ A questo punto è possibile inviare un processo in HPC Cluster Manager. È quind
 10. Al termine del processo, i risultati del processo saranno disponibili in C:\OpenFoam\sloshingTank3D e i file di log in C:\OpenFoam.
 
 ## <a name="view-results-in-ensight"></a>Visualizzare i risultati in EnSight
-Facoltativamente è possibile usare [EnSight](http://www.ensight.com/) per visualizzare e analizzare i risultati del processo OpenFOAM. Per altre informazioni sulla visualizzazione e l'animazione in EnSight, vedere questa [guida video](http://www.ensight.com/ensight.com/envideo/).
+Facoltativamente è possibile usare [EnSight](http://www.ensight.com/) per visualizzare e analizzare i risultati del processo OpenFOAM. 
 
 1. Dopo aver installato EnSight nel nodo head, avviarlo.
 2. Aprire C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.

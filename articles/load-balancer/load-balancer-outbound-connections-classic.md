@@ -1,22 +1,24 @@
 ---
-title: Connessioni in uscita in Azure (versione classica) | Microsoft Docs
+title: Connessioni in uscita in Azure (versione classica)
+titlesuffix: Azure Load Balancer
 description: Questo articolo spiega in che modo Azure consente ai servizi cloud di comunicare con i servizi Internet pubblici.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 5cb0647148d2cd90ad4cce6e16de30b72fff8429
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219665"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190000"
 ---
 # <a name="outbound-connections-classic"></a>Connessioni in uscita (versione classica)
 
@@ -54,7 +56,7 @@ Anche per le [strategie di mitigazione](#snatexhaust) esistono le stesse differe
 
 L'[algoritmo usato per la preallocazione delle porte temporanee](#ephemeralports) per il mascheramento delle porte (PAT) per le distribuzioni classiche è lo stesso usato per le distribuzioni di risorse di Azure Resource Manager.
 
-### <a name="ilpip"></a>Scenario 1: macchina virtuale con un indirizzo IP pubblico a livello di istanza
+### <a name="ilpip"></a>Scenario 1: Macchina virtuale con un indirizzo IP pubblico a livello di istanza
 
 In questo scenario la macchina virtuale ha assegnato un IP pubblico a livello di istanza. Per quanto riguarda le connessioni in uscita, non è importante se la macchina virtuale abbia un endpoint con carico bilanciato o meno. Questo scenario ha la precedenza rispetto agli altri. Quando si usa un indirizzo IP pubblico a livello di istanza, la macchina virtuale usa tale indirizzo IP per tutti i flussi in uscita.  
 
@@ -62,7 +64,7 @@ Un indirizzo IP pubblico assegnato a una macchina virtuale è una relazione 1:1,
 
 Se l'applicazione avvia numerosi flussi in uscita e si assiste a un esaurimento delle porte SNAT, prendere in considerazione l'assegnazione di un [indirizzo IP pubblico a livello di istanza per ridurre i vincoli SNAT](#assignilpip). Leggere per intero [Gestione dell'esaurimento SNAT](#snatexhaust).
 
-### <a name="publiclbendpoint"></a>Scenario 2: endpoint pubblico con carico bilanciato
+### <a name="publiclbendpoint"></a>Scenario 2: Endpoint pubblico con carico bilanciato
 
 In questo scenario la macchina virtuale o il ruolo di lavoro Web è associato a un indirizzo IP pubblico tramite l'endpoint con carico bilanciato. Alla macchina virtuale non è assegnato un indirizzo IP pubblico. 
 
@@ -74,7 +76,7 @@ Le porte SNAT vengono preallocate come descritto nella sezione [Informazioni su 
 
 Se esistono [più endpoint pubblici con carico bilanciato](load-balancer-multivip.md), uno qualsiasi di questi indirizzi IP pubblici è un [candidato per i flussi in uscita](#multivipsnat) e ne viene selezionato uno in modo casuale.  
 
-### <a name="defaultsnat"></a>Scenario 3: nessun indirizzo IP pubblico associato
+### <a name="defaultsnat"></a>Scenario 3: Nessun indirizzo IP pubblico associato
 
 In questo scenario la macchina virtuale o il ruolo di lavoro Web non fa parte di un endpoint pubblico con carico bilanciato.  Nel caso specifico di una macchina virtuale, non dispone di un indirizzo ILPIP assegnato. Quando la macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine privata del flusso in uscita in un indirizzo IP di origine pubblica. L'indirizzo IP pubblico usato per questo flusso in uscita non è configurabile e non interferisce con il limite della risorsa IP pubblico della sottoscrizione.  Azure alloca automaticamente questo indirizzo.
 

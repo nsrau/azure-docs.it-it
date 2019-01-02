@@ -1,25 +1,19 @@
 ---
-title: Risoluzione dei problemi di prestazioni della rete virtuale di Microsoft Azure | Microsoft Docs
+title: 'Risolvere i problemi di prestazioni delle reti virtuali: Azure | Microsoft Docs'
 description: Questa pagina fornisce un metodo standardizzato di test delle prestazioni dei collegamenti di rete di Azure.
 services: expressroute
-documentationcenter: na
 author: tracsman
-manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 12/20/2017
 ms.author: jonor
-ms.openlocfilehash: 56f011632a2aa3ef0632efd5ace472c0fc79a329
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: seodec18
+ms.openlocfilehash: 2572ff3711fb86cda88a86744192980a5b2d5361
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27319442"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277625"
 ---
 # <a name="troubleshooting-network-performance"></a>Risoluzione dei problemi di prestazioni di rete
 ## <a name="overview"></a>Panoramica
@@ -136,7 +130,7 @@ Se due reti virtuali (VNet A e B nel diagramma) sono connesse allo **stesso** ci
 ### <a name="test-plan"></a>Piano di test
 1. Eseguire il test di Get-LinkPerformance tra VM1 e VM2. Questo test consente di comprendere se il problema è locale o meno. Se questo test produce risultati accettabili di latenza e larghezza di banda, è possibile contrassegnare la rete virtuale locale come corretta.
 2. Supponendo che il traffico della rete virtuale locale sia corretto, eseguire il test Get-LinkPerformance tra VM1 e VM3. Questo test esegue la connessione attraverso la rete Microsoft fino a MSEE e di nuovo verso Azure. Se questo test produce risultati accettabili di latenza e larghezza di banda, è possibile contrassegnare la rete di Azure come corretta.
-3. Se Azure viene escluso, è possibile eseguire una sequenza analoga di test sulla rete aziendale. Se anche questi test hanno esito positivo, è giunto il momento di collaborare con il proprio provider di servizi o ISP per eseguire la diagnosi della connessione della rete WAN. Esempio: Eseguire il test tra due filiali, o tra il desktop e un server del data center. A seconda di ciò che si sta testando, trovare gli endpoint (server, PC e così via) che possono verificare tale percorso.
+3. Se Azure viene escluso, è possibile eseguire una sequenza analoga di test sulla rete aziendale. Se anche questi test hanno esito positivo, è giunto il momento di collaborare con il proprio provider di servizi o ISP per eseguire la diagnosi della connessione della rete WAN. Esempio: Eseguire il test tra due filiali o tra il desktop e un server del data center. A seconda di ciò che si sta testando, trovare gli endpoint (server, PC e così via) che possono verificare tale percorso.
 
 >[!IMPORTANT]
 > È fondamentale che per ogni test si prenda nota dell'ora del giorno in cui si esegue il test e che si registrino i risultati in una posizione comune (ad esempio OneNote o Excel). Ciascuna esecuzione dei test deve avere un output identico, in modo da poter confrontare i dati risultanti dalle esecuzioni dei test e da non avere "buchi" nei dati. La coerenza tra più test è la ragione principale per cui utilizzo AzureCT nella risoluzione dei problemi. Il *trucco* non sta negli scenari di caricamento esatti caricati, ma nel fatto di ottenere un *output di dati e test coerenti* da tutti i test. Registrare l'ora e avere dati coerenti ogni volta è particolarmente utile se in seguito si scopre che il problema è sporadico. Occorre essere accurati all'inizio della raccolta di dati, in modo da evitare di ripetere per ore i test degli stessi scenari (l'ho imparato a mie spese molti anni fa).
@@ -197,7 +191,7 @@ Configurazione di test:
 | Seattle | Regno Unito meridionale         |  7.708 km | 146 ms |  10,6 Mbit/sec |   896 Mbit/sec | 24
 | Seattle | Europa occidentale      |  7.834 km | 153 ms |  10,2 Mbit/sec |   761 Mbit/sec | 23
 | Seattle | Australia orientale   | 12.484 km | 165 ms |   9,4 Mbit/sec |   794 Mbit/sec | 26
-| Seattle | Asia sudorientale   | 12.989 km | 170 ms |   9,2 Mbit/sec |   756 Mbit/sec | 25
+| Seattle | Asia sud-orientale   | 12.989 km | 170 ms |   9,2 Mbit/sec |   756 Mbit/sec | 25
 | Seattle | Brasile meridionale *   | 10.930 km | 189 ms |   8,2 Mbit/sec |   699 Mbit/sec | 22
 | Seattle | India meridionale      | 12.918 km | 202 ms |   7,7 Mbit/sec |   634 Mbit/sec | 27
 

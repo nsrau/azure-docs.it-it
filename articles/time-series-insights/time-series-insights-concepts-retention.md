@@ -1,5 +1,5 @@
 ---
-title: Comprendere la conservazione dati nell'ambiente Azure Time Series Insights | Microsoft Docs
+title: Conservazione dati in Azure Time Series Insights - Comprendere la conservazione dati nell'ambiente Azure Time Series Insights | Microsoft Docs
 description: Questo articolo descrive due impostazioni che consentono di controllare la conservazione dati nell'ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,15 +10,23 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: 204a9d64d14fe190cb0de73c964bb95b4b9b475f
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: c46e385caaa343fe9ba64e1aa4516f1335039cd3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628767"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272151"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Comprendere la conservazione dati in Time Series Insights
+
 Questo articolo descrive due impostazioni che influenzano la conservazione dati nell'ambiente Time Series Insights.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>In questo video viene illustrata la conservazione dati in Time Series Insights e come pianificarla.</br>
+
+> [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 Ogni ambiente Time Series Insights dispone di un'impostazione che controlla il **periodo di conservazione dei dati**. Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata dell'assorbimento, che va da 1 a 400 giorni, a seconda della condizione che si verifica per prima.
 
@@ -40,7 +48,7 @@ Confrontare il comportamento di conservazione dati:
 - I dati acquisiti meno recenti vengono eliminati prima (approccio FIFO).
 
 ### <a name="example-1"></a>Esempio 1:
-Si consideri un ambiente di esempio con il comportamento di assorbimento **Continuare il traffico in ingresso ed eliminare i dati meno recenti**: in questo esempio il **periodo di conservazione dei dati** è impostato a 400 giorni. La **capacità** è impostata sull'unità S1, che contiene 30 GB di capacità totale.   Si supponga che in media ogni giorno si accumulino 500 MB di dati in ingresso. Questo ambiente può mantenere i dati solo per 60 giorni in base alla velocità dei dati in ingresso, poiché la capacità massima viene raggiunta a 60 giorni. I dati in ingresso si accumulano in questo modo: 500 MB al giorno x 60 giorni = 30 GB. 
+Si consideri un ambiente di esempio con il comportamento di conservazione **Continuare il traffico in ingresso ed eliminare i dati meno recenti**: In questo esempio il **periodo di conservazione dei dati** è impostato su 400 giorni. La **capacità** è impostata sull'unità S1, che contiene 30 GB di capacità totale.   Si supponga che in media ogni giorno si accumulino 500 MB di dati in ingresso. Questo ambiente può mantenere i dati solo per 60 giorni in base alla velocità dei dati in ingresso, poiché la capacità massima viene raggiunta a 60 giorni. I dati in ingresso si accumulano al ritmo di 500 MB al giorno per 60 giorni per un totale di 30 GB. 
 
 In questo esempio, il giorno 61 l'ambiente mostra i dati più recenti, ma elimina quelli meno recenti, ovvero i dati che hanno più di 60 giorni. L'eliminazione consente di creare spazio per i nuovi dati in ingresso, in modo che questi possano continuare a essere esaminati. 
 

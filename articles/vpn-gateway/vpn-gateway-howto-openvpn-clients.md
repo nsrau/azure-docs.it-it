@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7d76827a4e4ba4ccb7a146c5f8282000d143eb35
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4de4a5a659f38577c1261b169a43df560bf05495
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624438"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971267"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Configurare i client OpenVPN per il Gateway VPN di Azure (anteprima)
 
@@ -67,11 +67,11 @@ Verificare di aver completato i passaggi per configurare OpenVPN per il gateway 
 2. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Point-to-site configuration (Configurazione da punto a sito) nel portale di Azure o tramite "New-AzureRmVpnClientConfiguration" in PowerShell.
 3. Decomprimere il profilo. Aprire il file di configurazione vpnconfig.ovpn dalla cartella OpenVPN nel Blocco note.
 4. Completare la sezione relativa al certificato client da punto a sito con la chiave pubblica del certificato client da punto a sito in formato Base 64. In un certificato in formato PEM è possibile aprire semplicemente il file con estensione cer e copiare la chiave in formato base64 tra le intestazioni del certificato. Visualizzare come [esportare la chiave pubblica](vpn-gateway-certificates-point-to-site.md#cer) per informazioni sull'esportazione di un certificato per ottenere la chiave pubblica codificata.
-5. Completare la sezione relativa alla chiave privata con la chiave privata del certificato client della connessione da punto a sito in formato base64. Per informazioni su come estrarre la chiave privata, vedere [come esportare la chiave privata](https://www.geotrust.eu/en/support/manuals/microsoft/all+windows+servers/export+private+key+or+certificate/).
+5. Completare la sezione relativa alla chiave privata con la chiave privata del certificato client da punto a sito in formato Base 64. Per informazioni su come estrarre una chiave privata, vedere [Export your private key](https://openvpn.net/community-resources/how-to/#pki) (Esportare la chiave privata).
 6. Lasciare invariati tutti gli altri campi. Usare la configurazione così completata nell'input del client per connettersi alla rete VPN.
 7. Fare doppio clic sul file del profilo per creare il profilo in Tunnelblik.
 8. Avviare Tunnelblik dalla cartella delle applicazioni.
-9. Fare clic sull'icona Tunneblik nell'area di notifica e selezionare Connetti.
+9. Fare clic sull'icona Tunnelblik nell'area di notifica e selezionare l'opzione di connessione.
 
 ## <a name="linux"></a>Client Linux
 

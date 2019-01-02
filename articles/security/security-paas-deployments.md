@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee62e81b8c75200f26dfb5f7303083190f83eb8e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262183"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016845"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -85,9 +85,9 @@ I principi e i modelli per i perimetri di rete sono disponibili da molto tempo, 
 Di seguito sono illustrate le procedure consigliate per la gestione del perimetro di identità.
 
 **Procedura consigliata**: proteggere le chiavi e le credenziali per proteggere la distribuzione PaaS.   
-**Dettagli**: la perdita delle chiavi e delle credenziali è un problema comune. È possibile usare una soluzione centralizzata in cui le chiavi e i segreti possono essere archiviati in moduli di protezione hardware. Azure offre un modulo di protezione hardware nel cloud con [Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Dettagli**: Perdere chiavi e credenziali è un problema comune. È possibile usare una soluzione centralizzata in cui le chiavi e i segreti possono essere archiviati in moduli di protezione hardware. Azure offre un modulo di protezione hardware nel cloud con [Azure Key Vault](../key-vault/key-vault-whatis.md).
 
-**Procedura consigliata**: non inserire le credenziali e altri segreti nel codice sorgente o GitHub.   
+**Procedura consigliata**: non inserire le credenziali e altri segreti nel codice sorgente o in GitHub.   
 **Dettagli**: un rischio ben peggiore della perdita di chiavi e credenziali consiste negli accessi non autorizzati. Gli utenti malintenzionati possono sfruttare le tecnologie bot per trovare chiavi e segreti archiviati in repository di codice come GitHub. Si consiglia pertanto di non inserire chiavi e segreti in questi archivi di codice pubblici.
 
 **Procedura consigliata**: proteggere le interfacce di gestione della macchina virtuale nei servizi ibridi PaaS e IaaS usando un'interfaccia di gestione che consenta all'utente di gestire direttamente in remoto le macchine virtuali.   
@@ -95,8 +95,8 @@ Di seguito sono illustrate le procedure consigliate per la gestione del perimetr
 
 Se possibile, usare approcci alternativi come l'uso di reti private virtuali in una rete virtuale di Azure. Se non sono disponibili soluzioni alternative, assicurarsi di usare passphrase complesse e l'autenticazione a due fattori (ad esempio [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
 
-**Procedura consigliata**: usare piattaforme di autenticazione e autorizzazione robuste.   
-**Dettagli**: usare le identità federate in Azure AD invece degli archivi utente personalizzati. Quando si usano identità federate, è possibile sfruttare un approccio basato sulla piattaforma e delegare ai partner la gestione delle identità autorizzate. Un approccio con identità federate è particolarmente importante quando i dipendenti vengono rimossi e le modifiche devono essere applicate in più sistemi di identità e autorizzazioni.
+**Procedura consigliata**: usare piattaforme di autenticazione e autorizzazione avanzate.   
+**Dettagli**: Usare le identità federate in Azure AD invece degli archivi utente personalizzati. Quando si usano identità federate, è possibile sfruttare un approccio basato sulla piattaforma e delegare ai partner la gestione delle identità autorizzate. Un approccio con identità federate è particolarmente importante quando i dipendenti vengono rimossi e le modifiche devono essere applicate in più sistemi di identità e autorizzazioni.
 
 Usare i meccanismi di autenticazione e autorizzazione forniti dalla piattaforma invece di un codice personalizzato. poiché sviluppare un codice di autenticazione personalizzato può dare luogo a errori. La maggior parte degli sviluppatori non sarà esperta in sicurezza e probabilmente non conoscerà tutte le sfaccettature e gli ultimi sviluppi legati ad autenticazione e autorizzazione. Il codice commerciale, ad esempio quello di Microsoft, è spesso soggetto a rigorose analisi di sicurezza.
 
@@ -124,16 +124,16 @@ Nella tabella seguente sono elencate le minacce STRIDE e alcuni esempi di mitiga
 Di seguito sono illustrate le procedure consigliate per l'uso della cache locale del servizio app.
 
 **Procedura consigliata**: [eseguire l'autenticazione tramite Azure Active Directory](../app-service/app-service-authentication-overview.md).   
-**Dettagli**: il servizio app fornisce un servizio OAuth 2.0 per il provider di identità. OAuth 2.0 è incentrato sulla semplicità di sviluppo client fornendo i flussi di autorizzazione specifici per le applicazioni Web, applicazioni desktop e telefoni cellulari. Azure AD usa OAuth 2.0 per consentire all'utente di autorizzare l'accesso alle applicazioni per dispositivi mobili e alle applicazioni Web.
+**Dettagli**: Il servizio app fornisce un servizio OAuth 2.0 per il provider di identità. OAuth 2.0 è incentrato sulla semplicità di sviluppo client fornendo i flussi di autorizzazione specifici per le applicazioni Web, applicazioni desktop e telefoni cellulari. Azure AD usa OAuth 2.0 per consentire all'utente di autorizzare l'accesso alle applicazioni per dispositivi mobili e alle applicazioni Web.
 
-**Procedura consigliata**: limitare l'accesso in base al principio di necessità e al principio dei privilegi minimi in materia di sicurezza.   
-**Dettagli**: la limitazione degli accessi è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati. Il controllo degli accessi in base al ruolo (RBAC) può essere usato per assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito. Per altre informazioni sulla concessione agli utenti dell'accesso alle applicazioni, vedere la sezione relativa all'[introduzione alla gestione degli accessi](../role-based-access-control/overview.md).
+**Procedura consigliata**: Limitare l'accesso in base ai principio di necessità e al principio dei privilegi minimi in materia di sicurezza.   
+**Dettagli**: La limitazione degli accessi è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati. Il controllo degli accessi in base al ruolo (RBAC) può essere usato per assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito. Per altre informazioni sulla concessione agli utenti dell'accesso alle applicazioni, vedere la sezione relativa all'[introduzione alla gestione degli accessi](../role-based-access-control/overview.md).
 
-**Procedura consigliata**: proteggere le chiavi.   
-**Dettagli**: Azure Key Vault consente di proteggere i segreti e le chiavi di crittografia usati da servizi e applicazioni cloud. Con Key Vault è possibile crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware. Per ulteriori informazioni, vedere [Azure Key Vault](../key-vault/key-vault-whatis.md). È anche possibile utilizzare Azure Key Vault per gestire i certificati TLS con il rinnovo automatico.
+**Procedura consigliata**: Proteggere le chiavi.   
+**Dettagli**: Azure Key Vault consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con Key Vault è possibile crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware. Per ulteriori informazioni, vedere [Azure Key Vault](../key-vault/key-vault-whatis.md). È anche possibile utilizzare Azure Key Vault per gestire i certificati TLS con il rinnovo automatico.
 
-**Procedura consigliata**: limitare gli indirizzi IP di origine in ingresso.   
-**Dettagli**: L'[ambiente del servizio app](../app-service/environment/intro.md) ha una funzionalità di integrazione di rete virtuale che consente di limitare gli indirizzi IP di origine in ingresso tramite gruppi di sicurezza di rete (NSG). Le reti virtuali consentono di posizionare le risorse di Azure in una rete instradabile non Internet di cui si controlla l'accesso. Per altre informazioni, vedere [Integrare un'app in una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md).
+**Procedura consigliata**: Limitare gli indirizzi IP di origine in ingresso.   
+**Dettagli**: [Ambiente del servizio app](../app-service/environment/intro.md) ha una funzionalità di integrazione di rete virtuale che consente di limitare gli indirizzi IP di origine in ingresso tramite gruppi di sicurezza di rete. Le reti virtuali consentono di posizionare le risorse di Azure in una rete instradabile non Internet di cui si controlla l'accesso. Per altre informazioni, vedere [Integrare un'app in una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md).
 
 **Procedura consigliata**: monitorare lo stato di sicurezza degli ambienti del Servizio app di Azure.   
 **Dettagli**: usare il Centro sicurezza per monitorare gli ambienti del servizio app. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea degli [elementi consigliati](../security-center/security-center-virtual-machine-recommendations.md) utili per definire il processo di configurazione dei controlli necessari.
@@ -163,7 +163,7 @@ In questo articolo sono stati illustrati i vantaggi di sicurezza di una distribu
 - [servizio app di Azure](security-paas-applications-using-app-services.md)
 - [Database SQL di Azure e SQL Data Warehouse di Azure](security-paas-applications-using-sql.md)
 - [Archiviazione di Azure](security-paas-applications-using-storage.md)
-- Cache REDIS di Azure
+- Cache Redis di Azure
 - Bus di servizio di Azure
 - Web application firewall
 

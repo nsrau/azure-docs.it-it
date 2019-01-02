@@ -1,5 +1,5 @@
 ---
-title: Distribuire modelli nell'ambiente di produzione - Azure Machine Learning | Microsoft Docs
+title: Distribuire modelli nell'ambiente di produzione - Processo di data science per i team
 description: Informazioni su come distribuire modelli nell'ambiente di produzione a supporto del processo decisionale dell'azienda.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5b1614f92f7633e008f4f7176723002dc7730b15
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 35f9f369e752fa7c86a6bd295a79b79b23104d23
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495990"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137872"
 ---
-# <a name="deploy-models-in-production"></a>Distribuire modelli nell'ambiente di produzione
+# <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Distribuire modelli nell'ambiente di produzione a supporto del processo decisionale dell'azienda
 
 La distribuzione nell'ambiente di produzione consente di usare attivamente un modello in un'azienda. Le stime effettuate da un modello distribuito possono essere usate per prendere decisioni aziendali.
 

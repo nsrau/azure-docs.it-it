@@ -1,5 +1,5 @@
 ---
-title: Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione di Azure
+title: Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione - Azure
 description: Descrizione dettagliata dell'integrazione di un'app dell'ambiente del servizio app con bilanciamento del carico interno con un gateway applicazione
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: 749b554b8cf99ce849e0e3ab7b3a9478d8705e54
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: ea46b5e57e4e508a3311de8633ae61d346b574eb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422995"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273817"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione di Azure #
 
@@ -64,7 +65,7 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
 
 1. Nel portale di Azure passare a **Nuovo** > **Rete** > **Gateway applicazione**.
 
-1. Nell'area **Informazioni di base**:
+2. Nell'area **Informazioni di base**:
 
    a. In **Nome** immettere il nome del gateway applicazione.
 
@@ -78,7 +79,7 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
 
    ![Informazioni di base sulla creazione del nuovo gateway applicazione][2]
 
-1. Nell'area **Impostazioni**:
+3. Nell'area **Impostazioni**:
 
    a. In **Rete virtuale** selezionare la rete virtuale dell'ambiente del servizio app.
 
@@ -94,25 +95,25 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
 
    ![Impostazioni per la creazione del nuovo gateway applicazione][3]
     
-1. Nella sezione **Riepilogo** verificare le impostazioni e selezionare **OK**. Per completare la configurazione del gateway applicazione possono essere necessari poco più di 30 minuti.  
+4. Nella sezione **Riepilogo** verificare le impostazioni e selezionare **OK**. Per completare la configurazione del gateway applicazione possono essere necessari poco più di 30 minuti.  
 
-1. Al termine della configurazione del gateway applicazione, passare al portale del gateway. Selezionare **Pool back-end**. Aggiungere l'indirizzo del servizio di bilanciamento del carico interno dell'ambiente del servizio app.
+5. Al termine della configurazione del gateway applicazione, passare al portale del gateway. Selezionare **Pool back-end**. Aggiungere l'indirizzo del servizio di bilanciamento del carico interno dell'ambiente del servizio app.
 
    ![Configurare il pool back-end][4]
 
-1. Al termine della configurazione del pool back-end, selezionare **Probe integrità**. Creare un probe di integrità per il nome di dominio che si vuole usare per l'app. 
+6. Al termine della configurazione del pool back-end, selezionare **Probe integrità**. Creare un probe di integrità per il nome di dominio che si vuole usare per l'app. 
 
    ![Configurare probe di integrità][5]
     
-1. Al termine della configurazione dei probe di integrità, selezionare **Impostazioni HTTP**. Modificare le impostazioni esistenti, selezionare **Usa probe personalizzato** e scegliere il probe configurato.
+7. Al termine della configurazione dei probe di integrità, selezionare **Impostazioni HTTP**. Modificare le impostazioni esistenti, selezionare **Usa probe personalizzato** e scegliere il probe configurato.
 
    ![Configurare le impostazioni HTTP][6]
     
-1. Passare alla sezione **Panoramica** del gateway applicazione e copiare l'indirizzo IP pubblico usato per il gateway. Impostare tale indirizzo IP come record A per il nome di dominio dell'app o usare il nome DNS di tale indirizzo in un record CNAME. È più facile selezionare l'indirizzo IP pubblico e copiarlo dall'interfaccia utente dell'indirizzo IP pubblico che non copiarlo dal collegamento nella sezione **Panoramica** del gateway applicazione. 
+8. Passare alla sezione **Panoramica** del gateway applicazione e copiare l'indirizzo IP pubblico usato per il gateway. Impostare tale indirizzo IP come record A per il nome di dominio dell'app o usare il nome DNS di tale indirizzo in un record CNAME. È più facile selezionare l'indirizzo IP pubblico e copiarlo dall'interfaccia utente dell'indirizzo IP pubblico che non copiarlo dal collegamento nella sezione **Panoramica** del gateway applicazione. 
 
    ![Portale del gateway applicazione][7]
 
-1. Impostare il nome di dominio personalizzato per l'app nell'ambiente del servizio app con bilanciamento del carico interno. Passare all'app nel portale e in **Impostazioni** selezionare **Domini personalizzati**.
+9. Impostare il nome di dominio personalizzato per l'app nell'ambiente del servizio app con bilanciamento del carico interno. Passare all'app nel portale e in **Impostazioni** selezionare **Domini personalizzati**.
 
    ![Impostare il nome di dominio personalizzato per l'app][8]
 
@@ -133,6 +134,6 @@ Dopo aver completato la configurazione e aver lasciato passare un breve interval
 [9]: ./media/integrate-with-application-gateway/appgw-iplist.png
 
 <!--LINKS-->
-[appgw]: http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
+[appgw]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [custom-domain]: ../app-service-web-tutorial-custom-domain.md
 [ilbase]: ./create-ilb-ase.md

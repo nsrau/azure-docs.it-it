@@ -4,9 +4,8 @@ description: Panoramica dei meccanismi in base a cui il modello di Azure Machine
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 1254f41d4961956acc8f7abc7d5490fedbb8c5d0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5cfa11042d269353cf33f99d1238265ff9657853
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310100"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253868"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Come un modello di Machine Learning Studio passa da esperimento a servizio Web operativo
 Azure Machine Learning Studio fornisce un'area di disegno che consente di sviluppare, eseguire, testare e ripetere un ***esperimento*** che rappresenta un modello di analisi predittiva. Sono disponibili diversi moduli che consentono di:
@@ -95,7 +94,7 @@ Dipende da che cosa è necessario aggiornare:
 
 Se non si intende cambiare il modello, ma solo il modo in cui il servizio Web gestisce i dati, è possibile modificare l'esperimento predittivo e quindi fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare di nuovo **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Il servizio Web viene arrestato, l'esperimento predittivo aggiornato viene distribuito e il servizio Web viene riavviato.
 
-Ecco un esempio: si supponga che l'esperimento predittivo restituisca l'intera riga di dati di input con il risultato previsto. È possibile stabilire che il servizio Web deve restituire solo il risultato. È possibile aggiungere un modulo **Project Columns** nell'esperimento predittivo, subito prima della porta di output, per escludere le colonne diverse da quella del risultato. Quando si fa clic su **Deploy Web Service** (Distribuisci servizio Web) e si seleziona di nuovo **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]), il servizio Web viene aggiornato.
+Ecco un esempio: Si supponga che l'esperimento predittivo restituisca l'intera riga di dati di input con il risultato previsto. È possibile stabilire che il servizio Web deve restituire solo il risultato. È possibile aggiungere un modulo **Project Columns** nell'esperimento predittivo, subito prima della porta di output, per escludere le colonne diverse da quella del risultato. Quando si fa clic su **Deploy Web Service** (Distribuisci servizio Web) e si seleziona di nuovo **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]), il servizio Web viene aggiornato.
 
 **Si vuole ripetere il training del modello con i nuovi dati**
 

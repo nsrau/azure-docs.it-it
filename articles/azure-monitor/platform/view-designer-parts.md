@@ -10,25 +10,23 @@ ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: cdf3fda4228eadc2921c8fbc1bc72702461d04e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637736"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193876"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in Log Analytics
 Progettazione viste di Azure Log Analytics consente di creare nel portale di Azure viste personalizzate che contengono visualizzazioni diverse dei dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
 
-Per altre informazioni su Progettazione viste, vedere:
+Per altre informazioni su Progettazione visualizzazioni, vedere:
 
 * [Progettazione viste](view-designer.md): offre una panoramica di Progettazione viste e delle procedure per la creazione e la modifica di viste personalizzate.
-* [Informazioni di riferimento sul riquadro](view-designer-tiles.md): offre informazioni di riferimento sulle impostazioni relative a ogni riquadro disponibile nelle viste personalizzate.
+* [Informazioni di riferimento sui riquadri](view-designer-tiles.md): offre informazioni di riferimento sulle impostazioni relative a ogni riquadro disponibile nelle viste personalizzate.
 
 
 I tipi di riquadro di Progettazione viste disponibili sono descritti nella tabella seguente:
@@ -182,7 +180,7 @@ L'intestazione presenta i risultati di due query di log nel corso del tempo sott
 | Legenda |Testo che viene visualizzato sotto il callout per la prima serie. |
 | Colore |Colore da usare per le colonne della serie. |
 | Query |Query da eseguire per la prima serie. Il numero di record in ogni intervallo di tempo viene rappresentato dalle colonne del grafico. |
-| Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Somma: somma dei valori di tutti i record.</li><li>Media: media dei valori di tutti i record.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Primo esempio: valore del primo intervallo incluso nel grafico.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li></ul> |
+| Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Somma: somma dei valori da tutti i record.</li><li>Media: media dei valori di tutti i record.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Ultimo esempio: valore del primo intervallo incluso nel grafico.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li></ul> |
 | **Elenco** | |
 | Query |Query da eseguire per l'elenco. Viene visualizzato il numero di record restituiti dalla query. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
@@ -238,7 +236,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | **Grafico a linee** |**> Callout** |
 | Titolo del callout |Testo che viene visualizzato sopra il valore del callout. |
 | Nome della serie |Il valore della proprietà per la serie da usare per il valore di callout. Se non viene fornita alcuna serie, vengono usati tutti i record prodotti dalla query. |
-| Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo derivante dagli intervalli inclusi nel grafico.</li><li>Min: valore minimo derivante dagli intervalli inclusi nel grafico.</li><li>Somma: somma dei valori di tutti i record.</li></ul> |
+| Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo derivante dagli intervalli inclusi nel grafico.</li><li>Min: valore minimo derivante dagli intervalli inclusi nel grafico.</li><li>Somma: somma dei valori da tutti i record.</li></ul> |
 | **Grafico a linee** |**> Asse Y** |
 | Usa scala logaritmica |Selezionare questo collegamento per usare una scala logaritmica per l'asse Y. |
 | Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo *Unità corrente* al tipo *Converti in*. |
@@ -324,7 +322,7 @@ Il separatore di nome e valore è il delimitatore dei singoli caratteri da usare
 Si consideri, ad esempio, una proprietà denominata *Sede* nella quale vengono inclusi valori come *Redmond-Building 41* e *Bellevue-Building12*. È possibile specificare un trattino (-) come separatore di nome e valore e *City-Building* come nome. Ciò comporta l'analisi di ciascun valore in due proprietà chiamate *City* e *Building*.
 
 ### <a name="click-through-navigation"></a>Navigazione click-through
-Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Si aprirà una query nel [portale per la ricerca log](../../log-analytics/log-analytics-log-search-portals.md) o verrà avviata un'altra visualizzazione.
+Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Si aprirà una query nel [portale per la ricerca log](../../azure-monitor/log-query/portals.md) o verrà avviata un'altra visualizzazione.
 
 La tabella seguente illustra le impostazioni relative alla navigazione click-through.
 
@@ -363,4 +361,4 @@ La tabella seguente illustra le impostazioni relative alle soglie:
 | Colore |Colore che indica il valore di soglia. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [ricerche log](../../log-analytics/log-analytics-queries.md) per supportare le query nelle parti di visualizzazione.
+* Informazioni sulle [ricerche log](../../azure-monitor/log-query/log-query-overview.md) per supportare le query nelle parti di visualizzazione.

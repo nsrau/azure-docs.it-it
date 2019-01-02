@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: b90009c1cd08a1004e58c4b9f25cd6350712fbcd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358609"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184543"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Risoluzione degli errori di registrazione del provider di risorse
 
@@ -47,9 +47,9 @@ Il messaggio di errore dovrebbe fornire suggerimenti per le versioni di API e i 
 
 Questi errori vengono visualizzati per uno di questi tre motivi:
 
-1. Il provider di risorse non è stato registrato per la sottoscrizione
-1. La versione dell'API non è supportata per il tipo di risorsa
-1. Il percorso non è supportato per il tipo di risorsa
+* Il provider di risorse non è stato registrato per la sottoscrizione
+* La versione dell'API non è supportata per il tipo di risorsa
+* Il percorso non è supportato per il tipo di risorsa
 
 ## <a name="solution-1---powershell"></a>Soluzione 1: PowerShell
 
@@ -101,10 +101,22 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 È possibile visualizzare lo stato di registrazione e registrare uno spazio dei nomi del provider di risorse tramite il portale.
 
+1. Nel portale selezionare **Tutti i servizi**.
+
+   ![Selezionare Tutti i servizi](./media/resource-manager-register-provider-errors/select-all-services.png)
+
+1. Selezionare **Sottoscrizioni**.
+
+   ![Selezionare le sottoscrizioni](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+
+1. Dall'elenco selezionare la sottoscrizione da usare per registrare il provider di risorse.
+
+   ![Selezionare la sottoscrizione per registrare il provider di risorse](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
+
 1. Selezionare **Provider di risorse** per la propria sottoscrizione.
 
-   ![selezionare i provider di risorse](./media/resource-manager-register-provider-errors/select-resource-provider.png)
+   ![Selezionare i provider di risorse](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
 1. Esaminare l'elenco dei provider di risorse e, se necessario, selezionare il link **Registra** per registrare il provider di risorse del tipo che si intende distribuire.
 
-   ![Elenco di provider di risorse](./media/resource-manager-register-provider-errors/list-resource-providers.png)
+   ![Elencare i provider di risorse](./media/resource-manager-register-provider-errors/list-resource-providers.png)

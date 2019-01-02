@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: 12611c9a4016b634cb865bbf609b1c7a6961abb7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b73739ca6d392af191d1a51eca2d646a8a5cd4c4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155066"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955073"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Risolvere gli errori di directory senza corrispondenza per i domini gestiti esistenti di Azure AD Domain Services
 Si dispone di un dominio gestito di Azure AD Domain Services. Quando si passa al portale di Azure e si visualizza il dominio gestito, compare il messaggio di errore seguente:
 
-![Errore della directory senza corrispondenza](.\media\getting-started\mismatched-tenant-error.png)
+![Errore della directory senza corrispondenza](./media/getting-started/mismatched-tenant-error.png)
 
 Non è possibile gestire il dominio gestito fino a quando l'errore non viene risolto.
 

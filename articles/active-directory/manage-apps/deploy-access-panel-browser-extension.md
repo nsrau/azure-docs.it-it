@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a21a21f40e731e8bc1d20e01d3671c372df65d84
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622041"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877477"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo
 Questa esercitazione illustra come usare Criteri di gruppo per installare l'estensione Pannello di accesso per Internet Explorer nei computer degli utenti in modalità remota. Questa estensione è necessaria per gli utenti di Internet Explorer che devono eseguire l'accesso ad app configurate con l' [accesso Single Sign-On basato su password](what-is-single-sign-on.md#password-based-sso).
@@ -31,7 +31,7 @@ L'estensione Pannello di accesso è disponibile per [Chrome](https://go.microsof
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Servizi di dominio Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)è già stato configurato e i computer degli utenti sono stati aggiunti al dominio.
-* Per modificare l'oggetto Criteri di gruppo è necessaria l'autorizzazione "Modifica impostazione". Questa autorizzazione è assegnata per impostazione predefinita ai membri dei gruppi di sicurezza seguenti: Domain Administrators, Enterprise Administrators e Group Policy Creator Owners. [Altre informazioni.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* Per modificare l'oggetto Criteri di gruppo è necessaria l'autorizzazione "Modifica impostazione". Per impostazione predefinita, i membri dei gruppi di sicurezza seguenti hanno questa autorizzazione: Amministratori di dominio, Amministratori dell'organizzazione e Proprietari autori criteri di gruppo. [Altre informazioni.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>Passaggio 1: Creare il punto di distribuzione
 Per prima cosa, salvare il pacchetto del programma di installazione in un percorso di rete a cui possono accedere i computer in cui si vuole installare l'estensione in modalità remota. A questo scopo, seguire questa procedura:
@@ -80,7 +80,7 @@ Per prima cosa, salvare il pacchetto del programma di installazione in un percor
 3. Fare clic con il pulsante destro del mouse su **Installazione software** e quindi scegliere **Nuovo** > **Pacchetto...**
    
     ![Creare un nuovo pacchetto di installazione software](./media/deploy-access-panel-browser-extension/new-package.png)
-4. Passare alla cartella condivisa che contiene il pacchetto del programma di installazione scaricato nel [Passaggio 1: Creare il punto di distribuzione](#step-1-create-the-distribution-point), selezionare il file MSI e quindi fare clic su **Apri**.
+4. Passare alla cartella condivisa contenente il pacchetto di installazione di [Passaggio 1: Creare il punto di distribuzione](#step-1-create-the-distribution-point), selezionare il file MSI e fare clic su **Apri**.
    
    > [!IMPORTANT]
    > Se la condivisione si trova nello stesso server, verificare che l'accesso al file MSI avvenga tramite il percorso di rete e non tramite il percorso locale.
@@ -97,7 +97,7 @@ L'estensione è stata distribuita nell'unità organizzativa selezionata. [Altre 
 ## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Passaggio 4: Abilitare automaticamente l'estensione per Internet Explorer
 Dopo aver eseguito il programma di installazione, è necessario abilitare in modo esplicito ogni estensione per Internet Explorer prima di poterla usare. Per abilitare l'estensione Pannello di accesso tramite Criteri di gruppo, seguire questa procedura:
 
-1. Nella finestra **Editor Gestione Criteri di gruppo** passare a uno dei percorsi di cartella seguenti, a seconda del tipo di configurazione scelto in [Passaggio 3: Assegnare il pacchetto di installazione](#step-3-assign-the-installation-package):
+1. Nella finestra **Editor Gestione Criteri di gruppo** passare a uno dei percorsi seguenti, a seconda del tipo di configurazione scelto in [Passaggio 3: Assegnare il pacchetto di installazione](#step-3-assign-the-installation-package):
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
@@ -117,7 +117,7 @@ Dopo aver eseguito il programma di installazione, è necessario abilitare in mod
 
 L'estensione dovrebbe ora essere abilitata per i computer nell'unità organizzativa selezionata. [Altre informazioni sull'uso di Criteri di gruppo per abilitare o disabilitare i componenti aggiuntivi di Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
-## <a name="step-5-optional-disable-remember-password-prompt"></a>Passaggio 5 (facoltativo): disabilitare la richiesta "Memorizza password"
+## <a name="step-5-optional-disable-remember-password-prompt"></a>Passaggio 5 (facoltativo): Disabilitare la richiesta "Memorizza password"
 Quando gli utenti accedono a siti Web utilizzando l'estensione del Pannello di accesso, Internet Explorer potrebbe visualizzare la seguente richiesta "Si desidera memorizzare la password?"
 
 ![Richiesta della password](./media/deploy-access-panel-browser-extension/remember-password-prompt.png)

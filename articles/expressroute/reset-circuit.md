@@ -1,26 +1,19 @@
 ---
-title: 'Reimpostare un circuito Azure ExpressRoute con un errore: PowerShell | Microsoft Docs'
+title: 'Reimpostare un circuito con errore - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Questo articolo illustra come reimpostare un circuito ExpressRoute in stato di errore.
-documentationcenter: na
 services: expressroute
 author: anzaman
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2017
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 423bc1d6409e5b7fe02339a05d0775f4ff42de49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 11/28/2018
+ms.author: anzaman
+ms.custom: seodec18
+ms.openlocfilehash: 7b88ba6e00cbec05263fe5bc8e795cda95beee04
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590684"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093675"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Reimpostare un circuito ExpressRoute con un errore
 
@@ -32,22 +25,22 @@ Quando un'operazione su un circuito ExpressRoute non viene completata correttame
 
 2. Aprire la console di PowerShell con privilegi elevati e connettersi al proprio account. Per eseguire la connessione, usare gli esempi che seguono:
 
-  ```powershell
+  ```azurepowershell-interactive
   Connect-AzureRmAccount
   ```
 3. Se si hanno più sottoscrizioni di Azure, selezionare le sottoscrizioni per l'account.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmSubscription
   ```
 4. Specificare la sottoscrizione da usare.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 5. Eseguire i comandi seguenti per reimpostare un circuito in stato di errore:
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt

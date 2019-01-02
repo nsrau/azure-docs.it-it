@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7e0734790a0b33a52ace01ad961b1bc3127fa3d4
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976520"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726900"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilare le applicazioni di produzione in Azure con Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Abilitare Profiler per l'applicazione

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a5e3bd655e0780861f4bf70c247df72e6acedd09
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637086"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340780"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP in Funzioni permanenti (Funzioni di Azure)
 
@@ -24,7 +24,6 @@ L'estensione Durable Task espone un set di API HTTP che può essere utilizzato p
 * Recuperare lo stato di un'istanza di orchestrazione.
 * Inviare un evento a un'istanza di orchestrazione in attesa.
 * Terminare un'istanza di orchestrazione in esecuzione.
-
 
 Ognuna di queste API HTTP è un'operazione webhook gestita direttamente dall'estensione Durable Task. Non sono specifiche di alcuna funzione nell'app per le funzioni.
 
@@ -35,9 +34,15 @@ Ognuna di queste API HTTP è un'operazione webhook gestita direttamente dall'est
 
 La classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) espone un'API [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) che può essere usata per generare un payload di risposta HTTP contenente collegamenti a tutte le operazioni supportate. Di seguito è riportato un esempio di funzione trigger HTTP che illustra come usare questa API:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-Questa funzione di esempio genera i dati di risposta JSON seguenti. Il tipo di dati di tutti i campi è `string`.
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+
+Queste funzioni di esempio generano i dati di risposta JSON seguenti. Il tipo di dati di tutti i campi è `string`.
 
 | Campo             |DESCRIZIONE                           |
 |-------------------|--------------------------------------|
@@ -63,8 +68,9 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
+
 > [!NOTE]
-> Il formato degli URL webhook può variare in base alla versione dell'host di Funzioni di Azure in esecuzione. L'esempio precedente è per l'host di Funzioni di Azure 2.0.
+> Il formato degli URL webhook può variare in base alla versione dell'host di Funzioni di Azure in esecuzione. L'esempio precedente è per l'host di Funzioni di Azure 2.x.
 
 ## <a name="async-operation-tracking"></a>Verifica di operazioni asincrone
 
@@ -91,8 +97,8 @@ Tutte le API HTTP implementate dall'estensione richiedono i parametri seguenti. 
 | connessione | Stringa di query    | **Nome** della stringa di connessione per l'account di archiviazione. Se non specificato, viene usata la stringa di connessione predefinita dell'app per le funzioni. |
 | systemKey  | Stringa di query    | Chiave di autorizzazione necessaria per richiamare l'API. |
 | showInput  | Stringa di query    | Parametro facoltativo. Se impostato su `false`, l’input di esecuzione non verrà incluso nel payload della risposta.|
-| showHistory| Stringa di query    | Parametro facoltativo. Se impostato su `true`, la cronologia di esecuzione dell'orchestrazione verrà inclusa nel payload della risposta.| 
-| showHistoryOutput| Stringa di query    | Parametro facoltativo. Se impostato su `true`, gli output delle attività verranno inclusi nella cronologia di esecuzione dell'orchestrazione.| 
+| showHistory| Stringa di query    | Parametro facoltativo. Se impostato su `true`, la cronologia di esecuzione dell'orchestrazione verrà inclusa nel payload della risposta.|
+| showHistoryOutput| Stringa di query    | Parametro facoltativo. Se impostato su `true`, gli output delle attività verranno inclusi nella cronologia di esecuzione dell'orchestrazione.|
 | createdTimeFrom  | Stringa di query    | Parametro facoltativo. Se specificato, filtra l'elenco delle istanze restituite che sono state create nel timestamp ISO8601 specificato o dopo.|
 | createdTimeTo    | Stringa di query    | Parametro facoltativo. Se specificato, filtra l'elenco delle istanze restituite che sono state create nel timestamp ISO8601 specificato o prima.|
 | runtimeStatus    | Stringa di query    | Parametro facoltativo. Se specificato, filtra l'elenco delle istanze restituite in base allo stato del runtime. Per un elenco dei valori possibili di stato del runtime, vedere l'argomento [Esecuzione di query sulle istanze](durable-functions-instance-management.md). |
@@ -125,7 +131,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&conne
 Possono essere restituiti diversi valori di codice di stato.
 
 * **HTTP 200 (OK)**: l'istanza specificata è in stato completato.
-* **HTTP 202 (Accettata )**: l'istanza specificata è in esecuzione.
+* **HTTP 202 (Accettata)**: l'istanza specificata è in esecuzione.
 * **HTTP 400 (Richiesta non valida)**: l'istanza specificata ha avuto esito negativo o è stata terminata.
 * **HTTP 404 (Non trovata)**: l'istanza specificata non esiste o l'esecuzione non è iniziata.
 * **HTTP 500 (Errore interno del server)**: si è verificato un errore dell'istanza specificata con un'eccezione non gestita.
@@ -140,7 +146,7 @@ Il payload di risposta per i casi **HTTP 200** e **HTTP 202** è un oggetto JSON
 | output          | JSON      | Output JSON dell'istanza. Questo campo è `null` se l'istanza non è in stato completato. |
 | createdTime     | stringa    | Data e ora di creazione dell'istanza. Usa la notazione estesa ISO 8601. |
 | lastUpdatedTime | stringa    | Data e ora dell'ultimo stato persistente dell'istanza. Usa la notazione estesa ISO 8601. |
-| historyEvents   | JSON      | Matrice JSON contenente la cronologia di esecuzione dell'orchestrazione. Questo campo è `null` a meno che il parametro della stringa di query `showHistory` non sia impostato su `true`.  | 
+| historyEvents   | JSON      | Matrice JSON contenente la cronologia di esecuzione dell'orchestrazione. Questo campo è `null` a meno che il parametro della stringa di query `showHistory` non sia impostato su `true`.  |
 
 Ecco un payload di risposta di esempio che include la cronologia di esecuzione dell'orchestrazione e gli output delle attività (formattato per migliorarne la leggibilità):
 
@@ -199,10 +205,9 @@ Ecco un payload di risposta di esempio che include la cronologia di esecuzione d
 
 La risposta **HTTP 202** include anche un'intestazione di risposta **Location** che referenzia lo stesso URL del campo `statusQueryGetUri` citato in precedenza.
 
-
 ### <a name="get-all-instances-status"></a>Ottenere lo stato di tutte le istanze
 
-È anche possibile eseguire una query sullo stato di tutte le istanze. Rimuovere `instanceId` dalla richiesta 'Ottenere stato dell'istanza'. I parametri sono gli stessi di 'Ottenere stato dell'istanza.' 
+È anche possibile eseguire una query sullo stato di tutte le istanze. Rimuovere `instanceId` dalla richiesta 'Ottenere stato dell'istanza'. I parametri sono gli stessi di 'Ottenere stato dell'istanza.'
 
 Tenere presente che `connection` e `code` sono facoltativi. Se si usa l'autenticazione anonima nella funzione, non è necessario il parametro code.
 Se non si vuole usare una stringa di connessione all'archiviazione BLOB diversa da quella definita nell'impostazione app AzureWebJobsStorage, è possibile ignorare il parametro di stringa della query di connessione.
@@ -215,7 +220,7 @@ Per Funzioni 1.0, il formato della richiesta è il seguente:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-Il formato di Funzioni 2.0 usa gli stessi parametri ma ha un prefisso URL leggermente diverso: 
+Il formato di Funzioni 2.0 usa gli stessi parametri ma ha un prefisso URL leggermente diverso:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
@@ -231,7 +236,7 @@ Per Funzioni 1.0, il formato della richiesta è il seguente:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
-Il formato di Funzioni 2.0 usa gli stessi parametri ma ha un prefisso URL leggermente diverso: 
+Il formato di Funzioni 2.0 usa gli stessi parametri ma ha un prefisso URL leggermente diverso:
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
@@ -291,8 +296,8 @@ Di seguito è riportato un esempio di payload di risposta, compreso lo stato del
 ```
 
 > [!NOTE]
-> Questa operazione può risultare molto costosa in termini di Archiviazione di Azure I/O se sono presenti molte righe nella tabella delle istanze. Altre informazioni sulla tabella di istanza sono reperibili nella documentazione [Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table).
-> 
+> Questa operazione può risultare molto costosa in termini di Archiviazione di Azure I/O se sono presenti molte righe nella tabella delle istanze. Altre informazioni sulla tabella di istanza sono reperibili nella documentazione [Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)](durable-functions-perf-and-scale.md#instances-table).
+>
 
 #### <a name="request-with-paging"></a>Richiesta con paging
 
@@ -304,7 +309,7 @@ Per Funzioni 1.0, il formato della richiesta è il seguente:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
 ```
 
-Il formato di Funzioni 2.0 usa gli stessi parametri ma ha un prefisso URL leggermente diverso: 
+Il formato di Funzioni 2.0 usa gli stessi parametri ma ha un prefisso URL leggermente diverso:
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
@@ -313,7 +318,6 @@ GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={conne
 Se la pagina successiva esiste, viene restituito un token di continuazione nell'intestazione della risposta.  Il nome dell’intestazione è `x-ms-continuation-token`.
 
 Se si imposta il valore del token di continuazione nell'intestazione della richiesta successiva, è possibile ottenere la pagina successiva.  Questa chiave nell'intestazione della richiesta è `x-ms-continuation-token`.
-
 
 ### <a name="raise-event"></a>Raise event (Genera evento)
 
@@ -405,7 +409,7 @@ Nelle risposte per questa API non è presente contenuto.
 
 Ripristina lo stato in corso di esecuzione di un'istanza di orchestrazione non riuscita riproducendo le operazioni non riuscite più recenti.
 
-#### <a name="request"></a>Richiesta
+### <a name="request"></a>Richiesta
 
 Per Funzioni 1.0, il formato della richiesta è il seguente:
 
@@ -425,7 +429,7 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 |-------------|-----------------|-----------|-------------|
 | reason      | Stringa di query    | stringa    | facoltativo. Motivo del ripristino dell'istanza di orchestrazione. |
 
-#### <a name="response"></a>Risposta
+### <a name="response"></a>Risposta
 
 Possono essere restituiti diversi valori di codice di stato.
 

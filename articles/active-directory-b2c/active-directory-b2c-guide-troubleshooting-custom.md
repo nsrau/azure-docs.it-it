@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32692cbe7959650d5181c9e9dfcd7dd5ee55a46e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8bb95ae776c329e67e9f9936213a9f4c2a0c8f62
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024594"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842595"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Risoluzione dei problemi del framework di esperienza di gestione delle identità e criteri personalizzati di Azure AD B2C
 
@@ -57,10 +57,10 @@ Frammento con errore: `Reason: User is currently logged as a user of 'yourtenant
 
 * Usare `Run Now` e `https://jwt.io` per testare i criteri indipendentemente dall'applicazione Web o per dispositivi mobili. Questo sito Web funziona come un'applicazione relying party. Viene visualizzato il contenuto del token JSON Web (JWT) che viene generato per i criteri di Azure AD B2C. Per creare un'applicazione di test nel framework di esperienza di gestione delle identità usare i seguenti valori:
     * Nome: TestApp
-    * App Web/API Web: no
-    * Client nativo: no
+    * App Web/API Web: No 
+    * Client nativo: No 
 
-* Per tracciare lo scambio di messaggi tra il browser client e Azure AD B2C usare [Fiddler](http://www.telerik.com/fiddler). Consente di ottenere un'indicazione del punto in cui il percorso utente genera errori nei passaggi di orchestrazione.
+* Per tracciare lo scambio di messaggi tra il browser client e Azure AD B2C usare [Fiddler](https://www.telerik.com/fiddler). Consente di ottenere un'indicazione del punto in cui il percorso utente genera errori nei passaggi di orchestrazione.
 
 * In **Modalità sviluppo** usare **Application Insights** per tracciare l'attività del percorso utente nel framework di esperienza di gestione delle identità. In **Modalità sviluppo** è possibile osservare lo scambio di attestazioni tra il framework di esperienza di gestione delle identità e i diversi provider di attestazioni definiti dai profili tecnici, ad esempio provider di identità, servizi basati su API, la directory dell'utente di Azure AD B2C e altri servizi come Multi-Factor Authentication di Azure.  
 

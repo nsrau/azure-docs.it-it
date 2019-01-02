@@ -1,5 +1,5 @@
 ---
-title: '.NET SDK: Operazioni del file System in Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: '.NET SDK: Operazioni del file system in Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Usare Azure Data Lake Storage Gen1 .NET SDK per eseguire operazioni del file System in Data Lake Storage Gen1, ad esempio creare cartelle e così via.
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391488"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163235"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operazioni del file System in Azure Data Lake Storage Gen1 con .NET SDK
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Per istruzioni su come eseguire le operazioni di gestione di account in Data Lak
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Un account Data Lake Storage Gen1 di Azure**. Per istruzioni su come creare un account, consultare [Introduzione ad Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Account Azure Data Lake Storage Gen1**. Per istruzioni su come creare un account, consultare [Introduzione ad Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="create-a-net-application"></a>Creare un'applicazione .NET
 Il codice di esempio disponibile in [GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) offre una descrizione dei processi di creazione dei file nell'archivio, concatenazione dei file, download di un file ed eliminazione di alcuni file nell'archivio. Questa sezione dell'articolo descrive in modo dettagliato le parti principali del codice.
@@ -92,8 +92,8 @@ Nelle sezioni rimanenti dell'articolo è possibile vedere come usare i metodi .N
 
 ## <a name="authentication"></a>Authentication
 
-* Per l'autenticazione dell'utente finale per l'applicazione, consultare [Autenticazione dell'utente finale con Data Lake Storage Gen1 con .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
-* Per l'autenticazione da servizio a servizio per l'applicazione, consultare [Autenticazione da servizio a servizio con Data Lake Storage Gen1 usando .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
+* Per l'autenticazione dell'utente finale per l'applicazione, vedere [Autenticazione dell'utente finale con Data Lake Storage Gen1 con .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
+* Per l'autenticazione da servizio a servizio per l'applicazione, vedere [Autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 
 ## <a name="create-client-object"></a>Creare un oggetto client
@@ -174,8 +174,8 @@ Il frammento di codice seguente elimina una directory e tutte le relative sottod
 
 ## <a name="samples"></a>Esempi
 Ecco alcuni esempi che illustrano come usare il SDK del file System di Data Lake Storage Gen1.
-* [Esempio di base in Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
-* [Esempio avanzato in Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
+* [Esempio di base in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [Esempio avanzato in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Vedere anche 
 * [Operazioni di gestione di account in Data Lake Storage Gen1 con .NET SDK](data-lake-store-get-started-net-sdk.md)

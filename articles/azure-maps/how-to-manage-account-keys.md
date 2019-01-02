@@ -1,19 +1,19 @@
 ---
 title: Come gestire l'account e le chiavi dell'account Mappe di Azure | Microsoft Docs
 description: È possibile usare il portale di Azure per gestire l'account Mappe di Azure e le chiavi di accesso.
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 351bc26d6c5b3dcfa9479138f2bd523f64a2912a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541620"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335813"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Come gestire l'account e le chiavi di Mappe di Azure
 
@@ -53,5 +53,10 @@ Verrà visualizzata una pagina di conferma. È possibile confermare l'eliminazio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come usare le API di ricerca di Mappe di Azure in [Come trovare un indirizzo](./how-to-search-for-address.md).
-* Informazioni su come usare il [controllo mappa JavaScript](./how-to-use-map-control.md) di Mappe di Azure.
+Informazioni su come gestire il piano tariffario dell'account Mappe di Azure:
+> [!div class="nextstepaction"]
+> [Gestire il piano tariffario](./how-to-manage-pricing-tier.md)
+
+Informazioni su come visualizzare le metriche di utilizzo delle API per l'account Mappe di Azure:
+> [!div class="nextstepaction"]
+> [Visualizzare le metriche di utilizzo](./how-to-view-api-usage.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: dd018dca2de018733783605bfdb2802f91ebd76b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 112b41aa41706a807a82e708fe1fb4173fd084ca
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621174"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837529"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata in Azure Cosmos DB
 
@@ -51,7 +51,7 @@ Le interruzioni a livello di area sono abbastanza comuni e Azure Cosmos DB garan
 
 - Account in più aree con un'area di scrittura singola: durante un'interruzione del servizio in un'area di scrittura, questi account mantengono la disponibilità elevata per le letture. Per le scritture è invece necessario "abilitare il failover automatico" nell'account Cosmos per consentire il failover dell'area interessata in un'altra area associata. Il failover verrà eseguito nell'ordine di priorità dell'area specificato. Alla fine, quando l'area interessata è di nuovo online, i dati non replicati presenti nell'area di scrittura interessata durante l'interruzione vengono resi disponibili attraverso il feed dei conflitti. Le applicazioni possono leggere il feed in conflitto, risolvere i conflitti in base alla logica specifica dell'applicazione e scrivere di nuovo i dati aggiornati nel contenitore Cosmos come appropriato. Una volta che viene ripristinata l'area di scrittura interessata in precedenza, diventa automaticamente disponibile come area di lettura. È possibile richiamare un failover manuale e configurare l'area interessata come area di scrittura. È possibile eseguire un failover manuale tramite l'[interfaccia della riga di comando di Azure o il portale di Azure](how-to-manage-database-account.md#manual-failover).  
 
-- Account in più aree con un'area di scrittura singola: durante un'interruzione del servizio a livello di area di lettura, questi account mantengono la disponibilità elevata per le letture e le scritture. L’area interessata viene disconnessa automaticamente dall'area di scrittura e verrà contrassegnata offline. Gli SDK di Cosmos DB consentono di reindirizzare le chiamate di lettura all'area successiva disponibile nell'elenco delle aree preferite. Se nessuna delle aree presenti nell'elenco è disponibile, viene eseguito il fallback automatico delle chiamate all'area di scrittura corrente. Non sono necessarie modifiche nel codice dell'applicazione per gestire le interruzioni di lettura a livello di area. Quando alla fine l'area interessata è in di nuovo online, l'area di lettura interessata in precedenza viene sincronizzata automaticamente con l'area di scrittura corrente ed è disponibile anche in questo caso per servire le richieste di lettura. Le letture successive vengono reindirizzate all'area ripristinata senza richiedere alcuna modifica del codice dell'applicazione. Sia durante il failover che durante il ricongiungimento di un’area che ha riscontrato errori in precedenza, le garanzie di coerenza di lettura continuano a essere rispettate da Cosmos DB.
+- Account in più aree con un'area di scrittura singola: durante un'interruzione del servizio in un'area di lettura, questi account mantengono la disponibilità elevata per le letture e le scritture. L’area interessata viene disconnessa automaticamente dall'area di scrittura e verrà contrassegnata offline. Gli SDK di Cosmos DB consentono di reindirizzare le chiamate di lettura all'area successiva disponibile nell'elenco delle aree preferite. Se nessuna delle aree presenti nell'elenco è disponibile, viene eseguito il fallback automatico delle chiamate all'area di scrittura corrente. Non sono necessarie modifiche nel codice dell'applicazione per gestire le interruzioni di lettura a livello di area. Quando alla fine l'area interessata è in di nuovo online, l'area di lettura interessata in precedenza viene sincronizzata automaticamente con l'area di scrittura corrente ed è disponibile anche in questo caso per servire le richieste di lettura. Le letture successive vengono reindirizzate all'area ripristinata senza richiedere alcuna modifica del codice dell'applicazione. Sia durante il failover che durante il ricongiungimento di un’area che ha riscontrato errori in precedenza, le garanzie di coerenza di lettura continuano a essere rispettate da Cosmos DB.
 
 - È possibile che gli account in area singola perdano disponibilità in caso di interruzione a livello di area. È quindi consigliabile configurare almeno due aree (preferibilmente almeno due aree di scrittura) con l'account Cosmos in uso, in modo da garantire disponibilità elevata in qualsiasi momento.
 

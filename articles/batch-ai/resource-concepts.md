@@ -15,14 +15,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a9e3529f9d68ecdc614ea69cffc6897891f4548
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4454448809411c6390bc1f65c33b4abe76094ded
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056815"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407746"
 ---
 # <a name="overview-of-resources-in-batch-ai"></a>Panoramica delle risorse in Batch per intelligenza artificiale
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Quando si inizia a usare il servizio Batch per intelligenza artificiale, è opportuno conoscere le risorse disponibili per questo servizio. Come per altri servizi di Azure, le risorse Batch per intelligenza artificiale dovranno essere create in uno o più *gruppi di risorse* di Azure. Creare una o più *aree di lavoro* Batch per intelligenza artificiale in un gruppo di risorse. Ogni area di lavoro contiene una combinazione di *cluster*,*file server* ed *esperimenti* Batch per intelligenza artificiale. Un esperimento Batch per intelligenza artificiale incapsula un gruppo di *processi*.
 
@@ -50,7 +53,7 @@ Un esperimento consente di raggruppare più processi correlati che vengono gesti
 
 ## <a name="job"></a>Processo
 
-Un processo è un'attività o uno script che deve essere eseguito, ad esempio per eseguire il training di un modello di apprendimento avanzato. Ogni processo esegue uno script specifico in un unico cluster nell'area di lavoro. (Lo script può essere archiviato in un file server Batch per intelligenza artificiale o in un'altra soluzione per l'archiviazione). Ogni processo Batch per intelligenza artificiale è associato a un tipo di framework: TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, MPI personalizzato, o personalizzato. Per ogni framework, il servizio Batch per intelligenza artificiale configura l'infrastruttura necessaria e gestisce le fasi del processo. Ogni esperimento può avere più processi simili, a parte alcune modifiche a parametri diversi.
+Un processo è un'attività o uno script che deve essere eseguito, ad esempio per eseguire il training di un modello di apprendimento avanzato. Ogni processo esegue uno script specifico in un unico cluster nell'area di lavoro. (Lo script può essere archiviato in un file server Batch per intelligenza artificiale o in un'altra soluzione per l'archiviazione). Ogni processo Batch per intelligenza artificiale è associato a un tipo di framework: TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, MPI personalizzato o personalizzato. Per ogni framework, il servizio Batch per intelligenza artificiale configura l'infrastruttura necessaria e gestisce le fasi del processo. Ogni esperimento può avere più processi simili, a parte alcune modifiche a parametri diversi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

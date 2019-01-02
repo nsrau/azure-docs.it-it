@@ -3,7 +3,7 @@ title: Introduzione agli strumenti di database elastico in Azure | Microsoft Doc
 description: Descrizione di base della funzionalità relativa agli strumenti di database elastico del database SQL di Azure, che include un'app di esempio di facile esecuzione.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: ''
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: ad07b0a9ae2d0c90f63d4f3a842a5d386ac4c59b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 13e9bb045bcce553ba9fdc344baa86ba96260387
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249864"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870232"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Iniziare a usare gli strumenti di database elastico
 Questo documento presenta l'esperienza di sviluppo per la [libreria client del database elastico](sql-database-elastic-database-client-library.md) tramite l'esecuzione dell'app di esempio. Nell'esempio viene creata una semplice applicazione partizionata e si esplorano le funzionalità chiave degli strumenti di database elastico del database SQL di Microsoft Azure. L'applicazione è incentrata sui casi d'uso per la [gestione delle mappe delle partizioni](sql-database-elastic-scale-shard-map-management.md), il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) e l'[esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md). La libreria client è disponibile su .NET e Java. 
@@ -97,9 +97,9 @@ Congratulazioni! È stata creata ed eseguita la prima applicazione partizionata 
 ## <a name="key-pieces-of-the-code-sample"></a>Elementi chiave dell'esempio di codice
 * **Gestione di partizioni e mappe delle partizioni**: il codice mostra come usare le partizioni, gli intervalli e i mapping nel file *ShardManagementUtils.cs*. Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](https://go.microsoft.com/?linkid=9862595).  
 
-* **Routing dipendente dai dati**: il routing delle transazioni nella partizione appropriata viene mostrato nel file *DataDependentRoutingSample.cs*. Per altre informazioni, vedere [Routing dipendente dai dati](https://go.microsoft.com/?linkid=9862596). 
+* **Routing dipendente dai dati**: il routing delle transazioni nella partizione appropriata viene illustrato nel file *DataDependentRoutingSample.cs*. Per altre informazioni, vedere [Routing dipendente dai dati](https://go.microsoft.com/?linkid=9862596). 
 
-* **Esecuzione di query su più partizioni**: l'esecuzione di query su più partizioni viene mostrata nel file *MultiShardQuerySample.cs*. Per altre informazioni, vedere [Esecuzione di query su più partizioni](https://go.microsoft.com/?linkid=9862597).
+* **Esecuzione di query su più partizioni**: l'esecuzione di query su più partizioni viene illustrata nel file *MultiShardQuerySample.cs*. Per altre informazioni, vedere [Esecuzione di query su più partizioni](https://go.microsoft.com/?linkid=9862597).
 
 * **Aggiunta di partizioni vuote**: l'aggiunta iterativa di nuove partizioni vuote viene eseguita dal codice nel file *CreateShardSample.cs*. Per altre informazioni, vedere [Aumentare il numero di istanze dei database con il gestore delle mappe partizioni](https://go.microsoft.com/?linkid=9862595).
 
@@ -124,7 +124,7 @@ Per altre informazioni sugli strumenti di database elastico, vedere gli articoli
   * [Elasticità di partizionamento in Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/) (Annuncio della scalabilità elastica)
 * Channel 9: [video di panoramica della scalabilità elastica](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Forum di discussione: [forum sul database SQL di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+* Forum di discussione: [Forum del database SQL di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * Per misurare le prestazioni: [Contatori delle prestazioni per Gestore mappe partizioni](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->

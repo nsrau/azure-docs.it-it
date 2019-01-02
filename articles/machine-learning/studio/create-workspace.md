@@ -1,11 +1,10 @@
 ---
-title: Creare un'area di lavoro di Azure Machine Learning Studio| Microsoft Docs
+title: Creare un'area di lavoro - Azure Machine Learning Studio| Microsoft Docs
 description: Per usare Azure Machine Learning Studio, deve essere presente un'area di lavoro di Machine Learning Studio. Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
@@ -13,18 +12,18 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 8362468d329f12ad8ebf25c8d205ec7d35ac6c28
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e6835afd66d054a79c422a35839d64ae89031de5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307220"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268258"
 ---
-# <a name="create-and-share-an-azure-machine-learning-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning
+# <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning Studio
 
 Per usare Azure Machine Learning Studio, deve essere presente un'area di lavoro di Machine Learning Studio. Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="to-create-a-workspace"></a>Per creare un'area di lavoro
 1. Accedere al [portale di Azure](https://portal.azure.com/)
@@ -60,7 +59,7 @@ Dopo aver distribuito l'area di lavoro è possibile aprirla in Machine Learning 
     ![Aprire gli esperimenti](./media/create-workspace/my-experiments.png)
 
 Per informazioni sulla gestione dell'area di lavoro, vedere [Gestire un'area di lavoro di Azure Machine Learning](manage-workspace.md).
-Se si verifica un problema durante la creazione dell'area di lavoro, vedere [Guida per la risoluzione dei problemi: Creare un'area di lavoro di Machine Learning e connettersi a essa](troubleshooting-creating-ml-workspace.md).
+Se si verifica un problema durante la creazione dell'area di lavoro, vedere [Guida per la risoluzione dei problemi: Creare e connettersi a un'area di lavoro di Machine Learning](troubleshooting-creating-ml-workspace.md).
 
 
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>Condivisione di un'area di lavoro di Azure Machine Learning

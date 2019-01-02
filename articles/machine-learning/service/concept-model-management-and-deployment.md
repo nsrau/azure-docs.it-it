@@ -1,26 +1,28 @@
 ---
-title: Gestire e distribuire modelli nel servizio Azure Machine Learning
+title: Gestire, registrare, distribuire e monitorare modelli di Machine Learning
+titleSuffix: Azure Machine Learning service
 description: Informazioni sull'uso del servizio Azure Machine Learning per distribuire, gestire e monitorare i modelli per garantirne un miglioramento costante. È possibile distribuire i modelli di cui si è effettuato il training con il servizio Azure Machine Learning sul computer locale o da altre origini.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: hjerez
-ms.author: hjerez
+author: chris-lauren
+ms.author: clauren
 ms.date: 09/24/2018
-ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.custom: seodec18
+ms.openlocfilehash: 25f149ad4df43a7e5b443d6abd72be91072cb47f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885068"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250205"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gestire e distribuire modelli con il servizio Azure Machine Learning
 
 Questo articolo offre informazioni su come usare il servizio Azure Machine Learning per distribuire, gestire e monitorare i modelli per garantirne un miglioramento costante. È possibile distribuire i modelli di cui si è effettuato il training con Azure Machine Learning sul computer locale o da altre origini. 
 
-Il diagramma seguente illustra il flusso di lavoro completo di distribuzione: [ ![Flusso di lavoro di distribuzione per Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+Il diagramma seguente illustra il flusso di lavoro di distribuzione completo: [ ![Flusso di lavoro di distribuzione per Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 Il flusso di lavoro di distribuzione comprende i passaggi seguenti:
 1. **Registrazione del modello** in un registro ospitato nell'area di lavoro del servizio Azure Machine Learning
@@ -33,14 +35,14 @@ Ogni passaggio può essere eseguito in modo indipendente o come parte di un coma
 [ !['Ciclo di integrazione continua/distribuzione continua (CI/CD) di Azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 
-## <a name="step-1-register-model"></a>Passaggio 1: Registrazione del modello
+## <a name="step-1-register-model"></a>Passaggio 1: Registrare il modello
 
 Il registro di modello tiene traccia di tutti i modelli nell'area di lavoro del servizio di Azure Machine Learning.
 I modelli vengono identificati dal nome e dalla versione. Ogni volta che si registra un modello con lo stesso nome di uno esistente, il registro incrementa la versione. È possibile fornire tag di metadati aggiuntivi durante la registrazione che può essere usata quando si cercano i modelli.
 
 Non è possibile eliminare i modelli attualmente in uso da un'immagine.
 
-## <a name="step-2-register-image"></a>Passaggio 2: Registrare un'immagine
+## <a name="step-2-register-image"></a>Passaggio 2: Registrare l'immagine
 
 Le immagini consentono una distribuzione affidabile del modello, insieme a tutti i componenti necessari per l'uso del modello. Un'immagine contiene i seguenti elementi:
 
@@ -56,7 +58,7 @@ Azure Machine Learning supporta i framework più diffusi, ma in genere può funz
 Quando l'area di lavoro è stata creata, diverse altre risorse di Azure sono state usate da quell'area di lavoro.
 Tutti gli oggetti usati per creare l'immagine vengono archiviati nell'account di archiviazione di Azure nell'area di lavoro. L'immagine viene creata e archiviata nel Registro contenitori di Azure. È possibile fornire tag di metadati aggiuntivi quando si crea l'immagine, che vengono archiviati anche nel registro di immagini e di cui è possibile eseguire query per trovare l'immagine.
 
-## <a name="step-3-deploy-image"></a>Passaggio 3: Distribuzione dell'immagine
+## <a name="step-3-deploy-image"></a>Passaggio 3: Distribuire l'immagine
 
 È possibile distribuire immagini registrate nel cloud o nei dispositivi perimetrali. Il processo di distribuzione crea tutte le risorse necessarie per il monitoraggio, il bilanciamento del carico e la scalabilità automatica del modello. È possibile proteggere l'accesso ai servizi distribuiti con l'autenticazione basata su certificati, fornendo gli asset di sicurezza durante la distribuzione. È inoltre possibile aggiornare una distribuzione esistente per usare un'immagine più recente.
 
@@ -73,7 +75,7 @@ Tutti gli oggetti usati per creare l'immagine vengono archiviati nell'account di
 
 Una volta distribuito il servizio, il carico della richiesta di inferenza è automaticamente bilanciato e il cluster viene ridimensionato per soddisfare qualsiasi richiesta. I [dati di telemetria relativi al servizio](how-to-enable-app-insights.md) possono essere acquisiti dal servizio Azure Application Insights.
 
-## <a name="step-4-monitor-models-and-collect-data"></a>Passaggio 4: Monitoraggio dei modelli e raccolta dati
+## <a name="step-4-monitor-models-and-collect-data"></a>Passaggio 4: Monitorare i modelli e raccogliere i dati
 
 È disponibile un SDK per la registrazione dei modelli e l'acquisizione dei dati per monitorare input, output e altri dati pertinenti del modello. I dati vengono archiviati come un BLOB nell'account di Archiviazione di Microsoft Azure per l'area di lavoro.
 

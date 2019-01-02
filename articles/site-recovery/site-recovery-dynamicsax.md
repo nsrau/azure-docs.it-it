@@ -5,14 +5,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: e2cba8cb53e73bd1fc25f1fe43fa0365247e2bd2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210823"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838141"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurare il ripristino di emergenza per un'applicazione Dynamics AX multilivello 
 
@@ -118,9 +118,9 @@ Per le macchine virtuali AOS (Application Object Server) e il client AX, configu
 È possibile personalizzare il piano di ripristino per l'applicazione Dynamics AX aggiungendo i passaggi seguenti. Lo snapshot precedente illustra il piano di ripristino completo dopo aver aggiunto tutti i passaggi.
 
 
-* **Passaggi di failover di SQL Server**: per informazioni sulla procedura di ripristino specifica per SQL server, vedere come [eseguire la replica di applicazioni con SQL Server e Azure Site Recovery](site-recovery-sql.md).
+* **Passaggi di failover di SQL Server**: Per informazioni sulla procedura di ripristino specifica per SQL server, vedere come [eseguire la replica di applicazioni con SQL Server e Azure Site Recovery](site-recovery-sql.md).
 
-* **Gruppo di failover 1**: eseguire il failover delle macchine virtuali AOS (Application Object Server).
+* **Gruppo di failover 1**: eseguire il failover delle macchine virtuali per server oggetti applicativi (AOS, Application Object Server).
 Assicurarsi che il punto di ripristino selezionato sia il più vicino possibile al ripristino temporizzato del database, senza tuttavia precederlo.
 
 * **Script**: aggiungere il bilanciamento del carico (solo E-A).

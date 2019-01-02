@@ -1,22 +1,22 @@
 ---
-title: Monitorare le richieste e l'archiviazione di Azure Cosmos DB | Microsoft Docs
+title: Monitorare le metriche delle prestazioni e di archiviazione in Azure Cosmos DB
 description: Informazioni su come monitorare l'account Azure Cosmos DB per le metriche relative alle prestazioni, ad esempio richieste ed errori del server, e all'utilizzo, ad esempio l'utilizzo di risorse di archiviazione.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1f4bf4ba660e83be9879c56d04b27c932d563e17
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: fe527e6e9933d25d7f1a16561ce4822d7b9a33ab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354068"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135883"
 ---
-# <a name="monitor-azure-cosmos-db"></a>Monitorare Azure Cosmos DB
+# <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Monitorare le metriche delle prestazioni e di archiviazione in Azure Cosmos DB
+
 È possibile monitorare gli account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/). Per ogni account di Azure Cosmos DB, è disponibile un set completo di metriche per il monitoraggio di velocità effettiva, archiviazione, disponibilità, latenza e coerenza.
 
 È possibile esaminare le metriche nella pagina Account, nella nuova pagina Metriche o in Monitoraggio di Azure.

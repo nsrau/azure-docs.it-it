@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4b0491d59e4ac495750a338ad743aab69ff47a4e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494244"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278645"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selezionare, gestire e usare dei cluster di Service Fabric.
@@ -140,9 +140,9 @@ Mostra il manifesto del cluster di Service Fabric. Il manifesto del cluster cont
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 Annulla un'operazione di errore indotta dall'utente.
 
-Le API seguenti avviano operazioni di errore che possono essere annullate usando CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se force è false, l'operazione specificata indotta dall'utente verrà normalmente arrestata e pulita.  Se force è true, il comando verrà interrotto e parte dello stato interno potrebbe permanere.  L'impostazione di force su true deve essere usata con cautela. La chiamata a questa API con force impostato su true è consentita solo se questa API è già stata chiamata prima sullo stesso comando di test con force impostato su false oppure se il valore di un elemento OperationState del comando di test è già OperationState.RollingBack. 
+Le API seguenti avviano operazioni di errore che possono essere annullate usando CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se force è false, l'operazione specificata indotta dall'utente verrà normalmente arrestata e pulita.  Se force è true, il comando verrà interrotto e parte dello stato interno potrebbe permanere.  L'impostazione di force su true deve essere usata con cautela. La chiamata a questa API con force impostato su true è consentita solo se questa API è già stata chiamata prima sullo stesso comando di test con force impostato su false oppure se il valore di un elemento OperationState del comando di test è già OperationState.RollingBack. 
 
- Chiarimento\: OperationState.RollingBack indica che il sistema eseguirà/esegue la pulizia dello stato del sistema interno in seguito all'esecuzione del comando. Non ripristinerà i dati se il comando di test doveva causare la perdita dei dati.  Se ad esempio si chiama StartDataLoss, quindi si chiama questa API, il sistema pulirà lo stato interno solo a partire dall'esecuzione del comando. Non ripristinerà i dati della partizione di destinazione, se il comando è stato eseguito abbastanza a lungo da causare la perdita di dati. 
+Chiarimento\: OperationState.RollingBack indica che il sistema eseguirà/esegue la pulizia dello stato del sistema interno in seguito all'esecuzione del comando.  Non ripristinerà i dati se il comando di test doveva causare la perdita dei dati.  Se ad esempio si chiama StartDataLoss, quindi si chiama questa API, il sistema pulirà lo stato interno solo a partire dall'esecuzione del comando. Non ripristinerà i dati della partizione di destinazione, se il comando è stato eseguito abbastanza a lungo da causare la perdita di dati. 
 
 > [!NOTE]
 > Se questa API viene richiamata con force==true, lo stato interno può permanere.
@@ -264,7 +264,7 @@ Il report deve contenere le informazioni relative all'origine del report sull'in
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 Si connette a un endpoint di cluster di Service Fabric.
 
-In caso di connessione a un cluster sicuro, specificare un percorso assoluto a un certificato (CRT), un file di chiave (KEY) o un singolo file con entrambi (PEM). Non specificare entrambi. Facoltativamente, in caso di connessione a un cluster sicuro, specificare anche un percorso assoluto a un file di aggregazione CA o a una directory di CA considerate attendibili.
+In caso di connessione a un cluster sicuro, specificare un percorso assoluto a un certificato (CRT), un file di chiave (KEY) o un singolo file con entrambi (PEM). Non specificare entrambi. Facoltativamente, in caso di connessione a un cluster sicuro, specificare anche un percorso assoluto a un file di aggregazione CA o a una directory di certificati della CA attendibili. Se si usa una directory di certificati della CA, è prima necessario eseguire il comando `c_rehash <directory>` OpenSSL per calcolare gli hash dei certificati e creare i collegamenti simbolici appropriati.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -340,19 +340,19 @@ Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della ver
 | --delta-health-evaluation | Abilita la valutazione dell'integrità delta anziché la valutazione dell'integrità assoluta dopo il completamento di ogni dominio di aggiornamento. |
 | --delta-unhealthy-nodes | Percentuale massima di riduzione dell'integrità dei nodi consentita durante gli aggiornamenti del cluster.  Impostazione predefinita\: 10. <br><br> Il valore delta è misurato tra lo stato dei nodi e all'inizio dell'aggiornamento e lo stato dei nodi al momento della valutazione dell'integrità. Il controllo viene eseguito dopo il completamento dell'aggiornamento di ciascun dominio di aggiornamento per assicurarsi che lo stato complessivo del cluster rientri nei limiti di tolleranza. |
 | --failure-action | I valori possibili sono\: "Invalid", "Rollback", "Manual". |
-| --force-restart | Forza il riavvio. |
-| --health-check-retry | Timeout del nuovo tentativo di controllo dell'integrità misurato in millisecondi. |
-| --health-check-stable | Durata stabile controllo integrità misurata in millisecondi. |
-| --health-check-wait | Durata attesa controllo integrità misurata in millisecondi. |
-| --replica-set-check-timeout | Timeout del controllo del set di repliche di aggiornamento misurato in secondi. |
+| --force-restart | I processi vengono riavviati in modo forzato durante l'aggiornamento anche quando la versione del codice non è stata modificata. <br><br> L'aggiornamento modifica solo la configurazione o i dati. |
+| --health-check-retry | Intervallo di tempo tra i tentativi di esecuzione dei controlli integrità se l'applicazione o il cluster non è integro. |
+| --health-check-stable | Tempo di attesa per cui l'applicazione o il cluster devono rimanere integri prima di passare al dominio di aggiornamento successivo. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
+| --health-check-wait | Intervallo di tempo di attesa dopo il completamento di un dominio di aggiornamento prima di avviare il processo dei controlli integrità. |
+| --replica-set-check-timeout | Tempo massimo per bloccare l'elaborazione di un dominio di aggiornamento ed evitare la perdita di disponibilità quando si verificano problemi imprevisti. <br><br> Quando il timeout scade, l'elaborazione del dominio di aggiornamento procede indipendentemente dai problemi di perdita di disponibilità. Il timeout viene reimpostato all'inizio di ogni dominio di aggiornamento. I valori validi sono compresi tra 0 e 42949672925 inclusi. |
 | --rolling-upgrade-mode | I valori possibili sono\: "Invalid", "UnmonitoredAuto", "UnmonitoredManual", "Monitored".  Impostazione predefinita\: UnmonitoredAuto. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 | --unhealthy-applications | Percentuale massima consentita di applicazioni non integre prima che venga segnalato un errore. <br><br> Ad esempio, per consentire il 10% di applicazioni non integre, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di applicazioni che possono risultare non integre prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un'applicazione non integra, l'integrità viene valutata come Avviso. Questa viene calcolata dividendo il numero di applicazioni non integre rispetto al numero totale di istanze dell'applicazione nel cluster, escluse le applicazioni di tipi inclusi nel parametro ApplicationTypeHealthPolicyMap. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di applicazioni. |
 | --unhealthy-nodes | Percentuale massima consentita di nodi non integri prima che venga segnalato un errore. <br><br> Ad esempio, per consentire il 10% di nodi non integri, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di nodi che possono risultare non integri prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un nodo non integro, l'integrità viene valutata come Avviso. Tale percentuale viene calcolata dividendo il numero dei nodi non integri per il numero totale di nodi nel cluster. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di nodi. Questa percentuale dovrà essere configurata in modo da tenere conto del fatto che in cluster di grandi dimensioni sono sempre presenti nodi inattivi o in fase di riparazione. |
 | --upgrade-domain-delta-unhealthy-nodes | Percentuale massima di riduzione dell'integrità dei nodi del dominio di aggiornamento consentita durante gli aggiornamenti del cluster.  Impostazione predefinita\: 15. <br><br> Il valore delta è misurato tra lo stato dei nodi di dominio all'inizio dell'aggiornamento e lo stato dei nodi di dominio al momento della valutazione dell'integrità. Il controllo viene eseguito dopo il completamento dell'aggiornamento di ciascun dominio di aggiornamento per tutti i domini di aggiornamento completati per assicurarsi che lo stato complessivo dei domini di aggiornamento rientri nei limiti di tolleranza. |
-| --upgrade-domain-timeout | Timeout del dominio di aggiornamento misurato in millisecondi. |
-| --upgrade-timeout | Timeout dell'aggiornamento misurato in millisecondi. |
-| --warning-as-error | Gli avvisi vengono considerati con lo stello livello di gravità degli errori. |
+| --upgrade-domain-timeout | Tempo necessario al completamento di ogni dominio di aggiornamento prima dell'esecuzione di FailureAction. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
+| --upgrade-timeout | Tempo necessario al completamento dell'aggiornamento prima dell'esecuzione di FailureAction. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
+| --warning-as-error | Indica se gli avvisi vengono considerati con lo stesso livello di gravità degli errori. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -440,20 +440,20 @@ Aggiorna i parametri di aggiornamento di un cluster di Service Fabric.
 | --delta-health-evaluation | Abilita la valutazione dell'integrità delta anziché la valutazione dell'integrità assoluta dopo il completamento di ogni dominio di aggiornamento. |
 | --delta-unhealthy-nodes | Percentuale massima di riduzione dell'integrità dei nodi consentita durante gli aggiornamenti del cluster.  Impostazione predefinita\: 10. <br><br> Il valore delta è misurato tra lo stato dei nodi e all'inizio dell'aggiornamento e lo stato dei nodi al momento della valutazione dell'integrità. Il controllo viene eseguito dopo il completamento dell'aggiornamento di ciascun dominio di aggiornamento per assicurarsi che lo stato complessivo del cluster rientri nei limiti di tolleranza. |
 | --failure-action | I valori possibili sono\: "Invalid", "Rollback", "Manual". |
-| --force-restart | Forza il riavvio. |
-| --health-check-retry | Timeout del nuovo tentativo di controllo dell'integrità misurato in millisecondi. |
-| --health-check-stable | Durata stabile controllo integrità misurata in millisecondi. |
-| --health-check-wait | Durata attesa controllo integrità misurata in millisecondi. |
-| --replica-set-check-timeout | Timeout del controllo del set di repliche di aggiornamento misurato in secondi. |
+| --force-restart | I processi vengono riavviati in modo forzato durante l'aggiornamento anche quando la versione del codice non è stata modificata. <br><br> L'aggiornamento modifica solo la configurazione o i dati. |
+| --health-check-retry | Intervallo di tempo tra i tentativi di esecuzione dei controlli integrità se l'applicazione o il cluster non è integro. |
+| --health-check-stable | Tempo di attesa per cui l'applicazione o il cluster devono rimanere integri prima di passare al dominio di aggiornamento successivo. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
+| --health-check-wait | Intervallo di tempo di attesa dopo il completamento di un dominio di aggiornamento prima di avviare il processo dei controlli integrità. |
+| --replica-set-check-timeout | Tempo massimo per bloccare l'elaborazione di un dominio di aggiornamento ed evitare la perdita di disponibilità quando si verificano problemi imprevisti. <br><br> Quando il timeout scade, l'elaborazione del dominio di aggiornamento procede indipendentemente dai problemi di perdita di disponibilità. Il timeout viene reimpostato all'inizio di ogni dominio di aggiornamento. I valori validi sono compresi tra 0 e 42949672925 inclusi. |
 | --rolling-upgrade-mode | I valori possibili sono\: "Invalid", "UnmonitoredAuto", "UnmonitoredManual", "Monitored".  Impostazione predefinita\: UnmonitoredAuto. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 | --unhealthy-applications | Percentuale massima consentita di applicazioni non integre prima che venga segnalato un errore. <br><br> Ad esempio, per consentire il 10% di applicazioni non integre, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di applicazioni che possono risultare non integre prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un'applicazione non integra, l'integrità viene valutata come Avviso. Questa viene calcolata dividendo il numero di applicazioni non integre rispetto al numero totale di istanze dell'applicazione nel cluster, escluse le applicazioni di tipi inclusi nel parametro ApplicationTypeHealthPolicyMap. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di applicazioni. |
 | --unhealthy-nodes | Percentuale massima consentita di nodi non integri prima che venga segnalato un errore. <br><br> Ad esempio, per consentire il 10% di nodi non integri, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di nodi che possono risultare non integri prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un nodo non integro, l'integrità viene valutata come Avviso. Tale percentuale viene calcolata dividendo il numero dei nodi non integri per il numero totale di nodi nel cluster. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di nodi. Questa percentuale dovrà essere configurata in modo da tenere conto del fatto che in cluster di grandi dimensioni sono sempre presenti nodi inattivi o in fase di riparazione. |
 | --upgrade-domain-delta-unhealthy-nodes | Percentuale massima di riduzione dell'integrità dei nodi del dominio di aggiornamento consentita durante gli aggiornamenti del cluster.  Impostazione predefinita\: 15. <br><br> Il valore delta è misurato tra lo stato dei nodi di dominio all'inizio dell'aggiornamento e lo stato dei nodi di dominio al momento della valutazione dell'integrità. Il controllo viene eseguito dopo il completamento dell'aggiornamento di ciascun dominio di aggiornamento per tutti i domini di aggiornamento completati per assicurarsi che lo stato complessivo dei domini di aggiornamento rientri nei limiti di tolleranza. |
-| --upgrade-domain-timeout | Timeout del dominio di aggiornamento misurato in millisecondi. |
+| --upgrade-domain-timeout | Tempo necessario al completamento di ogni dominio di aggiornamento prima dell'esecuzione di FailureAction. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
 | --upgrade-kind | I valori possibili includono\: "Invalid", "Rolling", "Rolling_ForceRestart".  Impostazione predefinita\: Rolling. |
-| --upgrade-timeout | Timeout dell'aggiornamento misurato in millisecondi. |
-| --warning-as-error | Gli avvisi vengono considerati con lo stello livello di gravità degli errori. |
+| --upgrade-timeout | Tempo necessario al completamento dell'aggiornamento prima dell'esecuzione di FailureAction. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
+| --warning-as-error | Indica se gli avvisi vengono considerati con lo stesso livello di gravità degli errori. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -464,6 +464,7 @@ Aggiorna i parametri di aggiornamento di un cluster di Service Fabric.
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.

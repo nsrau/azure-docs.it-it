@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 0463a89b8c320b31929bf5e0322079088c2cdeab
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9cf5092dabf5649f4d063ce05dae169b90228378
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054132"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Esercitazione: Integrazione di Azure Active Directory con ClearCompany
 
@@ -119,7 +119,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.clearcompany.com`
     
     > [!NOTE] 
-    > Poiché questo non è un valore reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di ClearCompany](http://www.clearcompany.com/support). 
+    > Poiché questo non è un valore reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di ClearCompany](https://www.clearcompany.com/support). 
 
 5. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -133,10 +133,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configurazione di ClearCompany](./media/clearcompany-tutorial/tutorial_clearcompany_configure.png) 
 
-8. Per configurare l'accesso Single Sign-On sul lato **ClearCompany**, è necessario inviare il file **Certificato (Base64)** e l'**URL del servizio Single Sign-On SAML** scaricati al [team di supporto di ClearCompany](http://www.clearcompany.com/support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+8. Per configurare l'accesso Single Sign-On sul lato **ClearCompany**, è necessario inviare il file **Certificato (Base64)** e l'**URL del servizio Single Sign-On SAML** scaricati al [team di supporto di ClearCompany](https://www.clearcompany.com/support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -168,11 +168,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-clearcompany-test-user"></a>Creare un utente di test di ClearCompany
 
-In questa sezione viene creato un utente di nome Britta Simon in ClearCompany. Collaborare con il [team di supporto di ClearCompany](http://www.clearcompany.com/support) per aggiungere gli utenti alla piattaforma ClearCompany. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in ClearCompany. Collaborare con il  [team di supporto di ClearCompany](https://www.clearcompany.com/support)  per aggiungere gli utenti alla piattaforma ClearCompany. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -209,7 +209,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro ClearCompany nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione ClearCompany.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

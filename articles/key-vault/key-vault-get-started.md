@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238400"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864902"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introduzione all'insieme di credenziali delle chiavi di Azure
 Questo articolo consente di iniziare a usare Azure Key Vault con PowerShell e illustra in dettaglio le attività seguenti:
@@ -193,7 +193,7 @@ Per visualizzare l'URI per questo segreto, digitare:
 ```powershell
 $secret.Id
 ```
-Per visualizzare il segreto, digitare `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`. In alternativa, è possibile visualizzare il segreto nel portale.
+Per visualizzare il segreto, digitare: `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`. In alternativa, è possibile visualizzare il segreto nel portale.
 
 ![secret](./media/key-vault-get-started/secret-value.png)
 
@@ -222,14 +222,14 @@ Per registrare l'applicazione in Azure Active Directory:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Registrazioni per l'app** a sinistra. Se non si visualizza l'opzione Registrazioni per l'app, fare clic su **Altri servizi**.  
->[!NOTE]
-È necessario selezionare la stessa directory che contiene la sottoscrizione di Azure con cui è stato creato l'insieme di credenziali delle chiavi. 
+    > [!NOTE]
+    > È necessario selezionare la stessa directory che contiene la sottoscrizione di Azure con cui è stato creato l'insieme di credenziali delle chiavi. 
 3. Fare clic su **Registrazione nuova applicazione**.
 4. Nel pannello **Crea** specificare un nome per l'applicazione e quindi selezionare **Applicazione Web e/o API Web** (impostazione predefinita) e specificare l'**URL di accesso** per l'applicazione Web. Se al momento non si hanno queste informazioni, per questo passaggio si può specificare qualsiasi valore, ad esempio http://test1.contoso.com. Non è importante se questi siti esistono. 
 
     ![Registrazione nuova applicazione](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    Assicurarsi di scegliere **Applicazione Web e/o API Web**. In caso contrario, nelle impostazioni non verrà visualizzata l'opzione **chiavi**.
+    > [!WARNING]
+    > Assicurarsi di scegliere **Applicazione Web e/o API Web**. In caso contrario, nelle impostazioni non verrà visualizzata l'opzione **chiavi**.
 
 5. Fare clic sul pulsante **Create** (Crea).
 6. Al termine della registrazione dell'app, verrà visualizzato l'elenco delle app registrate. Trovare l'app registrata e selezionarla.

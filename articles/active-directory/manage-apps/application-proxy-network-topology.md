@@ -15,12 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2321ccf115e3b517bdc593c0c428c61d5dd90968
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 976118514dbcb4cee9675ae357d857e7b90e8c0c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367090"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140480"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerazioni relative alla topologia di rete quando si usa il proxy applicazione di Azure Active Directory
 
@@ -40,7 +40,7 @@ Quando un'applicazione viene pubblicata tramite il proxy applicazione di Azure A
 
 Al momento dell'iscrizione a un tenant di Azure AD, l'area del tenant è determinata dal paese che si specifica. Quando si abilita il proxy di applicazione, le istanze del servizio proxy di applicazione per il tenant vengono scelte o create nella stessa area del tenant di Azure AD o nell'area più vicina.
 
-Se ad esempio l'area del tenant di Azure AD è Unione Europea (UE), tutti i connettori del proxy applicazione usano istanze del servizio nei data center di Azure nell'Unione Europea. Quando gli utenti accedono alle applicazioni pubblicate, il traffico passa attraverso le istanze del servizio proxy applicazione in questa località.
+Ad esempio, se il paese o l'area geografica del tenant di Azure AD è il Regno Unito, tutti i connettori proxy di applicazione usano le istanze del servizio nei data center in Europa. Quando gli utenti accedono alle applicazioni pubblicate, il traffico passa attraverso le istanze del servizio proxy applicazione in questa località.
 
 ## <a name="considerations-for-reducing-latency"></a>Considerazioni per ridurre la latenza
 
@@ -85,9 +85,9 @@ Posizionare il connettore vicino all'applicazione di destinazione nella rete del
 
 Se il connettore deve comunicare con il controller di dominio, questo modello è vantaggioso. Molti clienti usano questo modello poiché è adatto alla maggior parte degli scenari. Questo modello può essere combinato anche con il modello 2, in modo da ottimizzare il traffico tra il servizio e il connettore.
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>Modello 2: Sfruttare ExpressRoute con peering pubblico
+### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>Modello 2: Sfruttare ExpressRoute con peering Microsoft
 
-Se ExpressRoute è configurato con peering pubblico, è possibile usare la connessione ExpressRoute più veloce per il traffico tra il proxy applicazione e il connettore. Il connettore risiede ancora nella rete, vicino all'app.
+Se ExpressRoute è configurato con peering Microsoft, è possibile usare la connessione ExpressRoute più veloce per il traffico tra il proxy di applicazione e il connettore. Il connettore risiede ancora nella rete, vicino all'app.
 
 ### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>Modello 3: Sfruttare ExpressRoute con peering privato
 
@@ -111,13 +111,13 @@ In questa sezione si esaminano alcuni scenari comuni. Si supponga che il tenant 
 
 In questi scenari ogni connessione viene chiamata "hop" e viene numerata per semplificare la discussione:
 
-- **Hop 1**: dall'utente al proxy del servizio di applicazione
-- **Hop 2**: dal servizio del proxy di applicazione al connettore del proxy di applicazione
-- **Hop 3**: dal connettore del proxy di applicazione all'applicazione di destinazione 
+- **Hop 1**: dall'utente al servizio proxy di applicazione
+- **Hop 2**: dal servizio proxy di applicazione al connettore proxy di applicazione
+- **Hop 3**: dal connettore proxy di applicazione all'applicazione di destinazione 
 
 ### <a name="use-case-1"></a>Caso d'uso 1
 
-**Scenario:** l'app si trova in una rete dell'organizzazione negli Stati Uniti, con utenti nella stessa area. Tra il data center di Azure e la rete aziendale non esiste alcun collegamento VPN o ExpressRoute.
+**Scenario:** L'app si trova in una rete dell'organizzazione negli Stati Uniti, con utenti nella stessa area. Tra il data center di Azure e la rete aziendale non esiste alcun collegamento VPN o ExpressRoute.
 
 **Raccomandazione:** seguire il modello 1 illustrato nella sezione precedente. Per migliorare la latenza, valutare la possibilità di usare ExpressRoute, se necessario.
 
@@ -127,7 +127,7 @@ Si tratta di un modello semplice. Si ottimizza l'hop 3 posizionando il connettor
 
 ### <a name="use-case-2"></a>Caso d'uso 2
 
-**Scenario:** l'app si trova in una rete dell'organizzazione negli Stati Uniti, con utenti distribuiti in tutto il mondo. Tra il data center di Azure e la rete aziendale non esiste alcun collegamento VPN o ExpressRoute.
+**Scenario:** L'app si trova in una rete dell'organizzazione negli Stati Uniti, con utenti distribuiti in tutto il mondo. Tra il data center di Azure e la rete aziendale non esiste alcun collegamento VPN o ExpressRoute.
 
 **Raccomandazione:** seguire il modello 1 illustrato nella sezione precedente. 
 
@@ -137,19 +137,19 @@ Anche in questo caso, il modello comune consiste nell'ottimizzare l'hop 3, posiz
 
 ### <a name="use-case-3"></a>Caso d'uso 3
 
-**Scenario:** l'app si trova in una rete dell'organizzazione negli Stati Uniti. Tra Azure e la rete aziendale è presente ExpressRoute con peering pubblico.
+**Scenario:** L'app si trova in una rete dell'organizzazione negli Stati Uniti. Tra Azure e la rete aziendale è presente ExpressRoute con peering Microsoft.
 
 **Raccomandazione:** seguire i modelli 1 e 2 illustrati nella sezione precedente.
 
 Per prima cosa, posizionare il connettore il più vicino possibile all'app. In questo modo, il sistema usa automaticamente ExpressRoute per l'hop 2. 
 
-Se il collegamento ExpressRoute usa il peering pubblico, il traffico tra il proxy e il connettore viene trasmesso su tale collegamento. L'hop 2 ha una latenza ottimizzata.
+Se il collegamento ExpressRoute usa il peering Microsoft, il traffico tra il proxy e il connettore viene trasmesso su tale collegamento. L'hop 2 ha una latenza ottimizzata.
 
 ![Diagramma che mostra ExpressRoute tra il proxy e il connettore](./media/application-proxy-network-topology/application-proxy-pattern3.png)
 
 ### <a name="use-case-4"></a>Caso d'uso 4
 
-**Scenario:** l'app si trova in una rete dell'organizzazione negli Stati Uniti. Tra Azure e la rete aziendale è presente ExpressRoute con peering privato.
+**Scenario:** L'app si trova in una rete dell'organizzazione negli Stati Uniti. Tra Azure e la rete aziendale è presente ExpressRoute con peering privato.
 
 **Raccomandazione:** seguire il modello 3 illustrato nella sezione precedente.
 
@@ -173,7 +173,7 @@ In questa situazione è anche possibile prendere in considerazione l'uso di un'a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare il proxy dell'applicazione](application-proxy-enable.md)
+- [Abilitare il proxy dell'applicazione](application-proxy-add-on-premises-application.md)
 - [Abilitare l'accesso Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Abilitare l'accesso condizionale](application-proxy-integrate-with-sharepoint-server.md)
 - [Risolvere i problemi che si verificano con il proxy di applicazione](application-proxy-troubleshoot.md)

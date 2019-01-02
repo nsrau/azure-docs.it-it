@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 9908dae627ae11a42e8e01a9a4f4d11f35ce0f8d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fe0db2f0c7fea4b24cc23aaa52deb16376012b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422961"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Esercitazione: Integrazione di Azure Active Directory con The Cloud Security Fabric
 
@@ -108,12 +108,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Informazioni su URL e dominio di The Cloud Security Fabric per l'accesso Single Sign-On](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare un URL:
+
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
     b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:
+    
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
@@ -166,7 +168,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="create-a-the-cloud-security-fabric-test-user"></a>Creare un utente di test di The Cloud Security Fabric
 
-In questa sezione viene creato un utente chiamato Britta Simon in The Cloud Security Fabric. Con l'aiuto del [team di supporto di The Cloud Security Fabric](mailto:support@cloudlock.com), aggiungere gli utenti alla piattaforma di The Cloud Security Fabric. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente chiamato Britta Simon in The Cloud Security Fabric. Con l'aiuto del  [team di supporto di The Cloud Security Fabric](mailto:support@cloudlock.com) , aggiungere gli utenti alla piattaforma The Cloud Security Fabric. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -203,7 +205,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro The Cloud Security Fabric nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione The Cloud Security Fabric.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

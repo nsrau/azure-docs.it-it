@@ -1,21 +1,22 @@
 ---
-title: Elenchi di frasi per migliorare il rilevamento di entità
-titleSuffix: Azure Cognitive Services
+title: Elenchi di frasi
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Usare LUIS (Language Understanding) per aggiungere alle app funzionalità in grado di migliorare il rilevamento o la stima di finalità ed entità con cui creare categorie e criteri
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 39a6ead041b1783a3effcb9659c59ea788cd2bf6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580960"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139504"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Usare gli elenchi di frasi in segnali boost dell'elenco di parole
 
@@ -37,11 +38,11 @@ Viene integrato un elenco di frasi al vocabolario del dominio dell'applicazione 
 
 4. LUIS è in grado di proporre valori correlati da aggiungere all'elenco di frasi. Fare clic su **Recommend** (Consiglia) per ottenere un gruppo di valori proposti che sono correlati a livello semantico ai valori aggiunti. È possibile fare clic su uno qualsiasi dei valori proposti o fare clic su **Add All** (Aggiungi tutti) per aggiungerli tutti.
 
-    ![Valori proposti per l'elenco di frasi](./media/luis-add-features/related-values.png)
+    ![Valori proposti per l'elenco di frasi - Comando Add All (Aggiungi tutti)](./media/luis-add-features/related-values.png)
 
 5. Fare clic su **These values are interchangeable** (Questi valori sono intercambiabili) se i valori dell'elenco di frasi aggiunti sono alternative che possono essere usate indifferentemente.
 
-    ![Valori proposti per l'elenco di frasi](./media/luis-add-features/interchangeable.png)
+    ![Valori proposti per l'elenco di frasi - Casella per la selezione di valori intercambiabili ](./media/luis-add-features/interchangeable.png)
 
 6. Fare clic su **Save**. L'elenco di frasi "Città" verrà aggiunto alla pagina **Phrase lists** (Elenchi di frasi).
 

@@ -1,6 +1,6 @@
 ---
-title: Come assegnare all'Identità del servizio gestito l'accesso a una risorsa di Azure tramite il portale di Azure
-description: Istruzioni dettagliate per assegnare a un'Identità del servizio gestito in una risorsa l'accesso a un'altra risorsa tramite il portale di Azure.
+title: Come assegnare a un'identità gestita l'accesso a una risorsa di Azure tramite il portale di Azure
+description: Istruzioni dettagliate su come assegnare a un'identità gestita in una risorsa l'accesso a un'altra risorsa tramite il portale di Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,61 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: c2048583cde397ac3325fd149982b3a3db475566
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e50a7b0aa80bff36a67ea52514d6b85099bfdf8c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157280"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081439"
 ---
-# <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Assegnare a un'Identità del servizio gestito l'accesso a una risorsa tramite il portale di Azure
+# <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Assegnare a un'identità gestita l'accesso a una risorsa tramite il portale di Azure
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Dopo aver configurato una risorsa di Azure con un'Identità del servizio gestito (MSI), è possibile concedere all'identità del servizio gestito l'accesso a un'altra risorsa, analogamente a qualsiasi entità di sicurezza. Questo articolo illustra come concedere a un'identità del servizio gestito della macchina virtuale di Azure o di un set di scalabilità di macchine virtuali di Azure l'accesso a un account di archiviazione di Azure tramite il portale di Azure.
+Dopo aver configurato una risorsa di Azure con un'identità gestita, è possibile concedere all'identità gestita l'accesso a un'altra risorsa, proprio come per qualsiasi entità di sicurezza. Questo articolo descrive come concedere all'identità gestita di una macchina virtuale o di un set di scalabilità di macchine virtuali di Azure l'accesso a un account di archiviazione di Azure tramite il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)**.
+- Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 
-## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Usare il controllo degli accessi in base al ruolo per assegnare a un'Identità del servizio gestito l'accesso a un'altra risorsa
+## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Usare il controllo degli accessi in base al ruolo per assegnare a un'identità gestita l'accesso a un'altra risorsa
 
-Dopo aver abilitato l'identità del servizio gestito in una risorsa di Azure, ad esempio in una [macchina virtuale di Azure](qs-configure-portal-windows-vm.md) o in un [set di scalabilità di macchine virtuali di Azure](qs-configure-portal-windows-vmss.md):
+Dopo aver abilitato l'identità gestita in una risorsa di Azure, ad esempio una [macchina virtuale di Azure](qs-configure-portal-windows-vm.md) o un [set di scalabilità di macchine virtuali di Azure](qs-configure-portal-windows-vmss.md):
 
-1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure in cui si desidera configurare l'Identità del servizio gestito.
+1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure in cui è stata configurata l'identità gestita.
 
-2. Passare alla risorsa desiderata in cui si desidera modificare il controllo di accesso. In questo esempio viene concesso alla macchina virtuale di Azure e al set di scalabilità di macchine virtuali di Azure l'accesso a un account di archiviazione e quindi si passa all'account di archiviazione.
+2. Passare alla risorsa desiderata in cui si desidera modificare il controllo di accesso. Poiché in questo esempio viene concesso a una macchina virtuale di Azure l'accesso a un account di archiviazione, passare all'account di archiviazione.
 
-3. Per una macchina virtuale di Azure selezionare la pagina **Controllo di accesso (IAM)** della risorsa e quindi **+ Aggiungi**. Specificare quindi il **ruolo**, **assegnare l'accesso a una macchina virtuale** e specificare il **gruppo di risorse** e la **sottoscrizione** corrispondente in cui risiede la risorsa. Nell'area per i criteri di ricerca viene visualizzata la risorsa. Selezionare la risorsa e premere **Salva**. 
+3. Selezionare la pagina **Controllo di accesso (IAM)** della risorsa e quindi **+ Aggiungi assegnazione di ruolo**. Specificare quindi i valori per **Ruolo** e **Assegna accesso a** e specificare la sottoscrizione corrispondente in **Sottoscrizione**. Nell'area per i criteri di ricerca viene visualizzata la risorsa. Selezionare la risorsa e premere **Salva**. 
 
-   ![Screenshot della pagina Controllo di accesso (IAM)](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
-   Per un set di scalabilità di macchine virtuali di Azure selezionare la pagina **Controllo di accesso (IAM)** della risorsa e quindi **+ Aggiungi**. Specificare un **ruolo** e **assegnare l'accesso**. Nell'area dei criteri di ricerca cercare il set di scalabilità di macchine virtuali. Selezionare la risorsa e premere **Salva**.
-   
-   ![Schermata del Controllo di accesso (IAM)](./media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
+   ![Schermata del Controllo di accesso (IAM)](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+     
+## <a name="next-steps"></a>Passaggi successivi
 
-4. Si apre di nuovo la pagina principale **Controllo di accesso (IAM)** in cui viene visualizzata una nuova voce per l'Identità del servizio gestito della risorsa.
-
-    Macchina virtuale di Azure:
-
-   ![Schermata del Controllo di accesso (IAM)](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
-
-    Set di scalabilità di macchine virtuali di Azure:
-
-    ![Schermata del Controllo di accesso (IAM)](./media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
-
-## <a name="troubleshooting"></a>risoluzione dei problemi
-
-Se l'Identità del servizio gestito per la risorsa non viene visualizzata nell'elenco delle identità disponibili, verificare che sia stata abilitata correttamente. In questo caso è possibile tornare alla macchina virtuale di Azure e controllare quanto segue:
-
-- Si esamina la pagina **Configurazione** e si verifica che il valore di **MSI enabled** (Identità del servizio gestito attivata) sia **Sì**.
-- Nella pagina **Estensioni** assicurarsi che l'identità del servizio gestito sia stata distribuita correttamente (la pagina **Estensioni** non è disponibile per un set di scalabilità di macchine virtuali di Azure).
-
-Se una delle due opzioni è errata, potrebbe essere necessario ridistribuire l'Identità del servizio gestito nella risorsa o risolvere il problema di distribuzione.
-
-## <a name="related-content"></a>Contenuti correlati
-
-- Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](overview.md).
-- Per abilitare l'identità del servizio gestito in una macchina virtuale di Azure, vedere [Configurare un'identità del servizio gestito della macchina virtuale di Azure mediante il portale di Azure](qs-configure-portal-windows-vm.md).
-- Per abilitare l'identità del servizio gestito in un set di scalabilità di macchine virtuali di Azure, vedere [Configurare un'identità del servizio gestito in un set di scalabilità di macchine virtuali di Azure tramite il portale di Azure](qs-configure-portal-windows-vmss.md)
+- [Panoramica delle identità gestite per le risorse di Azure](overview.md)
+- Per abilitare l'identità gestita in una macchina virtuale di Azure, vedere [Configurare identità gestite per risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md).
+- Per abilitare l'identità gestita in un set di scalabilità di macchine virtuali di Azure, vedere [Configurare identità gestite per risorse di Azure in un set di scalabilità di macchine virtuali tramite il portale di Azure](qs-configure-portal-windows-vmss.md).
 
 

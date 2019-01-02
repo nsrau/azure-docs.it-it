@@ -1,11 +1,12 @@
 ---
-title: Configurare un'identità comune per Data Science Virtual Machine - Azure | Microsoft Docs
-description: Configurare un'identità comune negli ambienti DSVM di un team aziendale.
-keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale, processo di data science del team
+title: Configurare un'identità comune per la Data Science Virtual Machine - Azure | Microsoft Docs
+description: Informazioni su come creare account utente comuni che possono essere usati tra più istanze di Data Science Virtual Machine. È possibile usare Azure Active Directory o un'istanza di Active Directory locale per l'autenticazione degli utenti alla Data Science Virtual Machine.
+keywords: deep learning, AI, strumenti di data science, data science virtual machine, analisi geospaziale, processo di data science per i team
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be7c63d3879c7ed89cd97eaecd6d59b6b5aadd4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436302"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075472"
 ---
-# <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configurare un'identità comune in Data Science Virtual Machine
+# <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configurare un'identità comune nella Data Science Virtual Machine
 
-In una macchina virtuale (VM) di Azure, inclusa Data Science Virtual Machine (DSVM), si creano gli account utente locali durante il provisioning della VM. Gli utenti eseguono quindi l'autenticazione alla VM usando queste credenziali. Se sono disponibili più macchine virtuali a cui è necessario accedere, questo approccio può diventare rapidamente oneroso per la gestione delle credenziali. La gestione e gli account utente comuni tramite un provider di identità basato su standard consentono di usare un singolo set di credenziali per accedere a più risorse in Azure, incluse più macchine virtuali di data science. 
+In una macchina virtuale (VM) di Azure, inclusa la Data Science Virtual Machine (DSVM), si creano gli account utente locali durante il provisioning della VM. Gli utenti eseguono quindi l'autenticazione alla VM usando queste credenziali. Se sono disponibili più macchine virtuali a cui è necessario accedere, questo approccio può diventare rapidamente oneroso per la gestione delle credenziali. La gestione e gli account utente comuni tramite un provider di identità basato su standard consentono di usare un singolo set di credenziali per accedere a più risorse in Azure, incluse più Data Science Virtual Machine. 
 
 Active Directory è un provider di identità molto diffuso ed è supportato in Azure come servizio e in locale. È possibile usare Azure Active Directory (Azure AD) o Active Directory locale per autenticare gli utenti in una DSVM autonoma o in un cluster di DSVM in un set di scalabilità di macchine virtuali. Questo risultato si ottiene aggiungendo le istanze di DSVM a un dominio di Active Directory. 
 
@@ -69,7 +70,7 @@ Active Directory Domain Services semplifica la gestione delle identità, fornend
 
    a. [Creare una condivisione di File di Azure](../../storage/files/storage-how-to-create-file-share.md).
     
-   b. Montarla nella macchina virtuale di data scienceLinux. Quando si seleziona il pulsante **Connetti** per la condivisione di File di Azure nel proprio account di archiviazione nel portale di Azure, viene visualizzato il comando per l'esecuzione nella shell di Bash nella DSVM Linux. Il comando è simile al seguente:
+   b. Montarla nella DSVM Linux. Quando si seleziona il pulsante **Connetti** per la condivisione di File di Azure nel proprio account di archiviazione nel portale di Azure, viene visualizzato il comando per l'esecuzione nella shell di Bash nella DSVM Linux. Il comando è simile al seguente:
    
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp

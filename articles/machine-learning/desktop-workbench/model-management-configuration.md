@@ -2,8 +2,8 @@
 title: Installazione e configurazione di Gestione modelli di Azure Machine Learning | Microsoft Docs
 description: Questo documento descrive la procedura e i concetti coinvolti nell'installazione e nella configurazione di Gestione modelli in Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d10f61e6276b1ce0a0237e3cf2e35a68edf4a0cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968714"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257581"
 ---
 # <a name="model-management-setup"></a>Installazione di Gestione modelli
 
@@ -91,7 +91,7 @@ Per iniziare è necessario configurare l'ambiente di distribuzione. L'impostazio
 
 Una volta completata l'installazione dell'ambiente:
 - Viene visualizzata la richiesta di accedere ad Azure. Per accedere, usare un Web browser per aprire la pagina https://aka.ms/devicelogin e immettere il codice fornito per l'autenticazione.
-- Durante il processo di autenticazione viene richiesta l'autenticazione con un account. Importante: selezionare un account che dispone di una sottoscrizione di Azure valida e di autorizzazioni sufficienti per creare risorse nell'account. -Quando il log è completo, vengono presentate le informazioni riguardanti la sottoscrizione e viene chiesto se si desidera continuare con l'account selezionato.
+- Durante il processo di autenticazione viene richiesta l'autenticazione con un account. Importante: selezionare un account che dispone di una sottoscrizione di Azure valida e di autorizzazioni sufficienti per creare risorse nell'account. Al termine della procedura di accesso, vengono presentate le informazioni riguardanti la sottoscrizione e viene chiesto se si vuole continuare con l'account selezionato.
 
 ### <a name="environment-setup"></a>Configurazione dell'ambiente
 Per avviare il processo di installazione, è necessario registrare il provider dell'ambiente immettendo il comando seguente:

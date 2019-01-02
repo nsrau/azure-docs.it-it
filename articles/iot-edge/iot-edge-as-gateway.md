@@ -1,5 +1,5 @@
 ---
-title: Usare dispositivi Azure IoT Edge come gateway | Microsoft Docs
+title: 'Gateway per dispositivi downstream: Azure IoT Edge | Microsoft Docs'
 description: Azure IoT Edge può essere usato per creare un dispositivo gateway trasparente, opaco o proxy che invia i dati da più dispositivi downstream al cloud o li elabora in locale.
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 11/01/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 53f0f1e77f8879807b2fb93b86d825e3bd044f41
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 6e54d28d494a58966ea5312492dc79ced4c50a8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567214"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092282"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Come usare un dispositivo Azure IoT Edge come gateway
 
@@ -26,7 +27,7 @@ Esistono tre modelli per l'uso di un dispositivo IoT Edge come gateway: traspare
 * **Conversione di protocollo**: nota anche come modello di gateway opaco. I dispositivi che non supportano MQTT, AMQP o HTTP usano un dispositivo gateway per inviare dati all'hub IoT. Il gateway identifica il protocollo usato dai dispositivi downstream, ma è l'unico dispositivo con un'identità nell'hub IoT. Tutte le informazioni sembrano provenire da un unico dispositivo, il gateway. I dispositivi downstream devono incorporare informazioni di identificazione aggiuntive nei messaggi se le applicazioni cloud prevedono di analizzare i dati per singolo dispositivo. Inoltre, le primitive dell'hub IoT, come i dispositivi gemelli e i metodi, sono disponibili solo per il dispositivo gateway e non per i dispositivi downstream.
 * **Conversione di identità**: i dispositivi che non possono connettersi all'hub IoT si connettono invece a un dispositivo gateway. Il gateway fornisce la conversione di protocollo e identità dell'hub IoT per conto dei dispositivi downstream. Il gateway è abbastanza intelligente da identificare il protocollo usato dai dispositivi downstream, fornire loro l'identità e convertire le primitive dell'hub IoT. I dispositivi downstream appaiono nell'hub IoT come dispositivi di prima classe con dispositivi gemelli e metodi. Un utente può interagire con i dispositivi nell'hub IoT senza essere a conoscenza del dispositivo gateway intermedio.
 
-![Diagrammi dei modelli di gateway](./media/iot-edge-as-gateway/edge-as-gateway.png)
+![Diagramma - Modelli di gateway trasparente, di protocollo e di identità](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
 ## <a name="use-cases"></a>Casi d'uso
 Tutti i modelli di gateway offrono i vantaggi seguenti:

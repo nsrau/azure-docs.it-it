@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ab90b4431a0f8d3a4ee70869e053174f89f23dba
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: fdc45f6f1fbbb4580b71a46740fa51278b869ec0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785216"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889311"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limiti di memoria e concorrenza per Azure SQL Data Warehouse
 Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure SQL Data Warehouse. Per altre informazioni e per applicare queste funzionalità al piano di gestione del carico di lavoro, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md). 
@@ -27,10 +27,14 @@ Nelle tabelle seguenti viene illustrata la capacità massima per il data warehou
 
 ### <a name="gen2"></a>Seconda generazione
 
-Seconda generazione fornisce 2.5 x in più di memoria per ogni query rispetto alla Prima generazione. Questa memoria aggiuntiva aiuta la Seconda generazione a fornire prestazioni veloci.  I livelli di prestazioni per la Seconda generazione sono compresi tra DW500c e DW30000c. 
+Seconda generazione fornisce 2.5 x in più di memoria per ogni query rispetto alla Prima generazione. Questa memoria aggiuntiva aiuta la Seconda generazione a fornire prestazioni veloci.  I livelli di prestazioni per la Seconda generazione sono compresi tra DW100c e DW30000c. 
 
 | Livello di prestazioni | Nodi di calcolo | Distribuzioni per nodo di calcolo | Memoria per data warehouse (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW100c            | 1             | 60                             |    60                          |
+| DW200c            | 1             | 60                             |   120                          |
+| DW300c            | 1             | 60                             |   180                          |
+| DW400c            | 1             | 60                             |   240                          |
 | DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
@@ -76,6 +80,10 @@ La tabella seguente illustra il numero massimo di query simultanee e di slot di 
 
 | Contratto | Numero massimo di query simultanee | Slot di concorrenza disponibili |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
+| DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
+| DW300c        | 12                         |   12                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
+| DW400c        | 16                         |   16                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
@@ -92,7 +100,7 @@ La tabella seguente illustra il numero massimo di query simultanee e di slot di 
 **Classi di risorse dinamiche**
 
 > [!NOTE]
-> La classe di risorse smallrc in Seconda generazione aggiunge dinamicamente memoria con l'aumento del livello di servizio e supporta solo un massimo 32 query simultanee per DW1000c e 20 query simultanee per DW500c.  Se la capacità dell'istanza supera il livello DW1500c, la memoria e gli slot di concorrenza usati da smallrc aumentano in proporzione al livello di servizio. 
+> La classe di risorse smallrc in Seconda generazione aggiunge dinamicamente memoria con l'aumento del livello di servizio e supporta solo al massimo 32 query simultanee per DW1000c e 4 query simultanee per DW100c.  Se la capacità dell'istanza supera il livello DW1500c, la memoria e gli slot di concorrenza usati da smallrc aumentano in proporzione al livello di servizio. 
 >
 >
 
@@ -100,6 +108,10 @@ La tabella seguente illustra il numero massimo di query simultanee e di slot di 
 
 | Contratto | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot utilizzati da smallrc | Slot utilizzati da mediumrc | Slot utilizzati da largerc | Slot utilizzati da xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
+| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
+| DW300c        | 12                         |   12                        | 1                     |  1                     |  2                    |   8                    |
+| DW400c        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
 | DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |

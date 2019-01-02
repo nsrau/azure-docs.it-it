@@ -1,5 +1,5 @@
 ---
-title: Distribuire moduli Azure IoT Edge (VS Code) | Microsoft Docs
+title: Distribuire moduli da Visual Studio Code - Azure IoT Edge | Microsoft Docs
 description: Usare Visual Studio Code per distribuire i moduli in un dispositivo IoT Edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a7f0fc0c3169aadac78609830dda55ae1ec7ea46
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 212f103a356dc3663795a5e5453869c99da3fff9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567844"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100821"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Distribuire i moduli di Azure IoT Edge da Visual Studio Code
 
@@ -109,7 +110,7 @@ Per eseguire operazioni con l'hub IoT, è possibile usare le estensioni Azure Io
 
 2. Nella parte inferiore della finestra di esplorazione espandere la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). 
 
-   ![Espandere i dispositivi dell'hub IoT di Azure](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Espandere la sezione Azure IoT Hub Devices (Dispositivi dell'Hub IoT di Azure).](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
 3. Fare clic sui puntini di sospensione (**...**) nell'intestazione della sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure). Se i puntini di sospensione non sono visibili, passare il puntatore sull'intestazione. 
 

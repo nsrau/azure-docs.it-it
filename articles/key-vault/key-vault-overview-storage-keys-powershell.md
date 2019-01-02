@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 11/28/2018
-ms.openlocfilehash: 280d3a7783d689c6174ecf6d2b29e52bdbc42417
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7effcc82a737fd2914f06a2c475cece94adc84f3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634660"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841796"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Account di archiviazione gestita di Azure Key Vault - PowerShell
 
@@ -43,8 +43,10 @@ Gli esempi seguenti illustrano come consentire a Key Vault di gestire le chiavi 
 
 ## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Autorizzare Key Vault ad accedere all'account di archiviazione
 
-> [!TIP]
-> Azure AD assegna ad ogni applicazione registrata un'**[entità servizio](/azure/active-directory/develop/developer-glossary#service-principal-object)**, che svolge la funzione di identità dell'applicazione. All'entità servizio è quindi possibile concedere l'autorizzazione ad accedere ad altre risorse di Azure, ad esempio Key Vault, tramite il controllo degli accessi in base al ruolo. Key Vault è un'applicazione Microsoft pre-registrata in tutti i tenant di Azure AD con l'ID applicazione "cfa8b339-82a2-471a-a3c9-0fc0be7a4093".
+> [!IMPORTANT]
+> Un tenant Azure AD assegna ad ogni applicazione registrata un'**[entità servizio](/azure/active-directory/develop/developer-glossary#service-principal-object)**, che svolge la funzione di identità dell'applicazione. Viene usato l'ID di applicazione dell'entità servizio per concedere a tale entità l'autorizzazione ad accedere ad altre risorse di Azure tramite il controllo degli accessi in base al ruolo. Key Vault è un'applicazione Microsoft pre-registrata in tutti i tenant di Azure AD con lo stesso ID di applicazione all'interno di ogni cloud di Azure:
+> - I tenant di Azure AD nel cloud di Azure per enti pubblici usano l'ID di applicazione `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
+> - I tenant di Azure AD nel cloud pubblico di Azure e in tutti gli altri usano l'ID di applicazione `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 
 Prima che Key Vault possa accedere e gestire le chiavi dell'account di archiviazione, è necessario autorizzarlo ad accedere all'account di archiviazione. L'applicazione Key Vault richiede inoltre apposite autorizzazioni per *elencare* e *rigenerare* le chiavi di un account di archiviazione. Queste autorizzazioni vengono abilitate tramite il ruolo predefinito Controllo degli accessi in base al ruolo [Ruolo del servizio dell'operatore della chiave dell'account di archiviazione](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
 
@@ -56,6 +58,7 @@ $resourceGroupName = "rgContoso"
 $storageAccountName = "sacontoso"
 $storageAccountKey = "key1"
 $keyVaultName = "kvContoso"
+$keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # See "IMPORTANT" block above for information on Key Vault Application IDs
 
 # Authenticate your PowerShell session with Azure AD, for use with Azure Resource Manager cmdlets
 $azureProfile = Connect-AzureRmAccount
@@ -64,7 +67,7 @@ $azureProfile = Connect-AzureRmAccount
 $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
 
 # Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
-New-AzureRmRoleAssignment -ApplicationId “cfa8b339-82a2-471a-a3c9-0fc0be7a4093” -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
+New-AzureRmRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
 Se l'assegnazione del ruolo ha esito positivo, l'output dovrebbe essere simile all'esempio seguente:
@@ -102,7 +105,6 @@ Tenere presente che le autorizzazioni per gli account di archiviazione non sono 
 Usando la stessa sessione di PowerShell, creare un account di archiviazione gestito nell'istanza di Key Vault. L'opzione `-DisableAutoRegenerateKey` specifica di NON rigenerare le chiavi dell'account di archiviazione.
 
 ```azurepowershell-interactive
-
 # Add your storage account to your Key Vault's managed storage accounts
 Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
@@ -129,8 +131,6 @@ Se si vuole che Key Vault rigeneri periodicamente le chiavi dell'account di arch
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
-$accountName = $storage.StorageAccountName
-
 Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 

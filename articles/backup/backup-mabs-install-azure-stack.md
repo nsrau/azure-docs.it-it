@@ -3,23 +3,22 @@ title: Installare il server di Backup di Azure in Azure Stack | Microsoft Docs
 description: Usare il server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro in Azure Stack.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: server di Backup di Azure; protezione dei carichi di lavoro; backup dei carichi di lavoro
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
-ms.author: markgal
-ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: raynew
+ms.openlocfilehash: 1e8c8efa590b6cce4543255dd33afbfd79aecef6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576698"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877168"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -91,7 +90,7 @@ La macchina virtuale del server di Backup di Azure deve appartenere a un dominio
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Uso di una VM IaaS in Azure Stack
 
-Quando si sceglie un server per il server di Backup di Azure, usare come punto di partenza un'immagine della raccolta di Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) offre un'esercitazione che consente di acquisire familiarità con la macchina virtuale consigliata. I requisiti minimi consigliati per la macchina virtuale (VM) server sono A2 Standard con due core e 3,5 GB di RAM.
+Quando si sceglie un server per il server di Backup di Azure, usare come punto di partenza un'immagine della raccolta di Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) offre un'esercitazione che consente di acquisire familiarità con la macchina virtuale consigliata. I requisiti minimi consigliati per la macchina virtuale server sono A2 Standard con due core e 3,5 GB di RAM.
 
 La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. L'articolo [Installare DPM come una macchina virtuale di Azure](https://technet.microsoft.com/library/jj852163.aspx)ne illustra i diversi aspetti. Prima di distribuire la macchina leggere interamente questo articolo.
 

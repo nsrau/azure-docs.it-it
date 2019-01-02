@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: a9f4a4ed4a8771f32a4d66aed2457a43abb92a63
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: c55a80749506b0a03af2f8c5f0179b67c8a78d15
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295330"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016743"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Problemi noti e limitazioni dell'importazione dell'API
 ## <a name="about-this-list"></a>Informazioni sull'elenco
 Quando si importa un'API è possibile riscontrare delle restrizioni o identificare dei problemi che è necessario correggere per completare l'importazione. L'articolo illustra questi aspetti, organizzati in base al formato di importazione dell'API.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger
-Se si ottengono errori durante l'importazione del documento OpenAPI, assicurarsi che sia stato convalidato: usare la finestra di progettazione nel portale di Azure (Progettazione - Front End - Editor della specifica OpenAPI) o usare uno strumento di terze parti come <a href="http://editor.swagger.io">Swagger Editor</a>.
+Se si ottengono errori durante l'importazione del documento OpenAPI, assicurarsi che sia stato convalidato: usare la finestra di progettazione nel portale di Azure (Progettazione - Front End - Editor della specifica OpenAPI) o usare uno strumento di terze parti come <a href="https://editor.swagger.io">Swagger Editor</a>.
 
 * È supportato solo il formato JSON per OpenAPI.
 * I parametri obbligatori per percorso e query devono avere nomi univoci. In OpenAPI un nome di parametro deve essere univoco solo entro la posizione, ad esempio il percorso, la query o l'intestazione.  In Gestione API, invece, le operazioni possono essere discriminate da parametri sia di percorso che di query (cosa che OpenAPI non supporta). Pertanto è necessario che i nomi dei parametri siano univoci all'interno dell'intero modello di URL.
@@ -34,6 +34,7 @@ Se si ottengono errori durante l'importazione del documento OpenAPI, assicurarsi
 * I puntatori **$ref** non possono fare riferimento a file esterni.
 * **x-ms-paths** e **x-servers** sono le uniche estensioni supportate.
 * Le estensioni personalizzate vengono ignorate in fase di importazione e non vengono salvate o mantenute per l'esportazione.
+* **Ricorsione**: le definizioni definite in modo ricorsivo, che, ad esempio, fanno riferimento a se stesse, non sono supportate da APIM.
 
 > [!IMPORTANT]
 > Vedere questo [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) per informazioni importanti e suggerimenti correlati all'importazione OpenAPI.

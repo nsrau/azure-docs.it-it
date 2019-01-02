@@ -3,7 +3,7 @@ title: Limiti delle risorse basate su vCore per il database SQL di Azure - pool 
 description: Questa pagina descrive alcuni limiti delle risorse comuni basate su vCore per i pool elastici nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6673fa9d377400d7e80fc95dc7d0ce12f4b2e60e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: f41974c6e2b2b0565f0a2703cfd638777a6bb9eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354173"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878024"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limiti del modello di acquisto in base ai vCore per il database SQL di Azure per i pool elastici
 
@@ -42,7 +42,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Supporto per columnstore|Yes|Yes|Yes|Yes|Yes|Yes|
+|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Yes|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Dimensioni massime dei dati (GB)|512|756|1536|2048|3584|4096|
@@ -67,7 +67,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|5|5|5|5|5|5|5|5|
 |vCore|2|4|8|16|24|32|40|80|
 |Memoria (GB)|11|22|44|88|132|176|220|440|
-|Supporto per columnstore|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Sì|Yes|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Dimensioni massime dei dati (GB)|512|756|1536|2048|3072|4096|4096|4096|
@@ -94,7 +94,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Supporto per columnstore|Yes|Yes|Yes|Yes|Yes|Yes|
+|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Yes|
 |Archiviazione OLTP in memoria (GB)|1|2|4|8|20|36|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1024|1024|
@@ -108,7 +108,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |Numero di repliche|3|3|3|3|3|3|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
-|Scalabilità orizzontale in lettura|Yes|Yes|Yes|Yes|Yes|Yes|
+|Scalabilità orizzontale in lettura|Yes|Sì|Sì|Sì|Sì|Yes|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||
 
@@ -119,7 +119,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|5|5|5|5|5|5|5|5|
 |vCore|2|4|8|16|24|32|40|80|
 |Memoria (GB)|11|22|44|88|132|176|220|440|
-|Supporto per columnstore|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Supporto per columnstore|Yes|Sì|Sì|Sì|Sì|Sì|Sì|Yes|
 |Archiviazione OLTP in memoria (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
@@ -133,7 +133,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|N/D|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Numero di repliche|3|3|3|3|3|3|3|3|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Scalabilità orizzontale in lettura|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Scalabilità orizzontale in lettura|Yes|Sì|Sì|Sì|Sì|Sì|Sì|Yes|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||
 

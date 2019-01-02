@@ -3,22 +3,21 @@ title: Presentazione di Azure Advisor | Microsoft Docs
 description: Usare Azure Advisor per ottimizzare le distribuzioni di Azure.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: e1d7edef304dc91829066f19b6974f0bcf0be0a5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.author: kasparks
+ms.openlocfilehash: 747ce8dc4a4e4c8ac1e26e5b051a431176096d71
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141117"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015977"
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
 
@@ -64,7 +63,7 @@ Se non si intende agire immediatamente, è possibile posporre il consiglio per u
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Per quali risorse fornisce consigli Advisor?
 
-Advisor fornisce consigli per macchine virtuali, set di disponibilità, gateway applicazione, Servizi app, SQL Server e Cache Redis.
+Advisor fornisce consigli per macchine virtuali, set di disponibilità, gateway applicazione, Servizi app, SQL Server e Cache Redis di Azure.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>È possibile posporre o ignorare un consiglio?
 

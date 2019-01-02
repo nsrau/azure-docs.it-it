@@ -1,5 +1,6 @@
 ---
-title: Regole in uscita in Azure Load Balancer | Microsoft Docs
+title: Regole in uscita in Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Usare le regole in uscita per definire le conversioni per gli indirizzi di rete in uscita
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: ab09eb939d760a0f06be758fdf83591565aaf7d0
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219376"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185019"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regole in uscita di Load Balancer
 
@@ -67,9 +69,9 @@ La versione "2018-07-01" dell'API supporta una definizione di regola in uscita s
 
 Anche se una regola in uscita può essere usata con un singolo indirizzo IP pubblico, le regole in uscita semplificano l'impegno di configurazione per la scalabilità di NAT in uscita. È possibile usare più indirizzi IP per gestire scenari su larga scala e le regole in uscita per risolvere i problemi dei modelli soggetti a [esaurimento delle porte SNAT](load-balancer-outbound-connections.md#snatexhaust).  
 
-Ogni indirizzo IP aggiuntivo fornito da un front-end rende disponibili 64.000 porte temporanee che Load Balancer può usare come porte SNAT. Mentre le regole di bilanciamento del carico o le regole NAT in ingresso hanno un unico front-end, la regola in uscita espande il concetto di front-end e consente più front-end per ogni regola.  Con più front-end per ogni regola, la quantità di porte SNAT disponibili è moltiplicata per ogni indirizzo IP pubblico e si possono supportare scenari di grandi dimensioni.
+Ogni indirizzo IP aggiuntivo fornito da un front-end rende disponibili 51.200 porte temporanee che Load Balancer può usare come porte SNAT. Mentre le regole di bilanciamento del carico o le regole NAT in ingresso hanno un unico front-end, la regola in uscita espande il concetto di front-end e consente più front-end per ogni regola.  Con più front-end per ogni regola, la quantità di porte SNAT disponibili è moltiplicata per ogni indirizzo IP pubblico e si possono supportare scenari di grandi dimensioni.
 
-Inoltre, è possibile usare un [prefisso IP pubblico](https://aka.ms/lbpublicipprefix) direttamente con una regola in uscita.  L'uso del prefisso IP pubblico consente di gestire più facilmente la scalabilità e l'elenco degli elementi consentiti per i flussi provenienti dalla distribuzione di Azure. È possibile configurare una configurazione IP front-end all'interno della risorsa Load Balancer in modo da fare riferimento direttamente a un prefisso di indirizzo IP pubblico.  In questo modo Load Balancer ha il controllo esclusivo sul prefisso IP pubblico e la regola in uscita userà automaticamente tutti gli indirizzi IP pubblici compresi nel prefisso per le connessioni in uscita.  Ognuno degli indirizzi IP all'interno dell'intervallo del prefisso IP pubblico rende disponibili 64.000 porte temporanee per ogni indirizzo IP utilizzabili da Load Balancer come porte SNAT.   
+Inoltre, è possibile usare un [prefisso IP pubblico](https://aka.ms/lbpublicipprefix) direttamente con una regola in uscita.  L'uso del prefisso IP pubblico consente di gestire più facilmente la scalabilità e l'elenco degli elementi consentiti per i flussi provenienti dalla distribuzione di Azure. È possibile configurare una configurazione IP front-end all'interno della risorsa Load Balancer in modo da fare riferimento direttamente a un prefisso di indirizzo IP pubblico.  In questo modo Load Balancer ha il controllo esclusivo sul prefisso IP pubblico e la regola in uscita userà automaticamente tutti gli indirizzi IP pubblici compresi nel prefisso per le connessioni in uscita.  Ognuno degli indirizzi IP all'interno dell'intervallo del prefisso IP pubblico rende disponibili 51.200 porte temporanee per ogni indirizzo IP utilizzabili da Load Balancer come porte SNAT.   
 
 Non è possibile creare singole risorse indirizzo IP pubblico dal prefisso IP pubblico quando si usa questa opzione perché la regola in uscita deve avere il controllo completo del prefisso IP pubblico.  Se è necessario disporre di un controllo più granulare, è possibile creare una singola risorsa indirizzo IP pubblico dal prefisso IP pubblico e assegnare più indirizzi IP pubblici singolarmente al front-end di una regola in uscita.
 
@@ -82,7 +84,7 @@ Usare il parametro seguente per allocare 10.000 porte SNAT per ogni macchina vir
 
           "allocatedOutboundPorts": 10000
 
-Ogni indirizzo IP pubblico da tutti i front-end di una regola in uscita rende disponibili fino a 64.000 porte temporanee da usare come porte SNAT.  Load Balancer alloca le porte SNAT in multipli di 8. Se si specifica un valore non divisibile per 8, l'operazione di configurazione viene rifiutata.  Se si tenta di allocare più porte SNAT di quante ne siano disponibili in base al numero di indirizzi IP pubblici, l'operazione di configurazione viene rifiutata.  Ad esempio, se si allocano 10.000 porte per ogni macchina virtuale e 7 macchine virtuali in un back-end pool condividono un singolo indirizzo IP pubblico, la configurazione viene rifiutata (7 x 10.000 porte SNAT > 64.000 porte SNAT).  È possibile aggiungere altri indirizzi IP al front-end della regola in uscita per abilitare questo scenario.
+Ogni indirizzo IP pubblico da tutti i front-end di una regola in uscita rende disponibili fino a 51.200 porte temporanee da usare come porte SNAT.  Load Balancer alloca le porte SNAT in multipli di 8. Se si specifica un valore non divisibile per 8, l'operazione di configurazione viene rifiutata.  Se si tenta di allocare più porte SNAT di quante ne siano disponibili in base al numero di indirizzi IP pubblici, l'operazione di configurazione viene rifiutata.  Ad esempio, se si allocano 10.000 porte per ogni macchina virtuale e 7 macchine virtuali in un back-end pool condividono un singolo indirizzo IP pubblico, la configurazione viene rifiutata (7 x 10.000 porte SNAT > 51.200 porte SNAT).  È possibile aggiungere altri indirizzi IP al front-end della regola in uscita per abilitare questo scenario.
 
 È possibile tornare all'[allocazione automatica delle porte SNAT basata sulle dimensioni dei pool back-end](load-balancer-outbound-connections.md#preallocatedports) specificando 0 per il numero di porte.
 
@@ -160,7 +162,7 @@ Se non si desidera che la regola di bilanciamento del carico venga usata per il 
 
 È possibile usare le regole in uscita per ottimizzare l'[allocazione automatica delle porte SNAT in base alle dimensioni del pool back-end](load-balancer-outbound-connections.md#preallocatedports).
 
-Ad esempio, con due macchine virtuali che condividono un singolo indirizzo IP pubblico per NAT in uscita, potrebbe essere utile aumentare il numero di porte SNAT allocate rispetto alle 1024 porte predefinite, se si verifica l'esaurimento delle porte SNAT. Ogni indirizzo IP pubblico può rendere disponibili fino a 64.000 porte temporanee.  Se si configura una regola in uscita con un singolo front-end per indirizzi IP pubblici, è possibile distribuire un totale di 64.000 porte SNAT alle macchine virtuali nel pool back-end.  Per due macchine virtuali, è possibile allocare un massimo di 32.000 porte SNAT con una regola in uscita (2 x 32.000 = 64.000).
+Ad esempio, con due macchine virtuali che condividono un singolo indirizzo IP pubblico per NAT in uscita, potrebbe essere utile aumentare il numero di porte SNAT allocate rispetto alle 1024 porte predefinite, se si verifica l'esaurimento delle porte SNAT. Ogni indirizzo IP pubblico può rendere disponibili fino a 51.200 porte temporanee.  Se si configura una regola in uscita con un singolo front-end per indirizzi IP pubblici, è possibile distribuire un totale di 51.200 porte SNAT alle macchine virtuali nel pool back-end.  Per due macchine virtuali, è possibile allocare un massimo di 25.600 porte SNAT con una regola in uscita (2 x 25.600 = 51.200).
 
 Vedere le informazioni sulle [connessioni in uscita](load-balancer-outbound-connections.md) e i dettagli su come vengono allocate e usate le porte [SNAT](load-balancer-outbound-connections.md#snat).
 
@@ -202,7 +204,7 @@ Quando si usa un Load Balancer Standard interno, NAT in uscita non è disponibil
 
 ## <a name="limitations"></a>Limitazioni
 
-- Il numero massimo di porte temporanee utilizzabili per ogni indirizzo IP front-end è 64.000.
+- Il numero massimo di porte temporanee utilizzabili per ogni indirizzo IP front-end è 51.200.
 - L'intervallo del timeout di inattività in uscita configurabile è compreso tra 4 a 66 minuti (da 240 a 4000 secondi).
 - Load Balancer non supporta ICMP per NAT in uscita.
 - Non è possibile usare il portale per configurare o visualizzare le regole in uscita.  Usare in alternativa i modelli, l'API REST, l'interfaccia della riga di comando di Azure 2.0 o PowerShell.

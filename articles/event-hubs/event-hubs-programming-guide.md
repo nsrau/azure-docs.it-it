@@ -1,22 +1,22 @@
 ---
-title: Guida alla programmazione per Hub eventi di Azure | Documentazione Microsoft
-description: Scrivere il codice per Hub eventi di Azure mediante Azure .NET SDK.
+title: Guida alla programmazione - Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce informazioni su come scrivere codice per Hub eventi di Azure tramite Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 ms.service: event-hubs
+ms.custom: seodec18
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: f2ae9835c412b177a1b80044613a45eb96dfeeb8
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007774"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138076"
 ---
-# <a name="event-hubs-programming-guide"></a>Guida alla programmazione di Hub eventi
-
+# <a name="programming-guide-for-azure-event-hubs"></a>Guida alla programmazione per Hub eventi di Azure
 Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md).
 
 ## <a name="event-publishers"></a>Autori di eventi
@@ -55,7 +55,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="send-events-to-an-event-hub"></a>Inviare eventi a un hub eventi
 
-Gli eventi vengono inviati a un hub eventi tramite la creazione di un'istanza di [EventHubClient][] e l'invio di quest'ultima in modo asincrono con il metodo [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync). Questo metodo accetta un singolo parametro dell'istanza di [EventData][] e lo invia in modo sincrono a un hub eventi.
+Gli eventi vengono inviati a un hub eventi tramite la creazione di un'istanza di [EventHubClient][] e l'invio di quest'ultima in modo asincrono con il metodo [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync). Questo metodo accetta un singolo parametro dell'istanza di [EventData][] e lo invia in modo asincrono a un hub eventi.
 
 ## <a name="event-serialization"></a>Serializzazione degli eventi
 
@@ -76,7 +76,7 @@ Quando si inviano i dati degli eventi, è possibile specificare un valore di cui
 
 ### <a name="availability-considerations"></a>Considerazioni sulla disponibilità
 
-L'uso di una chiave di partizione è facoltativo. È consigliabile valutare attentamente se farne uso o meno. La chiave di partizione è un'ottima scelta se l'ordine degli eventi è importante. Quando si usa una chiave di partizione, queste partizioni richiedono la disponibilità in un singolo nodo. Nel tempo possono verificarsi interruzioni, ad esempio al riavvio dei nodi di calcolo e all'applicazione di patch. Di conseguenza, se si imposta un ID di partizione e per qualche motivo la partizione diventa non disponibile, il tentativo di accedere ai dati della partizione avrà esito negativo. Se è prioritaria la disponibilità elevata, non specificare alcuna chiave di partizione. In questo caso gli eventi vengono inviati alle partizioni con il modello round robin descritto in precedenza. In questo scenario viene esercitata una scelta esplicita tra disponibilità (nessun ID di partizione) e coerenza (aggiunta di eventi a un ID di partizione).
+L'uso di una chiave di partizione è facoltativo. È consigliabile valutare attentamente se farne uso o meno. Se non si specifica una chiave di partizione quando si pubblica un evento, viene usata un'assegnazione round robin. La chiave di partizione è un'ottima scelta se l'ordine degli eventi è importante. Quando si usa una chiave di partizione, queste partizioni richiedono la disponibilità in un singolo nodo. Nel tempo possono verificarsi interruzioni, ad esempio al riavvio dei nodi di calcolo e all'applicazione di patch. Di conseguenza, se si imposta un ID di partizione e per qualche motivo la partizione diventa non disponibile, il tentativo di accedere ai dati della partizione avrà esito negativo. Se è prioritaria la disponibilità elevata, non specificare alcuna chiave di partizione. In questo caso gli eventi vengono inviati alle partizioni con il modello round robin descritto in precedenza. In questo scenario viene esercitata una scelta esplicita tra disponibilità (nessun ID di partizione) e coerenza (aggiunta di eventi a un ID di partizione).
 
 Va anche considerata la gestione dei ritardi nell'elaborazione degli eventi. In alcuni casi è preferibile eliminare i dati e riprovare anziché continuare a provare e mantenere attiva l'elaborazione, poiché ciò può sommare altro ritardo all'elaborazione downstream. Con i titoli azionari, ad esempio, è consigliabile attendere il completamento dell'aggiornamento dei dati, ma nel caso di una chat in tempo reale o in uno scenario VOIP è preferibile ottenere i dati rapidamente, anche se non sono completi.
 

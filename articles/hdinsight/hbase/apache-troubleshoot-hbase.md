@@ -3,17 +3,17 @@ title: Risolvere i problemi di HBase con Azure HDInsight
 description: Risposte alle domande comuni sull'uso di HBase e Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: nitinver
-ms.author: nitinver
-ms.custom: hdinsightactive
+author: hrasheed-msft
+ms.author: hrasheed
+ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
-ms.date: 7/7/2017
-ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.openlocfilehash: b39c01e76ba3ec21f0cd2d16b86da5664e1d5002
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317229"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014675"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache HBase tramite Azure HDInsight
 
@@ -288,7 +288,7 @@ In *hbase: meta* non è elencato alcun indirizzo del server per l'area xxx.
 
 ### <a name="detailed-description"></a>Descrizione dettagliata
 
-In un cluster Linux potrebbe essere visualizzato un messaggio che indica che la tabella *hbase: meta* non è online. L'esecuzione di `hbck` potrebbe segnalare che non è stato possibile trovare la tabella hbase: meta con replicaId 0 in alcuna area. Il problema potrebbe essere che non è stato possibile inizializzare HMaster dopo il riavvio di HBase. Nei log di HMaster viene visualizzato un messaggio che segnala che in hbase: meta non è elencato alcun indirizzo del server per l'area "hbase: backup \<region name\>".  
+In un cluster Linux potrebbe essere visualizzato un messaggio che indica che la tabella *hbase: meta* non è online. L'esecuzione di `hbck` potrebbe segnalare che non è stato possibile trovare la tabella hbase: meta con replicaId 0 in alcuna area. Il problema potrebbe essere che non è stato possibile inizializzare HMaster dopo il riavvio di HBase. Nei log di HMaster potrebbe essere visualizzato un messaggio che segnala che in hbase: meta non è elencato alcun indirizzo del server per l'area "hbase: backup \<nome area\>".  
 
 ### <a name="resolution-steps"></a>Procedura per la risoluzione
 
@@ -319,7 +319,7 @@ In un cluster Linux potrebbe essere visualizzato un messaggio che indica che la 
 
 ### <a name="error"></a>Tipi di errore
 
-Si verifica il timeout di HMaster con un'eccezione irreversibile di tipo java.io.IOException, che indica un timeout di 300.000 millisecondi in attesa dell'assegnazione della tabella namespace.
+Timeout di HMaster con un'eccezione irreversibile simile a "java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned" (Timeout di 300.000 millisecondi in attesa dell'assegnazione della tabella namespace).
 
 ### <a name="detailed-description"></a>Descrizione dettagliata
 
@@ -344,7 +344,7 @@ Si tratta di un problema noto relativo al servizio HMaster. Le attività di avvi
 
 ### <a name="issue"></a>Problema
 
-È possibile prevenire un errore di avvio in un server di area seguendo le procedure consigliate. Quando si pianifica il riavvio di server di area di HBase, è consigliabile sospendere le attività con carichi di lavoro elevati. Se l'applicazione continua a connettersi ai server di area mentre è in corso l'arresto, l'operazione di riavvio dei server di area verrà rallentata di diversi minuti. È anche opportuno scaricare prima tutte le tabelle. Per informazioni su come scaricare le tabelle, vedere [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) (HBase in HDInsight: come migliorare i tempi di riavvio del cluster Apache HBase scaricando le tabelle).
+È possibile prevenire un errore di avvio in un server di area seguendo le procedure consigliate. Quando si pianifica il riavvio di server di area di HBase, è consigliabile sospendere le attività con carichi di lavoro elevati. Se l'applicazione continua a connettersi ai server di area mentre è in corso l'arresto, l'operazione di riavvio dei server di area verrà rallentata di diversi minuti. È anche opportuno scaricare prima tutte le tabelle. Per informazioni di riferimento su come scaricare le tabelle, vedere [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) (HBase di HDInsight: come migliorare il tempo di riavvio dei cluster Apache HBase scaricando le tabelle).
 
 Se l'operazione di riavvio sui server di area di HBase viene avviata dall'interfaccia utente di Apache Ambari, viene visualizzato immediatamente che i server di area sono stati arrestati, ma non vengono riavviati subito. 
 

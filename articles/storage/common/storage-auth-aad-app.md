@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 03dd056363cd99f5354dc10ed5ae328eb39c3ec2
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: b817723120f07de9159e47c1259a68eb95b9c2e3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291063"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140779"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Eseguire l'autenticazione con Azure Active Directory da un'applicazione per l'accesso ai BLOB e alle code (anteprima)
 
@@ -66,7 +66,7 @@ La finestra **Autorizzazioni necessarie** mostra ora che l'applicazione di Azure
 
 ![Screenshot che mostra le autorizzazioni dell'app registrata](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
-## <a name="net-code-example-create-a-block-blob"></a>Esempio di codice .NET: creare un BLOB in blocchi
+## <a name="net-code-example-create-a-block-blob"></a>Esempio di codice .NET: Creare un BLOB in blocchi
 
 L'esempio di codice mostra come ottenere un token di accesso da Azure AD. Il token di accesso viene usato per l'autenticazione dell'utente specificato e quindi per l'autorizzazione di una richiesta di creazione di un BLOB in blocchi. Per rendere operativo questo esempio, seguire prima di tutto i passaggi forniti nelle sezioni precedenti.
 
@@ -79,11 +79,11 @@ L'esempio di codice mostra come ottenere un token di accesso da Azure AD. Il tok
 
 Per autenticare un'entità di sicurezza con Azure AD, è necessario includere alcuni valori ben noti nel codice.
 
-#### <a name="azure-ad-oauth-endpoint"></a>Endpoint OAuth di Azure AD
+#### <a name="azure-ad-authority"></a>Autorità Azure AD
 
-L'endpoint dell'autorità di base di Azure AD per OAuth 2.0 è il seguente, dove *tenant-id* è l'ID tenant di Active Directory (o ID directory):
+Per il cloud pubblico di Microsoft, l'autorità di base di Azure AD è la seguente, dove *tenant-id* è l'ID tenant di Active Directory (o ID directory):
 
-`https://login.microsoftonline.com/<tenant-id>/oauth2/token`
+`https://login.microsoftonline.com/<tenant-id>/`
 
 L'ID tenant identifica il tenant di Azure AD da usare per l'autenticazione. Per recuperare l'ID tenant, seguire i passaggi descritti in **Ottenere l'ID tenant per Azure Active Directory**.
 
@@ -138,11 +138,11 @@ Aggiungere quindi un metodo per richiedere un token da Azure AD. Per richiedere 
 static string GetUserOAuthToken()
 {
     const string ResourceId = "https://storage.azure.com/";
-    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token";
+    const string AuthInstance = "https://login.microsoftonline.com/{0}/";
     const string TenantId = "<tenant-id>"; // Tenant or directory ID
 
     // Construct the authority string from the Azure AD OAuth endpoint and the tenant ID. 
-    string authority = string.Format(CultureInfo.InvariantCulture, AuthEndpoint, TenantId);
+    string authority = string.Format(CultureInfo.InvariantCulture, AuthInstance, TenantId);
     AuthenticationContext authContext = new AuthenticationContext(authority);
 
     // Acquire an access token from Azure AD. 

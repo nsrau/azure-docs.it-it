@@ -1,5 +1,5 @@
 ---
-title: Creazione collaborativa di codice con Git - Azure Machine Learning | Microsoft Docs
+title: Creazione collaborativa di codice con Git - Processo di data science per i team
 description: Informazioni su come eseguire attività di sviluppo collaborativo di codice per i progetti di data science con Git tramite metodi di pianificazione Agile.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 4ea9aa10ba40d734e064d34da2536e28a619201f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 95285bf82fbf1582abcb5d95424b472d392a7a59
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444240"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134489"
 ---
 # <a name="collaborative-coding-with-git"></a>Creazione collaborativa di codice con Git
 

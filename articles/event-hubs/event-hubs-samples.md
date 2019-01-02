@@ -1,6 +1,6 @@
 ---
-title: Esempi di Hub eventi di Azure | Microsoft Docs
-description: Esempi di Hub eventi di Azure
+title: Esempi - Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce un elenco di esempi per Hub eventi di Azure disponibili su GitHub.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,20 +8,21 @@ manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/17/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3db77a31dfe92e16d2ec145cc0be595082d0d927
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7231b6a33c94dfe029f41f034c7674b386090d7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279382"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104051"
 ---
-# <a name="event-hubs-samples"></a>Esempi di Hub eventi 
+# <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Repository GIT con esempi per Hub eventi di Azure 
 È possibile trovare gli esempi di Hub eventi in [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Questi esempi illustrano le funzionalità principali di [Hub eventi di Azure](/azure/event-hubs/). Questo articolo suddivide gli esempi disponibili in categorie e fornisce una descrizione e un collegamento a ognuno di essi.
 
 ## <a name="net-samples"></a>Esempi .NET

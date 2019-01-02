@@ -1,26 +1,19 @@
 ---
-title: 'Aggiungere un gateway di rete virtuale a una rete virtuale per ExpressRoute: Portale: Azure | Documentazione Microsoft'
+title: 'Aggiungere un gateway a una rete virtuale Azure per ExpressRoute: Portale | Microsoft Docs'
 description: Questo articolo illustra come aggiungere un gateway di rete virtuale a una rete virtuale di Resource Manager già creata per ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/17/2017
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6198c8723ccbb225a4cc60526e66f4651390b26c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 37fe2e2adb947e2e9ddc86a34baf6994b5771be6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255694"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091204"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurare un gateway di rete virtuale per ExpressRoute usando il portale di Azure
 > [!div class="op_single_selector"]
@@ -46,7 +39,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
     * Spazio degli indirizzi della subnet = "192.168.1.0/24"
 * Gruppo di risorse = "TestRG"
 * Località = "Stati Uniti orientali"
-* Nome subnet del gateway: "GatewaySubnet" Il nome della subnet del gateway deve sempre essere *GatewaySubnet*.
+* Nome subnet del gateway: "GatewaySubnet". Il nome della subnet del gateway deve sempre essere *GatewaySubnet*.
     * Spazio degli indirizzi della subnet gateway = "192.168.200.0/26"
 * Nome del gateway = "ERGW"
 * Nome del gateway IP = "MyERGWVIP"
@@ -74,13 +67,13 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 2. Nel pannello **Crea gateway di rete virtuale** inserire i valori per il gateway di rete virtuale.
 
     ![Creare i campi nel pannello Gateway di rete virtuale](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Creare i campi nel pannello Gateway di rete virtuale")
-3. **Nome**: assegnare un nome al gateway. Questa operazione non è come quella utilizzata per assegnare un nome alla subnet del gateway. Si tratta del nome dell'oggetto gateway che verrà creato.
+3. **Nome**: Assegnare un nome al gateway. Questa operazione non è come quella utilizzata per assegnare un nome alla subnet del gateway. Si tratta del nome dell'oggetto gateway che verrà creato.
 4. **Tipo di gateway**: selezionare **ExpressRoute**.
 5. **SKU**: selezionare lo SKU del gateway dall'elenco a discesa.
-6. **Località**: modificare il campo **Località** in modo che faccia riferimento alla località in cui si trova la rete virtuale. Se la località non fa riferimento all'area in cui si trova la rete virtuale, quest'ultima non verrà visualizzata nell'elenco a discesa "Scegliere una rete virtuale".
+6. **Località**: Modificare il campo **Località** in modo che faccia riferimento alla località in cui si trova la rete virtuale. Se la località non fa riferimento all'area in cui si trova la rete virtuale, quest'ultima non verrà visualizzata nell'elenco a discesa "Scegliere una rete virtuale".
 7. Scegliere la rete virtuale a cui si vuole aggiungere il gateway. Fare clic su **Rete virtuale** per aprire il pannello **Scegliere una rete virtuale**. Selezionare la rete virtuale. Se la rete virtuale non viene visualizzata, verificare che il campo **Località** faccia riferimento all'area in cui si trova la rete virtuale.
 9. Definire un indirizzo IP pubblico. Fare clic su **Indirizzo IP pubblico** per aprire il pannello **Scegli indirizzo IP pubblico**. Fare clic su **+Crea nuovo** per aprire il pannello **Crea indirizzo IP pubblico**. Immettere un nome per l'indirizzo IP pubblico. Il pannello crea un oggetto indirizzo IP pubblico a cui verrà assegnato dinamicamente un indirizzo IP pubblico. Fare clic su **OK** per salvare le modifiche al pannello.
-10. **Sottoscrizione**: verificare che sia selezionata la sottoscrizione corretta.
+10. **Sottoscrizione** verificare che sia selezionata la sottoscrizione corretta.
 11. **Gruppo di risorse**: questa impostazione è determinata dalla rete virtuale selezionata.
 12. Non modificare il valore di **Località** dopo aver specificato le impostazioni precedenti.
 13. Verificare le impostazioni. È possibile selezionare **Aggiungi al dashboard** nella parte inferiore del pannello se si vuole che il gateway venga visualizzato nel dashboard.

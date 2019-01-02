@@ -1,5 +1,5 @@
 ---
-title: Importare dati in Ricerca di Azure nel portale | Documentazione Microsoft
+title: Importare dati nell'indice di ricerca usando il portale di Azure - Ricerca di Azure
 description: Informazioni su come usare la procedura guidata Importa dati nel portale di Azure per inserire i dati di Azure da Cosmos DB, archiviazione BLOB, archiviazione tabelle, database SQL e SQL Server in macchine virtuali di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: ceca9b8e89a963cd9a9226be143d24ed5429747b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004945"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316474"
 ---
 # <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Come importare i dati in Ricerca di Azure usando il portale di Azure
 
@@ -33,7 +34,7 @@ Internamente, la procedura guidata configurare e richiama un *indicizzatore*, au
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Origini dati supportate dalla procedura guidata Importa dati
 La procedura guidata Importa dati supporta le origini dati seguenti: 
 
-* database SQL di Azure
+* Database SQL di Azure
 * Dati relazionali di SQL Server in una macchina virtuale di Azure
 * Azure Cosmos DB
 * Archivio BLOB di Azure

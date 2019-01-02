@@ -1,24 +1,25 @@
 ---
-title: Guida alla migrazione dalla versione 1 alla versione 2 dell'interfaccia API
+title: Migrazione delle API da v1 a v2
 titleSuffix: Azure Cognitive Services
-description: Informazioni sulla migrazione al set di API più recente.
+description: La versione 1 delle API dell'endpoint e di creazione è deprecata. Usare questa guida per comprendere come eseguire la migrazione alla versione 2 delle API dell'endpoint e di creazione.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646576"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138824"
 ---
-# <a name="api-v2-migration-guide"></a>Guida alla migrazione di API a v2
-Le API [endpoint](https://aka.ms/v1-endpoint-api-docs) e [creazione ](https://aka.ms/v1-authoring-api-docs) versione 1 verranno deprecate. Usare questa guida per imparare a migrare le API [endpoint](https://aka.ms/luis-endpoint-apis) e [creazione](https://aka.ms/luis-authoring-apis) alla versione 2. 
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guida alla migrazione delle API da v1 a v2 per le app LUIS
+La versione 1 delle API dell'[endpoint](https://aka.ms/v1-endpoint-api-docs) e di [creazione](https://aka.ms/v1-authoring-api-docs) è deprecata. Usare questa guida per imparare a migrare le API [endpoint](https://aka.ms/luis-endpoint-apis) e [creazione](https://aka.ms/luis-authoring-apis) alla versione 2. 
 
 ## <a name="new-azure-regions"></a>Nuove regioni di Azure
 LUIS offre nuove [regioni](https://aka.ms/LUIS-regions) per le API LUIS. LUIS fornisce un sito Web diverso per i gruppi di regioni. L'applicazione deve essere creata nella stessa regione in cui si prevede di eseguire le query. Le applicazioni non eseguono automaticamente la migrazione delle regioni. Esportare l'app da una regione, quindi importarla in un'altra affinché sia disponibile in una nuova regione.
@@ -43,7 +44,7 @@ L'API endpoint presenta nuovi parametri querystring e una risposta diversa. Se i
 
 
 v1 endpoint success response:
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -54,7 +55,7 @@ v1 endpoint success response:
 ```
 
 v2 endpoint success response:
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {

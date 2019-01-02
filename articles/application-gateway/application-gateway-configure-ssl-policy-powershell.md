@@ -1,23 +1,19 @@
 ---
 title: Configurare i criteri SSL nel gateway applicazione di Azure - PowerShell
-description: Questa pagina contiene istruzioni per configurare i criteri SSL nel gateway applicazione di Azure
-documentationcenter: na
+description: Questo articolo contiene istruzioni per configurare i criteri SSL nel gateway applicazione di Azure
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/27/2018
+ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: 4c9ca5cee14603fb39115defc574aa7e956886ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7afa628ea455aa28f1717de8da66b631baeee4f1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30232137"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870454"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurare i pacchetti di crittografia e le versioni dei criteri SSL nel gateway applicazione
 
@@ -119,7 +115,8 @@ L'esempio seguente imposta criteri SSL personalizzati in un gateway applicazione
 
 > [!IMPORTANT]
 > Quando si configurano criteri SSL personalizzati, è necessario selezionare almeno un pacchetto di crittografia dell'elenco seguente. Il gateway applicazione usa il pacchetto di crittografia RSA SHA256 per la gestione del back-end.
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 > * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_RSA_WITH_AES_128_GCM_SHA256

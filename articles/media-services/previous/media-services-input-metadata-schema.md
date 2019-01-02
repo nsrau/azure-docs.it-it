@@ -6,32 +6,32 @@ manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: d72848e2-4b65-4c84-94bc-e2a90a6e7f47
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 1f37dcd14c1b3e85c3fae3bbf7aa67c16b8a898d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3eea59eba9fc1fc79a6f72a61860ee7e66a7df5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249009"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994276"
 ---
 # <a name="input-metadata"></a>Metadati di input
+
 Un processo di codifica è associato uno (o più) asset di input in cui si desidera eseguire alcune attività di codifica.  Al termine di un'attività, viene generato un asset di output.  L'asset di output contiene video, audio, anteprime, manifest e così via. L'asset di output include anche un file contenente i metadati dell'asset di input. Il nome del file XML dei metadati ha il seguente formato: &lt;asset_id&gt;_metadata.xml (ad esempio, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), dove &lt;asset_id&gt; è il valore AssetId dell'asset di input.  
+
+Servizi multimediali di Azure non analizza preventivamente gli asset di input per generare metadati. I metadati di input vengono generati solo come un artefatto quando un asset di input viene elaborato in un processo. L'artefatto viene quindi scritto nell'asset di output. Vengono usati strumenti diversi per generare metadati per gli asset di input e di output. Di conseguenza, i metadati di input hanno uno schema leggermente diverso rispetto ai metadati di output.
 
 Se si desidera esaminare il file di metadati, è possibile creare un localizzatore **SAS** e scaricare il file nel computer locale. È possibile trovare un esempio su come creare un localizzatore SAS e scaricare un file tramite le [estensioni dell'SDK .NET di Servizi multimediali](media-services-dotnet-get-started.md).  
 
 Questo articolo descrive gli elementi e i tipi di schema XML su cui si basato i metadati di input (&lt;asset_id&gt;_metadata.xml).  Per informazioni sul file contenente i metadati sull'asset di output, vedere [Output Metadata](media-services-output-metadata-schema.md) (Metadati di output).  
 
-> [!NOTE]
-> Il [codice schema](media-services-input-metadata-schema.md#code) completo e un [esempio di codice XML](media-services-input-metadata-schema.md#xml) sono disponibili alla fine di questo articolo.  
-> 
-> 
+Il [codice schema](media-services-input-metadata-schema.md#code) completo e un [esempio di codice XML](media-services-input-metadata-schema.md#xml) sono disponibili alla fine di questo articolo.  
+ 
 
 ## <a name="AssetFiles"></a> Elemento radice AssetFile
 Contiene una raccolta di [elementi AssetFile](media-services-input-metadata-schema.md#AssetFile) per il processo di codifica.  

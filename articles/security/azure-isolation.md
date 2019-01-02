@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239050"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310998"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 ##  <a name="introduction"></a>Introduzione
@@ -149,9 +149,7 @@ La piattaforma di calcolo di Azure si basa sulla virtualizzazione dei computer, 
 
 Ogni nodo ha anche un'apposita VM radice che esegue il sistema operativo host. Una delimitazione critica è l'isolamento della VM radice dalle VM guest e delle VM guest l'una dall'altra, gestita dall'hypervisor e dal sistema operativo radice. L'associazione di hypervisor e sistema operativo radice sfrutta decenni di esperienza di Microsoft nella sicurezza dei sistemi operativi e l'esperienza più recente con Microsoft Hyper-V per offrire l'isolamento avanzato delle macchine virtuali guest.
 
-La piattaforma Azure usa un ambiente virtualizzato. Le istanze utente funzionano come macchine virtuali autonome prive di accesso a un server host fisico e questo isolamento viene applicato usando i livelli di privilegi del processore (ring-0/ring-3) fisico.
-
-Ring 0 è il livello con più privilegi e 3 quello con meno privilegi. Il sistema operativo guest viene eseguito in un livello Ring 1 con meno privilegi e le applicazioni vengono eseguite nel livello con privilegi minimi Ring 3. Questa virtualizzazione delle risorse fisiche porta a una netta separazione tra il sistema operativo guest e l'hypervisor, con un'ulteriore separazione della sicurezza tra i due.
+La piattaforma Azure usa un ambiente virtualizzato. Le istanze utente funzionano come macchine virtuali autonome prive di accesso a un server host fisico.
 
 L'hypervisor di Azure funge da micro-kernel e passa tutte le richieste di accesso all'hardware dalle macchine virtuali guest all'host per elaborarle usando un'interfaccia di memoria condivisa denominata VMBus. Questo impedisce agli utenti di ottenere l'accesso in lettura/scrittura/esecuzione non elaborato al sistema e riduce il rischio di condividere le risorse di sistema.
 
@@ -295,7 +293,7 @@ Il database SQL è un servizio di database relazionale sul cloud Microsoft basat
 
 Il database di [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) è un servizio di database relazionale basato sul cloud che si avvale delle tecnologie SQL Server. Fornisce un servizio di database a disponibilità elevata, scalabile e multi-tenant ospitato da Microsoft nel cloud.
 
-Dal punto di vista dell'applicazione, SQL Azure fornisce la gerarchia seguente. Ogni livello ha una relazione di contenimento uno-a-molti per questi livelli.
+Dal punto di vista dell'applicazione, SQL Azure fornisce la gerarchia seguente: Ogni livello ha una relazione di contenimento uno-a-molti per questi livelli.
 
 ![Modello applicativo di SQL Azure](./media/azure-isolation/azure-isolation-fig10.png)
 
@@ -344,7 +342,7 @@ La distribuzione di Azure offre più livelli di isolamento della rete. Il diagra
 
 ![Isolamento della rete](./media/azure-isolation/azure-isolation-fig13.png)
 
-**Isolamento del traffico**: una [rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. L'isolamento è una proprietà essenziale che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
+**Isolamento del traffico:** una [rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. L'isolamento è una proprietà essenziale che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
 
 La [subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) offre un livello di isolamento aggiuntivo nella rete virtuale in base a un intervallo di indirizzi IP. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare un [gruppo di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) per consentire o negare il traffico di rete verso un'istanza di macchina virtuale in base alle regole configurate nell'elenco di controllo di accesso (ACL) del gruppo di sicurezza di rete. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet.
 

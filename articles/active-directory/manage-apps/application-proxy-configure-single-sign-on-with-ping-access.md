@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c5a69e0c15d6d75bb4f182c1d8f62863aae7c760
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282516"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140847"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
@@ -51,7 +51,7 @@ Questo articolo è destinato a chi pubblica un'app con questo scenario per la pr
 
 Se il proxy di applicazione è già attivato e si ha già un connettore installato, è possibile ignorare questa sezione e passare a [Aggiungere l'app in Azure AD con il proxy dell'applicazione](#add-your-app-to-azure-ad-with-application-proxy).
 
-Il connettore del proxy di applicazione è un servizio di Windows Server che indirizza il traffico dai dipendenti remoti alle app pubblicate. Per istruzioni di installazione più dettagliate, vedere [Abilitare il proxy di applicazione nel portale di Azure](application-proxy-enable.md).
+Il connettore del proxy di applicazione è un servizio di Windows Server che indirizza il traffico dai dipendenti remoti alle app pubblicate. Per istruzioni di installazione più dettagliate, vedere [Abilitare il proxy di applicazione nel portale di Azure](application-proxy-add-on-premises-application.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
 2. Selezionare **Azure Active Directory** > **Proxy dell'applicazione**.
@@ -66,20 +66,20 @@ Il connettore del proxy di applicazione è un servizio di Windows Server che ind
 
 Nel portale di Azure è necessario eseguire due azioni. Per prima cosa, si pubblica l'applicazione con il proxy di applicazione, quindi si raccolgono alcune informazioni sull'app che è possibile usare durante la procedura di PingAccess.
 
-Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettagliata dei passaggi 1-8, vedere [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-publish-azure-portal.md).
+Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettagliata dei passaggi 1-8, vedere [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-add-on-premises-application.md).
 
 1. Se non lo si è fatto nell'ultima sezione, accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
 2. Selezionare **Azure Active Directory** > **Applicazioni aziendali**.
 3. Selezionare **Aggiungi** nella parte superiore del pannello.
 4. Selezionare **Applicazione locale**.
 5. Compilare i campi obbligatori con le informazioni della nuova app. Usare le seguenti linee guida per le impostazioni:
-   - **URL interno**: normalmente si indica l'URL che porta alla pagina di accesso dell'app quando ci si trova nella rete aziendale. Per questo scenario il connettore deve trattare il proxy PingAccess come prima pagina dell'app. Usare il formato seguente: `https://<host name of your PA server>:<port>`. La porta 3000 per impostazione predefinita, ma è possibile configurarla in PingAccess.
+   - **URL interno**: in genere si indica l'URL che porta alla pagina di accesso dell'app quando ci si trova nella rete aziendale. Per questo scenario il connettore deve trattare il proxy PingAccess come prima pagina dell'app. Usare il formato seguente: `https://<host name of your PA server>:<port>`. La porta 3000 per impostazione predefinita, ma è possibile configurarla in PingAccess.
 
     > [!WARNING]
     > Per questo tipo di SSO, l'URL interno deve usare https e non può usare http.
 
    - **Metodo di autenticazione preliminare**: Azure Active Directory
-   - **Tradurre URL nelle intestazioni**: No
+   - **Convertire l'URL nelle intestazioni**: No 
 
    >[!NOTE]
    >Se si tratta della prima applicazione, usare inizialmente la porta 3000 e aggiornare questa impostazione se viene modificata la configurazione di PingAccess. Se si tratta almeno di una seconda app, è necessaria una corrispondenza con il listener configurato in PingAccess. Altre informazioni sui [listener in PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).

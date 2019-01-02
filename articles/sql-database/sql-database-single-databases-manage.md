@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/09/2018
-ms.openlocfilehash: 27228904dab0726a1d84e58751a3315f3ff03447
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.date: 12/03/2018
+ms.openlocfilehash: 52caae38c21fe403735b8479ec2e721ef38f521e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515387"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845794"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Creare e gestire server logici e database singoli in database SQL di Azure
 
@@ -57,7 +57,7 @@ Per gestire un database esistente, passare alla pagina **Database SQL** e fare c
 
 ## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell: gestire i database e i server logici
 
-Per creare e gestire server, database e firewall SQL di Azure con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Per creare e gestire server logici, database singoli e in pool e firewall di server logici di SQL di Azure con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 > [!TIP]
 > Per gli script di esempio di PowerShell, vedere [Usare PowerShell per creare un singolo database SQL di Azure e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-powershell.md) e [Monitorare e ridimensionare un database SQL singolo usando PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -114,15 +114,14 @@ Per creare e gestire server, database e firewall SQL di Azure con l'[interfaccia
 Per creare e gestire server, database e firewall SQL di Azure con Transact-SQL, usare i comandi T-SQL seguenti. È possibile eseguire questi comandi usando il portale di Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) o qualsiasi altro programma che può connettersi a un server di database SQL di Azure e passare comandi Transact-SQL. Per la gestione dei pool elastici, vedere [Pool elastici](sql-database-elastic-pool.md).
 
 > [!TIP]
-> Per una guida introduttiva per SQL Server Management Studio in Microsoft Windows, vedere [Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati](sql-database-connect-query-ssms.md). Per una guida introduttiva per Visual Studio Code in macOS, Linux o Windows, vedere [Database SQL di Azure: Usare Visual Studio Code per connettersi ai dati ed eseguire query](sql-database-connect-query-vscode.md).
+> Per una guida introduttiva per SQL Server Management Studio in Microsoft Windows, vedere [Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati](sql-database-connect-query-ssms.md). Per una guida introduttiva per Visual Studio Code in macOS, Linux o Windows, vedere [Database SQL di Azure: usare Visual Studio Code per connettersi ai dati ed eseguire query](sql-database-connect-query-vscode.md).
 > [!IMPORTANT]
 > Non è possibile creare o eliminare un server con Transact-SQL.
 
 | Comando | DESCRIZIONE |
 | --- | --- |
-|[CREATE DATABASE (database SQL di Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Crea un nuovo database. Per creare un nuovo database è necessario essere connessi al database master.|
-| [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica un database SQL di Azure. |
-|[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Modifica un Azure SQL Data Warehouse.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Crea un nuovo database singolo. Per creare un nuovo database è necessario essere connessi al database master.|
+| [ALTER DATABASE (database SQL di Azure)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica un database SQL di Azure. |
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Questo comando elimina un database.|
 |[sys.database_service_objectives (database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Restituisce l'edizione (livello di servizio), l'obiettivo di servizio (piano tariffario) e il nome del pool elastico, se presente, di un database SQL di Azure o un'istanza di Azure SQL Data Warehouse. Se si è connessi al database master in un server di database SQL di Azure, restituisce informazioni su tutti i database. Per Azure SQL Data Warehouse, è necessario essere connessi al database master.|
 |[sys.dm_db_resource_stats (database SQL di Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Restituisce il consumo di CPU, I/O e memoria per un database SQL di Azure. È presente una riga ogni 15 secondi, anche se non c'è attività di database.|
@@ -145,7 +144,7 @@ Per creare e gestire server, database e firewall SQL di Azure, usare queste rich
 |[Servers - Create Or Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crea o aggiorna un nuovo server.|
 |[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Elimina un server SQL.|
 |[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Ottiene un server.|
-|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Restituisce un elenco di server.|
+|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Restituisce un elenco di server in una sottoscrizione.|
 |[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Restituisce un elenco di server in un gruppo di risorse.|
 |[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Aggiorna un server esistente.|
 |[Database: crea o aggiorna](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|

@@ -1,5 +1,5 @@
 ---
-title: Come preparare un cambio di indirizzo IP in ingresso - Azure
+title: Preparare un cambio di indirizzo IP in ingresso - Servizio app di Azure
 description: Se l'indirizzo IP in ingresso sta per essere modificato, in questo articolo viene spiegato come procedere in modo che l'app continui a funzionare anche dopo la modifica.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 28741e858b0c938ec8b2b2ff983106c6b08e18fc
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 2a494b318011d601609033bc877134f0b0eeff09
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578219"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249329"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Come preparare un cambio di indirizzo IP in ingresso
 
@@ -23,7 +24,7 @@ Se si riceve una notifica di modifica l'indirizzo IP in ingresso dell'app Serviz
 
 ## <a name="determine-if-you-have-to-do-anything"></a>Determinare se sia necessario intraprendere qualche operazione
 
-* Opzione 1: se l'app del Servizio app di Azure non ha un dominio personalizzato, non è richiesta alcuna azione.
+* Opzione 1: se l'app del servizio app non ha un dominio personalizzato, non è richiesta alcuna azione.
 
 * Opzione 2: se nel portale di registrazione di dominio (provider DNS di terze parti o servizio DNS di Azure) è configurato solo un record CNAME (record DNS che punta a un URI), non è richiesta alcuna azione.
 
@@ -41,7 +42,7 @@ Il nuovo indirizzo IP in ingresso che viene assegnato all'app si trova nel porta
 
 3.  Selezionare il servizio app nell'elenco.
 
-4.  Se l'app è un'app per le funzioni, vedere [Function app inbound IP address](../azure-functions/ip-addresses.md#function-app-inbound-ip-address) (Indirizzo IP in ingresso dell'app per le funzioni).
+1.  Se l'app è un'app per le funzioni, vedere [Function app inbound IP address](../azure-functions/ip-addresses.md#function-app-inbound-ip-address) (Indirizzo IP in ingresso dell'app per le funzioni).
 
 4.  Sotto l'intestazione **Impostazioni** fare clic su **Proprietà** nel menu di spostamento a sinistra e individuare la sezione denominata **Indirizzo IP virtuale**.
 

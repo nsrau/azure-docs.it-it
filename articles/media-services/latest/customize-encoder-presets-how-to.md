@@ -1,23 +1,23 @@
 ---
-title: Codificare una trasformazione personalizzata usando Servizi multimediali di Azure v3 | Microsoft Docs
+title: Codificare una trasformazione personalizzata usando Servizi multimediali v3 - Azure | Microsoft Docs
 description: Questo argomento illustrato come usare Servizi multimediali di Azure v3 per codificare una trasformazione personalizzata.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: ''
-ms.date: 05/17/2018
+ms.custom: seodec18
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: d298070877a366d04b2df1ef8ac63b08f8771de0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c62d9132cdd7eb2ebcbecc3c417ad30d368a278a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659570"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138705"
 ---
 # <a name="how-to-encode-with-a-custom-transform"></a>Come codificare con una trasformazione personalizzata
 

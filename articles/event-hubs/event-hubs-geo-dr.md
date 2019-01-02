@@ -1,5 +1,5 @@
 ---
-title: Ripristino di emergenza geografico nel servizio Hub eventi di Azure | Microsoft Docs
+title: Ripristino di emergenza geografico - Hub eventi di Azure | Microsoft Docs
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza servizio Hub eventi di Azure
 services: event-hubs
 documentationcenter: ''
@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8d75e28f48749484dca2060bb16cff75109b5c87
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40002965"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091347"
 ---
-# <a name="azure-event-hubs-geo-disaster-recovery"></a>Ripristino di emergenza geografico nel servizio Hub eventi di Azure
+# <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
-In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
+In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
 
 La funzionalità di ripristino di emergenza geografico è disponibile a livello globale per lo SKU Standard di Hub eventi.
 
@@ -44,7 +45,7 @@ In questo articolo viene usata la terminologia seguente:
 
 -  *Spazio dei nomi primario/secondario*: spazi dei nomi corrispondenti all'alias. Lo spazio dei nomi primario è "attivo" e riceve i messaggi (può essere uno spazio dei nomi esistente o nuovo). Lo spazio dei nomi secondario è "passivo" e non riceve i messaggi. I metadati vengono sincronizzati tra entrambi gli spazi dei nomi, quindi entrambi possono facilmente accettare messaggi senza modifiche al codice dell'applicazione o alla stringa di connessione. Per fare in modo che solo lo spazio dei nomi attivo riceva i messaggi, è necessario usare l'alias. 
 
--  *Metadati*: entità come Hub eventi e gruppi di consumer e le relative proprietà del servizio associate allo spazio dei nomi. Si noti che solo le entità e le relative impostazioni vengono replicate automaticamente. I messaggi e gli eventi non vengono replicati. 
+-  *Metadati*: entità come hub eventi e gruppi di consumer e le relative proprietà del servizio associate allo spazio dei nomi. Si noti che solo le entità e le relative impostazioni vengono replicate automaticamente. I messaggi e gli eventi non vengono replicati. 
 
 -  *Failover*: processo di attivazione dello spazio dei nomi secondario.
 

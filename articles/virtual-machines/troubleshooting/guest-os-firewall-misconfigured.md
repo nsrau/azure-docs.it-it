@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ad659cfcf1bfdad440968da5568b993724a5f351
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319180"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137838"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Il firewall del sistema operativo guest della macchina virtuale di Azure non è configurato correttamente
 
@@ -33,7 +33,7 @@ Questo articolo illustra come correggere un errore di configurazione del firewal
 
 ## <a name="cause"></a>Causa
 
-Un errore di configurazione del firewall del sistema guest può bloccare tutti o solo alcuni tipi di traffico di rete verso la macchina virtuale. 
+Un errore di configurazione del firewall del sistema guest può bloccare tutti o solo alcuni tipi di traffico di rete verso la macchina virtuale.
 
 ## <a name="solution"></a>Soluzione
 
@@ -43,11 +43,11 @@ Per risolvere questo problema, usare la console seriale o [riparare la macchina 
 
 ## <a name="online-mitigations"></a>Procedure di mitigazione online
 
-Connettersi alla [console seriale e quindi aprire un'istanza di PowerShell](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Se la console seriale non è abilitata nella macchina virtuale, passare alla sezione "Riparare la macchina virtuale in modalità offline" dell'articolo di Azure seguente:
+Connettersi alla [console seriale e quindi aprire un'istanza di PowerShell](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Se la console seriale non è abilitata nella macchina virtuale, passare alla sezione "Riparare la macchina virtuale in modalità offline" dell'articolo di Azure seguente:
 
  [Si verifica un errore interno quando si prova a connettersi a una macchina virtuale di Azure tramite Desktop remoto](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
-Le regole seguenti possono essere modificate per abilitare l'accesso alla macchina virtuale (tramite RDP) o per offrire un'esperienza più semplice per la risoluzione dei problemi: 
+Le regole seguenti possono essere modificate per abilitare l'accesso alla macchina virtuale (tramite RDP) o per offrire un'esperienza più semplice per la risoluzione dei problemi:
 
 *   Desktop remoto (TCP-In): questa è la regola standard che fornisce l'accesso primario alla macchina virtuale consentendo connessioni RDP in Azure.
 
@@ -55,7 +55,7 @@ Le regole seguenti possono essere modificate per abilitare l'accesso alla macchi
 
 *   Condivisione file e stampanti (SMB-In): questa regola abilita l'accesso alle condivisioni di rete come opzione per la risoluzione dei problemi.
 
-*   Condivisione file e stampanti (richiesta echo - ICMPv4-In): questa regola consente di effettuare il ping sulla macchina virtuale. 
+*   Condivisione file e stampanti (richiesta echo - ICMPv4-In): questa regola consente di effettuare il ping sulla macchina virtuale.
 
 Nell'istanza di accesso della console seriale, è possibile eseguire una query sullo stato corrente della regola del firewall.
 
@@ -83,7 +83,7 @@ Nell'istanza di accesso della console seriale, è possibile eseguire una query s
     netsh advfirewall firewall set rule name="<RULE NAME>" new enable=yes
     ```
 
-*   Per risolvere il problema, è possibile impostare i profili firewall su OFF: 
+*   Per risolvere il problema, è possibile impostare i profili firewall su OFF:
 
     ```cmd
     netsh advfirewall set allprofiles state off

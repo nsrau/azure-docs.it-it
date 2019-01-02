@@ -4,14 +4,14 @@ description: Informazioni su come configurare un server di destinazione master L
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212370"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833313"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -41,7 +41,7 @@ Creare il server di destinazione master in base alle linee guida per il ridimens
 - **RAM**: almeno 6 GB
 - **Dimensioni disco sistema operativo**: almeno 100 GB (per installare il sistema operativo)
 - **Dimensioni disco aggiuntive per l'unità di conservazione**: 1 TB
-- **Core CPU**: almeno 4 core
+- **Core CPU**: almeno 4
 
 Sono supportati i kernel Ubuntu seguenti.
 

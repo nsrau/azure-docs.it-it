@@ -1,5 +1,5 @@
 ---
-title: Come gestire le scritture simultanee nelle risorse in Ricerca di Azure
+title: Come gestire le scritture simultanee nelle risorse - Ricerca di Azure
 description: Usare la concorrenza ottimistica per evitare conflitti a livello di aggiornamento o di eliminazione in indici, indicizzatori e origini dati di Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-ms.openlocfilehash: f5fa495c1266c847cabc0eb4e35b85132550bc3c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 017f665f3d0d19746854e2cf566034f801b32a04
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796381"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310243"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Come gestire la concorrenza in Ricerca di Azure
 
@@ -24,9 +25,9 @@ Quando si gestiscono le risorse di Ricerca di Azure, ad esempio indici e origini
 
 ## <a name="how-it-works"></a>Funzionamento
 
-La concorrenza ottimistica viene implementata tramite i controlli delle condizioni di accesso nelle chiamate API che scrivono in indici, indicizzatori, origini dati e risorse synonymMap. 
+La concorrenza ottimistica viene implementata tramite i controlli delle condizioni di accesso nelle chiamate API che scrivono in indici, indicizzatori, origini dati e risorse synonymMap.
 
-Tutte le risorse hanno un [*tag di entità (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) che fornisce informazioni sulla versione dell'oggetto. Controllando prima l'ETag, è possibile evitare aggiornamenti simultanei in un flusso di lavoro tipico (acquisizione, modifica locale, aggiornamento) assicurandosi che l'ETag della risorsa corrisponda alla copia locale. 
+Tutte le risorse hanno un [*tag di entità (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) che fornisce informazioni sulla versione dell'oggetto. Controllando prima l'ETag, è possibile evitare aggiornamenti simultanei in un flusso di lavoro tipico (acquisizione, modifica locale, aggiornamento) assicurandosi che l'ETag della risorsa corrisponda alla copia locale.
 
 + L'API REST usa un [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) nell'intestazione della richiesta.
 + .NET SDK imposta l'ETag tramite un oggetto accessCondition, impostando l'[intestazione If-Match | If-Match-None](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) per la risorsa. Tutti gli oggetti che ereditano da [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) hanno un oggetto accessCondition.
@@ -34,7 +35,7 @@ Tutte le risorse hanno un [*tag di entità (ETag)*](https://en.wikipedia.org/wik
 Ogni volta che si aggiorna una risorsa, l'ETag cambia automaticamente. Quando si implementa la gestione della concorrenza, si inserisce semplicemente una precondizione nella richiesta di aggiornamento, che obbliga la risorsa remota ad avere lo stesso ETag della copia della risorsa modificata nel client. Se un processo simultaneo ha già modificato la risorsa remota, l'ETag non soddisferà la precondizione e la richiesta genererà l'errore HTTP 412. Se si usa .NET SDK, viene generata una `CloudException` in cui il metodo di estensione `IsAccessConditionFailed()` restituisce true.
 
 > [!Note]
-> Esiste un solo meccanismo per la concorrenza, che viene sempre usato indipendentemente dall'API usata per gli aggiornamenti delle risorse. 
+> Esiste un solo meccanismo per la concorrenza, che viene sempre usato indipendentemente dall'API usata per gli aggiornamenti delle risorse.
 
 <a name="samplecode"></a>
 ## <a name="use-cases-and-sample-code"></a>Casi d'uso e codici di esempio
@@ -111,7 +112,7 @@ Il codice seguente illustra i controlli accessCondition per le principali operaz
             {
                 indexForClient2.Fields.Add(new Field("b", DataType.Boolean));
                 serviceClient.Indexes.CreateOrUpdate(
-                    indexForClient2, 
+                    indexForClient2,
                     accessCondition: AccessCondition.IfNotChanged(indexForClient2));
 
                 Console.WriteLine("Whoops; This shouldn't happen");
@@ -167,9 +168,9 @@ Il codice seguente illustra i controlli accessCondition per le principali operaz
 
 ## <a name="design-pattern"></a>Schema progettuale
 
-Uno schema progettuale per l'implementazione della concorrenza ottimistica deve includere un ciclo che recupera il controllo della condizione di accesso, un test per la condizione di accesso e, facoltativamente, una risorsa aggiornata prima di provare ad applicare di nuovo le modifiche. 
+Uno schema progettuale per l'implementazione della concorrenza ottimistica deve includere un ciclo che recupera il controllo della condizione di accesso, un test per la condizione di accesso e, facoltativamente, una risorsa aggiornata prima di provare ad applicare di nuovo le modifiche.
 
-Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice è tratto da [Esercitazione sui sinonimi (anteprima) in C# per Ricerca di Azure](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk). 
+Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice è tratto da [Esercitazione sui sinonimi (anteprima) in C# per Ricerca di Azure](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk).
 
 Il frammento ottiene l'indice "hotels", controlla la versione dell'oggetto in un'operazione di aggiornamento, genera un'eccezione se la condizione ha esito negativo e quindi esegue un nuovo tentativo di operazione (fino a tre volte), iniziando con il recupero dell'indice dal server per ottenere la versione più recente.
 
@@ -211,10 +212,11 @@ Per altre informazioni su come aggiornare in modo sicuro un indice esistente, ve
 
 Provare a modificare uno dei due esempi seguenti per includere ETag o oggetti AccessCondition.
 
-+ [Esempio di API REST in GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started) 
++ [Esempio di API REST in GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [Esempio di .NET SDK in GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Questa soluzione include il progetto "DotNetEtagsExplainer" contenente il codice presentato in questo articolo.
 
 ## <a name="see-also"></a>Vedere anche 
 
-  [Common HTTP request and response headers](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)   (Intestazioni della risposta e della richiesta HTTP comuni)  
-  [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) (Codici di stato HTTP) [Index operations (REST API)](https://docs.microsoft.com/\rest/api/searchservice/index-operations) (Operazioni sugli indici - API REST)
+[Common HTTP request and response headers (Intestazioni di richiesta e risposta HTTP comuni)](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+[HTTP status codes (Codici di stato HTTP)](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
+[Index operations (REST API) (Operazioni sugli indici - API REST)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 428f094dae2b9a69b58912190d2959a7dfc467ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ec5c75b5de912988efeb5167107f6d0dfe07da2e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365263"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139956"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Come fornire l'accesso remoto sicuro alle applicazioni locali
 
@@ -59,16 +59,16 @@ Con il proxy dell'applicazione di Azure AD è possibile accedere a tipi diversi 
 * App rich client integrate con Active Directory Authentication Library (ADAL)
 
 ## <a name="how-does-application-proxy-work"></a>Come funziona il proxy di applicazione?
-Vi sono due componenti da configurare per fare in modo che il proxy di applicazione funzioni: un connettore e un endpoint esterno. 
+Per il funzionamento del proxy applicazione, è necessario configurare due componenti: un connettore e un endpoint. 
 
 Il connettore è un agente semplice che si trova in un server di Windows all'interno della rete. Il connettore facilita il flusso del traffico del servizio Proxy di applicazione nel cloud per l'applicazione locale. Usa solo connessioni in uscita, per cui non è necessario aprire porte in ingresso né inserire nulla nella rete perimetrale. I connettori sono senza stato e prelevano le informazioni dal cloud in base alle esigenze. Per altre informazioni sui connettori, ad esempio come bilanciano il carico ed effettuano l'autenticazione, vedere [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-connectors.md). 
 
-L'endpoint esterno rappresenta il metodo attraverso il quale gli utenti raggiungono le applicazioni all'esterno della rete. Possono proseguire direttamente a un URL esterno determinato oppure accedere all'applicazione tramite il portale MyApps. Quando gli utenti proseguono verso uno di questi endpoint, si autenticano in Azure AD e quindi vengono instradati tramite il connettore all'applicazione locale.
+L'endpoint può essere un URL o un [portale per gli utenti finali](end-user-experiences.md). Gli utenti possono raggiungere le applicazioni all'esterno della rete accedendo a un URL esterno. Gli utenti all'interno della rete possono accedere all'applicazione tramite un URL o un portale per gli utenti finali. Quando gli utenti proseguono verso uno di questi endpoint, si autenticano in Azure AD e quindi vengono instradati tramite il connettore all'applicazione locale.
 
  ![Diagramma del proxy dell'applicazione di AzureAD](./media/application-proxy/azureappproxxy.png)
 
-1. L'utente accede all'applicazione tramite il servizio proxy di applicazione e viene reindirizzato alla pagina di accesso di Azure AD per l'autenticazione.
-2. Dopo avere completato l'accesso, un token viene generato e inviato al dispositivo client.
+1. Dopo che accede all'applicazione tramite un endpoint, l'utente viene reindirizzato alla pagina di accesso di Azure AD. 
+2. Una volta eseguito l'accesso, viene generato un token, che viene inviato al dispositivo client dell'utente.
 3. Il client invia il token al servizio proxy di applicazione che recupera dal token il nome dell'entità utente (UPN) e il nome dell'entità di sicurezza (SPN) e indirizza la richiesta al connettore proxy di applicazione.
 4. Se è stato configurato Single Sign-On, il connettore esegue le autenticazioni aggiuntive necessarie per conto dell'utente.
 5. Il connettore invia la richiesta all'applicazione locale.  
@@ -88,8 +88,8 @@ Prima di configurare Proxy di applicazione, assicurarsi di avere una [edizione d
 
 Introduzione a Proxy di applicazione in due passaggi:
 
-1. [Abilitazione del proxy dell'applicazione e configurazione del connettore](application-proxy-enable.md).    
-2. [Pubblicazione delle applicazioni](application-proxy-publish-azure-portal.md) : usare la procedura guidata, veloce e intuitiva, per pubblicare applicazioni locali e renderle accessibili in remoto.
+1. [Abilitazione del proxy dell'applicazione e configurazione del connettore](application-proxy-add-on-premises-application.md).    
+2. [Pubblicazione delle applicazioni](application-proxy-add-on-premises-application.md) : usare la procedura guidata, veloce e intuitiva, per pubblicare applicazioni locali e renderle accessibili in remoto.
 
 ## <a name="whats-next"></a>Passaggi successivi
 Dopo aver pubblicato la prima app, si può fare molto di più con il proxy di applicazione:
@@ -100,5 +100,5 @@ Dopo aver pubblicato la prima app, si può fare molto di più con il proxy di ap
 * [Usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md) 
 * [Impostare una home page personalizzata](application-proxy-configure-custom-home-page.md)
 
-Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](https://blogs.technet.com/b/applicationproxyblog/)
 

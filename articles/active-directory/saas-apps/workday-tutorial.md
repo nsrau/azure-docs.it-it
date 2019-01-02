@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Workday | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Workday | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Workday.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
-ms.openlocfilehash: 78b9fe704c5c8a1f81da480787f1791e88bf4f72
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c789f5fec9b31b53d316b23faad5c438b52137c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714719"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Esercitazione: Integrazione di Azure Active Directory con Workday
 
@@ -114,7 +114,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. Nella casella di testo **Identificatore** digitare un URL: `http://www.workday.com`
+    b. Nella casella di testo **Identificatore** digitare un URL: `https://www.workday.com`
 
 4. Selezionare **Mostra URL impostazioni avanzate** ed eseguire l'operazione seguente:
 
@@ -180,7 +180,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![SAML Identity Providers](./media/workday-tutorial/IC7829271.png "SAML Identity Providers")
 
-    a. Nella casella di testo **Identity Provider Name** (Nome provider di identità) digitare il nome del provider, ad esempio *SPInitiatedSSO*.
+    a. Nella casella di testo **Identity Provider Name** (Nome provider di identità) digitare il nome del provider, ad esempio *SPInitiatedSSO*).
 
     b. Nella finestra **Configura accesso** del portale di Azure copiare l'**ID entità SAML** e incollarlo nella casella dell'**autorità emittente**.
 
@@ -204,7 +204,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![View x509 Public Key](./media/workday-tutorial/IC782930.png "View x509 Public Key")
 
-    a. Nella casella di testo **Name** digitare un nome per il certificato, ad esempio *PPE\_SP*.
+    a. Nella casella di testo **Name** (Nome) digitare un nome per il certificato, ad esempio *PPE\_SP*).
 
     b. Nella casella di testo **Valid From** digitare il valore dell'attributo di inizio validità del certificato.
 
@@ -225,7 +225,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![SSO configuration](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO configuration")
 
-    a.  Nella casella di testo **Service Provider ID** (ID provider di servizi) digitare **http://www.workday.com**.
+    a.  Nella casella di testo **Service Provider ID** (ID provider di servizi) digitare **https://www.workday.com**.
 
     b. Selezionare **Do Not Deflate SP-initiated Authentication Request**.
 

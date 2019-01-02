@@ -1,6 +1,6 @@
 ---
-title: Dettagli di configurazione di rete per l'uso di Express Route
-description: Dettagli di configurazione di rete per eseguire ambienti del servizio app in reti virtuali connesse a un circuito ExpressRoute.
+title: Dettagli della configurazione di rete per Azure ExpressRoute - Servizio app
+description: Dettagli della configurazione di rete per l'ambiente del servizio app per PowerApps in reti virtuali connesse a un circuito Azure ExpressRoute.
 services: app-service
 documentationcenter: ''
 author: stefsch
@@ -14,125 +14,150 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.openlocfilehash: 7873192e4a66cd2faed5a1a1255377139d33d750
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: a9af97bcd85833a140d6c668fe4c757c85d7447a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616062"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337173"
 ---
-# <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute
-## <a name="overview"></a>Panoramica
-I clienti possono connettere un circuito [Azure ExpressRoute][ExpressRoute] all'infrastruttura di rete virtuale per estendere la rete locale ad Azure.  Un ambiente del servizio app può essere creato in una subnet di questa infrastruttura di [rete virtuale][virtualnetwork].  Le app in esecuzione nell'ambiente del servizio app possono quindi stabilire connessioni sicure a risorse back-end accessibili solo tramite la connessione ExpressRoute.  
+# <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Dettagli della configurazione di rete per l'ambiente del servizio app per PowerApps con Azure ExpressRoute
 
-Un ambiente del servizio app può essere creato **o** in una rete virtuale di Azure Resource Manager **o** in una rete virtuale del modello di distribuzione classica.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati. 
+I clienti possono connettere un circuito [Azure ExpressRoute][ExpressRoute] alla propria infrastruttura di rete virtuale per estendere la rete locale ad Azure. L'ambiente del servizio app viene creato in una subnet dell'infrastruttura di [rete virtuale][virtualnetwork]. Le app in esecuzione nell'ambiente del servizio app stabiliscono connessioni sicure alle risorse back-end accessibili solo tramite la connessione ExpressRoute.  
+
+È possibile creare un ambiente del servizio app negli scenari seguenti:
+- Reti virtuali di Azure Resource Manager.
+- Reti virtuali con il modello di distribuzione classica.
+- Reti virtuali che usano gli intervalli di indirizzi pubblici o gli spazi di indirizzi RFC1918, ovvero gli indirizzi privati. 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="required-network-connectivity"></a>Requisiti della connettività di rete
-Esistono requisiti di connettività di rete per gli ambienti del servizio app che potrebbero non essere inizialmente soddisfatti in una rete virtuale connessa a ExpressRoute.  I requisiti per il corretto funzionamento degli ambienti del servizio app sono i seguenti:
 
-* Connettività di rete in uscita per endpoint di archiviazione di Azure su entrambe le porte, 80 e 443.  Sono inclusi gli endpoint che si trovano nella stessa area dell'ambiente del servizio app, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure.  Gli endpoint di archiviazione di Azure vengono risolti nei seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
+L'ambiente del servizio app ha requisiti di connettività di rete che potrebbero non essere inizialmente soddisfatti in una rete virtuale connessa a ExpressRoute.
+
+Per funzionare correttamente, l'ambiente del servizio app richiede le impostazioni di connettività di rete seguenti:
+
+* Connettività di rete in uscita verso endpoint di Archiviazione di Azure in tutto il mondo su entrambe le porte, 80 e 443. Questi endpoint si trovano nella stessa area dell'ambiente del servizio app e anche in altre aree di Azure. Gli endpoint di Archiviazione di Azure vengono risolti nei domini DNS seguenti: table.core.windows.net, blob.core.windows.net, queue.core.windows.net e file.core.windows.net.  
+
 * Connettività di rete in uscita verso il servizio File di Azure sulla porta 445.
-* Connettività di rete in uscita agli endpoint Sql DB che si trovano nella stessa area dell'ambiente del servizio app.  Gli endpoint del database SQL vengono risolti nel dominio seguente: *database.windows.net*.  Ciò richiede l'apertura dell'accesso alle porte 1433, 11000-11999 e 14000-14999.  Per altri dettagli, vedere [questo articolo sull'uso delle porte per il database SQL versione 12](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
-* Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (sia gli endpoint ASM che quelli ARM).  È inclusa la connettività in uscita verso *management.core.windows.net* e *management.azure.com*. 
-* Connettività di rete in uscita verso *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*.  È necessario per supportare la funzionalità SSL.
-* La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti.  Se questi endpoint non possono essere risolti, il tentativo di creazione dell’ambiente del servizio App avrà esito negativo, e gli ambienti del servizio App esistenti verranno contrassegnati come non integri.
+
+* Connettività di rete in uscita verso gli endpoint del database SQL di Azure che si trovano nella stessa area dell'ambiente del servizio app. Gli endpoint del database SQL vengono risolti nel dominio database.windows.net, che richiede l'accesso completo alle porte 1433, 11000-11999 e 14000-14999. Per informazioni dettagliate sull'uso delle porte della versione 12 del database SQL, vedere [Porte successive alla 1433 per ADO.NET 4.5](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+
+* Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (endpoint del modello di distribuzione classica di Azure e di Azure Resource Manager). La connettività verso questi endpoint include i domini management.core.windows.net e management.azure.com. 
+
+* Connettività di rete in uscita verso i domini ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. La connettività a questi domini è necessaria per il supporto della funzionalità SSL.
+
+* La configurazione del DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati in questo articolo. Se gli endpoint non possono essere risolti, l'ambiente del servizio app non viene creato. Gli eventuali ambienti del servizio app esistenti vengono contrassegnati come non integri.
+
 * L'accesso in uscita sulla porta 53 è necessario per la comunicazione con i server DNS.
-* Se è presente un server DNS personalizzato nell’altra estremità di un gateway VPN, il server DNS deve essere raggiungibile dalla subnet che contiene l’ambiente di servizio app. 
-* Il percorso di rete in uscita non può attraversare i proxy aziendali interni, né può essere sottoposto a tunneling forzato all’ambiente locale.  In questo modo viene modificato l'indirizzo NAT effettivo del traffico di rete in uscita dall'ambiente di servizio app.  La modifica dell'indirizzo NAT del traffico di rete in uscita di un ambiente del servizio app provocherà errori di connettività a molti degli endpoint sopra elencati.  Ciò comporta dei tentativi non riusciti nella creazione dell’ambiente di servizio app, così come il fatto che ambienti di servizio app che prima erano integri vengano contrassegnati come non integri.  
-* L'accesso di rete in ingresso alle porte necessarie per gli ambienti del servizio app deve essere consentito come spiegato in questo [articolo][requiredports].
 
-I requisiti DNS possono essere soddisfatti garantendo che un'infrastruttura DNS valida venga configurata e mantenuta per la rete virtuale.  Se per qualsiasi motivo viene modificata la configurazione DNS dopo aver creato un ambiente di servizio app, gli sviluppatori possono forzare un ambiente di servizio app per selezionare la nuova configurazione del DNS.  L'attivazione di un riavvio di ambiente in sequenza con l'icona "Riavvia" disponibile nella parte superiore del pannello di gestione dell'ambiente del servizio app nel [portale di Azure][NewPortal] farà sì che l'ambiente selezioni la nuova configurazione del DNS.
+* Se è presente un server DNS personalizzato all'altra estremità di un gateway VPN, il server DNS deve essere raggiungibile dalla subnet che contiene l'ambiente del servizio app. 
 
-Per soddisfare i requisiti di accesso alla rete in ingresso, configurare un [gruppo di sicurezza di rete][NetworkSecurityGroups] nella subnet dell'ambiente del servizio app per consentire l'accesso necessario, come spiegato in questo [articolo][requiredports].
+* Il percorso di rete in uscita non può attraversare proxy aziendali interni né può essere sottoposto a tunneling forzato in locale. Queste azioni modificano l'indirizzo NAT effettivo del traffico di rete in uscita dall'ambiente del servizio app. Le modifiche all'indirizzo NAT del traffico di rete in uscita dell'ambiente del servizio app provocano errori di connettività per molti degli endpoint. L'ambiente del servizio app non viene creato. Gli eventuali ambienti del servizio app esistenti vengono contrassegnati come non integri.
 
-## <a name="enabling-outbound-network-connectivity-for-an-app-service-environment"></a>Abilitazione della connettività di rete in uscita per un ambiente del servizio app
-Per impostazione predefinita, un circuito ExpressRoute appena creato annuncia una route predefinita che consente la connettività Internet in uscita.  Con questa configurazione, un ambiente del servizio app sarà in grado di connettersi ad altri endpoint di Azure.
+* È necessario che sia consentito l'accesso di rete in ingresso alle porte necessarie per l'ambiente del servizio app. Per informazioni, vedere [Come controllare il traffico in ingresso a un ambiente del servizio app][requiredports].
 
-Tuttavia, secondo una diffusa configurazione, i clienti definiscono la propria route predefinita (0.0.0.0/0) verso la quale viene forzato il traffico Internet in uscita invece di far passare il flusso localmente.  Questo flusso di traffico interrompe sempre gli ambienti del servizio app perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure.
+Per soddisfare i requisiti del DNS, verificare che per la rete virtuale sia configurata e gestita un'infrastruttura DNS valida. Se la configurazione del DNS viene modificata dopo la creazione dell'ambiente del servizio app, gli sviluppatori possono forzare la selezione automatica della nuova configurazione. È possibile attivare un riavvio dell'ambiente in sequenza usando l'icona **Riavvia** nell'area di gestione dell'ambiente del servizio app nel [portale di Azure][NewPortal]. In seguito al riavvio, l'ambiente selezionerà automaticamente la nuova configurazione del DNS.
 
-La soluzione consiste nel definire una o più route definite dall'utente (UDR, User Defined Route) nella subnet contenente l'ambiente del servizio app.  Una route UDR definisce le route specifiche della subnet che verranno accettate invece della route predefinita.
+Per soddisfare i requisiti di accesso di rete in ingresso, configurare un [gruppo di sicurezza di rete][NetworkSecurityGroups] nella subnet dell'ambiente del servizio app. Il gruppo di sicurezza di rete consente l'accesso necessario [per controllare il traffico in ingresso all'ambiente del servizio app][requiredports].
 
-Se possibile, è consigliabile utilizzare la seguente configurazione:
+## <a name="outbound-network-connectivity"></a>Connettività di rete in uscita
 
-* La configurazione di ExpressRoute annuncia 0.0.0.0/0 e per impostazione predefinita esegue il tunneling forzato di tutto il traffico in uscita in un ambiente locale.
-* L’UDR applicato alla subnet contenente l'ambiente di servizio app definisce 0.0.0.0/0 con un tipo di hop successivo di Internet (è possibile trovare un esempio più avanti in questo articolo).
+Per impostazione predefinita, un circuito ExpressRoute appena creato annuncia una route predefinita che consente la connettività Internet in uscita. L'ambiente del servizio app può usare questa configurazione per connettersi ad altri endpoint di Azure.
 
-L'effetto combinato di questi passaggi è che il livello di subnet UDR avrà la precedenza sul tunneling forzato di ExpressRoute, garantendo l'accesso a Internet in uscita dall'ambiente di servizio app.
+In una configurazione diffusa, i clienti definiscono la propria route predefinita (0.0.0.0/0), forzando così il passaggio del flusso del traffico Internet in uscita attraverso la rete locale. Questo flusso di traffico ha invariabilmente l'effetto di interrompere l'ambiente del servizio app. Il traffico in uscita viene bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non funzionano più con i diversi endpoint di Azure.
+
+Per risolvere questo problema, impostare una o più route definite dall'utente (UDR, User Defined Route) nella subnet che contiene l'ambiente del servizio app. Una route definita dall'utente specifica le route della subnet che vengono accettate in sostituzione di quella predefinita.
+
+Se possibile, usare la configurazione seguente:
+
+* La configurazione di ExpressRoute annuncia 0.0.0.0/0 e, per impostazione predefinita, forza il tunneling di tutto il traffico in uscita nella rete locale.
+* La route definita dall'utente applicata alla subnet contenente l'ambiente del servizio app definisce 0.0.0.0/0 con un tipo di hop successivo di Internet. Un esempio di questa configurazione è descritto più avanti in questo articolo.
+
+Per effetto di questa configurazione, la route definita dall'utente a livello di subnet ha la precedenza sul tunneling forzato di ExpressRoute, garantendo così l'accesso a Internet in uscita dall'ambiente del servizio app.
 
 > [!IMPORTANT]
-> Le route definite in una route UDR **devono** essere sufficientemente specifiche da avere la precedenza su qualsiasi route annunciata dalla configurazione di ExpressRoute.  Nell'esempio di seguito viene utilizzato l'intervallo di indirizzi ampio 0.0.0.0/0 e pertanto può essere accidentalmente sottoposto a override dagli annunci di route mediante più intervalli di indirizzi specifici.
+> Le route specificate in una route definita dall'utente devono essere sufficientemente specifiche da avere la precedenza su qualsiasi route annunciata dalla configurazione di ExpressRoute. L'esempio descritto in questa sezione usa l'intervallo di indirizzi ampio 0.0.0.0/0. Su questo intervallo possono avere accidentalmente la precedenza gli annunci di route che usano intervalli di indirizzi più specifici.
 > 
-> Gli ambienti del servizio app non sono supportati con le configurazioni di ExpressRoute con **annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato**.  Le configurazioni di ExpressRoute che dispongono di peering pubblico configurato, riceveranno gli annunci di route da Microsoft per un elevato numero di intervalli di indirizzi IP di Microsoft Azure.  In caso di annuncio incrociato di questi intervalli di indirizzi nel percorso di peering privato, il risultato finale è che tutti i pacchetti di rete in uscita dalla subnet dell'ambiente di servizio app servizio verranno sottoposti a tunneling forzato verso un'infrastruttura di rete locale del cliente.  Questo flusso di rete non è attualmente supportato con ambienti del servizio app.  Una soluzione a questo problema consiste nell'interrompere l'annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato.
+> L'ambiente del servizio app non è supportato nel caso di configurazioni di ExpressRoute con annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato. Le configurazioni di ExpressRoute per cui è configurato il peering pubblico ricevono gli annunci delle route da Microsoft per un elevato numero di intervalli di indirizzi IP di Microsoft Azure. In caso di annuncio incrociato degli intervalli di indirizzi nel percorso di peering privato, tutti i pacchetti di rete in uscita dalla subnet dell'ambiente del servizio app vengono sottoposti a tunneling forzato verso un'infrastruttura di rete locale del cliente. Questo flusso di rete non è attualmente supportato con l'ambiente del servizio app. Una soluzione consiste nell'interrompere l'annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato.
 > 
 > 
 
-Le informazioni generali sulle route definite dall'utente sono disponibili in questa [panoramica][UDROverview].  
+Per informazioni generali sulle route definite dall'utente, vedere [Routing del traffico di rete virtuale][UDROverview].  
 
-Le informazioni dettagliate sulla creazione e la configurazione di route definite dall'utente sono disponibili in questa [guida alle procedure][UDRHowTo].
+Per informazioni su come creare e configurare route definite dall'utente, vedere [Indirizzare il traffico di rete con una tabella di route usando PowerShell][UDRHowTo].
 
-## <a name="example-udr-configuration-for-an-app-service-environment"></a>Esempio di configurazione UDR per un ambiente del servizio app
-**Prerequisiti**
+## <a name="udr-configuration"></a>Configurazione di route definita dall'utente
 
-1. Installare Azure PowerShell dalla [pagina di download di Azure][AzureDownloads] (con data giugno 2015 o successiva).  In "Strumenti da riga di comando" è presente un collegamento "Installa" in "Windows Powershell" che installerà i cmdlet di Powershell più recenti.
-2. È consigliabile creare una subnet univoca da usare esclusivamente in un ambiente del servizio app.  In questo modo le route UDR applicate alla subnet apriranno solo il traffico in uscita per l'ambiente del servizio app.
-3. **Importante**: distribuire l'ambiente del servizio app solo **dopo** aver eseguito questi passaggi di configurazione.  Questo assicura che la connettività di rete in uscita sia disponibile prima di tentare di distribuire un ambiente del servizio app.
+Questa sezione mostra un esempio di configurazione di route definita dall'utente per l'ambiente del servizio app.
 
-**Passaggio 1: Creare una tabella di route denominata**
+### <a name="prerequisites"></a>Prerequisiti
 
-Il frammento seguente crea una tabella di route denominata "DirectInternetRouteTable" nell'area di Azure Stati Uniti occidentali:
+* Installare Azure PowerShell dalla [pagina dei download di Azure][AzureDownloads]. Scegliere un download con la data del mese di giugno 2015 o una data successiva. In **Strumenti da riga di comando** > **Windows PowerShell**, selezionare **Installa** per installare i cmdlet di PowerShell più recenti.
 
-    New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest
+* Creare una subnet univoca da usare esclusivamente con l'ambiente del servizio app. In questo modo, le route definite dall'utente applicate alla subnet aprono solo il traffico in uscita per l'ambiente del servizio app.
 
-**Passaggio 2: Creare una o più route nella tabella di route**
+> [!IMPORTANT]
+> Distribuire l'ambiente del servizio app solo dopo aver completato la procedura di configurazione. Questi passaggi consentono di assicurarsi che la connettività di rete in uscita sia disponibile prima di tentare di distribuire l'ambiente del servizio app.
 
-Sarà necessario aggiungere una o più route alla tabella di route per consentire l'accesso Internet in uscita.  
+### <a name="step-1-create-a-route-table"></a>Passaggio 1: Creare una tabella di route
 
-L'approccio consigliato per la configurazione dell'accesso in uscita a Internet consiste nel definire una route per 0.0.0.0/0, come illustrato di seguito.
+Creare una tabella di route denominata **DirectInternetRouteTable** nell'area Stati Uniti occidentali di Azure, come mostrato in questo frammento di codice:
 
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
+`New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-Tenere presente che 0.0.0.0/0 è un intervallo di indirizzi ampio e verrà quindi sottoposto a override da intervalli di indirizzi più specifici annunciati da ExpressRoute.  Per reiterare il consiglio precedente, un UDR con una route 0.0.0.0/0 deve essere utilizzata insieme a una configurazione ExpressRoute che allo stesso modo annuncia solo 0.0.0.0/0. 
+### <a name="step-2-create-routes-in-the-table"></a>Passaggio 2: Creare route nella tabella
 
-In alternativa, è possibile scaricare un elenco completo e aggiornato di intervalli CIDR utilizzato da Azure.  Il file XML contenente tutti gli intervalli di indirizzi IP di Azure è disponibile nell'[Area download Microsoft][DownloadCenterAddressRanges].  
+Aggiungere route alla tabella per abilitare l'accesso in uscita a Internet.  
 
-Si noti tuttavia che questi intervalli cambiano nel tempo ed è quindi è necessario eseguire aggiornamenti manuali periodici delle route definite dall'utente per mantenere la sincronizzazione.  A causa del limite massimo predefinito di 100 route in una singola route UDR, inoltre, sarà necessario "riepilogare" gli intervalli di indirizzi IP di Azure per rientrare nel limite di 100 route, tenendo presente che le route definite come UDR devono essere più specifiche rispetto alle route annunciate da ExpressRoute.  
+Configurare l'accesso in uscita a Internet. Definire una route per 0.0.0.0/0 come mostrato in questo frammento di codice:
 
-**Passaggio 3: Associare la tabella di route alla subnet contenente l'ambiente del servizio app**
+`Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet`
 
-Nell'ultimo passaggio della configurazione si associa la tabella di route alla subnet in cui verrà distribuito l'ambiente del servizio app.  Il comando seguente associa "DirectInternetRouteTable" ad "ASESubnet" che alla fine conterrà un ambiente del servizio app.
+0.0.0.0/0 è un intervallo di indirizzi ampio. L'intervallo viene sostituito da intervalli di indirizzi più specifici annunciati da ExpressRoute. È consigliabile usare una route definita dall'utente con una route 0.0.0.0/0 insieme a una configurazione di ExpressRoute che annuncia solo 0.0.0.0/0. 
 
-    Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'
+In alternativa, scaricare un elenco completo e aggiornato di intervalli CIDR usati da Azure. Il file XML per tutti gli intervalli di indirizzi IP di Azure è disponibile nell'[Area download Microsoft][DownloadCenterAddressRanges].  
 
+> [!NOTE]
+>
+> Gli intervalli di indirizzi IP di Azure cambiano nel tempo. Le route definite dall'utente richiedono aggiornamenti manuali periodici per rimanere sincronizzate.
+>
+> Una singola route definita dall'utente ha un limite massimo predefinito di 100 route. È necessario compattare gli intervalli di indirizzi IP di Azure in modo da rientrare nel limite di 100 route. Le route definite dall'utente devono essere più specifiche rispetto a quelle annunciate dalla connessione ExpressRoute.
+> 
 
-**Passaggio 4: Procedura finale**
+### <a name="step-3-associate-the-table-to-the-subnet"></a>Passaggio 3: Associare la tabella alla subnet
 
-Una volta associata la tabella di route alla subnet, si consiglia di testare e verificare l'effetto desiderato.  Ad esempio, distribuire una macchina virtuale nella subnet e verificare che:
+Associare la tabella di route alla subnet in cui si intende distribuire l'ambiente del servizio app. Questo comando associa la tabella **DirectInternetRouteTable** alla subnet **ASESubnet** che conterrà l'ambiente del servizio app.
 
-* Il traffico in uscita per endpoint di Azure e non indicato in precedenza in questo articolo **non** è indirizzato verso il basso nel circuito ExpressRoute.  È molto importante verificare questo comportamento, poiché se il traffico in uscita dalla subnet è comunque sottoposto a tunneling forzato in un ambiente locale, la creazione dell’ambiente di servizio app avrà sempre esito negativo. 
-* Le ricerche DNS per gli endpoint indicati in precedenza hanno tutte esito positivo. 
+`Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'`
 
-Una volta che i passaggi sopra riportati vengono confermati, è necessario eliminare la macchina virtuale perché la subnet deve essere "vuota" al momento della creazione dell’ambiente di servizio app.
+### <a name="step-4-test-and-confirm-the-route"></a>Passaggio 4: Testare e confermare la route
 
-Procedere quindi con la creazione di un ambiente di servizio app.
+Dopo aver associato la tabella di route alla subnet, testare e confermare la route.
 
-## <a name="getting-started"></a>Introduzione
-Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][IntroToAppServiceEnvironment]
+Distribuire una macchina virtuale nella subnet e verificare queste condizioni:
+
+* Il traffico in uscita verso gli endpoint di Azure e non di Azure descritti in questo articolo **non** è indirizzato verso il circuito ExpressRoute. Se il traffico in uscita dalla subnet è sottoposto a tunneling forzato in locale, la creazione dell'ambiente del servizio app ha sempre esito negativo.
+* Le ricerche DNS per gli endpoint descritti in questo articolo hanno tutte esito positivo. 
+
+Dopo aver completato la procedura di configurazione e confermato la route, eliminare la macchina virtuale. Quando viene creato l'ambiente del servizio app, la subnet deve essere "vuota".
+
+A questo punto è tutto pronto per distribuire l'ambiente del servizio app.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per iniziare a usare l'ambiente del servizio app per PowerApps, vedere [Introduzione all'ambiente del servizio app][IntroToAppServiceEnvironment].
 
 <!-- LINKS -->
-[virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [requiredports]: app-service-app-service-environment-control-inbound-traffic.md
-[NetworkSecurityGroups]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[UDROverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
-[UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
-[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
-[AzureDownloads]: http://azure.microsoft.com/downloads/ 
-[DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653  
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
-[NewPortal]:  https://portal.azure.com
+[UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
+<!-- Old link -- [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ --> [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md [AzureDownloads]: https://azure.microsoft.com/downloads/ [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md [NewPortal]:  https://portal.azure.com
 
 
 <!-- IMAGES -->

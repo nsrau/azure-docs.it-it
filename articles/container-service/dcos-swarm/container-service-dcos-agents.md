@@ -1,5 +1,5 @@
 ---
-title: Pool di agenti DC/OS per il servizio contenitore di Azure
+title: (DEPRECATO) Pool di agenti DC/OS per il servizio Azure Container
 description: Informazioni sul funzionamento dei pool di agenti pubblici e privati con un cluster DC/OS del servizio contenitore di Azure
 services: container-service
 author: iainfoulds
@@ -9,20 +9,23 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9c614d18b96c182fa166a4bc43fb1bb2f8d5d6f5
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: ee1a2a75d6a003a6bc53c5216dd01d379193ea77
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976733"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994949"
 ---
-# <a name="dcos-agent-pools-for-azure-container-service"></a>Pool di agenti DC/OS per il servizio contenitore di Azure
+# <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(DEPRECATO) Pool di agenti DC/OS per il servizio Azure Container
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
 I cluster DC/OS nel servizio contenitore di Azure contengono nodi di agenti in due pool, uno pubblico e uno privato. Un'applicazione può essere distribuita indifferentemente in uno dei due pool, ma ciò influisce sull'accessibilità tra i computer nel servizio contenitore. I computer possono essere esposti a Internet (pubblico) o rimanere interni (privato). Questo articolo descrive brevemente il motivo per cui esistono i pool pubblici e i pool privati.
 
 
-* **Agenti privati**: i nodi di agenti privati vengono eseguiti tramite una rete non instradabile, accessibile unicamente dalla zona di amministrazione o attraverso il router perimetrale della zona pubblica. Per impostazione predefinita, il DC/OS avvia le applicazioni in nodi di agenti privati. 
+* **Agenti privati**: I nodi di agenti privati vengono eseguiti tramite una rete non instradabile, accessibile unicamente dalla zona di amministrazione o attraverso il router perimetrale della zona pubblica. Per impostazione predefinita, il DC/OS avvia le applicazioni in nodi di agenti privati. 
 
-* **Agenti pubblici**: i nodi di agenti pubblici eseguono app e servizi DC/OS attraverso una rete accessibile pubblicamente. 
+* **Agenti pubblici**: I nodi di agenti pubblici eseguono app DC/OS attraverso una rete accessibile pubblicamente. 
 
 Per altre informazioni sulla sicurezza della rete DC/OS, vedere la [documentazione di DC/OS](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
 

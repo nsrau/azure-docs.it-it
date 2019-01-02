@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496302"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015756"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
@@ -31,7 +31,7 @@ Lo script accetta i parametri seguenti:
 
 * __Chiave dell'account di archiviazione di Azure__: chiave che concede l'accesso all'account di archiviazione.
 
-* __-p__ (facoltativo): se questo parametro è specificato, la chiave non viene crittografata e viene archiviata nel file core-site.xml come testo normale.
+* __-p__ (facoltativo): se questo parametro viene specificato, la chiave non viene crittografata e viene archiviata nel file core-site.xml come testo normale.
 
 Durante l'elaborazione, lo script esegue le azioni seguenti:
 
@@ -95,7 +95,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Impostare `$PASSWORD` sulla password dell'account (admin) di accesso al cluster. Impostare `$CLUSTERNAME` sul nome del cluster HDInsight. Impostare `$STORAGEACCOUNTNAME` sul nome dell'account di archiviazione.
 >
-> Queste esempio usa [curl (http://curl.haxx.se/)](http://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) per recuperare e analizzare i dati JSON.
+> Queste esempio usa [curl (https://curl.haxx.se/)](https://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) per recuperare e analizzare i dati JSON.
 
 Quando si usa questo comando, sostituire __CLUSTERNAME__ con il nome del cluster HDInsight. Sostituire __PASSWORD__ con la password di accesso HTTP per il cluster. Sostituire __STORAGEACCOUNT__ con il nome dell'account di archiviazione aggiunto usando l'azione script. Le informazioni restituite da questo comando sono simili al testo seguente:
 

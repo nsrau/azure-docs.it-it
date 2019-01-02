@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2354bf02b47c9fbc74dbc0dab07e30ca321279cf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f517754a8076fc18ed29f7db49f6ff9bfc6c7b3d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43670065"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725761"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Panoramica degli account utente in Azure Active Directory B2C
 
@@ -25,11 +25,11 @@ Sono disponibili i tipi di account seguenti:
 
 - **Account aziendale**: un account aziendale può accedere alle risorse in un tenant; se dispone di un ruolo di amministratore, può gestire i tenant.
 - **Account guest**: un account guest può essere solo un account Microsoft o un utente di Azure AD che può essere usato per accedere alle applicazioni o gestire i tenant. 
-- **Account consumer**: un account consumer viene creato tramite criteri di iscrizione in un'applicazione di Azure AD B2C o usando l'API Graph di Azure AD; viene usato dagli utenti delle applicazioni registrate in Azure AD B2C. 
+- **Account consumer**: un account consumer viene creato tramite un flusso utente di iscrizione in un'applicazione di Azure AD B2C o usando l'API Graph di Azure AD. Viene usato dagli utenti delle applicazioni registrate in Azure AD B2C. 
 
 ## <a name="work-account"></a>Account aziendale
 
-La procedura per la creazione di un account aziendale è la stessa per tutti i tenant basati su Azure AD. Per creare un account aziendale, usare le informazioni contenute in [Guida introduttiva: Aggiungere nuovi utenti ad anteprima di Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Per creare un account aziendale usare l'opzione **Nuovo utente** nel portale di Azure.
+La procedura per la creazione di un account aziendale è la stessa per tutti i tenant basati su Azure AD. Per creare un account aziendale, usare le informazioni contenute in [Avvio rapido: Aggiungere o modificare utenti in Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Per creare un account aziendale usare l'opzione **Nuovo utente** nel portale di Azure.
 
 Quando si aggiunge un nuovo account aziendale, è necessario prendere in considerazione le impostazioni di configurazione seguenti:
 
@@ -46,21 +46,21 @@ Quando si aggiunge un nuovo account aziendale, è necessario prendere in conside
 
 Per creare un nuovo account aziendale è possibile usare le informazioni seguenti:
 
-- [portale di Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Portale di Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users)
 
 ### <a name="update-a-user-profile"></a>Aggiornare un profilo utente
 
 Per aggiornare un profilo utente è possibile usare le informazioni seguenti:
 
-- [portale di Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Portale di Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
 
 ### <a name="reset-a-password-for-a-user"></a>Reimpostare la password di un utente
 
 Per reimpostare la password di un utente è possibile usare le informazioni seguenti: 
 
-- [portale di Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Portale di Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
 
 ## <a name="guest-user"></a>Utente guest
@@ -73,7 +73,7 @@ Per invitare un utente guest è anche possibile usare l'[API Graph di Microsoft]
 
 ## <a name="consumer-user"></a>Utente consumer
 
-L'utente consumer può accedere ad applicazioni protette da Azure AD B2C, ma non alle risorse di Azure, ad esempio il portale di Azure.  Può usare un account locale o account federati come ad esempio Facebook o Twitter. L'account consumer viene creato usando [criteri di registrazione o di accesso](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+L'utente consumer può accedere ad applicazioni protette da Azure AD B2C, ma non alle risorse di Azure, ad esempio il portale di Azure.  Può usare un account locale o account federati come ad esempio Facebook o Twitter. L'account consumer viene creato usando un [flusso utente di iscrizione o di accesso](../active-directory-b2c/active-directory-b2c-reference-policies.md).
 
 È possibile specificare i dati raccolti quando viene creato un account consumer usando attributi utente personalizzati. Per altre informazioni, vedere [Definire attributi personalizzati in Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 

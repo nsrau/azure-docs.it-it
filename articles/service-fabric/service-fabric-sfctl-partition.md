@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 93478e5d13ef649b86ebc047f4e53f1486e2ff68
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c2bb1c0147d38b4286e2cdfb2d161eaa0704e393
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493954"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271488"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consente di eseguire una query e gestire partizioni per qualsiasi servizio.
@@ -47,8 +47,9 @@ Consente di eseguire una query e gestire partizioni per qualsiasi servizio.
 ## <a name="sfctl-partition-data-loss"></a>sfctl partition data-loss
 Questa API determinerà la perdita di dati per la partizione specificata.
 
-Avvierà una chiamata all'API OnDataLossAsync della partizione.  Questa API determinerà la perdita di dati per la partizione specificata. Avvierà una chiamata all'API OnDataLoss della partizione. La perdita di dati effettiva dipenderà dalla modalità DataLossMode specificata. <br> PartialDataLoss: viene rimosso solo un quorum di repliche e viene attivata un'API OnDataLoss per la partizione. La perdita di dati effettiva dipende tuttavia dalla replica in elaborazione. <br>FullDataLoss: vengono rimosse tutte le repliche, si verifica la perdita di tutti i dati e l'API OnDataLoss viene attivata. <br>Questa API deve essere chiamata solo con un servizio con stato come destinazione. Non è consigliabile chiamare questa API con un servizio di sistema come destinazione. 
-> [!NOTE]
+Avvierà una chiamata all'API OnDataLossAsync della partizione.  Questa API determinerà la perdita di dati per la partizione specificata. Avvierà una chiamata all'API OnDataLoss della partizione. La perdita di dati effettiva dipenderà dalla modalità DataLossMode specificata.  <br> - PartialDataLoss: viene rimosso solo un quorum di repliche e viene attivata un'API OnDataLoss per la partizione, ma la perdita di dati effettiva dipende dalla presenza di replica in elaborazione.  <br> - FullDataLoss: vengono rimosse tutte le repliche quindi si verifica la perdita di tutti i dati e l'API OnDataLoss viene attivata. Questa API deve essere chiamata solo con un servizio con stato come destinazione. Non è consigliabile chiamare questa API con un servizio di sistema come destinazione.
+
+> [!NOTE] 
 > Dopo aver chiamato questa API, la chiamata non può essere annullata. La chiamata di CancelOperation arresterà solo l'esecuzione e pulirà lo stato di sistema interno. Non ripristinerà i dati se il comando è stato eseguito abbastanza a lungo da causare la perdita di dati. Chiamare l'API GetDataLossProgress con lo stesso OperationId per restituire le informazioni sull'operazione avviata con questa API.
 
 ### <a name="arguments"></a>Argomenti

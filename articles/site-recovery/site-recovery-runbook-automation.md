@@ -1,18 +1,18 @@
 ---
 title: Aggiungere runbook di Automazione di Azure ai piani di ripristino di Site Recovery| Microsoft Docs
 description: Informazioni su come estendere i piani di ripristino tramite Automazione di Azure per il ripristino di emergenza con Azure Site Recovery.
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
-ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/27/2018
+ms.author: rajanaki
+ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244016"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866373"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
 Questo articolo descrive come Azure Site Recovery si integra con Automazione di Azure per facilitare l'estensione dei piani di ripristino. I piani di ripristino possono orchestrare il ripristino di macchine virtuali protette con Site Recovery. I piani di ripristino possono essere usati sia per la replica in un cloud secondario che per la replica in Azure e consentono anche di ottenere un ripristino **costantemente accurato**, **ripetibile** e **automatizzato**. Se si esegue il failover delle macchine virtuali in Azure, l'integrazione con Automazione di Azure estende i piani di ripristino. È possibile usare questa funzionalità per eseguire runbook, che offrono attività di automazione dalle grandi potenzialità.
@@ -29,7 +29,7 @@ Questo articolo descrive come è possibile integrare i runbook di Automazione di
 
 2. Fare clic con il pulsante destro del mouse su **Gruppo 1: Avvio** e quindi scegliere **Aggiungi post-azione**.
 
-    ![Fare clic con il pulsante destro del mouse su Gruppo 1: Avvio e scegliere Aggiungi post-azione](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![Fare clic con il pulsante destro del mouse su Gruppo 1: Avvio e Aggiungi post-azione](media/site-recovery-runbook-automation-new/customize-rp.png)
 
 3. Fare clic su **Choose a script** (Scegli uno script).
 
@@ -213,7 +213,7 @@ Nell'esempio seguente viene usata una nuova tecnica e viene creata una [variabil
 4. Usare questa variabile nel runbook. Se il GUID della macchina virtuale indicato viene trovato nel contesto del piano di ripristino, è possibile applicare il gruppo di sicurezza di rete nella macchina virtuale:
 
     ```
-    $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
+    $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
 4. Nel runbook scorrere in ciclo le macchine virtuali del contesto del piano di ripristino. Controllare se la macchina virtuale esiste in **$VMDetailsObj**. Se esiste, accedere alle proprietà della variabile per applicare il gruppo di sicurezza di rete:
@@ -223,13 +223,13 @@ Nell'esempio seguente viene usata una nuova tecnica e viene creata una [variabil
         $vmMap = $RecoveryPlanContext.VmMap
 
         foreach($VMID in $VMinfo) {
-            Write-output $VMDetailsObj.value.$VMID
-
-            if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
+            $VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
+            Write-output $VMDetails
+            if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
                 $VM = $vmMap.$VMID
                 # Access the properties of the variable
-                $NSGname = $VMDetailsObj.value.$VMID.'NSGName'
-                $NSGRGname = $VMDetailsObj.value.$VMID.'NSGResourceGroupName'
+                $NSGname = $VMDetails.NSGName
+                $NSGRGname = $VMDetails.NSGResourceGroupName
 
                 # Add code to apply the NSG properties to the VM
             }

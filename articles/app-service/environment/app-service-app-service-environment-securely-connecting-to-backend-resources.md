@@ -1,5 +1,5 @@
 ---
-title: Connessione sicura alle risorse back-end da un ambiente del servizio app
+title: Connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app - Azure
 description: Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 1732e6778febac60a25da74c330cb3d3da94154d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec18
+ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580053"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315860"
 ---
-# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Connessione sicura alle risorse back-end da un ambiente del servizio app
+# <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app
 ## <a name="overview"></a>Panoramica
 Poiché un ambiente del servizio app viene sempre creato in una **rete virtuale** di Azure Resource Manager **o** in una [rete virtuale][virtualnetwork] creata con il modello di distribuzione classica, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono transitare esclusivamente tramite la rete virtuale.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.  
 
@@ -95,7 +96,7 @@ Per informazioni dettagliate su come controllare il traffico in ingresso all'amb
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [ControlInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 [SiteToSite]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md

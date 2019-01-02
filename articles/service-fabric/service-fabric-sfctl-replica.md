@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 6c16cd95fce7d3f367f0ded73c3635d8cefea7a0
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0000e5d8bfa7da6ebe1b6702649e56262c9d9cab
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493988"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277370"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Consente di gestire le repliche che appartengono alle partizioni del servizio.
@@ -184,7 +184,7 @@ Questa API consente di simulare un errore di replica di Service Fabric rimuovend
 ## <a name="sfctl-replica-report-health"></a>sfctl replica report-health
 Invia un report di integrità nella replica di Service Fabric.
 
-Segnala lo stato di integrità della replica di Service Fabric specificata. Il report deve contenere le informazioni relative all'origine del report sull'integrità e alla proprietà in cui viene segnalato. Il report viene inviato a una replica del gateway di Service Fabric, che lo inoltra all'archivio integrità. Il report può essere accettato dal gateway, ma rifiutato dall'archivio integrità dopo la convalida aggiuntiva. L'archivio integrità, ad esempio, può rifiutare il report a causa di un parametro non valido, come un numero di sequenza non aggiornato. Per determinare se il report è stato applicato nell'archivio integrità, controllare che il report venga visualizzato nella sezione degli eventi.
+Segnala lo stato di integrità della replica di Service Fabric specificata. Il report deve contenere le informazioni relative all'origine del report sull'integrità e alla proprietà in cui viene segnalato. Il report viene inviato a una replica del gateway di Service Fabric, che lo inoltra all'archivio integrità. Il report può essere accettato dal gateway, ma rifiutato dall'archivio integrità dopo la convalida aggiuntiva. L'archivio integrità, ad esempio, può rifiutare il report a causa di un parametro non valido, come un numero di sequenza non aggiornato. Per determinare se il report è stato applicato nell'archivio integrità, eseguire il comando get replica health e controllare che il report venga visualizzato nella sezione HealthEvents.
 
 ### <a name="arguments"></a>Argomenti
 

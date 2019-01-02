@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 74ecfe50170f35420d3cf5dc5531b0fe1046889d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 14b5f13070554328a47cd80185efb487d887a6d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433851"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Esercitazione: Integrazione di Azure Active Directory con CS Stars
 
@@ -117,7 +117,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di CS Stars](http://www.marshclearsight.com/support/). 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di CS Stars](https://www.marshclearsight.com/support/). 
  
 1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -127,11 +127,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/cs-stars-tutorial/tutorial_general_400.png) 
 <CS>
-1. Per configurare l'accesso Single Sign-On sul lato **CS Stars** è necessario inviare il file **XML metadati** scaricato al [team di supporto di CS Stars](http://www.marshclearsight.com/support/). 
+1. Per configurare l'accesso Single Sign-On sul lato **CS Stars** è necessario inviare il file **XML metadati** scaricato al [team di supporto di CS Stars](https://www.marshclearsight.com/support/). 
 <CE>
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -169,7 +169,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in CS Stars.
 
-Per creare un utente in CS Stars è necessario contattare il rappresentante del [team di supporto di CS Stars](http://www.marshclearsight.com/support/).
+Per creare un utente in CS Stars è necessario contattare il rappresentante del [team di supporto di CS Stars](https://www.marshclearsight.com/support/).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 

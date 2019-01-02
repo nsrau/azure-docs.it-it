@@ -1,25 +1,25 @@
 ---
-title: Creare un servizio di bilanciamento del carico con connessione Internet - Azure PowerShell versione classica | Documentazione Microsoft
+title: Creare un servizio di bilanciamento del carico con connessione Internet - Azure PowerShell classico
+titlesuffix: Azure Load Balancer
 description: Informazioni su come creare un servizio di bilanciamento del carico Internet in modalità classica con PowerShell.
 services: load-balancer
 documentationcenter: na
 author: genlin
 manager: cshepard
 tags: azure-service-management
-ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: 07d3658ff86a46875a57cb3359a60661911e0c8b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dbb8708f8872c8d16baa13725edbff6de37ac171
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539871"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139830"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) in PowerShell
 
@@ -31,7 +31,7 @@ ms.locfileid: "38539871"
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione, la distribuzione classica e Azure Resource Manager. È importante comprendere i [modelli e strumenti di distribuzione](../azure-classic-rm.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-ps.md).
+> Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione: Azure Resource Manager e distribuzione classica. È importante comprendere i [modelli e strumenti di distribuzione](../azure-classic-rm.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 

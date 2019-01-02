@@ -1,5 +1,5 @@
 ---
-title: SKU privati | Microsoft Docs
+title: SKU e piani privati | Microsoft Docs
 description: Come usare gli SKU privati per gestire la disponibilità dell'offerta.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230241"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849208"
 ---
-<a name="private-skus"></a>SKU privati
+<a name="private-skus-and-plans"></a>SKU e piani privati
 ============
 
 Gli SKU privati consentono di limitare la disponibilità degli SKU a clienti specifici. Quando uno SKU è contrassegnato come privato, non è disponibile in nessun catalogo pubblico, inclusi [Azure Marketplace](https://azuremarketplace.microsoft.com) e il [portale di Azure](http://portal.azure.com). Nel portale di Azure, solo i clienti con accesso allo SKU possono visualizzarlo. Verranno anche informati di avere accesso a offerte private.
@@ -90,6 +90,11 @@ Contenuto del file CSV di esempio:
             SubscriptionId,7738d703-3135-4e8d-8b81-1e70379abd9d,Private Customer
 
 Quando si passa dall'immissione manuale alla vista di caricamento di un file CSV o dal file CSV all'immissione manuale, l'elenco precedente di ID sottoscrizione con accesso allo SKU non viene mantenuto. Viene visualizzato un avviso e l'elenco viene semplicemente sovrascritto al momento del salvataggio dell'offerta.
+
+<a name="sync-private-subscriptions"></a>Sincronizzare le sottoscrizioni private
+-------------------------
+
+Quando si aggiungono sottoscrizioni per un'offerta pubblicata con uno SKU o un piano privato, non è necessario ripubblicare l'offerta per aggiungere informazioni sul gruppo di destinatari. È sufficiente usare un ID sottoscrizione di Azure (piani e SKU) o un ID tenant (solo piani) per aggiungere il gruppo di destinatari.
 
 <a name="previewing-private-offers"></a>Visualizzazione in anteprima delle offerte private
 -------------------------

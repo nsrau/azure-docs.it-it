@@ -9,41 +9,46 @@ ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2016
+ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: 92cbd3570d48bf12d603f68593465aafed62985c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: feb2e2f9f36ab20c0b96fab9432df41faf4f9569
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852317"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407933"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contatori delle prestazioni di sistema in Application Insights
-Windows offre un'ampia gamma di [contatori delle prestazioni](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters), ad esempio su occupazione della CPU, memoria, disco e utilizzo di rete. È anche possibile definire contatori personalizzati. [Application Insights](app-insights-overview.md) può mostrare questi contatori delle prestazioni se l'applicazione viene eseguita in IIS in un host locale o in una macchina virtuale a cui si ha accesso come amministratore. I grafici indicano le risorse disponibili per l'applicazione live e possono aiutare a identificare un eventuale carico sbilanciato tra istanze del server.
 
-I contatori delle prestazioni sono visualizzati nel pannello Server, che include una tabella segmentata in base all'istanza del server.
-
-![Contatori delle prestazioni segnalati in Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
-
-I contatori delle prestazioni non sono disponibili per App Web di Azure. Tuttavia, è possibile [inviare i dati del servizio Diagnostica di Azure ad Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Windows offre un'ampia gamma di [contatori delle prestazioni](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters), ad esempio su occupazione della CPU, memoria, disco e utilizzo di rete. È anche possibile definire contatori delle prestazioni personalizzati. Questo se l'applicazione viene eseguita in IIS in un host locale o in una macchina virtuale a cui si ha accesso come amministratore.
 
 ## <a name="view-counters"></a>Visualizzare i contatori
-Il pannello Server mostra un set predefinito di contatori delle prestazioni. 
 
-Per visualizzare altri contatori, modificare i grafici nel pannello Server oppure aprire un altro riquadro [Esplora metriche](app-insights-metrics-explorer.md) e aggiungere nuovi grafici. 
+Il riquadro Metrica mostra un set predefinito di contatori delle prestazioni.
 
-I contatori disponibili sono elencati come metriche quando si modifica un grafico.
+![Contatori delle prestazioni segnalati in Application Insights](./media/app-insights-performance-counters/performance-counters.png)
 
-![Contatori delle prestazioni segnalati in Application Insights](./media/app-insights-performance-counters/choose-performance-counters.png)
+I contatori predefiniti attualmente raccolti per le applicazioni Web .NET sono:
+
+         - % Process\\Processor Time
+         - % Process\\Processor Time Normalized
+         - Memory\\Available Bytes
+         - ASP.NET Requests/Sec
+         - .NET CLR Exceptions Thrown / sec
+         - ASP.NET ApplicationsRequest Execution Time
+         - Process\\Private Bytes
+         - Process\\IO Data Bytes/sec
+         - ASP.NET Applications\\Requests In Application Queue
+         - Processor(_Total)\\% Processor Time
 
 Per visualizzare tutti i grafici più utili in un'unica posizione, creare un [dashboard](app-insights-dashboards.md) e aggiungervi i grafici.
 
 ## <a name="add-counters"></a>Aggiungere contatori
-Se il contatore delle prestazioni desiderato non appare nell'elenco delle metriche, significa che non viene raccolto da Application Insights SDK nel server Web. È possibile configurare l'SDK a questo scopo.
 
-1. È possibile identificare i contatori disponibili nel server usando questo comando di PowerShell nel server:
+Se il contatore delle prestazioni desiderato non è incluso nell'elenco delle metriche, è possibile aggiungerlo.
+
+1. È possibile identificare i contatori disponibili nel server usando questo comando di PowerShell nel server locale:
    
     `Get-Counter -ListSet *`
    
@@ -114,13 +119,14 @@ Come altri dati di telemetria, **performanceCounters** contiene anche una colonn
 *Qual è la differenza tra il tasso di eccezione e le metriche delle eccezioni?*
 
 * *Tasso di eccezione* è un contatore delle prestazioni del sistema. Il CLR consente di contare tutte le eccezioni gestite e non gestite generate e divide il totale in un intervallo di campionamento per la lunghezza dell'intervallo. SDK di Application Insights raccoglie questo risultato e lo invia al portale.
+
 * *Eccezioni* è un conteggio dei report TrackException ricevuti dal portale nell'intervallo di campionamento del grafico. Include solo le eccezioni gestite in cui sono state scritte chiamate TrackException nel codice e non include [le eccezioni non gestite](app-insights-asp-net-exceptions.md). 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>Contatori delle prestazioni nelle applicazioni Asp.Net Core
+## <a name="performance-counters-in-aspnet-core-applications"></a>Contatori delle prestazioni nelle applicazioni ASP.Net Core
 I contatori delle prestazioni sono supportati solo se l'applicazione è destinata a .NET Framework. Non è possibile raccogliere i contatori delle prestazioni per le applicazioni .Net Core.
 
 ## <a name="alerts"></a>Avvisi
-Come per altre metriche, è possibile [impostare un avviso](app-insights-alerts.md) per ricevere una notifica se un contatore delle prestazioni supera un limite specificato. Aprire il pannello Avvisi e fare clic su Aggiungi avviso.
+Come per altre metriche, è possibile [impostare un avviso](app-insights-alerts.md) per ricevere una notifica se un contatore delle prestazioni supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.
 
 ## <a name="next"></a>Passaggi successivi
 * [Rilevamento delle dipendenze](app-insights-asp-net-dependencies.md)

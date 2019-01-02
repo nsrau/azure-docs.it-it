@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632807"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099954"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Esercitazione: Integrazione di Azure Active Directory con Infinite Campus
 
@@ -111,11 +111,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](common/editconfigure.png)
 
-5. Nella sezione **Configurazione SAML di base**, se si dispone di un **file di metadati di un provider di servizi** (passaggio **11.b**), seguire questa procedura:
+5. Nella sezione **Configurazione SAML di base**, se è disponibile un **file di metadati di un provider di servizi** (passaggio **11.c**), seguire questa procedura:
 
     a. Fare clic su **Carica il file di metadati**.
 
-    ![image](common/b9_saml.png)
+        ![image](common/b9_saml.png)
 
     b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
 
@@ -128,9 +128,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     d. Nella casella di testo **URL di accesso** digitare l'URL usando il criterio seguente (il dominio varia in funzione del modello di hosting): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
-    > Il **file di metadati del provider di servizi** sarà disponibile nella pagina di configurazione del provider di servizi SSO di Infinite Campus, come spiegato più avanti nell'esercitazione.
+    > Il **file di metadati del provider di servizi** sarà disponibile nella pagina di configurazione del provider di servizi SSO di Infinite Campus, come spiegato più avanti nell'esercitazione. Se si inizia con una nuova configurazione di provider di servizi SAML in Infinite Campus, andare al **passaggio 11** per completare l'esportazione del file di metadati del provider di servizi.
 
-6. Se non si dispone del **file di metadati del provider di servizi**, seguire questa procedura:
+6. Se non è disponibile un **file di metadati del provider di servizi**, seguire questa procedura (si noti che il dominio varierà con il modello di hosting):
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -169,10 +169,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![SSO](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
     a. Selezionare **Enable SAML Single Sign On** (Abilita SAML Single Sign On).
+    
+    b. Nella sezione **Select an option to retrieve Identity Provider (IDP) server data** (Selezionare un'opzione per recuperare i dati del server del provider di identità) selezionare **Metadata URL** (URL dei metadati), incollare l'**URL dei metadati di federazione dell'app** nella casella e quindi fare clic su **Sync** (Sincronizza).
 
-    b. Fare clic sul collegamento **Service Provider Metadata** (Metadati del provider di servizi) per salvare il **file di metadati del provider di servizi** nel computer e caricarlo nella sezione **Configurazione SAML di base** per popolare automaticamente i valori **Identificatore** e **URL di risposta** nel portale di Azure (fare riferimento al passaggio 5).
-
-    c. Nella sezione **Select an option to retrieve Identity Provider (IDP) server data** (Selezionare un'opzione per recuperare i dati del server del provider di identità) selezionare **Metadata URL** (URL dei metadati), incollare l'**URL dei metadati di federazione dell'app** nella casella di testo e quindi fare clic su **Sync** (Sincronizza).
+    c. Fare clic sul collegamento **Service Provider Metadata** (Metadati del provider di servizi) per salvare il **file di metadati del provider di servizi** nel computer e caricarlo nella sezione **Configurazione SAML di base** per popolare automaticamente i valori **Identificatore** e **URL di risposta** nel portale di Azure (fare riferimento al passaggio 4 per il caricamento e la compilazione automatica dei valori e al passaggio 5 per l'immissione manuale).
 
     d. Dopo aver fatto clic su **Sync** (Sincronizza), i valori vengono automaticamente popolati nella pagina **SSO Service Provider Configuration** (Configurazione del provider di servizi SAML).
 

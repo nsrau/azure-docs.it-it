@@ -1,5 +1,5 @@
 ---
-title: Caricare i dati in ambienti di archiviazione di Azure per l'analisi | Documentazione Microsoft
+title: Caricare dati in ambienti di archiviazione di Azure - Processo di data science per i team (TDSP)
 description: Spostamento dei dati da e verso l'archiviazione BLOB di Azure
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: f73488947b85c97d00257faf8907055227570cb6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: b53ece6cd2e61fa6f6340b7bda3021ee7d9d767c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441717"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139708"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Caricare i dati in ambienti di archiviazione per l'analisi
 

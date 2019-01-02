@@ -12,21 +12,26 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 526b6ac9c510b13461181d76c0032602d8f3f435
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377983"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872890"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Livello di servizio con iperscalabilità (anteprima) per database fino a 100 TB
+
+Il Database SQL di Azure si basa sull'architettura del motore di database di SQL Server che viene rettificata per l'ambiente cloud per garantire la disponibilità del 99,99% anche in caso di errori dell'infrastruttura. Esistono tre modelli di architettura usati nel database SQL di Azure:
+- Utilizzo generico/Standard 
+- Business critical/Premium
+- Hyperscale
 
 Il livello di servizio con iperscalabilità nel database SQL di Azure è il livello di servizio più recente nel modello di acquisto basato su vCore. Questo livello di servizio è un altamente scalabile per le prestazioni di archiviazione e calcolo, e sfrutta l'architettura di Azure per scalare orizzontalmente le risorse di archiviazione e di calcolo per un database SQL di Azure sostanzialmente oltre i limiti disponibili per i livelli di utilizzo generico e business critical.
 
 > [!IMPORTANT]
 > Il livello di servizio con iperscalabilità è attualmente in anteprima pubblica ed è limitato ad alcune aree di Azure. Per l'elenco completo delle aree, vedere la sezione [Aree disponibili](#available-regions). Non è ancora consigliabile eseguire carichi di lavoro in database con iperscalabilità. Non è possibile aggiornare un database con iperscalabilità ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio con iperscalabilità.
 > [!NOTE]
-> Per informazioni dettagliate sui livelli di servizio Utilizzo generico e Business critical nel modello di acquisto basato su vCore, vedere [Livelli di servizio Utilizzo generico e Business critical](sql-database-service-tiers-general-purpose-business-critical.md). Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-service-tiers.md).
+> Per informazioni dettagliate sui livelli di servizio Utilizzo generico e Business critical nel modello di acquisto basato su vCore, vedere i livelli di servizio [Utilizzo generico](sql-database-service-tier-general-purpose.md) e [Business critical](sql-database-service-tier-business-critical.md). Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-service-tiers.md).
 > [!IMPORTANT]
 > Il livello di servizio con iperscalabilità è attualmente disponibile in anteprima pubblica. Non è ancora consigliabile eseguire carichi di lavoro in database con iperscalabilità. Non è possibile aggiornare un database con iperscalabilità ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio con iperscalabilità.
 
@@ -142,11 +147,11 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Aree disponibili
 
-Il livello di servizio con iperscalabilità è attualmente in anteprima pubblica e disponibile nelle aree di Azure seguenti: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+Il livello di servizio con iperscalabilità è attualmente in anteprima pubblica ed è limitato alle aree di Azure seguenti: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## <a name="known-limitations"></a>Limitazioni note
 
-| Problema | Descrizione |
+| Problema | DESCRIZIONE |
 | :---- | :--------- |
 | Il riquadro Gestisci backup per un server logico non mostra i database con iperscalabilità, che vengono filtrati da SQL Server  | Il livello di servizio con iperscalabilità gestisce i backup diversamente, pertanto le impostazioni di conservazione a lungo termine e conservazione dei backup temporizzata non sono valide. Di conseguenza i database con iperscalabilità non compaiono nel riquadro Gestisci backup. |
 | Ripristino temporizzato | Dopo la migrazione di un database nel livello di servizio con iperscalabilità, il ripristino in un tempo precedente alla migrazione non è supportato.|

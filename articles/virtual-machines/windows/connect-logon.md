@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: cynthn
-ms.openlocfilehash: b9cce5658b705e9d3255d2662b2a0157a2e548c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fdd0c82f64b55c801ef04f1d533ed91683a07f9a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409032"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867070"
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows
 Per avviare una sessione di Desktop remoto (RDP) da un desktop di Windows, sarà necessario usare il pulsante **Connetti** nel portale di Azure. Connettersi prima di tutto alla macchina virtuale e quindi eseguire l'accesso.
@@ -54,6 +54,21 @@ Per connettersi a una macchina virtuale Windows da un Mac, sarà necessario inst
    > 
    > 
 
+## <a name="connect-to-the-virtual-machine-using-powershell"></a>Connettersi alla macchina virtuale tramite PowerShell
+
+Se si usa PowerShell e il modulo AzureRM è installato, è anche possibile connettersi usando il cmdlet `Get-AzureRmRemoteDesktopFile`, come illustrato di seguito.
+
+In questo esempio verrà avviata immediatamente la connessione RDP, con prompt simili ai precedenti.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+```
+
+È anche possibile salvare il file RDP per un uso futuro.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si ha difficoltà con la connessione, vedere [Risolvere i problemi relativi alle connessioni Desktop remoto](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

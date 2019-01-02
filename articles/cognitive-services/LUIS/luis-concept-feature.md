@@ -1,23 +1,24 @@
 ---
-title: Funzionalità delle app LUIS in Servizi cognitivi di Azure
-titleSuffix: Azure Cognitive Services
-description: L'aggiunta di funzionalità a un modello linguistico consente di fornire suggerimenti sul riconoscimento dell'input a cui assegnare un'etichetta o da classificare. Le funzionalità aiutano LUIS a riconoscere le finalità e le entità.
+title: Funzionalità
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: L'aggiunta di funzionalità a un modello linguistico consente di fornire suggerimenti sul riconoscimento dell'input a cui assegnare un'etichetta o da classificare.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 43b2b1485e6a33162f7fc08631094f3e975f8cdb
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638261"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271386"
 ---
-# <a name="phrase-list-features-in-luis"></a>Funzionalità dell'elenco di frasi in LUIS
+# <a name="phrase-list-features-in-your-luis-app"></a>Funzionalità di elenco di frasi nell'app LUIS
 
 Nell'apprendimento automatico, una *funzionalità* è un tratto distintivo o un attributo di dati rilevato dal sistema. 
 
@@ -31,9 +32,17 @@ Viene integrato un elenco di frasi al vocabolario del dominio dell'applicazione 
 ## <a name="how-to-use-phrase-lists"></a>Come usare gli elenchi di frasi
 Nell'[esercitazione sulle entità semplici](luis-quickstart-primary-and-secondary-data.md) dell'app per la gestione delle risorse umane, l'app usa un elenco di frasi denominato **Job** che include tipi di mansioni, ad esempio programmatore, costruttore di tetti e segretaria. Se si etichetta uno di questi valori come entità basata su Machine Learning, LUIS impara a riconoscere gli altri valori. 
 
-Un elenco di frasi può essere intercambiabile o non intercambiabile. Un elenco di frasi *intercambiabile* viene usato per i valori che risultano essere sinonimi, mentre un elenco di frasi *non intercambiabile* viene usato per i valori che non sono sinonimi, ma che richiedono una segnalazione aggiuntiva nell'app. 
+Un elenco di frasi può essere intercambiabile o non intercambiabile. Un elenco di frasi *intercambiabile* fa riferimento a valori che sono sinonimi, mentre un elenco di frasi *non intercambiabile* viene usato come elenco del vocabolario specifico di un'app. Man mano che le dimensioni dell'elenco di frasi del vocabolario dell'app aumentano, si potrebbe riscontrare che alcuni termini hanno molte forme (sinonimi). Suddividere questi casi in un altro elenco di frasi intercambiabile. 
+
+|Tipo di elenco|Scopo|
+|--|--|
+|Intercambiabile|Sinonimi o parole che, quando usati al posto di un'altra parola nell'elenco hanno la stessa finalità ed estrazione di entità.|
+|Non intercambiabile|Vocabolario dell'app, specifico per l'app più di altre parole in generale in tale lingua.|
+
+Gli elenchi di frasi non solo sono utili per il rilevamento delle entità ma anche per la classificazione delle finalità nei casi in cui la caratteristica non intercambiabile è appropriata, come l'aggiunta di parole del vocabolario non note nella lingua inglese.
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+
 ## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Gli elenchi di frasi aiutano a identificare le entità intercambiabili semplici
 Gli elenchi di frasi intercambiabili sono un ottimo modo per ottimizzare le prestazioni della propria app LUIS. Se l'applicazione ha difficoltà a prevedere espressioni con le finalità corrette o a riconoscere le entità, valuta se le espressioni contengono o meno parole insolite o che potrebbero avere un significato ambiguo. Queste parole sono buoni candidati da includere in un elenco di frasi.
 

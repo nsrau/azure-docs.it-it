@@ -1,7 +1,7 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale di testo, Python - Servizio Voce'
+title: 'Avvio rapido: Eseguire la sintesi vocale, Python - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
-description: In questo avvio rapido si apprenderà come eseguire la sintesi vocale di testo usando Python e l'API REST Sintesi vocale. Il testo di esempio incluso in questo articolo è strutturato come SSML (Speech Synthesis Markup Language). Questo formato consente di scegliere la voce e la lingua della risposta di sintesi vocale. L'API REST supporta anche il testo normale (ASCII o UTF-8), ma se si usa il formato di testo normale, la risposta verrà restituita con la voce e la lingua predefinite del servizio Voce.
+description: In questo avvio rapido si apprenderà come eseguire la sintesi vocale di testo usando Python e l'API REST Sintesi vocale. Il testo di esempio incluso in questo articolo è strutturato come SSML (Speech Synthesis Markup Language). Questo formato consente di scegliere la voce e la lingua della risposta di sintesi vocale.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 38bcd67dfb6d9b1a1955658872fee7b8b7a14a0c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 7512c443c49f1518d6a6f7ace7e981d3508b1d7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447469"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090058"
 ---
-# <a name="quickstart-convert-text-to-speech-using-python"></a>Avvio rapido: Eseguire la sintesi vocale di testo con Python
+# <a name="quickstart-convert-text-to-speech-using-python"></a>Avvio rapido: Eseguire la sintesi vocale con Python
 
 In questo avvio rapido si apprenderà come eseguire la sintesi vocale di testo usando Python e l'API REST Sintesi vocale. In questo articolo il corpo della richiesta è strutturato nel formato [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md), che consente di scegliere la voce e la lingua della risposta.
 
@@ -25,7 +26,7 @@ Per questo avvio rapido è necessario avere un [account di Servizi cognitivi di 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo avvio rapido richiede:
+Questa guida introduttiva richiede:
 
 * Python 2.7.x o 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
@@ -40,7 +41,7 @@ import os, requests, time
 ```
 
 > [!NOTE]
-> Se non si sono mai usati questi moduli, è necessario installarli prima di eseguire il programma. Per installare questi pacchetti, eseguire: `pip install requests`.
+> Se non si è mai usato questi moduli, sarà necessario installarli prima di eseguire il programma. Per installare questi pacchetti, eseguire: `pip install requests`.
 
 Questi moduli vengono usati per scrivere la risposta di sintesi vocale in un file con un timestamp, costruire la richiesta HTTP e chiamare l'API Sintesi vocale.
 

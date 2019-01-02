@@ -12,12 +12,12 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 04/06/2018
 manager: craigg
-ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 0b8b83651fb5466f5d9a2f703667d7645b498e89
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055527"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958818"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Utilizzo della modalità ActiveDirectoryInteractive per la connessione al database SQL di Microsoft Azure
 
@@ -66,23 +66,23 @@ Per usare l'autenticazione di Azure AD, il programma client in C# deve specifica
 
 1. Portale di Azure&gt; **Azure Active Directory** &gt; **Registrazione app**
 
-    ![Registrazione delle app](media\active-directory-interactive-connect-azure-sql-db\sshot-create-app-registration-b20.png)
+    ![Registrazione delle app](media/active-directory-interactive-connect-azure-sql-db/sshot-create-app-registration-b20.png)
 
 2. Viene generato e visualizzato il valore di **ID applicazione**.
 
-    ![ID applicazione visualizzato](media\active-directory-interactive-connect-azure-sql-db\sshot-application-id-app-regis-mk49.png)
+    ![ID applicazione visualizzato](media/active-directory-interactive-connect-azure-sql-db/sshot-application-id-app-regis-mk49.png)
 
 3. **App registrata** &gt; **Impostazioni** &gt; **Autorizzazioni necessarie** &gt; **Aggiungi**
 
-    ![Impostazioni delle autorizzazioni per l'app registrata](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
+    ![Impostazioni delle autorizzazioni per l'app registrata](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
 4. **Autorizzazioni necessarie** &gt; **Aggiungi accesso all'API** &gt; **Seleziona API** &gt; **Database SQL di Azure**
 
-    ![Aggiungere l'accesso all'API per il database SQL di Azure](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
+    ![Aggiungere l'accesso all'API per il database SQL di Azure](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
 5. **Accesso all'API** &gt; **Selezionare le autorizzazioni** &gt; **Autorizzazioni delegate**
 
-    ![Delegare le autorizzazioni all'API per il database SQL di Azure](media\active-directory-interactive-connect-azure-sql-db\sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
+    ![Delegare le autorizzazioni all'API per il database SQL di Azure](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 
 ### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. Impostare l'amministratore di Azure AD nel server di database SQL
@@ -124,13 +124,13 @@ Il programma in C# si basa sullo spazio dei nomi **Microsoft.IdentityModel.Clien
 
 Uno degli spazi dei nomi su cui si basa l'esempio in C# è **System.Data.SqlClient**. Di particolare interesse è l'enumerazione **SqlAuthenticationMethod**. Questa enumerazione contiene i valori seguenti:
 
-- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp; usare questo valore con un nome utente di Azure AD per raggiungere l'autenticazione a più fattori.
+- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp;  usare questo valore con un nome utente di Azure AD per ottenere l'autenticazione a più fattori.
     - Questo valore è il punto focale del presente articolo. Genera un'esperienza interattiva visualizzando le finestre di dialogo per la password dell'utente e successivamente per la convalida MFA se a questo utente è imposta l'autenticazione a più fattori.
     - Questo valore è disponibile a partire da .NET Framework versione 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp; usare questo valore per un account *federated*. Per un account federato, il nome utente è noto al dominio di Windows. Questo metodo non supporta l'autenticazione a più fattori.
+- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp;  usare questa opzione per un account *federato*. Per un account federato, il nome utente è noto al dominio di Windows. Questo metodo non supporta l'autenticazione a più fattori.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp; usare questo valore per l'autenticazione che richiede un utente di Azure AD e la password dell'utente. Il database SQL di Azure esegue l'autenticazione. Questo metodo non supporta l'autenticazione a più fattori.
+- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp;  usare questo valore per l'autenticazione che richiede un utente di Azure AD e la password dell'utente. Il database SQL di Azure esegue l'autenticazione. Questo metodo non supporta l'autenticazione a più fattori.
 
 
 

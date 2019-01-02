@@ -10,17 +10,17 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: d60f2aca912f279f84710863e5f6ce507de64cb0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 409e4d2e71766ddba2b1d7bcf7e10afdbe298104
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309175"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968544"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Guida introduttiva: Inviare una query all'API di ricerca di attività locali Bing mediante Node.js
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Avvio rapido: Inviare una query all'API di ricerca di attività locali Bing mediante Node.js
 
-Usare questa Guida introduttiva per inviare richieste all'API di ricerca di attività locali Bing, che è un servizio cognitivo di Azure. L'applicazione è scritta in Node.js, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare dati JSON.
- 
+Seguire questa guida introduttiva per inviare richieste all'API Bing Local Business Search, un servizio cognitivo di Azure. L'applicazione è scritta in Node.js, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare dati JSON.
+
 Questa applicazione di esempio recupera i dati di risposta locali dall'API per la query di ricerca `hotel in Bellevue`.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -31,14 +31,15 @@ Questa applicazione di esempio recupera i dati di risposta locali dall'API per l
 
 È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le API Bing. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). Usare la chiave di accesso fornita dalla versione di prova gratuita.  Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-##<a name="code-scenario"></a>Scenario di codice
+## <a name="code-scenario"></a>Scenario di codice
+
 Il codice seguente definisce e invia la richiesta. Viene implementato nei passaggi seguenti:
 
 1. Dichiarare le variabili per specificare l'endpoint dall'host e il percorso.
-2. Specificare la query e aggiungere il parametro di query. 
+2. Specificare la query e aggiungere il parametro di query.
 3. Creare una funzione del gestore per la risposta.
 4. Definire la funzione di ricerca che crea la richiesta e aggiunge l'intestazione Ocp-Apim-Subscription-Key.
-5. Eseguire la funzione di ricerca. 
+5. Eseguire la funzione di ricerca.
 
 Il codice completo per questa demo è il seguente:
 
@@ -92,6 +93,7 @@ Search();
 ````
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Local Business Search quickstart](local-quickstart.md) (Guida introduttiva alla ricerca di attività locali)
-- [Local Business Search Java quickstart](local-search-java-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Java)
-- [Local Business Search Python quickstart](local-search-python-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Python)
+
+* [Local Business Search quickstart](local-quickstart.md) (Guida introduttiva alla ricerca di attività locali)
+* [Local Business Search Java quickstart](local-search-java-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Java)
+* [Local Business Search Python quickstart](local-search-python-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Python)

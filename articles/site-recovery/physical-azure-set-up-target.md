@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: a45e8c7bdb616eb389d95be8421bea7d31eafe29
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974170"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849238"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparare la destinazione (da VMware ad Azure)
 
@@ -26,12 +26,12 @@ L'articolo presuppone quanto segue:
 
 ## <a name="prepare-target"></a>Preparare la destinazione
 
-Dopo aver completato il **Passaggio 1: Selezionare l'obiettivo di protezione** e il **Passaggio 2: Preparare l'origine**, si passa al **Passaggio 3: Destinazione**.
+Dopo aver completato il **Passaggio 1: Obiettivo di protezione** e il **Passaggio 2: Prepara origine**, si passa al **Passaggio 3: Destinazione**
 
 ![Preparare la destinazione](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
 1. **Sottoscrizione:** dal menu a discesa selezionare la sottoscrizione nella quale replicare i server fisici.
-2. **Modello di distribuzione**: selezionare il modello di distribuzione (classica o di Resource Manager)
+2. **Modello di distribuzione**: selezionare il modello di distribuzione (classica o Resource Manager)
 
 In base al modello di distribuzione scelto, viene eseguita una convalida per verificare di avere almeno un account di archiviazione compatibile e una rete virtuale nella sottoscrizione di destinazione in cui vengono eseguiti replica e failover dei server fisici.
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 93824c8f0e7667fcb58fd6b8292cddfa2b4a482a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb5d731fbef22c70aaf970bf64aa90361e47a542
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441461"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194199"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuire SAP IDES EHP7 SP3 per SAP ERP 6.0 in Azure
 Questo articolo descrive come distribuire un sistema SAP IDES in esecuzione con SQL Server e il sistema operativo Windows in Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Gli screenshot illustrano il processo in dettaglio. Per distribuire una soluzione diversa, seguire la stessa procedura.
@@ -29,7 +29,7 @@ Questo articolo descrive come distribuire un sistema SAP IDES in esecuzione con 
 Per iniziare con SAP CAL, visitare il sito Web [SAP Cloud Appliance Library](https://cal.sap.com/). Esiste anche un blog di SAP sulla nuova [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 > [!NOTE]
-A partire dal 29 maggio 2017, per distribuire SAP CAL è possibile usare il modello di distribuzione Azure Resource Manager, oltre al modello di distribuzione classica, non preferito. È consigliabile usare il nuovo modello di distribuzione Resource Manager, ignorando il modello di distribuzione classica.
+> A partire dal 29 maggio 2017, per distribuire SAP CAL è possibile usare il modello di distribuzione Azure Resource Manager, oltre al modello di distribuzione classica, non preferito. È consigliabile usare il nuovo modello di distribuzione Resource Manager, ignorando il modello di distribuzione classica.
 
 Se si è già creato un account di SAP CAL che usa il modello classico, *è necessario creare un altro account di SAP CAL*. Questo account deve eseguire la distribuzione in Azure esclusivamente tramite il modello Resource Manager.
 

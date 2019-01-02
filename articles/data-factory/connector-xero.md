@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Xero usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da Xero tramite Azure Data Factory (anteprima) | Microsoft Docs
 description: Informazioni su come copiare dati da Xero in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 17341e8431ffd5cc41fdda86a7511688dcabaf45
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 02bd85e8502af5e479d052f08276b08bb734d855
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045385"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103576"
 ---
-# <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiare dati da Xero usando Azure Data Factory
+# <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Copiare dati da Xero tramite Azure Data Factory (anteprima)
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Xero. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
@@ -50,10 +50,10 @@ Per il servizio collegato Xero sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **Xero** | Sì |
-| host | Endpoint del server Xero (`api.xero.com`).  | Sì |
-| consumerKey | Chiave utente associata all'applicazione Xero. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| privateKey | Chiave privata dal file con estensione pem generato per l'applicazione Xero privata; vedere [Create a public/private key pair](https://developer.xero.com/documentation/api-guides/create-publicprivate-key) (Creare una coppia di chiavi pubblica/privata). Si noti che **la generazione di file privatekey.pem di 512 bit** tramite `openssl genrsa -out privatekey.pem 512`; 1024 non è supportata. Includere tutto il testo dal file con estensione pem, incluse le terminazioni riga Unix (\n): vedere l'esempio seguente.<br/><br/>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| type | La proprietà type deve essere impostata su: **Xero** | Yes |
+| host | Endpoint del server Xero (`api.xero.com`).  | Yes |
+| consumerKey | Chiave utente associata all'applicazione Xero. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| privateKey | Chiave privata dal file con estensione pem generato per l'applicazione Xero privata; vedere [Create a public/private key pair](https://developer.xero.com/documentation/api-guides/create-publicprivate-key) (Creare una coppia di chiavi pubblica/privata). Si noti che **la generazione di file privatekey.pem di 512 bit** tramite `openssl genrsa -out privatekey.pem 512`; 1024 non è supportata. Includere tutto il testo dal file con estensione pem, incluse le terminazioni riga Unix (\n): vedere l'esempio seguente.<br/><br/>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No  |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No  |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No  |
@@ -92,7 +92,12 @@ Includere tutto il testo dal file con estensione pem, incluse le terminazioni ri
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Xero.
 
-Per copiare dati da Xero, impostare la proprietà type del set di dati su **XeroObject**. Non sono presenti proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da Xero, impostare la proprietà type del set di dati su **XeroObject**. Sono supportate le proprietà seguenti:
+
+| Proprietà | DESCRIZIONE | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà type del set di dati deve essere impostata su: **XeroObject** | Yes |
+| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -104,7 +109,8 @@ Per copiare dati da Xero, impostare la proprietà type del set di dati su **Xero
         "linkedServiceName": {
             "referenceName": "<Xero linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -119,8 +125,8 @@ Per copiare dati da Xero, impostare il tipo di origine nell'attività di copia s
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **XeroSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Contacts"`. | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **XeroSource** | Yes |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Contacts"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

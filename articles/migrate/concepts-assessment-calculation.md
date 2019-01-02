@@ -4,14 +4,14 @@ description: Offre una panoramica dei calcoli delle valutazioni nel servizio Azu
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: ab4af59b71dada84fd99df0299aeccfd5662d474
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286274"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849174"
 ---
 # <a name="assessment-calculations"></a>Calcoli delle valutazioni
 
@@ -21,7 +21,6 @@ ms.locfileid: "43286274"
 ## <a name="overview"></a>Panoramica
 
 Una valutazione di Azure Migrate si articola in tre fasi. La valutazione inizia con un'analisi di idoneità, seguita dalla determinazione della dimensione e termina con una stima dei costi mensili. Un computer passa alla fase successiva soltanto se supera quella precedente. Ad esempio, se un computer non supera il controllo di idoneità di Azure, viene contrassegnato come non idoneo per Azure e la dimensione e i costi non vengono calcolati.
-
 
 ## <a name="azure-suitability-analysis"></a>Analisi di idoneità di Azure
 
@@ -39,8 +38,8 @@ Azure Migrate esamina le proprietà seguenti della VM locale per identificare se
 **Proprietà** | **Dettagli** | **Stato di idoneità per Azure**
 --- | --- | ---
 **Tipo di avvio** | Azure supporta le VM con il tipo di avvio BIOS e non UEFI. | Idoneo con condizioni se il tipo di avvio è UEFI.
-**Core** | Il numero di core nei computer deve essere uguale o inferiore al numero massimo di core supportati per una VM di Azure, ovvero 32.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto i core utilizzati. Se nelle impostazioni di valutazione è specificato un fattore di comfort, il numero di core utilizzati viene moltiplicato per questo fattore.<br/><br/> In mancanza di una cronologia delle prestazioni, Azure Migrate usa i core allocati senza applicare il fattore di comfort. | Idoneo se è minore o uguale ai limiti.
-**Memoria** | La dimensione della memoria del computer deve essere uguale o inferiore alla memoria massima consentita per una macchina virtuale di Azure, ovvero 3892 GB per standard_M128m&nbsp;<sup>2</sup> di Azure serie M. [Altre informazioni](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto la memoria utilizzata. Se è specificato un fattore di comfort, la memoria utilizzata viene moltiplicata per questo fattore.<br/><br/> In mancanza di una cronologia, si usa la memoria allocata senza applicare il fattore di comfort.<br/><br/> | Idoneo se rientra nei limiti.
+**Core** | Il numero di core nei computer deve essere uguale o inferiore al numero massimo di core supportati per una VM di Azure, ovvero 128.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto i core utilizzati. Se nelle impostazioni di valutazione è specificato un fattore di comfort, il numero di core utilizzati viene moltiplicato per questo fattore.<br/><br/> In mancanza di una cronologia delle prestazioni, Azure Migrate usa i core allocati senza applicare il fattore di comfort. | Idoneo se è minore o uguale ai limiti.
+**Memoria** | La dimensione della memoria del computer deve essere uguale o inferiore alla memoria massima consentita per una macchina virtuale di Azure, ovvero 3892 GB per standard_M128m&nbsp;<sup>2</sup> di Azure serie M. [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto la memoria utilizzata. Se è specificato un fattore di comfort, la memoria utilizzata viene moltiplicata per questo fattore.<br/><br/> In mancanza di una cronologia, si usa la memoria allocata senza applicare il fattore di comfort.<br/><br/> | Idoneo se rientra nei limiti.
 **Disco di archiviazione** | Le dimensioni allocate di un disco non devono superare i 4 TB (4096 GB).<br/><br/> I dischi collegati al computer non devono essere più di 65, incluso il disco del sistema operativo. | Idoneo se rientra nei limiti.
 **Rete** | A un computer non devono essere collegati più di 32 NIC. | Idoneo se rientra nei limiti.
 
@@ -61,7 +60,8 @@ Windows Server 2008 R2 con tutti i Service Pack | Azure offre supporto completo.
 Windows Server 2008 (32 bit e 64 bit) | Azure offre supporto completo. | Idoneo per Azure
 Windows Server 2003, 2003 R2 | Questi sistemi operativi hanno superato la data di fine supporto e hanno bisogno di un [Contratto di supporto personalizzato (CSA)](https://aka.ms/WSosstatement) per il supporto di Azure. | Idoneo per Azure con condizioni, provare ad aggiornare il sistema operativo prima della migrazione in Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Questi sistemi operativi hanno superato la data di fine supporto, il computer può eseguire l'avvio in Azure, ma Azure non offre alcun supporto del sistema operativo. | Idoneo per Azure con condizioni, si consiglia di aggiornare il sistema operativo prima della migrazione in Azure.
-Client Windows 7, 8 e 10 | Azure offre supporto solo con la sottoscrizione di Visual Studio. | Idoneo per Azure con condizioni
+Client Windows 7, 8 e 10 | Azure offre supporto solo con [la sottoscrizione di Visual Studio.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Idoneo per Azure con condizioni
+Windows 10 Pro Desktop | Azure fornisce supporto con [i diritti di hosting multi-tenant.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Idoneo per Azure con condizioni
 Windows Vista, XP Professional | Questi sistemi operativi hanno superato la data di fine supporto, il computer può eseguire l'avvio in Azure, ma Azure non offre alcun supporto del sistema operativo. | Idoneo per Azure con condizioni, si consiglia di aggiornare il sistema operativo prima della migrazione in Azure.
 Linux | Azure approva questi [sistemi operativi Linux](../virtual-machines/linux/endorsed-distros.md). Altri sistemi operativi Linux possono eseguire l'avvio in Azure, ma è consigliabile aggiornare il sistema operativo a una versione approvata prima della migrazione in Azure. | Idoneo per Azure se la versione è approvata.<br/><br/>Idoneo per Azure con condizioni se la versione non è approvata.
 Altri sistemi operativi<br/><br/> ad esempio Oracle Solaris, Apple Mac OS, FreeBSD, ecc. | Azure non approva questi sistemi operativi. Il computer può eseguire l'avvio in Azure, ma Azure non offre alcun supporto del sistema operativo. | Idoneo per Azure con condizioni, si consiglia di installare un sistema operativo supportato prima della migrazione in Azure.  
@@ -72,16 +72,13 @@ Sistemi operativi a 32 bit | Il computer può eseguire l'avvio in Azure, ma Azur
 
 Dopo che un computer è stato contrassegnato come idoneo per Azure, Azure Migrate determina la dimensione della VM e dei relativi dischi per Azure. Se il criterio di ridimensionamento specificato nelle proprietà di valutazione è quello basato sulle prestazioni, Azure Migrate prende in considerazione la cronologia delle prestazioni del computer per identificare le dimensioni della macchina virtuale e il tipo di disco in Azure. Questo metodo è utile in scenari in cui è stata eseguita una sovrallocazione della VM locale ma l'utilizzo è basso e si desidera dimensionare in modo appropriato le VM in Azure per ottimizzare i costi.
 
-> [!NOTE]
-> Azure Migrate raccoglie la cronologia delle prestazioni delle VM locali dal server vCenter. Per garantire una determinazione precisa della dimensione, assicurarsi che l'impostazione delle statistiche nel server vCenter sia pari al livello 3 e attendere almeno un giorno prima di iniziare l'individuazione delle VM locali. Se l'impostazione delle statistiche nel server vCenter è inferiore al livello 3, i dati sulle prestazioni per i dischi e la rete non vengono raccolti.
-
 Se non si vuole considerare la cronologia delle prestazioni per il ridimensionamento della VM e si vuole migrare la VM così com'è in Azure, è possibile specificare il criterio di determinazione della dimensione *come in locale* e Azure Migrate dimensionerà le VM in base alla configurazione locale senza considerare i dati di utilizzo. In questo caso il ridimensionamento del disco verrà eseguito in base al tipo di archiviazione specificata nelle proprietà di valutazione, disco Standard o Premium
 
 ### <a name="performance-based-sizing"></a>Dimensioni in base alle prestazioni
 
 Per la determinazione della dimensione in base alle prestazioni, Azure Migrate inizia con i dischi collegati alla VM, continua con le schede di rete e quindi esegue il mapping della VM di Azure in base ai requisiti di calcolo della VM locale.
 
-- **Risorsa di archiviazione**: Azure Migrate tenta di eseguire il mapping di ciascun disco collegato al computer con un disco in Azure.
+- **Archiviazione**: Azure Migrate tenta di eseguire il mapping di ogni disco collegato alla macchina virtuale con un disco in Azure.
 
     > [!NOTE]
     > Azure Migrate supporta solo i dischi gestiti per la valutazione.
@@ -92,12 +89,12 @@ Per la determinazione della dimensione in base alle prestazioni, Azure Migrate i
     - Se sono presenti più dischi idonei, viene selezionato quello con il costo più basso.
     - Se i dati sulle prestazioni per i dischi non sono disponibili, viene eseguito il mappimg di tutti i dischi a dischi standard in Azure.
 
-- **Rete**: Azure Migrate tenta di trovare una VM di Azure in grado di supportare il numero di schede di rete collegate al computer locale e le prestazioni richieste da queste schede di rete.
+- **Rete**: Azure Migrate tenta di trovare una macchina virtuale di Azure in grado di supportare il numero di schede di rete collegate al computer locale e le prestazioni richieste da queste schede di rete.
     - Per ottenere le prestazioni di rete effettive della VM locale, Azure Migrate aggrega i dati trasmessi al secondo (MBps) dal computer (rete in uscita), in tutte le schede di rete, e applica il fattore di comfort. Questo numero viene usato per trovare una VM di Azure in grado di supportare le prestazioni di rete necessarie.
     - Insieme alle prestazioni di rete considera anche se la VM di Azure può supportare il numero di schede di rete richiesto.
     - Se non sono disponibili dati relativi alle prestazioni di rete, per la determinazione della dimensione della VM viene preso in considerazione solo il numero di schede di rete.
 
-- **Calcolo**: dopo che sono stati calcolati i requisiti di archiviazione e di rete, Azure Migrate prende in considerazione i requisiti di CPU e di memoria per trovare una dimensione di VM appropriata in Azure.
+- **Calcolo**: dopo che sono stati calcolati i requisiti di archiviazione e di rete, Azure Migrate prende in considerazione i requisiti di CPU e di memoria per trovare una dimensione di macchina virtuale appropriata in Azure.
     - Azure Migrate analizza i core e la memoria utilizzati e applica il fattore di comfort per ottenere i core e la memoria effettivi. In base al numero risultante, prova a trovare le dimensioni adatte di una macchina virtuale in Azure.
     - Se non si trovano dimensioni adatte, il computer viene contrassegnato come non idoneo per Azure.
     - Se si trovano dimensioni adatte, Azure Migrate esegue i calcoli di archiviazione e di rete. Applica quindi le impostazioni relative alla posizione e al piano tariffario per l'indicazione finale delle dimensioni della macchina virtuale.
@@ -119,21 +116,23 @@ Per una determinazione delle dimensioni in base alle prestazioni, Azure Migrate 
    61%-80% | 4 stelle
    81%-100% | 5 stelle
 
-Una valutazione può non avere a disposizione tutti i punti dati a causa di uno dei motivi seguenti:
-- L'impostazione delle statistiche nel server vCenter non è impostata al livello 3. Se l'impostazione delle statistiche nel server vCenter è inferiore al livello 3, i dati sulle prestazioni per i dischi e la rete non vengono raccolti da vCenter Server. In questo caso, l'indicazione fornita da Azure Migrate per i dischi e la rete non è basata sull'uso. Senza tenere conto delle operazioni di I/O al secondo e della velocità effettiva del disco, Azure Migrate non è in grado di identificare se per il disco sia necessario un disco Premium in Azure. In questo caso Azure Migrate indica pertanto di usare dischi Standard per tutti i dischi.
-- L'impostazione delle statistiche nel server vCenter è stata configurata sul livello 3 per un periodo di tempo minore, prima di avviare il processo di individuazione. Si consideri ad esempio uno scenario in cui si cambia l'impostazione delle statistiche al livello 3 oggi e si avvia l'individuazione usando l'appliance dell'agente di raccolta domani (24 ore dopo). Se si crea una valutazione per un giorno, saranno disponibili tutti i punti dati e la classificazione di attendibilità della valutazione sarà 5 stelle. Se invece si modifica a un mese il periodo di tempo delle prestazioni nelle proprietà della valutazione, la classificazione di attendibilità diminuisce, perché i dati sulle prestazioni di dischi e rete per l'ultimo mese non sono disponibili. Per tenere conto dei dati sulle prestazioni dell'ultimo mese, è consigliabile mantenere l'impostazione delle statistiche del server vCenter sul livello 3 per un mese prima di avviare il processo di individuazione.
-- Durante il periodo per cui viene calcolata la valutazione sono state arrestate alcune VM. Se una o più VM sono state spente per un certo periodo di tempo, il server vCenter non avrà i dati sulle prestazioni per questo periodo.
-- All'interno del periodo per cui viene calcolata la valutazione sono state create alcune VM. Questa situazione si verifica, ad esempio, se si crea una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma solo una settimana prima sono state create alcune VM nell'ambiente. In questi casi, la cronologia delle prestazioni delle nuove VM non sarà disponibile per l'intero periodo.
+   Di seguito sono riportati i motivi per cui una valutazione potrebbe ottenere una bassa classificazione di attendibilità:
 
-> [!NOTE]
-> Se la classificazione di attendibilità di una valutazione è inferiore a 4 stelle, è consigliabile modificare le impostazioni delle statistiche del server vCenter al livello 3, attendere per il periodo che deve essere considerato nella valutazione (1 giorno/1 settimana/1 mese) e quindi eseguire l'individuazione e la valutazione. Se non è possibile applicare la soluzione indicata sopra, la determinazione della dimensione in base alle prestazioni potrebbe non essere affidabile ed è consigliabile passare a quella *come in locale* modificando le proprietà della valutazione.
+   - L'ambiente non è stato analizzato per il perioro di tempo per cui si sta creando la valutazione. Ad esempio, se si sta creando la valutazione con il periodo di tempo delle prestazioni impostato su 1 giorno, è necessario attendere almeno un giorno dopo avere avviato l'individuazione perché siano raccolti tutti i punti dati.
+
+   - Durante il periodo per cui viene calcolata la valutazione sono state arrestate alcune VM. Se una o più VM sono state spente per un certo periodo di tempo, non sarà possibile raccogliere i dati sulle prestazioni per questo periodo.
+
+   - All'interno del periodo per cui viene calcolata la valutazione sono state create alcune VM. Questa situazione si verifica, ad esempio, se si crea una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma solo una settimana prima sono state create alcune VM nell'ambiente. In questi casi, la cronologia delle prestazioni delle nuove VM non sarà disponibile per l'intero periodo.
+
+   > [!NOTE]
+   > Se la classificazione di attendibilità di una valutazione è inferiore a 5 stelle, è consigliabile attendere almeno un giorno per consentire all'appliance di profilare l'ambiente e quindi *ricalcolare* la valutazione. Se non è possibile applicare la soluzione indicata sopra, la determinazione della dimensione in base alle prestazioni potrebbe non essere affidabile ed è consigliabile passare a quella *come in locale* modificando le proprietà della valutazione.
 
 ## <a name="monthly-cost-estimation"></a>Stima dei costi mensili
 
 Dopo aver fornito tutte le indicazioni relative alle dimensioni, Azure Migrate calcola i costi di calcolo e archiviazione post-migrazione.
 
 - **Costo di calcolo**: sulla base delle dimensioni consigliate della macchina virtuale di Azure, Azure Migrate usa l'API di fatturazione per calcolare i costi mensili della macchina virtuale. Per il calcolo vengono prese in considerazione le impostazioni relative al sistema operativo, al programma Software Assurance, alle istanze riservate, al tempo di attività della macchina virtuale, alla posizione e alla valuta. Per calcolare il costo di calcolo mensile totale vengono aggregati i costi di tutti i computer.
-- **Costo di archiviazione**: il costo di archiviazione mensile di un computer viene calcolato aggregando il costo mensile di tutti i dischi collegati al computer. Azure Migrate calcola i costi di archiviazione mensili totali aggregando i costi di archiviazione di tutti i computer. Attualmente, il calcolo non prende in considerazione le offerte specificate nelle impostazioni di valutazione.
+- **Costo di archiviazione**: il costo di archiviazione mensile di una macchina virtuale viene calcolato aggregando il costo mensile di tutti i dischi collegati alla macchina virtuale. Azure Migrate calcola i costi di archiviazione mensili totali aggregando i costi di archiviazione di tutti i computer. Attualmente, il calcolo non prende in considerazione le offerte specificate nelle impostazioni di valutazione.
 
 I costi vengono visualizzati nella valuta specificata nelle impostazioni di valutazione.
 

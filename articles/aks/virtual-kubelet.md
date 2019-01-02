@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: cd41fba675a0814e6f2a1b17576add7811a803eb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e5d415593a510acb81eac65242010d1841044857
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233481"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162648"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usare Virtual Kubelet con Azure Kubernetes Service (AKS)
 
@@ -22,9 +22,9 @@ Istanze di contenitore di Azure offre un ambiente ospitato per l'esecuzione di c
 Quando si usa il provider Virtual Kubelet per Istanze di contenitore di Azure, è possibile pianificare contenitori sia Linux che Windows in un'istanza di contenitore come se si trattasse di un nodo Kubernetes standard. Questa configurazione consente di sfruttare sia le funzionalità di Kubernetes che il vantaggio in termini di valore e costo di gestione delle istanze di contenitore.
 
 > [!NOTE]
+> Il servizio Azure Kubernetes dispone ora del supporto incorporato per la pianificazione dei contenitori in ACI, detti *nodi virtuali*. Questi nodi virtuali supportano attualmente le istanze di contenitore di Linux. Se si ha l'esigenza di pianificare istanze di contenitore Windows, è possibile continuare a usare Virtual Kubelet. In caso contrario, è consigliabile usare i nodi virtuali invece delle istruzioni manuali di Virtual Kubelet indicate in questo articolo. Per imparare a usare i nodi virtuali, è possibile usare l'[interfaccia della riga di comando di Azure][virtual-nodes-cli] o il [portale di Azure][virtual-nodes-portal].
+>
 > Virtual Kubelet è un progetto open source sperimentale e deve essere usato in quanto tale. Per contribuire, registrare problemi e leggere altre informazioni su Virtual Kubelet, vedere il [progetto GitHub Virtual Kubelet][vk-github].
-
-Questo documento descrive in dettaglio la configurazione di Virtual Kubelet per le istanze di contenitore in un servizio AKS.
 
 ## <a name="prerequisite"></a>Prerequisito
 
@@ -90,7 +90,7 @@ Per il comando `aks install-connector` sono disponibili questi argomenti.
 | `--connector-name` | Nome del connettore di Istanze di contenitore di Azure.| Yes |
 | `--name` `-n` | Nome del cluster gestito. | Yes |
 | `--resource-group` `-g` | Nome del gruppo di risorse. | Yes |
-| `--os-type` | Tipo del sistema operativo delle istanze di contenitore. Valori consentiti: Both, Linux, Windows. Valore predefinito: Linux. | No  |
+| `--os-type` | Tipo del sistema operativo delle istanze di contenitore. Valori consentiti: Entrambi, Linux, Windows. Predefinito: Linux. | No  |
 | `--aci-resource-group` | Gruppo di risorse in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No  |
 | `--location` `-l` | Posizione in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No  |
 | `--service-principal` | Entità servizio usata per l'autenticazione alle API di Azure. | No  |
@@ -235,6 +235,8 @@ Per altre informazioni su Virtual Kubelet, vedere il [progetto GitHub Virtual Ku
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
 [az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
+[virtual-nodes-cli]: virtual-nodes-cli.md
+[virtual-nodes-portal]: virtual-nodes-portal.md
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

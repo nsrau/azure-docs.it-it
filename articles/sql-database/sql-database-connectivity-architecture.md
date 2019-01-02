@@ -1,6 +1,6 @@
 ---
-title: Architettura della connettività del database SQL di Azure | Microsoft Docs
-description: Questo documento illustra l'architettura della connettività del database SQL di Azure dall'interno o dall'esterno di Azure.
+title: Indirizzamento del traffico di Azure al database SQL di Azure e ad Azure SQL Data Warehouse | Microsoft Docs
+description: Questo documento illustra l'architettura della connettività del database SQL di Azure e di SQL Data Warehouse dall'interno o dall'esterno di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,66 +11,77 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/02/2018
-ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/13/2018
+ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978402"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435719"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Architettura della connettività del database SQL di Azure
+# <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
-Questo articolo illustra l'architettura della connettività del database SQL di Azure e spiega il funzionamento dei diversi componenti per indirizzare il traffico a un'istanza del database SQL di Azure. La funzione dei componenti di connettività del database SQL di Azure è indirizzare il traffico di rete verso il database di Azure con client che si connettono dall'interno di Azure e client che si connettono dall'esterno di Azure. Questo articolo include anche alcuni esempi di script per modificare la modalità di connessione e propone alcune considerazioni sulla modifica delle impostazioni di connettività predefinite.
+Questo articolo illustra non solo l'architettura della connettività del database SQL di Azure e di SQL Data Warehouse, ma anche il funzionamento dei diversi componenti per indirizzare il traffico a un'istanza di SQL di Azure. La funzione dei componenti di connettività è indirizzare il traffico di rete verso il database SQL di Azure o SQL Data Warehouse con client che si connettono dall'interno di Azure e client che si connettono dall'esterno di Azure. Questo articolo include anche alcuni esempi di script per modificare la modalità di connessione e propone alcune considerazioni sulla modifica delle impostazioni di connettività predefinite.
+
+> [!IMPORTANT]
+> **[Modifica imminente] Per le connessioni dell'endpoint di servizio ai server SQL di Azure, un comportamento di connettività `Default` passa a `Redirect`.**
+>
+> La modifica è già effettiva dal 10 novembre 2019 per le aree Brasile meridionale ed Europa occidentale. Per tutte le altre aree la modifica sarà effettiva dal 2 gennaio 2019.
+>
+> Per impedire che la connettività tramite un endpoint di servizio venga interrotta negli ambienti esistenti in seguito a questa modifica, vengono usati i dati di telemetria per effettuare le operazioni seguenti:
+> - Per i server a cui è stato effettuato l'accesso tramite gli endpoint di servizio prima della modifica, il tipo di connessione viene impostato su `Proxy`.
+> - Per tutti gli altri server, il tipo di connessione verrà impostato su `Redirect`.
+>
+> Gli utenti degli endpoint di servizio potrebbero tuttavia essere interessati dagli scenari seguenti: 
+> - L'applicazione si connette raramente a un server esistente, quindi i dati di telemetria non hanno acquisito le informazioni su tali applicazioni 
+> - La logica di distribuzione automatizzata crea un server logico presupponendo che il comportamento predefinito per le connessioni degli endpoint di servizio sia `Proxy` 
+>
+> Se non è stato possibile stabilire le connessioni degli endpoint di servizio al server di Azure SQL e si sospetta di essere interessati da questa modifica, verificare che il tipo di connessione sia esplicitamente impostato su `Redirect`. In tal caso, è necessario aprire le regole del firewall e i gruppi di sicurezza di rete della macchina virtuale a tutti gli indirizzi IP di Azure dell'area appartenenti al [tag di servizio](../virtual-network/security-overview.md#service-tags) Sql per le porte 11000-12000. Se non è possibile, impostare in modo esplicito il server su `Proxy`.
+
+> [!NOTE]
+> Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 
 Il diagramma seguente offre una panoramica generale dell'architettura della connettività del database SQL di Azure.
 
-![panoramica dell'architettura](./media/sql-database-connectivity-architecture/architecture-overview.png)
+![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
-I passaggi seguenti descrivono come viene stabilita una connessione a un database SQL di Azure tramite il servizio di bilanciamento del carico software del database SQL di Azure e il gateway del database SQL di Azure.
+I passaggi seguenti descrivono come viene stabilita una connessione a un database SQL di Azure:
 
-- I client si connettono al servizio di bilanciamento del carico software, che ha un indirizzo IP pubblico ed è in ascolto sulla porta 1433.
-- Il servizio di bilanciamento del carico software inoltra il traffico al gateway del database SQL di Azure.
-- A seconda dei criteri di connessione effettivi, il gateway reindirizza o trasmette tramite proxy il traffico al middleware proxy corretto.
-- Il middleware proxy inoltra quindi il traffico al database SQL di Azure appropriato.
-
-> [!IMPORTANT]
-> Ognuno di questi componenti incorpora la protezione DDoS (Distributed Denial of Service) a livello di rete e di app.
+- I client si connettono al gateway, che ha un indirizzo IP pubblico ed è in ascolto sulla porta 1433.
+- A seconda dei criteri di connessione effettivi, il gateway reindirizza o trasmette tramite proxy il traffico al cluster di database corretto.
+- All'interno del cluster di database il traffico viene inoltrato al database SQL di Azure appropriato.
 
 ## <a name="connection-policy"></a>Criteri di connessione
 
 Il database SQL di Azure supporta le tre opzioni seguenti per l'impostazione dei criteri di connessione di un server di database SQL.
 
-- **Reindirizzamento (scelta consigliata):** i client stabiliscono connessioni dirette al nodo che ospita il database. Per abilitare la connettività, i client devono consentire regole del firewall in uscita a tutti gli indirizzi IP di Azure nell'area (per verificare questa possibilità, usare i gruppi di sicurezza rete con [tag di servizio](../virtual-network/security-overview.md#service-tags)) e non solo agli indirizzi IP del gateway del database SQL di Azure. I pacchetti vengono inviati direttamente al database e si verifica quindi un miglioramento di prestazioni in termini latenza e velocità effettiva.
-- **Proxy:** in questa modalità, tutte le connessioni vengono trasmesse tramite proxy ai gateway del database SQL di Azure. Per abilitare la connettività, il client deve avere regole del firewall in uscita che consentano solo gli indirizzi IP dei gateway del database SQL di Azure (in genere due indirizzi IP per ogni area). Se si sceglie questa modalità, è possibile che si riscontri un aumento della latenza e una riduzione della velocità effettiva, a seconda della natura del carico di lavoro. Se si preferisce la minor latenza e la maggiore velocità effettiva possibili, quindi, si consiglia di scegliere i criteri di connessione tramite reindirizzamento anziché tramite proxy.
-- **Predefiniti:** i criteri di connessione applicati in tutti i server dopo la creazione, se non esplicitamente impostati su Proxy o Reindirizzamento. I criteri applicati dipendono dall'origine delle connessioni, ossia se provengono dall'interno di Azure (Reindirizzamento) o all'esterno di Azure (Proxy).
+- **Redirect (scelta consigliata):** i client stabiliscono connessioni dirette al nodo che ospita il database. Per abilitare la connettività, i client devono consentire regole del firewall in uscita a tutti gli indirizzi IP di Azure nell'area usando i gruppi di sicurezza rete con [tag di servizio](../virtual-network/security-overview.md#service-tags) per le porte 11000-12000 e non solo agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433. I pacchetti vengono inviati direttamente al database e si verifica quindi un miglioramento di prestazioni in termini latenza e velocità effettiva.
+- **Proxy:** in questa modalità, tutte le connessioni vengono trasmesse tramite proxy ai gateway del database SQL di Azure. Per abilitare la connettività, il client deve avere regole del firewall in uscita che consentano solo gli indirizzi IP dei gateway del database SQL di Azure (in genere due indirizzi IP per ogni area). Se si sceglie questa modalità, è possibile che si riscontri un aumento della latenza e una riduzione della velocità effettiva, a seconda della natura del carico di lavoro. Se si preferisce la minor latenza e la maggiore velocità effettiva possibili, quindi, si consiglia di scegliere i criteri di connessione `Redirect` anziché `Proxy`.
+- **Default:** i criteri di connessione applicati in tutti i server dopo la creazione, se non esplicitamente impostati su `Proxy` o `Redirect`. I criteri applicati dipendono dall'origine delle connessioni, ossia se provengono dall'interno di Azure (`Redirect`) o dall'esterno di Azure (`Proxy`).
 
 ## <a name="connectivity-from-within-azure"></a>Connettività dall'interno di Azure
 
-Se ci si connette dall'interno di Azure in un server creato dopo il 10 novembre 2018, vengono applicati criteri di connessione di tipo **Reindirizzamento**. Un criterio di **reindirizzamento** significa che, dopo aver stabilito la sessione TCP al database SQL di Azure, la sessione client viene reindirizzata al middleware proxy sostituendo l'indirizzo IP virtuale di destinazione del gateway del database SQL di Azure con quello del middleware proxy. Tutti i pacchetti successivi passano poi direttamente attraverso il middleware proxy, ignorando il gateway del database SQL di Azure. Il diagramma seguente illustra il flusso del traffico.
+Se ci si connette dall'interno di Azure, il criterio di connessione predefinito per le connessioni è `Redirect`. Un criterio `Redirect` significa che, dopo aver stabilito la sessione TCP al database SQL di Azure, la sessione client viene reindirizzata al cluster di database corretto sostituendo l'indirizzo IP virtuale di destinazione del gateway del database SQL di Azure con quello del cluster. Tutti i pacchetti successivi passano poi direttamente al cluster, ignorando il gateway del database SQL di Azure. Il diagramma seguente illustra il flusso del traffico.
 
-![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
-
-> [!IMPORTANT]
-> Se il server di database SQL è stato creato prima del 10 novembre 2018, i criteri di connessione sono stati impostati in modo esplicito su **Proxy**. Se si usano endpoint di servizio, è consigliabile modificare i criteri di connessione in **Reindirizzamento** per consentire prestazioni migliori. Se si modificano i criteri di connessione in **Reindirizzamento**, non sarà sufficiente consentire l'uscita dal gruppo di sicurezza di rete ai soli indirizzi IP del gateway del database SQL di Azure elencati di seguito, ma a tutti gli indirizzi IP del database SQL di Azure. Ciò è possibile con l'aiuto di tag di servizio NSG (gruppi di sicurezza di rete). Per altre informazioni, vedere [Tag di servizio](../virtual-network/security-overview.md#service-tags).
+![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Connettività dall'esterno di Azure
 
-Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di connessione **proxy** per impostazione predefinita. Il criterio **proxy** significa che la sessione TCP viene stabilita tramite il gateway del database SQL di Azure e che tutti i pacchetti successivi passano attraverso il gateway. Il diagramma seguente illustra il flusso del traffico.
+Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di connessione `Proxy` per impostazione predefinita. Il criterio `Proxy` significa che la sessione TCP viene stabilita tramite il gateway del database SQL di Azure e che tutti i pacchetti successivi passano attraverso il gateway. Il diagramma seguente illustra il flusso del traffico.
 
-![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Indirizzi IP del gateway del database SQL di Azure
 
-Per connettersi a un database SQL di Azure da risorse locali, è necessario consentire il traffico di rete in uscita verso il gateway del database SQL di Azure per la propria area di Azure. Le connessioni passano solo attraverso il gateway quando ci si connette in modalità proxy, ovvero l'impostazione predefinita per la connessione da risorse locali.
+Per connettersi a un database SQL di Azure da risorse locali, è necessario consentire il traffico di rete in uscita verso il gateway del database SQL di Azure per la propria area di Azure. Le connessioni passano solo attraverso il gateway quando ci si connette in modalità `Proxy`, ovvero l'impostazione predefinita per la connessione da risorse locali.
 
 La tabella seguente elenca gli indirizzi IP primario e secondario del gateway del database SQL di Azure per tutte le aree dati. Per alcune aree sono disponibili due indirizzi IP. In queste aree, l'indirizzo IP primario è l'indirizzo IP corrente del gateway e il secondo indirizzo IP è un indirizzo IP di failover. L'indirizzo di failover è l'indirizzo verso cui potrebbe essere spostato il server per mantenere l'alta disponibilità del servizio. Per queste aree, è consigliabile consentire il traffico in uscita verso entrambi gli indirizzi IP. Il secondo indirizzo IP è di proprietà di Microsoft e non è in ascolto su alcun servizio fino a quando non viene attivato dal database SQL di Azure per accettare connessioni.
 
 | Nome area | Indirizzo IP primario | Indirizzo IP secondario |
 | --- | --- |--- |
-| Australia orientale | 191.238.66.109 | 13.75.149.87 |
+| Australia orientale | 13.75.149.87 | 40.79.161.1 |
 | Australia sud-orientale | 191.239.192.109 | 13.73.109.251 |
 | Brasile meridionale | 104.41.11.5 | |
 | Canada centrale | 40.85.224.249 | |
@@ -113,8 +124,8 @@ La tabella seguente elenca gli indirizzi IP primario e secondario del gateway de
 
 Per modificare il criterio di connessione del database SQL di Azure per un server di database SQL di Azure, usare il comando [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 
-- Se il criterio di connessione è impostato su **proxy**, tutti i pacchetti di rete passano attraverso il gateway del database SQL di Azure. Per questa impostazione, è necessario consentire il traffico in uscita solo per l'indirizzo IP del gateway del database SQL di Azure. L'uso dell'impostazione **proxy** ha una latenza maggiore rispetto all'impostazione **reindirizzamento**.
-- Se il criterio di connessione è impostato su **reindirizzamento**, tutti i pacchetti di rete passano direttamente al proxy del middleware. Per questa impostazione, è necessario consentire il traffico in uscita verso più IP.
+- Se il criterio di connessione è impostato su `Proxy`, tutti i pacchetti di rete passano attraverso il gateway del database SQL di Azure. Per questa impostazione, è necessario consentire il traffico in uscita solo per l'indirizzo IP del gateway del database SQL di Azure. L'uso dell'impostazione `Proxy` ha una latenza maggiore rispetto all'impostazione `Redirect`.
+- Se il criterio di connessione è impostato su `Redirect`, tutti i pacchetti di rete passano direttamente al cluster di database. Per questa impostazione, è necessario consentire il traffico in uscita verso più IP.
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>Script per modificare le impostazioni di connessione tramite PowerShell
 
@@ -125,55 +136,17 @@ Per modificare il criterio di connessione del database SQL di Azure per un serve
 Lo script di PowerShell seguente mostra come modificare il criterio di connessione.
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName <Subscription Name>
+# Get SQL Server ID
+$sqlserverid=(Get-AzureRmSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
 
-# Azure Active Directory ID
-$tenantId = "<Azure Active Directory GUID>"
-$authUrl = "https://login.microsoftonline.com/$tenantId"
+# Set URI
+$id="$sqlserverid/connectionPolicies/Default"
 
-# Subscription ID
-$subscriptionId = "<Subscription GUID>"
+# Get current connection policy
+(Get-AzureRmResource -ResourceId $id).Properties.connectionType
 
-# Create an App Registration in Azure Active Directory.  Ensure the application type is set to NATIVE
-# Under Required Permissions, add the API:  Windows Azure Service Management API
-
-# Specify the redirect URL for the app registration
-$uri = "<NATIVE APP - REDIRECT URI>"
-
-# Specify the application id for the app registration
-$clientId = "<NATIVE APP - APPLICATION ID>"
-
-# Logical SQL Server Name
-$serverName = "<LOGICAL DATABASE SERVER - NAME>"
-
-# Resource Group where the SQL Server is located
-$resourceGroupName= "<LOGICAL DATABASE SERVER - RESOURCE GROUP NAME>"
-
-
-# Login and acquire a bearer token
-$AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
-$result = $AuthContext.AcquireToken(
-"https://management.core.windows.net/",
-$clientId,
-[Uri]$uri,
-[Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
-)
-
-$authHeader = @{
-'Content-Type'='application\json; '
-'Authorization'=$result.CreateAuthorizationHeader()
-}
-
-#Get current connection Policy
-Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method GET -Headers $authHeader
-
-#Set connection policy to Proxy
-$connectionType="Proxy" <#Redirect / Default are other options#>
-$body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
-
-# Apply Changes
-Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
+# Update connection policy
+Set-AzureRmResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script per modificare le impostazioni di connessione tramite l'interfaccia della riga di comando di Azure
@@ -184,9 +157,8 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 Lo script dell'interfaccia della riga di comando seguente mostra come modificare il criterio di connessione.
 
 ```azurecli-interactive
-<pre>
 # Get SQL Server ID
-sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
 id="$sqlserverid/connectionPolicies/Default"
@@ -196,8 +168,6 @@ az resource show --ids $id
 
 # Update connection policy
 az resource update --ids $id --set properties.connectionType=Proxy
-
-</pre>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 34011144d4f960413e78f13c999dfddf6d2660bf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: c4a289d1aeefc35f07e7598adf3780620b11f0da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742946"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252202"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configurazione dell'elenco personalizzato di password escluse
 
@@ -36,7 +36,7 @@ Per configurare l'elenco personalizzato di password escluse, è necessaria una l
    * L'elenco personalizzato di password escluse può contenere fino a 1000 parole.
    * L'elenco personalizzato di password escluse fa distinzione tra maiuscole e minuscole.
    * L'elenco personalizzato di password escluse tiene conto della sostituzione dei caratteri comuni,
-      * ad esempio "o" e "0" o "a" e "\@\"
+      * ad esempio: "o" e "0" o "a" e "\@"
    * La lunghezza minima delle stringhe è quattro caratteri, la massima è 16 caratteri.
 1. Dopo aver aggiunto tutte le stringhe, fare clic su **Salva**.
 

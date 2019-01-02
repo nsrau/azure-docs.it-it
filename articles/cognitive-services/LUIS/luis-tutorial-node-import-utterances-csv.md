@@ -1,21 +1,22 @@
 ---
-title: Compilare un'app LUIS a livello di codice con Node.js | Microsoft Docs
+title: Importare espressioni usando Node.js
 titleSuffix: Azure
 description: Informazioni su come compilare un'app LUIS a livello di codice a partire da dati preesistenti in formato CSV usando l'API di creazione LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 729e19deb5efc91fb874214299f34fbb46d9bbdc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: da638064b2ead1cd860f3b4f96ffa88026aab4ff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034043"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101192"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Compilare un'app LUIS a livello di codice con Node.js
 
@@ -34,7 +35,7 @@ Anche se si dispone di un sistema che non è stato creato considerando LUIS, se 
 
 Aprire il file `IoT.csv` . Questo file contiene un log di richieste degli utenti poste a un ipotetico servizio di domotica e include una suddivisione in categorie, ciò che l'utente ha detto e alcune colonne con informazioni utili estratte da quanto richiesto. 
 
-![File CSV](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
+![File CSV dei dati preesistenti](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 Si noti che il contenuto della colonna **RequestType** potrebbe rappresentare le finalità e che la colonna **Request** riporta espressioni di esempio. Gli altri campi potrebbero costituire delle entità, se si presentano nell'espressione. Poiché sono presenti finalità, entità ed espressioni di esempio, ci sono tutti i requisiti per una semplice app di esempio.
 
@@ -106,9 +107,9 @@ Dopo aver definito le entità e le finalità nell'app LUIS, è possibile aggiung
 ### <a name="install-nodejs-dependencies"></a>Installare le dipendenze di Node.js
 Installare le dipendenze di Node.js da NPM nel terminale/riga di comando.
 
-````
+```console
 > npm install
-````
+```
 
 ### <a name="change-configuration-settings"></a>Modificare le impostazioni di configurazione
 Per usare questa applicazione, è necessario modificare i valori del file index.js con la propria chiave endpoint e specificare il nome che si desidera assegnare all'app. È anche possibile definire la lingua dell'app o modificare il numero di versione.
@@ -116,28 +117,31 @@ Per usare questa applicazione, è necessario modificare i valori del file index.
 Aprire il file index.js e modificare questi valori nella parte superiore del file.
 
 
-````JavaScript
+```nodejs
 // Change these values
 const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
 const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
-````
+```
+
 ### <a name="run-the-script"></a>Esecuzione dello script
 Eseguire lo script da un terminale/riga di comando con Node.js.
 
-````
+```console
 > node index.js
-````
+```
+
 oppure
-````
+
+```console
 > npm start
-````
+```
 
 ### <a name="application-progress"></a>Avanzamento dell'applicazione
 Mentre l'applicazione è in esecuzione, la riga di comando mostra lo stato di avanzamento. L'output della riga di comando include il formato delle risposte di LUIS.
 
-````
+```console
 > node index.js
 intents: ["TurnOn","TurnOff","Dim","Other"]
 entities: ["Operation","Device","Room"]
@@ -157,7 +161,7 @@ retrying add examples...
 
 Results of add utterances = [{"response":[{"value":{"UtteranceText":"turn on the lights","ExampleId":-67649},"hasError":false},{"value":{"UtteranceText":"turn the heat on","ExampleId":-69067},"hasError":false},{"value":{"UtteranceText":"switch on the kitchen fan","ExampleId":-3395901},"hasError":false},{"value":{"UtteranceText":"turn off bedroom lights","ExampleId":-85402},"hasError":false},{"value":{"UtteranceText":"turn off air conditioning","ExampleId":-8991572},"hasError":false},{"value":{"UtteranceText":"kill the lights","ExampleId":-70124},"hasError":false},{"value":{"UtteranceText":"dim the lights","ExampleId":-174358},"hasError":false},{"value":{"UtteranceText":"hi how are you","ExampleId":-143722},"hasError":false},{"value":{"UtteranceText":"answer the phone","ExampleId":-69939},"hasError":false},{"value":{"UtteranceText":"are you there","ExampleId":-149588},"hasError":false},{"value":{"UtteranceText":"help","ExampleId":-81949},"hasError":false},{"value":{"UtteranceText":"testing the circuit","ExampleId":-11548708},"hasError":false}]}]
 upload done
-````
+```
 
 
 

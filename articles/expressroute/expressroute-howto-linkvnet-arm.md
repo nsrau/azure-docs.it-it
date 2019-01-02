@@ -1,19 +1,19 @@
 ---
-title: 'Collegamento di una rete virtuale a un circuito ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: 'Collegare una rete virtuale a un circuito ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Questo documento offre una panoramica sulle procedure di collegamento delle reti virtuali ai circuiti ExpressRoute usando il modello di distribuzione di Resource Manager e PowerShell.
 services: expressroute
-documentationcenter: na
 author: ganesr
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: ganesr
-ms.openlocfilehash: 02b765b3efe933a1dd8d12d422efff8142bdc553
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 5dde6dfdfaed23dbbfe61b06a433f731d90a0440
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234698"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075999"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connettere una rete virtuale a un circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -R
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Collegare una rete virtuale di un'altra sottoscrizione a un circuito
 È possibile condividere un circuito ExpressRoute tra più sottoscrizioni. La figura seguente mostra un semplice schema del funzionamento della condivisione di circuiti ExpressRoute tra più sottoscrizioni.
 
-Ciascuno dei cloud più piccoli nel cloud di grandi dimensioni viene usato per rappresentare le sottoscrizioni appartenenti a reparti diversi di un'organizzazione. Ciascun reparto dell'organizzazione può usare la propria sottoscrizione per distribuire i servizi, ma i reparti possono condividere un singolo circuito ExpressRoute per la connessione alla rete locale. Un singolo reparto (in questo esempio, IT) può possedere il circuito ExpressRoute. Altre sottoscrizioni all'interno dell'organizzazione possono usare il circuito ExpressRoute.
+Ciascuno dei cloud più piccoli nel cloud di grandi dimensioni viene usato per rappresentare le sottoscrizioni appartenenti a reparti diversi di un'organizzazione. Ciascun reparto dell'organizzazione può usare la propria sottoscrizione per distribuire i servizi, ma i reparti possono condividere un singolo circuito ExpressRoute per la connessione alla rete locale. Un singolo reparto (in questo esempio, IT) può essere proprietario del circuito ExpressRoute. Altre sottoscrizioni all'interno dell'organizzazione possono usare il circuito ExpressRoute.
 
 > [!NOTE]
 > I costi relativi a connettività e larghezza di banda per il circuito ExpressRoute saranno addebitati al proprietario della sottoscrizione. Tutte le reti virtuali condividono la stessa larghezza di banda.

@@ -1,6 +1,6 @@
 ---
-title: Registrare un nuovo dispositivo Azure IoT Edge (interfaccia della riga di comando) | Microsoft Docs
-description: Usare l'estensione IoT per l'interfaccia della riga di comando di Azure per registrare un nuovo dispositivo IoT Edge
+title: Registrare un nuovo dispositivo dalla riga di comando - Azure IoT Edge | Microsoft Docs
+description: Usare l'estensione IoT per l'interfaccia della riga di comando di Azure per registrare un nuovo dispositivo IoT Edge e recuperare la stringa di connessione
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 737a2dfe5c3b3382db00785b3465147143b17e9e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 28f20157de603cf20cb33e9db569064f87922bf8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569251"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081834"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Registrare un nuovo dispositivo Azure IoT Edge con l'interfaccia della riga di comando di Azure
 
@@ -43,7 +44,7 @@ Questo comando include tre parametri:
 * **hub-name**: specificare il nome dell'hub IoT.
 * **edge-enabled**: questo parametro dichiara che il dispositivo è destinato all'uso con IoT Edge.
 
-   ![Creare un dispositivo IoT Edge](./media/how-to-register-device-cli/Create-edge-device.png)
+   ![az iot hub device-identity create output](./media/how-to-register-device-cli/Create-edge-device.png)
 
 ## <a name="view-all-devices"></a>Visualizzare tutti i dispositivi
 

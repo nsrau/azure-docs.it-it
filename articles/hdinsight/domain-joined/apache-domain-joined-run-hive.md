@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 43b3e293bf2990c953aeb2947b1113ee30175dee
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632816"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435516"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
 Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In questo articolo vengono creati due criteri di Ranger per limitare l'accesso a hivesampletable. La tabella hivesampletable è disponibile con i cluster HDInsight. Dopo aver configurato i criteri, usare Excel e il driver ODBC per connettersi alle tabelle Hive in HDInsight.
@@ -28,10 +28,9 @@ Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In 
 
 1. Da un browser, connettersi all'interfaccia utente di amministrazione di Ranger. L'URL è https://&lt;ClusterName>.azurehdinsight.net/Ranger/.
 
-   > [!NOTE]
-   > Ranger usa credenziali diverse da quelle del cluster Hadoop. Per evitare che i browser usino credenziali memorizzate nella cache di Hadoop, connettersi all'interfaccia utente di amministrazione di Ranger da una nuova finestra del browser InPrivate.
-   >
-   >
+   > [!NOTE]  
+   > Ranger usa credenziali diverse da quelle del cluster Apache Hadoop. Per evitare che i browser usino credenziali memorizzate nella cache di Hadoop, connettersi all'interfaccia utente di amministrazione di Ranger da una nuova finestra del browser InPrivate.
+
 2. Eseguire l'accesso usando il nome utente e la password di amministratore cluster:
 
     ![Home page di HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
@@ -59,7 +58,7 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 
      ![Configurazione dei criteri di Hive di HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
-     > [!NOTE]
+     > [!NOTE]  
      > Se l'utente di un dominio non compare in Seleziona utente, attendere alcuni istanti per la sincronizzazione di Ranger con AAD.
      >
      >
@@ -134,6 +133,6 @@ Per il test del secondo criterio (read-hivesampletable-devicemake) creato nell'u
 * Per configurare un cluster HDInsight con Enterprise Security Package, vedere [Configurare i cluster HDInsight con ESP](apache-domain-joined-configure.md).
 * Per gestire un cluster HDInsight con ESP, vedere [Gestire i cluster HDInsight con ESP](apache-domain-joined-manage.md).
 * Per eseguire query Hive usando SSH nei cluster HDInsight con ESP, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-* Per connettere Hive usando JDBC, vedere [Connettersi a Hive in Azure HDInsight con il driver Hive JDBC](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
-* Per connettere Excel a Hadoop usando ODBC, vedere [Connettere Excel a Hadoop mediante Microsoft Hive ODBC Driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-* Per connettere Excel a Hadoop usando Power Query, vedere [Connettere Excel a Hadoop mediante Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
+* Per connettere Hive usando Hive JDBC, vedere [Connettersi ad Apache Hive in Azure HDInsight con il driver Hive JDBC](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
+* Per connettere Excel a Hadoop usando ODBC, vedere [Connettere Excel ad Apache Hadoop mediante Microsoft Hive ODBC Driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
+* Per connettere Excel a Hadoop usando Power Query, vedere [Connettere Excel ad Apache Hadoop mediante Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md)

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321734"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190993"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -27,7 +27,7 @@ Questo articolo descrive i criteri password e i requisiti di complessità associ
 
 Con il criterio a doppio controllo, gli **amministratori non hanno la possibilità di usare le domande di sicurezza**.
 
-Un criterio a due gate richiede due tipi di dati di autenticazione, ad esempio un indirizzo di posta elettronica *e* un numero di telefono. Un criterio a due gate si applica nelle circostanze seguenti:
+Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio un **indirizzo di posta elettronica**, un'**app di autenticazione** o un **numero di telefono**. Un criterio a due gate si applica nelle circostanze seguenti:
 
 * Sono interessati tutti i ruoli di amministratore di Azure seguenti:
   * Amministratore dell'help desk

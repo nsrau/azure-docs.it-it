@@ -1,6 +1,6 @@
 ---
-title: Panoramica delle funzionalità di Hub eventi di Azure | Microsoft Docs
-description: Panoramica e informazioni dettagliate sulle funzionalità di Hub eventi di Azure
+title: Panoramica delle funzionalità - Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce informazioni dettagliate sulle funzionalità e la terminologia di Hub eventi di Azure.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -8,18 +8,19 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a3f7245d8a648249a4e7179cc02982eae8561037
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280578"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075167"
 ---
-# <a name="event-hubs-features-overview"></a>Panoramica delle funzionalità di Hub eventi
+# <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
 
 Hub eventi di Azure è una servizio di elaborazione degli eventi scalabile che inserisce ed elabora grandi volumi di eventi e dati, con bassa latenza e affidabilità elevata. Vedere [Che cos'è Hub eventi?](event-hubs-what-is-event-hubs.md) per una panoramica generale.
 
@@ -159,7 +160,7 @@ Hub eventi è un'architettura parallela a scalabilità elevata ed è necessario 
 
 La capacità di velocità effettiva di Hub eventi è controllata dalle *unità elaborate*. Le unità elaborate sono unità di capacità pre-acquistate. Una singola unità elaborata include la capacità seguente:
 
-* Dati in ingresso: fino a 1 MB al secondo o 1000 eventi al secondo, qualunque valore venga raggiunto per primo.
+* Dati in ingresso: fino a 1 MB al secondo o 1000 eventi al secondo, in base al valore raggiunto per primo.
 * Dati in uscita: fino a 2 MB al secondo o 4096 eventi al secondo.
 
 Oltre la capacità delle unità elaborate acquistate, i dati in ingresso vengono limitati e viene restituito un valore [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). I dati in uscita non producono eccezioni di limitazione, ma sono ancora limitati alla capacità delle unità elaborate acquistate. Se si ricevono eccezioni di velocità di pubblicazione o sono previste uscite maggiori, controllare il numero di unità elaborate acquistate per lo spazio dei nomi. È possibile gestire le unità elaborate nel pannello **Ridimensionamento** dello spazio dei nomi nel [portale di Azure](https://portal.azure.com). È anche possibile gestire le unità elaborate a livello di programmazione usando le [API degli hub eventi](event-hubs-api-overview.md).

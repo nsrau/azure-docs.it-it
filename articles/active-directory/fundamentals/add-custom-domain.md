@@ -1,6 +1,6 @@
 ---
-title: Come aggiungere un dominio personalizzato ad Azure Active Directory | Microsoft Docs
-description: Informazioni su come aggiungere un dominio personalizzato usando il portale di Azure Active Directory.
+title: Aggiungere un dominio personalizzato - Azure Active Directory | Microsoft Docs
+description: Istruzioni su come aggiungere un dominio personalizzato usando il portale di Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
-ms.custom: it-pro
-ms.openlocfilehash: 77c2247281fde4aa2b67388464b386b276fe6437
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 14035fe9061af98b10b822c3b7b9213cdda3fbbd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233338"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098299"
 ---
-# <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Procedura: Aggiungere il dominio personalizzato usando il portale di Azure Active Directory
+# <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Aggiungere un nome di dominio personalizzato usando il portale di Azure Active Directory
 Ogni nuovo tenant di Azure AD include un nome di dominio iniziale, *nomedominio*.onmicrosoft.com. Non è possibile modificare o eliminare il nome di dominio iniziale, ma è possibile aggiungere i nomi dell'organizzazione all'elenco. L'aggiunta di nome di dominio personalizzati consente di creare nomi familiari per gli utenti, ad esempio *alain@contoso.com*.
 
 ## <a name="before-you-begin"></a>Prima di iniziare

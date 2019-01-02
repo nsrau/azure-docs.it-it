@@ -4,10 +4,9 @@ description: Informazioni su come formulare una domanda mirata sull'analisi scie
 keywords: problemi di analisi scientifica dei dati, domande di analisi scientifica dei dati, formulare domande, domande di regressione, domande di classificazione, domanda ben strutturata
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -17,15 +16,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310838"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250979"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Porre una domanda a cui è possibile rispondere con i dati
-## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Analisi scientifica dei dati per principianti
+## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Data science per principianti
 Informazioni su come formulare un problema come domanda sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Questo video include un confronto di domande per gli algoritmi di classificazione e regressione.
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
@@ -38,18 +37,18 @@ Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'ele
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
-* Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
-* Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+* Video 1: [5 domande a cui può rispondere la data science](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
+* Video 2: [I dati sono pronti per la data science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
 * Video 3: Porre una domanda a cui è possibile rispondere con i dati
 * Video 4: [Prevedere una risposta con un modello semplice](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min e 42 sec)*
-* Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
+* Video 5: [Copiare il lavoro di altre persone per operazioni di data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
 
 ## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Trascrizione: Porre una domanda a cui è possibile rispondere con i dati
 Questo è il terzo video della serie "Analisi scientifica dei dati per principianti".  
 
 In questo video vengono forniti suggerimenti per formulare una domanda a cui è possibile rispondere con i dati.
 
-È possibile sfruttare al meglio questo video guardando prima i due video precedenti di questa serie: "Le 5 domande a cui l'analisi scientifica dei dati può rispondere" e "Sono pronti i dati per l'analisi scientifica?"
+Per sfruttare meglio le informazioni fornite da questo video, è consigliabile guardare prima due video precedenti di questa serie: "5 domande a cui può rispondere la data science" e "I dati sono pronti per la data science?"
 
 ## <a name="ask-a-sharp-question"></a>Porre una domanda ben strutturata
 È stato spiegato come l'analisi scientifica dei dati sia il processo d'uso di nomi, detti anche categorie o etichette, e di numeri per prevedere una risposta a una domanda. Non può però essere una domanda qualsiasi, deve essere una *domanda ben strutturata*

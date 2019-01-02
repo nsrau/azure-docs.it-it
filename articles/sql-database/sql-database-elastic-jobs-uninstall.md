@@ -3,7 +3,7 @@ title: Come disinstallare lo strumento processi di database elastico
 description: Informazioni su come disinstallare i componenti dei processi di database elastico usando il portale di Azure o PowerShell.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 15313bf0d2d152a8295fb831e62452f8ad63bbeb
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f717c0c656c5a80b14ef09a10cda18bd12500eeb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242450"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869025"
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Disinstallare i componenti dei processi di database elastici
 
@@ -35,7 +35,7 @@ I componenti dei **processi di database elastico** possono essere disinstallati 
 5. Eliminare il gruppo di risorse.
 
 ## <a name="uninstall--elastic-database-jobs-components-using-powershell"></a>Disinstallare i componenti dei processi dei database elastici tramite PowerShell
-1. Avviare una finestra di comando di Microsoft Azure PowerShell e passare alla sottodirectory strumenti nella cartella Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x: digitare **cd strumenti**.
+1. Avviare una finestra di comando di Microsoft Azure PowerShell e passare alla sottodirectory tools nella cartella Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x: Digitare **cd tools**.
    
      PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 2. Eseguire lo script .\UninstallElasticDatabaseJobs.ps1 di PowerShell.

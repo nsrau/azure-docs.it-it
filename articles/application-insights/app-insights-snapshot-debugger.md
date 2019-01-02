@@ -8,21 +8,20 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 12/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 9d0cb566ffb8fbec4b99b0f0eeca79b21d1b0dde
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: a92b54a80de645dda8ea0cc0259bd07f72330204
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335130"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136716"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 
-Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Snapshot Debugger (anteprima) di [Azure Application Insights](app-insights-overview.md) monitora la telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet Snapshot Collector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e configurare facoltativamente i parametri di raccolta in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati per le [eccezioni](app-insights-asp-net-exceptions.md) nel portale Application Insights.
+Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Snapshot Debugger (anteprima) di [Azure Application Insights](app-insights-overview.md) monitora la telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet Snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e configurare facoltativamente i parametri di raccolta in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati per le [eccezioni](app-insights-asp-net-exceptions.md) nel portale Application Insights.
 
 È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. Per ottenere un'esperienza di debug più potente con il codice sorgente, aprire gli snapshot con Visual Studio 2017 Enterprise. In Visual Studio è anche possibile [impostare punti di ancoraggio per creare in modo interattivo snapshot](https://aka.ms/snappoint) senza attendere un'eccezione.
 
@@ -46,7 +45,7 @@ Sono supportati i seguenti ambienti:
 
 1. [Abilitare Application Insights nell'app Web](app-insights-asp-net.md) se non è ancora stato fatto.
 
-2. Includere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
+2. Includere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
 
 3. Esaminare le opzioni predefinite che il pacchetto ha aggiunto ad [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -69,7 +68,7 @@ Sono supportati i seguenti ambienti:
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>1.00:00:00</ProblemCounterResetInterval>
         <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
-        <SnapshotsPerTenMinutesLimit>1</SnapshotsPerTenMinutesLimit>
+        <SnapshotsPerTenMinutesLimit>3</SnapshotsPerTenMinutesLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>30</SnapshotsPerDayLimit>
         <!-- Whether or not to collect snapshot in low IO priority thread. The default value is true. -->
@@ -92,7 +91,7 @@ Sono supportati i seguenti ambienti:
     > [!NOTE]
     > Verificare che l'applicazione faccia riferimento alla versione 2.1.1 o più recente del pacchetto Microsoft.ApplicationInsights.AspNetCore.
 
-2. Includere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
+2. Includere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
 
 3. Modificare la classe `Startup` dell'applicazione per aggiungere e configurare il processore di telemetria dell'agente di raccolta snapshot.
 
@@ -169,7 +168,7 @@ Sono supportati i seguenti ambienti:
 
 1. Se l'applicazione non è già instrumentata con Application Insights, iniziare [abilitando Application Insights e impostando la chiave di strumentazione](app-insights-windows-desktop.md).
 
-2. Aggiungere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
+2. Aggiungere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
 
 3. Gli snapshot vengono raccolti solo per le eccezioni segnalate ad Application Insights. Potrebbe essere necessario modificare il codice per segnalarle. Anche se il codice di gestione delle eccezioni dipende dalla struttura dell'applicazione, di seguito è riportato un esempio:
     ```csharp
@@ -202,7 +201,7 @@ I proprietari di sottoscrizione devono assegnare il ruolo `Application Insights 
 
 1. Passare alla risorsa di Application Insights nel portale di Azure.
 1. Fare clic su **Controllo di accesso (IAM)**.
-1. Fare clic sul pulsante **+Aggiungi**.
+1. Fare clic sul pulsante **+Aggiungi un'assegnazione di ruolo**.
 1. Selezionare **Snapshot Debugger di Azure Application Insights** nell'elenco a discesa **Ruoli**.
 1. Cercare e immettere un nome per l'utente da aggiungere.
 1. Fare clic sul pulsante **Salva** per aggiungere l'utente al ruolo.
@@ -226,7 +225,7 @@ Gli snapshot possono contenere informazioni riservate e per impostazione predefi
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Snapshot di debug con Visual Studio 2017 Enterprise
 1. Fare clic sul pulsante **Download Snapshot** (Scarica snapshot) per scaricare un file `.diagsession` che può essere aperto con Visual Studio 2017 Enterprise.
 
-2. Per aprire il file `.diagsession`, è necessario avere installato il componente di Visual Studio Snapshot Debugger. Il componente Snapshot Debugger è un componente obbligatorio del carico di lavoro ASP .NET in Visual Studio e può essere selezionato nell'elenco dei singoli componenti del programma di installazione di Visual Studio. Se si usa una versione di Visual Studio precedente alla 15.5, è necessario installare l'estensione da [Visual Studio Marketplace](http://aka.ms/snapshotdebugger).
+2. Per aprire il file `.diagsession`, è necessario avere installato il componente di Visual Studio Snapshot Debugger. Il componente Snapshot Debugger è un componente obbligatorio del carico di lavoro ASP .NET in Visual Studio e può essere selezionato nell'elenco dei singoli componenti del programma di installazione di Visual Studio. Se si usa una versione di Visual Studio precedente alla 15.5, è necessario installare l'estensione da [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. Quando si apre il file di snapshot, in Visual Studio viene visualizzata la pagina per il debug di minidump. Fare clic su **Debug Managed Code** (Debug codice gestito) per avviare il debug dello snapshot. Lo snapshot viene aperto alla riga di codice in cui è stata generata l'eccezione in modo da consentire il debug dello stato corrente del processo.
 

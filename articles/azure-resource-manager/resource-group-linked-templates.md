@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: fbfe7255f2b848187c74fd832f349186eef5eaef
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 724b1a2562e4723bd02c97cdecb0ef7dbd8ed177
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287575"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139062"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -169,7 +169,9 @@ Nell'esempio seguente viene illustrato come usare un URL di base per creare due 
 
 ## <a name="get-values-from-linked-template"></a>Ottenere valori dal modello collegato
 
-Per ottenere un valore di output da un modello collegato, recuperare il valore della proprietà con una sintassi analoga a: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+Per ottenere un valore di output da un modello collegato, recuperare il valore della proprietà con una sintassi analoga a: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+Quando si ottiene una proprietà di output da un modello collegato, il nome della proprietà non può includere un trattino.
 
 Gli esempi seguenti illustrano come fare riferimento a un modello collegato e recuperare un valore di output. Il modello collegato restituisce un messaggio semplice.
 

@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 201bf1e5d3580902934f139b70ca5363e7cc5930
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523016"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876503"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Richiedere il trasferimento sicuro in Archiviazione di Azure
 
 L'opzione "Trasferimento sicuro obbligatorio" aumenta la sicurezza dell'account di archiviazione perché consente le richieste all'account solo tramite connessioni sicure. Ad esempio, quando si chiamano le API REST per accedere all'account di archiviazione, è necessario connettersi usando HTTPS. "Trasferimento sicuro obbligatorio" rifiuta le richieste che usano HTTP.
 
-Quando si usa il servizio File di Azure, se è abilitata l'opzione "Trasferimento sicuro obbligatorio" le connessioni senza crittografia hanno esito negativo. Questo include scenari in cui si usano SMB 2.1, SMB 3.0 senza crittografia e alcune versioni del client SMB Linux. 
+Quando si usa il servizio File di Azure, se è abilitata l'opzione "Trasferimento sicuro obbligatorio" le connessioni senza crittografia hanno esito negativo. Questo include scenari in cui si usano SMB 2.1, SMB 3.0 senza crittografia e alcune versioni del client SMB Linux. 
 
-Per impostazione predefinita, l'opzione "Trasferimento sicuro obbligatorio" è disattivata.
+Per impostazione predefinita, l'opzione "Trasferimento sicuro obbligatorio" è disabilitata quando si crea un account di archiviazione con l'SDK ed è abilitata per impostazione predefinita quando si crea un account di archiviazione nel portale di Azure.
 
 > [!NOTE]
 > Poiché Archiviazione di Azure non supporta HTTPS per i nomi di dominio personalizzati, l'opzione non è applicabile quando si usa un nome di dominio personalizzato. Gli account di archiviazione di tipo classico non sono supportati.
@@ -49,7 +49,7 @@ Per impostazione predefinita, l'opzione "Trasferimento sicuro obbligatorio" è d
 
 Per richiedere il trasferimento sicuro a livello di codice, usare l'impostazione _supportsHttpsTrafficOnly_ nelle proprietà dell'account di archiviazione con l'API REST, gli strumenti o le raccolte:
 
-* [API REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (versione: 12-01-2016)
+* [API REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (versione: 2016-12-01)
 * [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (versione: 4.1.0)
 * [Interfaccia della riga di comando](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (versione: 2.0.11)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (versione: 1.1.0)

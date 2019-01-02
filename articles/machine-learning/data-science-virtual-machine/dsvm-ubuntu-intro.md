@@ -1,11 +1,13 @@
 ---
-title: Effettuare il provisioning di una macchina virtuale di Data Science per Linux (Ubuntu) in Azure | Microsoft Docs
-description: Configurare e creare una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu) in Azure per attività di analisi e Machine Learning.
+title: Creare una Data Science Virtual Machine per Ubuntu Linux
+titleSuffix: Azure
+description: Configurare e creare una Data Science Virtual Machine per Linux (Ubuntu) in Azure per attività di analisi e apprendimento automatico.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 ms.author: gokuma
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -14,34 +16,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: cf5a15a55cf3f0d33edeec9440e745c9dce996c1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e3f17dd3717a57d184be7c9b8c73855c3fd2a768
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244866"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106771"
 ---
-# <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Effettuare il provisioning di una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu)
+# <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Effettuare il provisioning della Data Science Virtual Machine per Linux (Ubuntu)
 
-La macchina virtuale per la data science per Linux è un'immagine di macchina virtuale basata su Ubuntu che consente di iniziare a usare in modo semplice l'apprendimento automatico, incluso l'apprendimento avanzato in Azure. Gli strumenti di apprendimento avanzato includono:
+La Data Science Virtual Machine per Linux è un'immagine di macchina virtuale basata su Ubuntu che consente di iniziare a usare in modo semplice l'apprendimento automatico, incluso il Deep Learning, in Azure. Gli strumenti di Deep Learning includono:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): infrastruttura di apprendimento avanzato creata per la velocità, l'espressività e la modularità
+  * [Caffe](http://caffe.berkeleyvision.org/): infrastruttura di Deep Learning creata per la velocità, l'espressività e la modularità
   * [Caffe2](https://github.com/caffe2/caffe2): versione multipiattaforma di Caffe
-  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): toolkit software di apprendimento avanzato sviluppato da Microsoft Research
-  * [H2O](https://www.h2o.ai/): piattaforma Big Data e interfaccia utente grafica open source
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): toolkit per software di Deep Learning sviluppato da Microsoft Research.
+  * [H2O](https://www.h2o.ai/): piattaforma per Big Data e interfaccia utente grafica open source
   * [Keras](https://keras.io/): API per reti neurali di alto livello in Python per Theano e TensorFlow
-  * [MXNet](http://mxnet.io/): libreria di apprendimento avanzato flessibile ed efficiente con numerosi binding di linguaggio
-  * [NVIDIA DIGITS](https://developer.nvidia.com/digits): sistema grafico che semplifica le attività di apprendimento avanzato comuni
+  * [MXNet](http://mxnet.io/): libreria di Deep Learning flessibile ed efficiente con numerosi binding di linguaggio
+  * [NVIDIA DIGITS](https://developer.nvidia.com/digits): sistema grafico che semplifica le attività di Deep Learning comuni
   * [PyTorch](http://pytorch.org/): libreria Python di alto livello con supporto per le reti dinamiche
   * [TensorFlow](https://www.tensorflow.org/): libreria open source di Google per l'intelligenza artificiale
-  * [Theano](http://deeplearning.net/software/theano/): libreria Python per la definizione, ottimizzazione e la valutazione efficiente di espressioni matematiche che prevedono matrici multidimensionali
+  * [Theano](http://deeplearning.net/software/theano/): libreria Python per definire, ottimizzare e valutare in modo efficiente espressioni matematiche che prevedono matrici multidimensionali
   * [Torch](http://torch.ch/): framework di calcolo scientifico con ampio supporto per algoritmi di Machine Learning
   * CUDA, cuDNN e driver NVIDIA
   * Molti notebook di Jupyter di esempio
 
 Tutte le librerie sono le versioni GPU, anche se possono funzionare sulla CPU.
 
-La macchina virtuale per l'analisi scientifica dei dati per Linux contiene anche strumenti di ampia diffusione per attività di sviluppo e di analisi scientifica dei dati, tra cui:
+La Data Science Virtual Machine per Linux contiene anche strumenti di ampia diffusione per attività di sviluppo e data science, tra cui:
 
 * Microsoft R Server Developer Edition con Microsoft R Open
 * Distribuzione di Anaconda Python, versioni 2.7 e 3.5, incluse le più comuni librerie di analisi dei dati
@@ -51,10 +53,10 @@ La macchina virtuale per l'analisi scientifica dei dati per Linux contiene anche
 * Esplora archivi Azure
 * Interfaccia della riga di comando di Azure per la gestione delle risorse di Azure
 * Strumenti di Machine Learning
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema di Machine Learning rapido che supporta tecniche come hash, allreduce, reduction, learning2search, nonché apprendimento online, attivo e interattivo
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): strumento che consente un'implementazione di albero con boosting rapida e accurata
-  * [Rattle](https://togaware.com/rattle/): strumento grafico che consente di iniziare a usare in modo semplice analisi dei dati e Machine Learning in R
-  * [LightGBM](https://github.com/Microsoft/LightGBM): framework rapido, distribuito e a prestazioni elevate di boosting a gradienti
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema di apprendimento automatico rapido che supporta tecniche come hash, allreduce, reduction, learning2search, nonché apprendimento online, attivo e interattivo
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): strumento che consente un'implementazione dell'albero con boosting rapida e accurata
+  * [Rattle](https://togaware.com/rattle/): strumento grafico che consente di iniziare a usare con facilità l'analisi dei dati e l'apprendimento automatico in R
+  * [LightGBM](https://github.com/Microsoft/LightGBM): framework di gradient boosting rapido, distribuito e a prestazioni elevate
 * Azure SDK in Java, Python, Node.js, Ruby, PHP
 * Librerie in R e Python da usare in Azure Machine Learning e altri servizi di Azure
 * Editor e strumenti di sviluppo (RStudio, PyCharm, IntelliJ, Emacs, vim)
@@ -68,32 +70,32 @@ L'esecuzione dell'analisi scientifica dei dati comporta l'iterazione di una sequ
 
 Gli esperti di dati usano vari strumenti per completare queste attività. Trovare le versioni del software appropriate e quindi scaricarle, compilarle e installarle può essere un'operazione molto dispersiva in termini di tempo.
 
-La macchina virtuale per l'analisi scientifica dei dati per Linux può rendere queste attività sostanzialmente più facili. Usarla per avviare rapidamente il progetto di analisi. Consente di svolgere attività in diversi linguaggi, ad esempio R, Python, SQL, Java e C++. Azure SDK, incluso nella VM, consente di compilare le applicazioni usando vari servizi in Linux sulla piattaforma cloud di Microsoft. È anche possibile accedere ad altri linguaggi, come Ruby, Perl, PHP e Node. js, anch'essi pre-installati.
+La Data Science Virtual Machine per Linux può rendere queste attività sostanzialmente più facili. Usarla per avviare rapidamente il progetto di analisi. Consente di svolgere attività in diversi linguaggi, ad esempio R, Python, SQL, Java e C++. Azure SDK, incluso nella VM, consente di compilare le applicazioni usando vari servizi in Linux sulla piattaforma cloud di Microsoft. È anche possibile accedere ad altri linguaggi, come Ruby, Perl, PHP e Node. js, anch'essi pre-installati.
 
 Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti costi per il software. Si pagano solo le spese d'uso dell'hardware di Azure valutate in base alle dimensioni della macchina virtuale di cui si esegue il provisioning. Altre informazioni sui costi di calcolo sono disponibili alla [pagina con l'elenco delle VM in Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
-## <a name="other-versions-of-the-data-science-virtual-machine"></a>Altre versioni della macchina virtuale per l'analisi scientifica dei dati
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>Altre versioni della Data Science Virtual Machine
 È disponibile anche un'immagine [CentOS](linux-dsvm-intro.md), con molti degli stessi strumenti dell'immagine Ubuntu. È disponibile anche un'immagine [Windows](provision-vm.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di creare una macchina virtuale per l'analisi scientifica dei dati per Linux è necessario avere una sottoscrizione di Azure. Per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
+Prima di creare una Data Science Virtual Machine per Linux è necessario avere una sottoscrizione di Azure. Per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
 
-## <a name="create-your-data-science-virtual-machine-for-linux"></a>Creare la macchina virtuale per l'analisi scientifica dei dati per Linux
-Di seguito sono elencati i passaggi per la creazione di un'istanza della macchina virtuale per l'analisi scientifica dei dati per Linux:
+## <a name="create-your-data-science-virtual-machine-for-linux"></a>Creare la Data Science Virtual Machine per Linux
+Di seguito sono elencati i passaggi per la creazione di un'istanza della Data Science Virtual Machine per Linux:
 
 1. Passare all'elenco di macchine virtuali nel [portale di Azure](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). Se non è stato eseguito l'accesso all'account Azure, verrà chiesto di farlo. 
 1. Fare clic su **Crea** (in basso) per aprire la procedura guidata.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-1. Le sezioni seguenti forniscono gli input per ognuno dei passaggi (elencati nella parte destra della figura precedente) della procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
+1. Le sezioni seguenti forniscono gli input per ognuno dei passaggi (elencati nella parte destra della figura precedente) della procedura guidata usata per creare la Data Science Virtual Machine di Microsoft. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
    
    a. **Nozioni di base**:
    
-   * **Name**: nome del server di analisi scientifica dei dati che si sta creando.
+   * **Nome**: nome del server di data science che si sta creando.
    * **Tipo di disco VM**: se si preferisce un'unità a stato solido, scegliere **SSD Premium**. In caso contrario, scegliere **HDD Standard**. 
    * **Nome utente**: primo ID di accesso dell'account.
-   * **Password**: la prima password dell'account. È possibile usare una chiave pubblica SSH invece di una password.
-   * **Sottoscrizione**: se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
-   * **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse o usarne uno esistente.
-   * **Location**: selezionare la posizione del data center più appropriata. In genere è il data center che include la maggior parte dei dati o è più vicino alla posizione fisica per l'accesso più veloce alla rete.
+   * **Password**: prima password dell'account. È possibile usare una chiave pubblica SSH invece di una password.
+   * **Sottoscrizione**: se si hanno più sottoscrizioni, selezionare quella in cui viene creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
+   * **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse o usare un gruppo esistente.
+   * **Località**: selezionare il data center più appropriato. In genere è il data center che include la maggior parte dei dati o è più vicino alla posizione fisica per l'accesso più veloce alla rete.
    
    b. **Dimensione**:
    
@@ -109,7 +111,7 @@ Di seguito sono elencati i passaggi per la creazione di un'istanza della macchin
    
 Per il provisioning sono necessari circa 5 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
 
-## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Come accedere alla macchina virtuale per l'analisi scientifica dei dati per Linux
+## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Come accedere alla Data Science Virtual Machine per Linux
 
 È possibile accedere alla DSVM Ubuntu in tre modi:
 1. SSH per le sessioni terminale
@@ -131,12 +133,12 @@ Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è pr
 1. Scaricare e installare il client X2Go per la piattaforma client da [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Eseguire il client X2Go e selezionare **New Session**(Nuova sessione). Viene visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti:
    * **Scheda Session**(Sessione):
-     * **Host**: nome host o indirizzo IP della VM Linux di analisi scientifica dei dati.
-     * **Login**(Accesso): nome utente di accesso della VM Linux.
-     * **SSH Port**(Porta SSH): lasciare il valore predefinito 22.
-     * **Session Type**(Tipo sessione): modificare il valore in XFCE. La VM Linux attualmente supporta solo l'ambiente desktop XFCE.
-   * **Scheda Media**(Supporti): è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
-   * **Shared folders**(Cartelle condivise): se si intende montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
+     * **Host**: nome host o indirizzo IP della Data Science VM per Linux.
+     * **Login**(Accesso): nome utente della VM Linux.
+     * **SSH Port** (Porta SSH): lasciare il valore predefinito 22.
+     * **Session Type** (Tipo di sessione): modificare il valore in XFCE. La VM Linux attualmente supporta solo l'ambiente desktop XFCE.
+   * **Scheda Media** (Supporti): è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
+   * **Shared folders** (Cartelle condivise): se si prevede di montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
 
 Dopo aver eseguito l'accesso alla VM con il client SSH o il desktop con interfaccia grafica XFCE tramite il client X2Go, è possibile iniziare a usare gli strumenti installati e configurati nella VM. In XFCE è possibile visualizzare i collegamenti di menu delle applicazioni e le icone del desktop per molti di questi strumenti.
 
@@ -148,7 +150,7 @@ Sono disponibili anche JupyterLab, la prossima generazione di notebook Jupyter e
 
     c.Spawner.default_url = '/lab'
 
-## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Strumenti installati nella macchina virtuale per l'analisi scientifica dei dati per Linux
+## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Strumenti installati nella Data Science Virtual Machine per Linux
 ### <a name="deep-learning-libraries"></a>Librerie di apprendimento avanzato
 
 #### <a name="cntk"></a>CNTK
@@ -178,7 +180,7 @@ H2O è una piattaforma rapida, in memoria e distribuita di analisi predittiva e 
 Keras è un'API per reti neurali di alto livello in Python che può essere eseguita su Tensorflow o Theano. È disponibile negli ambienti root e py35 Python. 
 
 #### <a name="mxnet"></a>MXNet
-MXNet è un framework di apprendimento avanzato progettato per l'efficienza e la flessibilità. Offre binding R e Python inclusi nella macchina virtuale per l'analisi scientifica dei dati. Sono disponibili notebook di esempio in JupyterHub, mentre il codice di esempio è disponibile in /dsvm/samples/mxnet.
+MXNet è un framework di apprendimento avanzato progettato per l'efficienza e la flessibilità. Offre binding R e Python inclusi nella Data Science Virtual Machine. Sono disponibili notebook di esempio in JupyterHub, mentre il codice di esempio è disponibile in /dsvm/samples/mxnet.
 
 #### <a name="nvidia-digits"></a>NVIDIA DIGITS
 NVIDIA Deep Learning GPU Training System, noto come DIGITS, è un sistema che semplifica attività di apprendimento avanzato comuni come la gestione di dati, la progettazione e il training di reti neurali in sistemi GPU e il monitoraggio delle prestazioni in tempo reale con visualizzazione avanzata. 
@@ -259,7 +261,7 @@ Su Jupyter viene assicurato un blocco di appunti di esempio PySpark che è possi
 
 Se si programma in R per Spark, è possibile usare Microsoft R Server, SparkR o sparklyr. 
 
-Prima di eseguire nel contesto Spark in Microsoft R Server, è necessario eseguire un unico passaggio di configurazione per abilitare un solo nodo locale Hadoop HDFS e un'istanza Yarn. Per impostazione predefinita, i servizi Hadoop sono installati ma disabilitati su DSVM. Per attivarli, è necessario eseguire i comandi seguenti come radice la prima volta:
+Prima di eseguire nel contesto Spark in Microsoft R Server, è necessario eseguire un unico passaggio di configurazione per abilitare un solo nodo locale Hadoop HDFS e un'istanza Yarn. Per impostazione predefinita, i servizi Hadoop sono installati ma disabilitati nella Data Science Virtual Machine. Per attivarli, è necessario eseguire i comandi seguenti come radice la prima volta:
 
     echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
     cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
@@ -298,7 +300,7 @@ Anche nel pacchetto driver ODBC per SQL Server sono disponibili due strumenti da
 
 Per altre informazioni, vedere [Connessione a bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**sqlcmd**: questa utilità consente di immettere istruzioni Transact-SQL, procedure di sistema e file script al prompt dei comandi. Questa utilità usa ODBC per eseguire batch Transact-SQL.
+**sqlcmd**: questa utilità consente di immettere istruzioni Transact-SQL, procedure di sistema e file di script al prompt dei comandi. Questa utilità usa ODBC per eseguire batch Transact-SQL.
 
 Per altre informazioni, vedere [Connessione con sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -317,8 +319,8 @@ In R e Python sono disponibili librerie per accedere ai database.
 Nella VM sono installati gli strumenti di Azure seguenti:
 
 * **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente **azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Microsoft Azure Storage Explorer**(Esplora archivi di Microsoft Azure): è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati nei BLOB e dai BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere installato X11 Forwarding.
-* **Librerie di Azure**: di seguito vengono illustrate alcune delle librerie preinstallate.
+* **Microsoft Azure Storage Explorer**: è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati rispettivamente in o da BLOB di Azure. È possibile accedere a Storage Explorer dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere installato X11 Forwarding.
+* **Librerie di Azure**: di seguito sono elencate alcune delle librerie preinstallate.
   
   * **Python**: le librerie installate correlate ad Azure in Python sono **azure**, **azureml**, **pydocumentdb** e **pyodbc**. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
   * **R**: le librerie installate correlate ad Azure in R sono **AzureML** e **RODBC**.
@@ -341,14 +343,14 @@ Per informazioni su come distribuire i modelli in R e Python in Azure Machine Le
 > 
 
 ### <a name="machine-learning-tools"></a>Strumenti di Machine Learning
-La VM viene fornita con alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. incluse le seguenti:
+La VM viene fornita con alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente, inclusi i seguenti:
 
 * **Vowpal Wabbit**: algoritmo di apprendimento rapido online.
 * **xgboost**: strumento che fornisce algoritmi di albero con boosting ottimizzati.
-* **Rattle**: strumento grafico basato su R per una semplice modellazione ed esplorazione dei dati.
-* **Python**: Anaconda Python integra algoritmi Machine Learning con librerie come Scikit-learn. È possibile installare altre librerie usando il comando `pip install` .
-* **LightGBM**: un framework rapido, distribuito e a prestazioni elevate di boosting a gradienti basato su algoritmi dell'albero delle decisioni.
-* **R**: una libreria completa di funzioni di Machine Learning disponibili per R. Alcune librerie preinstallate sono lm, glm, randomForest, rpart. Altre librerie possono essere installate eseguendo:
+* **Rattle**: strumento grafico basato su R per semplificare la modellazione e l'esplorazione dei dati.
+* **Python**: Anaconda Python integra algoritmi di Machine Learning con librerie come Scikit-learn. È possibile installare altre librerie usando il comando `pip install` .
+* **LightGBM**: framework di gradient boosting rapido, distribuito e a prestazioni elevate basato su algoritmi di tipo albero delle decisioni.
+* **R**: libreria completa di funzioni di Machine Learning disponibili per R. Alcune librerie preinstallate sono lm, glm, randomForest, rpart. Altre librerie possono essere installate eseguendo:
   
         install.packages(<lib name>)
 

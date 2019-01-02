@@ -4,17 +4,17 @@ description: Questo articolo descrive come rilevare le anomalie usando Analisi d
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: df1010be8c9f41684af806885db7587bfcf1c540
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567044"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091221"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento delle anomalie in Analisi di flusso di Azure
 
@@ -95,7 +95,7 @@ Col passare del tempo, i modelli vengono sottoposti a training con dati diversi.
 
 Riportati in un diagramma, i passaggi hanno l'aspetto seguente: 
 
-![Training dei modelli](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
+![Training dei modelli di apprendimento automatico](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
 
 |**Modello** | **Ora di inizio training** | **Inizio dell'uso del relativo punteggio** |
 |---------|---------|---------|
@@ -145,15 +145,15 @@ Quando si usa questa funzionalità di rilevamento, è necessario considerare gli
 
    Lo scenario viene illustrato nelle figure 1 e 2 di seguito usando una modifica del limite superiore (la stessa logica si applica a una modifica del limite inferiore). In entrambe le figure le forme d'onda rappresentano una modifica di livello anomala. Le linee verticali di colore arancione indicano i confini degli hop e le dimensioni hop sono uguali alle dimensioni della finestra di rilevamento specificata nell'operatore AnomalyDetection. Le linee verdi indicano le dimensioni della finestra di training. Nella figura 1, le dimensioni hop sono uguali alla durata dell'anomalia. Nella figura 2, le dimensioni hop corrispondono alla metà della durata dell'anomalia. In tutti i casi viene rilevata una modifica verso l'alto, in quanto il modello usato per l'assegnazione del punteggio è stato sottoposto a training con i dati normali. In base al modo in cui funziona il rilevamento delle modifiche di livello bidirezionali, tuttavia, è necessario escludere i valori normali dalla finestra di training usata per il modello che assegna il punteggio al ritorno alla normalità. Nella figura 1, il training del modello di assegnazione dei punteggi include alcuni eventi normali, pertanto il ritorno alla normalità non può essere rilevato. Nella figura 2 il training include solo la parte anomala, il che assicura il rilevamento del ritorno alla normalità. Per lo stesso motivo, qualsiasi valore inferiore alla metà funzionerà, mentre qualsiasi valore più grande finirà per includere alcuni eventi normali. 
 
-   ![Rilevamento anomalie con dimensioni della finestra uguali alla durata dell'anomalia](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![Rilevamento anomalie con dimensioni della finestra uguali alla durata dell'anomalia](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
 
-   ![Rilevamento anomalie con dimensioni della finestra uguali a metà della durata dell'anomalia](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![Rilevamento anomalie con dimensioni della finestra uguali a metà della durata dell'anomalia](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
 
 2. Nei casi in cui non è possibile prevedere la durata dell'anomalia, questa funzionalità di rilevamento opera secondo il criterio del massimo sforzo. Tuttavia, la scelta di una finestra temporale più ristretta limita i dati di training, aumentando la probabilità di rilevare il ritorno alla normalità. 
 
 3. Nello scenario seguente, l'anomalia più lunga non viene rilevata perché la finestra di training include già un'anomalia dello stesso valore elevato. 
 
-   ![Anomalie con le stesse dimensioni](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![Anomalie con le stesse dimensioni rilevate](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
 
 ## <a name="example-query-to-detect-anomalies"></a>Query di esempio per il rilevamento di anomalie 
 

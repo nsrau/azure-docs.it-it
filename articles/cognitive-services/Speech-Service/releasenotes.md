@@ -1,21 +1,22 @@
 ---
-title: Documentazione di Speech Service SDK
+title: Note sulla versione - Servizi di riconoscimento vocale
 titlesuffix: Azure Cognitive Services
-description: 'Note sulla versione: modifiche alle versioni più recenti'
+description: Log in continuo aggiornamento relativo a rilasci di funzionalità, miglioramenti, correzioni di bug e problemi noti per i servizi di riconoscimento vocale di Azure.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: ff09926d61d64294a4f12ccf959f6685910539f1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317892"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088307"
 ---
 # <a name="release-notes"></a>Note sulla versione
 
@@ -24,7 +25,7 @@ ms.locfileid: "52317892"
 **Nuove funzionalità**
 
 * Supporto per Android x86/x64.
-* Supporto del proxy: nell'oggetto SpeechConfig è ora possibile chiamare una funzione che consente di impostare le informazioni sul proxy (nome host, porta, nome utente e password). Questa funzionalità non è ancora disponibile in iOS.
+* Supporto proxy: nell'oggetto SpeechConfig è ora possibile chiamare una funzione per impostare le informazioni sul proxy (nome host, porta, nome utente e password). Questa funzionalità non è ancora disponibile in iOS.
 * Messaggi e codice di errore migliorati. Se un riconoscimento ha restituito un errore, l'elemento `Reason` (nell'evento annullato) o `CancellationDetails` (nel risultato del riconoscimento) è già stato impostato su `Error`. L'evento annullato contiene ora due membri aggiuntivi: `ErrorCode` e `ErrorDetails`. Se il server ha restituito l'errore corredato da informazioni aggiuntive, le informazioni saranno ora disponibili nei nuovi membri.
 
 **Miglioramenti**
@@ -64,7 +65,7 @@ Miglioramenti apportati alla stabilità e correzioni di bug:
 
 Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un nuovo esempio per JavaScript.
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Speech SDK 1.0.0 di Servizi cognitivi: versione di settembre 2018
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Speech SDK di Servizi cognitivi 1.0.0: versione di settembre 2018
 
 **Nuove funzionalità**
 
@@ -76,7 +77,7 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 * Questa versione introduce numerose modifiche di rilievo.
   Per informazioni dettagliate, vedere [questa pagina](https://aka.ms/csspeech/breakingchanges_1_0_0).
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Speech SDK 0.6.0 di Servizi cognitivi: versione di agosto 2018
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Speech SDK di Servizi cognitivi 0.6.0: versione di agosto 2018
 
 **Nuove funzionalità**
 
@@ -102,15 +103,15 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 * È stato risolto un problema in cui un riconoscimento con esecuzione prolungata terminava la trasmissione a metà.
 * Correzione di una race condition nel sistema di riconoscimento di arresto.
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Speech SDK 0.5.0 di Servizi cognitivi: versione di luglio 2018
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Speech SDK di Servizi cognitivi 0.5.0: versione di luglio 2018
 
 **Nuove funzionalità**
 
-* Supporto della piattaforma Android (API 23: Android Marshmallow 6.0 o versione successiva). Consultare la [Guida introduttiva di Android](quickstart-java-android.md).
+* Supporto piattaforma Android (API 23: Android 6.0 Marshmallow o versione successiva). Consultare la [Guida introduttiva di Android](quickstart-java-android.md).
 * Supporto di .NET Standard 2.0 in Windows. Consultare la [Guida introduttiva di .NET Core](quickstart-csharp-dotnetcore-windows.md).
 * Sperimentale: supporto di UWP in Windows (versione 1709 o successiva).
   * Consultare la [Guida introduttiva della piattaforma UWP](quickstart-csharp-uwp.md).
-  * Nota: le app UWP compilate con Speech SDK non superano ancora il Kit di certificazione app Windows (WACK).
+  * Note: le app UWP compilate con Speech SDK non superano ancora il Kit di certificazione app Windows (WACK).
 * Supporto del riconoscimento a esecuzione prolungata con riconnessione automatica.
 
 **Modifiche funzionali**

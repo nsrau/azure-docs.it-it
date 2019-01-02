@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1d00dbe23fbd724893ba2b964fc54a3ea9066dcb
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250835"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876537"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Introduzione all'uso di Azure DevTest Labs
 Una volta deciso di esplorare DevTest Labs, esistono due percorsi generici: Modello di verifica e Distribuzione ridimensionata. 
@@ -51,7 +51,7 @@ La creazione e la gestione di ambienti di test in un'organizzazione può richied
 
 - I tester possono provare la versione più recente dell'applicazione eseguendo rapidamente il provisioning di ambienti Windows e Linux usando modelli ed elementi riutilizzabili.
 - Possono anche aumentare i test di carico eseguendo il provisioning di più agenti di test
-- Gli amministratori possono connettere il lab a Visual Studio Team Services per abilitare scenari DevOps
+- Gli amministratori possono connettere il lab ad Azure DevOps per abilitare scenari DevOps
 - Gli amministratori possono controllare i costi assicurandosi che:
     - I tester non possano ottenere più macchine virtuali del necessario
     - Le VM vengano arrestate quando non sono in uso
@@ -62,4 +62,4 @@ Un lab in Azure DevTest Labs funge da contenitore per attività temporanee come 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere l'articolo successivo di questa serie: [Scale up your DevTest Labs deployment](devtest-lab-guidance-scale.md) (Aumentare lo sviluppo di DevTest Labs)
+Vedere l'articolo successivo di questa serie: [Aumentare le prestazioni della distribuzione di DevTest Labs](devtest-lab-guidance-scale.md)

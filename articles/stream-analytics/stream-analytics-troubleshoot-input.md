@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 2b2dc3ba78cfa682c4a326754bdddfa9bc81f836
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346407"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164382"
 ---
 # <a name="troubleshoot-input-connections"></a>Risolvere i problemi delle connessioni di input
 
@@ -35,7 +36,7 @@ Quando il flusso di input del processo di Analisi di flusso di Azure contiene me
  
 Quando un processo di Analisi di flusso di Azure riceve un messaggio in formato non valido da un input, elimina il messaggio e visualizza un messaggio di avviso. Viene visualizzato un simbolo di avviso nel riquadro **Input** del processo di Analisi di flusso di Azure. Il simbolo di avviso rimane finché il processo è in esecuzione:
 
-![Riquadro degli input di Analisi di flusso di Azure](media/stream-analytics-malformed-events/inputs_tile.png)
+![Riquadro degli input di Analisi di flusso di Azure](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Abilitare i log di diagnostica per visualizzare i dettagli dell'avviso. Per gli eventi di input con formato non corretto, i log di esecuzione contengono una voce con un messaggio simile al seguente: 
 <code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
@@ -47,8 +48,8 @@ Seguendo la procedura seguente è possibile analizzare nel dettaglio gli eventi 
 
 2. Nel riquadro dei dettagli di input viene visualizzato un elenco di avvisi con i dettagli di ogni problema. Il messaggio di avviso di esempio riportato di seguito illustra la partizione, l'offset e i numeri di sequenza dei dati JSON in formato non valido. 
 
-   ![Messaggio di avviso con offset](media/stream-analytics-malformed-events/warning_message_with_offset.png)
-
+   ![Messaggio di avviso di Analisi di flusso con offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   
 3. Per trovare i dati JSON con formato non corretto, eseguire il codice CheckMalformedEvents.cs disponibile nel [repository degli esempi di GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Questo codice legge l'ID della partizione, l'offset e stampa i dati presenti nell'offset. 
 
 4. Dopo aver eseguito la lettura dei dati, è possibile analizzare e correggere il formato di serializzazione.
@@ -101,7 +102,7 @@ La clausola WITH specifica un set di risultati con nome temporaneo a cui è poss
 
 Ad esempio, invece di questa query:
 
-```
+```SQL
 SELECT foo 
 INTO output1
 FROM inputEventHub
@@ -114,7 +115,7 @@ FROM inputEventHub
 
 Usare questa query:
 
-```
+```SQL
 WITH data AS (
    SELECT * FROM inputEventHub
 )

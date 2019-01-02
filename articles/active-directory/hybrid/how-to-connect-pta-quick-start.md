@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 831e5bff412f80f2140f6fd1b935a57bd412ccba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582743"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188130"
 ---
-# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory - Avvio rapido
+# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory: Avvio rapido
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Distribuire l'autenticazione pass-through di Azure AD
 
@@ -58,13 +58,13 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti.
 4. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
    - Assicurarsi che gli agenti di autenticazione possano effettuare richieste *in uscita* ad Azure AD sulle porte seguenti:
 
-    | Numero della porta | Uso |
-    | --- | --- |
-    | **80** | Scarica gli elenchi di revoche di certificati (CRL) durante la convalida del certificato SSL |
-    | **443** | Gestisce tutte le comunicazioni in uscita con il servizio |
-    | **8080** (facoltativo) | Se la porta 443 non è disponibile, gli agenti di autenticazione segnalano il proprio stato ogni dieci minuti attraverso la porta 8080. Lo stato viene visualizzato nel portale di Azure AD. La porta 8080 _non_ viene usata per l'accesso degli utenti. |
-
-    Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
+     | Numero della porta | Uso |
+     | --- | --- |
+     | **80** | Scarica gli elenchi di revoche di certificati (CRL) durante la convalida del certificato SSL |
+     | **443** | Gestisce tutte le comunicazioni in uscita con il servizio |
+     | **8080** (facoltativo) | Se la porta 443 non è disponibile, gli agenti di autenticazione segnalano il proprio stato ogni dieci minuti attraverso la porta 8080. Lo stato viene visualizzato nel portale di Azure AD. La porta 8080 _non_ viene usata per l'accesso degli utenti. |
+     
+     Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
    - Se il firewall o il proxy consente l'inserimento di DNS nell'elenco elementi consentiti, aggiungere le connessioni a **\*.msappproxy.net** e **\*.servicebus.windows.net** all'elenco elementi consentiti. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
    - Gli agenti di autenticazione devono poter accedere a **login.windows.net** e **login.microsoftonline.net** per la registrazione iniziale. Aprire il firewall anche per questi URL.
    - Per la convalida del certificato, sbloccare questi URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www.microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
@@ -97,7 +97,7 @@ Seguire queste istruzioni per verificare che l'autenticazione pass-through sia s
 4. Verificare che la funzionalità **Autenticazione pass-through** sia impostata su **Abilitato**.
 5. Selezionare **Autenticazione pass-through**. Il riquadro **Autenticazione pass-through** elenca i server in cui sono stati installati gli agenti di autenticazione.
 
-![Interfaccia di amministrazione di Azure Active Directory: riquadro Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
+![Interfaccia di amministrazione di Azure Active Directory: riquadro di Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
 
 ![Interfaccia di amministrazione di Azure Active Directory: riquadro Autenticazione pass-through](./media/how-to-connect-pta-quick-start/pta8.png)
 
@@ -143,11 +143,11 @@ In secondo luogo è possibile creare ed eseguire uno script di distribuzione aut
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Eseguire la migrazione da AD FS all'autenticazione pass-through](https://aka.ms/adfstoptadp): una guida dettagliata per la migrazione da AD FS (o altre tecnologie federative) per l'autenticazione pass-through.
-- [Blocco smart](../authentication/howto-password-smart-lockout.md): apprendere come configurare la funzionalità di blocco smart nel tenant per proteggere gli account utente.
-- [Limitazioni correnti](how-to-connect-pta-current-limitations.md): informazioni su quali scenari sono supportati con l'autenticazione pass-through e quali non lo sono.
-- [Approfondimento tecnico](how-to-connect-pta-how-it-works.md): comprendere come funziona l'autenticazione pass-through.
-- [Domande frequenti](how-to-connect-pta-faq.md): risposte alle domande più frequenti.
-- [Risoluzione dei problemi](tshoot-connect-pass-through-authentication.md): apprendere come risolvere i problemi comuni relativi alla funzionalità di autenticazione pass-through.
-- [Approfondimento sulla sicurezza](how-to-connect-pta-security-deep-dive.md): ottenere informazioni tecniche sulla funzionalità di autenticazione pass-through.
-- [Accesso Single Sign-On facile di Azure AD](how-to-connect-sso.md): ottenere altre informazioni su questa funzionalità complementare.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.
+- [Blocco intelligente](../authentication/howto-password-smart-lockout.md): informazioni su come configurare la funzionalità di blocco intelligente nel tenant per proteggere gli account utente.
+- [Limitazioni correnti](how-to-connect-pta-current-limitations.md): informazioni sugli scenari supportati e non supportati con l'autenticazione pass-through.
+- [Approfondimento tecnico](how-to-connect-pta-how-it-works.md): informazioni sul funzionamento dell'autenticazione pass-through.
+- [Domande frequenti](how-to-connect-pta-faq.md): risposte alle domande frequenti.
+- [Risolvere i problemi](tshoot-connect-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi alla funzionalità di autenticazione pass-through.
+- [Approfondimento sulla sicurezza](how-to-connect-pta-security-deep-dive.md): informazioni tecniche sulla funzionalità Autenticazione pass-through.
+- [Seamless SSO di Azure AD](how-to-connect-sso.md): altre informazioni su questa funzionalità complementare.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): come usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.

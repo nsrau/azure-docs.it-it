@@ -1,6 +1,6 @@
 ---
-title: Informazioni sull'host processore di eventi di Hub eventi di Azure e perché usarlo | Microsoft Docs
-description: Panoramica e introduzione all'host processore di eventi di Hub eventi di Azure
+title: Ricevere eventi tramite l'host del processore di eventi - Hub eventi di Azure | Microsoft Docs
+description: Questo articolo descrive l'host del processore di eventi in Hub eventi di Azure, che semplifica la gestione di checkpoint e lease e la lettura in parallelo degli eventi.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258953"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089634"
 ---
-# <a name="azure-event-hubs-event-processor-host-overview"></a>Panoramica dell'host processore di eventi di Hub eventi di Azure
+# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Ricevere eventi da Hub eventi di Azure usando l'host del processore di eventi
 
 Hub eventi di Azure è un potente servizio di inserimento di dati di telemetria che può essere usato per lo streaming di milioni di eventi a basso costo. Questo articolo descrive come usare gli eventi inseriti tramite *Host processore di eventi* (EPH); un agente consumer intelligente che semplifica la gestione dei checkpoint, dei leasing e dei lettori di eventi paralleli.  
 
@@ -36,16 +37,16 @@ Ogni sensore esegue il push dei dati a un hub eventi. L'hub eventi è configurat
 
 Quando si progetta il consumer in un ambiente distribuito, lo scenario deve gestire i requisiti seguenti:
 
-1. **Scalabilità:** creare diversi consumer, ciascuno tra questi che dispone di proprietà di lettura derivanti da alcune partizioni di Hub eventi.
+1. **Scalabilità:** creare diversi consumer, ognuno dei quali dispone di proprietà di lettura di alcune partizioni di Hub eventi.
 2. **Bilanciamento del carico:** aumentare o ridurre in modo dinamico i consumer. Ad esempio, quando un nuovo tipo di sensore (ad esempio, un rilevatore di monossido di carbonio) viene aggiunto a ciascuna abitazione, il numero di eventi aumenta. In tal caso, l'operatore (un essere umano) aumenta il numero di istanze del consumer. Quindi, il pool di consumer può ribilanciare il numero di partizioni di cui è proprietario, condividendo il carico con i consumer appena aggiunti.
-3. **Recupero intuitivo dagli errori:** in caso di esito negativo da parte di un consumer (**consumer A**) (ad esempio, la macchina virtuale che ospita il consumer si arresta improvvisamente), gli altri consumers devono riuscire ad acquisire le partizioni delle quali è proprietario il **consumer A** e procedere. Inoltre, il punto di continuazione, chiamato *checkpoint* oppure *offset*, deve trovarsi nel punto esatto in cui il **consumer A** ha avuto esito negativo, o leggermente prima rispetto al punto.
-4. **Uso di eventi:** mentre i tre punti precedenti affrontano la gestione del consumer, è necessario che esista un codice per gli eventi e che questo venga usato a uno scopo utile; ad esempio, aggregandolo e caricandolo nell'archiviazione BLOB.
+3. **Ripresa immediata in caso di errore:** in caso di errore di un consumer (**consumer A**), ad esempio se la macchina virtuale che ospita il consumer si arresta improvvisamente, gli altri consumer devono essere in grado di acquisire le partizioni delle quali è proprietario il **consumer A** e continuare. Inoltre, il punto di continuazione, chiamato *checkpoint* oppure *offset*, deve trovarsi nel punto esatto in cui il **consumer A** ha avuto esito negativo, o leggermente prima rispetto al punto.
+4. **Utilizzo degli eventi:** mentre i tre punti precedenti affrontano la gestione del consumer, è necessario che esista un codice per gli eventi e che questo venga usato a uno scopo utile, ad esempio aggregandolo e caricandolo nell'archivio BLOB.
 
 Al posto di creare una soluzione personalizzata a tal proposito, Hub eventi offre questa funzionalità tramite l'interfaccia [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) e la classe [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost).
 
 ## <a name="ieventprocessor-interface"></a>Interfaccia IEventProcessor
 
-In primo luogo, l'uso delle applicazioni si serve dell'interfaccia [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) sfruttando quattro metodi: [OpenAsync, CloseAsync, ProcessErrorAsync e ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Questa interfaccia contiene il codice reale per usare gli eventi inviati da Hub eventi. L'implementazione del codice seguente è semplice:
+In primo luogo, le applicazioni implementano l'interfaccia [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor), che ha quattro metodi: [OpenAsync, CloseAsync, ProcessErrorAsync e ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Questa interfaccia contiene il codice reale per usare gli eventi inviati da Hub eventi. L'implementazione del codice seguente è semplice:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -83,10 +84,10 @@ public class SimpleEventProcessor : IEventProcessor
 Quindi, creare un'istanza di [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). In base all'overload, durante la creazione dell'istanza di [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) nel costruttore, vengono usati i parametri seguenti:
 
 - **nome host:** il nome di ciascuna istanza del consumer. Ogni istanza di **EventProcessorHost** deve avere un valore univoco per questa variabile all'interno di un gruppo di consumer, pertanto è consigliabile non impostare come hardcoded questo valore.
-- **eventHubPath:** il nome dell'hub eventi.
-- **consumerGroupName:** Hub eventi usa **$Default** come nome predefinito del gruppo di consumer, ma è buona norma creare un gruppo di consumer per l'aspetto specifico dell'elaborazione.
-- **eventHubConnectionString:** la stringa di connessione all'hub eventi che può essere recuperata dal portale di Azure. Questa stringa di connessione deve disporre delle autorizzazioni **Listen** per l'hub eventi.
-- **storageConnectionString:** l'account di archiviazione usato per la gestione delle risorse interne.
+- **eventHubPath:** Nome di Hub eventi.
+- **consumerGroupName:** Hub eventi usa **$Default** come nome del gruppo di consumer predefinito, ma è buona norma creare un gruppo di consumer per l'aspetto specifico dell'elaborazione.
+- **eventHubConnectionString:** stringa di connessione all'hub eventi, che può essere recuperata dal portale di Azure. Questa stringa di connessione deve disporre delle autorizzazioni **Listen** per l'hub eventi.
+- **storageConnectionString:** account di archiviazione usato per la gestione delle risorse interne.
 
 Infine, il consumer registra le istanze di [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) con il servizio Hub eventi. La registrazione di una classe del processore di eventi con un'istanza di EventProcessorHost avvia l'elaborazione di eventi. La registrazione indica al servizio Hub eventi di prevedere che l'app consumer faccia uso degli eventi provenienti da alcune delle sue partizioni e richiami il codice di implementazione di [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) ogniqualvolta effettui il push di eventi da usare. 
 
@@ -151,9 +152,9 @@ Come spiegato in precedenza, la tabella di rilevamento semplifica notevolmente l
 
 Inoltre, uno degli overload di [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) accetta un oggetto [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) come parametro. Usare questo parametro per controllare il comportamento di [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync). [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) definisce un evento e quattro proprietà:
 
-- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): le dimensioni massime della raccolta che si vogliono ricevere in una chiamata di [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Questa dimensione non è il valore minimo, solo la dimensione massima. Se sono presenti meno messaggi da ricevere **ProcessEventsAsync** viene eseguita con il numero massimo di messaggi disponibili in quel momento.
-- [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): un valore usato dal canale AMQP sottostante per determinare il limite massimo di messaggi che deve ricevere il client. Questo valore deve essere maggiore o uguale a [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
-- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): se questo parametro è **true**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) viene chiamato quando scade la chiamata sottostante per ricevere eventi nella partizione. Questo metodo è utile per intraprendere azioni in base al tempo durante i periodi di inattività nella partizione.
+- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): dimensioni massime della raccolta che si vuole ricevere in una chiamata di [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Questa dimensione non è il valore minimo, solo la dimensione massima. Se sono presenti meno messaggi da ricevere **ProcessEventsAsync** viene eseguita con il numero massimo di messaggi disponibili in quel momento.
+- [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): valore usato dal canale AMQP sottostante per determinare il limite massimo di messaggi che deve ricevere il client. Questo valore deve essere maggiore o uguale a [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
+- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): se questo parametro è **true**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) viene chiamato al timeout della chiamata sottostante per ricevere eventi in una partizione. Questo metodo è utile per intraprendere azioni in base al tempo durante i periodi di inattività nella partizione.
 - [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): consente l'impostazione di un puntatore alla funzione o un'espressione lambda, che viene chiamata per specificare l'offset iniziale quando un lettore inizia la lettura di una partizione. Senza la specifica di questo offset, il lettore inizia con l'evento meno recente, a meno che non sia già stato salvato un file JSON con un offset nell'account di archiviazione fornito al costruttore di [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Questo metodo è utile quando si vuole modificare il comportamento di avvio del lettore. Quando questo metodo viene richiamato, il parametro dell'oggetto contiene l'ID di partizione per cui viene avviato il lettore.
 - [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): consente di ricevere una notifica di eventuali eccezioni sottostanti che si verificano in [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Se la situazione non è quella prevista, questo evento è un buon punto di avviare la ricerca.
 

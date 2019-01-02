@@ -10,25 +10,23 @@ ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: bbf38d17f2f411fde240a67f6666953b275fb788
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637246"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192259"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Creare visualizzazioni personalizzate usando Progettazione visualizzazioni in Log Analytics
-Tramite Progettazione visualizzazioni in [Azure Log Analytics](../../log-analytics/log-analytics-queries.md) è possibile creare nel portale di Azure una serie di visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
+Tramite Progettazione visualizzazioni in [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) è possibile creare nel portale di Azure una serie di visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
 
 Per altre informazioni su Progettazione visualizzazioni, vedere:
 
-* [Informazioni di riferimento sul riquadro](view-designer-tiles.md): offre una guida di riferimento sulle impostazioni relative a ogni riquadro disponibile nelle visualizzazioni personalizzate.
-* [Informazioni di riferimento sulle parti della visualizzazione](view-designer-parts.md): offre una guida di riferimento sulle impostazioni relative alle parti della visualizzazione disponibili nelle visualizzazioni personalizzate.
+* [Informazioni di riferimento sui riquadri](view-designer-tiles.md): offre una guida di riferimento sulle impostazioni relative a ogni riquadro disponibile nelle visualizzazioni personalizzate.
+* [Informazioni di riferimento sulle parti di visualizzazione](view-designer-parts.md): guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
 
 
 ## <a name="concepts"></a>Concetti
@@ -42,7 +40,7 @@ Le visualizzazioni create con Progettazione visualizzazioni contengono gli eleme
 |:--- |:--- |
 | Riquadri | Sono disponibili nella pagina **Panoramica** dell'area di lavoro di Log Analytics. Ogni riquadro mostra un riepilogo visivo della visualizzazione personalizzata che rappresenta. Ciascun tipo di riquadro offre una visualizzazione diversa dei record. Selezionare un riquadro per mostrare una visualizzazione personalizzata. |
 | Visualizzazione personalizzata | Viene mostrata quando si seleziona un riquadro. Ciascuna visualizzazione contiene una o più parti della visualizzazione. |
-| Parti della visualizzazione | Presentano una visualizzazione dei dati nell'area di lavoro di Log Analytics in base a una o più [ricerche log](../../log-analytics/log-analytics-queries.md). La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro di Log Analytics. Selezionare gli elementi della parte per eseguire una ricerca log che restituisca record dettagliati. |
+| Parti della visualizzazione | Presentano una visualizzazione dei dati nell'area di lavoro di Log Analytics in base a una o più [ricerche log](../../azure-monitor/log-query/log-query-overview.md). La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro di Log Analytics. Selezionare gli elementi della parte per eseguire una ricerca log che restituisca record dettagliati. |
 
 
 ## <a name="work-with-an-existing-view"></a>Usare una visualizzazione esistente
@@ -55,7 +53,7 @@ Le opzioni sono descritte nella tabella seguente:
 | Opzione | DESCRIZIONE |
 |:--|:--|
 | Aggiorna   | Aggiorna la visualizzazione con i dati più recenti. | 
-| Analytics | Apre il [portale Advanced Analytics](../../log-analytics/log-analytics-log-search-portals.md) per analizzare i dati con query di log. |
+| Analytics | Apre il [portale Advanced Analytics](../../azure-monitor/log-query/portals.md) per analizzare i dati con query di log. |
 | Modificare       | Apre la visualizzazione in Progettazione visualizzazioni per modificarne il contenuto e la configurazione.  |
 | Clone      | Crea una nuova visualizzazione e la apre in Progettazione visualizzazioni. La nuova visualizzazione ha lo stesso nome dell'originale, con l'aggiunta di *Copia*. |
 | Intervallo di date | Impostare l'intervallo di tempo e di date per i dati inclusi nella vista. Questo intervallo di date viene applicato prima di eventuali intervalli di date impostati nelle query nella vista.  |

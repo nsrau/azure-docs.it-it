@@ -1,5 +1,5 @@
 ---
-title: Competenza Riconoscimento delle entità della ricerca cognitiva (Ricerca di Azure) | Microsoft Docs
+title: Competenza Riconoscimento delle entità della ricerca cognitiva - Ricerca di Azure
 description: Estrarre tipi diversi di entità dal testo in una pipeline di ricerca cognitiva di Ricerca di Azure.
 services: search
 manager: pablocas
@@ -10,19 +10,23 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 7599ab7eb7a6ff247548d988c57bdc6c501a5a6b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 9745934891cd7ba99fa821377318e38134b7d2a5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447680"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311865"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competenza cognitiva Riconoscimento delle entità
 
 La competenza **Riconoscimento delle entità** estrae le entità di tipi diversi dal testo. 
 
 > [!NOTE]
-> La ricerca cognitiva è disponibile in anteprima pubblica. Le funzionalità di esecuzione di set di competenze e di estrazione e normalizzazione di immagini sono attualmente disponibili gratuitamente. Il prezzo per queste funzionalità verrà annunciato in un momento successivo. 
+> A partire dal 21 dicembre 2018 è possibile associare una risorsa dei Servizi cognitivi a un set di competenze della Ricerca di Azure. In questo modo sarà possibile iniziare ad addebitare per l'esecuzione del set di competenze. In questa data avrà inizio anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione del testo dai documenti continuerà a essere offerta gratuitamente.
+>
+> L'esecuzione delle competenze predefinite verrà addebitata in base ai[prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). Per l'estrazione delle immagini verranno applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [Altre informazioni](cognitive-search-attach-cognitive-services.md).
+
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.EntityRecognitionSkill

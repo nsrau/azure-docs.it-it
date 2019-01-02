@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495308"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012573"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
 
@@ -26,7 +26,7 @@ Informazioni su come usare [Apache Livy](https://livy.incubator.apache.org/), l'
 
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* [cURL](http://curl.haxx.se/). Questo articolo usa cURL per illustrare come effettuare chiamate API REST con un cluster HDInsight Spark.
+* [cURL](https://curl.haxx.se/). Questo articolo usa cURL per illustrare come effettuare chiamate API REST con un cluster HDInsight Spark.
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Inviare un processo batch Apache Livy Spark
 Prima di inviare un processo batch, è necessario caricare il file con estensione jar dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo è possibile usare [**AzCopy**](../../storage/common/storage-use-azcopy.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Apache Hadoop in HDInsight](../hdinsight-upload-data.md).
@@ -172,9 +172,9 @@ Di seguito sono illustrati alcuni problemi riscontrabili durante l'uso di Livy p
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>L'uso di un file jar esterno dalla risorsa di archiviazione aggiuntiva non è supportato.
 
-**Problema:** se il processo Livy Spark fa riferimento a un file con estensione JAR esterno dall'account di archiviazione associata al cluster, il processo avrà esito negativo.
+**Problema:** se il processo Livy Spark fa riferimento a un file JAR esterno dall'account di archiviazione aggiuntivo associato al cluster, il processo ha esito negativo.
 
-**Soluzione:** verificare che il file jar che si vuole usare sia disponibile nella risorsa di archiviazione associata al cluster HDInsight predefinito.
+**Risoluzione:** verificare che il file JAR che si vuole usare sia disponibile nell'archivio predefinito associato al cluster HDInsight.
 
 
 

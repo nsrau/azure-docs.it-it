@@ -1,22 +1,23 @@
 ---
-title: Reti con HSM dedicato | Microsoft Docs
-description: HSM dedicato di Azure offre capacità di archiviazione chiavi in Azure che soddisfano la certificazione FIPS 140-2 Livello 3
+title: Considerazioni sulla rete - Modulo di protezione hardware dedicato di Azure | Microsoft Docs
+description: Panoramica delle considerazioni sulla rete applicabili alle distribuzioni del modulo di protezione hardware dedicato di Azure
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: ca72d33b52bdda2ebce432dffd46a84963a7bce5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 46a4cc5e48a9fe239a3c62bd72cf6a99e9bf76d8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319150"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092885"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Reti con HSM dedicato di Azure
 

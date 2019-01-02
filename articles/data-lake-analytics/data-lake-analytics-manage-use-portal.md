@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: dcf1a853f00f047a6d8beb8599a5b74c7f8f084d
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969511"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724061"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -34,11 +33,11 @@ Questo articolo descrive come gestire utenti, processi, origini dati e account A
 2. Fare clic su **Crea una risorsa** > **Intelligence e analisi** > **Data Lake Analytics**.
 3. Selezionare i valori per gli elementi seguenti: 
    1. **Nome**: nome dell'account di Data Lake Analytics.
-   2. **Sottoscrizione**: sottoscrizione di Azure usata per l'account.
+   2. **Sottoscrizione** sottoscrizione di Azure usata per l'account.
    3. **Gruppo di risorse**: gruppo di risorse di Azure in cui creare l'account. 
    4. **Posizione**: data center di Azure per l'account di Data Lake Analytics. 
    5. **Data Lake Store**: archivio predefinito da usare per l'account di Data Lake Analytics. L'account di Azure Data Lake Store e quello di Data Lake Analytics devono trovarsi nella stessa posizione.
-4. Fare clic su **Crea**. 
+4. Fare clic su **Create**(Crea). 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Eliminare un account di Data Lake Analytics
 
@@ -112,7 +111,7 @@ Usare il ruolo Sviluppatore di Data Lake Analytics per consentire agli sviluppat
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Aggiungere utenti o gruppi di sicurezza a un account di Data Lake Analytics
 
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
-2. Fare clic su **Controllo di accesso (IAM)** > **Aggiungi**.
+2. Fare clic su **Controllo di accesso (IAM)** > **Aggiungi un'assegnazione di ruolo**.
 3. Selezionare un ruolo.
 4. Aggiungere un utente.
 5. Fare clic su **OK**.
@@ -132,7 +131,7 @@ Usare il ruolo Sviluppatore di Data Lake Analytics per consentire agli sviluppat
 
 2. Fare clic su **Nuovo processo**. Per ogni processo, configurare quanto segue:
 
-    1. **Nome processo**: nome del processo.
+    1. **Nome processo**: Nome del processo.
     2. **Priorità**: i numeri più bassi hanno maggiore priorità. Se due processi sono in coda, verrà eseguito per primo quello con la priorità più bassa.
     3. **Parallelismo**: numero massimo di processi di calcolo da riservare per il processo.
 

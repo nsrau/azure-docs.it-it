@@ -1,5 +1,6 @@
 ---
-title: Ottimizzare gli iperparametri per il modello tramite Azure Machine Learning
+title: Ottimizzare gli iperparametri per il modello
+titleSuffix: Azure Machine Learning service
 description: Ottimizzare in modo efficiente gli iperparametri per il modello di apprendimento avanzato/apprendimento automatico mediante il servizio Azure Machine Learning. Verrà illustrato come definire lo spazio di ricerca dei parametri, specificare una metrica primaria da ottimizzare e terminare in modo anticipato le esecuzioni con scarse prestazioni.
 ms.author: swatig
 author: swatig007
@@ -8,15 +9,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140807"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100736"
 ---
-# <a name="tune-hyperparameters-for-your-model"></a>Ottimizzare gli iperparametri per il modello
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Ottimizzare gli iperparametri per il modello con il servizio Azure Machine Learning
 
 Ottimizzare in modo efficiente gli iperparametri per il modello mediante il servizio Azure Machine Learning.  L'ottimizzazione degli iperparametri include i passaggi seguenti:
 
@@ -36,8 +38,6 @@ Negli scenari di Machine Learning/apprendimento avanzato, le prestazioni del mod
 
 Azure Machine Learning consente di automatizzare l'esplorazione degli iperparametri in modo efficiente, assicurando un risparmio di tempo e risorse. Specificare l'intervallo di valori degli iperparametri e il numero massimo di esecuzioni di training. Il sistema avvia automaticamente più esecuzioni simultanee con diverse configurazioni dei parametri e individua la configurazione con le migliori prestazioni, misurate in base alla metrica scelta. Le esecuzioni di training con scarse prestazioni vengono terminate automaticamente in modo anticipato, riducendo gli sprechi di risorse di calcolo. Queste risorse vengono invece usate per esplorare altre configurazioni degli iperparametri.
 
->[!NOTE]
-> Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 0.168 
 
 ## <a name="define-search-space"></a>Definire lo spazio di ricerca
 
@@ -150,7 +150,7 @@ param_sampling = BayesianParameterSampling( {
 Specificare la metrica primaria che si vuole ottimizzare tramite l'esperimento di ottimizzazione degli iperparametri. Ogni esecuzione di training viene valutata in base a questa metrica primaria e le esecuzioni con scarse prestazioni (in cui la metrica primaria non soddisfa i criteri di terminazione anticipata) verranno terminate. Oltre al nome della metrica primaria, specificare anche l'obiettivo dell'ottimizzazione: se aumentare o ridurre la metrica primaria.
 
 * `primary_metric_name`: nome della metrica primaria da ottimizzare. Il nome della metrica primaria deve corrispondere esattamente al nome della metrica registrato dallo script di training. Vedere [Registrare le metriche per l'ottimizzazione degli iperparametri](#log-metrics-for-hyperparameter-tuning).
-* `primary_metric_goal`: può essere `PrimaryMetricGoal.MAXIMIZE` o `PrimaryMetricGoal.MINIMIZE` e determina se la metrica primaria verrà aumentata o ridotta durante la valutazione dell'esecuzione. 
+* `primary_metric_goal`: può essere `PrimaryMetricGoal.MAXIMIZE` o `PrimaryMetricGoal.MINIMIZE` e determina se la metrica primaria verrà aumentata o ridotta durante la valutazione delle esecuzioni. 
 
 ```Python
 primary_metric_name="accuracy",
@@ -311,7 +311,7 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 Azure Machine Learning SDK offre un widget del notebook che può essere usato per visualizzare lo stato delle esecuzioni di training. Il frammento seguente mostra tutte le esecuzioni di ottimizzazione degli iperparametri in un Jupyter Notebook:
 
 ```Python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
 
@@ -348,10 +348,9 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>Notebook di esempio
-Vedere 
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow) per un'esercitazione sull'ottimizzazione degli iperparametri per un modello TensorFlow. 
-
-Per ottenere questo blocco appunti:
+Fare riferimento a questi notebook:
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) 
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

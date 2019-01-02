@@ -1,6 +1,6 @@
 ---
-title: Elaborare i dati BLOB di Azure con analisi avanzate | Documentazione Microsoft
-description: Elaborare dati nell'archivio BLOB di Azure.
+title: Elaborare i dati BLOB di Azure con analisi avanzate - Processo di data science per i team (TDSP)
+description: Esplorare i dati e creare funzionalità da dati archiviati nell'archivio BLOB di Azure con analisi avanzate.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ef5a3decec3ddd87bb73d513981bdfe081fadf74
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 36e3512caa8922f8bc1a65f13ea41d6873b51e5e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442379"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140538"
 ---
 # <a name="heading"></a>Elaborare i dati BLOB di Azure con analisi avanzate
 In questo documento vengono descritte l'esplorazione dei dati e la creazione di funzionalità da dati archiviati nell’archivio BLOB di Azure. 
@@ -130,7 +130,7 @@ Per creare funzionalità in contenitori, procedere come indicato di seguito:
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
-Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile caricare i dati (campionati o completi) in un BLOB di Azure e utilizzarli in Azure Machine Learning attenendosi alla procedura seguente. Tenere presente che le funzionalità aggiuntive possono essere create anche in Azure Machine Learning Studio. 
+Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile caricare i dati (campionati o completi) in un BLOB di Azure e utilizzarli in Azure Machine Learning seguendo questi passaggi: Tenere presente che le funzionalità aggiuntive possono essere create anche in Azure Machine Learning Studio. 
 
 1. Scrivere il frame di dati in file locali
    

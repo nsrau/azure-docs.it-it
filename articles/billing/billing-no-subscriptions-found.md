@@ -1,5 +1,5 @@
 ---
-title: Errore Non sono state trovate sottoscrizioni quando si prova ad accedere al portale di Azure o al Centro account di Azure | Microsoft Docs
+title: Errore Non sono state trovate sottoscrizioni - Accesso al portale di Azure | Microsoft Docs
 description: Fornisce la soluzione al problema per cui si verifica l'errore Non sono state trovate sottoscrizioni quando si accede al portale di Azure o al Centro account di Azure.
 services: ''
 documentationcenter: ''
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 584342b3dd223c45495db36ad49d83dece858137
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: cef34d4e22732c2d718daf7ce10c23b25ff4649d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581783"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081303"
 ---
-# <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Errore Non sono state trovate sottoscrizioni nel portale di Azure o nel Centro account di Azure
+# <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Errore di accesso Non sono state trovate sottoscrizioni per il portale di Azure o il Centro account di Azure
 
 Potrebbe essere visualizzato il messaggio di errore "Non sono state trovate sottoscrizioni" quando si prova ad accedere al [portale di Azure](https://portal.azure.com/) o al [Centro account di Azure](https://account.windowsazure.com/Subscriptions). Questo articolo offre una soluzione al problema.
 
@@ -36,7 +37,7 @@ Questo problema si verifica se è stata effettuata una selezione nella directory
 
 ## <a name="solution"></a>Soluzione
 
-### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Scenario 1: Il messaggio di errore viene visualizzato nel [portale di Azure](https://portal.azure.com)
+### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Scenario 1: Il messaggio di errore appare nel [portale di Azure](https://portal.azure.com)
 
 Per risolvere il problema:
 
@@ -45,7 +46,7 @@ Per risolvere il problema:
   ![Selezionare la directory in alto a destra nel portale di Azure](./media/billing-no-subscriptions-found/directory-switch.png)
 * Se è selezionata la directory di Azure corretta, ma viene comunque visualizzato il messaggio di errore, [assegnare il ruolo di proprietario all'account](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Scenario 2: Il messaggio di errore viene visualizzato nel [Centro account di Azure](https://account.windowsazure.com/Subscriptions)
+### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Scenario 2: Il messaggio di errore appare nel [Centro account di Azure](https://account.windowsazure.com/Subscriptions)
 
 Controllare se l'account usato è l'amministratore account. Per verificare chi è l'amministratore account, seguire questa procedura:
 

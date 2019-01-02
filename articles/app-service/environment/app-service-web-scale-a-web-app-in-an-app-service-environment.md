@@ -1,5 +1,5 @@
 ---
-title: Come ridimensionare un'app in un ambiente del servizio app
+title: Come ridimensionare un'app in un ambiente del servizio app - Azure
 description: Ridimensionamento di un'app in un ambiente del servizio app
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: d04a5fce920dae25507cdf2f64832574e24c51dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: c94e7f761dcbc7e05965e359d7f9a864335c9c6b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986316"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269346"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Ridimensionamento di app in un ambiente del servizio app
 Nel servizio app di Azure è possibile ridimensionare tre aspetti:
@@ -79,7 +80,7 @@ Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambie
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
 [Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [AppScale]: ../web-sites-scale.md
-[AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
+[AppWarmup]: https://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/

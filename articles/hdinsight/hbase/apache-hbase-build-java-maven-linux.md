@@ -1,20 +1,20 @@
 ---
-title: Client Java HBase - Azure HDInsight
+title: Compilare un client Java HBase con Apache Maven - Azure HDInsight
 description: Informazioni su come usare Apache Maven per compilare un'applicazione Apache HBase basata su Java e poi distribuirla in HBase in Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: dbcb031b49c529bc2b2524cd0984bbef1945d485
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445652"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164059"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilare applicazioni Java per Apache HBase
 
@@ -56,8 +56,8 @@ La procedura descritta in questo documento usa [Apache Maven](https://maven.apac
 
     Questo comando crea una directory con lo stesso nome del parametro **artifactID** (in questo esempio **hbaseapp**). La directory contiene gli elementi seguenti:
 
-   * **pom.xml**: il modello a oggetti dei progetti ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html), Project Object Model) contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
-   * **src**: la directory che contiene la directory **main/java/com/microsoft/examples**, in cui viene creata l'applicazione.
+   * **pom.xml**:  il modello a oggetti dei progetti ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html), Project Object Model) contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
+   * **src**: directory che contiene la directory **main/java/com/microsoft/examples**, in cui viene creata l'applicazione.
 
 3. Eliminare il file `src/test/java/com/microsoft/examples/apptest.java`. Non viene usato in questo esempio.
 

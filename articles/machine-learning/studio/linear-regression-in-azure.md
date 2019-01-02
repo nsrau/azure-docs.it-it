@@ -5,9 +5,8 @@ metakeywords: ''
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311059"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276680"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Uso della regressione lineare Azure Machine Learning Studio
 > *Kate Baroni* e *Ben Boatman* sono architetti di soluzioni aziendali in Microsoft Data Insights Center of Excellence. In questo articolo descrivono la propria esperienza durante la migrazione di una suite esistente per l'analisi di regressione a una soluzione basata sul cloud tramite Azure Machine Learning. 
@@ -31,7 +30,7 @@ ms.locfileid: "52311059"
 
 &nbsp; 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="goal"></a>Obiettivo
 Il progetto è iniziato con due obiettivi prefissati: 
@@ -73,8 +72,8 @@ All'inizio, il modello di Excel ha superato nettamente le prestazioni del modell
 Il processo e i risultati sono stati sottoposti agli sviluppatori e ai data scientist del team di Machine Learning, che ha subito fornito alcuni suggerimenti utili. 
 
 * Quando si usa il modulo [Linear Regression][linear-regression] (Regressione lineare) in Machine Learning Studio, sono disponibili due metodi:
-  * Online Gradient Descent: più adatto a problemi su larga scala
-  * Ordinary Least Squares: il metodo generalmente associato alla regressione lineare. Per set di dati di piccole dimensioni, il metodo Ordinary Least Squares è solitamente la scelta ottimale.
+  * Online Gradient Descent: questo può essere il metodo più adatto a problemi su larga scala.
+  * Ordinary Least Squares: questo è il metodo generalmente associato alla regressione lineare. Per set di dati di piccole dimensioni, il metodo Ordinary Least Squares è solitamente la scelta ottimale.
 * Provare a modificare il parametro L2 Regularization Weight per migliorare le prestazioni. Per impostazione predefinita è impostato su 0.001, ma per i set di dati di piccole dimensioni in questo caso è stato impostato su 0.005 per migliorare le prestazioni. 
 
 ### <a name="mystery-solved"></a>Misero risolto

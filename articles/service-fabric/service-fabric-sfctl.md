@@ -12,17 +12,17 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: b6e3c769307f037c9f31dbb3f1a86675145ec1f6
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cb48cff488c4f0bcd3c4a742f5d9922ec59a36b6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495408"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269856"
 ---
 # <a name="sfctl"></a>sfctl
-Comandi per la gestione di cluster ed entità di Service Fabric. Questa versione è compatibile con il runtime di Service Fabric 6.3.
+Comandi per la gestione di cluster ed entità di Service Fabric. Questa versione è compatibile con il runtime di Service Fabric 6.4.
 
 I comandi seguono il modello sostantivo-verbo. Per altre informazioni, vedere Sottogruppi.
 
@@ -35,6 +35,7 @@ I comandi seguono il modello sostantivo-verbo. Per altre informazioni, vedere So
 | [compose](service-fabric-sfctl-compose.md) | Creare, eliminare e gestire applicazioni Docker Compose. |
 | [container](service-fabric-sfctl-container.md) | Esegue i comandi relativi al contenitore in un nodo del cluster. |
 | [is](service-fabric-sfctl-is.md) | Consente di eseguire query e inviare comandi al servizio di infrastruttura. |
+| [mesh](service-fabric-sfctl-mesh.md) | Consente di eliminare e gestire le applicazioni mesh Service Fabric. |
 | [node](service-fabric-sfctl-node.md) | Consente di gestire i nodi che formano un cluster. |
 | [partition](service-fabric-sfctl-partition.md) | Consente di eseguire una query e gestire partizioni per qualsiasi servizio. |
 | [property](service-fabric-sfctl-property.md) | Consente di archiviare proprietà ed eseguire query su di esse con i nomi di Service Fabric. |
@@ -42,6 +43,7 @@ I comandi seguono il modello sostantivo-verbo. Per altre informazioni, vedere So
 | [rpm](service-fabric-sfctl-rpm.md) | Consente di eseguire query e inviare comandi al servizio di gestione di ripristino. |
 | [sa-cluster](service-fabric-sfctl-sa-cluster.md) | Gestisce i cluster di Service Fabric autonomi. |
 | [service](service-fabric-sfctl-service.md) | Creare, eliminare e gestire servizi, tipi di servizio e pacchetti di servizi. |
+| [impostazioni](service-fabric-sfctl-settings.md) | Consente di configurare le impostazioni locali per l'istanza di sfctl. |
 | [store](service-fabric-sfctl-store.md) | Esegue operazioni base a livello di file nell'archivio immagini del cluster. |
 
 ## <a name="next-steps"></a>Passaggi successivi

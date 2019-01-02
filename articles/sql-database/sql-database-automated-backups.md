@@ -3,7 +3,7 @@ title: Backup automatici e con ridondanza geografica del database SQL di Azure |
 description: Il database SQL crea automaticamente e ripetutamente una copia di backup locale del database a pochi minuti l'una dall'altra e usa l'archiviazione con ridondanza geografica e accesso in lettura di Azure per la ridondanza geografica.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.date: 12/10/2018
+ms.openlocfilehash: 2d6df569a2b5b813bd832adf5ef2e1d193de9364
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422511"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187569"
 ---
-# <a name="learn-about-automatic-sql-database-backups"></a>Informazioni sui backup automatici del database SQL
+# <a name="automated-backups"></a>Backup automatizzati
 
-Il database SQL crea automaticamente i backup del database e usa l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) di Azure per fornire una ridondanza geografica. Questi backup vengono creati automaticamente e senza costi aggiuntivi. Non è necessario intervenire manualmente per eseguire i backup. I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Se le regole di sicurezza richiedono che i backup siano disponibili per un lungo periodo di tempo, è possibile configurare un criterio di conservazione dei backup a lungo termine. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
+Il database SQL crea automaticamente i backup dei database, che vengono conservati per un periodo compreso tra 7 e 35 giorni, e usa l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) di Azure per garantire che vengano conservati anche se il data center non è disponibile. Questi backup vengono creati automaticamente e senza costi aggiuntivi. Non è necessario eseguire alcuna operazione manuale ed è possibile [modificare il periodo di conservazione dei backup](#how-to-change-the-pitr-backup-retention-period). I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Se le regole di sicurezza richiedono che i backup siano disponibili per un lungo periodo di tempo (fino a 10 anni), è possibile configurare una [conservazione a lungo termine](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -33,8 +33,8 @@ Il database SQL usa la tecnologia di SQL Server per creare backup [completi](htt
 
 - Ripristinare un database in un punto nel tempo entro il periodo di memorizzazione. Questa operazione creerà un nuovo database nello stesso server del database originale.
 - Ripristinare un database eliminato al momento in cui è stato eliminato o a qualsiasi momento del periodo di conservazione. Il database eliminato può essere ripristinato solo nello stesso server in cui è stato creato il database originale.
-- Ripristinare un database in un'altra area geografica. Ciò consente di eseguire un ripristino di emergenza geografico quando è impossibile accedere al server e al database. Crea un nuovo database in qualsiasi server esistente ovunque nel mondo.
-- Ripristinare un database da uno specifico backup a lungo termine se il database è stato configurato con criteri di conservazione a lungo termine (LTR). Ciò consente di ripristinare una versione precedente del database per soddisfare una richiesta di conformità o di eseguire una versione precedente dell'applicazione. Vedere [Conservazione a lungo termine](sql-database-long-term-retention.md).
+- Ripristinare un database in un'altra area geografica. Il ripristino geografico consente di eseguire un ripristino di emergenza geografico quando è impossibile accedere al server e al database. Crea un nuovo database in qualsiasi server esistente ovunque nel mondo.
+- Ripristinare un database da uno specifico backup a lungo termine se il database è stato configurato con criteri di conservazione a lungo termine (LTR). La conservazione a lungo termine consente di ripristinare una versione precedente del database per soddisfare una richiesta di conformità o di eseguire una versione precedente dell'applicazione. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 - Per eseguire un ripristino, vedere l'articolo su come [ripristinare un database da un backup](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -42,16 +42,16 @@ Il database SQL usa la tecnologia di SQL Server per creare backup [completi](htt
 
 ## <a name="how-long-are-backups-kept"></a>Per quanto tempo sono conservati i backup
 
-Ogni database SQL ha un periodo di conservazione dei backup predefinito che varia da 7 e 35 giorni e dipende dal [modello di acquisto e dal livello di servizio](#pitr-retention-period). È possibile aggiornare il periodo di conservazione dei backup per un database nel server logico di Azure. Questa funzionalità sarà abilitata a breve nell'istanza gestita. Visualizzare [Modifica del periodo di conservazione backup](#how-to-change-backup-retention-period) per ulteriori dettagli.
+Ogni database SQL ha un periodo di conservazione dei backup predefinito che varia da 7 e 35 giorni e dipende dal [modello di acquisto e dal livello di servizio](#pitr-retention-period). È possibile aggiornare il periodo di conservazione dei backup per un database nel server logico di Azure. Per altre informazioni, vedere [Modifica del periodo di conservazione backup](#how-to-change-the-pitr-backup-retention-period).
 
 Se si elimina un database, il database SQL manterrà i backup come farebbe con un database online. Ad esempio, se si elimina un database Basic con un periodo di conservazione di sette giorni, un backup di quattro giorni viene salvato per altri tre giorni.
 
-Se è necessario conservare i backup per un periodo superiore al periodo di conservazione massimo del ripristino temporizzato, è possibile modificare le proprietà del backup per aggiungere uno o più periodi di conservazione a lungo termine al database. Vedere l'articolo sulla [conservazione del backup a lungo termine](sql-database-long-term-retention.md) per ulteriori dettagli.
+Se è necessario conservare i backup per un periodo superiore al periodo di conservazione massimo, è possibile modificare le proprietà del backup per aggiungere uno o più periodi di conservazione a lungo termine al database. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 
 > [!IMPORTANT]
 > Se si elimina SQL Server di Azure che ospita i database SQL, vengono eliminati anche tutti i database e i pool elastici appartenenti al server e non sarà possibile recuperarli. Non è possibile ripristinare un server eliminato. Tuttavia, se è stata configurata la conservazione a lungo termine, i backup per i database con conservazione a lungo termine non verranno cancellati e questi database potranno essere ripristinati.
 
-### <a name="pitr-retention-period"></a>Periodo di conservazione PITR
+### <a name="default-backup-retention-period"></a>Periodo di conservazione dei backup predefinito
 
 #### <a name="dtu-based-purchasing-model"></a>modello di acquisto basato su DTU
 
@@ -63,12 +63,10 @@ Il periodo di conservazione predefinito per un database creato tramite il modell
 
 #### <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
 
-Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup predefinito è di 7 giorni (sia nei server logici che nelle istanze gestite).
+Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup predefinito è di 7 giorni (per i database singoli, in pool e in istanza gestita). Per tutti i database SQL di Azure (database singoli, in pool e in istanza gestita) è possibile [modificare il periodo di conservazione dei backup fino a un massimo di 35 giorni](#how-to-change-the-pitr-backup-retention-period).
 
-- Per i database singoli e in pool è possibile [modificare il periodo di conservazione dei backup fino a 35 giorni](#how-to-change-backup-retention-period).
-- La modifica del periodo di conservazione dei backup non è disponibile in Istanza gestita.
-
-Se si riduce il periodo di conservazione corrente, tutti i backup esistenti anteriori al nuovo periodo di conservazione non saranno disponibili. Se si aumenta il periodo di conservazione corrente, Database SQL manterrà i backup esistenti fino al raggiungimento del periodo di conservazione più lungo.
+> [!WARNING]
+> Se si riduce il periodo di conservazione corrente, tutti i backup esistenti anteriori al nuovo periodo di conservazione non saranno disponibili. Se si aumenta il periodo di conservazione corrente, Database SQL manterrà i backup esistenti fino al raggiungimento del periodo di conservazione più lungo.
 
 ## <a name="how-often-do-backups-happen"></a>Con quale frequenza si verificano i backup
 
@@ -96,21 +94,24 @@ Se il database è crittografato con TDE, i backup vengono crittografati automati
 
 In modo continuativo, il team di progettazione del database SQL di Azure verifica automaticamente il ripristino dei backup automatici dei database nel servizio. Al momento del ripristino, i database sono anche sottoposti a controlli di integrità tramite DBCC CHECKDB. Gli eventuali problemi rilevati durante la verifica dell'integrità determinano la generazione di un avviso per il team di progettazione. Per altre informazioni sull'integrità dei dati nel database SQL di Azure, vedere [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) (Integrità dei dati nel database SQL di Azure).
 
-## <a name="how-do-automated-backups-impact-my-compliance"></a>In che modo i backup automatici influiscono sulla conformità
+## <a name="how-do-automated-backups-impact-compliance"></a>In che modo i backup automatici influiscono sulla conformità
 
-Quando si migra il database da un livello di servizio basato su DTU con una conservazione di ripristino temporizzato predefinita di 35 giorni a un livello di servizio basato sulla vCore, la conservazione di ripristino temporizzato viene preservata per garantire che il criterio di ripristino dei dati dell'applicazione non venga compromesso. Se il periodo di conservazione predefinito non soddisfa i requisiti di conformità, è possibile modificare il periodo di conservazione di ripristino temporizzato utilizzando PowerShell o API REST. Visualizzare [Modifica del periodo di conservazione backup](#how-to-change-backup-retention-period) per ulteriori dettagli.
+Quando si migra il database da un livello di servizio basato su DTU con una conservazione di ripristino temporizzato predefinita di 35 giorni a un livello di servizio basato sulla vCore, la conservazione di ripristino temporizzato viene preservata per garantire che il criterio di ripristino dei dati dell'applicazione non venga compromesso. Se il periodo di conservazione predefinito non soddisfa i requisiti di conformità, è possibile modificare il periodo di conservazione di ripristino temporizzato utilizzando PowerShell o API REST. Visualizzare [Modifica del periodo di conservazione backup](#how-to-change-the-pitr-backup-retention-period) per ulteriori dettagli.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="how-to-change-backup-retention-period"></a>Come modificare il periodo di conservazione dei backup
+## <a name="how-to-change-the-pitr-backup-retention-period"></a>Come modificare il periodo di conservazione dei backup per il recupero temporizzato
 
-> [!Note]
-> Il periodo di conservazione dei backup predefinito (7 giorni) non può essere modificato in Istanza gestita.
-
-È possibile modificare il periodo di conservazione predefinito utilizzando l'API REST o PowerShell. I valori supportati sono: 7, 14, 21, 28 e 35 giorni. Gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni.
+È possibile modificare il periodo di conservazione dei backup per il recupero temporizzato predefinito usando il portale di Azure, PowerShell o l'API REST. I valori supportati sono: 7, 14, 21, 28 giorni o 35 giorni. Gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni.
 
 > [!NOTE]
-> Queste API avranno un impatto solo sul periodo di conservazione di ripristino temporizzato. Se è configurata una conservazione a lungo termine per il database, questo non sarà interessato. Vedere [Conservazione del backup a lungo termine](sql-database-long-term-retention.md) per maggiori dettagli su come modificare i periodi di conservazione a lungo termine.
+> Queste API avranno un impatto solo sul periodo di conservazione di ripristino temporizzato. Se è configurata una conservazione a lungo termine per il database, questo non sarà interessato. Per altre informazioni su come modificare i periodi di conservazione a lungo termine, vedere [Conservazione a lungo termine](sql-database-long-term-retention.md).
+
+### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Modificare il periodo di conservazione dei backup per il recupero temporizzato usando il portale di Azure
+
+Per modificare il periodo di conservazione dei backup per il recupero temporizzato usando il portale di Azure, passare al database di cui si vuole modificare il periodo di conservazione e quindi fare clic su **Panoramica**.
+
+![Modificare il portale di Azure per il recupero temporizzato](./media/sql-database-automated-backup/configure-backup-retention.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Modificare il periodo di conservazione dei backup di ripristino temporizzato usando PowerShell
 
@@ -154,7 +155,7 @@ Codice di stato: 200
 }
 ```
 
-Per ulteriori dettagli, vedere [REST API di conservazione del backup](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+Per altre informazioni, vedere [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) (API REST di conservazione dei backup).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

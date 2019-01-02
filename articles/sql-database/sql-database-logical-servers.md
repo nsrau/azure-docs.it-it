@@ -12,18 +12,18 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb9332832f46dc5c39bf932ce91cd3d3f3d7354f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470660"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269618"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Server logici del database SQL di Azure e loro gestione
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Che cos'è un server logico SQL di Azure
 
-Un server logico funge da punto amministrativo centrale per più database singoli o [in pool](sql-database-elastic-pool.md), [account di accesso](sql-database-manage-logins.md), [regole del firewall](sql-database-firewall-configure.md), [regole di controllo](sql-database-auditing.md), [criteri di rilevamento delle minacce](sql-database-threat-detection.md) e [gruppi di failover](sql-database-geo-replication-overview.md). Un server logico può trovarsi in un'area diversa rispetto al relativo gruppo di risorse. Il server logico deve esistere prima di poter creare il database SQL di Azure. Tutti i database in un server vengono creati nella stessa area del server logico.
+Un server logico funge da punto amministrativo centrale per più database singoli o [in pool](sql-database-elastic-pool.md), [account di accesso](sql-database-manage-logins.md), [regole del firewall](sql-database-firewall-configure.md), [regole di controllo](sql-database-auditing.md), [criteri di rilevamento delle minacce](sql-database-threat-detection.md) e [gruppi di failover](sql-database-auto-failover-group.md). Un server logico può essere in un'area diversa da quella del gruppo di risorse. Il server logico deve esistere prima di poter creare il database SQL di Azure. Tutti i database in un server vengono creati nella stessa area del server logico.
 
 Un server logico è un costrutto logico diverso da un'istanza di SQL Server a cui si può essere abituati nell'ambiente locale. In particolare, il servizio del database SQL non fornisce alcuna garanzia sulla posizione dei database in relazione ai server logici collegati e non espone funzionalità o accessi a livello di istanza. Al contrario, un server in un'istanza di Istanza gestita di database SQL è simile a un'istanza di SQL Server a cui si può essere abituati nell'ambiente locale.
 
@@ -162,7 +162,7 @@ Per creare e gestire server, database e firewall SQL di Azure con Transact-SQL, 
 |[sp_delete_database_firewall_rule (database SQL di Azure)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Rimuove l'impostazione del firewall a livello di database dal database SQL di Azure o da SQL Data Warehouse. |
 
 > [!TIP]
-> Per una guida introduttiva per SQL Server Management Studio in Microsoft Windows, vedere [Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati](sql-database-connect-query-ssms.md). Per una guida introduttiva per Visual Studio Code in macOS, Linux o Windows, vedere [Database SQL di Azure: Usare Visual Studio Code per connettersi ai dati ed eseguire query](sql-database-connect-query-vscode.md).
+> Per una guida introduttiva per SQL Server Management Studio in Microsoft Windows, vedere [Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati](sql-database-connect-query-ssms.md). Per una guida introduttiva per Visual Studio Code in macOS, Linux o Windows, vedere [Database SQL di Azure: usare Visual Studio Code per connettersi ai dati ed eseguire query](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Gestire server, database e firewall SQL di Azure con l'API REST
 

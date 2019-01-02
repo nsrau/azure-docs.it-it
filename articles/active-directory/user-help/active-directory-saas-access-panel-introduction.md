@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: d9ed140d404387b94428cea5d925911806b62552
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705857"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834707"
 ---
 # <a name="what-is-the-myapps-portal"></a>Che cos'è il portale App personali?
 
@@ -41,11 +41,11 @@ Il portale delle app personali è separato dal portale di Azure. Non è necessar
 
 ## <a name="access-the-myapps-portal"></a>Accedere al portale delle app personali
 
-Per accedere al portale delle app personali passare a `http://myapps.microsoft.com`.
+Per accedere al portale delle app personali passare a `https://myapps.microsoft.com`.
 
-Se sono state configurate impostazioni di personalizzazione per la pagina di accesso, è possibile caricarle aggiungendo il dominio dell'organizzazione all'URL ad esempio `http://myapps.microsoft.com/<your domain>.com`.
+Se sono state configurate impostazioni di personalizzazione per la pagina di accesso, è possibile caricarle aggiungendo il dominio dell'organizzazione all'URL ad esempio `https://myapps.microsoft.com/<your domain>.com`.
 
-È possibile usare qualsiasi nome di dominio attivo o verificato che sia stato configurato nel portale di Azure, come illustrato di seguito: ![nome di dominio di Wingtip Toys][2]  
+È possibile usare qualsiasi nome di dominio attivo o verificato che sia stato configurato nel portale di Azure, come illustrato di seguito: ![Nome di dominio di Wingtip Toys][2]  
 
 Distribuire l'URL a tutti gli utenti che eseguiranno l'accesso ad applicazioni integrate con Azure AD.
 

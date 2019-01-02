@@ -2,16 +2,16 @@
 title: Gestire l'accesso ad Azure Site Recovery con il controllo degli accessi in base al ruolo | Microsoft Docs
 description: Questo articolo descrive come applicare il controllo degli accessi in base al ruolo per gestire l'accesso ad Azure Site Recovery.
 ms.service: site-recovery
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 19d41d8c9b1a54cefc09190531b064d640048385
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 815eb1f94d80c36824dc34f3f9410458b9837003
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212047"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849531"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gestire l'accesso a Site Recovery con il controllo degli accessi in base al ruolo
 
@@ -74,4 +74,4 @@ Per completare la replica di una nuova macchina virtuale, un utente deve avere l
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)
   * [API REST](../role-based-access-control/role-assignments-rest.md)
-* [Risoluzione dei problemi del controllo degli accessi in base al ruolo](../role-based-access-control/troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.
+* [Risoluzione dei problemi del controllo degli accessi in base al ruolo](../role-based-access-control/troubleshooting.md): suggerimenti per la risoluzione dei problemi comuni.

@@ -9,17 +9,16 @@ ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 9105b7f44a9677b2b843305c30fec30c74dd8be5
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 097eae37f170a8036ee46652450788faf77c3960
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958492"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967130"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
 
@@ -84,7 +83,7 @@ Oltre ai dati di Application Insights Telemetry, è anche possibile monitorare u
 
 Le metriche attive vengono aggregate in due punti: in locale su ciascun server e quindi su tutti i server. È possibile modificare l'impostazione predefinita per entrambi selezionando altre opzioni nei rispettivi elenchi a discesa.
 
-## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Telemetria di esempio: eventi di diagnostica live personalizzati
+## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Dati di telemetria di esempio: eventi di diagnostica live personalizzati
 Per impostazione predefinita, il feed live degli eventi mostra esempi di richieste non riuscite e chiamate di dipendenza, eccezioni, eventi e tracce. Fare clic sull'icona del filtro per visualizzare i criteri applicati in un punto qualsiasi nel tempo. 
 
 ![Feed live predefinito](./media/app-insights-live-stream/live-stream-eventsdefault.png)
@@ -93,7 +92,7 @@ Così come con le metriche, è possibile specificare i criteri arbitrari per i t
 
 ![Feed live personalizzati](./media/app-insights-live-stream/live-stream-events.png)
 
-Nota: attualmente, per i criteri di eccezione basati sul messaggio, usare il messaggio di eccezione più esterno. Nell'esempio precedente, per filtrare l'eccezione di tipo benigno con messaggio di eccezione interna, segue il delimitatore "<--", "Il client si è disconnesso." usare un criterio che non contiene il messaggio "Errore durante la lettura del contenuto della richiesta".
+Note: attualmente, per i criteri di eccezione basati sul messaggio, usare il messaggio dell'eccezione più esterna. Nell'esempio precedente, per filtrare l'eccezione di tipo benigno con messaggio di eccezione interna, segue il delimitatore "<--", "Il client si è disconnesso." usare un criterio che non contiene il messaggio "Errore durante la lettura del contenuto della richiesta".
 
 Visualizzare i dettagli di un elemento nel feed live facendovi clic sopra. È possibile sospendere il feed facendo clic su **Sospendi** o semplicemente scorrendo verso il basso o facendo clic su un elemento. Il feed live verrà ripreso se, scorrendo, si torna all'inizio o facendo clic sul contatore degli elementi raccolti che era stato sospeso.
 
@@ -175,7 +174,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 Poi, all'interno del metodo ConfigureServices, aggiungere:
 
 ``` C#
-services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
 
@@ -198,7 +197,7 @@ Se si desidera osservare l'effetto di un aumento del carico, usare il pannello T
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Dati non visualizzati Se l'applicazione si trova in una rete protetta: Live Metrics Stream usa un indirizzo IP diverso dagli altri dati di Application Insights Telemetry. Assicurarsi che [tali indirizzi IP](app-insights-ip-addresses.md) siano aperti nel firewall.
+Dati non visualizzati Se l'applicazione è in una rete protetta: Live Metrics Stream usa indirizzi IP diversi da quelli di altri dati di telemetria di Application Insights. Assicurarsi che [tali indirizzi IP](app-insights-ip-addresses.md) siano aperti nel firewall.
 
 
 

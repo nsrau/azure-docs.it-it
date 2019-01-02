@@ -4,19 +4,21 @@ description: Offre una panoramica dei calcoli delle valutazioni nel servizio Azu
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010321"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257973"
 ---
 # <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
 
 Il servizio [Azure Migrate](migrate-overview.md) valuta i gruppi di computer locali per la migrazione ad Azure. Per creare gruppi è possibile usare la funzionalità di visualizzazione delle dipendenze in Azure Migrate. Questo articolo contiene informazioni su questa funzionalità.
 
+> [!NOTE]
+> La funzionalità di visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
 
 ## <a name="overview"></a>Panoramica
 
@@ -31,8 +33,14 @@ Per visualizzare le dipendenze, Azure Migrate usa la soluzione [Elenco dei servi
 
     ![Associare un'area di lavoro di Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. L'area di lavoro viene quindi creata in una regione della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) come progetto di migrazione.
-- L'area di lavoro associata è contrassegnata con il tasto **progetto di migrazione** della chiave e con il valore **project name**, che è possibile usare per eseguire la ricerca nel portale di Azure.
+- Durante l'associazione di un'area di lavoro si avrà la possibilità di creare una nuova area di lavoro o di collegarne una esistente:
+      - Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. L'area di lavoro viene quindi creata in una regione della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) come progetto di migrazione.
+      - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione. Sono elencate solo le aree di lavoro create in un'area geografica in cui [è supportato il mapping dei servizi](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Per poter collegare un'area di lavoro è necessario avere l'accesso in lettura all'area di lavoro.
+
+  > [!NOTE]
+  > Dopo aver collegato un'area di lavoro a un progetto, non è più possibile modificarla.
+
+- L'area di lavoro associata è contrassegnata con la chiave **Progetto di migrazione** e con il valore **Nome progetto**, che è possibile usare per eseguire la ricerca nel portale di Azure.
 - Per passare all'area di lavoro associata al progetto è possibile passare alla sezione **Essentials** della pagina **Panoramica** del progetto e accedere all'area di lavoro
 
     ![Navigare nell'area di lavoro di Log Analytics](./media/concepts-dependency-visualization/oms-workspace.png)
@@ -63,7 +71,7 @@ Altre informazioni sui prezzi di Azure Migrate sono disponibili [qui](https://az
 
 ## <a name="how-do-i-manage-the-workspace"></a>Come si gestisce l'area di lavoro?
 
-È possibile usare l'area di lavoro di Log Analytics all'esterno di Azure Migrate. L'area di lavoro non viene eliminata se si rimuove il progetto di migrazione in cui è stata creata. Se non è più necessaria, [eliminarla](../log-analytics/log-analytics-manage-access.md) manualmente.
+È possibile usare l'area di lavoro di Log Analytics all'esterno di Azure Migrate. L'area di lavoro non viene eliminata se si rimuove il progetto di migrazione in cui è stata creata. Se non è più necessaria, [eliminarla](../azure-monitor/platform/manage-access.md) manualmente.
 
 Non eliminare l'area di lavoro creata da Azure Migrate a meno che non si rimuova il progetto di migrazione. In caso contrario, la funzionalità di visualizzazione delle dipendenze non funzionerà come previsto.
 

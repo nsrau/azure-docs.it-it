@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 64bd250f324bed53a9f33aa72f6b1daa48e0dc86
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8951680ca9488dabffd02ee084e3f6827122276e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424647"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957453"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gestire le funzionalità di connettività e messaggistica affidabile con gli Azure IoT Hub SDK per dispositivi
 
@@ -69,7 +69,7 @@ La procedura seguente descrive il processo di ripetizione dei tentativi quando v
 Gli SDK prevedono tre criteri di ripetizione dei tentativi:
 
 - **Interruzione temporanea esponenziale con instabilità**: criteri di ripetizione dei tentativi predefiniti che tendono a essere aggressivi all'inizio e rallentano fino a raggiungere il ritardo massimo. La progettazione si basa sulle [indicazioni relative alla ripetizione dei tentativi](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific) del Centro architetture Azure.
-- **Ripetizione dei tentativi personalizzata**: per alcuni linguaggi SDK, è possibile progettare i criteri di ripetizione dei tentativi più adatti al proprio scenario e inserirli in RetryPolicy. La ripetizione dei tentativi personalizzata non è disponibile nell'SDK per il linguaggio C.
+- **Ripetizione dei tentativi personalizzata**: per alcuni linguaggi dell'SDK, è possibile progettare i criteri di ripetizione dei tentativi più adatti al proprio scenario e inserirli in RetryPolicy. La ripetizione dei tentativi personalizzata non è disponibile nell'SDK per il linguaggio C.
 - **Nessun tentativo**: è possibile impostare i criteri di ripetizione su "Nessun tentativo", in modo da disabilitare la logica di ripetizione dei tentativi. L'SDK prova a connettersi e a inviare un messaggio una sola volta, supponendo che la connessione sia stata stabilita. Questi criteri vengono solitamente usati nei casi in cui sono presenti problemi relativi alla larghezza di banda o ai costi. Se si sceglie questa opzione, i messaggi non inviati vengono persi e non possono essere recuperati.
 
 ### <a name="retry-policy-apis"></a>API dei criteri di ripetizione dei tentativi
@@ -115,9 +115,8 @@ Per esempi di codice in altri linguaggi, vedere i documenti relativi all'impleme
 - [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- [Usare gli SDK di servizi e dispositivi](.\iot-hub-devguide-sdks.md)
-- [Usare IoT SDK per dispositivi per C](.\iot-hub-device-sdk-c-intro.md)
-- [Sviluppare per dispositivi vincolati](.\iot-hub-devguide-develop-for-constrained-devices.md)
-- [Sviluppare per dispositivi mobili](.\iot-hub-how-to-develop-for-mobile-devices.md)
+- [Usare gli SDK di servizi e dispositivi](./iot-hub-devguide-sdks.md)
+- [Usare IoT SDK per dispositivi per C](./iot-hub-device-sdk-c-intro.md)
+- [Sviluppare per dispositivi vincolati](./iot-hub-devguide-develop-for-constrained-devices.md)
+- [Sviluppare per dispositivi mobili](./iot-hub-how-to-develop-for-mobile-devices.md)
 - [Risolvere i problemi di disconnessione dei dispositivi](iot-hub-troubleshoot-connectivity.md)

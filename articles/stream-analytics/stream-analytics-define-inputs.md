@@ -4,17 +4,17 @@ description: Informazioni sulla configurazione di una connessione dati in Analis
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248745"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099733"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -26,10 +26,10 @@ Analisi di flusso si integra perfettamente con i flussi dei dati di Azure come i
 Queste risorse di input possono trovarsi nella stessa sottoscrizione del processo di Analisi di flusso o in una sottoscrizione diversa.
 
 ### <a name="compression"></a>Compressione
-Analisi di flusso supporta la compressione tra tutte le origini di input del flusso dei dati. I tipi di riferimento attualmente supportati sono: Nessuno, GZip e Deflate. Il supporto per la compressione non è disponibile per i dati di riferimento. Se il formato di input è dati Avro compressi, viene gestito in modo trasparente. Non è necessario specificare il tipo di compressione con la serializzazione Avro. 
+Analisi di flusso supporta la compressione tra tutte le origini di input del flusso dei dati. I tipi riferimento attualmente supportati sono: compressione GZip, Deflate e nessuna. Il supporto per la compressione non è disponibile per i dati di riferimento. Se il formato di input è dati Avro compressi, viene gestito in modo trasparente. Non è necessario specificare il tipo di compressione con la serializzazione Avro. 
 
 ## <a name="create-edit-or-test-inputs"></a>Creare, modificare o testare gli input
-È possibile usare il [portale di Azure](https://portal.azure.com) per [creare nuovi input](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) e visualizzare o modificare gli input esistenti nel processo di streaming. È anche possibile testare le connessioni di input e [testare le query](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) dai dati di esempio. Quando si scrive una query, si elencano gli input nella clausola FROM. È possibile ottenere l'elenco degli input disponibili dalla pagina **Query** del portale. Per usare più input, è possibile usare il comando `JOIN` per unirli oppure scrivere più query `SELECT`.
+È possibile usare il [portale di Azure](https://portal.azure.com) per [creare nuovi input](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) e visualizzare o modificare gli input esistenti nel processo di streaming. È anche possibile testare le connessioni di input e [testare le query](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) dai dati di esempio. Quando si scrive una query, si elencano gli input nella clausola FROM. È possibile ottenere l'elenco degli input disponibili dalla pagina **Query** del portale. Per usare più input, è possibile usare il comando `JOIN` per unirli oppure scrivere più query `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Trasmettere dati da Hub eventi
@@ -171,7 +171,7 @@ FROM Input
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Avvio rapido: creare un processo di Analisi di flusso di Azure tramite il portale di Azure](stream-analytics-quick-create-portal.md)
+> [Avvio rapido: Creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

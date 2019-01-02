@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 07faf5efd1c7eec3e209a5d971185655cc949bb9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ced3aa9b7d37543b4942bbfa9a5605058a614d8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250782"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014736"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -57,7 +57,7 @@ Per altre informazioni sulle aree di Azure disponibili, vedere [Aree di Azure](h
 Azure usa un modello di cloud computing basato sulle categorie dei servizi forniti ai clienti. Le tre categorie di servizi includono l'infrastruttura distribuita come servizio (IaaS, Infrastructure as a Service), la piattaforma distribuita come servizio (PaaS, Platform as a Service) e il software come un servizio (SaaS, Software as a Service). I fornitori condividono alcune o tutte le responsabilità per i componenti nello stack di calcolo in ognuna di queste categorie. Diamo un'occhiata a ognuna delle categorie per il cloud computing.
 ![Confronto dello stack del cloud Computing](./media/cloud-computing-comparison.png)
 
-#### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infrastructure as a service
+#### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infrastruttura distribuita come servizio
 
 Un fornitore di cloud IaaS (Infrastructure as a Service, infrastruttura distribuita come servizio) si occupa del funzionamento e della gestione di tutte le risorse fisiche di calcolo e di tutto il software necessari per consentire la virtualizzazione di computer. Un cliente di questo servizio distribuisce macchine virtuali all'interno di centri dati ospitati. Anche se le macchine virtuali si trovano in un centro dati situato altrove, il consumer IaaS ha il controllo della configurazione e della gestione del sistema operativo, lasciando l’infrastruttura sottostante al fornitore del cloud.
 
@@ -65,13 +65,13 @@ Azure include diverse soluzioni IaaS, ad esempio macchine virtuali e set di scal
 
 I set di scalabilità di macchine virtuali, definiti a un livello superiore rispetto a quello delle macchine virtuali di Azure, rappresentano un modo semplice per distribuire cluster di VM identiche. I set di scalabilità di macchine virtuali supportano anche il ridimensionamento automatico. È quindi possibile distribuire automaticamente nuove VM quando necessario. I set di scalabilità di macchine virtuali rappresentano pertanto la piattaforma ideale per l'hosting di cluster di elaborazione di microservizi di livello superiore, come Azure Service Fabric e il servizio contenitore di Azure.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a Service
+#### <a name="paas-platform-as-a-service"></a>PaaS: Piattaforma distribuita come servizio
 
 L'architettura PaaS (Platform as a Service, piattaforma distribuita come servizio) consente di distribuire le applicazioni in un ambiente messo a disposizione dal fornitore del servizio cloud. La gestione dell'infrastruttura viene interamente svolta dal fornitore. È quindi possibile concentrarsi sullo sviluppo di applicazioni e sulla gestione dei dati.
 
 Azure offre diverse soluzioni PaaS, ad esempio la funzionalità App Web del servizio app di Azure e Servizi cloud di Azure (ruoli Web e di lavoro). In entrambi i casi gli sviluppatori hanno a disposizione diverse modalità di distribuzione delle applicazioni senza dover conoscere i dettagli alla base del funzionamento di tali modalità. Gli sviluppatori non devono creare le macchine virtuali (VM, Virtual Machine), accedere a ognuna di queste tramite Remote Desktop Protocol (RDP) o installare l'applicazione. Devono solo premere un pulsante (o qualcosa del genere) e gli strumenti forniti da Microsoft effettueranno il provisioning delle VM (Virtual Machine, macchina virtuale) e quindi distribuiranno e installeranno l'applicazione all'interno di queste.
 
-#### <a name="saas-software-as-a-service"></a>SaaS: Software as a Service
+#### <a name="saas-software-as-a-service"></a>SaaS: Software come un servizio
 
 Un sistema SaaS (Software as a Service, software come un servizio) è costituito da software ospitato e gestito in modo centralizzato. Un sistema di questo tipo si basa in genere su un'architettura multi-tenant, in base alla quale viene usata un'unica versione dell'applicazione per tutti i clienti. È possibile scalare orizzontalmente questa architettura in più istanze, per garantire prestazioni ottimali in tutte le posizioni. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. I fornitori di software SaaS sono responsabili di tutti i componenti dello stack di software, in questo modo si gestiscono solo i servizi forniti.
 
@@ -101,7 +101,7 @@ Servizi per l'archiviazione e la gestione dei dati:
 
 - Archiviazione di Azure (comprende i servizi BLOB, Code, Tabella e File di Azure)
 
-- database SQL di Azure
+- Database SQL di Azure
 
 - Azure Cosmos DB
 
@@ -191,7 +191,7 @@ Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a u
 
 Per poter usare i servizi di Azure è necessaria una sottoscrizione. Sono disponibili diversi tipi di sottoscrizione.
 
-**Account gratuito**: il collegamento per la registrazione di un account gratuito è nel [sito Web Azure](https://azure.microsoft.com/). Questo account offre un credito di 30 giorni per provare una qualsiasi combinazione di risorse in Azure. Se si supera il credito disponibile, l'account viene sospeso. Alla fine del periodo di prova, i servizi vengono ritirati e non funzionano più. È possibile eseguire l'aggiornamento a una sottoscrizione con pagamento in base al consumo.
+**Account gratuiti**: il collegamento per la registrazione di un account gratuito è nel [sito Web Azure](https://azure.microsoft.com/). Questo account offre un credito di 30 giorni per provare una qualsiasi combinazione di risorse in Azure. Se si supera il credito disponibile, l'account viene sospeso. Alla fine del periodo di prova, i servizi vengono ritirati e non funzionano più. È possibile eseguire l'aggiornamento a una sottoscrizione con pagamento in base al consumo.
 
 **Sottoscrizioni MSDN**: con una sottoscrizione MSDN si ottiene un credito Azure di un certo importo ogni mese. Ad esempio, con una sottoscrizione Microsoft Visual Studio Enterprise 2015 con MSDN si ottiene un credito Azure di \$ 150 al mese.
 
@@ -199,7 +199,7 @@ Se si supera il credito disponibile, il servizio viene disabilitato fino all'ini
 
 **Account BizSpark**: il programma Microsoft BizSpark offre numerosi vantaggi per le startup, ad esempio la possibilità di accedere a tutto il software Microsoft per gli ambienti di sviluppo e test per un numero di account MSDN fino a cinque. Per ognuno di questi cinque account MSDN si ottiene un credito Azure di $ 150 e una riduzione della tariffa per diversi servizi di Azure, ad esempio le macchine virtuali.
 
-**Pagamento in base al consumo**: con questa sottoscrizione si paga in base all'uso, aggiungendo una carta di credito o di debito all'account. Le organizzazioni possono anche richiedere la fattura.
+**Pagamento in base al consumo**: con questa sottoscrizione si paga in base all'uso, associando una carta di credito o di debito all'account. Le organizzazioni possono anche richiedere la fattura.
 
 **Contratti Enterprise**: con un contratto Enterprise ci si impegna a usufruire di un certo numero di servizi di Azure nel corso di un anno e si paga la tariffa corrispondente in anticipo. L'impegno preso verrà utilizzato nel corso dell'anno. Se si supera l'importo concordato, è possibile pagare l'eccedenza in ritardo. A seconda dell'importo dell'impegno, si ottiene un certo sconto sui servizi di Azure.
 
@@ -309,7 +309,7 @@ Ecco alcuni esempi di [ruoli incorporati in Azure](../../role-based-access-contr
 
 - **Collaboratore Database SQL**: un utente con questo ruolo può gestire database SQL, ma non i criteri correlati alla sicurezza.
 
-- **Gestore Sicurezza SQL**: un utente con questo ruolo può gestire i criteri correlati alla sicurezza di SQL Server e dei database SQL.
+- **Gestore Sicurezza SQL**: un utente con questo ruolo può gestire i criteri correlati alla sicurezza di server e database SQL.
 
 - **Collaboratore Account di archiviazione**: un utente con questo ruolo può gestire gli account di archiviazione, ma non l'accesso a questi.
 
@@ -359,7 +359,7 @@ Infine, come nella gestione di qualsiasi computer, è necessario garantire la si
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
-Archiviazione di Azure è un servizio gestito da Microsoft che offre risorse di archiviazione ridondanti, scalabili e durevoli. È possibile aggiungere un account di archiviazione di Azure come risorsa a qualsiasi gruppo di risorse tramite qualsiasi metodo di distribuzione di risorse. Azure include quattro tipi di archiviazione: BLOB, file, tabelle e code. Quando si distribuisce un account di archiviazione, sono disponibili due tipi di account, uno per utilizzo generico e l'altro per l'archiviazione BLOB. Un account di archiviazione per utilizzo generico consente di accedere a tutti i quattro tipi di archiviazione. Un account di archiviazione BLOB è simile a un account per utilizzo generico, ma contiene BLOB specializzati che prevedono i livelli di accesso frequente e sporadico. Per altre informazioni sull'archiviazione BLOB, vedere [Archiviazione BLOB di Azure](../../storage/blobs/storage-blob-storage-tiers.md).
+Archiviazione di Azure è un servizio gestito da Microsoft che offre risorse di archiviazione ridondanti, scalabili e durevoli. È possibile aggiungere un account di archiviazione di Azure come risorsa a qualsiasi gruppo di risorse tramite qualsiasi metodo di distribuzione di risorse. Azure include quattro tipi di archiviazione: Archiviazione BLOB, Archiviazione file, Archiviazione tabelle e Archiviazione code. Quando si distribuisce un account di archiviazione, sono disponibili due tipi di account, uno per utilizzo generico e l'altro per l'archiviazione BLOB. Un account di archiviazione per utilizzo generico consente di accedere a tutti i quattro tipi di archiviazione. Un account di archiviazione BLOB è simile a un account per utilizzo generico, ma contiene BLOB specializzati che prevedono i livelli di accesso frequente e sporadico. Per altre informazioni sull'archiviazione BLOB, vedere [Archiviazione BLOB di Azure](../../storage/blobs/storage-blob-storage-tiers.md).
 
 Gli account di archiviazione di Azure possono essere configurati con diversi livelli di ridondanza:
 
@@ -481,9 +481,9 @@ Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
 
 - Modelli di Azure Resource Manager
 
->**Quando usare**: ogni volta che si lavora con le macchine virtuali in Azure verranno usate le reti virtuali. In questo modo è possibile suddividere le macchine virtuali in data center locali simili a subnet rivolte al pubblico e private.
+>**Uso consigliato**: ogni volta che si lavora con le macchine virtuali in Azure, si usano reti virtuali. In questo modo è possibile suddividere le macchine virtuali in data center locali simili a subnet rivolte al pubblico e private.
 
->**Introduzione**: per la distribuzione di una rete virtuale di Azure tramite il portale di Azure sono necessarie solo una sottoscrizione di Azure attiva e l'accesso a un browser Web. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Iniziare e [Creare una rete virtuale con il portale di Azure](../../virtual-network/quick-create-portal.md).
+>**Come iniziare**: Per la distribuzione di una rete virtuale di Azure tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Iniziare e [Creare una rete virtuale con il portale di Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Accesso e sicurezza delle reti virtuali
 

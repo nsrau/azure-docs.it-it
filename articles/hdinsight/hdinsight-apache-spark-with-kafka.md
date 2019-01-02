@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c0687ec94af60d3683d3f129eff2bad8fb97d786
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494274"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165802"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Esempio dello streaming Apache Spark (DStream) con Apache Kafka in HDInsight
 
@@ -61,13 +61,13 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
     * **Base Cluster Name** (Nome di base del cluster): questo valore viene usato come nome di base per i cluster Spark e Kafka. Ad esempio, se si immette **hdistreaming** viene creato un cluster Spark denominato __spark-hdistreaming__ e un cluster Kafka denominato **kafka-hdistreaming**.
 
-    * **Cluster Login User Name** (Nome utente di accesso del cluster): nome utente amministratore per i cluster Spark e Kafka.
+    * **Nome utente dell'account di accesso del cluster**: nome utente amministratore per i cluster Spark e Kafka.
 
-    * **Cluster Login Password** (Password di accesso del cluster): password amministratore per i cluster Spark e Kafka.
+    * **Password dell'account di accesso del cluster**: password dell'utente amministratore per i cluster Spark e Kafka.
 
-    * **SSH User Name** (Nome utente SSH): utente SSH da creare per i cluster Spark e Kafka.
+    * **Nome utente SSH**: utente SSH da creare per i cluster Spark e Kafka.
 
-    * **SSH Password** (Password SSH): password dell'utente SSH per i cluster Spark e Kafka.
+    * **Password SSH**: password dell'utente SSH per i cluster Spark e Kafka.
 
 3. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
 

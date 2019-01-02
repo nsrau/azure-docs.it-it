@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: tulasim
-ms.openlocfilehash: cb171a666a4a54660a3bf54b8f26aed23f60d249
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 63025a299f6b7b48936be9702522a832a1d77330
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036304"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074809"
 ---
-# <a name="best-practices"></a>Procedure consigliate
+# <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 Il [ciclo di vita di sviluppo della knowledge base](../Concepts/development-lifecycle-knowledge-base.md) fornisce informazioni sulla gestione della KB dall'inizio alla fine. Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
 
 ## <a name="extraction"></a>Estrazione
@@ -67,7 +68,7 @@ Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabil
  |Ciao|Ehi<br>Salve!|stile delle parole o gergo|
 
 ### <a name="use-metadata-filters"></a>Usare filtri dei metadati
-I [metadati](../How-To/edit-knowledge-base.md) aiutano a restringere i risultati di una query utente in base ai filtri. La risposta della knowledge base può essere diversa in base al tag di metadati, anche se la query è la stessa. Ad esempio, la domanda *"Dove si trova il parcheggio?"* può avere una risposta diversa se la posizione del ramo relativo al ristorante è diverso, ovvero se i metadati sono *Posizione: Seattle* anziché *Posizione: Redmond*.
+I [metadati](../How-To/edit-knowledge-base.md) aiutano a restringere i risultati di una query utente in base ai filtri. La risposta della knowledge base può essere diversa in base al tag di metadati, anche se la query è la stessa. Ad esempio, la domanda *"Dove si trova il parcheggio?"* può avere risposte diverse se l'attributo Location del ramo relativo al ristorante è diverso, ovvero se i metadati sono *Location: Seattle* piuttosto che *Location: Redmond*.
 
 ### <a name="use-synonyms"></a>Usare sinonimi
 Sebbene, in parte, sia disponibile il supporto per i sinonimi in lingua inglese, usare [variazioni delle parole](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) per aggiungere sinonimi alle parole chiave che accettano una forma diversa. I sinonimi devono essere aggiunti a livello di servizio in QnA Maker e condivisi da tutte le knowledge base nel servizio.

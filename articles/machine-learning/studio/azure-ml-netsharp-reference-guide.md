@@ -4,9 +4,8 @@ description: Sintassi del linguaggio per la specifica Net# delle reti neurali ed
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315308"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272236"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning Studio
 
@@ -39,7 +38,7 @@ Questo articolo descrive i concetti di base e la sintassi per lo sviluppo di una
 + Sintassi e parole chiave del linguaggio di specifica Net#
 + Esempi di reti neurali personalizzate create usando Net# 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="neural-network-basics"></a>Nozioni di base sulla rete neurale
 
@@ -114,7 +113,7 @@ output Result[2] from Hidden all;
 ```
 
 + Il prodotto delle dimensioni è il numero di nodi nel livello. In questo esempio ci sono due dimensioni [5,20]. Ciò significa che nel livello ci sono 100 nodi.
-+ I livelli possono essere dichiarati in qualsiasi ordine, con una eccezione: se sono stati definiti più livelli di input, l'ordine in cui vengono dichiarati deve corrispondere all'ordine delle funzionalità nei dati di input.
++ I livelli possono essere dichiarati in qualsiasi ordine, con una sola eccezione: se sono stati definiti più livelli di input, l'ordine in cui vengono dichiarati deve corrispondere all'ordine delle funzionalità nei dati di input.
 
 Per specificare che il numero di nodi in un livello deve essere determinato automaticamente, usare la parola chiave `auto`. La parola chiave `auto` ha effetti diversi, a seconda del livello:
 

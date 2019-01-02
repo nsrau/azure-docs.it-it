@@ -1,6 +1,6 @@
 ---
-title: Effettuare il provisioning automatico di un dispositivo Azure IoT Edge con il servizio Device Provisioning - Linux | Microsoft Docs
-description: Usare un TPM simulato in una VM Linux per testare il provisioning dei dispositivi per Azure IoT Edge
+title: Effettuare il provisioning automatico di dispositivi Linux con il servizio Device Provisioning - Azure IoT Edge | Microsoft Docs
+description: Usare un TPM simulato in una macchina virtuale Linux per testare il servizio Device Provisioning di Azure per Azure IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 61da3b8e139cf5091aec4c1ab835c23fe319ea46
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 0550b1765e36d591a1baf34d3c255a252ca5278b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446244"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101756"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Creare ed effettuare il provisioning di un dispositivo Edge in una macchina virtuale Linux
 
@@ -61,7 +62,7 @@ Se si verificano errori in fase di creazione del nuovo commutatore virtuale, ass
 
 3. Completare la **Creazione guidata macchina virtuale** con le configurazioni specifiche seguenti:
 
-   1. **Impostazione generazione**: selezionare **Generazione 2**.
+   1. **Impostazione generazione**: Selezionare **Generazione 2**.
    2. **Configura rete**: impostare il valore di **Connessione** sul commutatore virtuale creato nella sezione precedente. 
    3. **Opzioni di installazione**: selezionare **Installa un sistema operativo da un file immagine di avvio** e individuare il file di immagine del disco che è stato salvato in locale.
 

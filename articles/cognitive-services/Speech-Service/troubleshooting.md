@@ -1,21 +1,22 @@
 ---
-title: Risolvere i problemi di Speech Service SDK
+title: Risolvere i problemi di Speech SDK - Servizi di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Risolvere i problemi di Speech Service SDK.
+description: Le informazioni di questo articolo consentono di risolvere i problemi riscontrati quando si usa Speech Service SDK.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 9f0cea263262d83d9a95012f6cd09fa9acdc0141
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 04a1f3222b17d91889eb580d9d4e8206d8156d37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464572"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095484"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Risolvere i problemi di Speech Service SDK
 
@@ -23,11 +24,11 @@ Le informazioni di questo articolo consentono di risolvere i problemi riscontrat
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Errore: l'aggiornamento di WebSocket non è riuscito a causa di un errore di autenticazione (403)
 
-È possibile che l'endpoint non sia quello corretto per l'area o il servizio. Controllare l'URI per verificare che sia corretto. 
+È possibile che l'endpoint non sia quello corretto per l'area o il servizio. Controllare l'URI per verificare che sia corretto.
 
 Inoltre potrebbe essere presente un problema con la chiave di sottoscrizione o il token di autorizzazione. Per altre informazioni, vedere la sezione seguente.
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Errore: HTTP 403 operazione non consentita o HTTP 401 utente non autorizzato
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Errore: HTTP 403 - accesso negato o HTTP 401 - non autorizzato
 
 Questo errore è causato spesso da problemi di autenticazione. Le richieste di connessione senza un'intestazione `Ocp-Apim-Subscription-Key` o `Authorization` valida vengono rifiutate con lo stato 403 o 401.
 
@@ -78,19 +79,19 @@ Se si usa un token di autorizzazione per l'autenticazione, eseguire uno dei coma
     ```Powershell
     $SpeechServiceURI =
     'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
-    
+
     # $OAuthToken is the authorization token returned by the token service.
     $RecoRequestHeader = @{
       'Authorization' = 'Bearer '+ $OAuthToken
       'Transfer-Encoding' = 'chunked'
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
-    
+
     # Read audio into byte array.
     $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
-    
+
     $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
-    
+
     # Show the result.
     $RecoResponse
     ```
@@ -103,11 +104,11 @@ Se si usa un token di autorizzazione per l'autenticazione, eseguire uno dei coma
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Errore: HTTP 400 richiesta non valida
+## <a name="error-http-400-bad-request"></a>Errore: HTTP 400 - Richiesta non valida
 
 Questo errore si verifica in genere quando il corpo della richiesta contiene dati audio non validi. È supportato solo il formato WAV. Controllare anche le intestazioni della richiesta per verificare che siano specificati valori appropriati per `Content-Type` e `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Errore: HTTP 408 timeout richiesta
+## <a name="error-http-408-request-timeout"></a>Errore: HTTP 408 - Timeout richiesta
 
 L'errore molto probabilmente è dovuto al fatto che i dati audio non vengono inviati al servizio. Questo errore potrebbe anche essere causato da problemi di rete.
 
@@ -122,4 +123,3 @@ Questo problema è causato generalmente da dati audio. È possibile che venga vi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Esaminare le note sulla versione](releasenotes.md)
-

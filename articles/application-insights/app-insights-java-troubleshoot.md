@@ -9,16 +9,15 @@ ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: b74f40c093ca4cc62330de321ea2b53315b903db
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 95eb5475f5584830eac5bd9c690be4a6a85de5c8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247365"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016727"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Risoluzione dei problemi e domande e risposte relative ad Application Insights per Java
 Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco alcuni suggerimenti.
@@ -26,7 +25,7 @@ Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco 
 ## <a name="build-errors"></a>Errori di compilazione
 **In Eclipse o Intellij Idea quando si aggiunge l'SDK di Application Insights in Eclipse i in Intellij Idea tramite Maven o Gradle, vengono visualizzati errori di convalida relativi a build o checksum.**
 
-* Se l'elemento di dipendenza <version> usa un criterio di ricerca con caratteri jolly, ad esempio (Maven) `<version>[2.0,)</version>` o (Gradle) `version:'2.0.+'`, provare a indicare una versione specifica, come `2.0.1`. Vedere le [note sulla versione](https://github.com/Microsoft/ApplicationInsights-Java/releases) per la versione più recente.
+* Se l'elemento <version> della dipendenza usa un modello con caratteri jolly, ad esempio (Maven) `<version>[2.0,)</version>` o (Gradle) `version:'2.0.+'`), provare invece a specificare una particolare versione, come `2.0.1`. Vedere le [note sulla versione](https://github.com/Microsoft/ApplicationInsights-Java/releases) per la versione più recente.
 
 ## <a name="no-data"></a>Dati non presenti
 **Dopo avere aggiunto Application Insights correttamente ed avere eseguito l'app, nel portale non vengono visualizzati dati.**
@@ -36,7 +35,7 @@ Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco 
 * Verificare che non vi siano nodi `<DisableTelemetry>true</DisableTelemetry>` nel file XML.
 * Nel firewall, potrebbe essere necessario aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com. Vedere l' [elenco completo delle eccezioni del firewall](app-insights-ip-addresses.md)
 * Nella schermata iniziale di Microsoft Azure osservare la mappa dello stato dei servizi. Se ci sono indicazioni di avviso, attendere che tornino alla normalità, quindi chiudere e riaprire il pannello dell'applicazione di Application Insights.
-* Attivare la registrazione nella finestra della console IDE aggiungendo un elemento `<SDKLogger />` nel nodo radice del file ApplicationInsights.xml, nella cartella delle risorse del progetto, e verificare la presenza di voci con prefisso AI: INFO/WARN/ERROR per ogni log sospetto.
+* Attivare la registrazione nella finestra della console IDE aggiungendo un elemento `<SDKLogger />` sotto il nodo radice nel file ApplicationInsights.xml (nella cartella resources del progetto) e verificare la presenza di voci con prefisso AI: INFO/WARN/ERROR per rilevare eventuali log sospetti.
 * Per verificare che Java SDK abbia caricato il file ApplicationInsights.xml corretto, esaminare i messaggi di output della console e cercare il messaggio "Configuration file has been successfully found".
 * Se il file di configurazione non è stato trovato, verificare i percorsi di ricerca di questo file nei messaggi di output e assicurarsi che il file ApplicationInsights.xml sia memorizzato in uno di tali percorsi. In linea di massima, il file di configurazione può essere salvato accanto ai file JAR di Application Insights SDK. In Tomcat, ad esempio, questo percorso corrisponde alla cartella WEB-INF/classes. Durante lo sviluppo è possibile inserire ApplicationInsights.xml nella cartella delle risorse del progetto Web.
 * Esaminare anche la [pagina dei problemi di GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) per i problemi noti con l'SDK.
@@ -57,7 +56,7 @@ Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco 
 ### <a name="java-agent-cannot-capture-dependency-data"></a>L'agente Java non riesce ad acquisire i dati di dipendenza
 * L'agente Java è stato configurato seguendo l'articolo sulla [configurazione dell'agente Java](app-insights-java-agent.md)?
 * Verificare che sia il file con estensione JAR dell'agente Java che il file AI-Agent.xml si trovino nella stessa cartella.
-* Assicurarsi che la dipendenza che si sta tentando di raccogliere automaticamente sia supportata per la raccolta automatica. Attualmente sono supportate solo le raccolte delle dipendenze di MySQL, MsSQL, Oracle DB e Redis Cache.
+* Assicurarsi che la dipendenza che si sta tentando di raccogliere automaticamente sia supportata per la raccolta automatica. Attualmente sono supportate solo le raccolte delle dipendenze di MySQL, MsSQL, Oracle DB e Cache Redis di Azure.
 * Si sta usando JDK 1.7 o 1.8? Attualmente la raccolta di dipendenze in JDK 9 non è supportata.
 
 ## <a name="no-usage-data"></a>Dati di utilizzo non presenti
@@ -157,7 +156,7 @@ Application Insights usa `org.apache.http`. Questo è stato spostato all'interno
 * [Acquisire i log di diagnostica][javalogs]
 
 ## <a name="get-help"></a>Ottenere aiuto
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Registrare un problema su GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->

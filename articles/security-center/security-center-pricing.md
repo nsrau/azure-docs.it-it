@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2018
+ms.date: 12/11/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5129ea20dcf6c866d5391a6a3aad5c54a6fa81af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d0cdda4553808d1197d764d0a50e535515527443
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313072"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336442"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la sicurezza avanzata
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione a minacce e il rilevamento intelligente che consente di tenere il passo con gli attacchi informatici in rapida evoluzione.
@@ -28,13 +28,13 @@ Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la pr
 Il Centro sicurezza è disponibile in due livelli:
 
 - Il livello **Gratuito** viene abilitato automaticamente in tutte le sottoscrizioni di Azure e offre criteri di sicurezza, valutazione continua della sicurezza e raccomandazioni sulla sicurezza utili per proteggere le risorse di Azure.
-- Il livello **Standard** estende le funzionalità del livello Gratuito ai carichi di lavoro in esecuzione in cloud privati e pubblici, offrendo la gestione unificata della sicurezza e la protezione dalle minacce nei carichi di lavoro cloud ibridi. Il livello Standard aggiunge anche la funzionalità di rilevamento avanzato delle minacce, che usa analisi comportamentali e apprendimento automatico per identificare attacchi ed exploit zero-day, i controlli di accesso e dell'applicazione per ridurre l'esposizione agli attacchi di rete e malware e molto altro. Il livello Standard è gratuito per i primi 60 giorni. Il Centro sicurezza Standard supporta risorse di Azure, incluse macchine virtuali, servizio app e server SQL. Se si dispone di Centro sicurezza di Azure Standard, è possibile rifiutare esplicitamente il supporto in base al tipo di risorsa. 
+- Il livello **Standard** estende le funzionalità del livello Gratuito ai carichi di lavoro in esecuzione in cloud privati e pubblici, offrendo la gestione unificata della sicurezza e la protezione dalle minacce nei carichi di lavoro cloud ibridi. Il livello Standard aggiunge anche la funzionalità di rilevamento avanzato delle minacce, che usa analisi comportamentali e apprendimento automatico per identificare attacchi ed exploit zero-day, i controlli di accesso e dell'applicazione per ridurre l'esposizione agli attacchi di rete e malware e molto altro. È possibile provare il livello Standard, che è gratuito. Il Centro sicurezza Standard supporta risorse di Azure, incluse macchine virtuali, servizio app e server SQL. Se si dispone di Centro sicurezza di Azure Standard, è possibile rifiutare esplicitamente il supporto in base al tipo di risorsa. 
 
 
 Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
 
-## <a name="try-standard-free-for-60-days"></a>Prova gratuita del livello Standard per 60 giorni
-Il livello Standard è gratuito per i primi 60 giorni. Al termine dei 60 giorni, se si sceglie di continuare a usare il servizio, l'uso verrà addebitato automaticamente.
+## <a name="try-standard-free-for-30-days"></a>Prova gratuita del livello Standard per 30 giorni
+Il livello Standard è gratuito per i primi 30 giorni. Al termine dei 30 giorni, se si sceglie di continuare a usare il servizio, i costi inizieranno a essere addebitati automaticamente.
 
 È possibile aggiornare una sottoscrizione completa di Azure al piano Standard, che viene ereditata da tutte le risorse all'interno della sottoscrizione.
 

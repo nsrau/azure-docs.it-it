@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006195"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721970"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipi di applicazioni che possono essere usate in Active Directory B2C
 
@@ -26,7 +26,7 @@ Ogni applicazione che usa Azure AD B2C deve essere registrata in un tenant di [A
 * Un **ID applicazione** che identifica l'applicazione in modo univoco.
 * Un **URL di risposta** che può essere usato per indirizzare le risposte all'applicazione.
 
-Ogni richiesta inviata ad Azure AD B2C specifica un **criterio**. Il comportamento di Azure AD è regolato da criteri. Gli endpoint possono anche essere usati per creare un set personalizzabile di esperienze utente. Tra i criteri comuni sono inclusi quelli per l'iscrizione, l'accesso e la modifica del profilo. Se non si ha familiarità con i criteri, prima di continuare, vedere [Azure Active Directory B2C: framework di criteri estendibile](active-directory-b2c-reference-policies.md).
+Ogni richiesta inviata ad Azure AD B2C specifica un **flusso utente**, che è un criterio che controlla il comportamento di Azure AD. Gli endpoint possono anche essere usati per creare un set personalizzabile di esperienze utente. Viene fornito un set di flussi utente che consentono di configurare criteri comuni, tra cui criteri di iscrizione, accesso e modifica del profilo, ma è anche possibile creare criteri personalizzati. Se non si ha familiarità con i criteri, prima di continuare, vedere [Azure Active Directory B2C: framework di criteri estendibile](active-directory-b2c-reference-policies.md).
 
 Ogni interazione di un'applicazione segue un modello generale simile al seguente:
 

@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256936"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270009"
 ---
 # <a name="the-azure-sql-database-service"></a>Servizio database SQL di Azure
 
@@ -60,7 +60,7 @@ Con il database SQL, ogni database è isolato dagli altri e portabile e a ognuno
 
 Il database SQL offre un [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) oppure il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
-- Il modello di acquisto basato su DTU offre un insieme di risorse di calcolo, memoria e I/O in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti: Basic, Standard e Premium. Le dimensioni di calcolo di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
+- Il modello di acquisto basato su DTU offre un insieme di risorse di calcolo, memoria e risorse di I/O in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti: Basic, Standard e Premium. Le dimensioni di calcolo di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
 - Il modello di acquisto basato su vCore consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione.
 
 È possibile creare la prima app in un singolo database di piccole dimensioni a un costo mensile contenuto nel livello di servizio per utilizzo generico e quindi modificare il livello di servizio manualmente o a livello di codice in qualsiasi momento passando al livello di servizio business critical per soddisfare le proprie esigenze. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
@@ -95,7 +95,7 @@ Database SQL può anche [generare log di metrica e diagnostica](sql-database-met
 
 - **Archiviazione di Azure**: per l'archiviazione di enormi quantità di dati di telemetria a un costo conveniente
 - **Hub eventi di Azure**: per l'integrazione dei dati di telemetria di database SQL con soluzioni di monitoraggio personalizzate o pipeline attive
-- **Log Analytics di Azure**: per usare una soluzione di monitoraggio incorporata con funzionalità di report, avviso e mitigazione.
+- **Azure Log Analytics**: per usare una soluzione di monitoraggio incorporata con funzionalità di report, avviso e mitigazione.
 
     ![architettura](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -109,10 +109,10 @@ Il settore di Azure che ha una accordo sul livello di disponibilità del servizi
 - **[Ripristini temporizzati](sql-database-recovery-using-backups.md)**:
 
   Il database SQL supporta il ripristino in qualsiasi momento entro il periodo di conservazione automatico del backup.
-- **[Replica geografica attiva](sql-database-geo-replication-overview.md)**:
+- **[Replica geografica attiva](sql-database-active-geo-replication.md)**:
 
   Il database SQL consente di configurare fino a quattro database secondari leggibili nello stesso data center o in data center di Azure distribuiti a livello globale.  Nel caso di un'applicazione SaaS che usa un database catalogo con volumi elevati di transazioni di sola lettura concorrenti, ad esempio, è possibile usare la replica geografica attiva per il potenziamento della lettura su scala globale ed evitare i colli di bottiglia nel database primario causati dai carichi di lavoro di lettura.
-- **[Gruppi di failover](sql-database-geo-replication-overview.md)**:
+- **[Gruppi di failover automatico](sql-database-auto-failover-group.md)**:
 
   Il database SQL consente di abilitare soluzioni di disponibilità elevata e bilanciamento del carico su scala globale, inclusi la replica geografica trasparente e il failover di set di database e pool elastici di grandi dimensioni. I gruppi di failover e la replica geografica attiva consentono la creazione di applicazioni SaaS distribuite a livello globale con un sovraccarico amministrativo minimo, grazie alla possibilità di delegare l'orchestrazione complessa di monitoraggio, routing e failover al database SQL.
 - **[Database con ridondanza della zona](sql-database-high-availability.md)**:

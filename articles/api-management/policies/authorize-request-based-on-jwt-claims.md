@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 08cb15ada07485f39ad24b782cfda29a431c46da
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 60b36ceeac1cd4578ca81ac908c1a8a03c9d0180
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933361"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869127"
 ---
 # <a name="authorize-access-based-on-jwt-claims"></a>Autorizzare l'accesso in base ad attestazioni JWT
 
@@ -28,7 +28,7 @@ Questo articolo offre un esempio di criteri di Gestione API di Azure che illustr
 
 Incollare il codice nel blocco **inbound**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Pre-authorize requests based on HTTP method with validate-jwt.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Pre-authorize requests based on HTTP method with validate-jwt.policy.xml)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

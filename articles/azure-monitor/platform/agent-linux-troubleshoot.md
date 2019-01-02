@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: c9445793061b84a1bd1632d00b64ea99800bc2d1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1f772e1a3e5b3e121b968d358166e9018c80d573
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638006"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192694"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Linux 
 
@@ -62,7 +60,7 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 | NOT_DEFINED | Poiché non sono installate le dipendenze necessarie, il plug-in auditd per auoms non viene installato. | L'installazione di auoms non è riuscita. Installare il pacchetto auditd. |
 | 2 | È stata specificata un'opzione non valida per l'aggregazione della shell. Eseguire `sudo sh ./omsagent-*.universal*.sh --help` per l'utilizzo. |
 | 3 | Non è stata specificata alcuna opzione per l'aggregazione della shell. Eseguire `sudo sh ./omsagent-*.universal*.sh --help` per l'utilizzo. |
-| 4 | Il tipo di pacchetto non è valido OPPURE le impostazioni proxy non sono valide. I pacchetti omsagent-*rpm*.sh possono essere installati solo nei sistemi basati su RPM, mentre i pacchetti omsagent-*deb*.sh solo nei sistemi basati su Debian. È consigliabile usare il programma di installazione universale della [versione più recente](../../log-analytics/log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux). [Vedere anche questa sezione](#issue:-unable-to-connect-through-proxy-to-log-analytics) per verificare le impostazioni del proxy. |
+| 4 | Il tipo di pacchetto non è valido OPPURE le impostazioni proxy non sono valide. I pacchetti omsagent-*rpm*.sh possono essere installati solo nei sistemi basati su RPM, mentre i pacchetti omsagent-*deb*.sh solo nei sistemi basati su Debian. È consigliabile usare il programma di installazione universale della [versione più recente](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). [Vedere anche questa sezione](#issue:-unable-to-connect-through-proxy-to-log-analytics) per verificare le impostazioni del proxy. |
 | 5 | L'aggregazione della shell deve essere eseguita come ROOT OPPURE è stato restituito l'errore 403 durante l'onboarding. Eseguire il comando usando `sudo`. |
 | 6 | L'architettura del pacchetto non è valida OPPURE è stato restituito l'errore 200 during l'onboarding. I pacchetti omsagent-*x64.sh possono essere installati solo in sistemi a 64 bit, mentre i pacchetti omsagent-* x86.sh solo in sistemi a 32 bit. Scaricare il pacchetto corretto per l'architettura dalla [versione più recente](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | L'installazione del pacchetto OMS non è riuscita. Esaminare l'output del comando per trovare la causa radice dell'errore. |
@@ -295,7 +293,7 @@ Questo errore indica che l'estensione di diagnostica per Linux (LAD) è installa
 5. In alcuni sistemi di distribuzione di Azure, il daemon del server OMI omid non viene avviato dopo il riavvio della macchina virtuale e pertanto i dati correlati alla soluzione Audit, ChangeTracking o UpdateManagement non vengono visualizzati. Per risolvere questo problema è possibile avviare manualmente il server OMI eseguendo `sudo /opt/omi/bin/service_control restart`.
 6. Dopo che il pacchetto OMI è stato aggiornato manualmente a una versione più recente, è necessario riavviarlo manualmente in modo che l'agente di Log Analytics possa continuare a funzionare. Questo passaggio è obbligatorio per alcune distribuzioni in cui il server OMI non viene avviato automaticamente dopo l'aggiornamento. Eseguire `sudo /opt/omi/bin/service_control restart` per riavviare OMI.
 7. Se in omsconfig.log viene riportato l'errore *class not found* (classe non trovata) della risorsa DSC, eseguire `sudo /opt/omi/bin/service_control restart`.
-8. In alcuni casi, quando l'agente di Log Analytics per Linux non può comunicare con il servizio Log Analytics, i dati dell'agente vengono sottoposti a backup fino a raggiungere la dimensione completa del buffer, ovvero 50 MB. L'agente deve essere riavviato tramite il comando seguente: `/opt/microsoft/omsagent/bin/service_control restart`.
+8. In alcuni casi, quando l'agente di Log Analytics per Linux non può comunicare con il servizio Log Analytics, i dati dell'agente vengono sottoposti a backup fino a raggiungere la dimensione completa del buffer: 50 MB. L'agente deve essere riavviato tramite il comando seguente: `/opt/microsoft/omsagent/bin/service_control restart`.
 
     >[!NOTE]
     >Il problema è stato risolto nella versione dell'agente 1.1.0-28 o successiva.
@@ -380,7 +378,7 @@ Questo errore indica che l'estensione di diagnostica per Linux (LAD) è installa
 
 2. Verificare che l'agente `omsconfig` sia in grado di comunicare con il servizio Log Analytics tramite il comando seguente: `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Questo comando restituisce la configurazione che l'agente recupera dal servizio, inclusi i contatori delle prestazioni di Linux, le impostazioni di Syslog e i log personalizzati. Se questo comando non riesce, eseguire il comando seguente: `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Questo comando impone all'agente omsconfig di comunicare con il servizio Log Analytics e recuperare la configurazione più recente.
 
-**Contesto:** invece di essere eseguito come utente con privilegi, `root`, l'agente di Log Analytics per Linux viene eseguito come utente `omsagent`. Nella maggior parte dei casi, è necessario che all'utente venga concessa l'autorizzazione esplicita per la lettura di alcuni file. Per concedere l'autorizzazione all'utente `omsagent`, eseguire i comandi seguenti:
+**Contesto**: invece di essere eseguito come utente con privilegi, `root`, l'agente di Log Analytics per Linux viene eseguito come utente `omsagent`. Nella maggior parte dei casi, è necessario che all'utente venga concessa l'autorizzazione esplicita per la lettura di alcuni file. Per concedere l'autorizzazione all'utente `omsagent`, eseguire i comandi seguenti:
 
 1. Aggiungere l'utente `omsagent` a un gruppo specifico usando `sudo usermod -a -G <GROUPNAME> <USERNAME>`
 2. Concedere l'accesso universale in lettura al file richiesto usando `sudo chmod -R ugo+rx <FILE DIRECTORY>`
@@ -410,7 +408,7 @@ sudo sh ./onboard_agent.sh --purge
 ### <a name="resolution"></a>Risoluzione 
 Seguire questa procedura per correggere il problema.
 1. Rimuovere l'estensione dal portale di Azure.
-2. Installare l'agente seguendo queste [istruzioni](../../log-analytics/log-analytics-quick-collect-linux-computer.md).
+2. Installare l'agente seguendo queste [istruzioni](../../azure-monitor/learn/quick-collect-linux-computer.md).
 3. Riavviare l'agente tramite il comando seguente: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 * Attendere alcuni minuti e lo stato del provisioning cambia in **Provisioning completato**.
 

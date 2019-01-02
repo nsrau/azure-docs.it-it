@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: cfb4dabea12f2988108d24b025e324cf05afb325
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: cd599a45ef4d3bfd38789a71647847f55cc0b966
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301720"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085893"
 ---
 # <a name="event-grid-subscription-schema"></a>Schema di sottoscrizione per Griglia di eventi
 
@@ -29,8 +29,8 @@ Ad esempio, per creare una sottoscrizione eventi per un account di archiviazione
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-L'articolo descrive le proprietà e lo schema per il corpo della richiesta.
- 
+Il nome della sottoscrizione eventi deve essere composto da 3 a 64 caratteri e solo da a-z, A-Z, 0-9, e "-". L'articolo descrive le proprietà e lo schema per il corpo della richiesta.
+ 
 ## <a name="event-subscription-properties"></a>Proprietà delle sottoscrizioni eventi
 
 | Proprietà | type | DESCRIZIONE |

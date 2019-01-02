@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988493"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434886"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -51,7 +51,7 @@ I dettagli dei cluster seguenti sono utili per raccogliere informazioni nell'amb
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-Per visualizzare queste informazioni, è anche possibile usare PowerShell.  Per altre informazioni, vedere [Gestire cluster Hadoop in HDInsight tramite Azure PowerShell](hdinsight-administer-use-powershell.md).
+Per visualizzare queste informazioni, è anche possibile usare PowerShell.  Per altre informazioni, vedere [Gestire cluster Apache Hadoop in HDInsight usando Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 ### <a name="understand-the-workloads-running-on-your-clusters"></a>Informazioni sui carichi di lavoro in esecuzione nei cluster
 
@@ -69,7 +69,7 @@ Per visualizzare queste informazioni, è anche possibile usare PowerShell.  Per 
 
 * Considerare come sia possibile raccogliere i log dal cluster o da più di un cluster e collazionarli, ad esempio a scopo di controllo, monitoraggio, pianificazione e creazione di avvisi. È possibile usare una soluzione personalizzata per accedere ai file di log e scaricarli a intervalli regolari e per combinarli e analizzarli per poter fornire una visualizzazione dashboard. È anche possibile aggiungere altre funzionalità per creare avvisi per la sicurezza o il rilevamento di errori. È possibile compilare queste utilità con PowerShell, gli SDK di HDInsight o il codice che accede al modello di distribuzione classica di Azure.
 
-* Stabilire se una soluzione o un servizio di monitoraggio possa essere vantaggioso. In Microsoft System Center è disponibile un [Management Pack per HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Per raccogliere e centralizzare i log, è anche possibile usare strumenti di terze parti, ad esempio Chukwa e Ganglia. Diverse società offrono servizi per monitorare le soluzioni per Big Data basate su Hadoop, ad esempio Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
+* Stabilire se una soluzione o un servizio di monitoraggio possa essere vantaggioso. In Microsoft System Center è disponibile un [Management Pack per HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Per raccogliere e centralizzare i log è anche possibile usare strumenti di terze parti, ad esempio Apache Chukwa e Ganglia. Diverse società offrono servizi per il monitoraggio di soluzioni Big Data basate su Hadoop, come Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Passaggio 2: Gestire le versioni dei servizi cluster e visualizzare i log delle azioni script
 
@@ -177,5 +177,5 @@ Per raccogliere i log da tutti i nodi in una posizione centrale, è possibile cr
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Monitoring and Logging Practice for HDInsight (Procedura di monitoraggio e registrazione per HDInsight)](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Accedere al log delle applicazioni YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [How to control size of log files for various Hadoop components (Come controllare le dimensioni dei file di log per diversi componenti Hadoop)](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)
+* [Accedere ai log dell'applicazione YARN di Apache Hadoop in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [How to control size of log files for various Apache Hadoop components](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html) (Come controllare le dimensioni dei file di log per diversi componenti Apache Hadoop)

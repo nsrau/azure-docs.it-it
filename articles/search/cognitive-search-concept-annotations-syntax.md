@@ -1,5 +1,5 @@
 ---
-title: Riferimento a un'annotazione in input e output in una pipeline di ricerca cognitiva in Ricerca di Azure | Documenti Microsoft
+title: Input e output di riferimento in pipeline di ricerca cognitiva - Ricerca di Azure
 description: Vengono illustrati l’annotazione di sintassi e le modalità di riferimento a un'annotazione in input e output di un insieme di competenze in una pipeline di ricerca cognitiva in Ricerca di Azure.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801948"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315825"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Come fare riferimento alle annotazioni in un insieme di competenze di ricerca cognitiva
 
@@ -33,7 +34,7 @@ Prima di esaminare la sintassi, è opportuno rivedere alcuni concetti importanti
 | Contesto di arricchimento | Il contesto in cui avviene l'arricchimento, in riferimento ai termini con cui esso è stato arricchito. Per impostazione predefinita, il contesto di arricchimento è impostato al `"/document"` livello e definito per l'ambito dei singoli documenti. Quando viene eseguita una competenza, gli output di tale competenza diventano [proprietà del contesto definito](#example-2).|
 
 <a name="example-1"></a>
-## <a name="example-1-simple-annotation-reference"></a>Esempio 1: riferimento di annotazione semplice
+## <a name="example-1-simple-annotation-reference"></a>Esempio 1: Riferimento di annotazione semplice
 
 Nel servizio di archiviazione BLOB di Azure, si supponga di disporre di una serie di file contenenti i riferimenti ai nomi delle persone che si desidera estrarre tramite riconoscimento delle entità denominate. Nella definizione di competenza riportata di seguito, `"/document/content"` è la rappresentazione testuale dell'intero documento e "persone" è l'estrazione di nomi e cognome per le entità identificate come persone.
 
@@ -61,7 +62,7 @@ Poiché il contesto predefinito è `"/document"`, è ora possibile fare riferime
 
 <a name="example-2"></a>
 
-## <a name="example-2-reference-an-array-within-a-document"></a>Esempio 2: riferimento a una matrice all'interno di un documento
+## <a name="example-2-reference-an-array-within-a-document"></a>Esempio 2 Riferimento a una matrice all'interno di un documento
 
 Questo esempio si basa su quello precedente e mostra come richiamare più volte un'operazione di arricchimento tramite lo stesso documento. Supponiamo che nell'esempio precedente viene generata una matrice di stringhe con i nomi di 10 persone da un singolo documento. Un passaggio successivo congruo potrebbe essere un secondo arricchimento che estrae il cognome da nome e cognome. Poiché sono presenti 10 nomi, questo passaggio deve essere chiamato 10 volte in questo documento, una volta per ogni persona. 
 
@@ -93,7 +94,7 @@ Quando le annotazioni sono matrici o raccolte di stringhe, è possibile fare rif
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Esempio 3: riferimento a membri all'interno di una matrice
+## <a name="example-3-reference-members-within-an-array"></a>Esempio 3: Riferimento a membri all'interno di una matrice
 
 In alcuni casi è necessario raggruppare tutte le annotazioni di un determinato tipo per trasmetterle a una determinata competenza. Prendere in considerazione un’ipotetica competenza personalizzata che identifica il cognome più comune da tutti i cognomi estratti nell'esempio 2. Per fornire alla competenza personalizzata solo i cognomi, specificare il contesto come `"/document"` e l'input come `"/document/people/*/lastname"`.
 

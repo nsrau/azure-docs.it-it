@@ -1,22 +1,19 @@
 ---
-title: Architettura lambda con Azure Cosmos DB e HDInsight (Apache Spark) | Microsoft Docs
+title: Architettura lambda con Azure Cosmos DB e HDInsight (Apache Spark)
 description: Questo articolo descrive come implementare un'architettura lambda usando Azure Cosmos DB, HDInsight e Spark
 keywords: architettura-lambda
 services: cosmos-db
-author: tknandu
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
+author: tknandu
+ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: ramkris
-ms.openlocfilehash: c926c67a330648e09c1fd8133164f64582ad9a34
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b6831e9c6b679d2fd4fa585331213290d67068c2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701076"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084019"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementare un'architettura lambda nella piattaforma Azure 
 
@@ -37,7 +34,7 @@ Un'architettura lambda è un'architettura di elaborazione dei dati generica, sca
 
 Origine: http://lambda-architecture.net/
 
-I principi di base di un'architettura lambda sono descritti nel diagramma precedente, in base a quanto illustrato in [https://lambda-architecture.net](http://lambda-architecture.net/).
+I principi di base di un'architettura lambda sono descritti nel diagramma precedente, in base a quanto illustrato in [http://lambda-architecture.net](http://lambda-architecture.net/).
 
  1. Viene eseguito il push di tutti i **dati** in *entrambi* i livelli, *batch* e di *elaborazione rapida*.
  2. Il **livello batch** ha un set di dati master (set di dati non elaborati non modificabile, che consente solo l'accodamento) e pre-calcola le viste batch.
@@ -64,7 +61,7 @@ Aspetti importanti dei livelli:
  4. Il **livello di elaborazione rapida** usa HDInsight (Apache Spark) per leggere il feed di modifiche di Azure Cosmos DB. Ciò consente di rendere persistenti i dati, oltre che di eseguire query ed elaborarli contemporaneamente.
  5. È possibile rispondere a tutte le query unendo i risultati delle viste batch e delle viste in tempo reale o effettuando il ping singolarmente.
  
-### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Esempio di codice: streaming strutturato Spark verso un feed di modifiche di Azure Cosmos DB
+### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Esempio di codice streaming strutturato Spark verso un feed di modifiche di Azure Cosmos DB
 Per eseguire un rapido prototipo del feed di modifiche di Azure Cosmos DB come parte del **livello di elaborazione rapida**, è possibile testarlo usando i dati di Twitter come parte dell'esempio [Stream Processing Changes using Azure Cosmos DB Change Feed and Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark) (Modifiche all'elaborazione di flussi con il feed di modifiche di Azure Cosmos DB e Apache Spark). Per creare l'output di Twitter, vedere l'esempio di codice in [Stream feed from Twitter to Cosmos DB](https://github.com/tknandu/TwitterCosmosDBFeed) (Trasmettere un feed da Twitter a Cosmos DB). Nell'esempio precedente si caricano i dati di Twitter in Azure Cosmos DB ed è quindi possibile configurare il cluster HDInsight (Apache Spark) per connettersi al feed di modifiche. Per altre informazioni su come eseguire questa configurazione, vedere [Apache Spark to Azure Cosmos DB Connector Setup](https://github.com/Azure/azure-cosmosdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup) (Configurazione del connettore Apache Spark per Azure Cosmos DB).  
 
 Il frammento di codice seguente mostra come configurare `spark-shell` per eseguire un processo di streaming strutturato per connettersi a un feed di modifiche di Azure Cosmos DB, che esamina il flusso di dati di Twitter in tempo reale, per eseguire un conteggio degli intervalli.
@@ -245,7 +242,7 @@ var streamingQuery = streamingQueryWriter.start()
 
 ```
 
-## <a name="lambda-architecture-rearchitected"></a>Architettura lambda riprogettata
+## <a name="lambda-architecture-rearchitected"></a>Architettura Lambda: riprogettazione
 Come indicato nelle sezioni precedenti, è possibile semplificare l'architettura lambda originale usando i componenti seguenti:
 * Azure Cosmos DB
 * Libreria di feed di modifiche di Azure Cosmos DB per evitare il multicast dei dati tra il livello batch e il livello di elaborazione rapida
@@ -263,7 +260,7 @@ Con questa struttura, sono necessari solo due servizi gestiti, Azure Cosmos DB e
 
 ### <a name="resources"></a>Risorse
 
- * **Nuovi dati**: il [feed di streaming da Twitter a CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), ovvero il meccanismo di push dei nuovi dati in Azure Cosmos DB.
+ * **Nuovi dati:** il [feed di streaming da Twitter a CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), ovvero il meccanismo di push dei nuovi dati in Azure Cosmos DB.
  * **Livello batch:** il livello batch è composto dal *set di dati master* (un set di dati non elaborati non modificabile, che consente solo l'accodamento) e la possibilità di pre-calcolare le viste batch dei dati di cui viene eseguito il push nel **livello di gestione**.
     * Il notebook **Lambda Architecture Rearchitected - Batch Layer** (Architettura lambda riprogettata - Livello batch) [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) esegue query sul *set di dati master* delle viste batch.
  * **Livello di gestione:** il **livello di gestione** è costituito dai dati pre-calcolati risultanti nelle viste batch (ad esempio aggregazioni, filtri dei dati specifici e così via) per le query rapide.
@@ -281,4 +278,4 @@ Se ancora non lo si è fatto, scaricare il connettore Spark per Azure Cosmos DB 
 * [Change feed demos (Demo di feed di modifiche)](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
 * [Stream processing changes using Azure Cosmos DB Change Feed and Apache Spark (Modifiche all'elaborazione di flussi con il feed di modifiche di Azure Cosmos DB e Apache Spark)](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 
-È possibile anche esaminare la [guida ad Apache Spark SQL, DataFrame e set di dati](http://spark.apache.org/docs/latest/sql-programming-guide.html) e l'articolo su [Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
+È possibile anche esaminare la [guida ad Apache Spark SQL, DataFrame e set di dati](https://spark.apache.org/docs/latest/sql-programming-guide.html) e l'articolo su [Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md).

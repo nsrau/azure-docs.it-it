@@ -1,23 +1,24 @@
 ---
-title: Dati di Application Insights da LUIS tramite Node.js
+title: Application Insights, Node.js
 titleSuffix: Azure Cognitive Services
 description: Creare un bot integrato con un'applicazione LUIS e Application Insights usando Node.js.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4f1372f8b15670472146efc1c4f3a341f4a97c71
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321955"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255602"
 ---
-# <a name="add-luis-results-to-application-insights"></a>Aggiungere risultati LUIS ad Application Insights
+# <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Aggiungere i risultati LUIS ad Application Insights e Funzioni di Azure
 Questa esercitazione aggiunge le informazioni relative a richieste e risposte LUIS all'archivio dei dati di telemetria di [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando si dispone dei dati, è possibile eseguire query su di essi con il linguaggio Kusto o Power BI per analizzare, aggregare e registrare le finalità e le entità delle espressioni in tempo reale. Questa analisi consente di determinare se è necessario aggiungere o modificare le finalità e le entità dell'app LUIS.
 
 Il bot viene compilato con Bot Framework 3.x e il bot per app Web di Azure.
@@ -36,7 +37,7 @@ In questa esercitazione si apprenderà come:
 > [!Tip]
 > Se non si ha già una sottoscrizione, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
-Tutto il codice di questa esercitazione è disponibile nel [repository GitHub degli esempi LUIS](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) e ogni riga associata a questa esercitazione ha il commento `//APPINSIGHT:`. 
+Tutto il codice di questa esercitazione è disponibile nel [repository GitHub LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) e ogni riga associata a questa esercitazione ha il commento `//APPINSIGHT:`. 
 
 ## <a name="web-app-bot-with-luis"></a>Bot app Web con LUIS
 Questa esercitazione presuppone che si disponga di codice simile a quello riportato di seguito o che sia stata completata l'[altra esercitazione](luis-nodejs-tutorial-build-bot-framework-sample.md): 
@@ -58,7 +59,7 @@ Per acquisire le richieste e le risposte LUIS, il bot app Web richiede che il pa
 
 3. Nella console immettere il comando seguente per installare Application Insights e i pacchetti Underscore:
 
-    ```
+    ```console
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
@@ -66,7 +67,7 @@ Per acquisire le richieste e le risposte LUIS, il bot app Web richiede che il pa
 
     Attendere l'installazione dei pacchetti:
 
-    ```
+    ```console
     luisbot@1.0.0 D:\home\site\wwwroot
     `-- applicationinsights@1.0.1 
       +-- diagnostic-channel@0.2.0 
@@ -142,7 +143,7 @@ Application Insights consente di eseguire query sui dati con il linguaggio [Kust
 
 3. Per estrarre finalità principale, punteggio ed espressione, aggiungere quanto segue sopra l'ultima riga nella finestra di query:
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_intent_intent)
     | extend score = todouble(customDimensions.LUIS_intent_score)
     | extend utterance = tostring(customDimensions.LUIS_text)

@@ -1,21 +1,21 @@
 ---
-title: Proprietà di un utente di Collaborazione B2B di Azure Active Directory | Microsoft Docs
+title: Proprietà di un utente di Collaborazione B2B di Azure Active Directory | Documentazione Microsoft
 description: Le proprietà di un utente di Collaborazione B2B di Azure Active Directory sono configurabili
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
-ms.date: 05/25/2017
+ms.topic: conceptual
+ms.date: 12/5/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0cfd7888acf942e4af875c37c2472ff086f9119b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 01693f16b0af59881c22fefb6ec8abe0c4fb3874
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057893"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996634"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
@@ -25,31 +25,43 @@ In base alle esigenze dell'organizzazione che emette l'invito, un utente di Coll
 
 - Stato 1: incluso in un'istanza esterna di Azure AD e rappresentato come utente guest nell'organizzazione che emette l'invito. In questo caso, l'utente B2B accede con un account Azure AD appartenente al tenant che riceve l'invito. Se l'organizzazione partner non usa Azure AD, viene comunque creato l'utente guest in Azure AD. È necessario che l'utente riscatti l'invito e che Azure AD ne verifichi l'indirizzo di posta elettronica. Questa disposizione è detta anche tenancy JIT o "virale".
 
-- Stato 2: incluso in un account Microsoft e rappresentato come utente guest nell'organizzazione host. In tal caso, l'utente guest accede con un account Microsoft. L'identità basata su social network (come google.com o simili) dell'utente invitato, che non è un account Microsoft, viene creata come account Microsoft al momento del riscatto dell'offerta.
+- Stato 2: incluso in un account Microsoft o un altro account e rappresentato come utente guest nell'organizzazione host. In questo caso, l'utente guest accede con un account Microsoft o un account di social networking (google.com o altri account simili). L'identità dell'utente invitato viene creata come account Microsoft nella directory dell'organizzazione che emette l'invito durante il riscatto dell'offerta.
 
-- Stato 3: incluso nell'istanza locale di Active Directory dell'organizzazione host e sincronizzato con l'istanza di Azure AD dell'organizzazione host. In questa versione è necessario usare PowerShell per modificare manualmente l'attributo UserType di tali utenti nel cloud.
+- Stato 3: incluso nell'istanza locale di Active Directory dell'organizzazione host e sincronizzato con Azure AD dell'organizzazione host. È possibile usare Azure AD Connect per sincronizzare gli account partner con il cloud come utenti di Azure AD B2B con UserType = Guest. Vedere [Concedere agli account partner gestiti in locale l'accesso alle risorse cloud](hybrid-on-premises-to-cloud.md).
 
-- Stato 4: incluso nell'istanza di Azure AD dell'organizzazione host con UserType = Guest e credenziali gestite dall'organizzazione host.
+- Stato 4: incluso in Azure AD dell'organizzazione host con UserType = Guest e credenziali gestite dall'organizzazione host.
 
   ![Visualizzazione iniziali del mittente dell'invito](media/user-properties/redemption-diagram.png)
 
 
-Viene ora illustrato l'aspetto dell'utente di Collaborazione B2B di Azure AD nello stato 1 in Azure AD.
+Di seguito viene ora mostrato l'aspetto dell'utente di Collaborazione B2B di Azure AD in Azure AD.
 
 ### <a name="before-invitation-redemption"></a>Prima del riscatto dell'invito
+
+Gli account con stato 1 o 2 sono il risultato dell'invito di utenti guest a collaborare usando le credenziali degli utenti guest. Quando viene inizialmente inviato l'invito all'utente guest, viene creato un account nella directory. Questo account non ha credenziali, in quanto l'autenticazione viene eseguita dal provider di identità dell'utente guest. La proprietà **Source** per l'account utente guest nella directory è impostata su **Utente invitato**. 
 
 ![Prima del riscatto dell'offerta](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>Dopo il riscatto dell'invito
 
-![Dopo il riscatto dell'offerta](media/user-properties/after-redemption.png)
+Dopo che l'utente guest accetta l'invito, la proprietà **Source** viene aggiornata in base al provider di identità dell'utente guest.
+
+Per gli utenti guest nello stato 1, la proprietà **Source** è impostata su **Istanza esterna di Azure Active Directory**.
+
+![Utente guest nello stato 1 dopo il riscatto dell'offerta](media/user-properties/after-redemption-state1.png)
+
+Per gli utenti guest nello stato 2, la proprietà **Source** è impostata su **Account Microsoft**.
+
+![Utente guest nello stato 2 dopo il riscatto dell'offerta](media/user-properties/after-redemption-state2.png)
+
+Per gli utenti guest negli stati 3 e 4, la proprietà **Source** è impostata su **Azure Active Directory** o **Windows Server Active Directory**, come descritto nella sezione successiva.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Proprietà chiave dell'utente di Collaborazione B2B di Azure AD
 ### <a name="usertype"></a>UserType
 Questa proprietà indica la relazione tra l'utente e la tenancy host. I valori possibili per questa proprietà sono due.
 - Membro: questo valore indica un dipendente dell'organizzazione host e un utente retribuito dall'organizzazione. L'utente prevede ad esempio di avere accesso solo ai siti interni e non viene considerato un collaboratore esterno.
 
-- Guest: questo valore indica un utente che non è considerato interno all'azienda, come un collaboratore esterno, un partner, un cliente e così via. Un utente di questo tipo, ad esempio, non dovrà ricevere un promemoria interno del CEO o usufruire di benefit aziendali.
+- Guest: questo valore indica un utente che non è considerato interno all'azienda, come un collaboratore esterno, un partner, un cliente e così via. È improbabile che un utente di questo tipo, ad esempio, riceva un promemoria interno del CEO o usufruisca di benefit aziendali.
 
   > [!NOTE]
   > La proprietà UserType non ha alcun legame con la modalità di accesso, con il ruolo della directory dell'utente e così via. Questa proprietà indica semplicemente la relazione dell'utente con l'organizzazione host e consente all'organizzazione di applicare i criteri che dipendono da questa proprietà.
@@ -57,9 +69,9 @@ Questa proprietà indica la relazione tra l'utente e la tenancy host. I valori p
 ### <a name="source"></a>Sorgente
 Questa proprietà indica la modalità di accesso dell'utente.
 
-- Utente invitato: l'utente è stato invitato ma non ha ancora riscattato l'invito.
+- Utente invitato: l'utente è stato invitato, ma non ha ancora riscattato l'invito.
 
-- Active Directory esterno: l'utente è incluso in un'organizzazione esterna ed esegue l'autenticazione con un account Azure AD appartenente all'altra organizzazione. Questo tipo di accesso corrisponde allo stato 1.
+- Istanza esterna di Azure Active Directory: l'utente è incluso in un'organizzazione esterna ed esegue l'autenticazione con un account Azure AD appartenente all'altra organizzazione. Questo tipo di accesso corrisponde allo stato 1.
 
 - Account Microsoft: l'utente è incluso in un account Microsoft ed esegue l'autenticazione con un account Microsoft. Questo tipo di accesso corrisponde allo stato 2.
 
@@ -77,12 +89,12 @@ In genere, utente B2B di Azure AD è sinonimo di utente guest. Un utente di Coll
 ![Filtrare gli utenti guest](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>Convertire UserType
-Gli utenti possono attualmente convertire UserType da Membro a Guest e viceversa usando PowerShell. La proprietà UserType dovrebbe tuttavia rappresentare la relazione dell'utente con l'organizzazione. È quindi consigliabile modificare il valore di questa proprietà solo se cambia la relazione dell'utente con l'organizzazione. Se la relazione dell'utente cambia, è necessario risolvere alcuni problemi, ad esempio l'eventuale necessità di modificare il nome dell'entità utente (UPN)? L'utente deve continuare ad avere accesso alle stesse risorse? È necessario assegnare una cassetta postale all'utente? Non è consigliabile modificare UserType con PowerShell come attività atomica. Se questa proprietà non sarà più modificabile con PowerShell, non è consigliabile creare una dipendenza da questo valore.
+È possibile convertire UserType da Membro a Guest e viceversa usando PowerShell. Tuttavia, la proprietà UserType rappresenta la relazione dell'utente con l'organizzazione. Di conseguenza, è consigliabile modificare questa proprietà solo se la relazione dell'utente con l'organizzazione cambia. Se la relazione dell'utente cambia, è necessario modificare anche il nome dell'entità utente (UPN)? L'utente deve continuare ad avere accesso alle stesse risorse? È necessario assegnare una cassetta postale all'utente? Non è consigliabile modificare UserType con PowerShell come attività atomica. Inoltre, se questa proprietà non è più modificabile con PowerShell, non è consigliabile creare una dipendenza da questo valore.
 
 ## <a name="remove-guest-user-limitations"></a>Rimuovere le limitazioni dell'utente guest
 In alcuni casi può essere necessario dare privilegi più elevati agli utenti guest. È possibile aggiungere un utente guest a qualsiasi ruolo nonché rimuovere le limitazioni dell'utente guest predefinito nella directory per assegnare all'utente gli stessi privilegi dei membri.
 
-È possibile disabilitare le limitazioni dell'utente guest predefinito per assegnare all'utente guest nella directory aziendale le stesse autorizzazioni di un utente membro.
+È possibile disattivare le limitazioni predefinite in modo che un utente guest nella directory aziendale abbia le stesse autorizzazioni di un utente membro.
 
 ![Rimuovere le limitazioni dell'utente guest](media/user-properties/remove-guest-limitations.png)
 

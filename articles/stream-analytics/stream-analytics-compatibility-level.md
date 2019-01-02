@@ -2,18 +2,18 @@
 title: Comprendere il livello di compatibilità per i processi di Analisi di flusso di Azure
 description: Informazioni su come impostare un livello di compatibilità per un processo di Analisi di flusso di Azure e modifiche sostanziali nel livello di compatibilità più recente
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/15/2018
-ms.openlocfilehash: 83bbb777f5af6d29736db3b53ca39c449402c78e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977714"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187314"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
  
@@ -27,7 +27,7 @@ Il livello di compatibilità controlla il comportamento di runtime di un process
 
 Non dimenticare di arrestare il processo prima di aggiornare il livello di compatibilità. Il livello di compatibilità, infatti, non può essere aggiornato se il processo è in esecuzione. 
 
-![Livello di compatibilità nel portale](media\stream-analytics-compatibility-level/image1.png)
+![Livello di compatibilità di Analisi di flusso nel portale di Azure](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
  
 Quando si aggiorna il livello di compatibilità, il servizio di compilazione Transact-SQL convalida il processo con la sintassi corrispondente al livello di compatibilità selezionato. 
@@ -40,32 +40,32 @@ Nel livello di compatibilità 1.1 sono state introdotte le modifiche sostanziali
 
   * **versioni precedenti:** Analisi di flusso di Azure usava DataContractSerializer e nel contenuto del messaggio erano quindi inclusi i tag XML. Ad esempio: 
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
   * **versione corrente:** il contenuto del messaggio contiene direttamente il flusso, senza tag aggiuntivi. Ad esempio: 
   
-   { "SensorId":"1", "Temperature":64} 
+    { "SensorId":"1", "Temperature":64} 
  
 * **Distinzione maiuscole/minuscole persistente nei nomi dei campi**  
 
-  * **Versioni precedenti:** i nomi dei campi venivano modificati in lettere minuscole quando venivano elaborati dal motore di Analisi di flusso di Azure. 
+  * **versioni precedenti:** i nomi dei campi venivano modificati in lettere minuscole quando venivano elaborati dal motore di Analisi di flusso di Azure. 
 
   * **Versione corrente:** la distinzione maiuscole/minuscole viene mantenuta nei nomi dei campi elaborati dal motore di Analisi di flusso di Azure. 
 
-  > [!NOTE] 
-  > La distinzione tra maiuscole e minuscole persistente non è ancora disponibile per i processi di Analisi di flusso ospitati in un ambiente di dispositivo perimetrale. Se il processo è ospitato in un dispositivo perimetrale, quindi, tutti i nomi di campo vengono convertiti in caratteri minuscoli. 
+    > [!NOTE] 
+    > La distinzione tra maiuscole e minuscole persistente non è ancora disponibile per i processi di Analisi di flusso ospitati in un ambiente di dispositivo perimetrale. Se il processo è ospitato in un dispositivo perimetrale, quindi, tutti i nomi di campo vengono convertiti in caratteri minuscoli. 
 
 * **FloatNaNDeserializationDisabled**  
 
-  * **Versioni precedenti:** il comando CREATE TABLE non filtrava gli eventi contrassegnati con NaN (Not a Number, ad esempio: Infinity, -Infinity) in una colonna di tipo FLOAT, poiché non erano inclusi nell'intervallo documentato per questi numeri.
+  * **versioni precedenti:** il comando CREATE TABLE non filtrava gli eventi contrassegnati con NaN (Not a Number, ad esempio: Infinity, -Infinity) in una colonna di tipo FLOAT, poiché non erano inclusi nell'intervallo documentato per questi numeri.
 
-  * **Versione corrente:** CREATE TABLE consente di specificare uno schema sicuro. Il motore di Analisi di flusso convalida la conformità dei dati a questo schema e, con questo modello, il comando può filtrare anche eventi contrassegnati con valori NaN. 
+  * **versione corrente:** CREATE TABLE consente di specificare uno schema sicuro. Il motore di Analisi di flusso convalida la conformità dei dati a questo schema e, con questo modello, il comando può filtrare anche eventi contrassegnati con valori NaN. 
 
 * **Disattivazione dell'upcast automatico per le stringhe data/ora in JSON.**  
 
-  * **Versioni precedenti:** il parser JSON eseguiva automaticamente l'upcast dei valori di stringa con le informazioni di data/ora/fuso orario su un tipo DateTime e li convertiva in formato UTC. Questo comportava la perdita delle informazioni sul fuso orario.
+  * **versioni precedenti:** il parser JSON eseguiva automaticamente l'upcast dei valori di stringa con le informazioni di data/ora/fuso orario su un tipo DateTime e li convertiva in formato UTC. Questo comportava la perdita delle informazioni sul fuso orario.
 
-  * **Versione corrente:** non viene più eseguito l'upcast automatico dei valori di stringa con le informazioni di data/ora/fuso orario su un tipo DateTime. Le informazioni sul fuso orario vengono quindi mantenute. 
+  * **versione corrente:** non viene più eseguito l'upcast automatico dei valori di stringa con le informazioni di data/ora/fuso orario su un tipo DateTime. Le informazioni sul fuso orario vengono quindi mantenute. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Risolvere i problemi degli input di Analisi di flusso di Azure](stream-analytics-troubleshoot-input.md)

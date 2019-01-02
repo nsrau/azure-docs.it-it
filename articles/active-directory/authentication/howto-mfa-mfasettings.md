@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e0c612407047a51c4e3d4101a0ee192f55458afe
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7bd63dc991500f1d7f68169342b9612c1b303a07
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496998"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320659"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -257,6 +257,9 @@ Gli utenti possono creare password delle app anche dopo la registrazione. Le pas
 
 La funzionalità _Indirizzi IP attendibili_ di Azure Multi-Factor Authentication viene usata dagli amministratori di un tenant gestito o federato. La funzionalità consente di ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet aziendale. Questa funzionalità è disponibile nella versione completa di Azure Multi-Factor Authentication, ma non nella versione gratuita per amministratori. Per informazioni dettagliate su come ottenere la versione completa di Azure Multi-Factor Authentication, vedere [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
+> [!NOTE]
+> Gli IP attendibili MFA e le posizioni specifiche di accesso condizionale funzionano solo con indirizzi IPV4.
+
 Se l'organizzazione distribuisce l'estensione del server dei criteri di rete per garantire l'autenticazione a più fattori ad applicazioni locali, si prega di notare che gli indirizzi IP originali sembreranno sempre il server dei criteri di rete attraverso cui passa il tentativo di autenticazione.
 
 | Tipo di tenant di Azure AD | Opzioni della funzionalità Indirizzi IP attendibili |
@@ -293,11 +296,11 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 3. Selezionare **Configura indirizzi IP attendibili MFA**.
 4. Nella pagina **Impostazioni servizio**, in **Indirizzi IP attendibili** scegliere una delle due opzioni seguenti:
 
-   * **Per le richieste degli utenti federati originate dalla Intranet dell'utente**: per scegliere questa opzione selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
+   * **Per le richieste degli utenti federati originate dalla Intranet dell'utente**: per scegliere questa opzione, selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **Per le richieste da un intervallo specifico di IP pubblici**: per scegliere questa opzione immettere gli indirizzi IP nella casella di testo usando la notazione CIDR.
+   * **Per le richieste da un intervallo specifico di IP pubblici**: per scegliere questa opzione, immettere gli indirizzi IP nella casella di testo usando la notazione CIDR.
       * Per gli indirizzi IP nell'intervallo da xxx.xxx.xxx.1 a xxx.xxx.xxx.254, usare una notazione, ad esempio **xxx.xxx.xxx.0/24**.
       * Per un singolo indirizzo IP, usare una notazione simile a **xxx.xxx.xxx.xxx/32**.
       * Immettere fino a 50 intervalli di indirizzi IP. Gli utenti che accedono da tali indirizzi IP possono ignorare la verifica in due passaggi.
@@ -312,11 +315,11 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
 5. Nella pagina **Impostazioni servizio**, in **Indirizzi IP attendibili** scegliere una o entrambe le opzioni seguenti:
 
-   * **For requests from federated users on my intranet** (Per le richieste provenienti da utenti federati nella Intranet): per scegliere questa opzione selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
+   * **Per le richieste degli utenti federati originate dalla Intranet dell'utente**: per scegliere questa opzione, selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **For requests from a specified range of IP address subnets** (Per le richieste provenienti da un intervallo specifico di subnet di indirizzi IP): per scegliere questa opzione immettere gli indirizzi IP nella casella di testo usando la notazione CIDR.
+   * **For requests from a specified range of IP address subnets** (Per le richieste provenienti da un intervallo specificato di subnet di indirizzi IP): per scegliere questa opzione, immettere gli indirizzi IP nella casella di testo usando la notazione CIDR.
       * Per gli indirizzi IP nell'intervallo da xxx.xxx.xxx.1 a xxx.xxx.xxx.254, usare una notazione, ad esempio **xxx.xxx.xxx.0/24**.
       * Per un singolo indirizzo IP, usare una notazione simile a **xxx.xxx.xxx.xxx/32**.
       * Immettere fino a 50 intervalli di indirizzi IP. Gli utenti che accedono da tali indirizzi IP possono ignorare la verifica in due passaggi.
@@ -384,3 +387,7 @@ La funzionalità riduce il numero di autenticazioni per le app Web, che in gener
 ### <a name="mark-a-device-as-trusted"></a>Contrassegnare un dispositivo come attendibile
 
 Dopo aver abilitato la funzionalità Memorizza Multi-Factor Authentication, gli utenti possono contrassegnare un dispositivo come attendibile al momento dell'accesso selezionando **Non chiedere più**.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Modify Azure AD sign-in page branding](../fundamentals/customize-branding.md) (Modificare la personalizzazione della pagina di accesso di Azure AD)

@@ -1,6 +1,6 @@
 ---
-title: Eliminare un gruppo di risorse in Azure Resource Manager
-description: Descrive l'ordine di eliminazione delle risorse in Azure Resource Manager quando viene eliminato un gruppo di risorse.
+title: Eliminare un gruppo di risorse e le risorse - Azure Resource Manager
+description: Descrive l'ordine di eliminazione delle risorse in Azure Resource Manager quando viene eliminato un gruppo di risorse. Descrive i codici di risposta e il modo in cui Resource Manager li gestisce in modo da determinare se l'eliminazione è stata completata.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8b0711cab07584aa84ab437a2a4efb5aab92f3d1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: b8c4fdc942af291e912a4c1e74d1292279cf9f8c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318910"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132330"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Eliminazione di un gruppo di risorse in Azure Resource Manager
 
@@ -68,4 +69,4 @@ Per altri codici di errore, Resource Manager considera l'eliminazione della riso
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sui concetti correlati a Resource Manager, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
-* Per visualizzare le operazioni di un provider di risorse, vedere [Azure REST API](/rest/api/) (API REST di Azure).
+* Per i comandi di eliminazione, vedere [PowerShell](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup), [Interfaccia della riga di comando di Azure](/cli/azure/group?view=azure-cli-latest#az-group-delete) e [API REST](/rest/api/resources/resourcegroups/delete).

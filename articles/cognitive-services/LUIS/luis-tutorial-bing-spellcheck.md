@@ -1,21 +1,22 @@
 ---
-title: Aggiunta dell’API Controllo ortografico Bing v7 alle query LUIS | Microsoft Docs
+title: Correggere gli errori di ortografia
 titleSuffix: Azure
 description: È possibile correggere le parole in espressioni errate aggiungendo API Controllo ortografico Bing v7 alle query di endpoint LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6d197b014d6936b12b34a6d8783d1ebd29dfa28a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 478970c6b5f4035949c8b6579f1021dfa161fd39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443330"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096792"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Ortografia corretta con il Controllo ortografico Bing
 
@@ -75,7 +76,7 @@ L'URL dell'endpoint ha diversi valori che devono essere passati correttamente. L
 
 4. LUIS risponde con un risultato JSON per `How far is the mountain?`. Se l’API Controllo ortografico Bing v7 rileva un errore di ortografia, il campo `query` nella risposta JSON dell'applicazione LUIS contiene la query originale e il campo `alteredQuery` contiene la query corretta inviata a LUIS.
 
-```
+```json
 {
   "query": "How far is the mountainn?",
   "alteredQuery": "How far is the mountain?",

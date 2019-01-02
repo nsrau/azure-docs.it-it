@@ -1,7 +1,7 @@
 ---
 title: LUIS e QnAMaker - integrazione di Bot
 titleSuffix: Azure Cognitive Services
-description: Un'esercitazione dettagliata sull'integrazione di QnA Maker e LUIS in un bot.
+description: Quando le dimensioni della Knowledge Base di QnA Maker aumentano, diventa difficile gestirla come una singola unità monolitica ed è necessario suddividerla in parti logiche più piccole.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: diberry
-ms.openlocfilehash: 27f60f9624af2819663990aeba99b4044045540b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: f2d6f956564f01c14edb213f0bc5ae709892c542
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687368"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163313"
 ---
-# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integrare QnA Maker e LUIS per distribuire la Knowledge Base
+# <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usare bot con QnA Maker e LUIS per distribuire la knowledge base
 Quando le dimensioni della Knowledge Base di QnA Maker aumentano, diventa difficile gestirla come una singola unità monolitica ed è necessario suddividerla in parti logiche più piccole.
 
 Sebbene sia molto semplice creare più Knowledge Base in QnA Maker, sarà necessario definire la logica per indirizzare la domanda in ingresso alla Knowledge Base appropriata. A tale scopo è possibile usare LUIS.

@@ -1,26 +1,20 @@
 ---
-title: 'Configurare connessioni coesistenti ExpressRoute e VPN da sito a sito - Versione classica: Azure| Microsoft Docs'
+title: 'Configurare connessioni coesistenti ExpressRoute e VPN da sito a sito: modello classico: Azure | Microsoft Docs'
 description: Questo articolo illustra come configurare connessioni ExpressRoute e VPN da sito a sito ai fini della coesistenza per il modello di distribuzione classica.
 documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
-editor: ''
-tags: azure-service-management
-ms.assetid: dcf1a5af-a289-466a-b812-0bfedbd2bda0
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: charwen
-ms.openlocfilehash: f868c4d63209da641b4faa336e7ef78b36ef6454
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 70e7c689acac094890545ac1e65374e9377a0be0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165442"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084210"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurare connessioni coesistenti ExpressRoute e da sito a sito (versione classica)
 > [!div class="op_single_selector"]
@@ -29,7 +23,7 @@ ms.locfileid: "52165442"
 > 
 > 
 
-La possibilità di configurare una VPN da sito a sito ed ExpressRoute offre diversi vantaggi. È possibile configurare una VPN da sito a sito come percorso di failover sicuro per ExpressRoute oppure usare VPN da sito a sito per connettersi a siti che non sono connessi tramite ExpressRoute. In questo articolo verranno illustrati i passaggi per configurare entrambi questi scenari. Questo articolo si applica al modello di distribuzione classica. Questa configurazione non è disponibile nel portale.
+Questo articolo illustra come configurare connessioni ExpressRoute e VPN da sito a sito coesistenti. La possibilità di configurare una VPN da sito a sito ed ExpressRoute offre diversi vantaggi. È possibile configurare una VPN da sito a sito come percorso di failover sicuro per ExpressRoute oppure usare VPN da sito a sito per connettersi a siti che non sono connessi tramite ExpressRoute. In questo articolo verranno illustrati i passaggi per configurare entrambi questi scenari. Questo articolo si applica al modello di distribuzione classica. Questa configurazione non è disponibile nel portale.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 

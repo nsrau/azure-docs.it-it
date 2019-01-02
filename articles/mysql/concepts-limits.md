@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: 1fd5905b8ea3f87fe6cfc2a830b73b8120a717dd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.date: 12/6/2018
+ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341478"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090993"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
@@ -31,13 +31,15 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 |Utilizzo generico| 8| 1250|
 |Utilizzo generico| 16| 2500|
 |Utilizzo generico| 32| 5000|
+|Utilizzo generico| 64| 10000|
 |Con ottimizzazione per la memoria| 2| 600|
 |Con ottimizzazione per la memoria| 4| 1250|
 |Con ottimizzazione per la memoria| 8| 2500|
 |Con ottimizzazione per la memoria| 16| 5000|
+|Con ottimizzazione per la memoria| 32| 10000|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
-> ERROR 1040 (08004): Too many connections (ERRORE 1040 (08004): numero eccessivo di connessioni)
+> ERROR 1040 (08004): Troppe connessioni
 
 ## <a name="storage-engine-support"></a>Supporto del motore di archiviazione
 
@@ -72,7 +74,7 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 - La riduzione delle dimensioni di archiviazione del server non è supportato.
 
 ### <a name="server-version-upgrades"></a>Aggiornamenti della versione dei server
-- La migrazione automatica tra le versioni del motore del database principale non è attualmente supportata.
+- La migrazione automatica tra le versioni del motore del database principale non è attualmente supportata. Se si vuole eseguire l'aggiornamento alla versione principale successiva, eseguire un [dump e ripristinarlo](./concepts-migrate-dump-restore.md) in un server creato con la nuova versione del motore.
 
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato
 - Quando si usa la funzionalità di ripristino temporizzato, il nuovo server viene creato con le stesse configurazioni del server su cui si basa.
@@ -80,9 +82,6 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 
 ### <a name="vnet-service-endpoints"></a>Endpoint del servizio di rete virtuale
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
-
-### <a name="subscription-management"></a>Gestione sottoscrizioni
-- Lo spostamento dinamico di server creati in precedenza tra le sottoscrizioni e il gruppo di risorse non è attualmente supportato.
 
 ## <a name="current-known-issues"></a>Problemi attualmente noti
 - Quando viene stabilita la connessione, l'istanza del server MySQL visualizza una versione di server errata. Per ottenere la versione corretta del motore dell'istanza del server, usare il comando `select version();`.

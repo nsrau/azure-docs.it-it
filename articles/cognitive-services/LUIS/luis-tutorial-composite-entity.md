@@ -1,23 +1,24 @@
 ---
-title: 'Esercitazione 6: estrazione di dati compositi con entità composta LUIS'
+title: Entità composita"
 titleSuffix: Azure Cognitive Services
 description: Aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423502"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079212"
 ---
-# <a name="tutorial-6-group-and-extract-related-data"></a>Esercitazione 6: raggruppare ed estrarre dati correlati
+# <a name="tutorial-6-group-and-extract-related-data"></a>Esercitazione 6: Raggruppare ed estrarre dati correlati
 Questa esercitazione illusta come aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
 
 Lo scopo dell'entità composita è di raggruppare le entità correlate in un'entità di categoria padre. Prima che venga creata un'entità composita le informazioni sono entità separate. È simile all'entità gerarchica ma può contenere diversi tipi di entità. 
@@ -57,7 +58,7 @@ Creare un'entità composita quando le entità separate possono essere raggruppat
 
 In questa app, il nome del dipendente è definito nell'entità elenco **Employee** (Dipendente) e include i sinonimi di nome, l'indirizzo e-mail, l'interno telefonico aziendale, il numero di telefono cellulare e Stati Uniti. Il codice fiscale. 
 
-La finalità **MoveEmployee** contiene espressioni di esempio per richiedere il trasferimento di un dipendente da un edificio e ufficio a un altro. I nomi degli edifici sono alfabetici: "A", "B", e così via, mentre gli uffici sono numerici: "1234", "13245". 
+La finalità **MoveEmployee** contiene espressioni di esempio per richiedere il trasferimento di un dipendente da un edificio e ufficio a un altro. I nomi degli edifici sono costituiti da lettere: "A", "B" e così via, mente quelli degli uffici da numeri: "1234", "13245". 
 
 Espressioni di esempio nella finalità **MoveEmployee** includono:
 
@@ -70,7 +71,7 @@ La richiesta di trasferimento deve includere almeno il dipendente (con qualsiasi
 
 I dati estratti dall'endpoint devono contenere tali informazioni e restituirle nell'entità composita `RequestEmployeeMove`:
 
-```JSON
+```json
 "compositeEntities": [
   {
     "parentType": "RequestEmployeeMove",
@@ -103,22 +104,22 @@ I dati estratti dall'endpoint devono contenere tali informazioni e restituirle n
 
 3. Selezionare l'icona della lente di ingrandimento della barra degli strumenti per filtrare l'elenco di espressioni. 
 
-    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con il pulsante della lente di ingrandimento evidenziato")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    [![Screenshot di LUIS con la finalità "MoveEmployee" con il pulsante lente di ingrandimento evidenziato](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con il pulsante lente di ingrandimento evidenziato")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
 4. Immettere `tomorrow` nella casella di testo del filtro per trovare l'espressione `shift x12345 to h-1234 tomorrow`.
 
-    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con il filtro \"tomorrow\" evidenziato")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+    [![Screenshot di LUIS con la finalità "MoveEmployee" con il filtro "tomorrow" evidenziato](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con il filtro \"tomorrow\" evidenziato")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
     È anche possibile filtrare l'entità per datetimeV2, selezionando **Entity filters** (Filtri entità) e quindi **datetimeV2** dall'elenco. 
 
 5. Selezionare la prima entità, `Employee`, quindi selezionare **Wrap in composite entity** (Esegui il wrapping in entità composita) nell'elenco del menu a comparsa. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con evidenziata la selezione della prima entità nel composito")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+    [![Screenshot di LUIS con la finalità "MoveEmployee" con la selezione della prima entità composita evidenziata](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con la selezione della prima entità composita evidenziata")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
 6. Quindi selezionare immediatamente l'ultima entità, `datetimeV2`, nell'espressione. Sotto le parole selezionate viene disegnata una barra verde che indica un'entità composita. Nel menu a comparsa, immettere il nome composto `RequestEmployeeMove` quindi premere INVIO. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con evidenziate la selezione dell'ultima entità e la creazione dell'entità")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+    [![Screenshot di LUIS con la finalità "MoveEmployee" con la selezione dell'ultima entità composita e il comando di creazione dell'entità evidenziati](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con la selezione dell'ultima entità composita e il comando di creazione dell'entità evidenziati")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. In **What type of entity do you want to create** (Che tipo di identità si desidera creare?) quasi tutti i campi necessari sono nell'elenco. Manca solo la posizione di origine. Selezionare **Add a child entity** (Aggiungi entità figlio), selezionare **Locations::Origin** dall'elenco delle entità esistenti, quindi selezionare **Done** (Operazione completata). 
 
@@ -135,15 +136,15 @@ I dati estratti dall'endpoint devono contenere tali informazioni e restituirle n
 
 1. In ogni espressione di esempio, selezionare l'entità più a sinistra nel composito. Selezionare quindi **Wrap in composite entity** (Esegui il wrapping in entità composita).
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con evidenziata la selezione della prima entità nel composito")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+    [![Screenshot di LUIS con la finalità "MoveEmployee" con la selezione della prima entità composita evidenziata](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con la selezione della prima entità composita evidenziata")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
 2. Selezionare l'ultima parola nell'entità composita quindi selezionare **RequestEmployeeMove** nel menu a comparsa. 
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con evidenziata la selezione dell'ultima entità nel composito")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+    [![Screenshot di LUIS con la finalità "MoveEmployee" con la selezione dell'ultima entità composita evidenziata](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con la selezione dell'ultima entità composita evidenziata")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
 3. Verificare che tutte le espressioni nella finalità siano etichettate con l'entità composita. 
 
-    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Schermata di LUIS in 'MoveEmployee' con tutte le espressioni etichettate")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
+    [![Screenshot di LUIS con la finalità "MoveEmployee" con tutte le espressioni etichettate](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con tutte le espressioni etichettate")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train"></a>Eseguire il training
 
@@ -161,7 +162,7 @@ I dati estratti dall'endpoint devono contenere tali informazioni e restituirle n
 
     Poiché questo test consiste nel verificare che il composito venga estratto in modo corretto, il test può includere un'espressione di esempio esistente o una nuova espressione. Un buon test consiste nell'includere tutte le entità figlio nell'entità composita.
 
-    ```JSON
+    ```json
     {
       "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
       "topScoringIntent": {

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con eDigitalResearch | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con eDigitalResearch | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory ed eDigitalResearch.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: ca42d6c8ca1333f2ffba77b79584b7092b26f03e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d5c86186cd6ee02d83800c6483a2e35d8f1fb3c7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438597"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848715"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Esercitazione: Integrazione di Azure Active Directory con eDigitalResearch
 
@@ -115,7 +115,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<company-name>.edigitalresearch.com/login/consume`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di eDigitalResearch](http://www.maruedr.com/contact).
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di eDigitalResearch](https://www.maruedr.com/contact).
  
 
 
@@ -131,10 +131,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configurazione di eDigitalResearch](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_configure.png) 
 
-1. Per configurare l'accesso Single Sign-On sul lato **eDigitalResearch**, è necessario inviare il **file di Certificato (Base64)** scaricato, l'**ID entità SAML** e l'**URL di disconnessione** al [team di supporto di eDigitalResearch](http://www.maruedr.com/contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato **eDigitalResearch**, è necessario inviare il **file di Certificato (Base64)** scaricato, l'**ID entità SAML** e l'**URL di disconnessione** al [team di supporto di eDigitalResearch](https://www.maruedr.com/contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -172,7 +172,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in eDigitalResearch. 
 
-Per creare gli utenti, collaborare con il [team di supporto eDigitalResearch](http://www.maruedr.com/contact).     
+Per creare gli utenti, collaborare con il [team di supporto eDigitalResearch](https://www.maruedr.com/contact).        
     
  > [!NOTE]
  > Il titolare dell'account Azure Active Directory riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
@@ -212,7 +212,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro eDigitalResearch nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione eDigitalResearch.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

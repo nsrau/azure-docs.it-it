@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da HubSpot usando Azure Data Factory | Microsoft Docs
+title: Copiare dati da HubSpot tramite Azure Data Factory (anteprima) | Microsoft Docs
 description: Informazioni su come copiare dati da HubSpot in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ca989dece43df56b648820accb0610b3b27a6b13
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4b0023c42d99842c704734d4f994273436f201e4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045569"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077648"
 ---
-# <a name="copy-data-from-hubspot-using-azure-data-factory"></a>Copiare dati da HubSpot usando Azure Data Factory
+# <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiare dati da HubSpot tramite Azure Data Factory (anteprima)
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da HubSpot. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
@@ -45,11 +45,11 @@ Per il servizio collegato di HubSpot sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Hubspot** | Sì |
-| clientId | ID client associato all'applicazione Hubspot.  | Sì |
-| clientSecret | Segreto client associato all'applicazione Hubspot. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| accessToken | Il token di accesso ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| refreshToken | Il token di aggiornamento ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| type | La proprietà type deve essere impostata su: **Hubspot** | Yes |
+| clientId | ID client associato all'applicazione Hubspot.  | Yes |
+| clientSecret | Segreto client associato all'applicazione Hubspot. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| accessToken | Il token di accesso ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| refreshToken | Il token di aggiornamento ottenuto durante l'autenticazione iniziale dell'integrazione OAuth. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No  |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No  |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No  |
@@ -84,7 +84,12 @@ Per il servizio collegato di HubSpot sono supportate le proprietà seguenti:
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati di HubSpot.
 
-Per copiare dati da HubSpot, impostare la proprietà type del set di dati su **HubspotObject**. Non sono presenti proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da HubSpot, impostare la proprietà type del set di dati su **HubspotObject**. Sono supportate le proprietà seguenti:
+
+| Proprietà | DESCRIZIONE | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà type del set di dati deve essere impostata su: **HubspotObject** | Yes |
+| tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -96,7 +101,8 @@ Per copiare dati da HubSpot, impostare la proprietà type del set di dati su **H
         "linkedServiceName": {
             "referenceName": "<Hubspot linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -111,8 +117,8 @@ Per copiare dati da HubSpot, impostare il tipo di origine nell'attività di copi
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **HubspotSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Companies where Company_Id = xxx"`. | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **HubspotSource** | Yes |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Companies where Company_Id = xxx"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: victorh
-ms.openlocfilehash: 782e5c4b33cc62ab5af80e823dc63b3e79a707b3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89a88d79b6b93a233dbd4f335d0eb449e49d5289
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980526"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001771"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurare un gateway applicazione per l'offload SSL tramite il modello di distribuzione classica
 
 > [!div class="op_single_selector"]
-> * [portale di Azure](application-gateway-ssl-portal.md)
+> * [Portale di Azure](application-gateway-ssl-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [PowerShell classico per Azure](application-gateway-ssl.md)
 > * [Interfaccia della riga di comando di Azure](application-gateway-ssl-cli.md)
@@ -100,7 +100,7 @@ La configurazione di un gateway applicazione è costituita da più valori. È po
 I valori possibili sono:
 
 * **Pool di server back-end**: elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP o VIP pubblici.
-* **Impostazioni del pool di server back-end**: ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+* **Impostazioni del pool di server back-end**: ogni pool ha impostazioni quali porta, protocollo e affinità basate sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 * **Porta front-end**: porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 * **Listener**: ha una porta front-end, un protocollo (HTTP o HTTPS, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura un offload SSL).
 * **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui indirizzare il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
@@ -117,7 +117,7 @@ Per creare la configurazione con un file XML di configurazione, immettere l'esem
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<ApplicationGatewayConfiguration xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations />
     <FrontendPorts>
         <FrontendPort>

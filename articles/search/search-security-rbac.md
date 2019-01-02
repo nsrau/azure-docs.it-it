@@ -1,6 +1,6 @@
 ---
-title: Impostare i ruoli RBAC per l'accesso amministrativo per la Ricerca di Azure nel portale di | Documenti Microsoft
-description: Controllo amministrativo basato sui ruoli nel portale di Azure.
+title: Impostare i ruoli RBAC per l'accesso amministrativo di Azure nel portale - Ricerca di Azure
+description: Controllo amministrativo basato sui ruoli nel portale di Azure per il controllo e la delega di attività amministrative per la gestione di Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: 1a463c9eb52ffe2a667cdeace7478e67233a0806
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 38b8e8a0e413f367d34a4ccf5dbd87817891b8ea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792927"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313021"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>Impostare i ruoli RBAC per l'accesso amministrativo
 

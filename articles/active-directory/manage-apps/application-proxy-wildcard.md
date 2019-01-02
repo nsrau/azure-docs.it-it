@@ -15,12 +15,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 638ae4c779af3bebb68622ccee6932618d42e4f0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 8c876f220cde99bbeb3b5d9f8f8878acb5584802
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056808"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140048"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applicazioni con carattere jolly in Azure Active Directory Application Proxy 
 
@@ -49,7 +49,7 @@ Ad esempio: `http(s)://*.adventure-works.com`. Anche se gli URL interni ed ester
 
 Se sono presenti altre applicazioni con impostazioni di configurazione diverse, è necessario pubblicare queste eccezioni come applicazioni separate per sovrascrivere i valori predefiniti impostati per il carattere jolly. Le applicazioni senza carattere jolly hanno sempre la precedenza sulle applicazioni con carattere jolly. Dal punto di vista della configurazione, si tratta di applicazioni normali.
 
-La creazione di un'applicazione con carattere jolly è basata sullo stesso [flusso di pubblicazione](application-proxy-publish-azure-portal.md) disponibile per tutte le altre applicazioni. L'unica differenza è che viene incluso un carattere jolly negli URL e potenzialmente nella configurazione SSO.
+La creazione di un'applicazione con carattere jolly è basata sullo stesso [flusso di pubblicazione](application-proxy-add-on-premises-application.md) disponibile per tutte le altre applicazioni. L'unica differenza è che viene incluso un carattere jolly negli URL e potenzialmente nella configurazione SSO.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -122,7 +122,7 @@ Per le applicazioni che usano la [delega vincolata Kerberos (KCD) come metodo SS
 
 
 
-## <a name="scenario-1-general-wildcard-application"></a>Scenario 1: Applicazione con carattere jolly generica
+## <a name="scenario-1-general-wildcard-application"></a>Scenario 1: Applicazione con caratteri jolly generica
 
 In questo scenario sono presenti tre diverse applicazioni da pubblicare:
 
@@ -137,7 +137,7 @@ Tutte e tre le applicazioni:
 - Hanno le stesse proprietà.
 
 
-Per pubblicare l'applicazione con carattere jolly, è possibile usare la procedura illustrata in [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-publish-azure-portal.md). Questo scenario presuppone che:
+Per pubblicare l'applicazione con carattere jolly, è possibile usare la procedura illustrata in [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-add-on-premises-application.md). Questo scenario presuppone che:
 
 - Sia presente un tenant con l'ID seguente: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -145,7 +145,7 @@ Per pubblicare l'applicazione con carattere jolly, è possibile usare la procedu
 
 - Sia stata creata una voce **CNAME** che punta `*.adventure-works.com` su `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`
 
-Seguendo le [procedure descritte](application-proxy-publish-azure-portal.md) è possibile creare un nuovo proxy dell'applicazione nel tenant. In questo esempio il carattere jolly è presente nei campi seguenti:
+Seguendo le [procedure descritte](application-proxy-add-on-premises-application.md) è possibile creare un nuovo proxy dell'applicazione nel tenant. In questo esempio il carattere jolly è presente nei campi seguenti:
 
 - URL interno:
 
@@ -176,7 +176,7 @@ La configurazione implementa la struttura seguente:
 
 
 
-## <a name="scenario-2-general-wildcard-application-with-exception"></a>Scenario 2: Applicazione con carattere jolly generica con un'eccezione
+## <a name="scenario-2-general-wildcard-application-with-exception"></a>Scenario 2: Applicazione con caratteri jolly generica con un'eccezione
 
 In questo scenario, oltre alle tre applicazioni generiche, è presente un'altra applicazione, `finance.adventure-works.com`, che deve essere accessibile solo dal reparto finanziario. Con la struttura corrente, l'applicazione finanziaria è accessibile da tutti i dipendenti attraverso l'applicazione con carattere jolly. Per modificare questa impostazione, è necessario escludere l'applicazione dall'applicazione con carattere jolly configurando l'applicazione finanziaria come separata e dotata di autorizzazioni più restrittive.
 
@@ -184,7 +184,7 @@ In questo scenario, oltre alle tre applicazioni generiche, è presente un'altra 
 
 È necessario verificare l'esistenza di un record CNAME che punti `finance.adventure-works.com` sull'endpoint specifico dell'applicazione, specificato nella pagina relativa al proxy dell'applicazione. Per questo scenario, `finance.adventure-works.com` punta a `https://finance-awcycles.msappproxy.net/`. 
 
-Secondo le [procedure descritte](application-proxy-publish-azure-portal.md), questo scenario richiede le impostazioni seguenti:
+Secondo le [procedure descritte](application-proxy-add-on-premises-application.md), questo scenario richiede le impostazioni seguenti:
 
 
 - Nel campo **URL interno** è necessario impostare **finance** anziché un carattere jolly. 
@@ -215,6 +215,6 @@ Per altre informazioni:
 
 - **Domini personalizzati**, vedere [Utilizzo di domini personalizzati nel Proxy di applicazione AD Azure](application-proxy-configure-custom-domain.md).
 
-- **Pubblicazione di applicazioni**, vedere [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-publish-azure-portal.md).
+- **Pubblicazione di applicazioni**, vedere [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-add-on-premises-application.md).
 
 

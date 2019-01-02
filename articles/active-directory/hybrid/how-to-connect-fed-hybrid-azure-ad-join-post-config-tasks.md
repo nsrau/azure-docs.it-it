@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2306c03480956a63859355428cbffe0706f43cbc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306640"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999241"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Attività successive di configurazione per Aggiunta ad Azure AD ibrido
 
@@ -30,7 +30,7 @@ Dopo aver eseguito Azure AD Connect per configurare l'organizzazione per Aggiunt
 Tutti i dispositivi aggiunti a un dominio che eseguono la versione di Windows 10 e Windows Server 2016 vengono registrati automaticamente in Azure AD dopo aver completato l'intera procedura di configurazione. Se si preferisce un'implementazione controllata anziché questa registrazione automatica, è possibile usare dei criteri di gruppo per abilitare o disabilitare la distribuzione automatica in modo selettivo.  Questi criteri di gruppo devono essere impostati prima dell'avvio di altre procedure di configurazione: Azure Active Directory
 * Creare un oggetto Criteri di gruppo in Active Directory.
 * Denominarlo (ad es. l'aggiunta ad Azure AD ibrido).
-* Modificare e passare a:  Configurazione computer -> Criteri > Modelli amministrativi -> Componenti di Windows -> Registrazione del dispositivo.
+* Modificare e passare a:  Configurazione computer > Criteri > Modelli amministrativi > Componenti di Windows > Registrazione del dispositivo.
 
 >[!NOTE]
 >Per 2012R2 le impostazioni dei criteri sono in **Configurazione computer > Criteri > Modelli amministrativi > Componenti di Windows > Aggiunta all'area di lavoro > Computer client con aggiunta automatica all'area di lavoro**
@@ -69,7 +69,7 @@ Se l'organizzazione usa la sincronizzazione del codice Hash della Password o l'a
 Per registrare i dispositivi Windows di livello inferiore, è necessario verificare che il criterio di Azure AD consente agli utenti di registrare i dispositivi. 
 
 * Accedere al proprio account nel portale di Azure.
-* Passare a: Azure Active Directory > Dispositivi > Impostazioni del dispositivo
+* Passare a:  Azure Active Directory > Dispositivi > Impostazioni del dispositivo
 * Impostare "Gli utenti possono registrare i propri dispositivi in Azure AD" su ALL.
 * Fare clic su Salva.
 
@@ -77,7 +77,7 @@ Per registrare i dispositivi Windows di livello inferiore, è necessario verific
 
 Aggiungere l'endpoint di autenticazione dei dispositivi di Azure AD alle aree Intranet locali sui dispositivi Windows di livello inferiore per evitare che vengano visualizzate richieste di certificati durante l'autenticazione del dispositivo: https://device.login.microsoftonline.com 
 
-Se si usa [SSO facile](https://aka.ms/hybrid/sso), abilitare anche "Consentire aggiornamenti della barra di stato tramite script" in tale area e aggiungere l'endpoint seguente: https://autologon.microsoftazuread-sso.com 
+Se si usa [SSO facile](how-to-connect-sso.md), abilitare anche "Consentire aggiornamenti della barra di stato tramite script" in tale area e aggiungere l'endpoint seguente: https://autologon.microsoftazuread-sso.com 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Installare Microsoft Workplace Join nei Dispositivi Windows di livello inferiore
 
@@ -87,7 +87,7 @@ Questo programma di installazione crea nel sistema del dispositivo un'attività 
 
 * Creare un oggetto Criteri di gruppo in Active Directory, se non è già stato creato.
 * Denominarlo (ad es. l'aggiunta ad Azure AD ibrido).
-* Modificare e passare a:  Configurazione computer -> Criteri > Modelli amministrativi -> Componenti di Windows -> Registrazione del dispositivo
+* Modificare e passare a:  Configurazione computer > Criteri > Modelli amministrativi > Componenti di Windows > Registrazione del dispositivo
 * Abilitare:  Registrare i computer appartenenti a un dominio come dispositivi
 * Applicare e fare clic su OK.
 * Collegamento dell'oggetto Criteri di gruppo alla posizione di propria scelta (unità organizzativa, gruppo di sicurezza o dominio per tutti i dispositivi).

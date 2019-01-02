@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bd504beabbb126db2cd90ac010dbc2757e571185
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2e515ee61144dfe56d2b5a4fac97da81b0fa8c84
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441900"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834844"
 ---
-# <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: creare un'app desktop di Windows
+# <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Creare un'app desktop di Windows
 Azure Active Directory (Azure AD) B2C consente di aggiungere funzionalità avanzate di gestione delle identità self-service all'app desktop in pochi brevi passaggi. Questo articolo descrive come creare un'app Windows Presentation Foundation (WPF) .NET "To do list" con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente. L'app includerà il supporto per l'iscrizione e l'accesso tramite un nome utente o un indirizzo di posta elettronica. L'app includerà anche il supporto per l'iscrizione e l'accesso tramite account di social networking quali Facebook e Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Ottenere una directory di Azure AD B2C
@@ -31,7 +31,7 @@ Successivamente, è necessario creare un'app nella directory B2C. In questo modo
 * Copiare l' **ID applicazione** assegnato all'app. Sarà necessario più avanti.
 
 ## <a name="create-your-policies"></a>Creare i criteri
-In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md)specifici. Questo esempio di codice contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. È necessario creare i criteri per ogni tipo, come descritto nell' [articolo di riferimento sui criteri](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
+In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md)specifici. Questo esempio di codice contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. È necessario creare i criteri per ogni tipo, come descritto nell' [articolo di riferimento sui criteri](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Durante la creazione dei tre criteri, assicurarsi di:
 
 * Scegliere **Iscrizione ID utente** o **Iscrizione posta elettronica** nel pannello dei provider di identità.
 * Scegliere **Nome visualizzato** e altri attributi nei criteri di iscrizione.

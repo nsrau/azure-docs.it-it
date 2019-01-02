@@ -1,5 +1,5 @@
 ---
-title: Analisi del traffico di ricerca per Ricerca di Azure | Documentazione Microsoft
+title: Analisi del traffico di ricerca - Ricerca di Azure
 description: Abilitare Analisi del traffico di ricerca per Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, per sbloccare informazioni dettagliate su utenti e dati.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/05/2017
 ms.author: heidist
-ms.openlocfilehash: 4b40e8c9f681b7489c0ab2ffe7b369cc869c73e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec2018
+ms.openlocfilehash: 4cc7434508e49715e95c87421db2bbed7e20de05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777260"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310283"
 ---
 # <a name="what-is-search-traffic-analytics"></a>Analisi del traffico di ricerca
 Analisi del traffico di ricerca è un modello per l'implementazione di un ciclo di feedback per il servizio di ricerca. Questo modello descrive i dati necessari e come raccoglierli utilizzando Application Insights, uno strumento leader di settore per il monitoraggio dei servizi in più piattaforme.
@@ -30,7 +31,7 @@ I segnali necessari per Analisi del traffico di ricerca sono due:
 
 1. Eventi di ricerca generati dagli utenti. Sono interessanti solo le query di ricerca avviate da un utente. Le richieste di ricerca utilizzate per popolare facet, contenuti aggiuntivi o informazioni interne non sono rilevanti e anzi pregiudicano la correttezza dei risultati.
 
-2. Eventi generati dai clic degli utenti. Il termine "clic" in questo documento si riferisce alla selezione, da parte di un utente, di un determinato risultato di ricerca restituito da una query di ricerca. Un clic in genere indica che un documento è un risultato rilevante per una specifica query di ricerca.
+2. Eventi generati dai clic degli utenti: in questo documento, il termine "clic" si riferisce alla selezione, da parte di un utente, di un determinato risultato di ricerca restituito da una query di ricerca. Un clic in genere indica che un documento è un risultato rilevante per una specifica query di ricerca.
 
 Il collegamento degli eventi di ricerca e degli eventi clic mediante un ID di correlazione consente di analizzare i comportamenti degli utenti nell'applicazione. I registri del traffico di ricerca non sono in grado di offrire informazioni sulla ricerca così dettagliate.
 

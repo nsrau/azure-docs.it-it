@@ -1,23 +1,24 @@
 ---
-title: Eseguire un test in batch sull'app LUIS - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Test in batch
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Usare test in batch per lavorare continuamente all'applicazione allo scopo di perfezionarla e di migliorarne la comprensione del linguaggio.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 44abadc653c4679f37152e6592c882475b139bdd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333905"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133147"
 ---
-# <a name="batch-testing-in-luis"></a>Test in batch in LUIS
+# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Test in batch con 1000 espressioni nel portale di LUIS
 
 I test in batch convalidano il modello con training [attivo](luis-concept-version.md#active-version) per misurare l'accuratezza delle previsioni. Un test in batch consente di visualizzare l'accuratezza di ogni finalità ed entità del modello con training corrente in un grafico. Esaminare i risultati dei test in batch per intraprendere le azioni appropriate per migliorare l'accuratezza, ad esempio aggiungendo altre espressioni di esempio a una finalità se l'app spesso non riesce a identificare la finalità corretta.
 

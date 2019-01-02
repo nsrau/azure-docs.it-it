@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 45df284d29ea2d5eb799697b22deeab03cb66622
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ece07d2be605f51e08274649f3ea15e3bbba472
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956662"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134897"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Creare e gestire regole del firewall di Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 Le regole del firewall a livello di server consentono agli amministratori di gestire l'accesso a un'istanza di Database di Azure per il server MySQL da uno specifico indirizzo IP o un intervallo di indirizzi IP. Usando pratici comandi dell'interfaccia della riga di comando di Azure è possibile creare, aggiornare, eliminare, elencare e visualizzare le regole del firewall per gestire il server. Per una panoramica dei firewall di Database di Azure per MySQL, vedere [Azure Database for MySQL server firewall rules](./concepts-firewall-rules.md) (Regole del firewall di Database di Azure per il server MySQL)
@@ -38,9 +38,9 @@ Comandi:
 Connettere in modo sicuro l'interfaccia della riga di comando di Azure all'account Azure usando il comando **az login**.
 
 1. Eseguire il comando seguente dalla riga di comando:
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
 Questo comando restituisce un codice da usare nel passaggio successivo.
 
 2. Usare un Web browser per aprire la pagina [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e quindi immettere il codice.
@@ -48,21 +48,21 @@ Questo comando restituisce un codice da usare nel passaggio successivo.
 3. Al prompt dei comandi, accedere usando le credenziali di Azure.
 
 4. Dopo che l'accesso è stato autorizzato, nella console viene visualizzato un elenco di sottoscrizioni. Copiare l'ID della sottoscrizione desiderata per impostare la sottoscrizione corrente da usare. Usare il comando [az account set](/cli/azure/account#az-account-set).
-   ```azurecli-interactive
-   az account set --subscription <your subscription id>
-   ```
+    ```azurecli-interactive
+    az account set --subscription <your subscription id>
+    ```
 
 5. Elencare le istanze di Database di Azure per i server MySQL per la sottoscrizione e il gruppo di risorse, se non si è certi dei nomi. Usare il comando [az mysql server list](/cli/azure/mysql/server#az-mysql-server-list).
 
-   ```azurecli-interactive
-   az mysql server list --resource-group myresourcegroup
-   ```
+    ```azurecli-interactive
+    az mysql server list --resource-group myresourcegroup
+    ```
 
    Prendere nota dell'attributo del nome nell'elenco, necessario per specificare il server MySQL da usare. Se necessario, verificare i dettagli per il server usando l'attributo del nome per assicurarsi che sia corretto. Usare il comando [az mysql server show](/cli/azure/mysql/server#az-mysql-server-show).
 
-   ```azurecli-interactive
-   az mysql server show --resource-group myresourcegroup --name mydemoserver
-   ```
+    ```azurecli-interactive
+    az mysql server show --resource-group myresourcegroup --name mydemoserver
+    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Elencare le regole del firewall per un'istanza di Database di Azure per il server MySQL 
 Usando il nome del server e il nome del gruppo di risorse, elencare le regole del firewall esistenti nel server. Usare il comando [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-list).  Tenere presente che l'attributo del nome del server è specificato nell'opzione **--server** e non nell'opzione **--name**. 

@@ -1,5 +1,5 @@
 ---
-title: Ricompilare un indice di Ricerca di Azure o aggiornare il contenuto ricercabile | Microsoft Docs
+title: Ricompilare un indice di Ricerca di Azure o aggiornare il contenuto ricercabile - Ricerca di Azure
 description: Aggiungere nuovi elementi, aggiornare gli elementi o i documenti esistenti o eliminare i documenti obsoleti in una ricompilazione completa o in un'indicizzazione incrementale parziale per aggiornare un indice di Ricerca di Azure.
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 374e7601169647f0eb7d3a214cf15567b7b11090
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641425"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316897"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Come ricompilare un indice di Ricerca di Azure
 

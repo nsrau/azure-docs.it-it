@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 3ce0b63c579412d9d8d35b835803becab09f7ef4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: d71b0c020fb9ceb305b56216d466bacb42ad21e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494153"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278152"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Creare, eliminare e gestire applicazioni Docker Compose.
@@ -33,6 +33,7 @@ Creare, eliminare e gestire applicazioni Docker Compose.
 | remove | Elimina una distribuzione di composizione Service Fabric esistente dal cluster. |
 | status | Mostra informazioni su una distribuzione di composizione Service Fabric. |
 | Aggiornamento | Avvia l'aggiornamento di una distribuzione di composizione nel cluster di Service Fabric. |
+| upgrade-rollback | Avvia il rollback di un aggiornamento di una distribuzione Compose nel cluster di Service Fabric. |
 | upgrade-status | Mostra i dettagli dell'aggiornamento più recente eseguito sulla distribuzione Compose per Service Fabric corrente. |
 
 ## <a name="sfctl-compose-create"></a>sfctl compose create
@@ -140,21 +141,43 @@ Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della dis
 | --default-svc-type-health-map | Dizionario con codifica JSON che descrive i criteri di integrità usati per valutare l'integrità dei servizi. |
 | --encrypted-pass | Invece di richiedere una password di registro contenitori, usare una passphrase già crittografata. |
 | --failure-action | I valori possibili sono\: "Invalid", "Rollback", "Manual". |
-| --force-restart | Forza il riavvio. |
+| --force-restart | I processi vengono riavviati in modo forzato durante l'aggiornamento anche quando la versione del codice non è stata modificata. <br><br> L'aggiornamento modifica solo la configurazione o i dati. |
 | --has-pass | Richiederà una password al registro contenitori. |
-| --health-check-retry | Timeout del nuovo tentativo di controllo dell'integrità misurato in millisecondi. |
-| --health-check-stable | Durata stabile controllo integrità misurata in millisecondi. |
-| --health-check-wait | Durata attesa controllo integrità misurata in millisecondi. |
-| --replica-set-check | Timeout del controllo del set di repliche di aggiornamento misurato in secondi. |
+| --health-check-retry | Intervallo di tempo tra i tentativi di esecuzione dei controlli integrità se l'applicazione o il cluster non è integro. |
+| --health-check-stable | Tempo di attesa per cui l'applicazione o il cluster devono rimanere integri prima di passare al dominio di aggiornamento successivo. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
+| --health-check-wait | Intervallo di tempo di attesa dopo il completamento di un dominio di aggiornamento prima di avviare il processo dei controlli integrità. |
+| --replica-set-check | Tempo massimo per bloccare l'elaborazione di un dominio di aggiornamento ed evitare la perdita di disponibilità quando si verificano problemi imprevisti. <br><br> Quando il timeout scade, l'elaborazione del dominio di aggiornamento procede indipendentemente dai problemi di perdita di disponibilità. Il timeout viene reimpostato all'inizio di ogni dominio di aggiornamento. I valori validi sono compresi tra 0 e 42949672925 inclusi. |
 | --svc-type-health-map | Elenco con codifica JSON di oggetti che descrivono i criteri di integrità usati per valutare l'integrità dei diversi tipi di servizio. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 | --unhealthy-app | Percentuale massima consentita di applicazioni non integre prima che venga segnalato un errore. <br><br> Ad esempio, per consentire il 10% di applicazioni non integre, questo valore deve corrispondere a 10. La percentuale rappresenta la percentuale massima tollerata di applicazioni che possono risultare non integre prima che per il cluster venga impostato lo stato Error. Se la percentuale viene rispettata ma esiste almeno un'applicazione non integra, l'integrità viene valutata come Avviso. Tale valore viene calcolato dividendo il numero delle applicazioni non integre per il numero totale di istanze di applicazione nel cluster. |
-| --upgrade-domain-timeout | Timeout del dominio di aggiornamento misurato in millisecondi. |
+| --upgrade-domain-timeout | Tempo necessario al completamento di ogni dominio di aggiornamento prima dell'esecuzione di FailureAction. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
 | --upgrade-kind | Impostazione predefinita\: Rolling. |
 | --upgrade-mode | I valori possibili sono\: "Invalid", "UnmonitoredAuto", "UnmonitoredManual", "Monitored".  Impostazione predefinita\: UnmonitoredAuto. |
-| --upgrade-timeout | Timeout dell'aggiornamento misurato in millisecondi. |
+| --upgrade-timeout | Tempo necessario al completamento dell'aggiornamento prima dell'esecuzione di FailureAction. <br><br> Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. |
 | --user | Nome utente per connettersi al registro contenitori. |
-| --warning-as-error | Gli avvisi vengono considerati con lo stello livello di gravità degli errori. |
+| --warning-as-error | Indica se gli avvisi vengono considerati con lo stesso livello di gravità degli errori. |
+
+### <a name="global-arguments"></a>Argomenti globali
+
+|Argomento|Descrizione|
+| --- | --- |
+| --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
+| --help -h | Mostra questo messaggio della Guida e l'uscita. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
+| --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
+| --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+
+## <a name="sfctl-compose-upgrade-rollback"></a>sfctl compose upgrade-rollback
+Avvia il rollback di un aggiornamento di una distribuzione Compose nel cluster di Service Fabric.
+
+Consente di eseguire il rollback di un aggiornamento di una distribuzione Compose di Service Fabric.
+
+### <a name="arguments"></a>Argomenti
+
+|Argomento|DESCRIZIONE|
+| --- | --- |
+| --deployment-name [Obbligatorio] | L'identità della distribuzione. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 

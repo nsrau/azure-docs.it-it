@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 83fbebc07be3a61d7fd54953f842a320a537a7ac
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985013"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091044"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
 Questo articolo illustra come sfruttare i vantaggi della parallelizzazione in Analisi di flusso di Azure. Si apprenderà come ridimensionare i processi di Analisi di flusso configurando partizioni di input e ottimizzando la definizione di query.
@@ -51,7 +51,7 @@ Gli output di PowerBI, SQL e SQL Data Warehouse non supportano il partizionament
 Per altre informazioni sulle partizioni, vedere gli articoli seguenti:
 
 * [Panoramica delle funzionalità di Hub eventi](../event-hubs/event-hubs-features.md#partitions)
-* [Partizionamento dei dati](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
+* [Partizionamento dei dati](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Processi perfettamente paralleli
@@ -80,22 +80,26 @@ Le sezioni seguenti illustrano alcuni esempi di scenari perfettamente paralleli.
 
 Query:
 
+```SQL
     SELECT TollBoothId
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
+```
 
 Questa query è un filtro semplice. Non è pertanto necessario preoccuparsi del partizionamento dell'input inviato all'hub eventi. Si noti che la query include la clausola **PARTITION BY PartitionId** e quindi il requisito 2 illustrato in precedenza è pienamente soddisfatto. A livello di output, è necessario configurare l'output dell'hub eventi nel processo in modo che la chiave di partizione sia impostata su **PartitionId**. È infine necessario verificare che il numero delle partizioni di input sia uguale a quello delle partizioni di output.
 
 ### <a name="query-with-a-grouping-key"></a>Query con chiave di raggruppamento
 
 * Input: hub eventi con 8 partizioni
-* Output: archiviazione BLOB
+* Output: Archiviazione BLOB
 
 Query:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Questa query include una chiave di raggruppamento. Gli eventi raggruppati insieme devono quindi essere inviati alla stessa partizione dell'hub eventi. Nell'esempio viene illustrato il raggruppamento per TollBoothID, è quindi necessario assicurarsi che TollBoothID venga usato come chiave di partizione quando gli eventi vengono inviati all'hub eventi. In ASA è possibile usare **PARTITION BY PartitionId** per ereditare da questo schema di partizione e abilitare la parallelizzazione completa. Poiché l'output è costituito dall'archiviazione BLOB, non occorre preoccuparsi di configurare un valore di chiave di partizione, come definito dal requisito 4.
 
@@ -111,7 +115,7 @@ In questo caso, la query non è rilevante. Se il numero delle partizioni di inpu
 
 ### <a name="query-using-non-partitioned-output"></a>Query con output non partizionati
 * Input: hub eventi con 8 partizioni
-* Output: Power BI
+* Output: PowerBI
 
 L'output Power BI attualmente non supporta il partizionamento. Pertanto, questo scenario non è perfettamente parallelo.
 
@@ -121,6 +125,7 @@ L'output Power BI attualmente non supporta il partizionamento. Pertanto, questo 
 
 Query:
 
+```SQL
     WITH Step1 AS (
     SELECT COUNT(*) AS Count, TollBoothId, PartitionId
     FROM Input1 Partition By PartitionId
@@ -130,6 +135,7 @@ Query:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1 Partition By TollBoothId
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Come è possibile osservare, il secondo passaggio usa **TollBoothId** come chiave di partizionamento, a differenza del primo passaggio. È quindi necessario eseguire una riproduzione in ordine casuale. 
 
@@ -143,6 +149,7 @@ Una query può includere uno o più passaggi. Ogni passaggio è una sottoquery d
 
 Query:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -151,6 +158,7 @@ Query:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute,3), TollBoothId
+```
 
 Questa query include due passaggi.
 
@@ -182,20 +190,25 @@ Nella tabella seguente sono riportati alcuni **esempi**.
 
 La query seguente calcola il numero di automobili che passano per una stazione di pedaggio con tre caselli in un intervallo di tre minuti. Il numero di unità di streaming di questa query può essere aumentato fino a sei.
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Per usare più unità di streaming per la query, è necessario che il flusso di dati di input e la query siano entrambi partizionati. Se il partizionamento del flusso di dati è impostato su 3, la query modificata seguente può essere ridimensionata fino a un massimo di 18 unità di streaming:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Quando una query è partizionata, gli eventi di input vengono elaborati e aggregati in gruppi di partizioni separati e vengono anche generati eventi di output per ognuno dei gruppi. Quando il campo **GROUP BY** non corrisponde alla chiave di partizione nel flusso di dati di input, il partizionamento può causare risultati imprevisti. Ad esempio, il campo **TollBoothId** nella query precedente non corrisponde alla chiave di partizione **Input1**. I dati provenienti dal casello 1 possono pertanto essere distribuiti in più partizioni.
 
 Le singole partizioni di **Input1** verranno elaborate separatamente da Analisi di flusso. Verranno pertanto creati più record del conteggio relativo al passaggio di automobili dallo stesso casello nella stessa finestra a cascata. Se la chiave di partizione di input non può essere modificata, è possibile risolvere questo problema aggiungendo un altro passaggio non di partizione per aggregare i valori tra le partizioni, come nell'esempio seguente:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -205,6 +218,7 @@ Le singole partizioni di **Input1** verranno elaborate separatamente da Analisi 
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Per questa query è possibile aumentare il numero di unità di streaming fino a 24.
 

@@ -1,5 +1,5 @@
 ---
-title: Clonazione di app Web con PowerShell
+title: Clonare l'app con PowerShell - Servizio app di Azure
 description: Come clonare le app Web in nuove app Web con PowerShell.
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
-ms.openlocfilehash: 30817a1a6a8079e7a896305ab0b59e48fad4d644
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.custom: seodec18
+ms.openlocfilehash: 87bae4db64c0a22790b7f52f919601f82aa548df
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
-ms.locfileid: "27867471"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261868"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonazione di app del servizio app di Azure con PowerShell
 Con il rilascio di Microsoft Azure PowerShell versione 1.1.0 è stata aggiunta una nuova opzione a `New-AzureRMWebApp` che consente di clonare il contenuto di un'app Web esistente in una nuova app presente in un'area diversa o nella stessa area. In questo modo, i clienti possono distribuire una serie di app in aree diverse in modo semplice e rapido.
@@ -29,7 +30,7 @@ La clonazione di app è attualmente supportata solo per i piani di servizio app 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="cloning-an-existing-app"></a>Clonazione di un'app esistente
-Scenario: si vuole clonare il contenuto di un'app Web esistente nell'area South Central US in una nuova app Web presente nell'area North Central US. Questa operazione può essere eseguita con la versione Azure Resource Manager del cmdlet PowerShell per creare una nuova app Web con l'opzione `-SourceWebApp`.
+Scenario: si vuole clonare il contenuto di un'app Web esistente nell'area Stati Uniti centro-meridionali in una nuova app Web nell'area Stati Uniti centro-settentrionali. Questa operazione può essere eseguita con la versione Azure Resource Manager del cmdlet PowerShell per creare una nuova app Web con l'opzione `-SourceWebApp`.
 
 Conoscendo il nome del gruppo di risorse che include l'app Web di origine, è possibile usare il comando PowerShell seguente per ottenere informazioni sull'app Web di origine, denominata in questo caso `source-webapp`:
 
@@ -43,7 +44,7 @@ Per creare un nuovo piano di servizio app, è possibile usare il comando `New-Az
 New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 ```
 
-Con il comando `New-AzureRmWebApp` è possibile creare la nuova app Web nell'area North Central US e collegarla a un piano di servizio app Premium esistente. Inoltre, è possibile usare lo stesso gruppo di risorse dell'app Web di origine oppure definire un nuovo gruppo di risorse come illustrato nel comando seguente:
+Con il comando `New-AzureRmWebApp` è possibile creare la nuova app Web nell'area Stati Uniti centro-settentrionali e collegarla a un piano di servizio app Premium esistente. Inoltre, è possibile usare lo stesso gruppo di risorse dell'app Web di origine oppure definire un nuovo gruppo di risorse come illustrato nel comando seguente:
 
 ```PowerShell
 $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
@@ -62,7 +63,7 @@ $destapp = New-AzureRmWebApp -ResourceGroupName NewAzureResourceGroup -Name dest
 ```
 
 ## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonazione di un'app esistente in un ambiente del servizio App
-Scenario: si vuole clonare il contenuto di un'app Web esistente nell'area South Central US in una nuova app Web presente in un ambiente del servizio app esistente.
+Scenario: si vuole clonare il contenuto di un'app Web esistente nell'area Stati Uniti centro-meridionali in una nuova app Web in un ambiente del servizio app esistente.
 
 Conoscendo il nome del gruppo di risorse che include l'app Web di origine, è possibile usare il comando PowerShell seguente per ottenere informazioni sull'app Web di origine, denominata in questo caso `source-webapp`:
 
@@ -79,7 +80,7 @@ $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -N
 Il parametro `Location` è obbligatorio per motivi legacy, ma viene ignorato quando si crea l'app in un ambiente del servizio app. 
 
 ## <a name="cloning-an-existing-app-slot"></a>Clonazione dello slot di un'app esistente
-Scenario: si vuole clonare lo slot di un'app Web esistente in una nuova app Web o in un nuovo slot dell'app Web. La nuova app Web può trovarsi nella stessa area dello slot dell'app Web originale o in un'area diversa.
+Scenario: si vuole clonare lo slot di un'app Web esistente in una nuova app Web o in un nuovo slot di app Web. La nuova app Web può trovarsi nella stessa area dello slot dell'app Web originale o in un'area diversa.
 
 Conoscendo il nome del gruppo di risorse che include l'app Web di origine, è possibile usare il comando PowerShell seguente per ottenere informazioni sullo slot dell'app Web di origine, denominato in questo caso `source-webappslot`, collegato all'app Web `source-webapp`:
 
@@ -134,5 +135,5 @@ Questa funzionalità è attualmente disponibile in anteprima e nuove capacità v
 * [Eseguire il backup di un'app Web nel servizio app di Azure](web-sites-backup.md)
 * [Supporto di Azure Resource Manager per la versione di anteprima di Gestione traffico di Azure](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Introduzione all'ambiente del servizio app](environment/intro.md)
-* [Uso di Azure PowerShell con Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
 

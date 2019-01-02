@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2ea9356f1292669f115d2bb482419435320f644c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978826"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726288"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
 
@@ -35,14 +35,17 @@ I flussi seguenti non sono supportati:
 - **Da server a server**: il sistema di protezione delle identità richiede un indirizzo IP affidabile raccolto dal chiamante (il client nativo) come parte dell'interazione. In una chiamata API lato server viene usato solo l'indirizzo IP del server. Se viene superata una soglia dinamica di autenticazioni non riuscite, il sistema di protezione delle identità può identificare un indirizzo IP ripetuto come un utente malintenzionato.
 - **Flusso client riservato**: l'ID client dell'applicazione viene convalidato, ma non viene convalidato il segreto dell'applicazione.
 
-##  <a name="create-a-resource-owner-policy"></a>Creare un criterio per il proprietario della risorsa
+##  <a name="create-a-resource-owner-user-flow"></a>Creare un flusso utente per il proprietario della risorsa
 
-1. Accedere al portale di Azure come amministratore globale del tenant di Azure AD B2C.
-2. Per passare al tenant di Azure AD B2C, selezionare la directory B2C nell'angolo superiore destro del portale.
-3. In **Criteri** selezionare **Criteri per il proprietario della risorsa**.
-4. Specificare un nome per il criterio, ad esempio *ROPC_Auth*, quindi selezionare **Attestazioni dell'applicazione**.
-5. Selezionare le attestazioni necessarie per l'applicazione, ad esempio *Nome visualizzato*, *Indirizzo di posta elettronica* e *Provider di identità*.
-6. Selezionare **OK**, quindi **Crea**.
+1.  Accedere al portale di Azure come amministratore globale del tenant di Azure AD B2C.
+2.  Per passare al tenant di Azure AD B2C, selezionare la directory B2C nell'angolo superiore destro del portale.
+3.  Fare clic su **Flussi utente** e selezionare **Nuovo flusso utente**.
+4.  Fare clic sulla scheda **Tutti** e selezionare **Proprietario della risorsa**.
+5.  Specificare un nome per il flusso utente, ad esempio *ROPC_Auth*.
+6.  In **Attestazioni dell'applicazione** fare clic su **Mostra dettagli**.
+7.  Selezionare le attestazioni necessarie per l'applicazione, ad esempio Nome visualizzato, Indirizzo di posta elettronica e Provider di identità.
+8.  Selezionare **OK**, quindi **Crea**.
+9.  Fare clic su **Esegui il flusso utente**.
 
    Verrà visualizzato un endpoint come nell'esempio seguente:
 
@@ -57,9 +60,9 @@ I flussi seguenti non sono supportati:
 4. Lasciare tutti gli altri valori così come sono e quindi selezionare **Crea**.
 5. Selezionare la nuova applicazione e annotare l'ID applicazione per usarlo in seguito.
 
-## <a name="test-the-policy"></a>Testare i criteri
+## <a name="test-the-user-flow"></a>Testare il flusso utente
 
-Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed esaminare la risposta per eseguire il debug del criterio. Costruire una chiamata di questo tipo con le informazioni riportate nella tabella seguente come corpo della richiesta POST:
+Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed esaminare la risposta per eseguire il debug del flusso utente. Costruire una chiamata di questo tipo con le informazioni riportate nella tabella seguente come corpo della richiesta POST:
 - Sostituire *\<yourtenant.onmicrosoft.com>* con il nome del proprio tenant B2C.
 - Sostituire *\<B2C_1A_ROPC_Auth>* con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
 - Sostituire *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* con l'ID dell'applicazione riportato nella registrazione.

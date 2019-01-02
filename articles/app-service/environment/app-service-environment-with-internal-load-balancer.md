@@ -1,5 +1,5 @@
 ---
-title: Creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app | Documentazione Microsoft
+title: Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app - Azure | Microsoft Docs
 description: Creazione e uso di un ambiente del servizio app con bilanciamento del carico interno
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: f7c94b790c6aa7c75c62fd05671f016b7185b2a2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: seodec18
+ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29388816"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310471"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app
 
@@ -100,8 +101,8 @@ Se si vuole provare il flusso con i propri certificati e testare l'accesso HTTP 
 4. Creare un'app Web nell'ambiente del servizio app dopo la creazione. 
 5. Creare una VM, se non è disponibile in questa rete virtuale; non crearla nella stessa subnet dell'ambiente del servizio app per evitare errori.
 6. Impostare il DNS per il sottodominio. È possibile usare un carattere jolly con il sottodominio nel DNS o se si vuole eseguire alcuni semplici test, modificare il file hosts nella VM per impostare il nome della app Web all'indirizzo IP VIP. Se il nome di sottodominio dell'ambiente del servizio app è ilbase.com e l'app Web mytestapp è stata creata in modo da essere indirizzata a mytestapp.ilbase.com, impostare questo valore nel file hosts. In Windows il file hosts si trova in C:\Windows\System32\drivers\etc\\)
-7. Usare un browser in questa VM e passare a http://mytestapp.ilbase.com o qualunque sia il nome dell'app Web con il sottodominio.
-8. Usare un browser in questa macchina virtuale e passare a https://mytestapp.ilbase.com. Se si usa un certificato autofirmato, è necessario accettare l'assenza di sicurezza. 
+7. Usare un browser in questa macchina virtuale e passare a https://mytestapp.ilbase.com o qualunque sia il nome dell'app Web con il sottodominio.
+8. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. Se si usa un certificato autofirmato, è necessario accettare l'assenza di sicurezza. 
 
 L'indirizzo IP per il bilanciamento del carico interno è elencato nelle proprietà come indirizzo IP virtuale.
 
@@ -147,8 +148,8 @@ Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'amb
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
-[vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[vnetnsgs]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md

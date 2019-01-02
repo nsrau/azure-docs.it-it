@@ -8,16 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 61a4e3700e88efba1ea9cea876b19e2f7ed4168b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b76bea6207cd6ac5d2ed570cf54dde7c52d5ff97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137071"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309621"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Panoramica dell'acceleratore di soluzioni di manutenzione predittiva
 
 L'acceleratore di soluzioni di manutenzione predittiva è una soluzione end-to-end per uno scenario aziendale che consente di stimare il punto in cui è probabile che si verifichino errori. È possibile usare l'acceleratore di soluzioni in modo proattivo per attività come l'ottimizzazione della manutenzione. La soluzione combina i servizi chiave degli acceleratori di soluzioni di Azure IoT, ad esempio Hub IoT e un'area di lavoro di [Azure Machine Learning][lnk-machine-learning]. L'area di lavoro contiene un modello, basato su un set di dati di esempio pubblico, per stimare la vita utile rimanente del motore di un velivolo. La soluzione implementa completamente lo scenario aziendale IoT come punto di partenza per poter pianificare e implementare una soluzione che soddisfi i propri requisiti aziendali.
+
+Il codice dell'acceleratore di soluzioni di manutenzione predittiva è [disponibile su GitHub](https://github.com/Azure/azure-iot-predictive-maintenance).
 
 ## <a name="logical-architecture"></a>Architettura logica
 
@@ -43,7 +45,7 @@ Quando si esegue il provisioning dell'acceleratore di soluzioni, viene visualizz
 
 ## <a name="simulated-devices"></a>Dispositivi simulati
 
-Nell'acceleratore di soluzioni un dispositivo simulato è un motore di aereo. Il provisioning della soluzione viene effettuato con due motori associati a un singolo aereo. Ogni motore genera quattro tipi di dati di telemetria: il sensore 9, il sensore 11, il sensore 14 e il sensore 15 forniscono i dati necessari per il modello di Machine Learning che calcola la vita utile rimanente per il motore. Ogni dispositivo simulato invia i messaggi di telemetria seguenti all'hub IoT:
+Nell'acceleratore di soluzioni un dispositivo simulato è un motore di aereo. Il provisioning della soluzione viene effettuato con due motori associati a un singolo aereo. Ogni motore genera quattro tipi di dati di telemetria: il sensore 9, il sensore 11, il sensore 14 e il sensore 15 forniscono al modello di Machine Learning i dati necessari per calcolare la vita utile rimanente per il motore. Ogni dispositivo simulato invia i messaggi di telemetria seguenti all'hub IoT:
 
 *Conteggio dei cicli*. Un ciclo è un volo completato con una durata compresa tra due e dieci ore. Durante il volo, i dati di telemetria vengono acquisiti ogni mezz'ora.
 
@@ -51,7 +53,7 @@ Nell'acceleratore di soluzioni un dispositivo simulato è un motore di aereo. Il
 
 I dispositivi simulati possono gestire i comandi seguenti inviati dall'hub IoT nella soluzione:
 
-| Comando | Descrizione |
+| Comando | DESCRIZIONE |
 | --- | --- |
 | StartTelemetry |Controlla lo stato della simulazione.<br/>Avvia il dispositivo che invia i dati di telemetria |
 | StopTelemetry |Controlla lo stato della simulazione.<br/>Arresta il dispositivo che invia i dati di telemetria |

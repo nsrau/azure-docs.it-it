@@ -1,6 +1,6 @@
 ---
-title: Modelli di Azure Resource Manager per la coerenza cloud | Microsoft Docs
-description: I modelli di Azure Resource Manager possono essere sviluppati per la coerenza cloud. È possibile creare nuovi modelli o aggiornare quelli esistenti per Azure Stack.
+title: Riusare i modelli in cloud diversi - Azure Resource Manager
+description: Sviluppare modelli di Azure Resource Manager che funzionano in modo coerente per ambienti cloud diversi. È possibile creare nuovi modelli o aggiornare quelli esistenti per Azure Stack.
 services: azure-resource-manager
 documentationcenter: na
 author: marcvaneijk
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/09/2018
 ms.author: mavane
-ms.openlocfilehash: f1ff151c0b8d89910949d961b732c10901f19293
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: 28542bb66fe1e523201967a9dd67fd7e41fed7a0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723373"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135628"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>I modelli di Azure Resource Manager possono essere sviluppati per la coerenza cloud
 
@@ -434,7 +435,7 @@ Le risorse possono avere riferimenti ad altri servizi nella piattaforma. Ad esem
 I due esempi seguenti sono spazi dei nomi degli endpoint comuni che devono essere specificati esplicitamente quando si crea una risorsa:
 
 * Account di archiviazione (BLOB, code, tabelle e file)
-* Stringhe di connessione per database e Cache Redis
+* Stringhe di connessione per i database e Cache di Azure per Redis
 
 Gli spazi dei nomi degli endpoint possono anche essere utilizzati nell'output di un modello come informazioni per l'utente al termine della distribuzione. Di seguito sono riportati alcuni esempi comuni:
 

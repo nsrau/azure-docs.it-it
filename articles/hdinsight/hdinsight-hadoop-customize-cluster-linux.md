@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5ef7ddc068fea7703dad67b80b96c292bfd26943
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279727"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870708"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalizzare i cluster HDInsight basati su Linux tramite azioni script
 
@@ -31,8 +31,8 @@ Le azioni script possono anche essere pubblicate in Azure Marketplace come appli
 
 Se si usa un cluster HDInsight aggiunto a un dominio, sono necessarie due autorizzazioni Ambari per l'uso di azioni script con il cluster:
 
-* **AMBARI.RUN\_CUSTOM\_COMMAND**: il ruolo di amministratore Ambari ha questa autorizzazione per impostazione predefinita.
-* **CLUSTER.RUN\_CUSTOM\_COMMAND**: sia l'amministratore cluster HDInsight che l'amministratore Ambari hanno questa autorizzazione per impostazione predefinita.
+* **AMBARI.RUN\_CUSTOM\_COMMAND**: il ruolo di amministratore di Ambari ha questa autorizzazione per impostazione predefinita.
+* **CLUSTER.RUN\_CUSTOM\_COMMAND**: sia l'amministratore del cluster HDInsight che l'amministratore di Ambari hanno questa autorizzazione per impostazione predefinita.
 
 Per altre informazioni sull'uso delle autorizzazioni con HDInsight aggiunto a un dominio, vedere [Manage domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-manage.md) (Gestire cluster HDInsight aggiunti al dominio).
 
@@ -111,7 +111,7 @@ Il diagramma seguente illustra quando viene eseguita l'azione script durante il 
 Lo script viene eseguito durante la configurazione di HDInsight. Lo script viene eseguito in parallelo in tutti i nodi specificati nel cluster e con privilegi a livello radice sui nodi.
 
 > [!NOTE]
-> È possibile eseguire operazioni come l'arresto e l'avvio di servizi, inclusi quelli correlati ad Hadoop. Se si arrestano i servizi, è necessario assicurarsi che i servizi di Ambari e altri servizi correlati ad Hadoop siano attivi prima che sia completato lo script. Questi servizi sono necessari per determinare correttamente l'integrità e lo stato del cluster durante la creazione.
+> È possibile eseguire operazioni come l'arresto e l'avvio di servizi, inclusi quelli correlati ad Apache Hadoop. Se si arrestano i servizi, è necessario assicurarsi che i servizi di Ambari e altri servizi correlati ad Hadoop siano attivi prima che sia completato lo script. Questi servizi sono necessari per determinare correttamente l'integrità e lo stato del cluster durante la creazione.
 
 
 Durante la creazione del cluster, è possibile usare più azioni di script alla volta. Questi script vengono richiamati nell'ordine in cui sono stati specificati.
@@ -168,7 +168,7 @@ In questa sezione vengono forniti esempi sulle diverse modalità di utilizzo del
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Usare un'azione script durante la creazione di un cluster dal portale di Azure
 
-1. Avviare la creazione di un cluster come descritto in [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Durante la creazione del cluster, viene visualizzata una pagina di __riepilogo del cluster__. Nella pagina __Riepilogo del cluster__, selezionare il collegamento __Modifica__ per __Impostazioni avanzate__.
+1. Avviare la creazione di un cluster come descritto in [Creare cluster Apache Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Durante la creazione del cluster, viene visualizzata una pagina di __riepilogo del cluster__. Nella pagina __Riepilogo del cluster__, selezionare il collegamento __Modifica__ per __Impostazioni avanzate__.
 
     ![Collegamento Impostazioni avanzate](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -402,11 +402,11 @@ Per un esempio relativo all'uso di .NET SDK per recuperare la cronologia degli s
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Supporto per software open source usato nei cluster HDInsight
 
-Il servizio Microsoft Azure HDInsight usa un ecosistema di tecnologie open source ispirate ad Hadoop. Microsoft Azure offre un livello di supporto generale per le tecnologie open source. Per altre informazioni, vedere la sezione **Ambito del supporto** nel [sito Web delle domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Il servizio HDInsight offre un livello di supporto aggiuntivo per i componenti predefiniti.
+Il servizio Microsoft Azure HDInsight usa un ecosistema di tecnologie open source ispirate ad Apache Hadoop. Microsoft Azure offre un livello di supporto generale per le tecnologie open source. Per altre informazioni, vedere la sezione **Ambito del supporto** nel [sito Web delle domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Il servizio HDInsight offre un livello di supporto aggiuntivo per i componenti predefiniti.
 
 Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
-* **Componenti predefiniti** - Questi componenti sono preinstallati nei cluster HDInsight e forniscono la funzionalità di base del cluster. Questa categoria include ad esempio il gestore risorse YARN, il linguaggio di query Hive (HiveQL) e la libreria Mahout. L'elenco completo dei componenti del cluster è disponibile in [Novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md).
+* **Componenti predefiniti** - Questi componenti sono preinstallati nei cluster HDInsight e forniscono la funzionalità di base del cluster. Ad esempio, a questa categoria appartengono ResourceManager di [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), il linguaggio di query Hive ([HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)) e la libreria [Apache Mahout](https://mahout.apache.org/). L'elenco completo dei componenti del cluster è disponibile in [Novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md).
 * **Componenti personalizzati** - Un utente del cluster può installare o usare nel carico di lavoro qualsiasi componente disponibile nella community o creato da lui stesso.
 
 > [!WARNING]
@@ -426,7 +426,7 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 È possibile usare l'interfaccia utente Web Ambari per visualizzare le informazioni registrate dalle azioni script. Se lo script ha esito negativo durante la creazione del cluster, i log sono disponibili anche nell'account di archiviazione predefinito associato al cluster. Questa sezione fornisce informazioni su come recuperare i registri usando entrambe le opzioni.
 
-### <a name="using-the-ambari-web-ui"></a>Utilizzo dell'interfaccia utente Web Ambari
+### <a name="using-the-apache-ambari-web-ui"></a>Uso dell'interfaccia utente Web di Apache Ambari
 
 1. Nel browser passare a https://CLUSTERNAME.azurehdinsight.net. Sostituire CLUSTERNAME con il nome del cluster HDInsight.
 
@@ -513,8 +513,8 @@ Sussistono due eccezioni:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Sviluppare script di azioni script per HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install-linux.md)
-* [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+* [Installare e usare Apache Solr in cluster Hadoop di HDInsight](hdinsight-hadoop-solr-install-linux.md)
+* [Installare e usare Apache Giraph in cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md) (Aggiungere altra memoria a un cluster HDInsight)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"

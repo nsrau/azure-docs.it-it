@@ -1,5 +1,5 @@
 ---
-title: Indirizzi di gestione dell'Ambiente del servizio app di Azure
+title: Indirizzi di gestione dell'ambiente del servizio app - Azure
 description: Elenca gli indirizzi di gestione usati per inviare comandi a un Ambiente del servizio app
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 590679daff20f9c469fb8fcfcc0fbbad77f91b5b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: 7fb39886b19a2229188821eb39d4fb8a5928bb43
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162855"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276690"
 ---
 # <a name="app-service-environment-management-addresses"></a>Indirizzi di gestione dell'Ambiente del servizio app
 
@@ -46,7 +47,7 @@ Tutti gli ambienti del servizio app hanno un indirizzo VIP pubblico a cui arriva
 
 L'API restituisce un documento JSON che include tutti gli indirizzi in ingresso per l'ambiente del servizio app. L'elenco di indirizzi include gli indirizzi di gestione, l'indirizzo VIP usato dall'ambiente del servizio app e l'intervallo di indirizzi subnet dell'ambiente stesso.  
 
-Per chiamare l'API con [armclient](http://github.com/projectkudu/ARMClient), usare i comandi seguenti sostituendo i segnaposto con l'ID sottoscrizione, il gruppo di risorse e il nome dell'ambiente del servizio app.  
+Per chiamare l'API con [armclient](https://github.com/projectkudu/ARMClient), usare i comandi seguenti sostituendo i segnaposto con l'ID sottoscrizione, il gruppo di risorse e il nome dell'ambiente del servizio app.  
 
     armclient login
     armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01

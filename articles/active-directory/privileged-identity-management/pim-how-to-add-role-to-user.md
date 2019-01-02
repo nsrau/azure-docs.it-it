@@ -12,12 +12,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249612"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724945"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Assegnare ruoli della directory di Azure AD in PIM
 
@@ -125,13 +125,15 @@ Per assegnare il ruolo Amministratore Accesso utenti all'entità servizio MS-PIM
 
 1. Scegliere la propria sottoscrizione.
 
-1. Scegliere **Controllo di accesso (IAM)** per visualizzare l'elenco corrente delle assegnazioni di ruoli per l'ambito della sottoscrizione.
+1. Scegliere **Controllo di accesso (IAM)**.
+
+1. Scegliere **Assegnazioni di ruolo** per visualizzare l'elenco corrente delle assegnazioni di ruoli per l'ambito della sottoscrizione.
 
    ![Pannello Controllo di accesso (IAM) per una sottoscrizione](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
 1. Controllare se all'entità servizio **MS-PIM** è assegnato il ruolo **Amministratore Accesso utenti**.
 
-1. Se non è assegnato, scegliere **Aggiungi** per aprire il riquadro **Aggiungi autorizzazioni**.
+1. In caso negativo, scegliere **Aggiungi un'assegnazione di ruolo** per aprire il riquadro **Aggiungi un'assegnazione di ruolo**.
 
 1. Nell'elenco a discesa **Ruolo** selezionare **Amministratore Accesso utenti**.
 

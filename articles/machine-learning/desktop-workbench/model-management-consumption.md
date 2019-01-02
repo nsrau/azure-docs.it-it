@@ -2,8 +2,8 @@
 title: Uso del servizio Web Gestione modelli di Azure Machine Learning | Microsoft Docs
 description: Questo documento descrive la procedura e i concetti coinvolti nell'uso dei servizi Web distribuiti usando la Gestione modelli in Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbd36e5389208b21704f1749beee016e30cc4ec5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950629"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253851"
 ---
 # <a name="consuming-web-services"></a>Uso dei servizi Web
 

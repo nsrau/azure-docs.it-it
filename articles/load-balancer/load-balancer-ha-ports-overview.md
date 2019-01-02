@@ -1,5 +1,6 @@
 ---
-title: Panoramica delle porte a disponibilità elevata in Azure | Microsoft Docs
+title: Panoramica delle porte a disponibilità elevata in Azure
+titlesuffix: Azure Load Balancer
 description: Informazioni sul bilanciamento del carico con le porte a disponibilità elevata in un servizio di bilanciamento del carico interno.
 services: load-balancer
 documentationcenter: na
@@ -7,26 +8,27 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/07/2018
+ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: 744cd933e901b930aa0394b36e9770bab6de38df
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740332"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317203"
 ---
 # <a name="high-availability-ports-overview"></a>Panoramica delle porta a disponibilità elevata
 
 Azure Load Balancer Standard permette di bilanciare il carico di flussi TCP e UDP in tutte le porte simultaneamente quando si usa il bilanciamento del carico interno. 
 
-Una regola delle porte a disponibilità elevata è una variante di una regola di bilanciamento del carico, configurata nel servizio Azure Load Balancer Standard interno. È possibile semplificare l'uso del bilanciamento del carico specificando un'unica regola per il bilanciamento del carico di tutti i flussi TCP e UDP in arrivo su tutte le porte del servizio Azure Load Balancer Standard interno. La decisione di bilanciamento del carico viene presa per ogni flusso in base a queste cinque tuple: indirizzo IP di origine, porta di origine, indirizzo IP di destinazione, porta di destinazione e protocollo.
+Una regola di bilanciamento del carico per porte a disponibilità elevata è una variante di una regola di bilanciamento del carico, configurata in un servizio Load Balancer Standard interno. È possibile semplificare l'uso del bilanciamento del carico specificando un'unica regola per il bilanciamento del carico di tutti i flussi TCP e UDP in arrivo su tutte le porte del servizio Azure Load Balancer Standard interno. La decisione di bilanciamento del carico viene presa per ogni flusso in base a queste cinque tuple: indirizzo IP di origine, porta di origine, indirizzo IP di destinazione, porta di destinazione e protocollo.
 
-La funzionalità Porte a disponibilità elevata permette di gestire scenari critici, ad esempio la disponibilità elevata e la scalabilità per appliance di rete virtuali all'interno di reti virtuali. Questa funzionalità può essere utile anche quando è necessario eseguire il bilanciamento del carico di un numero elevato di porte. 
+Le regole di bilanciamento del carico per porte a disponibilità elevata permettono di gestire scenari critici, ad esempio la disponibilità elevata e la scalabilità per appliance di rete virtuali all'interno di reti virtuali. Questa funzionalità può essere utile anche quando è necessario eseguire il bilanciamento del carico di un numero elevato di porte. 
 
-La funzionalità Porte a disponibilità elevata viene configurata quando si impostano le porte front-end e back-end su **0**e il protocollo su **Tutti**. La risorsa di bilanciamento del carico interno esegue quindi il bilanciamento di tutti i flussi TCP e UDP, indipendentemente dal numero di porta.
+Le regole di bilanciamento del carico per porte a disponibilità elevata vengono configurate quando si impostano le porte front-end e back-end su **0**e il protocollo su **Tutti**. La risorsa di bilanciamento del carico interno esegue quindi il bilanciamento di tutti i flussi TCP e UDP, indipendentemente dal numero di porta.
 
 ## <a name="why-use-ha-ports"></a>Vantaggi dell'uso delle porte a disponibilità elevata
 
@@ -42,8 +44,9 @@ Per scenari con disponibilità elevata e appliance di rete virtuali, le porte a 
 - Offrono scenari con *n* istanze attive e istanze attive-passive
 - Eliminano la necessità di soluzioni complesse, ad esempio nodi Apache ZooKeeper, per il monitoraggio delle appliance
 
-Il diagramma seguente illustra una distribuzione di rete virtuale hub e spoke. Gli spoke effettuano il tunneling forzato del relativo traffico verso la rete virtuale hub e tramite l'appliance di rete virtuale prima di abbandonare lo spazio attendibile. Le appliance di rete virtuale si trovano dietro a un servizio Load Balancer Standard con una configurazione con porte a disponibilità elevata. Tutto il traffico può essere elaborato e inoltrato di conseguenza.
+Il diagramma seguente illustra una distribuzione di rete virtuale hub e spoke. Gli spoke effettuano il tunneling forzato del relativo traffico verso la rete virtuale hub e tramite l'appliance di rete virtuale prima di abbandonare lo spazio attendibile. Le appliance di rete virtuale si trovano dietro a un servizio Load Balancer Standard con una configurazione con porte a disponibilità elevata. Tutto il traffico può essere elaborato e inoltrato di conseguenza. Se configurata come illustrato nel diagramma seguente, una regola di bilanciamento del carico per porte a disponibilità elevata fornisce anche la simmetria di flusso per il traffico in ingresso e in uscita.
 
+<a node="diagram"></a>
 ![Diagramma della rete virtuale hub e spoke con appliance di rete virtuale distribuite in modalità a disponibilità elevata](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
@@ -97,7 +100,7 @@ Se lo scenario richiede la configurazione di più front-end con porte a disponib
 
 - La funzionalità Porte a disponibilità elevata non è disponibile per IPv6.
 
-- La simmetria di flusso per gli scenari di appliance di rete virtuale è supportata soltanto con una sola scheda di interfaccia di rete. Vedere la descrizione e il diagramma per [gli appliance di rete virtuale](#nva). Tuttavia, se una regola Destination NAT può funzionare per lo scenario, è possibile usarla per assicurarsi che il servizio di bilanciamento del carico interno invii il traffico restituito alla stessa appliance di rete virtuale.
+- La simmetria di flusso (soprattutto per scenari di appliance di rete virtuale) è supportata con un'istanza di backend e una singola scheda di interfaccia di rete (e una singola configurazione IP) solo se è usata come illustrato nel [diagramma](#diagram) precedente e usando le regole di bilanciamento del carico per porte a disponibilità elevata. Non è disponibile in nessun altro scenario. Questo significa che due o più risorse di Load Balancer e le rispettive regole prendono decisioni indipendenti e non sono mai coordinate. Vedere la descrizione e il diagramma per [gli appliance di rete virtuale](#nva). Se si usano più schede di interfaccia di rete o si inserisce l'appliance di rete virtuale tra un servizio di bilanciamento del carico interno e uno pubblico, la simmetria di flusso non è disponibile.  È possibile risolvere questo problema applicando un processo SNAT (Source NAT) al flusso di ingresso sull'indirizzo IP dell'appliance in modo che le risposte arrivino alla stessa appliance di rete virtuale.  È tuttavia consigliabile una singola scheda di interfaccia di rete e l'architettura di riferimento illustrata nel [diagramma](#diagram) sopra riportato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

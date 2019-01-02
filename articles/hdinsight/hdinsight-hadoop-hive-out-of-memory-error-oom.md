@@ -10,16 +10,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90bf59dd7733864c345bbbb59b6236ae7b9a9c36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b49959d167dbb735ebb9be9c75e91ef257c6a70
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248309"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383834"
 ---
-# <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Correggere un errore Hive di memoria insufficiente in Azure HDInsight
+# <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Correggere un errore Apache Hive di memoria insufficiente in Azure HDInsight
 
-Informazioni su come risolvere un errore Hive di memoria insufficiente durante l'elaborazione tabelle di grandi dimensioni configurando le impostazioni di memoria Hive.
+Informazioni su come risolvere un errore Apache Hive di memoria insufficiente durante l'elaborazione di tabelle di grandi dimensioni configurando le impostazioni di memoria Hive.
 
 ## <a name="run-hive-query-against-large-tables"></a>Eseguire una query Hive su tabelle di grandi dimensioni
 
@@ -52,7 +52,7 @@ La query Hive ha richiesto 26 minuti in un nodo del cluster HDInsight A3 24. Il 
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
 
-Tramite il motore di esecuzione di Tez. La stessa query ha richiesto 15 minuti e quindi ha generato l'errore seguente:
+Tramite il motore di esecuzione di Apache Tez. La stessa query ha richiesto 15 minuti e quindi ha generato l'errore seguente:
 
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
@@ -105,7 +105,7 @@ Il supporto Microsoft insieme al team di progettazione ha rilevato che uno dei p
 
 Come suggerisce il post di blog, le due impostazioni di memoria seguenti definiscono la memoria del contenitore per l'heap: **hive.tez.container.size** e **hive.tez.java.opts**. In base all'esperienza attuale, l'eccezione di memoria insufficiente non è correlata alle dimensioni ridotte del contenitore. Ossia, ad essere ridotte solo le dimensioni dell'heap di Java (hive.tez.java.opts). Pertanto ogni volta che viene visualizzato un errore di memoria insufficiente, è possibile provare ad aumentare **hive.tez.java.opts**. Se necessario, può essere necessario aumentare **hive.tez.container.size**. L'impostazione **java.opts** deve essere circa l'80% di **container.size**.
 
-> [!NOTE]
+> [!NOTE]  
 > L'impostazione **hive.tez.java.opts** deve sempre essere inferiore a **hive.tez.container.size**.
 > 
 > 
@@ -119,4 +119,4 @@ Con le nuove impostazioni, la query è stata eseguita in meno di dieci minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Un errore di memoria insufficiente non indica necessariamente che le dimensioni del contenitore sono troppo piccole. Al contrario, è necessario configurare le impostazioni della memoria in modo che le dimensioni dell'heap aumentino e raggiungano almeno l'80% delle dimensioni della memoria del contenitore. Per l'ottimizzazione delle query Hive, vedere [Ottimizzare le query Hive per Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Un errore di memoria insufficiente non indica necessariamente che le dimensioni del contenitore sono troppo piccole. Al contrario, è necessario configurare le impostazioni della memoria in modo che le dimensioni dell'heap aumentino e raggiungano almeno l'80% delle dimensioni della memoria del contenitore. Per l'ottimizzazione delle query Hive, vedere [Ottimizzare le query Apache Hive per Apache Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).

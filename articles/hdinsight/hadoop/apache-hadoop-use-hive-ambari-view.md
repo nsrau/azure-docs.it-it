@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632748"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407848"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usare la vista Hive di Apache Ambari con Apache Hadoop in HDInsight
 
@@ -26,7 +26,7 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
 
 * Un cluster Apache Hadoop basato su Linux in HDInsight versione 3.4 o successiva.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un Web browser
@@ -79,9 +79,9 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
 
    * `STORED AS TEXTFILE LOCATION`: indica dove sono archiviati i dati e che sono archiviati come testo.
 
-   * `SELECT`: seleziona un conteggio di tutte le righe in cui la colonna t4 include il valore [ERROR].
+   * `SELECT`: seleziona un conteggio di tutte le righe in cui la colonna t4 contiene il valore [ERROR].
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Mantenere la selezione di __Database__ __predefinita__. Gli esempi di questo documento usano il database predefinito incluso in HDInsight.
 
 5. Per avviare la query, usare il pulsante **Execute** (Esegui) sotto il foglio di lavoro. Il pulsante diventa arancione e il testo cambia in **Interrompi**.
@@ -93,7 +93,7 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
 
     La scheda **Logs** può essere usata per visualizzare le informazioni sulla registrazione create dal processo.
 
-   > [!TIP]
+   > [!TIP]  
    > Per scaricare o salvare i risultati, usare la finestra di dialogo **Salva risultati** nella parte superiore sinistra della sezione **Query Process Results** (Risultati del processo di query).
 
 ### <a name="visual-explain"></a>Visual Explain
@@ -106,7 +106,7 @@ La vista **Visual Explain** (Spiegazione visiva) della query può essere utile p
 
 Per visualizzare l'interfaccia utente di Tez per la query, selezionare la scheda **Tez** sotto il foglio di lavoro.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tez non viene usato per risolvere tutte le query. Molte query possono essere risolte senza usare Tez. 
 
 Se per risolvere la query è stato usato Tez, viene visualizzato il grafo aciclico diretto. Se si vuole visualizzare il DAG per le query eseguite in passato o eseguire il debug del processo Tez, usare invece [Tez View](../hdinsight-debug-ambari-tez-view.md).
@@ -129,7 +129,7 @@ Dalla scheda **Query** è facoltativamente possibile salvare le query. Dopo aver
 
 ![Immagine della scheda delle query salvate](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
-> [!TIP]
+> [!TIP]  
 > Le query salvate vengono archiviate nell'archiviazione cluster predefinita. Le query salvate sono disponibili nel percorso `/user/<username>/hive/scripts`. Vengono archiviate come file `.hql` in testo normale.
 >
 > Se si elimina il cluster, ma si conserva l'archiviazione, è possibile usare un'utilità come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) o Data Lake Storage Explorer dal [portale di Azure](https://portal.azure.com) per recuperare le query.
@@ -165,8 +165,8 @@ Si potrà quindi usare la funzione definita dall'utente nella query, Ad esempio:
 
 Per altre informazioni sull'uso di funzioni definite dall'utente con Hive in HDInsight, vedere gli articoli seguenti:
 
-* [Usare Python con Hive e Pig in HDInsight](python-udf-hdinsight.md)
-* [Come aggiungere una funzione definita dall'utente Hive personalizzata in HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight](python-udf-hdinsight.md)
+* [How to add custom Apache Hive UDFs to HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx) (Come aggiungere UDF di Apache Hive personalizzate a HDInsight)
 
 ## <a name="hive-settings"></a>Settings di Hive
 
@@ -176,9 +176,9 @@ Per altre informazioni sull'uso di funzioni definite dall'utente con Hive in HDI
 
 Per informazioni generali su Hive in HDInsight:
 
-* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
+* [Usare Apache Hive con Apache Hadoop su HDInsight](hdinsight-use-hive.md)
 
 Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
-* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
-* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
+* [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)
+* [Usare MapReduce con Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)

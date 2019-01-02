@@ -1,26 +1,29 @@
 ---
-title: Panoramica della crittografia dischi di Azure per macchine virtuali IaaS | Microsoft Docs
+title: Panoramica - Crittografia dischi di Azure per macchine virtuali IaaS | Microsoft Docs
 description: Questo articolo offre una panoramica della Crittografia dischi di Microsoft Azure per macchine virtuali IaaS.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/14/2018
-ms.openlocfilehash: 1328effbc495422e5190362c562928fbb1742e1b
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 73a00756928fd476b723e0b43accf46378ae14cc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913207"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093285"
 ---
-# <a name="azure-disk-encryption-for-iaas-vms"></a>Crittografia dischi di Azure per macchine virtuali IaaS 
+# <a name="azure-disk-encryption-for-iaas-vms"></a>Crittografia dischi di Azure per macchine virtuali IaaS
+
 Microsoft Azure si impegna per assicurare la privacy e la sovranità dei dati dell'utente. Azure consente di controllare i dati ospitati da Azure tramite diverse tecnologie avanzate per crittografare, controllare e gestire le chiavi di crittografia e controllare l'accesso dei dati. I clienti di Azure hanno quindi la possibilità di scegliere la soluzione che meglio soddisfa le proprie esigenze aziendali. Questo articolo presenta una soluzione tecnologica: "Crittografia dischi di Azure per macchine virtuali IaaS Windows e Linux". Questa tecnologia consente di proteggere i dati per soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 
 ## <a name="overview"></a>Panoramica
+
 Crittografia dischi di Azure è una funzionalità che consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Crittografia dischi sfrutta la funzionalità standard di settore [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) di Windows e la funzionalità [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per i dischi dati e del sistema operativo. La soluzione è integrata con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi. Questa soluzione assicura anche che tutti i dati nei dischi delle macchine virtuali vengano crittografati quando inattivi in Archiviazione di Azure.
 
 Crittografia dischi per macchine virtuali IaaS Windows e Linux ha disponibilità generale in tutte le aree pubbliche e nelle aree di Azure per enti pubblici per macchine virtuali standard e macchine virtuali con Archiviazione Premium di Azure. Quando si applica la soluzione di gestione Crittografia dischi, è possibile soddisfare le esigenze aziendali seguenti:
@@ -37,6 +40,7 @@ Se si usa Centro sicurezza di Azure, si viene avvisati se sono presenti macchine
 
 
 ## <a name="encryption-scenarios"></a>Scenari di crittografia
+
 La soluzione Crittografia dischi supporta gli scenari dei clienti descritti di seguito:
 
 * Abilitare la crittografia nelle nuove macchine virtuali IaaS Windows create da chiavi di crittografia e dischi rigidi virtuali pre-crittografati.
@@ -87,6 +91,7 @@ La soluzione non supporta gli scenari, le funzionalità e la tecnologia seguenti
 * Macchine virtuali Windows configurate con sistemi RAID basati su software.
 
 ## <a name="encryption-features"></a>Funzionalità di crittografia
+
 Quando si abilita e si distribuisce la Crittografia dischi per le macchine virtuali IaaS di Azure, sono abilitate le funzionalità seguenti, a seconda della configurazione fornita:
 
 * Crittografia del volume del sistema operativo per proteggere il volume di avvio inattivo nella risorsa di archiviazione dell'utente.

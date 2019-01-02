@@ -1,5 +1,5 @@
 ---
-title: Connettersi ad Azure HDInsight tramite Strumenti Data Lake per Visual Studio
+title: Connettersi ad Apache Hadoop tramite Data Lake Tools per Visual Studio - Azure HDInsight
 description: Informazioni su come installare e usare Strumenti Data Lake per Visual Studio per connettersi a cluster Apache Hadoop in Azure HDInsight e quindi eseguire query Hive.
 keywords: strumenti Hadoop, query Hive, Visual Studio, Hadoop in Visual Studio
 services: hdinsight
@@ -7,15 +7,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive, hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.openlocfilehash: 670de3f61047bcc8b168863f5981e41084225ec4
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.date: 12/06/2018
+ms.openlocfilehash: 24efb8490afdf67b96d531802362f88bef7d13de
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634669"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166490"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Usare Strumenti Data Lake per Visual Studio per connettersi ad Azure HDInsight ed eseguire query Apache Hive
 
@@ -107,7 +107,7 @@ Dopo aver aperto un contenitore, è possibile usare i pulsanti seguenti per cari
 ![Screenshot delle operazioni sui BLOB per Strumenti Data Lake per Visual Studio in Esplora server](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png "Caricare, eliminare e scaricare BLOB in Esplora server")
 
 ## <a name="run-interactive-hive-queries"></a>Eseguire query Hive interattive
-[Apache Hive](http://hive.apache.org) è un'infrastruttura di data warehouse basata su Hadoop. Hive viene usato per riepilogo, le query e l'analisi dei dati. È possibile usare Strumenti Data Lake per Visual Studio per eseguire query Hive da Visual Studio. Per altre informazioni su Hive, vedere [Usare Hive con HDInsight](hdinsight-use-hive.md).
+[Apache Hive](https://hive.apache.org) è un'infrastruttura di data warehouse basata su Hadoop. Hive viene usato per riepilogo, le query e l'analisi dei dati. È possibile usare Strumenti Data Lake per Visual Studio per eseguire query Hive da Visual Studio. Per altre informazioni su Hive, vedere [Usare Hive con HDInsight](hdinsight-use-hive.md).
 
 [Interactive Query](../interactive-query/apache-interactive-query-get-started.md) usa [Hive in LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query garantisce l'interattività alle query di tipo data warehouse complesse sui set di dati di grandi dimensioni archiviati. L'esecuzione di query Hive in Interactive Query è molto più veloce rispetto ai tradizionali processi batch Hive. Per altre informazioni, vedere [Eseguire processi batch Hive](#run-hive-batch-jobs).
 

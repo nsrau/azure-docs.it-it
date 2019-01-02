@@ -9,17 +9,16 @@ ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 7fca6ffa9efa3eed9f7c74ee89ad8bb9651494bb
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 103f4b10d5fbb7fbcf9c3721a82fe4075abe0dc4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044706"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877616"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -35,7 +34,7 @@ Il campionamento riduce i costi del traffico e dei dati e consente di evitare la
 * È anche possibile impostare il campionamento manualmente, nella pagina Utilizzo e costi stimati del portale, nel file con estensione config di ASP.NET SDK oppure nel file ApplicationInsights.xml di Java SDK, per ridurre anche il traffico di rete.
 * Se si registrano eventi personalizzati e ci si vuole assicurare che gli eventi di un set vengano mantenuti o rimossi insieme, verificare che abbiano lo stesso valore OperationId.
 * Il divisore di campionamento *n* è indicato in ogni record nella proprietà `itemCount`, visualizzata nella ricerca con il nome descrittivo "Conteggio delle richieste" o "Conteggio degli eventi". Quando il campionamento non è in esecuzione, `itemCount==1`.
-* Se si scrivono query di Dati di analisi, è necessario [tener conto del campionamento](../log-analytics/query-language/aggregations.md). In particolare, anziché eseguire semplicemente il conteggio dei record, è necessario usare `summarize sum(itemCount)`.
+* Se si scrivono query di Dati di analisi, è necessario [tener conto del campionamento](../azure-monitor/log-query/aggregations.md). In particolare, anziché eseguire semplicemente il conteggio dei record, è necessario usare `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipi di campionamento
 Esistono tre diversi metodi di campionamento:
@@ -113,11 +112,11 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    Elenco dei tipi da non campionare delimitato dal punto e virgola. I tipi riconosciuti sono: dipendenza, evento, eccezione, pageview, richiesta, traccia. Tutte le istanze dei tipi specificati vengono trasmesse; i tipi non specificati vengono campionati.
+    Elenco dei tipi da non campionare delimitato dal punto e virgola. I tipi riconosciuti sono: Dependency, Event, Exception, PageView, Request, Trace. Tutte le istanze dei tipi specificati vengono trasmesse; i tipi non specificati vengono campionati.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
-    Elenco dei tipi da campionare delimitato dal punto e virgola. I tipi riconosciuti sono: dipendenza, evento, eccezione, pageview, richiesta, traccia. I tipi specificati vengono campionati; tutte le istanze degli altri tipi vengono sempre trasmesse.
+    Elenco dei tipi da campionare delimitato dal punto e virgola. I tipi riconosciuti sono: Dependency, Event, Exception, PageView, Request, Trace. I tipi specificati vengono campionati; tutte le istanze degli altri tipi vengono sempre trasmesse.
 
 
 **Per disattivare** il campionamento adattivo, rimuovere il nodo AdaptiveSamplingTelemetryProcessor da applicationinsights-config.

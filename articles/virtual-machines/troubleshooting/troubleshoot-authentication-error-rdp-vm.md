@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 5f9d933f0f294855719c8d187e759708ef8c9931
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669608"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967981"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Risolvere gli errori di autenticazione quando si usa RDP per connettersi a una macchina virtuale di Azure
 
@@ -75,7 +75,7 @@ La macchina virtuale è stata configurata in modo da accettare solo le connessio
 
 ### <a name="create-a-backup-snapshot"></a>Creare uno snapshot di backup
 
-Per creare uno snapshot di backup, seguire i passaggi descritti in [Creare uno snapshot di un disco](..\windows\snapshot-copy-managed-disk.md).
+Per creare uno snapshot di backup, seguire i passaggi descritti in [Creare uno snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
 
 ### <a name="connect-to-the-vm-remotely"></a>Connettersi alla macchina virtuale in modalità remota
 
@@ -124,7 +124,7 @@ REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
 ```
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="for-domain-joined-vms"></a>Per le macchine virtuali aggiunte a un dominio
 

@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 6e0bab08e52233d10cff3ec936d024dcbb86d2a6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635765"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188011"
 ---
 # <a name="views-in-management-solutions-preview"></a>Viste nelle soluzioni di gestione (anteprima)
 > [!NOTE]
@@ -90,7 +89,7 @@ Si noti che è possibile copiare l'intera risorsa vista dal file della vista esp
 * Le variabili devono essere definite nella soluzione e usate nelle proprietà appropriate.
 
 ### <a name="log-analytics-api-version"></a>Versione API di Log Analytics
-Tutte le risorse di Log Analytics definite in un modello di Resource Manager hanno una proprietà **apiVersion** che definisce la versione dell'API che la risorsa deve usare.  Questa versione è diversa per le viste con query che usano il [linguaggio di query legacy e quello aggiornato](../../log-analytics/log-analytics-queries.md).  
+Tutte le risorse di Log Analytics definite in un modello di Resource Manager hanno una proprietà **apiVersion** che definisce la versione dell'API che la risorsa deve usare.  Questa versione è diversa per le viste con query che usano il [linguaggio di query legacy e quello aggiornato](../../azure-monitor/log-query/log-query-overview.md).  
 
  La tabella seguente illustra le versioni dell'API di Log Analytics relative alle viste nelle aree di lavoro legacy e aggiornate: 
 

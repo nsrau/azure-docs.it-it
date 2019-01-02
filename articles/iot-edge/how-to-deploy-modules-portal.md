@@ -1,5 +1,5 @@
 ---
-title: Distribuire i moduli di Azure IoT Edge (portale) | Microsoft Docs
+title: Distribuire i moduli dal portale di Azure - Azure IoT Edge | Microsoft Docs
 description: Usare il portale di Azure per distribuire i moduli in un dispositivo IoT Edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b135832c1f0cb8af23a513d4914d7e32b398be7e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: fab85b74fb53bec07843abf31aac1a8495d0fcfb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564936"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093982"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
@@ -38,7 +39,7 @@ Questo articolo illustra come il portale di Azure consente di creare un manifest
 
 Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Per altre informazioni sul funzionamento e sulla modalità di creazione dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli di IoT Edge](module-composition.md).
 
-Nel portale di Azure è disponibile una procedura guidata che consente di creare il manifesto dell'applicazione anziché creare il documento JSON manualmente. Sono previsti tre passaggi: **Add modules** (Aggiungere moduli), **Specify routes** (Specificare route) e **Review deployment** (Verificare la distribuzione). 
+Nel portale di Azure è disponibile una procedura guidata che consente di creare il manifesto dell'applicazione anziché creare il documento JSON manualmente. Sono previsti tre passaggi: **Aggiungi moduli**, **Specifica route** e **Rivedi distribuzione**. 
 
 ### <a name="add-modules"></a>Aggiungere moduli
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: fadad6f83f1a855f3ca1509a6a5e02c822db512d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2c3adaa6f4e113f09e676583c2c35b5f1fbdb622
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933958"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877862"
 ---
 # <a name="generate-shared-access-signature"></a>Generare una firma di accesso condiviso
 
@@ -28,7 +28,7 @@ Questo articolo offre un esempio di criteri di Gestione API di Azure che illustr
 
 Incollare il codice nel blocco **inbound**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Generate Shared Access Signature and forward request to Azure storage.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Generate Shared Access Signature and forward request to Azure storage.policy.xml)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

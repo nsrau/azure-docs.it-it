@@ -1,19 +1,19 @@
 ---
-title: 'Configurare connessioni coesistenti ExpressRoute e VPN da sito a sito - PowerShell: Azure| Microsoft Docs'
-description: Questo articolo illustra come configurare connessioni VPN da sito a sito ed ExpressRoute coesistenti per il modello di distribuzione di Azure Resource Manager tramite PowerShell
+title: 'Configurare connessioni coesistenti ExpressRoute e VPN da sito a sito: PowerShell: Azure | Microsoft Docs'
+description: Come configurare connessioni VPN da sito a sito ed ExpressRoute coesistenti per il modello di distribuzione di Azure Resource Manager tramite PowerShell.
 services: expressroute
 author: charwen
-manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243812"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104034"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurare connessioni coesistenti da sito a sito ed ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -21,6 +21,9 @@ ms.locfileid: "51243812"
 > * [PowerShell - Classico](expressroute-howto-coexist-classic.md)
 > 
 > 
+
+
+Questo articolo illustra come configurare connessioni ExpressRoute e VPN da sito a sito coesistenti. La possibilità di configurare una VPN da sito a sito ed ExpressRoute offre diversi vantaggi. È possibile configurare una VPN da sito a sito come percorso di failover sicuro per ExpressRoute oppure usare VPN da sito a sito per connettersi a siti che non sono connessi tramite ExpressRoute. In questo articolo verranno illustrati i passaggi per configurare entrambi questi scenari. Questo articolo si applica al modello di distribuzione di Azure Resource Manager.
 
 La configurazione di connessioni coesistenti di tipo VPN da sito a sito ed ExpressRoute offre diversi vantaggi:
 

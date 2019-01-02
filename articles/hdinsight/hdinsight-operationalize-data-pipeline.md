@@ -5,16 +5,16 @@ services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 68329ec01548a986ff4e41c23ab2298bda522eef
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038210"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436161"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Rendere operativa una pipeline di analisi dei dati
 
@@ -30,13 +30,13 @@ Nello scenario seguente i dati di input sono costituiti da un file flat contenen
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-La pipeline di esempio rimane in attesa finché non riceve i dati sui voli relativi a un nuovo periodo e quindi archivia le informazioni dettagliate sui voli nel data warehouse di Hive per le analisi a lungo termine. La pipeline crea anche un set di dati molto più piccolo contenente il riepilogo dei dati giornalieri sui voli. Questi dati vengono inviati a un database SQL per generare report, ad esempio per la pubblicazione su un sito Web.
+La pipeline di esempio rimane in attesa finché non riceve i dati sui voli relativi a un nuovo periodo e quindi archivia le informazioni dettagliate sui voli nel data warehouse di Apache Hive per l'analisi a lungo termine. La pipeline crea anche un set di dati molto più piccolo contenente il riepilogo dei dati giornalieri sui voli. Questi dati vengono inviati a un database SQL per generare report, ad esempio per la pubblicazione su un sito Web.
 
 Il diagramma seguente illustra la pipeline di esempio.
 
 ![Pipeline dei dati sui voli](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Panoramica della soluzione Oozie
+## <a name="apache-oozie-solution-overview"></a>Panoramica della soluzione Apache Oozie
 
 Questa pipeline usa Apache Oozie in esecuzione su un cluster HDInsight Hadoop.
 
@@ -139,7 +139,7 @@ A questo punto, il database SQL di Azure è pronto.
 
 Per usare Oozie Web Console per visualizzare lo stato delle istanze di coordinatore e flusso di lavoro, configurare un tunnel SSH al cluster HDInsight. Per altre informazioni, vedere [Tunneling SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Per individuare le risorse Web del cluster attraverso il tunnel SSH è anche possibile usare Chrome con l'estensione [Foxy Proxy](https://getfoxyproxy.org/). Configurarlo per l'uso di un proxy in modo da indirizzare tutte le richieste tramite l'host `localhost` sulla porta 9876 del tunnel. Questo approccio è compatibile con il sottosistema Windows per Linux, noto anche come Bash in Windows 10.
 
 1. Eseguire il comando seguente per aprire un tunnel SSH verso il cluster:
@@ -156,7 +156,7 @@ Per usare Oozie Web Console per visualizzare lo stato delle istanze di coordinat
 
 ### <a name="configure-hive"></a>Configurare Hive
 
-1. Scaricare un file di esempio con estensione csv che contiene i dati sui voli relativi a un mese. Scaricare il file con estensione zip corrispondente, `2017-01-FlightData.zip`, dal [repository di Github per HDInsight](https://github.com/hdinsight/hdinsight-dev-guide) e decomprimerlo nel file con estensione csv, `2017-01-FlightData.csv`. 
+1. Scaricare un file di esempio con estensione csv che contiene i dati sui voli relativi a un mese. Scaricare il file ZIP corrispondente, `2017-01-FlightData.zip`, dal [repository di GitHub per HDInsight](https://github.com/hdinsight/hdinsight-dev-guide) e decomprimerlo nel file CSV, `2017-01-FlightData.csv`. 
 
 2. Copiare il file con estensione csv nell'account di Archiviazione di Azure associato al cluster HDInsight e inserirlo nella cartella `/example/data/flights`.
 
@@ -430,7 +430,7 @@ La tabella seguente contiene il riepilogo di ogni proprietà e indica dove trova
 | month | Componente mese della data per cui vengono calcolati i dati di riepilogo sui voli. Lasciare invariato. |
 | day | Componente giorno della data per cui vengono calcolati i dati di riepilogo sui voli. Lasciare invariato. |
 
-> [!NOTE]
+> [!NOTE]  
 > Prima di distribuire ed eseguire il flusso di lavoro Oozie, assicurarsi di aggiornare la copia del file `job.properties` con i valori specifici dell'ambiente in uso.
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>Distribuire ed eseguire il flusso di lavoro Oozie

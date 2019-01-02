@@ -1,20 +1,21 @@
 ---
-title: Inviare eventi a Hub eventi di Azure usando Java | Microsoft Docs
-description: Guida introduttiva all'invio a Hub di eventi con Java
+title: Inviare eventi tramite Java - Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Java in grado di inviare eventi ad Hub eventi di Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 11/12/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 510f1a2bc23d14e1bb9e8e561b52936ae9d53685
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 80c413c874ca3e1bf46bfa4e5becb184223c5eeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624540"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091289"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Inviare eventi a Hub eventi di Azure usando Java
 
@@ -32,7 +33,11 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 * Ambiente di sviluppo in Java. Questa esercitazione usa [Eclipse](https://www.eclipse.org/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi
-Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md) e quindi procedere con i passaggi seguenti di questa esercitazione.
+Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md).
+
+Ottenere il valore della chiave di accesso dell'hub eventi seguendo le istruzioni disponibili nell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Si userà la chiave di accesso nel codice scritto più avanti in questa esercitazione. Il nome della chiave predefinita è **RootManageSharedAccessKey**.
+
+Continuare ora con i passaggi seguenti dell'esercitazione.
 
 ## <a name="add-reference-to-azure-event-hubs-library"></a>Aggiungere il riferimento alla libreria di Hub eventi di Azure
 
@@ -114,7 +119,7 @@ Compilare ed eseguire il programma e verificare che non siano presenti errori.
 
 Congratulazioni! Sono stati inviati messaggi a un hub eventi.
 
-### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Appendice: modalità di instradamento dei messaggi alle partizioni EventHub
+### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Appendice: Modalità di indirizzamento dei messaggi alle partizioni di Hub eventi
 
 Prima che i messaggi vengano recuperati da parte dei consumatori, dovranno essere pubblicati nelle partizioni dagli editori. Quando vengono pubblicati i messaggi nell'Hub eventi in modo sincrono tramite il metodo sendSync() nell'oggetto com.microsoft.azure.eventhubs.EventHubClient, i messaggi possono essere inviati a una partizione specifica o distribuiti a tutte le partizioni disponibili in modalità round robin a seconda che la chiave di partizione sia specificata o meno.
 

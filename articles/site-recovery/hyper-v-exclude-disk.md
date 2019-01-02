@@ -4,14 +4,14 @@ description: Questo articolo descrive come escludere dalla replica dischi di mac
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 851da02ebd7486c0e96451a14086eb95d81968b4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7de9dc497b1c9ee29b46aa0d645b7b28676cb22d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213203"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849021"
 ---
 # <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
 Questo articolo descrive come escludere dischi dalla replica, in modo da ottimizzare la larghezza di banda di replica usata o le risorse lato destinazione usate dai dischi.
@@ -160,7 +160,7 @@ DB-Disk2 (disco escluso) | Disk2 | E:\ | File temporanei
 DB-Disk3 (disco escluso) | Disk3 | F:\ | Database tempdb SQL (percorso della cartella, F:\MSSQL\Data\)
 DB-Disk4 | Disk4 | G:\ | Database2 dell'utente
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Esempio 2: Escludere il disco del file di paging (pagefile.sys)
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Esempio 2 Escludere il disco del file di paging (pagefile.sys)
 
 Si prenda ad esempio una macchina virtuale con un disco del file di paging che è possibile escludere.
 I casi possibili sono due:

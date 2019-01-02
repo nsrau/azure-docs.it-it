@@ -9,20 +9,19 @@ ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: abc3d5832cd85cb3297077f2d661ec8fe32fde9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230921"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105292"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentare app Web in fase di esecuzione con Application Insights
 
-È possibile instrumentare un'app Web attiva con Azure Application Insights senza dover modificare o ridistribuire il codice. Se le applicazioni sono ospitate da un server IIS locale, installare Status Monitor. Se si tratta di app Web di Azure o vengono eseguite in una macchina virtuale di Azure, è possibile attivare il monitoraggio di Application Insights dal pannello di controllo di Azure. Sono disponibili anche articoli separati sulla strumentazione di [app Web J2EE live](app-insights-java-live.md) e [Servizi cloud di Azure](app-insights-cloudservices.md). È necessaria una sottoscrizione di [Microsoft Azure](http://azure.com) .
+È possibile instrumentare un'app Web attiva con Azure Application Insights senza dover modificare o ridistribuire il codice. Se le applicazioni sono ospitate da un server IIS locale, installare Status Monitor. Se si tratta di app Web di Azure o vengono eseguite in una macchina virtuale di Azure, è possibile attivare il monitoraggio di Application Insights dal pannello di controllo di Azure. Sono disponibili anche articoli separati sulla strumentazione di [app Web J2EE live](app-insights-java-live.md) e [Servizi cloud di Azure](app-insights-cloudservices.md). È necessaria una sottoscrizione di [Microsoft Azure](https://azure.com) .
 
 ![Screenshot dei grafi della panoramica di Application Insights contenente informazioni su richieste non riuscite, tempo di risposta del server e richieste server](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
@@ -120,6 +119,7 @@ Per ripetere la pubblicazione senza aggiungere Application Insights al codice, s
   * In Gestione IIS selezionare il pool di applicazioni, aprire **Impostazioni avanzate** e prendere nota dell'identità in **Modello di processo**.
   * Nel pannello di controllo Gestione computer, aggiungere questa identità al gruppo Utenti di Performance Monitor.
 * Se nel server è installato MMA/SCOM (System Center Operations Manager), alcune versioni potrebbero entrare in conflitto. Disinstallare SCOM e Status Monitor e reinstallare le versioni più recenti.
+* I log di Status Monitor sono disponibili in questo percorso per impostazione predefinita: "C:\Programmi\Microsoft Application Insights\Status Monitor\diagnostics.log"
 * Vedere [Risoluzione dei problemi][qna].
 
 ## <a name="system-requirements"></a>Requisiti di sistema
@@ -218,9 +218,12 @@ Status Monitor non raccoglie i dati di telemetria, ma si limita a configurare le
 
 Quando si seleziona un'app Web per l'instrumentazione da parte di Status Monitor:
 
-* Scarica e inserisce gli assembly di Application Insights e il file config nella cartella dei file binari dell'app Web.
-* Modifica `web.config` per aggiungere il modulo di rilevamento HTTP di Application Insights.
+* Scarica e inserisce gli assembly di Application Insights e il file ApplicationInsights.config nella cartella dei file binari dell'app Web.
 * Abilita la profilatura CLR per raccogliere le chiamate alle dipendenze.
+
+### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Quale versione di Application Insights SDK installa Status Monitor?
+
+A oggi Status Monitor può installare solo le versioni di Application Insights SDK 2.3 o 2.4.
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>È necessario eseguire Status Monitor ogni volta che si aggiorna l'app?
 
@@ -243,7 +246,7 @@ Per le applicazioni già instrumentate in fase di compilazione:
  * Chiamate alle dipendenze (.NET 4.5) e valori restituiti nelle chiamate alle dipendenze (.NET 4.6)
  * Valori di analisi dello stack delle eccezioni
 
-[Altre informazioni](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Altre informazioni](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Video
 

@@ -1,19 +1,19 @@
 ---
-title: 'Come configurare il routing (peering) per un circuito ExpressRoute: Resource Manager: PowerShell: Azure | Documentazione Microsoft'
+title: 'Configurare il peering per un circuito - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Questo articolo descrive come creare ed eseguire il provisioning di un circuito ExpressRoute per il peering privato, il peering pubblico e il peering Microsoft. Questo articolo mostra anche come controllare lo stato e aggiornare o eliminare i peering per un circuito.
-documentationcenter: na
 services: expressroute
 author: jaredr80
 ms.service: expressroute
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: jaredro
-ms.openlocfilehash: 63c88838d943be028aa655863b96b68f6b5b1321
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: b8e9aadc63af563c47d42ed52445afbc270d98ec
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261758"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141544"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Creare e modificare il peering per un circuito ExpressRoute usando PowerShell
 
@@ -113,10 +113,10 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   * Una subnet /30 o /126 per il collegamento secondario. Deve essere un prefisso IPv4 o IPv6 pubblico valido di proprietà dell'utente e registrato presso un registro RIR o IRR.
   * Un ID VLAN valido su cui stabilire questo peering. Assicurarsi che nessun altro peering nel circuito usi lo stesso ID VLAN.
   * Numero AS per il peering. È possibile usare numeri AS a 2 e a 4 byte.
-  * Advertised prefixes: è necessario fornire un elenco di tutti i prefissi che si intende pubblicizzare nella sessione BGP. Sono accettati solo prefissi di indirizzi IP pubblici. Se si intende inviare un set di prefissi, è possibile creare un elenco delimitato da virgole. Questi prefissi devono essere intestati all'utente in un registro RIR o IRR. Le sessioni BGP IPv4 richiedono prefissi IPv4 annunciati e le sessioni BGP IPv6 richiedono prefissi IPv6 annunciati. 
-  * Routing Registry Name: è possibile specificare il registro RIR/IRR in cui sono registrati il numero AS e i prefissi.
+  * Prefissi annunciati: è necessario fornire un elenco di tutti i prefissi che si intende annunciare nella sessione BGP. Sono accettati solo prefissi di indirizzi IP pubblici. Se si intende inviare un set di prefissi, è possibile creare un elenco delimitato da virgole. Questi prefissi devono essere intestati all'utente in un registro RIR o IRR. Le sessioni BGP IPv4 richiedono prefissi IPv4 annunciati e le sessioni BGP IPv6 richiedono prefissi IPv6 annunciati. 
+  * Nome del registro di routing: è possibile specificare il registro RIR/IRR in cui sono registrati il numero AS e i prefissi.
   * Facoltativo:
-    * Customer ASN: se si annunciano prefissi registrati al numero AS di peering, è possibile specificare il numero AS a cui sono registrati.
+    * ASN cliente: se si annunciano prefissi non registrati nel numero AS del peering, è possibile specificare il numero AS in cui sono registrati.
     * Un hash MD5, se si sceglie di usarne uno.
 
   Per configurare il peering Microsoft per il circuito, applicare l'esempio seguente:

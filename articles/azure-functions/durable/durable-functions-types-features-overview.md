@@ -8,18 +8,18 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/04/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 265314ebf2568bd586934d371e1e6c1d74e0b9bb
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637016"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336528"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Panoramica dei tipi di funzioni e funzionalità per Durable Functions (Funzioni di Azure)
 
-Durable Functions di Azure fornisce l'orchestrazione con stato dell'esecuzione di funzioni. Una funzione durevole è una soluzione costituita da diverse Funzioni di Azure. Ognuna di queste funzioni può svolgere ruoli diversi come parte di un'orchestrazione. Il documento seguente fornisce una panoramica dei tipi di funzioni usate in un'orchestrazione di funzioni durevoli. Include anche alcuni criteri comuni nella connessione tra le funzioni.  Per iniziare subito, creare la prima funzione permanente in [C#](durable-functions-create-first-csharp.md) o in [JavaScript](quickstart-js-vscode.md).
+Durable Functions fornisce l'orchestrazione con stato dell'esecuzione di funzioni. Una funzione durevole è una soluzione costituita da diverse Funzioni di Azure. Ognuna di queste funzioni può svolgere ruoli diversi come parte di un'orchestrazione. Il documento seguente fornisce una panoramica dei tipi di funzioni usate in un'orchestrazione di funzioni durevoli. Include anche alcuni criteri comuni nella connessione tra le funzioni.  Per iniziare subito, creare la prima funzione durevole in [C#](durable-functions-create-first-csharp.md) o in [JavaScript](quickstart-js-vscode.md).
 
 ![Tipi di funzioni durevoli][1]  
 
@@ -27,9 +27,11 @@ Durable Functions di Azure fornisce l'orchestrazione con stato dell'esecuzione d
 
 ### <a name="activity-functions"></a>Funzioni di attività
 
-Le funzioni di attività sono l'unità di base del lavoro in un'orchestrazione durevole.  Le funzioni di attività sono le funzioni e le attività che vengono orchestrate nel processo.  Ad esempio, è possibile creare una funzione durevole per elaborare un ordine: verificare l'inventario, applicare un addebito al cliente e creare una spedizione.  Ognuna di queste attività è una funzione di attività.  Le funzioni di attività non presentano restrizioni nel tipo di operazioni che è possibile eseguire in esse.  Possono essere scritte in qualsiasi linguaggio supportato da Funzioni di Azure.  Il framework di attività durevoli garantisce che ogni funzione di attività chiamata venga eseguita almeno una volta durante un'orchestrazione.
+Le funzioni di attività sono l'unità di base del lavoro in un'orchestrazione durevole.  Le funzioni di attività sono le funzioni e le attività che vengono orchestrate nel processo.  Ad esempio, è possibile creare una funzione durevole per elaborare un ordine: verificare l'inventario, applicare un addebito al cliente e creare una spedizione.  Ognuna di queste attività è una funzione di attività.  Le funzioni di attività non presentano restrizioni nel tipo di operazioni che è possibile eseguire in esse.  Possono essere scritte in qualsiasi [linguaggio supportato da Durable Functions](durable-functions-overview.md#language-support). Durable Task Framework garantisce che ogni funzione di attività chiamata venga eseguita almeno una volta durante un'orchestrazione.
 
-Una funzione di attività deve essere attivata da un [trigger di attività](durable-functions-bindings.md#activity-triggers).  Questa funzione riceverà un [ DurableActivityContext ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) come parametro. È possibile anche associare il trigger a qualsiasi altro oggetto per passare gli input alla funzione.  La funzione di attività può anche restituire i valori all'agente di orchestrazione.  Se si inviano o restituiscono numerosi valori da una funzione di attività, è possibile [sfruttare le tuple o le matrici](durable-functions-bindings.md#passing-multiple-parameters).  Le funzioni di attività possono essere attivate solo da un'istanza di orchestrazione.  Sebbene una parte del codice possa essere condivisa tra una funzione di attività e un'altra funzione, ad esempio una funzione attivata tramite HTTP, ogni funzione può avere un solo trigger.
+Una funzione di attività deve essere attivata da un [trigger di attività](durable-functions-bindings.md#activity-triggers).  Le funzioni riceveranno un [DurableActivityContext ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) come parametro. È possibile anche associare il trigger a qualsiasi altro oggetto per passare gli input alla funzione. In JavaScript, input sono accessibili tramite la proprietà `<activity trigger binding name>` dell'[oggetto `context.bindings`](../functions-reference-node.md#bindings).
+
+La funzione di attività può anche restituire i valori all'agente di orchestrazione.  Se si inviano o restituiscono numerosi valori da una funzione di attività, è possibile [sfruttare le tuple o le matrici](durable-functions-bindings.md#passing-multiple-parameters).  Le funzioni di attività possono essere attivate solo da un'istanza di orchestrazione.  Sebbene una parte del codice possa essere condivisa tra una funzione di attività e un'altra funzione, ad esempio una funzione attivata tramite HTTP, ogni funzione può avere un solo trigger.
 
 Altre informazioni ed esempi sono disponibili nell'[articolo sul binding di Durable Functions](durable-functions-bindings.md#activity-triggers).
 
@@ -79,7 +81,9 @@ Altre informazioni ed esempi sono disponibili nell'[articolo sulla gestione degl
 
 Sebbene un'orchestrazione durevole si trovi in genere all'interno del contesto di una singola app per le funzioni, esistono criteri che consentono di coordinare le orchestrazioni in più app per le funzioni.  Anche se la comunicazione tra app può avvenire tramite HTTP, usando il framework durevole per ogni attività significa che è possibile mantenere un processo durevole tra due app.
 
-Di seguito viene fornito un esempio di orchestrazione tra app per le funzioni in C#.  Un'attività avvierà l'orchestrazione esterna. Un'altra attività recupererà e restituirà lo stato.  L'agente di orchestrazione attenderà che lo stato sia completo prima di continuare.
+Di seguito sono disponibili esempi di orchestrazione tra app per le funzioni in C# e JavaScript.  Un'attività avvierà l'orchestrazione esterna. Un'altra attività recupererà e restituirà lo stato.  L'agente di orchestrazione attenderà che lo stato sia completo prima di continuare.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("OrchestratorA")]
@@ -128,6 +132,64 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
         return response.StatusCode == HttpStatusCode.OK;
     }
 }
+```
+
+#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    // Do some work...
+
+    // Call a remote orchestration
+    const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
+
+    // Wait for the remote orchestration to complete
+    while (true) {
+        const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
+        if (isComplete) {
+            break;
+        }
+
+        const waitTime = moment(context.df.currentUtcDateTime).add(1, "m").toDate();
+        yield context.df.createTimer(waitTime);
+    }
+
+    // B is done. Now go do more work...
+});
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, orchestratorName) {
+    const options = {
+        method: "POST",
+        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
+        body: ""
+    };
+
+    const statusUrl = await request(options);
+    return statusUrl;
+};
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, statusUrl) {
+    const options = {
+        method: "GET",
+        uri: statusUrl,
+        resolveWithFullResponse: true,
+    };
+
+    const response = await request(options);
+    // 200 = Complete, 202 = Running
+    return response.statusCode === 200;
+};
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

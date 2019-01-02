@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 82c02c0212fd79d8847d374022b6ac8f862f042a
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 8d6865349f103278131a02c2385557fb53ee24f5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291114"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720593"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoraggio e diagnostica in Azure Service Fabric
 
@@ -40,9 +40,10 @@ Uno dei lati positivi del monitoraggio delle applicazioni è che gli sviluppator
 ## <a name="platform-cluster-monitoring"></a>Monitoraggio della piattaforma (cluster)
 L'utente ha il controllo dei dati di telemetria che provengono dalla sua applicazione, in quanto si occupa personalmente della scrittura del codice. Ma cosa dire dei dati di diagnostica della piattaforma Service Fabric? Uno dei principali obiettivi di Service Fabric è mantenere le applicazioni resilienti agli errori hardware. Questo obiettivo viene conseguito grazie alla capacità dei servizi di sistema della piattaforma di rilevare eventuali problemi dell'infrastruttura ed eseguire rapidamente il failover dei carichi di lavoro su altri nodi del cluster. In questo caso specifico, tuttavia, cosa accade se sono presenti problemi anche nei servizi di sistema? O se, nel tentativo di distribuire o spostare un carico di lavoro, vengono violate le regole relative al posizionamento dei servizi? Service Fabric offre funzionalità di diagnostica per questi e altri problemi per garantire che l'utente sia sempre informato sulle attività che hanno luogo nel cluster. Ecco alcuni scenari di esempio per il monitoraggio del cluster:
 
-* Service Fabric sta realmente funzionando come previsto, in termini di posizionamento delle applicazioni e bilanciamento del carico nel cluster? 
-* Le azioni utente effettuate nel cluster vengono confermate ed eseguite come previsto? ad esempio ridimensionamento, failover, distribuzioni
-* Service Fabric tiene traccia dei nodi che fanno parte del cluster e informa l'utente quando c'è un problema in uno dei nodi?
+Service Fabric offre un set completo di eventi immediatamente disponibili. Tali [eventi di Service Fabric](service-fabric-diagnostics-events.md) sono accessibili tramite EventStore o il canale operativo (canale di evento esposto dalla piattaforma). 
+* EventStore - EventStore è una funzionalità offerta dalla piattaforma che fornisce gli eventi della piattaforma Service Fabric disponibili in Service Fabric Explorer e tramite l'API REST. È possibile visualizzare uno snapshot di cosa sta succedendo nel cluster per ogni entità, ad esempio nodo, servizio, applicazione e query in base all'ora dell'evento. Per altre informazioni su EventStore, vedere [Panoramica di EventStore](service-fabric-diagnostics-eventstore.md).    
+
+* Eventi di canale di Service Fabric - In Windows, sono disponibili da un unico provider ETW con un set di `logLevelKeywordFilters` rilevanti che consente di scegliere tra canali operativi, dati e messaggistica. È così che gli eventi di Service Fabric in uscita vengono separati per essere filtrati in base alle esigenze. In Linux, tutti gli eventi di Service Fabric vengono forniti tramite LTTng e raccolti in una tabella di Archiviazione, da dove possono essere filtrati in base alle esigenze. Questi canali contengono eventi curati e strutturati che consentono di comprendere meglio lo stato del cluster. Il canale di diagnostica è abilitato per impostazione predefinita al momento della creazione di un cluster, nel corso della quale viene creata una tabella di archiviazione di Azure in cui vengono inviati gli eventi generati dai canali, su cui poter eseguire query in futuro. 
 
 Le funzionalità di diagnostica fornite sono costituite da un set completo di eventi predefiniti. Questi [eventi di Service Fabric](service-fabric-diagnostics-events.md) illustrano le azioni eseguite dalla piattaforma su entità diverse, come Nodi, Applicazioni, Servizi, Partizioni e così via. Nell'ultimo scenario riportato sopra, se un nodo diventasse inattivo, la piattaforma genererebbe un evento `NodeDown` e si riceverebbe immediatamente una notifica dallo strumento di monitoraggio scelto. Altri esempi comuni sono `ApplicationUpgradeRollbackStarted` o `PartitionReconfigured` durante un failover. **Gli stessi eventi sono disponibili sia in cluster di Windows che in cluster di Linux.**
 

@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250734"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837172"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 Questo articolo illustra due modi per acquisire la proprietà di un nome di dominio DNS in una directory non gestita in Azure Active Directory (Azure AD). Quando un utente self-service si iscrive a un servizio cloud che usa Azure AD, viene aggiunto a una directory di Azure AD non gestita basata sul dominio di posta elettronica. Per altre informazioni sull'iscrizione self-service o "virale" a un servizio, vedere [Informazioni sull'iscrizione self-service per Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup).
@@ -108,7 +108,11 @@ Per [RMS per utenti singoli](/azure/information-protection/rms-for-individuals),
 
 La chiave e i modelli non vengono invece spostati quando il tenant si trova in un'area diversa, ad esempio se il tenant non gestito è in Europa e il tenant di cui si è proprietari è in America del Nord. 
 
-Anche se RMS per utenti singoli è progettato per supportare l'autenticazione Azure AD per l'apertura di contenuti protetti, non impedisce agli utenti di proteggere a loro volta il contenuto. Se gli utenti non hanno protetto il contenuto con la sottoscrizione di RMS per utenti singoli e se la chiave e i modelli non sono stati spostati, il contenuto non sarà accessibile dopo l'acquisizione della proprietà del dominio.    
+Anche se RMS per utenti singoli è progettato per supportare l'autenticazione Azure AD per l'apertura di contenuti protetti, non impedisce agli utenti di proteggere a loro volta il contenuto. Se gli utenti non hanno protetto il contenuto con la sottoscrizione di RMS per utenti singoli e se la chiave e i modelli non sono stati spostati, il contenuto non sarà accessibile dopo l'acquisizione della proprietà del dominio.
+
+#### <a name="more-information-about-power-bi"></a>Altre informazioni su Power BI
+
+Quando si esegue un'acquisizione esterna, il contenuto di Power BI creato prima dell'acquisizione viene inserito in un'[area di lavoro contenuto archiviato di Power BI](/power-bi/service-admin-power-bi-archived-workspace). È necessario eseguire manualmente la migrazione di qualsiasi contenuto che si vuole usare nel nuovo tenant.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlet di Azure AD PowerShell per l'opzione ForceTakeover
 È possibile visualizzare questi cmdlet usati in [Esempio di PowerShell](#powershell-example).

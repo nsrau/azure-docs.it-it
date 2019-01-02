@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 11452dfb94a5a1c8cf4734b1ef21a44cccafbea1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bccc7abed9a86bcba74a5d994664a20313f3282a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430509"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Esercitazione: Integrazione di Azure Active Directory con RedBrick Health
 
@@ -110,7 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni sul Single Sign-On di URL e dominio di RedBrick Health](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. Nella casella di testo **Identificatore** digitare un URL: `http://www.redbrickhealth.com`
+    a. Nella casella di testo **Identificatore** digitare un URL: `https://www.redbrickhealth.com`
     
     b. Nella casella di testo **URL di risposta** digitare un URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
     
@@ -169,7 +169,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Per configurare l'accesso Single Sign-On sul lato **RedBrick Health**, è necessario inviare il file **Certificato (Base64)** scaricato e l'**ID di entità SAML** al [team di supporto di RedBrick Health](https://home.redbrickhealth.com/contact/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -205,7 +205,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
   
 ### <a name="create-a-redbrick-health-test-user"></a>Creare un utente di test di RedBrick Health
 
-In questa sezione viene creato un utente chiamato Britta Simon in RedBrick Health. Rivolgersi al [team di supporto di RedBrick Health](https://home.redbrickhealth.com/contact/) per aggiungere gli utenti nella piattaforma RedBrick Health. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente chiamato Britta Simon in RedBrick Health. Rivolgersi al  [team di supporto di RedBrick Health](https://home.redbrickhealth.com/contact/)  per aggiungere gli utenti nella piattaforma RedBrick Health. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -242,7 +242,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro RedBrick Health nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione RedBrick Health.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

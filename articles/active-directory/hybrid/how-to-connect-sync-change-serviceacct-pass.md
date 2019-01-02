@@ -1,5 +1,5 @@
 ---
-title: "Servizio di sincronizzazione Azure AD Connect: modifica dell'account del servizio di sincronizzazione Azure AD Connect | Microsoft Docs"
+title: "Servizio di sincronizzazione Azure AD Connect:  Modifica dell'account del servizio di sincronizzazione Azure AD Connect | Microsoft Docs"
 description: Questo argomento descrive la chiave di crittografia e come abbandonarla dopo la modifica della password.
 services: active-directory
 keywords: Account del servizio Azure AD Sync, password
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a0cdaa54d0da58a02cbe9fcda36cbaff6b1fab4a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747253"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184900"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Modifica della password dell'account del servizio di sincronizzazione Azure AD Connect
 Se si modifica la password dell'account del servizio di sincronizzazione Azure AD Connect, il servizio di sincronizzazione non verrà avviato correttamente finché non si abbandona la chiave di crittografia e non si reinizializza la password dell'account del servizio. 
@@ -38,13 +38,13 @@ Quando si modifica la password dell'account del servizio, è necessario eseguire
 Prima di tutto, è necessario modificare la password in Gestione controllo servizi di Windows.  Finché non si risolve questo problema, verranno visualizzati gli errori seguenti:
 
 
-- Se si prova ad avviare il servizio di sincronizzazione in Gestione controllo servizi di Windows, viene visualizzato l'errore "**Impossibile avviare il servizio Microsoft Azure AD Sync su computer locale**". **Errore 1069: Il servizio non è stato avviato a causa di un errore in fase di accesso**".
-- Nel Visualizzatore eventi di Windows il registro eventi di sistema contiene un errore con **ID evento 7038** e il messaggio "**Il servizio ADSync non è stato in grado di accedere con la password al momento configurata, a causa del seguente errore: Password o nome utente errato**".
+- Se si prova ad avviare il servizio di sincronizzazione in Gestione controllo servizi di Windows, viene visualizzato l'errore "**Impossibile avviare il servizio Microsoft Azure AD Sync su computer locale**". **Errore 1069: Il servizio non è stato avviato a causa di un errore in fase di accesso**.
+- Nel Visualizzatore eventi di Windows il registro eventi di sistema contiene un errore con **ID evento 7038** e il messaggio **Il servizio ADSync non è stato in grado di accedere con la password al momento configurata, a causa del seguente errore: Password o nome utente errato**.
 
 In secondo luogo, se in condizioni specifiche la password viene aggiornata, il servizio di sincronizzazione non può più recuperare la chiave di crittografia tramite DPAPI. Senza la chiave di crittografia, il servizio di sincronizzazione non può decrittografare le password necessarie per eseguire la sincronizzazione a/da Active Directory e Azure AD locali.
 Verranno visualizzati gli errori seguenti:
 
-- Se in Gestione controllo servizi di Windows si prova ad avviare il servizio di sincronizzazione e questo non riesce a recuperare la chiave di crittografia, viene restituito l'errore "**Impossibile avviare il servizio Microsoft Azure AD Sync su computer locale. Per maggiori informazioni, consultare il registro eventi di sistema. Se non si tratta di un servizio Microsoft, contattare il fornitore del servizio e fare riferimento al codice di errore **-21451857952****".
+- Se in Gestione controllo servizi di Windows si prova ad avviare il servizio di sincronizzazione e questo non riesce a recuperare la chiave di crittografia, viene restituito l'errore <strong>Impossibile avviare il servizio Microsoft Azure AD Sync su computer locale. Per maggiori informazioni, consultare il registro eventi di sistema. Se non si tratta di un servizio Microsoft, contattare il fornitore del servizio e fare riferimento al codice di errore -21451857952</strong>.
 - Nel Visualizzatore eventi di Windows il registro eventi dell'applicazione contiene un errore con **ID evento 6028** e il messaggio di errore *"**Impossibile accedere alla chiave di crittografia del server**"*.
 
 Per assicurarsi di non ricevere più questi errori, seguire le procedure contenute in [Abbandono della chiave di crittografia del servizio di sincronizzazione Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) quando si modifica la password.
@@ -121,6 +121,6 @@ Ora che il servizio di sincronizzazione ha accesso alla chiave di crittografia e
 ## <a name="next-steps"></a>Passaggi successivi
 **Argomenti generali**
 
-* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
 
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

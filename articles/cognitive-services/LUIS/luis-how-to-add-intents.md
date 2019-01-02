@@ -1,21 +1,22 @@
 ---
-title: Pianificare le finalità nelle applicazioni LUIS
-titleSuffix: Azure Cognitive Services
+title: Aggiungere finalità
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Aggiungi le finalità all'app LUIS per identificare gruppi di domande o comandi con gli stessi scopi.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 495b7e99319126b3ee9e655b2d9aa4af940e1d56
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3e6064b4c202c36e4b63d6e06edfbf3149f6665f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139922"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139871"
 ---
 # <a name="add-intents"></a>Aggiungere finalità 
 
@@ -57,7 +58,7 @@ Le espressioni di esempio sono campioni di testo con domande o commenti degli ut
 
 Un'espressione in una finalità potrebbe presentare una discrepanza nella stima delle finalità tra la finalità selezionata e il punteggio della stima. LUIS indica questa discrepanza con una casella rossa intorno alla **finalità etichettata** sulla riga dell'espressione di esempio. 
 
-![Schermata della pagina dei dettagli delle finalità, con un'espressione evidenziata](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+![Screenshot della pagina dei dettagli delle finalità, con errori di discrepanza nella stima delle espressioni](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 Selezionare **Eseguire il training** nella barra di spostamento superiore. La discrepanza di stima è adesso assente.
 
@@ -106,7 +107,7 @@ Quando si seleziona una o più espressioni di esempio nell'elenco selezionando l
 
 * Modifica: cambia il testo dell'espressione
 * Elimina: rimuove l'espressione dalla finalità. Se si desidera ancora l'espressione, una soluzione migliore consiste nel spostarla nella finalità **Nessuna**. 
-* Aggiungi un modello: un modello consente di prendere un'espressione comune e contrassegnare il testo sostituibile e ignorabile, riducendo così la necessità di altre espressioni nella finalità. 
+* Aggiungere un criterio: un criterio consente di prendere un'espressione comune e contrassegnare il testo sostituibile e ignorabile, riducendo così la necessità di altre espressioni nella finalità. 
 
 La colonna **Finalità etichettata** consente di modificare la finalità dell'espressione.
 

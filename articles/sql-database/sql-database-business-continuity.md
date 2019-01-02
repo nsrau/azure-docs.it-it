@@ -4,7 +4,7 @@ description: Informazioni su come il database SQL di Azure supporta la continuit
 keywords: continuità aziendale, continuità aziendale cloud, ripristino di emergenza del database, ripristino del database
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 14fdc0dc12debb32f63d7322c233e06fc2fc0d9e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/10/2018
+ms.openlocfilehash: aecfecda08a6008b931738802bb89054f9d3963c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161535"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274122"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
-Database SQL di Azure è un'implementazione del motore di database di Microsoft SQL Server configurata e ottimizzata per l'ambiente cloud di Azure, che offre[disponibilità elevata](sql-database-high-availability.md) e resilienza agli errori che potrebbero interessare i processo di business. **La continuità aziendale** nel database SQL di Azure fa riferimento a meccanismi, criteri e procedure che consentono a un'azienda di continuare a funzionare in caso di interruzione, in particolare per quanto riguarda la propria infrastruttura di calcolo. Nella maggior parte dei casi, il database SQL di Azure gestirà gli eventi di arresto improvviso che potrebbero verificarsi nell'ambiente cloud e manterrà i processi aziendali in esecuzione. Tuttavia, esistono alcuni eventi di arresto improvviso che non possono essere gestiti dal database SQL, ad esempio:
+**La continuità aziendale** nel database SQL di Azure fa riferimento a meccanismi, criteri e procedure che consentono all'azienda di continuare a funzionare in caso di interruzione, in particolare per quanto riguarda la propria infrastruttura di calcolo. Nella maggior parte dei casi, il database SQL di Azure gestirà gli eventi di arresto improvviso che potrebbero verificarsi nell'ambiente cloud e manterrà le applicazioni e i processi aziendali in esecuzione. Tuttavia, esistono alcuni eventi di arresto improvviso che non possono essere gestiti dal database SQL, ad esempio:
 
 - Un utente elimina o aggiorna accidentalmente una riga in una tabella.
 - Un utente malintenzionato riesce a eliminare dati o database.
@@ -48,7 +48,8 @@ Quindi, sono disponibili informazioni sui meccanismi aggiuntivi che è possibile
 - [I backup automatici incorporati](sql-database-automated-backups.md) e il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) consentono di ripristinare un database completo a un certo punto nel tempo negli ultimi 35 giorni.
 - È possibile [ripristinare il database eliminato](sql-database-recovery-using-backups.md#deleted-database-restore) al punto in cui è stato eliminato se **il server logico non è stato eliminato**.
 - [La conservazione backup a lungo termine](sql-database-long-term-retention.md) consente di conservare i backup fino a 10 anni.
-- Il [gruppo di failover automatico](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) consente all'applicazione di eseguire un ripristino automatico in caso di interruzione a livello di data center.
+- La [replica geografica attiva](sql-database-active-geo-replication.md) consente di creare repliche leggibili e di eseguire il failover manuale a qualsiasi replica in caso di interruzione del data center o di aggiornamento dell'applicazione.
+- Il [gruppo di failover automatico](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) consente all'applicazione di eseguire un ripristino automatico in caso di interruzione del data center.
 
 Ogni funzionalità presenta caratteristiche diverse in termini di tempo di recupero stimato (ERT) e di potenziale perdita di dati per le transazioni recenti. Dopo aver compreso le opzioni disponibili, è possibile scegliere una di esse o, nella maggior parte dei casi, usarle in modo combinato per i diversi scenari. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo l'evento di arresto improvviso. Il tempo necessario per un ripristino completo dell'applicazione è noto come obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti (intervallo di tempo) che l'applicazione è in grado di tollerare durante il ripristino dopo l'evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come obiettivo del punto di ripristino (RPO).
 
@@ -75,8 +76,7 @@ Usare i backup automatici e il [ripristino temporizzato](sql-database-recovery-u
 - Ha una bassa frequenza di modifica dei dati, ovvero poche transazioni per ora, e la perdita di un massimo di un'ora di modifica dei dati è accettabile.
 - Dipende dal costo.
 
-Se è necessario un ripristino più veloce, usare i [gruppi di failover](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
-) (vedere più avanti). Se è necessario essere in grado di ripristinare i dati da un periodo antecedente a 35 giorni, usare la [conservazione a lungo termine](sql-database-long-term-retention.md).
+Se è necessario un ripristino più veloce, usare la [replica geografica attiva](sql-database-active-geo-replication.md) o i [gruppi di failover automatico](sql-database-auto-failover-group.md). Se è necessario essere in grado di ripristinare i dati da un periodo antecedente a 35 giorni, usare la [conservazione a lungo termine](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region"></a>Recuperare un database in un'altra area
 
@@ -84,7 +84,7 @@ Anche se raramente, un data center di Azure può subire un'interruzione del serv
 
 - Una delle opzioni è attendere che il database torni online al termine dell'interruzione del data center. Questa opzione funziona per le applicazioni che possono rimanere con il database offline. Ad esempio, un progetto di sviluppo o una versione di valutazione gratuita su cui non è necessario lavorare costantemente. Quando un data center registra un'interruzione del servizio, non si sa quanto tempo essa durerà. Pertanto, questa opzione funziona solo se è possibile rinunciare al database per un periodo di tempo.
 - Un'altra opzione consiste nel ripristinare un database su qualunque server in qualsiasi area di Azure usando [i backup dei database con ridondanza geografica](sql-database-recovery-using-backups.md#geo-restore) (ripristino geografico). Il ripristino geografico usa un backup con ridondanza geografica come origine e può essere usato per ripristinare un database anche se il database o il data center è inaccessibile a causa di un'interruzione del servizio.
-- Infine, è possibile eseguire rapidamente il ripristino dopo un'interruzione del servizio se è stato configurato un [gruppo di failover automatico](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) per i database. È possibile personalizzare i criteri di failover per l'uso del failover automatico o manuale. Il failover richiede solo alcuni secondi, ma il servizio impiegherà almeno un'ora per attivare il processo. Questo passaggio è necessario per assicurarsi che il failover sia giustificato dalla portata dell'interruzione. Inoltre, il failover può comportare una lieve perdita di dati a causa della natura della replica asincrona. Per informazioni dettagliate su RTO e RPO del failover automatico, vedere la tabella riportata in precedenza in questo articolo.
+- È infine possibile eseguire rapidamente il ripristino dopo un'interruzione del servizio se sono state configurate repliche geografiche tramite la [replica geografica attiva](sql-database-active-geo-replication.md) o un [gruppo di failover automatico](sql-database-auto-failover-group.md) per uno o più database. A seconda della tecnologia scelta, è possibile usare il failover manuale o automatico. Il failover richiede solo alcuni secondi, ma il servizio impiegherà almeno un'ora per attivare il processo. Questo passaggio è necessario per assicurarsi che il failover sia giustificato dalla portata dell'interruzione. Inoltre, il failover può comportare una lieve perdita di dati a causa della natura della replica asincrona. Per informazioni dettagliate su RTO e RPO del failover automatico, vedere la tabella riportata in precedenza in questo articolo.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >

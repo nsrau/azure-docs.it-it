@@ -6,23 +6,21 @@ author: michaelhauss
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 43e9acb79b363e8f2cb00f6a4676d450c097bf3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261996"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961927"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Come usare l'archivio BLOB da iOS
 
 Questa guida illustra i diversi scenari comuni di uso del servizio di archiviazione BLOB di Microsoft Azure. Gli esempi sono scritti in Objective-C e usano la [libreria del client di archiviazione di Azure per iOS](https://github.com/Azure/azure-storage-ios). Gli scenari presentati includono caricamento, visualizzazione in elenchi, download ed eliminazione di BLOB. Per ulteriori informazioni sui BLOB, vedere la sezione [Passaggi successivi](#next-steps) . È possibile scaricare l' [app di esempio](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) per visualizzare rapidamente l'uso di Archiviazione di Azure in un'applicazione iOS.
 
-## <a name="what-is-blob-storage"></a>Informazioni sull'archiviazione BLOB
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
+Per altre informazioni su archiviazione BLOB, vedere [Introduzione all'archiviazione BLOB di Azure](storage-blobs-introduction.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -131,9 +129,9 @@ Ogni BLOB nell'archivio di Azure deve risiedere in un contenitore. L'esempio seg
 ## <a name="set-container-permissions"></a>Impostare le autorizzazioni del contenitore
 Per impostazione predefinita, le autorizzazioni di un contenitore vengono configurate per l'accesso **Privato** . I contenitori, tuttavia, offrono alcune opzioni diverse per l'accesso al contenitore:
 
-* **Privato**: dati BLOB e contenitore possono essere letti solo dal proprietario dell'account.
-* **BLOB**: i dati BLOB all'interno di questo contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client non possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima.
-* **Contenitore**: dati BLOB e contenitore possono essere letti tramite richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
+* **Privato**: i dati BLOB e del contenitore possono essere letti solo dal proprietario dell'account.
+* **BLOB**: I dati BLOB all'interno di questo contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client non possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima.
+* **Contenitore**: i dati BLOB e del contenitore possono essere letti tramite richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
 
 L'esempio seguente mostra come creare un contenitore con autorizzazioni di accesso **Contenitore**, che consentono l'accesso pubblico in sola lettura a tutti gli utenti in Internet:
 
@@ -221,9 +219,9 @@ L'esempio seguente mostra come elencare tutti i BLOB in un contenitore. Quando s
   * _AZSBlobListingDetailsNone_: elenca solo i BLOB di cui è stato eseguito il commit e non restituisce i metadati dei BLOB.
   * _AZSBlobListingDetailsSnapshots_: elenca i BLOB di cui è stato eseguito il commit e gli snapshot dei BLOB.
   * _AZSBlobListingDetailsMetadata_: recupera i metadati per ogni BLOB restituito nell'elenco.
-  * _AZSBlobListingDetailsUncommittedBlobs_: elenca ii BLOB di cui è stato eseguito il commit e quelli per cui non è stato eseguito.
+  * _AZSBlobListingDetailsUncommittedBlobs_: elenca i BLOB sottoposti a commit e non sottoposti a commit.
   * _AZSBlobListingDetailsCopy_: include le proprietà di copia nell'elenco.
-  * _AZSBlobListingDetailsAll_: elenca tutti i BLOB di cui è stato eseguito il commit, quelli per cui non è stato eseguito e gli snapshot disponibili, nonché restituisce tutti i metadati e lo stato di copia per questi BLOB.
+  * _AZSBlobListingDetailsAll_: elenca tutti i BLOB sottoposti a commit, i BLOB non sottoposti e commit e gli snapshot disponibili, restituisce tutti i metadati e copia lo stato di tali BLOB.
 * **maxResults** : numero massimo di risultati da restituire per questa operazione. Per non impostare un limite, usare -1.
 * **completionHandler** : blocco di codice da eseguire con i risultati dell'operazione di elenco.
 
