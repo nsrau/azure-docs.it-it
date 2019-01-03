@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098101"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754544"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
-*Si applica a: i sistemi integrati di Azure Stack*
+*Si applica a: Sistemi integrati di Azure Stack*
 
 Questo articolo descrive il contenuto del pacchetto di aggiornamento 1808. Il pacchetto di aggiornamento include miglioramenti e correzioni di problemi noti per questa versione di Azure Stack. Questo articolo include anche un collegamento in modo che è possibile scaricare l'aggiornamento. Problemi noti sono suddivisi in problemi correlati direttamente al processo di aggiornamento e i problemi con la build (post-installazione).
 
@@ -43,7 +43,7 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack.
 - **Tutti gli ambienti Azure Stack, ora, usare il formato di fuso orario Coordinated Universal Time (UTC).**  Tutti i dati di log e informazioni correlate a questo punto visualizzare in formato UTC. Se si aggiorna da una versione precedente che non è stata installata utilizzando il formato UTC, l'ambiente viene aggiornato per usare UTC. 
 
 <!-- 2437250  | IS  ASDK --> 
-- **Sono supportati i dischi gestiti.** È ora possibile usare Managed Disks in macchine virtuali di Azure Stack e set di scalabilità di macchine virtuali. Per altre informazioni, vedere [Managed Disks di Azure Stack: differenze e considerazioni](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
+- **Sono supportati i dischi gestiti.** È ora possibile usare Managed Disks in macchine virtuali di Azure Stack e set di scalabilità di macchine virtuali. Per altre informazioni, vedere [Managed Disks di Azure Stack: Differenze e considerazioni](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
 
 <!-- 2563799  | IS  ASDK --> 
 - **Monitoraggio di Azure**. Ad esempio monitoraggio di Azure in Azure, monitoraggio di Azure in Azure Stack offre log e metriche dell'infrastruttura di livello di base per la maggior parte dei servizi. Per altre informazioni, vedere [monitoraggio di Azure in Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
@@ -226,16 +226,16 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Si potrebbero visualizzare avvisi per i **controller integrità** componente con i dettagli seguenti:  
 
    Avviso #1:
-   - NOME: Ruolo di infrastruttura non integro
-   - GRAVITÀ: avviso
-   - COMPONENTI: Controllo di integrità
-   - Descrizione: Il controller di integrità Heartbeat Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.  
+   - NOME:  Ruolo di infrastruttura non integro
+   - GRAVITÀ: Avviso
+   - COMPONENTE: Controller di integrità
+   - DESCRIZIONE: Il controller di integrità dello Scanner di Heartbeat non è disponibile. Ciò può influire sulle metriche e i report sull'integrità.  
 
   Avviso #2:
-   - NOME: Ruolo di infrastruttura non integro
-   - GRAVITÀ: avviso
-   - COMPONENTI: Controllo di integrità
-   - Descrizione: Il controller di integrità errore Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.
+   - NOME:  Ruolo di infrastruttura non integro
+   - GRAVITÀ: Avviso
+   - COMPONENTE: Controller di integrità
+   - DESCRIZIONE: Il controller di integrità errore Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.
 
   Entrambi gli avvisi possono essere tranquillamente ignorati e si chiude automaticamente nel corso del tempo.  
 
@@ -244,15 +244,14 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Si potrebbe essere visualizzato un avviso per **archiviazione** componente che contiene i dettagli seguenti:
 
    - NOME: Errore di comunicazione interna del servizio di archiviazione  
-   - GRAVITÀ: critico  
-   - COMPONENTE: archiviazione  
-   - Descrizione: Errore di comunicazione interna del servizio di archiviazione si è verificato durante l'invio di richieste per i nodi seguenti.  
+   - GRAVITÀ: Critico  
+   - COMPONENTE: Archiviazione  
+   - DESCRIZIONE: Errore di comunicazione interna del servizio di archiviazione si è verificato durante l'invio di richieste per i nodi seguenti.  
 
     L'avviso può essere tranquillamente ignorato, ma è necessario chiudere l'avviso manualmente.
 
 <!-- 2368581 - IS. ASDK --> 
 - Un operatore di Azure Stack, se si riceve un avviso di memoria insufficiente e le macchine virtuali tenant non riuscire a distribuire con un **errore di creazione della macchina virtuale di Fabric**, è possibile che l'indicatore di Azure Stack ha esaurito la memoria disponibile. Usare la [Capacity Planner di Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) per comprendere meglio la capacità disponibile per i carichi di lavoro.
-
 
 ### <a name="compute"></a>Calcolo
 
@@ -283,17 +282,17 @@ Report sull'utilizzo generate in seguito l'utilizzo di Azure Stack API indicano 
    - Se si aggiorna il valore di quota a 0, è equivalente al valore predefinito di 2048 GiB. In alternativa, impostare il valore di quota a 1.
 
 <!-- 2869209 – IS, ASDK --> 
-- Quando si usa la [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), è necessario usare il **- OsUri** parametro come URI in cui è stato caricato il disco dell'account di archiviazione. Se si usa il percorso locale del disco, il cmdlet non riesce con l'errore seguente: *operazione a esecuzione prolungata non è riuscita con stato 'Non riuscita'*. 
+- Quando si usa la [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), è necessario usare il **- OsUri** parametro come URI in cui è stato caricato il disco dell'account di archiviazione. Se si usa il percorso locale del disco, il cmdlet non riesce con l'errore seguente: *Operazione a esecuzione prolungata non è riuscita con stato 'Non riuscita'*. 
 
 <!--  2966665 – IS, ASDK --> 
-- Collegamento di dischi dati unità SSD alle dimensioni premium gestiti a dischi delle macchine virtuali (DS, DSv2, Fs, Fs_V2) ha esito negativo con un errore: *non è stato possibile aggiornare i dischi della macchina virtuale 'vmname' errore: non è possibile eseguire l'operazione perché il tipo di account di archiviazione richiesta ' Premium_LRS' non è supportata per dimensioni della macchina virtuale ' Standard_DS/Ds_V2/ADFS/Fs_v2)*
+- Collegamento di unità SSD i dischi dati premium di dimensioni gestito disco delle macchine virtuali (DS, DSv2, Fs, Fs_V2) ha esito negativo con errore:  *Non è stato possibile aggiornare i dischi della macchina virtuale 'vmname' errore: Non è possibile eseguire l'operazione perché il tipo di account di archiviazione "Premium_LRS" non è supportato per le dimensioni VM richiesta ' Standard_DS/Ds_V2/ADFS/Fs_v2)*
 
    Per risolvere questo problema, usare *Standard_LRS* dischi dati anziché *dischi Premium_LRS*. Sfrutta *Standard_LRS* dischi dati non cambia IOPs o i costi di fatturazione. 
 
 <!--  2795678 – IS, ASDK --> 
 - Quando si usa il portale per creare macchine virtuali (VM) in una dimensione di VM premium (DS, Ds_v2, ADFS, FSv2), viene creata la macchina virtuale in un account di archiviazione standard. La creazione di un account di archiviazione standard non influisce sul livello funzionale, numero di IOPs, o fatturazione. 
 
-   È possibile ignorare l'avviso con la dicitura: *si è scelto di usare un disco standard in una dimensione che supporta i dischi premium. Ciò potrebbe influire sulle prestazioni del sistema operativo e non è consigliato. Provare a utilizzare archiviazione premium (SSD).*
+   È possibile ignorare l'avviso con la dicitura: *Si è scelto di usare un disco standard in una dimensione che supporta i dischi premium. Ciò potrebbe influire sulle prestazioni del sistema operativo e non è consigliato. Provare a utilizzare archiviazione premium (SSD).*
 
 <!-- 2967447 - IS, ASDK --> 
 - Esperienza di creazione di set di scalabilità di macchine virtuali (VMSS) fornisce basata su CentOS 7.2 come un'opzione per la distribuzione. Poiché tale immagine non è disponibile in Azure Stack, selezionare un altro sistema operativo per la distribuzione o usare un modello di Azure Resource Manager specificando un'altra immagine CentOS scaricata prima della distribuzione dal marketplace dall'operatore.  
@@ -315,7 +314,7 @@ Report sull'utilizzo generate in seguito l'utilizzo di Azure Stack API indicano 
 
    Per trovare il grafico della percentuale di CPU per la macchina virtuale, andare alla **metriche** pannello e Mostra tutte le macchine Virtuali di Windows supportate guest metriche.
 
-
+- Una macchina virtuale 18.04 di Ubuntu creata con l'autorizzazione di SSH abilitato non consentirà di usare le chiavi SSH per accedere. In alternativa, usare VM l'accesso per l'estensione di Linux per implementare le chiavi SSH dopo il provisioning o usare l'autenticazione basata su password.
 
 ### <a name="networking"></a>Rete  
 
@@ -361,8 +360,10 @@ Report sull'utilizzo generate in seguito l'utilizzo di Azure Stack API indicano 
 
 
 ## <a name="download-the-update"></a>Scaricare l'aggiornamento
-È possibile scaricare il pacchetto di aggiornamento di Azure Stack 1808 dal [qui](https://aka.ms/azurestackupdatedownload).
-  
+
+È possibile scaricare il pacchetto di aggiornamento di Azure Stack 1808 dal [qui](https://aka.ms/azurestackupdatedownload). 
+
+In scenari connessi, le distribuzioni di Azure Stack verificare periodicamente un endpoint protetto e notificare automaticamente se è disponibile un aggiornamento per il cloud. Per altre informazioni, vedere [gestione degli aggiornamenti per Azure Stack](azure-stack-updates.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per esaminare i criteri di manutenzione per i sistemi integrati di Azure Stack e le operazioni da eseguire per mantenere il sistema in uno stato supportato, vedere [criteri di manutenzione Azure Stack](azure-stack-servicing-policy.md).  

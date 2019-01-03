@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 07/30/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e84e72157726311281994b0e287eda7dfc4b144a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076792"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716755"
 ---
 # <a name="azure-stack-add-on-plans"></a>Piani aggiuntivi di Azure Stack
 
@@ -32,7 +32,7 @@ Vi sono casi quando la combinazione di tutti gli elementi in un singolo piano è
 È di un altro motivo per usare i piani aggiuntivi per consentire agli utenti di tenere in considerazione dell'utilizzo delle risorse. A tale scopo, è possibile iniziare con un piano di base che include le quote di dimensioni relativamente ridotte (a seconda dei servizi necessarie). Quindi, come gli utenti raggiungono la capacità, si sarebbe un avviso che hanno stato utilizzato l'allocazione delle risorse in base al piano assegnato. Da qui, gli utenti può quindi selezionare un piano aggiuntivo che fornisce le risorse aggiuntive.
 
 > [!NOTE]
-> Quando non si desidera usare un piano del componente aggiuntivo per estendere una quota, è possibile anche effettuare [modificare la configurazione originale della quota](azure-stack-quota-types.md#to-edit-a-quota). 
+> Quando non si desidera usare un piano del componente aggiuntivo per estendere una quota, è possibile anche effettuare [modificare la configurazione originale della quota](azure-stack-quota-types.md#edit-a-quota). 
 
 Quando un utente aggiunge un piano del componente aggiuntivo a una sottoscrizione di offerta esistente, le risorse aggiuntive potrebbero richiedere fino a un'ora da visualizzare. 
 

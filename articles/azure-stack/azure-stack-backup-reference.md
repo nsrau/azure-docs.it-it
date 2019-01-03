@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 35929d820ac6f72b83d6c3f25547255ca3423fc8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1edb4818ff7fda170d123ea8b81e6df9d620f354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138447"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713574"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Riferimento al servizio Backup di infrastruttura
 
@@ -87,9 +87,16 @@ I requisiti includono:
 
 Controller di infrastruttura di Backup eseguirà il backup dei dati su richiesta. Consiglia di eseguire il backup per l'ultima due volte un giorno e mantenere al massimo di sette giorni di backup. 
 
+**1811 e oltre**
 | Scalabilità di ambiente | Dimensioni previste del backup | Quantità totale di spazio necessaria |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 nodi        | 10 GB                     | 140 GB                          |
+| 4-16 nodi        | 20 GB                    | 280 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
+
+**Pre-1811**
+| Scalabilità di ambiente | Dimensioni previste del backup | Quantità totale di spazio necessaria |
+|-------------------|--------------------------|--------------------------------|
+| 4-16 nodi, ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Requisiti di rete
 | Posizione di archiviazione                                                                 | Dettagli                                                                                                                                                                                 |
@@ -109,7 +116,7 @@ Tenere in considerazione questi limiti si pianificare, distribuire e utilizzare 
 | Identificatore limite                                                 | Limite        | Commenti                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Tipo di backup                                                      | Solo full    | Controller di infrastruttura di Backup supporta solo backup completi. I backup incrementali non sono supportati.                                          |
-| Backup pianificati                                                | Solo manuale  | Controller di backup attualmente supporta solo backup su richiesta                                                                                 |
+| Backup pianificati                                                | Pianificati e manuali  | Il controller di backup supporta i backup pianificati e su richiesta                                                                                 |
 | Numero massimo di processi simultaneo backup                                   | 1            | Per ogni istanza del Controller di Backup è supportato un solo processo di backup attivo.                                                                  |
 | Configurazione di commutatore di rete                                     | Non nell'ambito | Amministratore deve eseguire il backup configurazione di commutatore di rete utilizzando strumenti OEM. Fare riferimento alla documentazione per Azure Stack fornite da ogni fornitore OEM. |
 | Host del ciclo di vita dell'hardware                                          | Non nell'ambito | Amministratore deve eseguire il backup Host del ciclo di vita dell'Hardware utilizzando strumenti OEM. Fare riferimento alla documentazione per Azure Stack fornite da ogni fornitore OEM.      |

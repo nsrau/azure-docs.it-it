@@ -12,18 +12,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277937"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632790"
 ---
 # <a name="azure-stack-servicing-policy"></a>Criteri di manutenzione Azure Stack
+
 Questo articolo descrive i criteri di manutenzione per i sistemi integrati di Azure Stack e le operazioni da eseguire per mantenere il sistema in uno stato supportato. 
+
+## <a name="download-update-packages-for-integrated-systems"></a>Scaricare pacchetti di aggiornamento per i sistemi integrati
+
+Microsoft rilascerà i pacchetti di aggiornamento completo mensile oltre a pacchetti di hotfix per risolvere problemi specifici. 
+
+I pacchetti di aggiornamento mensile sono ospitati in un endpoint protetto a Azure. È possibile scaricare manualmente tramite il [dello strumento downloader gli aggiornamenti di Azure Stack](http://aka.ms/azurestackupdatedownload). Se è connessa l'unità di scala, l'aggiornamento viene visualizzato automaticamente nel portale di amministrazione come **aggiornamento disponibile**. Completa, ogni mese dei pacchetti di aggiornamento sono ben documentati a ogni rilascio. Per altre informazioni su ogni versione, è possibile fare clic su qualsiasi versione dal [ritmo di rilascio del pacchetto di aggiornamento](#update-package-release-cadence) sezione di questo articolo.
+
+I pacchetti di aggiornamento hotfix sono ospitati nello stesso endpoint di Azure protetto. È possibile scaricarli manualmente usando i collegamenti incorporati in ognuno di articoli della Knowledge Base hotfix rispettivi; ad esempio, [Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Come per i pacchetti di aggiornamento complete, mensile, operatori di Azure Stack possono scaricare i file con estensione XML, con estensione bin e .exe e importarli usando la procedura descritta in [applicare gli aggiornamenti in Azure Stack](azure-stack-apply-updates.md). Gli operatori di Azure Stack con unità di scala connessa visualizzeranno i hotfix vengono visualizzati automaticamente nel portale di amministrazione con il messaggio **aggiornamento disponibile**.
+
+Se non è connessa l'unità di scala e si desidera ricevere una notifica ogni versione dell'hotfix, sottoscrivere il [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) oppure [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) feed indicato in ogni versione.  
 
 ## <a name="update-package-types"></a>Tipi di pacchetto di aggiornamento
 
@@ -51,7 +62,7 @@ Gli aggiornamenti rapidi vengono scaricati e installati come i pacchetti di aggi
 
 
 ## <a name="keep-your-system-under-support"></a>Mantenere il sistema di supporto
-Per continuare a ricevere supporto, è necessario mantenere la distribuzione di Azure Stack corrente. I criteri di rinvio degli aggiornamenti sono: per la distribuzione di Azure Stack rimanere in modalità di supporto, è necessario eseguire la versione rilasciata più recente di aggiornamento o eseguire una delle due versioni di aggiornamento precedente. Gli aggiornamenti rapidi non vengono considerati le versioni di aggiornamento principale. Se cloud di Azure Stack è protetta dal *più di due aggiornamenti*, viene considerato non conforme e si deve aggiornare per almeno la versione minima supportata per ricevere supporto. 
+Per continuare a ricevere supporto, è necessario mantenere la distribuzione di Azure Stack corrente. I criteri di rinvio degli aggiornamenti sono: Per la distribuzione di Azure Stack rimanere in modalità di supporto, deve eseguire la versione rilasciata più recente di aggiornamento o eseguire una delle due versioni di aggiornamento precedente. Gli aggiornamenti rapidi non vengono considerati le versioni di aggiornamento principale. Se cloud di Azure Stack è protetta dal *più di due aggiornamenti*, viene considerato non conforme e si deve aggiornare per almeno la versione minima supportata per ricevere supporto. 
 
 Ad esempio, se la versione di aggiornamento più recente disponibile è 1805 e i due pacchetti di aggiornamento precedente sono stati versione 1804 e 1803, 1803 sia 1804 rimangono in modalità di supporto. Tuttavia, 1802 è più supportata. Il criterio contenga true quando non è disponibile alcuna versione per un mese o due. Ad esempio, se la versione corrente è 1805 e si è verificato alcun versione 1804, precedente due pacchetti di aggiornamento 1802 e 1803 rimangono in modalità di supporto.
 

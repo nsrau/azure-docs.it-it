@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f87f93ebc739d75c796859c7091d4cf62a820a0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260585"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714985"
 ---
 # <a name="azure-stack-1807-update"></a>Aggiornamento di Azure Stack 1807
 
-*Si applica a: i sistemi integrati di Azure Stack*
+*Si applica a: Sistemi integrati di Azure Stack*
 
 Questo articolo descrive il contenuto del pacchetto di aggiornamento 1807. Questo aggiornamento include miglioramenti e correzioni di problemi noti per questa versione di Azure Stack e dove scaricare l'aggiornamento. Problemi noti sono suddivisi in problemi correlati direttamente al processo di aggiornamento e i problemi con la build (post-installazione).
 
@@ -162,9 +162,8 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- Installare Azure Stack [1805 aggiornare](azure-stack-update-1805.md) prima di applicare l'aggiornamento di Azure Stack 1807.  Si è verificato alcun aggiornamento 1806.  
-
-- Installare la versione più recente disponibile [update o un hotfix per la versione 1805](azure-stack-update-1805.md#post-update-steps).  
+- Installare Azure Stack [1805 aggiornare](azure-stack-update-1805.md) prima di applicare l'aggiornamento di Azure Stack 1807. Si è verificato alcun aggiornamento 1806.  
+ 
   > [!TIP]  
   > Sottoscrivere seguenti *RRS* oppure *Atom* i feed di stare al passo con gli aggiornamenti rapidi di Azure Stack:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
@@ -244,16 +243,16 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Si potrebbero visualizzare avvisi per i **controller integrità** componente con i dettagli seguenti:  
 
    Avviso #1:
-   - NOME: Ruolo di infrastruttura non integro
-   - GRAVITÀ: avviso
-   - COMPONENTI: Controllo di integrità
-   - Descrizione: Il controller di integrità Heartbeat Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.  
+   - NOME:  Ruolo di infrastruttura non integro
+   - GRAVITÀ: Avviso
+   - COMPONENTE: Controller di integrità
+   - DESCRIZIONE: Il controller di integrità dello Scanner di Heartbeat non è disponibile. Ciò può influire sulle metriche e i report sull'integrità.  
 
   Avviso #2:
-   - NOME: Ruolo di infrastruttura non integro
-   - GRAVITÀ: avviso
-   - COMPONENTI: Controllo di integrità
-   - Descrizione: Il controller di integrità errore Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.
+   - NOME:  Ruolo di infrastruttura non integro
+   - GRAVITÀ: Avviso
+   - COMPONENTE: Controller di integrità
+   - DESCRIZIONE: Il controller di integrità errore Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.
 
   Entrambi gli avvisi possono essere tranquillamente ignorati e si chiude automaticamente nel corso del tempo.  
 
@@ -262,9 +261,9 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Si potrebbe essere visualizzato un avviso per **archiviazione** componente con i dettagli seguenti:
 
    - NOME: Errore di comunicazione interna del servizio di archiviazione  
-   - GRAVITÀ: critico  
-   - COMPONENTE: archiviazione  
-   - Descrizione: Errore di comunicazione interna del servizio di archiviazione si è verificato durante l'invio di richieste per i nodi seguenti.  
+   - GRAVITÀ: Critico  
+   - COMPONENTE: Archiviazione  
+   - DESCRIZIONE: Errore di comunicazione interna del servizio di archiviazione si è verificato durante l'invio di richieste per i nodi seguenti.  
 
     L'avviso può essere tranquillamente ignorato, ma è necessario chiudere l'avviso manualmente.
 
@@ -278,10 +277,10 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Quando si usano i cmdlet di PowerShell **Start-AzsScaleUnitNode** oppure **Stop-AzsScaleunitNode** per gestire le unità di scala, il primo tentativo di avviare o arrestare l'unità di scala potrebbe non riuscire. Se il cmdlet non riesce durante la prima esecuzione, eseguire il cmdlet una seconda volta. La seconda esecuzione avrà esito positivo per completare l'operazione. 
 
 <!-- 2494144 - IS, ASDK --> 
-- Quando si seleziona una dimensione di macchina virtuale per una distribuzione della macchina virtuale, alcune dimensioni di VM serie F non sono visibili nell'ambito del selettore di dimensione quando si crea una macchina virtuale. Le dimensioni delle macchine Virtuali seguenti non vengono visualizzati nel selettore: *F8s_v2*, *F16s_v2*, *F32s_v2*, e *F64s_v2*.  
+- Quando si seleziona una dimensione di macchina virtuale per una distribuzione della macchina virtuale, alcune dimensioni di VM serie F non sono visibili nell'ambito del selettore di dimensione quando si crea una macchina virtuale. Le dimensioni delle macchine Virtuali seguenti non vengono visualizzati nel selettore di: *F8s_v2*, *F16s_v2*, *F32s_v2*, e *F64s_v2*.  
   In alternativa, usare uno dei metodi seguenti per distribuire una macchina virtuale. In ogni metodo, è necessario specificare le dimensioni di macchina virtuale da usare.
 
-  - **Modello di Azure Resource Manager:** quando si usa un modello, impostare il *vmSize* nel modello per uguale alle dimensioni della macchina virtuale da usare. Ad esempio, la voce seguente viene usata per distribuire una macchina virtuale che usa il *F32s_v2* dimensioni:  
+  - **Modello di Azure Resource Manager:** Quando si usa un modello, impostare il *vmSize* nel modello per uguale alle dimensioni della macchina virtuale da usare. Ad esempio, la voce seguente viene usata per distribuire una macchina virtuale che usa il *F32s_v2* dimensioni:  
 
     ```
         "properties": {
@@ -289,9 +288,9 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Comando di Azure:** è possibile usare il [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) comando e specificare le dimensioni VM come parametro, simile a `--size "Standard_F32s_v2"`.
+  - **Comando di Azure:** È possibile usare la [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) comando e specificare le dimensioni VM come parametro, simile a `--size "Standard_F32s_v2"`.
 
-  - **PowerShell:** con PowerShell è possibile usare [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) con il parametro che specifica le dimensioni VM, simile a `-VMSize "Standard_F32s_v2"`.
+  - **PowerShell:** Con PowerShell è possibile usare [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) con il parametro che specifica le dimensioni VM, simile a `-VMSize "Standard_F32s_v2"`.
 
 
 <!-- TBD - IS ASDK --> 

@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: ed02174247de1a99f3d9a4880fd0afa60f867552
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: b17f6301a41dbb1f64edf9d027dff0f57c09282c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139415"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808775"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Un'applicazione di esempio che usa le chiavi e segreti archiviati in un insieme di credenziali delle chiavi
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Seguire i passaggi descritti in questo articolo per eseguire un'applicazione di esempio (HelloKeyVault) che recupera le chiavi e segreti da un insieme di credenziali delle chiavi in Azure Stack.
+Seguire i passaggi descritti in questo articolo per eseguire un'applicazione di esempio denominata **HelloKeyVault** che recupera le chiavi e segreti da una chiave dell'insieme di credenziali in Azure Stack.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,7 +46,7 @@ Per preparare l'applicazione di esempio:
 >[!NOTE]
 >Per impostazione predefinita, lo script di PowerShell crea una nuova applicazione in Active Directory. Tuttavia, è possibile registrare una delle applicazioni esistenti.
 
- Prima di eseguire lo script seguente, assicurarsi di specificare i valori per il `aadTenantName` e `applicationPassword` variabili. Se non si specifica un valore per `applicationPassword`, questo script genera una password casuale.
+Prima di eseguire lo script seguente, assicurarsi di specificare i valori per il `aadTenantName` e `applicationPassword` variabili. Se non si specifica un valore per `applicationPassword`, questo script genera una password casuale.
 
 ```powershell
 $vaultName           = 'myVault'
@@ -69,7 +69,7 @@ Function GenerateSymmetricKey()
 Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor Green
 
 $tenantARM = "https://management.local.azurestack.external"
-$aadTenantName = "PLEASE FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
+$aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
 # Configure the Azure Stack operator’s PowerShell environment.
 Add-AzureRMEnvironment `
@@ -134,10 +134,9 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 '<add key="AuthClientId" value="' + $servicePrincipal.ApplicationId + '"/>'
 '<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
 Write-Host
-
 ```
 
-La schermata successiva mostra l'output dello script utilizzato per creare l'insieme di credenziali delle chiavi:
+L'immagine seguente mostra l'output dello script utilizzato per creare l'insieme di credenziali delle chiavi:
 
 ![Chiave dell'insieme di credenziali con le chiavi di accesso](media/azure-stack-kv-sample-app/settingsoutput.png)
 
@@ -145,19 +144,19 @@ Annotare il **VaultUrl**, **AuthClientId**, e **AuthClientSecret** valori restit
 
 ## <a name="download-and-configure-the-sample-application"></a>Scaricare e configurare l'applicazione di esempio
 
-Scaricare l'esempio di insieme di credenziali delle chiavi da Azure [esempi di client di Key Vault](https://www.microsoft.com/en-us/download/details.aspx?id=45343) pagina. Estrarre il contenuto del file con estensione zip nella workstation di sviluppo. Esistono due applicazioni nella cartella degli esempi, questo articolo Usa HelloKeyVault.
+Scaricare l'esempio di insieme di credenziali delle chiavi da Azure [esempi di client di Key Vault](https://www.microsoft.com/download/details.aspx?id=45343) pagina. Estrarre il contenuto del file con estensione zip nella workstation di sviluppo. Esistono due applicazioni nella cartella degli esempi. Questo articolo viene usato **HelloKeyVault**.
 
-Per caricare l'esempio HelloKeyVault:
+Per caricare il **HelloKeyVault** esempio:
 
 * Selezionare il **Microsoft.Azure.KeyVault.Samples** > **esempi** > **HelloKeyVault** cartella.
-* Aprire l'applicazione HelloKeyVault in Visual Studio.
+* Aprire il **HelloKeyVault** application in Visual Studio.
 
 ### <a name="configure-the-sample-application"></a>Configurare l'applicazione di esempio
 
 In Visual Studio:
 
-* Aprire il file HelloKeyVault\App.config e Sfoglia per trovare le &lt; **appSettings** &gt; elemento.
-* Aggiorna il **VaultUrl**, **AuthClientId**, e **AuthClientSecret** chiavi con i valori restituiti dall'oggetto utilizzato per creare l'insieme di credenziali delle chiavi. (Per impostazione predefinita, il file app. config contiene un segnaposto per *AuthCertThumbprint*. Sostituire il segnaposto con *AuthClientSecret*.)
+* Aprire il file HelloKeyVault\App.config e trovare il &lt; **appSettings** &gt; elemento.
+* Aggiorna il **VaultUrl**, **AuthClientId**, e **AuthClientSecret** chiavi con i valori restituiti da quelli usati per creare l'insieme di credenziali delle chiavi. Per impostazione predefinita, il file app. config contiene un segnaposto per `AuthCertThumbprint`. Sostituire il segnaposto con `AuthClientSecret`.
 
   ![Impostazioni app](media/azure-stack-kv-sample-app/appconfig.png)
 
@@ -170,10 +169,9 @@ Quando si esegue HelloKeyVault, l'applicazione accede ad Azure AD e quindi Usa i
 È possibile usare l'esempio HelloKeyVault per:
 
 * Eseguire operazioni di base, ad esempio creare, crittografare, eseguire il wrapping ed eliminare su chiavi e segreti.
-* Passare i parametri, ad esempio *crittografare* e *decrittografare* a HelloKeyVault e applicare le modifiche specificate a un insieme di credenziali delle chiavi.
+* Passare i parametri, ad esempio `encrypt` e `decrypt` a HelloKeyVault e applicare le modifiche specificate a un insieme di credenziali delle chiavi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire una VM con una password dell'insieme di credenziali delle chiavi](azure-stack-kv-deploy-vm-with-secret.md)
-
-[Distribuire una macchina virtuale con un certificato di Key Vault](azure-stack-kv-push-secret-into-vm.md)
+- [Distribuire una VM con una password dell'insieme di credenziali delle chiavi](azure-stack-kv-deploy-vm-with-secret.md)
+- [Distribuire una macchina virtuale con un certificato di Key Vault](azure-stack-kv-push-secret-into-vm.md)

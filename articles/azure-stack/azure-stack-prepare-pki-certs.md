@@ -1,5 +1,5 @@
 ---
-title: Preparare i certificati di infrastruttura a chiave pubblica Azure Stack per la distribuzione di sistemi integrati di Azure Stack | Microsoft Docs
+title: Preparare i certificati di infrastruttura a chiave pubblica Azure Stack per la distribuzione di sistemi integrati di Azure Stack o la rotazione segreta | Microsoft Docs
 description: Viene descritto come preparare i certificati di infrastruttura a chiave pubblica di Azure Stack per i sistemi integrati di Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972030"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631482"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack per la distribuzione
+# <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack per l'uso nella distribuzione o la rotazione
 I file di certificato [ottenuto dalla CA di scelta](azure-stack-get-pki-certs.md) devono essere importati ed esportati con proprietà corrispondenti requisiti dei certificati di Azure Stack.
 
 
 ## <a name="prepare-certificates-for-deployment"></a>Preparare i certificati per la distribuzione
-Usare questi passaggi per preparare e convalidare i certificati di infrastruttura a chiave pubblica di Azure Stack: 
+Usare questi passaggi per preparare e convalidare i certificati di infrastruttura a chiave pubblica di Azure Stack che saranno utilizzati per la distribuzione di un nuovo ambiente di Azure Stack o per la rotazione dei segreti in un ambiente Azure Stack: 
 
 ### <a name="import-the-certificate"></a>Importare il certificato
 

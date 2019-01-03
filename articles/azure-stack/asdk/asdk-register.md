@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/28/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 84924900403a4aa2a65143c65a0b26f2c95a1e5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 00c4d750d0617d36ab476719ce31c8038065511c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962648"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807211"
 ---
 # <a name="azure-stack-registration"></a>Registrazione con Azure Stack
 È possibile registrare l'installazione di Azure Stack Development Kit (ASDK) con Azure per scaricare elementi di marketplace di Azure e per impostare i dati di e-commerce segnalazioni a Microsoft. È necessario eseguire la registrazione per supportare la funzionalità di Azure Stack completa, tra cui diffusione di marketplace. La registrazione è consigliata perché consente di testare le funzionalità di Azure Stack importanti come la diffusione di marketplace e report sull'utilizzo. Dopo la registrazione di Azure Stack, sull'utilizzo viene segnalato ad Azure commerce. È possibile visualizzarlo nella sottoscrizione che è usata per la registrazione. Tuttavia, gli utenti ASDK non vengono addebitate spese per qualsiasi utilizzo che generano report.
@@ -69,7 +69,7 @@ Seguire questi passaggi per registrare il ASDK con Azure.
     -RegistrationName $RegistrationName `
     -UsageReportingEnabled:$true
     ```
-3. Al termine dell'esecuzione dello script, verrà visualizzato questo messaggio: **l'ambiente è ora registrato e attivati mediante i parametri specificati.**
+3. Al termine dell'esecuzione dello script, si dovrebbe vedere questo messaggio: **L'ambiente è ora registrato e attivati mediante i parametri specificati.**
 
     ![L'ambiente è ora registrato](media/asdk-register/1.PNG)
 
@@ -201,21 +201,21 @@ In alternativa, è possibile usare la **Get-Content** cmdlet in modo che punti a
 Una volta completata l'attivazione, si dovrebbe vedere un messaggio simile al **l'ambiente ha terminato il processo di registrazione e attivazione.**
 
 ## <a name="verify-the-registration-was-successful"></a>Verificare che la registrazione ha avuto esito positivo
-Seguire questa procedura per verificare che la registrazione ASDK con Azure **in ambienti connessi** ha avuto esito positivo.
+
+È possibile usare la **gestione delle aree** riquadro per verificare che la registrazione di Azure Stack è riuscita. Questo riquadro è disponibile nel dashboard predefinito nel portale di amministrazione.
 
 1. Accedi per il [portale di amministrazione di Azure Stack](https://adminportal.local.azurestack.external).
 
-2. Fare clic su **Marketplace Management** > **aggiungere da Azure**.
+2. Dal Dashboard, selezionare **gestione delle aree**.
 
-    ![](media/asdk-register/2.PNG)
+    [ ![Nel riquadro Gestione regione](media/asdk-register/admin1sm.png "nel riquadro Gestione area") ](media/asdk-register/admin1.png#lightbox)
 
-3. Se viene visualizzato un elenco di elementi disponibili in Azure, l'attivazione è riuscita.
-
-    ![](media/asdk-register/3.PNG)
+3. Selezionare **Proprietà**. Questo pannello mostra lo stato e i dettagli dell'ambiente. Lo stato può essere **Registered** oppure **non è registrato**. Se la registrazione, nonché l'ID sottoscrizione di Azure che è utilizzato per registrare Azure Stack, con il gruppo di risorse di registrazione e il nome.
 
 ## <a name="move-a-registration-resource"></a>Spostare una risorsa di registrazione
 Lo spostamento di una risorsa di registrazione tra gruppi di risorse nella stessa sottoscrizione **è** supportati. Per altre informazioni sullo spostamento delle risorse in un nuovo gruppo di risorse, vedere [spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Aggiungere un elemento del marketplace Azure Stack](../azure-stack-marketplace.md)
+
+- [Aggiungere un elemento del marketplace Azure Stack](../azure-stack-marketplace.md)

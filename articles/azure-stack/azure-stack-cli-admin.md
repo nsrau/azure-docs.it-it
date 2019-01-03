@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 09c551ea7196ae20a60a5dd34c1cda889ff5df46
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c2827a4badd61aeb8de556795834dee39769e85e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091066"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554504"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Abilitare la CLI di Azure per gli utenti di Azure Stack
 
@@ -38,7 +38,7 @@ Le sezioni seguenti descrivono come ottenere questi valori.
 È possibile trovare il certificato radice CA Azure Stack nel kit di sviluppo e in una macchina virtuale tenant in cui è in esecuzione all'interno dell'ambiente kit di sviluppo. Per esportare il certificato radice di Azure Stack in formato PEM, accedere al kit di sviluppo o la macchina virtuale tenant ed eseguire lo script seguente:
 
 ```powershell
-$label = "AzureStackSelfSignedRootCert"
+$label = "<Your Azure Stack CA root certificate name>"
 Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
 $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
 if (-not $root)
@@ -69,7 +69,5 @@ Oggetto [file di esempio alias](https://raw.githubusercontent.com/Azure/azure-re
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Distribuire modelli con l'interfaccia della riga di comando di Azure](azure-stack-deploy-template-command-line.md)
-
 - [Connettersi con PowerShell](azure-stack-connect-powershell.md)
-
 - [Gestire le autorizzazioni utente](azure-stack-manage-permissions.md)
