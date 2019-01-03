@@ -87,7 +87,7 @@ items:
       - name: Gestione dei dati di log personali
         href: platform/personal-data-mgmt.md
       - name: Raccolta, conservazione e archiviazione dei dati dell'applicazione
-        href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
+        href: app/data-retention-privacy.md
   - name: Informazioni dettagliate
     items:
     - name: Application Insights
@@ -95,9 +95,9 @@ items:
       - name: Panoramica
         href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
       - name: DevOps
-        href: ../application-insights/app-insights-detect-triage-diagnose.md?toc=/azure/azure-monitor/toc.json
+        href: app/detect-triage-diagnose.md
       - name: Analisi distribuita
-        href: ../application-insights/distributed-tracing.md?toc=/azure/azure-monitor/toc.json
+        href: app/distributed-tracing.md
       - name: Metriche basate su log e preaggregate
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Contenitori
@@ -157,7 +157,7 @@ items:
       - name: APPLICAZIONI
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
       - name: Indirizzi IP
-        href: ../application-insights/app-insights-ip-addresses.md?toc=/azure/azure-monitor/toc.json
+        href: app/ip-addresses.md
     - name: Monitorare le applicazioni
       items:
       - name: Diagnostica completa dei servizi e delle app Web
@@ -167,7 +167,7 @@ items:
       - name: Separare sviluppo, test e produzione
         href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
       - name: Cosa fare in Application Insights?
-        href: ../application-insights/app-insights-how-do-i.md?toc=/azure/azure-monitor/toc.json
+        href: app/how-do-i.md
     - name: Gestire le aree di lavoro
       items:
       - name: Creare un'area di lavoro
@@ -263,9 +263,9 @@ items:
       - name: App Azure
         items:
         - name: App Web di Azure
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Servizi cloud di Azure
-          href: ../application-insights/app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json
+          href: app/cloudservices.md
         - name: Aggiungere il monitoraggio continuo
           href: ../application-insights/app-insights-vsts-continuous-monitoring.md?toc=/azure/azure-monitor/toc.json
         - name: Profiler
@@ -293,54 +293,54 @@ items:
       - name: App ASP.NET
         items:
         - name: App Web
-          href: ../application-insights/app-insights-asp-net.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net.md
         - name: Monitoraggio stato
-          href: ../application-insights/app-insights-monitor-performance-live-website-now.md?toc=/azure/azure-monitor/toc.json
+          href: app/monitor-performance-live-website-now.md
         - name: Servizi Windows
           href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
         - name: Desktop di Windows
           href: ../application-insights/app-insights-windows-desktop.md?toc=/azure/azure-monitor/toc.json
         - name: ASP.NET Core
-          href: ../application-insights/app-insights-asp-net-core.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-core.md
           items:
           - name: Profiler per i servizi app Linux
             href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json
         - name: Console
-          href: ../application-insights/application-insights-console.md?toc=/azure/azure-monitor/toc.json
+          href: app/console.md
         - name: Dashboard dell'applicazione
           href: ../application-insights/app-insights-overview-dashboard.md?toc=/azure/azure-monitor/toc.json
         - name: Raccogliere altri dati di telemetria
-          href: ../application-insights/app-insights-asp-net-more.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-more.md
         - name: Eccezioni
-          href: ../application-insights/app-insights-asp-net-exceptions.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-exceptions.md
         - name: Analisi di log
-          href: ../application-insights/app-insights-asp-net-trace-logs.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-trace-logs.md
         - name: Contatori delle prestazioni
           href: ../application-insights/app-insights-performance-counters.md?toc=/azure/azure-monitor/toc.json
         - name: Dependencies
-          href: ../application-insights/app-insights-asp-net-dependencies.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-dependencies.md
         - name: Annotazioni sulle versioni
           href: app/annotations.md
         - name: ApplicationInsights.config
-          href: ../application-insights/app-insights-configuration-with-applicationinsights-config.md?toc=/azure/azure-monitor/toc.json
+          href: app/configuration-with-applicationinsights-config.md
         - name: Debugger di snapshot
           href: ../application-insights/app-insights-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
       - name: App Java
         items:
         - name: App Web
-          href: ../application-insights/app-insights-java-get-started.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-get-started.md
         - name: App Web - Runtime
-          href: ../application-insights/app-insights-java-live.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-live.md
         - name: App Docker
-          href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
+          href: app/docker.md
         - name: Analisi di log
-          href: ../application-insights/app-insights-java-trace-logs.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-trace-logs.md
         - name: Metriche di UNIX
-          href: ../application-insights/app-insights-java-collectd.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-collectd.md
         - name: Dependencies
-          href: ../application-insights/app-insights-java-agent.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-agent.md
         - name: Filtrare i dati di telemetria
-          href: ../application-insights/app-insights-java-filter-telemetry.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-filter-telemetry.md
         - name: Metriche di Micrometer
           href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json
       - name: App Node.js
@@ -350,7 +350,7 @@ items:
       - name: Pagina Web
         items:
         - name: JavaScript
-          href: ../application-insights/app-insights-javascript.md?toc=/azure/azure-monitor/toc.json
+          href: app/javascript.md
       - name: Monitorare Funzioni di Azure
         href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json
       - name: Analisi distribuita
@@ -393,13 +393,13 @@ items:
       - name: Risolvere problemi
         items:
         - name: Nessun dato per .NET
-          href: ../application-insights/app-insights-asp-net-troubleshoot-no-data.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-troubleshoot-no-data.md
         - name: Debugger di snapshot
           href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
         - name: Analytics
           href: app/analytics-troubleshooting.md
         - name: Java
-          href: ../application-insights/app-insights-java-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-troubleshoot.md
         - name: Analisi dell'utilizzo
           href: ../application-insights/app-insights-usage-troubleshoot.md?toc=/azure/azure-monitor/toc.json
     - name: Risorse di Azure
@@ -417,7 +417,7 @@ items:
       - name: Risorse PaaS di Azure
         href: platform/collect-azurepass-posh.md
       - name: Correlare origini dati personalizzate
-        href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
+        href: app/custom-data-correlation.md
     - name: Raccogliere dati personalizzati
       items:
       - name: API di raccolta dati di Log Analytics
@@ -453,16 +453,16 @@ items:
       - name: Esportare i dati dell'applicazione
         items:
         - name: Esportazione continua
-          href: ../application-insights/app-insights-export-telemetry.md?toc=/azure/azure-monitor/toc.json
+          href: app/export-telemetry.md
           items:
           - name: Esempi di codice
             items:
             - name: Eseguire l'esportazione in SQL usando Analisi di flusso
-              href: ../application-insights/app-insights-code-sample-export-sql-stream-analytics.md?toc=/azure/azure-monitor/toc.json
+              href: app/code-sample-export-sql-stream-analytics.md
             - name: Esportare in Analisi di flusso
-              href: ../application-insights/app-insights-export-stream-analytics.md?toc=/azure/azure-monitor/toc.json
+              href: app/export-stream-analytics.md
         - name: Esportare il modello di dati
-          href: ../application-insights/app-insights-export-data-model.md?toc=/azure/azure-monitor/toc.json
+          href: app/export-data-model.md
   - name: Ottenere informazioni dettagliate
     items:
     - name: Monitorare le applicazioni
@@ -470,7 +470,7 @@ items:
       - name: Portale Application Insights
         items:
         - name: Ricerca
-          href: ../application-insights/app-insights-diagnostic-search.md?toc=/azure/azure-monitor/toc.json
+          href: app/diagnostic-search.md
         - name: Metriche
           href: ../application-insights/app-insights-metrics-explorer.md?toc=/azure/azure-monitor/toc.json
         - name: Live stream
@@ -480,7 +480,7 @@ items:
         - name: Diagnostica delle transazioni
           href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: Dati HockeyApp
-          href: ../application-insights/app-insights-hockeyapp-bridge-app.md?toc=/azure/azure-monitor/toc.json
+          href: app/hockeyapp-bridge-app.md
       - name: Visual Studio
         items:
         - name: Approfondimenti F5
@@ -532,7 +532,7 @@ items:
       - name: Monitoraggio dei contenitori Docker e Windows
         href: insights/containers.md
       - name: Monitorare applicazioni Docker
-        href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
+        href: app/docker.md
     - name: Monitorare i gruppi di risorse
       href: insights/resource-group-insights.md
     - name: Monitorare i database
@@ -762,7 +762,7 @@ items:
       - name: Usare gli avvisi delle applicazioni
         items:
         - name: Disponibilità
-          href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=/azure/azure-monitor/toc.json
+          href: app/monitor-web-app-availability.md
         - name: Avvisi delle metriche
           href: app/alerts.md
       - name: Usare i gruppi di azioni con gli avvisi
@@ -829,14 +829,10 @@ items:
     items:
     - name: Utilizzo e costi stimati
       href: platform/usage-estimated-costs.md
-    - name: Volume e conservazione dei dati delle applicazioni
+    - name: Utilizzo e costi delle applicazioni
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
-    - name: Dettagli del piano Enterprise per le applicazioni
-      href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=/azure/azure-monitor/toc.json
-    - name: Volume e conservazione dei dati di log
+    - name: Utilizzo e costi dei dati del log
       href: platform/manage-cost-storage.md
-    - name: Utilizzo del monitoraggio dei dati di log
-      href: platform/data-usage.md
   - name: Automatizzare
     items:
     - name: PowerShell
@@ -868,11 +864,11 @@ items:
     - name: APPLICAZIONI
       items:
       - name: Automatizzare con Microsoft Flow
-        href: ../application-insights/app-insights-automate-with-flow.md?toc=/azure/azure-monitor/toc.json
+        href: app/automate-with-flow.md
       - name: Automatizzare con un'app per la logica di Azure
-        href: ../application-insights/automate-with-logic-apps.md?toc=/azure/azure-monitor/toc.json
+        href: app/automate-with-logic-apps.md
       - name: Report di posta elettronica personalizzati
-        href: ../application-insights/automate-custom-reports.md?toc=/azure/azure-monitor/toc.json
+        href: app/automate-custom-reports.md
   - name: Extend
     items:
     - name: APPLICAZIONI
@@ -880,7 +876,7 @@ items:
       - name: API per eventi e metriche personalizzati
         href: app/api-custom-events-metrics.md
       - name: Tenere traccia delle operazioni personalizzate in .NET SDK
-        href: ../application-insights/application-insights-custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json
+        href: app/custom-operations-tracking.md
       - name: Filtri e pre-elaborazione della telemetria
         href: app/api-filtering-sampling.md
       - name: campionamento
@@ -901,14 +897,14 @@ items:
         href: insights/solutions-best-practices.md
       - name: Raccogliere i dati di monitoraggio da un runbook
         href: platform/runbook-datacollect.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Application Insights
     items:
     - name: Raccolta automatica delle dipendenze
-      href: ../application-insights/auto-collect-dependencies.md?toc=/azure/azure-monitor/toc.json
+      href: app/auto-collect-dependencies.md
     - name: Correlazione di dati di telemetria
-      href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
+      href: app/correlation.md
     - name: Pacchetti NuGet
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
     - name: Supporto delle piattaforme
@@ -916,21 +912,21 @@ items:
   - name: Modello di dati di Application Insights
     items:
     - name: Panoramica
-      href: ../application-insights/application-insights-data-model.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model.md
     - name: Richiesta
-      href: ../application-insights/application-insights-data-model-request-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-request-telemetry.md
     - name: Dipendenza
-      href: ../application-insights/application-insights-data-model-dependency-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-dependency-telemetry.md
     - name: Eccezione
-      href: ../application-insights/application-insights-data-model-exception-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-exception-telemetry.md
     - name: Trace
-      href: ../application-insights/application-insights-data-model-trace-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-trace-telemetry.md
     - name: Event
-      href: ../application-insights/application-insights-data-model-event-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-event-telemetry.md
     - name: Metrica
-      href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-metric-telemetry.md
     - name: Context
-      href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-context.md
   - name: Interfaccia della riga di comando di Azure
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Funzioni di Azure
@@ -1008,9 +1004,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 819cce3f144c3073f5b831d78cb3d9fa1b0a0a8a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1b80318e470995d060467f42aa61cdf6f4e8f34b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726449"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974574"
