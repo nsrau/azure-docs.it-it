@@ -56,6 +56,12 @@ items:
   items:
   - name: Risoluzione dei problemi relativi a SSH
     href: troubleshoot-ssh-connection.md
+  - name: Risolvere i problemi di errori del file system
+    href: https://support.microsoft.com/help/3213321
+  - name: Risolvere i problemi di avvio correlati al kernel
+    href: https://support.microsoft.com/help/4091524
+  - name: Risolvere i problemi di fstab
+    href: https://support.microsoft.com/help/3206699
   - name: Risoluzione dettagliata dei problemi relativi a SSH
     href: detailed-troubleshoot-ssh-connection.md
 - name: Messaggi di errore comuni
@@ -105,6 +111,8 @@ items:
   href: unexpected-reboots-attached-vhds.md
 - name: Problemi di attivazione di Windows
   href: troubleshoot-activation-problems.md
+- name: Problema di attivazione con il tunneling forzato
+  href: custom-routes-enable-kms-activation.md
 - name: Problemi di accesso alle applicazioni
   href: troubleshoot-app-connection.md
 - name: Nuove distribuzioni di VM
@@ -162,9 +170,9 @@ items:
   href: understand-vm-reboot.md
 - name: Strumenti per la risoluzione remota dei problemi
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: af1f284108a326b3ce099ee49cb15a8f51cc61af
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b745b9e42c700ea446d934df7d2e3201b555f075
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434859"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976325"
