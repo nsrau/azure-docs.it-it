@@ -3,23 +3,22 @@ title: Creare un'entità servizio per Azure Stack | Microsoft Docs
 description: Viene descritto come creare un'entità servizio che può essere utilizzata con il controllo di accesso basato sui ruoli in Azure Resource Manager per gestire l'accesso alle risorse.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4c205055239b7bf16bbb73448c21818de419e623
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958315"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715831"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Concedere alle applicazioni di accedere alle risorse di Azure Stack tramite la creazione di entità servizio
 
@@ -52,7 +51,7 @@ La modalità usata per configurare Active Directory per Azure Stack determina co
 
 I passaggi per l'assegnazione di un'entità servizio a un ruolo corrispondente per Azure AD e AD FS. Dopo aver creato l'entità servizio, è possibile [delegare le autorizzazioni](azure-stack-create-service-principals.md#assign-role-to-service-principal) assegnandolo a un ruolo.
 
-## <a name="create-a-service-principal-for-azure-ad"></a>Creare un'entità servizio per Azure AD
+## <a name="create-service-principal-for-azure-ad"></a>Creare un'entità servizio per Azure AD
 
 Se lo Stack di Azure Usa Azure AD come archivio di identità, è possibile creare un'entità servizio usando la stessa procedura come in Azure, usando il portale di Azure.
 
@@ -95,11 +94,11 @@ Se è stato distribuito tramite AD FS come archivio identità di Azure Stack, è
 * Assegnare l'entità servizio a un ruolo.
 * Accedere utilizzando l'identità dell'entità servizio.
 
-Per informazioni dettagliate su come creare l'entità servizio, vedere [creare un'entità servizio per AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+Per informazioni dettagliate su come creare l'entità servizio, vedere [creare un'entità servizio per AD FS](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Assegnare l'entità servizio a un ruolo
 
-Per accedere alle risorse della propria sottoscrizione è necessario assegnare l'applicazione a un ruolo. Decidere quale ruolo rappresenti le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
+Per accedere alle risorse della propria sottoscrizione è necessario assegnare l'applicazione a un ruolo. Decidere quale ruolo rappresenti le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [RBAC: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
 
 >[!NOTE]
 È possibile impostare l'ambito del ruolo a livello di una sottoscrizione, un gruppo di risorse o una risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Un'app con il ruolo lettore per un gruppo di risorse, ad esempio, significa che l'app può leggere tutte le risorse nel gruppo di risorse.
@@ -114,9 +113,7 @@ Usare la procedura seguente come guida per l'assegnazione di un ruolo a un'entit
 
 3. Selezionare **controllo di accesso (IAM)** per la sottoscrizione.
 
-     ![Selezionare il controllo di accesso](./media/azure-stack-create-service-principal/image17.png)
-
-4. Selezionare **Aggiungi**.
+4. Selezionare **Aggiungi assegnazione ruolo**.
 
 5. Selezionare il ruolo che si desidera assegnare all'applicazione.
 
