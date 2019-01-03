@@ -24,7 +24,7 @@ ms.locfileid: "53309179"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
-**D: Di recente è stato registrato un dispositivo. Perché non viene visualizzato nelle informazioni dell'utente all'interno del portale di Azure? Oppure perché il proprietario del dispositivo è contrassegnato come N/D per i dispositivi ibridi aggiunti ad Azure AD? **
+**D: Di recente è stato registrato un dispositivo. Perché non viene visualizzato nelle informazioni dell'utente all'interno del portale di Azure? Oppure perché il proprietario del dispositivo è contrassegnato come N/D per i dispositivi ibridi aggiunti ad Azure AD?**
 **R:** I dispositivi ibridi di Windows 10 aggiunti ad Azure AD non vengono visualizzati tra i dispositivi utente (USER).
 È necessario usare la visualizzazione Tutti i dispositivi nel portale di Azure. In alternativa, è possibile usare il cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) di PowerShell.
 
@@ -107,7 +107,7 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 
 ---
 
-**D: Gli utenti possono accedere ai dispositivi aggiunti ad Azure AD che sono stati eliminati o disabilitati in Azure AD? **
+**D: Gli utenti possono accedere ai dispositivi aggiunti ad Azure AD che sono stati eliminati o disabilitati in Azure AD?**
 **R:** Sì. Windows memorizza gli accessi nella cache per consentire agli utenti che hanno eseguito l'accesso in precedenza di accedere rapidamente al desktop anche senza connettività di rete. Quando un dispositivo viene eliminato o disabilitato in Azure AD, ciò non è noto al dispositivo Windows. Pertanto, gli utenti che hanno eseguito l'accesso in precedenza possono continuare ad accedere al desktop grazie all'accesso memorizzato nella cache. Tuttavia, poiché il dispositivo è stato eliminato o disabilitato, gli utenti non possono accedere alle risorse protette dall'accesso condizionale basato sul dispositivo. 
 
 Gli utenti che non hanno già effettuato l'accesso non possono accedere al dispositivo perché non c'è alcun accesso memorizzato nella cache abilitato per tali utenti. 
