@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b884fc15770e91268d1033dc4bab9bf96766de94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: af85975fce20a87af8365f8fe6ea73ed1e6e1416
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868941"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998915"
 ---
 # <a name="smart-detection-in-application-insights"></a>Rilevamento intelligente in Application Insights
  Il rilevamento intelligente segnala automaticamente i potenziali problemi di prestazioni nell'applicazione Web. Esegue l'analisi proattiva dei dati di telemetria che l'app invia ad [Application Insights](app-insights-overview.md). Se si verifica un improvviso aumento della percentuale di errori o in caso di modelli anomali delle prestazioni di client o server, viene generato un avviso. Questa funzionalità non richiede alcuna configurazione. Funziona se l'applicazione invia dati di telemetria sufficienti.
@@ -54,12 +54,12 @@ I collegamenti della Guida in ogni notifica consentono di vedere gli articoli pe
 ## <a name="next-steps"></a>Passaggi successivi
 Gli strumenti di diagnostica seguenti consentono di controllare la telemetria dall'app:
 
-* [Esplora metriche](app-insights-metrics-explorer.md)
-* [Esplora ricerche](app-insights-diagnostic-search.md)
+* [Esplora metriche](../azure-monitor/app/metrics-explorer.md)
+* [Esplora ricerche](../azure-monitor/app/diagnostic-search.md)
 * [Linguaggio avanzato di query di Analisi](../azure-monitor/log-query/get-started-portal.md)
 
 Il rilevamento intelligente è completamente automatico, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 
-* [Configurare manualmente gli avvisi relativi alle metriche](app-insights-alerts.md)
-* [Test Web di disponibilità](app-insights-monitor-web-app-availability.md) 
+* [Configurare manualmente gli avvisi relativi alle metriche](../azure-monitor/app/alerts.md)
+* [Test Web di disponibilità](../azure-monitor/app/monitor-web-app-availability.md) 
 

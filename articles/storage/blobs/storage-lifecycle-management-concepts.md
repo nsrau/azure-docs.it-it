@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 4dff63a20f9ae3372e37cbd413dd3ec6187ea2cc
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5c77d7d8f1ce3b4a13e497d461244aae5b34d08c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310252"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631363"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gestione del ciclo di vita di Archiviazione BLOB di Azure (anteprima)
 
@@ -43,14 +43,16 @@ Per inviare una richiesta, eseguire i comandi PowerShell o dell'interfaccia dell
 
 ### <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Per inviare una richiesta:
 
 ```powershell
-Register-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
+Register-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
 ```
 È possibile controllare lo stato di approvazione della registrazione con il comando seguente:
 ```powershell
-Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 Con l'approvazione e la registrazione corretta, si ottiene lo stato *Registrato* quando si inoltrano le richieste precedenti.
 
@@ -69,7 +71,7 @@ Con l'approvazione e la registrazione corretta, si ottiene lo stato *Registrato*
 
 ## <a name="add-or-remove-a-policy"></a>Aggiungere o rimuovere un criterio 
 
-È possibile aggiungere, modificare o rimuovere criteri tramite il portale di Azure, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), le [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) o gli strumenti client nei linguaggi seguenti: .[NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+È possibile aggiungere, modificare o rimuovere criteri tramite il portale di Azure, [PowerShell](https://www.powershellgallery.com/packages/Az.Storage), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), le [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) o gli strumenti client nei linguaggi seguenti: .[NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -84,9 +86,9 @@ Con l'approvazione e la registrazione corretta, si ottiene lo stato *Registrato*
 ```powershell
 $rules = '{ ... }' 
 
-Set-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
+Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
 
-Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
+Get-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
 ```
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure

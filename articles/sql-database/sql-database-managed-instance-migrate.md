@@ -3,21 +3,21 @@ title: Eseguire la migrazione di un'istanza di SQL Server a Istanza gestita di d
 description: Informazioni su come eseguire la migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: douglas, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 3808511e588ba4284dee16cf7ca88bfd5a382c3a
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f68cb2d1c34ca351811050546c0eae818e84300a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337479"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651759"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure
 

@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 76355723baa7727c0dda10ace449603d6ebefbe1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bfa5cc9a5c04d4c6a692d9a70844f2ec0c35e132
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435855"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579176"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creare avvisi delle metriche per i log in Monitoraggio di Azure  
 
 ## <a name="overview"></a>Panoramica
-Monitoraggio di Azure un [tipo di avviso delle metriche](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) che presenta vantaggi rispetto agli [avvisi classici](../../azure-monitor/platform/alerts-classic-portal.md). Sono disponibili metriche per un [lungo elenco di servizi di Azure](../../azure-monitor/platform/metrics-supported.md). Questo articolo illustra l'uso di un subset per la risorsa - `Microsoft.OperationalInsights/workspaces`. 
+Monitoraggio di Azure un [tipo di avviso delle metriche](../../azure-monitor/platform/alerts-metric-near-real-time.md) che presenta vantaggi rispetto agli [avvisi classici](../../azure-monitor/platform/alerts-classic-portal.md). Sono disponibili metriche per un [lungo elenco di servizi di Azure](../../azure-monitor/platform/metrics-supported.md). Questo articolo illustra l'uso di un subset per la risorsa - `Microsoft.OperationalInsights/workspaces`. 
 
 È possibile usare gli avvisi delle metriche nei log di Log Analytics più comuni estratti come metriche nell'ambito di metriche dai log, incluse le risorse in Azure o in locale. Le soluzioni di Log Analytics supportate sono elencate di seguito:
 - [Contatori delle prestazioni](../../azure-monitor/platform/data-sources-performance-counters.md) per i computer Windows e Linux
@@ -51,7 +51,7 @@ Prima che sia possibile usare la metrica per i log raccolta sui dati di Log Anal
 4. **Soluzioni di Log Analytics configurate per inviare log**: per la soluzione Log Analytics è necessario che siano abilitati i log e i dati necessari corrispondenti alle [metriche supportate per le aree di lavoro di Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces). Ad esempio, per il valore relativo alla *percentuale di memoria disponibile* il contatore relativo deve essere prima configurato nella soluzione [contatori delle prestazioni](../../azure-monitor/platform/data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configurazione degli avvisi delle metriche per i log
- Gli avvisi delle metriche possono essere creati e gestiti tramite il portale di Azure, i modelli di Resource Manager, l'API REST, PowerShell e l'interfaccia della riga di comando di Azure. Poiché gli avvisi delle metriche per i log sono una variante degli avvisi delle metriche, dopo aver soddisfatto i prerequisiti, l'avviso delle metriche per i log possono essere creati per l'area di lavoro di Log Analytics specificata. Tutte le caratteristiche e le funzionalità degli [ avvisi delle metriche](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) sono applicabile agli avvisi delle metriche per i log, ad esempio lo schema di payload, i limiti di quota applicabile e il prezzo fatturato.
+ Gli avvisi delle metriche possono essere creati e gestiti tramite il portale di Azure, i modelli di Resource Manager, l'API REST, PowerShell e l'interfaccia della riga di comando di Azure. Poiché gli avvisi delle metriche per i log sono una variante degli avvisi delle metriche, dopo aver soddisfatto i prerequisiti, l'avviso delle metriche per i log possono essere creati per l'area di lavoro di Log Analytics specificata. Tutte le caratteristiche e le funzionalità degli [ avvisi delle metriche](../../azure-monitor/platform/alerts-metric-near-real-time.md) sono applicabile agli avvisi delle metriche per i log, ad esempio lo schema di payload, i limiti di quota applicabile e il prezzo fatturato.
 
 Per informazioni dettagliate ed esempi, vedere [Creating and managing  metric alerts](https://aka.ms/createmetricalert) (Creazione e gestione degli avvisi delle metriche). In particolare, per gli avvisi delle metriche per i log, seguire le istruzioni per la gestione e verificare quanto segue:
 - La destinazione per l'avviso delle metriche deve essere un'*area di lavoro di Log Analytics*

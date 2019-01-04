@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435770"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726291"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticare le richieste a Servizi cognitivi di Azure
 
@@ -34,7 +34,7 @@ Per poter effettuare una richiesta, è necessario disporre di un account Azure e
 
 | Intestazione | DESCRIZIONE |
 |--------|-------------|
-| Ocp-Apim-Subscription-Key | Usare questa intestazione per eseguire l'autenticazione con una chiave di sottoscrizione per un servizio specifico o una chiave di sottoscrizione multiservizio. Se si usa una chiave di sottoscrizione multiservizio, l'area per la sottoscrizione deve essere specificata come intestazione `Ocp-Apim-Subscription-Region`. |
+| Ocp-Apim-Subscription-Key | Usare questa intestazione per eseguire l'autenticazione con una chiave di sottoscrizione per un servizio specifico o una chiave di sottoscrizione multiservizio. |
 | Ocp-Apim-Subscription-Region | Questa intestazione è richiesta solo quando si usa una chiave di sottoscrizione multiservizio con l'[API Traduzione testuale](./Translator/reference/v3-0-reference.md). Usare questa intestazione per specificare l'area di sottoscrizione. |
 | Authorization | Usare questa intestazione se si usa un token di autenticazione. Le sezioni seguenti descrivono in dettaglio i passaggi per eseguire uno scambio di token. Il valore specificato segue questo formato: `Bearer <TOKEN>`. |
 

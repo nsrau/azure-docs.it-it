@@ -5,15 +5,15 @@ services: digital-twins
 author: alinamstanciu
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: 216e2db82d5a07bd8e4cae8b9f357ac7dcee330a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e8027e16cc1f58fbadbb35ae241ab29010005586
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626397"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584793"
 ---
 1. Nel [portale di Azure](https://portal.azure.com) aprire **Azure Active Directory** nel riquadro sinistro e quindi aprire il riquadro **Proprietà**. Copia il valore di **ID directory** in un file temporaneo. Questo valore verrà usato per configurare un'applicazione di esempio nella sezione successiva.
 
@@ -23,13 +23,13 @@ ms.locfileid: "51626397"
 
     ![Riquadro Registrazioni app](./media/digital-twins-permissions/aad-app-reg-start.png)
 
-1. Assegnare un nome descrittivo a questa registrazione app nella casella **Nome**. Scegliere **Nativa** per **Tipo di applicazione** e `https://microsoft.com` per **URI di reindirizzamento**. Selezionare **Crea**.
+1. Assegnare un nome descrittivo a questa registrazione app nella casella **Nome**. Scegliere **Nativa** per **Tipo di applicazione** e `https://microsoft.com` per **URI di reindirizzamento**. Selezionare **Create**.
 
     ![Riquadro Crea](./media/digital-twins-permissions/aad-app-reg-create.png)
 
 1. Aprire l'app registrata e copiare il valore del campo **ID applicazione** in un file temporaneo. Questo valore identifica l'app di Azure Active Directory. L'ID applicazione verrà usato per configurare l'applicazione di esempio nelle sezioni seguenti.
 
-    ![ID applicazione Azure Active Directory](./media/digital-twins-permissions/aad-app-reg-app-id.png)
+    ![ID dell'applicazione Azure Active Directory](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
 1. Aprire il riquadro Registrazioni app. Selezionare **Impostazioni** > **Autorizzazioni necessarie** e quindi:
 

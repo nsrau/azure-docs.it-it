@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
 ROBOTS: NOINDEX
-ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 96c2bd1c11554481e441662a6051620f4b2e2993
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237875"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972363"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Separazione e tokenizzazione delle frasi
 
@@ -75,4 +75,4 @@ Questa tokenizzazione consente di gestire la parola *didn't* e la locuzione *did
 ## <a name="specification"></a>Specifiche
 
 È importante decidere in modo coerente da che cosa sono costituiti una frase e un token.
-Viene usata la specifica di [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (altri dettagli sono disponibili all'indirizzo ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).
+Viene usata la specifica di [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42) (altri dettagli sono disponibili all'indirizzo ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).

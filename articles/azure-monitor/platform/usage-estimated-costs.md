@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 072201dd552f5d68a9b6621b2ca7c83acd76a1f5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6b8940f62b94615b4622f60786e411b9a18b2dee
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439568"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001618"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitoraggio dell'utilizzo e dei costi stimati
 
@@ -22,7 +22,7 @@ ms.locfileid: "53439568"
 > Questo articolo descrive come visualizzare l'utilizzo e costi stimati tra più funzionalità di monitoraggio di Azure per diversi modelli di determinazione prezzi.  Per le informazioni correlate, vedere gli articoli seguenti.
 > - [Gestire i costi controllando i volumi dei dati e la conservazione in Log Analytics](../../azure-monitor/platform/manage-cost-storage.md) descrive come controllare i costi modificando il periodo di conservazione dei dati.
 > - [Analizzare l'utilizzo dei dati in Log Analytics](../../azure-monitor/platform/data-usage.md) descrive l'analisi e gli avvisi per l'utilizzo dei dati in Log Analytics.
-> - [Gestire volumi di dati e di prezzi in Application Insights](../../application-insights/app-insights-pricing.md) descrive come analizzare l'utilizzo dei dati in Application Insights.
+> - [Gestire volumi di dati e di prezzi in Application Insights](../../azure-monitor/app/pricing.md) descrive come analizzare l'utilizzo dei dati in Application Insights.
 
 La pagina **Utilizzo e costi stimati** dell'hub Monitoraggio del portale di Azure descrive l'utilizzo delle funzionalità di monitoraggio di base, come [avvisi, metriche, notifiche](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Per i clienti con piani tariffari disponibili prima di aprile 2018, è incluso anche l'utilizzo di Log Analytics acquistato tramite l'offerta Insights e Analytics.
 

@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: cf315718377210e13a6634c0eaf8caab158bcc4d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24d0965fa2a88bc844a81c7430d46c071a9b874b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342222"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580043"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -93,7 +93,7 @@ Per gli avvisi delle metriche si riceve in genere una notifica in meno di 5 minu
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Tipi di risorse supportati per gli avvisi delle metriche
 
-L'elenco completo dei tipi di risorse supportati è disponibile in questo [articolo](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+L'elenco completo dei tipi di risorse supportati è disponibile in questo [articolo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 Se si usano avvisi delle metriche classici e si vuole verificare se gli avvisi delle metriche supportano tutti i tipi di risorsa usati, nella tabella seguente sono elencati i tipi di risorsa supportati dagli avvisi delle metriche classici e viene indicato se tali tipi di risorsa sono attualmente supportati dagli avvisi delle metriche oppure no.
 

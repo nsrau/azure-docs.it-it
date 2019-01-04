@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d90a4272f843cc9f2b66aa202ddefe54e7b1a361
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317475"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632162"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
 Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio PD, documenti di Microsoft Office e numerosi altri formati comuni) salvati nell'archivio BLOB di Azure. In primo luogo, vengono illustrate le nozioni di base per l'impostazione e la configurazione di un indicizzatore BLOB. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi.
@@ -334,7 +334,7 @@ L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di
 
 Si consiglia di "comporre" i documenti da più origini nell'indice. Ad esempio, è possibile unire testo dagli oggetti binari di grandi dimensioni con altri metadati archiviati in Cosmos DB. È anche possibile utilizzare l'API di indicizzazione push insieme a diversi indicizzatori per compilare i documenti di ricerca da più parti. 
 
-Per funzionare, tutti gli indicizzatori e altri componenti devono concordare sulla chiave del documento. Per una procedura dettagliata, vedere questo articolo esterno: [Combinare documenti con altri dati in Ricerca di Azure ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Per funzionare, tutti gli indicizzatori e altri componenti devono concordare sulla chiave del documento. Per una procedura dettagliata, vedere questo articolo esterno: [Combinare documenti con altri dati in Ricerca di Azure ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indicizzazione di testo normale 

@@ -1,21 +1,18 @@
 ---
-title: Come eseguire il backup e ripristinare un server nel Database di Azure per PostgreSQL | Microsoft Docs
+title: Come eseguire il backup e il ripristino di un server in Database di Azure per PostgreSQL
 description: Informazioni su come eseguire il backup e il ripristino di un server nel database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure.
-services: postgresql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: de0d6ee32380367bfba4a27958c9c1e739b5dba3
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 93bece582975f5149ea8ab5cb85d4d508613d066
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173427"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536356"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure
 
@@ -31,7 +28,7 @@ Per completare questa guida, è necessario:
  
 
 > [!IMPORTANT]
-> Questa guida dettagliata richiede l'uso dell'interfaccia della riga di comando di Azure 2.0 o versioni successive. Per verificare la versione, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere `az --version`. Per eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+> Questa guida dettagliata richiede l'uso dell'interfaccia della riga di comando di Azure 2.0 o versioni successive. Per verificare la versione, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere `az --version`. Per installare o eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="set-backup-configuration"></a>Impostare la configurazione del backup
 
@@ -71,9 +68,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 Il comando `az postgres server restore` richiede i parametri seguenti:
-| Impostazione | Valore consigliato | DESCRIZIONE  |
+| Impostazione | Valore consigliato | DESCRIZIONE  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
+| resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selezionare un punto nel tempo per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il proprio fuso orario locale, ad esempio `2018-03-13T05:59:00-08:00`. È anche possibile usare il formato UTC Zulu, ad esempio `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Il nome o l'ID del server di origine da cui eseguire il ripristino. |
@@ -110,7 +107,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 ```
 
 Il comando `az postgres server georestore` richiede i parametri seguenti:
-| Impostazione | Valore consigliato | DESCRIZIONE  |
+| Impostazione | Valore consigliato | DESCRIZIONE  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nome del gruppo di risorse cui apparterrà il nuovo server.|
 |name | mydemoserver-georestored | Nome del nuovo server. |

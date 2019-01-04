@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3536fb21d50dd54ec71615eba25c2d60fc727f34
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8072d72dbb164d5012ad42d5cba66c8b425e99a1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583296"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787904"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gestire le risorse del cluster Apache Spark in Azure HDInsight 
 
@@ -34,7 +34,7 @@ Server cronologia Spark è l'interfaccia utente Web per le applicazioni Spark co
 
 **Per aprire l'interfaccia utente Web Server cronologia Spark**
 
-1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. In **Collegamenti rapidi** fare clic su **Dashboard cluster** e quindi su **Server cronologia Spark**.
 
     ![Server cronologia Spark](./media/apache-spark-resource-manager/launch-history-server.png "Server cronologia Spark")
@@ -54,15 +54,13 @@ L'interfaccia utente Web Server cronologia Spark è simile all'immagine seguente
 ## <a name="open-the-yarn-ui"></a>Aprire l'interfaccia utente di YARN
 È possibile usare l'interfaccia utente di YARN per il monitoraggio delle applicazioni attualmente in esecuzione nel cluster Spark.
 
-1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. In **Collegamenti rapidi** fare clic su **Dashboard cluster** e quindi su **YARN**.
 
     ![Avviare l'interfaccia utente di YARN](./media/apache-spark-resource-manager/launch-yarn-ui.png)
 
-   > [!TIP]
+   > [!TIP]  
    > In alternativa, è anche possibile avviare l'interfaccia utente di YARN dall'interfaccia utente di Ambari. Per avviare l'interfaccia utente di Ambari, fare clic su **Dashboard cluster** e quindi su **Dashboard cluster HDInsight**. Nell'interfaccia utente di Ambari fare clic su **YARN**, su **Quick Links** (Collegamenti rapidi), sulla funzionalità di gestione risorse attiva e quindi fare clic su **Resource Manager UI** (Interfaccia utente di Gestione risorse).
-   >
-   >
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Ottimizzare i cluster per le applicazioni Spark
 I tre parametri principali che possono essere usati per la configurazione di Spark, a seconda dei requisiti dell'applicazione, sono `spark.executor.instances`, `spark.executor.cores` e `spark.executor.memory`. Un Executor è un processo avviato per un'applicazione Spark. Viene eseguito sul nodo di lavoro e svolge le attività per l'applicazione. Il numero predefinito di executor e le relative dimensioni per ogni cluster vengono calcolati in base al numero di nodi di lavoro e alle relative dimensioni. Questi dati vengono archiviati in `spark-defaults.conf` nei nodi head del cluster.
@@ -158,8 +156,8 @@ Avviare l'interfaccia utente di Yarn, come illustrato all'inizio dell'articolo. 
 
 ### <a name="for-data-analysts"></a>Per gli analisti dei dati
 
-* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con Machine Learning: usare Spark in HDInsight per analizzare la temperatura di un edificio con dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per stimare i risultati di controllo degli alimenti](apache-spark-machine-learning-mllib-ipython.md)
 * [Analisi dei log del sito Web con Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Analisi dei dati di telemetria di Application Insights con Apache Spark in HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Usare Caffe in Azure HDInsight Spark per l'apprendimento avanzato distribuito](apache-spark-deep-learning-caffe.md)
@@ -167,10 +165,10 @@ Avviare l'interfaccia utente di Yarn, come illustrato all'inizio dell'articolo. 
 ### <a name="for-apache-spark-developers"></a>Per gli sviluppatori di Apache Spark
 
 * [Creare un'applicazione autonoma con Scala](apache-spark-create-standalone-application.md)
-* [Eseguire processi in modalità remota in un cluster Apache Spark usando Livy](apache-spark-livy-rest-interface.md)
+* [Eseguire processi in modalità remota in un cluster Apache Spark usando Apache Livy](apache-spark-livy-rest-interface.md)
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](apache-spark-intellij-tool-plugin.md)
 * [Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Apache Spark in remoto](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Usare i notebook di Apache Zeppelin con cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
+* [Usare i notebook di Apache Zeppelin con un cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernel disponibili per notebook di Jupyter nel cluster Apache Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)

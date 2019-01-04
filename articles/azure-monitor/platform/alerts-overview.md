@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: cf01ddd53741a77df61e3dc1946eb836640034d0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b24b98760e276c207bb360687f32ae902b3306fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345477"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976954"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -56,7 +56,7 @@ Gli attributi chiave di una regola di avviso sono:
 
 ## <a name="what-you-can-alert-on"></a>Oggetto degli avvisi
 
-È possibile inviare avvisi sulle metriche e i log come descritto nell'articolo relativo al [monitoraggio delle origini dati](../../monitoring-and-diagnostics/monitoring-data-sources.md). Sono incluse, ad esempio:
+È possibile inviare avvisi sulle metriche e i log come descritto nell'articolo relativo al [monitoraggio delle origini dati](../../azure-monitor/platform/data-sources-reference.md). Sono incluse, ad esempio:
 - Valori della metrica
 - Query di ricerca log
 - Eventi del log attività
@@ -131,7 +131,7 @@ Nelle versioni precedenti dei servizi Monitoraggio di Azure, Application Insight
 | **Origine di monitoraggio** | **Tipo di segnale**  | **Descrizione** | 
 |-------------|----------------|-------------|
 | Integrità del servizio | Log attività  | Non supportati. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Test di disponibilità Web | Non supportati. Vedere [Avvisi di test Web](../../application-insights/app-insights-monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
+| Application Insights | Test di disponibilità Web | Non supportati. Vedere [Avvisi di test Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
 
 
 ## <a name="all-alerts-page"></a>Pagina Tutti gli avvisi 

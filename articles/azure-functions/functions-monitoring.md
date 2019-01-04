@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: da676b5d1cb3c25adc72d04882915ee0440c2d98
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876520"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002332"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -28,7 +28,7 @@ Funzioni dispone anche di funzionalità di [monitoraggio incorporate che non usa
 
 ## <a name="application-insights-pricing-and-limits"></a>Prezzi e limiti di Application Insights
 
-È possibile provare gratuitamente l'integrazione di Application Insights con le app per le funzioni. È tuttavia previsto un limite giornaliero per la quantità di dati che possono essere elaborati gratuitamente e tale limite potrebbe essere raggiunto durante i test. Quando il limite giornaliero è quasi raggiunto, Azure invia notifiche tramite il portale e messaggi di posta elettronica.  Se tali avvisi non vengono ricevuti e il limite è stato raggiunto, i nuovi registri non verranno visualizzati nelle query di Application Insights. È pertanto necessario conoscere il limite per evitare di perdere tempo non necessario per la risoluzione dei problemi. Per altre informazioni, vedere [Gestire volumi di dati e prezzi in Application Insights](../application-insights/app-insights-pricing.md).
+È possibile provare gratuitamente l'integrazione di Application Insights con le app per le funzioni. È tuttavia previsto un limite giornaliero per la quantità di dati che possono essere elaborati gratuitamente e tale limite potrebbe essere raggiunto durante i test. Quando il limite giornaliero è quasi raggiunto, Azure invia notifiche tramite il portale e messaggi di posta elettronica.  Se tali avvisi non vengono ricevuti e il limite è stato raggiunto, i nuovi registri non verranno visualizzati nelle query di Application Insights. È pertanto necessario conoscere il limite per evitare di perdere tempo non necessario per la risoluzione dei problemi. Per altre informazioni, vedere [Gestire volumi di dati e prezzi in Application Insights](../azure-monitor/app/pricing.md).
 
 ## <a name="enable-app-insights-integration"></a>Abilitare l'integrazione di App Insights
 
@@ -85,7 +85,7 @@ Dopo aver impostato l'integrazione di Application Insights come illustrato nelle
 
 1. Selezionare **Aggiorna** periodicamente fino a quando non viene visualizzato l'elenco di chiamate di funzione.
 
-   La visualizzazione dell'elenco può richiedere fino a 5 minuti, a causa del modo in cui il client di telemetria include in batch i dati da trasmettere al server. Questo ritardo non si applica a [Live Metrics Stream](../application-insights/app-insights-live-stream.md). Tale servizio si connette all'host di Funzioni quando si carica la pagina, pertanto i registri vengono trasmessi direttamente alla pagina.
+   La visualizzazione dell'elenco può richiedere fino a 5 minuti, a causa del modo in cui il client di telemetria include in batch i dati da trasmettere al server. Questo ritardo non si applica a [Live Metrics Stream](../azure-monitor/app/live-stream.md). Tale servizio si connette all'host di Funzioni quando si carica la pagina, pertanto i registri vengono trasmessi direttamente alla pagina.
 
    ![Elenco di chiamate](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -115,15 +115,15 @@ Per aprire Application Insights da un'app per le funzioni nel portale di Azure, 
 
 Per informazioni su come usare Application Insights, vedere la [documentazione su Application Insights](https://docs.microsoft.com/azure/application-insights/). Questa sezione mostra alcuni esempi su come visualizzare i dati in Application Insights. Se si ha già familiarità con Application Insights, è possibile passare direttamente alle [sezioni sulla configurazione e la personalizzazione dei dati di telemetria](#configure-categories-and-log-levels).
 
-In [Esplora metriche](../application-insights/app-insights-metrics-explorer.md) è possibile creare grafici e avvisi in base alle metriche ad esempio numero di chiamate alla funzione, tempo di esecuzione e percentuale di successo.
+In [Esplora metriche](../azure-monitor/app/metrics-explorer.md) è possibile creare grafici e avvisi in base alle metriche ad esempio numero di chiamate alla funzione, tempo di esecuzione e percentuale di successo.
 
 ![Esplora metriche](media/functions-monitoring/metrics-explorer.png)
 
-Nella scheda [Errori](../application-insights/app-insights-asp-net-exceptions.md) è possibile creare grafici e avvisi in base agli errori di funzione e alle eccezioni del server. Il **nome dell'operazione** corrisponde al nome della funzione. Gli errori nelle dipendenze non vengono mostrati a meno che non si implementino [i dati di telemetria personalizzati](#custom-telemetry-in-c-functions) per le dipendenze.
+Nella scheda [Errori](../azure-monitor/app/asp-net-exceptions.md) è possibile creare grafici e avvisi in base agli errori di funzione e alle eccezioni del server. Il **nome dell'operazione** corrisponde al nome della funzione. Gli errori nelle dipendenze non vengono mostrati a meno che non si implementino [i dati di telemetria personalizzati](#custom-telemetry-in-c-functions) per le dipendenze.
 
 ![Errori](media/functions-monitoring/failures.png)
 
-Nella scheda [Prestazioni](../application-insights/app-insights-performance-counters.md) è possibile analizzare i problemi di prestazioni.
+Nella scheda [Prestazioni](../azure-monitor/app/performance-counters.md) è possibile analizzare i problemi di prestazioni.
 
 ![Prestazioni](media/functions-monitoring/performance.png)
 
@@ -131,13 +131,13 @@ La scheda **Server** mostra l'uso delle risorse e la velocità effettiva per ogn
 
 ![Server](media/functions-monitoring/servers.png)
 
-La scheda [Live Metrics Stream](../application-insights/app-insights-live-stream.md) mostra i dati delle metriche man mano che vengono creati in tempo reale.
+La scheda [Live Metrics Stream](../azure-monitor/app/live-stream.md) mostra i dati delle metriche man mano che vengono creati in tempo reale.
 
 ![Live stream](media/functions-monitoring/live-stream.png)
 
 ## <a name="query-telemetry-data"></a>Query sui dati di telemetria
 
-[Analytics di Application Insights](../application-insights/app-insights-analytics.md) consente di accedere a tutti i dati di telemetria sotto forma di tabelle in un database. Analytics offre un linguaggio di query per l'estrazione, la manipolazione e la visualizzazione dei dati.
+[Analytics di Application Insights](../azure-monitor/app/analytics.md) consente di accedere a tutti i dati di telemetria sotto forma di tabelle in un database. Analytics offre un linguaggio di query per l'estrazione, la manipolazione e la visualizzazione dei dati.
 
 ![Selezionare Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -439,7 +439,7 @@ Questo codice è un'alternativa alla chiamata di `trackMetric` con [l'SDK di Nod
 
 ## <a name="custom-telemetry-in-c-functions"></a>Dati di telemetria personalizzata nelle funzioni C#
 
-È possibile usare il pacchetto NuGet [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) per inviare i dati di telemetria personalizzati ad Application Insights. L'esempio C# seguente usa l'[API di telemetria personalizzata](../application-insights/app-insights-api-custom-events-metrics.md). L'esempio fa riferimento a una libreria di classi .NET, ma il codice di Application Insights è lo stesso per lo script C#.
+È possibile usare il pacchetto NuGet [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) per inviare i dati di telemetria personalizzati ad Application Insights. L'esempio C# seguente usa l'[API di telemetria personalizzata](../azure-monitor/app/api-custom-events-metrics.md). L'esempio fa riferimento a una libreria di classi .NET, ma il codice di Application Insights è lo stesso per lo script C#.
 
 ### <a name="version-2x"></a>Versione 2.x
 
@@ -671,7 +671,7 @@ PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-A
 PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Per altre informazioni, vedere [Procedura: Eseguire lo streaming dei log](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+Per altre informazioni, vedere [Procedura: Eseguire lo streaming dei log](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
 ### <a name="viewing-log-files-locally"></a>Visualizzazione dei file di log in locale
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 06135ff77cb9c2a5b8fa2ae674206406469ed293
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 52f67d21c3a130df4d85c220baca9c6af8eb06c1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870606"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793479"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Creare cluster basati su Linux in HDInsight tramite .NET SDK
 
@@ -23,7 +23,7 @@ ms.locfileid: "52870606"
 
 Informazioni su come creare un cluster [Apache Hadoop](https://hadoop.apache.org/) in cluster di Azure HDInsight con .NET SDK.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > I passaggi descritti in questo documento creano un cluster con un nodo di lavoro. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 >
 > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -367,7 +367,7 @@ static void Main(string[] args)
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
+Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquisire familiarità con il cluster. 
@@ -375,7 +375,7 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 ### <a name="apache-hadoop-clusters"></a>Cluster Apache Hadoop
 * [Usare Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
 * [Usare Pig con Hadoop in HDInsight](hadoop/hdinsight-use-pig.md)
-* [Usare Apache Hadoop MapReduce in HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Usare MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Cluster Apache HBase
 * [Introduzione ad Apache HBase in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
@@ -389,7 +389,7 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 ### <a name="apache-spark-clusters"></a>Cluster Apache Spark
 * [Creare un'applicazione autonoma con Scala](spark/apache-spark-create-standalone-application.md)
 * [Eseguire processi in modalità remota in un cluster Apache Spark usando Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark con BI: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark con BI: Eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](spark/apache-spark-use-bi-tools.md)
 * [Apache Spark con Machine Learning: usare Spark in HDInsight per stimare i risultati di controllo degli alimenti](spark/apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="run-jobs"></a>Eseguire i processi

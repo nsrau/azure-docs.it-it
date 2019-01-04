@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 42958576a127fee5e0a275e53203edd4e4dee6f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321461"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540282"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 
@@ -137,7 +137,7 @@ L'uso improprio delle risorse può essere un problema quando i processi della VM
 
 Si consiglia di usare [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) per ottenere visibilità sull'integrità della risorsa. Monitoraggio di Azure offre:
 
-- [File di log di diagnostica delle risorse](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): monitora le risorse della VM e identifica i potenziali problemi che potrebbero compromettere le prestazioni e la disponibilità.
+- [File di log di diagnostica delle risorse](../azure-monitor/platform/diagnostic-logs-overview.md): monitora le risorse della VM e identifica i potenziali problemi che potrebbero compromettere le prestazioni e la disponibilità.
 - [Estensione Diagnostica di Azure](../azure-monitor/platform/diagnostics-extension-overview.md): offre funzionalità di monitoraggio e diagnostica nelle VM Windows. È possibile abilitare queste funzionalità includendo l'estensione come parte del [modello di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Le organizzazioni che non monitorano le prestazioni delle VM non possono capire se determinate modifiche nei modelli di prestazioni sono normali o anomale. Una VM che consuma più risorse del normale potrebbe indicare un attacco proveniente da una risorsa esterna o un l'esecuzione di un processo compromesso.

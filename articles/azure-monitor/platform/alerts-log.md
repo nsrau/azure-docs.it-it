@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: be86e961d04b600f112a173c041b60cbe50ea00d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339213"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725058"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure  
 
@@ -23,7 +23,7 @@ Questo articolo illustra come configurare gli avvisi del log tramite l'interfacc
 - Criteri: condizione specifica o logica che, se rilevata nel segnale, deve attivare l'azione
 - Azione: chiamata specifica inviata a un ricevitore di una notifica di posta elettronica, SMS, webhook e così via.
 
-Il termine **Avvisi del log** viene usato per descrivere gli avvisi in cui il segnale è basato su una query personalizzata in [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) o [Application Insights](../../application-insights/app-insights-analytics.md). Altre informazioni su funzionalità, terminologia e tipi su [Avvisi del log - Panoramica](../../azure-monitor/platform/alerts-unified-log.md).
+Il termine **Avvisi del log** viene usato per descrivere gli avvisi in cui il segnale è basato su una query personalizzata in [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Altre informazioni su funzionalità, terminologia e tipi su [Avvisi del log - Panoramica](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
 > I dati di log più comuni di [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) sono ora disponibili anche nella piattaforma di metriche in Monitoraggio di Azure. Per i dettagli, vedere [Metric Alert for Logs](../../azure-monitor/platform/alerts-metric-logs.md) (Avvisi di metrica per i log).
@@ -245,6 +245,6 @@ Se l'operazione è stata eseguita correttamente, sarà restituito il valore 201 
 
 * Informazioni sugli [avvisi del log in Avvisi di Azure](../../azure-monitor/platform/alerts-unified-log.md)
 * Comprendere le [azioni webhook per gli avvisi del log](../../azure-monitor/platform/alerts-log-webhook.md)
-* Altre informazioni su [Application Insights](../../application-insights/app-insights-analytics.md)
+* Altre informazioni su [Application Insights](../../azure-monitor/app/analytics.md)
 * Altre informazioni su [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
 

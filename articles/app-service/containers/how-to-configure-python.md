@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7e63fa75f473d5da911fbf845f0662d8eec5c70
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249635"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717399"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configurare un'app Python per il Servizio app di Azure in Linux
 
@@ -132,4 +132,4 @@ Se il servizio app non trova un comando personalizzato, un'app Django o un'app F
 - **Nel browser viene visualizzato il messaggio "Servizio non disponibile".** Si è verificato un timeout del browser durante l'attesa di una risposta dal servizio app, che indica che il servizio app ha avviato il server Gunicorn, ma gli argomenti che specificano il codice app non sono corretti.
   - Aggiornare il browser, in particolare se si usano i piani tariffari inferiori nel piano di servizio app. Ad esempio, l'avvio dell'app potrebbe richiedere più tempo quando si usano i livelli gratuiti e l'app potrebbe rispondere dopo l'aggiornamento del browser.
   - Verificare che l'app sia strutturata come prevista dal servizio app per [Django](#django-app) o [Flask](#flask-app) oppure usare un [comando di avvio personalizzato](#custom-startup-command).
-  - Usare SSH o la Console Kudu per connettersi al servizio app, quindi esaminare i log di diagnostica archiviati nella cartella *LogFiles*. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](../web-sites-enable-diagnostic-log.md).
+  - Usare SSH o la Console Kudu per connettersi al servizio app, quindi esaminare i log di diagnostica archiviati nella cartella *LogFiles*. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](../troubleshoot-diagnostic-logs.md).

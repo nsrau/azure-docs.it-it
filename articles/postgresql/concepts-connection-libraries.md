@@ -1,20 +1,17 @@
 ---
 title: Raccolte connessioni per il database di Azure per PostgreSQL
 description: In questo articolo vengono descritte varie librerie e driver che gli sviluppatori possono usare per generare il codice delle applicazioni per la connessione e l'esecuzione di query nel database di Azure per PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: edbd3b36e1c40cda3b39c85f3deb4c9e8540fd1b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0e762a2d7cf82e2957fb276fcea0a20553f719e3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984962"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536016"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Raccolte connessioni per il database di Azure per PostgreSQL
 Questo argomento elenca le librerie e i driver che gli sviluppatori possono usare per creare applicazioni per la connessione e l'esecuzione di query in Database di Azure per PostgreSQL.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: 8454a22b02f28ece45ce04464f8f2658f745b53e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6701443807a2709edf08a2b979cd59bebacb7b5d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163345"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790159"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestire cluster Apache Hadoop in HDInsight usando Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -73,10 +73,8 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 ## <a name="scale-clusters"></a>Ridimensionare i cluster
 La funzionalità di scalabilità del cluster consente di modificare il numero di nodi del ruolo di lavoro usati da un cluster in esecuzione in Azure HDInsight senza dover ricreare il cluster.
 
-> [!NOTE]
-> Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà.  Vedere [Elencare e visualizzare i cluster](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
->
->
+> [!NOTE]  
+> Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà.  Vedere [Elencare e visualizzare i cluster](hdinsight-administer-use-portal-linux.md#showClusters).
 
 Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogni tipo di cluster supportato da HDInsight:
 
@@ -104,7 +102,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
   * Interfaccia utente Web di Storm
   * Interfaccia della riga di comando (CLI)
 
-    Per altri dettagli, vedere la [documentazione di Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Per altri dettagli, vedere la [documentazione di Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
     L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 
@@ -158,10 +156,8 @@ $credential = New-Object System.Management.Automation.PSCredential($hadoopUserNa
 Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
->
->
 
 La concessione e la revoca dell'accesso possono essere eseguite anche tramite il portale. Vedere l'articolo su come [amministrare HDInsight con il portale di Azure][hdinsight-admin-portal].
 
@@ -207,9 +203,9 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## <a name="submit-jobs"></a>Inviare i processi
-**Per inviare i processi Apache Hadoop MapReduce**
+**Inviare processi MapReduce**
 
-Vedere [Eseguire gli esempi di Apache Hadoop MapReduce inclusi in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Vedere [Eseguire gli esempi di MapReduce inclusi in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Inviare i processi Apache Hive**
 

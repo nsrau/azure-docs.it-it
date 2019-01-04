@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: fae4fffbe9e4b0be0f2edacf3e86b6268cc58608
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 39525c7e25e247504429ea36210986a5e3300cc1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384650"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537174"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gestire Protezione DDoS di Azure Standard nel portale di Azure
 
@@ -157,7 +157,7 @@ I report sulla mitigazione degli attacchi usano i dati del protocollo Netflow ch
 6. Selezionare **Turn on diagnostics to collect the DDoSMitigationReports log** (Attiva diagnostica per raccogliere il log DDoSMitigationReports) e quindi selezionare tutte le opzioni necessarie tra le seguenti:
 
     - **Archiviare in un account di archiviazione**: I dati vengono scritti in un account di archiviazione di Azure. Per altre informazioni su questa opzione, vedere [Archiviare i log di diagnostica](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Streaming in un hub eventi**: consente a un ricevitore di log di prelevare i log usando un Hub eventi di Azure. Gli hub eventi consentono l'integrazione con Splunk o altri sistemi SIEM. Per altre informazioni su questa opzione, vedere [Trasmettere log di diagnostica a un hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Streaming in un hub eventi**: consente a un ricevitore di log di prelevare i log usando un Hub eventi di Azure. Gli hub eventi consentono l'integrazione con Splunk o altri sistemi SIEM. Per altre informazioni su questa opzione, vedere [Trasmettere log di diagnostica a un hub eventi](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Invia a Log Analytics**: scrive i log nel servizio Azure Log Analytics. Per altre informazioni su questa opzione, vedere [Raccolta di log da usare in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Sia i report incrementali che quello sulla mitigazione successivo all'attacco includono i campi seguenti
@@ -179,7 +179,7 @@ I log del flusso di mitigazione degli attacchi consentono di esaminare il traffi
 6. Selezionare **Turn on diagnostics to collect the DDoSMitigationFlowLogs log** (Attiva diagnostica per raccogliere il log DDoSMitigationFlowLogs) e quindi selezionare tutte le opzioni necessarie tra le seguenti:
 
     - **Archiviare in un account di archiviazione**: I dati vengono scritti in un account di archiviazione di Azure. Per altre informazioni su questa opzione, vedere [Archiviare i log di diagnostica](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Streaming in un hub eventi**: consente a un ricevitore di log di prelevare i log usando un Hub eventi di Azure. Gli hub eventi consentono l'integrazione con Splunk o altri sistemi SIEM. Per altre informazioni su questa opzione, vedere [Trasmettere log di diagnostica a un hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Streaming in un hub eventi**: consente a un ricevitore di log di prelevare i log usando un Hub eventi di Azure. Gli hub eventi consentono l'integrazione con Splunk o altri sistemi SIEM. Per altre informazioni su questa opzione, vedere [Trasmettere log di diagnostica a un hub eventi](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Invia a Log Analytics**: scrive i log nel servizio Azure Log Analytics. Per altre informazioni su questa opzione, vedere [Raccolta di log da usare in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Per visualizzare i dati dei log del flusso nel dashboard di analisi di Azure, è possibile importare il dashboard di esempio da https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 

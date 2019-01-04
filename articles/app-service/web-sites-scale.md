@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 98d3d1f6fc0f2f30196f360811808579dfbab312
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251054"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727480"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Aumentare le prestazioni di un'app in Azure
 
@@ -34,7 +34,7 @@ Questo articolo illustra come passare a un piano superiore per un'app nel serviz
 * [Aumentare il numero di istanze](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): è possibile incrementare il numero di istanze di macchine virtuali che eseguono l'app.
   È possibile specificare al massimo 20 istanze, in base al piano tariffario. Gli [ambienti del servizio app](environment/intro.md) nel piano **Isolato** aumentano ulteriormente il numero di istanze facendolo passare a 100. Per altre informazioni sull'aumento del numero di istanze, vedere [Ridimensionare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md). Questo articolo illustra come usare la scalabilità automatica, ovvero come ridimensionare automaticamente il numero di istanze sulla base di regole e pianificazioni predefinite.
 
-Le impostazioni di scalabilità diventano effettive in pochi secondi e interessano tutte le app nel [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+Le impostazioni di scalabilità diventano effettive in pochi secondi e interessano tutte le app nel [piano di servizio app](../app-service/overview-hosting-plans.md).
 Non richiedono di modificare il codice o ridistribuire l'applicazione.
 
 Per informazioni sui prezzi e le funzionalità dei singoli piani di servizio app, vedere [Dettagli prezzi del servizio app](https://azure.microsoft.com/pricing/details/web-sites/).  

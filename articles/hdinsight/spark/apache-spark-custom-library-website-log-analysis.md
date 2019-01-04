@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 26ee51da0065b15191c6a02bcd10597c1190dd0a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f8b479f55ea5ee22ae2510fad6279cac0aaa9c0d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497288"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608801"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analizzare i log del sito Web usando una libreria Python personalizzata con cluster Apache Spark in HDInsight
 
 Questo notebook dimostra come analizzare i dati dei log mediante una libreria personalizzata con Apache Spark in HDInsight. La libreria personalizzata usata è una libreria di Python chiamata **iislogparser.py**.
 
-> [!TIP]
+> [!TIP]  
 > Questa esercitazione è disponibile anche come notebook di Jupyter in un cluster Spark (Linux) creato in HDInsight. L'esperienza offerta dal notebook consente di eseguire i frammenti di codice Python dal notebook stesso. Per eseguire l'esercitazione da un notebook, creare un cluster Spark, avviare un notebook di Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e quindi eseguire il notebook **Analyze logs with Spark using a custom library.ipynb** nella cartella **PySpark**.
 >
 >
@@ -176,7 +176,7 @@ Dopo avere salvato i dati come tabella Apache Hive, nella sezione successiva ver
        %%sql -o averagetime
        SELECT * FROM AverageTime
 
-   Il comando speciale `%%sql` seguito da `-o averagetime` assicura che l'output della query venga mantenuto in locale nel server Jupyter, di solito il nodo head del cluster. L'output viene mantenuto come frame di dati [Pandas](http://pandas.pydata.org/) con il nome specificato **averagetime**.
+   Il comando speciale `%%sql` seguito da `-o averagetime` assicura che l'output della query venga mantenuto in locale nel server Jupyter, di solito il nodo head del cluster. L'output viene mantenuto come frame di dati [Pandas](https://pandas.pydata.org/) con il nome specificato **averagetime**.
 
    Verrà visualizzato un output simile al seguente:
 
@@ -199,21 +199,21 @@ Dopo avere salvato i dati come tabella Apache Hive, nella sezione successiva ver
 8. Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Questa operazione consente di arrestare e chiudere il notebook.
 
 ## <a name="seealso"></a>Vedere anche
-* [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
+* [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
-* [Apache Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con BI: Eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: usare Spark in HDInsight per analizzare la temperatura di un edificio con dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con apprendimento automatico: usare Spark in HDInsight per prevedere i risultati di controllo degli alimenti](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="create-and-run-applications"></a>Creare ed eseguire applicazioni
 * [Creare un'applicazione autonoma con Scala](apache-spark-create-standalone-application.md)
-* [Eseguire processi in modalità remota in un cluster Apache Spark usando Livy](apache-spark-livy-rest-interface.md)
+* [Eseguire processi in modalità remota in un cluster Apache Spark usando Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Strumenti ed estensioni
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Apache Spark in Scala](apache-spark-intellij-tool-plugin.md)
 * [Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Apache Spark in remoto](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Usare i notebook di Apache Zeppelin con cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
+* [Usare i notebook di Apache Zeppelin con un cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernel disponibili per notebook di Jupyter nel cluster Apache Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)

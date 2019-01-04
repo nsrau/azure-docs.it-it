@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: f6d343d42bf9d918bf23c9f5f442d977a5caca96
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 34177cb2ea1650c4b7130d8c5a2a886655852783
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343718"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555031"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -416,7 +416,7 @@ public class WorkItem
 
 L'ambito predefinito per un blocco è `SingletonScope.Function`, il che significa che l'ambito del blocco (il percorso di lease del BLOB) è associato al nome completo della funzione. Per applicare un blocco alle funzioni, specificare `SingletonScope.Host` e usare un nome di ID di ambito identico in tutte le funzioni che non si desidera eseguire simultaneamente. Nell'esempio seguente viene eseguita una sola istanza di `AddItem` o `RemoveItem` alla volta:
 
-```charp
+```csharp
 [Singleton("ItemsLock", SingletonScope.Host)]
 public static void AddItem([QueueTrigger("add-item")] string message)
 {

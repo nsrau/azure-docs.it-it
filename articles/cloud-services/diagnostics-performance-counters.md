@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: b288c6a64572287c460e82cd8746a8504d264933
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d332a792f693b099ce925e9b5705f09e52507522
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322944"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000241"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Raccogliere dati con i contatori delle prestazioni per il servizio cloud di Azure
 
@@ -84,7 +84,7 @@ Un contatore delle prestazioni può essere aggiunto al servizio cloud sia per Di
 
 ### <a name="application-insights"></a>Application Insights
 
-Azure Application Insights per Servizi cloud consente di specificare i contatori delle prestazioni per i quali raccogliere dati. Dopo aver [aggiunto Application Insights al progetto](../application-insights/app-insights-cloudservices.md#sdk), al progetto di Visual Studio viene aggiunto un file di configurazione denominato **ApplicationInsights.config**. Questo file di configurazione definisce il tipo di informazioni che Application Insights raccoglie e invia ad Azure.
+Azure Application Insights per Servizi cloud consente di specificare i contatori delle prestazioni per i quali raccogliere dati. Dopo aver [aggiunto Application Insights al progetto](../azure-monitor/app/cloudservices.md#sdk), al progetto di Visual Studio viene aggiunto un file di configurazione denominato **ApplicationInsights.config**. Questo file di configurazione definisce il tipo di informazioni che Application Insights raccoglie e invia ad Azure.
 
 Aprire il file **ApplicationInsights.config** e individuare l'elemento **ApplicationInsights** > **TelemetryModules**. Ogni elemento figlio `<Add>` definisce un tipo di dati di telemetria da raccogliere, insieme alla relativa configurazione. Il tipo di modulo di telemetria del contatore delle prestazioni è `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Se questo elemento è già definito, non aggiungerlo una seconda volta. Ogni contatore delle prestazioni da includere nella raccolta viene definito in un nodo denominato `<Counters>`. L'esempio seguente raccoglie dati per i contatori delle prestazioni relativi alle unità:
 
@@ -116,7 +116,7 @@ Application Insights raccoglie automaticamente i dati per i contatori delle pres
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-Per altre informazioni, vedere [Contatori delle prestazioni di sistema in Application Insights](../application-insights/app-insights-performance-counters.md) e [Application Insights per Servizi cloud di Azure](../application-insights/app-insights-cloudservices.md#performance-counters).
+Per altre informazioni, vedere [Contatori delle prestazioni di sistema in Application Insights](../azure-monitor/app/performance-counters.md) e [Application Insights per Servizi cloud di Azure](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Diagnostica Azure
 
@@ -294,7 +294,7 @@ Come indicato in precedenza, i contatori delle prestazioni da includere nella ra
 
 ## <a name="more-information"></a>Altre informazioni
 
-- [Application Insights per Servizi cloud di Azure](../application-insights/app-insights-cloudservices.md#performance-counters)
-- [Contatori delle prestazioni di sistema in Application Insights](../application-insights/app-insights-performance-counters.md)
+- [Application Insights per Servizi cloud di Azure](../azure-monitor/app/cloudservices.md#performance-counters)
+- [Contatori delle prestazioni di sistema in Application Insights](../azure-monitor/app/performance-counters.md)
 - [Specifying a Counter Path](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)) (Specifica di un percorso di contatore)
 - [Schema di Diagnostica di Azure - Contatori delle prestazioni](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 76ed904a90b84e7b0bac86b2ed5380289d7802c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 79375dbbc7c966f2e972389788cefe8a0fe3692d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387943"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582678"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Controllare e ricevere notifiche sulle azioni importanti nella sottoscrizione di Azure
 
@@ -98,4 +98,4 @@ Quando non sono più necessari, eliminare il gruppo di risorse e il gruppo di si
 In questa Guida introduttiva è stata eseguita un'operazione per generare un evento di log attività e quindi è stato creato un avviso di log attività per ricevere una notifica quando questa operazione verrà eseguita nuovamente in futuro. È stato quindi eseguito il test dell'avviso eseguendo nuovamente l'operazione. Azure rende disponibili gli eventi del log attività degli ultimi 90 giorni. Se è necessario mantenere gli eventi per più di 90 giorni, provare ad archiviare i dati del log attività insieme agli altri dati di monitoraggio.
 
 > [!div class="nextstepaction"]
-> [Archiviare i dati di monitoraggio](./../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md)
+> [Archiviare i dati di monitoraggio](./../../azure-monitor/learn/tutorial-archive-data.md)

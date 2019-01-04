@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f286d8b2ba254cfad542db14b8719d6f3f676222
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2108de8988e973644e0622a4b76a04408949298e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093744"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635151"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Spark tramite Azure HDInsight
 
@@ -218,7 +218,7 @@ La causa più probabile per questa eccezione è costituita dall'allocazione di m
 
 ### <a name="additional-reading"></a>Informazioni aggiuntive
 
-- [Apache Spark memory management overview](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview) (Panoramica della gestione della memoria Apache Spark)
+- [Apache Spark memory management overview](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview) (Panoramica della gestione della memoria Apache Spark)
 - [Debug an Apache Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (Eseguire il debug di un'applicazione Apache Spark in un cluster HDInsight)
 
 

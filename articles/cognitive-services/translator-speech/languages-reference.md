@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 73c65aa5c95887c8b1f6eb5e4cf91e19815eba15
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256399"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741879"
 ---
 # <a name="translator-speech-api-languages"></a>API Traduzione vocale: Lingue
 
@@ -27,7 +27,7 @@ Nel [sito GitHub di Microsoft Translator](https://github.com/MicrosoftTranslator
 
 ## <a name="implementation-notes"></a>Note sull'implementazione
 
-GET /languages 
+### <a name="get-languages"></a>GET /languages 
 
 È disponibile una vasta gamma di lingue per la trascrizione di contenuti vocali, la traduzione del testo trascritto e la produzione di un output vocale sintetizzato della traslazione.
 
@@ -59,7 +59,7 @@ Poiché un client può usare il parametro di query `scope` per selezionare i set
 
 Di seguito è indicato il valore fornito con ogni proprietà.
 
-### <a name="speech-to-text-speech"></a>Riconoscimento vocale (speech)
+### <a name="speech-to-text-speech"></a>Conversione della voce in testo scritto (speech)
 
 Il valore associato alla proprietà di conversione della voce in testo scritto, `speech`, è un dizionario di coppie (chiave, valore). Ogni chiave identifica una lingua supportata per la conversione della voce in testo scritto. La chiave è l'identificatore che il client passa all'API. Il valore associato alla chiave è un oggetto con le proprietà seguenti:
 
@@ -129,7 +129,7 @@ Valore di esempio del modello:
 
 Langagues { speech (oggetto, facoltativo), text (oggetto, facoltativo), tts (oggetto, facoltativo) }
 
-### <a name="headers"></a>Intestazioni
+### <a name="headers"></a>Headers
 
 |Intestazione|DESCRIZIONE|type|
 :--|:--|:--|

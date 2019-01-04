@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d99196e231d122fcb0e707d30aed4d3b3eb2b89d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310352"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629597"
 ---
 # <a name="filters-in-azure-search"></a>Filtri in Ricerca di Azure 
 
@@ -96,7 +96,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-design-patterns"></a>Modelli di progettazione di filtri
 
-Gli esempi seguenti illustrano diversi modelli di progettazione per gli scenari di filtro. Per altre idee, vedere [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples) (Sintassi delle espressioni OData -> Esempi).
+Gli esempi seguenti illustrano diversi modelli di progettazione per gli scenari di filtro. Per altre idee, vedere [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) (Sintassi delle espressioni OData -> Esempi).
 
 + Elemento **$filter** autonomo, senza una stringa di query, utile quando l'espressione filtro è in grado di specificare il nome completo dei documenti di interesse. Senza una stringa di query, non ci sono un'analisi lessicale o linguistica, un'assegnazione del punteggio e una classificazione. Si noti che la stringa di ricerca è vuota.
 
@@ -192,7 +192,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-Per altri esempi, vedere [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples) (Sintassi delle espressioni di filtro OData -> Esempi).
+Per altri esempi, vedere [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) (Sintassi delle espressioni di filtro OData -> Esempi).
 
 ## <a name="see-also"></a>Vedere anche 
 

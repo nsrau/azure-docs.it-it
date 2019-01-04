@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: 85623f5acfb33d73774e5898e3f8937b4e07a5a9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299079"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993788"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visualizzare i log per un servizio contenitore di Service Fabric
 Azure Service Fabric è un agente di orchestrazione dei contenitori e supporta [contenitori Linux e Windows](service-fabric-containers-overview.md).  Questo articolo descrive come visualizzare i log dei contenitori di un servizio contenitore in esecuzione o di un contenitore non utilizzato, in modo da diagnosticare e risolvere i problemi.
@@ -64,10 +64,10 @@ Corpo della risposta 200:
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
-Usare il comando [sfctl service get-container-logs](service-fabric-sfctl-service.md) per recuperare i log per un contenitore arrestato in modo anomalo.  Specificare il nome del nodo in cui era in esecuzione il contenitore, il nome dell'applicazione, il nome del manifesto del servizio e il nome del pacchetto di codice. Specificare il flag `-previous`.  La risposta conterrà i log dei contenitori per il contenitore non utilizzato dell'istanza del pacchetto di codice.
+Usare il comando [sfctl service get-container-logs](service-fabric-sfctl-service.md) per recuperare i log per un contenitore arrestato in modo anomalo.  Specificare il nome del nodo in cui era in esecuzione il contenitore, il nome dell'applicazione, il nome del manifesto del servizio e il nome del pacchetto di codice. Specificare il flag `--previous`.  La risposta conterrà i log dei contenitori per il contenitore non utilizzato dell'istanza del pacchetto di codice.
 
 ```
-sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –previous
+sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
 ```
 Risposta:
 ```json

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 41c8315bab1b716f79b47afb77c6d371a757691d
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386444"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743664"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight
 
@@ -47,7 +47,7 @@ I nodi nimbus sono disponibili con i cluster Apache Storm. I nodi Nimbus fornisc
 
 ### <a name="apache-zookeeper-nodes"></a>Nodi di Apache ZooKeeper
 
-I nodi [ZooKeeper](http://zookeeper.apache.org/) vengono usati per la designazione di leader dei servizi master nei nodi head. Vengono inoltre usati per garantire che i servizi, i nodi di dati (ruolo di lavoro) e i gateway sappiano su quale nodo head è attivo un servizio master. Per impostazione predefinita, HDInsight specifica tre nodi ZooKeeper.
+I nodi [ZooKeeper](https://zookeeper.apache.org/) vengono usati per la designazione di leader dei servizi master nei nodi head. Vengono inoltre usati per garantire che i servizi, i nodi di dati (ruolo di lavoro) e i gateway sappiano su quale nodo head è attivo un servizio master. Per impostazione predefinita, HDInsight specifica tre nodi ZooKeeper.
 
 ### <a name="worker-nodes"></a>Nodi di lavoro
 
@@ -192,7 +192,7 @@ Una volta connessi, viene visualizzato un prompt `sftp>` . Da questo prompt è p
 Per un elenco di comandi disponibili, immettere `help` al prompt `sftp>`.
 
 > [!NOTE]  
-> Esistono anche interfacce grafiche che consentono di visualizzare il file system quando si è connessi tramite SFTP. Ad esempio, [MobaXTerm](http://mobaxterm.mobatek.net/) consente di sfogliare il file system con un'interfaccia simile a Esplora risorse.
+> Esistono anche interfacce grafiche che consentono di visualizzare il file system quando si è connessi tramite SFTP. Ad esempio, [MobaXTerm](https://mobaxterm.mobatek.net/) consente di sfogliare il file system con un'interfaccia simile a Esplora risorse.
 
 ### <a name="ambari"></a>Ambari
 

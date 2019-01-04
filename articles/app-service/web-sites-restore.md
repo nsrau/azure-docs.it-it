@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 603a6bab75c4a5da4425bcc57d2cc5ccda728636
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274139"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721462"
 ---
 # <a name="restore-an-app-in-azure"></a>Ripristinare un'app in Azure
-Questo articolo illustra come ripristinare un'app nel [Servizio app di Azure](../app-service/app-service-web-overview.md) in precedenza sottoposta a un backup. Vedere [Eseguire il backup di un'app Web del Servizio app di Azure](web-sites-backup.md). È possibile ripristinare su richiesta a uno stato precedente l'app con i relativi database collegati oppure creare una nuova app basata su uno dei backup dell'app originale. Servizio app di Azure supporta il backup e il ripristino dei seguenti database:
+Questo articolo illustra come ripristinare un'app nel [Servizio app di Azure](../app-service/overview.md) in precedenza sottoposta a un backup. Vedere [Eseguire il backup di un'app Web del Servizio app di Azure](manage-backup.md). È possibile ripristinare su richiesta a uno stato precedente l'app con i relativi database collegati oppure creare una nuova app basata su uno dei backup dell'app originale. Servizio app di Azure supporta il backup e il ripristino dei seguenti database:
 - [Database SQL](https://azure.microsoft.com/services/sql-database/)
 - [Database di Azure per MySQL](https://azure.microsoft.com/services/mysql)
 - [Database di Azure per PostgreSQL](https://azure.microsoft.com/services/postgresql)
@@ -43,7 +43,7 @@ Il ripristino da backup è disponibile per le app in esecuzione a livello **Stan
    
     L'opzione **Backup dell'app** mostra tutti i backup esistenti dell'app corrente, che possono essere facilmente selezionati.
     L'opzione **Archiviazione** consente di selezionare qualsiasi file ZIP del backup da un account di archiviazione e un contenitore di Azure esistenti nella sottoscrizione.
-    Se si sta tentando di ripristinare un backup di un'altra app, usare l'opzione **Archiviazione**.
+    Se si sta tentando di ripristinare un backup di un'altra app, usare l'opzione **Archiviazione** .
 3. Quindi, specificare la destinazione per il ripristino dell’app in **Destinazione di ripristino**.
    
     ![](./media/web-sites-restore/022ChooseDestination1.png)
@@ -91,8 +91,8 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibili corr
 
 Per qualche esempio vedere:
 
-- [Esempi dell'interfaccia della riga di comando di Azure](app-service-cli-samples.md)
-- [Esempi di Azure PowerShell](app-service-powershell-samples.md)
+- [Esempi dell'interfaccia della riga di comando di Azure](samples-cli.md)
+- [Esempi di Azure PowerShell](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

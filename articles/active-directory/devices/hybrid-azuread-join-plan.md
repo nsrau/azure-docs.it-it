@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274565"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993288"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory
 
@@ -146,9 +146,9 @@ A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedur
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Supporto per ID di accesso alternativo nell'aggiunta ad Azure AD ibrido
 
-L'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per gli [ID di accesso alternativo](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) in base al tipo di ID di accesso alternativo, al [metodo di autenticazione](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di ID di accesso alternativo diversi.
+L'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per gli [ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) in base al tipo di ID di accesso alternativo, al [metodo di autenticazione](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di ID di accesso alternativo diversi.
 
- - ID di accesso alternativo instradabili: un ID di accesso alternativo instradabile ha un dominio verificato valido, registrato con un registrar. Ad esempio, se contoso.com è il dominio primario, contoso.org e contoso.co.uk sono domini validi di proprietà di Contoso e [verificati in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ - ID di accesso alternativo instradabili: un ID di accesso alternativo instradabile ha un dominio verificato valido, registrato con un registrar. Ad esempio, se contoso.com è il dominio primario, contoso.org e contoso.co.uk sono domini validi di proprietà di Contoso e [verificati in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
  - ID di accesso alternativo non instradabili: un ID di accesso alternativo non instradabile non ha un dominio verificato. È applicabile solo all'interno della rete privata dell'organizzazione. Ad esempio, se contoso.com è il dominio primario, contoso.local non è un dominio verificabile in Internet, ma viene utilizzato nella rete di Contoso.
  

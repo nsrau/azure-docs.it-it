@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: af20d84cbead84e3a9fa5b6ea93661814e42a851
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5ff6e29fc4d7607c44541c7947404a0bc0301207
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325623"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581490"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali di Microsoft Azure
 È possibile aumentare e ridurre il numero di istanze dei set di scalabilità di macchine virtuali in base ai valori soglia per le metriche delle prestazioni, a una pianificazione ricorrente oppure a una data specifica. È anche possibile configurare notifiche di posta elettronica e webhook per le azioni di scalabilità. Questa procedura dettagliata illustra un esempio di configurazione di tutti tali oggetti usando in modello di Resource Manager in un set di scalabilità di macchine virtuali.
@@ -242,7 +242,7 @@ Per altre informazioni sulla scalabilità automatica, usare questi collegamenti.
 
 [Procedure consigliate per il ridimensionamento automatico di Azure](autoscale-best-practices.md)
 
-[Gestire il ridimensionamento automatico con PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings)
+[Gestire il ridimensionamento automatico con PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 
 [Gestire il ridimensionamento automatico con l'interfaccia della riga di comando](cli-samples.md#autoscale)
 

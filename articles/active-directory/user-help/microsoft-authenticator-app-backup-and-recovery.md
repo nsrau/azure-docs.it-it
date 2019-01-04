@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: b019523227bcd45e502ec84055cfb09025918331
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 623e7276ccba85b6df74291ee857613019349b7a
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406125"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993434"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Eseguire il backup e il ripristino delle credenziali dell'account con l'app Microsoft Authenticator
 
@@ -76,7 +76,7 @@ Per gli account Microsoft personali, è possibile provare la propria identità i
 ### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Per fornire un'ulteriore verifica per gli account aziendali o dell'istituto di istruzione
 1.  Nella schermata **Account** dell'app Microsoft Authenticator selezionare la freccia in giù accanto all'account da ripristinare.
 
-    ![App Microsoft Authenticator che mostra gli account disponibili con le frecce in giù associate](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
+    ![App Microsoft Authenticator che mostra gli account disponibili con le frecce in giù associate](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additional-accts.png)
 
 2.  Selezionare **Scansione codice QR per ripristinare** e quindi eseguire la scansione del codice a matrice.
 

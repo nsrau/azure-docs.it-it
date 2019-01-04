@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086437"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536543"
 ---
 # <a name="install-and-run-containers"></a>Installare ed eseguire i contenitori
 
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare il contenitore Viso, è necessario soddisfare i prerequisiti seguenti:
 
-**Motore Docker**: il motore Docker deve essere installato in locale. Docker offre pacchetti per la configurazione dell'ambiente in [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). In Windows Docker deve essere configurato per supportare i contenitori Linux. I contenitori Docker possono anche essere distribuiti direttamente nel [servizio Kubernetes di Azure](/azure/aks/), in [Istanze di contenitore di Azure](/azure/container-instances/) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](/azure/azure-stack/). Per altre informazioni sulla distribuzione di Kubernetes in Azure Stack, vedere [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuzione di Kubernetes in Azure Stack).
+**Motore Docker**: il motore Docker deve essere installato in locale. Docker offre pacchetti per la configurazione dell'ambiente in [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). In Windows Docker deve essere configurato per supportare i contenitori Linux. I contenitori Docker possono anche essere distribuiti direttamente nel [servizio Kubernetes di Azure](../../aks/index.yml), in [Istanze di contenitore di Azure](../../container-instances/index.yml) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](../../azure-stack/index.yml). Per altre informazioni sulla distribuzione di Kubernetes in Azure Stack, vedere [Deploy Kubernetes to Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md) (Distribuzione di Kubernetes in Azure Stack).
 
 Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure.
 

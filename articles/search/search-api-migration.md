@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 23003859b9a75fb986fe65f5528004f3dd150f9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312188"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633045"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Aggiornare all'ultima versione dell'API REST di Ricerca di Azure
 Se si usa una versione precedente dell'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/), questo articolo fornisce informazioni utili per aggiornare l'applicazione alla più recente versione disponibile a livello generale dell'API, la versione 2017-11-11.
@@ -59,7 +59,7 @@ Se il codice usa queste funzionalità, non sarà possibile eseguire l'aggiorname
 ## <a name="conclusion"></a>Conclusioni
 Per altre informazioni sull'uso dell'API REST di Ricerca di Azure, vedere il [riferimento all'API](https://docs.microsoft.com/rest/api/searchservice/) su MSDN aggiornato di recente.
 
-I commenti degli utenti su Ricerca di Azure sono molto apprezzati. In caso di problemi, è possibile richiedere assistenza nel [forum MSDN su Ricerca di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) o in [StackOverflow](http://stackoverflow.com/). Se si pongono domande su Ricerca di Azure in StackOverflow, assicurarsi di contrassegnarle con `azure-search`.
+I commenti degli utenti su Ricerca di Azure sono molto apprezzati. In caso di problemi, è possibile richiedere assistenza nel [forum MSDN su Ricerca di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) o in [StackOverflow](https://stackoverflow.com/). Se si pongono domande su Ricerca di Azure in StackOverflow, assicurarsi di contrassegnarle con `azure-search`.
 
 Grazie per avere usato Ricerca di Azure.
 

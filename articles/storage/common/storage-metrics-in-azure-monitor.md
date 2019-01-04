@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 27523a3746e3afe649df3fcf78975b501a922ff8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957300"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994437"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metriche di Archiviazione di Azure in Monitoraggio di Azure
 
@@ -25,7 +25,7 @@ Monitoraggio di Azure fornisce interfacce utente unificate per il monitoraggio t
 
 Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedervi dal [portale di Azure](https://portal.azure.com), dalle API di Monitoraggio di Azure (REST e .Net) e da soluzioni di analisi come Hub eventi. Per altre informazioni, vedere [Metriche di Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Le metriche sono abilitate per impostazione predefinita ed è possibile accedere agli ultimi 93 giorni di dati. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo approccio viene configurato nelle [Impostazioni di diagnostica](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) in Monitoraggio di Azure.
+Le metriche sono abilitate per impostazione predefinita ed è possibile accedere agli ultimi 93 giorni di dati. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo approccio viene configurato nelle [Impostazioni di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) in Monitoraggio di Azure.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Accedere alle metriche nel portale di Azure
 
@@ -332,14 +332,14 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 | Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
-| UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Valore di esempio: 1024 |
+| UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 
 ### <a name="blob-storage"></a>Archiviazione BLOB
 
 | Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
-| BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Valore di esempio: 1024 <br/> Dimensione: BlobType ([definizione](#metrics-dimensions)) |
-| BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Valore di esempio: 1024 <br/> Dimensione: BlobType ([definizione](#metrics-dimensions)) |
+| BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensione: BlobType ([definizione](#metrics-dimensions)) |
+| BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 <br/> Dimensione: BlobType ([definizione](#metrics-dimensions)) |
 | ContainerCount    | Numero di contenitori nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 
 ### <a name="table-storage"></a>Archiviazione tabelle

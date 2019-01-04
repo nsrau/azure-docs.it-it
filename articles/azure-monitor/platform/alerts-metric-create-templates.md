@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 6d063eb0ae2a468bc8aa73d18b88135f1f119bec
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a5b82cb5f2ea90876001fe2db0f62d8b1df64f0c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345389"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580247"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
 
-Questo articolo illustra come usare un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per configurare gli [avvisi delle metriche più recenti](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) in Monitoraggio di Azure. I modelli di Resource Manager consentono di configurare gli avvisi a livello di codice in modo coerente e riproducibile tra gli ambienti. Gli avvisi delle metriche più recenti sono attualmente disponibili in [questo set di tipi di risorse](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Questo articolo illustra come usare un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per configurare gli [avvisi delle metriche più recenti](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Monitoraggio di Azure. I modelli di Resource Manager consentono di configurare gli avvisi a livello di codice in modo coerente e riproducibile tra gli ambienti. Gli avvisi delle metriche più recenti sono attualmente disponibili in [questo set di tipi di risorse](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > Il modello di Resource Manager specificato per l'avviso delle metriche non funziona per il tipo di risorsa: Microsoft.OperationalInsights/workspaces; come supporto per le metriche di Log Analytics è in anteprima. Gli utenti interessati a usare la funzionalità di anteprima con il modello di risorse, possono contattare [Feedback degli avvisi di Azure](mailto:azurealertsfeedback@microsoft.com)

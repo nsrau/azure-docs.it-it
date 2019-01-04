@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: asrastog
-ms.openlocfilehash: a5b8ce8cd753ee294a8d61ba8a3dfed872f0f31a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69c890cfc3db04fe625ed7ad008f545c01844834
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956327"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993485"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Eseguire query sui dati di Avro con Azure Data Lake Analytics
 
@@ -21,7 +21,7 @@ Questo articolo illustra come eseguire query sui dati di Avro per un routing eff
 
 Il problema è che quando l'hub IoT di Azure instrada i messaggi all'archivio BLOB di Azure scrive il contenuto in formato Avro, che include una proprietà del messaggio e una proprietà del corpo del messaggio. L'hub IoT supporta la scrittura dei dati nell'archivio BLOB solo nel formato dei dati Avro e questo formato non è usato per nessun altro endpoint. Per altre informazioni, vedere uno degli articoli sull’uso dei contenitori di Archiviazione di Azure. Anche se il formato Avro è molto utile per la conservazione dei dati e dei messaggi, è difficile da usare per eseguire query sui dati. In confronto, il formato JSON o CSV è molto più semplice per l'esecuzione di query sui dati.
 
-<!-- https://review.docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
+<!-- https://review.docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
 
 Per soddisfare esigenze e formati di Big Data non relazionali e superare questo problema, è possibile usare molti dei modelli di Big Data per la trasformazione e il ridimensionamento dei dati. Uno dei modelli, basato sul "pagamento per query" è Azure Data Lake Analytics, che viene illustrato in dettaglio in questo articolo. Nonostante sia possibile eseguire facilmente la query in Hadoop o con altre soluzioni, Data Lake Analytics è spesso più indicato per questo approccio basato sul "pagamento per query". 
 
@@ -171,7 +171,7 @@ In questa sezione viene eseguita una query sui dati di Avro e l'esportazione in 
 
 In questa esercitazione si è appreso come eseguire query sui dati di Avro per un routing efficiente dei messaggi provenienti dall'hub IoT ai servizi di Azure.
 
-Per avere degli esempi di soluzioni end-to-end che usano l'hub IoT, vedere la[documentazione degli acceleratori di soluzioni IoT di Azure](../iot-accelerators/index.yml).
+Per avere degli esempi di soluzioni end-to-end che usano l'hub IoT, vedere la[documentazione degli acceleratori di soluzioni IoT di Azure](/azure/iot-accelerators).
 
 Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md).
 

@@ -1,18 +1,19 @@
 ---
-title: Distribuire Gemelli digitali di Azure | Microsoft Docs
+title: 'Esercitazione: Distribuire Gemelli digitali di Azure | Microsoft Docs'
 description: Informazioni su come distribuire un'istanza di Gemelli digitali di Azure e configurare le risorse spaziali seguendo i passaggi descritti in questa esercitazione.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 61b81602342b910a50c0cc6318746ec85a659a92
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b21e5a87561757e2991a7b9addce0d1f3383204f
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080590"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557717"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Esercitazione: Distribuire Gemelli digitali di Azure e configurare un grafo spaziale
 

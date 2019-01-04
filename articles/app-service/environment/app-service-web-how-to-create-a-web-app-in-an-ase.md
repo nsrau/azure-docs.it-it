@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 84a8a0687a1da0eaf7842a9bf6115c1d0f5d3fd1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338142"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718096"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creare un'app Web in un ambiente del servizio app (versione 1)
 
@@ -51,7 +51,7 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
     I *gruppi di risorse* consentono di gestire risorse di Azure correlate come un'unità e sono utili per stabilire le regole di *controllo degli accessi in base al ruolo* per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ResourceGroups]. 
 4. Selezionare o creare un piano di servizio app.
    
-    *piani di servizio app* sono costituiti da set gestiti di app Web.  Quando si seleziona il prezzo, in genere l'importo addebitato viene applicato al piano di servizio app invece che alle singole app. Nell'ambiente del servizio app vengono addebitate le istanze di calcolo allocate all'ambiente e non quanto elencato nel piano di servizio app.  Per aumentare il numero di istanze di un'app Web, si aumentano le istanze del piano di servizio app e tale operazione influisce su tutte le app Web incluse nel piano.  Il piano può prevedere restrizioni relative alla quantità per alcune funzionalità, come gli slot di sito o l'integrazione della rete virtuale.  Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
+    *piani di servizio app* sono costituiti da set gestiti di app Web.  Quando si seleziona il prezzo, in genere l'importo addebitato viene applicato al piano di servizio app invece che alle singole app. Nell'ambiente del servizio app vengono addebitate le istanze di calcolo allocate all'ambiente e non quanto elencato nel piano di servizio app.  Per aumentare il numero di istanze di un'app Web, si aumentano le istanze del piano di servizio app e tale operazione influisce su tutte le app Web incluse nel piano.  Il piano può prevedere restrizioni relative alla quantità per alcune funzionalità, come gli slot di sito o l'integrazione della rete virtuale.  Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](../overview-hosting-plans.md)
    
     È possibile identificare i piani di servizio app nell'ambiente del servizio app osservando la località indicata sotto il nome del piano.  
    
@@ -108,7 +108,7 @@ Dopo aver creato l'app Web e il piano di servizio app, è consigliabile aumentar
 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
-[Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[Appserviceplans]: ../overview-hosting-plans.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md

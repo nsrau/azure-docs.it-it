@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: ee62e81b8c75200f26dfb5f7303083190f83eb8e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 199ea6855e661ef39104fdeb54941ccfd9f36933
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016845"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728483"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -119,11 +119,11 @@ Nella tabella seguente sono elencate le minacce STRIDE e alcuni esempi di mitiga
 | Elevazione dei privilegi | Authorization | Usare [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## <a name="develop-on-azure-app-service"></a>Sviluppare nel Servizio app di Azure
-[Servizio app di Azure](../app-service/app-service-web-overview.md) è una soluzione PaaS che consente di creare applicazioni Web e per dispositivi mobili per qualsiasi piattaforma o dispositivo e di connettersi ai dati ovunque, nel cloud o in locale. Il servizio app include le funzionalità Web e per dispositivi mobili prima fornite separatamente come Siti Web di Azure e Servizi mobili di Azure. Include anche nuove funzionalità per l'automazione dei processi aziendali e l'hosting di API cloud. Il servizio app è un singolo servizio integrato che offre un set completo di funzionalità per scenari Web, per dispositivi mobili e di integrazione.
+[Servizio app di Azure](../app-service/overview.md) è una soluzione PaaS che consente di creare applicazioni Web e per dispositivi mobili per qualsiasi piattaforma o dispositivo e di connettersi ai dati ovunque, nel cloud o in locale. Il servizio app include le funzionalità Web e per dispositivi mobili prima fornite separatamente come Siti Web di Azure e Servizi mobili di Azure. Include anche nuove funzionalità per l'automazione dei processi aziendali e l'hosting di API cloud. Il servizio app è un singolo servizio integrato che offre un set completo di funzionalità per scenari Web, per dispositivi mobili e di integrazione.
 
 Di seguito sono illustrate le procedure consigliate per l'uso della cache locale del servizio app.
 
-**Procedura consigliata**: [eseguire l'autenticazione tramite Azure Active Directory](../app-service/app-service-authentication-overview.md).   
+**Procedura consigliata**: [eseguire l'autenticazione tramite Azure Active Directory](../app-service/overview-authentication-authorization.md).   
 **Dettagli**: Il servizio app fornisce un servizio OAuth 2.0 per il provider di identità. OAuth 2.0 è incentrato sulla semplicità di sviluppo client fornendo i flussi di autorizzazione specifici per le applicazioni Web, applicazioni desktop e telefoni cellulari. Azure AD usa OAuth 2.0 per consentire all'utente di autorizzare l'accesso alle applicazioni per dispositivi mobili e alle applicazioni Web.
 
 **Procedura consigliata**: Limitare l'accesso in base ai principio di necessità e al principio dei privilegi minimi in materia di sicurezza.   

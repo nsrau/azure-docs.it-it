@@ -1,19 +1,17 @@
 ---
 title: Registri server nel database di Azure per PostgreSQL
 description: Questo articolo descrive come Database di Azure per PostgreSQL genera log degli errori e delle query e come viene configurata la conservazione dei log.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2ee9f750ff52b8afe4be54233f1374f523a789f4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0e2dc2af6b4c7ddf531458136e6bcabb49be3b8f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845170"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538806"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Log di server in Database di Azure per PostgreSQL 
 Il database di Azure per PostgreSQL genera log di query e registri errori. I log di query e degli errori possono essere usati per individuare e risolvere i problemi e correggere errori di configurazione e prestazioni non ottimali. L'accesso ai log delle transazioni non è incluso. 
@@ -30,7 +28,7 @@ Se i log sono stati abilitati, è possibile accedervi dallo spazio di archiviazi
 
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
-Database di Azure per PostgreSQL è integrato con i log di diagnostica di Monitoraggio di Azure. Dopo avere abilitato i log nel server PostgreSQL, è possibile scegliere se inviarli a [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Hub eventi o Archiviazione di Azure. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
+Database di Azure per PostgreSQL è integrato con i log di diagnostica di Monitoraggio di Azure. Dopo avere abilitato i log nel server PostgreSQL, è possibile scegliere se inviarli a [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Hub eventi o Archiviazione di Azure. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 
 La tabella seguente descrive il contenuto di ogni log. A seconda dell'endpoint di output scelto è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti. 

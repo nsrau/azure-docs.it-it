@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409524"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743868"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Usare il tunneling SSH per accedere all'interfaccia utente Web di Apache Ambari, JobHistory, NameNode, Apache Oozie e altre interfacce utente Web
 
@@ -47,7 +47,7 @@ Il [tunneling di Secure Shell, ovvero SSH,](https://en.wikipedia.org/wiki/Tunnel
 
 * Un Web browser che può essere configurato per l'uso di un proxy SOCKS5.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Il supporto per il proxy SOCKS integrato nelle impostazioni Internet di Windows non supporta SOCKS5 e non può essere usato per la procedura descritta in questo documento. I browser seguenti si basano sulle impostazioni proxy di Windows e non possono essere usati per la procedura illustrata in questo documento:
     >
     > * Microsoft Edge
@@ -78,7 +78,7 @@ Al termine del comando, il traffico inviato alla porta 9876 nel computer locale 
 
 ## <a name="useputty"></a>Creare un tunnel utilizzando PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) è un client SSH grafico per Windows. Se non si ha familiarità con PuTTY, vedere la [documentazione di PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Usare la procedura seguente per creare un tunnel SSH con PuTTY:
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) è un client SSH grafico per Windows. Se non si ha familiarità con PuTTY, vedere la [documentazione di PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Usare la procedura seguente per creare un tunnel SSH con PuTTY:
 
 ### <a name="create-or-load-a-session"></a>Creare o caricare una sessione
 
@@ -120,7 +120,7 @@ Al termine del comando, il traffico inviato alla porta 9876 nel computer locale 
    > [!NOTE]  
    > Se si seleziona **Remote DNS**, le richieste DNS (Domain Name System) vengono risolte usando il cluster HDInsight. Questa impostazione risolve DNS usando il nodo head del cluster.
 
-2. Per verificare il funzionamento del tunnel, visitare un sito, ad esempio [http://www.whatismyip.com/](http://www.whatismyip.com/). L'indirizzo IP restituito deve essere uno usato dal data center di Microsoft Azure.
+2. Per verificare il funzionamento del tunnel, visitare un sito, ad esempio [https://www.whatismyip.com/](https://www.whatismyip.com/). L'indirizzo IP restituito deve essere uno usato dal data center di Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Verificare con l’interfaccia utente web di Ambari
 

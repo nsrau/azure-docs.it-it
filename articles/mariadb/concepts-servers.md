@@ -3,17 +3,15 @@ title: Concetti relativi ai server nel database di Azure per MariaDB
 description: Questo argomento fornisce considerazioni e linee guida per l'uso del database di Azure per server MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4fd2f28f52c45a0ec3128302b02ad5ba498c982b
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: c2497fef359d4a519c6d4927dfc0c38ee3d80d88
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247772"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544567"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Concetti relativi ai server nel database di Azure per MariaDB
 Questo argomento fornisce considerazioni e linee guida per l'uso del database di Azure per server MariaDB.

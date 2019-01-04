@@ -4,22 +4,22 @@ description: Informazioni su come ottenere la licenza per Microsoft Smooth Strea
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: femila
+manager: steveng
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7b3f6410e65e9a43578d50d6aacaec0ea4ec4684
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136274"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753490"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso 
 

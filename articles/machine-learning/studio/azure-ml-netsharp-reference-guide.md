@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272236"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631126"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning Studio
 
@@ -388,7 +388,7 @@ L'esempio illustra alcuni comandi di base come indicato di seguito:
 
 + La prima riga definisce il livello di input (denominato `Data`). Quando si usa la parola chiave `auto`, la rete neurale include automaticamente tutte le colonne di funzionalità negli esempi di input. 
 + La seconda riga crea il livello nascosto. Il nome `H` è assegnato al livello nascosto, che ha 200 nodi. Questo livello è completamente connesso al livello di input.
-+ La terza riga definisce il livello di output (denominato `O`), che contiene 10 nodi di output. Se la rete neurale viene usata per la classificazione, è disponibile un nodo di output per ogni classe. La parola chiave **sigmoid** indica la funzione di output applicata al livello di output.
++ La terza riga definisce il livello di output (denominato `Out`), che contiene 10 nodi di output. Se la rete neurale viene usata per la classificazione, è disponibile un nodo di output per ogni classe. La parola chiave **sigmoid** indica la funzione di output applicata al livello di output.
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>Definire più livelli nascosti: esempio obiettivo computer
 

@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 6b1eb36ae661d758f78f98de37f33c4b56741f89
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3b9c8ea3dba5fdbd3e25293873ab1ae6854b3b83
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320779"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728109"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 
@@ -122,8 +122,8 @@ Informazioni sull'uso di un'identità gestita con una VM Linux:
 
 Informazioni sull'uso di un'identità gestita con altri servizi di Azure:
 
-* [Servizio app di Azure](/azure/app-service/app-service-managed-service-identity)
-* [Funzioni di Azure](/azure/app-service/app-service-managed-service-identity)
+* [Servizio app di Azure](/azure/app-service/overview-managed-identity)
+* [Funzioni di Azure](/azure/app-service/overview-managed-identity)
 * [App per la logica di Azure](/azure/logic-apps/create-managed-service-identity)
 * [Bus di servizio di Azure](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Hub eventi di Azure](../../event-hubs/event-hubs-managed-service-identity.md)

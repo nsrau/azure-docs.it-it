@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 412ec0a7d2cd8574aadf6e9f104407792ddb29ed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a09dcfbffb6daa2ae2514c608e88c8dc475c9676
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341526"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581437"
 ---
 # <a name="alerts-on-activity-log"></a>Avvisi sul log attività 
 
@@ -28,11 +28,11 @@ In genere, si creano avvisi del log attività per ricevere notifiche quando:
 * Vengono effettuate operazioni specifiche nelle risorse nella sottoscrizione di Azure. Questi avvisi sono spesso limitati a risorse o gruppi di risorse specifici. Potrebbe ad esempio essere utile ricevere una notifica quando viene eliminata una macchina virtuale in myProductionResourceGroup o se vengono assegnati nuovi ruoli a un utente nella sottoscrizione.
 * Si verifica un evento di integrità del servizio. Gli eventi di integrità del servizio includono la notifica di eventi imprevisti e di manutenzione che si applicano alle risorse nella sottoscrizione.
 
-Una semplice analogia per comprendere le condizioni in cui è possibile creare le regole di avviso nel log attività è quella di esplorare o filtrare gli eventi tramite il [Log attività nel portale di Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). In Monitoraggio di Azure - Log attività, un utente può filtrare o trovare l'evento necessario e quindi creare un avviso usando il pulsante **Aggiungi avviso del log attività**.
+Una semplice analogia per comprendere le condizioni in cui è possibile creare le regole di avviso nel log attività è quella di esplorare o filtrare gli eventi tramite il [Log attività nel portale di Azure](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). In Monitoraggio di Azure - Log attività, un utente può filtrare o trovare l'evento necessario e quindi creare un avviso usando il pulsante **Aggiungi avviso del log attività**.
 
 In ogni caso, un avviso del log attività monitora solo degli eventi nella sottoscrizione in cui è stato creato l'evento.
 
-È possibile configurare un avviso del log attività in base a qualsiasi proprietà di primo livello nell'oggetto JSON per un evento del log attività. Per altre informazioni, vedere [Panoramica del log attività di Azure](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log). Per altre informazioni sugli eventi di integrità del servizio, vedere [Ricevere gli avvisi del log attività sulle notifiche del servizio](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+È possibile configurare un avviso del log attività in base a qualsiasi proprietà di primo livello nell'oggetto JSON per un evento del log attività. Per altre informazioni, vedere [Panoramica del log attività di Azure](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log). Per altre informazioni sugli eventi di integrità del servizio, vedere [Ricevere gli avvisi del log attività sulle notifiche del servizio](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
 
 Gli avvisi del log attività hanno alcune opzioni comuni:
 
@@ -64,5 +64,5 @@ Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di 
 - Ottenere una [panoramica degli avvisi](../../azure-monitor/platform/alerts-overview.md).
 - Altre informazioni sulla [creazione e modifica degli avvisi del log attività](../../azure-monitor/platform/alerts-activity-log.md).
 - Esaminare lo [schema webhook degli avvisi del log attività](activity-log-alerts-webhook.md).
-- Informazioni sulle [notifiche per l'integrità del servizio](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Informazioni sulle [notifiche per l'integrità del servizio](../../azure-monitor/platform/service-notifications.md).
 
